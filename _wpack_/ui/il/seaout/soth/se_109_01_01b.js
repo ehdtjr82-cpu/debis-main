@@ -1,0 +1,1067 @@
+/*amd /ui/il/seaout/soth/se_109_01_01b.xml 73459 9842536fc0fa61433cc5567a7014db1dd0a4d37fc50775c43231d09692b36c65 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',id:'ds_SearchParam',repeatNode:'map',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{dataType:'text',name:'name1',id:'kcomcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name2',id:'mhno'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name3',id:'hhblno'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_Master',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{dataType:'text',name:'name1',id:'kcomcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name2',id:'mhno'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name3',id:'cslinercd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name4',id:'csliner'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name5',id:'csattn'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name6',id:'csattnnm'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name7',id:'csshipcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name8',id:'csship'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name9',id:'csship1'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name10',id:'csship2'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name11',id:'csship3'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name12',id:'csship4'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name13',id:'cscngcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name14',id:'cscng'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name15',id:'cscng1'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name16',id:'cscng2'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name17',id:'cscng3'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name18',id:'cscng4'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name19',id:'cscng5'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name20',id:'cscng6'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name21',id:'csntycd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name22',id:'csnty'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name23',id:'csnty1'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name24',id:'csnty2'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name25',id:'csnty3'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name26',id:'csnty4'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name27',id:'csvslcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name28',id:'csvsl'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name29',id:'csvyg'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name30',id:'cslodcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name31',id:'cslod'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name32',id:'csdisccd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name33',id:'csdisc'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name34',id:'csdlvcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name35',id:'csdlv'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name36',id:'csfdcd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name37',id:'csfd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name38',id:'cspc'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name39',id:'csunit'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name40',id:'cspkg'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name41',id:'cswgt'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name42',id:'csmsr'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name43',id:'csetd'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name44',id:'cseta'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name45',id:'cssubpkg'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name46',id:'csstype'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name47',id:'cssay'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name48',id:'csp1',defaultValue:''}},{T:1,N:'w2:column',A:{dataType:'text',name:'name49',id:'csp2',defaultValue:''}},{T:1,N:'w2:column',A:{dataType:'text',name:'name50',id:'csp3',defaultValue:''}},{T:1,N:'w2:column',A:{dataType:'text',name:'name51',id:'csp4',defaultValue:''}},{T:1,N:'w2:column',A:{dataType:'text',name:'name52',id:'csrider'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name53',id:'cscoload',defaultValue:''}},{T:1,N:'w2:column',A:{dataType:'text',name:'name54',id:'csrmk1'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name55',id:'csrmk2'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name56',id:'csrmk3'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name57',id:'userid'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name58',id:'tableid'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_hmhno',saveRemovedData:'true','ev:ondataload':'scwin.ds_hmhno_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{dataType:'text',name:'name1',id:'code'}},{T:1,N:'w2:column',A:{dataType:'text',name:'name2',id:'name'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{mode:'asynchronous',method:'post',id:'sbm_retrieve',encoding:'UTF-8',mediatype:'application/json',action:'/il.seaout.soth.RetrieveShippingRequestCMD.do',ref:'data:json,[{"id":"ds_SearchParam","key":"IN_DS1"},{"id":"ds_Master","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_Master","key":"OUT_DS1"}','ev:submitdone':''}},{T:1,N:'xf:submission',A:{mode:'asynchronous',method:'post',id:'sbm_save',encoding:'UTF-8',mediatype:'application/json',action:'/il.seaout.soth.SaveShippingRequestCMD.do',ref:'data:json,{"id":"ds_Master","key":"IN_DS1"}','ev:submitdone':''}},{T:1,N:'xf:submission',A:{mode:'asynchronous',method:'post',id:'sbm_send',encoding:'UTF-8',mediatype:'application/json',action:'/il.seaout.soth.SendShippingRequestCMD.do',ref:'data:json,{"id":"ds_Master","key":"IN_DS1"}','ev:submitdone':''}},{T:1,N:'xf:submission',A:{mode:'asynchronous',method:'post',id:'sbm_hmhno',encoding:'UTF-8',mediatype:'application/json',target:'data:json,{"id":"ds_hmhno","key":"GAUCE"}'}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/js/il/ilcommon.js',type:'text/javascript',scopeVariable:'ilcommon'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.userId = $c.data.getMemInfo($p, "userId"); // User ID
+
+scwin.p_kcomcd = "";
+scwin.p_blno = "";
+scwin.p_mhno = "";
+scwin.preRowPos = 0;
+scwin.processFlag = ""; // 처리 결과를 체크하는 Flag
+scwin.statusFlag = ""; // 화면 처리상태를 체크하는 Flag
+
+// hidden
+scwin.txt_countRow = "";
+scwin.hd_kcomcd = "DBEX";
+var cbxList = ["cbx_csp1", "cbx_csp2", "cbx_csp3", "cbx_csp4", "cbx_cscoload"];
+scwin.onpageload = function () {
+  scwin.p_kcomcd = $c.data.getParameter($p, "kcomcd");
+  scwin.p_blno = $c.data.getParameter($p, "blno");
+  scwin.p_mhno = $c.data.getParameter($p, "mhno");
+};
+scwin.onUdcCompleted = function () {
+  scwin.f_Set("INIT");
+  scwin.f_DefaultValue();
+  scwin.f_getParametrSetting();
+
+  // 체크박스 초기화
+  cbxList.forEach(function (id) {
+    $p.getComponentById(id).setValue("");
+  });
+};
+scwin.ondataload = function () {};
+
+//-------------------------------------------------------------------------
+// Function
+//-------------------------------------------------------------------------
+scwin.f_getParametrSetting = function () {
+  var kcomcd = scwin.p_kcomcd;
+  var blno = scwin.p_blno;
+  var mhno = scwin.p_mhno;
+  if (blno == null) {
+    cnd_ed_hhblno.setValue("");
+    cnd_ed_hhblno.focus();
+    return false;
+  }
+  scwin.hd_kcomcd.value = kcomcd;
+  cnd_ed_hhblno.setValue(blno);
+  var rowIndex = ds_hmhno.insertRow();
+  ds_hmhno.setRowPosition(rowIndex);
+  ds_hmhno.setCellData(rowIndex, "code", mhno);
+  ds_hmhno.setCellData(rowIndex, "name", mhno);
+  cnd_lc_mhno.setSelectedIndex(0);
+  scwin.f_Retrieve();
+  if (scwin.statusFlag == "C" && ed_csshipcd.getValue().trim() != "") {
+    scwin.f_PopUp("Shipper", "T");
+  }
+  if (scwin.statusFlag == "C" && ed_cscngcd.getValue().trim() != "") {
+    scwin.f_PopUp("Consignee", "T");
+  }
+  if (scwin.statusFlag == "C" && ed_csntycd.getValue().trim() != "") {
+    scwin.f_PopUp("Notify", "T");
+  }
+};
+
+// 화면	open시 초기	데이타 setting
+// gubun1 :	INIT(초기화), RETRIEVE(조회모드), UPDATE(수정모드),	COPY(복사모드)
+// gubun2 :	INIT(초기화), CREATE(신규모드)
+scwin.f_DefaultValue = function () {
+  if (scwin.p_mhno == "") {
+    cnd_ed_hhblno.focus();
+  }
+};
+
+// Button, object, component, field 등 화면 구성 setting
+// gubun :	INIT(초기화), RETRIEVE(조회모드), UPDATE(수정모드),	COPY(복사모드)
+scwin.f_Set = function (gubun) {
+  switch (gubun) {
+    case "INIT":
+      // 초기화
+      $c.gus.cfDisableKeyData($p);
+      $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+      $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+      $c.gus.cfDisableBtnOnly($p, [btn_cancel, btn_update, btn_print, btn_save, btn_delete, btn_AmsSend]);
+      $c.gus.cfEnableBtnOnly($p, [btn_create]);
+      scwin.f_DisablePopUpObj();
+      scwin.f_DefaultValue();
+      break;
+    case "RETRIEVE":
+      // 조회모드
+      $c.gus.cfDisableKeyData($p);
+      $c.gus.cfEnableObj($p, cnd_ed_hhblno, false);
+      $c.gus.cfEnableObj($p, cnd_lc_mhno, false);
+      $c.gus.cfDisableBtnOnly($p, [btn_cancel, btn_save]);
+      $c.gus.cfEnableBtnOnly($p, [btn_create, btn_update, btn_print, btn_delete, btn_AmsSend]);
+      scwin.f_DisablePopUpObj();
+      break;
+    case "CREATE":
+      // 신규
+      $c.gus.cfEnableKeyData($p);
+      $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+      $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+      $c.gus.cfEnableBtnOnly($p, [btn_cancel, btn_save]);
+      $c.gus.cfDisableObjects($p, [btn_create, btn_update, btn_print, btn_delete, btn_AmsSend]);
+      scwin.f_EnablePopUpObj();
+      break;
+    case "UPDATE":
+      // 수정
+      $c.gus.cfEnableKeyData($p);
+      $c.gus.cfEnableObj($p, cnd_ed_hhblno, false);
+      $c.gus.cfEnableObj($p, cnd_lc_mhno, false);
+      $c.gus.cfDisableBtnOnly($p, [btn_create, btn_update, btn_AmsSend]);
+      $c.gus.cfEnableBtnOnly($p, [btn_cancel, btn_save, btn_delete]);
+      scwin.f_EnablePopUpObj();
+      break;
+    case "SAVE":
+      // 저장
+      $c.gus.cfEnableBtnOnly($p, [btn_save]);
+      break;
+    case "DELETE":
+      // 삭제
+
+      break;
+    case "CANCEL":
+      // 취소
+      $c.gus.cfDisableKeyData($p);
+      $c.gus.cfEnableObj($p, cnd_ed_hhblno, false);
+      $c.gus.cfEnableObj($p, cnd_lc_mhno, false);
+      $c.gus.cfDisableBtnOnly($p, [btn_cancel, btn_save, btn_AmsSend]);
+      $c.gus.cfEnableBtnOnly($p, [btn_create, btn_update, btn_print, btn_delete]);
+      break;
+  }
+};
+
+// PopUp 이미지를 활성화 시킨다.
+scwin.f_EnablePopUpObj = function () {
+  $c.gus.cfEnableObjects($p, [udc_csshipcd, udc_cscngcd, udc_csntycd, udc_cslodcd, udc_csdisccd, udc_csdlvcd, udc_csfdcd, udc_csvslcd, udc_cslinercd, udc_csattn]);
+  $c.gus.cfEnableObjects($p, [btn_SameAsConsignee]);
+};
+
+// PopUp 이미지를 비활성화 시킨다.
+scwin.f_DisablePopUpObj = function () {
+  $c.gus.cfDisableObjects($p, [udc_csshipcd, udc_cscngcd, udc_csntycd, udc_cslodcd, udc_csdisccd, udc_csdlvcd, udc_csfdcd, udc_csvslcd, udc_cslinercd, udc_csattn]);
+  $c.gus.cfDisableObjects($p, [btn_SameAsConsignee]);
+};
+
+// 초기화
+scwin.f_FieldClear = function () {
+  scwin.f_Set("INIT");
+  $c.gus.cfInitObjects($p, tb_searchCondition);
+  ds_hmhno.removeAll();
+  ds_Master.removeAll();
+
+  // 체크박스 초기화
+  cbxList.forEach(function (id) {
+    $p.getComponentById(id).setValue("");
+  });
+  scwin.statusFlag = "";
+  cnd_ed_hhblno.focus();
+};
+
+// Object Check
+scwin.f_Check = function () {
+  if (scwin.statusFlag == "C") {
+    // create시 
+    cbx_csp1.checked = true;
+    cbx_csp2.checked = false;
+    cbx_csp3.checked = false;
+    cbx_csp4.checked = false;
+    cbx_cscoload.checked = false;
+    rd_csrider.setValue("N");
+  } else {
+    cbx_csp1.checked = true;
+    cbx_csp2.checked = false;
+    cbx_csp3.checked = false;
+    cbx_csp4.checked = false;
+    cbx_cscoload.checked = false;
+    rd_csrider.setValue("N");
+  }
+};
+
+// 조회
+scwin.f_Retrieve = async function () {
+  if (!(await scwin.f_ReqFieldChk("SEARCH"))) {
+    return;
+  }
+  scwin.statusFlag = "";
+  ds_SearchParam.removeAll();
+  var rowIndex = ds_SearchParam.insertRow();
+  ds_SearchParam.setCellData(rowIndex, "hhblno", cnd_ed_hhblno.getValue());
+  ds_SearchParam.setCellData(rowIndex, "mhno", cnd_lc_mhno.getValue());
+  ds_SearchParam.setCellData(rowIndex, "kcomcd", scwin.hd_kcomcd); // M : Master List Search, D : Detail Info
+
+  // 조회
+  let e = await $c.sbm.execute($p, sbm_retrieve);
+  if (e.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    scwin.sbm_retrieve_submitdone(e);
+  }
+};
+
+// 취소
+scwin.f_Cancel = function () {
+  ds_Master.undoAll();
+  if (scwin.statusFlag == "C") {
+    scwin.f_Set("INIT");
+  } else {
+    scwin.f_Set("CANCEL");
+  }
+};
+
+// 신규
+scwin.f_Create = function () {
+  ds_SearchParam.removeAll();
+  ds_Master.removeAll();
+  var rowIndex = ds_Master.insertRow();
+  ds_Master.setRowPosition(rowIndex);
+  scwin.f_Check();
+  scwin.statusFlag = "C";
+  scwin.f_Set("CREATE");
+  cnd_ed_hhblno.focus();
+};
+
+// 수정
+scwin.f_Update = function () {
+  scwin.f_Set("UPDATE");
+};
+
+// 저장    
+scwin.f_Save = async function () {
+  if (ds_hmhno.getRowCount() == 0) {
+    if (await $c.gus.cfAlertMsg($p, E_MSG_CM_WRN_001, ["Document No"])) {
+      //" 저장할 데이터가 존재하지 않습니다.\n먼저 @검색을 하십시오.";
+      cnd_ed_hhblno.focus();
+      return false;
+    }
+  }
+  if (scwin.statusFlag == "R") {
+    if (ds_Master.getModifiedIndex().length == 0) {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_001, ["Shipping Request"]); // "@은(는) 변경된 사항이 없습니다.";
+      return false;
+    }
+  }
+  if (scwin.f_ReqFieldChk("SAVE")) {
+    if (await $c.win.confirm($p, E_MSG_CM_CRM_001)) {
+      ds_Master.setCellData(ds_Master.getRowPosition(), "kcomcd", scwin.hd_kcomcd);
+      ds_Master.setCellData(ds_Master.getRowPosition(), "mhno", ds_SearchParam.getCellData(0, "mhno"));
+      if (scwin.statusFlag == "C") {
+        ds_Master.modifyRowStatus(ds_Master.getRowPosition(), "C");
+      }
+
+      // 저장
+      let e = await $c.sbm.execute($p, sbm_save);
+      if (e.responseJSON.resultDataSet[0].Msg == "SUCC") {
+        scwin.sbm_save_submitdone(e);
+      }
+    }
+    ;
+  }
+};
+
+// 삭제
+scwin.f_Delete = async function () {
+  ds_Master.modifyRowStatus(0, "D");
+  scwin.statusFlag = "D";
+  // 저장
+  let e = await $c.sbm.execute($p, sbm_save);
+  if (e.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    scwin.sbm_save_submitdone(e);
+  }
+  scwin.f_Set("DELETE");
+};
+
+// 출력
+scwin.f_PrintBefore = async function () {
+  if (scwin.statusFlag != "C") {
+    scwin.statusFlag = "P";
+
+    //print 액션을 구분하기위함
+    ds_Master.setCellData(ds_Master.getRowPosition(), 'tableid', "PRT");
+
+    // 저장
+    let e = await $c.sbm.execute($p, sbm_save);
+    if (e.responseJSON.resultDataSet[0].Msg == "SUCC") {
+      scwin.sbm_save_submitdone(e);
+    }
+  } else {
+    await $c.gus.cfAlertMsg($p, "저장 후 출력하십시오.");
+  }
+};
+scwin.f_Print = async function () {
+  const data = {
+    reportName: "/il/seaout/se_109_01_01.ozr",
+    odiName: "se_109_01_01",
+    odiParam: {
+      KCOMCD: ds_Master.getCellData(ds_Master.getRowPosition(), 'kcomcd'),
+      MHNO: ds_Master.getCellData(ds_Master.getRowPosition(), 'mhno'),
+      USERID: scwin.userId
+    },
+    viewerParam: {
+      useprogressbar: false
+    },
+    formParam: {}
+  };
+  await scwin.openPopup(data);
+};
+scwin.openPopup = async function (data) {
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "오즈 리포트"
+  };
+  await $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+// 저장시 validation Check.
+scwin.f_ReqFieldChk = async function (workGb) {
+  switch (workGb) {
+    case "SEARCH":
+      // 필수입력항목 체크
+      if ((await $c.gus.cfValidate($p, [tb_searchCondition])) == false) {
+        return false;
+      } else {
+        return true;
+      }
+      break;
+    case "SAVE":
+      if ((await $c.gus.cfValidate($p, [tb_searchCondition, tb_master])) == false) {
+        return false;
+      } else {
+        return true;
+      }
+      break;
+    default:
+      break;
+  }
+};
+
+//  popup
+scwin.f_PopUp = async function (pPopGubun, pWinCloseTF, pAllSearchTF) {
+  var rtnList = new Array();
+  switch (pPopGubun) {
+    case "Shipper":
+      pCode = ed_csshipcd.getValue().trim();
+      pName = "";
+      udc_csshipcd.setSelectId("retrieveEngClntInfo");
+      udc_csshipcd.ilCommonPopUp(scwin.udc_csshipcd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '6' // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , 'Shipper Code,Shipper Name' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Shipper Search,Shipper Code,Shipper Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case "Consignee":
+      pCode = ed_cscngcd.getValue().trim();
+      pName = "";
+      udc_cscngcd.setSelectId("retrieveEngClntInfo");
+      udc_cscngcd.ilCommonPopUp(scwin.udc_cscngcd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '7' // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , 'Consignee Code,Consignee Name' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Consignee Search,Consignee Code,Consignee Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case "Notify":
+      pCode = ed_csntycd.getValue().trim();
+      pName = "";
+      udc_csntycd.setSelectId("retrieveEngClntInfo");
+      udc_csntycd.ilCommonPopUp(scwin.udc_csntycd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '6' // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , 'Notify Code,Notify Name' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Notify Search,Notify Code,Notify Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case "Vessel":
+      pCode = ed_csvslcd.getValue().trim();
+      pName = ed_txt_csvslnm.getValue();
+      udc_csvslcd.setSelectId("retrieveOrdVsslInfo");
+      udc_csvslcd.ilCommonPopUp(scwin.udc_csvslcd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , 'Vessel Code,Vessel Name' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Vessel Search, Vessel Code, Vessel Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case "Liner":
+      pCode = ed_cslinercd.getValue().trim();
+      pName = ed_txt_cslinernm.getValue();
+      udc_cslinercd.setSelectId("retrieveEngClntInfo");
+      udc_cslinercd.ilCommonPopUp(scwin.udc_cslinercd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , 'Liner Code,Liner Name,' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Liner Search,Liner Code,Liner Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "Loading":
+      pCode = ed_cslodcd.getValue().trim();
+      pName = ed_txt_cslodnm.getValue();
+      udc_cslodcd.setSelectId("retrievePortInfo");
+      udc_cslodcd.ilCommonPopUp(scwin.udc_cslodcd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , 'Loading Code,Loading Name,' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Loading Search,Loading Code,Loading Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "Discharge":
+      pCode = ed_csdisccd.getValue().trim();
+      pName = ed_txt_csdiscnm.getValue();
+      udc_csdisccd.setSelectId("retrievePortInfo");
+      udc_csdisccd.ilCommonPopUp(scwin.udc_csdisccd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , 'Discharge Code,Discharge Name,' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Discharge Search,Discharge Code,Discharge Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "Delivery":
+      pCode = ed_csdlvcd.getValue().trim();
+      pName = ed_txt_csdlvnm.getValue();
+      udc_csdlvcd.setSelectId("retrievePortInfo");
+      udc_csdlvcd.ilCommonPopUp(scwin.udc_csdlvcd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , 'Delivery Code,Delivery Name,' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Delivery Search,Delivery Code,Delivery Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "Final":
+      pCode = ed_csfdcd.getValue().trim();
+      pName = ed_txt_csfdnm.getValue();
+      udc_csfdcd.setSelectId("retrievePortInfo");
+      udc_csfdcd.ilCommonPopUp(scwin.udc_csfdcd_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , 'Final Code,Final Name,' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Final Search,Final Code,Final Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "LinerPIC":
+      pCode = ed_csattn.getValue().trim();
+      pName = ed_txt_csattnnm.getValue();
+      pParam = ed_cslinercd.getValue().trim();
+      udc_csattn.setSelectId("retrieveClntPicInfo");
+      udc_csattn.ilCommonPopUp(scwin.udc_csattn_callBackFunc // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , 'PIC Code,PIC Name,' // Title순서
+      , '130,300' // 보여주는 각 컬럼들의 폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , pParam // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Liner PIC Search,PIC Code,PIC Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+  }
+};
+
+// 공통팝업 열기 전에 체크- EMEDIT onKillFocus 이벤트	발생시
+//	    nmObj-코드명(text),	cdObj-코드(emedit),	gubun1
+scwin.f_BeforePopUpEd = function (nmObj, cdObj, gubun1, pWinCloseTF) {
+  var cdObjVal = cdObj.getValue().trim();
+  if (cdObjVal == "") {
+    nmObj.setValue("");
+  } else {
+    nmObj.setValue("");
+    scwin.f_PopUp(gubun1, pWinCloseTF);
+  }
+};
+
+// MHNO 가져오기- EMEDIT onKillFocus 이벤트	발생시
+scwin.f_MhnoLoading = async function () {
+  var strClntNo = "";
+  strClntNo = cnd_ed_hhblno.getValue().trim();
+  if (strClntNo.length > 0) {
+    param1 = strClntNo;
+    sbm_hmhno.action = "/cm.zz.RetrieveComboCMD.do?sysCd=ilCommonEBC&queryId=retriveSeaHouseMhnoListCombo&param1=" + param1;
+    await $c.sbm.execute($p, sbm_hmhno);
+  } else {
+    cnd_lc_mhno.setValue("");
+  }
+};
+
+// Same As Consignee	Copy
+scwin.f_SameAsConsignee = function () {
+  ed_csntycd.setValue(ed_cscngcd.getValue());
+  ed_txt_csnty.setValue(ed_txt_cscng.getValue());
+  ed_txt_csnty1.setValue(ed_txt_cscng1.getValue());
+  ed_txt_csnty2.setValue(ed_txt_cscng2.getValue());
+  ed_txt_csnty3.setValue(ed_txt_cscng3.getValue());
+  ed_txt_csnty4.setValue(ed_txt_cscng4.getValue());
+  ed_txt_cscng.focus();
+};
+
+// function button process
+scwin.f_SRSend = async function () {
+  if (scwin.f_ReqFieldChk("SAVE")) {
+    ds_Master.modifyRowStatus(0, "C");
+    // 저장
+    let e = await $c.sbm.execute($p, sbm_send);
+    if (e.responseJSON.resultDataSet[0].Msg == "SUCC") {
+      scwin.sbm_send_submitdone(e);
+    }
+  }
+};
+scwin.checkBoxSetting = function () {
+  // 1. 처리할 리스트가 비어있는지 체크
+  if (typeof cbxList === "undefined" || cbxList.length === 0) return;
+  for (var i = 0; i < cbxList.length; i++) {
+    var id = cbxList[i];
+    var comp = $p.getComponentById(id);
+    if (comp) {
+      // 2. ID에서 컬럼명 추출 (예: cbx_csp3 -> csp3)
+      var colId = id.replace("cbx_", "");
+      var data = ds_Master.getCellData(0, colId);
+
+      // 3. 현재 화면의 체크 상태 확인 (체크가 안 된 상태에서만 로직 수행)
+      // getSelectedIndex()는 배열을 반환하므로 length로 체크 여부 판단
+      var isChecked = comp.getSelectedIndex().length > 0;
+      if (!isChecked) {
+        // 4. 데이터가 1, null, ""(빈값)일 때만 강제로 체크
+        if (data === "1" || data === null || data === "") {
+          comp.setSelectedIndex(0);
+        } else {
+          // 확실히 '0'이거나 다른 값이면 해제 상태 유지
+          comp.setSelectedIndex(-1);
+        }
+      }
+    }
+  }
+};
+
+// 체크박스 변경 시 데이터셋에 값을 매핑하는 공통 함수
+scwin.fn_setCheckBoxValue = function (info, comp) {
+  var checked = info.checked;
+
+  // 1. 컴포넌트 ID에서 'cbx_'를 제거하여 데이터셋 컬럼 ID 추출
+  var colId = comp.id.replace("cbx_", "");
+
+  // 2. 체크 여부에 따라 1 또는 0 세팅
+  var val = checked ? 1 : 0;
+
+  // 3. 데이터셋에 값 반영 (단건 기준 0번째 행)
+  ds_Master.setCellData(0, comp.org_id.replace("cbx_", ""), val);
+  //ds_Master.modifyRowStatus(0, "U");
+};
+
+//-------------------------------------------------------------------------
+// 공통팝업호출 callBack
+//-------------------------------------------------------------------------
+// Shipper
+scwin.udc_csshipcd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csshipcd, ed_txt_csship, [ed_txt_csship1, ed_txt_csship2, ed_txt_csship3, ed_txt_csship4]);
+    }
+  }
+};
+
+// Consignee  
+scwin.udc_cscngcd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_cscngcd, ed_txt_cscng, [ed_txt_cscng1, ed_txt_cscng2, ed_txt_cscng3, ed_txt_cscng4, ed_txt_cscng5, ed_txt_cscng6]);
+    }
+  }
+};
+
+// Notify
+scwin.udc_csntycd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csntycd, ed_txt_csnty, [ed_txt_csnty1, ed_txt_csnty2, ed_txt_csnty3, ed_txt_csnty4]);
+      ;
+    }
+  }
+};
+
+// Vessel
+scwin.udc_csvslcd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csvslcd, ed_txt_csvslnm);
+    }
+  }
+};
+
+// Liner
+scwin.udc_cslinercd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_cslinercd, ed_txt_cslinernm, '');
+    }
+  }
+};
+
+// Loading
+scwin.udc_cslodcd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_cslodcd, ed_txt_cslodnm);
+    }
+  }
+};
+
+// Discharge
+scwin.udc_csdisccd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csdisccd, ed_txt_csdiscnm);
+    }
+  }
+};
+
+// Delivery  
+scwin.udc_csdlvcd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csdlvcd, ed_txt_csdlvnm);
+    }
+  }
+};
+
+// Final
+scwin.udc_csfdcd_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csfdcd, ed_txt_csfdnm);
+    }
+  }
+};
+
+// PIC
+scwin.udc_csattn_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetReturnValue($p, rtnList, ed_csattn, ed_txt_csattnnm);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// Sbm submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = async function (e) {
+  if (ds_Master.getRowCount() == 0) {
+    if (await $c.gus.cfAlertMsg($p, E_MSG_CM_WRN_002)) {
+      if (scwin.statusFlag != "P") {
+        scwin.statusFlag = "R"; // 조회
+      }
+      scwin.f_Set("INIT");
+      return;
+    }
+  } else {
+    ds_Master.setRowPosition(0);
+
+    // 체크박스설정
+    scwin.checkBoxSetting();
+  }
+  if (ds_Master.getCellData(ds_Master.getRowPosition(), "tableid") == "MBL") {
+    scwin.statusFlag = "C"; // 생성
+    scwin.f_Set("CREATE");
+  } else if (ds_Master.getCellData(ds_Master.getRowPosition(), "tableid") == "S/R") {
+    scwin.statusFlag = "R"; // 업데이트
+    scwin.f_Set("RETRIEVE");
+  }
+};
+scwin.sbm_save_submitdone = async function (e) {
+  if (scwin.statusFlag == "P") {
+    scwin.f_Print();
+  } else {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_INF_001); // 성공적으로 저장하였습니다
+  }
+  scwin.f_Retrieve();
+};
+scwin.sbm_send_submitdone = async function (e) {
+  await $c.gus.cfAlertMsg($p, ilcommon.E_MSG_CM_INF_018); // 성공적으로 전송 하였습니다
+};
+
+//-------------------------------------------------------------------------
+// Event onClick
+//-------------------------------------------------------------------------
+// 조회 버튼 클릭 이벤트 
+scwin.btn_retrieve_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+
+// 초기화 버튼 클릭 이벤트 
+scwin.btn_fieldClear_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+
+// Shipper 찾기 버튼 클릭 이벤트
+scwin.udc_csshipcd_onclickEvent = function (e) {
+  scwin.f_PopUp('Shipper', 'F', 'F');
+};
+
+// Consignee 찾기 버튼 클릭 이벤트
+scwin.udc_cscngcd_onclickEvent = function (e) {
+  scwin.f_PopUp('Consignee', 'F', 'F');
+};
+
+// Notify 찾기 버튼 클릭 이벤트
+scwin.udc_csntycd_onclickEvent = function (e) {
+  scwin.f_PopUp('Notify', 'F', 'F');
+};
+
+// Vessel 찾기 버튼 클릭 이벤트
+scwin.udc_csvslcd_onclickEvent = function (e) {
+  scwin.f_PopUp('Vessel', 'F', 'F');
+};
+
+// Liner 찾기 버튼 클릭 이벤트 
+scwin.udc_cslinercd_onclickEvent = function (e) {
+  scwin.f_PopUp('Liner', 'F', 'F', 'F');
+};
+
+// Loading 찾기 버튼 클릭 이벤트 
+scwin.udc_cslodcd_onclickEvent = function (e) {
+  scwin.f_PopUp('Loading', 'F', 'F', 'F');
+};
+
+// Discharge 찾기 버튼 클릭 이벤트 
+scwin.udc_csdisccd_onclickEvent = function (e) {
+  scwin.f_PopUp('Discharge', 'F', 'F', 'F');
+};
+
+// Delivery 찾기 버튼 클릭 이벤트 
+scwin.udc_csdlvcd_onclickEvent = function (e) {
+  scwin.f_PopUp('Delivery', 'F', 'F', 'F');
+};
+
+// Final 찾기 버튼 클릭 이벤트 
+scwin.udc_csfdcd_onclickEvent = function (e) {
+  scwin.f_PopUp('Final', 'F', 'F', 'F');
+};
+
+// PIC 찾기 버튼 클릭 이벤트 
+scwin.udc_csattn_onclickEvent = function (e) {
+  scwin.f_PopUp('LinerPIC', 'F', 'F', 'F');
+};
+
+// S/R Send 버튼 클릭 이벤트
+scwin.btn_AmsSend_onclick = function (e) {
+  scwin.f_SRSend();
+};
+
+// Cancel 버튼 클릭 이벤트
+scwin.btn_cancel_onclick = function (e) {
+  scwin.f_Cancel();
+};
+
+// Update 버튼 클릭 이벤트
+scwin.btn_update_onclick = function (e) {
+  scwin.f_Update();
+};
+
+// Save 버튼 클릭 이벤트
+scwin.btn_save_onclick = function (e) {
+  scwin.f_Save();
+};
+
+// Print 버튼 클릭 이벤트
+scwin.btn_print_onclick = function (e) {
+  scwin.f_PrintBefore();
+};
+
+// Delete 버튼 클릭 이벤트
+scwin.btn_delete_onclick = function (e) {
+  scwin.f_Delete();
+};
+
+// Same As Consignee 버튼 클릭 이벤트
+scwin.btn_SameAsConsignee_onclick = function (e) {
+  scwin.f_SameAsConsignee();
+};
+
+// Delivery 찾기 버튼 클릭 이벤트 
+scwin.udc_csntycd_onclickEvent = function (e) {
+  scwin.f_PopUp('Notify', 'F', 'F');
+};
+
+//-------------------------------------------------------------------------
+// Event onblur
+//-------------------------------------------------------------------------
+// House No Onbluer(onKillFocus) 이벤트 발생시
+scwin.cnd_ed_hhblno_onblur = function (e) {
+  scwin.f_MhnoLoading();
+};
+
+// Shipper 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csshipcd_onblurCodeEvent = function (e) {
+  var text = ed_txt_csship.getValue().trim() + ed_txt_csship1.getValue().trim() + ed_txt_csship2.getValue().trim() + ed_txt_csship3.getValue().trim() + ed_txt_csship4.getValue().trim();
+  if (scwin.statusFlag == "C" || text == "") {
+    scwin.f_BeforePopUpEd(ed_txt_csship, ed_csshipcd, "Shipper", "T", "T");
+  }
+};
+
+// Consignee 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_cscngcd_onblurCodeEvent = function (e) {
+  var text1 = ed_txt_cscng.getValue().trim() + ed_txt_cscng1.getValue().trim() + ed_txt_cscng2.getValue().trim() + ed_txt_cscng3.getValue().trim() + ed_txt_cscng4.getValue().trim() + ed_txt_cscng5.getValue().trim() + ed_txt_cscng6.getValue().trim();
+  if (scwin.statusFlag == "C" || text1 == "") {
+    scwin.f_BeforePopUpEd(ed_txt_cscng, ed_cscngcd, "Consignee", "T", "T");
+  }
+};
+
+// Notify 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csntycd_onblurCodeEvent = function (e) {
+  var text2 = ed_txt_csnty.getValue().trim() + ed_txt_csnty1.getValue().trim() + ed_txt_csnty2.getValue().trim() + ed_txt_csnty3.getValue().trim() + ed_txt_csnty4.getValue().trim();
+  if (scwin.statusFlag == "C" || text2 == "") {
+    scwin.f_BeforePopUpEd(ed_txt_csnty, ed_csntycd, "Notify", "T", "T");
+  }
+};
+
+// Vessel 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csvslcd_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_csvslnm, ed_csvslcd, "Vessel", "T", "T");
+};
+
+// Vessel 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csvslcd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('Vessel', 'T', 'F', 'F');
+};
+
+// Liner 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_cslinercd_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_cslinernm, ed_cslinercd, "Liner", "T", "T");
+};
+
+// Liner 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_cslinercd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('Liner', 'F', 'F', 'F');
+};
+
+// Loading 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_cslodcd_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_cslodnm, ed_cslodcd, "Loading", "T", "T");
+};
+
+// Loading 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_cslodcd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('Loading', 'F', 'F', 'F');
+};
+
+// Discharge 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csdisccd_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_csdiscnm, ed_csdisccd, "Discharge", "T", "T");
+};
+
+// Discharge 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csdisccd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('Discharge', 'T', 'F', 'F');
+};
+
+// Delivery 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csdlvcd_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_csdlvnm, ed_csdlvcd, "Delivery", "T", "T");
+};
+
+// Delivery 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csdlvcd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('Delivery', 'T', 'F', 'F');
+};
+
+// Final 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csfdcd_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_csfdnm, ed_csfdcd, "Final", "T", "T");
+};
+
+// Final 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csfdcd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('Final', 'T', 'F', 'F');
+};
+
+// PIC 코드 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csattn_onblurCodeEvent = function (e) {
+  scwin.f_BeforePopUpEd(ed_txt_csattnnm, ed_csattn, "LinerPIC", "T", "T");
+};
+
+// PIC 명 Onbluer(onKillFocus) 이벤트 발생시
+scwin.udc_csattn_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp('LinerPIC', 'F', 'F', 'F');
+};
+
+//-------------------------------------------------------------------------
+// DataSet 이벤트
+//-------------------------------------------------------------------------
+scwin.ds_hmhno_ondataload = async function () {
+  if (ds_hmhno.getRowCount() == 0) {
+    var rowIndex = ds_hmhno.insertRow();
+    ds_hmhno.setCellData(rowIndex, "code", "NONE");
+    ds_hmhno.setCellData(rowIndex, "name", "NONE");
+    cnd_lc_mhno.setSelectedIndex(0);
+    if (await $c.gus.cfAlertMsg($p, E_MSG_CM_WRN_018, ["Document No", "Create"])) {
+      cnd_ed_hhblno.setValue("");
+      cnd_ed_hhblno.focus();
+    }
+  } else {
+    if (scwin.statusFlag == "C") {
+      // 신규생성시 마스터 정보 조회			
+    } else {
+      // 그외 SR 정보 조회
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// InputBox 대문자 설정
+//-------------------------------------------------------------------------
+scwin.cnd_ed_hhblno_onkeyup = function (e) {
+  $c.win.chUpper($p, e);
+};
+
+// Voyage
+scwin.ed_csvyg_onkeyup = function (e) {
+  $c.win.chUpper($p, e);
+};
+
+// Say
+scwin.ed_cssay_onkeyup = function (e) {
+  $c.win.chUpper($p, e);
+};
+scwin.ed_cssubpkg_onkeyup = function (e) {
+  $c.win.chUpper($p, e);
+};
+scwin.cbx_csp3_onviewchange = function (info) {
+  var checked = info.checked;
+  if (checked) {
+    ds_Master.setCellData(0, "csp3", 1);
+  } else {
+    ds_Master.setCellData(0, "csp3", 0);
+  }
+};
+
+//-------------------------------------------------------------------------
+// Event onviewchange
+//-------------------------------------------------------------------------
+scwin.cbx_csp1_onviewchange = function (info) {
+  scwin.fn_setCheckBoxValue(info, this);
+};
+scwin.cbx_csp2_onviewchange = function (info) {
+  scwin.fn_setCheckBoxValue(info, this);
+};
+scwin.cbx_csp3_onviewchange = function (info) {
+  scwin.fn_setCheckBoxValue(info, this);
+};
+scwin.cbx_csp4_onviewchange = function (info) {
+  scwin.fn_setCheckBoxValue(info, this);
+};
+scwin.cbx_cscoload_onviewchange = function (info) {
+  scwin.fn_setCheckBoxValue(info, this);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_ilcomCode',type:'page',variableClone:'true',src:'/ui/il/common/udc/ilcomCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'tb_searchCondition',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'House No',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:input',A:{class:'',id:'cnd_ed_hhblno',placeholder:'',style:'width:150px;',maxByteLength:'20',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.cnd_ed_hhblno_onkeyup','ev:onblur':'scwin.cnd_ed_hhblno_onblur'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'DOC No',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',displayMode:'label',id:'cnd_lc_mhno',ref:'',style:'width:150px;',submenuSize:'fixed',chooseOption:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_hmhno'},E:[{T:1,N:'xf:label',A:{ref:'name'}},{T:1,N:'xf:value',A:{ref:'code'}}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Search'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'lybox wfix flex_no'},E:[{T:1,N:'xf:group',A:{id:'',class:'col'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'tb_master',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'caption'}},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:100px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Shipper',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'w2:udc_ilcomCode',A:{btnId:'btn_csshipcd',codeId:'ed_csshipcd',id:'udc_csshipcd',nameId:'',popupID:'',selectID:'',style:'',validTitle:'',hideName:'true','ev:onclickEvent':'scwin.udc_csshipcd_onclickEvent','ev:onblurCodeEvent':'scwin.udc_csshipcd_onblurCodeEvent',refDataCollection:'ds_Master',code:'csshipcd',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'row-gap-4',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_txt_csship',placeholder:'',style:'',ref:'data:ds_Master.csship',maxByteLength:'100',objType:'data'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_csship1',placeholder:'',style:'',ref:'data:ds_Master.csship1',maxByteLength:'50',objType:'data'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_csship2',placeholder:'',style:'',ref:'data:ds_Master.csship2',maxByteLength:'50',objType:'data'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_csship3',placeholder:'',style:'',ref:'data:ds_Master.csship3',maxByteLength:'50',objType:'data'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_csship4',placeholder:'',style:'',ref:'data:ds_Master.csship4',maxByteLength:'50',objType:'data'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Consignee',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_ilcomCode',A:{btnId:'btn_cscngcd',codeId:'ed_cscngcd',hideName:'true',id:'udc_cscngcd',nameId:'',popupID:'',selectID:'',style:'',validTitle:'','ev:onblurCodeEvent':'scwin.udc_cscngcd_onblurCodeEvent','ev:onclickEvent':'scwin.udc_cscngcd_onclickEvent',refDataCollection:'ds_Master',code:'cscngcd',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'row-gap-4',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng',placeholder:'',style:'',ref:'data:ds_Master.cscng',objType:'data',maxByteLength:'100'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng1',placeholder:'',style:'',ref:'data:ds_Master.cscng1',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng2',placeholder:'',style:'',ref:'data:ds_Master.cscng2',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng3',placeholder:'',style:'',ref:'data:ds_Master.cscng3',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng4',placeholder:'',style:'',ref:'data:ds_Master.cscng4',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng5',placeholder:'',style:'',ref:'data:ds_Master.cscng5',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_cscng6',placeholder:'',style:'',ref:'data:ds_Master.cscng6',objType:'data',maxByteLength:'50'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Vessel',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_csvslcd',nameId:'ed_txt_csvslnm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_csvslcd',btnId:'btn_csvslcd','ev:onclickEvent':'scwin.udc_csvslcd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_csvslcd_onviewchangeNameEvent','ev:onblurCodeEvent':'scwin.udc_csvslcd_onblurCodeEvent',code:'csvslcd',name:'csvsl',refDataCollection:'ds_Master',maxlengthCode:'6',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Voyage',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'ed_csvyg',placeholder:'',style:'width:150px;',ref:'data:ds_Master.csvyg',objType:'data',maxByteLength:'11',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.ed_csvyg_onkeyup'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Service Term',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_lc_csstype',search:'start',style:'width:150px;',submenuSize:'auto',allOption:'',chooseOption:'',ref:'data:ds_Master.csstype',displayMode:'label',emptyItem:'true',selectData:'false',objType:'data'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CY/CY'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CY/CY'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CY/CFS'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CY/CFS'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CFS/CY'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CFS/CY'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CFS/CFS'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CFS/CFS'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'FIO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'FIO'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'FI/BT'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'FI/BT'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'BT/BT'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'BT/BT'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'BT/FO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'BT/FO'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Liner',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_cslinercd',nameId:'ed_txt_cslinernm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_cslinercd',btnId:'btn_cslinercd','ev:onclickEvent':'scwin.udc_cslinercd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_cslinercd_onviewchangeNameEvent','ev:onblurCodeEvent':'scwin.udc_cslinercd_onblurCodeEvent',refDataCollection:'ds_Master',code:'cslinercd',name:'csliner',maxlengthCode:'6',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',objTypeName:'data'}}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'col'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'caption'}},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:80px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:80px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Notify',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'w2:udc_ilcomCode',A:{btnId:'btn_csntycd',codeId:'ed_csntycd',hideName:'true',id:'udc_csntycd',nameId:'',popupID:'',selectID:'',style:'',validTitle:'','ev:onblurCodeEvent':'scwin.udc_csntycd_onblurCodeEvent','ev:onclickEvent':'scwin.udc_csntycd_onclickEvent',refDataCollection:'ds_Master',code:'csntycd',objTypeCode:'data',objTypeName:'data'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link',id:'btn_SameAsConsignee',style:'',type:'button','ev:onclick':'scwin.btn_SameAsConsignee_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Same As Consignee'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-4'},E:[{T:1,N:'xf:input',A:{style:'',id:'ed_txt_csnty',placeholder:'',class:'',ref:'data:ds_Master.csnty',objType:'data',maxByteLength:'100'}},{T:1,N:'xf:input',A:{style:'',id:'ed_txt_csnty1',placeholder:'',class:'',ref:'data:ds_Master.csnty1',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{style:'',id:'ed_txt_csnty2',placeholder:'',class:'',ref:'data:ds_Master.csnty2',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{style:'',id:'ed_txt_csnty3',placeholder:'',class:'',ref:'data:ds_Master.csnty3',objType:'data',maxByteLength:'50'}},{T:1,N:'xf:input',A:{style:'',id:'ed_txt_csnty4',placeholder:'',class:'',ref:'data:ds_Master.csnty4',objType:'data',maxByteLength:'50'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'S/R Remark',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'row-gap-4',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_ed_csrmk1',placeholder:'',style:'',ref:'data:ds_Master.csrmk1',objType:'data',maxByteLength:'32'}},{T:1,N:'xf:input',A:{class:'',id:'ed_ed_csrmk2',placeholder:'',style:'',ref:'data:ds_Master.csrmk2',objType:'data',maxByteLength:'32'}},{T:1,N:'xf:input',A:{class:'',id:'ed_ed_csrmk3',placeholder:'',style:'',ref:'data:ds_Master.csrmk3',objType:'data',maxByteLength:'32'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Loading',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_cslodcd',nameId:'ed_txt_cslodnm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_cslodcd',btnId:'btn_cslodcd','ev:onclickEvent':'scwin.udc_cslodcd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_cslodcd_onviewchangeNameEvent','ev:onblurCodeEvent':'scwin.udc_cslodcd_onblurCodeEvent',refDataCollection:'ds_Master',code:'cslodcd',name:'cslod',maxlengthCode:'8',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Discharge',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_csdisccd',nameId:'ed_txt_csdiscnm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_csdisccd',btnId:'btn_csdisccd','ev:onclickEvent':'scwin.udc_csdisccd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_csdisccd_onviewchangeNameEvent','ev:onblurCodeEvent':'scwin.udc_csdisccd_onblurCodeEvent',refDataCollection:'ds_Master',code:'csdisccd',name:'csdisc',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Delivery',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_csdlvcd',nameId:'ed_txt_csdlvnm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_csdlvcd',btnId:'btn_csdlvcd','ev:onclickEvent':'scwin.udc_csdlvcd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_csdlvcd_onviewchangeNameEvent','ev:onblurCodeEvent':'scwin.udc_csdlvcd_onblurCodeEvent',refDataCollection:'ds_Master',code:'csdlvcd',name:'csdlv',maxlengthCode:'8',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Final',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_csfdcd',nameId:'ed_txt_csfdnm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_csfdcd',btnId:'btn_csfdcd','ev:onclickEvent':'scwin.udc_csfdcd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_csfdcd_onviewchangeNameEvent','ev:onblurCodeEvent':'scwin.udc_csfdcd_onblurCodeEvent',refDataCollection:'ds_Master',code:'csfdcd',name:'csfd',maxlengthCode:'8',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',objTypeName:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'ETD',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_csetd',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'width:120px;',ref:'data:ds_Master.csetd',objType:'data'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Weight',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'tar',id:'ed_cswgt',placeholder:'',style:'width:120px;',ref:'data:ds_Master.cswgt',maxByteLength:'13',allowChar:'0-9-.',dataType:'float',displayFormat:'#,###.###',objType:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'ETA',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_cseta',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'width:120px;',ref:'data:ds_Master.cseta',objType:'data'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Measure',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'tar',id:'ed_csmsr',placeholder:'',style:'width:120px;',ref:'data:ds_Master.csmsr',maxByteLength:'13',allowChar:'0-9-.',dataType:'float',displayFormat:'#,###.###',objType:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'Say',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{class:'',id:'ed_cssay',placeholder:'',style:'',maxlength:'70',ref:'data:ds_Master.cssay',objType:'data',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.ed_cssay_onkeyup'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'PIC',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_csattn',nameId:'ed_txt_csattnnm',popupID:'',selectID:'',style:'',validTitle:'',id:'udc_csattn',btnId:'btn_csattn','ev:onviewchangeNameEvent':'scwin.udc_csattn_onviewchangeNameEvent','ev:onclickEvent':'scwin.udc_csattn_onclickEvent','ev:onblurCodeEvent':'scwin.udc_csattn_onblurCodeEvent',refDataCollection:'ds_Master',name:'csattnnm',code:'csattn',maxlengthCode:'2',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',objTypeName:'data'}}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'width: 20%',id:'',class:'col'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'caption'}},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th tac'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Print Option',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'cbx_csp1',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',objType:'data','ev:onviewchange':'scwin.cbx_csp1_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Said To Contain'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'cbx_csp2',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',objType:'data','ev:onviewchange':'scwin.cbx_csp2_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Shipper\'s Load & Count'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'cbx_csp3',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',objType:'data','ev:onviewchange':'scwin.cbx_csp3_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Said To Be'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'cbx_csp4',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',objType:'data','ev:onviewchange':'scwin.cbx_csp4_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Container Print'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Freight Info',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'',cols:'1',id:'rd_cspc',ref:'data:ds_Master.cspc',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:'',objType:'data'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Freight Prepaid'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'P'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Freight Collect'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'C'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Rider',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'',cols:'',id:'rd_csrider',ref:'data:ds_Master.csrider',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:'',objType:'data'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Yes'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'No'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'N'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'cbx_cscoload',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',objType:'data','ev:onviewchange':'scwin.cbx_cscoload_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Co-Load B/L'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Package & Unit ',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_cspkg',placeholder:'',style:'',ref:'data:ds_Master.cspkg',maxByteLength:'10',allowChar:'0-9',objType:'data',dataType:'number',displayFormat:'#,###'}},{T:1,N:'xf:input',A:{class:'',id:'ed_csunit',placeholder:'',style:'',ref:'data:ds_Master.csunit',allowChar:'a-zA-Z0-9',maxByteLength:'7',objType:'data'}}]},{T:1,N:'xf:input',A:{class:'',id:'ed_cssubpkg',placeholder:'',style:'',ref:'data:ds_Master.cssubpkg',objType:'data',allowChar:'a-zA-Z0-9',maxByteLength:'8','ev:onkeyup':'scwin.ed_cssubpkg_onkeyup'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'btn_AmsSend',type:'button',class:'btn link',disabled:'true','ev:onclick':'scwin.btn_AmsSend_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'S/R Send'}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_cancel',label:'저장',style:'',type:'button',disabled:'true','ev:onclick':'scwin.btn_cancel_onclick',objType:'bCancel',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Cancel'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',disabled:'true',id:'btn_create',label:'저장',style:'display: none;',type:'button',objType:'bCreate',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Create'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_update',label:'저장',style:'',type:'button',disabled:'true','ev:onclick':'scwin.btn_update_onclick',objType:'bUpdate',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Update'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_save',label:'저장',style:'',type:'button',disabled:'true','ev:onclick':'scwin.btn_save_onclick',objType:'bSave',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Save'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_print',label:'저장',style:'',type:'button',disabled:'true','ev:onclick':'scwin.btn_print_onclick',objType:'bPrint',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Print'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_delete',label:'저장',style:'',type:'button',disabled:'true','ev:onclick':'scwin.btn_delete_onclick',objType:'bDelete',userAuth:'D'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Delete'}]}]}]}]}]}]}]}]}]})

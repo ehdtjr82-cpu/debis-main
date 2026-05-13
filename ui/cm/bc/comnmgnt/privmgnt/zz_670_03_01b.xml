@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_programList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="체크박스여부" dataType="text"></w2:column>
+						<w2:column id="pgmId" name="프로그램ID" dataType="text"></w2:column>
+						<w2:column id="pgmNm" name="프로그램명" dataType="text"></w2:column>
+						<w2:column id="insYn" name="입력여부" dataType="text"></w2:column>
+						<w2:column id="modYn" name="수정여부" dataType="text"></w2:column>
+						<w2:column id="delYn" name="삭제여부" dataType="text"></w2:column>
+						<w2:column id="qryYn" name="조회여부" dataType="text"></w2:column>
+						<w2:column id="prtnYn" name="출력여부" dataType="text"></w2:column>
+						<w2:column id="xlsDwnldYn" name="Excel다운로드여부" dataType="text"></w2:column>
+
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_userList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="체크박스여부" dataType="text"></w2:column>
+						<w2:column id="userId" name="사용자ID" dataType="text"></w2:column>
+						<w2:column id="userNm" name="사용자명" dataType="text"></w2:column>
+						<w2:column id="userClsCd" name="사용자구분코드" dataType="text"></w2:column>
+						<w2:column id="userHomeClsCd" name="사용자소속구분" dataType="text"></w2:column>
+
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_tmpProgramList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="체크박스여부" dataType="text"></w2:column>
+						<w2:column id="pgmId" name="프로그램ID" dataType="text"></w2:column>
+						<w2:column id="pgmNm" name="프로그램명" dataType="text"></w2:column>
+						<w2:column id="insYn" name="입력여부" dataType="text"></w2:column>
+						<w2:column id="modYn" name="수정여부" dataType="text"></w2:column>
+						<w2:column id="delYn" name="삭제여부" dataType="text"></w2:column>
+						<w2:column id="qryYn" name="조회여부" dataType="text"></w2:column>
+						<w2:column id="prtnYn" name="출력여부" dataType="text"></w2:column>
+						<w2:column id="xlsDwnldYn" name="Excel다운로드여부" dataType="text"></w2:column>
+
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_tmpUserList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="체크박스여부" dataType="text"></w2:column>
+						<w2:column id="userId" name="사용자ID" dataType="text"></w2:column>
+						<w2:column id="userNm" name="사용자명" dataType="text"></w2:column>
+						<w2:column id="userClsCd" name="사용자구분코드" dataType="text"></w2:column>
+						<w2:column id="userHomeClsCd" name="사용자소속구분" dataType="text"></w2:column>
+
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_programList">
+					<w2:keyInfo>
+						<w2:key id="sysCls" name="name1" dataType="text"></w2:key>
+						<w2:key id="programLupCond" name="name2" dataType="text"></w2:key>
+						<w2:key id="qryCntn" name="name3" dataType="text"></w2:key>
+						<w2:key id="grpCls" name="name4" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_userList">
+					<w2:keyInfo>
+						<w2:key id="userNm" name="name1" dataType="text"></w2:key>
+						<w2:key id="userId" name="name2" dataType="text"></w2:key>
+						<w2:key id="userHomeClsCd" name="name3" dataType="text"></w2:key>
+						<w2:key id="userClsCd" name="name4" dataType="text"></w2:key>
+						<w2:key id="useYn" name="name5" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_programList" action="/cm.bc.comnmgnt.privmgnt.RetrieveProgramListCMD.do" method="post"
+				mediatype="application/json" ref="data:json,dma_programList" target='data:json,{"id":"ds_programList","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_programList_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_userList" action="/cm.bc.comnmgnt.privmgnt.RetrieveUserListCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"dma_userList","key":"IN_DS1"},{"id":"ds_userList","key":"OUT_DS1"}]' target='data:json,{"id":"ds_userList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_userList_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_userProgramPriv" action="/cm.bc.comnmgnt.privmgnt.RegistProgramEachUserCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_tmpProgramList","key":"IN_DS1"},{"id":"ds_tmpUserList","key":"IN_DS2"}]' target="" encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_userProgramPriv_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_allUserProgramPriv" action="/cm.bc.comnmgnt.privmgnt.CreateAllUserProgramCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"ds_tmpProgramList","key":"IN_DS1"}' target=""
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_allUserProgramPriv_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.REG_PROGRAM_COUNT = 2000;     // 프로그램을 등록할 프로그램수
+    scwin.REG_USER_COUNT = 2000;        // 프로그램을 등록할 사용자수 
+    txt_searchUser.focus();
+};
+
+scwin.f_programUndoAll = function () {
+    scwin.f_UndoAll("0");
+}
+
+scwin.f_userUndoAll = function () {
+    scwin.f_UndoAll("1");
+}
+
+//-------------------------------------------------------------------------
+// function name : f_UndoAll
+// function desc : 취소
+//-------------------------------------------------------------------------
+scwin.f_UndoAll = function (pIdx) {
+    // 프로그램 
+    if (pIdx == "0") {
+        for (let i = 0; i < ds_tmpProgramList.getTotalRow(); i++) {
+            ds_programList.insertRow();
+            let pos = ds_programList.getTotalRow();
+            let rowData = ds_tmpProgramList.getRowJSON(i);
+
+            ["pgmId", "pgmNm", "insYn", "qryYn",
+                "modYn", "delYn", "prtnYn", "xlsDwnldYn"].forEach((col) => {
+                    ds_programList.setCellData(pos - 1, col, rowData[col]);
+                });
+        }
+        ds_tmpProgramList.removeAll();
+    } else {
+        ds_userList.undoAll();
+        for (let i = 0; i < ds_tmpUserList.getTotalRow(); i++) {
+            ds_userList.insertRow();
+            let pos = ds_userList.getTotalRow();
+            let rowData = ds_tmpUserList.getRowJSON(i);
+            ["userId", "userNm", "userClsCd", "userHomeClsCd"].forEach((col) => {
+                ds_userList.setCellData(pos - 1, col, rowData[col]);
+            });
+        }
+        ds_tmpUserList.removeAll();
+    }
+}
+
+scwin.f_programRetrieve = function () {
+    scwin.f_Retrieve("1");
+}
+
+scwin.f_userRetrieve = function () {
+    scwin.f_Retrieve("0");
+}
+
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function (idx) {
+    var vSysCd = "";
+    var vSearchCond = "";
+    var vSearchContent = "";
+    var vGrpCd = "";
+
+    if (idx == "1") {
+        if (lux_privGroup_cond.getValue() != "00" && lux_sysCd.getValue() != "00") {
+            $c.win.alert("권한그룹 또는 시스템구분 중 1개의 조회 조건만 사용할 수 있습니다.");
+            lux_privGroup_cond.setValue("00");
+            lux_privGroup_cond.focus();
+            return false;
+        }
+
+        // 프로그램 조회
+        vSysCd = lux_sysCd.getValue();
+        vGrpCd = lux_privGroup_cond.getValue();
+
+        if (vSysCd.trim() == "") {
+            $c.win.alert("시스템구분은 필수선택사항입니다.");
+            lux_sysCd.focus();
+            return false
+        }
+
+        vSearchCond = lux_programSearch.getValue();
+        vSearchContent = txt_searchProgram.getValue();
+
+        dma_programList.set("sysCls", vSysCd);
+        dma_programList.set("programLupCond", vSearchCond);
+        dma_programList.set("qryCntn", vSearchContent);
+        dma_programList.set("grpCls", vGrpCd);
+
+        $c.sbm.execute(sbm_programList); // ds_programList.Reset();
+
+    } else {
+        // 사용자 조회 
+        vSearchCond = lux_userSearch.getValue();
+        vSearchContent = txt_searchUser.getValue();
+
+        if (vSearchCond == "0") {
+            dma_userList.set("userNm", vSearchContent)
+        } else {
+            dma_userList.set("userId", vSearchContent)
+        }
+
+        dma_userList.set("userHomeClsCd", lux_userHomeClsCd.getValue());
+        dma_userList.set("userClsCd", lux_userClsCd.getValue());
+        dma_userList.set("useYn", "1");
+        $c.sbm.execute(sbm_userList);
+    }
+}
+
+// onkeypress="if(event.keyCode==13) f_Retrieve('1')";
+scwin.txt_searchProgram_onkeyup = function (e) {
+    if (e.keyCode == 13) {
+        scwin.f_Retrieve("1");
+    }
+};
+
+scwin.btn_clear1_onclick = function (e) {
+    // $c.gus.cfInitObjects(txt_searchProgram)
+    txt_searchProgram.setValue("");
+};
+
+// onkeypress="if(event.keyCode==13) f_Retrieve('0')
+scwin.txt_searchUser_onkeyup = function (e) {
+    if (e.keyCode == 13) {
+        scwin.f_Retrieve("0");
+    }
+};
+
+scwin.btn_clear2_onclick = function (e) {
+    // $c.gus.cfInitObjects(txt_searchUser)
+    txt_searchUser.setValue("");
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Save
+// function desc : 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+    //변경한 데이터가 있는지 체크한다. 
+    var vProgramListCount = ds_tmpProgramList.getTotalRow();
+    var vUserListCount = ds_tmpUserList.getTotalRow();
+
+    if (vProgramListCount < 1) {
+        $c.win.alert("권한부여대상 프로그램을 추가해주시기 바랍니다.");
+        return false;
+    }
+
+    if (vUserListCount < 1) {
+        $c.win.alert("권한부여대상 사용자를 추가해주시기 바랍니다.");
+        return false;
+    }
+
+    // 저장확인 
+    let messageStr = "저장하시겠습니까?";
+    let ret = await $c.win.confirm(messageStr);
+
+    if (ret) {
+        $c.sbm.execute(sbm_userProgramPriv);
+    }
+
+}
+
+
+//-------------------------------------------------------------------------
+// function name : f_SaveAllUserPriv
+// function desc : 전체사용자 부여 프로그램 저장
+//-------------------------------------------------------------------------
+
+scwin.f_SaveAllUserPriv = async function () {
+    //변경한 데이터가 있는지 체크한다. 
+    var vProgramListCount = ds_tmpProgramList.getTotalRow();
+
+    if (vProgramListCount < 1) {
+        $c.win.alert("권한부여대상 프로그램을 추가해주시기 바랍니다.");
+        return false;
+    }
+
+    // 저장확인 
+    let messageStr = "저장하시겠습니까?";
+
+    let ret = await $c.win.confirm(messageStr);
+
+    if (ret) {
+        $c.sbm.execute(sbm_allUserProgramPriv);
+    }
+}
+
+
+//-------------------------------------------------------------------------
+// function name : f_ProgrmaMoveUp
+// function desc : 프로그램 상위이동
+//-------------------------------------------------------------------------
+scwin.f_ProgramMoveUp = function () {
+
+    var vCountRow = ds_tmpProgramList.getTotalRow();
+
+    if (vCountRow < 1) {
+        $c.win.alert("선택하실 프로그램이 존재하지 않습니다.");
+        return false;
+    } else {
+
+        // 선택된 프로그램 추가
+        for (var i = 0; i < vCountRow; i++) {
+            var chkYn = ds_tmpProgramList.getCellData(i, "chk");
+
+            if (chkYn == "T") {
+                //체크박스에 체크가 된 경우 선택된 프로그램 삭제
+                // 하위 그리드에 선택된 프로그램 추가
+                ds_programList.insertRow(); // addRow();
+                let rowPos = ds_programList.getTotalRow() - 1;
+                ds_programList.setCellData(rowPos, "pgmId", ds_tmpProgramList.getCellData(i, "pgmId"));
+                ds_programList.setCellData(rowPos, "pgmNm", ds_tmpProgramList.getCellData(i, "pgmNm"));
+                ds_programList.setCellData(rowPos, "insYn", 0)
+                ds_programList.setCellData(rowPos, "qryYn", 1)
+                ds_programList.setCellData(rowPos, "modYn", 0)
+                ds_programList.setCellData(rowPos, "delYn", 0)
+                ds_programList.setCellData(rowPos, "prtnYn", 0)
+                ds_programList.setCellData(rowPos, "xlsDwnldYn", 0)
+                ds_programList.setCellData(rowPos, "chk", "F");
+            }
+        }
+        //선택된 프로그램 삭제		 
+        for (var j = vCountRow; j >= 0; j--) {
+            var vCheck = ds_tmpProgramList.getCellData(j, "chk");
+            if (vCheck == "T") {
+                ds_tmpProgramList.deleteRow(j);
+                ds_tmpProgramList.removeRow(j);
+            }
+        }
+        ds_programList.modifyAllStatus("R"); // ds_programList.ResetStatus();
+    }
+    // gr_tmpProgramList.ColumnProp("chk", "HeadCheck") = false; // to-do
+}
+
+//-------------------------------------------------------------------------
+// function name : f_UserMoveDown
+// function desc : 사용자하위 이동
+//-------------------------------------------------------------------------
+scwin.f_UserMoveDown = function () {
+    var vCountRow = ds_userList.getTotalRow();
+    var vTmpUserRowCount = 0;
+    var vDelCount = 0;
+
+    if (vCountRow < 1) {
+        $c.win.alert("프로그램권한을 부여할 사용자를 먼저 조회해주십시오.");
+        return false;
+    } else {
+
+        // 선택된 사용자 추가
+        for (var i = 0; i < vCountRow; i++) {
+            var chkYn = ds_userList.getCellData(i, "chk");
+
+            if (chkYn == "T") {
+                //체크박스에 체크가 된 경우 선택된 프로그램 삭제
+                // 하위 그리드에 선택된 프로그램 추가
+                ds_tmpUserList.insertRow();//addRow();
+                let rowPos = ds_tmpUserList.getTotalRow() - 1;
+                let rowData = ds_userList.getRowJSON(i)
+
+                ds_tmpUserList.setCellData(rowPos, "userId", rowData["userId"]);
+                ds_tmpUserList.setCellData(rowPos, "userNm", rowData["userNm"]);
+                ds_tmpUserList.setCellData(rowPos, "userClsCd", rowData["userClsCd"]);
+                ds_tmpUserList.setCellData(rowPos, "userHomeClsCd", rowData["userHomeClsCd"]);
+                ds_tmpUserList.setCellData(rowPos, "chk", "F");
+            }
+
+            vTmpUserRowCount = ds_tmpUserList.getTotalRow();
+
+            if (vTmpUserRowCount >= scwin.REG_USER_COUNT) {
+                $c.win.alert("등록사용자가 등록제한 사용자수[" + scwin.REG_USER_COUNT + "]를 초과 했습니다.");
+                break;
+            }
+        }
+
+        //선택된 사용자 삭제		 
+        for (var j = vCountRow; j >= 0; j--) {
+            var vCheck = ds_userList.getCellData(j, "chk");
+
+            if (vDelCount >= scwin.REG_USER_COUNT) {
+                break;
+            }
+
+            if (vCheck == "T") {
+                ds_userList.deleteRow(j);
+                ds_userList.removeRow(j);
+                vDelCount++;
+            }
+        }
+    }
+    // gr_userList.ColumnProp("chk", "HeadCheck") = false; // to-do
+}
+
+//-------------------------------------------------------------------------
+// function name : f_UserMoveUp
+// function desc : 사용자 상위이동
+//-------------------------------------------------------------------------
+scwin.f_UserMoveUp = function () {
+
+    var vCountRow = ds_tmpUserList.getTotalRow();
+
+    if (vCountRow < 1) {
+        $c.win.alert("선택하실 사용자가 존재하지 않습니다.");
+        return false;
+    } else {
+
+        // 선택된 프로그램 추가
+        for (var i = 0; i < vCountRow; i++) {
+            var chkYn = ds_tmpUserList.getCellData(i, "chk");
+
+            if (chkYn == "T") {
+                //체크박스에 체크가 된 경우 선택된 프로그램 삭제
+                // 하위 그리드에 선택된 프로그램 추가
+                ds_userList.insertRow();
+                let rowPos = ds_userList.getTotalRow() - 1;
+                let rowData = ds_tmpUserList.getRowJSON(i);
+
+                ds_userList.setCellData(rowPos, "userId", rowData["userId"]);
+                ds_userList.setCellData(rowPos, "userNm", rowData["userNm"]);
+                ds_userList.setCellData(rowPos, "userClsCd", rowData["userClsCd"]);
+                ds_userList.setCellData(rowPos, "userHomeClsCd", rowData["userHomeClsCd"]);
+                ds_userList.setCellData(rowPos, "chk", "F");
+            }
+        }
+        //선택된 프로그램 삭제		 
+        for (var j = vCountRow; j >= 0; j--) {
+            var vCheck = ds_tmpUserList.getCellData(j, "chk");
+            if (vCheck == "T") {
+                ds_tmpUserList.deleteRow(j);
+                ds_tmpUserList.removeRow(j);
+            }
+        }
+        ds_userList.modifyAllStatus("R"); // ds_userList.ResetStatus();
+    }
+    // gr_tmpUserList.ColumnProp("chk", "HeadCheck") = false; // to-do
+}
+
+// for=tr_userProgramPriv event=OnSuccess()
+scwin.sbm_userProgramPriv_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code == -1) return;
+    $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    ds_tmpProgramList.removeAll();
+    ds_tmpUserList.removeAll();
+};
+
+// for=tr_allUserProgramPriv event=OnSuccess()
+scwin.sbm_allUserProgramPriv_submitdone = function (e) {
+
+    $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    ds_tmpProgramList.removeAll();
+};
+
+scwin.sbm_programList_submitdone = function (e) {
+    let rowCnt = ds_programList.getTotalRow();
+    totalRows.setValue(rowCnt)
+    if (rowCnt > 0) {
+        for (var i = 0; i < rowCnt; i++) {
+            ds_programList.setCellData(i, "chk", "F");
+        }
+    }
+    ds_programList.modifyAllStatus("R"); //  ds_programList.ResetStatus();
+    gr_programList.setColumnStyle("pgmId", "color", "blue");
+    gr_programList.setColumnStyle("pgmId", "text-decoration", "underline");
+
+};
+
+
+// for=ds_userList event=OnLoadCompleted(rowCnt)
+scwin.sbm_userList_submitdone = function (e) {
+    let rowCnt = ds_userList.getTotalRow();
+    totalRows2.setValue(rowCnt);
+
+    if (rowCnt == 0) {
+        $c.win.alert("조회된 사용자가 없습니다.");
+        return false;
+    }
+    if (rowCnt > 0) {
+        for (var i = 0; i < rowCnt; i++) {
+            ds_userList.setCellData(i, "chk", "F");
+        }
+    }
+
+    ds_userList.modifyAllStatus("R"); // ds_userList.ResetStatus();
+
+    if (rowCnt == 1) {
+        for (var i = 0; i < ds_tmpUserList.getTotalRow(); i++) {
+            if (ds_userList.getCellData(0, "userId") == ds_tmpUserList.getCellData(i, "userId")) {
+                $c.win.alert("이미 추가된 사용자 입니다");
+                ds_userList.removeAll();
+                txt_searchUser.setValue("");
+                txt_searchUser.focus();
+                return false;
+            }
+        }
+
+        ds_tmpUserList.insertRow()
+        // let pos = ds_tmpUserList.getRowPosition();
+        let pos = ds_tmpUserList.getTotalRow() - 1;
+        ds_tmpUserList.setCellData(pos, "userId", ds_userList.getCellData(0, "userId"));
+        ds_tmpUserList.setCellData(pos, "userNm", ds_userList.getCellData(0, "userNm"));
+        ds_tmpUserList.setCellData(pos, "userClsCd", ds_userList.getCellData(0, "userClsCd"));
+        ds_tmpUserList.setCellData(pos, "userHomeClsCd", ds_userList.getCellData(0, "userHomeClsCd"));
+        ds_tmpUserList.setCellData(pos, "chk", "F");
+        ds_userList.removeAll();
+        txt_searchUser.setValue("");
+        txt_searchUser.focus();
+    }
+};
+
+
+// 권한부여 대상프로그램 입력,조회,수정,삭제,프린트,엑셀다운로드 권한 일괄체크
+// for=gr_tmpProgramList event=OnHeadCheckClick(Col,Colid,bCheck)
+scwin.gr_tmpProgramList_onheaderclick = function (headerId) {
+
+    var vCountRow = ds_tmpProgramList.getTotalRow();
+    let bCheck = gr_tmpProgramList.getHeaderValue(headerId)
+    let chk;
+    chk = (bCheck == 1) ? "T" : "F"
+
+    let valueToSet;
+
+    if (vCountRow > 0) {
+        switch (headerId) {
+            case "chk":
+                valueToSet = chk;
+                break;
+            case "insYn":
+            case "qryYn":
+            case "modYn":
+            case "delYn":
+            case "prtnYn":
+            case "xlsDwnldYn":
+                valueToSet = bCheck;
+                break;
+            default:
+                break;
+        }
+
+        for (var i = 0; i < vCountRow; i++) {
+            ds_tmpProgramList.setCellData(i, headerId, valueToSet);
+        }
+    }
+};
+
+// 프로그램 입력,조회,수정,삭제,프린트,엑셀다운로드 권한 일괄체크 
+// for=gr_programList event=OnHeadCheckClick(Col,Colid,bCheck)
+scwin.gr_programList_onheaderclick = function (headerId) {
+
+    var vCountRow = ds_programList.getTotalRow();
+    let bCheck = gr_programList.getHeaderValue("chk");
+    let chk;
+
+    chk = (bCheck == 1) ? "T" : "F"
+    let valueToSet;
+
+    if (vCountRow > 0) {
+        switch (headerId) {
+            case "chk":
+                valueToSet = chk;
+                break;
+            case "insYn":
+            case "qryYn":
+            case "modYn":
+            case "delYn":
+            case "prtnYn":
+            case "xlsDwnldYn":
+                valueToSet = bCheck;
+                break;
+            default:
+                break;
+        }
+        for (var i = 0; i < vCountRow; i++) {
+            ds_programList.setCellData(i, headerId, valueToSet);
+        }
+    }
+};
+
+scwin.f_ProgramMoveDown = function (e) {
+
+    var vCountRow = ds_programList.getTotalRow();
+    var vTmpPgmRowCount = 0;
+    var vDelCount = 0;
+
+    if (vCountRow < 1) {
+        $c.win.alert("선택하실 프로그램을 먼저 조회해주십시오.");
+        return false;
+    } else {
+        // 선택된 프로그램 추가
+        for (var i = 0; i < vCountRow; i++) {
+            var chkYn = ds_programList.getCellData(i, "chk");
+
+            if (chkYn == "T") {
+                //체크박스에 체크가 된 경우 선택된 프로그램 삭제
+
+                let rowData = ds_programList.getRowJSON(i);
+
+                let vInsYn = rowData["insYn"] == 0 ? 0 : 1;
+                let vQryYn = rowData["qryYn"] == 0 ? 0 : 1;
+                let vModYn = rowData["modYn"] == 0 ? 0 : 1;
+                let vDelYn = rowData["delYn"] == 0 ? 0 : 1;
+                let vPrtnYn = rowData["prtnYn"] == 0 ? 0 : 1;
+                let vXlsDwnldYn = rowData["xlsDwnldYn"] == 0 ? 0 : 1;
+
+                // 하위 그리드에 선택된 프로그램 추가
+                ds_tmpProgramList.insertRow();
+                let rowVal = ds_tmpProgramList.getTotalRow() - 1;
+
+                ds_tmpProgramList.setCellData(rowVal, "pgmId", ds_programList.getCellData(i, "pgmId"));
+                ds_tmpProgramList.setCellData(rowVal, "pgmNm", ds_programList.getCellData(i, "pgmNm"));
+                ds_tmpProgramList.setCellData(rowVal, "insYn", vInsYn);
+                ds_tmpProgramList.setCellData(rowVal, "qryYn", vQryYn);
+                ds_tmpProgramList.setCellData(rowVal, "modYn", vModYn);
+                ds_tmpProgramList.setCellData(rowVal, "delYn", vDelYn);
+                ds_tmpProgramList.setCellData(rowVal, "prtnYn", vPrtnYn);
+                ds_tmpProgramList.setCellData(rowVal, "xlsDwnldYn", vXlsDwnldYn);
+                ds_tmpProgramList.setCellData(rowVal, "chk", "F");
+            }
+
+            vTmpPgmRowCount = ds_tmpProgramList.getTotalRow();
+
+            if (vTmpPgmRowCount >= scwin.REG_PROGRAM_COUNT) {
+                $c.win.alert("등록할 프로그램이 등록제한 프로그램갯수["
+                    + scwin.REG_PROGRAM_COUNT
+                    + "]를 초과 했습니다.");
+                break;
+            }
+        }
+
+        //선택된 프로그램 삭제		 
+        for (var j = vCountRow; j >= 0; j--) {
+            var vCheck = ds_programList.getCellData(j, "chk");
+
+            if (vDelCount >= scwin.REG_PROGRAM_COUNT) {
+                break;
+            }
+
+            if (vCheck == "T") {
+                ds_programList.deleteRow(j);
+                ds_programList.removeRow(j);
+                vDelCount++;
+            }
+        }
+    }
+    // gr_programList.ColumnProp("chk", "HeadCheck") = false;  // to-do
+};
+
+//  등록대상 사용자 권한 일괄체크
+scwin.gr_tmpUserList_onheaderclick = function (headerId) {
+    let bCheck = gr_tmpUserList.getHeaderValue("chk");
+
+    let chk;
+    chk = (bCheck == 1) ? "T" : "F"
+
+    var vCountRow = ds_tmpUserList.getTotalRow();
+    if (vCountRow > 0) {
+        if (headerId == "chk") {
+            for (var i = 0; i < vCountRow; i++) {
+                ds_tmpUserList.setCellData(i, "chk", chk);
+            }
+        }
+    }
+};
+
+// 사용자 일괄체크
+scwin.gr_userList_onheaderclick = function (headerId) {
+    var vCountRow = ds_userList.getTotalRow();
+    let bCheck = gr_userList.getHeaderValue("chk");
+
+    let chk;
+    chk = (bCheck == 1) ? "T" : "F";
+
+    if (vCountRow > 0) {
+        if (headerId == "chk") {
+            for (var i = 0; i < vCountRow; i++) {
+                ds_userList.setCellData(i, "chk", chk);
+            }
+        }
+    }
+};
+
+// for="lux_programSearch" event=onSelChange()
+scwin.lux_programSearch_onchange = function (info) {
+    var vProgramSearch = lux_programSearch.getValue();
+    if (vProgramSearch == "0") {
+        // Kor
+        // cfSetIMEModeActiveObjects([txt_searchProgram]);
+    } else {
+        // cfSetIMEModeInactiveObjects([txt_searchProgram]);
+    }
+};
+
+// for="lux_userSearch" event=onSelChange()
+scwin.lux_userSearch_onchange = function (info) {
+    var vUserCond = lux_userSearch.getValue();
+    if (["0", "2"].includes(vUserCond)) {
+        // Kor
+        //cfSetIMEModeActiveObjects([txt_searchUser]);
+    } else {
+        // cfSetIMEModeInactiveObjects([txt_searchUser]);
+    }
+};
+
+scwin.gr_programList_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    if (columnId == "pgmId") {
+        // 팝업 화면 개발 목록에 없음.
+        let url = "/ui/cm/bc/comnmgnt/privmgnt/zz_670_03_01p.xml"
+        let programId = "zz_670_03_01p";
+        let paramObj = {
+            pgmId: ds_programList.getCellData(ds_programList.getRowPosition(), "pgmId")
+        }
+        $c.win.openMenu("프로그램별 전체사용자권한관리", url, programId, paramObj);
+    }
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="lybox flex_no" id="" style="">
+				<xf:group class="col" id="">
+					<xf:group class="shbox" id="" style="">
+						<xf:group class="shbox-inner" id="" style="">
+							<xf:group class="w2tb" id="tbl_search" style="" tagname="table">
+								<w2:attributes>
+									<w2:summary></w2:summary>
+								</w2:attributes>
+								<xf:group tagname="colgroup">
+									<xf:group style="" tagname="col"></xf:group>
+								</xf:group>
+								<xf:group id="" tagname="tr">
+									<xf:group class="w2tb_td" tagname="td">
+										<w2:attributes></w2:attributes>
+										<xf:group class="form-group" id="" style="">
+											<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+												disabledClass="w2selectbox_disabled" id="lux_privGroup_cond" style="width:150px;" submenuSize="auto" ref="" visibleRowNum="20">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[전체]]></xf:label>
+														<xf:value><![CDATA[00]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[어드민]]></xf:label>
+														<xf:value><![CDATA[ADMI]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[관리_기획팀]]></xf:label>
+														<xf:value><![CDATA[CO01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[예산등록]]></xf:label>
+														<xf:value><![CDATA[CO02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사관리회계담당]]></xf:label>
+														<xf:value><![CDATA[CO03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사사업계획입력]]></xf:label>
+														<xf:value><![CDATA[CO04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[감사]]></xf:label>
+														<xf:value><![CDATA[DM01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[회계감사]]></xf:label>
+														<xf:value><![CDATA[DM02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[감사(인천)]]></xf:label>
+														<xf:value><![CDATA[DM03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[감사(BIDC),DS02^협력_보랄]]></xf:label>
+														<xf:value><![CDATA[DM04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[터미널운영(당사)]]></xf:label>
+														<xf:value><![CDATA[DS04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[터미널운영(PDA)]]></xf:label>
+														<xf:value><![CDATA[DS06]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[OB맥주(당사)]]></xf:label>
+														<xf:value><![CDATA[DS34]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[3자물류]]></xf:label>
+														<xf:value><![CDATA[DS35]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[대성냉동-관리]]></xf:label>
+														<xf:value><![CDATA[DS41]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_물류]]></xf:label>
+														<xf:value><![CDATA[DS51]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_물류/자가]]></xf:label>
+														<xf:value><![CDATA[DS55]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_자가]]></xf:label>
+														<xf:value><![CDATA[DS61]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객_선사]]></xf:label>
+														<xf:value><![CDATA[DS81]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[EIS 관리,EIS2^싱글뷰]]></xf:label>
+														<xf:value><![CDATA[EIS1]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[FMS관리]]></xf:label>
+														<xf:value><![CDATA[EQ10]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[FMS일반]]></xf:label>
+														<xf:value><![CDATA[EQ11]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_정비 KMT관리]]></xf:label>
+														<xf:value><![CDATA[EQ91]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_정비 KMT정비]]></xf:label>
+														<xf:value><![CDATA[EQ92]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_렌터카정비]]></xf:label>
+														<xf:value><![CDATA[EQ93]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[재무_재무]]></xf:label>
+														<xf:value><![CDATA[FI01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[재무_관리]]></xf:label>
+														<xf:value><![CDATA[FI02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사회계]]></xf:label>
+														<xf:value><![CDATA[FI03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사결산조회]]></xf:label>
+														<xf:value><![CDATA[FI04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[증빙조회]]></xf:label>
+														<xf:value><![CDATA[FI05]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사회계-해외법인]]></xf:label>
+														<xf:value><![CDATA[FI06]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[채권_재무]]></xf:label>
+														<xf:value><![CDATA[FM01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[채권_관리]]></xf:label>
+														<xf:value><![CDATA[FM02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자금_일반]]></xf:label>
+														<xf:value><![CDATA[FM51]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자금_회계담당]]></xf:label>
+														<xf:value><![CDATA[FM52]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자금_자금담당]]></xf:label>
+														<xf:value><![CDATA[FM53]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자금_자금상위]]></xf:label>
+														<xf:value><![CDATA[FM54]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[부산신항]]></xf:label>
+														<xf:value><![CDATA[FS01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사_물류회계]]></xf:label>
+														<xf:value><![CDATA[FS02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제물류]]></xf:label>
+														<xf:value><![CDATA[FW01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제TPL-일반]]></xf:label>
+														<xf:value><![CDATA[FW21]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제TPL-고객]]></xf:label>
+														<xf:value><![CDATA[FW22]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제TPL-협력1]]></xf:label>
+														<xf:value><![CDATA[FW23]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제TPL-협력2]]></xf:label>
+														<xf:value><![CDATA[FW24]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[물류에너지_관리]]></xf:label>
+														<xf:value><![CDATA[GE01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[물류에너지_일반]]></xf:label>
+														<xf:value><![CDATA[GE02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사물류_오더/통합매출입]]></xf:label>
+														<xf:value><![CDATA[JA01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[한창_사용자]]></xf:label>
+														<xf:value><![CDATA[JA02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[여객구매_관리]]></xf:label>
+														<xf:value><![CDATA[PR01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[여객구매_일반]]></xf:label>
+														<xf:value><![CDATA[PR02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-관리]]></xf:label>
+														<xf:value><![CDATA[RC01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-운영]]></xf:label>
+														<xf:value><![CDATA[RC02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-지점]]></xf:label>
+														<xf:value><![CDATA[RC03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-정비]]></xf:label>
+														<xf:value><![CDATA[RC04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-협력BP]]></xf:label>
+														<xf:value><![CDATA[RC05]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-콜센터]]></xf:label>
+														<xf:value><![CDATA[RC06]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-여행사]]></xf:label>
+														<xf:value><![CDATA[RC07]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-Agent]]></xf:label>
+														<xf:value><![CDATA[RC08]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카-탁송]]></xf:label>
+														<xf:value><![CDATA[RC09]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[시스템운영]]></xf:label>
+														<xf:value><![CDATA[SM01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속공통(TNS)]]></xf:label>
+														<xf:value><![CDATA[TR00]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속관리]]></xf:label>
+														<xf:value><![CDATA[TR01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속안전운영]]></xf:label>
+														<xf:value><![CDATA[TR02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속정비담당]]></xf:label>
+														<xf:value><![CDATA[TR03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속소장_총무_매표원]]></xf:label>
+														<xf:value><![CDATA[TR04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[용기센터]]></xf:label>
+														<xf:value><![CDATA[WM01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[용기협회어드민]]></xf:label>
+														<xf:value><![CDATA[WM02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[이마트공병수거관리]]></xf:label>
+														<xf:value><![CDATA[WM03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[공통]]></xf:label>
+														<xf:value><![CDATA[ZZ00]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객관리]]></xf:label>
+														<xf:value><![CDATA[ZZ01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[Ebiz공통]]></xf:label>
+														<xf:value><![CDATA[ZZ03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[개인정보조회]]></xf:label>
+														<xf:value><![CDATA[ZZ04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[영남지사]]></xf:label>
+														<xf:value><![CDATA[ZZ05]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제공통]]></xf:label>
+														<xf:value><![CDATA[ZZ06]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[차량보험_관리]]></xf:label>
+														<xf:value><![CDATA[ZZ07]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[차량보험_일반]]></xf:label>
+														<xf:value><![CDATA[ZZ08]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[인천하역]]></xf:label>
+														<xf:value><![CDATA[ZZ09]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[운송팀]]></xf:label>
+														<xf:value><![CDATA[ZZ10]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_현대모비스]]></xf:label>
+														<xf:value><![CDATA[ZZ11]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[BIDC_사용자]]></xf:label>
+														<xf:value><![CDATA[ZZ12]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[BIDC_회계담당]]></xf:label>
+														<xf:value><![CDATA[ZZ13]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[BIDC_기획]]></xf:label>
+														<xf:value><![CDATA[ZZ14]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[하역]]></xf:label>
+														<xf:value><![CDATA[ZZ15]]></xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select1>
+											<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+												disabledClass="w2selectbox_disabled" id="lux_sysCd" style="width:150px;" submenuSize="auto" ref="" visibleRowNum="20">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[전체]]></xf:label>
+														<xf:value><![CDATA[00]]></xf:value>
+													</xf:item>
+
+													<xf:item>
+														<xf:label><![CDATA[국내 운영 실적]]></xf:label>
+														<xf:value><![CDATA[AS]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[관리회계]]></xf:label>
+														<xf:value><![CDATA[CO]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[CTS 시스템]]></xf:label>
+														<xf:value><![CDATA[CT]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[하역(부두,장치장)]]></xf:label>
+														<xf:value><![CDATA[CW]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[더존시스템]]></xf:label>
+														<xf:value><![CDATA[DJ]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[통합정비]]></xf:label>
+														<xf:value><![CDATA[EQ]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국내 운영(협력)]]></xf:label>
+														<xf:value><![CDATA[EZ]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[재무회계]]></xf:label>
+														<xf:value><![CDATA[FI]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자금관리]]></xf:label>
+														<xf:value><![CDATA[FM]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[청구/정산]]></xf:label>
+														<xf:value><![CDATA[FS]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[물류에너지]]></xf:label>
+														<xf:value><![CDATA[GE]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제물류(복운)]]></xf:label>
+														<xf:value><![CDATA[IL]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[터미널 운영]]></xf:label>
+														<xf:value><![CDATA[IN]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[수출입 운영]]></xf:label>
+														<xf:value><![CDATA[IO]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국내 운영 관제]]></xf:label>
+														<xf:value><![CDATA[LB]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[통합물류공통]]></xf:label>
+														<xf:value><![CDATA[LO]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[모바일 관리]]></xf:label>
+														<xf:value><![CDATA[MO]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[제안제도]]></xf:label>
+														<xf:value><![CDATA[OF]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국내 운영]]></xf:label>
+														<xf:value><![CDATA[OP]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[구매(소모품)]]></xf:label>
+														<xf:value><![CDATA[PE]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카관리]]></xf:label>
+														<xf:value><![CDATA[RC]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사회계]]></xf:label>
+														<xf:value><![CDATA[SA]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[영업/오더]]></xf:label>
+														<xf:value><![CDATA[SD]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[지원(총무/송무등)]]></xf:label>
+														<xf:value><![CDATA[SP]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[시스템]]></xf:label>
+														<xf:value><![CDATA[SY]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국내 운영(TPL)]]></xf:label>
+														<xf:value><![CDATA[TP]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속]]></xf:label>
+														<xf:value><![CDATA[TR]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[WMS(대성,프릭사)]]></xf:label>
+														<xf:value><![CDATA[WM]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[공통]]></xf:label>
+														<xf:value><![CDATA[ZZ]]></xf:value>
+													</xf:item>
+
+
+												</xf:choices>
+											</xf:select1>
+											<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+												disabledClass="w2selectbox_disabled" id="lux_programSearch" style="width:150px;" submenuSize="auto" ref="" ev:onchange="scwin.lux_programSearch_onchange" visibleRowNum="20">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[프로그램명]]></xf:label>
+														<xf:value><![CDATA[0]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[프로그램ID]]></xf:label>
+														<xf:value><![CDATA[1]]></xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select1>
+											<xf:input class="" id="txt_searchProgram" style="width: 150px;" ev:onkeyup="scwin.txt_searchProgram_onkeyup"
+												maxlength="14"></xf:input>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+						<xf:group class="btn-shbox" id="" style="">
+							<xf:trigger class="btn ico refresh" id="btn_clear1" style="" type="button" ev:onclick="scwin.btn_clear1_onclick">
+								<xf:label><![CDATA[엑셀 UP]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn sch" disabled="" escape="false" id="b_ProgramRetrieve" style="" type="button"
+								ev:onclick="scwin.f_programRetrieve">
+								<xf:label><![CDATA[조회]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="col" id="" style="">
+					<xf:group class="shbox" id="" style="">
+						<xf:group class="shbox-inner" id="" style="">
+							<xf:group class="w2tb " id="" style="" tagname="table">
+								<w2:attributes>
+									<w2:summary></w2:summary>
+								</w2:attributes>
+								<xf:group id="" tagname="tr">
+									<xf:group class="w2tb_th" tagname="th">
+										<w2:attributes>
+											<w2:scope>row</w2:scope>
+										</w2:attributes>
+										<w2:textbox class="" id="" label="사용자구분 " style=""></w2:textbox>
+									</xf:group>
+									<xf:group class="w2tb_td" tagname="td">
+										<w2:attributes></w2:attributes>
+										<xf:group class="form-group" id="" style="">
+											<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+												disabledClass="w2selectbox_disabled" id="lux_userClsCd" style="width:150px;" submenuSize="auto" ref="" visibleRowNum="20">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[내부사용자]]></xf:label>
+														<xf:value><![CDATA[01]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_물류]]></xf:label>
+														<xf:value><![CDATA[02]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객_선사]]></xf:label>
+														<xf:value><![CDATA[03]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객_화주]]></xf:label>
+														<xf:value><![CDATA[04]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자가운송업체]]></xf:label>
+														<xf:value><![CDATA[05]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객_렌터카]]></xf:label>
+														<xf:value><![CDATA[06]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_정비]]></xf:label>
+														<xf:value><![CDATA[07]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_렌터카]]></xf:label>
+														<xf:value><![CDATA[08]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_렌터카정비]]></xf:label>
+														<xf:value><![CDATA[11]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_물류/자가]]></xf:label>
+														<xf:value><![CDATA[09]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_수리업체]]></xf:label>
+														<xf:value><![CDATA[10]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_국제물류]]></xf:label>
+														<xf:value><![CDATA[30]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객_국제물류]]></xf:label>
+														<xf:value><![CDATA[32]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[TPL]]></xf:label>
+														<xf:value><![CDATA[50]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[터미널운영]]></xf:label>
+														<xf:value><![CDATA[60]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[차주_NTIS]]></xf:label>
+														<xf:value><![CDATA[81]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력업체_NTIS]]></xf:label>
+														<xf:value><![CDATA[FB]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[외부_회계]]></xf:label>
+														<xf:value><![CDATA[91]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_렌터카(수출)]]></xf:label>
+														<xf:value><![CDATA[12]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[협력_국제TPL]]></xf:label>
+														<xf:value><![CDATA[31]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고객_국제TPL]]></xf:label>
+														<xf:value><![CDATA[33]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[WMS_FULL]]></xf:label>
+														<xf:value><![CDATA[70]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[총무업무]]></xf:label>
+														<xf:value><![CDATA[77]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[SITC_LOGI]]></xf:label>
+														<xf:value><![CDATA[71]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[JY종합물류]]></xf:label>
+														<xf:value><![CDATA[73]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[극동MES]]></xf:label>
+														<xf:value><![CDATA[74]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[판토스]]></xf:label>
+														<xf:value><![CDATA[75]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[HU로지스]]></xf:label>
+														<xf:value><![CDATA[76]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[TCA]]></xf:label>
+														<xf:value><![CDATA[78]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[CAP]]></xf:label>
+														<xf:value><![CDATA[72]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[포스코인터내셔널]]></xf:label>
+														<xf:value><![CDATA[79]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[영업정보]]></xf:label>
+														<xf:value><![CDATA[SI]]></xf:value>
+													</xf:item>
+
+
+
+
+												</xf:choices>
+											</xf:select1>
+											<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+												disabledClass="w2selectbox_disabled" id="lux_userHomeClsCd" style="width:100px;" submenuSize="auto" ref="" visibleRowNum="20">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[전체]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[공통]]></xf:label>
+														<xf:value><![CDATA[CM]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[국제물류]]></xf:label>
+														<xf:value><![CDATA[FW]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[인사]]></xf:label>
+														<xf:value><![CDATA[HR]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[해외법인]]></xf:label>
+														<xf:value><![CDATA[LA]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[공통/영업청구]]></xf:label>
+														<xf:value><![CDATA[ZZ]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[물류]]></xf:label>
+														<xf:value><![CDATA[DS]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[고속]]></xf:label>
+														<xf:value><![CDATA[TR]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[렌터카]]></xf:label>
+														<xf:value><![CDATA[RC]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[정비]]></xf:label>
+														<xf:value><![CDATA[EQ]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[회계]]></xf:label>
+														<xf:value><![CDATA[AC]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사회계]]></xf:label>
+														<xf:value><![CDATA[SA]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[자회사물류]]></xf:label>
+														<xf:value><![CDATA[JL]]></xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select1>
+											<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+												disabledClass="w2selectbox_disabled" id="lux_userSearch" style="width:100px;" submenuSize="auto" ref="" ev:onchange="scwin.lux_userSearch_onchange" visibleRowNum="20">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[사용자명]]></xf:label>
+														<xf:value><![CDATA[0]]></xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[사용자ID]]></xf:label>
+														<xf:value><![CDATA[1]]></xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select1>
+											<xf:input class="" id="txt_searchUser" style="width: 150px;" ev:onkeyup="scwin.txt_searchUser_onkeyup"></xf:input>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+						<xf:group class="btn-shbox" id="" style="">
+							<xf:trigger class="btn ico refresh" id="btn_clear2" style="" type="button" ev:onclick="scwin.btn_clear2_onclick">
+								<xf:label><![CDATA[엑셀 UP]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn sch" disabled="" escape="false" id="b_UserRetrieve" style="" type="button"
+								ev:onclick="scwin.f_userRetrieve">
+								<xf:label><![CDATA[조회]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class=" row-gap-8" id="" style="">
+					<xf:group class="lybox flex_no" id="" style="">
+
+
+						<xf:group class="col row-gap-8" id="">
+							<xf:group class="title-wrap" id="" style="">
+								<xf:group class="title" id="">
+									<w2:textbox class="tit" id="" label="프로그램 " style="" tagname="h3"></w2:textbox>
+								</xf:group>
+							</xf:group>
+							<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group2" style="">
+								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_programList"
+									focusMode="row" id="gr_programList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5"
+									visibleRowNumFix="true" ev:onheaderclick="scwin.gr_programList_onheaderclick" ev:oncelldblclick="scwin.gr_programList_oncelldblclick">
+									<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+									<w2:header id="header2" style="">
+										<w2:row id="row3" style="">
+											<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true"
+												colSpan="" rowSpan="2" trueValue="T" falseValue="F" valueType="boolean">
+											</w2:column>
+											<w2:column displayMode="label" id="column38" inputType="text" style="" value="프로그램ID" width="120" colSpan=""
+												rowSpan="2" class="txt-red">
+											</w2:column>
+											<w2:column displayMode="label" id="column36" inputType="text" style="" value="프로그램명" width="160" colSpan="" rowSpan="2"
+												class="txt-red">
+											</w2:column>
+											<w2:column displayMode="label" id="column34" inputType="text" style="" value="C" width="65"></w2:column>
+											<w2:column displayMode="label" id="column32" inputType="text" style="" value="R" width="65"></w2:column>
+											<w2:column displayMode="label" id="column28" inputType="text" style="" value="U" width="65"></w2:column>
+											<w2:column displayMode="label" id="column26" inputType="text" style="" value="D" width="65"></w2:column>
+											<w2:column displayMode="label" id="column22" inputType="text" style="" value="P" width="65"></w2:column>
+											<w2:column displayMode="label" id="column24" inputType="text" style="" value="X" width="65"></w2:column>
+											<w2:column width="100" inputType="text" style="" id="column49" value="사이드" displayMode="label" colSpan="" rowSpan="2" hidden="true">
+											</w2:column>
+										</w2:row>
+										<w2:row style="" id="row5">
+											<w2:column width="65" inputType="checkbox" style="" id="column45" value="" displayMode="label" trueValue="T"
+												falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column width="65" inputType="checkbox" style="" id="column44" value="" displayMode="label" trueValue="T"
+												falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column width="65" inputType="checkbox" style="" id="column43" value="" displayMode="label" trueValue="T"
+												falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column width="65" inputType="checkbox" style="" id="column42" value="" displayMode="label" trueValue="T"
+												falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column width="65" inputType="checkbox" style="" id="column41" value="" displayMode="label" trueValue="T"
+												falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column width="65" inputType="checkbox" style="" id="column40" value="" displayMode="label" trueValue="T"
+												falseValue="F" valueType="other">
+											</w2:column>
+										</w2:row>
+									</w2:header>
+									<w2:gBody id="gBody2" style="">
+										<w2:row id="row4" style="">
+											<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true" trueValue="T" falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column displayMode="label" id="pgmId" inputType="text" style="" value="" width="120"></w2:column>
+											<w2:column displayMode="label" id="pgmNm" inputType="text" style="" value="" width="160"></w2:column>
+											<w2:column displayMode="label" id="insYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="qryYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="modYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="delYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="prtnYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="xlsDwnldYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column width="100" inputType="text" style="" id="side" value="" displayMode="label"></w2:column>
+										</w2:row>
+									</w2:gBody>
+								</w2:gridView>
+								<xf:group class="grid-bottom " id="" style="">
+									<xf:group class="left" id="" style="">
+										<xf:group class="grid-total" id="">
+											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+											</w2:textbox>
+											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+						<xf:group class="col row-gap-8" id="">
+							<xf:group class="title-wrap" id="" style="">
+								<xf:group class="title" id="" tagname="h3">
+									<w2:textbox class="tit" id="" label="사용자 " style="" tagname="h3"></w2:textbox>
+								</xf:group>
+							</xf:group>
+							<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group3" style="">
+								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_userList"
+									focusMode="row" id="gr_userList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="6"
+									visibleRowNumFix="true" ev:onheaderclick="scwin.gr_userList_onheaderclick" readOnly="true">
+									<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+									<w2:header id="header2" style="">
+										<w2:row id="row3" style="">
+											<w2:column displayMode="label" id="column30" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true" trueValue="T" falseValue="F" valueType="boolean">
+											</w2:column>
+											<w2:column displayMode="label" id="column38" inputType="text" style="" value="사용자ID" width="120" class="txt-red">
+											</w2:column>
+											<w2:column displayMode="label" id="column36" inputType="text" style="" value="사용자명" width="100">
+											</w2:column>
+											<w2:column displayMode="label" id="column34" inputType="text" style="" value="사용자구분" width="120">
+											</w2:column>
+											<w2:column displayMode="label" id="column32" inputType="text" style="" value="소속구분" width="100">
+											</w2:column>
+										</w2:row>
+									</w2:header>
+									<w2:gBody id="gBody2" style="">
+										<w2:row id="row4" style="">
+											<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true" trueValue="T" falseValue="F" valueType="other" readOnly="false">
+											</w2:column>
+											<w2:column displayMode="label" id="userId" inputType="text" style="" value="" width="120"></w2:column>
+											<w2:column displayMode="label" id="userNm" inputType="text" style="" value="" width="100"></w2:column>
+											<w2:column displayMode="label" id="userClsCd" inputType="select" style="" value="" width="120" allOption=""
+												chooseOption="" ref="">
+												<w2:choices>
+													<w2:item>
+														<w2:label><![CDATA[내부사용자]]></w2:label>
+														<w2:value><![CDATA[01]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_물류]]></w2:label>
+														<w2:value><![CDATA[02]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_선사]]></w2:label>
+														<w2:value><![CDATA[03]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_화주]]></w2:label>
+														<w2:value><![CDATA[04]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[자가운송업체]]></w2:label>
+														<w2:value><![CDATA[05]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_렌터카]]></w2:label>
+														<w2:value><![CDATA[06]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_정비]]></w2:label>
+														<w2:value><![CDATA[07]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_렌터카]]></w2:label>
+														<w2:value><![CDATA[08]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_렌터카정비]]></w2:label>
+														<w2:value><![CDATA[11]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_물류/자가]]></w2:label>
+														<w2:value><![CDATA[09]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_수리업체]]></w2:label>
+														<w2:value><![CDATA[10]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_국제물류]]></w2:label>
+														<w2:value><![CDATA[30]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_국제물류]]></w2:label>
+														<w2:value><![CDATA[32]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[TPL]]></w2:label>
+														<w2:value><![CDATA[50]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[터미널운영]]></w2:label>
+														<w2:value><![CDATA[60]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[차주_NTIS]]></w2:label>
+														<w2:value><![CDATA[81]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력업체_NTIS]]></w2:label>
+														<w2:value><![CDATA[FB]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[외부_회계]]></w2:label>
+														<w2:value><![CDATA[91]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_렌터카(수출)]]></w2:label>
+														<w2:value><![CDATA[12]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_국제TPL]]></w2:label>
+														<w2:value><![CDATA[31]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_국제TPL]]></w2:label>
+														<w2:value><![CDATA[33]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[WMS_FULL]]></w2:label>
+														<w2:value><![CDATA[70]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[총무업무]]></w2:label>
+														<w2:value><![CDATA[77]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[SITC_LOGI]]></w2:label>
+														<w2:value><![CDATA[71]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[JY종합물류]]></w2:label>
+														<w2:value><![CDATA[73]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[극동MES]]></w2:label>
+														<w2:value><![CDATA[74]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[판토스]]></w2:label>
+														<w2:value><![CDATA[75]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[HU로지스]]></w2:label>
+														<w2:value><![CDATA[76]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[TCA]]></w2:label>
+														<w2:value><![CDATA[78]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[CAP]]></w2:label>
+														<w2:value><![CDATA[72]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[포스코인터내셔널]]></w2:label>
+														<w2:value><![CDATA[79]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[영업정보]]></w2:label>
+														<w2:value><![CDATA[SI]]></w2:value>
+													</w2:item>
+
+
+												</w2:choices>
+											</w2:column>
+											<w2:column displayMode="label" id="userHomeClsCd" inputType="select" style="" value="" width="100" allOption=""
+												chooseOption="" ref="">
+												<w2:choices>
+													<w2:item>
+														<w2:label><![CDATA[공통]]></w2:label>
+														<w2:value><![CDATA[CM]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[국제물류]]></w2:label>
+														<w2:value><![CDATA[FW]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[인사]]></w2:label>
+														<w2:value><![CDATA[HR]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[해외법인]]></w2:label>
+														<w2:value><![CDATA[LA]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[공통/영업청구]]></w2:label>
+														<w2:value><![CDATA[ZZ]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[물류]]></w2:label>
+														<w2:value><![CDATA[DS]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고속]]></w2:label>
+														<w2:value><![CDATA[TR]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[렌터카]]></w2:label>
+														<w2:value><![CDATA[RC]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[정비]]></w2:label>
+														<w2:value><![CDATA[EQ]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[회계]]></w2:label>
+														<w2:value><![CDATA[AC]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[자회사회계]]></w2:label>
+														<w2:value><![CDATA[SA]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[자회사물류]]></w2:label>
+														<w2:value><![CDATA[JL]]></w2:value>
+													</w2:item>
+												</w2:choices>
+											</w2:column>
+										</w2:row>
+									</w2:gBody>
+								</w2:gridView>
+								<xf:group class="grid-bottom " id="" style="">
+									<xf:group class="left" id="" style="">
+										<xf:group class="grid-total" id="">
+											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows2" label="0" style="" tagname="span">
+											</w2:textbox>
+											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group class="lybox" id="" style="">
+						<xf:group class="col" id="">
+							<xf:group class="shattle" id="" style="">
+								<xf:trigger class="btn ico btn-double-down" id="btn_trigger4" style="" type="button" ev:onclick="scwin.f_ProgramMoveDown">
+									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+								</xf:trigger>
+								<xf:trigger class="btn ico btn-double-up" id="btn_trigger5" style="" type="button" ev:onclick="scwin.f_ProgramMoveUp">
+									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+						</xf:group>
+						<xf:group class="col" id="">
+							<xf:group class="shattle" id="" style="">
+								<xf:trigger class="btn ico btn-double-down" id="btn_trigger8" style="" type="button" ev:onclick="scwin.f_UserMoveDown">
+									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+								</xf:trigger>
+								<xf:trigger class="btn ico btn-double-up" id="btn_trigger9" style="" type="button" ev:onclick="scwin.f_UserMoveUp">
+									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+						</xf:group>
+
+					</xf:group>
+					<xf:group class="lybox flex_no" id="" style="">
+						<xf:group class="col" id="">
+							<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group8" style="">
+								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_tmpProgramList"
+									focusMode="row" id="gr_tmpProgramList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5"
+									visibleRowNumFix="true" ev:onheaderclick="scwin.gr_tmpProgramList_onheaderclick">
+									<w2:caption id="caption11" style="" value="this is a grid caption."></w2:caption>
+									<w2:header id="header2" style="">
+										<w2:row id="row3" style="">
+											<w2:column colSpan="" displayMode="label" fixColumnWidth="true" id="column30" inputType="checkbox" rowSpan="2" style=""
+												value="" width="50" valueType="other" falseValue="F" trueValue="T">
+											</w2:column>
+											<w2:column class="txt-red" colSpan="" displayMode="label" id="column38" inputType="text" rowSpan="2" style=""
+												value="프로그램ID" width="120">
+											</w2:column>
+											<w2:column class="txt-red" colSpan="" displayMode="label" id="column36" inputType="text" rowSpan="2" style=""
+												value="프로그램명" width="160">
+											</w2:column>
+											<w2:column displayMode="label" id="column34" inputType="text" style="" value="C" width="65"></w2:column>
+											<w2:column displayMode="label" id="column32" inputType="text" style="" value="R" width="65"></w2:column>
+											<w2:column displayMode="label" id="column28" inputType="text" style="" value="U" width="65"></w2:column>
+											<w2:column displayMode="label" id="column26" inputType="text" style="" value="D" width="65"></w2:column>
+											<w2:column displayMode="label" id="column22" inputType="text" style="" value="P" width="65"></w2:column>
+											<w2:column displayMode="label" id="column24" inputType="text" style="" value="X" width="65"></w2:column>
+											<w2:column colSpan="" displayMode="label" id="column49" inputType="text" rowSpan="2" style="" value="사이드" width="100" hidden="true">
+											</w2:column>
+										</w2:row>
+										<w2:row id="row5" style="">
+											<w2:column displayMode="label" id="column45" inputType="checkbox" style="" value="" width="65">
+											</w2:column>
+											<w2:column displayMode="label" id="column44" inputType="checkbox" style="" value="" width="65">
+											</w2:column>
+											<w2:column displayMode="label" id="column43" inputType="checkbox" style="" value="" width="65">
+											</w2:column>
+											<w2:column displayMode="label" id="column42" inputType="checkbox" style="" value="" width="65">
+											</w2:column>
+											<w2:column displayMode="label" id="column41" inputType="checkbox" style="" value="" width="65">
+											</w2:column>
+											<w2:column displayMode="label" id="column40" inputType="checkbox" style="" value="" width="65">
+											</w2:column>
+										</w2:row>
+									</w2:header>
+									<w2:gBody id="gBody2" style="">
+										<w2:row id="row4" style="">
+											<w2:column displayMode="label" fixColumnWidth="true" id="chk" inputType="checkbox" style="" value="" width="50" trueValue="T" falseValue="F" valueType="other">
+											</w2:column>
+											<w2:column displayMode="label" id="pgmId" inputType="text" style="" value="" width="120"></w2:column>
+											<w2:column displayMode="label" id="pgmNm" inputType="text" style="" value="" width="160"></w2:column>
+											<w2:column displayMode="label" id="insYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="qryYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="modYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="delYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="prtnYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="xlsDwnldYn" inputType="checkbox" style="" value="" width="65"></w2:column>
+											<w2:column displayMode="label" id="side" inputType="text" style="" value="" width="100"></w2:column>
+										</w2:row>
+									</w2:gBody>
+								</w2:gridView>
+								<xf:group class="grid-bottom " id="" style="">
+									<xf:group class="left" id="" style="display: none;">
+										<xf:group class="grid-total" id="">
+											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows3" label="0" style="" tagname="span">
+											</w2:textbox>
+											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+										</xf:group>
+
+									</xf:group>
+									<xf:group id="" class="right">
+										<xf:trigger style="" id="b_PgmUndoAll" type="button" class="btn" ev:onclick="scwin.f_programUndoAll">
+											<xf:label><![CDATA[취소]]></xf:label>
+										</xf:trigger>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+						<xf:group class="col" id="">
+							<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group9" style="">
+								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_tmpUserList"
+									focusMode="row" id="gr_tmpUserList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="6"
+									visibleRowNumFix="true" ev:onheaderclick="scwin.gr_tmpUserList_onheaderclick" readOnly="true">
+									<w2:caption id="caption12" style="" value="this is a grid caption."></w2:caption>
+									<w2:header id="header2" style="">
+										<w2:row id="row3" style="">
+											<w2:column displayMode="label" fixColumnWidth="true" id="column30" inputType="checkbox" style="" value="" width="50" valueType="other" trueValue="T" falseValue="F">
+											</w2:column>
+											<w2:column class="txt-red" displayMode="label" id="column38" inputType="text" style="" value="사용자ID" width="120">
+											</w2:column>
+											<w2:column displayMode="label" id="column36" inputType="text" style="" value="사용자명" width="100">
+											</w2:column>
+											<w2:column displayMode="label" id="column34" inputType="text" style="" value="사용자구분" width="120">
+											</w2:column>
+											<w2:column displayMode="label" id="column32" inputType="text" style="" value="소속구분" width="100">
+											</w2:column>
+										</w2:row>
+									</w2:header>
+									<w2:gBody id="gBody2" style="">
+										<w2:row id="row4" style="">
+											<w2:column displayMode="label" fixColumnWidth="true" id="chk" inputType="checkbox" style="" value="" width="50" valueType="other" trueValue="T" falseValue="F" readOnly="false">
+											</w2:column>
+											<w2:column displayMode="label" id="userId" inputType="text" style="" value="" width="120"></w2:column>
+											<w2:column displayMode="label" id="userNm" inputType="text" style="" value="" width="100"></w2:column>
+											<w2:column displayMode="label" id="userClsCd" inputType="select" style="" value="" width="120"
+												allOption="" chooseOption="" ref="">
+												<w2:choices>
+													<w2:item>
+														<w2:label><![CDATA[내부사용자]]></w2:label>
+														<w2:value><![CDATA[01]]></w2:value>
+													</w2:item>
+
+													<w2:item>
+														<w2:label><![CDATA[협력_물류]]></w2:label>
+														<w2:value><![CDATA[02]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_선사]]></w2:label>
+														<w2:value><![CDATA[03]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_화주]]></w2:label>
+														<w2:value><![CDATA[04]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[자가운송업체]]></w2:label>
+														<w2:value><![CDATA[05]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_렌터카]]></w2:label>
+														<w2:value><![CDATA[06]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_정비]]></w2:label>
+														<w2:value><![CDATA[07]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_렌터카]]></w2:label>
+														<w2:value><![CDATA[08]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_렌터카정비]]></w2:label>
+														<w2:value><![CDATA[11]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_물류/자가]]></w2:label>
+														<w2:value><![CDATA[09]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_수리업체]]></w2:label>
+														<w2:value><![CDATA[10]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_국제물류]]></w2:label>
+														<w2:value><![CDATA[30]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_국제물류]]></w2:label>
+														<w2:value><![CDATA[32]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[TPL]]></w2:label>
+														<w2:value><![CDATA[50]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[터미널운영]]></w2:label>
+														<w2:value><![CDATA[60]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[차주_NTIS]]></w2:label>
+														<w2:value><![CDATA[81]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력업체_NTIS]]></w2:label>
+														<w2:value><![CDATA[FB]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[외부_회계]]></w2:label>
+														<w2:value><![CDATA[91]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_렌터카(수출)]]></w2:label>
+														<w2:value><![CDATA[12]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[협력_국제TPL]]></w2:label>
+														<w2:value><![CDATA[31]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고객_국제TPL]]></w2:label>
+														<w2:value><![CDATA[33]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[WMS_FULL]]></w2:label>
+														<w2:value><![CDATA[70]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[총무업무]]></w2:label>
+														<w2:value><![CDATA[77]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[SITC_LOGI]]></w2:label>
+														<w2:value><![CDATA[71]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[JY종합물류]]></w2:label>
+														<w2:value><![CDATA[73]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[극동MES]]></w2:label>
+														<w2:value><![CDATA[74]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[판토스]]></w2:label>
+														<w2:value><![CDATA[75]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[HU로지스]]></w2:label>
+														<w2:value><![CDATA[76]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[TCA]]></w2:label>
+														<w2:value><![CDATA[78]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[CAP]]></w2:label>
+														<w2:value><![CDATA[72]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[포스코인터내셔널]]></w2:label>
+														<w2:value><![CDATA[79]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[영업정보]]></w2:label>
+														<w2:value><![CDATA[SI]]></w2:value>
+													</w2:item>
+
+												</w2:choices>
+											</w2:column>
+											<w2:column displayMode="label" id="userHomeClsCd" inputType="select" style="" value=""
+												width="100" allOption="" chooseOption="" ref="">
+												<w2:choices>
+													<w2:item>
+														<w2:label><![CDATA[공통]]></w2:label>
+														<w2:value><![CDATA[CM]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[국제물류]]></w2:label>
+														<w2:value><![CDATA[FW]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[인사]]></w2:label>
+														<w2:value><![CDATA[HR]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[해외법인]]></w2:label>
+														<w2:value><![CDATA[LA]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[공통/영업청구]]></w2:label>
+														<w2:value><![CDATA[ZZ]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[물류]]></w2:label>
+														<w2:value><![CDATA[DS]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[고속]]></w2:label>
+														<w2:value><![CDATA[TR]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[렌터카]]></w2:label>
+														<w2:value><![CDATA[RC]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[정비]]></w2:label>
+														<w2:value><![CDATA[EQ]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[회계]]></w2:label>
+														<w2:value><![CDATA[AC]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[자회사회계]]></w2:label>
+														<w2:value><![CDATA[SA]]></w2:value>
+													</w2:item>
+													<w2:item>
+														<w2:label><![CDATA[자회사물류]]></w2:label>
+														<w2:value><![CDATA[JL]]></w2:value>
+													</w2:item>
+												</w2:choices>
+											</w2:column>
+										</w2:row>
+									</w2:gBody>
+								</w2:gridView>
+								<xf:group class="grid-bottom " id="" style="">
+									<xf:group class="left" id="" style="display: none;">
+										<xf:group class="grid-total" id="">
+											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows4" label="0" style="" tagname="span">
+											</w2:textbox>
+											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+										</xf:group>
+									</xf:group>
+									<xf:group class="right" id="" style="">
+										<xf:trigger class="btn" id="b_UserUndoAll" style="" type="button" ev:onclick="scwin.f_userUndoAll">
+											<xf:label><![CDATA[취소]]></xf:label>
+										</xf:trigger>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group id="" class="right">
+						<xf:trigger style="" id="b_Save" type="button" class="btn" ev:onclick="scwin.f_Save">
+							<xf:label><![CDATA[저장]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

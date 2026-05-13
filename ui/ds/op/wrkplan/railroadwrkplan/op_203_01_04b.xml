@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_PrivatetrainAssign" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="dptStnWrkPlNm" name="출발역" dataType="text"></w2:column>
+						<w2:column id="arvStnWrkPlNm" name="도착역" dataType="text"></w2:column>
+						<w2:column id="clsCd" name="구분코드" dataType="text"></w2:column>
+						<w2:column id="clsNm" name="구분" dataType="text"></w2:column>
+						<w2:column id="cnt20Empty" name="Empty" dataType="text"></w2:column>
+						<w2:column id="cnt20Full" name="Full" dataType="text"></w2:column>
+						<w2:column id="cnt40Empty" name="Empty" dataType="text"></w2:column>
+						<w2:column id="cnt40Full" name="Full" dataType="text"></w2:column>
+						<w2:column id="cnt45Empty" name="Empty" dataType="text"></w2:column>
+						<w2:column id="cnt45Full" name="Full" dataType="text"></w2:column>
+						<w2:column id="sumTeu" name="합계" dataType="text"></w2:column>
+						<w2:column id="teu" name="TEU" dataType="text"></w2:column>
+						<w2:column id="reference" name="증감(TEU)" dataType="text"></w2:column>
+						<w2:column id="dayCapaTeu" name="일Capa" dataType="text"></w2:column>
+						<w2:column id="bgColordat" name="color" dataType="text"></w2:column>
+
+						<w2:column id="reqDt" name="color" dataType="text"></w2:column>
+						<w2:column id="transWrkIndictNo" name="color" dataType="text"></w2:column>
+						<w2:column id="indictSeq" name="color" dataType="text"></w2:column>
+						<w2:column id="dptStnWrkPlCd" name="color" dataType="text"></w2:column>
+						<w2:column id="arvStnWrkPlCd" name="color" dataType="text"></w2:column>
+						<w2:column id="modId" name="color" dataType="text"></w2:column>
+						<w2:column id="modDtm" name="color" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_btAssign" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="dptStnWrkPlNm" name="출발역" dataType="text"></w2:column>
+						<w2:column id="arvStnWrkPlNm" name="도착역" dataType="text"></w2:column>
+						<w2:column id="clsNm" name="구분" dataType="text"></w2:column>
+						<w2:column id="cnt20Empty" name="Empty" dataType="text"></w2:column>
+						<w2:column id="cnt20Full" name="Full" dataType="text"></w2:column>
+						<w2:column id="cnt40Empty" name="Empty" dataType="text"></w2:column>
+						<w2:column id="cnt40Full" name="Full" dataType="text"></w2:column>
+						<w2:column id="cnt45Empty" name="Empty" dataType="text"></w2:column>
+						<w2:column id="cnt45Full" name="Full" dataType="text"></w2:column>
+						<w2:column id="sumTeu" name="합계" dataType="text"></w2:column>
+						<w2:column id="teu" name="TEU" dataType="text"></w2:column>
+						<w2:column id="bgColordat" name="color" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="ds_QueryCondition">
+					<w2:keyInfo>
+						<w2:key id="reqDt" name="name1" dataType="text"></w2:key>
+						<w2:key id="dptStn" name="name2" dataType="text"></w2:key>
+						<w2:key id="arvStn" name="name3" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="ds_batch">
+					<w2:keyInfo>
+						<w2:key id="reqDt" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="ds_hidden">
+					<w2:keyInfo>
+						<w2:key id="grPrivatetrainAssignTotCnt" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_RetrievePrivatetrainAssign" action="/ds.op.wrkplan.railroadwrkplan.RetrievePrivatetrainAssignCMD.do"
+				method="post" mediatype="application/json"
+				ref='data:json,[{"id":"ds_QueryCondition","key":"IN_DS1"},{"id":"ds_PrivatetrainAssign","key":"OUT_DS1"},{"id":"ds_btAssign","key":"OUT_DS2"}]'
+				target='data:json,[{"id":"ds_PrivatetrainAssign","key":"OUT_DS1"},{"id":"ds_btAssign","key":"OUT_DS2"}]' encoding="UTF-8" instance=""
+				replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_RetrievePrivatetrainAssign_submit"
+				ev:submitdone="scwin.sbm_RetrievePrivatetrainAssign_submitdone" ev:submiterror="scwin.sbm_RetrievePrivatetrainAssign_submiterror"
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_UpdatePrivatetrainAssign" action="/ds.op.wrkplan.railroadwrkplan.UpdatePrivatetrainAssignCMD.do"
+				method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_PrivatetrainAssign","key":"IN_DS1"}' target="" encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="scwin.sbm_UpdatePrivatetrainAssign_submit" ev:submitdone="scwin.sbm_UpdatePrivatetrainAssign_submitdone"
+				ev:submiterror="scwin.sbm_UpdatePrivatetrainAssign_submiterror" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_batch" action="/ds.op.wrkplan.railroadwrkplan.ExecutePrivatetrainAssignCMD.do" method="post"
+				mediatype="application/json" ref='data:json,{"id":"ds_batch","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_batch_submit"
+				ev:submitdone="scwin.sbm_batch_submitdone" ev:submiterror="scwin.sbm_batch_submiterror" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : op_203_01_04b 
+// 이름     : 사유화차배정량수정
+// 경로     : 물류/작업계획/철송/
+// 작 성 자 : 조성빈
+// 작 업 일 : 2025-12-23
+// 사용계정 : 내부
+// 비고     : 
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            op_203_01_04p(저감액 우선순위 현황) - 저감액 우선순위 버튼 클릭
+//==================================================================================================================
+scwin.toDay;
+scwin.dateStr;
+scwin.CREATE_AUTH;
+
+scwin.onpageload = function() {
+    scwin.toDay = $c.date.getServerDateTime("yyyyMMdd");
+    scwin.dateStr = scwin.toDay;
+    scwin.CREATE_AUTH = $p.getFrame().CREATE_AUTH;
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+
+        ica_signDt.setValue(scwin.dateStr);
+        ica_signDt.focus();
+
+        // $c.gus.cfDisableBtn([btn_save]);
+
+        // $p.setTimeout(function() {
+        //     ica_signDt.setValue("20061227")
+        // }, {"delay":50});
+        
+    }, {"delay":50});
+};
+
+//-------------------------------------------------------------------------
+// 사유화차배정량수정 조회
+//-------------------------------------------------------------------------
+scwin.f_qeryList = async function (){
+    var valid = await $c.gus.cfValidate([ica_signDt])
+  	if (!valid) {	// 신청일자, 출발역
+  		return;
+	}
+    ds_QueryCondition.set("reqDt", ica_signDt.getValue());                      // 신청일자
+    ds_QueryCondition.set("dptStn", ed_begintrainWorkPlaceCd.getValue());       // 출발역
+    ds_QueryCondition.set("arvStn", ed_endtrainWorkPlaceCd.getValue());         // 도착역
+	
+	$c.sbm.execute(sbm_RetrievePrivatetrainAssign);
+}; 
+
+//-------------------------------------------------------------------------
+// 저장버튼 처리 
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (eqCd){
+   var teuB_under = 0;
+   var realTeuA = 0;
+
+    for(var i = 0; i < ds_PrivatetrainAssign.getRowCount(); i++){
+        if (ds_PrivatetrainAssign.getCellData(i, "clsCd") == "02"){
+            teuB_under += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+            if (scwin.CREATE_AUTH != "C") {
+          	    //생성권한이 없는 사람은 배정작업이 끝난 후에는 수정을 할 수 없다
+                if ( ds_PrivatetrainAssign.getCellData(i,"cnt20Empty") > 0
+                    || ds_PrivatetrainAssign.getCellData(i,"cnt20Full") > 0
+                    || ds_PrivatetrainAssign.getCellData(i,"cnt40Empty") > 0
+                    || ds_PrivatetrainAssign.getCellData(i,"cnt40Full") > 0
+                    || ds_PrivatetrainAssign.getCellData(i,"cnt45Empty") > 0
+                    || ds_PrivatetrainAssign.getCellData(i,"cnt45Full") > 0 ) {
+                    await $c.gus.cfAlertMsg("이미 배정작업이 끝났습니다");
+                    return;
+                }
+	        }
+        }
+        if(ds_PrivatetrainAssign.getCellData(i, "clsCd") == "05"){
+            realTeuA += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+    }
+    if(parseInt(teuB_under) > 202){
+        await $c.gus.cfAlertMsg("배정량이 202 TEU 초과했습니다.");
+        return;
+    }
+    var conf = await $c.win.confirm(MSG_CM_CRM_001) 
+    if (conf){  
+        $c.sbm.execute(sbm_UpdatePrivatetrainAssign);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+	$c.gus.cfInitObjects(tbl_search, null);
+	ica_signDt.focus();
+	ica_signDt.setValue(scwin.dateStr);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  	
+  	// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  	if (!await $c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+    
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+	
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+	
+	// inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+	    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+	else
+	    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  	// 선언부
+	switch (disGubun)
+  	{
+  		case 1:   // 출발역 역명 팝업	
+            udc_begintrainWorkPlace.setSelectId("retrieveTrainWorkPlace");
+  			udc_begintrainWorkPlace.cfCommonPopUp(scwin.udc_begintrainWorkPlace_callBackFunc	// XML상의 SELECT ID	
+                                                 ,pCode					                        // 화면에서의 ??? Code Element의	Value
+                                                 ,pName					                        // 화면에서의 ??? Name Element의	Value
+                                                 ,pClose				                        // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+                                                 ,null					                        // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                                 ,null					                        // Title순서	
+                                                 ,null					                        // 보여주는 각 컬럼들의 폭	
+                                                 ,null					                        // 컬럼중에서 숨기는	컬럼 지정	
+                                                 ,null					                        // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                                                 ,null					                        // POP-UP뛰을때 원도우의	사용자 정의	폭
+                                                 ,null					                        // POP-UP뛰을때 우도우의	사용자 정의	높이	
+                                                 ,null					                        // 윈도우 위치 Y좌표	
+                                                 ,null					                        // 윈도우 위치 X좌표
+                                                 ,null					                        // 중복체크여부	("F")
+                                                 ,pAllSearch					                // 전체검색허용여부	("F")
+                                                 ,"역명조회,작업장코드,작업장명"				// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            ); 
+			break;
+  		case 2:  // 도착역 역명 팝업	
+            udc_endtrainWorkPlace.setSelectId("retrieveTrainWorkPlace");
+  			udc_endtrainWorkPlace.cfCommonPopUp(scwin.udc_endtrainWorkPlace_callBackFunc	// XML상의 SELECT ID	
+  									           ,pCode					                    // 화면에서의 ??? Code Element의	Value
+  									           ,pName					                    // 화면에서의 ??? Name Element의	Value
+  									           ,pClose					                    // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+  									           ,null					                    // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+  									           ,null					                    // Title순서	
+  									           ,null					                    // 보여주는 각 컬럼들의 폭	
+  									           ,null					                    // 컬럼중에서 숨기는	컬럼 지정	
+  									           ,null					                    // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+  									           ,null					                    // POP-UP뛰을때 원도우의	사용자 정의	폭
+  									           ,null					                    // POP-UP뛰을때 우도우의	사용자 정의	높이	
+  									           ,null					                    // 윈도우 위치 Y좌표	
+  									           ,null					                    // 윈도우 위치 X좌표
+  									           ,null					                    // 중복체크여부	("F")
+  									           ,pAllSearch					                // 전체검색허용여부	("F")
+  									           ,"역명조회,작업장코드,작업장명"				 // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            ); 
+			break;
+    }	
+};
+
+//-------------------------------------------------------------------------
+// 계산 처리 **
+//-------------------------------------------------------------------------
+scwin.f_internalCal = function(row, colid, oldData, newData) {  
+    if(colid == "cnt20Empty" || colid == "cnt20Full" || colid == "cnt40Empty" 
+        || colid == "cnt40Full"  || colid == "cnt45Empty" || colid == "cnt45Full") {
+
+        var cnt20Empty  = parseInt(ds_PrivatetrainAssign.getCellData(row, "cnt20Empty"));
+        var cnt20Full   = parseInt(ds_PrivatetrainAssign.getCellData(row, "cnt20Full"));
+        var cnt40Empty  = parseInt(ds_PrivatetrainAssign.getCellData(row, "cnt40Empty"));
+        var cnt40Full   = parseInt(ds_PrivatetrainAssign.getCellData(row, "cnt40Full"));
+        var cnt45Empty  = parseInt(ds_PrivatetrainAssign.getCellData(row, "cnt45Empty"));
+        var cnt45Full   = parseInt(ds_PrivatetrainAssign.getCellData(row, "cnt45Full"));
+        if (colid == "cnt20Empty") cnt20Empty = parseInt(newData);
+        if (colid == "cnt20Full") cnt20Full = parseInt(newData);
+        if (colid == "cnt40Empty") cnt40Empty = parseInt(newData);
+        if (colid == "cnt40Full") cnt40Full = parseInt(newData);
+        if (colid == "cnt45Empty") cnt45Empty = parseInt(newData);
+        if (colid == "cnt45Full") cnt45Full = parseInt(newData);
+        
+        if(ds_PrivatetrainAssign.getCellData(row, colid) == "") {
+            ds_PrivatetrainAssign.setCellData(row, colid, 0);
+        }
+        ds_PrivatetrainAssign.setCellData(row, "sumTeu", cnt20Empty
+                                                       + cnt20Full
+                                                       + cnt40Empty
+                                                       + cnt40Full
+                                                       + cnt45Empty
+                                                       + cnt45Full
+        );
+        ds_PrivatetrainAssign.setCellData(row, "teu", cnt20Empty
+                                                    + cnt20Full
+                                                    + (  cnt40Empty
+                                                       + cnt40Full
+                                                       + cnt45Empty
+                                                       + cnt45Full
+                                                    ) * 2
+        );
+        if (ds_PrivatetrainAssign.getCellData(row, "clsCd") == "02") {    
+            scwin.f_internalCal2(row, colid, oldData);
+        }                                        
+    }
+    scwin.f_totalUnderValue();
+};
+  
+//-------------------------------------------------------------------------
+// 그리드 아래쪽 합계 계산 처리 **
+//-------------------------------------------------------------------------
+scwin.f_totalUnderValue = function (){    
+    var total_cnt    = ds_PrivatetrainAssign.getRowCount();
+    var teuA_under   = 0;
+    var teuB_under   = 0;
+    var teuC_under   = 0;
+    var realTeuA     = 0;
+    var realTeuB     = 0;
+    var realTeuC     = 0;
+    var div_str      = "";
+    for(var i = 0; i < total_cnt; i++){
+        var color = ds_PrivatetrainAssign.getCellData(i,'bgColordat');
+        gr_PrivatetrainAssign.setCellColor(i, 'dptStnWrkPlNm', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'arvStnWrkPlNm', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'clsNm', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'cnt20Empty', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'cnt20Full', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'cnt40Empty', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'cnt40Full', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'cnt45Empty', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'cnt45Full', color);
+        gr_PrivatetrainAssign.setCellColor(i, 'teu', color);
+        if (color == "Red"){
+            gr_PrivatetrainAssign.setCellColor(i, 'reference', "RED");
+        }
+        if (ds_PrivatetrainAssign.getCellData(i, "reference") == 0){
+            // ds_PrivatetrainAssign.setCellData(i, "reference", "");
+        }
+
+        if(ds_PrivatetrainAssign.getCellData(i, "clsCd") == "01"){
+            teuA_under += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+        if(ds_PrivatetrainAssign.getCellData(i,"clsCd") == "02"){
+            teuB_under += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+        if(ds_PrivatetrainAssign.getCellData(i,"clsCd") == "03"){
+            teuC_under += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+        if(ds_PrivatetrainAssign.getCellData(i, "clsCd") == "04"){
+            realTeuA += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+        if(ds_PrivatetrainAssign.getCellData(i,"clsCd") == "05"){
+            realTeuB += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+        if(ds_PrivatetrainAssign.getCellData(i,"clsCd") == "06"){
+            realTeuC += parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+        }
+    }
+    //그리드 하단 SUM에 색상 지정 
+    gr_PrivatetrainAssign.setFooterStyle('footer_dptStnWrkPlNm', 'color', "Black");
+    gr_PrivatetrainAssign.setFooterStyle('footer_arvStnWrkPlNm', 'color', "Black");   
+    gr_PrivatetrainAssign.setFooterStyle('footer_clsNm', 'color', "Red");
+    gr_PrivatetrainAssign.setFooterStyle('footer_cnt20Empty', 'color', "Red");
+    gr_PrivatetrainAssign.setFooterStyle('footer_cnt20Full', 'color', "Blue"); 
+    gr_PrivatetrainAssign.setFooterStyle('footer_cnt40Empty', 'color', "Blue");
+    gr_PrivatetrainAssign.setFooterStyle('footer_cnt40Full', 'color', "Red");
+    gr_PrivatetrainAssign.setFooterStyle('footer_cnt45Empty', 'color', "Red");   
+    gr_PrivatetrainAssign.setFooterStyle('footer_cnt45Full', 'color', "Blue");
+    gr_PrivatetrainAssign.setFooterStyle('footer_sumTeu', 'color', "Blue");
+    gr_PrivatetrainAssign.setFooterStyle('footer_teu', 'color', "Black");   
+    gr_PrivatetrainAssign.setFooterStyle('footer_reference', 'color', "Black");
+    
+    gr_PrivatetrainAssign.setFooterValue('footer_arvStnWrkPlNm', teuA_under + " TEU");
+    gr_PrivatetrainAssign.setFooterValue('footer_cnt20Empty', teuB_under + " TEU");
+    gr_PrivatetrainAssign.setFooterValue('footer_cnt40Empty', teuC_under + " TEU");
+    gr_PrivatetrainAssign.setFooterValue('footer_cnt45Empty', parseInt(realTeuA) + " TEU");
+    gr_PrivatetrainAssign.setFooterValue('footer_sumTeu', parseInt(realTeuB) + " TEU");
+    gr_PrivatetrainAssign.setFooterValue('footer_reference', parseInt(realTeuC) + " TEU");
+};
+
+//-------------------------------------------------------------------------
+// 저감액 우선순위 Veiw**
+//-------------------------------------------------------------------------
+scwin.f_underValueView = function (){
+    // var pTop= "150";
+    // var pLeft="170";
+    // var sW="785px;";
+    // var sH="500px;";
+    // var sTopLeft = "dialogTop:" + pTop +"px; " + "dialogLeft:" + pLeft +"px; " ;
+    // var sWidthHeight = "dialogWidth:" +	sW + "dialogHeight:" + sH;
+    // var sFeatures =	sWidthHeight + " " + sTopLeft + " " + "center:Yes; help:No; resizable:No; status:No; scroll:No"
+    // sURL = "/ds/op/wrkplan/railroadwrkplan/op_203_01_04p.jsp";
+    // rtnList	= window.showModalDialog(sURL,ica_signDt.TEXT,sFeatures);
+
+    let win_url = "/ui/ds/op/wrkplan/railroadwrkplan/op_203_01_04p.xml";
+    let data = {
+        ed_signDt : ica_signDt.getValue()
+    };
+    let opts = {
+        id : "Pop"
+        , popupName : "저감액 우선순위 현황"
+        , modal : true
+        , type : "browserPopup"
+        , width : 1200
+        , height : 800
+        , title : "저감액 우선순위 조회"
+    };
+    $c.win.openPopup(win_url, opts, data);
+};
+  
+  
+//-------------------------------------------------------------------------
+// 사유화차 배치실행
+//-------------------------------------------------------------------------
+scwin.f_Batch = async function (){
+    //  ExecutePrivatetrainAssignCMD
+    var conf = await $c.win.confirmMsg("사유화차 배정 배치를 실행하시겠습니까?");
+	if (conf) {  
+        $c.sbm.execute(sbm_batch);
+    }
+};
+  
+scwin.f_runExcel = async function(varGrNm) {
+    var totCnt      = ds_hidden.get("grPrivatetrainAssignTotCnt");
+    var sheetTitle  = '사유화차배정량수정';
+    if( totCnt != "0"){
+        var cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (cfrm){
+            // cfGridToExcel(varGrNm, sheetTitle, sheetTitle, 2+4+8+16);	
+            const infoArr = [ ];
+            const options = {
+                fileName : "사유화차배정량수정.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+                sheetName: "사유화차배정량수정",
+                // startRowIndex: 2,
+                type : "1",
+                // removeColumns: "0,21",
+                hiddenVisible : true,
+                oddRowBackgroundColor  : "",                        // excel파일에서 그리드 body의 홀수줄의 배경색
+                evenRowBackgroundColor : "#F5FFF5"                  // excel파일에서 그리드 body의 짝수줄의 배경색
+            };
+            $c.data.downloadGridViewExcel(gr_PrivatetrainAssign, options, infoArr);
+        }
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);    
+    }
+};
+
+scwin.f_internalCal2 = async function(row, colid, oldData) {
+    if(    colid == "cnt20Empty" || colid == "cnt20Full" 
+        || colid == "cnt40Empty" || colid == "cnt40Full" 
+        || colid == "cnt45Empty" || colid == "cnt45Full") {
+
+		if( ds_PrivatetrainAssign.getCellData(row, "dayCapaTeu") != 0 
+	      	&& (ds_PrivatetrainAssign.getCellData(row, "teu") > ds_PrivatetrainAssign.getCellData(row, "dayCapaTeu")) ) {
+				await $c.gus.cfAlertMsg("당일 최대 전용화차 신청량이 초과되었습니다.");
+				ds_PrivatetrainAssign.setCellData(row, colid, oldData); 
+				return;
+		} 	  
+	}
+	var rowCount = ds_PrivatetrainAssign.getRowCount();
+	var sumTeu = 0;
+	
+	for(var i = 0 ; i < rowCount ; i++) {
+		if (ds_PrivatetrainAssign.getCellData(i, "clsCd") == "02") {
+			if ((ds_PrivatetrainAssign.getCellData(row, "dptStnWrkPlCd") == ds_PrivatetrainAssign.getCellData(i, "dptStnWrkPlCd"))
+					&& (ds_PrivatetrainAssign.getCellData(row, "arvStnWrkPlCd") == ds_PrivatetrainAssign.getCellData(i, "arvStnWrkPlCd"))) {
+				sumTeu = parseInt(sumTeu) + parseInt(ds_PrivatetrainAssign.getCellData(i, "teu"));
+			}
+			if (ds_PrivatetrainAssign.getCellData(row, "dayCapaTeu") != 0 
+				&& (parseInt(sumTeu) > parseInt(ds_PrivatetrainAssign.getCellData(row, "dayCapaTeu")))) {
+				await $c.gus.cfAlertMsg("당일 최대 전용화차 신청량이 초과되었습니다.");
+				ds_PrivatetrainAssign.setCellData(row, colid, oldData); 
+				return;
+			}
+		} 
+	}
+};
+
+scwin.udc_begintrainWorkPlace_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_begintrainWorkPlaceNm, ed_begintrainWorkPlaceCd, 1, false);
+};
+
+scwin.udc_begintrainWorkPlace_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_begintrainWorkPlace_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_begintrainWorkPlaceCd, ed_begintrainWorkPlaceNm, 1, true);
+};
+
+scwin.udc_endtrainWorkPlace_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_endtrainWorkPlaceNm, ed_endtrainWorkPlaceCd, 2, false);
+};
+
+scwin.udc_endtrainWorkPlace_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_endtrainWorkPlaceCd.getValue(), ed_endtrainWorkPlaceNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_endtrainWorkPlace_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_endtrainWorkPlaceCd, ed_endtrainWorkPlaceNm, 2, true);
+};
+
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_qeryList()
+};
+
+scwin.btn_underValueView_onclick = function (e) {
+    scwin.f_underValueView();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.sbm_RetrievePrivatetrainAssign_submit = function (e) {
+
+};
+
+scwin.sbm_RetrievePrivatetrainAssign_submitdone = async function (e) {
+    var rowCnt = ds_PrivatetrainAssign.getRowCount();
+    if( rowCnt == 0 ){
+		await $c.gus.cfAlertMsg("[사유화차배정량수정 정보] "+ MSG_CM_ERR_003);
+  	}
+    $c.gus.cfDisableBtn([]);
+
+    txt_PrivatetrainAssign.setValue(rowCnt);
+    var rowCnt2 = ds_btAssign.getRowCount()
+    txt_btAssign.setValue(rowCnt2);
+
+    scwin.f_totalUnderValue();
+    ds_btAssign
+    for(var i = 0; i < rowCnt2; i++){
+        var color = ds_btAssign.getCellData(i,'bgColordat');
+
+        gr_btAssign.setCellColor(i, 'clsNm', color);
+        gr_btAssign.setCellColor(i, 'cnt20Empty', color);
+        gr_btAssign.setCellColor(i, 'cnt20Full', color);
+        gr_btAssign.setCellColor(i, 'cnt40Empty', color);
+        gr_btAssign.setCellColor(i, 'cnt40Full', color);
+        gr_btAssign.setCellColor(i, 'cnt45Empty', color);
+        gr_btAssign.setCellColor(i, 'cnt45Full', color);
+        gr_btAssign.setCellColor(i, 'sumTeu', color);
+        gr_btAssign.setCellColor(i, 'teu', color);
+    };
+
+    ds_hidden.set("grPrivatetrainAssignTotCnt", rowCnt);
+};
+
+scwin.sbm_RetrievePrivatetrainAssign_submiterror = function (e) {
+
+};
+
+scwin.sbm_UpdatePrivatetrainAssign_submit = function (e) {
+
+};
+
+scwin.sbm_UpdatePrivatetrainAssign_submitdone = async function (e) {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001); 
+    scwin.f_qeryList();
+
+};
+
+scwin.sbm_UpdatePrivatetrainAssign_submiterror = function (e) {
+
+};
+
+scwin.sbm_batch_submit = function (e) {
+
+};
+
+scwin.sbm_batch_submitdone = async function (e) {
+    await $c.gus.cfAlertMsg("배치작업 수행에 성공하였습니다");
+    scwin.f_qeryList();
+
+};
+
+scwin.sbm_batch_submiterror = function (e) {
+
+};
+
+scwin.gr_PrivatetrainAssign_oncellclick = function (Row, columnIndex, Colid) {
+    if(Colid == "cnt20Empty" || Colid == "cnt20Full" || Colid == "cnt40Empty" || Colid == "cnt40Full" || Colid == "cnt45Empty" || Colid == "cnt45Full"){
+		if (ds_PrivatetrainAssign.getCellData(Row, "clsCd") == "02" || ds_PrivatetrainAssign.getCellData(Row, "clsCd") == "03"){    
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Empty", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Empty", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Empty", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Full", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Full", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Full", false);			
+			
+			if((ds_PrivatetrainAssign.getCellData(Row, "clsCd") == "02" 
+             || ds_PrivatetrainAssign.getCellData(Row, "clsCd") == "03") && Colid == "cnt45Full"){
+				gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Empty", true);
+				gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Empty", true);
+				gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Empty", true);
+				gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Full", true);
+				gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Full", true);
+			}		 
+	    } else {
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Empty", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Empty", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Empty", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Full", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Full", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Full", true);
+		}
+	}
+};
+
+scwin.gr_PrivatetrainAssign_onafteredit = function (row, columnIndex, value) {
+
+};
+
+scwin.gr_PrivatetrainAssign_onaftercolumnmove = function (info) {
+    // OnColumnPosChanged(Row,Colid)
+    if(Colid == "cnt20Empty" || Colid == "cnt20Full" || Colid == "cnt40Empty" || Colid == "cnt40Full" || Colid == "cnt45Empty" || Colid == "cnt45Full"){
+	    if(ds_PrivatetrainAssign.getCellData(Row, "clsCd") == "02") {    
+	        if(Colid == "cnt45Full"){
+                gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Empty", true);
+            } 
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Empty", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Empty", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Full", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Full", false);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Full", false);
+	    } else {
+			gr_PrivatetrainAssign.setCellReadOnly(Row, 'cnt20Empty', true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Empty", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Empty", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt20Full", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt40Full", true);
+			gr_PrivatetrainAssign.setCellReadOnly(Row, "cnt45Full", true);
+		}
+	}
+};
+
+scwin.udc_begintrainWorkPlace_callBackFunc = function(ref){
+    //도착지코드          도착지명
+    $c.gus.cfSetReturnValue(ref, ed_begintrainWorkPlaceCd, ed_begintrainWorkPlaceNm);
+};
+
+scwin.udc_endtrainWorkPlace_callBackFunc = function(ref){
+    //도착지코드          도착지명
+    $c.gus.cfSetReturnValue(ref, ed_endtrainWorkPlaceCd, ed_endtrainWorkPlaceNm);
+};
+scwin.gr_PrivatetrainAssign_oneditend = function (row, columnIndex, value) {
+
+    // OnExit(row,colid,olddata)
+    var oldData = ds_PrivatetrainAssign.getCellData(row, columnIndex);
+    var colid = gr_PrivatetrainAssign.getColumnID(columnIndex);
+    
+    scwin.f_internalCal(row, colid, oldData, value);
+	 
+    if(ds_PrivatetrainAssign.getCellData(row, "clsCd") == "02" && colid == "cnt45Full"){
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt20Empty",true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt20Empty",true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt40Empty",true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt45Empty",true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt20Full",true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt40Full",true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt45Full",true);
+    }	
+    if(ds_PrivatetrainAssign.getCellData(row,"clsCd")=="03" && colid == "cnt45Full"){
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt20Empty", true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt20Empty", true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt40Empty", true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt45Empty", true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt20Full", true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt40Full", true);
+        gr_PrivatetrainAssign.setCellReadOnly(row, "cnt45Full", true);
+    }		
+};
+
+scwin.formatter_reference = function(data){
+    if (data == 0){
+        return "";
+    }
+    return data;
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="신청일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_signDt" pickerType="dynamic" style="" mandatory="true" title="신청일자">
+								</w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="출발역" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_begintrainWorkPlace" btnId="btn_begintrainWorkPlace" codeId="ed_begintrainWorkPlaceCd" nameId="ed_begintrainWorkPlaceNm" ev:onviewchangeNameEvent="scwin.udc_begintrainWorkPlace_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_begintrainWorkPlace_onclickEvent" ev:onblurCodeEvent="scwin.udc_begintrainWorkPlace_onblurCodeEvent" maxlengthCode="6" UpperFlagCode="1" objTypeCode="key" objTypeName="data" allowCharCode="a-zA-Z0-9" upperFlag="1" validTitle="출발역"></w2:udc_comCode>
+							</xf:group>
+							<xf:group tagname="th" id="" class="w2tb_th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="도착역 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_endtrainWorkPlace" codeId="ed_endtrainWorkPlaceCd" nameId="ed_endtrainWorkPlaceNm" btnId="btn_endtrainWorkPlace" maxlengthCode="6" objTypeCode="key" ev:onviewchangeNameEvent="scwin.udc_endtrainWorkPlace_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_endtrainWorkPlace_onclickEvent" ev:onblurCodeEvent="scwin.udc_endtrainWorkPlace_onblurCodeEvent" UpperFlagCode="1" objTypeName="data" allowCharCode="a-zA-Z0-9" upperFlag="1" validTitle="도착역"></w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group id="" class="row-gap-8">
+					<xf:group style="" id="" class="title-wrap">
+						<xf:group id="" class="title">
+							<w2:textbox tagname="h3" style="" id="" label="사유화차정보" class="tit"></w2:textbox>
+						</xf:group>
+						<xf:group style="" id="" class="right">
+							<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_PrivatetrainAssign" gridDownFn="scwin.f_runExcel" grdDownOpts='{"fileName":"사유화차배정량수정.xlsx","type":"2+4+8+16"}' id="udc_topGrdBtn1" btnUser="Y"></w2:udc_topGrdBtn>
+						</xf:group>
+					</xf:group>
+					<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_PrivatetrainAssign" style="" autoFit="allColumn" id="gr_PrivatetrainAssign"
+							visibleRowNum="6" class="wq_gvw" columnMove="true" ev:oncellclick="scwin.gr_PrivatetrainAssign_oncellclick" ev:onafteredit="scwin.gr_PrivatetrainAssign_onafteredit" ev:onaftercolumnmove="scwin.gr_PrivatetrainAssign_onaftercolumnmove" ev:oneditend="scwin.gr_PrivatetrainAssign_oneditend" rowStatusVisible="true">
+							<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header1">
+								<w2:row style="" id="row1">
+									<w2:column rowSpan="2" colSpan="" width="120" inputType="text" style="" id="column1" value="출발역" displayMode="label">
+									</w2:column>
+									<w2:column rowSpan="2" colSpan="" width="120" inputType="text" style="" id="column17" value="도착역" displayMode="label">
+									</w2:column>
+									<w2:column rowSpan="2" colSpan="" width="100" inputType="text" style="" id="column15" class="" value="구분"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column rowSpan="" colSpan="2" width="200" inputType="text" style="" id="column13" class="" value="20"
+										displayMode="label" sortable="false">
+									</w2:column>
+									<w2:column rowSpan="" colSpan="2" width="200" inputType="text" style="" id="column9" class="" value="40"
+										displayMode="label" sortable="false">
+									</w2:column>
+									<w2:column rowSpan="" colSpan="2" width="200" inputType="text" style="" id="column70" value="45" displayMode="label" sortable="false">
+									</w2:column>
+									<w2:column rowSpan="2" colSpan="" width="120" inputType="text" style="" id="column61" value="합계" displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column rowSpan="2" hidden="false" colSpan="" width="100" inputType="text" style="" id="column112" value="TEU"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column rowSpan="2" hidden="false" colSpan="" width="100" inputType="text" style="" id="column113" value="증감(TEU)"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column rowSpan="2" hidden="true" colSpan="" width="100" inputType="text" style="" id="column40" class=""
+										value="일Capa" displayMode="label" sortable="true">
+									</w2:column>
+								</w2:row>
+								<w2:row style="" id="row4">
+									<w2:column hidden="false" width="100" inputType="text" style="" id="column106" value="Empty" class="txt-blue"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column hidden="false" width="100" inputType="text" style="" id="column107" value="Full" class="txt-blue"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column hidden="false" width="100" inputType="text" style="" id="column108" value="Empty" class="txt-blue"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column hidden="false" width="100" inputType="text" style="" id="column109" value="Full" class="txt-blue"
+										displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column83" class="txt-blue" value="Empty" displayMode="label" sortable="true">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column82" class="txt-blue" value="Full" displayMode="label" sortable="true">
+									</w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody1">
+								<w2:row style="" id="row2">
+									<w2:column width="120" inputType="text" style="" id="dptStnWrkPlNm" value="" displayMode="label" colMerge="true" readOnly="true"></w2:column>
+									<w2:column width="120" inputType="text" style="" id="arvStnWrkPlNm" value="" displayMode="label" colMerge="true" readOnly="true" upperColumn="dptStnWrkPlNm"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="clsNm" value="" displayMode="label" readOnly="true"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="cnt20Empty" value="" displayMode="label" dataType="number" textAlign="right"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="cnt20Full" value="" displayMode="label" dataType="number" textAlign="right"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="cnt40Empty" value="" displayMode="label" textAlign="right" dataType="number"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="cnt40Full" value="" displayMode="label" textAlign="right" dataType="number"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="cnt45Empty" value="" displayMode="label" textAlign="right" dataType="number"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="cnt45Full" value="" displayMode="label" textAlign="right" dataType="number"></w2:column>
+									<w2:column width="120" inputType="text" style="" id="sumTeu" value="" displayMode="label" textAlign="right"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="teu" value="" displayMode="label" textAlign="right" readOnly="true"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="reference" value="" displayMode="label" textAlign="right" readOnly="true" displayFormatter="scwin.formatter_reference"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="dayCapaTeu" value="" displayMode="label" textAlign="right" readOnly="true"></w2:column>
+								</w2:row>
+							</w2:gBody>
+							<w2:footer style="" id="footer1">
+								<w2:row style="" id="row3">
+									<w2:column width="120" inputType="text" style="" id="footer_dptStnWrkPlNm" value="총신청량" displayMode="label"></w2:column>
+									<w2:column width="120" inputType="text" style="" id="footer_arvStnWrkPlNm" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_clsNm" value="전용배정" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_cnt20Empty" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_cnt20Full" value="사유배정" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_cnt40Empty" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_cnt40Full" value="실(전용)" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_cnt45Empty" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_cnt45Full" value="실(사유)" displayMode="label"></w2:column>
+									<w2:column width="120" inputType="text" style="" id="footer_sumTeu" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_teu" value="실(공사)" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_reference" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="footer_dayCapaTeu" value="" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:footer>
+						</w2:gridView>
+						<xf:group style="" id="" class="grid-bottom ">
+							<xf:group id="" class="left">
+								<xf:group id="" class="grid-total">
+									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="txt_PrivatetrainAssign" label="0" class="num">
+									</w2:textbox>
+									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="row-gap-8" id="" style="">
+					<xf:group class="title-wrap" id="" style="">
+						<xf:group class="title" id="">
+							<w2:textbox class="tit" id="" label="저수요배정량정보" style="" tagname="h3"></w2:textbox>
+						</xf:group>
+						<xf:group class="right" id="" style="">
+							<w2:udc_topGrdBtn grp="grd_section2" style="" btnPlusYn="Y" btnUser="N" gridDownYn="N" gridUpYn="N" templateYn="N" gridID="gr_btAssign" id="udc_topGrdBtn2"></w2:udc_topGrdBtn>
+						</xf:group>
+					</xf:group>
+					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_btAssign" id="gr_btAssign" style="" visibleRowNum="4"
+							visibleRowNumFix="true" columnMove="true" readOnly="true">
+							<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column colSpan="" displayMode="label" id="column1" inputType="text" rowSpan="2" style="" value="출발역" width="120">
+									</w2:column>
+									<w2:column colSpan="" displayMode="label" id="column17" inputType="text" rowSpan="2" style="" value="도착역" width="120">
+									</w2:column>
+									<w2:column class="" colSpan="" displayMode="label" id="column15" inputType="text" rowSpan="2" style="" value="구분"
+										width="100" sortable="true">
+									</w2:column>
+									<w2:column class="" colSpan="2" displayMode="label" id="column13" inputType="text" rowSpan="" style="" value="20"
+										width="200" sortable="false">
+									</w2:column>
+									<w2:column class="" colSpan="2" displayMode="label" id="column9" inputType="text" rowSpan="" style="" value="40"
+										width="200" sortable="false">
+									</w2:column>
+									<w2:column colSpan="2" displayMode="label" id="column70" inputType="text" rowSpan="" style="" value="45" width="200" sortable="false">
+									</w2:column>
+									<w2:column colSpan="" displayMode="label" id="column61" inputType="text" rowSpan="2" style="" value="합계" width="120" sortable="true">
+									</w2:column>
+									<w2:column colSpan="" displayMode="label" hidden="false" id="column112" inputType="text" rowSpan="2" style="" value="TEU"
+										width="100" sortable="true">
+									</w2:column>
+								</w2:row>
+								<w2:row id="row4" style="">
+									<w2:column class="txt-blue" displayMode="label" hidden="false" id="column106" inputType="text" style="" value="Empty"
+										width="100" sortable="true">
+									</w2:column>
+									<w2:column class="txt-blue" displayMode="label" hidden="false" id="column107" inputType="text" style="" value="Full"
+										width="100" sortable="true">
+									</w2:column>
+									<w2:column class="txt-blue" displayMode="label" hidden="false" id="column108" inputType="text" style="" value="Empty"
+										width="100" sortable="true">
+									</w2:column>
+									<w2:column class="txt-blue" displayMode="label" hidden="false" id="column109" inputType="text" style="" value="Full"
+										width="100" sortable="true">
+									</w2:column>
+									<w2:column class="txt-blue" displayMode="label" id="column83" inputType="text" style="" value="Empty" width="100" sortable="true">
+									</w2:column>
+									<w2:column class="txt-blue" displayMode="label" id="column82" inputType="text" style="" value="Full" width="100" sortable="true">
+									</w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="dptStnWrkPlNm" inputType="text" style="" value="" width="120" colMerge="true"></w2:column>
+									<w2:column displayMode="label" id="arvStnWrkPlNm" inputType="text" style="" value="" width="120" colMerge="true"></w2:column>
+									<w2:column displayMode="label" id="clsNm" inputType="text" style="" value="" width="100"></w2:column>
+									<w2:column displayMode="label" id="cnt20Empty" inputType="text" style="" value="" width="100" dataType="number" textAlign="right" displayFormat="#,###"></w2:column>
+									<w2:column displayMode="label" id="cnt20Full" inputType="text" style="" value="" width="100" dataType="number" textAlign="right" displayFormat="#,###"></w2:column>
+									<w2:column displayMode="label" id="cnt40Empty" inputType="text" style="" value="" width="100" dataType="number" textAlign="right" displayFormat="#,###"></w2:column>
+									<w2:column displayMode="label" id="cnt40Full" inputType="text" style="" value="" width="100" dataType="number" textAlign="right" displayFormat="#,###"></w2:column>
+									<w2:column displayMode="label" id="cnt45Empty" inputType="text" style="" value="" width="100" dataType="number" textAlign="right" displayFormat="#,###"></w2:column>
+									<w2:column displayMode="label" id="cnt45Full" inputType="text" style="" value="" width="100" dataType="number" textAlign="right" displayFormat="#,###"></w2:column>
+									<w2:column displayMode="label" id="sumTeu" inputType="text" style="" textAlign="right" value="" width="120"></w2:column>
+									<w2:column displayMode="label" id="teu" inputType="text" style="" value="" width="100" textAlign="right"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+						<xf:group class="grid-bottom " id="" style="">
+							<xf:group class="left" id="">
+								<xf:group class="grid-total" id="">
+									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+									<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_btAssign" label="0" style="" tagname="span">
+									</w2:textbox>
+									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="">
+					<xf:group class="right" id="">
+						<xf:trigger class="btn white" id="btn_underValueView" label="저장" style="" type="button" ev:onclick="scwin.btn_underValueView_onclick">
+							<xf:label>저감액우선순위</xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+							<xf:label>저장</xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

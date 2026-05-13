@@ -1,0 +1,352 @@
+/*amd /ui/ds/fs/bilg/fs_202_05_08p.xml 13810 836551263d1ea87c3fc7cd017e4b6bc32dd4044131a6ad24e95bfce8f16693f6 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:7,N:'xml-stylesheet',instruction:'href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css"'},{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'false',src:'https://code.jquery.com/jquery-1.8.3.min.js',scopeVariable:'',type:'text/javascript'}},{T:1,N:'script',A:{cache:'false',scopeExternal:'false',src:'https://code.jquery.com/ui/1.9.2/jquery-ui.min.js',scopeVariable:'',type:'text/javascript'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//-------------------------------------------------------------------------
+// 호출 파라미터
+//-------------------------------------------------------------------------
+scwin.param = "";
+scwin.ozr = "";
+scwin.odi = "";
+scwin.bilgLodeptCd = "";
+scwin.certiNo = "";
+scwin.type = "";
+scwin.dspDotYn = "";
+scwin.sumDcGbn = "";
+scwin.ozr2 = "";
+scwin.odi2 = "";
+scwin.upperFmlaPatternCd = "";
+scwin.dspTotAmt = "";
+scwin.OZ_BASE = scwin.BASE_ORIGIN + "/oz90";
+scwin.SERVER_URL = scwin.OZ_BASE + "/server";
+scwin.VIEWER_URL = scwin.OZ_BASE + "/ozhviewer/";
+scwin.param.data = {};
+scwin.getBaseOrigin = function () {
+  var host = window.location.hostname;
+  if (host === "localhost" || host === "127.0.0.1") {
+    return "https://newdevdebis.dongwon.com";
+  }
+  return window.location.origin;
+};
+scwin.BASE_ORIGIN = scwin.getBaseOrigin();
+
+/* =========================================================
+ * 공통 상태값
+ * ========================================================= */
+scwin.ozParamStr = "";
+scwin.memJSON = {};
+scwin.params = {};
+scwin.ozResourceLoaded = false;
+
+//-------------------------------------------------------------------------
+// 화면 로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  scwin.param = $c.data.getParameter($p);
+  scwin.BASE_ORIGIN = scwin.getBaseOrigin();
+  scwin.OZ_BASE = scwin.BASE_ORIGIN + "/oz90";
+  scwin.SERVER_URL = scwin.OZ_BASE + "/server";
+  scwin.VIEWER_URL = scwin.OZ_BASE + "/ozhviewer/";
+  scwin.ozr = scwin.param.ozr;
+  scwin.odi = scwin.param.odi;
+  scwin.bilgLodeptCd = scwin.param.bilgLodeptCd;
+  scwin.certiNo = scwin.param.certiNo;
+  scwin.type = scwin.param.type;
+  scwin.dspDotYn = scwin.param.dspDotYn;
+  scwin.sumDcGbn = scwin.param.sumDcGbn;
+  scwin.ozr2 = scwin.param.ozr2;
+  scwin.odi2 = scwin.param.odi2;
+  scwin.upperFmlaPatternCd = scwin.param.upperFmlaPatternCd;
+  scwin.dspTotAmt = scwin.param.dspTotAmt;
+
+  // var data = {
+
+  //     /* 리포트 (메인 + child) */
+  //     reportName: scwin.ozr + ";" + scwin.ozr2,
+
+  //     /* ODI 이름 */
+  //     odiName: scwin.odi,
+
+  //     /* OZ 데이터 파라미터 */
+  //     odiParam: {
+  //         bilgLodeptCd: scwin.bilgLodeptCd,
+  //         certiNo: scwin.certiNo,
+  //         type: scwin.type,
+  //         dspDotYn: scwin.dspDotYn,
+  //         sumDcGbn: scwin.sumDcGbn
+  //     },
+
+  //     /* viewer 옵션 */
+  //     viewerParam: {
+  //         showtree: true,
+  //         childcount: 1,
+  //         mode: "preview"
+  //     },
+
+  //     /* 화면 파라미터 */
+  //     formParam: {
+  //         formParamObj: {
+  //             dispName1: "보고서1",
+  //             dispName2: "보고서2"
+  //         }
+  //     }
+  // };
+
+  var data = {
+    reportName: scwin.ozr + ";" + scwin.ozr2,
+    // ODI도 2개
+    odiName: scwin.odi + ";" + scwin.odi2,
+    // 메인 ODI
+    odiParam: {
+      bilgLodeptCd: scwin.bilgLodeptCd,
+      certiNo: scwin.certiNo,
+      type: scwin.type,
+      dspDotYn: scwin.dspDotYn,
+      sumDcGbn: scwin.sumDcGbn
+    },
+    // child ODI 따로
+    odiParam2: {
+      upperFmlaPatternCd: scwin.upperFmlaPatternCd,
+      certiNo: scwin.certiNo,
+      dspTotAmt: scwin.dspTotAmt,
+      sumDcGbn: scwin.sumDcGbn
+    },
+    viewerParam: {
+      showtree: true,
+      childcount: 1,
+      mode: "preview"
+    }
+  };
+  scwin.param.data = data;
+  scwin.ozParamStr = scwin.buildOzParamString(data);
+  console.log("oz data", data);
+  console.log("report name = ", data.reportName);
+  scwin.loadOzResources(function () {
+    try {
+      setTimeout(function () {
+        scwin.ozParamStr = scwin.buildOzParamString(scwin.param.data);
+        var opt = [];
+        opt["use_request_header"] = false;
+        opt["oz_param_string"] = scwin.ozParamStr;
+        start_ozjs("OZViewer", scwin.VIEWER_URL, opt);
+        let check = setInterval(function () {
+          const btn = document.querySelector(".btnSAVEAS");
+          if (btn) {
+            console.log("저장 버튼 발견");
+            btn.click();
+            clearInterval(check);
+          }
+        }, 300);
+      }, 150);
+    } catch (e) {
+      console.error("OZViewer 시작 실패:", e);
+    }
+  });
+};
+scwin.bindOZEvent = function () {
+  console.log("bindOZEvent 진입");
+  const oz = document.getElementById("OZViewer");
+  console.log("oz:", oz);
+  if (!oz) {
+    console.error("OZViewer 없음");
+    return;
+  }
+
+  // OZ 이벤트 연결
+  oz.OZPostCommand = function (cmd, msg) {
+    console.log("OZPostCommand:", cmd, msg);
+    if (cmd === "complete") {
+      console.log("리포트 로딩 완료 → PDF 저장 실행");
+      if (typeof oz.sendToActionScript === "function") {
+        oz.sendToActionScript("save", "export.format=pdf;export.saveonefile=true;export.usedialogopt=true;export.savemultidoc=true");
+      } else {
+        console.warn("sendToActionScript 없음");
+      }
+    }
+  };
+};
+
+//-------------------------------------------------------------------------
+// ozreportPopup.xml 에서 추출한 소스들/ ozreportPopup.xml 에서 추출한 소스들
+//-------------------------------------------------------------------------
+/* =========================================================
+ * 동적 리소스 로드
+ * ========================================================= */
+scwin.appendStylesheet = function (href) {
+  var head = document.getElementsByTagName("head")[0];
+  var links = document.getElementsByTagName("link");
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].href === href) {
+      return;
+    }
+  }
+  var link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.type = "text/css";
+  link.href = href;
+  head.appendChild(link);
+};
+scwin.appendScript = function (src, callback) {
+  var head = document.getElementsByTagName("head")[0];
+  var scripts = document.getElementsByTagName("script");
+  for (var i = 0; i < scripts.length; i++) {
+    if (scripts[i].src === src) {
+      if (typeof callback === "function") {
+        callback();
+      }
+      return;
+    }
+  }
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = src;
+  script.onload = function () {
+    if (typeof callback === "function") {
+      callback();
+    }
+  };
+  script.onerror = function () {
+    console.error("스크립트 로드 실패:", src);
+  };
+  head.appendChild(script);
+};
+scwin.loadOzResources = function (callback) {
+  scwin.appendStylesheet(scwin.OZ_BASE + "/ozhviewer/ui.dynatree.css");
+  scwin.appendScript(scwin.OZ_BASE + "/ozhviewer/jquery.dynatree.js", function () {
+    scwin.appendScript(scwin.OZ_BASE + "/ozhviewer/OZJSViewer.js", function () {
+      scwin.ozResourceLoaded = true;
+      if (typeof callback === "function") {
+        callback();
+      }
+    });
+  });
+};
+window.SetOZParamters_OZViewer = function () {
+  var oz = document.getElementById("OZViewer");
+  if (!oz) {
+    console.error("OZViewer 객체를 찾을 수 없습니다.");
+    return false;
+  }
+  if (!scwin.ozParamStr) {
+    console.warn("ozParamStr가 비어 있습니다.");
+    return true;
+  }
+  var ozParam1 = scwin.ozParamStr.split("#OZ#");
+  for (var i = 0; i < ozParam1.length; i++) {
+    var str = ozParam1[i];
+    if (str.indexOf("=") > -1) {
+      var paramKey = str.substring(0, str.indexOf("="));
+      var paramValue = str.substring(str.indexOf("=") + 1);
+      try {
+        if (typeof oz.sendToActionScript === "function") {
+          oz.sendToActionScript(paramKey, paramValue);
+        } else {
+          oz.sendToActionScript("export.format", "pdf");
+        }
+        console.log("OZ Parameter Set: " + paramKey + " = " + paramValue.substring(0, 50) + "...");
+      } catch (e) {
+        console.error("sendToActionScript 실패:", e, paramKey);
+      }
+    }
+  }
+  console.log("OZ Viewer 파라미터 설정 완료.");
+  return true;
+};
+
+/* =========================================================
+ * OZ 파라미터 문자열 생성
+ * ========================================================= */
+scwin.buildOzParamString = function (data) {
+  const now = new Date();
+  const yyyy = now.getFullYear();
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  const formatted = `${yyyy}/${mm}/${dd} ${hh}:${mi}`;
+  const reportName = data.reportName || "";
+  const odiName = data.odiName || "";
+  const odiParam = data.odiParam || {}; // 메인
+  const odiParam2 = data.odiParam2 || {}; // child
+
+  const viewerParam = data.viewerParam || {};
+  const formParam = data.formParam || {};
+  let result = `connection.servlet=${scwin.SERVER_URL}#OZ#`;
+
+  /* ---------------- report / odi 분리 ---------------- */
+  const reportList = reportName.split(";").map(s => s.trim()).filter(s => s);
+  const odiList = odiName.split(";").map(s => s.trim()).filter(s => s);
+  if (reportList.length === 0) {
+    throw new Error("reportName 없음");
+  }
+  const mainReport = reportList[0];
+  const childReport = reportList[1];
+  const mainOdi = odiList[0];
+  const childOdi = odiList[1];
+
+  /* =========================================================
+   * 메인 리포트
+   * ========================================================= */
+  result += `connection.reportname=${mainReport}#OZ#`;
+  result += `connection.displayname=report1#OZ#`;
+  result += `connection.pcount=5#OZ#`;
+  result += `connection.args1=reportTime=${formatted}#OZ#`;
+  result += `connection.args2=reportDate=${yyyy}/${mm}/${dd}#OZ#`;
+  result += `connection.args3=userId=#OZ#`;
+  result += `connection.args4=userNm=#OZ#`;
+  result += `connection.args5=pgmId=#OZ#`;
+
+  /* ---------------- 메인 ODI ---------------- */
+  const odiKeys = Object.keys(odiParam);
+  result += `odi.odinames=${mainOdi}#OZ#`;
+  result += `odi.${mainOdi}.pcount=${odiKeys.length}#OZ#`;
+  odiKeys.forEach((key, idx) => {
+    result += `odi.${mainOdi}.args${idx + 1}=${key}=${odiParam[key]}#OZ#`;
+  });
+
+  /* =========================================================
+   *  child 리포트
+   * ========================================================= */
+  if (childReport && childOdi) {
+    result += `viewer.childcount=1#OZ#`;
+    result += `viewer.showtree=true#OZ#`;
+    result += `viewer.focus_doc_index=0#OZ#`;
+    result += `child1.connection.servlet=${scwin.SERVER_URL}#OZ#`;
+    result += `child1.connection.reportname=${childReport}#OZ#`;
+    result += `child1.connection.displayname=report2#OZ#`;
+    result += `child1.print.alldocument=true#OZ#`;
+    result += `child1.connection.pcount=5#OZ#`;
+    result += `child1.connection.args1=reportTime=${formatted}#OZ#`;
+    result += `child1.connection.args2=reportDate=${yyyy}/${mm}/${dd}#OZ#`;
+    result += `child1.connection.args3=userId=#OZ#`;
+    result += `child1.connection.args4=userNm=#OZ#`;
+    result += `child1.connection.args5=pgmId=#OZ#`;
+
+    /* ---------------- child ODI (핵심) ---------------- */
+    const odiKeys2 = Object.keys(odiParam2);
+    result += `child1.odi.odinames=${childOdi}#OZ#`;
+    result += `child1.odi.${childOdi}.pcount=${odiKeys2.length}#OZ#`;
+    odiKeys2.forEach((key, idx) => {
+      result += `child1.odi.${childOdi}.args${idx + 1}=${key}=${odiParam2[key]}#OZ#`;
+    });
+  }
+
+  /* =========================================================
+   * viewer 옵션
+   * ========================================================= */
+  Object.keys(viewerParam).forEach(function (key) {
+    result += `viewer.${key}=${viewerParam[key]}#OZ#`;
+  });
+
+  /* =========================================================
+   * formParam
+   * ========================================================= */
+  if (formParam && typeof formParam === "object") {
+    Object.keys(formParam).forEach(function (key) {
+      if (key === "formParamObj") {
+        result += `report.param.formParamObj=${encodeURIComponent(JSON.stringify(formParam[key] || {}))}#OZ#`;
+      } else {
+        result += `report.param.${key}=${formParam[key]}#OZ#`;
+      }
+    });
+  }
+  return result;
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'pop_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'round-box',id:''},E:[{T:1,N:'div',A:{style:'width:100%;height:100%;',id:'OZViewer'}}]},{T:1,N:'xf:group',A:{class:'pop-btnbox',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_close',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'닫기'}]}]}]}]}]}]}]})

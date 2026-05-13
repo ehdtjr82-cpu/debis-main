@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="ver" name="버전" dataType="text"></w2:key>
+    					<w2:key id="planYr" name="계획년도" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:key>
+    					<w2:key id="investPlanClsCd" name="투자계획구분코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_work" saveRemovedData="true"
+    				ev:onbeforerowpositionchange="scwin.ds_work_onbeforerowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="investPlanClsCd" name="투자계획구분코드" dataType="text"></w2:column>
+    					<w2:column id="investPlanClsNm" name="투자계획구분명" dataType="text"></w2:column>
+    					<w2:column id="planYm" name="계획년월" dataType="text"></w2:column>
+    					<w2:column id="investPlanSeq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    					<w2:column id="qty" name="수량" dataType="text"></w2:column>
+    					<w2:column id="amt" name="금액" dataType="text"></w2:column>
+    					<w2:column id="priority" name="우선순위" dataType="text"></w2:column>
+    					<w2:column id="ver" name="버전" dataType="text"></w2:column>
+    					<w2:column id="planYr" name="계획년도" dataType="text"></w2:column>
+
+    					<w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서코드" dataType="text"></w2:column>
+
+
+
+
+
+
+
+    					<w2:column id="flag" name="계획으로 조회할 경우는 확정데이터의 유무, 확정으로 조회할 경우는 계획데이터의 유무" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_excel" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="investPlanClsCd" name="투자계획구분코드" dataType="text"></w2:column>
+    					<w2:column id="investPlanClsNm" name="투자계획구분명" dataType="text"></w2:column>
+    					<w2:column id="planYm" name="년월" dataType="text"></w2:column>
+    					<w2:column id="investPlanSeq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="summary" name="내역" dataType="text"></w2:column>
+    					<w2:column id="qty" name="수량" dataType="text"></w2:column>
+    					<w2:column id="amt" name="금액" dataType="text"></w2:column>
+    					<w2:column id="priority" name="우선순위" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_temp" style="">
+    				<w2:keyInfo>
+    					<w2:key id="investPlanClsCd" name="투자계획구분코드" dataType="text"></w2:key>
+    					<w2:key id="investPlanClsNm" name="투자계획구분코드" dataType="text"></w2:key>
+    					<w2:key id="planYm" name="계획년월" dataType="text"></w2:key>
+    					<w2:key id="investPlanSeq" name="순번" dataType="text"></w2:key>
+    					<w2:key id="summary" name="적요" dataType="text"></w2:key>
+    					<w2:key id="qty" name="수량" dataType="text"></w2:key>
+    					<w2:key id="amt" name="금액" dataType="text"></w2:key>
+    					<w2:key id="priority" name="우선순위" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_version">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_version" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name4" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_investPlanClsCd">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    					<w2:key id="param2" name="name4" dataType="text"></w2:key>
+    					<w2:key id="param3" name="name5" dataType="text"></w2:key>
+    					<w2:key id="param4" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_investPlanClsCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true"
+    				ev:onbeforerowpositionchange="scwin.ds_master_onbeforerowpositionchange">
+    				<w2:columnInfo>
+
+    					<w2:column id="investPlanClsCd" name="투자계획 구분코드" dataType="text"></w2:column>
+    					<w2:column id="investPlanClsNm" name="투자계획 구분명" dataType="text"></w2:column>
+    					<w2:column id="planYm" name="년월" dataType="text"></w2:column>
+    					<w2:column id="investPlanSeq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="planSummary" name="내역" dataType="text"></w2:column>
+    					<w2:column id="planQty" name="수량" dataType="text"></w2:column>
+    					<w2:column id="planAmt" name="금액" dataType="text"></w2:column>
+    					<w2:column id="priority" name="우선순위" dataType="text"></w2:column>
+    					<w2:column id="ver" name="버전" dataType="text"></w2:column>
+    					<w2:column id="planYr" name="계획년도" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서이름" dataType="text"></w2:column>
+    					<w2:column id="flag" name="계획으로 조회할 경우는 확정데이터의 유무, 확정으로 조회할 경우는 계획데이터의 유무" dataType="text"></w2:column>
+    					<w2:column id="dcsnAmt" name="name13" dataType="text"></w2:column>
+    					<w2:column id="dcsnSummary" name="name14" dataType="text"></w2:column>
+    					<w2:column id="dcsnQty" name="name15" dataType="text"></w2:column>
+
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_cd" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="grpCd" name="name2" defaultValue="CO018"></w2:key>
+    					<w2:key id="grpCdNm" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_cd" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="cdDesc" name="name1"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ac.co.bizplan.RetrieveInvestmentPlanCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_master" action="" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_work","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_master_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_version" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_version" target='data:json,{"id":"ds_version","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_version_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_investPlanClsCd" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_investPlanClsCd" target='data:json,{"id":"ds_investPlanClsCd","key":"GAUCE"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission abortTrigger="" action="/cm.zz.RetrieveCodeCMD.do" customHandler="" encoding="UTF-8" errorHandler="" ev:submit=""
+    			ev:submitdone="scwin.sbm_cd_submitdone" ev:submiterror="" id="sbm_cd" instance="" mediatype="application/json" method="post"
+    			mode="asynchronous" processMsg="" ref="data:json,dma_cd" replace="" style="" target='data:json,{"id":"ds_cd","key":"GAUCE"}'>
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<w2:common src="" id="common1"></w2:common>
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript"
+    		scopeVariable="ACConstants">
+    	</script>
+    	<script cache="false" scopeExternal="false" src="/ui/cm/fw/constants/DGlobalValue.js" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역 변수
+scwin.memJson = $c.data.getMemInfo();
+scwin.loginAcctDeptCd = scwin.memJson.acctDeptCd;
+scwin.loginAcctDeptNm = scwin.memJson.acctDeptNm;
+scwin.checkUser = false;
+
+scwin.planYr;
+scwin.acctDeptCd = "";
+scwin.ver = "";
+scwin.clsCd = "";
+
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd;
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd;
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd;
+scwin.isSubCompany = false;
+scwin.privAdmin = scwin.memJson.privAdmin;
+scwin.txtCoClsCd = "";
+scwin.isStart = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    $c.sbm.execute(sbm_cd);
+};
+
+/**
+ * UDC값
+ */
+scwin.onUdcCompleted = function() {
+    $c.gus.cfTurnCreateFlag(true);
+    scwin.f_FieldClear();
+    scwin.f_GetMgntAcctCd();
+    $c.gus.cfEnableObjects([btn_addRow, btn_deleteRow, btn_cancelRow]);
+    scwin.f_SetLoginDefault();
+    scwin.f_setCompanyInfo();
+};
+
+//-------------------------------------------------------------------------
+// 로그인 기본값 설정
+//-------------------------------------------------------------------------
+scwin.f_SetLoginDefault = function() {
+    $c.gus.cfSetValue(ed_srchAcctDeptCd,scwin.loginAcctDeptCd);
+    $c.gus.cfSetHiddenValue(ed_srchAcctDeptCd,scwin.loginAcctDeptCd);
+    $c.gus.cfSetValue(ed_srchAcctDeptNm,scwin.loginAcctDeptNm);
+    ed_srchInvestPlanClsCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tbl_search,[ica_srchPlanYr, lc_version, ed_coCd, ed_coNm]);
+    scwin.f_SetSrchDefault();
+};
+
+//-------------------------------------------------------------------------
+// 조회 기본값 설정
+//-------------------------------------------------------------------------
+scwin.f_SetSrchDefault = function() {
+    ica_srchPlanYr.setValue($c.date.getServerDateTime("yyyy"));
+    scwin.f_GetVersion();
+    ica_srchPlanYr.focus();
+};
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    if (ds_work.getRowCount() > 0 && ds_work.getModifiedIndex().length > 0) {
+        if (await $c.win.confirm(MSG_CM_CRM_005) == false)
+            return;
+    }
+
+    let ret = await $c.gus.cfValidate([tbl_search]);
+    if (!ret) {
+        return false;
+    }
+
+    if (!scwin.f_CheckHidVal([ed_srchAcctDeptCd])) return false;  //코드 유효성 검증
+
+    scwin.f_SetGridFormat();
+
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 저장 :
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    if (scwin.clsCd == "1" && ds_work.getModifiedIndex().length==0) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_001, ["자료"]));
+    } else {
+        if (!await scwin.f_Validation()) return false;
+
+        if(await $c.win.confirm(MSG_CM_CRM_001)){
+            scwin.f_CheckDeleted();
+            sbm_master.action = "/ac.co.bizplan.SaveInvestmentPlanCMD.do";
+            $c.sbm.execute(sbm_master); 
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 확정 :
+//-------------------------------------------------------------------------
+scwin.f_Confirm = async function() {
+    if (scwin.clsCd == "2" && ds_work.getModifiedIndex().length==0) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_001, ["자료"]));
+    } else {
+        if (!await scwin.f_Validation()) return false;
+
+        if(await $c.win.confirm(MSG_CM_CRM_001)){
+            scwin.f_CheckDeleted();
+            sbm_master.action = "/ac.co.bizplan.ConfirmInvestmentPlanCMD.do";
+            $c.sbm.execute(sbm_master); 
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// Validation.
+//-------------------------------------------------------------------------
+scwin.f_Validation = async function() {
+    let ret = await $c.gus.cfValidate([gr_master]);
+    if (!ret) {
+        return false;
+    }
+
+    let presumeYm = scwin.f_GetPresumeYm();
+    let colid = "planYm";
+
+    for (let i = 0; i < ds_work.getRowCount(); i++) {
+        if (ds_work.getRowStatus(i) == "C" || ds_work.getRowStatus(i) == "U") {
+            planYm = ds_work.getCellData(i, colid);
+            if (planYm < presumeYm) {
+                await $c.win.alert("년월[" + planYm + "]이 추정년월[" + presumeYm + "] 이전입니다.");
+                scwin.f_SetColumn(gr_master, i, colid);
+                return false;
+            }
+
+            if(planYm.substring(0,4).length < 4){
+                await $c.win.alert("년도를 잘못 입력하셨습니다.");
+                scwin.f_SetColumn(gr_master, i, colid);
+                return false;
+            }
+
+
+            if(planYm.substring(4,6) > 12 || planYm.substring(4,6)< 01){
+                await $c.win.alert("년월을 잘못 입력하셨습니다.");
+                scwin.f_SetColumn(gr_master, i, colid);
+                return false;
+            }
+        }
+    }
+    return true;
+};
+
+//-------------------------------------------------------------------------
+// Grid 컬럼에 포커스를 설정.
+//-------------------------------------------------------------------------
+scwin.f_SetColumn = function(objGrid, row, colid) {
+    objGrid.setFocusedCell(row, colid,true);
+};
+
+//-------------------------------------------------------------------------
+// 행 추가
+//-------------------------------------------------------------------------
+scwin.f_Add = async function() {
+    let ret = await $c.gus.cfValidate([gr_master]);
+    if (!ret) {
+        return false;
+    }
+
+    let newRow = ds_work.insertRow();
+    gr_master.setFocusedCell(newRow, 0);
+    scwin.ver = lc_version.getValue();
+    scwin.planYr = ica_srchPlanYr.getValue();
+    scwin.acctDeptCd = ed_srchAcctDeptCd.getValue();
+
+    if(ds_work.getRowStatus(newRow)=="C"){
+        gr_master.setCellReadOnly(newRow, "investPlanClsCd", false);
+        gr_master.setCellReadOnly(newRow, "planYm", false);
+        gr_master.setCellReadOnly(newRow, "investPlanSeq", false);
+    }
+
+    ds_work.setCellData(newRow, "planYr", scwin.planYr);
+    ds_work.setCellData(newRow, "ver", scwin.ver);
+    ds_work.setCellData(newRow, "acctDeptCd", scwin.acctDeptCd);
+    ds_work.setCellData(newRow, "qty", 0);
+    ds_work.setCellData(newRow, "amt", 0);
+    ds_work.setCellData(newRow, "priority", 0);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 Download
+//-------------------------------------------------------------------------
+scwin.f_Export = async function() {
+    if (ds_work.getRowCount() == 0) {
+        await $c.win.alert(MSG_CM_WRN_002);
+        return;
+    }
+    
+    let fileName = '투자계획_' + scwin.planYr + "_" + ed_srchAcctDeptNm.getValue() + "_ver_" + lc_version.getValue() +
+        "_" + lc_clsCd.getItemArray()[lc_clsCd.getSelectedIndex()].orgLabel;
+        
+    $c.data.downloadGridViewExcel(gr_master, { fileName: fileName + ".xlsx", sheetName: fileName, useFooter: "false" });
+};
+
+/**
+ * 엑셀 파일 업로드
+ */
+scwin.f_excelUpload = async function () {
+    if (scwin.f_GetUpdateAuth() == false) {
+        await $c.win.alert("권한이 없습니다.");
+        return;
+    }
+
+    if ( await $c.gus.cfCheckCreateFlag() == true) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_WRN_008,["자료"]));
+        return;
+    }
+
+    let ret = $c.gus.cfValidate([tbl_search])
+
+    if (!ret) {
+        return;
+    }
+
+    if(excelUdc.getUpExt() == "1") {
+        let options = {
+            "fileName": "gridDataUpload.xlsx",
+            "status": "C",
+            "header":1,
+            "type": "1",
+            "startRowIndex":0,
+            "footerExist":0,
+        };
+
+        ds_excel.removeAll();
+        await $c.data.uploadGridViewCSV(gr_excel, options);
+    } else {
+        let options = {
+            "fileName": "gridDataUpload.xlsx",
+            "status": "C",
+            "headerExist":1,
+            "useMaxByteLength": ",",
+            "type": "1",
+            "startRowIndex":0,
+            "footerExist":0,
+        };
+        ds_excel.removeAll();
+        await $c.data.uploadGridViewExcel(gr_excel, options);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 Upload
+//-------------------------------------------------------------------------
+scwin.f_Import = async function(){
+    if (ds_excel.getRowCount() == 0) {
+        $c.gus.cfProgressWinClose();
+        await $c.win.alert(MSG_CM_ERR_003);
+        return;
+    }
+
+    if (await scwin.f_AddRowUploaded()) {
+        $c.gus.cfProgressWinClose();
+        await $c.win.alert("업로드작업이 완료되었습니다.");
+    }
+}
+
+//-------------------------------------------------------------------------
+// 업로드 자료 추가
+//-------------------------------------------------------------------------
+scwin.f_AddRowUploaded = async function(){
+    let check = await scwin.f_CheckUploadData();
+    if (check == false) return false;
+
+    if (ds_excel.getRowCount() > 0) {
+        ds_work.removeAll();
+        for (i=0; i < ds_excel.getRowCount(); i++) {
+            let investPlanClsNm = scwin.f_GetInvestPlanClsNm(ds_excel.getCellData(i,"investPlanClsCd").trim());
+            if ($c.gus.cfIsNull(investPlanClsNm)) {
+                $c.gus.cfProgressWinClose();
+                await $c.win.alert((i+1) + "번째 자료의 투자계획 구분코드는 존재하지 않거나 유효하지 않습니다.");
+                return false;
+            }
+
+            let row = ds_work.insertRow();
+
+            ds_work.setCellData(row, "ver",lc_version.getValue());
+            ds_work.setCellData(row, "planYr", ica_srchPlanYr.getValue());
+            ds_work.setCellData(row, "acctDeptCd", ed_srchAcctDeptCd.getValue());
+            ds_work.setCellData(row, "investPlanClsCd",ds_excel.getCellData(i, "investPlanClsCd").trim());
+            ds_work.setCellData(row, "investPlanClsNm",investPlanClsNm);
+            ds_work.setCellData(row, "planYm", ds_excel.getCellData(i, "planYm").replace(/\//g, ""));
+            ds_work.setCellData(row, "investPlanSeq",$c.gus.cfIsNull(ds_excel.getCellData(i,"investPlanSeq")) ? "0" : ds_excel.getCellData(i,"investPlanSeq"));
+            ds_work.setCellData(row, "summary",ds_excel.getCellData(i, "summary"));
+            ds_work.setCellData(row, "qty",ds_excel.getCellData(i, "qty"));
+            ds_work.setCellData(row, "amt",ds_excel.getCellData(i, "amt"));
+            ds_work.setCellData(row, "priority",ds_excel.getCellData(i, "priority"));
+        }
+    }
+    totalRows.setValue(ds_work.getRowCount());
+    return true;
+}
+
+//-------------------------------------------------------------------------
+// 업로드된 데이터 체크
+//-------------------------------------------------------------------------
+scwin.f_CheckUploadData = async function(){
+    for (i=0; i < ds_work.getRowCount(); i++) {
+        if ($c.gus.cfIsNull(ds_work.getCellData(i,"investPlanClsCd"))) {
+            $c.gus.cfProgressWinClose();
+            await $c.win.alert(MSG_CM_ERR_053, [i + "번째 자료의 계정코드"]) ;
+            return false;
+        }
+        if ($c.gus.cfIsNull(ds_work.getCellData(i,"planYm"))) {
+            $c.gus.cfProgressWinClose();
+            await $c.win.alert(MSG_CM_ERR_053, [i + "번째 자료의 년월"]) ;
+            return false;
+        }
+    }
+    return true;
+}
+
+//-------------------------------------------------------------------------
+// 버전정보를 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetVersion = function() {
+    const params = {
+        sysCd: "CommonEBC",
+        queryId: "retrieveVersionInfo",
+        param1: ica_srchPlanYr.getValue().trim() + "00"
+    };
+
+    dma_version.setJSON(params);
+    $c.sbm.execute(sbm_version);
+};
+
+//-------------------------------------------------------------------------
+// 최종 Ver을 설정
+//-------------------------------------------------------------------------
+scwin.f_SetFinalVer = function () {
+    if (ds_version.getRowCount() < 1) return;
+
+    let index = 0;
+
+    for (let i = 0; i < ds_version.getRowCount(); i++) {
+        if (ds_version.getCellData(i, "col3") == DGlobalValue.TRUE) {
+            index = i;
+            break;
+        }
+    }
+
+    lc_version.setSelectedIndex(index);
+}
+
+//-------------------------------------------------------------------------
+// 코드와 Hidden 값이 같은 지 여부를 반환
+//-------------------------------------------------------------------------
+scwin.f_CheckHidVal = async function(inObj) {
+    if (scwin.f_IsArray(inObj)) {
+        for (let i = 0; i < inObj.length; i++) {
+            if (scwin.f_CheckHidVal(inObj[i]) == false) return false;
+        }
+    } else {
+        let objName = (inObj.options.validExp).split(":")[0];
+        if ($c.gus.cfIsNull($c.gus.cfGetValue(inObj))) return true;
+
+        if (await $c.gus.cfGetValue(inObj) != $c.gus.cfGetHiddenValue(inObj)) {
+            await $c.win.alert($c.data.getMessage(MSG_CM_ERR_038, ($c.gus.cfIsNull(objName)?"코드":objName)));
+            inObj.focus();
+            return false;
+        }
+    }
+    return true;
+};
+
+//-------------------------------------------------------------------------
+// Array 여부를 반환
+//-------------------------------------------------------------------------
+scwin.f_IsArray = function(inObj) {
+    return (inObj instanceof Array);
+};
+
+//-------------------------------------------------------------------------
+// 부서코드팝업
+//-------------------------------------------------------------------------
+scwin.f_deptPopUp = async function(pWinCloseTF) {
+    let codeObj = ed_srchAcctDeptCd;
+    let nameObj = ed_srchAcctDeptNm;
+    
+    let param_y = ica_srchPlanYr.getValue().trim() + "0101";
+    let param = param_y + ",,,,,,,,," + ed_coCd.getValue();
+    
+    let paramArray = {};
+    paramArray.pSelectID = "retrieveAcctDeptCdInfo";
+    paramArray.pCode = $c.gus.cfGetValue(codeObj);
+    paramArray.pWinCloseTF = pWinCloseTF;
+    paramArray.pWhere = param + ",,,0,,1";
+    paramArray.pW = "410";
+
+    if (paramArray.pWinCloseTF == 'T' && $c.gus.cfCanOpenPopup(codeObj, nameObj) == false) {
+        return;
+    }
+
+    if ($c.gus.cfIsNull(paramArray.pCode)) paramArray.pCode = "";
+    if ($c.gus.cfIsNull(paramArray.pName)) paramArray.pName = "";
+
+
+    await udc_acctDeptCdInfo.cfCommonPopUp(scwin.udc_acctDeptCdInfo_callBackFunc, paramArray.pCode, paramArray.pName,
+    paramArray.pWinCloseTF, paramArray.pDispCnt,
+    paramArray.pTitle, paramArray.pWidth,
+    paramArray.pHidden, paramArray.pWhere,
+    paramArray.pW, paramArray.pH,
+    paramArray.pTop, paramArray.pLeft,
+    paramArray.pExistTF, paramArray.pAllSearchTF,
+    paramArray.pWtitleSearch);
+};
+
+scwin.udc_acctDeptCdInfo_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret,ed_srchAcctDeptCd,ed_srchAcctDeptNm);
+};
+
+//-------------------------------------------------------------------------
+// 계정코드팝업
+//-------------------------------------------------------------------------
+scwin.f_investPlanClsPopUp = async function(pWinCloseTF) {
+    let codeObj = ed_srchInvestPlanClsCd;
+    let nameObj = ed_srchInvestPlanClsNm;
+
+    let paramArray = {};
+    paramArray.pSelectID = "retrieveInvestPlanClsInfo";
+    paramArray.pCode = $c.gus.cfGetValue(codeObj);
+    paramArray.pWinCloseTF = pWinCloseTF;
+    //paramArray.pWhere = "1220000,5";
+
+    if (paramArray.pWinCloseTF == 'T' && $c.gus.cfCanOpenPopup(codeObj, nameObj) == false) {
+        return;
+    }
+
+    await udc_investPlanClsInfo.cfCommonPopUp(scwin.udc_investPlanClsInfo_callBackFunc, paramArray.pCode, paramArray.pName,
+        paramArray.pWinCloseTF, paramArray.pDispCnt,
+        paramArray.pTitle, paramArray.pWidth,
+        paramArray.pHidden, paramArray.pWhere,
+        paramArray.pW, paramArray.pH,
+        paramArray.pTop, paramArray.pLeft,
+        paramArray.pExistTF, paramArray.pAllSearchTF,
+        paramArray.pWtitleSearch);
+};
+
+scwin.udc_investPlanClsInfo_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_srchInvestPlanClsCd, ed_srchInvestPlanClsNm);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 포맷설정
+//-------------------------------------------------------------------------
+scwin.f_SetGridFormat = function() {
+    gr_master.setReadOnly(false);
+    
+    if (lc_clsCd.getValue() == "1") { //계획
+        gr_master.setColumnReadOnly("priority", false);
+    } else {                          //확정
+        gr_master.setColumnReadOnly("priority", true);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 투자계획 그리드 팝업 호출
+//-------------------------------------------------------------------------
+scwin.f_investPlanClsGridPopUp = async function(pWinCloseTF, oldData) {
+    let codeCol = "investPlanClsCd";
+    let nameCol = "investPlanClsNm";
+    let row = ds_work.getRowPosition();
+    let newData = ds_work.getCellData(row, codeCol);
+
+    if (pWinCloseTF == "T") {
+        if ($c.gus.cfIsNull(newData)) {
+            ds_work.setCellData(row, nameCol, "");
+            return;
+        }
+        if (newData == oldData) return;
+    }
+
+    let paramArray = {};
+    paramArray.pSelectID = "retrieveInvestPlanClsInfo";
+    paramArray.pCode = newData;
+    paramArray.pName = "";
+    paramArray.pWinCloseTF = pWinCloseTF;
+    //paramArray.pWhere = "1220000,5";
+    //paramArray.pW = "410";
+
+    if ($c.gus.cfIsNull(paramArray.pCode)) paramArray.pCode = "";
+    if ($c.gus.cfIsNull(paramArray.pName)) paramArray.pName = "";
+
+    await udc_gridInvestPlanClsInfo.cfCommonPopUp(scwin.udc_gridInvestPlanClsInfo_callBackFunc, paramArray.pCode, paramArray.pName,
+        paramArray.pWinCloseTF, paramArray.pDispCnt,
+        paramArray.pTitle, paramArray.pWidth,
+        paramArray.pHidden, paramArray.pWhere,
+        paramArray.pW, paramArray.pH,
+        paramArray.pTop, paramArray.pLeft,
+        paramArray.pExistTF, paramArray.pAllSearchTF,
+        paramArray.pWtitleSearch);
+};
+
+scwin.udc_gridInvestPlanClsInfo_callBackFunc = async function(rtnList) {
+    let row = ds_work.getRowPosition();
+    // SET
+    if (rtnList != null) {
+        if (rtnList[0] == "N/A") return;
+        ds_work.setCellData(row, "investPlanClsCd", rtnList[0]);
+        ds_work.setCellData(row, "investPlanClsNm", rtnList[1]);
+    } else {
+        ds_work.setCellData(row, "investPlanClsCd", "");
+        ds_work.setCellData(row, "investPlanClsNm", "");
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// 투자계획구분목록을 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetMgntAcctCd = function() {
+    const params = {
+        sysCd: "CommonEBC",
+        queryId: "retrieveInvestPlanClsInfo",
+        param1: "",
+        param2: "",
+        param3: "1220000",
+        param4: "5"
+    };
+
+    dma_investPlanClsCd.setJSON(params);
+    $c.sbm.execute(sbm_investPlanClsCd);
+};
+
+//-------------------------------------------------------------------------
+// 투자계획구분명을 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetInvestPlanClsNm = function(investPlanClsCd) {
+    let rowIdx = ds_investPlanClsCd.getMatchedIndex("col1", investPlanClsCd);
+    if (rowIdx.length == 0) return null;
+    return ds_investPlanClsCd.getCellData(rowIdx[0], "col2");
+};
+
+//-------------------------------------------------------------------------
+// 추정년월을 반환
+//-------------------------------------------------------------------------
+scwin.f_GetPresumeYm = function() {
+    let row = ds_version.getMatchedIndex("col1",lc_version.getValue()).length;
+    let target = ds_version.getMatchedIndex("col1",lc_version.getValue());
+    if (row < 1) {
+        return "";
+    }
+    else{
+        return ds_version.getCellData(target[0],"col5");
+    }
+}
+
+//-------------------------------------------------------------------------
+// 구분에 따른 데이터의 유무 설정
+//-------------------------------------------------------------------------
+scwin.f_MakeWorkData  = function() {
+    if (ds_master.getRowCount() == 0) return;
+    
+    ds_work.removeAll();   
+    for (i=0; i < ds_master.getRowCount(); i++) {
+        if (lc_clsCd.getValue() == "1") {
+            if (scwin.f_ExistPlanData(i)) {
+                let row = ds_work.insertRow();
+                ds_work.setCellData(row, "ver", ds_master.getCellData(i, "ver"));
+                ds_work.setCellData(row, "planYr", ds_master.getCellData(i, "planYr"));
+                ds_work.setCellData(row, "planYm", ds_master.getCellData(i, "planYm"));
+                ds_work.setCellData(row, "acctDeptCd", ds_master.getCellData(i, "acctDeptCd"));
+                ds_work.setCellData(row, "acctDeptNm", ds_master.getCellData(i, "acctDeptNm"));
+                ds_work.setCellData(row, "investPlanClsCd", ds_master.getCellData(i, "investPlanClsCd"));
+                ds_work.setCellData(row, "investPlanClsNm", ds_master.getCellData(i, "investPlanClsNm"));
+                ds_work.setCellData(row, "investPlanSeq", ds_master.getCellData(i, "investPlanSeq"));
+                ds_work.setCellData(row, "summary", ds_master.getCellData(i, "planSummary"));
+                ds_work.setCellData(row, "qty", ds_master.getCellData(i, "planQty"));
+                ds_work.setCellData(row, "amt", ds_master.getCellData(i, "planAmt"));
+                ds_work.setCellData(row, "priority", ds_master.getCellData(i, "priority"));
+                ds_work.setCellData(row, "flag", (scwin.f_ExistConfirmData(i) ? 1 : 0));
+            }
+        } else {
+            if (scwin.f_ExistConfirmData(i)) {
+                let row = ds_work.insertRow();
+                ds_work.setCellData(row, "ver", ds_master.getCellData(i, "ver"));
+                ds_work.setCellData(row, "planYr", ds_master.getCellData(i, "planYr"));
+                ds_work.setCellData(row, "planYm", ds_master.getCellData(i, "planYm"));
+                ds_work.setCellData(row, "acctDeptCd", ds_master.getCellData(i, "acctDeptCd"));
+                ds_work.setCellData(row, "acctDeptNm", ds_master.getCellData(i, "acctDeptNm"));
+                ds_work.setCellData(row, "investPlanClsCd", ds_master.getCellData(i, "investPlanClsCd"));
+                ds_work.setCellData(row, "investPlanClsNm", ds_master.getCellData(i, "investPlanClsNm"));
+                ds_work.setCellData(row, "investPlanSeq", ds_master.getCellData(i, "investPlanSeq"));
+                ds_work.setCellData(row, "summary", ds_master.getCellData(i, "dcsnSummary"));
+                ds_work.setCellData(row, "qty", ds_master.getCellData(i, "dcsnQty"));
+                ds_work.setCellData(row, "amt", ds_master.getCellData(i, "dcsnAmt"));
+                ds_work.setCellData(row, "priority", ds_master.getCellData(i, "priority"));
+                ds_work.setCellData(row, "flag", (scwin.f_ExistPlanData(i) ? 1 : 0));
+            }
+        }
+    }
+
+    ds_work.modifyAllStatus("R");
+    ds_work.reform();
+}
+
+//-------------------------------------------------------------------------
+// 계획내역이 존재하는 지 여부를 반환한다.
+//-------------------------------------------------------------------------
+scwin.f_ExistPlanData = function(row) {
+    if (row == null) row = ds_master.getRowPosition();
+    if (!$c.gus.cfIsNull(ds_master.getCellData(row, "planSummary"))) return true;
+    if (ds_master.getCellData(row, "planQty") != 0) return true;
+    if (ds_master.getCellData(row, "planAmt") != 0) return true;
+    return false;
+};
+
+//-------------------------------------------------------------------------
+// 확정내역이 존재하는 지 여부를 반환한다.
+//-------------------------------------------------------------------------
+scwin.f_ExistConfirmData = function(row) {
+    if (row == null) row = ds_master.getRowPosition();
+    if (!$c.gus.cfIsNull(ds_master.getCellData(row, "dcsnSummary"))) return true;
+    if (ds_master.getCellData(row, "dcsnQty") != 0) return true;
+    if (ds_master.getCellData(row, "dcsnAmt") != 0) return true;
+    return false;
+};
+
+//-------------------------------------------------------------------------
+// 수정할 수 있는 권한이 있는 지 여부를 반환
+//-------------------------------------------------------------------------
+scwin.f_GetUpdateAuth = function() {
+    let frame = $c.gus.getFrm();
+
+    if (!$c.gus.cfCheckAuthCREATE(frame) && !$c.gus.cfCheckAuthUPDATE(frame))
+        return false;
+
+    scwin.clsCd = lc_clsCd.getValue();
+
+    if (scwin.clsCd == "1")
+        return $c.gus.cfCheckAuthCREATE(frame);
+    else if (scwin.clsCd == "2")
+        return $c.gus.cfCheckAuthUPDATE(frame);
+
+    return false;
+};
+
+//-------------------------------------------------------------------------
+// 행추가/삭제/취소버튼의 Enalbe/Disable 설정
+//-------------------------------------------------------------------------
+scwin.f_SetRowButton = function() {
+    if (scwin.f_GetUpdateAuth()) {
+        $c.gus.cfEnableObjects([btn_addRow, btn_deleteRow, btn_cancelRow]);
+    } else {
+        $c.gus.cfDisableObjects([btn_addRow, btn_deleteRow, btn_cancelRow]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 삭제된 데이터를 실제 삭제할 지 여부를 체크
+//-------------------------------------------------------------------------
+scwin.f_CheckDeleted = function() {
+    for (let i = 0; i < ds_work.getRowCount(); i++) {
+        if (ds_work.getRowStatus(i) == "D") { //삭제
+            if (ds_work.getCellData(i, "flag") == "1") {
+                $c.data.undoRow(ds_work, "Y");
+                ds_work.setCellData(i, "planSummary", "");
+                ds_work.setCellData(i, "planQty", 0);
+                ds_work.setCellData(i, "planAmt", 0);
+            }
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function() {   
+ 	 // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+ 	if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+        scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+        scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+	}
+
+    scwin.isStart = true;
+	ed_coCd.setValue(scwin.vLoginCoCd);
+	scwin.f_PopUpCompanyInfo('T');
+}
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = async function(pWinCloseTF) {
+    udc_dongbuGroupCompanyInfo.cfCommonPopUp(scwin.udc_dongbuGroupCompanyInfo_callBackFunc
+    									,ed_coCd.getValue(), ""
+    									,pWinCloseTF,null,null,null,null
+    									,null,null,null,null,null);   
+}
+
+scwin.udc_dongbuGroupCompanyInfo_callBackFunc = function(rtnList) {
+        // SET
+    if (rtnList != null) {
+        if (rtnList[0] == "N/A") return;
+
+        ed_coCd.setValue(rtnList[0]);   // 코드
+        ed_coNm.setValue(rtnList[5]);   // 회사명
+        scwin.txtCoClsCd = rtnList[1];  // 회사구분
+    } else {
+        ed_coNm.setValue("");
+        ed_coCd.setValue("");
+        scwin.txtCoClsCd = "";
+    }
+
+    if(scwin.isStart == true) {
+        if(scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {  	// 자회사 회계 시스템 
+		    scwin.isSubCompany = true;
+        }else{
+            scwin.isSubCompany = false;
+        }
+
+        if('T' == scwin.privAdmin  ||  !scwin.isSubCompany   ) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우 
+            $c.gus.cfEnableObjects([ed_coCd,ed_coNm,btn_company]);    
+        }else {
+            $c.gus.cfDisableObjects([ed_coCd,ed_coNm,btn_company]);   
+        }  
+    }
+    scwin.isStart = false;
+};
+
+scwin.sbm_search_submitdone = async function (e) {
+    if(await $c.gus.cfCheckCreateFlag() == true){
+        await $c.gus.cfTurnCreateFlag(false);
+    }
+
+    
+
+    scwin.f_MakeWorkData();   //임시데이터셋 생성
+    gr_master.setFocusedCell(ds_work.getRowCount()-1, 0);
+    totalRows.setValue(ds_work.getRowCount());
+    if( ds_master.getRowCount() == 0 ){
+        await $c.win.alert(MSG_CM_WRN_002);
+        ds_work.removeAll();
+    }
+};
+
+scwin.sbm_master_submitdone = async function (e) {
+    await $c.win.alert(MSG_CM_INF_001);
+    ds_work.reform();
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_version_submitdone = function (e) {
+    scwin.f_SetFinalVer();
+};
+
+scwin.udc_dongbuGroupCompanyInfo_onclickEvent = function (e) {
+    scwin.f_PopUpCompanyInfo('F');
+};
+
+scwin.udc_acctDeptCdInfo_onclickEvent = function (e) {
+    scwin.f_deptPopUp('F');
+};
+
+
+scwin.udc_investPlanClsInfo_onclickEvent = function (e) {
+    scwin.f_investPlanClsPopUp('F');
+};
+
+scwin.udc_acctDeptCdInfo_onblurCodeEvent = function (e) {
+    scwin.f_deptPopUp('T');
+};
+
+scwin.udc_investPlanClsInfo_onblurCodeEvent = function (e) {
+    scwin.f_investPlanClsPopUp('T');
+};
+
+scwin.udc_dongbuGroupCompanyInfo_onblurCodeEvent = function (e) {
+    if (ed_coCd.getValue() != ""){
+        scwin.f_PopUpCompanyInfo('T');
+    }
+    else{
+        ed_coNm.setValue("");
+    }
+};
+
+scwin.ica_srchPlanYr_onblur = function (e) {
+    scwin.f_GetVersion();
+};
+
+scwin.gr_master_oncellclick = function (row, columnIndex, colid) {
+    if (row < 0) return;
+    if (colid == "investPlanClsNm" || colid == "flag" || colid == "priority") return;
+
+    if (ds_master.getRowStatus(row) == "C") {
+        gr_master.setColumnReadOnly(colid,false);
+    } else {
+        if (colid == "investPlanClsCd" || colid == "planYm" || colid == "investPlanSeq"){
+            gr_master.setColumnReadOnly(colid,true);
+        }else{
+            gr_master.setColumnReadOnly(colid,false);
+        }
+    }
+};
+
+scwin.gr_master_ontextimageclick = function (rowIndex, columnIndex) {
+    let colId = gr_master.getColumnID(columnIndex);
+    if (colId == "investPlanClsCd") {
+        scwin.f_investPlanClsGridPopUp('F');
+    }
+};
+
+scwin.sbm_cd_submitdone = function (e) {
+    let coList = ds_cd.getColData("cdDesc");
+    let isMatch = coList.includes(scwin.memJson.userId);
+
+    if(isMatch) {
+        btn_confirm.setStyle("display", "block");
+    } else {
+        btn_confirm.setStyle("display", "none");
+    }
+};
+
+scwin.ds_master_onbeforerowpositionchange = async function (info) {
+    if (info.oldRowIndex < 1) return;
+
+    let ret = await $c.gus.cfValidate([gr_master]);
+    return ret;
+};
+
+scwin.gr_master_onviewchange = function (info) {
+    let colId = info.colId;
+    switch (colId) {
+        case "investPlanClsCd":
+            scwin.f_investPlanClsGridPopUp('T',info.oldValue);
+            break;
+    }
+};
+
+scwin.gr_excel_onfilereadend = function (value) {
+    scwin.f_Import();
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:90px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:75px;" tagname="col"></xf:group>
+    								<xf:group style="width: 15%;" tagname="col"></xf:group>
+    								<xf:group style="width:50px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:50px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="회사코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" codeId="ed_coCd" mandatoryCode="true" validExpCode="회사코드:yes" allowCharCode="0-9" UpperFlagCode="1" maxlengthCode="3" nameId="ed_coNm" btnId="btn_company" id="udc_dongbuGroupCompanyInfo" ev:onblurCodeEvent="scwin.udc_dongbuGroupCompanyInfo_onblurCodeEvent" ev:onclickEvent="scwin.udc_dongbuGroupCompanyInfo_onclickEvent" selectID="retrieveDongbuGroupCompanyInfo" validTitle="회사코드"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="예산년도 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:inputCalendar calendarValueType="year" class="" id="ica_srchPlanYr" style="" objType="data" mandatory="true" validExp="예산년도:yes:date=YYYY" editType="focus" placeholder=" " displayFormat="yyyy" validateOnInput="true" ref="data:dma_search.planYr" title="예산년도" ev:onblur="scwin.ica_srchPlanYr_onblur" pickerType="dynamic"></w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="버전" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_version" style="width:130px;" submenuSize="auto" mandatory="true" validExp="버전:yes" tabIndex="-1" delimiter=" - " ref="data:dma_search.ver" displayMode="value delim label" title="버전">
+    										<xf:choices>
+    											<xf:itemset nodeset="data:ds_version">
+    												<xf:label ref="col4"></xf:label>
+    												<xf:value ref="col1"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="부서 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="" style="" codeId="ed_srchAcctDeptCd" objTypeCode="data" validExpCode="부서:yes:length=5" allowCharCode="0-9" maxlengthCode="5" editTypeCode="focus" maxlengthName="30" nameId="ed_srchAcctDeptNm" objTypeName="data" mandatoryName="true" id="udc_acctDeptCdInfo" ev:onblurCodeEvent="scwin.udc_acctDeptCdInfo_onblurCodeEvent" ev:onclickEvent="scwin.udc_acctDeptCdInfo_onclickEvent" code="acctDeptCd" refDataCollection="dma_search" selectID="retrieveAcctDeptCdInfo" validTitle="부서" mandatoryCode="true" skipOnBlurCodeValueEmpty="N"></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="투자계획구분" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" codeId="ed_srchInvestPlanClsCd" objTypeCode="data" validExpCode="투자계획구분:no:length=3" allowCharCode="0-9" maxlengthCode="3" editTypeCode="focus" nameId="ed_srchInvestPlanClsNm" maxlengthName="30" objTypeName="data" id="udc_investPlanClsInfo" ev:onblurCodeEvent="scwin.udc_investPlanClsInfo_onblurCodeEvent" code="investPlanClsCd" refDataCollection="dma_search" selectID="retrieveInvestPlanClsInfo" btnId="btn_srchInvestPlan" ev:onclickEvent="scwin.udc_investPlanClsInfo_onclickEvent" validTitle="투자계획구분" skipOnBlurCodeValueEmpty="N"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="구분 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_clsCd" style="width:120px;" submenuSize="auto" objType="data" validExp="구분:yes" ref="" displayMode="value delim label" title="구분">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[계획]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[확정]]></xf:label>
+    												<xf:value><![CDATA[2]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[새로고침]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="section row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="투자계획등록내역" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_master" id="excelUdc" gridDownFn="scwin.f_Export"
+    							btnUser="N" gridUpFn="scwin.f_excelUpload" gridDownUserAuth="X">
+    						</w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="grid-wrap" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    						<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_work"
+    							id="gr_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="13" visibleRowNumFix="true"
+    							validFeatures="ignoreStatus=yes"
+    							validExp="investPlanClsCd:투자계획구분:yes:length=3&amp;number:key,planYm:년월:yes:date=YYYYMM:key,investPlanSeq:순번:yes:minNumber=1:key,summary:내역:no:maxByteLength=100"
+    							editModeEvent="onclick" columnMove="true" dataDragSelectAutoScroll="false" ev:oncellclick="scwin.gr_master_oncellclick"
+    							rowStatusVisible="true" ev:ontextimageclick="scwin.gr_master_ontextimageclick" ev:onviewchange="scwin.gr_master_onviewchange"
+    							rowStatusWidth="20" ev:onfilereadend="scwin.gr_master_onfilereadend" gridName="투자계획리스트">
+    							<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header2" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column blockSelect="false" displayMode="label" id="investPlanClsCd " inputType="text"
+    										removeBorderStyle="false" width="150" value="투자계획구분코드" class="col-type1">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="investPlanClsNm" inputType="text"
+    										removeBorderStyle="false" width="170" value="투자계획구분명">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="planYm" inputType="text"
+    										removeBorderStyle="false" width="70" value="년월" class="col-type1">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="investPlanSeq" inputType="text"
+    										removeBorderStyle="false" width="70" value="순번">
+    									</w2:column>
+    									<w2:column displayMode="label" id="Summary" inputType="text" value="내역" width="270"
+    										class="col-type2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="qty" inputType="text" value="수량" width="80" class="col-type2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="amt" inputType="text" value="금액" width="100" class="col-type2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="priority" inputType="text" value="우선순위" width="100"
+    										class="col-type2">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody2" style="">
+    								<w2:row id="row4" style="">
+    									<w2:column blockSelect="false" displayMode="label" id="investPlanClsCd" inputType="textImage"
+    										removeBorderStyle="false" width="150" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default" readOnly="true"
+    										maxLength="3" dataType="number" allowChar="0-9" mandatory="true">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="investPlanClsNm" inputType="text"
+    										removeBorderStyle="false" width="170" textAlign="left" readOnly="true" maxLength="3">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="planYm" removeBorderStyle="false" width="70"
+    										readOnly="true" maxLength="6" validateOnInput="true" allowChar="0-9" mandatory="true" dateValidCheck="true" dataType="text"
+    										dateValidSet="true" displayFormat="####/##">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="investPlanSeq" inputType="text"
+    										removeBorderStyle="false" width="70" readOnly="true" maxLength="5" mandatory="true">
+    									</w2:column>
+    									<w2:column displayMode="label" id="summary" inputType="text" width="270" textAlign="left"
+    										maxLength="100">
+    									</w2:column>
+    									<w2:column displayMode="label" id="qty" inputType="text" width="80" textAlign="right" maxLength="5"
+    										allowChar="0-9" dataType="number" displayFormat="#,##0" excelCellType="number">
+    									</w2:column>
+    									<w2:column displayMode="label" id="amt" inputType="text" width="100" textAlign="right"
+    										allowChar="0-9" dataType="number" displayFormat="#,##0" excelCellType="number" maxLength="13">
+    									</w2:column>
+    									<w2:column displayMode="label" id="priority" inputType="text" width="100" allowChar="0-9"
+    										maxLength="3" dataType="number" displayFormat="#,##0">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer style="" id="footer1">
+    								<w2:row style="" id="row5">
+    									<w2:column width="150" inputType="text" id="column30" value="합계" displayMode="label"></w2:column>
+    									<w2:column width="170" inputType="text" id="column29" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" id="column28" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" id="column27" displayMode="label"></w2:column>
+    									<w2:column width="270" inputType="text" id="column26" displayMode="label"></w2:column>
+    									<w2:column width="80" inputType="expression" id="column25" displayMode="label" textAlign="right"
+    										expression='sum("qty")' displayFormat="#,##0" dataType="number" excelCellType="number">
+    									</w2:column>
+    									<w2:column width="100" inputType="expression" id="column24" displayMode="label" textAlign="right"
+    										expression='sum("amt")' displayFormat="#,##0" dataType="number" excelCellType="number">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="column23" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView>
+    					</xf:group>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="right" id="" style="">
+
+    							<xf:group id="" class="inner">
+    								<w2:textbox style="" id="" label="(단위 : 백만원)" class=""></w2:textbox>
+    							</xf:group>
+    							<w2:udc_bottomGrdBtn EngYn="N" addFunction="scwin.f_Add" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="Y"
+    								btnRowDelYn="Y" gridID="gr_master" id="udc_bottomGrdBtn" rowAddFunction="scwin.f_Add" rowAddUserAuth="C" rowDelUserAuth="D"
+    								style="" btnRowAddObj="btn_addRow" btnRowDelObj="btn_deleteRow" btnCancelObj="btn_cancelRow">
+    							</w2:udc_bottomGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<w2:udc_comCode popupID="" selectID="retrieveInvestPlanClsInfo" codeId="ed_inverstPlanCd" validTitle=""
+    						nameId="ed_inverstPlanNm" style="width:%; height:px; ;visibility:hidden;" id="udc_gridInvestPlanClsInfo"
+    						btnId="btn_inverstPlan">
+    					</w2:udc_comCode>
+    					<xf:trigger class="btn" ev:onclick="scwin.f_Confirm" id="btn_confirm" label="저장" objType="bSave" style=""
+    						type="button" userAuth="U">
+    						<xf:label>확정</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" userAuth="C" objType="bSave"
+    						ev:onclick="scwin.f_Save">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+
+
+    				</xf:group>
+    			</xf:group>
+    			<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" columnMove="true"
+    				dataDragSelectAutoScroll="false" dataList="data:ds_excel" editModeEvent="onclick" ev:oncellclick="scwin.gr_master_oncellclick"
+    				ev:ontextimageclick="scwin.gr_master_ontextimageclick" ev:onviewchange="scwin.gr_master_onviewchange" gridName="투자계획리스트"
+    				id="gr_excel" rowStatusVisible="false" rowStatusWidth="20" scrollByColumn="false" scrollByColumnAdaptive="false"
+    				style=";display:none;"
+    				validExp="investPlanClsCd:투자계획구분:yes:length=3&amp;number:key,planYm:년월:yes:date=YYYYMM:key,investPlanSeq:순번:yes:minNumber=1:key,summary:내역:no:maxByteLength=100"
+    				validFeatures="ignoreStatus=yes" visibleRowNum="13" visibleRowNumFix="true" ev:onfilereadend="scwin.gr_excel_onfilereadend">
+    				<w2:caption id="caption11" style="" value="this is a grid caption."></w2:caption>
+    				<w2:header id="header2" style="">
+    					<w2:row id="row3" style="">
+    						<w2:column blockSelect="false" class="col-type1" displayMode="label" id="investPlanClsCd " inputType="text"
+    							removeBorderStyle="false" value="투자계획구분코드" width="150">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" id="investPlanClsNm" inputType="text"
+    							removeBorderStyle="false" value="투자계획구분명" width="170">
+    						</w2:column>
+    						<w2:column blockSelect="false" class="col-type1" displayMode="label" id="planYm" inputType="text"
+    							removeBorderStyle="false" value="년월" width="70">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" id="investPlanSeq" inputType="text" removeBorderStyle="false"
+    							value="순번" width="70">
+    						</w2:column>
+    						<w2:column class="col-type2" displayMode="label" id="Summary" inputType="text" value="내역" width="270"></w2:column>
+    						<w2:column class="col-type2" displayMode="label" id="qty" inputType="text" value="수량" width="80"></w2:column>
+    						<w2:column class="col-type2" displayMode="label" id="amt" inputType="text" value="금액" width="100"></w2:column>
+    						<w2:column class="col-type2" displayMode="label" id="priority" inputType="text" value="우선순위" width="100"></w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody2" style="">
+    					<w2:row id="row4" style="">
+    						<w2:column allowChar="0-9" blockSelect="false" dataType="number" displayMode="label" editModeEvent="onclick"
+    							editModeEventIcon="onclick" id="investPlanClsCd" inputType="textImage" mandatory="true" maxLength="3" readOnly="true"
+    							removeBorderStyle="false" viewType="default" width="150">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" id="investPlanClsNm" inputType="text" maxLength="3"
+    							readOnly="true" removeBorderStyle="false" textAlign="left" width="170">
+    						</w2:column>
+    						<w2:column allowChar="0-9" blockSelect="false" dataType="text" dateValidCheck="true" dateValidSet="true"
+    							displayFormat="####/##" displayMode="label" id="planYm" mandatory="true" maxLength="6" readOnly="true" removeBorderStyle="false"
+    							validateOnInput="true" width="70">
+    						</w2:column>
+    						<w2:column blockSelect="false" displayMode="label" id="investPlanSeq" inputType="text" mandatory="true"
+    							maxLength="5" readOnly="true" removeBorderStyle="false" width="70">
+    						</w2:column>
+    						<w2:column displayMode="label" id="summary" inputType="text" textAlign="left" width="270"></w2:column>
+    						<w2:column allowChar="0-9" dataType="number" displayFormat="#,##0" displayMode="label" excelCellType="number"
+    							id="qty" inputType="text" maxLength="5" textAlign="right" width="80">
+    						</w2:column>
+    						<w2:column allowChar="0-9" dataType="number" displayFormat="#,##0" displayMode="label" excelCellType="number"
+    							id="amt" inputType="text" textAlign="right" width="100">
+    						</w2:column>
+    						<w2:column allowChar="0-9" dataType="number" displayFormat="#,##0" displayMode="label" id="priority"
+    							inputType="text" maxLength="3" width="100">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    				<w2:footer id="footer1" style="">
+    					<w2:row id="row5" style="">
+    						<w2:column displayMode="label" id="column30" inputType="text" value="합계" width="150"></w2:column>
+    						<w2:column displayMode="label" id="column29" inputType="text" width="170"></w2:column>
+    						<w2:column displayMode="label" id="column28" inputType="text" width="70"></w2:column>
+    						<w2:column displayMode="label" id="column27" inputType="text" width="70"></w2:column>
+    						<w2:column displayMode="label" id="column26" inputType="text" width="270"></w2:column>
+    						<w2:column dataType="number" displayFormat="#,##0" displayMode="label" excelCellType="number"
+    							expression='sum("qty")' id="column25" inputType="expression" textAlign="right" width="80">
+    						</w2:column>
+    						<w2:column dataType="number" displayFormat="#,##0" displayMode="label" excelCellType="number"
+    							expression='sum("amt")' id="column24" inputType="expression" textAlign="right" width="100">
+    						</w2:column>
+    						<w2:column displayMode="label" id="column23" inputType="text" width="100"></w2:column>
+    					</w2:row>
+    				</w2:footer>
+    			</w2:gridView>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

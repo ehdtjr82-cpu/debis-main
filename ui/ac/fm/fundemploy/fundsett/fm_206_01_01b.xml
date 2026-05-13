@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="closeYm" name="기준월" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_fundSettlementOfAccounts" action="/ac.fm.fundemploy.fundsett.CreateCumulativeAmtCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_search","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_fundSettlementOfAccounts_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.currYyyyMM = WebSquare.date.getFormattedDate (new Date(), "yyyyMM");
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    // var gs_currDate = "<%=DDate.getDate()%>";
+    dma_search.set("closeYm", scwin.currYyyyMM);
+    ica_closeYm.focus();
+};
+
+//-------------------------------------------------------------------------
+// 헤더생성
+//-------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+// scwin.f_Retrieve = function() {  
+
+//     if (!$c.gus.cfValidate([ica_closeYm]))
+//     return false;
+    
+//     var condition = "?closeYm="+ed_closeYm.text.trim()+"&closeDd=00&mgntNo=0";
+//         condition += "&wrkNo=<%=ACConstants.CLOSE_MON_FUNDASSET%>";
+
+//     ds_fundSettlementOfAccounts.DataID = "/cm.bc.comnmgnt.closemgnt.RetrieveCloseLogListCMD.do" + condition; 
+//     ds_fundSettlementOfAccounts.Reset(); 
+// };
+
+//-------------------------------------------------------------------------
+// 적수계산
+//-------------------------------------------------------------------------
+scwin.f_MonthProcess = async function() {
+
+    let ret = await $c.gus.cfValidate([ica_closeYm]);
+    if (!ret) {
+        return false;
+    }
+
+    var sMonth = ica_closeYm.getValue().trim();
+    let confirmResult = await $c.win.confirm(sMonth.substring(0,4)+"년"+sMonth.substring(4,6)+"월"+" 적수를 생성하시겠습니까?");
+    if (confirmResult) {
+        $c.sbm.execute(sbm_fundSettlementOfAccounts);
+    }
+
+};
+
+scwin.sbm_fundSettlementOfAccounts_submitdone = async function (e) {
+    await $c.win.alert("성공적으로 처리되었습니다.");
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb tb" id="" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th " tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="req" id="" label="기준월" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_closeYm" style="" ref="data:dma_search.closeYm" delimiter="/" mandatory="true" title="기준월"></w2:inputCalendar>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btn_MonthProcess" style="" type="button" userAuth="U" ev:onclick="scwin.f_MonthProcess">
+    						<xf:label><![CDATA[생성]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

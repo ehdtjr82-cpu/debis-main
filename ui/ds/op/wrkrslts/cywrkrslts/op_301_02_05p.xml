@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="lineCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="bookingNo" name="name2" dataType="text"></w2:key>
+    					<w2:key id="selfTransClntNo" name="name3" dataType="text"></w2:key>
+    					<w2:key id="onReqNo" name="name4" dataType="text"></w2:key>
+    					<w2:key id="orgBookingNo" name="name5" dataType="text"></w2:key>
+    					<w2:key id="impExpClsCd" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieve" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="선택" dataType="text"></w2:column>
+    					<w2:column id="bookingNo" name="Booking번호" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="lineNm" name="Line" dataType="text"></w2:column>
+    					<w2:column id="onReqNo" name="상차;요청번호" dataType="text"></w2:column>
+    					<w2:column id="admitClsCd" name="구분" dataType="text"></w2:column>
+    					<w2:column id="crryinoutCls" name="name7" dataType="text"></w2:column>
+    					<w2:column id="orgBookingNo" name="name8" dataType="text"></w2:column>
+    					<w2:column id="chkFlg" name="name9" dataType="text"></w2:column>
+    					<w2:column id="expNrmYn1" name="name10" dataType="text"></w2:column>
+    					<w2:column id="expNrmYn" name="name11" dataType="text"></w2:column>
+    					<w2:column id="selfTransClntNo" name="name12" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retreive" action="/ds.op.wrkrslts.cywrkrslts.RetrieveBookingInformationCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_retrieve","key":"OUT_DS1"}]' target='data:json,[{"id":"ds_retrieve","key":"OUT_DS1"}]' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retreive_submitdone"
+    			ev:submiterror="scwin.sbm_retreive_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_regist" action="/ds.op.wrkrslts.cywrkrslts.SaveBookingInformationCMD.do" method="post" mediatype="application/json" ref='data:json,[{"action":"modified","id":"ds_retrieve","key":"IN_DS1"}]' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_regist_submitdone"
+    			ev:submiterror="scwin.sbm_regist_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_delete" action="/ds.op.wrkrslts.cywrkrslts.DeleteExportOnRequestAdmissionCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_retrieve","key":"IN_DS1"}]' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_delete_submitdone"
+    			ev:submiterror="scwin.sbm_delete_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+
+//scwin.valueObject = (window.dialogArguments).split(";");
+//scwin.valueObject = $c.data.getParameter();
+
+
+    //물류/작업실적/입출고/반출입(자가)/수출 상차요청 승인
+    //1. 자가운송사 : 223491, 상하차요청번호 : 201212210500, [bookingNo : SNKO010121200252]
+    //2. 자가운송사 : 104028, 상하차요청번호 : 201301250376, [bookingNo : SNKO010130105548]
+    //3. 자가운송사 : 106726, 상하차요청번호 : 201301280423, [bookingNo : ]
+
+scwin.arrRtnVal = new Array(); 	// Return Value
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.f_OnLoad = function() {
+
+};
+
+scwin.onpageload = function() {
+    var param = $c.gus.cfIsNull($p.getAllParameter().paramData.param) ? $p.getAllParameter().paramData : $p.getAllParameter().paramData.param;
+
+    scwin.valueObject = [];
+    if(!$c.gus.cfIsNull(param)){
+        scwin.valueObject = param.split(';');
+    }
+
+console.log('params~~');
+console.log(scwin.valueObject);
+
+    //공통코드 적용
+    const codeOptions = [
+        { grpCd: "OP179", compID: "gr_retrieve:admitClsCd"}  //acb_bilgOdrKndCd   일반청구오더종류
+    ];
+
+   $c.data.setCommonCode(codeOptions, scwin.fn_setCommonCodeCallback);
+};
+
+scwin.fn_setCommonCodeCallback = function(){
+
+    ds_condition.set("lineCd",scwin.valueObject[0]);
+	ds_condition.set("bookingNo", scwin.valueObject[1]);
+	ds_condition.set("selfTransClntNo",scwin.valueObject[2]);
+	ds_condition.set("onReqNo",scwin.valueObject[3]);
+	ds_condition.set("orgBookingNo", scwin.valueObject[4]);
+	ds_condition.set("impExpClsCd","O");
+/*
+    ds_condition.set("lineCd","");
+	ds_condition.set("bookingNo","SNKO010121103530");
+	ds_condition.set("selfTransClntNo","106726");
+	ds_condition.set("onReqNo","");
+	ds_condition.set("orgBookingNo","SNKO010121103530");
+	ds_condition.set("impExpClsCd","O");
+*/
+    scwin.f_Retrieve();
+};
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function(){
+    $c.sbm.execute(sbm_retreive);
+	//tr_retreive.Post();
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    var n_crryinoutCls = $c.gus.cfIsNull(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'crryinoutCls')) ? 0 : parseInt(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'crryinoutCls'));
+
+	if(n_crryinoutCls > 0) {
+		await $c.win.alert('이미 상차/반입 내역이 존재하여 변경할 수 없습니다.\n상차/반입 내역을 반출입 수정 정보 프로그램에서\n취소한 후 변경하십시오.');
+		return;
+	} else {
+        //$c.win.confirm("하위에 새로운 조직을 추가하시겠습니까?", "scwin.insertConfirmCallBack");
+		if(await $c.win.confirm('수출 승인 및 반출입 예정 등록 내역이 있을경우\n저장시 수출 승인 및 반출입 예정정보가 삭제됩니다.\n저장하시겠습까?')){
+            if(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'bookingNo') != ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'orgBookingNo')) {
+                $c.sbm.execute(sbm_delete);
+            }
+		} else {
+			 return;
+		}
+	}
+/*  as-is 에서 confirm('수출 승인 및 반출입 예정 등록 내역이 있을경우\n저장시 수출 승인 및 반출입 예정정보가 삭제됩니다.\n저장하시겠습까?') 
+    수행후 '아니요' 선택해도 삭제 로직이 타서 위에 조건에 포함함.
+	if(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'bookingNo') != ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'orgBookingNo')) {
+        //$c.sbm.execute(sbm_delete);
+		//tr_delete.Post();
+	}
+*/    
+//console.log("delete~~");
+//console.log("getRowPosition~~"+ds_retrieve.getRowPosition());
+
+	ds_retrieve.setCellData(ds_retrieve.getRowPosition(), "chkFlg", 'T');
+	
+	var chkCount=0;
+	for(var i=0;i<ds_retrieve.getRowCount();i++){
+		if(ds_retrieve.getCellData(i,"chk") == 1){
+			chkCount++;
+		}
+	}
+	
+	if(chkCount == 0){
+		await $c.win.alert("저장할 데이터를 선택해 주세요.");
+		return false;
+	}
+	if(chkCount > 1){
+		await $c.win.alert("하나의  데이터만을 선택해 주세요.");
+		return false;
+	}
+	
+    console.log("save~~");
+    $c.sbm.execute(sbm_regist);
+	//tr_regist.Post();
+};
+
+scwin.f_Close = function() {
+    $c.win.closePopup();
+	//window.close();
+};
+
+scwin.sbm_retreive_submitdone = async function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    var rowcnt = ds_retrieve.getRowCount();
+    tbx_totalRows.setValue(rowcnt);
+
+
+    //cfHideDSWaitMsg(ds_retrieve);
+	//cfShowTotalRows(totalRows, rowcnt);
+
+	if (rowcnt == 0	) {
+		await $c.gus.cfAlertMsg("Booking 번호 및 수출일반 오더 연계 내역을 확인하십시오!.\n"+MSG_CM_WRN_002);	// 조회결과가 존재하지 않습니다
+		return; 
+	}
+    var n_expNrmYn1 = $c.gus.cfIsNull(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'expNrmYn1')) ? 0 : parseInt(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'expNrmYn1'));
+    var n_expNrmYn = $c.gus.cfIsNull(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'expNrmYn')) ? 0 : parseInt(ds_retrieve.getCellData(ds_retrieve.getRowPosition(), 'expNrmYn'));
+
+	if(n_expNrmYn1 > 0 && n_expNrmYn > 0) {
+		$c.win.alert('오더 컨테이너 지정 내역을 확인하십시오.\n자가반출 수출일반오더는 컨테이너 지정/미지정 분리 등록 해야 합니다.');
+		$c.gus.cfDisableObjects([btn_Save]);
+	}
+
+	ds_retrieve.setRowPosition(0);
+	gr_retrieve.focus();
+};
+
+scwin.sbm_retreive_submiterror = function(e) {
+
+};
+
+scwin.sbm_regist_submitdone = async function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    scwin.f_Close();
+};
+
+scwin.sbm_regist_submiterror = function(e) {
+
+};
+
+scwin.sbm_delete_submitdone = function(e) {
+
+};
+
+scwin.sbm_delete_submiterror = function(e) {
+
+};
+
+scwin.btn_close_onclick = function (e) {
+    //scwin.f_Retrieve();
+    scwin.f_Close();
+};
+
+scwin.btn_Save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="Booking 정보 조회 " style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView checkAllType="false" class="wq_gvw" dataList="ds_retrieve" id="gr_retrieve" style="" fixedColumn="1" autoFit="allColumn" readOnly="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="선택" width="70" fixColumnWidth="true" class="txt-red"></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="Booking번호" width="150">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="오더번호" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="Line" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="상차&lt;br/&gt;요청번호" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="구분" width="70" class="txt-red"></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="chk" inputType="checkbox" width="70" fixColumnWidth="true" readOnly="false"></w2:column>
+    											<w2:column displayMode="label" id="bookingNo" inputType="text" width="150"></w2:column>
+    											<w2:column displayMode="label" id="odrNo" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="lineNm" inputType="text" width="100" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="onReqNo" inputType="text" width="100" class="txt-blue underline"></w2:column>
+    											<w2:column displayMode="label" id="admitClsCd" inputType="select" width="70"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	<xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger><xf:trigger class="btn" id="btn_Save" style="" type="button" ev:onclick="scwin.btn_Save_onclick">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    					
+    				</xf:group></xf:group>
+    </body>
+</html>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_results" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="odrNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="cntrSeq" name="name2" dataType="text"></w2:column>
+    					<w2:column id="odrWrkPathSeq" name="name3" dataType="text"></w2:column>
+    					<w2:column id="odrWrkStpSeq" name="name4" dataType="text"></w2:column>
+    					<w2:column id="wrkLobranCd" name="name5" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="name6" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlCd" name="name7" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlCd" name="name8" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlNm" name="name9" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlNm" name="name10" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlClsCd" name="name11" dataType="text"></w2:column>
+    					<w2:column id="odrKndCd" name="name12" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="name13" dataType="text"></w2:column>
+    					<w2:column id="fullEmptyClsCd" name="name14" dataType="text"></w2:column>
+    					<w2:column id="wrkStpCd" name="name15" dataType="text"></w2:column>
+    					<w2:column id="pchsAmt" name="name16" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="name17" dataType="text"></w2:column>
+    					<w2:column id="wrkEndHh" name="name18" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="name19" dataType="text"></w2:column>
+    					<w2:column id="arrvlportDtm" name="name20" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="name21" dataType="text"></w2:column>
+    					<w2:column id="transWrkIndictNo" name="name22" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="name23" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_save" action="/ncall.tn.op.transwrkindict.cntr.SaveChangeArvWrkPlCdCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_results","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    let memJson = $c.data.getMemInfo();
+    scwin.sUserId = $c.data.getMemInfo("userId");
+    scwin.sLoUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd");
+
+    scwin.params            = $c.data.getParameter();
+    scwin.odrNo             = scwin.params.odrNo            == null ? "" : scwin.params.odrNo;
+    scwin.cntrSeq           = scwin.params.cntrSeq          == null ? "" : scwin.params.cntrSeq;
+    scwin.odrWrkPathSeq     = scwin.params.odrWrkPathSeq    == null ? "" : scwin.params.odrWrkPathSeq;
+    scwin.odrWrkStpSeq      = scwin.params.odrWrkStpSeq     == null ? "" : scwin.params.odrWrkStpSeq;
+    
+    scwin.wrkLobranCd       = scwin.params.wrkLobranCd      == null ? "" : scwin.params.wrkLobranCd;
+    scwin.wrkStDt           = scwin.params.wrkStDt          == null ? "" : scwin.params.wrkStDt;
+    scwin.dptWrkPlCd        = scwin.params.dptWrkPlCd       == null ? "" : scwin.params.dptWrkPlCd;
+    scwin.arvWrkPlCd        = scwin.params.arvWrkPlCd       == null ? "" : scwin.params.arvWrkPlCd;
+    scwin.arvWrkPlClsCd     = scwin.params.arvWrkPlClsCd    == null ? "" : scwin.params.arvWrkPlClsCd;
+    scwin.dptWrkPlNm        = scwin.params.dptWrkPlNm       == null ? "" : scwin.params.dptWrkPlNm;
+    scwin.arvWrkPlNm        = scwin.params.arvWrkPlNm       == null ? "" : scwin.params.arvWrkPlNm;
+    scwin.odrKndCd          = scwin.params.odrKndCd         == null ? "" : scwin.params.odrKndCd;
+    scwin.cntrSizCd         = scwin.params.cntrSizCd        == null ? "" : scwin.params.cntrSizCd;
+    scwin.fullEmptyClsCd    = scwin.params.fullEmptyClsCd   == null ? "" : scwin.params.fullEmptyClsCd;
+    scwin.wrkStpCd          = scwin.params.wrkStpCd         == null ? "" : scwin.params.wrkStpCd;
+    scwin.pchsAmt           = scwin.params.pchsAmt          == null ? "" : scwin.params.pchsAmt;
+    scwin.wrkEndDt          = scwin.params.wrkEndDt         == null ? "" : scwin.params.wrkEndDt;
+    scwin.wrkEndHh          = scwin.params.wrkEndHh         == null ? "" : scwin.params.wrkEndHh;
+    scwin.cntrTypCd         = scwin.params.cntrTypCd        == null ? "" : scwin.params.cntrTypCd;
+    scwin.arrvlportDtm      = scwin.params.arrvlportDtm     == null ? "" : scwin.params.arrvlportDtm;    
+    scwin.cntrNo            = scwin.params.cntrNo           == null ? "" : scwin.params.cntrNo;
+    scwin.transWrkIndictNo  = scwin.params.transWrkIndictNo == null ? "" : scwin.params.transWrkIndictNo;
+    scwin.vehclNo           = scwin.params.vehclNo          == null ? "" : scwin.params.vehclNo;
+
+    ds_results.insertRow();
+    ds_results.setCellData(0, "odrNo", scwin.odrNo);
+    ds_results.setCellData(0, "cntrSeq", scwin.cntrSeq);
+    ds_results.setCellData(0, "odrWrkPathSeq", scwin.odrWrkPathSeq);
+    ds_results.setCellData(0, "odrWrkStpSeq", scwin.odrWrkStpSeq);
+
+    ds_results.setCellData(0, "wrkLobranCd", scwin.wrkLobranCd);
+    ds_results.setCellData(0, "wrkStDt", scwin.wrkStDt);
+    ds_results.setCellData(0, "dptWrkPlCd", scwin.dptWrkPlCd);
+    ds_results.setCellData(0, "arvWrkPlCd", scwin.arvWrkPlCd);
+    ds_results.setCellData(0, "arvWrkPlClsCd", scwin.arvWrkPlClsCd);
+    ds_results.setCellData(0, "dptWrkPlNm", scwin.dptWrkPlNm);
+    ds_results.setCellData(0, "arvWrkPlNm", scwin.arvWrkPlNm);
+    ds_results.setCellData(0, "odrKndCd", scwin.odrKndCd);
+    ds_results.setCellData(0, "cntrSizCd", scwin.cntrSizCd);
+    ds_results.setCellData(0, "fullEmptyClsCd", scwin.fullEmptyClsCd);
+    ds_results.setCellData(0, "wrkStpCd", scwin.wrkStpCd);
+    ds_results.setCellData(0, "pchsAmt", scwin.pchsAmt);
+    ds_results.setCellData(0, "wrkEndDt", scwin.wrkEndDt);
+    ds_results.setCellData(0, "wrkEndHh", scwin.wrkEndHh);
+    ds_results.setCellData(0, "cntrTypCd", scwin.cntrTypCd);
+    ds_results.setCellData(0, "arrvlportDtm", scwin.arrvlportDtm);
+    ds_results.setCellData(0, "cntrNo", scwin.cntrNo);
+    ds_results.setCellData(0, "transWrkIndictNo", scwin.transWrkIndictNo);
+    ds_results.setCellData(0, "vehclNo", scwin.vehclNo);
+
+    gr_results.setFocusedCell(0, 0);
+    totalRows.setValue(ds_results.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// 그리드에서 입력된 코드/명칭 정보로  조회 (Grid PopUp)
+//-------------------------------------------------------------------------
+scwin.f_openCommPopUpGrid = function (disGubun, row, pClose) {
+
+    // 선언부
+    var pCode = "";
+    var pName = "";
+
+    switch (disGubun) {
+
+        case 1:
+            pCode = ds_results.getCellData(row, "arvWrkPlNm");
+            //pWhere = "<%=arvWrkPlClsCd%>";
+            pWhere = "";
+            udc_comCodeGrid.setSelectId('retrieveWrkPlInfo_tpro')
+            udc_comCodeGrid.cfCommonPopUp(scwin.udc_comCodeGrid_callBackFunc		// XML상의 SELECT ID
+                                    ,pCode					// 화면에서의 ??? Code Element의	Value
+                                    ,pName					// 화면에서의 ??? Name Element의	Value
+                                    ,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+                                    ,null					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                    ,null					// Title순서
+                                    ,null					// 보여주는 각 컬럼들의 폭
+                                    ,null					// 컬럼중에서 숨기는	컬럼 지정
+                                    ,pWhere					// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                                    ,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+                                    ,null					// POP-UP뛰을때 우도우의	사용자 정의	높이
+                                    ,null					// 윈도우 위치 Y좌표
+                                    ,null					// 윈도우 위치 X좌표
+                                    ,null					// 중복체크여부	("F")
+                                    ,"F"					// 전체검색허용여부	("F")
+                                    ,"작업장,작업장코드,작업장명"				// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                                    );
+            break;
+
+        default:
+            break;
+    }
+};
+
+scwin.udc_comCodeGrid_callBackFunc = function (rtnList) {
+    //cfSetGridReturnValue(rtnList, ds_results, row, "arvWrkPlCd", "arvWrkPlNm" );
+    let rowIndex = ds_results.getRowPosition();
+    ds_results.setCellData(rowIndex, "arvWrkPlCd", rtnList[0]);
+    ds_results.setCellData(rowIndex, "arvWrkPlNm", rtnList[1]);
+};
+
+//-------------------------------------------------------------------------
+// 저장버튼 클릭시
+//-------------------------------------------------------------------------
+scwin.btn_save_onclick = function (e) {
+    if(ds_results.getCellData(0, "arvWrkPlNm") == "") {
+        $c.win.alert("도착작업장은 필수입력 항목입니다.");
+        return false;
+    }
+    //tr_save.Post();
+    $c.sbm.execute(sbm_save);
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 )
+    {
+        await $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+        await $c.win.closePopup(true);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 닫기버튼 클릭시
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.gr_results_ontextimageclick = function (rowIndex, columnIndex) {
+    let colid = gr_results.getColumnID(columnIndex);
+    switch (colid) {
+		case "arvWrkPlNm": 
+			scwin.f_openCommPopUpGrid(1, rowIndex, 'T');
+			break;
+	}
+};
+
+scwin.gr_results_onafteredit = function (rowIndex, columnIndex, value) {
+    let colid = gr_results.getColumnID(columnIndex);
+    switch (colid) {
+		case "arvWrkPlNm": 
+            if(gr_results.getCellData(rowIndex, "arvWrkPlNm") != ""){
+                scwin.f_openCommPopUpGrid(1, rowIndex, 'T');
+            }
+			break;
+	}
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="하선지변경할 작업단계" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_results" id="gr_results" style=""
+    					visibleRowNumFix="true" ev:onafteredit="scwin.gr_results_onafteredit" ev:ontextimageclick="scwin.gr_results_ontextimageclick" rowStatusVisible="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="ODR_NO" width="120" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="SEQ" width="70" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="출발지" width="80" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="도착지" width="80" sortable="false"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="odrNo" inputType="text" width="120" readOnly="true" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="cntrSeq" inputType="text" width="70" textAlign="right" readOnly="true" dataType="number" displayFormat="#,##0" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" width="80" textAlign="left" readOnly="true" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="arvWrkPlNm" inputType="textImage" width="80" textAlign="left" sortable="false"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<w2:udc_comCode codeId="" hideName="Y" id="udc_comCodeGrid" nameId="" popupID="" style="display: none;">
+    						</w2:udc_comCode>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

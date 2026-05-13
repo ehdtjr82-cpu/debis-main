@@ -1,0 +1,1460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_tr274" repeatNode="map" saveRemovedData="true"
+    				ev:ondataload="scwin.ds_tr274_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="inDt" name="입고일자" dataType="text"></w2:column>
+    					<w2:column id="homeClsCd" name="소속구분코드" dataType="text"></w2:column>
+    					<w2:column id="oilStatClsCd" name="주유소구분" dataType="text"></w2:column>
+    					<w2:column id="oilStatClntNo" name="주유소거래처번호" dataType="text"></w2:column>
+    					<w2:column id="inSeq" name="순번" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="oilCoClntNo" name="정유사거래처번호" dataType="text"></w2:column>
+
+    					<w2:column id="selfTransYn" name="자가운송여부" dataType="text"></w2:column>
+    					<w2:column id="inQty" name="입고수량" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="inUpr" name="입고단가" dataType="number" defaultValue="0.00"></w2:column>
+    					<w2:column id="inAmt" name="입고금액" dataType="number" defaultValue="0"></w2:column>
+
+    					<w2:column id="chk" name="chk" dataType="text"></w2:column>
+    					<w2:column id="transClntNo" name="운송거래처코드" dataType="text"></w2:column>
+
+    					<w2:column id="transClntNm" name="운송거래처명" dataType="text"></w2:column>
+    					<w2:column id="payClsCd" name="거래구분" dataType="text"></w2:column>
+    					<w2:column id="prePayUpr" name="선급단가" dataType="number" defaultValue="0"></w2:column>
+
+    					<w2:column id="prePayAmt" name="선급금액" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="slipDt" name="전표일자" dataType="text"></w2:column>
+    					<w2:column id="prePaySlipNo" name="선급전표" dataType="text"></w2:column>
+
+    					<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+    					<w2:column id="stdUpr" name="공장도금액_단가" dataType="number" defaultValue="0.00"></w2:column>
+
+    					<w2:column id="stdAmt" name="공장도금액_금액" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="dcUpr" name="기본할인_단가" dataType="number" defaultValue="0.00"></w2:column>
+    					<w2:column id="dcAmt" name="기본할인_금액" dataType="number" defaultValue="0"></w2:column>
+
+    					<w2:column id="transDcUpr" name="자가운송할인_단가" dataType="number" defaultValue="0.00"></w2:column>
+
+    					<w2:column id="transDcAmt" name="자가운송할인_금액" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="addDcUpr" name="추가할인_단가" dataType="number" defaultValue="0.00"></w2:column>
+    					<w2:column id="addDcAmt" name="추가할인_금액" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="closeClsCd" name="마감구분" dataType="text"></w2:column>
+
+    					<w2:column id="fmsYn" name="FMS전" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="payAcctDeptCd" name="결재귀속부서코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="stDt" name="입고일자 시작일" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="입고일자 종료일" dataType="text"></w2:key>
+    					<w2:key id="homeClsCd" name="소속구분" dataType="text"></w2:key>
+    					<w2:key id="oilStatClsCd" name="주유소구분" dataType="text"></w2:key>
+    					<w2:key id="oilStatClntNo" name="주유소" dataType="text"></w2:key>
+    					<w2:key id="selfTransYn" name="자가운송여부" dataType="text"></w2:key>
+    					<w2:key id="transClntNo" name="운송거래처코드" dataType="text"></w2:key>
+    					<w2:key id="oilCoClntNo" name="정유사" dataType="text"></w2:key>
+    					<w2:key id="payClsCd" name="지급구분" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_selfTransYn" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="selfTransYn" name="운송구분" dataType="text"></w2:column>
+    					<w2:column id="selfTransYnNm" name="운송구분명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_lux_oilStation" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="cmd" name="name1"></w2:key>
+    					<w2:key dataType="text" id="strVal" name="name2"></w2:key>
+    					<w2:key dataType="text" id="intVal" name="name3"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_lux_oilStation" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="name1"></w2:column>
+    					<w2:column dataType="text" id="name" name="name2"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_master" action="/ps.tr.expropmgnt.oilingmgnt.RetrieveOilInContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_tr274","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_tr274","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_master_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_deleteSlip" action="/ps.tr.expropmgnt.oilingmgnt.DeleteOilInContentsSlipCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_tr274","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_deleteSlip_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_createSlip" action="/ps.tr.expropmgnt.oilingmgnt.CreateOilInContentsSlipCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_tr274","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_createSlip_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_Save" action="/ps.tr.expropmgnt.oilingmgnt.SaveOilInContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_tr274","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_lux_oilStation" action="/ps.co.RetrievePsCboCmmCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_lux_oilStation","key":"IN_DS1"},{"id":"ds_lux_oilStation","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_lux_oilStation","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_lux_oilStation_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// PGM명 : 유류입고등록 (tr_270_05_01b)
+// 작성자 : 송정희
+// 최초작성일자 : 2026-01-16
+//-------------------------------------------------------------------------
+scwin.strCurDate = ""; // 작업날짜
+scwin.strCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+scwin.strPreDate = scwin.strCurDate.toString().substring(0,6) + "01"; //당월 1일
+scwin.vSelfTransYn = "";
+scwin.vInDt = "";
+scwin.vHomeClsCd = "";
+scwin.vOilStatClntNo = "";
+
+//-------------------------------------------------------------------------
+// onpageload
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	lc_homeClsCd.setValue("LO");
+
+	const codeOptions = [
+        { grpCd : "ZZ205", compID : "lc_homeClsCd, gr_tr274:homeClsCd ",opt :{"range" : "2,TR"}},     // 소속구분
+        { grpCd : "TL113", compID : "lc_payClsCd, gr_tr274:payClsCd" }          // 거래구분 
+    ];
+    $c.data.setCommonCode(codeOptions);      
+    var selfTransYn_jsonData = [{"selfTransYn":"9", "selfTransYnNm":"전체"},
+                                {"selfTransYn":"0", "selfTransYnNm":"정유사운송"},
+                                {"selfTransYn":"1", "selfTransYnNm":"자가운송"} 
+                                ]; 
+    ds_selfTransYn.setJSON(selfTransYn_jsonData); // 운송구분
+
+    const LxCodeOptions = [
+        {
+            method: "getLuxeComboData",
+            param1: "PsCommonEBC",
+            param2: "retriveOilStatClsCd2",
+            compID: "lc_oilStatClsCd, gr_tr274:oilStatClsCd"
+        },  // 주유소구분
+        {
+            method: "getLuxeComboData",
+            param1: "PsCommonEBC",
+            param2: "retriveOilStatByClsCd",
+            compID: "gr_tr274:oilStatClntNo"
+        },  // 주유소
+        {
+            method: "getLuxeComboData",
+            param1: "PsCommonEBC",
+            param2: "retrieveOilCompany",
+            compID: "lc_oilCoClntNo, gr_tr274:oilCoClntNo"
+        }   // 정유사   
+    ];
+    $c.data.setGauceUtil(LxCodeOptions);    
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. onPageLoad 에서 호출 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    ed_stDt.setValue(scwin.strPreDate);
+    ed_endDt.setValue(scwin.strCurDate);
+    ed_stDt.focus();  	
+
+    scwin.lc_oilStatClsCd_onchange();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+
+	//날짜 체크 start---------------------------------------
+	var stDt = ed_stDt.getValue();
+	var endDt= ed_endDt.getValue();
+	if( stDt == "        ") {
+		dma_search.set("stDt" ,"");
+	}
+	if( endDt == "        ") {
+		dma_search.set("endDt" , "");
+	}
+    
+    if( stDt == "" || endDt == "" ) {    
+        $c.win.alert("입고일자는 필수 입력 항목입니다.");        
+        if( stDt == "" ) {
+            udc_stDt.inputFocus("ipt_from");
+        } else {
+            udc_stDt.inputFocus("ipt_to");
+        }
+        return;
+    }
+   
+	var ls_stDt  = dma_search.set("stDt" , "");
+	var ls_endDt = dma_search.set("endDt", "" );
+	if( ls_endDt == "" || ls_endDt == null ) {	
+	} 
+	else {
+       
+        if( !$c.gus.cfIsAfterDate(ed_stDt.getValue(), ed_endDt.getValue()) ) {
+			$c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+			ed_stDt.focus();
+			return;
+		}
+	}
+    scwin.vInDt = ed_endDt.getValue();
+    scwin.vHomeClsCd = lc_homeClsCd.getValue();
+    scwin.vOilStatClntNo = lc_oilStatClntNo.getValue();
+
+    dma_search.set("stDt" , ed_stDt.getValue());
+	dma_search.set("endDt" , ed_endDt.getValue());
+    dma_search.set("homeClsCd", lc_homeClsCd.getValue());
+    dma_search.set("oilStatClsCd", lc_oilStatClsCd.getValue());
+    dma_search.set("oilStatClntNo", lc_oilStatClntNo.getValue());
+    dma_search.set("selfTransYn", lc_selfTransYn.getValue());
+    dma_search.set("transClntNo", ed_transClntNo.getValue());
+    dma_search.set("oilCoClntNo", lc_oilCoClntNo.getValue());
+    dma_search.set("payClsCd", lc_payClsCd.getValue());
+
+	//날짜 체크 end---------------------------------------
+    $c.sbm.execute(sbm_master);
+};
+
+scwin.sbm_master_submitdone = function (e) {
+    totalRows.setValue(ds_tr274.getTotalRow());
+    if( ds_tr274.getTotalRow() == 0 ) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    } else {
+        scwin.f_JobCloseYN();
+    }   
+};
+
+//-------------------------------------------------------------------------
+// 	팝업창 처리
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch, row) {
+    scwin.isOpenPopup = true;
+	var rtnList  = new Array();
+	switch (disGubun) {
+	    case 1: // 운송거래처
+            udc_transClntNo.cfCommonPopUp(scwin.udc_transClntNo_callBackFunc
+                        , pCode, pName
+                        , "T"                             // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                        , null                            // Title순서
+                        , null                            // 보여주는 각 컬럼들의 폭
+                        , null                            // 컬럼중에서 숨기는 컬럼 지정
+                        , null                            // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+                        , null                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+                        , null                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+                        , null                            // 윈도우 위치 Y좌표
+                        , null                            // 윈도우 위치 X좌표
+                        , null                            // 중복체크여부	("F")
+                        , "F"                             // 전체검색허용여부	("F")
+                        , null                            // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+                        );          
+		    break;
+
+        case 2: // Grid 운송거래처
+            udc_comCode_grid_transClntNo.setSelectId('retrieveClntEmpNoList');
+            return await udc_comCode_grid_transClntNo.cfCommonPopUpAsync(
+			    function(ret) { scwin.udc_comCode_grid_transClntNo_callback(ret, row) }  	// XML상의 SELECT ID
+									,pCode							// 화면에서의 ??? Code Element의	Value
+									,pName							// 화면에서의 ??? Name Element의	Value
+									,'T'							// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+									,null							// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+									,null							// Title순서
+									,null							// 보여주는 각 컬럼들의 폭
+									,null							// 컬럼중에서 숨기는	컬럼 지정
+									,null							// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+									,null							// POP-UP뛰을때 원도우의	사용자 정의	폭
+									,null							// POP-UP뛰을때 우도우의	사용자 정의	높이
+									,null							// 윈도우 위치 Y좌표
+									,null							// 윈도우 위치 X좌표
+									,null							// 중복체크여부	("F")
+									,null							// 전체검색허용여부	("F")
+									,null		                    // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+									); 
+			
+			break;	
+  		default:
+			break;
+  	}
+    scwin.isOpenPopup = true;
+};
+
+//------------------------------------------------------------------------- 
+// 검색조건 : 운송거래처 callback
+//------------------------------------------------------------------------- 
+scwin.udc_transClntNo_callBackFunc = function (ret) {
+    if (ret[0] != "N/A" && !$c.gus.cfIsNull(ret)) {    
+        ed_transClntNo.setValue(ret[0]);
+        ed_transClntNm.setValue(ret[1]);
+	} else {
+        ed_transClntNo.setValue("");
+        ed_transClntNm.setValue("");
+	}         
+};
+
+//-------------------------------------------------------------------------
+// Grid : 운송거래처 callback
+//-------------------------------------------------------------------------
+scwin.udc_comCode_grid_transClntNo_callback = function(rtnList, rowIndex) {
+    if ( rtnList != null && rtnList[0] != "N/A") {
+        ds_tr274.setCellData(rowIndex,"transClntNo", rtnList[0]);        
+        ds_tr274.setCellData(rowIndex,"transClntNm", rtnList[1]);
+    } else {
+        ds_tr274.setCellData(rowIndex,"transClntNo", "");
+        ds_tr274.setCellData(rowIndex,"transClntNm", "");
+    }
+};
+
+//-------------------------------------------------------------------------
+// Grid 이미지 클릭시 발생 이벤트
+//-------------------------------------------------------------------------
+scwin.gr_tr274_ontextimageclick = function (rowIndex, columnIndex) {    
+    let colId = gr_tr274.getColumnID(columnIndex);
+    let value = ds_tr274.getCellData(rowIndex,colId);
+    if (scwin.isOpenPopup != true) {
+        if (colId == "transClntNo") {   // 운송거래처
+            let vTransClntNo = ds_tr274.getCellData(rowIndex, "transClntNo");
+            scwin.f_openCommonPopUp(2, vTransClntNo, "", "T", "T", rowIndex);
+        }    
+    }
+    setTimeout(function() {
+        scwin.isOpenPopup = false;
+    }, 100)
+};
+
+//-------------------------------------------------------------------------
+// Grid 셀 편집모드 종료시 발생 이벤트
+//-------------------------------------------------------------------------
+scwin.gr_tr274_onafteredit = function (rowIndex, columnIndex, value) {
+    /* let colId = gr_tr274.getColumnID(columnIndex);
+    if( colId == "transClntNo" ) {  // 운송거래처
+        let vTransClntNo = ds_tr274.getCellData(rowIndex, "transClntNo");
+        scwin.f_openCommonPopUp(2, vTransClntNo, "", "T", "T", rowIndex);
+    } */
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+	// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+	if (!scwin.cfCanOpenPopup(inObj, pairObj))
+		return;															// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);											// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);										// inObj가 코드 필드일 경우 팝업
+	if (isCode == null || isCode == true)
+		scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+																		// inObj가 코드명 필드일 경우 팝업
+	else
+		scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+	//변경한 데이터가 있는지 체크한다.(각 dataSet 변경검사)
+    if ( ds_tr274.getModifiedIndex().length == 0 ) {
+	  $c.gus.cfAlertMsg(MSG_CM_ERR_001, ['입고등록 그리드'] );	//변경된 정보가 없습니다.
+	  return;
+	}
+    if( !await $c.gus.cfValidate(gr_tr274, null, true) ) return;
+     
+
+	//----- Add.2006.02.21 RowStatus가 insert인 "주유소코드" 마감여부 체크(저장가능여부 return)
+	if( !await scwin.f_chkJobCloseYN() ) {
+		//MSG_CM_ERR_041   =  "@은(는) @할 수 없습니다.";
+		$c.gus.cfAlertMsg(MSG_CM_ERR_041, [ '마감여부가 [마감중]또는 [마감완료]인 경우','저장']);  
+		return false;
+	}
+
+    var chkRowStatus= "";
+	//----- 입고수량 체크
+	for( let i=0; i<ds_tr274.getRowCount(); i++ ) {
+		if( ds_tr274.getCellData( i, "inQty" ) == 0 ){
+			$c.gus.cfAlertMsg("입력된 입고수량이 없습니다.");
+			return;
+		}	
+        chkRowStatus = ds_tr274.getRowStatus(i);
+        if( chkRowStatus=="U" || chkRowStatus=="C" || chkRowStatus=="D" ){//RowStatus:1(Update),2(Insert),3(Delete)
+			// 입고일자 체크[미래(당일 이후)자료 입력  불가]
+			if( ds_tr274.getCellData( i, "inDt" ) > scwin.strCurDate ) {
+				$c.gus.cfAlertMsg(MSG_CM_ERR_014, ["입고일자", "오늘(" + scwin.strCurDate +")" ] );
+				return;
+			}				  
+		}
+	}
+    
+    if( await $c.win.confirm(MSG_CM_CRM_001) == true ) { //저장하시겠습니까?
+	    $c.sbm.execute(sbm_Save);
+    }
+};
+
+scwin.sbm_Save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+    if( e.responseJSON.resultDataSet[0].Code == 0 ) {
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+        scwin.f_Retrieve();
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// RowStatus가 insert인 "주유소 거래처별" 마감여부 체크
+//-------------------------------------------------------------------------
+scwin.f_chkJobCloseYN = async function () {
+	var pReqKind 	= "CUR";	// 마감요청구분
+	var pCloseYM 	= "";		// 마감년월	---------------> "기준일자" 넣어줌
+	var pCloseDD 	= "00";		// 마감일
+	var pWorkNo 	= "TR25";	// 작업번호    
+	var pMgntNo		= "";		// 관리번호    	---------------> "주유소별 거래처" 거래처
+	var pRtnKind 	= "";		// 리턴구분
+	var pDualChkYN 	= "";		// 작업마감+선행마감체크 구분
+	var isCloseYN	= "";		// 마감구분코드	
+	var editNoneCnt = 0;
+	
+	
+	//Filtering된  row갯수 만큼,, 루프돌리기
+	for( let j=0; j<ds_tr274.getRowCount(); j++ ) {
+		if( ds_tr274.getRowStatus(j) != "R" ) {	// as-is 상태값(0: Normal, 1: Insert, 2: Update, 3: Delete)
+			pCloseYM= ds_tr274.getCellData( j,  "inDt" );		    //입고일자
+			pMgntNo	= ds_tr274.getCellData( j,  "oilStatClntNo" );	//주유소코드(거래처)
+				
+			isCloseYN = await udc_check.cfJobCloseYN(pReqKind,pCloseYM.substring(0,6),pCloseDD,pWorkNo,pMgntNo,pRtnKind,pDualChkYN);
+			ds_tr274.setCellData( j,  "closeClsCd" , isCloseYN);
+			//edit불가능 할 경우, cnt를 1씩 증가 한다. "cnt>0"이면 저장불가능.
+			if( (isCloseYN != "1") && (isCloseYN != "DNF") ){
+				editNoneCnt += 1;
+			}
+		}
+	}
+	
+	if( editNoneCnt > 0 ) {	//"cnt>0"이면 저장불가능.
+		return false;
+	} else {				    //"cnt==0"이면 저장가능.
+		return true;
+	}
+};
+
+//-------------------------------------------------------------------------
+// 그리드 : 행추가
+//-------------------------------------------------------------------------
+scwin.f_AddRow = async function (){
+    var rowPos =  ds_tr274.insertRow();
+
+    ds_tr274.setCellData(rowPos, "inDt", ed_endDt.getValue());
+    ds_tr274.setCellData(rowPos, "homeClsCd", lc_homeClsCd.getValue());
+    ds_tr274.setCellData(rowPos, "oilStatClntNo", lc_oilStatClsCd.getValue());
+    ds_tr274.setCellData(rowPos, "selfTransYn", 0);
+
+    if (ed_endDt.getValue() == "") {
+    	await scwin.f_colfocus("F", "", rowPos, "inDt");
+    } else if (lc_homeClsCd.getValue() == "") {
+    	await scwin.f_colfocus("F", "", rowPos, "homeClsCd");
+    } else if (lc_oilStatClsCd.getValue() == "") {
+    	await scwin.f_colfocus("F", "", rowPos, "oilStatClntNo");
+    } else { 	 
+        gr_tr274.setFocusedCell(rowPos, "oilCoClntNo", false);  
+    }
+};
+
+scwin.f_colfocus = async function (gubun, msg, row, colid) {
+    if ( gubun == "T" ) {      
+        await $c.win.alert(msg);
+    }
+    gr_tr274.setFocusedCell(row, colid, false);      
+};
+
+//-------------------------------------------------------------------------
+// 그리드 : 행삭제
+//-------------------------------------------------------------------------
+scwin.f_DelRow = function (){
+	var inUpr = ds_tr274.getCellData(ds_tr274.getRowPosition(), "inUpr");
+	var inAmt = ds_tr274.getCellData(ds_tr274.getRowPosition(), "inAmt");
+	
+	if( inUpr!=0 && inAmt!=0 ){
+		$c.gus.cfAlertMsg("[유류재고집계내역]이 있는 경우에는  행삭제 할 수 없습니다.");
+	}else {
+		//ds_tr274.DeleteMarked(); //----- Del. 2006.01.21
+		// ds_tr274.deleteRow(ds_tr274.getRowPosition());
+		if(ds_tr274.getCellData(ds_tr274.getRowPosition(), "fmsYn") == "Y"){
+			$c.win.alert("FMS 유류입고 확정을 통해 입력된 내역은 삭제하실수 없습니다.");
+			return;
+		}
+		
+		//---------------------------------------- Add. 2006.01.21 start
+		var isCloseYN = ds_tr274.getCellData( ds_tr274.getRowPosition(),  "closeClsCd" );		
+		if( (isCloseYN=="1") || (isCloseYN=="DNF") ) {//edit 가능
+			//ds_tr274.DeleteMarked();
+            ds_tr274.deleteRow(ds_tr274.getRowPosition());
+		}else if(isCloseYN=="0") { 
+			$c.gus.cfAlertMsg(MSG_CM_ERR_041, [ '마감여부가 [마감중]인 경우','삭제']);  
+			return false;
+		}else if(isCloseYN=="2") { 
+			$c.gus.cfAlertMsg(MSG_CM_ERR_041, [ '마감여부가 [마감완료]인 경우','삭제']);  
+			return false;
+		}
+		//---------------------------------------- Add. 2006.01.21 end
+	}
+};
+
+//-------------------------------------------------------------------------
+// 그리드에서, 칼럼이 PK일 경우 : update 막기, insert는 입력가능하도록 하는 함수
+//-------------------------------------------------------------------------	
+scwin.f_EditNone = function (pRow) {
+	gr_tr274.setCellReadOnly(pRow, "inDt", true);
+	gr_tr274.setCellReadOnly(pRow, "homeClsCd", true);
+	gr_tr274.setCellReadOnly(pRow, "oilStatClntNo", true);
+	gr_tr274.setCellReadOnly(pRow, "oilCoClntNo", true);
+};
+
+scwin.f_EditTrue = function (pRow) {
+	gr_tr274.setCellReadOnly(pRow, "inDt", false);
+	gr_tr274.setCellReadOnly(pRow, "homeClsCd", false);
+	gr_tr274.setCellReadOnly(pRow, "oilStatClntNo", false);
+	gr_tr274.setCellReadOnly(pRow, "oilCoClntNo", false);    
+	gr_tr274.setCellReadOnly(pRow, "selfTransYn", false);
+	gr_tr274.setCellReadOnly(pRow, "transClntNo", false);        
+};
+
+scwin.f_EditControl = function (Row,Colid) {     
+	//Colid == 입고일자, 주유소명, 정유사명	
+	if( (Colid=="inDt") || (Colid=="oilStatClntNo") || (Colid=="oilCoClntNo") || (Colid=="homeClsCd")  ) {
+		if( Row > 0 ) {
+			if( ds_tr274.getRowStatus(ds_tr274.getRowposition()) == "C" ) {//SysStatus----- insert:1, delete:2, update:3
+				scwin.f_EditTrue(Row);
+			} else {
+				scwin.f_EditNone(Row);
+			}
+		}
+	}		
+		
+	//Colid == 입고수량
+	if( Colid=="inQty" ) {
+		if( Row > 0 ) {
+			if( ds_tr274.getRowStatus(ds_tr274.getRowposition()) == "C" ) { 
+				gr_tr274.setCellReadOnly(Row, "inQty", true);
+			} else {
+				scwin.f_chkEdit(Row);
+			}
+		}	
+	}
+};	  
+
+//-------------------------------------------------------------------------
+// "입고단가","입고금액"이 존재할 경우,  "입고수량" 수정하지 못하도록.
+//-------------------------------------------------------------------------	
+scwin.f_chkEdit = function (Row) {
+	var inUpr = ds_tr274.getCellData(Row, 'inUpr');
+	var inAmt = ds_tr274.getCellData(Row, 'inAmt');
+
+	if( inUpr!=0 && inAmt!=0 ) {
+        gr_tr274.setCellReadOnly(Row, "inQty", true);
+	}else {
+		//---------------------------------------- Add. 2006.01.21 start
+		var isCloseYN = ds_tr274.getCellData( Row,  "closeClsCd" );
+		if( (isCloseYN=="1") || (isCloseYN=="DNF") ) {//edit 가능	
+            gr_tr274.setCellReadOnly(Row, "inQty", false);
+		}else {//edit 불가능
+            gr_tr274.setCellReadOnly(Row, "inQty", true);
+		}			
+		//---------------------------------------- Add. 2006.01.21 end
+	}
+};
+
+//-------------------------------------------------------------------------
+// 종속적인 콤보 - 첫번째 콤보에 코드값에 따른, 두번째 콤보(주유소 콤보) 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveCombo = async function (param1 ) { 
+    // const LxCodeOptions1 = [
+    //    {
+    //         method: "getLuxeComboData",
+    //         param1: "PsCommonEBC",
+    //         param2: "retriveOilStatByClsCd",
+    //         param3: [param], 
+    //         compID: "lc_oilStatClntNo"
+    //     }  // 주유소        
+    // ];
+    // $c.data.setGauceUtil(LxCodeOptions1);      
+    dma_lux_oilStation.set("cmd", "retriveOilStatByClsCd");
+    dma_lux_oilStation.set("strVal", param1);
+
+    await $c.sbm.execute(sbm_lux_oilStation);
+};
+
+scwin.sbm_lux_oilStation_submitdone = function (e) {
+    if( ds_lux_oilStation.getRowCount() > 0 ) {
+        lc_oilStatClntNo.setSelectedIndex(0);
+    }
+};
+
+//-------------------------------------------------------------------------
+// "주유소 거래처별" 마감여부 체크 (Add.2006.02.21)
+//-------------------------------------------------------------------------
+scwin.f_JobCloseYN = async function () {
+	var pReqKind 	= "CUR";	// 마감요청구분
+	var pCloseYM 	= "";		// 마감년월	---------------> "기준일자" 넣어줌
+	var pCloseDD 	= "00";		// 마감일
+	var pWorkNo 	= "TR25";	// 작업번호    
+	var pMgntNo		= "";		// 관리번호    	---------------> "주유소별 거래처" 거래처
+	var pRtnKind 	= "";		// 리턴구분
+	var pDualChkYN 	= "";		// 작업마감+선행마감체크 구분
+	var isCloseYN	= "";		// 마감구분코드	
+	
+	for( let j=0; j < ds_tr274.getRowCount(); j++ ) {					// Filtering된  row갯수 만큼,, 루프돌리기
+		pCloseYM= ds_tr274.getCellData( j,  "inDt" );				// 입고일자
+		pMgntNo	= ds_tr274.getCellData( j,  "oilStatClntNo" );	// 주유소코드(거래처)
+				
+		isCloseYN = await udc_check.cfJobCloseYN(pReqKind,pCloseYM.substring(0,6),pCloseDD,pWorkNo,pMgntNo,pRtnKind,pDualChkYN);
+		ds_tr274.setCellData( j,  "closeClsCd" , isCloseYN);
+	}
+    ds_tr274.modifyAllStatus("R");
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {
+   if(ds_tr274.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        return;
+    }
+      
+    let gridColCount = 0;
+    for(let i = 0; i < gr_tr274.getTotalCol(); i++){
+        if(gr_tr274.getColumnVisible(i)==true){
+            gridColCount++;
+        }
+    }
+
+    let str = $c.gus.cfGetFormatStr(ed_stDt.getValue(), "####/##/##");
+    let str1 = $c.gus.cfGetFormatStr(ed_endDt.getValue(), "####/##/##");    
+    let str2 = lc_homeClsCd.getText(true);
+    let str3 = lc_oilStatClsCd.getText(true);
+    let str4 = lc_oilStatClntNo.getText(true);
+        
+    let startRowIndex = 0;
+    let infoArr = [{
+        rowIndex : 0,             
+        colIndex : 0,            
+        colSpan : gridColCount,   
+        rowSpan : 1,
+        text : "유류입고",
+        textAlign : "center",    
+        fontface: "돋움체",
+        fontSize : 12,
+        drawBorder : false,       
+        color : "black",          
+        backgroundColor : "#ffffff" 
+    },{
+        rowIndex : 2,             
+        colIndex : 0,           
+        colSpan : gridColCount,  
+        rowSpan : 1,
+        text : "입고일자 ["+ str +" ~ "+ str1 +"]" ,
+        textAlign : "left",    
+        fontSize : 10,
+        drawBorder : false,       
+        color : "black",       
+        backgroundColor : "#ffffff" 
+    },{
+        rowIndex : 3,             
+        colIndex : 0,           
+        colSpan : gridColCount,  
+        rowSpan : 1,
+        text : "소속구분 ["+ str2 +"]" ,
+        textAlign : "left",    
+        fontSize : 10,
+        drawBorder : false,       
+        color : "black",       
+        backgroundColor : "#ffffff" 
+    },{        
+        rowIndex : 4,             
+        colIndex : 0,           
+        colSpan : gridColCount,  
+        rowSpan : 1,
+        text : "주유소구분 ["+ str3 +"]" ,
+        textAlign : "left",    
+        fontSize : 10,
+        drawBorder : false,       
+        color : "black",       
+        backgroundColor : "#ffffff"         
+    },{        
+        rowIndex : 5,             
+        colIndex : 0,           
+        colSpan : gridColCount,  
+        rowSpan : 1,
+        text : "주유소 ["+ str4 +"]" ,
+        textAlign : "left",    
+        fontSize : 10,
+        drawBorder : false,       
+        color : "black",       
+        backgroundColor : "#ffffff"          
+    }]
+
+    const options = {
+        fileName: "유류입고.xlsx",
+        sheetName: "유류입고",
+        startRowIndex : 6,        
+        startColumnIndex : 0,
+        type : 1,
+        hiddenVisible : false
+    };
+    await $c.data.downloadGridViewExcel(gr_tr274, options, infoArr);
+};
+
+//-------------------------------------------------------------------------
+// 전표생성 
+//-------------------------------------------------------------------------
+scwin.f_CreateSlip = async function () {
+    var tmpPayClsCd1Cnt = 0;  // 여신 체크 건수 
+    var tmpPayClsCd2Cnt = 0;  // 현물 체크 건수
+    
+    if( !await scwin.f_chkJobCloseYN() ) {
+		//MSG_CM_ERR_041   =  "@은(는) @할 수 없습니다.";
+		$c.gus.cfAlertMsg("이미 유류재고집계가 생성되어 전표를생성할 수 없습니다.");  
+		return false;
+    }
+  
+    for( var i=0; i< ds_tr274.getRowCount(); i++ ) {
+
+     	if( ds_tr274.getCellData(i,"chk") == "T" ) {
+  	    	if( ds_tr274.getCellData(i,"payClsCd") == "01" ) {
+  		    	tmpPayClsCd1Cnt++;
+  		    } else if( ds_tr274.getCellData(i,"payClsCd") == "10" ) {
+  			    tmpPayClsCd2Cnt++;
+  		    }
+  		
+  		    if( ds_tr274.getCellData(i,"prePaySlipNo") != "" ) {
+  			    $c.win.alert( (i+1) +"행은 이미 전표가 존재하여 생성이 불가능합니다.");
+  			    return;
+  		    }
+  		    if( ds_tr274.getCellData(i,"slipDt") == "" ) {
+  			    $c.win.alert( (i+1)+"행의 전표일자를 입력해주시기 바랍니다.");
+  			    return;
+  		    }
+  		    if( ds_tr274.getCellData(i,"rmk") == "" ) {
+  			    $c.win.alert( (i+1)+"행의 적요를 입력해주시기 바랍니다.");
+  			    return;
+  		    }
+  	    }
+    }
+    
+    if( tmpPayClsCd1Cnt != 0 ) {
+  	    $c.win.alert("거래구분이 여신거래인 경우 전표생성이 불가능 합니다.");
+  	    return;
+    }
+  
+    if( tmpPayClsCd2Cnt == 0 ) {
+  	    $c.win.alert("체크된 내역이 존재하지 않습니다.");
+  	    return;
+    }
+    
+    if( await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_009,"전표")) ) {
+        $c.sbm.execute(sbm_createSlip);
+    }
+};
+
+scwin.sbm_createSlip_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+    if( e.responseJSON.resultDataSet[0].Code == 0 ) {
+        await $c.gus.cfAlertMsg("전표가 성공적으로 생성되었습니다.");	// 성공적으로 저장하였습니다
+        scwin.f_Retrieve();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 전표삭제
+//-------------------------------------------------------------------------
+scwin.f_DeleteSlip = async function () {
+    var tmpPayClsCd1Cnt = 0;  // 여신 체크 건수 
+    var tmpPayClsCd2Cnt = 0;  // 현물 체크 건수 
+  
+    if( !await scwin.f_chkJobCloseYN() ) {
+		//MSG_CM_ERR_041   =  "@은(는) @할 수 없습니다.";
+		$c.gus.cfAlertMsg("이미 유류재고집계가 생성되어 전표를생성할 수 없습니다.");  
+		return false;
+    }
+  
+    for( var i=0; i< ds_tr274.getRowCount(); i++ ) {
+  	    if( ds_tr274.getCellData(i,"chk") == "T" ) {
+  		    if( ds_tr274.getCellData(i,"prePaySlipNo") == "" ) {
+  			    $c.win.alert("전표번호가 존재하지 않습니다.");
+  			    return;
+  		    }
+  		    if( ds_tr274.getCellData(i,"payClsCd") == "01" ) {
+  			    tmpPayClsCd1Cnt++;
+  		    } else if( ds_tr274.getCellData(i,"payClsCd") == "10" ) {
+  			    tmpPayClsCd2Cnt++;
+  		    }
+  	    }
+    }
+  
+    if( tmpPayClsCd1Cnt != 0 ) {
+  	    $c.win.alert("거래구분이 여신거래인 경우 전표삭제 불가능 합니다.");
+  	    return;
+    } 
+
+    if( tmpPayClsCd2Cnt == 0 ) {    
+        $c.win.alert("체크된 내역이 존재하지 않습니다.");
+        return;  
+    }
+
+    if( await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_008,"전표")) ) {
+        $c.sbm.execute(sbm_deleteSlip);
+    }
+};
+
+scwin.sbm_deleteSlip_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+    if( e.responseJSON.resultDataSet[0].Code == 0 ) {
+        await $c.gus.cfAlertMsg("전표가 성공적으로 삭제되었습니다.");	// 성공적으로 저장하였습니다
+        scwin.f_Retrieve();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_Search_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 주유소구분 onChange 
+//-------------------------------------------------------------------------
+scwin.lc_oilStatClsCd_onchange = function (info) {
+	var lcIndex = lc_oilStatClsCd.getValue();
+	scwin.f_RetrieveCombo(lcIndex);
+};
+
+//-------------------------------------------------------------------------
+// 운송거래처 입력이벤트 처리
+//-------------------------------------------------------------------------
+scwin.udc_transClntNo_onblurCodeEvent = function (e) {
+    if (ed_transClntNo.getValue().trim() == "") {
+        ed_transClntNm.setValue("");
+    }
+};
+
+scwin.udc_transClntNo_onblurNameEvent = function (e) {
+   scwin.f_openCommonPopUp(1, ed_transClntNo.getValue(), ed_transClntNm.getValue(),'F','F');    
+};
+
+scwin.udc_transClntNo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_transClntNo.getValue(), ed_transClntNm.getValue(),'F','F');
+};
+
+//-------------------------------------------------------------------------
+// 저장 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_Save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+//-------------------------------------------------------------------------
+// 선급전표생성 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_Create_onclick = function (e) {
+    scwin.f_CreateSlip();
+};
+
+//-------------------------------------------------------------------------
+// 선급전표삭제 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_Delete_onclick = function (e) {
+    scwin.f_DeleteSlip();
+};
+
+//-------------------------------------------------------------------------
+// 그리드 info - onviewchange
+//-------------------------------------------------------------------------
+scwin.gr_tr274_onviewchange = function (info) {
+    
+    if(info.colId == "selfTransYn") { 
+        let opts = scwin.custom_Info("select", "selfTransYn" ); 
+        gr_tr274.setCellInputType(info.rowIndex, "selfTransYn", opts);                                
+    } 
+    if(info.colId == "oilStatClsCd") {  // 주유소구분
+        let opts = scwin.custom_Info("select", "oilStatClsCd" ); 
+        gr_tr274.setCellInputType(info.rowIndex, "oilStatClsCd", opts);                                
+    }  
+    if(info.colId == "oilStatClntNo") {  // 주유소
+        let opts = scwin.custom_Info("select", "oilStatClntNo" ); 
+        gr_tr274.setCellInputType(info.rowIndex, "oilStatClntNo", opts);                                
+    }         
+    if(info.colId == "oilCoClntNo") {   // 정유사
+        let opts = scwin.custom_Info("select", "oilCoClntNo" ); 
+        gr_tr274.setCellInputType(info.rowIndex, "oilCoClntNo", opts);                                
+    }                
+};
+
+//-------------------------------------------------------------------------
+// type 에 맞는 info 정보 셋팅
+//-------------------------------------------------------------------------
+scwin.custom_Info = function(type, colid) {
+    let ret = "";
+
+    switch(type) {
+        case "select" :
+            if (colid = "selfTransYn" ) {
+                ret = {
+                    inputType : "select",
+                    options : {
+                        viewType: "icon", chooseOption: true
+                    },
+                    itemSet : {
+                        nodeset: "data:ds_selfTransYn", 
+                        label: "selfTransYnNm",
+                        value: "selfTransYn"
+                    }
+                }
+            }    
+            if (colid = "oilStatClsCd" ) {
+                ret = {
+                    inputType : "select",
+                    options : {
+                        viewType: "icon", chooseOption: true
+                    },
+                    itemSet : {
+                        nodeset: "data:dlt_gauceUtil_lc_oilStatClsCd_gr_tr274_oilStatClsCd", 
+                        label: "name",
+                        value: "code"
+                    }
+                }
+            }    
+            if (colid = "oilStatClntNo" ) {
+                ret = {
+                    inputType : "select",
+                    options : {
+                        viewType: "icon", chooseOption: true, displayMode: "value delim label"
+                    },
+                    itemSet : {
+                        nodeset: "data:dlt_gauceUtil_lc_oilStatClntNo_gr_tr274_oilStatClntNo", 
+                        label: "name",
+                        value: "code"
+                    }
+                }
+            }    
+            if (colid = "oilCoClntNo" ) {
+                ret = {
+                    inputType : "select",
+                    options : {
+                        viewType: "icon", chooseOption: true, displayMode: "value delim label"
+                    },
+                    itemSet : {
+                        nodeset: "data:dlt_gauceUtil_lc_oilCoClntNo_gr_tr274_oilCoClntNo", 
+                        label: "name",
+                        value: "code"
+                    }
+                }                                                
+            }
+        break;
+    }    
+};  
+
+//-------------------------------------------------------------------------
+// 입고등록내역 ondataload시
+//-------------------------------------------------------------------------
+scwin.ds_tr274_ondataload = function () {
+    for(let i=0; i < ds_tr274.getRowCount(); i++ ) {
+        if( ds_tr274.getCellData(i,"fmsYn") == "Y") {
+            gr_tr274.setCellReadOnly(i, "inDt", true);
+            gr_tr274.setCellReadOnly(i, "homeClsCd", true);
+            gr_tr274.setCellReadOnly(i, "oilStatClsCd", true);
+            gr_tr274.setCellReadOnly(i, "oilStatClntNo", true);
+            gr_tr274.setCellReadOnly(i, "oilCoClntNo", true);
+            gr_tr274.setCellReadOnly(i, "selfTransYn", true);
+            gr_tr274.setCellReadOnly(i, "transClntNo", true);
+            gr_tr274.setCellReadOnly(i, "inQty", true);
+
+        } else {
+            // gr_tr274.setCellReadOnly(i, "inDt", false);
+            // gr_tr274.setCellReadOnly(i, "homeClsCd", false);
+            // gr_tr274.setCellReadOnly(i, "oilStatClsCd", false);
+            // gr_tr274.setCellReadOnly(i, "oilStatClntNo", false);
+            // gr_tr274.setCellReadOnly(i, "oilCoClntNo", false);
+            // gr_tr274.setCellReadOnly(i, "selfTransYn", false);
+            // gr_tr274.setCellReadOnly(i, "transClntNo", false);
+            // gr_tr274.setCellReadOnly(i, "inQty", false);
+            // scwin.f_EditControl(i, columnId);
+        }
+    }
+};
+
+scwin.lc_selfTransYn_onselected = function () {
+    scwin.vSelfTransYn = lc_selfTransYn.getValue();
+};
+
+//-------------------------------------------------------------------------
+// Grid 셀 클릭시 발생 이벤트
+//-------------------------------------------------------------------------
+scwin.gr_tr274_oncellclick = function (rowIndex, columnIndex, columnId) {
+	//Colid == 입고일자, 주유소명, 정유사명
+    if( columnId == "inDt" || columnId == "oilStatClntNo" || columnId == "oilCoClntNo" || columnId == "homeClsCd" ) {
+		if( rowIndex >= 0 ) { 
+			if( ds_tr274.getRowStatus(rowIndex) == "C" ) {//SysStatus----- insert:1, delete:2, update:3                
+				// scwin.f_EditTrue(rowIndex);
+                gr_tr274.setCellReadOnly(rowIndex, "inDt", false);
+                gr_tr274.setCellReadOnly(rowIndex, "homeClsCd", false);
+                gr_tr274.setCellReadOnly(rowIndex, "oilStatClntNo", false);
+                gr_tr274.setCellReadOnly(rowIndex, "oilCoClntNo", false);    
+                gr_tr274.setCellReadOnly(rowIndex, "selfTransYn", false);
+                gr_tr274.setCellReadOnly(rowIndex, "transClntNo", false); 
+			} else {
+				// scwin.f_EditNone(rowIndex);
+                gr_tr274.setCellReadOnly(rowIndex, "inDt", true);
+                gr_tr274.setCellReadOnly(rowIndex, "homeClsCd", true);
+                gr_tr274.setCellReadOnly(rowIndex, "oilStatClntNo", true);
+                gr_tr274.setCellReadOnly(rowIndex, "oilCoClntNo", true);
+			}
+		}
+	}		
+		
+	//Colid == 입고수량
+    if( columnId == "inQty" ) {
+		if( rowIndex >= 0 ) {
+			if( ds_tr274.getRowStatus(rowIndex) == "C" ) { 
+				gr_tr274.setCellReadOnly(rowIndex, "inQty", false);
+			} else {
+				scwin.f_chkEdit(rowIndex);
+			}
+		}	
+	}
+
+    if( columnId == "selfTransYn" || columnId == "chk" ) {
+        if( ds_tr274.getCellData(rowIndex, columnId) == ds_tr274.getOriginalCellData(rowIndex, columnId) ) {
+            ds_tr274.modifyRowStatus(rowIndex, "R");
+        }
+    }
+};
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comChkRes" type="page" variableClone="true" src="/cm/udc/comChkRes.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="입고일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar refStDt="endDt" refDataMap="" style="" id="udc_stDt" refEdDt="stDt"
+    								edFromId="ed_stDt" edToId="ed_endDt" titleFrom="시작일자" titleTo="종료일자" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data"
+    								objTypeTo="data" validChkYn="Y">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="소속구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="width: 130px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="주유소구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="true" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_oilStatClsCd" style="width: 100px;" submenuSize="fixed"
+    								ev:onchange="scwin.lc_oilStatClsCd_onchange" chooseOptionLabel="전체">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="주유소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_oilStatClntNo" style="width: 250px;" submenuSize="fixed" sortMethod="ascending"
+    								sortOption="label" visibleRowNum="15" chooseOptionLabel="전체" ref="">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:ds_lux_oilStation">
+    										<xf:label ref="name"></xf:label>
+    										<xf:value ref="code"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="정유사 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="true" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_oilCoClntNo" style="width: 240px;" submenuSize="fixed"
+    								sortOption="value" sortMethod="ascending" chooseOptionLabel="전체" visibleRowNum="15">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="운송구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_selfTransYn" style="width: 130px;" submenuSize="fixed"
+    								ref="data:dma_search.selfTransYn" ev:onselected="scwin.lc_selfTransYn_onselected">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:ds_selfTransYn">
+    										<xf:label ref="selfTransYnNm"></xf:label>
+    										<xf:value ref="selfTransYn"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="운송거래처 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode popupID="transClntNoPopUp" selectID="retrieveClntEmpNoList" codeId="ed_transClntNo"
+    								validTitle="" nameId="ed_transClntNm" style="" code="transClntNo" name="transClntNm" id="udc_transClntNo"
+    								btnId="btn_transClntNo" ev:onblurCodeEvent="scwin.udc_transClntNo_onblurCodeEvent"
+    								ev:onblurNameEvent="scwin.udc_transClntNo_onblurNameEvent" ev:onclickEvent="scwin.udc_transClntNo_onclickEvent">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="거래구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="true" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_payClsCd" style="width: 100px;" submenuSize="fixed"
+    								sortMethod="ascending" sortOption="value" chooseOptionLabel="전체">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<w2:udc_comChkRes codeId="" id="udc_check" nameId="" selectID="" style="width:%; height:px; ;visibility:hidden;"></w2:udc_comChkRes>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Search" style="" type="button"
+    					ev:onclick="scwin.btn_Search_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_tr274" gridUpYn="N" gridUpUserAuth="X"
+    						gridDownFn="scwin.f_Excel">
+    					</w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_tr274" focusMode="both"
+    					id="gr_tr274" style="" visibleRowNum="12" visibleRowNumFix="true" fixedColumn="5" rowStatusVisible="true" fixedColumnNoMove="true"
+    					dataName="입고등록 그리드"
+    					validExp="inDt:입고일자:yes:date=YYYYMMDD&amp;length=8:key,homeClsCd:소속구분:yes::key,oilStatClntNo:주유소명:yes:number:key,oilCoClntNo:정유사명:yes:number:key,inSeq:입고순번:yes:number:key,inQty:입고수량:yes:number&amp;minNumber=1:data"
+    					HeadCheck="false" ev:oncellclick="scwin.gr_tr274_oncellclick" ev:ontextimageclick="scwin.gr_tr274_ontextimageclick"
+    					ev:onafteredit="scwin.gr_tr274_onafteredit">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" value="입고일자" width="90" rowSpan="2"
+    								class="txt-red" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" value="소속&lt;/br&gt;구분" width="70" rowSpan="2"
+    								class="txt-red" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column36" inputType="text" value="주유소구분" width="90" rowSpan="2"
+    								class="txt-red" readOnly="true">
+    							</w2:column>
+    							<w2:column width="160" inputType="text" id="column82" value="주유소명" displayMode="label" rowSpan="2"
+    								class="txt-red" readOnly="true">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column78" value="순번" displayMode="label" rowSpan="2"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="column74" value="정유사명" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="60" inputType="text" id="column70" value="자가&lt;/br&gt;운송" displayMode="label" rowSpan="2"
+    								class="txt-blue">
+    							</w2:column>
+    							<w2:column width="90" inputType="text" id="column66" value="운송&lt;/br&gt;거래처 " displayMode="label"
+    								rowSpan="2" class="txt-blue">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column62" value="운송&lt;/br&gt;거래처명" displayMode="label"
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="75" inputType="text" id="column58" value="입고&lt;/br&gt;수량" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" value="입고내역" width="170" colSpan="2"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="header_chk" inputType="checkbox" width="50" rowSpan="2"
+    								fixColumnWidth="true" checkAlways="false" readOnly="true" noDisabledOnReadOnly="false" disabled="true" value=" ">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" value="거래&lt;/br&gt;구분" width="70" rowSpan="2"
+    								class="txt-blue">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" value="선급단가" width="70" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column24" inputType="text" value="선급&lt;/br&gt;금액" width="70"
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column105" value="선급&lt;/br&gt;전표" displayMode="label"
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column101" value="전표&lt;/br&gt;일자" displayMode="label"
+    								rowSpan="2" class="txt-blue">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column89" value="비고" displayMode="label" rowSpan="2"
+    								class="txt-blue">
+    							</w2:column>
+    							<w2:column width="160" inputType="text" id="column93" value="공장도금액" displayMode="label" colSpan="2"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="160" inputType="text" id="column145" value="기본할인" displayMode="label" colSpan="2"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="160" inputType="text" id="column137" value="자가운송할인" displayMode="label" colSpan="2"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="160" inputType="text" id="column129" value="추가할인" displayMode="label" colSpan="2"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column121" value="마감구분" displayMode="label" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="65" inputType="text" id="column117" value="FMS&lt;/br&gt;전송" displayMode="label"
+    								rowSpan="2">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row6">
+    							<w2:column hidden="false" width="70" inputType="text" id="column88" value="단가" displayMode="label">
+    							</w2:column>
+    							<w2:column hidden="false" width="100" inputType="text" id="column87" value="금액" displayMode="label">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column94" value="단가" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column98" value="금액" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column146" value="단가" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column142" value="금액" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column138" value="단가" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column134" value="금액" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column130" value="단가" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column126" value="금액" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="inDt" inputType="calendar" width="90" displayFormat="yyyy/MM/dd"
+    								calendarValueType="yearMonthDate" readOnly="true" maxLength="8">
+    							</w2:column>
+    							<w2:column displayMode="label" id="homeClsCd" inputType="select" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="oilStatClsCd" inputType="select" width="90" readOnly="true"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="160" inputType="select" id="oilStatClntNo" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="70" inputType="text" id="inSeq" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="select" id="oilCoClntNo" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="60" inputType="checkbox" id="selfTransYn" displayMode="label" falseValue="0"
+    								trueValue="1">
+    							</w2:column>
+    							<w2:column width="90" inputType="textImage" id="transClntNo" displayMode="label" maxLength="6"></w2:column>
+    							<w2:column width="100" inputType="text" id="transClntNm" displayMode="label" textAlign="left"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="75" inputType="text" id="inQty" displayMode="label" textAlign="right"
+    								displayFormat="#,###" readOnly="true" dataType="number" maxLength="6" excelCellType="number" ignoreChar=".">
+    							</w2:column>
+    							<w2:column displayMode="label" id="inUpr" inputType="text" width="70" displayFormat="#,##0.00"
+    								textAlign="right" readOnly="true" dataType="float" defaultValue="0.00" excelCellType="number" maxLength="7.2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="inAmt" inputType="text" width="100" textAlign="right"
+    								displayFormat="#,###[floor]" readOnly="true" excelCellType="number" dataType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="chk" inputType="checkbox" width="50" fixColumnWidth="true" falseValue="F"
+    								trueValue="T" valueType="other">
+    							</w2:column>
+    							<w2:column displayMode="label" id="payClsCd" inputType="select" width="70"></w2:column>
+    							<w2:column displayMode="label" id="prePayUpr" inputType="text" width="70" displayFormat="#,##0.00"
+    								textAlign="left" hidden="true" readOnly="true" dataType="number" excelCellType="number" maxLength="7.2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="prePayAmt" inputType="text" width="70" displayFormat="#,###[floor]"
+    								textAlign="right" readOnly="true" excelCellType="number" dataType="number">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="prePaySlipNo" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="calendar" id="slipDt" displayMode="label" displayFormat="yyyy/MM/dd"
+    								maxLength="8">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="rmk" displayMode="label" textAlign="left" maxLength="50"></w2:column>
+    							<w2:column width="70" inputType="text" id="stdUpr" displayMode="label" displayFormat="#,##0.00"
+    								textAlign="right" readOnly="true" dataType="float" defaultValue="0.00" excelCellType="number" maxLength="7.2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="stdAmt" displayMode="label" textAlign="right"
+    								displayFormat="#,###[floor]" readOnly="true" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="dcUpr" displayMode="label" displayFormat="#,##0.00"
+    								textAlign="right" readOnly="true" dataType="float" defaultValue="0.00" excelCellType="number" maxLength="7.2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="dcAmt" displayMode="label" textAlign="right"
+    								displayFormat="#,###[floor]" readOnly="true" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="transDcUpr" displayMode="label" displayFormat="#,##0.00"
+    								textAlign="right" readOnly="true" dataType="float" defaultValue="0.00" excelCellType="number" maxLength="7.2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="transDcAmt" displayMode="label" textAlign="right"
+    								displayFormat="#,###[floor]" readOnly="true" excelCellType="number" dataType="number">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="addDcUpr" displayMode="label" displayFormat="#,##0.00"
+    								textAlign="right" hidden="true" readOnly="true" dataType="float" defaultValue="0.00" excelCellType="number" maxLength="7.2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="addDcAmt" displayMode="label" textAlign="right"
+    								displayFormat="#,###[floor]" hidden="true" readOnly="true" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="closeClsCd" displayMode="label" textAlign="left" readOnly="true"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="65" inputType="text" id="fmsYn" displayMode="label" readOnly="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="100" inputType="text" id="column48" value="총 합" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column47" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column46" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column85" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column81" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column77" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column73" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column69" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column65" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column61" displayMode="label" textAlign="right"
+    								displayFormat="#,###" expression="sum('inQty')">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column45" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="expression" id="column44" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###[floor]" expression="sum('inAmt')" showDepth="0">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column43" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column42" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column41" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column40" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column108" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column104" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column92" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column96" displayMode="label" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="expression" id="column100" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###[floor]" expression="sum('stdAmt')" showDepth="0">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column148" displayMode="label" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="expression" id="column144" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###[floor]" expression="sum('dcAmt')">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column140" displayMode="label" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="expression" id="column136" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###[floor]" expression="sum('transDcAmt')" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column132" displayMode="label" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="expression" id="column128" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###[floor]" expression="sum('addDcAmt')">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column124" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column120" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style=""
+    								tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="N" btnRowDelYn="Y"
+    							rowDelFunction="scwin.f_DelRow" rowAddFunction="scwin.f_AddRow" gridID="gr_tr274" rowAddUserAuth="C" rowDelUserAuth="D"
+    							id="udc_bottomGrd">
+    						</w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="left" id="" style="">
+    					<xf:trigger class="btn" id="btn_Create" style="" type="button" ev:onclick="scwin.btn_Create_onclick" userAuth="U">
+    						<xf:label><![CDATA[선급전표생성]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_Delete" style="" type="button" ev:onclick="scwin.btn_Delete_onclick" userAuth="U">
+    						<xf:label><![CDATA[선급전표삭제]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btn_Save" style="" type="button" ev:onclick="scwin.btn_Save_onclick" userAuth="U">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:udc_comCode codeId="ed_grid_transClntNo" id="udc_comCode_grid_transClntNo" nameId="ed_grid_transClntNm" popupID="" selectID=""
+    			style="display: none;" validTitle="">
+    		</w2:udc_comCode>
+    	</xf:group>
+    </body>
+</html>

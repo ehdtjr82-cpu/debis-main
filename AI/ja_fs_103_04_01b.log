@@ -1,0 +1,27 @@
+ja_fs_103_04_01b.log
+
+[2026-02-19 03:09:04.524] 변환 시작
+[2026-02-19 03:09:04.554] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 03:12:14.412] #1 검증: XML: WebSquareXmlValidator: score=0.49, grade=B, verdict=REVIEW, errors=3, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=2, warnings=7 | LLM 189660ms, total 189858ms
+    - [XML] scwin.dataSetDebug에서 $c.win.alert를 await 없이 호출 — script:scwin.dataSetDebug
+    - [XML] scwin.dataSetDebug이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.dataSetDebug
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.callbackCommInfo, scwin.callbackBlNo, scwin.callbackSellItem, scwin.f_resultPopEd → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] async 선언 누락 — scwin.dataSetDebug (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.dataSetDebug → $c.win.alert
+[2026-02-19 03:12:14.494] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 03:12:14.677] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.61, grade=B, verdict=REVIEW, errors=1, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=7
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.callbackCommInfo, scwin.callbackBlNo, scwin.callbackSellItem, scwin.f_resultPopEd → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_gubun1 (LUXECOMBO→w2:autoComplete)
+[2026-02-19 03:12:14.679] #2 재시도 (에러 5건)
+[2026-02-19 03:12:15.691] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:15:30.202] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=7 | LLM 194317ms, total 194511ms
+[2026-02-19 03:15:30.204] 성공 (#2, 6m 25s, confidence:0.84)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

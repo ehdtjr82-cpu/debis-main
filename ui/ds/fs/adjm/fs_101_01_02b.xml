@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_purchaseEvidence" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="pchsItemCd" name="원가유형" dataType="text"></w2:column>
+    					<w2:column id="adjmDept" name="정산부서" dataType="text"></w2:column>
+    					<w2:column id="pchsDeptCd" name="매입부서" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="전표일자" dataType="text"></w2:column>
+    					<w2:column id="evidKndClsCd" name="증빙종류" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNo" name="작성자" dataType="text"></w2:column>
+    					<w2:column id="drawAcctDeptCd" name="작성귀속부서" dataType="text"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    					<w2:column id="pchsClntNo" name="매입거래처" dataType="text"></w2:column>
+    					<w2:column id="spplyDt" name="공급일자" dataType="text"></w2:column>
+    					<w2:column id="spplyAmt" name="공급금액" dataType="text"></w2:column>
+    					<w2:column id="vat" name="부가세" dataType="text"></w2:column>
+    					<w2:column id="elecAuthTrgtYn" name="전자인증여부(전자세금계산서)" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_searchStationEachRailroadCutAmtList">
+    				<w2:keyInfo>
+    					<w2:key id="wrkDtSt" name="배차일자시작" dataType="text"></w2:key>
+    					<w2:key id="wrkDtEnd" name="" dataType="text"></w2:key>
+    					<w2:key id="pchsItemCd" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_stationEachRailroadCutAmtList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="dptNm" name="부서명" dataType="text"></w2:column>
+    					<w2:column id="dptStn" name="상차지" dataType="text"></w2:column>
+    					<w2:column id="railroadFare" name="철송임" dataType="number"></w2:column>
+    					<w2:column id="cutAmt" name="사유화차저감총액" dataType="number"></w2:column>
+    					<w2:column id="rtOrg" name="저감비율" dataType="number"></w2:column>
+    					<w2:column id="rt" name="배부비율" dataType="number"></w2:column>
+    					<w2:column id="spplyAmt" name="공급금액" dataType="number"></w2:column>
+    					<w2:column id="vat" name="부가세" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_purchaseOrderDTOList">
+    				<w2:keyInfo></w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_primeCostCreationConsequence" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_spllyAmt" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="pchsAmt" name="name1" dataType="text"></w2:column>
+    					<w2:column id="vat" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchStationEachRailroadCutAmtList"
+    			action="/ds.fs.adjm.adjmbdcalc.RetrieveStationEachRailroadCutAmountCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_searchStationEachRailroadCutAmtList","key":"IN_DS1"},{"id":"ds_stationEachRailroadCutAmtList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_stationEachRailroadCutAmtList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_searchStationEachRailroadCutAmtList_submit" ev:submitdone="" ev:submiterror="scwin.sbm_searchStationEachRailroadCutAmtList_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_savetPurchaseEvidence" action="/ds.fs.adjm.adjmbdcalc.RegistRailroadPrimeCostCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"ds_purchaseEvidence","key":"IN_DS1"},{"id":"ds_searchStationEachRailroadCutAmtList","key":"IN_DS2"},{"id":"ds_primeCostCreationConsequence","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_primeCostCreationConsequence","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_savetPurchaseEvidence_submit" ev:submitdone="scwin.sbm_savetPurchaseEvidence_submitdone" ev:submiterror="scwin.sbm_savetPurchaseEvidence_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_spllyAmt" action="/ds.fs.adjm.adjmbdcalc.RetrieveSupplyAmtCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"ds_searchStationEachRailroadCutAmtList","key":"IN_DS1"},{"id":"ds_spllyAmt","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_spllyAmt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_spllyAmt_submit" ev:submitdone="scwin.sbm_spllyAmt_submitdone" ev:submiterror="scwin.sbm_spllyAmt_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fs_101_01_02b
+// 이름     : 철송관련 원가 생성
+// 경로     : 물류/청구/원가생성/
+// 작 성 자 : 조성빈
+// 작 업 일 : 2025-12-19
+// 사용계정 : 
+// 비고     : 
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     : fs_101_01_06b.jsp(철송운영원가입력) - 운영원가 입력 버튼 클릭
+//==================================================================================================================
+
+scwin.vCurDate;
+scwin.vQryStDt;
+scwin.vQryEndDt;
+
+scwin.onpageload = function() {
+    scwin.vCurDate = $c.date.getServerDateTime("yyyyMMdd");                                     // 서버를 기준으로 현재 날짜 반환
+    scwin.vQryStDt = scwin.vCurDate.substr(0,6) + "01";                                         // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+    scwin.vQryEndDt = scwin.vCurDate.substr(0,6) + $c.date.getLastDateOfMonth(scwin.vCurDate);  // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+
+    ds_purchaseEvidence.insertRow();
+
+    const codeOptions = [
+        { grpCd : "FS402", compID : "acb_pchsItemCd" }
+    ];
+    $c.data.setCommonCode(codeOptions, scwin.setCommonCodeCallback);
+
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        
+    }, {"delay":150});
+};
+
+scwin.setCommonCodeCallback = function(){
+    acb_pchsItemCd.setMaxLength(50);
+    acb_pchsItemCd.addItem("선택", "", "", 0);
+    acb_pchsItemCd.setSelectedIndex(0);         // 매입항목
+
+    scwin.f_SetDefaultData();
+
+    $c.gus.cfDisableBtnOnly([btn_save]);
+    
+};
+
+scwin.f_SaveOpAmt = function() {
+    let win_url = "/ui/ds/fs/adjm/fs_101_01_06b.xml";
+    let data = {};
+    let opts = {
+          id : "saveOpAmtPop"
+        , popupName : "운영원가 입력"
+        , modal : true
+        , type : "browserPopup"
+        , width : 940
+        , height : 490
+        , title : "운영원가 입력"
+    };
+    $c.win.openPopup(win_url, opts, data);
+
+};
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function () {
+    
+
+    ica_wrkDtSt.setValue(scwin.vQryStDt);       // 배차일자시작
+    ica_wrkDtEnd.setValue(scwin.vQryEndDt);     // 배차일자종료
+    ica_slipDt.setValue(scwin.vCurDate);        // 전표일자
+    // cfSetIMEModeActiveObjects([ed_summary, ed_pchsDeptNm, ed_pchsClntNm]);  // IME 한글입력
+    
+    $c.gus.cfDisableObjects([btn_CalcAmt, acb_pchsItemCd, ica_slipDt, ed_summary
+                           , udc_pchsDept // ,ed_pchsDeptCd, ed_pchsDeptNm, img_PopUp2
+                           , udc_pchsClnt // ,ed_pchsClntNo, ed_pchsClntNm, img_PopUp3
+                           , ed_spplyAmt, ed_vat
+    ]);
+    ica_wrkDtSt.focus();
+
+
+    // ica_wrkDtSt.setValue("20200101");
+    // ica_wrkDtEnd.setValue("20200131");
+};
+
+//-------------------------------------------------------------------------
+// 역별철송저감금액 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveStationEachRailroadCutAmtList = async function () {
+    var validateFlg =await $c.gus.cfValidate([ica_wrkDtSt, ica_wrkDtEnd]);
+    if (!validateFlg) {
+        return;
+    }
+    var cfIsAfterDateFlg = await $c.gus.cfIsAfterDate(ica_wrkDtSt.getValue(), ica_wrkDtEnd.getValue());
+    if (!cfIsAfterDateFlg) {
+        await $c.gus.cfAlertMsg("조회 시작일자는 종료일자 보다 이전 날짜 이어야 합니다.");
+        ica_wrkDtSt.focus();
+        return;
+    }
+    ds_searchStationEachRailroadCutAmtList.set("pchsItemCd", acb_pchsItemCd.getValue());
+
+    // sbm_searchStationEachRailroadCutAmtList_submitdone 처리리
+    var response = await $c.sbm.execute(sbm_searchStationEachRailroadCutAmtList);
+    if (response.responseJSON.resultDataSet[0].Msg == "SUCC"){
+        scwin.sbm_searchStationEachRailroadCutAmtList_submitdone(response);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 세금계산서 등록 저장
+//-------------------------------------------------------------------------
+scwin.f_RegistTaxInvoice = async function () {	
+    var ds_stationEachRailroadCutAmtList_modiFlg = ds_stationEachRailroadCutAmtList.getModifiedIndex().length;
+    // Data 변경 여부 조회
+    if (!ds_stationEachRailroadCutAmtList_modiFlg) {
+        await $c.gus.cfAlertMsg("비용배부를 선택하십시오.");
+        return;
+    }
+    var ds_purchaseEvidence_modiFlg = ds_purchaseEvidence.getModifiedIndex().length;
+    if (!ds_purchaseEvidence_modiFlg) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["매입 정보"]);
+        return;
+    }
+    if (ed_spplyAmt.getValue() == 0 || ed_spplyAmt.getValue().length == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["공급금액"]);
+        ed_spplyAmt.focus();			
+        return;
+    }
+    //if (ed_vat.getValue() == 0 || ed_vat.getValue().length == 0) {
+    //	await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["부가세"]);
+    //	ed_vat.focus();
+    //	return;
+    //}
+    if (ed_summary.getValue().legth == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_007, ["비용배부"]);
+        return;		
+    }
+    var ds_stationEachRailroadCutAmtList_nameSum_spplyAmt = scwin.f_nameSum(ds_stationEachRailroadCutAmtList, "spplyAmt");
+    if (ed_spplyAmt.getValue() != ds_stationEachRailroadCutAmtList_nameSum_spplyAmt) {
+        await $c.gus.cfAlertMsg("공급금액을 다시 확인하십시오.");
+        ed_spplyAmt.focus();
+        return;		
+    }
+    var ds_stationEachRailroadCutAmtList_nameSum_vat = scwin.f_nameSum(ds_stationEachRailroadCutAmtList, "vat");
+    if (ed_vat.getValue() != ds_stationEachRailroadCutAmtList_nameSum_vat) {
+        await $c.gus.cfAlertMsg("부가세를 다시 확인하십시오.");
+        ed_vat.focus();
+        return;		
+    }
+    var validateFlg = await $c.gus.cfValidate([acb_pchsItemCd, ed_pchsDeptCd, ica_slipDt, ed_summary, ed_pchsClntNo ]);
+    if (!validateFlg) {
+        return;
+    }
+    // 저장하시겠습니까?
+    var confirmFlg = await $c.win.confirm(MSG_CM_CRM_001);
+    if (confirmFlg) {  
+        // 확정구분코드(계산서작성)
+        ds_purchaseEvidence.setCellData(0, "dcsnClsCd", "3");
+        ds_purchaseEvidence.setCellData(0, "elecAuthTrgtYn", "0"); // 전자인증여부(전자세금계산서)-미적용
+
+        $c.sbm.execute(sbm_savetPurchaseEvidence);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 오더 정보, 매입확정/매입증빙 정보 Data Clear
+//-------------------------------------------------------------------------
+scwin.f_PchsDataClear = function () {
+    $c.gus.cfInitObjects(tb_dcsnData);
+
+    ica_slipDt.setValue(scwin.vCurDate);    // 전표일자
+    txt_certiNo.setValue("");               // 거래명세서번호
+    ed_summary.setValue("");                // 금액합계
+};
+
+//-------------------------------------------------------------------------
+// 비용배부 계산
+//-------------------------------------------------------------------------
+scwin.f_Calc = async function (Colid) {
+    if (acb_pchsItemCd.getValue() == "") {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["원가유형"]);
+        ed_spplyAmt.focus();            
+        return;
+    }
+    if (ed_spplyAmt.getValue() == 0 || ed_spplyAmt.getValue().length == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["공급금액"]);
+        ed_spplyAmt.focus();            
+        return;
+    }
+    var spplyAmt    = ed_spplyAmt.getValue();
+    var vat         = ed_vat.getValue();
+    var pchsClntNo  = ed_pchsClntNo.getValue();
+    var pchsClntNm  = ed_pchsClntNm.getValue();
+    var pchsDeptCd  = ed_pchsDeptCd.getValue();
+    var pchsDeptNm  = ed_pchsDeptNm.getValue();
+    var pchsItemCd  = acb_pchsItemCd.getValue();
+    var summary     = ed_summary.getValue();
+
+    await scwin.f_RetrieveStationEachRailroadCutAmtList();
+    acb_pchsItemCd.setValue(pchsItemCd);
+    ed_spplyAmt.setValue(spplyAmt);
+    ed_vat.setValue(vat);       
+    ed_pchsClntNo.setValue(pchsClntNo);
+    ed_pchsClntNm.setValue(pchsClntNm);
+    ed_pchsDeptCd.setValue(pchsDeptCd);
+    ed_pchsDeptNm.setValue(pchsDeptNm);
+    ed_summary.setValue(summary);
+    
+    //if (ed_vat.getValue() == 0 || ed_vat.getValue().length == 0) {
+    //  await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["부가세"]);
+    //  ed_vat.focus();         
+    //  return;
+    //}
+    /*
+        2014.05.07 수정
+        14.4.1일부로 철도정책이 변경됨에 따라 검수비 배부기준 변경 필요
+        지선 구간의 경우 사유화차 실적 감소 예상으로 검수비 과다 배부 방지
+        [변경기준] => 당월 검수비 원가 * 당월저감액비율 = 공급금액
+    */
+    scwin.f_CalcOrigin(Colid);
+    /*
+    if ("T" == ds_stationEachRailroadCutAmtList.getCellData(1, "adptGubCd")) {
+        scwin.f_CalcOrigin(Colid);
+    } else {
+        scwin.f_CalcNew(Colid);
+    }
+    */
+    var amt = $c.gus.cfInsertComma(parseInt(ed_spplyAmt.getValue()) + parseInt(ed_vat.getValue()));  // 금액합계
+    txt_sumAmt.setValue(amt);       
+};
+
+scwin.f_CalcOrigin = function (Colid) {
+    var rowCnt = ds_stationEachRailroadCutAmtList.getRowCount();
+    var cutAmtSum = scwin.f_nameSum(ds_stationEachRailroadCutAmtList, "cutAmt");
+
+    // 공급가액/부가세 계산
+    var totSpplyAmt = 0;
+    var totVat = 0;
+    var spplyAmt = 0;
+    var vat = 0;
+    for (var i = 0 ; i < rowCnt ; i++) {
+        if (i == (rowCnt - 1)) {
+            ds_stationEachRailroadCutAmtList.setCellData(i, "spplyAmt", ed_spplyAmt.getValue() - totSpplyAmt);
+            ds_stationEachRailroadCutAmtList.setCellData(i, "vat", ed_vat.getValue() - totVat);
+        } else {
+            //spplyAmt = Math.round((ds_stationEachRailroadCutAmtList.getCellData(i, Colid) / ds_stationEachRailroadCutAmtList.NameSum(Colid, 0, 0)) * ed_spplyAmt.getValue());
+            //vat = Math.round((ds_stationEachRailroadCutAmtList.getCellData(i, Colid) / ds_stationEachRailroadCutAmtList.NameSum(Colid, 0, 0)) * ed_vat.getValue());
+            //2015.01.14 출발역별저감율적용(공통코드 OP662 관리)
+            //저감액비율
+            //var bdRt = ds_stationEachRailroadCutAmtList.getCellData(i, "rt") / 100; 기존
+            var bdRt = ds_stationEachRailroadCutAmtList.getCellData(i, "cutAmt") / cutAmtSum;
+            spplyAmt = Math.round(ed_spplyAmt.getValue() * bdRt);
+            vat 	 = Math.round(ed_vat.getValue() * bdRt);
+
+            ds_stationEachRailroadCutAmtList.setCellData(i, "spplyAmt", spplyAmt);
+            ds_stationEachRailroadCutAmtList.setCellData(i, "vat", vat);
+            totSpplyAmt += spplyAmt;
+            totVat += vat;
+        }
+    }
+};
+
+scwin.f_CalcNew = function (Colid) {
+    // 공급가액/부가세 계산
+    var totSpplyAmt = 0;
+    var totVat = 0;
+    var spplyAmt = 0;
+    var vat = 0;
+    var rowCnt = ds_stationEachRailroadCutAmtList.getRowCount();
+    for (var i = 0 ; i < rowCnt ; i++) {
+        if (i == rowCnt-1) {
+            ds_stationEachRailroadCutAmtList.setCellData(i, "spplyAmt", ed_spplyAmt.getValue() - totSpplyAmt);
+            ds_stationEachRailroadCutAmtList.setCellData(i, "vat", ed_vat.getValue() - totVat);
+        } else {
+            //운영원가비율(철송협회비) * (저감액 * 80%) * 저감액비율 + (운영원가(철송협회비)  - 저감액80% * 운영원가비율(철송협회비)) * 08년도 저감액 비율 * (1/지사 철송 count)
+            //운영원가
+            var bdSpplyAmt = ed_spplyAmt.getValue();
+            var bdVat = ed_vat.getValue();
+                                
+            //저감액비율
+            var bdRt = ds_stationEachRailroadCutAmtList.getCellData(i, "rt") / 100;
+            //운영원가비율
+            var bdOpAmtRt = ds_stationEachRailroadCutAmtList.getCellData(i, "opAmtRt");
+            //VAT비율
+            var bdOpVatRt = ds_stationEachRailroadCutAmtList.getCellData(i, "opVatRt");
+            //전년도 저감액 비율
+            var bdLastRt = ds_stationEachRailroadCutAmtList.getCellData(i, "lastRt") / 100;
+            //저감총액
+            var bdRailroadCutAmtSum = ds_stationEachRailroadCutAmtList.getCellData(i, "railroadCutAmtSum");
+            //저감총액 * 80
+            var bdRailroadCutAmtSumE = bdRailroadCutAmtSum * 0.8;
+            //지사철송 cnt
+            var bdDptCnt = ds_stationEachRailroadCutAmtList.getCellData(i, "dptCnt");
+            var bdDptStCnt = ds_stationEachRailroadCutAmtList.getCellData(i, "dptStCnt");
+            
+            
+            //spplyAmt = Math.round((bdSpplyAmt - bdRailroadCutAmtSumE * bdOpAmtRt) * bdLastRt * Math.round(bdDptStCnt*100000/bdDptCnt)/100000);
+            spplyAmt = Math.round((bdOpAmtRt * bdRailroadCutAmtSumE * bdRt)) + Math.round((bdSpplyAmt - bdRailroadCutAmtSumE * bdOpAmtRt) * bdLastRt * Math.round(bdDptStCnt*100000/bdDptCnt)/100000);
+            if(bdVat > 0){
+                vat = Math.round(spplyAmt * 0.1); 
+            }else{
+                vat = 0; 
+            }
+            //vat = Math.round((bdOpVatRt * bdRailroadCutAmtSumE * bdRt * 0.1) * Math.round(bdDptStCnt*100000/bdDptCnt)/100000) + Math.round((bdVat - bdRailroadCutAmtSumE * bdOpVatRt * 0.1) * bdLastRt * Math.round(bdDptStCnt*100000/bdDptCnt)/100000);
+            //spplyAmt = Math.round((bdOpAmtRt * bdRailroadCutAmtSumE * bdRt + (bdSpplyAmt - bdRailroadCutAmtSumE * bdOpAmtRt) * bdLastRt) );
+            //vat = Math.round((bdOpVatRt * bdRailroadCutAmtSumE * bdRt * 0.1 + (bdVat - bdRailroadCutAmtSumE * bdOpVatRt * 0.1) * bdLastRt) * (bdDptStCnt/bdDptCnt));
+
+            ds_stationEachRailroadCutAmtList.setCellData(i, "spplyAmt", spplyAmt);
+            ds_stationEachRailroadCutAmtList.setCellData(i, "vat", vat);
+            totSpplyAmt += spplyAmt;
+            totVat += vat;
+        }
+    }
+};   
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드
+//-------------------------------------------------------------------------	
+scwin.f_RunExcel = async function () {
+    var count = ds_stationEachRailroadCutAmtList.getRowCount();
+    if (!(count > 0)) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);  // 조회결과가 존재하지 않습니다.
+        return;
+    } else {
+        // gr_stationEachRailroadCutAmtList.SetExcelTitle(1, "value:철송 배차 내역;"  // 표시할 타이틀
+        //                                                 + "font-face:'돋움체';" // 폰트
+        //                                                 + "font-size:12pt;"    // 폰트 크기
+        //                                                 + "font-color:black;"  // 폰트 색깔
+        //                                                 + "bgcolor:#ffffff;"   // 배경 색깔
+        //                                                 + "align:center;"      // 정렬
+        //                                                 + "line-color:white;"  // 타이틀 부분 테두리선 색깔
+        //                                                 + "line-width:0pt;"    // 타이틀 테두리선 굵기
+        //                                                 + "skiprow:1;");       // 타이틀 다음 떼는 로우 수
+        // cfGridToExcel(그리드ID, "엑셀 파일의 쉬트명", "엑셀 파일명", 저장 옵션);
+
+        // cfGridToExcel(gr_stationEachRailroadCutAmtList, "철송 배차 내역", "철송 배차 내역.xls", 4 + 8 + 16);
+        
+        var argGridTotalCol = 0;
+        for (var i = 0 ; i < gr_stationEachRailroadCutAmtList.getTotalCol(); i++) {
+            if (gr_stationEachRailroadCutAmtList.getColumnVisible(i)) {
+                argGridTotalCol++;
+            }
+        }
+        
+        const infoArr = [{
+            rowIndex    : 0
+            , colIndex    : 0
+            , rowSpan     : 1
+            , colSpan     : argGridTotalCol
+            , text        : "철송 배차 내역"
+            , textAlign   : "center"
+            // , fontSize    : "12pt"
+            , fontName    : "돋움체"
+            , color       : "black"
+            , fontWeight  : ""
+            , drawBorder  : "false"
+            , borderColor : ""
+            , borderWidth : ""
+            , wordWrap    : "true"
+            , bgColor     : "#ffffff"
+        }];
+        const options = {
+            fileName : "철송 배차 내역.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+            sheetName: "철송 배차 내역",
+            type : "1",
+            startRowIndex: 2,
+            // removeColumns: "0,21",
+            // hiddenVisible : true,
+            // useSubTotal :"true", 
+            // useSubTotalData  : "true",
+            // oddRowBackgroundColor  : "",                        // excel파일에서 그리드 body의 홀수줄의 배경색
+            // evenRowBackgroundColor : "#F5FFF5"                  // excel파일에서 그리드 body의 짝수줄의 배경색
+        };
+        $c.data.downloadGridViewExcel(gr_stationEachRailroadCutAmtList, options, infoArr);
+
+    }
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    // 선언부
+    var rtnList  = new Array();  // 공통POP-UP -> 요청화면 
+        
+    switch (disGubun) {
+        case 1:
+            // 정산부서 팝업			
+            udc_adjmDept.setSelectId('retrieveLobranInfo');
+            udc_adjmDept.cfCommonPopUp(scwin.udc_adjmDept_callBackFunc
+                                    ,pCode.trim()
+                                    ,pName
+                                    ,pClose
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,pAllSearch
+                                    ,null
+            );	  				  			
+            break;
+        case 2:  			
+            // 매입부서 팝업			
+            udc_pchsDept.setSelectId('retrieveLobranInfo');
+            udc_pchsDept.cfCommonPopUp(scwin.udc_pchsDept_callBackFunc
+                                    ,pCode.trim()
+                                    ,pName
+                                    ,pClose
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,pAllSearch
+                                    ,null
+            );	  				  			
+            break;
+
+        case 3:
+            // 매입거래처 팝업			
+            udc_pchsClnt.setSelectId('retrieveClntList');
+            udc_pchsClnt.cfCommonPopUp(scwin.udc_pchsClnt_callBackFunc
+                                    ,pCode.trim()
+                                    ,pName
+                                    ,pClose
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,pAllSearch
+                                    ,null
+            );
+            break;		
+
+        case 5:
+            // 작성자 팝업			
+            udc_drawEmp.setSelectId('retrieveEmpInfo');
+            udc_drawEmp.cfCommonPopUp(scwin.udc_drawEmp_callBackFunc
+                                    ,pCode.trim()
+                                    ,pName
+                                    ,pClose
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,pAllSearch
+                                    ,null
+            );	  				  			
+            break;
+                    
+        case 6:
+            // 작성귀속부서 팝업
+            udc_drawAcctDept.setSelectId('retrieveAcctDeptCdInfo');
+            udc_drawAcctDept.cfCommonPopUp(scwin.udc_drawAcctDept_callBackFunc
+                                    ,pCode.trim()
+                                    ,pName
+                                    ,pClose
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,pAllSearch
+                                    ,null
+            );	  				  			
+            break;
+            
+        default:
+            break;
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  	
+  	// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  	if (!await $c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+    
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+	
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+	
+	// inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+	    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+	else
+	    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 검색영역 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function () {
+    $c.gus.cfInitObjects(tb_mainData);
+    scwin.f_SetDefaultData();
+};
+
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_InitObjects();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_RetrieveStationEachRailroadCutAmtList();
+};
+
+scwin.btn_CalcAmt_onclick = function (e) {
+    scwin.f_Calc('cutAmt');
+};
+
+scwin.udc_pchsClnt_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsClntNm, ed_pchsClntNo, 3, false);
+};
+
+scwin.udc_pchsClnt_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(3, ed_pchsClntNo.getValue(), ed_pchsClntNm.getValue(), 'F', 'F');
+};
+
+scwin.udc_pchsClnt_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsClntNo, ed_pchsClntNm, 3);
+};
+
+scwin.udc_drawEmp_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_drawEmpCd, ed_drawEmpNm, 5);
+};
+
+scwin.udc_drawAcctDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_drawAcctDeptCd, ed_drawAcctDeptNm, 6);
+};
+
+scwin.acb_pchsItemCd_onchange = function (info) {
+    
+};
+
+scwin.udc_pchsDept_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsDeptNm, ed_pchsDeptCd, 2, false);
+};
+
+scwin.udc_pchsDept_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_pchsDeptCd.getValue(), ed_pchsDeptNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_pchsDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsDeptCd, ed_pchsDeptNm, 2);
+};
+
+scwin.udc_adjmDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_adjmDeptCd, ed_adjmDeptNm, 1);
+};
+
+scwin.ed_summary_onclick = function (e) {
+    $c.gus.cfLimitByteLength(ed_summary, 100);
+};
+
+scwin.btn_RegPrvnt_onclick = function (e) {
+    scwin.f_SaveOpAmt();
+};
+
+scwin.btn_save_onclick = function (e) {
+    ds_purchaseEvidence.setCellData(0, "pchsItemCd", acb_pchsItemCd.getValue());
+    ds_purchaseEvidence.setCellData(0, "pchsDeptCd", ed_pchsDeptCd.getValue());
+    ds_purchaseEvidence.setCellData(0, "slipDt", ica_slipDt.getValue());
+    ds_purchaseEvidence.setCellData(0, "summary", ed_summary.getValue());
+    ds_purchaseEvidence.setCellData(0, "pchsClntNo", ed_pchsClntNo.getValue());
+    ds_purchaseEvidence.setCellData(0, "spplyAmt", ed_spplyAmt.getValue());
+    ds_purchaseEvidence.setCellData(0, "vat", ed_vat.getValue());
+
+    scwin.f_RegistTaxInvoice();
+};
+
+scwin.sbm_searchStationEachRailroadCutAmtList_submit = function (e) {
+    // cfShowDSWaitMsg(gr_stationEachRailroadCutAmtList);
+    ds_searchStationEachRailroadCutAmtList.set("wrkDtSt", ica_wrkDtSt.getValue());
+    ds_searchStationEachRailroadCutAmtList.set("wrkDtEnd", ica_wrkDtEnd.getValue());
+		
+};
+
+scwin.sbm_searchStationEachRailroadCutAmtList_submitdone = async function (e) {
+    // cfHideDSWaitMsg(gr_stationEachRailroadCutAmtList);
+
+    // 총 조회건수 표시
+    // cfShowTotalRows(totalRows, rowCnt);
+    var rowCnt = ds_stationEachRailroadCutAmtList.getRowCount();
+    txt_totalRows.setValue(rowCnt);
+    
+    scwin.f_PchsDataClear();
+    
+    if (rowCnt == 0) {
+        $c.gus.cfDisableObjects([btn_CalcAmt, acb_pchsItemCd, ica_slipDt // , img_slipDt
+                                , ed_summary
+                                , udc_pchsDept // , ed_pchsDeptCd, ed_pchsDeptNm, img_PopUp2
+                                , udc_pchsClnt // , ed_pchsClntNo, ed_pchsClntNm, img_PopUp3
+                                , ed_spplyAmt, ed_vat]);
+        $c.gus.cfDisableBtnOnly([btn_save]);
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);  // 해당되는 자료가 존재하지 않습니다
+    } else {
+        $c.gus.cfEnableObjects([btn_CalcAmt, acb_pchsItemCd, ica_slipDt // , img_slipDt
+                                , ed_summary
+                                , udc_pchsDept // , ed_pchsDeptCd, ed_pchsDeptNm, img_PopUp2
+                                , udc_pchsClnt // , ed_pchsClntNo, ed_pchsClntNm, img_PopUp3
+                                , ed_spplyAmt, ed_vat]);
+        $c.gus.cfEnableBtnOnly([btn_save]);
+    }
+};
+
+scwin.sbm_searchStationEachRailroadCutAmtList_submiterror = function (e) {
+    // await $c.gus.cfAlertMsg(tr_searchStationEachRailroadCutAmtList.ErrorMsg);
+    // cfHideDSWaitMsg(gr_stationEachRailroadCutAmtList);
+    // cfShowError(ds_stationEachRailroadCutAmtList);
+};
+
+scwin.sbm_savetPurchaseEvidence_submit = function (e) {
+
+};
+
+scwin.sbm_savetPurchaseEvidence_submitdone = async function (e) {
+    txt_certiNo.setValue(ds_primeCostCreationConsequence.getCellData(0, "certiNo")); // 거래명세서번호
+    
+    $c.gus.cfDisableBtnOnly([btn_CalcAmt, btn_save]);
+    
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);	 // 성공적으로 저장하였습니다
+
+};
+
+scwin.sbm_savetPurchaseEvidence_submiterror = function (e) {
+    // cfShowError(tr_savetPurchaseEvidence);
+
+};
+
+scwin.sbm_spllyAmt_submit = function (e) {
+
+};
+
+scwin.sbm_spllyAmt_submitdone = function (e) {
+    var rowCnt = ds_spllyAmt.getRowCount();
+    if (rowCnt == 0){
+        ed_spplyAmt.setValue(0);
+        ed_vat.setValue(0);
+    }else{
+        ed_spplyAmt.setValue(ds_spllyAmt.getCellData(0, "pchsAmt"));
+        ed_vat.setValue(ds_spllyAmt.getCellData(0, "vat"));
+    }
+};
+
+scwin.sbm_spllyAmt_submiterror = function (e) {
+
+};
+
+scwin.f_nameSum = function(dataList, column){
+    var rowCnt = dataList.getRowCount();
+    var totalVal = 0;
+    for (var i = 0; i < rowCnt; i++){
+        var targetVal = parseInt(dataList.getCellData(i, column));
+        totalVal += targetVal;
+    }
+    return totalVal
+};
+
+scwin.udc_adjmDept_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_adjmDeptCd, ed_adjmDeptNm);  // 정산부서코드, 정산부서명
+};
+
+scwin.udc_pchsDept_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_pchsDeptCd, ed_pchsDeptNm);  // 매입부서코드, 매입부서명			
+};
+
+scwin.udc_pchsClnt_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_pchsClntNo, ed_pchsClntNm);  // 매입거래처코드, 매입거래처명	
+};
+
+scwin.udc_drawEmp_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_drawEmpNo, ed_drawEmpNm);  // 사원번호, 사원명
+
+};
+
+scwin.udc_drawAcctDept_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_drawAcctDeptCd, ed_drawAcctDeptNm);  // 작성귀속부서코드, 작성귀속부서명
+
+};
+scwin.acb_pchsItemCd_onviewchange = function (info) {
+    ds_searchStationEachRailroadCutAmtList.set("pchsItemCd", acb_pchsItemCd.getValue());
+    // ds_searchStationEachRailroadCutAmtList.getCellData(1, "pchsItemCd") = acb_pchsItemCd.BindColVal;
+    $c.sbm.execute(sbm_spllyAmt);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_mainData" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="배차기간 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_wrkDt" refDataMap="" refEdDt="" refStDt="" style="" edFromId="ica_wrkDtSt" edToId="ica_wrkDtEnd" mandatoryFrom="true" objTypeFrom="data" objTypeTo="data" titleFrom="배차일자시작" titleTo="배차일자종료"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="철송배차 내역" class="tit"></w2:textbox>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_RunExcel" gridID="gr_stationEachRailroadCutAmtList" id="udc_topGrdBtn" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    					<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_stationEachRailroadCutAmtList" style=""
+    						autoFit="allColumn" id="gr_stationEachRailroadCutAmtList" visibleRowNum="6" class="wq_gvw" readOnly="true" columnMove="true" rowStatusVisible="true">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="80" inputType="text" id="column1" value="부서명" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column17" value="상차지" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column15" value="철송임" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column13" value="사유화차저감총액" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column11" value="저감비율" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column9" value="배부비율" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="column3" value="공급금액" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column5" value="부가세" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="80" inputType="text" id="dptNm" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="dptStn" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="120" inputType="text" id="railroadFare" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="120" inputType="text" id="cutAmt" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="100" inputType="text" id="rtOrg" displayMode="label" textAlign="right" displayFormat="#,###.##0" dataType="number" excelFormat="#,##0.##0"></w2:column>
+    								<w2:column width="100" inputType="text" id="rt" displayMode="label" textAlign="right" displayFormat="#,###.##0" dataType="number" hidden="true" excelFormat="#,##0.##0"></w2:column>
+    								<w2:column width="100" inputType="text" id="spplyAmt" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="100" inputType="text" id="vat" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer style="" id="footer1">
+    							<w2:row style="" id="row3">
+    								<w2:column width="80" inputType="text" id="column30" displayMode="label" value="합계"></w2:column>
+    								<w2:column width="120" inputType="text" id="column29" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="expression" id="column28" displayMode="label" textAlign="right"
+    									dataType="number" expression='sum("railroadFare")' displayFormat="#,###">
+    								</w2:column>
+    								<w2:column width="120" inputType="expression" id="column27" displayMode="label" textAlign="right"
+    									expression='sum("cutAmt")' dataType="number" displayFormat="#,###">
+    								</w2:column>
+    								<w2:column width="100" inputType="expression" id="column26" displayMode="label" textAlign="right" expression="round('cutAmt'/sum('cutAmt')*100,3)"></w2:column>
+    								<w2:column width="100" inputType="expression" id="column25" displayMode="label" textAlign="right" expression="round('rt',3)"></w2:column>
+    								<w2:column width="100" inputType="expression" id="column24" displayMode="label" textAlign="right"
+    									dataType="number" expression='sum("spplyAmt")' displayFormat="#,###">
+    								</w2:column>
+    								<w2:column width="100" inputType="expression" id="column23" displayMode="label" textAlign="right"
+    									dataType="number" expression='sum("vat")' displayFormat="#,###">
+    								</w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="txt_totalRows" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn white" id="btn_CalcAmt" label="저장" style="" type="button" ev:onclick="scwin.btn_CalcAmt_onclick" userAuth="U">
+    						<xf:label>비용배부</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="row-gap-8"><xf:group style="" id="" class="title-wrap">
+    				<xf:group id="" class="title">
+    					<w2:textbox tagname="h3" style="" id="" label="매입정보" class="tit"></w2:textbox>
+    				</xf:group>
+    			</xf:group><xf:group style="" id="" class="tbbox">
+    				<xf:group tagname="table" style="" id="tb_dcsnData" class="w2tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style="width:120px;"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group tagname="col" style="width: 120px;"></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							<w2:textbox ref="" style="" userData2="" id="" label="거래명세서번호" class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<w2:textbox class="" id="txt_certiNo" label="" style="color:blue;"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="매입예정일자" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_slipDt" pickerType="dynamic"
+    								style="" mandatory="true" title="전표일자">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="매입거래처" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="width: 250px;" id="udc_pchsClnt" nameId="ed_pchsClntNm" codeId="ed_pchsClntNo" btnId="btn_pchsClnt" mandatoryCode="true" objTypeCode="data" objTypeName="data" ev:onviewchangeNameEvent="scwin.udc_pchsClnt_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_pchsClnt_onclickEvent" ev:onblurCodeEvent="scwin.udc_pchsClnt_onblurCodeEvent" validTitle="매입거래처"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="매입부서" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="width: 250px;" id="udc_pchsDept" mandatoryCode="true" objTypeCode="data" UpperFlagCode="1" codeId="ed_pchsDeptCd" nameId="ed_pchsDeptNm" objTypeName="data" ev:onviewchangeNameEvent="scwin.udc_pchsDept_onviewchangeNameEvent" btnId="btn_pchsDept" ev:onclickEvent="scwin.udc_pchsDept_onclickEvent" ev:onblurCodeEvent="scwin.udc_pchsDept_onblurCodeEvent" allowCharCode="a-zA-Z0-9" maxlengthCode="4" UpperFlag="1" validTitle="매입부서"></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="원가유형" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_pchsItemCd" search="start" style="width:250px;"
+    								submenuSize="auto" mandatory="true" allOption="" chooseOption="" ref="" title="원가유형" ev:onviewchange="scwin.acb_pchsItemCd_onviewchange">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[선택]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="금액" class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="txt_sumAmt" label="" style=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="req" id="" label="공급금액" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="tar" id="ed_spplyAmt" placeholder="" style="width:150px;" mandatory="true" maxByteLength="17" displayFormat="#,###" dataType="number" applyFormat="all" title="부가세"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="req" id="" label="부가세" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="tar" id="ed_vat" placeholder="" style="width:150px;" displayFormat="#,###" mandatory="true" maxByteLength="17" dataType="number" applyFormat="all" title="공급가액"></xf:input>
+    					</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="비고" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td br0">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_summary" placeholder="" style="" mandatory="true" ev:onclick="scwin.ed_summary_onclick" title="비고"></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td bl0"><w2:attributes></w2:attributes></xf:group></xf:group></xf:group>
+    			</xf:group></xf:group>
+    			<xf:group class="btnbox" id="" style=""><xf:group id="" class="left"><xf:trigger style="" id="btn_RegPrvnt" label="저장" type="button" class="btn link" ev:onclick="scwin.btn_RegPrvnt_onclick" userAuth="P">
+    					<xf:label>운영원가 입력</xf:label>
+    				</xf:trigger></xf:group><xf:group class="right" id="">
+    					<xf:trigger class="btn white" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    						<xf:label>매입생성 및 승인</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

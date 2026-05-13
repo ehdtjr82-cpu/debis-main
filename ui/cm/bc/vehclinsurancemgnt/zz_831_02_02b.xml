@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="chkNewDataYn" name="chkNewDataYn" dataType="text"></w2:key>
+    					<w2:key id="reqApplyStdDt" name="reqApplyStdDt" dataType="text"></w2:key>
+    					<w2:key id="reqApplyEndDt" name="reqApplyEndDt" dataType="text"></w2:key>
+    					<w2:key id="reqInsuranceStdDt" name="reqInsuranceStdDt" dataType="text"></w2:key>
+    					<w2:key id="reqInsuranceEndDt" name="reqInsuranceEndDt" dataType="text"></w2:key>
+    					<w2:key id="reqDeptCd" name="reqDeptCd" dataType="text"></w2:key>
+    					<w2:key id="reqPossessCd" name="reqPossessCd" dataType="text"></w2:key>
+    					<w2:key id="reqVehclNo" name="reqVehclNo" dataType="text"></w2:key>
+    					<w2:key id="reqDrcrNo" name="reqDrcrNo" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_LuggageInsuranceInfoList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="mgntNo" name="mgntNo" dataType="text"></w2:column>
+    					<w2:column id="wrkClsCd" name="wrkClsCd" dataType="text"></w2:column>
+    					<w2:column id="applyDt" name="applyDt" dataType="text"></w2:column>
+    					<w2:column id="deptCd" name="deptCd" dataType="text"></w2:column>
+    					<w2:column id="deptNm" name="deptNm" dataType="text"></w2:column>
+    					<w2:column id="possessCd" name="possessCd" dataType="text"></w2:column>
+    					<w2:column id="cancelCd" name="cancelCd" dataType="text"></w2:column>
+    					<w2:column id="vehclTypeCd" name="vehclTypeCd" dataType="text"></w2:column>
+    					<w2:column id="maxPayloadCd" name="maxPayloadCd" dataType="text"></w2:column>
+    					<w2:column id="releaseYear" name="releaseYear" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="vehclNo" dataType="text"></w2:column>
+    					<w2:column id="drcrNo" name="drcrNo" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceShortStdDt" name="luggageInsuranceShortStdDt" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceShortEndDt" name="luggageInsuranceShortEndDt" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceYearStdDt" name="luggageInsuranceYearStdDt" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceYearEndDt" name="luggageInsuranceYearEndDt" dataType="text"></w2:column>
+    					<w2:column id="guaranteeLimitCd" name="guaranteeLimitCd" dataType="text"></w2:column>
+    					<w2:column id="glassYn2" name="glassYn2" dataType="text"></w2:column>
+    					<w2:column id="glassStdDt" name="glassStdDt" dataType="text"></w2:column>
+    					<w2:column id="glassEndDt" name="glassEndDt" dataType="text"></w2:column>
+    					<w2:column id="frizYn2" name="frizYn2" dataType="text"></w2:column>
+    					<w2:column id="frizStdDt" name="frizStdDt" dataType="text"></w2:column>
+    					<w2:column id="frizEndDt" name="frizEndDt" dataType="text"></w2:column>
+    					<w2:column id="umbrellaPolicyYn2" name="umbrellaPolicyYn2" dataType="text"></w2:column>
+    					<w2:column id="umbrellaPolicyStdDt" name="umbrellaPolicyStdDt" dataType="text"></w2:column>
+    					<w2:column id="umbrellaPolicyEndDt" name="umbrellaPolicyEndDt" dataType="text"></w2:column>
+    					<w2:column id="chgWrkCd" name="chgWrkCd" dataType="text"></w2:column>
+    					<w2:column id="pastData" name="pastData" dataType="text"></w2:column>
+    					<w2:column id="currentData" name="currentData" dataType="text"></w2:column>
+    					<w2:column id="fileRegYn" name="fileRegYn" dataType="text"></w2:column>
+    					<w2:column id="apprvReqNo" name="apprvReqNo" dataType="text"></w2:column>
+    					<w2:column id="apprvStsCd" name="apprvStsCd" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/cm.bc.vehclinsurancemgnt.cmd.RetrieveLuggageInsuranceInfoListCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_LuggageInsuranceInfoList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_LuggageInsuranceInfoList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//전역변수
+scwin.userInfo = $c.data.getMemInfo();
+scwin.strCurDate = WebSquare.date.getCurrentServerDate();
+scwin.strCurDateFrom = scwin.strCurDate.substring(0, 6) + "01";
+scwin.strCurDateTo = scwin.strCurDate.substring(0, 6) + $c.date.getLastDateOfMonth(scwin.strCurDate);
+scwin.acctDeptCd = scwin.userInfo.acctDeptCd;
+scwin.acctDeptNm = scwin.userInfo.acctDeptNm;
+
+scwin.onpageload = function() {
+    const codeOptions = [
+        { grpCd : "ZZ832", compID : "lc_reqPossessCd,gr_LuggageInsuranceInfoList:possessCd" },
+        { grpCd : "ZZ831", compID : "gr_LuggageInsuranceInfoList:wrkClsCd" },
+        { grpCd : "ZZ833", compID : "gr_LuggageInsuranceInfoList:vehclTypeCd" },
+        { grpCd : "ZZ836", compID : "gr_LuggageInsuranceInfoList:guaranteeLimitCd" },
+        { grpCd : "ZZ837", compID : "gr_LuggageInsuranceInfoList:chgWrkCd" },
+        { grpCd : "ZZ843", compID : "gr_LuggageInsuranceInfoList:cancelCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+scwin.onUdcCompleted = function() {
+
+    rd_chkNewDataYn.setValue( "01" );
+    ica_reqApplyStdDt.setValue(scwin.strCurDateFrom);
+    ica_reqApplyEndDt.setValue(scwin.strCurDateTo);
+    ica_reqInsuranceStdDt.setValue(scwin.strCurDateFrom);
+    ica_reqInsuranceEndDt.setValue(scwin.strCurDateTo);
+};
+
+scwin.ondataload = function() {
+    const codeOptions1 = [
+        { method: "getLuxeComboDataNoSort"
+        , param1: "VehclInsuranceMgntEBC"
+        , param2: "retriveLobranCodeList"
+        , compID: "lc_reqDeptCd"
+        },
+    ];
+    $c.data.setGauceUtil(codeOptions1);
+};
+
+// displayFormatter 처리
+scwin.apprvStsCd = function (data) {
+    return $c.gus.decode(data, "01","대기","02","상신","03","반려","04","중간승인","05","최종승인","06","보류", "","미상신");
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    //시작일자 check
+    if(ica_reqApplyStdDt.getValue()!= '' ||ica_reqApplyEndDt.getValue() != ''){
+        if (!$c.gus.cfIsAfterDate(ica_reqApplyStdDt.getValue(), ica_reqApplyEndDt.getValue())){
+            await alert("신청일자 시작 일자가 종료일자 이전 이어야 합니다.");
+            return;
+        }
+    }
+    
+    //보험기간 check
+    if(ica_reqInsuranceStdDt.getValue()!= '' || ica_reqInsuranceEndDt.getValue() != ''){
+        if (!$c.gus.cfIsAfterDate(ica_reqInsuranceStdDt.getValue(), ica_reqInsuranceEndDt.getValue())){
+            await alert("보험기간 시작 일자가 종료일자 이전 이어야 합니다.");
+            return;
+        }
+    }
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 초기화
+//-------------------------------------------------------------------------
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+    rd_chkNewDataYn.setSelectedIndex(0);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀저장
+//-------------------------------------------------------------------------
+scwin.f_downExcelSheet = async function () {	    
+    let cntRow = ds_LuggageInsuranceInfoList.getRowCount();
+    if(cntRow == 0)
+        return;
+
+    let fileName = "적재물보험내역";
+    let sheetTitle = "적재물보험내역";
+    await $c.data.downloadGridViewExcel(gr_LuggageInsuranceInfoList, { fileName: fileName + ".xlsx", sheetName: sheetTitle });
+};
+
+scwin.sbm_search_submitdone = async function (e) {
+    let rowCnt = ds_LuggageInsuranceInfoList.getRowCount();
+    spanTotal.setValue(rowCnt);
+    if (rowCnt == 0) {
+        await $c.win.alert(MSG_CM_WRN_002);
+        return;
+    }
+};
+
+]]></script>
+    	<w2:require as="udc_schInput" type="page" variableClone="true" src="/cm/udc/schInput.xml"></w2:require>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	
+    	<xf:group class="round-box" id="" style="">
+    		<xf:group class="shbox" id="" style="">
+    		<xf:group class="shbox-inner" id="" style="">
+    			<xf:group class="w2tb " id="table1" style="" tagname="table">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="colgroup">
+    					<xf:group style="width:70px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:105px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:60px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:90px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    				</xf:group>
+    				<xf:group class="" id="" style="" tagname="tr">
+    					<xf:group class="w2tb_th " style="" tagname="th">
+    						<w2:textbox class="" id="" label="조회구분" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:select1 appearance="full" class="" cols="" id="rd_chkNewDataYn" ref="data:dma_condition.chkNewDataYn" renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[전체]]></xf:label>
+    									<xf:value><![CDATA[01]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[최신]]></xf:label>
+    									<xf:value><![CDATA[02]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    					<xf:group class="w2tb_th" style="" tagname="th">
+    						<w2:textbox class="" id="" label="신청일자 " style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" style="" tagname="td">
+    						<w2:udc_fromToCalendar edFromId="ica_reqApplyStdDt" edToId="ica_reqApplyEndDt" id="udc_fromToCalendar5" refDataMap="dma_condition" refEdDt="reqApplyEndDt" refStDt="reqApplyStdDt" style="">
+    						</w2:udc_fromToCalendar>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes></w2:attributes>
+    						<w2:textbox class="" id="" label="차량번호" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_reqVehclNo" maxlength="20" ref="data:dma_condition.reqVehclNo" style="width: 150px;"></xf:input>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes></w2:attributes>
+    						<w2:textbox class="" id="" label="차대번호" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_reqDrcrNo" maxlength="20" ref="data:dma_condition.reqDrcrNo" style="width: 150px;"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="" tagname="tr">
+    					<xf:group class="w2tb_th " tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="소속지사" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<w2:autoComplete allOption="" chooseOption="true" chooseOptionLabel="전체" class=""
+    							displayMode="value delim label" editType="select" id="lc_reqDeptCd" mandatory="true" ref="data:dma_condition.reqDeptCd"
+    							search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15">
+    							<w2:choices></w2:choices>
+    						</w2:autoComplete>
+    					</xf:group>
+    					<xf:group class="w2tb_th" tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="보험기간 " style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<w2:udc_fromToCalendar edFromId="ica_reqInsuranceStdDt" edToId="ica_reqInsuranceEndDt" id="udc_fromToCalendar6" refDataMap="dma_condition" refEdDt="reqInsuranceEndDt" refStDt="reqInsuranceStdDt" style="">
+    						</w2:udc_fromToCalendar>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="소유구분" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<w2:autoComplete allOption="" chooseOption="true" chooseOptionLabel="전체" class=""
+    							displayMode="value delim label" editType="select" id="lc_reqPossessCd" mandatory="true" ref="data:dma_condition.reqPossessCd"
+    							search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15">
+    							<w2:choices></w2:choices>
+    						</w2:autoComplete>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="btn-shbox" id="" style="">
+    			<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    				<xf:label><![CDATA[새로고침]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group><xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="적재물보험내역 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_LuggageInsuranceInfoList" id="udc_LuggageInsuranceInfoList" gridDownFn="scwin.f_downExcelSheet"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_LuggageInsuranceInfoList"
+    					focusMode="cell" id="gr_LuggageInsuranceInfoList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="11" visibleRowNumFix="true" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" style="" value="기본정보" width="1080"
+    								colSpan="12" rowSpan="2" sortable="false">
+    							</w2:column>
+    							<w2:column width="1400" inputType="text" style="" id="column58" value="적재물보험 내역" displayMode="label"
+    								colSpan="14" rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="300" inputType="text" style="" id="column98" value="변경 사항" displayMode="label" colSpan="3"
+    								rowSpan="2" sortable="false">
+    							</w2:column>
+    							<w2:column width="170" inputType="text" style="" id="column130" value="전자결재 정보" displayMode="label"
+    								colSpan="2" rowSpan="2" sortable="false">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column138" value="해지&lt;/br&gt;사유" displayMode="label"
+    								colSpan="" rowSpan="3">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row5">
+    							<w2:column width="200" inputType="text" style="" id="column59" value="단기" displayMode="label" colSpan="2"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" style="" id="column43" value="보험기간" displayMode="label" colSpan="2"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column41" value="기본정보" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="300" inputType="text" style="" id="column40" value="유리" displayMode="label" colSpan="3"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="300" inputType="text" style="" id="column119" value="냉동" displayMode="label" colSpan="3"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="300" inputType="text" style="" id="column107" value="기업포괄" displayMode="label" colSpan="3"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row6">
+    							<w2:column width="100" inputType="text" style="" id="column57" value="차량보험&lt;/br&gt;관리번호"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column56" value="신청일자" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column55" value="작업&lt;/br&gt;구분" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column54" value="지사명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column92" value="소유구분" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column88" value="차량번호" displayMode="label"></w2:column>
+    							<w2:column width="180" inputType="text" style="" id="column84" value="차대번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column80" value="차량형식" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column76" value="최대&lt;/br&gt;적재량"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column72" value="차량&lt;/br&gt;년식" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column68" value="첨부&lt;/br&gt;파일" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column64" value="지사&lt;/br&gt;코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column60" value="시작일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column53" value="종료일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column52" value="시작일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column51" value="종료일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column50" value="보상한도" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column49" value="가입여부" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column128" value="시작일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column124" value="종료일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column120" value="가입여부" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column116" value="시작일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column112" value="종료일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column108" value="가입여부" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column104" value="시작일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column96" value="종료일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column100" value="변경내역" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column148" value="변경전" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column144" value="변경후" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column132" value="요청번호" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column136" value="상태" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="mgntNo" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="applyDt" inputType="text" style="" value="" width="100" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column displayMode="label" id="wrkClsCd" inputType="select" style="" value="" width="70"></w2:column>
+    							<w2:column displayMode="label" id="deptNm" inputType="text" style="" value="" width="100" colMerge="true" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="select" style="" id="possessCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="vehclNo" value="" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="180" inputType="text" style="" id="drcrNo" value="" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="select" style="" id="vehclTypeCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="maxPayloadCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="releaseYear" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="fileRegYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="deptCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="luggageInsuranceShortStdDt" value=""
+    								displayMode="label" displayFormat="yyyy/MM/dd" dataType="date" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="luggageInsuranceShortEndDt" inputType="text" style="" value=""
+    								width="100" displayFormat="yyyy/MM/dd" dataType="date" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="luggageInsuranceYearStdDt" inputType="text" style="" value=""
+    								width="100" displayFormat="yyyy/MM/dd" dataType="date">
+    							</w2:column>
+    							<w2:column displayMode="label" id="luggageInsuranceYearEndDt" inputType="text" style="" value=""
+    								width="100" displayFormat="yyyy/MM/dd" dataType="date">
+    							</w2:column>
+    							<w2:column displayMode="label" id="guaranteeLimitCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="glassYn2" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="glassStdDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="glassEndDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="frizYn2" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="frizStdDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="frizEndDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="umbrellaPolicyYn2" value="" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="umbrellaPolicyStdDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="umbrellaPolicyEndDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="select" style="" id="chgWrkCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="pastData" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="currentData" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="apprvReqNo" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="apprvStsCd" value="" displayMode="label" displayFormatter="scwin.apprvStsCd"></w2:column>
+    							<w2:column width="70" inputType="select" style="" id="cancelCd" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spanTotal" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    	</xf:group>
+    </body>
+</html>

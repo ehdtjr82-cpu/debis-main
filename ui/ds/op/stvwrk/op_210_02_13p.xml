@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_condition" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="staffNo" name="사번" dataType="text"></w2:column>
+    					<w2:column id="checkValue" name="체크값" dataType="text"></w2:column>
+    					<w2:column id="wrkDt" name="일자" dataType="text"></w2:column>
+    					<w2:column id="occpgrdCd" name="조직코드" dataType="text"></w2:column>
+    					<w2:column id="checkCheif" name="관리자체크" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true" ev:ondataload="scwin.ds_result_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="staffNo" name="사번" dataType="text"></w2:column>
+    					<w2:column id="staffNm" name="성명" dataType="text"></w2:column>
+    					<w2:column id="wrkPlNm" name="작업장" dataType="text"></w2:column>
+    					<w2:column id="shiftClsCd" name="시프트" dataType="text"></w2:column>
+    					<w2:column id="workDt" name="일자" dataType="text"></w2:column>
+    					<w2:column id="wrkCnt" name="개수" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_Retrieve" action="/ds.op.stvwrk.RetrieveWrkReportDetailCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]' target='data:json,{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_Retrieve_submit" ev:submitdone="scwin.sbm_Retrieve_submitdone"
+    			ev:submiterror="scwin.sbm_Retrieve_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : op_210_02_13p 
+// 이름     : 상용직근무실적상세팝업
+// 경로     : 물류/하역(인천)/현황/상용직 근무실적
+// 작 성 자 : 조성빈
+// 작 업 일 : 2026-02-04
+// 사용계정 : 내부
+// 비고     :  ***
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+scwin.onpageload = function() {
+    var args = $p.getAllParameter().paramData.data;
+    var staffNo = args[0].trim();
+    var checkValue = args[1];
+    var wrkDt = args[2];
+    var checkOccp = args[3];
+    var checkChief = args[4];
+    var workDetail = "";
+
+    // alert("staffNo : " + staffNo + "\n" + "checkValue : " + checkValue + "\n" + "wrkDt : " + wrkDt + "\n" + "occpgrdCd : " + checkOccp + "\n" + "checkCheif : " + checkChief);
+
+    if(checkValue == 1){
+        workDetail = "우천";
+    }else if(checkValue == 2){
+        workDetail = "단독원치";
+    }else if(checkValue == 3) {
+        workDetail = "긴급동원";
+    }else if(checkValue == 4) {
+        workDetail = "GANG이동";
+    }
+
+    txt_title.setValue(workDetail);
+
+    var rowIndex = ds_condition.insertRow();
+    ds_condition.setRowPosition(rowIndex);
+    
+    ds_condition.setCellData(ds_condition.getRowPosition(), "staffNo", staffNo);
+    ds_condition.setCellData(ds_condition.getRowPosition(), "checkValue", checkValue);
+    ds_condition.setCellData(ds_condition.getRowPosition(), "wrkDt", wrkDt);
+    ds_condition.setCellData(ds_condition.getRowPosition(), "occpgrdCd", checkOccp);
+    ds_condition.setCellData(ds_condition.getRowPosition(), "checkCheif", checkChief);
+    $c.sbm.execute(sbm_Retrieve);
+
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+    }, {"delay":50});
+};
+
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.sbm_Retrieve_submit = function (e) {
+
+};
+
+scwin.sbm_Retrieve_submitdone = function (e) {
+    var rowCnt = ds_result.getRowCount();
+    txt_totalRows.setValue(rowCnt);
+};
+
+scwin.sbm_Retrieve_submiterror = function (e) {
+
+};
+
+scwin.excelDown = function(){
+
+    var argGridTotalCol = 0;
+    for (var i = 0 ; i < gr_result.getTotalCol(); i++) {
+        if (gr_result.getColumnVisible(i)) {
+            argGridTotalCol++;
+        }
+    }
+
+    const infoArr = [{
+          rowIndex    : 0
+        , colIndex    : 0
+        , rowSpan     : 1
+        , colSpan     : argGridTotalCol
+        , text        : "상용직근무실적상세"
+        , textAlign   : "center"
+        // , fontSize    : "12pt"
+        , fontName    : "돋움체"
+        , color       : "black"
+        , fontWeight  : ""
+        , drawBorder  : "false"
+        , borderColor : ""
+        , borderWidth : ""
+        , wordWrap    : "true"
+        , bgColor     : "#ffffff"
+    }];
+    const options = {
+        fileName : "상용직근무실적상세.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: "상용직근무실적상세",
+        type : "1",
+        startRowIndex: 2,
+        // removeColumns: "0,21",
+        // hiddenVisible : true,
+        // useSubTotal :"true", 
+        // useSubTotalData  : "true",
+        // oddRowBackgroundColor  : "",                        // excel파일에서 그리드 body의 홀수줄의 배경색
+        // evenRowBackgroundColor : "#F5FFF5"                  // excel파일에서 그리드 body의 짝수줄의 배경색
+    };
+    $c.data.downloadGridViewExcel(gr_result, options, infoArr);
+};
+
+scwin.gridFormatter = function(data){
+    var value = "";
+    if (data == "D"){
+        value = "주간";
+    } else if (data == "N"){
+        value = "야간";
+    }
+    return value;
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+                        <xf:group class="title" id="">
+                            <w2:textbox class="tit" id="txt_title" label="" style="" tagname="h3"></w2:textbox>
+                        </xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_topGrdBtn" btnPlusYn="N" btnUser="N" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_result" gridDownFn="scwin.excelDown" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_result" id="gr_result"
+    							style="" visibleRowNumFix="true">
+    							<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" style="" value="사번" width="70" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column17" inputType="text" style="" value="성명" width="70" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column15" inputType="text" style="" value="작업장" width="180" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column13" inputType="text" style="" value="시프트" width="70" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column11" inputType="text" style="" value="일자" width="70" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column9" inputType="text" style="" value="개수" width="70" sortable="false">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="staffNo" inputType="text" style="" value="" width="70" colMerge="true" readOnly="true" textAlign="center"></w2:column>
+    									<w2:column displayMode="label" id="staffNm" inputType="text" style="" value="" width="70" colMerge="true" upperColumn="staffNo" readOnly="true" textAlign="center"></w2:column>
+    									<w2:column displayMode="label" id="wrkPlNm" inputType="text" style="" value="" width="180" textAlign="center" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="shiftClsCd" inputType="text" style="" value="" width="70" readOnly="true" displayFormatter="scwin.gridFormatter" textAlign="center"></w2:column>
+    									<w2:column displayMode="label" id="workDt" inputType="calendar" style="" value="" width="70" dataType="date" readOnly="true" textAlign="center"></w2:column>
+    									<w2:column displayMode="label" id="wrkCnt" inputType="text" style="" value="" width="70" textAlign="center" displayFormat="#,###" dataType="number" readOnly="true" excelCellType="number"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer style="" id="footer1">
+    								<w2:row style="" id="row3">
+    									<w2:column width="70" inputType="text" style="" id="column30" value="합계" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="" style="" id="column29" value="" displayMode="label"></w2:column>
+    									<w2:column width="180" inputType="" style="" id="column28" value="" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="" style="" id="column27" value="" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="" style="" id="column26" value="" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="expression" style="" id="column25" value="" displayMode="label" expression='sum("wrkCnt")'></w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" id="txt_totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group></xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

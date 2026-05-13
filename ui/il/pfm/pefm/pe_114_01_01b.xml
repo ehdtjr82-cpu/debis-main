@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="gubun" name="name1" dataType="text"></w2:key>
+    					<w2:key id="stDt" name="name2" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="ocf" name="name4" dataType="text"></w2:key>
+    					<w2:key id="dept" name="name5" dataType="text"></w2:key>
+    					<w2:key id="incYn" name="name6" dataType="text"></w2:key>
+    					<w2:key id="pic" name="name7" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="gubun" name="구분" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="mhno" name="MHNO" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhio" name="수출입구분" dataType=""></w2:column>
+    					<w2:column id="sellRsltsStdDt" name="매출실적일" dataType=""></w2:column>
+    					<w2:column id="pchsRsltsStdDt" name="매입실적일" dataType=""></w2:column>
+    					<w2:column id="hhblh" name="HBL" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhmblno" name="MBL" dataType=""></w2:column>
+    					<w2:column id="bilgClntNo" name="청구처번호" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="bilgClntNm" name="청구처" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsClntNo" name="매입처번호" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsClntNm" name="매입처" dataType=""></w2:column>
+    					<w2:column id="bilgLodeptCd" name="청구부서" dataType=""></w2:column>
+    					<w2:column id="bilgLodeptNm" name="청구부서" dataType=""></w2:column>
+    					<w2:column id="pchsDeptCd" name="매입부서" dataType=""></w2:column>
+    					<w2:column id="pchsLodeptNm" name="매입부서" dataType=""></w2:column>
+    					<w2:column id="linernm" name="Liner" dataType=""></w2:column>
+    					<w2:column id="hhagentnm" name="Agent" dataType=""></w2:column>
+    					<w2:column id="hhlodnm" name="Loading" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhdiscnm" name="Discharging" dataType=""></w2:column>
+    					<w2:column id="hhsalesnm" name="영업사원" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pic" name="담당자" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="teu" name="TEU" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="feu" name="FEU" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pkg" name="PKG" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="wt" name="WT" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="measure" name="MEASURE" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="rton" name="RTON" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="totalSellAmt" name="총매출" dataType=""></w2:column>
+    					<w2:column id="unsetteledSellAmt" name="미확정매출" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="setteledSellAmt" name="확정매출" dataType=""></w2:column>
+    					<w2:column id="totalPchsAmt" name="총매입" dataType=""></w2:column>
+    					<w2:column id="unsetteledPchsAmt" name="미확정매입" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="setteledPchsAmt" name="확정매입" dataType=""></w2:column>
+    					<w2:column id="totalSellAmtOcf" name="OCF/ARF;총매출" dataType="text"></w2:column>
+    					<w2:column id="unsetteledSellAmtOcf" name="OCF/ARF;미확정매출" dataType="text"></w2:column>
+    					<w2:column id="setteledSellAmtOcf" name="OCF/ARF;확정매출" dataType="text"></w2:column>
+    					<w2:column id="totalPchsAmtOcf" name="e=OCF/ARF;총매입" dataType="text"></w2:column>
+    					<w2:column id="unsetteledPchsAmtOcf" name="OCF/ARF;미확정매입" dataType="text"></w2:column>
+    					<w2:column id="setteledPchsAmtOcf" name="OCF/ARF;확정매입" dataType="text"></w2:column>
+    					<w2:column id="internalPchsAmt" name="내부매입" dataType=""></w2:column>
+    					<w2:column id="totalProfit" name="총이익" dataType=""></w2:column>
+    					<w2:column id="unsetteledProfit" name="미확정이익" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="setteledProfit" name="확정이익" dataType=""></w2:column>
+    					<w2:column id="totalProfitRate" name="총이익률" dataType=""></w2:column>
+    					<w2:column id="unsetteledProfitRate" name="미확정이익률" dataType=""></w2:column>
+    					<w2:column id="setteledProfitRate" name="확정이익률" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="totalCostRate" name="총원가율" dataType=""></w2:column>
+    					<w2:column id="unsetteledCostRate" name="미확정원가율" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="setteledCostRate" name="확정원가율" dataType="" defaultValue=""></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/il.pfm.pefm.RetrieveBlSellPchsListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="false" src="/ui/js/il/ilcommon.js" scopeVariable="" type="text/javascript"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.strCurDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.strPreDate = $c.date.addMonth(scwin.strCurDate, -1); //한달전
+
+scwin.memJson = $c.data.getMemInfo();
+scwin.userId = scwin.memJson.userId;  //사용자
+
+scwin.onpageload = function() {
+	
+    udc_fromToCalendar.setInitDate(scwin.strPreDate,scwin.strCurDate); //udc
+};
+
+//초기화
+scwin.btn_fieldClear_onclick = function (e) {
+
+    $c.gus.cfInitObjects(tb_searchCondition);
+};
+
+//수출입구분
+scwin.hhio = function(data) {
+
+    return $c.gus.decode(data,"I","수입","O","수출");
+};
+
+//조회
+scwin.btn_retrieve_onclick = function (e) {
+
+    if (ed_stDt.getValue() == "" || ed_endDt.getValue() == ""){
+		$c.gus.cfAlertMsg("실적일자 is mandatory.");	
+		ed_stDt.focus();
+		return;  		
+	} else { 
+		
+		//dataMap set
+        dma_search.set("gubun",lc_gubun.getValue());
+        dma_search.set("stDt",ed_stDt.getValue());
+        dma_search.set("endDt",ed_endDt.getValue());
+        dma_search.set("ocf",chb_ocf.getValue());
+        dma_search.set("dept",ed_dept.getValue());
+        dma_search.set("incYn",chb_incYn.getValue());
+        dma_search.set("pic",ed_pic.getValue());
+
+        $c.sbm.execute(sbm_retrieve);
+	}
+};
+
+
+//조회 callback
+scwin.sbm_retrieve_submitdone = function() {
+
+    let nCnt = ds_master.getRowCount();
+
+    if (nCnt == 0) {
+		$c.gus.cfAlertMsg("결과값이 없습니다.");	
+		total.setValue(nCnt);
+	} else {
+        
+        gr_master.setFocusedCell(0, 0);
+        total.setValue(nCnt);
+	}
+};
+
+//담당자 pop
+scwin.udc_ilcomCode_pic_onclickEvent = function (e) {
+
+    udc_ilcomCode_pic.ilCommonPopUp(scwin.udc_ilcomCode_pic_callBackFunc,ed_pic.getValue(), ed_picnm.getValue(),null,null,null,null,null,null,null,null,null,null,null,"F",null,null);
+
+};
+
+scwin.udc_ilcomCode_pic_callBackFunc = function(ret) {
+
+    $c.gus.cfSetReturnValue(ret, ed_pic, ed_picnm);
+};
+scwin.udc_ilcomCode_pic_onblurCodeEvent = function (e) {
+
+    if(ed_pic.getValue() === "") {
+
+        ed_picnm.setValue("");
+    } else {
+        
+        udc_ilcomCode_pic.ilCommonPopUp(scwin.udc_ilcomCode_pic_callBackFunc,ed_pic.getValue(), ed_picnm.getValue(),"T",null,null,null,null,null,null,null,null,null,null,"F",null,null);
+    }
+};
+
+scwin.udc_ilcomCode_pic_onviewchangeNameEvent = function (info) {
+
+    if(ed_picnm.getValue() === "") {
+
+        ed_pic.setValue("");
+    } 
+};
+
+//Department pop
+scwin.udc_ilcomCode_dept_onclickEvent = function (e) {
+
+    udc_ilcomCode_dept.ilCommonPopUp(scwin.udc_ilcomCode_dept_callBackFunc,ed_dept.getValue(), ed_deptnm.getValue(),null,null,null,null,null,null,null,null,null,null,null,"F",null,null);
+};
+
+scwin.udc_ilcomCode_dept_callBackFunc = function(ret) {
+
+    $c.gus.cfSetReturnValue(ret, ed_dept, ed_deptnm);
+};
+
+scwin.udc_ilcomCode_dept_onblurCodeEvent = function (e) {
+
+    if(ed_dept.getValue() === "") {
+
+        ed_deptnm.setValue("");
+    } else {
+        udc_ilcomCode_dept.ilCommonPopUp(scwin.udc_ilcomCode_dept_callBackFunc,ed_dept.getValue(), ed_deptnm.getValue(),"T",null,null,null,null,null,null,null,null,null,null,"F",null,null);
+    }
+};
+
+scwin.udc_ilcomCode_dept_onviewchangeNameEvent = function (info) {
+
+    if(ed_deptnm.getValue() === "") {
+
+        ed_dept.setValue("");
+    } 
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="tb_searchCondition" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 id="lc_gubun" chooseOption="" style="width:100px;" submenuSize="auto" allOption=""
+    								disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[ALL]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Sea]]></xf:label>
+    										<xf:value><![CDATA[S]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Air]]></xf:label>
+    										<xf:value><![CDATA[A]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="실적일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="" refEdDt="" refStDt="" style=""
+    								edFromId="ed_stDt" edToId="ed_endDt" mandatoryFrom="true" mandatoryTo="true">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="OCF, ARF 거래처" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="chb_ocf" ref="" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="담당자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_ilcomCode UpperFlagCode="1" codeId="ed_pic"
+    								ev:onblurCodeEvent="scwin.udc_ilcomCode_pic_onblurCodeEvent" ev:onclickEvent="scwin.udc_ilcomCode_pic_onclickEvent"
+    								ev:onviewchangeNameEvent="scwin.udc_ilcomCode_pic_onviewchangeNameEvent" id="udc_ilcomCode_pic" maxlengthCode="6"
+    								nameId="ed_picnm" popupID="" selectID="retrieveEmpInfo" style="" validTitle="" allowCharCode="0-9a-zA-Z">
+    							</w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Department" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<w2:udc_ilcomCode UpperFlagCode="1" codeId="ed_dept" ev:onblurCodeEvent="scwin.udc_ilcomCode_dept_onblurCodeEvent"
+    									ev:onclickEvent="scwin.udc_ilcomCode_dept_onclickEvent"
+    									ev:onviewchangeNameEvent="scwin.udc_ilcomCode_dept_onviewchangeNameEvent" id="udc_ilcomCode_dept" nameId="ed_deptnm" popupID=""
+    									selectID="retrieveOpDeptCdInfo" style="" validTitle="" allowCharCode="0-9a-zA-Z" maxlengthCode="4">
+    								</w2:udc_ilcomCode>
+    								<xf:select appearance="full" class="" cols="" id="chb_incYn" ref="" renderType="checkboxgroup" rows=""
+    									selectedindex="-1" style="" objType="data">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[Not Inclusive]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    							</xf:group>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button"
+    					ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button"
+    					ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="B/L별 매출입 현황" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" btnUser="Y" gridUpYn="N" gridID="gr_master" grdDownOpts='{"fileName":"BL매출입현황.xlsx", "sheetName": "BL매출입현황"}' btnPlusYn="Y" gridDownYn="Y"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_master" id="gr_master" style="" visibleRowNum="16"
+    					visibleRowNumFix="true" readOnly="true" focusMode="row" focusMove="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="구분" width="60" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="MHNO" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="수출입구분" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="매출실적일" width="100" ></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="매입실적일" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="HBL" width="80"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="MBL" width="80" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="청구처번호" width="100" hidden="true" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" value="청구처" width="80"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="매입처번호" width="100" hidden="true" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column97" value="매입처" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column94" value="청구부서" displayMode="label" hidden="true" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column91" value="청구부서" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column88" value="매입부서" displayMode="label" hidden="true" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column85" value="매입부서" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column82" value="Liner" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column79" value="Agent" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column76" value="Loading" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column73" value="Discharging" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column70" value="영업사원" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column67" value="담당자" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column64" value="TEU" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column61" value="FEU" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column58" value="PKG" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column55" value="WT" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column52" value="MEASURE" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column49" value="RTON" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column46" value="총매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column43" value="미확정매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column40" value="확정매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column31" value="총매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column34" value="미확정매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column37" value="확정매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column157" value="OCF/ARF&lt;br/&gt;총매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column154" value="OCF/ARF&lt;br/&gt;미확정매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column151" value="OCF/ARF&lt;br/&gt;확정매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column148" value="OCF/ARF&lt;br/&gt;총매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column145" value="OCF/ARF&lt;br/&gt;미확정매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column142" value="OCF/ARF&lt;br/&gt;확정매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column139" value="내부매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column136" value="총이익" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column133" value="미확정이익" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column130" value="확정이익" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column127" value="총이익률" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="120" inputType="text" id="column124" value="미확정이익률" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column121" value="확정이익률" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column118" value="총원가율" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="120" inputType="text" id="column115" value="미확정원가율" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column112" value="확정원가율" displayMode="label" sortable="false"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="gubun" inputType="text" width="60"></w2:column>
+    							<w2:column displayMode="label" id="mhno" inputType="text" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="hhio" inputType="text" width="100" displayFormatter="scwin.hhio"></w2:column>
+    							<w2:column displayMode="label" id="sellRsltsStdDt" inputType="calendar" width="100"
+    								displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column displayMode="label" id="pchsRsltsStdDt" inputType="calendar" width="100"
+    								displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column displayMode="label" id="hhblh" inputType="text" width="80" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="hhmblno" inputType="text" width="80" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="bilgClntNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="bilgClntNm" inputType="text" width="80" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="pchsClntNo" inputType="text" width="100"></w2:column>
+    							<w2:column width="80" inputType="text" id="pchsClntNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="bilgLodeptCd" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="bilgLodeptNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="pchsDeptCd" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="pchsLodeptNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="linernm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="hhagentnm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="hhlodnm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="hhdiscnm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="hhsalesnm" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="pic" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="teu" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="feu" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="pkg" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="wt" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="measure" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="rton" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalSellAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="unsetteledSellAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="setteledSellAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalPchsAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="unsetteledPchsAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="setteledPchsAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalSellAmtOcf" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="unsetteledSellAmtOcf" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="setteledSellAmtOcf" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalPchsAmtOcf" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="unsetteledPchsAmtOcf" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="setteledPchsAmtOcf" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="internalPchsAmt" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalProfit" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="unsetteledProfit" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="setteledProfit" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" excelCellType="number" excelFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalProfitRate" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="unsetteledProfitRate" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="setteledProfitRate" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totalCostRate" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="unsetteledCostRate" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="setteledCostRate" displayMode="label" dataType="number"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" excelFormat="#,##0.00">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row3">
+    							<w2:column width="60" inputType="text" id="column30" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column27" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column26" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column25" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column24" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column23" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column22" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column21" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column99" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column96" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column93" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column90" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column87" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column84" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column81" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column78" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column75" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column72" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column69" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column66" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column63" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column60" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column57" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column54" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column51" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="expression" id="column48" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" expression="SUM('totalSellAmt')">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column45" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column42" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="expression" id="column33" displayMode="label" dataType="number"
+    								displayFormat="#,##0" textAlign="right" expression="SUM('totalPchsAmt')">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column36" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column39" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column159" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column156" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column153" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column150" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column147" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column144" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column141" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="expression" id="column138" displayMode="label" dataType="number"
+    								expression="SUM('totalProfit')" textAlign="right" displayFormat="#,##0">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column135" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column132" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column129" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column126" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column123" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column120" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column117" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column114" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="total" label="0" style=""
+    								tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    	<w2:udc_ilcomCode popupID="" selectID="" codeId="" validTitle="" nameId="" style="width:%; height:px; display: none;"></w2:udc_ilcomCode>
+    </body>
+</html>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="ds_AlloccarFlDivision">
+					<w2:keyInfo>
+						<w2:key id="flIdx" name="화물번호" dataType="text"></w2:key>
+						<w2:key id="flDtlIdx" name="화물상세" dataType="text"></w2:key>
+						<w2:key id="divQty" name="분할 할 중량" dataType="text"></w2:key>
+						<w2:key id="divWt" name="분할 할 수량" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" id="ds_result" repeatNode="map" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="outMsg" name="outMsg" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_AlloccarFlDivision" action="/ncall.bp.fbp.op.ac.AlloccarFlDivisionCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_AlloccarFlDivision","key":"IN_ALLOCCAR_FL_DIVISION"},{"id":"ds_result","key":"OUT_DS1"}]' target='data:json,{"id":"ds_result","key":"OUT_DS1"}'
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_AlloccarFlDivision_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+// <조회조건>
+// 배차관리 화면(ez_208_01_02b)에서 상단의 화물(합적번호가 없는 것) 선택 후 [화물분할] 버튼을 클릭하면 해당 화면이 오픈
+// asis기준 그리드 3번째 선택 시 오픈가능
+
+
+scwin.vCurDate = $c.date.getServerDateTime("yyyyMMdd");
+scwin.memJson = $c.data.getMemInfo();
+scwin.userID = scwin.memJson.userId;    //사용자ID
+scwin.userName = scwin.memJson.userNm;  //사용자명
+
+
+scwin.onpageload = async function() {
+    await scwin.onLoadSetting();
+};
+
+scwin.onLoadSetting = async function() {
+    // scwin.params = $c.data.getParameter();
+    scwin.params = opener[JSON.parse($p.getPopupParam()).menuInfo.pFrmId].getWindow();
+
+    var flType = scwin.params.scwin.CargoType;		// 화물종류(벌크,컨테이너)
+    var lclRow = scwin.params.scwin.selectedLclRow;		// 선택된 화물정보
+
+    // 화물이 선택되었는지 체크
+    if (lclRow < 0 || lclRow == null || lclRow == undefined) {
+        await $c.win.alert('화물정보가 선택되지 않았습니다. 화물정보를 선택하여 주시기 바랍니다.');
+        $c.win.closePopup();
+        return;
+    }
+    
+    // 벌크화물만 분할한다.		
+    if (flType != 'cargo'){
+        await $c.win.alert("컨테이너 화물은 분할할 수 없습니다.");
+        $c.win.closePopup();
+        return;
+    };
+    
+    if (scwin.params.ds_fl.getCellData(lclRow, "dmCoshippingNo") !="") {
+        await $c.win.alert("합적 번호가 있는 화물은 분할할 수 없습니다.");
+        $c.win.closePopup();
+        return;
+    }
+
+    txt_goods.setValue(scwin.params.ds_fl.getCellData(lclRow, "goods"));
+    txt_onPos.setValue(scwin.params.ds_fl.getCellData(lclRow, "onPos"));
+    txt_offPos.setValue(scwin.params.ds_fl.getCellData(lclRow, "offPos"));
+    txt_onDt.setValue(scwin.params.ds_fl.getCellData(lclRow, "onDt"));
+    txt_offDt.setValue(scwin.params.ds_fl.getCellData(lclRow, "offDt"));
+    txt_wt.setValue(scwin.params.ds_fl.getCellData(lclRow, "wt"));
+    txt_qty.setValue(scwin.params.ds_fl.getCellData(lclRow, "qty"));
+    
+    txt_divWt.setValue("0");
+    txt_divQty.setValue("0");
+    
+    if (txt_wt.getValue() == "0" && txt_qty.getValue() !="0") {
+        txt_divQty.focus();
+    } else if (txt_wt.getValue() !="0" && txt_qty.getValue() =="0") {
+        txt_divWt.focus();
+    }
+};
+
+
+scwin.chingeDivMode = async function(Flag) {
+    if (Flag == "wt") {			
+        txt_divQty.setValue("0");
+        txt_divWt.setValue("");
+        if (txt_wt.getValue() == "0" && txt_qty.getValue() != "0") {
+            await $c.win.alert("중량으로 분할할 수 없습니다.");
+            txt_divQty.focus();
+        }
+
+    } else {
+        txt_divWt.setValue("0");
+        txt_divQty.setValue("");
+        if (txt_qty.getValue() == "0" && txt_wt.getValue() != "0") {
+            await $c.win.alert("수량으로 분할할 수 없습니다.");
+            txt_divWt.focus();
+        }
+    }
+};
+
+
+scwin.flDivExpectation = function() {
+    var wt = txt_wt.getValue();
+    var qty = txt_qty.getValue();		
+    var divWt = txt_divWt.getValue();	
+    var divQty = txt_divQty.getValue();
+
+    
+    if (divWt != 0 && divWt != '') {
+        txt_carcnt.setValue(Math.ceil(wt/divWt));
+    } else if (divQty != 0 && divQty != '') {
+        txt_carcnt.setValue(Math.ceil(qty/divQty));
+    } else {
+        txt_carcnt.setValue("0");
+    }
+};
+
+
+
+scwin.f_AlloccarFlDivision = async function() {
+    var lclRow = scwin.params.scwin.selectedLclRow;
+    var vFlIdxs = scwin.params.ds_fl.getCellData(lclRow, "idx")
+
+    // 선택된 화물 idx
+    // 선택된 화물 번호
+    //	vLclRow = document.getElementById("selectedLclRow").value;
+    
+    if (txt_divWt.getValue() == 0 && txt_divQty.getValue() == 0) {
+        await $c.win.alert("분할할 수량이나 중량을 입력하세요"); 			
+        return;
+    }
+    
+
+    vFlIdxs = vFlIdxs.split("-");		
+    
+    ds_AlloccarFlDivision.set("flIdx", vFlIdxs[0]);
+    ds_AlloccarFlDivision.set("flDtlIdx", vFlIdxs[1]);
+    ds_AlloccarFlDivision.set("divQty", txt_divQty.getValue());
+    ds_AlloccarFlDivision.set("divWt", txt_divWt.getValue());
+    
+    $c.sbm.execute(sbm_AlloccarFlDivision);
+};
+
+
+
+scwin.sbm_AlloccarFlDivision_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    ds_result.setJSON(e.responseJSON.OUT_DS1);
+    
+    if (ds_result.getCellData(0, "outMsg") != "") {
+        await $c.win.alert(ds_result.getCellData(0, "outMsg"));
+    }
+    
+    $c.win.closePopup();
+};
+
+
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+
+scwin.txt_divWt_onfocus = function (e) {
+    scwin.chingeDivMode('wt');
+};
+
+scwin.txt_divQty_onfocus = function (e) {
+    scwin.chingeDivMode('qty')
+};
+]]></script>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="">
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:90px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="width:91px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="품명" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td br0" style="" tagname="td">
+								<xf:input class="" id="txt_goods" style="" readOnly="true"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_td bl0" tagname="td">
+								<w2:attributes>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="상차지" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:input class="" id="txt_onPos" style="" readOnly="true"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="하차지" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_offPos" style="" readOnly="true"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="상차일시" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_onDt" style="" readOnly="true"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="하차일시" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_offDt" style="" readOnly="true"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="중량(kg)" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_wt" style="" readOnly="true"></xf:input>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="수량(EA)" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_qty" style="" readOnly="true"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="분할중량(kg)" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_divWt" style="" dataType="number" ev:onfocus="scwin.txt_divWt_onfocus" ev:onkeyup="scwin.flDivExpectation" ev:onmouseup="scwin.flDivExpectation"></xf:input>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="분할수량(EA)" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_divQty" style="" dataType="number" ev:onfocus="scwin.txt_divQty_onfocus" ev:onkeyup="scwin.flDivExpectation" ev:onmouseup="scwin.flDivExpectation"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="소요차량" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td br0">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="txt_carcnt" style="" readOnly="true"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_td bl0" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+				<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_AlloccarFlDivision">
+					<xf:label><![CDATA[저장]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

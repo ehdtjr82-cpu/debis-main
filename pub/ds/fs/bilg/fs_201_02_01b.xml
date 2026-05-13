@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="청구지점" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox wfix flex_no">
+    				<xf:group style="width: 40%;" id="" class="col">
+    					<xf:group adaptiveThreshold="" style="" id="" class="gvwbox gvwflex">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="" style="" autoFit="allColumn"
+    							id="gr_gridView1" visibleRowNum="15" class="wq_gvw">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="120" inputType="text" id="column1" value="청구지점코드" displayMode="label" hidden="true"></w2:column>
+    									<w2:column width="100" inputType="text" id="column17" value="LINE" displayMode="label" class="txt-red"></w2:column>
+    									<w2:column width="170" inputType="text" id="column15" value="LINE명" displayMode="label" class="txt-red"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="120" inputType="text" id="column2" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column18" displayMode="label"></w2:column>
+    									<w2:column width="170" inputType="text" id="column16" displayMode="label" textAlign="left"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    										class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			<xf:group id="" class="col"><xf:group style="" id="" class="tabbox">
+    					<w2:tabControl alwaysDraw="false" style="" id="tac_tabControl1" class="wq_tab">
+    						<w2:tabs disabled="false" style="" id="tabs1" label="A TYPE"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs2" label="B TYPE"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs3" label="C TYPE"></w2:tabs>
+    						<w2:content alwaysDraw="false" style="" id="content1">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="" id="" label="BILL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="DATE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label=" BILL-NO" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="유형명 " ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    										<xf:group id="" class="form-group"><xf:input style="width:150px;" id="ed_input1" placeholder="" class=""></xf:input><xf:select1 ref="" appearance="full" style="" id="rd_radio1" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[Normal]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    													<xf:item>
+    														<xf:label><![CDATA[Table(1)]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    													<xf:item>
+    														<xf:label><![CDATA[Table(2)]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select1></xf:group></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="귀하" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input2" placeholder="" style="width:150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="req" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes>
+    											<w2:colspan>5</w2:colspan>
+    											<w2:rowspan>1</w2:rowspan>
+    										</w2:attributes>
+    									<xf:group id="" class="form-group"><xf:input style="width:150px;" id="ed_input3" placeholder="" class=""></xf:input><xf:select ref="" appearance="full" style="" id="cbx_checkbox1" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+    											<xf:choices>
+    												<xf:item>
+    													<xf:label><![CDATA[출력여부]]></xf:label>
+    													<xf:value><![CDATA[]]></xf:value>
+    												</xf:item>
+    											</xf:choices>
+    										</xf:select></xf:group></xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="T/S F/V" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>5</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input4" placeholder="" style="width:150px;"></xf:input>
+			<xf:select appearance="full" class="" cols="" id="cbx_checkbox2" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+				style="">
+				<xf:choices>
+					<xf:item>
+						<xf:label><![CDATA[출력여부]]></xf:label>
+						<xf:value><![CDATA[]]></xf:value>
+					</xf:item>
+				</xf:choices>
+			</xf:select>
+		</xf:group>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="입출항일" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>5</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input5" placeholder="" style="width:150px;"></xf:input>
+			<xf:select appearance="full" class="" cols="" id="cbx_checkbox3" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+				style="">
+				<xf:choices>
+					<xf:item>
+						<xf:label><![CDATA[출력여부]]></xf:label>
+						<xf:value><![CDATA[]]></xf:value>
+					</xf:item>
+				</xf:choices>
+			</xf:select>
+		</xf:group>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>5</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input6" placeholder="" style="width:150px;"></xf:input>
+			<xf:select appearance="full" class="" cols="" id="cbx_checkbox4" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+				style="">
+				<xf:choices>
+					<xf:item>
+						<xf:label><![CDATA[출력여부]]></xf:label>
+						<xf:value><![CDATA[]]></xf:value>
+					</xf:item>
+				</xf:choices>
+			</xf:select>
+		</xf:group>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th pa16">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>6</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="row-gap-10 tac"><w2:textbox ref="" style="" userData2="" id="" label="We herby request the payment for the following service rendered to you" class=""></w2:textbox><xf:group id="" class="form-group tac"><w2:textbox ref="" style="" userData2="" id="" label="TITLE" class=""></w2:textbox><xf:select1 ref="" appearance="full" style="" id="rd_radio2" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[왼쪽정렬]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label><![CDATA[중앙정렬]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select1></xf:group><xf:select ref="" appearance="full" style="" id="cbx_checkbox5" renderType="checkboxgroup" rows="" selectedindex="-1" class="tac" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[(P#C ~ P#2) T/S 운송구간 출력여부 ]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select><xf:group id="" class="col-gap-14 tac"><xf:group id="" class="form-group"><w2:textbox ref="" style="" userData2="" id="" label="TITLE1" class=""></w2:textbox><xf:input style="width:150px;" id="ed_input7" placeholder="" class=""></xf:input></xf:group><xf:group id="" class="form-group"><w2:textbox ref="" style="" userData2="" id="" label="TITLE2" class=""></w2:textbox><xf:input style="width:150px;" id="ed_input8" placeholder="" class=""></xf:input></xf:group></xf:group><w2:textbox ref="" style="" userData2="" id="" label="BILL 내역" class=""></w2:textbox></xf:group></xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th pa16">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>6</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="col-gap-14 tac"><xf:select ref="" appearance="full" style="" id="cbx_checkbox6" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[ACCOUNT INFO]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select><xf:select ref="" appearance="full" style="" id="cbx_checkbox7" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[환율]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select></xf:group></xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th pa16">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>6</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="row-gap-10 tac"><xf:group id="" class="row-gap-2"><w2:textbox ref="" style="" userData2="" id="" label='"We certify that above is true and correct"' class=""></w2:textbox><w2:textbox ref="" style="" userData2="" id="" label="DONGBU CORPORATION" class=""></w2:textbox></xf:group><xf:select ref="" appearance="full" style="" id="cbx_checkbox8" renderType="checkboxgroup" rows="" selectedindex="-1" class="tac" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[SIGN]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select></xf:group></xf:group></xf:group></xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content2">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="" id="" label="BILL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="DATE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label=" BILL-NO" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="유형명 " ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="ed_input9" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select1 appearance="full" class="" cols="" id="rd_radio3" ref=""
+    													renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[Normal]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(1)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(2)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select1>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="귀하" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input10" placeholder="" style="width:150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="ed_input11" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox9" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="T/S F/V" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input12" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox10" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="입출항일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input13" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox11" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input14" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox12" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<w2:textbox class="" id=""
+    													label="We herby request the payment for the following service rendered to you" ref="" style="" userData2="">
+    												</w2:textbox>
+    												<xf:group class="form-group tac" id="">
+    													<w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    													<xf:select1 appearance="full" class="" cols="" id="rd_radio4" ref=""
+    														renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    														<xf:choices>
+    															<xf:item>
+    																<xf:label><![CDATA[왼쪽정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    															<xf:item>
+    																<xf:label><![CDATA[중앙정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    														</xf:choices>
+    													</xf:select1>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="cbx_checkbox13" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[(P#C ~ P#2) T/S 운송구간 출력여부 ]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:group class="col-gap-14 tac" id="">
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE1" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="ed_input15" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE2" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="ed_input16" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    												</xf:group>
+    												<w2:textbox class="" id="" label="BILL 내역" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="col-gap-14 tac" id="">
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox14" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[ACCOUNT INFO]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox15" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[환율]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<xf:group class="row-gap-2" id="">
+    													<w2:textbox class="" id="" label='"We certify that above is true and correct"'
+    														ref="" style="" userData2="">
+    													</w2:textbox>
+    													<w2:textbox class="" id="" label="DONGBU CORPORATION" ref="" style=""
+    														userData2="">
+    													</w2:textbox>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="cbx_checkbox16" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[SIGN]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content3">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="" id="" label="BILL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="DATE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label=" BILL-NO" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="유형명 " ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="ed_input17" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select1 appearance="full" class="" cols="" id="rd_radio5" ref=""
+    													renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[Normal]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(1)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(2)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select1>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="귀하" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input18" placeholder="" style="width:150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="ed_input19" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox17" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="T/S F/V" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input20" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox18" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="입출항일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input21" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox19" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input22" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox20" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<w2:textbox class="" id=""
+    													label="We herby request the payment for the following service rendered to you" ref="" style="" userData2="">
+    												</w2:textbox>
+    												<xf:group class="form-group tac" id="">
+    													<w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    													<xf:select1 appearance="full" class="" cols="" id="rd_radio6" ref=""
+    														renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    														<xf:choices>
+    															<xf:item>
+    																<xf:label><![CDATA[왼쪽정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    															<xf:item>
+    																<xf:label><![CDATA[중앙정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    														</xf:choices>
+    													</xf:select1>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="cbx_checkbox21" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[(P#C ~ P#2) T/S 운송구간 출력여부 ]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:group class="col-gap-14 tac" id="">
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE1" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="ed_input23" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE2" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="ed_input24" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    												</xf:group>
+    												<w2:textbox class="" id="" label="BILL 내역" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="col-gap-14 tac" id="">
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox22" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[ACCOUNT INFO]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:select appearance="full" class="" cols="" id="cbx_checkbox23" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[환율]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<xf:group class="row-gap-2" id="">
+    													<w2:textbox class="" id="" label='"We certify that above is true and correct"'
+    														ref="" style="" userData2="">
+    													</w2:textbox>
+    													<w2:textbox class="" id="" label="DONGBU CORPORATION" ref="" style=""
+    														userData2="">
+    													</w2:textbox>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="cbx_checkbox24" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[SIGN]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    					</w2:tabControl>
+    				</xf:group></xf:group></xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger><xf:trigger class="btn " id="btn_del" label="저장" style="" type="button">
+    						<xf:label>삭제</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

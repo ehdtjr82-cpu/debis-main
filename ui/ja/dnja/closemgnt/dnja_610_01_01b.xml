@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="adptYm" name="name1" dataType="text"></w2:key>
+    					<w2:key id="homeClntNo" name="name2" dataType="text"></w2:key>
+    					<w2:key id="closeYn" name="name3" dataType="text"></w2:key>
+    					<w2:key id="deductYn" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_out" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="homeClntNo" name="거래처코드" dataType="text"></w2:column>
+    					<w2:column id="homeClntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="closeYn" name="마감여부" dataType="text"></w2:column>
+    					<w2:column id="deductYn" name="공제지급여부" dataType="text"></w2:column>
+    					<w2:column id="deductNoPchsAmt" name="지급합계" dataType="text"></w2:column>
+    					<w2:column id="deductPchsAmt" name="공제합계" dataType="text"></w2:column>
+    					<w2:column id="payAmt" name="실지급액" dataType="text"></w2:column>
+    					<w2:column id="adptYm" name="년월" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ja.dnja.closemgnt.RetrieveCloseWorkListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_out","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ja.dnja.closemgnt.SaveCloseWorkInformationListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_out","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.strCurDate = $c.date.getServerDateTime();
+scwin.strQryStDt = $c.date.getDateAddMonthDirection(scwin.strCurDate, 0 , "F");  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//------------------------------------------------------------------------- 
+scwin.onpageload = function() {
+	ica_ed_adptYm.setValue(scwin.strQryStDt);
+    acb_lc_closeYn.setValue('2');
+    acb_lc_deductYn.setValue('2');
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.btn_fieldClear_onclick = function (e) {
+    ica_ed_adptYm.setValue(scwin.strQryStDt);
+    ed_homeClntNo.setValue("");     //거래처번호
+    txt_homeClntNm.setValue("");    //거래처명
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onclick = function (e) {
+    // let ret = $c.gus.cfValidate([tbl_searchTable]);
+    // if(!ret) {
+    //     return ;
+    // }
+    if( (ica_ed_adptYm.getValue() == "") ) {
+        $c.win.alert("년월은(는) 필수 입력 항목입니다.");
+        ica_ed_adptYm.focus();
+        return false;
+    }
+
+    //tr_retrieve.Post();
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 )
+    {
+        if(ds_out.getRowCount() == 0) {
+            totalRows.setValue('0');
+            $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        }
+        else {
+            totalRows.setValue(ds_out.getRowCount());
+            gr_out.setFocusedCell(0, 0);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//------------------------------------------------------------------------- 
+scwin.btn_save_onclick = async function (e) {
+    let confirm = await $c.win.confirm(MSG_CM_CRM_001);
+    if (confirm) {
+        // 20110414 조회조건에 공제/지급여부조건의 추가로 인해 발생한 저장시 개별 저장을 가능 하게 하기 위해
+        // ds_out DS에 deduct_Yn 항목 추가하고, 조회조건에 사용된 값을 입력한다.
+        ds_out.setCellData(0, "deductYn", acb_lc_deductYn.getValue());
+        ds_out.setCellData(ds_out.getRowPosition(), "adptYm", ica_ed_adptYm.getValue());
+
+        //tr_save.Post();
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 )
+    {
+        $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+	    scwin.btn_retrieve_onclick();
+    }
+};
+
+scwin.udc_homeClntNo_onblurCodeEvent = function (e) {
+    scwin.udc_homeClntNo_openPopup('T');
+};
+
+scwin.udc_homeClntNo_onviewchangeNameEvent = function (info) {
+    scwin.udc_homeClntNo_openPopup('T');
+};
+
+scwin.udc_homeClntNo_onclickEvent = function (e) {
+    scwin.udc_homeClntNo_openPopup('F');
+};
+
+scwin.udc_homeClntNo_openPopup = function (pClose) {
+    let pCode = ed_homeClntNo.getValue();
+    let pName = txt_homeClntNm.getValue();
+    udc_homeClntNo.setSelectId('retrieveSubsidaryClntListJa');
+    udc_homeClntNo.cfCommonPopUp(scwin.udc_homeClntNo_callBackFunc	// XML상의 SELECT ID
+                            ,pCode							// 화면에서의 ??? Code Element의	Value
+                            ,pName							// 화면에서의 ??? Name Element의	Value
+                            ,pClose							// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+                            ,null							// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                            ,null							// Title순서
+                            ,'150,170'  		    		// 보여주는 각 컬럼들의 폭
+                            ,null							// 컬럼중에서 숨기는 컬럼 지정
+                            ,null							// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                            ,null							// POP-UP뛰을때 원도우의	사용자 정의	폭
+                            ,null							// POP-UP뛰을때 우도우의	사용자 정의	높이
+                            ,null							// 윈도우 위치 Y좌표
+                            ,null							// 윈도우 위치 X좌표
+                            ,null							// 중복체크여부	("F")
+                            ,null						// 전체검색허용여부	("F")
+                            ,"거래처,거래처코드,거래처명"		// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                        );
+};
+
+scwin.udc_homeClntNo_callBackFunc = function (rtnList) {
+    if(rtnList != null) {
+        //cfSetReturnValue(rtnList, ed_homeClntNo, txt_homeClntNm);
+        ed_homeClntNo.setValue(rtnList[0]);
+        txt_homeClntNm.setValue(rtnList[1]);
+    } else {
+        ed_homeClntNo.setValue("");
+        txt_homeClntNm.setValue("");
+    }
+};
+
+
+/* 지급공제여부 - 지급공제여부 컴보박스의 인덱스 변경시 출력그리드를 초기화 한다. */
+scwin.acb_lc_deductYn_onviewchange = function (info) {
+    ds_out.removeAll();
+};
+
+/* 마감여부 - 마감여부 컴보박스의 인덱스 변경시 출력그리드를 초기화 한다. */
+scwin.acb_lc_closeYn_onviewchange = function (info) {
+    ds_out.removeAll();
+};
+]]></script>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_searchTable" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="년월" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_ed_adptYm" pickerType="dynamic"
+    								style="" mandatory="true" displayFormat="yyyy/MM" title="년월" ref="data:dma_condition.adptYm">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="소속거래처" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_homeClntNo" nameId="txt_homeClntNm" btnId="btn_homeClntNo" id="udc_homeClntNo" refDataCollection="dma_condition" code="homeClntNo" UpperFlagCode="0" mandatoryCode="false" allowCharCode="0-9" maxlengthCode="6" ev:onblurCodeEvent="scwin.udc_homeClntNo_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_homeClntNo_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_homeClntNo_onclickEvent"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="지급공제여부" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete allOption="" chooseOption="" class="" editType="select" id="acb_lc_deductYn" ref="data:dma_condition.deductYn"
+    								search="start" style="width:70px;" submenuSize="auto" ev:onviewchange="scwin.acb_lc_deductYn_onviewchange">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[2]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[지급]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[공제]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="마감여부" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_lc_closeYn" search="start" style="width:70px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="data:dma_condition.closeYn" ev:onviewchange="scwin.acb_lc_closeYn_onviewchange">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[2]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[YES]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[NO]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="마감작업 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_out" id="gr_out" style=""
+    					visibleRowNum="15" visibleRowNumFix="true" fixedColumnNoMove="true" fixedColumn="6">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="거래처코드" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="거래처명" width="200" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="마감여부" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="공제지급여부" width="120" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="지급합계" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="공제합계" width="100" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="실지급액" width="100" sortable="false"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="homeClntNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="homeClntNm" inputType="text" textAlign="left" width="200"></w2:column>
+    							<w2:column displayMode="label" id="closeYn" inputType="checkbox" width="100"></w2:column>
+    							<w2:column displayMode="label" id="deductYn" inputType="text" width="120" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="deductNoPchsAmt" inputType="text" textAlign="right" width="100" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column displayMode="label" id="deductPchsAmt" inputType="text" textAlign="right" width="100" displayFormat="#,###" dataType="number"></w2:column>
+    							<w2:column displayMode="label" id="payAmt" inputType="text" textAlign="right" width="100" dataType="number" displayFormat="#,###"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer id="footer1" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" value="총계" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column29" inputType="text" width="200"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column27" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="expression" textAlign="right" width="100" displayFormat="#,###" dataType="number" expression="sum('deductNoPchsAmt')"></w2:column>
+    							<w2:column displayMode="label" id="column25" inputType="expression" textAlign="right" width="100" dataType="number" displayFormat="#,###" expression="sum('deductPchsAmt')"></w2:column>
+    							<w2:column displayMode="label" id="column24" inputType="expression" textAlign="right" width="100" displayFormat="#,###" dataType="number" expression="sum('payAmt')"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

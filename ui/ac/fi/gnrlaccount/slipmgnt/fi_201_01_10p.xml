@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="dma_txtcopycond">
+        			<w2:keyInfo>
+        				<w2:key id="slipNo" name="전표번호" dataType="text"></w2:key>
+        				<w2:key id="slipKndCd" name="전표종류" dataType="text"></w2:key>
+        				<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+        				<w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_txtcopy" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="summary" name="name1" dataType="text"></w2:column>
+        				<w2:column id="slipNo" name="name2" dataType="text"></w2:column>
+        				<w2:column id="spplyAmt" name="name3" dataType="text"></w2:column>
+        				<w2:column id="vatDeclarAcctDeptCd" name="name4" dataType="text"></w2:column>
+        				<w2:column id="coCd" name="name5" dataType="text"></w2:column>
+        				<w2:column id="acctDeptCd" name="name6" dataType="text"></w2:column>
+        				<w2:column id="vatDeclarAcctDeptNm" name="name7" dataType="text"></w2:column>
+        				<w2:column id="acctDeptNm" name="name8" dataType="text"></w2:column>
+        				<w2:column id="amt" name="name9" dataType="text"></w2:column>
+        				<w2:column id="coClsCd" name="name10" dataType="text"></w2:column>
+        				<w2:column id="mgntClntNo" name="name11" dataType="text"></w2:column>
+        				<w2:column id="mgntEmpNo" name="name12" dataType="text"></w2:column>
+        				<w2:column id="mgntClntNm" name="name13" dataType="text"></w2:column>
+        				<w2:column id="acctCd" name="name14" dataType="text"></w2:column>
+        				<w2:column id="spplyAmtFcrc" name="name15" dataType="text"></w2:column>
+        				<w2:column id="acctNm" name="name16" dataType="text"></w2:column>
+        				<w2:column id="crnNm" name="name17" dataType="text"></w2:column>
+        				<w2:column id="vatAmt" name="name18" dataType="text"></w2:column>
+        				<w2:column id="exchRt" name="name19" dataType="text"></w2:column>
+        				<w2:column id="mgntEmpNm" name="name20" dataType="text"></w2:column>
+        				<w2:column id="evidClsNm" name="name21" dataType="text"></w2:column>
+        				<w2:column id="crcCd" name="name22" dataType="text"></w2:column>
+        				<w2:column id="crn" name="name23" dataType="text"></w2:column>
+        				<w2:column id="evidClsCd" name="name24" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_evidaccopy" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="slipKndNm" name="name1" dataType="text"></w2:column>
+        				<w2:column id="copyKind" name="name2" dataType="text"></w2:column>
+        				<w2:column id="txtcopy" name="name3" dataType="text"></w2:column>
+        				<w2:column id="evidaccopy" name="name4" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_tr_retrieve" action="/ac.fi.gnrlaccount.slipmgnt.RetrieveTransactionContents2CMD.do" method="post"
+        		mediatype="application/json" ref='data:json,[{"id":"dma_txtcopycond","key":"IN_DS1"},{"id":"ds_txtcopy","key":"OUT_DS1"}]'
+        		target='data:json,{"id":"ds_txtcopy","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_retrieve_submitdone" ev:submiterror=""
+        		abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sbm_ds_evidaccopy" action="" method="post" mediatype="application/json" ref='data:json,{"id":"ds_evidaccopy","key":"OUT_DS1"}' target='data:json,{"id":"ds_evidaccopy","key":"OUT_DS1"}' encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.sbm_ds_evidaccopy_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" scopeVariable="ACConstants.js" type="text/javascript"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * 화 면 명 : 전표복사(매출전표)
+ * 메뉴경로 : 자회사회계/재무회계/일반회계/전표관리/자회사 매출전표입력
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ac/fi/gnrlaccount/slipmgnt/fi_201_01_10p.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-12-12
+ * 수정이력  :
+ *    - 2025-12-12      정승혜    최초작성
+ *    - 2026-01-20      정승혜    기타수정
+ * 메모 :
+ * 부모페이지 fi_201_01_08b
+ * 동원 로그인 inswave1/inswave1
+ * retrieveTransactionContents2DTO 쿼리 데이터 없음
+ * 조회조건 : 1016328173
+ * 해야할 리스트 :
+ */
+
+scwin.slipKndCd = "";
+scwin.slipKndNm = "";
+scwin.vCoCd = "";
+scwin.vCoClsCd = "";
+
+  //-------------------------------------------------------------------------
+  // 화면로딩시
+  //-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    scwin.slipKndCd = scwin.params["slipKndCd"];
+    scwin.slipKndNm = scwin.params["slipKndNm"];
+    scwin.vCoCd = scwin.params["pCoCd"];
+    scwin.vCoClsCd = scwin.params["pCoClsCd"];
+
+    scwin.f_setSubsidiaryCompanyInfo();
+    lc_slipKndNm.setValue(scwin.slipKndCd);
+
+    dma_txtcopycond.set( "slipNo" , "");
+	dma_txtcopycond.set( "slipKndNm" , "");
+
+    lc_slipKndNm.setVisibleRowNum(1);
+
+    ed_slipNo.focus();
+
+};
+
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("전표복사(매출전표)");
+};
+
+  //-------------------------------------------------------------------------
+  // 조회
+  //-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+	dma_txtcopycond.set( "slipKndCd" , lc_slipKndNm.getValue() );
+	dma_txtcopycond.set( "slipNo" , ed_slipNo.getValue().trim());
+	dma_txtcopycond.set( "coCd" , scwin.vCoCd);
+	dma_txtcopycond.set( "coClsCd" , scwin.vCoClsCd);
+	
+    $c.sbm.execute(sbm_tr_retrieve);    
+};
+
+  //-------------------------------------------------------------------------
+  // 복사
+  //-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    ed_slipNo.setValue($c.gus.cfGetLeftPad(ed_slipNo.getValue().trim(),10,"0"));
+    let ret = await $c.gus.cfValidate([ed_slipNo]);
+    if (!ret){
+        return false;
+    }
+	         
+    let confirm = await $c.win.confirm("복사하시겠습니까?");
+    if( confirm ) {
+        scwin.f_Retrieve();
+    }
+
+};
+
+  //-------------------------------------------------------------------------
+  // 자회사 매입/경비 전표 인 경우  화면 설정 
+  //-------------------------------------------------------------------------
+scwin.f_setSubsidiaryCompanyInfo = function() {
+    if(scwin.vCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {   // 자회사인 경우에만  회사코드 check
+       lc_slipKndNm.setSelectedIndex(1);
+    }else{
+        lc_slipKndNm.setSelectedIndex(0);
+    }
+};
+
+scwin.f_winClose = function (e) {
+    //scwin.returnValue = null;
+    //$c.win.closePopup(scwin.returnValue);
+    $c.win.closePopup();
+};
+
+scwin.sbm_tr_retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    if(ds_txtcopy.getRowCount() == 0){
+        await $c.win.alert("조회된 데이터가 없습니다.");
+        ed_slipNo.setValue("");
+    }else{
+        ds_txtcopy.setRowPosition(0);
+        sbm_ds_evidaccopy.action = "/ac.fi.gnrlaccount.slipmgnt.RetrieveExpenseDistibutionContentsCMD.do?txnNo="+ds_txtcopy.getCellData(ds_txtcopy.getRowPosition(), "txnNo");
+        $c.sbm.execute(sbm_ds_evidaccopy);
+    }
+
+};
+
+scwin.sbm_ds_evidaccopy_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    let arrRtnVal = {};
+    arrRtnVal.slipKndNm = lc_slipKndNm.getValue();
+    arrRtnVal.copyKind = lc_copyKind.getValue();
+    arrRtnVal.txtcopy = ds_txtcopy.getAllJSON(); 
+    arrRtnVal.evidaccopy = ds_evidaccopy.getAllJSON();
+
+    $c.win.closePopup(arrRtnVal);
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="전표종류" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_slipKndNm" style="width: 200px;" submenuSize="fixed" ref=""
+    								chooseOptionLabel="$blank" mandatory="true" title="전표종류" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[자회사 매출전표]]></xf:label>
+    										<xf:value><![CDATA[K02]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="전표번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:input class="" id="ed_slipNo" style="width: 150px;" mandatory="true" title="전표번호" objType="key"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="복사형태" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_copyKind" style="width: 150px;" submenuSize="fixed" ref="" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[+복사]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[-복사]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="" style="" type="button" ev:onclick="scwin.f_winClose">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" userAuth="R">
+    				<xf:label><![CDATA[복사]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

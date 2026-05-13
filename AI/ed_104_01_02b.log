@@ -1,0 +1,31 @@
+ed_104_01_02b.log
+
+[2026-02-18 22:35:16.155] 변환 시작
+[2026-02-18 22:35:16.208] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-18 22:36:52.807] #1 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=6 | LLM 96504ms, total 96600ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_ondtFrom (EMEDIT→xf:input), cnd_ed_ondtTo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:36:52.868] #1 검증: 자동수정 4건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 22:36:52.968] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=6
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: cnd_lc_send (LUXECOMBO→w2:autoComplete), cnd_ed_ondtFrom (EMEDIT→xf:input), cnd_ed_ondtTo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:36:52.970] #2 재시도 (에러 2건)
+[2026-02-18 22:36:53.971] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-18 22:39:29.606] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=2, warnings=4 | LLM 155546ms, total 155634ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_ondtFrom (EMEDIT→xf:input), cnd_ed_ondtTo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:39:29.610] #1 검증: 최적 시도 #1 채택 (confidence: 0.81)
+[2026-02-18 22:39:29.610] 성공 (#2, 4m 13s, confidence:0.81)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_ondtFrom (EMEDIT→xf:input), cnd_ed_ondtTo (EMEDIT→xf:input)
+  2. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

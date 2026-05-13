@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_cond">
+    				<w2:keyInfo>
+    					<w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>    			
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_out" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="cargoManageNo" name="화물관리번호" dataType="text"></w2:column>
+    					<w2:column id="prgsStsNm" name="진행상태" dataType="text"></w2:column>
+    					<w2:column id="carrierNm" name="선사명" dataType="text"></w2:column>
+    					<w2:column id="mblNo" name="M B/L번호" dataType="text"></w2:column>
+    					<w2:column id="hblNo" name="H B/L번호" dataType="text"></w2:column>
+    					<w2:column id="cargoTpNm" name="화물구분" dataType="text"></w2:column>
+    					<w2:column id="vsslNm" name="모선명" dataType="text"></w2:column>
+    					<w2:column id="cargoCsclSts" name="통관진행상태" dataType="text"></w2:column>
+    					<w2:column id="prgsStsDtm" name="처리일시" dataType="text"></w2:column>
+    					<w2:column id="vsslCntyNm" name="선박국적" dataType="text"></w2:column>
+    					<w2:column id="agency" name="대리점" dataType="text"></w2:column>
+    					<w2:column id="commNm" name="품명" dataType="text"></w2:column>
+    					<w2:column id="lodNm" name="적재항" dataType="text"></w2:column>
+    					<w2:column id="totPkg" name="총포장개수" dataType="text"></w2:column>
+    					<w2:column id="totWgt" name="총중량" dataType="text"></w2:column>
+    					<w2:column id="dichNm" name="양륙항" dataType="text"></w2:column>
+    					<w2:column id="custom" name="입항세관" dataType="text"></w2:column>
+    					<w2:column id="msr" name="용적" dataType="text"></w2:column>
+    					<w2:column id="blTpNm" name="B/L유형" dataType="text"></w2:column>
+    					<w2:column id="ata" name="입항일" dataType="text"></w2:column>
+    					<w2:column id="vyg" name="항차" dataType="text"></w2:column>
+    					<w2:column id="mgntCargoSts" name="관리대상지정여부" dataType="text"></w2:column>
+    					<w2:column id="cntrCnt" name="컨테이너개수" dataType="text"></w2:column>
+    					<w2:column id="spcCargoCd" name="특수화물코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.as.cstmrsrvc.coafmgnt.RetrieveHblInformationCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_cond","key":"IN_DS"},{"id":"ds_out","key":"OUT_DS"}]' target='data:json,[{"id":"ds_out","key":"OUT_DS"}]' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 페이지로드
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    ds_cond.set("cntrNo", scwin.params.cntr_no);
+
+    scwin.popTitleCh();
+
+	scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 팝업타이틀 변경
+//-------------------------------------------------------------------------
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("HB/L 상세정보");
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// BL 정보 화면에 셋팅
+//-------------------------------------------------------------------------
+scwin.f_settingBlInfo = function () {
+	ed_cntrNo.setValue(ds_out.getCellData(0, "cntrNo")); //컨테이너번호
+	ed_cargoManageNo.setValue(ds_out.getCellData(0, "cargoManageNo")); //화물관리번호
+	ed_prgsStsNm.setValue(ds_out.getCellData(0, "prgsStsNm")); //진행상태
+	ed_carrierNm.setValue(ds_out.getCellData(0, "carrierNm")); //선사/항공사
+	ed_mblNo.setValue(ds_out.getCellData(0, "mblNo")); //MB/L
+	ed_hblNo.setValue(ds_out.getCellData(0, "hblNo")); //HB/L
+	ed_cargoTpNm.setValue(ds_out.getCellData(0, "cargoTpNm")); //화물구분
+	ed_vsslNm.setValue(ds_out.getCellData(0, "vsslNm")); //선박/항공편명
+	ed_cargoCsclSts.setValue(ds_out.getCellData(0, "cargoCsclSts")); //통관진행상태
+	ed_prgsStsDtm.setValue(ds_out.getCellData(0, "prgsStsDtm")); //처리일시
+	ed_vsslCntyNm.setValue(ds_out.getCellData(0, "vsslCntyNm")); //선박국적
+	ed_agency.setValue(ds_out.getCellData(0, "agency")); //선박대리점
+	ed_commNm.setValue(ds_out.getCellData(0, "commNm")); //품명
+	ed_lodNm.setValue(ds_out.getCellData(0, "lodNm")); //적재항
+	ed_totPkg.setValue(ds_out.getCellData(0, "totPkg")); //포장개수
+	ed_totWgt.setValue(ds_out.getCellData(0, "totWgt")); //총중량
+	ed_dichNm.setValue(ds_out.getCellData(0, "dichNm")); //양륙항
+	ed_custom.setValue(ds_out.getCellData(0, "custom")); //입항세관
+	ed_msr.setValue(ds_out.getCellData(0, "msr")); //용적
+	ed_blTpNm.setValue(ds_out.getCellData(0, "blTpNm")); //B/L 유형
+	ed_ata.setValue(ds_out.getCellData(0, "ata")); //입항일
+	ed_vyg.setValue(ds_out.getCellData(0, "vyg")); //항차
+	ed_mgntCargoSts.setValue(ds_out.getCellData(0, "mgntCargoSts")); //관리대상지정여부
+	ed_cntrCnt.setValue(ds_out.getCellData(0, "cntrCnt")); //컨테이너개수
+	ed_spcCargoCd.setValue(ds_out.getCellData(0, "spcCargoCd")); //특수화물코드
+};
+
+//-------------------------------------------------------------------------
+// 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+    
+    if (ds_out.getRowCount() == 0) {
+		await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        $c.win.closePopup();
+	} else {
+		scwin.f_settingBlInfo();
+	}
+};
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="컨테이너 번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="ed_cntrNo" placeholder="" style="" readOnly="true" ref=""></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="화물구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_cargoTpNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="화물관리번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:input class="" id="ed_cargoManageNo" placeholder="" style="" readOnly="true" ref=""></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="진행상태" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_prgsStsNm" placeholder="" style="" readOnly="true" ref=""></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="MB/L NO" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mblNo" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="HB/L NO" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_hblNo" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="선사/항공사" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_carrierNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="선박/항공편명" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_vsslNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="통관진행상태" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_cargoCsclSts" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="처리일시" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_prgsStsDtm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="선박국적" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_vsslCntyNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="선박대리점" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_agency" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="품명" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_commNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="적재항" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_lodNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="포장개수" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_totPkg" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="총 중량" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_totWgt" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="양륙항" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_dichNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="입항세관" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_custom" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="용적" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_msr" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="B/L 유형" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_blTpNm" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="입항일" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_ata" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_vyg" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="관리지정여부" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mgntCargoSts" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="특수화물코드" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_spcCargoCd" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="컨테이너 개수" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td br0">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_cntrCnt" placeholder="" style="" readOnly="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td bl0">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" title="엑셀 UP" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

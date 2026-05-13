@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare"
+    xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate />
+        <w2:MSA />
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="ds_search1">
+                    <w2:keyInfo>
+                        <w2:key id="apprReqNo" name="apprReqNo" dataType="text"></w2:key>
+                        <w2:key id="slipNo" name="slipNo" dataType="text"></w2:key>
+                        <w2:key id="deptCd" name="deptCd" dataType="text"></w2:key>
+                        <w2:key id="regId" name="regId" dataType="text"></w2:key>
+                        <w2:key id="slipKndCd" name="slipKndCd" dataType="text"></w2:key>
+                        <w2:key id="startDt" name="startDt" dataType="text"></w2:key>
+                        <w2:key id="endDt" name="endDt" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataMap baseNode="map" id="ds_search2">
+                    <w2:keyInfo>
+                        <w2:key id="apprReqNo" name="apprReqNo" dataType="text"></w2:key>
+                        <w2:key id="slipNo" name="slipNo" dataType="text"></w2:key>
+                        <w2:key id="deptCd" name="deptCd" dataType="text"></w2:key>
+                        <w2:key id="regId" name="regId" dataType="text"></w2:key>
+                        <w2:key id="slipKndCd" name="slipKndCd" dataType="text"></w2:key>
+                        <w2:key id="startDt" name="startDt" dataType="text"></w2:key>
+                        <w2:key id="endDt" name="endDt" dataType="text"></w2:key>
+                        <w2:key id="coCd" name="coCd" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataMap baseNode="map" id="ds_empNo_condition">
+                    <w2:keyInfo>
+                        <w2:key id="sysCd" name="sysCd" dataType="text"></w2:key>
+                        <w2:key id="queryId" name="queryId" dataType="text"></w2:key>
+                        <w2:key id="param1" name="param1" dataType="text"></w2:key>
+                        <w2:key id="param2" name="param2" dataType="text"></w2:key>
+                        <w2:key id="param3" name="param3" dataType="text"></w2:key>
+                        <w2:key id="param4" name="param4" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataList baseNode="list" id="ds_empNo" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="col1" name="col1" dataType="text"></w2:column>
+                        <w2:column id="col2" name="col2" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataMap baseNode="map" id="dma_attachedFile">
+                    <w2:keyInfo>
+                        <w2:key id="blno" name="blno" dataType="text"></w2:key>
+                        <w2:key id="houseNo" name="houseNo" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataList baseNode="list" id="ds_attachedFileList" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="fileClsCd" name="fileClsCd" dataType="text"></w2:column>
+                        <w2:column id="fileClsNm" name="fileClsNm" dataType="text"></w2:column>
+                        <w2:column id="fileName" name="fileName" dataType="text"></w2:column>
+                        <w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+                        <w2:column id="fileSeq" name="fileSeq" dataType="text"></w2:column>
+                        <w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+                        <w2:column id="houseNo" name="houseNo" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataList baseNode="list" id="ds_fileUploadGDS" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="fileClsCd" name="fileClsCd" dataType="text"></w2:column>
+                        <w2:column id="fileName" name="fileName" dataType="text"></w2:column>
+                        <w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+                        <w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+                        <w2:column id="regId" name="regId" dataType="text"></w2:column>
+                        <w2:column id="modId" name="modId" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataList baseNode="list" id="ds_fileDeleteGDS" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="houseNo" name="houseNo" dataType="text"></w2:column>
+                        <w2:column id="fileSeq" name="fileSeq" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection />
+            <xf:submission id="sbm_searchEmpNo" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+                ref="data:json,ds_empNo_condition" target="data:json,GAUCE" encoding="UTF-8" mode="asynchronous"
+                ev:submitdone="scwin.sbm_searchEmpNo_submitdone">
+            </xf:submission>
+            <xf:submission id="sbm_retrieveAttachedFileList" action="/il.comm.util.cmd.RetrieveAttachedFileCMD.do" method="post"
+                mediatype="application/json" mode="asynchronous"
+                ref='data:json,[{"id":"dma_attachedFile","key":"IN_DS1"},{"id":"ds_attachedFileList","key":"OUT_DS1"}]'
+                target='data:json,{"id":"ds_attachedFileList","key":"OUT_DS1"}'
+                ev:submitdone="scwin.sbm_retrieveAttachedFileList_submitdone">
+            </xf:submission>
+            <xf:submission id="sbm_saveFile" action="/il.comm.util.cmd.SaveFileMgntCMD.do" method="post" mediatype="application/json"
+                ref='data:json,[{"id":"ds_fileUploadGDS","key":"IN_DS1"},dma_attachedFile]' target='data:json,[]'
+                encoding="UTF-8" mode="asynchronous" processMsg="none" ev:submitdone="scwin.sbm_saveFile_submitdone"
+                ev:submiterror="scwin.sbm_default_submiterror">
+            </xf:submission>
+            <xf:submission id="sbm_deleteFile" action="/il.comm.util.cmd.DeleteFileMgntCMD.do" method="post" mediatype="application/json"
+                ref='data:json,[{"id":"ds_fileDeleteGDS","key":"IN_DS1"},dma_attachedFile]' target='data:json,[]'
+                encoding="UTF-8" mode="asynchronous" processMsg="none" ev:submitdone="scwin.sbm_deleteFile_submitdone"
+                ev:submiterror="scwin.sbm_default_submiterror">
+            </xf:submission>
+        </xf:model>
+        <w2:layoutInfo />
+        <w2:publicInfo method="" />
+        <script lazy="false" type="text/javascript"><![CDATA[
+let memJson = $c.data.getMemInfo();
+scwin.privAdmin = $c.data.getMemInfo("privAdmin");
+scwin.empNo = $c.data.getMemInfo("empNo");
+scwin.userId = $c.data.getMemInfo("userId") || "";
+scwin.houseNo = $p.getPopupParam("houseNo") || "";
+
+let empNo_Yn = "";
+let vEmpNo = scwin.empNo;
+let RETRIEVE_AUTH = "R";
+
+scwin.systemPathKey = "FILE_UPLOAD_SYSTEM_PATH";
+scwin.systemPathVal = "/fileUpload";
+scwin.argObject = "";
+scwin.g_filePath = "";
+scwin.g_fileName = "";
+scwin.g_accdNo = "temp";
+
+scwin.onpageload = function() {
+    if (scwin.houseNo == "") {
+        scwin.houseNo = $c.data.getParameter("houseNo");
+    }
+
+    ed_hhblno.setValue(scwin.houseNo);
+    scwin.f_empNo();
+
+    if (!$c.util.isEmpty(scwin.houseNo)) {
+        scwin.f_Retrieve();
+    } else {
+        scwin.f_clearFileList();
+    }
+};
+
+scwin.fileSubmit = async function() {
+    let houseNo = $c.str.trim($p, ed_hhblno.getValue());
+
+    if ($c.util.isEmpty(houseNo)) {
+        $c.win.alert("House No is required.");
+        ed_hhblno.focus();
+        return;
+    }
+
+    scwin.houseNo = houseNo;
+    dma_attachedFile.set("blno", houseNo);
+    dma_attachedFile.set("houseNo", houseNo);
+
+    ds_fileDeleteGDS.removeAll();
+
+    let fileList = udc_fileUpload.getData() || [];
+    let hasNewFile = false;
+    let hasDeleteFile = false;
+
+    for (let i = 0; i < fileList.length; i++) {
+        if ($c.util.isEmpty(fileList[i].hiddenKey)) {
+            hasNewFile = true;
+        }
+
+        if (fileList[i].chk == "1" && !$c.util.isEmpty(fileList[i].hiddenKey)) {
+            let row = ds_fileDeleteGDS.insertRow();
+            ds_fileDeleteGDS.setCellData(row, "houseNo", houseNo);
+            ds_fileDeleteGDS.setCellData(row, "fileSeq", fileList[i].hiddenKey);
+            hasDeleteFile = true;
+        }
+    }
+
+    if (hasNewFile) {
+        await udc_fileUpload.startFileUpload();
+        return;
+    }
+
+    if (hasDeleteFile) {
+        await $c.sbm.execute(sbm_deleteFile);
+        return;
+    }
+
+    await $c.win.alert("No file changes.");
+};
+
+scwin.f_Close = function() {
+//debugger;
+    let rtnList = ds_attachedFileList.getRowJSON(ds_attachedFileList.getRowPosition());
+    $c.win.closePopup(rtnList);
+};
+
+scwin.f_empNo = function() {
+    let grp_cd = "FI111";
+    let pCode = scwin.empNo;
+    let param1 = "CD as COL1, CD_NM as COL2, '' as COL3, '' as COL4, '' as COL5, '' as COL6, '' as COL7, '' as COL8, '' as COL9, '' as COL10";
+    let param2 = " TB_ZZ002 ";
+    let param3 = " AND GRP_CD = '" + grp_cd + "' AND USE_YN = '1' AND CD_NM = '" + pCode + "' ";
+    let param4 = "CD";
+
+    ds_empNo_condition.setJSON({
+        sysCd: "CommonEBC",
+        queryId: "dinymicQueryTest",
+        param1: param1,
+        param2: param2,
+        param3: param3,
+        param4: param4
+    });
+
+    $c.sbm.execute(sbm_searchEmpNo);
+};
+
+scwin.sbm_searchEmpNo_submitdone = function(e) {
+    if (e.responseJSON.GAUCE) {
+        ds_empNo.setJSON(e.responseJSON.GAUCE);
+    }
+};
+
+scwin.btn_search_onclick = function() {
+    scwin.f_Retrieve();
+};
+
+scwin.f_Retrieve = function() {
+    let houseNo = $c.str.trim($p, ed_hhblno.getValue());
+
+    if ($c.util.isEmpty(houseNo)) {
+        $c.win.alert("House No는 반드시 입력이 되어야 합니다.");
+        ed_hhblno.focus();
+        scwin.f_clearFileList();
+        return;
+    }
+
+    scwin.houseNo = houseNo;
+    dma_attachedFile.set("blno", houseNo);
+    dma_attachedFile.set("houseNo", houseNo);
+    console.log("attachedFile payload", JSON.stringify(dma_attachedFile.getJSON()));
+    $c.sbm.execute(sbm_retrieveAttachedFileList);
+};
+
+scwin.sbm_retrieveAttachedFileList_submitdone = function() {
+    let fileList = [];
+
+    for (let i = 0; i < ds_attachedFileList.getRowCount(); i++) {
+        fileList.push({
+            chk: "0",
+            FILE_STORED_PATH: ds_attachedFileList.getCellData(i, "filePath"),
+            STORED_FILE_NM: ds_attachedFileList.getCellData(i, "fileName"),
+            ORIGIN_FILE_NM: ds_attachedFileList.getCellData(i, "fileName"),
+            FILE_EXPLAIN: "",
+            FILE_SIZE: ds_attachedFileList.getCellData(i, "fileSize"),
+            status: "Completed",
+            hiddenKey: ds_attachedFileList.getCellData(i, "fileSeq")
+        });
+    }
+
+    udc_fileUpload.setData(fileList);
+};
+
+scwin.f_clearFileList = function() {
+    if (typeof udc_fileUpload !== "undefined") {
+        udc_fileUpload.setData([]);
+    }
+};
+
+scwin.udc_fileUpload_onFileUploadDone = function (isSuccess) {
+    if (!isSuccess) {
+        return;
+    }
+
+    let houseNo = $c.str.trim($p, ed_hhblno.getValue());
+
+    if ($c.util.isEmpty(houseNo)) {
+        $c.win.alert("House No is required.");
+        ed_hhblno.focus();
+        return;
+    }
+
+    scwin.houseNo = houseNo;
+    dma_attachedFile.set("blno", houseNo);
+    dma_attachedFile.set("houseNo", houseNo);
+
+    ds_fileUploadGDS.removeAll();
+
+    let fileList = udc_fileUpload.getData() || [];
+
+    for (let i = 0; i < fileList.length; i++) {
+        if (fileList[i].status == "Completed" && $c.util.isEmpty(fileList[i].hiddenKey)) {
+            let row = ds_fileUploadGDS.insertRow();
+            ds_fileUploadGDS.setCellData(row, "fileClsCd", "");
+            ds_fileUploadGDS.setCellData(row, "fileName", fileList[i].ORIGIN_FILE_NM);
+            ds_fileUploadGDS.setCellData(row, "filePath", (fileList[i].FILE_STORED_PATH || "") + (fileList[i].STORED_FILE_NM || ""));
+            ds_fileUploadGDS.setCellData(row, "fileSize", fileList[i].FILE_SIZE);
+            ds_fileUploadGDS.setCellData(row, "regId", scwin.userId);
+            ds_fileUploadGDS.setCellData(row, "modId", scwin.userId);
+        }
+    }
+
+    if (ds_fileUploadGDS.getRowCount() > 0) {
+        $c.sbm.execute(sbm_saveFile);
+    } else if (ds_fileDeleteGDS.getRowCount() > 0) {
+        $c.sbm.execute(sbm_deleteFile);
+    } else {
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_saveFile_submitdone = async function() {
+    if (ds_fileDeleteGDS.getRowCount() > 0) {
+        $c.sbm.execute(sbm_deleteFile);
+    } else {
+        $c.win.alert("성공적으로 등록하였습니다.");
+        await scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_deleteFile_submitdone = function() {
+    ds_fileDeleteGDS.removeAll();
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_default_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.btn_remove_onclick = function (e) {
+    ed_hhblno.setValue("");
+};
+]]></script>
+        <w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+            <w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+            <xf:group class="shbox" id="" style="">
+                <xf:group class="shbox-inner" id="" style="">
+                    <xf:group class="w2tb" id="" style="" tagname="table">
+                        <w2:attributes>
+                            <w2:summary></w2:summary>
+                        </w2:attributes>
+                        <xf:group tagname="colgroup">
+                            <xf:group style="" tagname="col"></xf:group>
+                            <xf:group style="" tagname="col"></xf:group>
+                        </xf:group>
+                        <xf:group id="" tagname="tr">
+                            <xf:group class="w2tb_th" tagname="th">
+                                <w2:attributes>
+                                    <w2:scope>row</w2:scope>
+                                </w2:attributes>
+                                <w2:textbox class="req" id="" label="House No" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td" tagname="td">
+                                <w2:attributes></w2:attributes>
+                                <xf:input class="" id="ed_hhblno" placeholder="" style="width: 200px;"></xf:input>
+                            </xf:group>
+                        </xf:group>
+                    </xf:group>
+                </xf:group>
+                <xf:group class="btn-shbox" id="" style="">
+                    <xf:trigger class="btn ico refresh" id="btn_remove" style="" type="button" ev:onclick="scwin.btn_remove_onclick">
+                        <xf:label><![CDATA[엑셀 UP]]></xf:label>
+                    </xf:trigger>
+                    <xf:trigger class="btn sch" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick">
+                        <xf:label><![CDATA[Search]]></xf:label>
+                    </xf:trigger>
+                </xf:group>
+            </xf:group>
+            <xf:group class="round-box" id="" style="">
+                <w2:wframe id="" style="" src="ilCommonFilePopup_02.xml"></w2:wframe>
+                <xf:group class="file-wrap no-title" id="" style="">
+                    <w2:udc_fileMultiUpload id="udc_fileUpload" fileGrpSeq=""
+                        filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" maxFileSize="536870912"
+                        style="" totalFileSize="2009715200" ev:onFileUploadDone="scwin.udc_fileUpload_onFileUploadDone" saveFn="scwin.fileSubmit" visibleRowNum="7">
+                    </w2:udc_fileMultiUpload>
+                </xf:group>
+                <w2:textbox class="info-txt txt-red" id="" label="파일명, 파일경로에 특수문자를 입력하실 수 없습니다.(특수문자 종류:'!,+&amp;^%$#@~;)" style=""
+                    tagname="p">
+                </w2:textbox>
+            </xf:group>
+            <xf:group class="pop-btnbox" id="" style="">
+                <xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_Close">
+                    <xf:label><![CDATA[닫기]]></xf:label>
+                </xf:trigger>
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

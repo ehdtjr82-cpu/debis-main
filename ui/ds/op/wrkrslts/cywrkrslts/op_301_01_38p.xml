@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate />
+        <w2:MSA />
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+                <!-- 조회조건 -->
+                <w2:dataMap id="dma_search" baseNode="map">
+                    <w2:keyInfo>
+                        <w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+                        <w2:key id="blNo" name="BL NO." dataType="text"></w2:key>
+                        <w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+                        <w2:key id="mrn" name="MRN" dataType="text"></w2:key>
+                        <w2:key id="msn" name="MSN" dataType="number"></w2:key>
+                        <w2:key id="hsn" name="HSN" dataType="number"></w2:key>
+                        <w2:key id="bookingNo" name="BOOKING NO." dataType="text"></w2:key>
+                        <w2:key id="impExpCls" name="수출입구분" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <!-- 조회결과 -->
+                <w2:dataList id="ds_master" baseNode="map" objectType="dataList">
+                    <w2:columnInfo>
+                        <w2:column id="arrvlportDtm" name="입항일시" dataType="text"></w2:column>
+                        <w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+                        <w2:column id="cntrSizCd" name="컨테이너규격코드" dataType="text"></w2:column>
+                        <w2:column id="cntrTypCd" name="컨테이너타입코드" dataType="text"></w2:column>
+                        <w2:column id="sfe" name="규격(표시용)" dataType="text"></w2:column>
+                        <w2:column id="blNo" name="BL NO." dataType="text"></w2:column>
+                        <w2:column id="bookingNo" name="BOOKING NO." dataType="text"></w2:column>
+                        <w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+                        <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                        <w2:column id="shpCoClntNm" name="선사거래처명" dataType="text"></w2:column>
+                        <w2:column id="shpCoClntNo" name="선사거래처번호" dataType="text"></w2:column>
+                        <w2:column id="portCd" name="항구코드" dataType="text"></w2:column>
+                        <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                        <w2:column id="lineNm" name="Line명" dataType="text"></w2:column>
+                        <w2:column id="line" name="Line코드" dataType="text"></w2:column>
+                        <w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+                        <w2:column id="msn" name="MSN" dataType="number"></w2:column>
+                        <w2:column id="hsn" name="HSN" dataType="number"></w2:column>
+                        <w2:column id="fullEmptyClsCd" name="공/적 구분코드" dataType="text"></w2:column>
+                        <w2:column id="commCd" name="화물코드" dataType="text"></w2:column>
+                        <w2:column id="exstSealNo" name="봉인번호" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+                <xf:submission id="sbm_retrieve"
+                    action="/ds.op.wrkrslts.cywrkrslts.RetrieveSendOutInspectionContainerInformationCMD.do" method="post"
+                    mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+                    ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+                    target='data:json,[{"id":"ds_master","key":"OUT_DS1"}]' ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="">
+                </xf:submission>
+            </w2:workflowCollection>
+        </xf:model>
+        <w2:layoutInfo />
+        <w2:publicInfo method="" />
+        <script lazy="false" type="text/javascript"><![CDATA[
+
+            scwin.onpageload = function() {
+                // 넘어오는 파라미터 세팅
+                scwin.params = $c.data.getParameter() || {};
+
+                scwin.pTitle = scwin.params.pTitle == null ? "" : scwin.params.pTitle;
+                scwin.cntrNo = scwin.params.cntrNo == null ? "" : scwin.params.cntrNo;
+                scwin.blNo = scwin.params.blNo == null ? "" : scwin.params.blNo;
+                scwin.wrkPlCd = scwin.params.wrkPlCd == null ? "" : scwin.params.wrkPlCd;
+                scwin.mrn = scwin.params.mrn == null ? "" : scwin.params.mrn;
+                scwin.msn = scwin.params.msn == null ? "" : scwin.params.msn;
+                scwin.hsn = scwin.params.hsn == null ? "" : scwin.params.hsn;
+                scwin.bookingNo = scwin.params.bookingNo == null ? "" : scwin.params.bookingNo;
+                scwin.IO = scwin.params.IO == null ? "" : scwin.params.IO;
+
+                // 수입/수출 라디오 박스 세팅
+                if (scwin.IO == "I") rd_impExpCls.setValue("I");
+                else rd_impExpCls.setValue("O");
+
+                // 조회조건 세팅
+                dma_search.set("cntrNo", scwin.cntrNo);
+                dma_search.set("wrkPlCd", scwin.wrkPlCd);
+                dma_search.set("blNo", scwin.blNo);
+                dma_search.set("mrn", scwin.mrn);
+                dma_search.set("msn", scwin.msn);
+                dma_search.set("hsn", scwin.hsn);
+                dma_search.set("bookingNo", scwin.bookingNo);
+                dma_search.set("impExpCls", scwin.IO);
+
+                $c.sbm.execute(sbm_retrieve);
+            };
+
+
+            //-------------------------------------------------------------------------
+            // 조회
+            //-------------------------------------------------------------------------
+            scwin.f_retrieve = function() {
+                dma_search.set("impExpCls", rd_impExpCls.getValue());
+                $c.sbm.execute(sbm_retrieve);
+            };
+
+            // 조회 Done
+            scwin.sbm_retrieve_submitdone = async function() {
+                var rowCnt = ds_master.getRowCount();
+                if (rowCnt == 0) {
+                    await $c.win.alert("컨테이너 마스터 등록 내역이 없습니다");
+                    return;
+                }
+
+                spa_totalRows.setValue(rowCnt);
+            };
+
+            //-------------------------------------------------------------------------
+            // 조회결과 그리드뷰(grd_master) Double Click Event
+            //-------------------------------------------------------------------------
+            scwin.grd_master_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+                if (rowIndex >= 0) scwin.f_AutoClose(rowIndex);
+            };
+
+            // 데이터 반환 및 Close
+            scwin.f_AutoClose = function(rowIndex) {
+                // 부모창에 반환할 데이터
+                let returnValue = [
+                    ds_master.getCellData(rowIndex, "cntrNo"),
+                    ds_master.getCellData(rowIndex, "cntrSizCd"),
+                    ds_master.getCellData(rowIndex, "cntrTypCd"),
+                    ds_master.getCellData(rowIndex, "fullEmptyClsCd"),
+                    ds_master.getCellData(rowIndex, "commCd"),
+                    ds_master.getCellData(rowIndex, "vsslCd"),
+                    ds_master.getCellData(rowIndex, "shpCoClntNo"),
+                    ds_master.getCellData(rowIndex, "portcnt"),
+                    ds_master.getCellData(rowIndex, "portCd"),
+                    ds_master.getCellData(rowIndex, "line"),
+                    ds_master.getCellData(rowIndex, "mrn"),
+                    ds_master.getCellData(rowIndex, "msn"),
+                    ds_master.getCellData(rowIndex, "hsn"),
+                    ds_master.getCellData(rowIndex, "blNo"),
+                    ds_master.getCellData(rowIndex, "arrvlportDtm"),
+                    ds_master.getCellData(rowIndex, "exstSealNo"),
+                    ds_master.getCellData(rowIndex, "bookingNo"),
+                ];
+
+                $c.win.closePopup(returnValue);
+            };
+
+            //-------------------------------------------------------------------------
+            // 수출입구분 라디오 버튼 변경시
+            //-------------------------------------------------------------------------
+            scwin.rd_impExpCls_onviewchange = function (info) {
+                scwin.f_retrieve();
+            };
+
+            //-------------------------------------------------------------------------
+            // 닫기
+            //-------------------------------------------------------------------------
+            scwin.btn_close_onclick = function(e) {
+                scwin.f_WinClose();
+            };
+
+            scwin.f_WinClose = function() {
+                $c.win.closePopup("");
+            };
+
+        ]]></script>
+    </head>
+
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+            <xf:group class="content" id="">
+                <w2:wframe id="sp_title" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+                <xf:group class="round-box flex-full" id="" style="">
+                    <xf:group class="row-gap-8" id="" style="">
+                        <xf:group class="title-wrap" id="" style="">
+                            <xf:group class="title" id=""></xf:group>
+                            <xf:group class="right" id="">
+                                <xf:group class="title-wrap" id="" style="">
+                                    <xf:group class="title" id=""></xf:group>
+                                    <xf:group class="right" id="">
+                                        <w2:textbox id="" label="수출입구분:" class=""></w2:textbox>
+                                        <xf:select1 ref="" appearance="full" id="rd_impExpCls" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1" objType="data" ev:onviewchange="scwin.rd_impExpCls_onviewchange">
+                                            <xf:choices>
+                                                <xf:item>
+                                                    <xf:label><![CDATA[수입]]></xf:label>
+                                                    <xf:value><![CDATA[I]]></xf:value>
+                                                </xf:item>
+                                                <xf:item>
+                                                    <xf:label><![CDATA[수출]]></xf:label>
+                                                    <xf:value><![CDATA[O]]></xf:value>
+                                                </xf:item>
+                                            </xf:choices>
+                                        </xf:select1>
+                                    </xf:group>
+                                </xf:group>
+                            </xf:group>
+                        </xf:group>
+                        <xf:group class="grid-wrap" id="" style="">
+                            <xf:group adaptiveThreshold="" class="gvwbox" id="group1" style="">
+                                <w2:gridView id="grd_master" class="wq_gvw" dataList="data:ds_master" columnMove="true" readOnly="true"
+                                    ev:oncelldblclick="scwin.grd_master_oncelldblclick">
+                                    <w2:caption id="caption1" value="this is a grid caption."></w2:caption>
+                                    <w2:header id="header1" style="">
+                                        <w2:row id="row1" style="">
+                                            <w2:column displayMode="label" inputType="text" id="column17" value="입항일시" width="130"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column15" value="컨테이너번호" width="110"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column13" value="규격" width="70"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column11" value="BL NO." width="140"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column9" value="BOOKING NO" width="140"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column35" value="선박" width="120"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column33" value="선사거래처" width="140"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column31" value="항구" width="90"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column29" value="항차" width="80"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="column27" value="Line" width="90"></w2:column>
+                                        </w2:row>
+                                    </w2:header>
+                                    <w2:gBody id="gBody1" style="">
+                                        <w2:row id="row2" style="">
+                                            <w2:column displayMode="label" inputType="text" id="arrvlportDtm" width="130" value="" displayFormat="####/##/## ##:##"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="cntrNo" width="110"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="sfe" width="70"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="blNo" width="140"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="bookingNo" width="140"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="vsslNm" value="" width="120" textAlign="left"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="shpCoClntNm" value="" width="140" textAlign="left"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="portCd" value="" width="90"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="portcnt" value="" width="80"></w2:column>
+                                            <w2:column displayMode="label" inputType="text" id="lineNm" value="" width="90" textAlign="left"></w2:column>
+                                        </w2:row>
+                                    </w2:gBody>
+                                </w2:gridView>
+                                <xf:group class="grid-bottom " id="" style="">
+                                    <xf:group class="left" id="">
+                                        <xf:group class="grid-total" id="">
+                                            <w2:textbox class="" id="" label="총" tagname="span"></w2:textbox>
+                                            <w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spa_totalRows" label="0" tagname="span"></w2:textbox>
+                                            <w2:textbox class="" id="" label="건" tagname="span"></w2:textbox>
+                                        </xf:group>
+                                    </xf:group>
+                                </xf:group>
+                            </xf:group>
+                        </xf:group>
+                    </xf:group>
+                </xf:group>
+                <xf:group class="pop-btnbox" id="" style="">
+                    <xf:trigger class="btn" id="btn_close" type="button" ev:onclick="scwin.btn_close_onclick">
+                        <xf:label><![CDATA[닫기]]></xf:label>
+                    </xf:trigger>
+                </xf:group>
+            </xf:group>
+        </xf:group>
+    </body>
+
+</html>

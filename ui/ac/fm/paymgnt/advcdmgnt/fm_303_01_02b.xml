@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.strCurDate = WebSquare.date.getCurrentServerDate();
+scwin.strFromDate = scwin.strCurDate.substring(0, 6) + "01";
+scwin.login = $c.data.getMemInfo();
+scwin.sAcctDeptCd = scwin.login.acctDeptCd
+scwin.sAppDeptNm = scwin.login.acctDeptNm;
+
+
+scwin.onpageload = function() {
+	
+};
+
+scwin.onUdcCompleted = function() {
+    ica_stdYm.setValue(scwin.strCurDate.substring(0, 6))
+    ed_appDept.setValue(scwin.sAcctDeptCd)
+    ed_appDeptNm.setValue(scwin.sAppDeptNm)
+}
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:검색->관리부서 , 2:검색->거래처
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(select_code,txtCode,txtName,sPopupCls) {
+    let rtnList = null;
+    let sCmdName = "";
+    let name = ""
+    code = txtCode.getValue();
+    if ( txtName == null )
+    {
+        name = "";
+    }else{
+        name = txtName.getValue();
+    }
+
+    switch (select_code) {
+        // 부서 PopUp 호출
+        case '1' :
+            udc_acctDeptCdInfo.cfCommonPopUp(scwin.udc_acctDeptCdInfo_callBackFunc, code,name,sPopupCls,null,null,null,null,null,null,null,null,null,null,null,null,null); // 관리부서
+            break;
+        // 차입번호 PopUp 호출
+        // case '2' :
+        //     udc_borrLedgNoInfo.cfCommonPopUp(scwin.udc_borrLedgNoInfo_callBackFunc, code,name,sPopupCls,null,null,null,null,null,null,null,null,null); // 차입번호
+        //     break;
+    }
+
+    // if ( rtnList != null ) {
+    //     if (rtnList[0] == "N/A") return;
+    //     txtCode.setValue(rtnList[0]);	 // 코드
+    //     if ( txtName != null )
+    //     {
+    //         txtName.setValue(rtnList[1]);	 // 코드명
+    //     }
+    //     txtCode.options.hidVal = rtnList[0]; // 코드
+    // } else {
+    //     txtCode.setValue("");	 // 코드
+    //     if ( txtName != null )
+    //     {
+    //         txtName.setValue("");	 // 코드명
+    //     }
+    //     txtCode.options.hidVal = ""; // 코드
+    // }
+}
+
+//-------------------------------------------------------------------------
+// 팝업결과
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCdInfo_callBackFunc = function(rtnList) {
+    if ( rtnList != null ) {
+        if (rtnList[0] == "N/A") return;
+        ed_appDept.setValue(rtnList[0]);	 // 코드
+        if ( ed_appDeptNm != null )
+        {
+            ed_appDeptNm.setValue(rtnList[1]);	 // 코드명
+        }
+        ed_appDept.options.hidVal = rtnList[0]; // 코드
+    } else {
+        ed_appDept.setValue("");	 // 코드
+        if ( ed_appDeptNm != null )
+        {
+            ed_appDeptNm.setValue("");	 // 코드명
+        }
+        ed_appDept.options.hidVal = ""; // 코드
+    }
+};
+
+// scwin.udc_borrLedgNoInfo_callBackFunc = function(rtnList) {
+
+// };
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+//-------------------------------------------------------------------------
+scwin.f_CheckPopUp = function(orgObjCd, orgObjNm,select_code) {
+
+    if (orgObjCd._wTagName.toUpperCase() == "INPUT" ) {
+        if (orgObjCd.getValue() != orgObjCd.options.hidVal){
+            orgObjNm.setValue("");
+        }
+        if (orgObjCd.getValue().trim() != "" ) {
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,'T')
+        } else {
+            if (!orgObjNm == null)
+            {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+            orgObjCd.options.hidVal = "";
+        }
+    }
+    else if (orgObjCd._wTagName.toUpperCase() == "OBJECT" ) {
+        if (orgObjCd.getValue() != orgObjCd.options.hidVal){
+            orgObjNm.setValue("");
+        }
+        
+        if (orgObjCd.getValue().trim() != "") {
+
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,'T');
+        } else {
+            if (!orgObjNm == null)
+            {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+        }
+    }
+}
+
+
+
+//-------------------------------------------------------------------------
+// 오즈 검색 후 결과를 화면 하단에 표시
+//-------------------------------------------------------------------------
+scwin.f_Search = async function () {                  
+    if (! await $c.gus.cfValidate([ica_stdYm,ed_appDept])) 
+        return
+    let sPostYn = lc_postYn.getValue() +"";
+    let data = {
+        reportName: "/ac/fm/paymgnt/advcdmgnt/fm_303_01_02.ozr",
+        odiName : "fm_303_01_02",
+        odiParam : {
+            CLOSE_YM: ica_stdYm.getValue(), 
+            DEPT_CD: ed_appDept.getValue(),
+            DEPT_NM: ed_appDeptNm.getValue(),  
+            POST_YN: sPostYn
+        },
+        viewerParam : {
+            mode : "silent", // 프로그레스바 쓸지 말지
+        },
+        formParam: {
+        }
+    }
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+}
+
+//-------------------------------------------------------------------------
+// script
+//-------------------------------------------------------------------------
+
+
+scwin.udc_acctDeptCdInfo_onclickEvent = function (e) {
+    scwin.f_openPopUp('1',ed_appDept,ed_appDeptNm,'F')
+};
+
+scwin.udc_acctDeptCdInfo_onblurCodeEvent = function (e) {
+        scwin.f_CheckPopUp(ed_appDept,ed_appDeptNm,'1');
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    	<xf:group class="shbox " id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="사용부서" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" selectID="retrieveAcctDeptCdInfo" codeId="ed_appDept" nameId="ed_appDeptNm" objTypeCode="data" mandatoryCode="true" maxlengthCode="5" allowCharCode="0-9" id="udc_acctDeptCdInfo" ev:onclickEvent="scwin.udc_acctDeptCdInfo_onclickEvent" ev:onblurCodeEvent="scwin.udc_acctDeptCdInfo_onblurCodeEvent" validTitle="사용부서" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="사용년월 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_stdYm" style="" displayFormat="yyyy/MM" title="사용년월" mandatory="true">
+    									</w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="진행상태 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="w80" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_postYn" style="" submenuSize="auto" ref="" displayMode="label">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[전체]]></xf:label>
+    												<xf:value><![CDATA[2]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[확정]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[미확정]]></xf:label>
+    												<xf:value><![CDATA[0]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.f_Search">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    	<xf:group class="round-box" id="" style="">
+    		<xf:group class="ozWrap" id="ozFrame" style="">
+    			<w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style=""></w2:iframe>
+    		</xf:group>
+    	</xf:group></xf:group>
+    </body>
+</html>

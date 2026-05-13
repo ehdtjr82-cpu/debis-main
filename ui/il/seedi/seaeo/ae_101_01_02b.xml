@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_closeResult" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="deptNm" name="부서명" dataType="text"></w2:column>
+						<w2:column id="ioGb" name="수출입구분" dataType="text"></w2:column>
+						<w2:column id="cnt" name="건수" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_results" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="deptNm" name="부서" dataType="text"></w2:column>
+						<w2:column id="ioGb" name="수출입구분" dataType="text"></w2:column>
+						<w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+						<w2:column id="vessel" name="VESSEL" dataType="text"></w2:column>
+						<w2:column id="voyage" name="VOYAGE" dataType="text"></w2:column>
+						<w2:column id="loading" name="LOADING" dataType="text"></w2:column>
+						<w2:column id="dt" name="출항일" dataType="text"></w2:column>
+						<w2:column id="cnt" name="건수" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_closeResult2" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="deptNm" name="부서명" dataType="text"></w2:column>
+						<w2:column id="ioGb" name="수출입구분" dataType="text"></w2:column>
+						<w2:column id="cnt" name="건수" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_results2" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="deptNm" name="부서" dataType="text"></w2:column>
+						<w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+						<w2:column id="mblno" name="MBLNO" dataType="text"></w2:column>
+						<w2:column id="hblno" name="BLNO" dataType="text"></w2:column>
+						<w2:column id="nm" name="정정항목" dataType="text"></w2:column>
+						<w2:column id="text" name="정정사유" dataType="text"></w2:column>
+						<w2:column id="id" name="담당자" dataType="text"></w2:column>
+						<w2:column id="mdno" name="정정신청번호" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="ds_condition">
+					<w2:keyInfo>
+						<w2:key id="kcomcd" name="name1" dataType="text"></w2:key>
+						<w2:key id="ioGb" name="name2" dataType="text"></w2:key>
+						<w2:key id="seaAir" name="name3" dataType="text"></w2:key>
+						<w2:key id="yymm" name="name4" dataType="text"></w2:key>
+						<w2:key id="yymmSeq" name="name5" dataType="text"></w2:key>
+						<w2:key id="dept" name="name6" dataType="text"></w2:key>
+						<w2:key id="odrNo" name="name7" dataType="text"></w2:key>
+						<w2:key id="odrNo2" name="name8" dataType="text"></w2:key>
+						<w2:key id="clntNo" name="name9" dataType="text"></w2:key>
+						<w2:key id="hhactcust" name="name10" dataType="text"></w2:key>
+						<w2:key id="rslDtFrom" name="name11" dataType="text"></w2:key>
+						<w2:key id="rslDtTo" name="name12" dataType="text"></w2:key>
+						<w2:key id="blNo" name="name13" dataType="text"></w2:key>
+						<w2:key id="closeDtFrom" name="name14" dataType="text"></w2:key>
+						<w2:key id="closeDtTo" name="name15" dataType="text"></w2:key>
+						<w2:key id="sdate" name="name16" dataType="text"></w2:key>
+						<w2:key id="edate" name="name17" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/il.seedi.seaeo.RetrieveSeaEdiInfoCMD.do" method="post"
+				mediatype="application/json"
+				ref='data:json,[{"id":"ds_condition", "key":"IN_DS1"}, {"id":"ds_closeResult", "key":"OUT_DS1"}, {"id":"ds_results", "key":"OUT_DS2"}]'
+				target='data:json,[{"id":"ds_closeResult","key":"OUT_DS1"}, {"id":"ds_results", "key":"OUT_DS2"}]' encoding="UTF-8" instance=""
+				replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_retrieve2" action="/il.seedi.seaeo.RetrieveSeaEdiInfoUpdateCMD.do" method="post"
+				mediatype="application/json" encoding="UTF-8" mode="asynchronous" replace=""
+				ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_closeResult2","key":"OUT_DS1"},{"id":"ds_results2","key":"OUT_DS2"}]'
+				target='data:json,[{"id":"ds_closeResult2","key":"OUT_DS1"},{"id":"ds_results2","key":"OUT_DS2"}]'
+				ev:submitdone="scwin.sbm_retrieve2_submitdone">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+
+//---------------------------------------------------------
+// 전역변수
+//---------------------------------------------------------   
+scwin.onpageload = function () {
+
+};
+
+//---------------------------------------------------------
+// UDC
+//---------------------------------------------------------    
+scwin.onUdcCompleted = function () {
+    const now = new Date(); // 기준 날짜 (오늘)
+    const prevMonthFirstDay = new Date(now.getFullYear(), now.getMonth() - 1, 1); // 전 달의 첫날
+    const prevMonthLastDay = new Date(now.getFullYear(), now.getMonth(), 0); // 전 달의 마지막날
+
+    cnd_ed_rslDtFrom.setValue(scwin.formatYYYYMMDD(prevMonthFirstDay));
+    cnd_ed_rslDtTo.setValue(scwin.formatYYYYMMDD(prevMonthLastDay));
+    $c.data.setPopupTitle("해상 적하목록 내역");
+}
+
+//---------------------------------------------------------
+// 사용자 함수
+//---------------------------------------------------------   
+scwin.formatYYYYMMDD = function (d) {
+    return (
+        d.getFullYear() +
+        String(d.getMonth() + 1).padStart(2, "0") +
+        String(d.getDate()).padStart(2, "0")
+    );
+}
+
+scwin.setText = function (d, fd, r, c) {
+    if (d == "I") return "수입";
+    if (d == "O" || d == "E") return "수출";
+    return "기타";
+}
+
+//---------------------------------------------------------
+// 컴포넌트 이벤트
+//---------------------------------------------------------   
+
+scwin.btn_retrieve_onclick = function (e) {
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.btn_fieldClear_onclick = function (e) {
+    const now = new Date(); // 기준 날짜 (오늘)
+    const prevMonthFirstDay = new Date(now.getFullYear(), now.getMonth() - 1, 1); // 전 달의 첫날
+    const prevMonthLastDay = new Date(now.getFullYear(), now.getMonth(), 0); // 전 달의 마지막날
+
+    cnd_ed_rslDtFrom.setValue(scwin.formatYYYYMMDD(prevMonthFirstDay));
+    cnd_ed_rslDtTo.setValue(scwin.formatYYYYMMDD(prevMonthLastDay));
+    cnd_lc_iogb.setValue("A");
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (ds_results.getTotalRow() < 1) {
+        await $c.win.alert("신고 건수가 없습니다.");
+    } else {
+        ed_totalCnt.setValue(ds_closeResult.getTotalRow());
+        ed_totalCnt1.setValue(ds_results.getTotalRow());
+    }
+    $c.sbm.execute(sbm_retrieve2);
+}
+
+scwin.sbm_retrieve2_submitdone = function (e) {
+    if (ds_results2.getTotalRow() < 1) {
+        $c.win.alert("정정 건수가 없습니다.");
+        return;
+    } else {
+        ed_totalCnt2.setValue(ds_closeResult2.getTotalRow());
+        ed_totalCnt3.setValue(ds_results2.getTotalRow());
+    }
+}
+
+scwin.excelDownload = function () {
+
+    var options = {
+        common: {
+            fileName: "해상 적하목록 내역.xls",
+            showProcess: true,
+            colMerge: true,
+            // autoSizeColumn : "true"
+        },
+        excelInfo: [
+            {
+                gridId: gr_closeResult.getID(),
+                sheetName: "신고건수(해상)",
+                useDataFormat: true,
+                decimal: "auto",
+                rowNumVisible: true,
+                type: "1",
+                startRowIndex: 0,
+                startColumnIndex: 0,
+                headerColor: "#DBEEF3",
+                bodyColor: "#92CDDC",
+                mergeCell: true
+            },
+            {
+                gridId: gr_results.getID(),
+                sheetName: "신고내역(해상)",
+                type: "1",
+                startRowIndex: 0,
+                startColumnIndex: 0,
+                headerColor: "#DBEEF3",
+                bodyColor: "#92CDDC",
+                mergeCell: true
+            },
+            {
+                gridId: gr_closeResult2.getID(),
+                sheetName: "정정건수(해상)",
+                type: "1",
+                startRowIndex: 0,
+                startColumnIndex: 0,
+                headerColor: "#DBEEF3",
+                bodyColor: "#92CDDC",
+                mergeCell: true
+            },
+            {
+                gridId: gr_results2.getID(),
+                sheetName: "정정내역(해상)",
+                type: "1",
+                startRowIndex: 0,
+                startColumnIndex: 0,
+                headerColor: "#DBEEF3",
+                bodyColor: "#92CDDC",
+                mergeCell: true
+            }
+        ]
+    };
+    $c.data.downloadMultipleGridView(options);
+}
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="" id="" label="조회일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:udc_fromToCalendar id="udc_rslDt" refDataMap="ds_condition" refEdDt="edate" refStDt="sdate" style=""
+									edToId="cnd_ed_rslDtTo" edFromId="cnd_ed_rslDtFrom"></w2:udc_fromToCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="수출입구분" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="cnd_lc_iogb" search="start" style="width:150px;" submenuSize="auto"
+									allOption="" chooseOption="" ref="data:ds_condition.ioGb">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[전체]]></w2:label>
+											<w2:value><![CDATA[A]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[수출]]></w2:label>
+											<w2:value><![CDATA[O]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[수입]]></w2:label>
+											<w2:value><![CDATA[I]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+						ev:onclick="scwin.btn_retrieve_onclick">
+						<xf:label><![CDATA[Search]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="tabbox " id="" style="">
+					<w2:tabControl alwaysDraw="false" class="wq_tab" id="" style="">
+						<w2:tabs disabled="false" id="tabs12" label="신고" style=""></w2:tabs>
+						<w2:tabs disabled="false" id="tabs13" label="정정" style=""></w2:tabs>
+						<w2:content alwaysDraw="true" id="content12" style="height: auto;">
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="요약" class="tit"></w2:textbox>
+									</xf:group>
+									<xf:group id="" class="right">
+										<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="N" gridUpYn="N" templateYn="N"
+											gridID="gr_closeResult" grdDownOpts='{"fileName":"적하목록 신고건수", "type":"1"}' gridDownFn="scwin.excelDownload" btnUser="Y"></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+									<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_closeResult" style="" autoFit="allColumn"
+										id="gr_closeResult" visibleRowNum="5" class="wq_gvw" readOnly="true">
+										<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+										<w2:header style="" id="header1">
+											<w2:row style="" id="row1">
+												<w2:column width="80" inputType="text" id="column1" value="부서명" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="column17" value="수출입구분" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="column15" value="건수" displayMode="label"></w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody style="" id="gBody1">
+											<w2:row style="" id="row2">
+												<w2:column width="80" inputType="text" id="deptNm" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="ioGb" displayMode="label" customFormatter="scwin.setText"></w2:column>
+												<w2:column width="80" inputType="text" id="cnt" displayMode="label"></w2:column>
+											</w2:row>
+										</w2:gBody>
+										<w2:footer style="" id="footer1">
+											<w2:row style="" id="row3">
+												<w2:column width="80" inputType="text" id="column30" displayMode="label" value="Total"></w2:column>
+												<w2:column width="80" inputType="text" id="column29" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="expression" id="column28" displayMode="label" dataType="number" displayFormat="#,###"
+													expression="SUM('cnt') == '' ? 0 : SUM('cnt')" excelCellType="number" excelFormat="#,##0"></w2:column>
+											</w2:row>
+										</w2:footer>
+									</w2:gridView>
+									<xf:group style="" id="" class="grid-bottom ">
+										<xf:group id="" class="left">
+											<xf:group id="" class="grid-total">
+												<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+												<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="ed_totalCnt" label="0" class="num">
+												</w2:textbox>
+												<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="적하목록 내역" class="tit"></w2:textbox>
+									</xf:group>
+									<xf:group id="" class="right">
+										<w2:udc_topGrdBtn grp="grd_section2" style="" gridID="gr_results" btnUser="Y" gridDownYn="N" gridUpYn="N"
+											templateYn="N"></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" style="" id="grd_section2" class="gvwbox">
+									<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_results" style=""
+										autoFit="allColumn" id="gr_results" visibleRowNum="5" class="wq_gvw" readOnly="true">
+										<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+										<w2:header style="" id="header1">
+											<w2:row style="" id="row1">
+												<w2:column width="80" inputType="text" id="column1" value="부서" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="column17" value="수출입구분" displayMode="label"></w2:column>
+												<w2:column width="150" inputType="text" id="column15" value="MRN" displayMode="label"></w2:column>
+												<w2:column width="150" inputType="text" id="column13" value="VESSEL" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="column11" value="VOYAGE" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="column9" value="LOADING" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="column3" value="출항일" displayMode="label"></w2:column>
+												<w2:column width="90" inputType="text" id="column5" value="건수" displayMode="label"></w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody style="" id="gBody1">
+											<w2:row style="" id="row2">
+												<w2:column width="80" inputType="text" id="deptNm" displayMode="label" colMerge="true"
+													style="background-color: white !important;">
+												</w2:column>
+												<w2:column width="80" inputType="text" id="ioGb" displayMode="label" colMerge="true"
+													style="background-color: white !important;" customFormatter="scwin.setText">
+												</w2:column>
+												<w2:column width="150" inputType="text" id="mrn" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="150" inputType="text" id="vessel" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="80" inputType="text" id="voyage" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" id="loading" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="80" inputType="text" id="dt" displayMode="label"></w2:column>
+												<w2:column width="90" inputType="text" id="cnt" displayMode="label"></w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group style="" id="" class="grid-bottom ">
+										<xf:group id="" class="left">
+											<xf:group id="" class="grid-total">
+												<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+												<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="ed_totalCnt1" label="0" class="num">
+												</w2:textbox>
+												<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</w2:content>
+						<w2:content alwaysDraw="true" id="content13" style="">
+							<xf:group class="row-gap-8" id="" style="">
+								<xf:group class="title-wrap" id="" style="">
+									<xf:group class="title" id="">
+										<w2:textbox class="tit" id="" label="요약" style="" tagname="h3"></w2:textbox>
+									</xf:group>
+									<xf:group class="right" id="">
+										<w2:udc_topGrdBtn grp="grd_section3" style="" gridID="gr_closeResult2" btnPlusYn="N" btnUser="Y" gridUpYn="N"
+											templateYn="N" gridDownFn="scwin.excelDownload" grdDownOpts='{"fileName":"적하목록 정정건수", "type":"1"}'></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section3" style="">
+									<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_closeResult2"
+										id="gr_closeResult2" style="" visibleRowNum="5" visibleRowNumFix="true" readOnly="true">
+										<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+										<w2:header id="header1" style="">
+											<w2:row id="row1" style="">
+												<w2:column displayMode="label" id="column1" inputType="text" value="부서명" width="80"></w2:column>
+												<w2:column displayMode="label" id="column17" inputType="text" value="수출입구분" width="80"></w2:column>
+												<w2:column displayMode="label" id="column15" inputType="text" value="건수" width="80"></w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody id="gBody1" style="">
+											<w2:row id="row2" style="">
+												<w2:column displayMode="label" id="deptNm" inputType="text" width="80"></w2:column>
+												<w2:column displayMode="label" id="ioGb" inputType="text" width="80" customFormatter="scwin.setText"></w2:column>
+												<w2:column displayMode="label" id="cnt" inputType="text" width="80" dataType="number" displayFormat="#,###"></w2:column>
+											</w2:row>
+										</w2:gBody>
+										<w2:footer id="footer1" style="">
+											<w2:row id="row3" style="">
+												<w2:column displayMode="label" id="column30" inputType="text" width="80" value="Total"></w2:column>
+												<w2:column displayMode="label" id="column29" inputType="text" width="80"></w2:column>
+												<w2:column displayMode="label" id="column28" inputType="expression" width="80" dataType="number" displayFormat="#,###"
+													expression="SUM('cnt') == '' ? 0 : SUM('cnt')" excelCellType="number" excelFormat="#,##0"></w2:column>
+											</w2:row>
+										</w2:footer>
+									</w2:gridView>
+									<xf:group class="grid-bottom " id="" style="">
+										<xf:group class="left" id="">
+											<xf:group class="grid-total" id="">
+												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+												<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="ed_totalCnt2" label="0" style="" tagname="span">
+												</w2:textbox>
+												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group class="row-gap-8" id="" style="">
+								<xf:group class="title-wrap" id="" style="">
+									<xf:group class="title" id="">
+										<w2:textbox class="tit" id="" label="적하목록 내역" style="" tagname="h3"></w2:textbox>
+									</xf:group>
+									<xf:group class="right" id="">
+										<w2:udc_topGrdBtn grp="grd_section4" style="" gridID="gr_results2" btnUser="Y" gridDownYn="N" gridUpYn="N"
+											templateYn="N"></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section4" style="">
+									<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_results2"
+										id="gr_results2" style="" visibleRowNum="5" visibleRowNumFix="true" readOnly="true">
+										<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+										<w2:header id="header1" style="">
+											<w2:row id="row1" style="">
+												<w2:column displayMode="label" id="column1" inputType="text" value="부서" width="80"></w2:column>
+												<w2:column displayMode="label" id="column17" inputType="text" value="MRN" width="80"></w2:column>
+												<w2:column displayMode="label" id="column15" inputType="text" value="MBLNO" width="100"
+													hidden="false">
+												</w2:column>
+												<w2:column displayMode="label" id="column13" inputType="text" value="BLNO" width="150"></w2:column>
+												<w2:column displayMode="label" id="column11" inputType="text" value="정정항목" width="150"></w2:column>
+												<w2:column displayMode="label" id="column9" inputType="text" value="정정사유" width="150"></w2:column>
+												<w2:column displayMode="label" id="column5" inputType="text" value="담당자" width="100"></w2:column>
+												<w2:column width="250" inputType="text" id="column19" value="정정신청번호" displayMode="label">
+												</w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody id="gBody1" style="">
+											<w2:row id="row2" style="">
+												<w2:column displayMode="label" id="deptNm" inputType="text" width="80" colMerge="true"
+													style="background-color: white !important;">
+												</w2:column>
+												<w2:column displayMode="label" id="mrn" inputType="text" width="80" colMerge="false"
+													style="background-color: white !important;" textAlign="left">
+												</w2:column>
+												<w2:column displayMode="label" id="mblno" inputType="text" width="100" textAlign="left"></w2:column>
+												<w2:column displayMode="label" id="hblno" inputType="text" width="150" textAlign="left"></w2:column>
+												<w2:column displayMode="label" id="nm" inputType="text" width="150" textAlign="left"></w2:column>
+												<w2:column displayMode="label" id="text" inputType="text" width="150" textAlign="left"></w2:column>
+												<w2:column displayMode="label" id="id" inputType="text" width="100" textAlign="left"></w2:column>
+												<w2:column width="250" inputType="text" id="mdno" displayMode="label" textAlign="left"></w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group class="grid-bottom " id="" style="">
+										<xf:group class="left" id="">
+											<xf:group class="grid-total" id="">
+												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+												<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="ed_totalCnt3" label="0" style="" tagname="span">
+												</w2:textbox>
+												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</w2:content>
+					</w2:tabControl>
+				</xf:group>
+
+
+			</xf:group>
+		</xf:group>
+
+
+	</body>
+</html>

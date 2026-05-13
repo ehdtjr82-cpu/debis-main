@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="flex_gvw" id="">
+    			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    			<xf:group class="content" id="">
+    				<xf:group class="shbox w-auto" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="점소" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:autoComplete class=" w200" editType="select" id="acb_autoComplete1" search="start"
+    										style="" submenuSize="auto">
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="작업월 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_fromToYearMon refStDt="" refDataMap="" style=""
+    										id="udc_fromToYearMon1" refEdDt="">
+    									</w2:udc_fromToYearMon>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="구분 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class=" w150" editType="select" id="acb_autoComplete2" search="start"
+    										style="" submenuSize="auto">
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="휴가포함 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class=" w80" editType="select" id="acb_autoComplete3" search="start"
+    										style="" submenuSize="auto">
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="round-box flex-full" id="" style="">
+    					<xf:group class="row-gap-8" id="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="근태현황" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="grid-wrap " id="" style="">
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView checkAllType="false" class="wq_gvw" dataList="" id="gr_gridView1" style="" fixedColumn="7">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="소속" width="100"
+    												rowSpan="2" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="소속" width="100"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="직종" width="70"
+    												rowSpan="2" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="직책&lt;br/&gt;정렬" width="70"
+    												rowSpan="2" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="직책" width="70"
+    												rowSpan="2" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="직책" width="70"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" value="성명" width="70"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" value="-2일" width="140"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="-1일" width="140"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column69" value="1일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column65" value="2일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column61" value="3일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column57" value="4일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column53" value="5일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column49" value="6일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column45" value="7일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column41" value="8일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column37" value="9일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column33" value="10일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column29" value="11일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column21" value="12일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column25" value="13일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column214" value="14일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column208" value="15일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column202" value="16일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column196" value="17일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column190" value="18일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column184" value="19일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column178" value="20일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column172" value="21일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column166" value="22일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column160" value="23일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column154" value="24일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column148" value="25일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column142" value="26일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column136" value="27일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column130" value="28일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column124" value="29일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column118" value="30일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column112" value="31일" displayMode="label"
+    												colSpan="2">
+    											</w2:column>
+    											<w2:column width="490" inputType="text" id="column229" displayMode="label" value="합계"
+    												colSpan="7" rowSpan="">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    											<w2:column width="60" inputType="text" id="column101" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column100" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column99" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column98" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column97" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column96" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column95" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column94" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column93" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column92" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column91" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column90" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column89" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column88" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column87" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column86" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column85" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column84" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column83" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column82" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column81" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column80" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column79" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column78" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column77" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column76" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column75" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column74" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column73" value="주" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column218" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column215" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column212" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column209" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column206" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column203" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column200" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column197" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column194" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column191" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column188" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column185" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column182" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column179" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column176" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column173" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column170" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column167" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column164" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column161" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column158" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column155" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column152" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column149" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column146" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column143" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column140" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column137" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column134" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column131" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column128" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column125" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column122" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column119" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column110" displayMode="label" value="야"></w2:column>
+    											<w2:column width="60" inputType="text" id="column113" displayMode="label" value="주"></w2:column>
+    											<w2:column width="60" inputType="text" id="column116" displayMode="label" value="야"></w2:column>
+    											<w2:column width="80" inputType="text" id="column230" displayMode="label" value="연근계" hidden="true"></w2:column>
+    											<w2:column width="80" inputType="text" id="column221" displayMode="label" value="근무계"></w2:column>
+    											<w2:column width="80" inputType="text" id="column224" displayMode="label" value="연근계"></w2:column>
+    											<w2:column width="80" inputType="text" id="column227" displayMode="label" value="SFT&lt;br/&gt;초과계"></w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column239" value="주간계"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column233" value="야간계"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column236" value="휴가계"
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="column2" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column18" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column16" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column14" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column12" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column10" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column4" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column6" inputType="text" width="70" textAlign="right"></w2:column>
+    											<w2:column displayMode="label" id="column8" inputType="text" width="70" textAlign="right"></w2:column>
+    											<w2:column displayMode="label" id="column20" inputType="text" width="70" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column72" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column70" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column68" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column66" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column64" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column62" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column60" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column58" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column56" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column54" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column52" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column50" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column48" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column46" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column44" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column42" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column40" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column38" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column36" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column34" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column32" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column30" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column28" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column22" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column24" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column26" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column219" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column216" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column213" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column210" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column207" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column204" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column201" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column198" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column195" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column192" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column189" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column186" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column183" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column180" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column177" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column174" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column171" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column168" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column165" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column162" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column159" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column156" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column153" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column150" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column147" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column144" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column141" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column138" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column135" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column132" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column129" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column126" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column123" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column120" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column111" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column114" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="70" inputType="text" id="column117" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="80" inputType="text" id="column231" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="80" inputType="text" id="column222" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="80" inputType="text" id="column225" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="80" inputType="text" id="column228" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column240" value=""
+    												displayMode="label" textAlign="right">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column234" value=""
+    												displayMode="label" textAlign="right">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column237" value=""
+    												displayMode="label" textAlign="right">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							</xf:group>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    											tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

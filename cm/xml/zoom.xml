@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : zoom(Preview Popup)
+ * 메뉴경로 : 
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/common/jsp/zoom.html
+ * 작 성 자 : 박진수
+ * 작 업 일 : 2025-12-04
+ * 수정이력  :
+ *    - 2025-12-04      박진수    최초작성
+ *    - 2025-01-16      정승혜    getParameter 위치수정, 다운로드 주석처리
+ * 조회조건 : 
+ */
+
+scwin.params = "";
+scwin.fileName = "";
+scwin.filePath = "";
+
+// 파일 다운로드 URL
+scwin.FILE_DOWNLOAD_URL = "/s3upload.do";
+scwin.pgmId="";
+scwin.src = "";
+
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    scwin.fileName = scwin.params["fileName"]
+    scwin.filePath = scwin.params["filePath"]
+    scwin.previewUrl = scwin.params["previewUrl"]
+	//console.log("params : " + JSON.stringify(scwin.params));
+
+    try {
+        let menuInfo = $p.parent().$p.getParameter("paramData").menuInfo;
+        if(typeof menuInfo !== "undefined") {
+            scwin.pgmId = menuInfo.pgmId;
+            scwin.src = menuInfo.src;
+        }
+
+    } catch(e) {
+        console.log("#### parameter ###");
+    }
+
+
+    if (scwin.previewUrl) {
+        img_preview.setSrc(scwin.previewUrl);
+    } else {
+        let tempData = scwin.filePath;
+        let filePath = tempData.substring(0,tempData.lastIndexOf("/")+1);
+        let fileNm = tempData.substring(tempData.lastIndexOf("/") + 1);
+        let rowNum = 0;
+
+        img_preview.setSrc(scwin.buildDownloadUrl(scwin.buildPreviewParam(rowNum), "Link"));
+    }
+
+    scwin.centerPreviewImage();
+
+    //scwin.f_previewImg();
+};
+
+scwin.centerPreviewImage = function (retryCount) {
+    const currentRetry = retryCount || 0;
+    const viewport = grp_image_viewport && grp_image_viewport.render;
+    const imageElement = img_preview && img_preview.render;
+
+    if (!viewport || !imageElement) {
+        return;
+    }
+
+    const imageWidth = imageElement.naturalWidth || imageElement.scrollWidth || imageElement.width || 0;
+
+    if (!imageWidth) {
+        if (currentRetry >= 20) {
+            return;
+        }
+
+        $p.setTimeout(function (nextRetry) {
+            scwin.centerPreviewImage(nextRetry);
+        }, {
+            delay: 100,
+            args: [currentRetry + 1]
+        });
+        return;
+    }
+
+    viewport.scrollLeft = Math.max(0, (viewport.scrollWidth - viewport.clientWidth) / 2);
+    viewport.scrollTop = 0;
+};
+
+scwin.buildDownloadUrl = function (paramJson, flag) {
+    return scwin.FILE_DOWNLOAD_URL + "?" + new URLSearchParams({
+        path: scwin.buildStoredFileKey(paramJson.FILE_PATH, paramJson.FILE_NAME),
+        fileName: paramJson.FILE_NAME || "",
+        fileType: flag == "Link" ? "LINK" : "DOWN",
+        direct: "true",
+        fallback: "true",
+        PGM_ID: paramJson.PGM_ID || "",
+        CALLER_URL: paramJson.CALLER_URL || ""
+    }).toString();
+};
+
+scwin.buildPreviewParam = function (rowIndex) {
+    let tempData = scwin.filePath;
+    let filePath = tempData.substring(0,tempData.lastIndexOf("/")+1);
+    let fileNm = tempData.substring(tempData.lastIndexOf("/") + 1);
+
+    return {
+        "FILE_NAME" : fileNm,
+        "STORED_FILE_NAME" : scwin.fileName,
+        "FILE_PATH" : filePath,
+        "PGM_ID" : scwin.pgmId,
+        "CALLER_URL" : scwin.src,
+        "FILE_TYPE" : "LINK"
+    };
+};
+
+scwin.buildStoredFileKey = function (filePath, fileName) {
+    if (!filePath) {
+        return fileName;
+    }
+
+    if (filePath.endsWith(fileName)) {
+        return filePath;
+    }
+
+    if (filePath.endsWith("/")) {
+        return filePath + fileName;
+    }
+
+    return filePath + "/" + fileName;
+};
+
+scwin.f_Close = function() {
+    $c.win.closePopup();
+};
+
+//-------------------------------------------------------------------------
+// 이미지 미리보기
+//-------------------------------------------------------------------------
+scwin.f_previewImg = function() {
+    //다운로드
+    //img_preview.setSrc($c.gus.cfGetFileURL(scwin.fileName,scwin.filePath));
+};
+
+
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<xf:group class="flex_gvw" id="">
+    			<xf:group class="content" id="">
+    				<xf:group id="grp_image_viewport" style="flex:1; overflow:auto; min-height:0;">
+    					<xf:group id="" style="min-width:100%; min-height:100%; display:flex; justify-content:center; align-items:center;">
+    						<xf:image id="img_preview" src="" style="max-width:none; max-height:none; width:auto; height:auto; display:block;"></xf:image>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_Close">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

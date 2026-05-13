@@ -1,0 +1,1964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_orderSearch">
+                <w2:keyInfo>
+                    <w2:key id="odrNo" name="오더번호" dataType="text"></w2:key>
+                    <w2:key id="odrDtFrom" name="조회시작일" dataType="text"></w2:key>
+                    <w2:key id="odrDtTo" name="조회종료일" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_odrCommWrkPath" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="commSeq" name="품명순번" dataType="text"></w2:column>
+                    <w2:column id="commCd" name="품명코드" dataType="text"></w2:column>
+                    <w2:column id="commNm" name="품명" dataType="text"></w2:column>
+                    <w2:column id="ctrtClntNo" name="계약거래처번호" dataType="text"></w2:column>
+                    <w2:column id="ctrtClntNm" name="계약거래처명" dataType="text"></w2:column>
+                    <w2:column id="qtyUnitCd" name="수량단위코드" dataType="text"></w2:column>
+                    <w2:column id="unitCd" name="단위코드" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="GROSS중량" dataType="text"></w2:column>
+                    <w2:column id="cbm" name="CBM" dataType="text"></w2:column>
+                    <w2:column id="temper" name="온도" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtNo" name="계약번호" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathNm" name="계약작업경로명" dataType="text"></w2:column>
+                    <w2:column id="odrKndCd" name="오더종류번호" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlClsCd" name="출발작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlClsCd" name="도착작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlCd" name="도착작업장코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착작업장명" dataType="text"></w2:column>
+                    <w2:column id="dmndNo" name="수요가번호" dataType="text"></w2:column>
+                    <w2:column id="dmndNm" name="수요가명" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="odrDcsnYn" name="오더확정여부" dataType="text"></w2:column>
+                    <w2:column id="odrCompleteYn" name="오더완료여부" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathCnt" name="오더작업경로갯수" dataType="text"></w2:column>
+                    <w2:column id="autoOdrYn" name="자동오더여부" dataType="text"></w2:column>
+                    <w2:column id="impExpDomesticClsCd" name="수입수출내수구분코드" dataType="text"></w2:column>
+                    <w2:column id="wrkRsltsNo" name="벌크오더별작업지시번호" dataType="text"></w2:column>
+                    <w2:column id="sellYn" name="매출여부" dataType="text"></w2:column>
+                    <w2:column id="wrkRsltsYn" name="실적여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_ctrtWrkPath">
+                <w2:columnInfo>
+                    <w2:column id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathNm" name="계약작업경로명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataMap baseNode="map" id="dma_searchWrkStep">
+                <w2:keyInfo>
+                    <w2:key id="odrNo" name="오더번호" dataType="text"></w2:key>
+                    <w2:key id="commSeq" name="품명순번" dataType="text"></w2:key>
+                    <w2:key id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:key>
+                    <w2:key id="ctrtNo" name="계약번호" dataType="text"></w2:key>
+                    <w2:key id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_odrWrkPathStep" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="commSeq" name="품명순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathNm" name="작업경로명" dataType="text"></w2:column>
+                    <w2:column id="odrWrkStpSeq" name="오더작업단계순번" dataType="text"></w2:column>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="wrkPlClsCd" name="작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranCd" name="작업물류점소코드" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranNm" name="작업물류점소명" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlCd" name="도착작업장코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착작업장명" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptCd" name="매출귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptNm" name="매출귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_ctrtWrkPathStep" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="ctrtNo" name="계약번호" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathNm" name="계약작업경로명" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkStpSeq" name="계약작업단계순번" dataType="text"></w2:column>
+                    <w2:column id="wrkPlClsCd" name="작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="wrkPlClsNm" name="작업장구분명" dataType="text"></w2:column>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="wrkStpNm" name="작업단계명" dataType="text"></w2:column>
+                    <w2:column id="lobranCd" name="물류점소코드" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="물류점소명" dataType="text"></w2:column>
+                    <w2:column id="repWrkPlCd" name="대표작업장코드" dataType="text"></w2:column>
+                    <w2:column id="repWrkPlNm" name="대표작업장명" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="매출입항목코드" dataType="text"></w2:column>
+                    <w2:column id="selpchItemNm" name="매출입항목명" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_odrWrkPathStepDetail" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="commSeq" name="품명순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathNm" name="작업경로명" dataType="text"></w2:column>
+                    <w2:column id="odrWrkStpSeq" name="오더작업단계순번" dataType="text"></w2:column>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="wrkPlClsCd" name="작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="매출입항목코드" dataType="text"></w2:column>
+                    <w2:column id="selpchItemNm" name="매출입항목명" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranCd" name="작업물류점소코드" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranNm" name="작업물류점소명" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranNmOrg" name="작업물류점소명Org" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNmOrg" name="출발작업장명Org" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlCd" name="도착작업장코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착작업장명" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="vsslCdPortcnt" name="선명항차" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptCd" name="매출귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptNm" name="매출귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptNmOrg" name="매출귀속부서명Org" dataType="text"></w2:column>
+                    <w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathNm" name="계약작업경로명" dataType="text"></w2:column>
+                    <w2:column id="wrkStpNm" name="작업단계명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_odrWrkPathStepDetailTemp">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="commSeq" name="품명순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathNm" name="작업경로명" dataType="text"></w2:column>
+                    <w2:column id="odrWrkStpSeq" name="오더작업단계순번" dataType="text"></w2:column>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="wrkPlClsCd" name="작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="매출입항목코드" dataType="text"></w2:column>
+                    <w2:column id="selpchItemNm" name="매출입항목명" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranCd" name="작업물류점소코드" dataType="text"></w2:column>
+                    <w2:column id="wrkLobranNm" name="작업물류점소명" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNmOrg" name="출발작업장명Org" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlCd" name="도착작업장코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착작업장명" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptCd" name="매출귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="internalSellLodeptNm" name="매출귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="wrkDstClsCd" name="작업구간구분코드" dataType="text"></w2:column>
+                    <w2:column id="sellAdptYn" name="매출적용여부" dataType="text"></w2:column>
+                    <w2:column id="completeYn" name="완료여부" dataType="text"></w2:column>
+                    <w2:column id="completeDt" name="완료일자" dataType="text"></w2:column>
+                    <w2:column id="completeHh" name="완료시간" dataType="text"></w2:column>
+                    <w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_odrCommWrkPathTemp">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="commSeq" name="품명순번" dataType="text"></w2:column>
+                    <w2:column id="commCd" name="품명코드" dataType="text"></w2:column>
+                    <w2:column id="commNm" name="품명" dataType="text"></w2:column>
+                    <w2:column id="ctrtClntNo" name="계약거래처번호" dataType="text"></w2:column>
+                    <w2:column id="ctrtClntNm" name="계약거래처명" dataType="text"></w2:column>
+                    <w2:column id="qtyUnitCd" name="수량단위코드" dataType="text"></w2:column>
+                    <w2:column id="unitCd" name="단위코드" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="GROSS중량" dataType="text"></w2:column>
+                    <w2:column id="cbm" name="CBM" dataType="text"></w2:column>
+                    <w2:column id="temper" name="온도" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtNo" name="계약번호" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathSeq" name="계약작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="ctrtWrkPathNm" name="계약작업경로명" dataType="text"></w2:column>
+                    <w2:column id="odrKndCd" name="오더종류번호" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlClsCd" name="출발작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlClsCd" name="도착작업장구분코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlCd" name="도착작업장코드" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착작업장명" dataType="text"></w2:column>
+                    <w2:column id="dmndNo" name="수요가번호" dataType="text"></w2:column>
+                    <w2:column id="dmndNm" name="수요가명" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="impExpDomesticClsCd" name="수입수출내수구분코드" dataType="text"></w2:column>
+                    <w2:column id="wrkRsltsNo" name="실적번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataMap baseNode="map" id="dma_searchWrkPath">
+                <w2:keyInfo>
+                    <w2:key id="odrKndCd" name="오더종류" dataType="text"></w2:key>
+                    <w2:key id="ctrtNo" name="계약번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="dma_lobranQueryCondition">
+                <w2:keyInfo>
+                    <w2:key id="lobranCd" name="물류점소코드" dataType="text"></w2:key>
+                    <w2:key id="lobranClsCd" name="물류점소구분코드" dataType="text"></w2:key>
+                    <w2:key id="deptmentCd" name="부서조건" dataType="text"></w2:key>
+                    <w2:key id="useYn" name="사용여부" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_lobran">
+                <w2:columnInfo>
+                    <w2:column id="lobranCd" name="물류점소코드" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="물류점소명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_wrkPlClsCd">
+                <w2:columnInfo>
+                    <w2:column id="cd" name="코드" dataType="text"></w2:column>
+                    <w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+                    <w2:column id="fltrCd1" name="필터코드1" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_LkStepNo">
+                <w2:columnInfo>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="wrkStpNm" name="작업단계명" dataType="text"></w2:column>
+                    <w2:column id="topWrkStpCd" name="상위작업단계코드" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_orderSearch">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="odrDtFrom" name="조회시작일" dataType="text"></w2:column>
+                    <w2:column id="odrDtTo" name="조회종료일" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_save"
+            action="/tn.sd.odrmgnt.odrdtlinfo.UpdateWrkPathSeqCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_odrCommWrkPath","key":"IN_DS1"},{"id":"ds_odrWrkPathStepDetail","key":"IN_DS2"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieve"
+            action="/tn.sd.odrmgnt.odrdtlinfo.RetrieveOdrWrkPathCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_orderSearch","key":"IN_DS1"},{"id":"ds_odrCommWrkPath","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_odrCommWrkPath","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveCtrtWrkPath"
+            action="/tn.sd.odrmgnt.odrdtlinfo.RetrieveCtrtWrkPathCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_odrCommWrkPath","key":"IN_DS1"},{"id":"ds_ctrtWrkPath","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_ctrtWrkPath","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveCtrtWrkPath_submitdone"
+            ev:submiterror="scwin.sbm_retrieveCtrtWrkPath_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_searchWorkStep"
+            action="/tn.sd.odrmgnt.odrdtlinfo.RetrieveOdrWrkStepCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_searchWrkStep","key":"IN_DS1"},{"id":"ds_odrWrkPathStep","key":"OUT_DS1"},{"id":"ds_ctrtWrkPathStep","key":"OUT_DS2"}]'
+            target='data:json,[{"id":"ds_odrWrkPathStep","key":"OUT_DS1"},{"id":"ds_ctrtWrkPathStep","key":"OUT_DS2"}]'
+            ev:submitdone="scwin.sbm_searchWorkStep_submitdone"
+            ev:submiterror="scwin.sbm_searchWorkStep_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+scwin.wrkLobranCd = "";
+scwin.wrkLobranNm = "";
+scwin.internalSellLodeptCd = "";
+scwin.internalSellLodeptNm = "";
+scwin.wrkLobranCdRow = 0;
+scwin.vCurDate = "";
+scwin.lobranCd = "";
+scwin.lobranNm = "";
+scwin.odrNo = "";
+scwin.type = "";
+scwin.userId = "";
+scwin.hid_odrKndCd = "";
+scwin.hid_ctrtClntNo = "";
+scwin.hid_ctrtNo = "";
+scwin.hid_realMchtclntNo = "";
+scwin.hid_rowNo = "";
+scwin.hid_chkUseFilter = "true";
+scwin.hid_chkReterieve = "";
+scwin.hid_modId = "";
+scwin.hid_modDtm = "";
+scwin.v_row = 0;
+scwin.v_colid = "";
+
+scwin.ODR_KND_CD_IMP_CVSSL_BULK_ODR = "";
+scwin.ODR_KND_CD_IMP_GNRL_BULK_ODR = "";
+scwin.ODR_KND_CD_EXP_CVSSL_BULK_ODR = "";
+scwin.ODR_KND_CD_EXP_GNRL_BULK_ODR = "";
+scwin.SELPCH_ITEM_CD_NOSELL = "";
+scwin.TRANS_DEPARTMENT = "";
+scwin.YN_YES = "";
+scwin.YN_NO = "";
+scwin.IMP_CD = "";
+scwin.EXP_CD = "";
+scwin.WRK_PL_CLS_CD_DOOR = "";
+scwin.WRK_PL_CLS_CD_RGN = "";
+scwin.WRK_PL_CLS_CD_PIER = "";
+scwin.WRK_PL_CLS_CD_BERTH = "";
+scwin.WRK_PL_CLS_CD_RAILSTN = "";
+scwin.WRK_PL_CLS_CD_MARTRPIER = "";
+scwin.WRK_STP_CD_CGSHF = "";
+scwin.WRK_STP_CD_SHUTTLE = "";
+scwin.WRK_STP_CD_GROUND_TRANS = "";
+scwin.WRK_STP_CD_RAILROAD = "";
+scwin.WRK_STP_CD_MARTR = "";
+scwin.SELL_ITEM_CD_TRANS_RATE = "";
+scwin.BIZ_DOM_CD_TRANS = "";
+scwin.BIZ_DOM_CD_STV = "";
+scwin.BIZ_DOM_CD_STR = "";
+
+scwin.onpageload = function() {
+    scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+    scwin.lobranCd = $c.ses.getLobranCd();
+    scwin.lobranNm = $c.ses.getLobranNm();
+    scwin.userId = $c.ses.getUserId();
+    scwin.wrkLobranCd = scwin.lobranCd;
+    scwin.wrkLobranNm = scwin.lobranNm;
+
+    scwin.params = $c.data.getParameter();
+    if (scwin.params != null) {
+        scwin.odrNo = scwin.params["odrNo"] || "";
+        scwin.type = scwin.params["type"] || "";
+    }
+
+    // TODO: 서버 상수 조회 필요 - DsConstants, SdConstants 값을 서버에서 가져와 scwin 변수에 세팅
+    // scwin.ODR_KND_CD_IMP_CVSSL_BULK_ODR, scwin.SELPCH_ITEM_CD_NOSELL 등
+
+    scwin.f_defaultValue();
+
+    if (scwin.odrNo != "") {
+        lc_odrSearchGubun.setValue("1");
+        ed_odrNo.setValue(scwin.odrNo);
+        // TODO: lay_odrDt hide, lay_odrNo show - UI 가시성 제어
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.onUdcCompleted = function() {
+    udc_odrDt.setInitDate(scwin.vCurDate, scwin.vCurDate);
+};
+
+scwin.f_defaultValue = function() {
+    lc_odrSearchGubun.setSelectedIndex(0);
+
+    $c.gus.cfDisableObjects([btnInsertRow, btnDeleteRow, btnUndoMark, btnUpdate, btnSave]);
+
+    dma_orderSearch.set("odrNo", "");
+    dma_orderSearch.set("odrDtFrom", scwin.vCurDate);
+    dma_orderSearch.set("odrDtTo", scwin.vCurDate);
+
+    scwin.hid_ctrtClntNo = "";
+    scwin.hid_ctrtNo = "";
+    scwin.hid_realMchtclntNo = "";
+
+    dma_lobranQueryCondition.set("lobranCd", scwin.lobranCd);
+    dma_lobranQueryCondition.set("lobranClsCd", "T");
+    if (scwin.wrkLobranCd == "4A5") {
+        dma_lobranQueryCondition.set("deptmentCd", "5");
+    } else {
+        dma_lobranQueryCondition.set("deptmentCd", scwin.TRANS_DEPARTMENT);
+    }
+    dma_lobranQueryCondition.set("useYn", scwin.YN_YES);
+
+    scwin.hid_chkUseFilter = "true";
+
+    spa_totalRow.setValue(ds_odrCommWrkPath.getRowCount());
+    spa_totalRow2.setValue(ds_odrWrkPathStepDetail.getRowCount());
+
+    ed_odrNo.setFocus();
+};
+
+scwin.f_Retrieve = async function() {
+    let searchGubun = lc_odrSearchGubun.getValue();
+
+    if (searchGubun == "0") {
+        let dtFrom = dma_orderSearch.get("odrDtFrom");
+        let dtTo = dma_orderSearch.get("odrDtTo");
+        if (!dtFrom || !dtTo) {
+            let chk = await $c.gus.cfValidate([ed_odrDtFrom, ed_odrDtTo]);
+            if (!chk) return;
+        }
+
+        if (!$c.gus.cfIsAfterDate(dtFrom, dtTo)) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_048, ["오더기간 From", "오더기간 To"]);
+            return false;
+        }
+
+        let diffObj = $c.gus.cfDifferBetween(dtFrom, dtTo);
+        if (diffObj.year > 0 || diffObj.month > 0) {
+            let confirmResult = await $c.win.confirm("오더기간 이 1개월이 넘습니다.조회하시겠습니까?");
+            if (!confirmResult) {
+                return false;
+            }
+        }
+    } else {
+        let chk = await $c.gus.cfValidate([ed_odrNo]);
+        if (!chk) return;
+    }
+
+    let odrNoVal = ed_odrNo.getValue().replace(/\s*$/, '');
+    let odrDtFromVal = dma_orderSearch.get("odrDtFrom").replace(/\s*$/, '');
+    let odrDtToVal = dma_orderSearch.get("odrDtTo").replace(/\s*$/, '');
+
+    $c.gus.cfDisableObjects([btnInsertRow, btnDeleteRow, btnUndoMark]);
+    $c.gus.cfEnableBtnOnly([btnSave]);
+
+    ds_odrCommWrkPath.removeAll();
+    ds_ctrtWrkPath.removeAll();
+    ds_odrWrkPathStep.removeAll();
+    ds_ctrtWrkPathStep.removeAll();
+
+    spa_totalRow.setValue(0);
+    spa_totalRow2.setValue(0);
+
+    ds_odrWrkPathStepDetail.removeAll();
+    ds_odrWrkPathStepDetailTemp.removeAll();
+
+    // TODO: ds_wrkPlClsCd.Reset() / ds_LkStepNo.Reset() - lookup DataSet 재조회
+
+    dma_orderSearch.set("odrNo", odrNoVal);
+    dma_orderSearch.set("odrDtFrom", odrDtFromVal);
+    dma_orderSearch.set("odrDtTo", odrDtToVal);
+
+    await $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.f_FieldClear = function() {
+    ed_odrNo.setValue("");
+    ed_odrNo.setFocus();
+};
+
+scwin.f_RetrieveWorkStep = async function() {
+    if (dma_searchWrkStep.get("ctrtWrkPathSeq") == "0" || dma_searchWrkStep.get("ctrtWrkPathSeq") == "") {
+        return;
+    }
+    await $c.sbm.execute(sbm_searchWorkStep);
+};
+
+scwin.f_InsertRow = async function() {
+    let curRow = ds_odrWrkPathStepDetail.getRowPosition();
+    let v_tempSeq = Math.floor(parseInt(ds_odrWrkPathStepDetail.getCellData(curRow, "odrWrkStpSeq")) / 10) * 10;
+    if (scwin.f_checkOdrWrkStpSeq(ds_odrWrkPathStepDetail, v_tempSeq)) {
+        ds_odrWrkPathStepDetail.insertRow(curRow + 1);
+        scwin.f_CopyDataRow(ds_odrWrkPathStepDetail, curRow, curRow + 1);
+        scwin.f_checkWorkStepEditMode(curRow + 1);
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_055, ["작업단계"]);
+        return;
+    }
+};
+
+scwin.f_AddRow = function() {
+    let curRow = ds_odrWrkPathStepDetail.getRowPosition();
+    let v_tempSeq = Math.floor(parseInt(ds_odrWrkPathStepDetail.getCellData(curRow, "odrWrkStpSeq")) / 10) * 10;
+    if (scwin.f_checkOdrWrkStpSeq(ds_odrWrkPathStepDetail, v_tempSeq)) {
+        ds_odrWrkPathStepDetail.insertRow(ds_odrWrkPathStepDetail.getRowCount());
+    }
+    let newRow = ds_odrWrkPathStepDetail.getRowCount() - 1;
+    scwin.f_CopyDataRow(ds_odrWrkPathStepDetail, newRow - 1, newRow);
+    scwin.f_checkWorkStepEditMode(newRow);
+};
+
+scwin.f_DeleteRow = function() {
+    let curRow = ds_odrWrkPathStepDetail.getRowPosition();
+    ds_odrWrkPathStepDetail.removeRow(curRow);
+    let newCurRow = ds_odrWrkPathStepDetail.getRowPosition();
+    if (newCurRow >= 0) {
+        let v_tempSeq = Math.floor(parseInt(ds_odrWrkPathStepDetail.getCellData(newCurRow, "odrWrkStpSeq")) / 10) * 10;
+        scwin.f_refreshOdrWrkStpSeq(ds_odrWrkPathStepDetail, v_tempSeq);
+        scwin.f_checkWorkStepEditMode(newCurRow);
+    }
+};
+
+scwin.f_UndoRow = function() {
+    let curRow = ds_odrWrkPathStepDetail.getRowPosition();
+    ds_odrWrkPathStepDetail.undoRow(curRow);
+    let v_tempSeq = Math.floor(parseInt(ds_odrWrkPathStepDetail.getCellData(curRow, "odrWrkStpSeq")) / 10) * 10;
+    scwin.f_refreshOdrWrkStpSeq(ds_odrWrkPathStepDetail, v_tempSeq);
+    scwin.f_checkWorkStepEditMode(curRow);
+};
+
+scwin.f_CopyDataRow = function(dataObject, sourceRow, targetRow) {
+    let v_odrWrkStpSeq = parseInt(dataObject.getCellData(sourceRow, "odrWrkStpSeq"));
+    let v_tempSeq = Math.floor(v_odrWrkStpSeq / 10) * 10;
+    let colCount = dataObject.getColumnCount();
+    for (let i = 0; i < colCount; i++) {
+        let colId = dataObject.getColumnID(i);
+        if (colId == "odrWrkStpSeq") {
+            dataObject.setCellData(targetRow, colId, parseInt(dataObject.getCellData(sourceRow, colId)) + 1);
+        } else if (colId == "wrkPlClsCd" || colId == "wrkStpCd"
+            || colId == "dptWrkPlCd" || colId == "dptWrkPlNm"
+            || colId == "arvWrkPlCd" || colId == "arvWrkPlNm"
+            || colId == "wrkLobranCd" || colId == "wrkLobranNm"
+            || colId == "wrkStDt" || colId == "wrkStHh"
+            || colId == "wrkEndDt" || colId == "wrkEndHh"
+            || colId == "internalSellLodeptCd" || colId == "internalSellLodeptNm"
+            || colId == "bizDomCd" || colId == "completeYn") {
+            // 빈값 유지
+        } else if (colId == "selpchItemCd") {
+            dataObject.setCellData(targetRow, colId, scwin.SELPCH_ITEM_CD_NOSELL);
+        } else if (colId == "selpchItemNm") {
+            dataObject.setCellData(targetRow, colId, "무매출");
+        } else {
+            dataObject.setCellData(targetRow, colId, dataObject.getCellData(sourceRow, colId));
+        }
+    }
+    scwin.f_refreshOdrWrkStpSeq(dataObject, v_tempSeq);
+};
+
+scwin.f_checkOdrWrkStpSeq = function(dataObject, v_tempSeq) {
+    for (let j = 0; j < dataObject.getRowCount(); j++) {
+        let seqVal = parseInt(dataObject.getCellData(j, "odrWrkStpSeq"));
+        let v_compSeq = seqVal - v_tempSeq;
+        if (Math.floor(seqVal / 10) * 10 == v_tempSeq && v_compSeq >= 9) {
+            return false;
+        }
+    }
+    return true;
+};
+
+scwin.f_refreshOdrWrkStpSeq = function(dataObject, v_tempSeq) {
+    for (let j = 0; j < dataObject.getRowCount(); j++) {
+        let seqVal = parseInt(dataObject.getCellData(j, "odrWrkStpSeq"));
+        let v_compSeq = seqVal - v_tempSeq;
+        if (seqVal > v_tempSeq && v_compSeq > 0 && v_compSeq < 10) {
+            if (j > 0) {
+                dataObject.setCellData(j, "odrWrkStpSeq", parseInt(dataObject.getCellData(j - 1, "odrWrkStpSeq")) + 1);
+            }
+        }
+    }
+};
+
+scwin.f_Update = function() {
+    $c.gus.cfDisableBtnOnly([btnUpdate]);
+    $c.gus.cfEnableBtnOnly([btnSave]);
+
+    gr_odrCommWrkPath.setReadOnly("grid", false);
+    gr_odrWrkPathStpDetail.setReadOnly("grid", false);
+
+    if (ds_odrWrkPathStep.getRowCount() > 0) {
+        gr_odrWrkPathStpDetail.setColumnProp("selpchItemNm", "readOnly", true);
+        $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+    }
+
+    gr_odrWrkPathStpDetail.setFocusedCell(ds_odrWrkPathStepDetail.getRowPosition(), "dptWrkPlNm");
+    scwin.v_row = ds_odrWrkPathStepDetail.getRowPosition();
+    scwin.v_colid = "dptWrkPlNm";
+
+    let odrCommWrkPathRow = ds_odrCommWrkPath.getRowPosition();
+    if (odrCommWrkPathRow >= 0 && btnUpdate.getDisabled()) {
+        if (scwin.f_chkResultsConfirmationCommodity(odrCommWrkPathRow)) {
+            gr_odrCommWrkPath.setReadOnly("grid", true);
+            gr_odrWrkPathStpDetail.setReadOnly("grid", true);
+            $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        } else {
+            gr_odrCommWrkPath.setReadOnly("grid", false);
+            gr_odrWrkPathStpDetail.setReadOnly("grid", false);
+            $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        }
+    }
+
+    scwin.f_checkWorkStepEditMode(ds_odrWrkPathStepDetail.getRowPosition());
+};
+
+scwin.f_Save = async function() {
+    for (let i = 0; i < ds_odrWrkPathStepDetail.getRowCount(); i++) {
+        let wrkStDt = ds_odrWrkPathStepDetail.getCellData(i, "wrkStDt");
+        let wrkStHh = ds_odrWrkPathStepDetail.getCellData(i, "wrkStHh");
+        let wrkEndDt = ds_odrWrkPathStepDetail.getCellData(i, "wrkEndDt");
+        let wrkEndHh = ds_odrWrkPathStepDetail.getCellData(i, "wrkEndHh");
+
+        if ($c.gus.cfIsNull(wrkStDt)) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["작업시작일자"]);
+            return false;
+        }
+        if ($c.gus.cfIsNull(wrkStHh)) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["작업시작시간"]);
+            return false;
+        }
+        if ($c.gus.cfIsNull(wrkEndDt)) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["작업종료일자"]);
+            return false;
+        }
+        if ($c.gus.cfIsNull(wrkEndHh)) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["작업종료시간"]);
+            return false;
+        }
+    }
+
+    if (ds_odrCommWrkPath.getRowCount() > 0) {
+        let firstCtrtWrkPathSeq = parseInt(ds_odrCommWrkPath.getCellData(0, "ctrtWrkPathSeq"));
+        if (firstCtrtWrkPathSeq <= 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_007, ["작업경로"]);
+            gr_odrCommWrkPath.setFocusedCell(0, "ctrtWrkPathSeq");
+            return;
+        }
+    }
+
+    for (let i = 0; i < ds_odrWrkPathStepDetail.getRowCount(); i++) {
+        if (ds_odrWrkPathStepDetail.getCellData(i, "wrkPlClsCd").trim() == "" && i > 0) {
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "dptWrkPlCd")))
+                ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i - 1, "dptWrkPlCd"));
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "arvWrkPlCd")) && i + 1 < ds_odrWrkPathStepDetail.getRowCount())
+                ds_odrWrkPathStepDetail.setCellData(i, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"));
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "arvWrkPlNm")) && i + 1 < ds_odrWrkPathStepDetail.getRowCount())
+                ds_odrWrkPathStepDetail.setCellData(i, "arvWrkPlNm", ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlNm"));
+        }
+    }
+
+    let chkGrid = await $c.gus.cfValidate([gr_odrWrkPathStpDetail]);
+    if (!chkGrid) return;
+
+    for (let idx = 0; idx < ds_odrWrkPathStepDetail.getRowCount(); idx++) {
+        if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(idx, "wrkPlClsCd").trim()) && $c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(idx, "dptWrkPlCd").trim())) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_007, ["작업장"]);
+            gr_odrWrkPathStpDetail.setFocusedCell(idx, "dptWrkPlNm");
+            return false;
+        }
+
+        if (ds_odrWrkPathStepDetail.getCellData(idx, "selpchItemCd") != scwin.SELPCH_ITEM_CD_NOSELL) {
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(idx, "wrkLobranCd").trim())) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_007, ["작업점소"]);
+                gr_odrWrkPathStpDetail.setFocusedCell(idx, "wrkLobranNm");
+                return false;
+            }
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(idx, "internalSellLodeptCd").trim())) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_007, ["매출귀속부서"]);
+                gr_odrWrkPathStpDetail.setFocusedCell(idx, "internalSellLodeptNm");
+                return false;
+            }
+        }
+    }
+
+    let chkAll = await $c.gus.cfValidate([gr_odrCommWrkPath, gr_odrWrkPathStpDetail]);
+    if (!chkAll) return;
+
+    // TODO: f_chkOdrWrkPathStep 로직 - 선택되지 않은 작업단계 삭제 등 복잡한 저장 전처리
+    scwin.f_chkOdrWrkPathStep();
+
+    let confirmResult = await $c.gus.cfConfirmMsg(MSG_CM_CRM_001, ["작업단계정보"]);
+    if (confirmResult) {
+        await $c.sbm.execute(sbm_save);
+    }
+};
+
+scwin.f_validChk = async function() {
+    let chk = await $c.gus.cfValidate([gr_odrCommWrkPath, gr_odrWrkPathStpDetail]);
+    if (chk) {
+        for (let idx = 0; idx < ds_odrCommWrkPath.getRowCount(); idx++) {
+            if (parseInt(ds_odrCommWrkPath.getCellData(idx, "ctrtWrkPathSeq")) <= 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_007, ["작업경로"]);
+                return false;
+            }
+        }
+        return true;
+    } else {
+        return false;
+    }
+};
+
+scwin.f_openCommPopUpGrid = function(disGubun, row, pCode, pName, pClose, pAllSearch) {
+    let rtnList = null;
+    let chkValue = false;
+
+    switch (disGubun) {
+        case 1:
+            rtnList = $c.gus.cfCommonPopUp('retrieveLogisDeptInfo_tpro', pName, pCode, pClose, null, null, null, null, "A,B", null, null, null, null, null, pAllSearch, "작업점소,점소코드/명", null, null);
+            if (rtnList != null) {
+                if (rtnList[0].trim() != "N/A") {
+                    ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", rtnList[0]);
+                    ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", rtnList[1]);
+                    ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNmOrg", rtnList[1]);
+                }
+                chkValue = true;
+            } else {
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNmOrg", "");
+            }
+            break;
+
+        case 2:
+            let pWrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim();
+            let pWhere2 = pWrkPlClsCd;
+            pCode = ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlCd");
+            pName = ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlNm");
+
+            rtnList = $c.gus.cfCommonPopUp('retrieveWrkPlInfo_tpro', pName, pCode, pClose, null, null, null, null, pWhere2, null, null, null, null, null, pAllSearch, "작업장,작업장코드/명", null, null);
+            if (rtnList != null) {
+                if (rtnList[0].trim() != "N/A") {
+                    ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", rtnList[0]);
+                    ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", rtnList[1]);
+                    ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNmOrg", rtnList[1]);
+                }
+                chkValue = true;
+            } else {
+                ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNmOrg", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNmOrg", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNmOrg", "");
+            }
+            break;
+
+        case 3:
+            let pWhere3 = "T,J,,,,T,1";
+            rtnList = $c.gus.cfCommonPopUp('retrieveLogisDeptInfo_tpro', pName, pCode, pClose, null, null, null, null, pWhere3, null, null, null, null, null, pAllSearch, "매출귀속부서,부서코드/명", null, null);
+            if (rtnList != null) {
+                if (rtnList[0].trim() != "N/A") {
+                    ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", rtnList[0]);
+                    ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", rtnList[1]);
+                    ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNmOrg", rtnList[1]);
+                }
+                chkValue = true;
+            } else {
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", "");
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNmOrg", "");
+            }
+            break;
+
+        case 5:
+            let ctrtNo5 = ds_odrCommWrkPath.getCellData(ds_odrCommWrkPath.getRowPosition(), "ctrtNo");
+            let odrKndCd5 = ds_odrCommWrkPath.getCellData(ds_odrCommWrkPath.getRowPosition(), "odrKndCd");
+            let pWhere5 = ctrtNo5 + "," + odrKndCd5;
+            rtnList = $c.gus.cfCommonPopUp('retrieveCtrtWrkPath_tpro', pCode, pName, pClose, null, null, null, null, pWhere5, null, null, null, null, null, pAllSearch, "작업경로,작업경로명,작업경로명", null, null);
+            if (rtnList != null) {
+                if (rtnList[0].trim() != "N/A") {
+                    ds_odrCommWrkPath.setCellData(row, "ctrtWrkPathSeq", rtnList[0]);
+                    ds_odrCommWrkPath.setCellData(row, "ctrtWrkPathNm", rtnList[1]);
+                }
+                chkValue = true;
+            } else {
+                ds_odrCommWrkPath.setCellData(row, "ctrtWrkPathSeq", "");
+                ds_odrCommWrkPath.setCellData(row, "ctrtWrkPathNm", "");
+            }
+            break;
+
+        default:
+            break;
+    }
+
+    scwin.f_copyTempDataSet();
+    return chkValue;
+};
+
+scwin.f_setWorkPathStepDetail = async function() {
+    scwin.wrkLobranCd = scwin.lobranCd;
+    scwin.wrkLobranNm = scwin.lobranNm;
+
+    if (scwin.userId == "040239") {
+        scwin.internalSellLodeptCd = "4A5";
+        scwin.internalSellLodeptNm = "인천제강운송";
+    } else {
+        if (ds_lobran.getRowCount() > 0) {
+            scwin.internalSellLodeptCd = ds_lobran.getCellData(ds_lobran.getRowPosition(), "lobranCd");
+            scwin.internalSellLodeptNm = ds_lobran.getCellData(ds_lobran.getRowPosition(), "lobranNm");
+        }
+    }
+    scwin.wrkLobranCdRow = 0;
+
+    let curPos = ds_odrCommWrkPath.getRowPosition();
+    if (ds_odrWrkPathStep.getRowCount() > 0 && ds_odrCommWrkPath.getCellData(curPos, "ctrtWrkPathSeq") == ds_odrCommWrkPath.getOriginalCellData(curPos, "ctrtWrkPathSeq")) {
+        scwin.f_setOdrWrkPathStepToWrkPathStepDetail();
+    } else if (ds_ctrtWrkPathStep.getRowCount() > 0) {
+        scwin.f_setCtrtWrkPathStepToWrkPathStepDetail();
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        return;
+    }
+
+    ds_odrWrkPathStepDetail.setRowPosition(0);
+
+    $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+    scwin.f_checkWorkStepEditMode(ds_odrWrkPathStepDetail.getRowPosition());
+};
+
+scwin.f_setOdrWrkPathStepToWrkPathStepDetail = function() {
+    // TODO: ImportData/ExportData 대응 - ds_odrWrkPathStep 데이터를 ds_odrWrkPathStepDetail로 복사
+    for (let i = 0; i < ds_odrWrkPathStep.getRowCount(); i++) {
+        ds_odrWrkPathStepDetail.insertRow(ds_odrWrkPathStepDetail.getRowCount());
+        let newRow = ds_odrWrkPathStepDetail.getRowCount() - 1;
+        let colCount = ds_odrWrkPathStep.getColumnCount();
+        for (let c = 0; c < colCount; c++) {
+            let colId = ds_odrWrkPathStep.getColumnID(c);
+            try {
+                ds_odrWrkPathStepDetail.setCellData(newRow, colId, ds_odrWrkPathStep.getCellData(i, colId));
+            } catch(e) {}
+        }
+    }
+
+    for (let i = 0; i < ds_odrWrkPathStepDetail.getRowCount(); i++) {
+        if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "wrkPlClsCd").trim())) {
+            ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlNm", "");
+            ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlNmOrg", "");
+        }
+        if (ds_odrWrkPathStepDetail.getCellData(i, "selpchItemCd") == scwin.SELPCH_ITEM_CD_NOSELL) {
+            ds_odrWrkPathStepDetail.setCellData(i, "wrkLobranCd", "");
+            ds_odrWrkPathStepDetail.setCellData(i, "wrkLobranNm", "");
+            ds_odrWrkPathStepDetail.setCellData(i, "internalSellLodeptCd", "");
+            ds_odrWrkPathStepDetail.setCellData(i, "internalSellLodeptNm", "");
+            ds_odrWrkPathStepDetail.setCellData(i, "internalSellLodeptNmOrg", "");
+        }
+    }
+};
+
+scwin.f_setCtrtWrkPathStepToWrkPathStepDetail = function() {
+    let curPos = ds_odrCommWrkPath.getRowPosition();
+    let wrkStDtVal = ds_odrCommWrkPath.getCellData(curPos, "wrkStDt");
+    let wrkStHhVal = ds_odrCommWrkPath.getCellData(curPos, "wrkStHh");
+    let wrkEndDtVal = ds_odrCommWrkPath.getCellData(curPos, "wrkEndDt");
+    let wrkEndHhVal = ds_odrCommWrkPath.getCellData(curPos, "wrkEndHh");
+
+    for (let i = 0; i < ds_ctrtWrkPathStep.getRowCount(); i++) {
+        ds_odrWrkPathStepDetail.insertRow(ds_odrWrkPathStepDetail.getRowCount());
+        let newRow = ds_odrWrkPathStepDetail.getRowCount() - 1;
+
+        ds_odrWrkPathStepDetail.setCellData(newRow, "odrNo", ds_odrCommWrkPath.getCellData(curPos, "odrNo"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "commSeq", ds_odrCommWrkPath.getCellData(curPos, "commSeq"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "odrWrkPathSeq", ds_odrCommWrkPath.getCellData(curPos, "odrWrkPathSeq"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "ctrtWrkPathSeq", ds_odrCommWrkPath.getCellData(curPos, "ctrtWrkPathSeq"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "odrWrkPathNm", ds_ctrtWrkPathStep.getCellData(i, "ctrtWrkPathNm"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "odrWrkStpSeq", ds_ctrtWrkPathStep.getCellData(i, "ctrtWrkStpSeq"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "wrkPlClsCd", ds_ctrtWrkPathStep.getCellData(i, "wrkPlClsCd"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "bizDomCd", ds_ctrtWrkPathStep.getCellData(i, "bizDomCd"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "wrkStpCd", ds_ctrtWrkPathStep.getCellData(i, "wrkStpCd"));
+        try { ds_odrWrkPathStepDetail.setCellData(newRow, "wrkStpNm", ds_ctrtWrkPathStep.getCellData(i, "wrkStpNm")); } catch(e) {}
+        ds_odrWrkPathStepDetail.setCellData(newRow, "selpchItemCd", ds_ctrtWrkPathStep.getCellData(i, "selpchItemCd"));
+        ds_odrWrkPathStepDetail.setCellData(newRow, "selpchItemNm", ds_ctrtWrkPathStep.getCellData(i, "selpchItemNm"));
+
+        // TODO: 작업시작/종료 일시 계산 로직 (Date 연산)
+        ds_odrWrkPathStepDetail.setCellData(newRow, "wrkStDt", wrkStDtVal);
+        ds_odrWrkPathStepDetail.setCellData(newRow, "wrkStHh", wrkStHhVal);
+        ds_odrWrkPathStepDetail.setCellData(newRow, "wrkEndDt", wrkEndDtVal);
+        ds_odrWrkPathStepDetail.setCellData(newRow, "wrkEndHh", wrkEndHhVal);
+
+        try {
+            ds_odrWrkPathStepDetail.setCellData(newRow, "vsslCd", ds_ctrtWrkPathStep.getCellData(i, "vsslCd"));
+            ds_odrWrkPathStepDetail.setCellData(newRow, "vsslNm", ds_ctrtWrkPathStep.getCellData(i, "vsslNm"));
+            ds_odrWrkPathStepDetail.setCellData(newRow, "portcnt", ds_ctrtWrkPathStep.getCellData(i, "portcnt"));
+        } catch(e) {}
+    }
+
+    scwin.f_setOdrWrkPathStepDptArv();
+    scwin.f_setWorkStepInfoRefresh();
+};
+
+scwin.f_chkOdrWrkPathStep = function() {
+    // TODO: 저장 전 선택되지 않은 작업단계 삭제 로직 - 원본 f_chkOdrWrkPathStep 참조
+    // 복잡한 다중 루프 삭제 로직으로 서버 저장 전 데이터 정리 수행
+};
+
+scwin.f_chkResultsConfirmationCommodity = function(row) {
+    if (row >= 0) {
+        if (!$c.gus.cfIsNull(ds_odrCommWrkPath.getCellData(row, "wrkRsltsNo").trim())) {
+            return true;
+        }
+    }
+    return false;
+};
+
+scwin.f_setOdrWrkPathStepDptArv = function() {
+    // TODO: 출도착지 설정 로직 - 수입/수출/내수 구분에 따른 작업단계 출발/도착 작업장 자동 설정
+    // 원본 f_setOdrWrkPathStepDptArv 참조 - 매우 복잡한 분기 로직
+};
+
+scwin.f_setWorkStepInfoRefresh = function() {
+    for (let i = 0; i < ds_odrWrkPathStepDetail.getRowCount(); i++) {
+        if (i == 0) {
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "wrkPlClsCd").trim()) && i + 1 < ds_odrWrkPathStepDetail.getRowCount() && !$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd")))
+                ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"));
+        }
+
+        if (i > 0) {
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i - 1, "wrkPlClsCd").trim())) {
+                if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i - 1, "arvWrkPlCd")))
+                    ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i - 1, "arvWrkPlCd"));
+            }
+
+            if (ds_odrWrkPathStepDetail.getCellData(i, "wrkPlClsCd").trim() == ds_odrWrkPathStepDetail.getCellData(i - 1, "wrkPlClsCd").trim()) {
+                if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "dptWrkPlCd"))) {
+                    ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i - 1, "dptWrkPlCd"));
+                    ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlNm", ds_odrWrkPathStepDetail.getCellData(i - 1, "dptWrkPlNm"));
+                }
+                if (ds_odrWrkPathStepDetail.getCellData(i, "wrkStpCd").trim() == scwin.WRK_STP_CD_CGSHF) {
+                    if (i + 1 < ds_odrWrkPathStepDetail.getRowCount() && !$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"))) {
+                        ds_odrWrkPathStepDetail.setCellData(i, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"));
+                    }
+                }
+            } else if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "wrkPlClsCd").trim())) {
+                ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i - 1, "dptWrkPlCd"));
+                if (i + 1 < ds_odrWrkPathStepDetail.getRowCount()) {
+                    if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd")))
+                        ds_odrWrkPathStepDetail.setCellData(i, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"));
+                }
+            } else {
+                if (ds_odrWrkPathStepDetail.getCellData(i, "wrkStpCd").trim() == scwin.WRK_STP_CD_CGSHF) {
+                    if (i + 1 < ds_odrWrkPathStepDetail.getRowCount() && !$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"))) {
+                        ds_odrWrkPathStepDetail.setCellData(i, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i + 1, "dptWrkPlCd"));
+                    }
+                }
+            }
+        }
+
+        if (i == ds_odrWrkPathStepDetail.getRowCount() - 1) {
+            if (i > 0 && $c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i - 1, "wrkPlClsCd").trim())) {
+                if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i - 1, "arvWrkPlCd")))
+                    ds_odrWrkPathStepDetail.setCellData(i, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i - 1, "arvWrkPlCd"));
+            }
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(i, "wrkPlClsCd").trim()))
+                ds_odrWrkPathStepDetail.setCellData(i, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(i, "dptWrkPlCd"));
+        }
+
+        scwin.f_setOdrWorkStepWorkLobranInternalSellLodept(i);
+    }
+
+    for (let j = ds_odrWrkPathStepDetail.getRowCount() - 1; j >= 0; j--) {
+        if (j >= 0 && j < ds_odrWrkPathStepDetail.getRowCount() - 1) {
+            if (ds_odrWrkPathStepDetail.getCellData(j, "wrkPlClsCd").trim() == ds_odrWrkPathStepDetail.getCellData(j + 1, "wrkPlClsCd").trim()) {
+                if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(j, "dptWrkPlCd"))) {
+                    ds_odrWrkPathStepDetail.setCellData(j, "dptWrkPlCd", ds_odrWrkPathStepDetail.getCellData(j + 1, "dptWrkPlCd"));
+                    ds_odrWrkPathStepDetail.setCellData(j, "dptWrkPlNm", ds_odrWrkPathStepDetail.getCellData(j + 1, "dptWrkPlNm"));
+                }
+            }
+            if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(j, "wrkPlClsCd").trim()) && j < ds_odrWrkPathStepDetail.getRowCount() - 1) {
+                ds_odrWrkPathStepDetail.setCellData(j, "dptWrkPlNm", "");
+                ds_odrWrkPathStepDetail.setCellData(j, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(j + 1, "dptWrkPlCd"));
+            }
+            if (ds_odrWrkPathStepDetail.getCellData(j, "wrkStpCd").trim() == scwin.WRK_STP_CD_CGSHF) {
+                if (j + 1 < ds_odrWrkPathStepDetail.getRowCount() && !$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(j + 1, "dptWrkPlCd"))) {
+                    if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(j, "arvWrkPlCd")))
+                        ds_odrWrkPathStepDetail.setCellData(j, "arvWrkPlCd", ds_odrWrkPathStepDetail.getCellData(j + 1, "dptWrkPlCd"));
+                }
+            }
+        }
+        scwin.f_setOdrWorkStepWorkLobranInternalSellLodept(j);
+    }
+
+    scwin.f_copyTempDataSet();
+};
+
+scwin.f_copyTempDataSet = function() {
+    let curPos = ds_odrCommWrkPath.getRowPosition();
+    if (curPos < 0) return;
+    let v_commSeq = ds_odrCommWrkPath.getCellData(curPos, "commSeq");
+    let v_odrWrkPathSeq = ds_odrCommWrkPath.getCellData(curPos, "odrWrkPathSeq");
+    let v_ctrtWrkPathSeq = ds_odrCommWrkPath.getCellData(curPos, "ctrtWrkPathSeq");
+
+    scwin.f_CopyDataSetOdrCommWrkPath(ds_odrCommWrkPath, ds_odrCommWrkPathTemp);
+
+    ds_odrWrkPathStepDetailTemp.removeAll();
+    scwin.f_CopyDataSetValue(ds_odrWrkPathStepDetail, ds_odrWrkPathStepDetailTemp);
+};
+
+scwin.f_CopyDataSetValue = function(ds1, ds2) {
+    let curPos = ds_odrCommWrkPath.getRowPosition();
+    if (curPos < 0) return;
+    let v_commSeq = ds_odrCommWrkPath.getCellData(curPos, "commSeq");
+    let v_odrWrkPathSeq = ds_odrCommWrkPath.getCellData(curPos, "odrWrkPathSeq");
+    let v_ctrtWrkPathSeq = ds_odrCommWrkPath.getCellData(curPos, "ctrtWrkPathSeq");
+
+    for (let i = 0; i < ds1.getRowCount(); i++) {
+        ds2.insertRow(ds2.getRowCount());
+        let newRow = ds2.getRowCount() - 1;
+        let colCount = ds1.getColumnCount();
+        for (let j = 0; j < colCount; j++) {
+            let colId = ds1.getColumnID(j);
+            switch (colId) {
+                case "commSeq":
+                    ds2.setCellData(newRow, colId, v_commSeq);
+                    break;
+                case "odrWrkPathSeq":
+                    ds2.setCellData(newRow, colId, v_odrWrkPathSeq);
+                    break;
+                case "ctrtWrkPathSeq":
+                    ds2.setCellData(newRow, colId, v_ctrtWrkPathSeq);
+                    break;
+                default:
+                    try {
+                        ds2.setCellData(newRow, colId, ds1.getCellData(i, colId));
+                    } catch(e) {}
+                    break;
+            }
+        }
+    }
+};
+
+scwin.f_checkWorkStepEditMode = function(row) {
+    if (row == undefined || row == null) row = ds_odrWrkPathStepDetail.getRowPosition();
+    if (row < 0) return;
+
+    // TODO: gr_odrWrkPathStpDetail.Editable 체크 → readOnly 상태 확인
+    if (row == 0) {
+        $c.gus.cfEnableBtnOnly([btnInsertRow]);
+        $c.gus.cfDisableBtnOnly([btnDeleteRow, btnUndoMark]);
+        return false;
+    }
+
+    let v_odrWrkStpSeq = parseInt(ds_odrWrkPathStepDetail.getCellData(row, "odrWrkStpSeq"));
+
+    if (v_odrWrkStpSeq == 10) {
+        $c.gus.cfEnableBtnOnly([btnInsertRow]);
+        $c.gus.cfDisableBtnOnly([btnDeleteRow, btnUndoMark]);
+        return false;
+    }
+
+    if (row == ds_odrWrkPathStepDetail.getRowCount() - 1) {
+        $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        return false;
+    }
+
+    if (v_odrWrkStpSeq % 10 == 0) {
+        if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim())) {
+            let wrkStpCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkStpCd");
+            if (wrkStpCd == scwin.WRK_STP_CD_SHUTTLE || wrkStpCd == scwin.WRK_STP_CD_GROUND_TRANS) {
+                $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+                return false;
+            } else {
+                $c.gus.cfDisableBtnOnly([btnDeleteRow, btnUndoMark]);
+                if (row + 1 < ds_odrWrkPathStepDetail.getRowCount()) {
+                    let nextWrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row + 1, "wrkPlClsCd");
+                    let nextSeq = parseInt(ds_odrWrkPathStepDetail.getCellData(row + 1, "odrWrkStpSeq"));
+                    if ((nextWrkPlClsCd == scwin.WRK_PL_CLS_CD_DOOR || nextWrkPlClsCd == scwin.WRK_PL_CLS_CD_RAILSTN || nextWrkPlClsCd == scwin.WRK_PL_CLS_CD_MARTRPIER) && nextSeq % 10 == 0) {
+                        $c.gus.cfDisableBtnOnly([btnInsertRow, btnUndoMark]);
+                        return false;
+                    }
+                }
+                $c.gus.cfEnableBtnOnly([btnInsertRow]);
+                return false;
+            }
+        }
+
+        let curWrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd");
+        if (curWrkPlClsCd == scwin.WRK_PL_CLS_CD_DOOR || curWrkPlClsCd == scwin.WRK_PL_CLS_CD_RAILSTN || curWrkPlClsCd == scwin.WRK_PL_CLS_CD_MARTRPIER) {
+            if (row + 1 < ds_odrWrkPathStepDetail.getRowCount()) {
+                let nextWrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row + 1, "wrkPlClsCd");
+                let nextSeq = parseInt(ds_odrWrkPathStepDetail.getCellData(row + 1, "odrWrkStpSeq"));
+                if ($c.gus.cfIsNull(nextWrkPlClsCd.trim()) && nextSeq % 10 == 0) {
+                    $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+                    return false;
+                }
+            }
+            $c.gus.cfDisableBtnOnly([btnDeleteRow, btnUndoMark]);
+            $c.gus.cfEnableBtnOnly([btnInsertRow]);
+            return false;
+        }
+
+        $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        return false;
+    } else {
+        $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        return false;
+    }
+};
+
+scwin.f_setOdrWorkStepWorkLobranInternalSellLodept = function(row) {
+    if (row < 0 || row >= ds_odrWrkPathStepDetail.getRowCount()) return;
+
+    if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim())) {
+        if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkLobranCd"))) {
+            ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", scwin.wrkLobranCd);
+            ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", scwin.wrkLobranNm);
+            ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNmOrg", scwin.wrkLobranNm);
+            ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", scwin.internalSellLodeptCd);
+            ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", scwin.internalSellLodeptNm);
+            ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNmOrg", scwin.internalSellLodeptNm);
+        } else if (row > scwin.wrkLobranCdRow) {
+            ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", scwin.wrkLobranCd);
+            ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", scwin.wrkLobranNm);
+            ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNmOrg", scwin.wrkLobranNm);
+            ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", scwin.internalSellLodeptCd);
+            ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", scwin.internalSellLodeptNm);
+            ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNmOrg", scwin.internalSellLodeptNm);
+        }
+    } else {
+        if (ds_odrWrkPathStepDetail.getCellData(row, "selpchItemCd").trim() != scwin.SELPCH_ITEM_CD_NOSELL
+            || ds_odrWrkPathStepDetail.getCellData(row, "wrkStpCd").trim() == scwin.WRK_STP_CD_CGSHF) {
+
+            let wrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd");
+            if (wrkPlClsCd == scwin.WRK_PL_CLS_CD_RAILSTN && row > 0) {
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", ds_odrWrkPathStepDetail.getCellData(row - 1, "wrkLobranCd"));
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", ds_odrWrkPathStepDetail.getCellData(row - 1, "wrkLobranNm"));
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", ds_odrWrkPathStepDetail.getCellData(row - 1, "internalSellLodeptCd"));
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", ds_odrWrkPathStepDetail.getCellData(row - 1, "internalSellLodeptNm"));
+
+                if (row > 0 && ds_odrWrkPathStepDetail.getCellData(row - 1, "wrkStpCd") == scwin.WRK_STP_CD_RAILROAD) {
+                    let pCode = ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlCd");
+                    if (!$c.gus.cfIsNull(pCode)) {
+                        let rtnList = scwin.f_setWorkPlaceLobranCd(pCode, '', scwin.BIZ_DOM_CD_TRANS, wrkPlClsCd);
+                        if (rtnList != null && rtnList[0].trim() != "N/A") {
+                            scwin.wrkLobranCd = rtnList[2];
+                            scwin.wrkLobranNm = rtnList[3];
+                            scwin.internalSellLodeptCd = rtnList[4];
+                            scwin.internalSellLodeptNm = rtnList[5];
+                            scwin.wrkLobranCdRow = row;
+                        }
+                    }
+                }
+            } else if (wrkPlClsCd == scwin.WRK_PL_CLS_CD_MARTRPIER && row > 0) {
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", ds_odrWrkPathStepDetail.getCellData(row - 1, "wrkLobranCd"));
+                ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", ds_odrWrkPathStepDetail.getCellData(row - 1, "wrkLobranNm"));
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", ds_odrWrkPathStepDetail.getCellData(row - 1, "internalSellLodeptCd"));
+                ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", ds_odrWrkPathStepDetail.getCellData(row - 1, "internalSellLodeptNm"));
+
+                if (row > 0 && ds_odrWrkPathStepDetail.getCellData(row - 1, "wrkStpCd") == scwin.WRK_STP_CD_MARTR) {
+                    let pCode = ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlCd");
+                    if (!$c.gus.cfIsNull(pCode)) {
+                        let rtnList = scwin.f_setWorkPlaceLobranCd(pCode, '', scwin.BIZ_DOM_CD_TRANS, wrkPlClsCd);
+                        if (rtnList != null && rtnList[0].trim() != "N/A") {
+                            scwin.wrkLobranCd = rtnList[2];
+                            scwin.wrkLobranNm = rtnList[3];
+                            scwin.internalSellLodeptCd = rtnList[4];
+                            scwin.internalSellLodeptNm = rtnList[5];
+                            scwin.wrkLobranCdRow = row;
+                        }
+                    }
+                }
+            } else {
+                let pCode = ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlCd");
+                let pWrkLobranCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkLobranCd");
+                let pInternalSellLodeptCd = ds_odrWrkPathStepDetail.getCellData(row, "internalSellLodeptCd");
+                let pBizDomCd = (wrkPlClsCd == scwin.WRK_PL_CLS_CD_PIER) ? scwin.BIZ_DOM_CD_STV : scwin.BIZ_DOM_CD_STR;
+
+                if (!$c.gus.cfIsNull(pCode) && ($c.gus.cfIsNull(pWrkLobranCd) || $c.gus.cfIsNull(pInternalSellLodeptCd))) {
+                    let rtnList = scwin.f_setWorkPlaceLobranCd(pCode, '', pBizDomCd, wrkPlClsCd);
+                    if (rtnList != null && rtnList[0].trim() != "N/A") {
+                        ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", rtnList[0]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", rtnList[1]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", rtnList[2]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", rtnList[3]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNmOrg", rtnList[3]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", rtnList[4]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", rtnList[5]);
+                        ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNmOrg", rtnList[5]);
+                    }
+                }
+            }
+        }
+    }
+};
+
+scwin.f_setWorkPlaceLobranCd = function(pCode, pName, pBizDomCd, pWrkPlClsCd) {
+    if ($c.gus.cfIsNull(pCode) && $c.gus.cfIsNull(pBizDomCd)) {
+        return null;
+    }
+    let pWhere = pWrkPlClsCd + "," + pBizDomCd;
+    let rtnList = $c.gus.cfCommonPopUp('retrieveWorkPlaceLobranCd_tpro', pCode, pName, 'T', null, null, null, null, pWhere, null, null, null, null, null, 'F', "작업장,작업장코드/명", 'T', null);
+    return rtnList;
+};
+
+scwin.f_chkCommodityWorkPath = function() {
+    let chkWorkPath = true;
+    for (let i = 0; i < ds_odrCommWrkPath.getRowCount(); i++) {
+        if ($c.gus.cfIsNull(ds_odrCommWrkPath.getCellData(i, "wrkRsltsNo"))) {
+            chkWorkPath = false;
+        }
+    }
+    if (chkWorkPath) {
+        $c.gus.cfDisableBtnOnly([btnUpdate]);
+    } else {
+        $c.gus.cfEnableBtnOnly([btnUpdate]);
+    }
+};
+
+scwin.f_CopyDataSetOdrCommWrkPath = function(ds1, ds2) {
+    let row = ds1.getRowPosition();
+    if (row < 0) return;
+    if (ds1.getRowStatus(row) != "D") {
+        ds2.removeAll();
+        ds2.insertRow(0);
+        let colCount = ds1.getColumnCount();
+        for (let j = 0; j < colCount; j++) {
+            let colId = ds1.getColumnID(j);
+            try {
+                ds2.setCellData(0, colId, ds1.getCellData(row, colId));
+            } catch(e) {}
+        }
+    }
+};
+
+scwin.f_setDisplayOdrKndCd = function(odrKndCd) {
+    switch (odrKndCd) {
+        case scwin.ODR_KND_CD_IMP_CVSSL_BULK_ODR:
+        case scwin.ODR_KND_CD_IMP_GNRL_BULK_ODR:
+        case scwin.ODR_KND_CD_EXP_CVSSL_BULK_ODR:
+        case scwin.ODR_KND_CD_EXP_GNRL_BULK_ODR:
+            gr_odrWrkPathStpDetail.setColumnVisible("vsslCdPortcnt", false);
+            break;
+        default:
+            gr_odrWrkPathStpDetail.setColumnVisible("vsslCdPortcnt", false);
+            break;
+    }
+};
+
+scwin.f_setWorkLobranInternalSellLodept = function(row, pCode, pName, pClose, pAllSearch, pDptWrkPlsYn, pOrgValueCheck, pNoDataCloseTF, pDptWrkChangeTF) {
+    let pWrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim();
+    let pBizDomCd = ds_odrWrkPathStepDetail.getCellData(row, "bizDomCd").trim();
+    let pSelpchItemCd = ds_odrWrkPathStepDetail.getCellData(row, "selpchItemCd").trim();
+    if ($c.gus.cfIsNull(pDptWrkChangeTF)) pDptWrkChangeTF = "F";
+
+    if (($c.gus.cfIsNull(pCode) && $c.gus.cfIsNull(pName)) || pSelpchItemCd == scwin.SELPCH_ITEM_CD_NOSELL) {
+        return false;
+    }
+
+    if (pOrgValueCheck == "T") {
+        if (pDptWrkPlsYn == "T") {
+            if (pCode == ds_odrWrkPathStepDetail.getOriginalCellData(row, "dptWrkPlCd")) return false;
+        } else {
+            if (pCode == ds_odrWrkPathStepDetail.getOriginalCellData(row, "arvWrkPlCd")) return false;
+        }
+    }
+
+    let pWhere = pWrkPlClsCd + "," + pBizDomCd;
+    let rtnList = $c.gus.cfCommonPopUp('retrieveWorkStepEachWorkPlaceInfo_tpro', pCode, pName, pClose, null, null, null, null, pWhere, null, null, null, null, null, pAllSearch, "작업장,작업장코드/명", pNoDataCloseTF, null);
+
+    if (rtnList != null) {
+        if (rtnList[0].trim() != "N/A") {
+            if (pDptWrkPlsYn == "T") {
+                if (pDptWrkChangeTF == "F") {
+                    ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", rtnList[0]);
+                    if (!$c.gus.cfIsNull(rtnList[2])) ds_odrWrkPathStepDetail.setCellData(row, "bizDomCd", rtnList[2]);
+                    if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim()))
+                        ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", rtnList[1]);
+                }
+            } else {
+                ds_odrWrkPathStepDetail.setCellData(row, "arvWrkPlCd", rtnList[0]);
+            }
+        }
+    } else {
+        if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim())) {
+            ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", "");
+            ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", "");
+        }
+        ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranCd", "");
+        ds_odrWrkPathStepDetail.setCellData(row, "wrkLobranNm", "");
+        ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptCd", "");
+        ds_odrWrkPathStepDetail.setCellData(row, "internalSellLodeptNm", "");
+    }
+};
+
+scwin.f_setWorkLobranNoDataAutoClose = function(row, pCode, pName, pClose, pAllSearch, pDptWrkPlsYn, pOrgValueCheck, pNoDataCloseTF, pDptWrkChangeTF) {
+    let pWrkPlClsCd = ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim();
+    if ($c.gus.cfIsNull(pDptWrkChangeTF)) pDptWrkChangeTF = "F";
+
+    if ($c.gus.cfIsNull(pCode) && $c.gus.cfIsNull(pName)) {
+        return false;
+    }
+
+    let pWhere = pWrkPlClsCd;
+    let rtnList = $c.gus.cfCommonPopUp('retrieveWrkPlInfoNoDataAutoClose_tpro', pCode, pName, pClose, null, null, null, null, pWhere, null, null, null, null, null, pAllSearch, "작업장,작업장코드/명", pNoDataCloseTF, null);
+
+    if (rtnList != null) {
+        if (rtnList[0].trim() != "N/A") {
+            if (pDptWrkChangeTF == "F") {
+                ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", rtnList[0]);
+                if (!$c.gus.cfIsNull(rtnList[3])) ds_odrWrkPathStepDetail.setCellData(row, "bizDomCd", rtnList[3]);
+            }
+            if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim()))
+                ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", rtnList[1]);
+        }
+    } else {
+        if (!$c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim())) {
+            ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlCd", "");
+            ds_odrWrkPathStepDetail.setCellData(row, "dptWrkPlNm", "");
+        }
+    }
+};
+
+scwin.f_openCommonPopUpNoDataClose = function(pCode) {
+    if ($c.gus.cfIsNull(pCode)) return;
+
+    let pValue = "T,J,,,T,T,1";
+    let rtnList = $c.gus.cfCommonPopUp('retrieveLogisDeptInfo_tpro', '', pCode, 'T', null, null, null, null, pValue, null, null, null, null, null, 'F', "매출귀속부서,부서코드/명", 'T', null);
+
+    if (!$c.gus.cfIsNull(rtnList)) {
+        if (rtnList[0] != "N/A") {
+            scwin.internalSellLodeptCd = rtnList[0];
+            scwin.internalSellLodeptNm = rtnList[1];
+        }
+    }
+};
+
+scwin.f_RetrieveWorkStepReUse = function() {
+    let row = parseInt(scwin.hid_rowNo);
+    if (isNaN(row) || row < 0) return;
+
+    if (parseInt(ds_odrCommWrkPath.getCellData(row, "ctrtWrkPathSeq")) > 0) {
+        if (ds_odrWrkPathStepDetail.getRowCount() <= 0) {
+            dma_searchWrkStep.set("odrNo", ds_odrCommWrkPath.getCellData(row, "odrNo"));
+            dma_searchWrkStep.set("commSeq", ds_odrCommWrkPath.getCellData(row, "commSeq"));
+            dma_searchWrkStep.set("odrWrkPathSeq", ds_odrCommWrkPath.getCellData(row, "odrWrkPathSeq"));
+            dma_searchWrkStep.set("ctrtNo", ds_odrCommWrkPath.getCellData(row, "ctrtNo"));
+            dma_searchWrkStep.set("ctrtWrkPathSeq", ds_odrCommWrkPath.getCellData(row, "ctrtWrkPathSeq"));
+            scwin.f_RetrieveWorkStep();
+        }
+        spa_totalRow2.setValue(ds_odrWrkPathStepDetail.getRowCount());
+    }
+
+    if (row >= 0 && btnUpdate.getDisabled()) {
+        if (scwin.f_chkResultsConfirmationCommodity(row)) {
+            gr_odrCommWrkPath.setReadOnly("grid", true);
+            gr_odrWrkPathStpDetail.setReadOnly("grid", true);
+            $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark, btnUpdate, btnSave]);
+        } else {
+            gr_odrCommWrkPath.setReadOnly("grid", false);
+            gr_odrWrkPathStpDetail.setReadOnly("grid", false);
+            $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        }
+    }
+
+    scwin.f_checkWorkStepEditMode();
+
+    scwin.wrkLobranCd = scwin.lobranCd;
+    scwin.wrkLobranNm = scwin.lobranNm;
+
+    if (scwin.userId == "040239") {
+        scwin.internalSellLodeptCd = "4A5";
+        scwin.internalSellLodeptNm = "인천제강운송";
+    } else {
+        if (ds_lobran.getRowCount() > 0) {
+            scwin.internalSellLodeptCd = ds_lobran.getCellData(ds_lobran.getRowPosition(), "lobranCd");
+            scwin.internalSellLodeptNm = ds_lobran.getCellData(ds_lobran.getRowPosition(), "lobranNm");
+        }
+    }
+    scwin.wrkLobranCdRow = 0;
+};
+
+scwin.sbm_save_submitdone = async function(e) {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_save_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+    $c.gus.cfDisableBtnOnly([btnUpdate]);
+    $c.gus.cfEnableBtnOnly([btnSave]);
+};
+
+scwin.sbm_retrieve_submitdone = async function(e) {
+    scwin.hid_chkUseFilter = "true";
+
+    gr_odrCommWrkPath.setReadOnly("grid", true);
+    gr_odrWrkPathStpDetail.setReadOnly("grid", true);
+
+    let curPos = ds_odrCommWrkPath.getRowPosition();
+    if (curPos >= 0) {
+        let odrDcsnYn = ds_odrCommWrkPath.getCellData(curPos, "odrDcsnYn");
+        let odrCompleteYn = ds_odrCommWrkPath.getCellData(curPos, "odrCompleteYn");
+
+        if (odrDcsnYn != scwin.YN_YES) {
+            $c.gus.cfEnableBtnOnly([btnUpdate]);
+            $c.gus.cfDisableBtnOnly([btnSave]);
+        } else {
+            $c.gus.cfEnableBtnOnly([btnUpdate]);
+            $c.gus.cfDisableBtnOnly([btnSave]);
+            scwin.f_chkCommodityWorkPath();
+        }
+
+        if (odrCompleteYn != scwin.YN_YES) {
+            $c.gus.cfEnableBtnOnly([btnUpdate]);
+            $c.gus.cfDisableBtnOnly([btnSave]);
+            scwin.f_chkCommodityWorkPath();
+        } else {
+            $c.gus.cfDisableBtnOnly([btnUpdate, btnSave]);
+        }
+
+        $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+
+        if (ds_odrCommWrkPath.getRowCount() > 0 && odrDcsnYn != scwin.YN_YES && odrCompleteYn != scwin.YN_YES) {
+            if (parseInt(ds_odrCommWrkPath.getCellData(curPos, "odrWrkPathSeq")) == 0) {
+                scwin.f_Update();
+            }
+        }
+
+        scwin.hid_chkReterieve = "retrieveIn";
+
+        let v_odrWrkPathCnt = parseInt(ds_odrCommWrkPath.getCellData(curPos, "odrWrkPathCnt"));
+        if (v_odrWrkPathCnt > 0 && v_odrWrkPathCnt >= ds_odrCommWrkPath.getRowCount()) {
+            if (odrCompleteYn == scwin.YN_YES) {
+                $c.gus.cfDisableBtnOnly([btnUpdate]);
+            }
+        }
+
+        if (ds_odrCommWrkPath.getCellData(curPos, "autoOdrYn") == scwin.YN_YES) {
+            $c.gus.cfDisableBtnOnly([btnUpdate, btnSave]);
+        }
+
+        for (let i = 0; i < ds_odrCommWrkPath.getRowCount(); i++) {
+            let ctrtWrkPathNm = ds_odrCommWrkPath.getCellData(i, "ctrtWrkPathNm");
+            if (ctrtWrkPathNm == '0.0') {
+                ds_odrCommWrkPath.setCellData(i, "ctrtWrkPathNm", "선택");
+            }
+        }
+    }
+
+    spa_totalRow.setValue(ds_odrCommWrkPath.getRowCount());
+};
+
+scwin.sbm_retrieve_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.sbm_retrieveCtrtWrkPath_submitdone = function(e) {
+};
+
+scwin.sbm_retrieveCtrtWrkPath_submiterror = function(e) {
+};
+
+scwin.sbm_searchWorkStep_submitdone = function(e) {
+    scwin.f_setWorkPathStepDetail();
+};
+
+scwin.sbm_searchWorkStep_submiterror = function(e) {
+};
+
+scwin.gr_odrCommWrkPath_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+    switch (columnId) {
+        case "ctrtWrkPathNm":
+            scwin.f_openCommPopUpGrid(5, rowIndex, ds_odrCommWrkPath.getCellData(rowIndex, "ctrtWrkPathNm"), ds_odrCommWrkPath.getCellData(rowIndex, "ctrtWrkPathSeq"), 'F', 'T');
+            break;
+        default:
+            break;
+    }
+};
+
+scwin.gr_odrWrkPathStpDetail_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+    let chkPopup = true;
+    let row = rowIndex;
+
+    switch (columnId) {
+        case "wrkLobranNm":
+            scwin.f_openCommPopUpGrid(1, row, ds_odrWrkPathStepDetail.getCellData(row, "wrkLobranCd"), ds_odrWrkPathStepDetail.getCellData(row, "wrkLobranNm"), 'F', 'F');
+            break;
+        case "dptWrkPlNm":
+            chkPopup = scwin.f_openCommPopUpGrid(2, row, ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlCd"), ds_odrWrkPathStepDetail.getCellData(row, "dptWrkPlNm"), 'F', 'F');
+            if (chkPopup) scwin.f_setWorkStepInfoRefresh();
+            break;
+        case "internalSellLodeptNm":
+            scwin.f_openCommPopUpGrid(3, row, ds_odrWrkPathStepDetail.getCellData(row, "internalSellLodeptCd"), ds_odrWrkPathStepDetail.getCellData(row, "internalSellLodeptNm"), 'F', 'F');
+            break;
+        case "vsslCdPortcnt":
+            scwin.f_openCommPopUpGrid(4, row, ds_odrWrkPathStepDetail.getCellData(row, "vsslCd"), ds_odrWrkPathStepDetail.getCellData(row, "vsslNm"), 'F', 'F');
+            break;
+        default:
+            break;
+    }
+};
+
+scwin.ds_odrCommWrkPath_oncelldatachange = function(info) {
+    let row = info.row;
+    let colId = info.colId;
+
+    if (colId == "ctrtWrkPathSeq") {
+        scwin.hid_rowNo = row;
+
+        if (parseInt(ds_odrCommWrkPath.getCellData(row, "ctrtWrkPathSeq")) > 0) {
+            if (ds_odrWrkPathStepDetail.getRowCount() <= 0) {
+                dma_searchWrkStep.set("odrNo", ds_odrCommWrkPath.getCellData(row, "odrNo"));
+                dma_searchWrkStep.set("commSeq", ds_odrCommWrkPath.getCellData(row, "commSeq"));
+                dma_searchWrkStep.set("odrWrkPathSeq", ds_odrCommWrkPath.getCellData(row, "odrWrkPathSeq"));
+                dma_searchWrkStep.set("ctrtNo", ds_odrCommWrkPath.getCellData(row, "ctrtNo"));
+                dma_searchWrkStep.set("ctrtWrkPathSeq", ds_odrCommWrkPath.getCellData(row, "ctrtWrkPathSeq"));
+
+                dma_searchWrkPath.set("ctrtNo", ds_odrCommWrkPath.getCellData(row, "ctrtNo"));
+                dma_searchWrkPath.set("odrKndCd", ds_odrCommWrkPath.getCellData(row, "odrKndCd"));
+
+                scwin.f_RetrieveWorkStep();
+            }
+        }
+        spa_totalRow2.setValue(ds_odrWrkPathStepDetail.getRowCount());
+    }
+};
+
+scwin.ds_odrCommWrkPath_onrowpositionchange = function(info) {
+    let row = info.row;
+    if (row < 0) return;
+
+    if (parseInt(ds_odrCommWrkPath.getCellData(row, "ctrtWrkPathSeq")) > 0) {
+        if (ds_odrWrkPathStepDetail.getRowCount() <= 0) {
+            dma_searchWrkStep.set("odrNo", ds_odrCommWrkPath.getCellData(row, "odrNo"));
+            dma_searchWrkStep.set("commSeq", ds_odrCommWrkPath.getCellData(row, "commSeq"));
+            dma_searchWrkStep.set("odrWrkPathSeq", ds_odrCommWrkPath.getCellData(row, "odrWrkPathSeq"));
+            dma_searchWrkStep.set("ctrtNo", ds_odrCommWrkPath.getCellData(row, "ctrtNo"));
+            dma_searchWrkStep.set("ctrtWrkPathSeq", ds_odrCommWrkPath.getCellData(row, "ctrtWrkPathSeq"));
+            scwin.f_RetrieveWorkStep();
+        }
+        spa_totalRow2.setValue(ds_odrWrkPathStepDetail.getRowCount());
+    }
+
+    if (row >= 0 && btnUpdate.getDisabled()) {
+        if (scwin.f_chkResultsConfirmationCommodity(row)) {
+            gr_odrCommWrkPath.setReadOnly("grid", true);
+            gr_odrWrkPathStpDetail.setReadOnly("grid", true);
+            $c.gus.cfDisableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark, btnUpdate, btnSave]);
+        } else {
+            gr_odrCommWrkPath.setReadOnly("grid", false);
+            gr_odrWrkPathStpDetail.setReadOnly("grid", false);
+            $c.gus.cfEnableBtnOnly([btnInsertRow, btnDeleteRow, btnUndoMark]);
+        }
+    }
+
+    scwin.f_checkWorkStepEditMode();
+
+    scwin.wrkLobranCd = scwin.lobranCd;
+    scwin.wrkLobranNm = scwin.lobranNm;
+
+    if (scwin.userId == "040239") {
+        scwin.internalSellLodeptCd = "4A5";
+        scwin.internalSellLodeptNm = "인천제강운송";
+    } else {
+        if (ds_lobran.getRowCount() > 0) {
+            scwin.internalSellLodeptCd = ds_lobran.getCellData(ds_lobran.getRowPosition(), "lobranCd");
+            scwin.internalSellLodeptNm = ds_lobran.getCellData(ds_lobran.getRowPosition(), "lobranNm");
+        }
+    }
+    scwin.wrkLobranCdRow = 0;
+};
+
+scwin.ds_odrWrkPathStepDetail_onrowpositionchange = function(info) {
+    let row = info.row;
+    if (row < 0) return;
+
+    scwin.f_checkWorkStepEditMode(row);
+
+    if ($c.gus.cfIsNull(ds_odrWrkPathStepDetail.getCellData(row, "wrkPlClsCd").trim())) {
+        gr_odrWrkPathStpDetail.setColumnProp("dptWrkPlNm", "readOnly", true);
+    } else {
+        gr_odrWrkPathStpDetail.setColumnProp("dptWrkPlNm", "readOnly", false);
+    }
+
+    if (ds_odrWrkPathStepDetail.getCellData(row, "selpchItemCd").trim() == scwin.SELPCH_ITEM_CD_NOSELL) {
+        gr_odrWrkPathStpDetail.setColumnProp("wrkLobranNm", "readOnly", true);
+        gr_odrWrkPathStpDetail.setColumnProp("internalSellLodeptNm", "readOnly", true);
+    } else {
+        gr_odrWrkPathStpDetail.setColumnProp("wrkLobranNm", "readOnly", false);
+        gr_odrWrkPathStpDetail.setColumnProp("internalSellLodeptNm", "readOnly", false);
+    }
+};
+
+scwin.lc_odrSearchGubun_onchange = function(e) {
+    let v_index = lc_odrSearchGubun.getValue();
+
+    if (v_index == "0") {
+        // TODO: lay_odrDt show, lay_odrNo hide
+        dma_orderSearch.set("odrDtFrom", scwin.vCurDate);
+        dma_orderSearch.set("odrDtTo", scwin.vCurDate);
+        ed_odrNo.setValue("");
+    } else {
+        // TODO: lay_odrDt hide, lay_odrNo show
+        dma_orderSearch.set("odrDtFrom", "");
+        dma_orderSearch.set("odrDtTo", "");
+    }
+};
+
+scwin.ed_odrNo_onkeydown = function(e) {
+    if (e.keyCode == 13) {
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.btn_retrieve_onclick = function(e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_fieldClear_onclick = function(e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btnUpdate_onclick = function(e) {
+    scwin.f_Update();
+};
+
+scwin.btnSave_onclick = function(e) {
+    scwin.f_Save();
+};
+
+scwin.btnInsertRow_onclick = function(e) {
+    scwin.f_InsertRow();
+};
+
+scwin.btnDeleteRow_onclick = function(e) {
+    scwin.f_DeleteRow();
+};
+
+scwin.btnUndoMark_onclick = function(e) {
+    scwin.f_UndoRow();
+};
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="req" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_odrSearchGubun" style="width:95px;" submenuSize="auto">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_odrDt" refDataMap="" refEdDt="ica_odrDtTo" refStDt="ica_odrDtFrom" style=""></w2:udc_fromToCalendar>
+    							<xf:input class="" id="ed_odrNo" placeholder="" style="width:150px;" ref="data:ds_orderSearch.odrNo" mandatory="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="작업경로 " class="tit"></w2:textbox>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    					<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_odrCommWrkPath" style="" autoFit="allColumn" id="gr_odrCommWrkPath"
+    						visibleRowNum="5" class="wq_gvw" readOnly="false">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="100" inputType="text" id="odrNo" value="오더번호" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="commSeq" value="오더품명순번" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="commCd" value="품명코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="commNm" value="품명" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" id="ctrtClntNo" value="계약거래처번호" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="ctrtClntNm" value="계약거래처" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="qtyUnitCd" value="수량단위코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="unitCd" value="단위코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" id="qty" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" id="grossWt" value="중량(KG)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" id="cbm" value="CBM" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" id="temper" value="온도" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="odrWrkPathSeq" value="오더작업경로순번" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="ctrtNo" value="계약번호" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="ctrtWrkPathSeq" value="작업경로" displayMode="label" class="txt-red" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="ctrtWrkPathNm" value="작업경로명" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="120" inputType="text" id="odrKndCd" value="오더종류코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="dptWrkPlClsCd" value="출발작업장구분코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="dptWrkPlCd" value="출발작업장코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="dptWrkPlNm" value="출발작업장" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" id="arvWrkPlClsCd" value="도착작업장구분코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="arvWrkPlCd" value="도착작업장코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="arvWrkPlNm" value="도착작업장" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="dmndNo" value="수요가번호" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="dmndNm" value="수요가" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkStDt" value="작업시작일자" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkStHh" value="작업시작시간" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkEndDt" value="작업종료일자" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkEndHh" value="작업종료시간" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="sellYn" value="매출여부" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="wrkRsltsNo" value="실적번호" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="wrkRsltsYn" value="실적여부" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="100" inputType="text" id="odrNo" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="commSeq" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="commCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="commNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="ctrtClntNo" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="ctrtClntNm" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="qtyUnitCd" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="unitCd" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" id="qty" displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="80" inputType="text" id="grossWt" displayMode="label" textAlign="right" readOnly="true" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" id="cbm" displayMode="label" textAlign="right" readOnly="true" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" id="temper" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" id="odrWrkPathSeq" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="ctrtNo" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="ctrtWrkPathSeq" displayMode="label" textAlign="left">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[ctrtWrkPathSeq:ctrtWrkPathNm]]></w2:label>
+        <w2:value><![CDATA[ds_ctrtWrkPath]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    								<w2:column width="150" inputType="textImage" id="ctrtWrkPathNm" displayMode="label" textAlign="left" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[ctrtWrkPathSeq:ctrtWrkPathNm]]></w2:label>
+        <w2:value><![CDATA[ds_ctrtWrkPath]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    								<w2:column width="120" inputType="text" id="odrKndCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="dptWrkPlClsCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="dptWrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="dptWrkPlNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="arvWrkPlClsCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="arvWrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="arvWrkPlNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="dmndNo" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="dmndNm" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkStDt" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkStHh" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkEndDt" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkEndHh" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="sellYn" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="wrkRsltsNo" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="wrkRsltsYn" value="" displayMode="label" readOnly="true"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group style="" id="" class="right">
+    							<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group><xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="품명별 작업단계 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_odrWrkPathStepDetail" id="gr_odrWrkPathStpDetail" style=""
+    						visibleRowNum="5" visibleRowNumFix="true" readOnly="false">
+    						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column displayMode="label" id="odrNo" inputType="text" value="오더번호" width="100" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="commSeq" inputType="text" value="품명순번" width="100" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="odrWrkPathSeq" inputType="text" value="작업경로순번" width="120" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="ctrtWrkPathSeq" inputType="text" value="계약작업경로순번" width="150" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="odrWrkStpSeq" inputType="text" value="작업단계&lt;br/&gt;순번" width="100" class="txt-red"></w2:column>
+    								<w2:column displayMode="label" id="ctrtWrkPathNm" inputType="text" value="작업경로" width="120" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="wrkPlClsCd" inputType="text" value="작업장구분" width="100" class="txt-red"></w2:column>
+    								<w2:column displayMode="label" id="wrkStpCd" inputType="text" value="작업단계" width="100" class="txt-red"></w2:column>
+    								<w2:column displayMode="label" id="bizDomCd" inputType="text" value="사업영역코드" width="120" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="selpchItemCd" inputType="text" value="매출입항목코드" width="150" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="selpchItemNm" value="매출입항목" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="150" inputType="text" id="wrkLobranCd" value="작업물류점소코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkLobranNmOrg" value="작업물류점소" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="dptWrkPlCd" value="출발작업장코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="dptWrkPlNm" value="작업장" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkLobranNm" value="작업점소" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" id="dptWrkPlNmOrg" value="출발작업장" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="arvWrkPlCd" value="도착작업장코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="arvWrkPlNm" value="도착작업장" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="internalSellLodeptCd" value="매출귀속부서코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="internalSellLodeptNm" value="매출귀속부서" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="120" inputType="text" id="internalSellLodeptNmOrg" value="매출귀속부서" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkStDt" value="작업&lt;br/&gt;시작일자" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkStHh" value="작업&lt;br/&gt;시작시간" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkEndDt" value="작업&lt;br/&gt;종료일자" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkEndHh" value="작업&lt;br/&gt;종료시간" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" id="vsslCd" value="선박코드" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="vsslNm" value="선박명" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="portcnt" value="항차" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="vsslCdPortcnt" value="선명항차" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="regId" value="RegID" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="regDtm" value="RegDTM" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="modId" value="hid_modId" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="modDtm" value="hid_modDtm" displayMode="label" hidden="true"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column displayMode="label" id="odrNo" inputType="text" width="100" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="commSeq" inputType="text" width="100" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="odrWrkPathSeq" inputType="text" width="120" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="ctrtWrkPathSeq" inputType="text" width="150" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="odrWrkStpSeq" inputType="text" width="100" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="ctrtWrkPathNm" inputType="text" width="120" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="wrkPlClsCd" inputType="text" width="100" textAlign="left" colMerge="true">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[cd:cdNm]]></w2:label>
+        <w2:value><![CDATA[ds_wrkPlClsCd]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    								<w2:column displayMode="label" id="wrkStpCd" inputType="text" width="100" textAlign="left" colMerge="true">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[wrkStpCd:wrkStpNm]]></w2:label>
+        <w2:value><![CDATA[ds_LkStepNo]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    								<w2:column displayMode="label" id="bizDomCd" inputType="text" width="120" colMerge="true"></w2:column>
+    								<w2:column displayMode="label" id="selpchItemCd" inputType="text" width="150" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="selpchItemNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="wrkLobranCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="wrkLobranNmOrg" displayMode="label" textAlign="center" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="dptWrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="textImage" id="dptWrkPlNm" displayMode="label" textAlign="left" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    								<w2:column width="100" inputType="textImage" id="wrkLobranNm" displayMode="label" textAlign="left" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    								<w2:column width="100" inputType="text" id="dptWrkPlNmOrg" displayMode="label" textAlign="center" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="arvWrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="arvWrkPlNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="internalSellLodeptCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="textImage" id="internalSellLodeptNm" displayMode="label" textAlign="left" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    								<w2:column width="120" inputType="text" id="internalSellLodeptNmOrg" displayMode="label" textAlign="center" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="calendar" id="wrkStDt" displayMode="label" allowChar="0-9" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkStHh" displayMode="label" allowChar="0-9" displayFormat="##:##"></w2:column>
+    								<w2:column width="100" inputType="calendar" id="wrkEndDt" displayMode="label" allowChar="0-9" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    								<w2:column width="100" inputType="text" id="wrkEndHh" displayMode="label" allowChar="0-9" displayFormat="##:##"></w2:column>
+    								<w2:column width="100" inputType="text" id="vsslCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="vsslNm" displayMode="label" textAlign="center" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="portcnt" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="textImage" id="vsslCdPortcnt" displayMode="label" textAlign="left" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    								<w2:column width="100" inputType="text" id="regId" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="regDtm" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="modId" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="modDtm" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="right" id="" style="">
+    							<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btnUpdate" label="저장" style="" type="button">
+    						<xf:label>수정</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btnSave" label="저장" style="" type="button">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

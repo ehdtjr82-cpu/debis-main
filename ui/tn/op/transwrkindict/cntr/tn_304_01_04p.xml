@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_results">
+    				<w2:keyInfo>
+    					<w2:key id="eqCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="chassisEqCd" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_results" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="vehclNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="vehclClntNm" name="name2" dataType="text"></w2:column>
+    					<w2:column id="regLobranCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="assgnLobranCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="drvNm" name="name5" dataType="text"></w2:column>
+    					<w2:column id="mpNo" name="name6" dataType="text"></w2:column>
+    					<w2:column id="eqKndNm" name="name7" dataType="text"></w2:column>
+    					<w2:column id="eqNrmNm" name="name8" dataType="text"></w2:column>
+    					<w2:column id="chassisVehclNo" name="name9" dataType="text"></w2:column>
+    					<w2:column id="chassisKndNm" name="name10" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ncall.tn.op.transwrkindict.cntr.RetrieveVehclInformationCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_results","key":"IN_DS1"},{"id":"ds_results","key":"OUT_DS1"}]' target='data:json,{"id":"ds_results","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// NTIS/배차관리/컨테이너 운송지시 - 차량정보조회
+
+
+scwin.onpageload = async function() {
+	scwin.params = $c.data.getParameter();
+
+    var eqCd = $c.gus.cfIsNull(scwin.params["eqCd"]) ? "" : scwin.params["eqCd"];
+    var chassisEqCd = $c.gus.cfIsNull(scwin.params["chassisEqCd"]) ? "" : scwin.params["chassisEqCd"];
+
+    dma_results.set("eqCd", eqCd);
+    dma_results.set("chassisEqCd", chassisEqCd);
+
+    scwin.f_Retrieve();
+};
+
+
+scwin.f_Retrieve = function() {
+    // tr_Retrieve.post();
+    $c.sbm.execute(sbm_retrieve);
+};
+
+
+// OnLoadCompleted(rowCnt)
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (ds_results.getTotalRow() == 0) {
+	    await $c.win.alert("조회된 데이터가 없습니다.");
+		$c.win.closePopup();
+
+	} else {
+        //setValue
+        spn_vehclNo.setValue(ds_results.getCellData(0, "vehclNo"));
+        spn_vehclClntNm.setValue(ds_results.getCellData(0, "vehclClntNm"));
+        spn_regLobranCd.setValue(ds_results.getCellData(0, "regLobranCd"));
+        spn_assgnLobranCd.setValue(ds_results.getCellData(0, "assgnLobranCd"));
+        spn_drvNm.setValue(ds_results.getCellData(0, "drvNm"));
+        spn_mpNo.setValue(ds_results.getCellData(0, "mpNo"));
+        spn_eqKndNm.setValue(ds_results.getCellData(0, "eqKndNm"));
+        spn_eqNrmNm.setValue(ds_results.getCellData(0, "eqNrmNm"));
+        spn_chassisVehclNo.setValue(ds_results.getCellData(0, "chassisVehclNo"));
+        spn_chassisKndNm.setValue(ds_results.getCellData(0, "chassisKndNm"));
+    }
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="차량번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:textbox class="" id="spn_vehclNo" label="" style="" ref=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="협력업체" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox class="" id="spn_vehclClntNm" label="" style="" ref=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="기사명" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="spn_drvNm" label="" style="" ref=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="전화번호" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:textbox class="" id="spn_mpNo" label="" style="" ref=""></w2:textbox>
+    					</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="차량종류" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="spn_eqKndNm" label="" style="" ref=""></w2:textbox>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="차량규격" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="spn_eqNrmNm" label="" style="" ref=""></w2:textbox>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="등록점소" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="spn_regLobranCd" label="" style="" ref=""></w2:textbox>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="배정점소" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="spn_assgnLobranCd" label="" style="" ref=""></w2:textbox>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="샤시번호" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="spn_chassisVehclNo" label="" style="" ref=""></w2:textbox>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="샤시종류" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="spn_chassisKndNm" label="" style="" ref=""></w2:textbox>
+	</xf:group></xf:group></xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

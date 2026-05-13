@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="ds_txtcopycond">
+        			<w2:keyInfo>
+        				<w2:key id="slipNo" name="DEBIS전표번호" dataType="text"></w2:key>
+        				<w2:key id="slipKndCd" name="전표종류코드" dataType="text"></w2:key>
+
+        				<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+        				<w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+        				<w2:key id="delYn" name="삭제여부" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_txtcopy" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="slipNo" name="DEBIS전표번호" dataType="text"></w2:column>
+        				<w2:column id="txnNo" name="거래번호" dataType="text"></w2:column>
+        				<w2:column id="txnContSeq" name="거래내역순번" dataType="text"></w2:column>
+        				<w2:column id="evidClsCd" name="증빙구분코드" dataType="text"></w2:column>
+        				<w2:column id="evidClsNm" name="증빙구분명" dataType="text"></w2:column>
+        				<w2:column id="deductClsCd" name="공제구분코드" dataType="text"></w2:column>
+        				<w2:column id="mgntClntNo" name="관리거래처번호" dataType="text"></w2:column>
+        				<w2:column id="mgntClntNm" name="관리거래처명" dataType="text"></w2:column>
+        				<w2:column id="crn" name="사업자등록번호" dataType="text"></w2:column>
+        				<w2:column id="crnNm" name="사업자등록번호명" dataType="text"></w2:column>
+        				<w2:column id="acctCd" name="계정코드" dataType="text"></w2:column>
+        				<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+        				<w2:column id="txnDt" name="거래일자" dataType="text"></w2:column>
+        				<w2:column id="mgntNo" name="관리번호" dataType="text"></w2:column>
+        				<w2:column id="mgntEmpNo" name="관리사원번호" dataType="text"></w2:column>
+        				<w2:column id="mgntEmpNm" name="관리사원명" dataType="text"></w2:column>
+        				<w2:column id="mgntDt" name="관리일자" dataType="text"></w2:column>
+        				<w2:column id="mgntTermStDt" name="관리기간시작일자" dataType="text"></w2:column>
+        				<w2:column id="mgntTermEndDt" name="관리기간종료일자" dataType="text"></w2:column>
+        				<w2:column id="acctDeptCd" name="회계부서코드" dataType="text"></w2:column>
+        				<w2:column id="acctDeptNm" name="회계부서명" dataType="text"></w2:column>
+        				<w2:column id="vatDeclarAcctDeptCd" name="부가세관리귀속부서" dataType="text"></w2:column>
+        				<w2:column id="vatDeclarAcctDeptNm" name="부가세신고귀속부서명" dataType="text"></w2:column>
+        				<w2:column id="vatCrn" name="부가세사업자등록번호" dataType="text"></w2:column>
+        				<w2:column id="amt" name="금액" dataType="text"></w2:column>
+        				<w2:column id="spplyAmt" name="계산서금액" dataType="text"></w2:column>
+        				<w2:column id="spplyAmtFcrc" name="공급금액_외화" dataType="text"></w2:column>
+        				<w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+        				<w2:column id="exchRt" name="환율" dataType="text"></w2:column>
+        				<w2:column id="vatAmt" name="부가세금액" dataType="text"></w2:column>
+        				<w2:column id="frchCrn" name="가맹점사업자등록번호" dataType="text"></w2:column>
+        				<w2:column id="frchNm" name="가맹점명" dataType="text"></w2:column>
+        				<w2:column id="acctDistYn" name="계정배부여부" dataType="text"></w2:column>
+        				<w2:column id="cardNo" name="카드번호" dataType="text"></w2:column>
+        				<w2:column id="cardNm" name="카드명" dataType="text"></w2:column>
+        				<w2:column id="adjmClsCd" name="정산구분코드" dataType="text"></w2:column>
+        				<w2:column id="adjmAcctDeptCd" name="정산귀속부서코드" dataType="text"></w2:column>
+        				<w2:column id="adjmAcctDeptNm" name="정산귀속부서명" dataType="text"></w2:column>
+        				<w2:column id="adjmClntNo" name="정산거래처번호" dataType="text"></w2:column>
+        				<w2:column id="adjmClntNm" name="정산거래처명" dataType="text"></w2:column>
+        				<w2:column id="summary" name="적요" dataType="text"></w2:column>
+        				<w2:column id="rltSeq" name="관련사건 저장순번" dataType="text"></w2:column>
+        				<w2:column id="termMgntYn" name="기간관리여부" dataType="text" defaultValue=""></w2:column>
+        				<w2:column id="empMgntYn" name="사원관리여부" dataType="text"></w2:column>
+        				<w2:column id="dtMgntYn" name="일자관리여부" dataType="text"></w2:column>
+        				<w2:column id="bizMgntYn" name="사업관리여부" dataType="text"></w2:column>
+        				<w2:column id="vatYn" name="부가세여부" dataType="text"></w2:column>
+        				<w2:column id="cardNoYn" name="카드번호여부" dataType="text"></w2:column>
+        				<w2:column id="frchNoYn" name="가맹점번호여부" dataType="text"></w2:column>
+        				<w2:column id="deductClsYn" name="공제구분여부" dataType="text"></w2:column>
+        				<w2:column id="limitAmt" name="한도금액" dataType="text"></w2:column>
+        				<w2:column id="dcAmt" name="할인금액" dataType="text"></w2:column>
+        				<w2:column id="cardKndCd" name="카드종류코드" dataType="text"></w2:column>
+        				<w2:column id="costClsCd" name="비용구분코드" dataType="text"></w2:column>
+        				<w2:column id="acctClsCd" name="계정구분코드" dataType="text"></w2:column>
+        				<w2:column id="clntMgntYn" name="거래처관리여부" dataType="text"></w2:column>
+        				<w2:column id="branchCd" name="지점코드" dataType="text"></w2:column>
+        				<w2:column id="pchsItemCd" name="매입항목코드" dataType="text"></w2:column>
+        				<w2:column id="branchNm" name="지점명" dataType="text"></w2:column>
+        				<w2:column id="pchsItemNm" name="매입항목명" dataType="text"></w2:column>
+        				<w2:column id="coCd" name="회사코드" dataType="text"></w2:column>
+        				<w2:column id="coClsCd" name="회사구분코드" dataType="text"></w2:column>
+        				<w2:column id="etcAmt1" name="기타금액1 금액" dataType="text"></w2:column>
+        				<w2:column id="etcAcctCd1" name="기타금액1 계정" dataType="text"></w2:column>
+        				<w2:column id="etcSummary1" name="기타금액1 적요" dataType="text"></w2:column>
+        				<w2:column id="etcAmt2" name="기타금액2 금액" dataType="text"></w2:column>
+        				<w2:column id="etcAcctCd2" name="기타금액2 계정" dataType="text"></w2:column>
+        				<w2:column id="etcSummary2" name="기타금액2 적요" dataType="text"></w2:column>
+        				<w2:column id="reqClntNo" name="요청거래처번호" dataType="text"></w2:column>
+        				<w2:column id="reqClntNm" name="요청거래처명" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_evidaccopy" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="txnNo" name="거래번호" dataType="text"></w2:column>
+        				<w2:column id="txnContSeq" name="거래내역순번" dataType="text"></w2:column>
+        				<w2:column id="evidEchAcctSeq" name="증빙별계정순번" dataType="text"></w2:column>
+        				<w2:column id="acctCd" name="계정코드" dataType="text"></w2:column>
+        				<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+        				<w2:column id="acctDeptCd" name="회계부서코드" dataType="text"></w2:column>
+        				<w2:column id="acctDeptNm" name="회계부서명" dataType="text"></w2:column>
+        				<w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+        				<w2:column id="exchRt" name="환율" dataType="text"></w2:column>
+        				<w2:column id="amtFcrc" name="외화금액" dataType="text"></w2:column>
+        				<w2:column id="amt" name="금액" dataType="text"></w2:column>
+        				<w2:column id="rltSeq" name="관련사건 저장순번" dataType="text"></w2:column>
+        				<w2:column id="costClsCd" name="비용구분코드" dataType="text"></w2:column>
+        				<w2:column id="acctClsCd" name="계정구분코드" dataType="text"></w2:column>
+        				<w2:column id="branchCd" name="지점코드" dataType="text"></w2:column>
+        				<w2:column id="pchsItemCd" name="매입항목코드" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="ds_search2">
+        			<w2:keyInfo>
+        				<w2:key id="txnNo" name="거래번호" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" id="ds_txtcopy_rtn" style="" repeatNode="map" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="slipNo" name="DEBIS전표번호"></w2:column>
+        				<w2:column dataType="text" id="txnNo" name="거래번호"></w2:column>
+        				<w2:column dataType="text" id="txnContSeq" name="거래내역순번"></w2:column>
+        				<w2:column dataType="text" id="evidClsCd" name="증빙구분코드"></w2:column>
+        				<w2:column dataType="text" id="evidClsNm" name="증빙구분명"></w2:column>
+        				<w2:column dataType="text" id="deductClsCd" name="공제구분코드"></w2:column>
+        				<w2:column dataType="text" id="mgntClntNo" name="관리거래처번호"></w2:column>
+        				<w2:column dataType="text" id="mgntClntNm" name="관리거래처명"></w2:column>
+        				<w2:column dataType="text" id="crn" name="사업자등록번호"></w2:column>
+        				<w2:column dataType="text" id="crnNm" name="사업자등록번호명"></w2:column>
+        				<w2:column dataType="text" id="acctCd" name="계정코드"></w2:column>
+        				<w2:column dataType="text" id="acctNm" name="계정명"></w2:column>
+        				<w2:column dataType="text" id="txnDt" name="거래일자"></w2:column>
+        				<w2:column dataType="text" id="mgntNo" name="관리번호"></w2:column>
+        				<w2:column dataType="text" id="mgntEmpNo" name="관리사원번호"></w2:column>
+        				<w2:column dataType="text" id="mgntEmpNm" name="관리사원명"></w2:column>
+        				<w2:column dataType="text" id="mgntDt" name="관리일자"></w2:column>
+        				<w2:column dataType="text" id="mgntTermStDt" name="관리기간시작일자"></w2:column>
+        				<w2:column dataType="text" id="mgntTermEndDt" name="관리기간종료일자"></w2:column>
+        				<w2:column dataType="text" id="acctDeptCd" name="회계부서코드"></w2:column>
+        				<w2:column dataType="text" id="acctDeptNm" name="회계부서명"></w2:column>
+        				<w2:column dataType="text" id="vatDeclarAcctDeptCd" name="부가세관리귀속부서"></w2:column>
+        				<w2:column dataType="text" id="vatDeclarAcctDeptNm" name="부가세신고귀속부서명"></w2:column>
+        				<w2:column dataType="text" id="vatCrn" name="부가세사업자등록번호"></w2:column>
+        				<w2:column dataType="text" id="amt" name="금액"></w2:column>
+        				<w2:column dataType="text" id="spplyAmt" name="계산서금액"></w2:column>
+        				<w2:column dataType="text" id="spplyAmtFcrc" name="공급금액_외화"></w2:column>
+        				<w2:column dataType="text" id="crcCd" name="통화코드"></w2:column>
+        				<w2:column dataType="text" id="exchRt" name="환율"></w2:column>
+        				<w2:column dataType="text" id="vatAmt" name="부가세금액"></w2:column>
+        				<w2:column dataType="text" id="frchCrn" name="가맹점사업자등록번호"></w2:column>
+        				<w2:column dataType="text" id="frchNm" name="가맹점명"></w2:column>
+        				<w2:column dataType="text" id="acctDistYn" name="계정배부여부"></w2:column>
+        				<w2:column dataType="text" id="cardNo" name="카드번호"></w2:column>
+        				<w2:column dataType="text" id="cardNm" name="카드명"></w2:column>
+        				<w2:column dataType="text" id="adjmClsCd" name="정산구분코드"></w2:column>
+        				<w2:column dataType="text" id="adjmAcctDeptCd" name="정산귀속부서코드"></w2:column>
+        				<w2:column dataType="text" id="adjmAcctDeptNm" name="정산귀속부서명"></w2:column>
+        				<w2:column dataType="text" id="adjmClntNo" name="정산거래처번호"></w2:column>
+        				<w2:column dataType="text" id="adjmClntNm" name="정산거래처명"></w2:column>
+        				<w2:column dataType="text" id="summary" name="적요"></w2:column>
+        				<w2:column dataType="text" id="rltSeq" name="관련사건 저장순번"></w2:column>
+        				<w2:column dataType="text" id="termMgntYn" name="기간관리여부"></w2:column>
+        				<w2:column dataType="text" id="empMgntYn" name="사원관리여부"></w2:column>
+        				<w2:column dataType="text" id="dtMgntYn" name="일자관리여부"></w2:column>
+        				<w2:column dataType="text" id="bizMgntYn" name="사업관리여부"></w2:column>
+        				<w2:column dataType="text" id="vatYn" name="부가세여부"></w2:column>
+        				<w2:column dataType="text" id="cardNoYn" name="카드번호여부"></w2:column>
+        				<w2:column dataType="text" id="frchNoYn" name="가맹점번호여부"></w2:column>
+        				<w2:column dataType="text" id="deductClsYn" name="공제구분여부"></w2:column>
+        				<w2:column dataType="text" id="limitAmt" name="한도금액"></w2:column>
+        				<w2:column dataType="text" id="dcAmt" name="할인금액"></w2:column>
+        				<w2:column dataType="text" id="cardKndCd" name="카드종류코드"></w2:column>
+        				<w2:column dataType="text" id="costClsCd" name="비용구분코드"></w2:column>
+        				<w2:column dataType="text" id="acctClsCd" name="계정구분코드"></w2:column>
+        				<w2:column dataType="text" id="clntMgntYn" name="거래처관리여부"></w2:column>
+        				<w2:column dataType="text" id="branchCd" name="지점코드"></w2:column>
+        				<w2:column dataType="text" id="pchsItemCd" name="매입항목코드"></w2:column>
+        				<w2:column dataType="text" id="branchNm" name="지점명"></w2:column>
+        				<w2:column dataType="text" id="pchsItemNm" name="매입항목명"></w2:column>
+        				<w2:column dataType="text" id="coCd" name="회사코드"></w2:column>
+        				<w2:column dataType="text" id="coClsCd" name="회사구분코드"></w2:column>
+        				<w2:column dataType="text" id="etcAmt1" name="기타금액1 금액"></w2:column>
+        				<w2:column dataType="text" id="etcAcctCd1" name="기타금액1 계정"></w2:column>
+        				<w2:column dataType="text" id="etcSummary1" name="기타금액1 적요"></w2:column>
+        				<w2:column dataType="text" id="etcAmt2" name="기타금액2 금액"></w2:column>
+        				<w2:column dataType="text" id="etcAcctCd2" name="기타금액2 계정"></w2:column>
+        				<w2:column dataType="text" id="etcSummary2" name="기타금액2 적요"></w2:column>
+        				<w2:column dataType="text" id="reqClntNo" name="요청거래처번호"></w2:column>
+        				<w2:column dataType="text" id="reqClntNm" name="요청거래처명"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" id="ds_evidaccopy_rtn" repeatNode="map" saveRemovedData="true" style="">
+        			<w2:columnInfo>
+        				<w2:column dataType="text" id="txnNo" name="거래번호"></w2:column>
+        				<w2:column dataType="text" id="txnContSeq" name="거래내역순번"></w2:column>
+        				<w2:column dataType="text" id="evidEchAcctSeq" name="증빙별계정순번"></w2:column>
+        				<w2:column dataType="text" id="acctCd" name="계정코드"></w2:column>
+        				<w2:column dataType="text" id="acctNm" name="계정명"></w2:column>
+        				<w2:column dataType="text" id="acctDeptCd" name="회계부서코드"></w2:column>
+        				<w2:column dataType="text" id="acctDeptNm" name="회계부서명"></w2:column>
+        				<w2:column dataType="text" id="crcCd" name="통화코드"></w2:column>
+        				<w2:column dataType="text" id="exchRt" name="환율"></w2:column>
+        				<w2:column dataType="text" id="amtFcrc" name="외화금액"></w2:column>
+        				<w2:column dataType="text" id="amt" name="금액"></w2:column>
+        				<w2:column dataType="text" id="rltSeq" name="관련사건 저장순번"></w2:column>
+        				<w2:column dataType="text" id="costClsCd" name="비용구분코드"></w2:column>
+        				<w2:column dataType="text" id="acctClsCd" name="계정구분코드"></w2:column>
+        				<w2:column dataType="text" id="branchCd" name="지점코드"></w2:column>
+        				<w2:column dataType="text" id="pchsItemCd" name="매입항목코드"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieve" action="/ac.fi.gnrlaccount.slipmgnt.RetrieveTransactionContentsCMD.do" method="post"
+        		mediatype="application/json" ref='data:json,[{"id":"ds_txtcopycond","key":"IN_DS1"},{"id":"ds_txtcopy","key":"OUT_DS1"}]'
+        		target='data:json,{"id":"ds_txtcopy","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sbm_retrieve_evidac" action="/ac.fi.gnrlaccount.slipmgnt.RetrieveExpenseDistibutionContentsCMD.do"
+        		method="post" mediatype="application/json"
+        		ref='data:json,ds_search2'
+        		target='data:json,GAUCE' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_evidac_submitdone" ev:submiterror=""
+        		abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script cache="false" scopeExternal="false" src="/ui/ac/am/constants/ACConstants.js" scopeVariable="" type="text/javascript"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fi_201_01_07p
+// 이름     : 전표복사(경비전표)
+// 경로     : 재무회계/일반회계/전표관리/
+// 사용계정 : 내부
+// 파라미터 :
+//            IN  : 
+//            OUT :  ds_txtcopy => ds_txncontents
+//                   ds_evidaccopy => ds_evidac
+//
+// 비고     : 복사버튼을 누르면 조회하면서 보냄 (ds_txtcopy, ds_evidaccopy)
+//            복사종류 : -복사(2) 이면 경비전표입력에서 할인, 공급, 부가세 마이너스 처리
+//
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            [호출당함]
+//            회계/재무회계/일반회계/전표관리/경비전표입력(fi_201_01_01b.jsp)에서 호출
+//==================================================================================================================
+scwin.ds_parent      =  "";   // 부모전달값
+
+scwin.vCoCd          =  "";   // 회사코드
+scwin.vCoClsCd       =  "";   // 회사종류코드
+scwin.txtCoCd        =  "";   // 회사코드(hidden)
+scwin.txtCoClsCd     =  "";   // 회사종류코드(hidden) 
+
+scwin.txt_slipKndCd  =  "";   // 전표종류코드
+scwin.txt_delYn      =  "";   // 삭제여부
+
+
+scwin.slipKndCd      =  "";
+scwin.slipKndNm      =  "";
+
+scwin.onpageload = function() {
+    console.log("====== onpageload ==================");
+
+//   var valueObject = window.dialogArguments;
+//   var slipKndCd = valueObject.slipKndCd;
+//   var slipKndNm = valueObject.slipKndNm;
+//   var vCoCd		= valueObject.pCoCd; //회사코드 
+//   var vCoClsCd  = valueObject.pCoClsCd;
+
+    scwin.slipKndCd  = $c.data.getParameter("slipKndCd") == null ? ""	: $c.data.getParameter("slipKndCd");
+    scwin.slipKndNm  = $c.data.getParameter("slipKndNm") == null ? ""	: $c.data.getParameter("slipKndNm");
+    scwin.vCoCd      = $c.data.getParameter("vCoCd")     == null ? ""	: $c.data.getParameter("vCoCd"); //회사코드
+    scwin.vCoClsCd   = $c.data.getParameter("vCoClsCd")  == null ? ""	: $c.data.getParameter("vCoClsCd");
+
+    console.log("▶ slipKndCd : "+scwin.slipKndCd+"  slipKndNm : "+scwin.slipKndNm);
+    console.log("▶ vCoCd     : "+scwin.vCoCd+"  vCoClsCd : "+scwin.vCoClsCd);
+};
+
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. onPageLoad 에서 호출 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    console.log("==-==-== onUdcCompleted");
+
+    $p.setTimeout(function() {
+
+        scwin.f_setSubsidiaryCompanyInfo();
+        ed_slipNo.focus;
+
+        // lc_slipKndNm.BindColVal = slipKndCd;
+        // sp_title.innerHTML = "전표복사(" + slipKndNm + ")";
+
+        // 팝업이름 변경
+        var titleNm = "전표복사(" + scwin.slipKndNm + ")"
+        $c.data.setPopupTitle(titleNm);
+
+
+    }, {"delay":50});
+};
+
+// @@ ====== 준비 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 자회사 매입/경비 전표 인 경우  화면 설정 
+//-------------------------------------------------------------------------
+scwin.f_setSubsidiaryCompanyInfo = function() {   
+    if( scwin.vCoClsCd > ACConstants.CO_CLS_CD_DONGBU )  {   // 자회사인 경우에만  회사코드   check  > 0
+//       lc_slipKndNm.CBData = "K01^자회사 경비전표,K03^자회사 매입전표";
+
+        lc_slipKndNm.removeAll();
+        lc_slipKndNm.addItem("K01", "자회사 경비전표", 0, true );  // fn(value: string, label: string, index: number, refresh: bool)
+        lc_slipKndNm.addItem("K03", "자회사 매입전표", 1, true );  // 
+    }
+
+/*
+    // KYU_TEST : 전표종류 콤보 변경
+    lc_slipKndNm.removeAll();
+    lc_slipKndNm.addItem("K01", "자회사 경비전표", 0, true );  // fn(value: string, label: string, index: number, refresh: bool)
+    lc_slipKndNm.addItem("K03", "자회사 매입전표", 1, true );  // 
+    lc_slipKndNm.setValue("K03");
+    console.log(" 전표종류 콤보 : "+ lc_slipKndNm.getValue());
+*/
+}
+
+
+// @@ ====== 이벤트 ============================================================================ //
+//-------------------------------------------------------------------------
+// 복사
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+    console.log("====== f_Save (복사 버튼 클릭)==================");
+
+    // 필수 입력사항 체크
+    //if (!cfCheckMandatory())
+    //    return;
+    // 10자리 셋팅
+
+    // ed_slipNo.text = cfGetLeftPad(ed_slipNo.text.trim(),10,"0");
+
+	// if (!$c.gus.cfValidate(ed_slipNo)) return false;
+
+    let rtn1 = $c.gus.cfValidate(ed_slipNo);
+    if ( !rtn1 ) return;
+
+    // 전표번호:yes:length=10"
+    if ( ed_slipNo.getValue() == "" ) {
+        console.log("111");
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002,"전표번호"));
+        return;
+    }
+
+    ed_slipNo.setValue( $c.gus.cfGetLeftPad(ed_slipNo.getValue().trim(),10,"0") );
+
+    // if(confirm("복사하시겠습니까?")==true){
+    let rtn2 = await $c.win.confirm("복사하시겠습니까?");
+    if ( rtn2 ) {
+    	// 조회
+    	scwin.f_Retrieve();
+    }
+};
+
+
+// @@ ====== 조회 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    console.log("====== f_Retrieve ==================");
+
+	// ds_txtcopycond.NameValue( 1,  "slipKndCd" ) = lc_slipKndNm.BindColVal;
+	// ds_txtcopycond.NameValue( 1,  "slipNo" ) = ed_slipNo.text.trim();
+	// ds_txtcopycond.NameValue( 1,  "coCd" ) 	 = vCoCd;
+	// ds_txtcopycond.NameValue( 1,  "coClsCd" ) = vCoClsCd;
+	
+	// ds_txtcopycond.UseChangeInfo = "false";	 
+
+	ds_txtcopycond.set("slipKndCd", lc_slipKndNm.getValue() );
+	ds_txtcopycond.set("slipNo", ed_slipNo.getValue().trim() );
+	ds_txtcopycond.set("coCd" ,	 scwin.vCoCd);
+	ds_txtcopycond.set("coClsCd", scwin.vCoClsCd );
+
+    // tr_retrieve.Post();
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 조회 submitdone (ds_txtcopy)
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = async function (e) {
+    console.log("▷ sbm_search_submitdone (ds_txtcopy) ==================");
+
+    if( e.responseJSON.resultDataSet[0].Code != 0 ) return;
+/*
+language=JavaScript for=ds_txtcopy event=OnLoadCompleted(rowCnt)>
+    if( rowCnt == 0 ){
+		alert("조회된 데이터가 없습니다.");
+		ed_slipNo.text="";
+	}else{
+		ds_evidaccopy.DataID = "/ac.fi.gnrlaccount.slipmgnt.RetrieveExpenseDistibutionContentsCMD.do?txnNo="+ds_txtcopy.NameValue(ds_txtcopy.RowPosition, "txnNo");
+    	ds_evidaccopy.Reset();             
+	}
+*/
+     var rowCnt = ds_txtcopy.getTotalRow();
+
+    console.log("   ds_txtcopy.getTotalRow : "+ds_txtcopy.getTotalRow());
+    var dc = ds_txtcopy.getAllArray();
+    console.log("  *** ds_txtcopy : " + JSON.stringify(dc));
+
+
+    if( rowCnt == 0 ){
+		await $c.win.alert("조회된 데이터가 없습니다.");
+		ed_slipNo.setValue("");
+	}else{
+        // 증빙배부
+		// ds_evidaccopy.DataID = "/ac.fi.gnrlaccount.slipmgnt.RetrieveExpenseDistibutionContentsCMD.do?txnNo="+ds_txtcopy.NameValue(ds_txtcopy.RowPosition, "txnNo");
+    	// ds_evidaccopy.Reset();
+
+        // 신규 개발
+        ds_txtcopy.setRowPosition(0);
+
+        console.log("   --- 증빙배부 조회   ds_txtcopy.getRowPosition :" + ds_txtcopy.getRowPosition());
+
+        console.log("   --- ds_txtcopy.getCellData(txnNo) ["+ds_txtcopy.getCellData(ds_txtcopy.getRowPosition(), "txnNo") +"]");
+
+        ds_search2.set("txnNo", ds_txtcopy.getCellData(ds_txtcopy.getRowPosition(), "txnNo"));
+
+        var dcJSON = ds_search2.getJSON();
+        console.log("  *** ds_search2 : "+ JSON.stringify(dcJSON));
+
+        $c.sbm.execute(sbm_retrieve_evidac);
+	}
+
+};
+
+//-------------------------------------------------------------------------
+// 증빙배부 조회 submitdone (ds_evidaccopy)
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_evidac_submitdone = async function (e) {
+    console.log("▷▷ sbm_retrieve_evidac_submitdone (증빙배부 조회 submitdone) (ds_evidaccopy) ==================");
+
+    if( e.responseJSON.resultDataSet[0].Code != 0 ) return;
+/*
+ language=JavaScript for=ds_evidaccopy event=OnLoadCompleted(rowCnt)>
+    if(rowCnt > 0){
+        alert("증빙배부된 전표입니다.");
+    }
+
+    var arrRtnVal = new Array();
+
+    // 전표종류 세팅
+    arrRtnVal.slipKndNm = lc_slipKndNm.BindColVal;
+
+
+    arrRtnVal.copyKind = lc_copyKind.BindColVal;
+    arrRtnVal.txtcopy = ds_txtcopy.ExportData(1,ds_txtcopy.CountRow,false);
+
+    arrRtnVal.evidaccopy = ds_evidaccopy.ExportData(1,ds_evidaccopy.CountRow,true);
+
+    window.returnValue = arrRtnVal ;
+    window.close();
+*/
+
+    if(e.responseJSON.GAUCE) {
+        ds_evidaccopy.setJSON(e.responseJSON.GAUCE);
+    }
+
+    var rowCnt = ds_evidaccopy.getTotalRow();
+
+    console.log("   ds_evidaccopy.getTotalRow : "+ds_evidaccopy.getTotalRow());
+    var dc = ds_evidaccopy.getAllArray();
+    console.log("  *** ds_evidaccopy : " + JSON.stringify(dc));
+
+    if(rowCnt > 0){
+        await $c.win.alert("증빙배부된 전표입니다.");
+    }
+
+    var arrRtnVal = new Array();
+
+    // 전표종류 세팅
+//    arrRtnVal.slipKndNm = lc_slipKndNm.BindColVal;
+    arrRtnVal.slipKndNm = lc_slipKndNm.getValue();
+
+    console.log("▲ slipKndNm ["+arrRtnVal.slipKndNm +"]");
+
+    // arrRtnVal.copyKind = lc_copyKind.BindColVal;
+    arrRtnVal.copyKind   = lc_copyKind.getValue();
+
+    console.log("▲ copyKind ["+arrRtnVal.copyKind +"]");
+
+    // 경비전표조회(경비전표복사) 내역 리턴
+    // ds_txtcopy 전체를 보내는 것이기에 그냥 리턴값에 복사 (중간 ds 복사 단계 제외)
+    // arrRtnVal.txtcopy = ds_txtcopy.ExportData(1,ds_txtcopy.CountRow,false);  // false 의 의미는?
+
+    // txtcopy 구성
+    // ds_txtcopy_rtn.removeAll();
+    // ds_txtcopy_rtn.insertRow();
+    // ds_txtcopy_rtn.setRowPosition(0);
+    // var dcJSON = ds_txtcopy.getRowData(0);
+    // ds_txtcopy_rtn.setJSON(dcJSON, true);  // append
+
+    // JSON 값으로 보냄
+	arrRtnVal.txtcopy = ds_txtcopy.getAllJSON();
+
+    console.log("▲ txtcopy ["+ JSON.stringify(arrRtnVal.txtcopy) +"]");
+
+
+
+    // 경비분배조회 내역 리턴
+    // ds_evidaccopy 전체를 보내는 것이기에 그냥 리턴값에 복사 (중간 ds 복사 단계 제외)
+    // arrRtnVal.evidaccopy = ds_evidaccopy.ExportData(1,ds_evidaccopy.CountRow,true);  // true 의 의미는?
+
+    // ds_evidaccopy_rtn 구성
+    // ds_evidaccopy_rtn.removeAll();
+    // ds_evidaccopy_rtn.insertRow();
+    // ds_evidaccopy_rtn.setRowPosition(0);
+    // var dcJSON = ds_evidcacopy.getRowData(0);
+    // ds_evidaccopy_rtn.setJSON(dcJSON, true);  // append
+
+    // JSON 값으로 보냄
+	arrRtnVal.evidaccopy = ds_evidaccopy.getAllJSON();
+
+    console.log("▲ evidaccopy ["+JSON.stringify(arrRtnVal.evidaccopy) +"]");
+
+    // window.returnValue = arrRtnVal ;
+
+    // console.log("arrRtnVal ["+ arrRtnVal +"]");
+    // await $c.win.alert("리턴 txtcopy\n["+ JSON.stringify(arrRtnVal.txtcopy) +"]");
+    // await $c.win.alert("리턴 evidaccopy\n["+ JSON.stringify(arrRtnVal.evidaccopy) +"]");
+
+    let rt = [arrRtnVal.txtcopy
+             , arrRtnVal.evidaccopy    
+             , arrRtnVal.slipKndNm     // 전표종류명
+             , arrRtnVal.copyKind ];   // 카피종류
+
+    //window.close();
+    $c.win.closePopup(rt);
+};
+
+//-------------------------------------------------------------------------
+// 닫기 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.bnt_close_onclick = function (e) {
+    $c.win.closePopup(["N/A"]);
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group  class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="전표종류" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="w150"
+    										direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_slipKndNm" style="" submenuSize="auto" ref=""
+    										objType="data" mandatory="true" title="전표종류">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[경비전표]]></xf:label>
+    												<xf:value><![CDATA[A08]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[렌터카변동비경비전표]]></xf:label>
+    												<xf:value><![CDATA[I09]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[경비전표-고속변동비]]></xf:label>
+    												<xf:value><![CDATA[J28]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[자회사 경비전표]]></xf:label>
+    												<xf:value><![CDATA[K01]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[자회사 매입전표]]></xf:label>
+    												<xf:value><![CDATA[K03]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[경비전표-택배변동비]]></xf:label>
+    												<xf:value><![CDATA[S83]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="전표번호" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="w150" id="ed_slipNo" placeholder="" style="" objType="data" mandatory="true" maxlength="10" allowChar="0-9" title="전표번호">
+    									</xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="복사형태" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="w150"
+    										direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_copyKind" style="" submenuSize="auto"
+    										objType="data" ref="" title="복사형태">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[+복사]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[-복사]]></xf:label>
+    												<xf:value><![CDATA[2]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<w2:button class="btn " id="bnt_close" label="닫기" style="" ev:onclick="scwin.bnt_close_onclick"></w2:button><w2:button class="btn" id="btn_save" label="복사" style="" objType="bSave" userAuth="R" ev:onclick="scwin.f_Save"></w2:button>
+    					
+
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

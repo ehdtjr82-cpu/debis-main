@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="bottomGrdBtn" meta_screenId="bottomGrdBtn">
+        <w2:type palette="support">COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map"/>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method="scwin.setGridId,scwin.setLabel"/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * @component
+ * @componentName udc_bottomGrdBtn
+ * @pluginName 
+ * @company
+ * @developer
+ * @category /cm/udc
+ * @notSupportBrowser 
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description 그리드 하단 공통버튼
+ * @width
+ * @height
+ * @license
+ * @imagePath
+ * @homepage
+ */
+
+
+
+
+/**
+ * @property
+ * @name id
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name class
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name style
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name gridID
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드 아이디
+ */
+
+/**
+ * @property
+ * @name delFunction
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 삭제 함수
+ */
+
+/**
+ * @property
+ * @name rowAddUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description rowAdd 버튼 UserAuth
+ */
+
+/**
+ * @property
+ * @name rowDelUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description rowDel 버튼 UserAuth
+ */
+
+/**
+ * @property
+ * @name delUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 삭제버튼 UserAuth
+ */
+
+/**
+ * @property
+ * @name rowAddObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description rowAdd 버튼 ObjType
+ */
+
+/**
+ * @property
+ * @name rowDelObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description rowDel 버튼 ObjType
+ */
+
+/**
+ * @property
+ * @name delObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 삭제버튼 ObjType
+ */
+
+/**
+ * @property
+ * @name cancelUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description cancelUserAuth
+ */
+
+/**
+ * @property
+ * @name cancelObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name btnDelYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description 삭제버튼 노출여부
+ */
+
+/**
+ * @property
+ * @name btnCancelYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default N
+ * @necessary N
+ * @bindparent
+ * @description 취소버튼 노출여부
+ */
+
+/**
+ * @property
+ * @name EngYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default N
+ * @necessary N
+ * @bindparent
+ * @description 영문표시 유무
+ */
+
+/**
+ * @property
+ * @name rowAddFunction
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 행추가 함수
+ */
+
+/**
+ * @property
+ * @name btnRowAddYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description 그리드 행추가 버튼 노출 유무
+ */
+
+/**
+ * @property
+ * @name btnRowDelYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description 그리드 행삭제 버튼 노출유무
+ */
+
+/**
+ * @property
+ * @name rowDelFunction
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 행삭제 함수
+ */
+
+/**
+ * @property
+ * @name cancelFunction
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 취소 함수
+ */
+
+/**
+ * @property
+ * @name btnRowAddObj
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 행추가 버튼을 제어할 객체명
+ */
+
+/**
+ * @property
+ * @name btnRowDelObj
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 행삭제 버튼을 제어할 객체명
+ */
+
+/**
+ * @property
+ * @name btnDelObj
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 삭제버튼을 제어할 객체명
+ */
+
+/**
+ * @property
+ * @name btnCancelObj
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 취소버튼을 제어할 객체명
+ */
+
+scwin.onpageload = function() {
+	scwin.opts = $p.getOptions();
+    scwin.grid = $p.parent().$p.getComponentById(scwin.opts.gridID);
+
+    let parentWin = $p.getParentWindow();
+    let pScwin = parentWin["scwin"];
+    let rowAddFn, rowDelFn,delFn,cancelFn;
+    let pFrame = $p.parent();
+    if(scwin.opts.btnRowAddObj) {
+        pFrame[scwin.opts.btnRowAddObj] = btn_rowAdd;
+    }
+    if(scwin.opts.btnRowDelObj) {
+        pFrame[scwin.opts.btnRowDelObj] = btn_rowDel;
+    }
+    if(scwin.opts.btnDelObj) {
+        pFrame[scwin.opts.btnDelObj] = btn_del;
+    }
+    if(scwin.opts.btnCancelObj) {
+        pFrame[scwin.opts.btnCancelObj] = btn_cancel;
+    }
+
+    if(typeof scwin.opts.rowAddFunction !== "undefined") {
+        rowAddFn =  scwin.opts.rowAddFunction.replace(/scwin./g,"");
+        scwin.rowAddFn =  pScwin[rowAddFn];
+    }
+    if(typeof scwin.opts.rowDelFunction !== "undefined") {
+        rowDelFn =  scwin.opts.rowDelFunction.replace(/scwin./g,"");
+        scwin.rowDelFn =  pScwin[rowDelFn];
+    }
+    if(typeof scwin.opts.delFunction !== "undefined") {
+        delFn =  scwin.opts.delFunction.replace(/scwin./g,"");
+        scwin.delFn =  pScwin[delFn];
+    }
+    if(typeof scwin.opts.cancelFunction !== "undefined") {
+        cancelFn =  scwin.opts.cancelFunction.replace(/scwin./g,"");
+        scwin.cancelFn =  pScwin[cancelFn];
+    }
+
+    scwin.dlt = null;
+    if(scwin.grid) {
+        scwin.dlt = $p.getComponentById(scwin.grid.getDataList());
+    }
+
+    if(scwin.opts.rowAddUserAuth) {
+        btn_rowAdd.options.userAuth = scwin.opts.rowAddUserAuth;
+    }
+    if(scwin.opts.rowDelUserAuth) {
+        btn_rowDel.options.userAuth = scwin.opts.rowDelUserAuth;
+    }
+    if(scwin.opts.delUserAuth) {
+        btn_del.options.userAuth = scwin.opts.delUserAuth;
+    }
+    if(scwin.opts.cancelUserAuth) {
+        btn_cancel.options.userAuth = scwin.opts.cancelUserAuth;
+    }
+
+    if(scwin.opts.rowAddObjType) {
+        btn_rowAdd.options.objType = scwin.opts.rowAddObjType;
+    }
+    if(scwin.opts.rowDelObjType) {
+        btn_rowDel.options.objType = scwin.opts.rowDelObjType;
+    }
+    if(scwin.opts.delObjType) {
+        btn_del.options.objType = scwin.opts.delObjType;
+    }
+    if(scwin.opts.cancelObjType) {
+        btn_cancel.options.objType = scwin.opts.cancelObjType;
+    }
+
+    if(typeof scwin.opts.btnDelYn == "undefined" || scwin.opts.btnDelYn == "Y") {
+        btn_del.show("");
+    }
+    if(scwin.opts.btnCancelYn == "Y") {
+        btn_cancel.show("");
+    }
+    if(typeof scwin.opts.btnRowDelYn !== "undefined" && scwin.opts.btnRowDelYn == "N") {
+        btn_rowDel.hide();
+    }
+    if(typeof scwin.opts.btnRowAddYn !== "undefined" && scwin.opts.btnRowAddYn == "N") {
+        btn_rowAdd.hide();
+    }
+    if(scwin.opts.EngYn == "Y") {// 영문 표시 
+        let orgRowAdd = btn_rowAdd.getDisabled();
+        let orgRowDel = btn_rowDel.getDisabled();
+        let orgDel = btn_del.getDisabled();
+        let orgCancel = btn_cancel.getDisabled();
+
+        if(orgRowAdd) {
+            btn_rowAdd.setDisabled(false);
+        }
+        if(orgRowDel) {
+            btn_rowDel.setDisabled(false);
+        }
+        if(orgDel) {
+            btn_del.setDisabled(false);
+        }
+        if(orgCancel) {
+            btn_cancel.setDisabled(false);
+        }
+        btn_rowAdd.setLabel("Addition");
+        btn_rowDel.setLabel("Delete");
+        btn_del.setLabel("A/Del");
+        btn_cancel.setLabel("Cancel");
+        if(orgRowAdd) {
+            btn_rowAdd.setDisabled(true);
+        }
+        if(orgRowDel) {
+            btn_rowDel.setDisabled(true);
+        }
+        if(orgDel) {
+            btn_del.setDisabled(true);
+        }
+        if(orgCancel) {
+            btn_cancel.setDisabled(true);
+        }
+    }
+};
+
+
+// 행추가
+scwin.btn_button1_onclick = function (e) {
+    if(scwin.rowAddFn) {
+        scwin.rowAddFn();
+    } else {
+        $c.data.insertRow(scwin.grid);
+    }
+};
+
+// 행삭제
+scwin.btn_button2_onclick = function (e) {
+    if(scwin.rowDelFn) {
+        scwin.rowDelFn();
+    } else {
+        let row = scwin.dlt.getRowPosition();
+        if(row > -1) {
+            // scwin.dlt.removeRow(row);
+            $c.data.deleteRow(scwin.grid);
+        }
+        
+    }
+    
+};
+
+// 삭제
+scwin.btn_button3_onclick = function (e) {
+    if(scwin.delFn) {
+        scwin.delFn();
+    } else {
+        if(scwin.dlt) {
+            $c.data.undoRow(scwin.grid);
+        }
+    }
+};
+
+// 취소
+scwin.btn_button4_onclick = function (e) {//debugger;
+    try {
+        if(scwin.cancelFn) {
+            scwin.cancelFn();
+        } else {
+            if(scwin.dlt) {
+                let rowIdxs = scwin.grid.getAllFocusedRowIndex();
+                let removeIdx = [];
+                let undoIdx = [];
+                let onlyRFlag = false;
+                for(let idx in rowIdxs) {
+                    var row = rowIdxs[idx];
+                    if (scwin.dlt.getRowStatus(row) == "C") {
+                        removeIdx.push(row);
+                        onlyRFlag = true;
+                    } else {
+                        undoIdx.push(row);
+                        if(onlyRFlag) {
+                            onlyRFlag = false;
+                        }
+                    }
+                }
+                let tRemoveIdx = removeIdx.length;
+                let tUndoIdx = undoIdx.length;
+
+                if(removeIdx.length > 0) {
+                    scwin.dlt.removeRows(removeIdx);
+                    if(onlyRFlag) {
+                        if(scwin.dlt.getRowCount() > 0) {
+                            if(scwin.dlt.getRowCount() -1 < removeIdx[0]) {
+                                scwin.grid.setFocusedCell(scwin.dlt.getRowCount() -1, 0);
+                            } else {
+                                scwin.grid.setFocusedCell(removeIdx[0], 0);
+                            }
+
+                        }
+                    }
+                }
+                if(undoIdx.length > 0) {
+                    scwin.dlt.undoRows(undoIdx);
+
+                    if(scwin.dlt.getRowCount() > 0) {
+                        // scwin.dlt.setRowPosition(undoIdx[tUndoIdx -1]);
+                        scwin.grid.setFocusedCell(undoIdx[tUndoIdx -1],0);
+                    }
+                }
+            }
+        }
+    } catch(e) {
+        console.log(e);
+    }
+};
+
+/**
+ * @method
+ * @name setGridId
+ * @description desc
+ * @param {string} gridID 변경할 그리드 아이디
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+
+/**
+ * @method
+ * @name setLabel
+ * @description 라벨명 변경
+ * @param {string} btn desc
+ * @param {string} label desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.setLabel = function (btn, label) {
+    let btnObj = $p.getComponentById(btn);
+    if(btnObj) {
+        btnObj.setLabel(label);
+    }
+
+};
+scwin.setGridId = function (gridID) {
+	scwin.grid = $p.parent().$p.getComponentById(gridID);
+    if(scwin.grid) {
+        scwin.dlt = $p.getComponentById(scwin.grid.getDataList());
+    }
+    return scwin.grid;
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group style="" id="grp_group18" class="col-gap-4">
+            <w2:button style="" id="btn_rowAdd" label="행추가" class="btn" ev:onclick="scwin.btn_button1_onclick"></w2:button>
+            <w2:button style="" id="btn_rowDel" label="행삭제" class="btn" ev:onclick="scwin.btn_button2_onclick"></w2:button>
+            <w2:button style="display:none" id="btn_del" label="삭제" class="btn" ev:onclick="scwin.btn_button3_onclick"></w2:button>
+            <w2:button style="display:none" id="btn_cancel" label="취소" class="btn" ev:onclick="scwin.btn_button4_onclick"></w2:button>
+        </xf:group>
+    </body>
+</html>

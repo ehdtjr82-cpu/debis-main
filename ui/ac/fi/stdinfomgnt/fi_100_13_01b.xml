@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+    xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate />
+        <w2:MSA />
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="dma_mem">
+        			<w2:keyInfo>
+        				<w2:key id="userId" name="id" dataType="text"></w2:key>
+        				<w2:key id="pgmId" name="pgmId" dataType="text"></w2:key>
+        				<w2:key id="authMenuId" name="authMenuId" dataType="text"></w2:key>
+        				<w2:key id="authSysCd" name="authSysCd" dataType="text"></w2:key>
+        				<w2:key id="authBypassYn" name="authBypassYn" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="ds_search">
+        			<w2:keyInfo>
+        				<w2:key id="vatNo" name="부가세번호" dataType="text"></w2:key>
+        				<w2:key id="crn" name="사업자번호" dataType="text"></w2:key>
+        				<w2:key id="mainkey" name="메인Key" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_urlList">
+        			<w2:columnInfo>
+        				<w2:column id="vatNo" name="부가세번호" dataType="text"></w2:column>
+        				<w2:column id="seq" name="일련번호" dataType="number"></w2:column>
+        				<w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+        				<w2:column id="silpNo" name="DEBIS전표번호" dataType="text"></w2:column>
+        				<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+        				<w2:column id="url" name="URL" dataType="text"></w2:column>
+        				<w2:column id="displayText" name="링크이름" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_getMemInfo" action="/cm.bc.comnmgnt.privmgnt.RetrieveUserEachScreenPrivilegeCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"dma_mem","key":"IN_GDS1"}' target="" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+			<xf:submission id="sbm_urlList" action="/ac.fi.stdinfomgnt.RetrieveValueAddedTaxCertiCMD.do" method="post" mediatype="application/json"
+				ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_urlList","key":"OUT_DS"}]'
+				target='data:json,{"id":"ds_urlList","key":"OUT_DS"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="none" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+        </xf:model>
+        <w2:layoutInfo />
+        <w2:publicInfo method="" />
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/jquery-1.8.3.min.js" scopeVariable="" type="text/javascript"></script>
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js" scopeVariable="" type="text/javascript"></script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable="" type="text/javascript"></script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+        <script cache="false" scopeExternal="false" src="/ui/ac/am/constants/ACConstants.js" scopeVariable="" type="text/javascript"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fi_100_13_01b
+// 이름     : 외부거래명세서
+// 경로     : 
+// 사용계정 : 외부 사용자
+// 비고     :
+//            2026-04-29 : http 접속 방지 위해 sbm_urlList 추가
+//
+// 레포트   : random
+//
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+
+scwin.certiOzrFileNm = "";
+scwin.certiOdiFileNm = "";
+scwin.certiOzParam = "";
+
+
+scwin.onpageload = function () {
+    console.log("====== onpageload ==================v 1.02");
+
+    scwin.initializeReportParameter();
+
+    scwin.checkLogin();
+
+    $c.data.setPopupTitle("외부거래명세서");
+
+    // scwin.renderReport(0);
+};
+
+scwin.onUdcCompleted = function () {
+    $p.setTimeout(function () {
+        // scwin.renderReport(0);
+
+    }, { "delay": 50 });
+};
+
+
+// @@ ====== 준비 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// checkLogin 로그인 체크 : http 로 접속 방지
+//-------------------------------------------------------------------------
+scwin.checkLogin = async function() {
+    console.log("===== checkLogin");
+
+    // http 접속을 방지하기 위한 조회
+    let rtn = await scwin.f_RetrieveUrl();
+
+    if ( !rtn ) {
+        console.log("  http 접속에 의한 방지 - f_RetrieveUrl rtn ["+rtn+"]");
+    }
+    else {
+        console.log("  http 접속 아님, 계속 진행 rtn ["+rtn+"]");
+
+        scwin.renderReport(0);
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 (url 목록 - http 접속 방지)
+//-------------------------------------------------------------------------
+scwin.f_RetrieveUrl = async function() {
+    console.log("====== f_RetrieveUrl ==================");
+
+    //vatNo 로 거래명세서 조회
+    // ValueAddedTaxCertiCondDTO paramDTO = new ValueAddedTaxCertiCondDTO();
+    // paramDTO.setVatNo(vatNo);
+    // paramDTO.setCrn(crn);
+    ds_search.setEmptyValue();
+    ds_urlList.setJSON([]);
+
+    const vatNo = (scwin.certiOzrFileNm  || "").trim();
+    const crn   = (scwin.certiOdiFileNm || "").trim();
+
+    ds_search.set("vatNo", vatNo);
+    ds_search.set("crn"  , crn);
+
+    var dcJSON = ds_search.getJSON();
+    console.log("  *** ds_search : "+ JSON.stringify(dcJSON));
+
+    let e = await $c.sbm.execute(sbm_urlList);
+
+    console.log("----- sbm_urlList_submitdone");
+
+    if( e.responseJSON.resultDataSet[0].Code != 0 ) {
+        return false;
+    }
+
+    // displayText 생성하여 옮기기 : generator 용 - 
+    var list = ds_urlList.getAllJSON();
+
+    for (var i = 0; i < list.length; i++) {
+        list[i].displayText = "거래명세서 상세보기 " + (i + 1);
+    }
+
+    ds_urlList.setJSON(list);
+
+    return true;
+};
+
+//-------------------------------------------------------------------------
+// 레포트 파라미터 초기화
+//-------------------------------------------------------------------------
+scwin.initializeReportParameter = function () {
+    scwin.certiOzrFileNm = scwin.getStartParameter("certiOzrFileNm");
+    scwin.certiOdiFileNm = (scwin.getStartParameter("certiOdiFileNm") || "").replace(/\.odi$/i, "");
+    scwin.certiOzParam = scwin.getStartParameter("certiOzParam");
+
+    console.log("fi_100_13_01b certiOzrFileNm", scwin.certiOzrFileNm);
+    console.log("fi_100_13_01b certiOdiFileNm", scwin.certiOdiFileNm);
+    console.log("fi_100_13_01b certiOzParam", scwin.certiOzParam);
+};
+
+
+//-------------------------------------------------------------------------
+// 레포트 파라미터 추출
+//   지정된 이름 추출 : & 로 구분
+//     &certParam=param1=4A6  --> 이름 떼고, param1 부터 잘라냄
+//-------------------------------------------------------------------------
+scwin.getStartParameter = function (key) {
+    try {
+        const value = $p.getParameter(key);
+        if (typeof value !== "undefined" && value !== null && value !== "") {
+            return value;
+        }
+    } catch (e) {
+    }
+
+    try {
+        const allParam = $p.getAllParameter() || {};
+        const paramData = allParam.paramData || {};
+        const nestedParamData = paramData.data || {};
+        const menuInfo = paramData.menuInfo || {};
+        const menuParam = menuInfo.menuParam || {};
+        const dataObject = allParam.dataObject && allParam.dataObject.data ? allParam.dataObject.data : {};
+        const candidate = paramData[key] || nestedParamData[key] || menuParam[key] || dataObject[key];
+
+        if (typeof candidate !== "undefined" && candidate !== null && candidate !== "") {
+            return candidate;
+        }
+    } catch (e) {
+    }
+
+    const query = window.location.search ? window.location.search.substring(1) : "";
+    if (!query) {
+        return "";
+    }
+
+    const parts = query.split("&");
+    for (let i = 0; i < parts.length; i++) {
+        const part = parts[i];
+        if (!part) {
+            continue;
+        }
+
+        const idx = part.indexOf("=");
+        const queryKey = idx > -1 ? part.substring(0, idx) : part;
+        if (decodeURIComponent(queryKey) !== key) {
+            continue;
+        }
+
+        const queryValue = idx > -1 ? part.substring(idx + 1) : "";
+        return decodeURIComponent(queryValue.replace(/\+/g, " "));
+    }
+
+    return "";
+};
+
+
+// @@ ====== 레포트 ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 레포트 on iframe load
+//-------------------------------------------------------------------------
+scwin.wfm_ozReport_oniframeload = function () {
+    console.log("=== wfm_ozReport_oniframeload");
+    // scwin.renderReport(0);
+};
+
+//-------------------------------------------------------------------------
+// 레포트 파라미터 세팅
+//-------------------------------------------------------------------------
+scwin.renderReport = function (retryCount) {
+    const data = scwin.buildReportData();
+    if (!data) {
+        console.warn("fi_100_13_01b: report parameter missing", {
+            certiOzrFileNm: scwin.certiOzrFileNm,
+            certiOdiFileNm: scwin.certiOdiFileNm,
+            certiOzParam: scwin.certiOzParam
+        });
+        return;
+    }
+
+    let reportWindow = null;
+    try {
+        reportWindow = wfm_ozReport.getWindow ? wfm_ozReport.getWindow() : null;
+    } catch (e) {
+        reportWindow = null;
+    }
+
+    if (!reportWindow || !reportWindow.mf_scwin || typeof reportWindow.mf_scwin.reportSearch !== "function" || reportWindow.mf_scwin.ozReady !== true) {
+        if ((retryCount || 0) < 40) {
+            $p.setTimeout(function () {
+                scwin.renderReport((retryCount || 0) + 1);
+            }, { "delay": 300 });
+        }
+        return;
+    }
+
+    console.log("fi_100_13_01b report data", data);
+    reportWindow.mf_scwin.reportSearch(data);
+
+    // exe 로 띄움
+        // let opts = {
+        //     type: 'viewer', // viewer, print, download
+        //     printMode: 'view', // silent, view
+        // };
+
+        // console.log(" ============== exe ");
+        // $c.ext.openOzReport(data, opts);
+};
+
+//-------------------------------------------------------------------------
+// 레포트 data 세팅
+//-------------------------------------------------------------------------
+scwin.buildReportData = function () {
+    const reportName = (scwin.certiOzrFileNm || "").trim();
+    const odiName = (scwin.certiOdiFileNm || "").trim();
+
+    if (!reportName || !odiName) {
+        return null;
+    }
+
+    return {
+        odiName: odiName,
+        reportName: reportName,
+        odiParam: scwin.parseOzParam(scwin.certiOzParam),
+        viewerParam: {
+            viewer: 100,
+            useprogressbar: false
+        },
+        formParam: {}
+    };
+};
+
+//-------------------------------------------------------------------------
+// 레포트 data - 파라미터 세팅
+//   지정된 이름 추출 : , 로 구분. key = value 구조
+//-------------------------------------------------------------------------
+scwin.parseOzParam = function (rawValue) {
+    const result = {};
+    const paramText = (rawValue || "").trim();
+
+    if (!paramText) {
+        return result;
+    }
+
+    paramText.split(",").forEach(function (entry) {
+        const pair = (entry || "").trim();
+        if (!pair) {
+            return;
+        }
+
+        const idx = pair.indexOf("=");
+        if (idx < 0) {
+            result[pair] = "";
+            return;
+        }
+
+        const key = pair.substring(0, idx).trim();
+        const value = pair.substring(idx + 1).trim();
+        if (!key) {
+            return;
+        }
+
+        result[key] = value;
+    });
+
+    return result;
+};
+]]></script>
+        <w2:require as="udc_schInput" type="page" variableClone="true" src="/cm/udc/schInput.xml"></w2:require>
+        <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+        <w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+        <w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+        <w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+        <w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+        <w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+        <w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="sub_contents" id="" style="">
+            <w2:wframe id="ed_title" src="/cm/xml/contentHeader.xml" style="" msaName="외부거래명세서"></w2:wframe>
+            <xf:group class="round-box" id="" style="">
+                <xf:group class="ozWrap" id="ozFrame" style="">
+                    <w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style="width:100%;height:100%" ev:oniframeload="scwin.wfm_ozReport_oniframeload"></w2:iframe>
+                </xf:group>
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

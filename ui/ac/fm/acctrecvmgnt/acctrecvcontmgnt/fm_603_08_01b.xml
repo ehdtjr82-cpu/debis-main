@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_searchAcctRecv">
+    				<w2:keyInfo>
+    					<w2:key id="stdPoint" name="시점" dataType="text"></w2:key>
+    					<w2:key id="stdDt" name="기준일자" dataType="text"></w2:key>
+    					<w2:key id="currDt" name="현재일자" dataType="text"></w2:key>
+    					<w2:key id="clntNo" name="거래처코드" dataType="text"></w2:key>
+    					<w2:key id="clntKnd" name="거래처종류" dataType="text"></w2:key>
+    					<w2:key id="bilgAcctDeptCd" name="청구부서" dataType="text"></w2:key>
+    					<w2:key id="overDayStandard" name="초과일기준" dataType="text"></w2:key>
+    					<w2:key id="crn" name="사업자번호" dataType="text"></w2:key>
+    					<w2:key id="staffNo" name="staffNo" dataType="text"></w2:key>
+    					<w2:key id="quitYn" name="폐업여부" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_overDayAcctRecv" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="collMoneyAcctDeptCd" name="collMoneyAcctDeptCd" dataType="text"></w2:column>
+    					<w2:column id="collMoneyAcctDeptNm" name="collMoneyAcctDeptNm" dataType="text"></w2:column>
+    					<w2:column id="bizDomNm" name="bizDomNm" dataType="text"></w2:column>
+    					<w2:column id="sellAcctDeptCd" name="sellAcctDeptCd" dataType="text"></w2:column>
+    					<w2:column id="sellAcctDeptNm" name="sellAcctDeptNm" dataType="text"></w2:column>
+    					<w2:column id="bilgAcctDeptCd" name="bilgAcctDeptCd" dataType="text"></w2:column>
+    					<w2:column id="bilgAcctDeptNm" name="bilgAcctDeptNm" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="clntNo" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="clntNm" dataType="text"></w2:column>
+    					<w2:column id="crn" name="crn" dataType="text"></w2:column>
+    					<w2:column id="gbn" name="gbn" dataType="text"></w2:column>
+    					<w2:column id="clntKnd" name="clntKnd" dataType="text"></w2:column>
+    					<w2:column id="clntKndNm" name="clntKndNm" dataType="text"></w2:column>
+    					<w2:column id="ovr1Dd" name="ovr1Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr15Dd" name="ovr15Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr30Dd" name="ovr30Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr60Dd" name="ovr60Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr90Dd" name="ovr90Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr120Dd" name="ovr120Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr150Dd" name="ovr150Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr180Dd" name="ovr180Dd" dataType="text"></w2:column>
+    					<w2:column id="ovr210Dd" name="ovr210Dd" dataType="text"></w2:column>
+    					<w2:column id="collMoneyFddUnArrv" name="collMoneyFddUnArrv" dataType="text"></w2:column>
+    					<w2:column id="under0Dd" name="under0Dd" dataType="text"></w2:column>
+    					<w2:column id="under30Dd" name="under30Dd" dataType="text"></w2:column>
+    					<w2:column id="under60Dd" name="under60Dd" dataType="text"></w2:column>
+    					<w2:column id="quitYn" name="quitYn" dataType="text"></w2:column>
+    					<w2:column id="quitDt" name="quitDt" dataType="text"></w2:column>
+    					<w2:column id="underSum" name="underSum" dataType="text"></w2:column>
+    					<w2:column id="overSum" name="overSum" dataType="text"></w2:column>
+    					<w2:column id="allSum" name="allSum" dataType="text"></w2:column>
+    					<w2:column id="acctCd" name="acctCd" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="acctNm" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchAcctRecv" action="/ac.fm.acctrecvmgnt.acctrecvcontmgnt.RetrieveInatAcctRecvOverDayCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_searchAcctRecv","key":"IN_DS1"},{"id":"ds_overDayAcctRecv","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_overDayAcctRecv","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchAcctRecv_submitdone" ev:submiterror="scwin.sbm_searchAcctRecv_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.memJson = $c.data.getMemInfo();
+scwin.acctDeptCd = scwin.memJson.acctDeptCd;
+scwin.acctDeptNm = scwin.memJson.acctDeptNm;
+scwin.strFromDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMM") + "01";
+scwin.strDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "FM069", compID : "lc_overDayStandard" },
+        { grpCd : "FM120", compID : "gr_overDayAcctRecv: quitYn" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+    ed_bilgAcctDeptCdCond.setValue(scwin.acctDeptCd);
+    ed_bilgAcctDeptNmCond.setValue(scwin.acctDeptNm);
+};
+
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+    console.log("===========scwin.ondataload==========");
+    scwin.f_Reset();
+    
+    $c.data.setPopupTitle("초과채권 거래처");
+
+    ica_currDt.setValue(scwin.strDate);
+    ica_stdDt.setValue(scwin.strDate);
+
+    lc_stdPoint.setSelectedIndex(1);
+    lc_overDayStandard.setSelectedIndex(1);
+
+    $c.gus.cfEnableObj(lc_stdPoint, false); 
+    $c.gus.cfEnableObj(lc_overDayStandard, false); 
+    $c.gus.cfEnableObj(ica_currDt, false); 
+    $c.gus.cfEnableObj(ica_stdDt, false); 
+    $c.gus.cfEnableObj(ed_bilgAcctDeptCdCond, false);
+    $c.gus.cfEnableObj(ed_bilgAcctDeptNmCond, false);
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:조회->거래처 , 2:조회->귀속부서
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function(orgObjCd, orgObjNm, select_code, flag) {
+    // var rtnList = new Array();
+
+    // POPUP 돋보기 클릭시는 모든값을 조회 할 수 있도록 한다. flag:ALL일 경우는 돋보기 클릭한것임.
+    // 넘어온 OBJ가 EMEdit인지 TextBox인지 구분한다.
+    // flag:SKIP일경우는 Tag에 대한 속성 검사를 하지 않는다.
+    if ( flag != "SKIP") {
+        if (flag == "ALL") {
+            cd = "";
+            nm = "";
+        } else {
+            cd = ed_bilgAcctDeptCdCond.getValue();
+            nm = ed_bilgAcctDeptNmCond.getValue();
+        }
+    } else {
+        cd = orgObjCd;
+        nm = "";
+    }
+
+    switch (select_code) {
+        // 조회조건용 청구부서 PopUp 호출
+        case '2' :
+            // rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo'
+            await udc_bilgAcctDeptCd.cfCommonPopUp(
+             scwin.udc_bilgAcctDeptCd_callback 	// XML상의 SELECT ID	
+            ,cd, nm,"T",null,null,null,null,null,null,null,null,null,null,null,null,null); // 관리부서
+            break;
+        default :
+            $c.gus.cfAlertMsg("잘못된 Function호출 입니다. 관리자에게 문의하시기 바랍니다.");
+            break;
+    }
+};
+
+scwin.udc_bilgAcctDeptCd_callback = function(rtnList) {
+    if (rtnList != null ) {
+    	if (rtnList[0] != "N/A") {
+    		ed_bilgAcctDeptCdCond.setValue(rtnList[0]);
+			ed_bilgAcctDeptCdCond.options.hidVal = rtnList[0];
+			ed_bilgAcctDeptNmCond.setValue(rtnList[1]);
+		}
+    } else {
+		ed_bilgAcctDeptCdCond.setValue("");
+		ed_bilgAcctDeptCdCond.options.hidVal = "";
+		ed_bilgAcctDeptNmCond.setValue("");
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+// flag값이 CD:코드변경이 없으면 POPUP안뛰움, NM:무조건 POPUP뛰움
+//-------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+};
+
+//-------------------------------------------------------------------------
+// 초기화 관련 변수 정의 함수
+//-------------------------------------------------------------------------
+scwin.f_Initial = function() {
+    $c.gus.cfDisableKey();
+}
+//-------------------------------------------------------------------------
+// 저장 완료후 화면 Reset시 사용하는 함수 
+//-------------------------------------------------------------------------
+scwin.f_Reset = function() {
+    scwin.f_Initial();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    let ret = await $c.gus.cfValidate([ica_currDt, ica_stdDt]);
+    if (!ret) {
+        return false;
+    }
+	$c.sbm.execute(sbm_searchAcctRecv);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_Export = function(){
+    let sheetTitle = "초과일별채권현황";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_overDayAcctRecv, options);    
+}
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+
+scwin.sbm_searchAcctRecv_submitdone = function (e) {
+    var rowCnt = ds_overDayAcctRecv.getRowCount();
+	spanTotal.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_overDayAcctRecv.setFocusedCell(0, 0);
+};
+
+scwin.sbm_searchAcctRecv_submiterror = function (e) {
+
+};
+
+scwin.udc_bilgAcctDeptCd_onclickEvent = function (e) {
+    scwin.f_openPopUp(ed_bilgAcctDeptCdCond.getValue(), ed_bilgAcctDeptNmCond.getValue(),'2','ALL')
+};
+
+scwin.lc_stdPoint_onchange = function (info) {
+    if (info.newValue == "0"){
+        ica_currDt.setValue("");
+        $c.gus.cfDisableObjects([ica_currDt])
+    }else{
+        ica_currDt.setValue(scwin.strDate);
+        $c.gus.cfEnableObjects([ica_currDt])
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="시점 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:group id="" class="form-group">
+    							<xf:select1 submenuSize="fixed" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption=""
+    								disabled="false" style="width: 100px" allOption="" id="lc_stdPoint" class="" direction="auto" ref="data:dma_searchAcctRecv.stdPoint" mandatory="true" ev:onchange="scwin.lc_stdPoint_onchange">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[기준일]]></xf:label>
+    										<xf:value><![CDATA[0]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[현재]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    							<w2:inputCalendar style="" id="ica_currDt" class="" calendarValueType="yearMonthDate" delimiter="/" ref="data:dma_searchAcctRecv.currDt" mandatory="true" title="현재일자"></w2:inputCalendar></xf:group></xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기준일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_stdDt" style="" delimiter="/" mandatory="true" ref="data:dma_searchAcctRecv.stdDt" title="기준일자"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="청구귀속 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode allowCharCode="0-9" btnId="btn_bilgAcctDeptCdCond" code="bilgAcctDeptCd" codeId="ed_bilgAcctDeptCdCond"
+    								editTypeName="focus" id="udc_bilgAcctDeptCd" maxlengthCode="6" maxlengthName="30" nameId="ed_bilgAcctDeptNmCond" objTypeCode="data" objTypeName="data" popupID=""
+    								selectID="retrieveAcctDeptCdInfo" style=""
+    								validExpCode="청구귀속:no" refDataCollection="dma_searchAcctRecv" ev:onclickEvent="scwin.udc_bilgAcctDeptCd_onclickEvent" codeWidth="70">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="초과일기준 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete allOption="" chooseOption="true" class="" editType="select" id="lc_overDayStandard" mandatory="true"
+    								ref="data:dma_searchAcctRecv.overDayStandard" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15" chooseOptionLabel="전체">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="Y" gridUpYn="N" gridDownFn="scwin.f_Export" gridID="gr_overDayAcctRecv"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group><xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    					<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_overDayAcctRecv" focusMode="row" id="gr_overDayAcctRecv" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10" visibleRowNumFix="true" readOnly="true">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" style="" value="청구귀속" width="100" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" style="" value="청구귀속명" width="120" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" style="" value="매출귀속" width="100" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" style="" value="매출귀속명" width="150" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column70" value="계정코드" displayMode="label" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column67" value="계정명" displayMode="label" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column64" value="거래처" displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column61" value="거래처명" displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column58" value="구분" displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column55" value="사업자번호" displayMode="label" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column width="80" inputType="text" style="" id="column52" value="폐업여부" displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column49" value="폐업일자" displayMode="label" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column32" inputType="text" style="" value="거래처종류" width="120" colSpan="" rowSpan="2" hidden="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" style="" value="초과채권" width="1130" colSpan="10" rowSpan="" sortable="false">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column98" value="총계" displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    							</w2:row>
+    							<w2:row style="" id="row5">
+    								<w2:column width="100" inputType="text" style="" id="column43" value="1일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column42" value="15일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column41" value="30일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column40" value="60일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column123" value="90일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column119" value="120일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column115" value="150일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column111" value="180일초과" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column107" value="210일초과" displayMode="label"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column103" value="합계" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="bilgAcctDeptCd" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="bilgAcctDeptNm" inputType="text" style="" value="" width="120" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="sellAcctDeptCd" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="sellAcctDeptNm" inputType="text" style="" value="" width="150" textAlign="left"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="acctCd" value="" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="acctNm" value="" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="clntNo" value="" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="clntNm" value="" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="gbn" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="crn" value="" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="80" inputType="select" style="" id="quitYn" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="quitDt" value="" displayMode="label" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="clntKndNm" inputType="text" style="" value="" width="120" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="ovr1Dd" inputType="text" style="" value="" width="100" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column displayMode="label" id="ovr15Dd" inputType="text" style="" value="" width="100" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column displayMode="label" id="ovr30Dd" inputType="text" style="" value="" width="100" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column displayMode="label" id="ovr60Dd" inputType="text" style="" value="" width="100" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ovr90Dd" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="" style="" id="ovr120Dd" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ovr150Dd" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ovr180Dd" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ovr210Dd" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="overSum" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="allSum" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer style="" id="footer1">
+    							<w2:row style="" id="row6">
+    								<w2:column width="100" inputType="text" style="" id="column89" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column88" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column87" value="" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column86" value="합계" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column85" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column84" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column83" value="" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column82" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column81" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column80" value="" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" style="" id="column79" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column78" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column77" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column76" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr1Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column75" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr15Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column74" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr30Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column73" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr60Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column125" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr90Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column121" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr120Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column117" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr150Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column113" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr180Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="100" inputType="expression" style="" id="column109" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('ovr210Dd')" excelCellType="number"></w2:column>
+    								<w2:column width="130" inputType="expression" style="" id="column105" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('overSum')" excelCellType="number"></w2:column>
+    								<w2:column width="130" inputType="expression" style="" id="column101" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###,###,###" expression="sum('allSum')" excelCellType="number"></w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spanTotal" label="0" style="" tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

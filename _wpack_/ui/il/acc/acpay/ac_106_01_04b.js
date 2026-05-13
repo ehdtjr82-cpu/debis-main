@@ -1,0 +1,1995 @@
+/*amd /ui/il/acc/acpay/ac_106_01_04b.xml 136903 67bc67276a79c804ee1bb4a52f28db48f354afebe2db894aea72b87cc3412667 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_slipcontents',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'seq',name:'SEQ',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipSeq',name:'전표순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drcrClsCd',name:'차대구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'amt',name:'금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'exchRt',name:'환율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'amtFcrc',name:'금액_외화',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctCd',name:'계정코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctNm',name:'계정명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'귀속부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptNm',name:'귀속부서명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntEmpNo',name:'관리사원번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntEmpNm',name:'관리사원명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntClntNo',name:'관리거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntClntNm',name:'관리거래처명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자등록번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntDt',name:'관리일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntTermStDt',name:'관리기간시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntTermEndDt',name:'관리기간종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntNo',name:'관리번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntNm',name:'관리번호명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'opntAcctCd',name:'상대계정코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizdivCd',name:'사업부코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizDomCd',name:'사업영역코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'summary',name:'적요',dataType:'text'}},{T:1,N:'w2:column',A:{id:'termMgntYn',name:'기간관리여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntMgntYn',name:'거래처관리여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'empMgntYn',name:'사원관리여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dtMgntYn',name:'관리일자여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'reqDt',name:'지급일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'reqPayMthdCd',name:'요청지급방법코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'draftDdCntCd',name:'어음일수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'taxinvcDt',name:'세금계산서일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payProcYn',name:'지급처리여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payAcctCd',name:'지급계정',dataType:'text'}},{T:1,N:'w2:column',A:{id:'evidClsCd',name:'증빙구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'deductClsCd',name:'공제여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spplyAmt',name:'공급금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'Damt',name:'차변금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'Camt',name:'대변금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntNoCd',name:'관리번호코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ViewDeletedRow',name:'name41',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_slip'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'slipDt',name:'전표일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipAcctDeptCd',name:'전표귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipAcctDeptNm',name:'전표귀속부서명',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_excel'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'certiNo',name:'거래명세서번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'prtnGrpNo',name:'출력그룹번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipDt',name:'전표일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'귀속 부서(청구물류부서코드)',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pchsClntNo',name:'청구 거래처',dataType:'text'}},{T:1,N:'w2:key',A:{id:'spplyDt',name:'공급일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'spplyAmt',name:'공급가액',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vat',name:'부가세',dataType:'text'}},{T:1,N:'w2:key',A:{id:'summary',name:'적요',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_temp',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'seq',name:'SEQ',dataType:'',defaultValue:'seq',encYN:'SEQ'}},{T:1,N:'w2:column',A:{id:'drcrClsCd',name:'차대구분코드',dataType:'',defaultValue:'drcrClsCd',encYN:'차대구분코드'}},{T:1,N:'w2:column',A:{id:'amt',name:'금액',dataType:'',defaultValue:'amt',encYN:'금액'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'',defaultValue:'crcCd',encYN:'통화코드'}},{T:1,N:'w2:column',A:{id:'exchRt',name:'환율',dataType:'',defaultValue:'exchRt',encYN:'환율'}},{T:1,N:'w2:column',A:{id:'amtFcrc',name:'금액_외화',dataType:'',defaultValue:'amtFcrc',encYN:'금액_외화'}},{T:1,N:'w2:column',A:{id:'acctCd',name:'계정코드',dataType:'',defaultValue:'acctCd',encYN:'계정코드'}},{T:1,N:'w2:column',A:{id:'acctNm',name:'계정명',dataType:'',defaultValue:'acctNm',encYN:'계정명'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'귀속부서코드',dataType:'',defaultValue:'acctDeptCd',encYN:'귀속부서코드'}},{T:1,N:'w2:column',A:{id:'acctDeptNm',name:'귀속부서명',dataType:'',defaultValue:'acctDeptNm',encYN:'귀속부서명'}},{T:1,N:'w2:column',A:{id:'mgntEmpNo',name:'관리사원번호',dataType:'',defaultValue:'mgntEmpNo',encYN:'관리사원번호'}},{T:1,N:'w2:column',A:{id:'mgntEmpNm',name:'관리사원명',dataType:'',defaultValue:'mgntEmpNm',encYN:'관리사원명'}},{T:1,N:'w2:column',A:{id:'mgntClntNo',name:'관리거래처번호',dataType:'',defaultValue:'mgntClntNo',encYN:'관리거래처번호'}},{T:1,N:'w2:column',A:{id:'mgntClntNm',name:'관리거래처명',dataType:'',defaultValue:'mgntClntNm',encYN:'관리거래처명'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자등록번호',dataType:'',defaultValue:'crn',encYN:'사업자등록번호'}},{T:1,N:'w2:column',A:{id:'mgntDt',name:'관리일자',dataType:'',defaultValue:'mgntDt',encYN:'관리일자'}},{T:1,N:'w2:column',A:{id:'mgntTermStDt',name:'관리기간시작일자',dataType:'',defaultValue:'mgntTermStDt',encYN:'관리기간시작일자'}},{T:1,N:'w2:column',A:{id:'mgntTermEndDt',name:'관리기간종료일자',dataType:'',defaultValue:'mgntTermEndDt',encYN:'관리기간종료일자'}},{T:1,N:'w2:column',A:{id:'mgntNo',name:'관리번호',dataType:'',defaultValue:'mgntNo',encYN:'관리번호'}},{T:1,N:'w2:column',A:{id:'mgntNm',name:'관리번호명',dataType:'',defaultValue:'mgntNm',encYN:'관리번호명'}},{T:1,N:'w2:column',A:{id:'opntAcctCd',name:'상대계정코드',dataType:'',defaultValue:'opntAcctCd',encYN:'상대계정코드'}},{T:1,N:'w2:column',A:{id:'bizdivCd',name:'사업부코드',dataType:'',defaultValue:'bizdivCd',encYN:'사업부코드'}},{T:1,N:'w2:column',A:{id:'bizDomCd',name:'사업영역코드',dataType:'',defaultValue:'bizDomCd',encYN:'사업영역코드'}},{T:1,N:'w2:column',A:{id:'summary',name:'적요',dataType:'',defaultValue:'summary',encYN:'적요'}},{T:1,N:'w2:column',A:{id:'termMgntYn',name:'기간관리여부',dataType:'',defaultValue:'termMgntYn',encYN:'기간관리여부'}},{T:1,N:'w2:column',A:{id:'clntMgntYn',name:'거래처관리여부',dataType:'',defaultValue:'clntMgntYn',encYN:'거래처관리여부'}},{T:1,N:'w2:column',A:{id:'empMgntYn',name:'사원관리여부',dataType:'',defaultValue:'empMgntYn',encYN:'사원관리여부'}},{T:1,N:'w2:column',A:{id:'dtMgntYn',name:'관리일자여부',dataType:'',defaultValue:'dtMgntYn',encYN:'관리일자여부'}},{T:1,N:'w2:column',A:{id:'reqDt',name:'지급일자',dataType:'',defaultValue:'reqDt',encYN:'지급일자'}},{T:1,N:'w2:column',A:{id:'reqPayMthdCd',name:'요청지급방법코드',dataType:'',defaultValue:'reqPayMthdCd',encYN:'요청지급방법코드'}},{T:1,N:'w2:column',A:{id:'draftDdCntCd',name:'어음일수',dataType:'',defaultValue:'draftDdCntCd',encYN:'어음일수'}},{T:1,N:'w2:column',A:{id:'taxinvcDt',name:'세금계산서일자',dataType:'',defaultValue:'taxinvcDt',encYN:'세금계산서일자'}},{T:1,N:'w2:column',A:{id:'payProcYn',name:'지급처리여부',dataType:'',defaultValue:'payProcYn',encYN:'지급처리여부'}},{T:1,N:'w2:column',A:{id:'payAcctCd',name:'지급계정',dataType:'',defaultValue:'payAcctCd',encYN:'지급계정'}},{T:1,N:'w2:column',A:{id:'evidClsCd',name:'증빙구분코드',dataType:'',defaultValue:'evidClsCd',encYN:'증빙구분코드'}},{T:1,N:'w2:column',A:{id:'deductClsCd',name:'공제여부',dataType:'',defaultValue:'deductClsCd',encYN:'공제여부'}},{T:1,N:'w2:column',A:{id:'spplyAmt',name:'공급금액',dataType:'',defaultValue:'spplyAmt',encYN:'공급금액'}},{T:1,N:'w2:column',A:{id:'Damt',name:'차변금액',dataType:'',defaultValue:'Damt',encYN:'차변금액'}},{T:1,N:'w2:column',A:{id:'Camt',name:'대변금액',dataType:'',defaultValue:'Camt',encYN:'대변금액'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',id:'ds_exchRt',repeatNode:'map',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stdDt',name:'기준일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stdExchRt',name:'기준환율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsExchRt',name:'매입환율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellovExchRt',name:'매도환율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자id',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자id',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_exchRtSearch'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'crcCd',name:'통화코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'stdDt',name:'기준일자',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_evidClsCd',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_purchaseSlip'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'certiNo',name:'거래명세서번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'prtnGrpNo',name:'출력그룹번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipDt',name:'전표일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'전표일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pchsClntNo',name:'청구 거래처',dataType:'text'}},{T:1,N:'w2:key',A:{id:'spplyDt',name:'공급일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'spplyAmt',name:'공급가액',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vat',name:'부가세',dataType:'text'}},{T:1,N:'w2:key',A:{id:'summary',name:'적요',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_evidClsCd'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_payProcYn',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'procYn',name:'지급처리여부',dataType:'text'}}]},{T:1,N:'w2:data',A:{use:'true'},E:[{T:1,N:'w2:row',E:[{T:1,N:'procYn',E:[{T:4,cdata:'-1'}]}]}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retSlip',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'slipNo',name:'전표번호',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_slipcontents'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'seq',name:'SEQ',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipSeq',name:'전표순번',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drcrClsCd',name:'차대구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'amt',name:'금액',dataType:'text'}},{T:1,N:'w2:key',A:{id:'crcCd',name:'통화코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'exchRt',name:'환율',dataType:'text'}},{T:1,N:'w2:key',A:{id:'amtFcrc',name:'금액_외화',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctCd',name:'계정코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctNm',name:'계정명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptNm',name:'귀속부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntEmpNo',name:'관리사원번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntEmpNm',name:'관리사원명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntClntNo',name:'관리거래처번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntClntNm',name:'관리거래처명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'crn',name:'사업자등록번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntDt',name:'관리일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntTermStDt',name:'관리기간시작일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntTermEndDt',name:'관리기간종료일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntNo',name:'관리번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntNm',name:'관리번호명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'opntAcctCd',name:'상대계정코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bizdivCd',name:'사업부코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bizDomCd',name:'사업영역코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'summary',name:'적요',dataType:'text'}},{T:1,N:'w2:key',A:{id:'termMgntYn',name:'기간관리여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntMgntYn',name:'거래처관리여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'empMgntYn',name:'사원관리여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dtMgntYn',name:'관리일자여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reqDt',name:'지급일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reqPayMthdCd',name:'요청지급방법코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'draftDdCntCd',name:'어음일수',dataType:'text'}},{T:1,N:'w2:key',A:{id:'taxinvcDt',name:'세금계산서일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'payProcYn',name:'지급처리여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'payAcctCd',name:'지급계정',dataType:'text'}},{T:1,N:'w2:key',A:{id:'evidClsCd',name:'증빙구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'deductClsCd',name:'공제여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'spplyAmt',name:'공급금액',dataType:'text'}},{T:1,N:'w2:key',A:{id:'Damt',name:'차변금액',dataType:'text'}},{T:1,N:'w2:key',A:{id:'Camt',name:'대변금액',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntNoCd',name:'관리번호코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'ViewDeletedRow',name:'name41',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ac.fi.gnrlaccount.slipmgnt.ProcessInternationalJournalizeSlipCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_slip","key":"IN_DS1"},{"id":"ds_slipcontents","key":"IN_DS2"},{"id":"dma_purchaseSlip","key":"IN_DS3"},{"id":"ds_retSlip","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_retSlip","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_exchRt',action:'/ac.fm.stdinfomgnt.RetrieveExchangeRateCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_exchRtSearch","key":"IN_DS1"},{"id":"ds_exchRt","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_exchRt","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_exchRt_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_slipSave',action:'/il.acc.acpay.SaveSlipNoPaymentInvoiceCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_purchaseSlip","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveCommonPopupCMD',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_evidClsCd',target:'data:json,{"id":"ds_evidClsCd","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/ac/am/constants/ACConstants.js',type:'text/javascript',scopeVariable:'ACConstants'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//==================================================================================================================
+// id       : ar_106_01_04b
+// 이름     : 대납금 전표생성
+// 경로     : 국제물류 > Accounting > Payment Invoice - 대납금 전표 생성 버튼
+// 작 성 자 : 성태영
+// 작 업 일 : 2026-02-23
+// 사용계정 : 내부
+// 비고     :
+//
+// 업로드   :
+// 다운로드 :
+// 레포트   :
+// 호출     : 
+//==================================================================================================================
+scwin.state = "Y";
+scwin.delflag = "N";
+scwin.ELECTRONICDRAFT = "40"; // 전자어음
+scwin.DRAFTCHECK = "50"; // 약속어음
+scwin.TRANSFER = "20"; // 이체
+scwin.ELECTRIC_CASH = "30"; // 전자결재현금
+scwin.olddata = 1;
+scwin.formLoad = "Y";
+scwin.rowIdx = 0;
+scwin.login = "";
+scwin.cucd = "";
+scwin.rate = "";
+scwin.amt = "";
+scwin.vat = "";
+scwin.amtFcrc = "";
+scwin.certiNo = "";
+scwin.prtnGrpNo = "";
+scwin.pchsClntNo = "";
+scwin.pchsClntNm = "";
+scwin.fareEngCd = "";
+scwin.acctDeptCd2 = "";
+scwin.acctDeptCd = "";
+scwin.acctDeptNm = "";
+scwin.rmk = "";
+scwin.pchsIntendDtSt = "";
+scwin.checkExchRt = 0; //환율 부분 추가
+
+scwin.divOpenPopUp = ""; //f_openPopUp(4,T) 콜백 처리시 f_openPopUp 호출된 부분 구분하는값.(이 값으로 콜백에서 처리되는 값 분기처리.)
+
+//AS-IS HIDDEN TAG 정의
+scwin.txt_fareEngCd;
+scwin.txt_evidClsNm;
+scwin.txt_bizdivCd;
+scwin.txt_bizDomCd;
+scwin.txt_termMgntYn = 0;
+scwin.txt_clntMgntYn = 0;
+scwin.txt_empMgntYn = 0;
+scwin.txt_dtMgntYn = 0;
+scwin.txt_payAcctCd;
+
+//AS-IS hidVal property 전환용 전역번수 선언
+scwin.hidVal_ed_slipAcctDeptCd = "";
+scwin.hidVal_ed_acctCd = "";
+scwin.hidVal_ed_acctDeptCd = "";
+scwin.hidVal_ed_mgntClntNo = "";
+scwin.hidVal_ed_mgntEmpNo = "";
+scwin.skipSlipcontentsRowChange = false;
+
+/**
+ * @event
+ * @name onpageload
+ * @description 화면 초기화 GauceUtil.
+ */
+scwin.onpageload = function () {
+  scwin.globalVars();
+
+  // 공통코드 : onPageLoad 에 위치
+  const codeOptions = [{
+    grpCd: "FI002",
+    compID: "lc_drcrClsCd",
+    opt: {
+      "range": "1"
+    }
+  } // 차대구분
+  , {
+    grpCd: "ZZ006",
+    compID: "lc_crcCd",
+    opt: {
+      "range": "1"
+    }
+  } // 통화코드/환율
+  , {
+    grpCd: "FI005",
+    compID: "lc_deductClsCd"
+  } // 증빙종류-공제종류코드
+  , {
+    grpCd: "FM018",
+    compID: "lc_reqPayMthdCd"
+  } // 지급방법
+  ];
+  console.log(" codeOptions : " + JSON.stringify(codeOptions));
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+//-------------------------------------------------------------------------
+//공통코드 CallBack
+//-------------------------------------------------------------------------
+scwin.ondataload = function () {
+  //let dltStr = dlt_commonCodeFI002; FM018
+  //let dlt = $c.gus.object(dltStr);
+  //dlt_commonCodeFI002.getAllJSON();
+
+  let dltStr = "dlt_commonCodeZZ006"; // "dlt_commonCode" + 그룹코드값으로 데이터리스트 조합
+  let dlt = $c.gus.object($p, dltStr); // 데이터 리스트 객체
+
+  lc_drcrClsCd.setValue("C"); //차대 구분 대변  	(C)     //onLoad시 초기값 셋팅
+  let lcDrcrClsCd = lc_drcrClsCd.getValue(); //차대구분값....
+
+  let _DAmt = lcDrcrClsCd == "D" ? scwin.amt : 0; //차변금액
+  let _CAmt = lcDrcrClsCd == "C" ? scwin.amt : 0; //대변금액
+  //요기서 그리드값 차변/대변 값 셋팅하면 되겠음.....
+  let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  ds_slipcontents.setCellData(rowIdx, "Damt", _DAmt); //차변금액(scwin.amt)
+  ds_slipcontents.setCellData(rowIdx, "Camt", _CAmt); //대변금액(scwin.amt)
+
+  ds_slipcontents.setCellData(rowIdx, "drcrClsCd", lcDrcrClsCd); //숨겨진 col 차대구분
+  ds_slipcontents.setCellData(rowIdx, "crcCd", lc_crcCd.getValue()); //통화완율
+
+  lc_deductClsCd.setValue(""); //증빙종류-공제종류코드 초기화
+
+  scwin.formLoad = "N";
+};
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언 --> AS-IS SCRIPTLET부 옮겨옴.
+ */
+scwin.globalVars = function () {
+  scwin.login = $c.data.getMemInfo($p); // LoginDTO login = LoginUtil.getLoginDTO( request ) ;로그인 정보를 가져온다. 
+
+  scwin.paramData = $c.data.getParameter($p);
+  scwin.cucd = scwin.paramData.cucd == null ? "" : scwin.paramData.cucd;
+  scwin.rate = scwin.paramData.rate == null ? "" : scwin.paramData.rate;
+  scwin.amt = scwin.paramData.amt == null ? "0" : scwin.paramData.amt;
+  scwin.vat = scwin.paramData.vat == null ? "0" : scwin.paramData.vat;
+  scwin.amtFcrc = scwin.paramData.amtFcrc == null ? "0" : scwin.paramData.amtFcrc;
+  scwin.certiNo = scwin.paramData.certiNo == null ? "" : scwin.paramData.certiNo;
+  scwin.prtnGrpNo = scwin.paramData.prtnGrpNo == null ? "" : scwin.paramData.prtnGrpNo;
+  scwin.pchsClntNo = scwin.paramData.pchsClntNo == null ? "" : scwin.paramData.pchsClntNo;
+  scwin.pchsClntNm = scwin.paramData.pchsClntNm == null ? "" : scwin.paramData.pchsClntNm;
+  scwin.fareEngCd = scwin.paramData.fareEngCd == null ? "" : scwin.paramData.fareEngCd;
+  scwin.acctDeptCd2 = scwin.paramData.acctDeptCd2 == null ? "" : scwin.paramData.acctDeptCd2; //물류 귀속 부서 코드 1G12
+  scwin.acctDeptCd = scwin.paramData.acctDeptCd == null ? "" : scwin.paramData.acctDeptCd; //회계 귀속 부서 코드
+  scwin.acctDeptNm = scwin.paramData.acctDeptNm == null ? "" : scwin.paramData.acctDeptNm; //회계 귀속 부서 명
+
+  scwin.rmk = scwin.paramData.rmk == null ? "" : scwin.paramData.rmk; //적요
+  scwin.pchsIntendDtSt = scwin.paramData.pchsIntendDtSt == null ? "" : scwin.paramData.pchsIntendDtSt; //Billing Date
+};
+
+//-------------------------------------------------------------------------
+//onLoad시 udc관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = async function () {
+  await scwin.f_OnLoad();
+  udc_ilcmCd_FreightPchsDrAcctCd.hide(); // Buying Freight Info 설정용 udc
+
+  //udc onkeyHandler
+  ed_acctCd.bind("onkeyup", scwin.ed_acctCd_onkeyup); //계정
+  ed_acctDeptCd.bind("onkeyup", scwin.ed_acctDeptCd_onkeyup); //계정
+  ed_mgntClntNo.bind("onkeyup", scwin.ed_mgntClntNo_onkeyup); //거래처
+  txt_acctNm.bind("onchange", scwin.txt_acctNm_onchange); //계정
+  txt_acctDeptNm.bind("onchange", scwin.txt_acctDeptNm_onchange); //계정
+  txt_mgntClntNm.bind("onchange", scwin.txt_mgntClntNm_onchange); //거래처
+};
+
+//-------------------------------------------------------------------------
+// UDC codeId onkeyup Event Handler ( 계정)
+//-------------------------------------------------------------------------
+scwin.ed_acctCd_onkeyup = function () {
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "acctCd", ed_acctCd.getValue().trim()); //계정코드
+};
+scwin.txt_acctNm_onchange = function () {
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "acctNm", txt_acctNm.getValue().trim());
+};
+
+//-------------------------------------------------------------------------
+// UDC codeId onkeyup Event Handler ( 계정)
+//-------------------------------------------------------------------------
+scwin.ed_acctDeptCd_onkeyup = function () {
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "acctDeptCd", ed_acctDeptCd.getValue().trim()); //계정코드
+};
+scwin.txt_acctDeptNm_onchange = function () {
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "acctDeptNm", txt_acctDeptNm.getValue().trim());
+};
+
+//-------------------------------------------------------------------------
+// UDC codeId onkeyup Event Handler ( 거래처)
+//-------------------------------------------------------------------------
+scwin.ed_mgntClntNo_onkeyup = function () {
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "mgntClntNo", ed_mgntClntNo.getValue().trim());
+};
+scwin.txt_mgntClntNm_onchange = function () {
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "mgntClntNm", txt_mgntClntNm.getValue().trim());
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.f_OnLoad = async function () {
+  scwin.formLoad = "Y";
+  scwin.state = "Y";
+  scwin.f_Header(); // tobe로 필요 부분만 작업함.
+  //$c.gus.cfDisableBtnOnly([bCreate]);     //bCreate라고는 asis소스에 없는데? 우선 주석 처리.
+  lc_reqPayMthdCd.setValue("");
+
+  //증빙종류 조회
+  scwin.getEvidInfo();
+  //await scwin.f_AddRow();
+  //lc_drcrClsCd.setValue("C");                 //차대 구분 대변  	(C)
+  scwin.txt_fareEngCd = scwin.fareEngCd; //매입 운임 코드 설정(대변)
+
+  //await scwin.f_openPopUp('7','C');	                //(대변)
+
+  //전도금일 경우 지금처리 여부 삭제 --> 이 로직 scwin.f_openPopUp('7','C') 콜백에서 처리되어야 함.
+  /*
+  if(ed_acctCd.getValue() == "1110121"){	//저도금
+      //chb_payProcYn.checked=false;	
+      chb_payProcYn.setValue("0");        //지급처리 여부
+      chb_payProcYn.setSelectedIndex(0);    
+  }else{
+      //chb_payProcYn.checked=true;
+      chb_payProcYn.setValue("1");        //지급처리 여부 	(지급)
+      chb_payProcYn.setSelectedIndex(0);    
+  }
+  */
+  //scwin.f_CheckPayYn();   //이 로직 scwin.f_openPopUp('7','C') 콜백에서 처리되어야 함.
+
+  lc_crcCd.setValue("KRW"); //lc_crcCd.BindColVal = "KRW";
+  ed_amtFcrc.setValue(); //ed_amtFcrc.text = "";
+  ed_amt.setValue(scwin.amt);
+  ed_mgntClntNo.setValue(scwin.pchsClntNo); //거래처
+  txt_mgntClntNm.setValue(scwin.pchsClntNm); //거래처명
+
+  txt_crnNm.setValue(scwin.pchsClntNm);
+  await scwin.f_openPopUp('4', 'T'); //거래처 호출
+
+  ed_acctDeptCd.setValue(scwin.acctDeptCd); //귀속 부서
+  //txt_acctDeptNm.value = "<%=acctDeptNm%>";  //귀속 부서 명
+
+  await scwin.f_openPopUp('3', 'F'); //귀속 부서 조회
+
+  ed_mgntDt.setValue(scwin.pchsIntendDtSt); //관리 일자 ( Billing Date) 
+  txt_summary.setValue(scwin.rmk);
+
+  //ed_acctCd.focus();
+  //    cfEnableObjects([ed_taxinvcDt,ed_mgntDt])retrieveEvidInfo
+
+  //lc_evidClsCd.setItem(null, null, null, 0);      //lc_evidClsCd.index   = 0;
+  lc_deductClsCd.setValue(""); //lc_deductClsCd.BindColVal = "";
+
+  ctn_btn.hide(); //휴지통, 조회버튼 숨김...(이화면에서 안씀.)
+
+  await scwin.f_openPopUp('7', 'C'); //(대변)
+
+  await scwin.f_AddRow();
+  $c.gus.cfDisableObjects($p, [lc_deductClsCd]);
+  ed_acctCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 증빙종류 조회
+//-------------------------------------------------------------------------
+scwin.getEvidInfo = async function () {
+  // lc_evidClsCd
+  //ds_evidClsCd.DataId = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC"+ "&queryId=retrieveEvidInfo&param3=PCHS";
+  //ds_evidClsCd.Reset();
+  dma_evidClsCd.set("sysCd", "CommonEBC");
+  dma_evidClsCd.set("queryId", "retrieveEvidInfo");
+  dma_evidClsCd.set("param3", "PCHS");
+  await $c.sbm.execute($p, sbm_retrieveCommonPopupCMD); //target : ds_evidClsCd
+
+  ds_evidClsCd.insertRow(0);
+  ds_evidClsCd.setCellData(0, "col1", "");
+  ds_evidClsCd.setCellData(0, "col2", "없음");
+};
+
+//-------------------------------------------------------------------------
+// 헤더생성
+//-------------------------------------------------------------------------
+scwin.f_Header = function () {
+  //ds_slip --> dma_slip Binding
+
+  dma_slip.set("slipDt", scwin.pchsIntendDtSt); // Billing Date로 수정
+  dma_slip.set("slipAcctDeptCd", scwin.login.acctDeptCd); //"<%--=login.getAcctDeptCd()--%>";
+  dma_slip.set("slipAcctDeptNm", scwin.login.acctDeptNm); //"<%--=login.getAcctDeptNm()--%>";
+
+  scwin.hidVal_ed_slipAcctDeptCd = dma_slip.get("slipAcctDeptCd"); //ed_slipAcctDeptCd.hidVal = ds_slip.NameString(1,"slipAcctDeptCd");
+};
+
+//-------------------------------------------------------------------------
+// 행추가체크
+//-------------------------------------------------------------------------
+scwin.f_AddRow = async function () {
+  if (!$c.gus.cfValidate($p, [ed_slipDt, ed_slipAcctDeptCd])) return;
+  if (!(await scwin.f_HiddenCheck(ed_slipAcctDeptCd, scwin.hidVal_ed_slipAcctDeptCd, "발행부서"))) return;
+  if (scwin.state != "Y") {
+    if ((await scwin.f_Validation()) != true) return;
+  }
+
+  //await scwin.f_Add();
+};
+
+//-------------------------------------------------------------------------
+// 행추가체크 ( ds_slipcontents DataList에 신규 Row 생성)
+//-------------------------------------------------------------------------
+scwin.f_CopyRow = async function () {
+  scwin.flag = 0;
+  if (!(await $c.gus.cfValidate($p, [ed_slipDt, ed_slipAcctDeptCd]))) return;
+  if (!(await scwin.f_HiddenCheck(ed_slipAcctDeptCd, scwin.hidVal_ed_slipAcctDeptCd, "발행부서"))) return;
+  if (scwin.state != "Y") {
+    if ((await scwin.f_Validation()) != true) return;
+  }
+
+  //공통 mandatory 체크 후 return이 안되는 문제 가 있어서 여기에 별도 코딩함.(해당 컨트롤에서 mandatory check 안함.)
+  if (ed_mgntClntNo.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, "거래처은(는)필수 입력 항목 입니다.");
+    ed_mgntClntNo.focus();
+    return;
+  }
+
+  //요기서 f_Add해서 추가한 RowIndex값 가지고 있어야 함.
+  //await scwin.f_Add(); scwin.f_openPopUp('7','D');	함수 콜백에서 행추가해서 주석처리함.
+
+  lc_crcCd.setValue("KRW"); //lc_crcCd.BindColVal = "KRW"; 	//통화코드
+
+  scwin.hidVal_ed_mgntClntNo = ""; //거래처부서코드 초기화 2026.03.25 추가
+  await scwin.f_openPopUp('7', 'D'); //계정 설정(차변)
+
+  //여기도 이렇게 할 필요 업이 scwin.f_openPopUp('7','D'); 호출 안해도 될거 같음. 좀더 확인 후 정리합시다.
+  return; //리턴 아래 코드들은 f_CopyRowDetail에서 호출되게 로직 바꿈...( 계정 설정[scwin.f_openPopUp('7','D')] 콜백함수[scwin.udc_FreightPchsDrAcctCd_callbackFn]에서 호출되도록 변경함.)
+
+  //ed_amt.text = "";
+  ed_amt.setValue(Number(scwin.amt) - Number(scwin.vat)); //ed_amt.text = "<%--=(Long.parseLong(amt)-Long.parseLong(vat))--%>";
+
+  ed_acctDeptCd.setValue(scwin.acctDeptCd); //ed_acctDeptCd.text = "<%--=acctDeptCd--%>";  //귀속 부서
+  //txt_acctDeptNm.value = "<%=acctDeptNm%>";  //귀속 부서 명
+  scwin.f_openPopUp('3', 'F'); //귀속 부서 조회
+
+  let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  //적요 설정
+  txt_summary.setValue(ds_slipcontents.getCellData(rowIdx, "summary")); //txt_summary.value = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"summary");	//전 Row의 적요
+  //계산서일자
+  ed_taxinvcDt.setValue(ds_slipcontents.getCellData(rowIdx, "taxinvcDt")); //ed_taxinvcDt.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"taxinvcDt");
+  //관리일자
+  ed_mgntDt.setValue(ds_slipcontents.getCellData(rowIdx, "mgntDt")); //ed_mgntDt.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntDt");
+
+  if (rd_gb.getValue() == "1") {
+    //if(rd_gb.CodeValue == "1"){ //부가세 체크 했을경우
+    //계정 설정
+    ed_acctCd.setValue("1111210"); //ed_acctCd.text  = "1111210";			//계정코드
+    txt_acctNm.setValue("부가세대급금-일반"); //txt_acctNm.value = "부가세대급금-일반";	//계정명
+    alert("부가세 선택");
+
+    //ed_amt.text = "";						    //금액 설정
+    ed_amt.setValue(scwin.vat); //ed_amt.text = "<%--=vat--%>";
+    ed_spplyAmt.setValue(Number(scwin.amt) - Number(scwin.vat)); //ed_spplyAmt.text = "<%--=(Long.parseLong(amt)-Long.parseLong(vat))--%>";
+    //공급금액 설정
+
+    //증빙 종류 설정
+    lc_evidClsCd.setValue("10"); //lc_evidClsCd.BindColVal = "10";
+    lc_deductClsCd.setValue("1"); //lc_deductClsCd.BindColVal = "1";
+
+    //귀속부서 (재무)
+    ed_acctDeptCd.setValue("00009"); //ed_acctDeptCd.text = "00009";  //귀속 부서
+    txt_acctDeptNm.setValue("재무"); //txt_acctDeptNm.value = "재무";  //귀속 부서 명
+
+    //적요 설정
+    //txt_summary.value = "VAT "+ed_crn.text+" : " +txt_crnNm.value + ed_mgntDt.text + "세금계산서 공제";
+    let rowIdx = ds_slipcontents.getTotalRow();
+    ed_mgntClntNo.setValue(ds_slipcontents.getCellData(rowIdx, "mgntClntNo")); //ed_mgntClntNo.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntClntNo");			//거래처
+
+    scwin.f_openPopUp('4', 'T');
+    f_checkPopEd(ed_acctDeptCd.getValue(), txt_acctDeptNm.getValue(), '3');
+  } else if (rd_gb.getValue() == "2") {
+    //면제 체크 했을경우
+    //계정 설정
+    ed_acctCd.setValue("4202322"); //ed_acctCd.text  = "4202322";				//계정코드
+    txt_acctNm.setValue("원)물류지급수수료-기타"); //txt_acctNm.value = "원)물류지급수수료-기타";	//계정명
+    ed_amt.setValue(""); //ed_amt.text = "";							//금액 설정	  		
+    ed_spplyAmt.setValue("0"); //ed_spplyAmt.text = "0";						//금액 설정
+    //공급금액 설정
+
+    //증빙 종류 설정
+    lc_evidClsCd.setValue("20"); //lc_evidClsCd.BindColVal = "20";
+    lc_deductClsCd.setValue("1"); //lc_deductClsCd.BindColVal = "1";
+
+    let rowIdx = ds_slipcontents.getTotalRow();
+    ed_mgntClntNo.setValue(ds_slipcontents.getCellData(rowIdx, "mgntClntNo")); //ed_mgntClntNo.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntClntNo");			//거래처
+    scwin.f_openPopUp('4', 'T');
+    scwin.f_checkPopEd(ed_acctDeptCd.getValue(), txt_acctDeptNm.getValue(), '3');
+  } else if (rd_gb.getValue() == "3") {
+    //영세 체크 했을경우
+    //금액 설정 ( 2008.08.08. 금액, 공급금액 초기화)
+    //ed_amt.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"amt");							//금액 설정
+
+    //ed_spplyAmt.text = ed_amt.text; // (공급금액 셋팅삭제) 
+
+    //증빙 종류 설정
+    lc_evidClsCd.setValue("20"); //lc_evidClsCd.BindColVal = "20";
+    lc_deductClsCd.setValue("1"); //lc_deductClsCd.BindColVal = "1";		
+
+    let rowIdx = ds_slipcontents.getTotalRow();
+    ed_mgntClntNo.setValue(ds_slipcontents.getCellData(rowIdx, "mgntClntNo")); //ed_mgntClntNo.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntClntNo");			//거래처
+    scwin.f_openPopUp('4', 'T');
+    scwin.f_checkPopEd(ed_acctDeptCd, txt_acctDeptNm, '3');
+  }
+  rd_gb.setValue(-1); //rd_gb.CodeValue = ""; //CKCD STYYCYG 선택했던 라디오값 사라지는지 확인 필요. rd_gb.setSelectedIndex(-1);
+};
+
+//-------------------------------------------------------------------------
+// 히든값체크
+//-------------------------------------------------------------------------
+scwin.f_HiddenCheck = async function (compObj, hidValKey, msg) {
+  //이 함수도 결국에는 필요 없네요...
+  let val = compObj.getValue().trim();
+  if (val == "") return true;
+  if (val != hidValKey) {
+    await $c.gus.cfAlertMsg($p, "MSG_CM_ERR_038", [msg]);
+    compObj.focus();
+    return false;
+  } else {
+    return true;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 팝업체크 - fi_201_01_09b.xml 참고하자...
+//-------------------------------------------------------------------------
+scwin.f_checkPopEd = function (strCd, strNm, hidValKey, flag) {
+  //if (strCd.getValue().trim() == scwin[hidValKey]) return;
+  //if (strCd.getValue().trim() == strCd.originalValue) return;
+
+  strNm.setValue(""); //strNm = "";
+  //scwin[hidValKey] = "";  //strCd.hidVal = "";
+  hidValKey = ""; //strCd.hidVal = "";
+  if (strCd.getValue().trim() != "") scwin.f_openPopUp(flag, 'T');
+};
+
+//-------------------------------------------------------------------------
+// 팝업결과
+//-------------------------------------------------------------------------
+scwin.f_resultPopEd = function (strCd, strNm, hidValKey, rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      return;
+    }
+    strCd.setValue(rtnList[0]); // 코드
+    strNm.setValue(rtnList[1]); // 명
+    hidValKey = rtnList[0]; // 히든값 //hidValKey.hidVal = rtnList[0];  // 히든값
+  } else {
+    strCd.setValue(""); //strCd.Text = "";
+    strNm.setValue(""); //strNm.value = "";
+    hidValKey = ""; //strCd.hidVal = "";
+  }
+};
+
+//-------------------------------------------------------------------------
+//  사업자번호 체크
+//-------------------------------------------------------------------------
+scwin.f_BizCheck = function () {
+  if (ed_crn.getValue().length == 13) {
+    ed_crn.validExp = "사업자번호:yes:ssn";
+  } else if (ed_crn.getValue().length == 10) {
+    ed_crn.validExp = "사업자번호:yes:csn";
+  }
+};
+
+//-------------------------------------------------------------------------
+// 체크
+//-------------------------------------------------------------------------
+scwin.f_Validation = async function () {
+  scwin.f_BizCheck();
+  if (!$c.gus.cfValidate($p, [lc_drcrClsCd, lc_crcCd, txt_mgntNo, ed_slipDt, ed_slipAcctDeptCd, lc_drcrClsCd, ed_amt, ed_acctCd, ed_acctDeptCd, txt_mgntNo, ed_mgntClntNo, ed_mgntDt, ed_mgntTermStDt, ed_mgntTermEndDt, ed_mgntEmpNo, txt_summary, ed_amtFcrc])) return false;
+  if (!$c.gus.cfIsAfterDate($p, ed_mgntTermStDt.getValue().trim(), ed_mgntTermEndDt.getValue().trim())) {
+    $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+    ed_mgntTermStDt.focus();
+    return false;
+  }
+
+  // 지급처리여부체크
+  if (chb_payProcYn.getValue() == "1") {
+    if (ed_reqDt.getValue().trim() != "" && lc_reqPayMthdCd.getValue().trim() == "") {
+      $c.gus.cfAlertMsg($p, "지급일자를 입력하면 지급방법은 필수 항목입니다.");
+      lc_reqPayMthdCd.focus();
+      return false;
+    }
+    if (ed_reqDt.getValue().trim() == "" && lc_reqPayMthdCd.getValue().trim() != "") {
+      cfAlertMsg("지급방법을 입력하면 지급일자는 필수 항목입니다.");
+      ed_reqDt.focus();
+      return false;
+    }
+    if (ed_reqDt.getValue().trim() == "" && ed_taxinvcDt.getValue().trim() == "") {
+      $c.gus.cfAlertMsg($p, "지급일자를 입력하지 않으면 세금계산서 일자는 필수 항목입니다.");
+      ed_taxinvcDt.focus();
+      return false;
+    }
+    if (lc_reqPayMthdCd.getValue() == scwin.ELECTRONICDRAFT || lc_reqPayMthdCd.getValue() == scwin.DRAFTCHECK) {
+      if (!cfValidate([ed_draftDdCntCd])) return false;
+    }
+  }
+
+  /* 2026.03.27 이 체크로직이 필요가 없다....
+  if(!(await scwin.f_HiddenCheck(ed_slipAcctDeptCd, scwin.hidVal_ed_slipAcctDeptCd, "발행부서"))) return false;
+  if(!(await scwin.f_HiddenCheck(ed_acctCd, scwin.hidVal_ed_acctCd, "계정"))) return false;
+  if(!(await scwin.f_HiddenCheck(ed_acctDeptCd, scwin.hidVal_ed_acctDeptCd, "귀속부서"))) return false; 
+  //if(!f_HiddenCheck(ed_mgntClntNo,"거래처")) return false;
+  if(!(await scwin.f_HiddenCheck(ed_mgntEmpNo, scwin.hidVal_ed_mgntEmpNo, "사원번호"))) return false;
+  */
+
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function (flag, check) {
+  //6번빼고 전환 안한거 다 해야함....
+  var rtnList = new Array();
+  switch (flag) {
+    case '1':
+      // 부서
+      var param = ed_slipDt.getValue().trim() + ",,,0,"; //ed_slipDt.text.trim()+",,,0,";
+      udc_ilcomCode_slipAcctDeptCd.setSelectId("retrieveAcctDeptCdInfo");
+      //rtnList = udc_ilcomCode_slipAcctDeptCd.ilCommonPopUp(scwin.udc_slipAcctDeptCd_callbakFn, pCode, pName, pWinCloseTF, pDispCnt, pTitle, pWidth, pHidden, pWhere, pW, pH, pTop, pLeft, pExistTF, pAllSearchTF, pWtitleSearch, pNoDataCloseTF, tmpDataSet)
+      rtnList = udc_ilcomCode_slipAcctDeptCd.ilCommonPopUp(scwin.udc_slipAcctDeptCd_callbakFn, ed_slipAcctDeptCd.getValue(), txt_slipAcctDeptNm.getValue(), check, null, null, null, null, param, null, null, null, null);
+      break;
+    case '2':
+      // 계정조회
+      //Callback name : scwin.udc_acct_callbakFn
+      udc_ilcmCd_acct.setSelectId('retrieveAcctCdContentsInfo');
+      rtnList = udc_ilcmCd_acct.cfCommonPopUp(scwin.udc_acct_callbakFn, ed_acctCd.getValue(), txt_acctNm.getValue(), check, null, null, null, null, ed_slipDt.getValue(), null, null, null, null);
+      break;
+    case '3':
+      // 부서(귀속부서) --> udc_comCode로 되어 있어야 한다....퍼블 잘못됬음.
+      // 참고화면 : ac_120_01_05b.xml 화면의 scwin.f_openPopUp = function (flag,check) { 선언부 참조....
+      check = "T";
+      var param = ed_slipDt.getValue().trim() + ",,,0,"; //var param = ed_slipDt.text.trim()+",,,0,";
+      //rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo',ed_acctDeptCd.getValue().trim(),txt_acctDeptNm.getValue(),check,null,null,null,null,param,null,null,null,null); 
+      rtnList = udc_ilcmCd_acctDept.cfCommonPopUp(scwin.udc_ilcmCd_acctDept_callBackFn, ed_acctDeptCd.getValue().trim(), txt_acctDeptNm.getValue(), check, null, null, null, null, param, null, null, null, null);
+      break;
+    case '4':
+      // 거래처 //check = "T"; retrieveClntEmpNoList
+      rtnList = udc_ilcmCd_mgntClnt.ilCommonPopUp(scwin.udc_mgntClnt_callbackFn, ed_mgntClntNo.getValue().trim(), txt_mgntClntNm.getValue(), check, null, null, null, null, null, null, null, null, null);
+      break;
+    case '5':
+      // 사번
+      udc_ilcmCd_mgntEmpNo.setSelectId("retrieveAcEmpInfo");
+      rtnList = udc_ilcmCd_mgntEmpNo.cfCommonPopUp(scwin.udc_mgntEmpNo_callbackFn, pCode, pName, pWinCloseTF, pDispCnt, pTitle, pWidth, pHidden, pWhere, pW, pH, pTop, pLeft, pExistTF, pAllSearchTF, pWtitleSearch, pNoDataCloseTF);
+      break;
+    case '6':
+      // 사업자번호--> 이건 안옮겨도됨..호출부 없음....
+      break;
+    case '7':
+      //계정설정
+      // Buying Freight Info
+      let pCode = scwin.txt_fareEngCd;
+      let pName = "";
+      var param = "," + check + ",,,";
+      rtnList = await udc_ilcmCd_FreightPchsDrAcctCd.ilCommonPopUp(scwin.udc_FreightPchsDrAcctCd_callbackFn, pCode, pName, "T" // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , "Code, Name" // Title순서
+      , '80,230' // 보여주는	각 컬럼들의	폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , param // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때	원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , "F" // 전체검색허용여부	("F")
+      , "Freight,Code,Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , "T" // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      //, tmpDataSet
+      );
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 미지급 ( 지급처리여부 )
+//------------------------------------------------------------------------- 
+scwin.f_CheckPayYn = function () {
+  //TO_DO ds_payProcYn으로 바꿔야함.
+  //co_404_01_16b.xml 회계 > EIS > 경영정보 > 법인별 총괄현황 
+  //0일때 체크 ""이면 체크안함.
+  //let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  if (chb_payProcYn.getSelectedIndex() == '0') {
+    //if( chb_payProcYn.getValue() == "1" ) {
+    //$c.gus.cfEnableObjects([ed_reqDt,lc_reqPayMthdCd,ed_draftDdCntCd,ed_taxinvcDt,img_reqDt,img_taxinvcDt]);
+    //$c.gus.cfEnableObjects([ed_reqDt,lc_reqPayMthdCd,ed_draftDdCntCd,ed_taxinvcDt,img_taxinvcDt]);
+    ds_slipcontents.setCellData(rowIdx, "payProcYn", "1"); //지급
+    $c.gus.cfEnableObjects($p, [ed_reqDt, lc_reqPayMthdCd, ed_draftDdCntCd, ed_taxinvcDt]);
+    ds_payProcYn.setCellData(0, "procYn", 1); //지급처리여부 DataSet Setting (Check)
+
+    ds_slipcontents.setCellData(rowIdx, "payProcYn", "1"); //2026.03.29 추가
+  } else {
+    ds_slipcontents.setCellData(rowIdx, "payProcYn", "0");
+    ed_reqDt.setValue("");
+    lc_reqPayMthdCd.setValue(""); //lc_reqPayMthdCd.BindColVal="";
+    ed_draftDdCntCd.setValue(""); //ed_draftDdCntCd.text="";
+
+    //$c.gus.cfDisableObjects([ed_reqDt,lc_reqPayMthdCd,ed_draftDdCntCd,img_reqDt]);
+    $c.gus.cfDisableObjects($p, [ed_reqDt, lc_reqPayMthdCd, ed_draftDdCntCd]);
+    ds_payProcYn.setCellData(0, "procYn", 0); //지급처리여부 DataSet Setting (unCheck)
+
+    ds_slipcontents.setCellData(rowIdx, "payProcYn", "0"); //2026.03.29 추가
+  }
+
+  //ds_slipcontents.setCellData(rowIdx, "drcrClsCd", lc_drcrClsCd.getValue());      //숨겨진 col 차대구분
+};
+
+//-------------------------------------------------------------------------
+// 지급처리여부셋팅
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 행취소
+//-------------------------------------------------------------------------
+scwin.f_CancelRow = function () {
+  scwin.state = "Y";
+  scwin.delflag = "Y";
+
+  //ds_slipcontents.DeleteMarked();
+  let delRow = gr_slipcontents.getFocusedRowIndex() == -1 ? scwin.rowIdx : gr_slipcontents.getFocusedRowIndex();
+  if (delRow <= 0) return;
+  ds_slipcontents.removeRow(delRow); //ds_slipcontents.deleteRow(delRow);
+
+  //f_EnableYn(ds_slipcontents.CountRow);     //ASIS부터 주석처리된 코드
+  let rowIdx = gr_slipcontents.getTotalRow();
+  gr_slipcontents.setFocusedMultiCell(rowIdx, 0, rowIdx, gr_slipcontents.getTotalCol()); //ds_slipcontents.RowPosition = ds_slipcontents.CountRow;
+};
+
+//-------------------------------------------------------------------------
+// 행추가 버튼 클릭시 라디오버튼 로직 반영되로록함....
+// AS-IS f_CopyRow 함수에서 실행되는 로직 여기에 구현 sync안맞아서. 
+//-------------------------------------------------------------------------
+scwin.f_CopyRowDetail = async function () {
+  //ed_amt.text = "";
+  ed_amt.setValue(Number(scwin.amt) - Number(scwin.vat)); //ed_amt.text = "<%--=(Long.parseLong(amt)-Long.parseLong(vat))--%>";
+
+  ed_acctDeptCd.setValue(scwin.acctDeptCd); //ed_acctDeptCd.text = "<%--=acctDeptCd--%>";  //귀속 부서
+  //txt_acctDeptNm.value = "<%=acctDeptNm%>";  //귀속 부서 명
+
+  //await scwin.f_openPopUp('3','F');	//귀속 부서 조회    tobe에서는 조회 필요 없네.
+
+  let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  //적요 설정
+  txt_summary.setValue(ds_slipcontents.getCellData(rowIdx, "summary")); //txt_summary.value = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"summary");	//전 Row의 적요
+  //계산서일자
+  ed_taxinvcDt.setValue(ds_slipcontents.getCellData(rowIdx, "taxinvcDt")); //ed_taxinvcDt.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"taxinvcDt");
+  //관리일자
+  ed_mgntDt.setValue(ds_slipcontents.getCellData(rowIdx, "mgntDt")); //ed_mgntDt.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntDt");
+
+  if (rd_gb.getValue() == "1") {
+    //if(rd_gb.CodeValue == "1"){ //부가세 체크 했을경우
+    //계정 설정
+    ed_acctCd.setValue("1111210"); //ed_acctCd.text  = "1111210";			    //계정코드
+    txt_acctNm.setValue("부가세대급금-일반"); //txt_acctNm.value = "부가세대급금-일반";	 //계정명
+
+    //ed_amt.text = "";						    //금액 설정
+    ed_amt.setValue(scwin.vat); //ed_amt.text = "<%--=vat--%>"; 차변금액으로 들어감....
+    ed_spplyAmt.setValue(Number(scwin.amt) - Number(scwin.vat)); //ed_spplyAmt.text = "<%--=(Long.parseLong(amt)-Long.parseLong(vat))--%>";
+    //공급금액 설정
+
+    //증빙 종류 설정
+    lc_evidClsCd.setValue("10"); //lc_evidClsCd.BindColVal = "10";
+    lc_deductClsCd.setValue("1"); //lc_deductClsCd.BindColVal = "1";
+
+    //귀속부서 (재무)
+    ed_acctDeptCd.setValue("00009"); //ed_acctDeptCd.text = "00009";  //귀속 부서
+    txt_acctDeptNm.setValue("재무"); //txt_acctDeptNm.value = "재무";  //귀속 부서 명
+
+    //적요 설정
+    //txt_summary.value = "VAT "+ed_crn.text+" : " +txt_crnNm.value + ed_mgntDt.text + "세금계산서 공제";
+
+    //scwin.f_openPopUp('4','T');     //tobe에서는 조회 필요 없네.
+    //scwin.f_checkPopEd(ed_acctDeptCd, txt_acctDeptNm, scwin.hidVal_ed_acctDeptCd, '3');  //tobe에서는 조회 필요 없네.
+  } else if (rd_gb.getValue() == "2") {
+    //면제 체크 했을경우
+    //계정 설정
+    ed_acctCd.setValue("4202322"); //ed_acctCd.text  = "4202322";				//계정코드
+    txt_acctNm.setValue("원)물류지급수수료-기타"); //txt_acctNm.value = "원)물류지급수수료-기타";	//계정명
+    ed_amt.setValue("0"); //ed_amt.text = "";							//금액 설정	  		
+    ed_spplyAmt.setValue("0"); //ed_spplyAmt.text = "0";						//금액 설정
+    //공급금액 설정
+
+    //증빙 종류 설정
+    lc_evidClsCd.setValue("20"); //lc_evidClsCd.BindColVal = "20";
+    lc_deductClsCd.setValue("1"); //lc_deductClsCd.BindColVal = "1";
+
+    //let rowIdx = ds_slipcontents.getTotalRow();
+    //거래처코드
+    //ed_mgntClntNo.setValue(ds_slipcontents.getCellData(rowIdx, "mgntClntNo")); //ed_mgntClntNo.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntClntNo");			//거래처
+    //scwin.f_openPopUp('4','T');
+    //scwin.f_checkPopEd(ed_acctDeptCd, txt_acctDeptNm, scwin.hidVal_ed_acctDeptCd, '3');
+  } else if (rd_gb.getValue() == "3") {
+    //영세 체크 했을경우
+    //금액 설정 ( 2008.08.08. 금액, 공급금액 초기화)
+    //ed_amt.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"amt");							//금액 설정
+
+    //ed_spplyAmt.text = ed_amt.text; // (공급금액 셋팅삭제) 
+
+    //증빙 종류 설정
+    lc_evidClsCd.setValue("20"); //lc_evidClsCd.BindColVal = "20";
+    lc_deductClsCd.setValue("1"); //lc_deductClsCd.BindColVal = "1";		
+
+    //let rowIdx = ds_slipcontents.getTotalRow();
+    //거래처코드
+    //ed_mgntClntNo.setValue(ds_slipcontents.getCellData(rowIdx, "mgntClntNo"));  //ed_mgntClntNo.text = ds_slipcontents.NameString(ds_slipcontents.CountRow-1,"mgntClntNo");			//거래처
+    //scwin.f_openPopUp('4','T');
+
+    //scwin.f_checkPopEd(ed_acctDeptCd, txt_acctDeptNm, scwin.hidVal_ed_acctDeptCd,'3');
+  }
+
+  //f_Add로 옮김.
+  //rd_gb.setValue(-1); //rd_gb.CodeValue = "";
+};
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_Add = async function () {
+  scwin.state = "N";
+  scwin.delflag = "N";
+
+  //await scwin.f_AcctCd('',0,0,0,'',0,'');     //이노마 여기 있으며 안됨....2026.03.25 주석처리하고 위치 옮김 (scwin.f_CopyRow 에서 호출되게 바꿈.)
+  ds_slipcontents.insertRow(); //ds_slipcontents.AddRow();
+
+  scwin.rowIdx = ds_slipcontents.getTotalRow() - 1;
+  gr_slipcontents.setRowReadOnly(scwin.rowIdx, true);
+  ds_slipcontents.setCellData(scwin.rowIdx, "dtMgntYn", "1"); //ds_slipcontents.NameString(ds_slipcontents.CountRow,"dtMgntYn") = "1";
+  ds_slipcontents.setCellData(scwin.rowIdx, "mgntDt", scwin.pchsIntendDtSt); //ds_slipcontents.NameString(ds_slipcontents.CountRow,"mgntDt") = "<%--=pchsIntendDtSt--%>";	//관리 일자 ( Billing Date) 
+
+  if (scwin.formLoad == "Y") {
+    //f_OnLoad에서 호출되었을때
+
+    await scwin.f_AcctCd('', 0, 0, 0, '', 0, ''); //여기서 이거 호출 않해주면 지급일자 바인딩 안됨.
+
+    var payProcYn = ds_payProcYn.getCellData(0, "procYn") == null ? "0" : "1"; //null:체크안됨.
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "seq", scwin.rowIdx + 1);
+    ds_slipcontents.setCellData(scwin.rowIdx, "payProcYn", payProcYn); //지급
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctCd", ed_acctCd.getValue()); //계정 ed_acctCd.getValue()
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctNm", txt_acctNm.getValue()); //계정명 txt_acctNm.getValue()
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctDeptCd", ed_acctDeptCd.getValue()); //귀속부서코드
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctDeptNm", txt_acctDeptNm.getValue()); //귀속부서코드명
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "mgntClntNo", ed_mgntClntNo.getValue()); //거래처 
+    ds_slipcontents.setCellData(scwin.rowIdx, "mgntClntNm", txt_mgntClntNm.getValue()); //거래처명
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "crn", ed_crn.getValue()); //사업자번호
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "summary", txt_summary.getValue()); //적요 txt_summary.setValue(scwin.rmk);
+
+    //누락된 Cell값 셋팅
+    ds_slipcontents.setCellData(scwin.rowIdx, "slipSeq", 0); //전표순번
+    ds_slipcontents.setCellData(scwin.rowIdx, "amt", ed_amt.getValue() == null ? 0 : ed_amt.getValue()); //전표순번
+    ds_slipcontents.setCellData(scwin.rowIdx, "exchRt", txt_exchRt.getValue() == "" ? 0 : txt_exchRt.getValue()); //환율
+    ds_slipcontents.setCellData(scwin.rowIdx, "amtFcrc", ed_amtFcrc.getValue() == "" ? 0 : ed_amtFcrc.getValue()); //금액_외화
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "bizdivCd", scwin.txt_bizdivCd); //사업부코드
+    ds_slipcontents.setCellData(scwin.rowIdx, "bizDomCd", scwin.txt_bizDomCd); //사업영역코드
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "termMgntYn", scwin.txt_termMgntYn); //기간관리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "clntMgntYn", scwin.txt_clntMgntYn); //거래처관리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "empMgntYn", scwin.txt_empMgntYn); //사원관리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "dtMgntYn", scwin.txt_dtMgntYn); //관리일자여부
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "taxinvcDt", ed_taxinvcDt.getValue()); //세금계산서일자
+    //ds_slipcontents.setCellData(scwin.rowIdx, "payProcYn", chb_payProcYn.getValue());    //지급처리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "payProcYn", ds_payProcYn.getCellData(0, "procYn")); //지급처리여부
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "spplyAmt", ed_spplyAmt.getValue()); //공급금액
+
+    //차대구분값, 차변금액 및 대변금액은 scwin.ondataload() 함수 안에서 셋팅.
+    //귀속부서, 부서명도 scwin.ondataload() 함수 안에서 셋팅.
+  } else {
+    //Button Event에서 호출되었을때
+
+    ////////////////////////////////////////////////////////////////////
+    lc_crcCd.setValue(0); //lc_crcCd.index=0;
+    lc_drcrClsCd.setValue(1); //lc_drcrClsCd.index=1;
+    //chb_payProcYn.setValue(0);  //chb_payProcYn.checked=false; 
+    chb_payProcYn.checkAll(false); //지급처리여부
+    ds_payProcYn.setCellData(0, "procYn", "0"); //지급처리여부
+    ///////////////////////////////////////////////////////////////////
+
+    //그리드 Add 후 Componet값 초기화 시작 //////////////////////////////////////////////////////
+    ed_spplyAmt.setValue("0"); //공급금액 값 초기화
+    ed_acctDeptCd.setValue(scwin.acctDeptCd); //귀속부서 코드
+    txt_acctDeptNm.setValue(scwin.acctDeptNm); //귀속부서 코드명
+
+    lc_evidClsCd.setValue(""); //증빙종류     //초기화
+    lc_deductClsCd.setValue(""); //공제여부   //초기화
+
+    ed_mgntClntNo.setValue(""); //거래처 값 공백처리
+    txt_mgntClntNm.setValue(""); //거래처명 값 공백처리
+    ed_crn.setValue(""); //사업자번호 값 공백처리
+    //그리드 Add 후 Componet값 초기화 종료 //////////////////////////////////////////////////////
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "seq", scwin.rowIdx + 1);
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctCd", ed_acctCd.getValue()); //계정 ed_acctCd.getValue()
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctNm", txt_acctNm.getValue()); //계정명 txt_acctNm.getValue()
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctDeptCd", ed_acctDeptCd.getValue()); //귀속부서코드
+    ds_slipcontents.setCellData(scwin.rowIdx, "acctDeptNm", txt_acctDeptNm.getValue()); //귀속부서코드명
+
+    lc_drcrClsCd.setText("차변"); //차대구분값.... 요서 차변 선택하게 해야 함.
+    let lcDrcrClsCd = lc_drcrClsCd.getValue();
+
+    //let _DAmt = lcDrcrClsCd == "D" ? scwin.amt : 0;      //차변금액
+    //let _CAmt = lcDrcrClsCd == "C" ? scwin.amt : 0;      //대변금액
+    let _DAmt = lcDrcrClsCd == "D" ? ed_amt.getValue() : 0; //차변금액 - 금액 컨트롤값으로 셋팅
+    let _CAmt = lcDrcrClsCd == "C" ? ed_amt.getValue() : 0; //대변금액
+
+    //요기서 그리드값 차변/대변 값 셋팅하면 되겠음.....
+    //let rowIdx = ds_slipcontents.getTotalRow() - 1;
+    ds_slipcontents.setCellData(scwin.rowIdx, "Damt", _DAmt); //차변금액(scwin.amt)
+    ds_slipcontents.setCellData(scwin.rowIdx, "Camt", _CAmt); //대변금액(scwin.amt)
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "evidClsCd", lc_evidClsCd.getValue()); //증빙종류
+    ds_slipcontents.setCellData(scwin.rowIdx, "deductClsCd", lc_deductClsCd.getValue()); //공제여부
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "mgntClntNo", ed_mgntClntNo.getValue()); //거래처 코드
+    ds_slipcontents.setCellData(scwin.rowIdx, "mgntClntNm", txt_mgntClntNm.getValue()); //거래처명
+    ds_slipcontents.setCellData(scwin.rowIdx, "crn", ed_crn.getValue()); //사업자번호
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "summary", txt_summary.getValue()); //적요
+    ds_slipcontents.setCellData(scwin.rowIdx, "drcrClsCd", lcDrcrClsCd); //차대구분 lcDrcrClsCd
+    ds_slipcontents.setCellData(scwin.rowIdx, "crcCd", lc_crcCd.getValue()); //통화코드/환율
+
+    //누락된 Cell값 셋팅
+    ds_slipcontents.setCellData(scwin.rowIdx, "slipSeq", 0); //전표순번
+    ds_slipcontents.setCellData(scwin.rowIdx, "amt", ed_amt.getValue() == null ? 0 : ed_amt.getValue()); //전표순번
+    ds_slipcontents.setCellData(scwin.rowIdx, "exchRt", txt_exchRt.getValue() == "" ? 0 : txt_exchRt.getValue()); //환율
+    ds_slipcontents.setCellData(scwin.rowIdx, "amtFcrc", ed_amtFcrc.getValue() == "" ? 0 : ed_amtFcrc.getValue()); //금액_외화
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "bizdivCd", scwin.txt_bizdivCd); //사업부코드
+    ds_slipcontents.setCellData(scwin.rowIdx, "bizDomCd", scwin.txt_bizDomCd); //사업영역코드
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "termMgntYn", scwin.txt_termMgntYn); //기간관리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "clntMgntYn", scwin.txt_clntMgntYn); //거래처관리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "empMgntYn", scwin.txt_empMgntYn); //사원관리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "dtMgntYn", scwin.txt_dtMgntYn); //관리일자여부
+
+    ds_slipcontents.setCellData(scwin.rowIdx, "taxinvcDt", ed_taxinvcDt.getValue()); //세금계산서일자
+
+    //ds_slipcontents.setCellData(scwin.rowIdx, "payProcYn", chb_payProcYn.getValue());    //지급처리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "payProcYn", ds_payProcYn.getCellData(0, "procYn")); //지급처리여부
+    ds_slipcontents.setCellData(scwin.rowIdx, "spplyAmt", ed_spplyAmt.getValue()); //공급금액
+
+    //그리드 Add 후 Componet값 초기화 시작 //////////////////////////////////////////////////////
+    // ed_spplyAmt.setValue("0");      //공급금액 값 초기화
+    // ed_acctDeptCd.setValue(scwin.acctDeptCd);       //귀속부서 코드
+    // txt_acctDeptNm.setValue(scwin.acctDeptNm);      //귀속부서 코드명
+
+    // lc_evidClsCd.setValue("")       //증빙종류     //초기화
+    // lc_deductClsCd.setValue("");    //공제여부   //초기화
+
+    // ed_mgntClntNo.setValue("");     //거래처 값 공백처리
+    // txt_mgntClntNm.setValue("");    //거래처명 값 공백처리
+    // ed_crn.setValue("");            //사업자번호 값 공백처리
+    //그리드 Add 후 Componet값 초기화 종료 //////////////////////////////////////////////////////
+
+    ds_slipcontents.setRowPosition(scwin.rowIdx); //포커스 안준 상태에서 사용자가 그리드 선택 안하고 삭제하면 에러남.(에러방지용)
+  }
+
+  //부가세, 면제, 영세 라디오버튼 초기화
+  rd_gb.setValue(-1); //rd_gb.CodeValue = "";
+
+  //총@건 셋팅. (grid count)
+  totalGrdRowCnt.setValue(ds_slipcontents.getRowCount());
+
+  //gr_slipcontents.refreshRow(rowIdx);
+
+  //아래 3행 임시로 주석처리함 시작---------------------------------------------
+  //lc_crcCd.setValue(0);       //lc_crcCd.index=0;
+  //lc_drcrClsCd.setValue(1);   //lc_drcrClsCd.index=1;
+  //chb_payProcYn.setValue(0);  //chb_payProcYn.checked=false; 
+  //아래 3행 임시로 주석처리함 종료----------------------------------------------
+
+  lc_evidClsCd.setSelectedIndex(0);
+  lc_deductClsCd.setValue(""); //lc_deductClsCd.BindColVal = "";
+  $c.gus.cfDisableObjects($p, [lc_deductClsCd]);
+
+  //f_EnableYn(ds_slipcontents.CountRow);
+
+  $c.gus.cfEnableObjects($p, [img_acctDeptCd, img_acctCd]);
+  $c.gus.cfEnableKeyData($p);
+
+  //$c.gus.cfEnableBtnOnly([bSave]);      //TODO STYYCYG [2026.03.20] 에러나서 김현욱 과장에게 문의함(아직 피드백 못받음.)
+  $c.gus.cfEnableObj($p, ed_amtFcrc, false);
+  await scwin.f_AcctCd('', 0, 0, 0, '', 0, ''); //--> 여기서 지급처리여부 값이 바뀜...
+  scwin.f_ReadOnly();
+
+  //$c.gus.cfDisableObjects([txt_acctNm,txt_acctDeptNm, txt_mgntClntNm,ed_crn,txt_crnNm,txt_mgntEmpNm,ed_reqDt,lc_reqPayMthdCd,ed_draftDdCntCd, img_reqDt]);
+  $c.gus.cfDisableObjects($p, [txt_acctNm, txt_acctDeptNm, txt_mgntClntNm, ed_crn, txt_crnNm, txt_mgntEmpNm, ed_reqDt, lc_reqPayMthdCd, ed_draftDdCntCd]);
+  $c.gus.cfEnableObjects($p, [ed_mgntClntNo, ed_draftDdCntCd, lc_reqPayMthdCd]); // 거래처, 어음일수, 지급방법
+  //$c.gus.cfSetIMEModeActiveObjects([txt_summary]);      //에러나 검색해 보니 TOBE 소스에 전부 주석 처리 되어 있어 걍 주석처리함. 나중에 공통한테 물어보자.
+
+  lc_reqPayMthdCd.setValue(""); //lc_reqPayMthdCd.BindColVal="";
+  scwin.f_CheckPayYn(); // enable, disable안되서 호출
+  ed_acctCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// readOnly 로처리
+//-------------------------------------------------------------------------
+scwin.f_ReadOnly = function () {
+  txt_mgntNm.setReadOnly(true); //txt_mgntNm.readOnly = true;
+  txt_exchRt.setReadOnly(true); //txt_exchRt.readOnly = true;
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+  if (ed_mgntClntNo.getValue() == "") {
+    await $c.win.alert($p, "거래처은(는) 필수 입력 항목입니다.");
+    ed_mgntClntNo.focus();
+    return;
+  }
+  if (dma_slip.getModifiedIndex().length != 0 && ds_slipcontents.getModifiedIndex().length != 0) {
+    //if(ds_slip.isUpdated == false && ds_slipcontents.isUpdated==false){
+    await $c.win.alert($p, "변경된 사항이 없습니다.");
+    return;
+  }
+  if (ds_slipcontents.getTotalRow() == 0) {
+    //if(ds_slipcontents.CountRow==0){
+    await $c.win.alert($p, "데이타가 없습니다.");
+    return;
+  }
+
+  // 필수 입력사항 체크
+  // if (!cfCheckMandatory())
+  //     return;
+
+  if ((await scwin.f_Validation()) == true) {
+    dma_purchaseSlip.set("certiNo", scwin.certiNo); //ds_purchaseSlip.NameValue(1,"certiNo") = "<%--=certiNo--%>";
+    dma_purchaseSlip.set("prtnGrpNo", scwin.prtnGrpNo); //ds_purchaseSlip.NameValue(1,"prtnGrpNo") = "<%--=prtnGrpNo--%>";
+    dma_purchaseSlip.set("slipDt", ed_slipDt.getValue().trim()); //ds_purchaseSlip.NameValue(1,"slipDt") = ed_slipDt.text.trim();
+    dma_purchaseSlip.set("acctDeptCd", scwin.acctDeptCd2); //ds_purchaseSlip.NameValue(1,"acctDeptCd") = "<%--=acctDeptCd2--%>";
+
+    dma_purchaseSlip.set("pchsClntNo", scwin.pchsClntNo); //ds_purchaseSlip.NameValue(1,"pchsClntNo") = "<%--=pchsClntNo--%>";
+    dma_purchaseSlip.set("spplyDt", ed_mgntDt.getValue()); //ds_purchaseSlip.NameValue(1,"spplyDt") = ed_mgntDt.text;
+    dma_purchaseSlip.set("spplyAmt", parseInt(scwin.amt) - parseInt(scwin.vat)); //ds_purchaseSlip.NameValue(1,"spplyAmt") = "<%--=(Long.parseLong(amt)-Long.parseLong(vat))--%>";
+    dma_purchaseSlip.set("vat", scwin.vat); //ds_purchaseSlip.NameValue(1,"vat") = "<%--=vat--%>";
+    dma_purchaseSlip.set("summary", "대납금"); //ds_purchaseSlip.NameValue(1,"summary") = "대납금";
+
+    //ds_purchaseSlip.NameValue(1,"slipNo") = ds_retSlip.NameValue(1,"slipNo");
+
+    // 차변,대변 체크
+    var Dsum = 0;
+    var Csum = 0;
+    for (i = 0; i < ds_slipcontents.getTotalRow(); i++) {
+      //for(i =1; i<=ds_slipcontents.CountRow; i++){
+      if (ds_slipcontents.getCellData(i, "drcrClsCd") == "D") {
+        //if(ds_slipcontents.NameValue(i,"drcrClsCd")=="D"){
+        //차변금액 더하고
+        //Dsum = Dsum + ds_slipcontents.getCellData(i,"amt");
+        Dsum = Dsum + parseInt(ds_slipcontents.getCellData(i, "Damt"));
+      }
+      if (ds_slipcontents.getCellData(i, "drcrClsCd") == "C") {
+        //if(ds_slipcontents.NameValue(i,"drcrClsCd")=="C"){
+        //대변금액 더하면 된다....
+        //Csum = Csum + ds_slipcontents.getCellData(i,"amt");
+        Csum = Csum + parseInt(ds_slipcontents.getCellData(i, "Camt"));
+      }
+    }
+    if (Dsum != Csum) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_055, Array("차변과 대변금액"));
+      ed_amt.focus();
+      return;
+    }
+
+    // alert("테스트 중이라 발행 안되지롱");
+    // return;
+    if ($c.gus.cfValidate($p, [gr_slipcontents])) {
+      if ((await $c.win.confirm($p, "발행하시겠습니까?")) == true) {
+        //ds_slip,I:IN_DS2=ds_slipcontents,I:IN_DS3=ds_purchaseSlip
+        $c.sbm.execute($p, sbm_save); //tr_save.Post();
+      }
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+//  계정조회시화면셋팅
+//  r_mgntCd - 관리번호
+//  r_termMgntYn - 기간관리여부
+//  r_clntMgntYn - 거래처여부
+//  r_empMgntYn - 사원관리여부
+//  r_mgntNm - 관리사원명
+//  r_dtMgntYn - 일자관리여부
+//-------------------------------------------------------------------------
+scwin.f_AcctCd = async function (r_mgntCd, r_clntMgntYn, r_termMgntYn, r_empMgntYn, r_mgntNm, r_dtMgntYn, r_payAcctCd) {
+  scwin.txt_termMgntYn = r_termMgntYn;
+  scwin.txt_clntMgntYn = r_clntMgntYn;
+  scwin.txt_empMgntYn = r_empMgntYn;
+  scwin.txt_dtMgntYn = r_dtMgntYn;
+  scwin.txt_payAcctCd = r_payAcctCd;
+  if (r_mgntCd != "" && r_mgntCd != "0" || r_mgntNm != "") {
+    //txt_mgntNo.value = "";
+    scwin.txt_mgntNm = r_mgntNm;
+    //validExp 체크해보자....에러나면 이놈은 hidden inputBox로 변경하자.
+    scwin.txt_mgntNo.validExp = "관리번호:no:maxByteLength=20";
+    $c.gus.cfEnableObj($p, txt_mgntNo, true);
+    $c.gus.cfEnableObj($p, txt_mgntNm, false);
+  } else {
+    scwin.txt_mgntNo = ""; //txt_mgntNo.value = "";
+    scwin.txt_mgntNm = ""; //txt_mgntNm.value = "";
+    //validExp 체크해보자....에러나면 이놈은 hidden inputBox로 변경하자.
+    scwin.txt_mgntNo.validExp = "관리번호:no:maxByteLength=20"; //txt_mgntNo.validExp="관리번호:no:maxByteLength=20"
+    $c.gus.cfEnableObj($p, txt_mgntNo, false);
+    $c.gus.cfEnableObj($p, txt_mgntNm, false);
+  }
+
+  // 기간관리여부
+  if (r_termMgntYn == "1") {
+    ed_mgntTermStDt.options.validExp = "관리기간:yes:date=YYYYMMDD";
+    ed_mgntTermEndDt.options.validExp = "관리기간:yes:date=YYYYMMDD";
+    //$c.gus.cfEnableObjects([ed_mgntTermStDt, ed_mgntTermEndDt, img_mgntTermStDt, img_mgntTermEndDt]);
+    $c.gus.cfEnableObjects($p, [ed_mgntTermStDt, ed_mgntTermEndDt]);
+  } else {
+    ed_mgntTermStDt.setValue(""); //ed_mgntTermStDt.text="";
+    ed_mgntTermEndDt.setValue(""); //ed_mgntTermEndDt.text="";
+    ed_mgntTermStDt.options.validExp = "관리기간:no:date=YYYYMMDD";
+    ed_mgntTermEndDt.options.validExp = "관리기간:no:date=YYYYMMDD";
+
+    //$c.gus.cfDisableObjects([ed_mgntTermStDt, ed_mgntTermEndDt, img_mgntTermStDt, img_mgntTermEndDt]);
+    $c.gus.cfDisableObjects($p, [ed_mgntTermStDt, ed_mgntTermEndDt]);
+  }
+
+  // 사원관리여부
+  if (r_empMgntYn == "1") {
+    ed_mgntEmpNo.options.validExp = "사원번호:yes:format=000000";
+    $c.gus.cfEnableObjects($p, [ed_mgntEmpNo, img_mgntEmpNo]);
+  } else {
+    ed_mgntEmpNo.setValue(""); //ed_mgntEmpNo.text="";
+    txt_mgntEmpNm.setValue(); //txt_mgntEmpNm.value="";
+    ed_mgntEmpNo.options.validExp = "사원번호:no:format=000000";
+    $c.gus.cfDisableObjects($p, [ed_mgntEmpNo, img_mgntEmpNo]);
+  }
+  ed_mgntDt.options.validExp = "관리일자:yes:date=YYYYMMDD";
+  if (ed_taxinvcDt.getValue() == null || ed_taxinvcDt.getValue() == "") {
+    ed_taxinvcDt.setValue(ed_mgntDt.getValue()); //ed_taxinvcDt.Text = ed_mgntDt.Text;
+  }
+  //$c.gus.cfEnableObjects([ed_mgntDt, img_mgntDt]);
+  $c.gus.cfEnableObjects($p, [ed_mgntDt]);
+
+  //AS-IS에서도 주석이었음.
+  //if( ed_acctCd.Text == "2100710" || ed_acctCd.Text == "4101180" || ed_acctCd.Text == "1110413"){
+  //	ed_mgntClntNo.validExp="거래처:yes:format=000000"
+  //}
+
+  // 지급계정셋팅
+  await scwin.f_PayYn();
+};
+
+//-------------------------------------------------------------------------
+// 지급처리여부셋팅
+//-------------------------------------------------------------------------
+scwin.f_PayYn = function () {
+  if (scwin.formLoad == "Y") return;
+
+  //if( txt_payAcctCd.value !="" && lc_drcrClsCd.BindColVal == "<%=ACConstants.CREDIT%>" ) { asis 1096
+  if (scwin.txt_payAcctCd != "" && lc_drcrClsCd.getValue() == ACConstants.CREDIT) {
+    ed_mgntClntNo.validExp = "거래처:yes:format=000000";
+    $c.gus.cfEnableObjects($p, [ed_mgntClntNo, img_mgntClntNo]);
+    ds_payProcYn.setCellData(0, "procYn", 1);
+    chb_payProcYn.checkAll(true);
+  } else {
+    ds_payProcYn.setCellData(0, "procYn", 0);
+    chb_payProcYn.checkAll(false);
+
+    //$c.gus.cfDisableObjects([ed_reqDt,lc_reqPayMthdCd,ed_draftDdCntCd,img_reqDt]);
+    $c.gus.cfDisableObjects($p, [ed_reqDt, lc_reqPayMthdCd, ed_draftDdCntCd]);
+  }
+};
+
+//-------------------------------------------------------------------------
+//  통화코드변경시
+//-------------------------------------------------------------------------
+scwin.crcCdChange = async function () {
+  let curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "crcCd ", lc_crcCd.getValue()); //통화코드 그리드 셋팅 2026.03.29 추가
+
+  if (lc_crcCd.getValue() == "" || lc_crcCd.getValue() == ACConstants.KOREA_WON) {
+    txt_exchRt.setValue(""); //txt_exchRt.value = "";
+    ed_amtFcrc.setValue(""); //ed_amtFcrc.text = "";
+    $c.gus.cfEnableObj($p, ed_amtFcrc, false);
+    ed_amtFcrc.options.validExp = "외화금액:no:maxLength=13";
+
+    //ed_amt.focus();
+  } else {
+    // 자금의 환율테이블 조회(통화코드,작성일자)
+    // 통화코드가 외화일경우 외화금액 필수
+    // ed_amtFcrc.options.validExp = "외화금액:yes:notAllowed=0&maxLength=13";
+    // tr_exchRt.Post();       //submission 날라가면 됨.
+
+    $c.gus.cfEnableObjects($p, [txt_exchRt]);
+    //var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+    dma_exchRtSearch.set("crcCd", ds_slipcontents.getCellData(curRow, "crcCd"));
+    dma_exchRtSearch.set("stdDt", ed_slipDt.getValue());
+    let e = await $c.sbm.execute($p, sbm_exchRt);
+    //await 안되서 여기서 리턴..콜백에서 처리
+    return;
+    if (e.responseJSON.resultDataSet[0].Code != 0) return;
+    $c.gus.cfEnableObj($p, ed_amtFcrc, true);
+    scwin.checkExchRt = Number(ds_exchRt.getCellData(0, "stdExchRt")).toFixed(2); // 기준 환율'
+    // KYU_NEW
+    txt_exchRt.setValue(ds_exchRt.getCellData(0, "stdExchRt")); // 기준 환율
+  }
+};
+
+//-------------------------------------------------------------------------
+// 콤보데이터 검증
+//-------------------------------------------------------------------------
+scwin.f_CheckComboData = async function (objCombo, comboTitle) {
+  //ed_coCd가 호출하네..
+  if (objCombo.getSelectedIndex() == -1 && !$c.gus.cfIsNull($p, getValue())) {
+    objCombo.setSelectedIndex(objCombo.getIndexByValue(objCombo.getValue())); //objCombo.Index = objCombo.IndexOfColumn(objCombo.SearchColumn, objCombo.text);
+
+    if (objCombo.getSelectedIndex() == -1) {
+      await $c.win.alert($p, $c.data.getMessage($p, MSG_CM_ERR_038, [comboTitle + "코드"]));
+      objCombo.focus();
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+//부가세자료관리
+//-------------------------------------------------------------------------
+scwin.f_MoveToAddTax = function () {
+  //탭이 아닌데...
+  //cfTabMenuUpdate("/ac/fi/taxbiz/vatctrl/fi_401_01_01b.jsp", "부가세자료관리");
+
+  /* 위 호출방식에서 아래 형태로 바꿨음..... */
+  var param = {};
+  let strOrderDetailTitle = "부가세자료관리";
+  let strOrderDetailUrl = "/ui/ac/fi/taxbiz/vatctrl/fi_401_01_01b.xml";
+  $c.win.openMenu($p, strOrderDetailTitle, strOrderDetailUrl, "fi_401_01_01b.xml", param, {
+    openAction: "exist"
+  });
+};
+
+//-------------------------------------------------------------------------
+// cfCommonPopUp CallBack Function 정의의부 - 부서조회(상단검색)
+//-------------------------------------------------------------------------
+scwin.udc_slipAcctDeptCd_callbakFn = function (rtnList) {
+  scwin.f_resultPopEd(ed_slipAcctDeptCd, txt_slipAcctDeptNm, scwin.hidVal_ed_slipAcctDeptCd, rtnList);
+};
+
+//-------------------------------------------------------------------------
+// cfCommonPopUp CallBack Function 정의의부 - 부서조회(상단검색)
+// 계정콜백
+//-------------------------------------------------------------------------
+scwin.udc_acct_callbakFn = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      return;
+    }
+    ed_acctCd.setValue(rtnList[0]); //ed_acctCd.text  = rtnList[0];	//계정코드
+    txt_acctNm.setValue(rtnList[1]); //txt_acctNm.value = rtnList[1];	//계정명
+
+    scwin.hidVal_ed_acctCd = rtnList[0]; //ed_acctCd.hidVal = rtnList[0];  // 히든값
+    // 계정셋팅
+    scwin.f_AcctCd(rtnList[4], rtnList[5], rtnList[6], rtnList[7], rtnList[8], rtnList[9], rtnList[10]);
+
+    //그리드에 계정, 계정명 바인딩.
+    let rowIdx = ds_slipcontents.getTotalRow() - 1;
+    ds_slipcontents.setCellData(rowIdx, "acctCd", ed_acctCd.getValue()); //계정
+    ds_slipcontents.setCellData(rowIdx, "acctNm", txt_acctNm.getValue()); //계정명
+  } else {
+    ed_acctCd.setValue(""); //ed_acctCd.text  = "";
+    txt_acctNm.setValue(""); //txt_acctNm.value = "";
+    txt_mgntNm.setValue(""); //txt_mgntNm.value ="";
+    scwin.hidVal_ed_acctCd; //ed_acctCd.hidVal ="";
+    scwin.txt_payAcctCd = ""; //txt_payAcctCd.value ="";
+
+    //그리드에 계정, 계정명 바인딩.
+    let rowIdx = ds_slipcontents.getTotalRow() - 1;
+    ds_slipcontents.setCellData(rowIdx, "acctCd", ""); //계정
+    ds_slipcontents.setCellData(rowIdx, "acctNm", ""); //계정명
+  }
+};
+
+//-------------------------------------------------------------------------
+// cfCommonPopUp CallBack Function 정의의부 - 귀속부서
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_acctDept_callBackFn = function (rtnList) {
+  if (!ed_acctDeptCd.options) ed_acctDeptCd.options = {};
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      return;
+    }
+    ed_acctDeptCd.setValue(rtnList[0]); //ed_acctDeptCd.text  = rtnList[0];	//부서코드
+    txt_acctDeptNm.setValue(rtnList[1]); //txt_acctDeptNm.value = rtnList[1];	//부서명
+
+    //그리드값 셋팅.
+    let rowIdx = ds_slipcontents.getTotalRow() - 1;
+    ds_slipcontents.setCellData(rowIdx, "acctDeptCd", rtnList[0]); //귀속부서코드
+    ds_slipcontents.setCellData(rowIdx, "acctDeptNm", rtnList[1]); //귀속부서코드명
+
+    scwin.txt_bizdivCd = rtnList[2]; //txt_bizdivCd.value =  rtnList[2];	//사업부코드 (hidden Type Tag)
+    scwin.txt_bizDomCd = rtnList[3]; //txt_bizDomCd.value =  rtnList[3];	//사업영역코드 (hidden Type Tag)
+    //CKCD HIDVAL
+    scwin.hidVal_ed_acctDeptCd = rtnList[0]; //ed_acctDeptCd.options.hidVal = rtnList[0];   //ed_acctDeptCd.hidVal = rtnList[0];  // 히든값
+  } else {
+    ed_acctDeptCd.setValue(""); //ed_acctDeptCd.text  ="";
+    txt_acctDeptNm.setValue(""); //txt_acctDeptNm.value = "";
+
+    scwin.txt_bizdivCd = ""; //txt_bizdivCd.value =  ""; (hidden Type Tag)
+    scwin.txt_bizDomCd = ""; //txt_bizDomCd.value =  ""; (hidden Type Tag)
+    //CKCD HIDVAL
+    scwin.hidVal_ed_acctDeptCd = ""; //ed_acctDeptCd.options.hidVal = "";           //ed_acctDeptCd.hidVal ="";
+  }
+  let curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "acctDeptCd", ed_acctDeptCd.getValue()); //귀속부서코드 그리드 셋팅
+  ds_slipcontents.setCellData(curRow, "acctDeptNm", txt_acctDeptNm.getValue()); //귀속부서코드 그리드 셋팅
+};
+//-------------------------------------------------------------------------
+// f_openPopup CallBack Function 정의부 
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+//사번 callback
+//-------------------------------------------------------------------------
+scwin.udc_mgntEmpNo_callbackFn = function (rtnList) {
+  scwin.f_resultPopEd(ed_mgntEmpNo, txt_mgntEmpNm, scwin.hidVal_ed_mgntEmpNo, rtnList);
+};
+//-------------------------------------------------------------------------
+// 거래처 callback
+//-------------------------------------------------------------------------
+scwin.udc_mgntClnt_callbackFn = function (rtnList) {
+  if (!ed_mgntClntNo.options) ed_mgntClntNo.options = {};
+  if (!ed_mgntEmpNo.options) ed_mgntEmpNo.options = {};
+  if (rtnList != null) {
+    if (!ed_mgntClntNo.options) ed_mgntClntNo.options = {};
+    if (!ed_mgntEmpNo.options) ed_mgntEmpNo.options = {};
+    if (rtnList[0] == "N/A") {
+      return;
+    }
+    ed_mgntClntNo.setValue(rtnList[0]); //ed_mgntClntNo.text  = rtnList[0];	    //거래처코드
+    txt_mgntClntNm.setValue(rtnList[1]); //txt_mgntClntNm.value = rtnList[1];	//거래처명명
+    //CKCD HIDVAL
+    scwin.hidVal_ed_mgntClntNo = rtnList[0]; //ed_mgntClntNo.options.hidVal = rtnList[0];  //ed_mgntClntNo.hidVal = rtnList[0];    // 히든값
+
+    txt_crnNm.setValue(rtnList[1]); //txt_crnNm.value = rtnList[1];     // 사업자 명
+    ed_crn.setValue(rtnList[4]); //ed_crn.text = rtnList[4];         // 사업자 번호
+
+    // 사원거래처일경우 사번셋팅(수정 20060412)
+    if (ed_mgntEmpNo.disabled == true && rtnList[10] == "EM") {
+      ed_mgntEmpNo.setValue(rtnList[11]); //ed_mgntEmpNo.text   = rtnList[11];
+      txt_mgntEmpNm.setValue(rtnList[12]); //txt_mgntEmpNm.value = rtnList[12];
+      //CKCD HIDVAL
+      scwin.hidVal_ed_mgntEmpNo = rtnList[11]; //ed_mgntEmpNo.options.hidVal = rtnList[11];  //ed_mgntEmpNo.hidVal = rtnList[11];
+    }
+
+    //전표 그리드에 거래처, 거래처명, 사업자번호 바인딩.
+    //let rowIdx = ds_slipcontents.getTotalRow() - 1;
+    let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+    ds_slipcontents.setCellData(rowIdx, "mgntClntNo", ed_mgntClntNo.getValue()); //거래처
+    ds_slipcontents.setCellData(rowIdx, "mgntClntNm", txt_mgntClntNm.getValue()); //거래처명
+    ds_slipcontents.setCellData(rowIdx, "crn", ed_crn.getValue()); //사업자번호
+  } else {
+    ed_mgntClntNo.setValue(""); //ed_mgntClntNo.text  ="";
+    txt_mgntClntNm.setValue(""); //txt_mgntClntNm.value = "";
+    //CKCD HIDVAL
+    scwin.hidVal_ed_mgntClntNo = ""; //ed_mgntClntNo.options.hidVal = "";     //ed_mgntClntNo.hidVal ="";
+
+    //전표 그리드에 거래처, 거래처명, 사업자번호 바인딩.
+    //let rowIdx = ds_slipcontents.getTotalRow() - 1;
+    let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+    ds_slipcontents.setCellData(rowIdx, "mgntClntNo", ""); //거래처
+    ds_slipcontents.setCellData(rowIdx, "mgntClntNm", ""); //거래처명
+    ds_slipcontents.setCellData(rowIdx, "crn", ""); //사업자번호
+  }
+};
+//-------------------------------------------------------------------------
+// 계정설정 callback
+//-------------------------------------------------------------------------
+scwin.udc_FreightPchsDrAcctCd_callbackFn = function (rtnList) {
+  if (!ed_acctCd.option) ed_acctCd.options = {};
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      return;
+    }
+    ed_acctCd.setValue(rtnList[0]); //계정코드
+    txt_acctNm.setValue(rtnList[1]); //계정명
+
+    //ed_acctCd.hidVal = rtnList[0];      // 히든값 ( as-is 849 라인)
+    //CKCD HIDVAL
+    scwin.hidVal_ed_acctCd = rtnList[0]; //ed_acctCd.options.hidVal = rtnList[0];// 히든값
+  } else {
+    ed_acctCd.setValue(""); //계정코드
+    txt_acctNm.setValue(""); //계정명
+    //CKCD HIDVAL
+    scwin.hidVal_ed_acctCd = ""; //ed_acctCd.options.hidVal = "";       // 히든값
+  }
+
+  //전도금일 경우 지금처리 여부 삭제 --> f_OnLoad 있던 로직 이쪽으로 옮겨옴.
+  if (ed_acctCd.getValue() == "1110121") {
+    //전도금
+    //chb_payProcYn.checked=false;	
+    //chb_payProcYn.setValue("0");        //지급처리 여부
+    //ds_payProcYn.setCellData(0, "procYn", "-1");
+    ds_payProcYn.setCellData(0, "procYn", "0");
+  } else {
+    //chb_payProcYn.checked=true;
+    //chb_payProcYn.setValue("1");        //지급처리 여부 	(지급)
+    //ds_payProcYn.setCellData(0, "procYn", "0");
+    ds_payProcYn.setCellData(0, "procYn", "1");
+  }
+  if (scwin.formLoad == "N") {
+    //요기서 f_CopyRow에 있는 로직 때낸 함수 호출하면됨.... 요 함수안에서 컨트롤값들 변화주니까 
+    //f_Add함수에서 추가할때 변경된값으로 insertRow가 됨.
+    scwin.f_CopyRowDetail();
+  }
+  scwin.f_Add(); //행추가
+  scwin.f_CheckPayYn(); //미지급체크 ( 지급여부체크 )
+};
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+//sbm_save_submitdone event
+// as-is : <script language=JavaScript for=tr_save event=OnSuccess()> 
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitdone = async function (e) {
+  if (ds_retSlip.getCellData(0, "slipNo") != "") {
+    //Payment Invoice Slip No Update        ASIS부터 주석임.
+    //tr_slipSave.Post();                   ASIS부터 주석임.
+    await $c.gus.cfShowSlipInfo($p, ds_retSlip.getCellData(0, "slipNo"));
+  }
+  scwin.state = "Y";
+  scwin.delflag = "N";
+
+  //ds_slipcontents.ClearData();
+  $c.gus.cfDisableKeyData($p);
+  $c.gus.cfEnableAllBtn($p);
+
+  //f_OnLoad();
+
+  $c.gus.cfEnableObj($p, ed_slipDt, true);
+  $c.gus.cfEnableObj($p, ed_slipAcctDeptCd, true);
+  $c.gus.cfEnableObj($p, txt_slipAcctDeptNm, true);
+};
+
+//-------------------------------------------------------------------------
+//sbm_save_submitdone event
+// as-is : <script language=JavaScript for=tr_save event=OnFail()>
+//-------------------------------------------------------------------------
+scwin.sbm_save_submiterror = function (e) {
+  //alert("전표발행 오류");
+};
+
+//-------------------------------------------------------------------------
+//sbm_exchRt_submitdone event
+// as-is : <script language=JavaScript for=tr_exchRt event=OnSuccess()>
+//-------------------------------------------------------------------------
+scwin.sbm_exchRt_submitdone = function (e) {
+  //2026.03.26 주석처리...
+  // txt_exchRt.setValue(dma_exchrt.get("stdExchRt"));   //txt_exchRt.value = ds_exchRt.NameValue(1,"stdExchRt");
+  // $c.gus.cfEnableObj(ed_amtFcrc, true);  
+
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+  $c.gus.cfEnableObj($p, ed_amtFcrc, true);
+  scwin.checkExchRt = Number(ds_exchRt.getCellData(0, "stdExchRt")).toFixed(2); // 기준 환율'
+  txt_exchRt.setValue(ds_exchRt.getCellData(0, "stdExchRt")); // 기준 환율
+  ed_amtFcrc.focus();
+};
+
+/* 통화코드변경시 (통화/환율코드)  */
+/* <script language=JavaScript for=lc_crcCd event=onSelChange()> */
+scwin.lc_crcCd_onviewchange = function (info) {
+  scwin.crcCdChange();
+};
+
+/* 계정구분변경시 (차대구분) */
+//TODO STYYCYG [2026.03.24]이건 테스트 정상 완료 되면 이 이벤트 삭제 합시다.
+// f_Add 함수 804 라인에서 lc_drcrClsCd값 바꾸니까 이 이벤트 타고 들어와서 차대를 바꿔버린다....onviewchange로 바꿈....
+scwin.lc_drcrClsCd_onchange = function (info) {
+
+  // if (scwin.formLoad == "Y") return;
+
+  // //차변금액과 대변금액 바꾸기
+  // if (info.oldValue != info.newValue) {
+
+  //     var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+
+  //     var Damt = ds_slipcontents.getCellData(curRow, "Damt");       //현재 차변 금액
+  //     var Camt = ds_slipcontents.getCellData(curRow, "Camt");       //현재 대변 금액
+
+  //     ds_slipcontents.setCellData(curRow, "Damt", Camt);
+  //     ds_slipcontents.setCellData(curRow, "Camt", Damt);
+
+  // }
+
+  // scwin.f_PayYn();
+
+  // let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  // ds_slipcontents.setCellData(rowIdx, "drcrClsCd", lc_drcrClsCd.getValue());
+
+  // return;
+};
+
+/* 계정구분변경시 (차대구분) */
+scwin.lc_drcrClsCd_onviewchange = function (info) {
+  if (scwin.formLoad == "Y") return;
+
+  //차변금액과 대변금액 바꾸기
+  if (info.oldValue != info.newValue) {
+    var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+    var Damt = ds_slipcontents.getCellData(curRow, "Damt"); //현재 차변 금액
+    var Camt = ds_slipcontents.getCellData(curRow, "Camt"); //현재 대변 금액
+
+    ds_slipcontents.setCellData(curRow, "Damt", Camt);
+    ds_slipcontents.setCellData(curRow, "Camt", Damt);
+  }
+  scwin.f_PayYn();
+  let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  ds_slipcontents.setCellData(rowIdx, "drcrClsCd", lc_drcrClsCd.getValue());
+  return;
+};
+
+//-------------------------------------------------------------------------
+//udc_ilcomCode_slipAcctDeptCd onblur event
+// as-is : <script language=JavaScript for=ed_slipAcctDeptCd event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.udc_ilcomCode_slipAcctDeptCd_onblurCodeEvent = function (e) {
+  //scwin.f_checkPopEd(ed_slipAcctDeptCd, txt_slipAcctDeptNm, '1');
+  if (ed_slipAcctDeptCd.getValue() == ed_slipAcctDeptCd.originalValue) return;
+  scwin.f_checkPopEd(ed_slipAcctDeptCd, txt_slipAcctDeptNm, scwin.hidVal_ed_slipAcctDeptCd, '1');
+};
+
+//-------------------------------------------------------------------------
+//udc_ilcmCd_acct_onblurCodeEvent
+// as-is : <script language=JavaScript for=ed_acctCd event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_acct_onviewchangeCodeEvent = function (info) {
+  debugger;
+  if (ed_acctCd.getValue().trim() == "") txt_mgntNm.setValue("");
+  scwin.f_checkPopEd(ed_acctCd, txt_acctNm, scwin.hidVal_ed_acctCd, '2');
+  // 계정코드가 외상매입 , 미지급비용(거래처) , 미지급비용(사원) 일경우 지급처리여부 Enable
+  if (ed_acctCd.getValue() == "2100110" || ed_acctCd.getValue() == "2100810" || ed_acctCd.getValue() == "2100820") {
+    //chb_payProcYn.Enable = true
+  } else {
+    //chb_payProcYn.Enable = false
+  }
+};
+
+//-------------------------------------------------------------------------
+//귀속부서
+//<script language=JavaScript for=ed_acctDeptCd event=OnKillFocus()>
+// 과 <script language=JavaScript for=ed_mgntClntNo event=OnKillFocus()> 이 이벤트가 곂친다....
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_acctDept_onblurCodeEvent = function (e) {
+  if (ed_acctDeptCd.getValue() == ed_acctDeptCd.originalValue) return;
+  scwin.f_checkPopEd(ed_acctDeptCd, txt_acctDeptNm, scwin.hidVal_ed_acctDeptCd, '3');
+};
+
+//-------------------------------------------------------------------------
+//거래처
+//ASIS <script language=JavaScript for=ed_mgntClntNo event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_mgntClnt_onblurCodeEvent = function (e) {
+  if (ed_mgntClntNo.getValue() == ed_mgntClntNo.originalValue) return;
+  scwin.f_checkPopEd(ed_mgntClntNo, txt_mgntClntNm, scwin.hidVal_ed_mgntClntNo, '4');
+};
+
+//-------------------------------------------------------------------------
+//사원번호
+//<script language=JavaScript for=ed_mgntEmpNo event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_mgntEmpNo_onblurCodeEvent = function (e) {
+  if (ed_mgntEmpNo.getValue() == ed_mgntEmpNo.originalValue) return;
+  scwin.f_checkPopEd(ed_mgntEmpNo, txt_mgntEmpNm, scwin.hidVal_ed_mgntEmpNo, '5');
+};
+
+//-------------------------------------------------------------------------
+//외화금액 입력시 
+//<script language=JavaScript for=ed_amtFcrc event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.ed_amtFcrc_onblur = function (e) {
+  var tmpEd_amtFcrc = ed_amtFcrc.getValue().trim() == "" ? 0 : parseInt(ed_amtFcrc.getValue().trim());
+  var tmpTxt_exchRt = txt_exchRt.getValue().trim() == "" ? 0 : parseInt(txt_exchRt.getValue().trim());
+
+  //ed_amt.setValue(parseInt(ed_amtFcrc.getValue().trim()) * parseInt(txt_exchRt.getValue().trim()));
+  ed_amt.setValue(tmpEd_amtFcrc * tmpTxt_exchRt);
+
+  //전표 그리드에 셋팅
+  let curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "amtFcrc", ed_amtFcrc.getValue().trim()); //외화금액 셋팅
+};
+
+//-------------------------------------------------------------------------
+//증빙종류
+//<script language=JavaScript for=lc_evidClsCd event=OnSelChange()>
+//-------------------------------------------------------------------------
+scwin.lc_evidClsCd_onchange = function (info) {
+  // 영세율세금계산서 선택시 공급금액 셋팅
+
+  if (rd_gb.getValue() == "") {
+    //if(rd_gb.CodeValue == "")	{ 
+
+    ed_spplyAmt.setValue(0); //ed_spplyAmt.text = 0;
+
+    if (lc_evidClsCd.getValue() == "20") {
+      //if( lc_evidClsCd.BindColVal=="20" ){
+      ed_spplyAmt.setValue(ed_amt.getValue()); //ed_spplyAmt.text = ed_amt.text;
+
+      lc_deductClsCd.setValue(""); //lc_deductClsCd.BindColVal = "";
+      $c.gus.cfDisableObjects($p, [lc_deductClsCd]);
+    }
+    if (lc_evidClsCd.getValue() == "20" || lc_evidClsCd.getValue() == "30" || lc_evidClsCd.getValue() == "70" || lc_evidClsCd.getValue() == "99") {
+      lc_deductClsCd.setValue("");
+      $c.gus.cfDisableObjects($p, [lc_deductClsCd]);
+    }
+    // 법인카드선택시  불공제로 셋팅
+    if (lc_evidClsCd.getValue() == "40") {
+      lc_deductClsCd.setValue("2");
+      $c.gus.cfEnableObjects($p, [lc_deductClsCd]);
+    }
+
+    // 개인카드 선택시 불공제로 세팅
+    if (lc_evidClsCd.getValue() == "50") {
+      lc_deductClsCd.setValue("2");
+      $c.gus.cfEnableObjects($p, [lc_deductClsCd]);
+    }
+
+    // 현금영수증 선택시 불공제로 세팅 
+    if (lc_evidClsCd.getValue() == "60") {
+      lc_deductClsCd.setValue("2");
+      $c.gus.cfEnableObjects($p, [lc_deductClsCd]);
+    }
+
+    // 세금계산서 선택시 공제로 세팅
+    if (lc_evidClsCd.getValue() == "10") {
+      $c.gus.cfEnableObjects($p, [lc_deductClsCd]);
+      lc_deductClsCd.setValue("1");
+      //	if(rd_gb.CodeValue == "1"){	//부가세 체크 했을경우
+      //		ed_spplyAmt.text = "<%=(Long.parseLong(amt)-Long.parseLong(vat))%>";            
+      //  }                
+    }
+
+    //그리드에 셋팅  선택된 증빙종류 셋팅
+    var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+    ds_slipcontents.setCellData(curRow, "evidClsCd", lc_evidClsCd.getValue()); //증빙여부구분
+    //ds_slipcontents.setCellData(curRow, "deductClsCd", lc_deductClsCd.getValue());      //공제여부
+  }
+  scwin.olddata = lc_evidClsCd.getSelectedIndex(); //lc_evidClsCd.index;
+};
+
+//-------------------------------------------------------------------------
+//증빙종류 onblur event
+//<script language=JavaScript for=lc_drcrClsCd event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.lc_drcrClsCd_onblur = function (e) {
+  //TOBE예제 : zz_900_05_01
+  scwin.f_CheckComboData(lc_drcrClsCd, "차대구분"); //f_CheckComboData(this, "차대구분");
+};
+
+//-------------------------------------------------------------------------
+//부가세자료관리 onClick event
+//-------------------------------------------------------------------------
+scwin.btn_Save_onclick = function (e) {
+  scwin.f_MoveToAddTax();
+};
+
+//-------------------------------------------------------------------------
+//발행 onclick event
+//-------------------------------------------------------------------------
+scwin.btn_issue_onclick = function (e) {
+  scwin.f_Save();
+};
+
+//-------------------------------------------------------------------------
+//금액
+//<script language=JavaScript for=ed_amt event=OnKillFocus()>
+//-------------------------------------------------------------------------
+scwin.ed_amt_onblur = function (e) {
+  return; //2026.03.23
+  //계정코드
+  if (ed_acctCd.getValue() == "1111210" || ed_acctCd.getValue() == "2100710") {
+    ed_spplyAmt.setValue(BigInt(scwin.amt) - BigInt(scwin.vat));
+  }
+};
+
+//-------------------------------------------------------------------------
+//지급방법
+//<script language=JavaScript for=lc_reqPayMthdCd event=OnSelChange()>
+//-------------------------------------------------------------------------
+scwin.lc_reqPayMthdCd_onviewchange = function (info) {
+  if (lc_reqPayMthdCd.getValue() == scwin.ELECTRONICDRAFT || lc_reqPayMthdCd.getValue() == scwin.DRAFTCHECK) {
+    $c.gus.cfEnableObjects($p, [ed_draftDdCntCd]);
+  } else {
+    $c.gus.cfDisableObjects($p, [ed_draftDdCntCd]);
+  }
+  if (lc_reqPayMthdCd.getValue() == scwin.ELECTRIC_CASH || lc_reqPayMthdCd.getValue() == scwin.TRANSFER) {
+    if (!(ds_slipcontents.getCellData(0, "reqPayMthdCd") == scwin.ELECTRIC_CASH || ds_slipcontents.getCellData(0, "reqPayMthdCd") == scwin.TRANSFER)) {
+      lc_crcCd.setValue(0); //lc_crcCd.index=0
+    }
+    $c.gus.cfEnableObjects($p, [lc_crcCd]);
+  } else {
+    lc_crcCd.setValue(0); //lc_crcCd.index=0
+
+    $c.gus.cfDisableObjects($p, [lc_crcCd]);
+  }
+  ed_draftDdCntCd.setValue(0); //ed_draftDdCntCd.Text = 0;
+
+  //전표 그리드에 지급방법 셋팅
+  let curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "reqPayMthdCd", lc_reqPayMthdCd.getValue()); //지급방법
+};
+
+//-------------------------------------------------------------------------
+//<script language=JavaScript for=ds_evidClsCd event=onLoadCompleted()> 요 로직 아직 작업 안했음.
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+//<!-- 데이타셋 속성제어-->
+//<script language=JavaScript for=ds_slipcontents event=OnRowPosChanged(row)>
+//<script language=JavaScript for=ds_slipcontents event=CanRowPosChange(row)>
+//-------------------------------------------------------------------------
+scwin.gr_slipcontents_onrowindexchange = async function (rowIndex, oldRow) {
+  if (scwin.skipSlipcontentsRowChange === true) {
+    scwin.skipSlipcontentsRowChange = false;
+    return;
+  }
+
+  //CKCD STYYCYG hidVal값 잘 들어가는지 확인 필요함. 그리고 그리드 첫번째값이 1인지 0인지도 확인 필요
+  //CKCD HIDVAL
+
+  //거래처 Alert 체크 로직 여기에 있어야 한다.
+  //공통 mandatory 체크 후 return이 안되는 문제 가 있어서 여기에 별도 코딩함.(해당 컨트롤에서 mandatory check 안함.)
+  var vMgntClntNo = ""; //거래처 체크
+  if (typeof ed_mgntClntNo.getValue === "function") {
+    vMgntClntNo = (ed_mgntClntNo.getValue() || "").trim();
+  }
+  if (vMgntClntNo == "" && oldRow > -1) {
+    vMgntClntNo = ds_slipcontents.getCellData(oldRow, "mgntClntNo");
+  }
+  var vEdamt = ""; //금액체크
+  if (typeof ed_amt.getValue === "function") {
+    vEdamt = ed_amt.getValue();
+  }
+  if (vEdamt == "" && oldRow > -1) {
+    vEdamt = ds_slipcontents.getCellData(oldRow, "amt");
+  }
+  var vTxtsummary = ""; //적요
+  if (typeof txt_summary.getValue() === "function") {
+    vTxtsummary = txt_summary.getValue();
+  }
+  if (vTxtsummary == "" && oldRow > -1) {
+    vTxtsummary = ds_slipcontents.getCellData(oldRow, "summary");
+  }
+  var vEdacctDeptCd = ""; //귀속부서   //ed_acctDeptCd
+  if (typeof ed_acctDeptCd.getValue() === "function") {
+    vEdacctDeptCd = ed_acctDeptCd.getValue();
+  }
+  if (vEdacctDeptCd == "" && oldRow > -1) {
+    vEdacctDeptCd = ds_slipcontents.getCellData(oldRow, "acctDeptCd");
+  }
+  var vEdspplyAmt = ""; //공급금액 //ed_spplyAmt
+  if (typeof ed_spplyAmt.getValue() === "function") {
+    vEdspplyAmt = ed_spplyAmt.getValue();
+  }
+  if (vEdspplyAmt == "" && oldRow > -1) {
+    vEdspplyAmt = ds_slipcontents.getCellData(oldRow, "spplyAmt");
+  }
+  var vEdmgntDt = ""; //관리일자 ed_mgntDt
+  if (typeof ed_mgntDt.getValue() === "function") {
+    vEdmgntDt = ed_mgntDt.getValue();
+  }
+  if (vEdmgntDt == "" && oldRow > -1) {
+    vEdmgntDt = ds_slipcontents.getCellData(oldRow, "mgntDt");
+  }
+
+  // if (rowIndex != oldRow && oldRow > -1 && vMgntClntNo == "") {
+  //     await $c.gus.cfAlertMsg("거래처은(는)필수 입력 항목 입니다.");
+
+  //     ds_slipcontents.setEventPause("", true);
+  //     scwin.skipSlipcontentsRowChange = true;
+  //     gr_slipcontents.setFocusedCell(oldRow, "seq", false);
+  //     ds_slipcontents.setEventPause("", false);
+  //     ed_mgntClntNo.focus();
+
+  //     return;        
+  // }
+
+  if (rowIndex != oldRow && oldRow > -1) {
+    if (vMgntClntNo == "" || vEdamt == "" || vTxtsummary == "" || vEdacctDeptCd == "" || vEdspplyAmt == "" || vEdmgntDt == "") {
+      ds_slipcontents.setEventPause("", true);
+      scwin.skipSlipcontentsRowChange = true;
+      gr_slipcontents.setFocusedCell(oldRow, "seq", false);
+      ds_slipcontents.setEventPause("", false);
+    }
+    if (vMgntClntNo == "") {
+      await $c.gus.cfAlertMsg($p, "거래처은(는)필수 입력 항목 입니다.");
+      ed_mgntClntNo.focus();
+      return;
+    }
+    if (vEdamt == "") {
+      await $c.gus.cfAlertMsg($p, "금액은(는)필수 입력 항목 입니다.");
+      ed_amt.focus();
+      return;
+    }
+    if (vTxtsummary == "") {
+      await $c.gus.cfAlertMsg($p, "적요은(는)필수 입력 항목 입니다.");
+      txt_summary.focus();
+      return;
+    }
+    if (vEdacctDeptCd == "") {
+      await $c.gus.cfAlertMsg($p, "귀속부서은(는)필수 입력 항목 입니다.");
+      ed_acctDeptCd.focus();
+      return;
+    }
+    if (vEdspplyAmt == "") {
+      await $c.gus.cfAlertMsg($p, "공급금액(는)필수 입력 항목 입니다.");
+      ed_spplyAmt.focus();
+      return;
+    }
+    if (vEdmgntDt == "") {
+      await $c.gus.cfAlertMsg($p, "관리일자(는)필수 입력 항목 입니다.");
+      ed_mgntDt.focus();
+      return;
+    }
+
+    // if (vRtn) {
+    //     ds_slipcontents.setEventPause("", true);
+    //     scwin.skipSlipcontentsRowChange = true;
+    //     gr_slipcontents.setFocusedCell(oldRow, "seq", false);
+    //     ds_slipcontents.setEventPause("", false);
+    //     //ed_mgntClntNo.focus();
+
+    //     return;
+    // }
+  }
+
+  //<script language=JavaScript for=ds_slipcontents event=OnRowPosChanged(row)>
+  scwin.hidVal_ed_slipAcctDeptCd = dma_slip.get("slipAcctDeptCd"); //ed_slipAcctDeptCd.hidVal = ds_slip.NameString(1,"slipAcctDeptCd");
+  scwin.hidVal_ed_acctCd = ds_slipcontents.getCellData(rowIndex, "acctCd"); //ed_acctCd.hidVal = ds_slipcontents.NameString(row,"acctCd"); 
+  scwin.hidVal_ed_acctDeptCd = ds_slipcontents.getCellData(rowIndex, "acctDeptCd"); //ed_acctDeptCd.hidVal = ds_slipcontents.NameString(row,"acctDeptCd"); 
+  scwin.hidVal_ed_mgntClntNo = ds_slipcontents.getCellData(rowIndex, "mgntClntNo"); //ed_mgntClntNo.hidVal = ds_slipcontents.NameString(row,"mgntClntNo");
+  scwin.hidVal_ed_mgntEmpNo = ds_slipcontents.getCellData(rowIndex, "mgntEmpNo"); //ed_mgntEmpNo.hidVal = ds_slipcontents.NameString(row,"mgntEmpNo");
+
+  //여기서 컨포넌트에 바인딩하는 로직 만들자
+  //TODO STYYCYG [2026.03.27] f_setCompVal 로직 완성해야 함. (해당 ROW값으로 Component 데이터 바인딩 시켜야함.)
+  scwin.f_setCompVal(rowIndex);
+
+  //임시로 return시킴. tobe에서는 의미가 없다.
+  return;
+  //<script language=JavaScript for=ds_slipcontents event=CanRowPosChange(row)>
+  if (ds_slipcontents.getTotalRow() != 0 && scwin.delflag == "N" && !scwin.f_Validation()) {
+    scwin.state = "N";
+    scwin.delflag = "N";
+    return false;
+  } else {
+    scwin.state = "N";
+    scwin.delflag = "N";
+    return true;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 선택된 그리드 row값 컨포넌트에 바인딩
+//-------------------------------------------------------------------------
+scwin.f_setCompVal = function (pRow) {
+  if (pRow < 0) return;
+  dma_slipcontents.setEmptyValue();
+  dma_slipcontents.setJSON(ds_slipcontents.getRowJSON(pRow));
+
+  //선택된 그리드값으로 Componet Value Bind
+  lc_drcrClsCd.setValue(dma_slipcontents.get('drcrClsCd')); // 차대구분코드
+  ed_amt.setValue(dma_slipcontents.get('amt')); // 금액
+  lc_crcCd.setValue(dma_slipcontents.get('crcCd')); // 통화코드
+  txt_exchRt.setValue(dma_slipcontents.get('exchRt')); // 환율
+  ed_amtFcrc.setValue(dma_slipcontents.get('amtFcrc')); // 금액_외화
+  ed_acctCd.setValue(dma_slipcontents.get('acctCd')); // 계정코드
+  txt_acctNm.setValue(dma_slipcontents.get('acctNm')); // 계정명
+  ed_acctDeptCd.setValue(dma_slipcontents.get('acctDeptCd')); // 귀속부서코드
+  txt_acctDeptNm.setValue(dma_slipcontents.get('acctDeptNm')); // 귀속부서명
+  ed_mgntEmpNo.setValue(dma_slipcontents.get('mgntEmpNo')); // 관리사원번호
+  txt_mgntEmpNm.setValue(dma_slipcontents.get('mgntEmpNm')); // 관리사원명
+  ed_mgntClntNo.setValue(dma_slipcontents.get('mgntClntNo')); // 관리거래처번호
+  txt_mgntClntNm.setValue(dma_slipcontents.get('mgntClntNm')); // 관리거래처명
+  ed_crn.setValue(dma_slipcontents.get('crn')); // 사업자등록번호
+
+  ed_mgntDt.setValue(dma_slipcontents.get('mgntDt')); // 관리일자
+
+  ed_mgntTermStDt.setValue(dma_slipcontents.get('mgntTermStDt')); // 관리기간시작일자
+  ed_mgntTermEndDt.setValue(dma_slipcontents.get('mgntTermEndDt')); // 관리기간종료일자
+  txt_mgntNo.setValue(dma_slipcontents.get('mgntNo')); // 관리번호
+  txt_mgntNm.setValue(dma_slipcontents.get('mgntNm')); // 관리번호명
+  txt_summary.setValue(dma_slipcontents.get('summary')); // 적요
+
+  ed_reqDt.setValue(dma_slipcontents.get('reqDt')); // 지급일자
+
+  ed_draftDdCntCd.setValue(dma_slipcontents.get('draftDdCntCd')); // 어음일수
+
+  ed_taxinvcDt.setValue(dma_slipcontents.get('taxinvcDt')); // 세금계산서일자
+
+  // 지급처리여부 체크 셋팅
+  if (dma_slipcontents.get('payProcYn') == "1") {
+    chb_payProcYn.checkAll(true);
+  } else {
+    chb_payProcYn.checkAll(false);
+  }
+  lc_evidClsCd.setValue(dma_slipcontents.get('evidClsCd')); // 증빙구분코드
+
+  lc_deductClsCd.setValue(dma_slipcontents.get('deductClsCd')); // 공제여부
+  ed_spplyAmt.setValue(dma_slipcontents.get('spplyAmt')); // 공급금액
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onclick = function (e) {};
+scwin.chb_payProcYn_onviewchange = function (info) {
+  scwin.f_CheckPayYn();
+};
+
+//-------------------------------------------------------------------------
+// 통화코드/환율 onchage Evnet
+//-------------------------------------------------------------------------
+scwin.lc_crcCd_onchange = function (info) {
+  let rowIdx = ds_slipcontents.getTotalRow() - 1;
+  ds_slipcontents.setCellData(rowIdx, "crcCd", lc_crcCd.getValue());
+
+  //통화코드 변경
+  scwin.crcCdChange();
+};
+scwin.udc_ilcmCd_acct_onclickEvent = function (e) {
+  scwin.f_openPopUp('2', 'F');
+};
+
+//-------------------------------------------------------------------------
+//계정 조회 버튼 클릭 이벤트
+//-------------------------------------------------------------------------
+scwin.udc_ilcomCode_slipAcctDeptCd_onclickEvent = function (e) {
+  scwin.f_openPopUp('1', 'F');
+};
+
+//-------------------------------------------------------------------------
+//거래처 조회 버튼 클릭 이벤트
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_mgntClnt_onclickEvent = function (e) {
+  scwin.f_openPopUp('4', 'F');
+};
+
+//-------------------------------------------------------------------------
+//귀속부서 조회 버튼 클릭 이벤트
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_acctDept_onclickEvent = function (e) {
+  scwin.f_openPopUp('3', 'F');
+};
+
+//-------------------------------------------------------------------------
+//사원번호 조회 버튼 클릭 이벤트
+//-------------------------------------------------------------------------
+scwin.udc_ilcmCd_mgntEmpNo_onclickEvent = function (e) {
+  scwin.f_openPopUp('5', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 금액 변경 이벤트 핸들러 - 여기서 전표 그리드에 값 바인딩 하지...
+//-------------------------------------------------------------------------
+scwin.ed_amt_onchange = function (info) {
+  return; //2026.03.29 (아래 소스 kill)
+  const reg = /^[0-9]+$/;
+  if (!reg.test(info.newValue)) return;
+  let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+
+  //선택되어 있는 그리드의 대변금액을 수정한다.
+  let gr_drcrClsCd = ds_slipcontents.getCellData(rowIdx, "drcrClsCd"); //차대구분
+  if (gr_drcrClsCd == "C") {
+    //대변이면
+    ds_slipcontents.setCellData(rowIdx, "Camt", ed_amt.getValue());
+  } else {
+    //차변이면
+    ds_slipcontents.setCellData(rowIdx, "Damt", ed_amt.getValue());
+  }
+
+  //요긴 차대변 상관없이 무조건 들어가야 함.(2026.03.25)
+  ds_slipcontents.setCellData(rowIdx, "amt", ed_amt.getValue());
+};
+
+//-------------------------------------------------------------------------
+// 금액 변경 이벤트 핸들러 - 여기서 전표 그리드에 값 바인딩
+//-------------------------------------------------------------------------
+scwin.ed_amt_onkeyup = function (e) {
+  const reg = /^[0-9]+$/;
+  if (!reg.test(e.key)) return;
+  let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  var vLc_drcrClsCd = "";
+  if (lc_drcrClsCd.getValue() == "D") {
+    vLc_drcrClsCd = "Damt";
+  } else {
+    vLc_drcrClsCd = "Camt";
+  }
+
+  //선택되어 있는 그리드의 차/대변금액을 수정한다. Camt : 대변금액, Damt : 차변금액
+  ds_slipcontents.setCellData(rowIdx, vLc_drcrClsCd, ed_amt.getValue());
+
+  //요긴 차대변 상관없이 무조건 들어가야 함.(2026.03.25)
+  ds_slipcontents.setCellData(rowIdx, "amt", ed_amt.getValue()); //금액
+};
+
+//-------------------------------------------------------------------------
+// 공급금액 변경 이벤트 핸들러 - 여기서 전표 그리드에 값 바인딩
+//-------------------------------------------------------------------------
+scwin.ed_spplyAmt_onchange = function (info) {
+  const reg = /^[0-9]+$/;
+  if (!reg.test(info.newValue)) return;
+  let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(rowIdx, "spplyAmt", ed_spplyAmt.getValue());
+};
+
+//-------------------------------------------------------------------------
+// 세금계산서일자 변경 이벤트 핸들러 - 여기서 전표 그리드에 값 바인딩
+//-------------------------------------------------------------------------
+scwin.ed_taxinvcDt_onviewchange = function (info) {
+  let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(rowIdx, "taxinvcDt", ed_taxinvcDt.getValue());
+};
+
+//-------------------------------------------------------------------------
+//환율 변경 이벤트 핸들러 - 여기서 전표 그리드에 값 바인딩
+//-------------------------------------------------------------------------
+scwin.txt_exchRt_onchange = function (info) {
+  let rowIdx = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(rowIdx, "exchRt", txt_exchRt.getValue());
+};
+
+//-------------------------------------------------------------------------
+//공제여부
+//-------------------------------------------------------------------------
+scwin.lc_deductClsCd_onchange = function (info) {
+  //그리드에 셋팅  선택된 증빙종류 셋팅
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "deductClsCd", lc_deductClsCd.getValue()); //공제여부
+};
+
+//-------------------------------------------------------------------------
+// 관리일자
+//-------------------------------------------------------------------------
+scwin.ed_mgntDt_onviewchange = function (info) {
+  //그리드에 셋팅  관리일자 셋팅
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "mgntDt", ed_mgntDt.getValue()); //관리일자
+};
+
+//-------------------------------------------------------------------------
+// 적요
+//-------------------------------------------------------------------------
+scwin.txt_summary_onkeyup = function (e) {
+  //그리드에 셋팅  적요 셋팅
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "summary", txt_summary.getValue()); //적요
+};
+
+//-------------------------------------------------------------------------
+// 지급일자
+//-------------------------------------------------------------------------
+scwin.ed_reqDt_onviewchange = function (info) {
+  //그리드에 셋팅  지급일자 셋팅
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "reqDt", ed_reqDt.getValue()); //지급일자
+};
+
+//-------------------------------------------------------------------------
+// 어음일수
+//-------------------------------------------------------------------------
+scwin.ed_draftDdCntCd_onviewchange = function (info) {
+  //그리드에 셋팅  어음일수 셋팅
+  var curRow = ds_slipcontents.getRowPosition() == null ? 0 : ds_slipcontents.getRowPosition();
+  ds_slipcontents.setCellData(curRow, "draftDdCntCd", ed_draftDdCntCd.getValue()); //어음일수
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_ilcomCode',type:'page',variableClone:'true',src:'/ui/il/common/udc/ilcomCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작성일자',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_slipDt',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'',mandatory:'true','작성일자':'yes',date:'YYYYMMDD',ref:'data:dma_slip.slipDt'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'발행부서',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_slipAcctDeptCd',nameId:'txt_slipAcctDeptNm',popupID:'',selectID:'retrieveAcctDeptCdInfo',style:'',validTitle:'',id:'udc_ilcomCode_slipAcctDeptCd',btnId:'img_slipAcctDeptCd','발행부서':'yes',format:'00000',mandatoryCode:'ed_slipAcctDeptCd',maxlengthCode:'5','ev:onblurCodeEvent':'scwin.udc_ilcomCode_slipAcctDeptCd_onblurCodeEvent',refDataCollection:'dma_slip',code:'slipAcctDeptCd',name:'slipAcctDeptNm','ev:onclickEvent':'scwin.udc_ilcomCode_slipAcctDeptCd_onclickEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'',cols:'',id:'rd_gb',ref:'',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'부가세'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'면제'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'2'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'영세'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'3'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'ctn_btn',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'caption'}},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:100px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:100px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'차대구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_drcrClsCd',search:'start',style:'width:150px;',submenuSize:'auto',mandatory:'true',objType:'data','차대구분':'yes','ev:onchange':'scwin.lc_drcrClsCd_onchange','ev:onblur':'scwin.lc_drcrClsCd_onblur',ref:'',allOption:'',chooseOption:'','ev:onviewchange':'scwin.lc_drcrClsCd_onviewchange'},E:[{T:1,N:'w2:choices'}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'계정',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',hideName:'Y',id:'udc_ilcmCd_acct',codeId:'ed_acctCd',nameId:'txt_acctNm',btnId:'img_acctCd',selectID:'retrieveAcctCdContentsInfo','ev:onclickEvent':'scwin.udc_ilcmCd_acct_onclickEvent',mandatoryCode:'true','ev:onviewchangeCodeEvent':'scwin.udc_ilcmCd_acct_onviewchangeCodeEvent'}},{T:1,N:'xf:select',A:{ref:'data:ds_payProcYn.procYn',appearance:'full',style:'',id:'chb_payProcYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',class:'',cols:'','ev:onviewchange':'scwin.chb_payProcYn_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'지급처리여부'}]},{T:1,N:'xf:value'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'통화코드/환율',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',editType:'select',style:'width:150px;',id:'lc_crcCd',class:'','ev:onchange':'scwin.lc_crcCd_onchange'}},{T:1,N:'xf:input',A:{style:'width:150px;',id:'txt_exchRt',placeholder:'',class:'','ev:onchange':'scwin.txt_exchRt_onchange'}}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'외화금액',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'ed_amtFcrc',placeholder:'',style:'width:150px;text-align:right;','ev:onblur':'scwin.ed_amtFcrc_onblur',displayFormat:'#,##0.##',dataType:'float',allowChar:'0-9.',maxlength:'13.2'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'금액',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'form-control w150 tar',id:'ed_amt',placeholder:'',style:'width:150px;','ev:onblur':'scwin.ed_amt_onblur',dataType:'number',title:'금액',displayFormat:'#,###','ev:onkeyup':'scwin.ed_amt_onkeyup','ev:onchange':'scwin.ed_amt_onchange'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'공급금액',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_spplyAmt',placeholder:'',class:'form-control w150 tar',dataType:'number',title:'공급금액',displayFormat:'#,###','ev:onchange':'scwin.ed_spplyAmt_onchange'}},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'면제 = 0',class:''}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'증빙종류',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',editType:'select',style:'width:150px;',id:'lc_evidClsCd',class:'','ev:onchange':'scwin.lc_evidClsCd_onchange',allOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_evidClsCd'},E:[{T:1,N:'w2:label',A:{ref:'col2'}},{T:1,N:'w2:value',A:{ref:'col1'}}]}]}]},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',editType:'select',style:'width:150px;',id:'lc_deductClsCd',class:'',allOption:'',chooseOptionLabel:'',ref:'',emptyItem:'true','ev:onchange':'scwin.lc_deductClsCd_onchange'},E:[{T:1,N:'w2:choices'}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'거래처',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_ilcomCode',A:{popupID:'',selectID:'retrieveClntEmpNoList',codeId:'ed_mgntClntNo',validTitle:'',skipOnBlurCodeValueEmpty:'Y',skipOnBlurNameValueEmpty:'Y',nameId:'txt_mgntClntNm',style:'width:%; height:px; ',id:'udc_ilcmCd_mgntClnt',btnId:'img_mgntClntNo','ev:onclickEvent':'scwin.udc_ilcmCd_mgntClnt_onclickEvent','ev:onblurCodeEvent':'scwin.udc_ilcmCd_mgntClnt_onblurCodeEvent',readOnlyCode:'false',objTypeCode:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'계산서일자',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_taxinvcDt',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'','ev:onviewchange':'scwin.ed_taxinvcDt_onviewchange'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'사업자번호',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_crn',placeholder:'',style:'width: 120px;',objType:'data'}},{T:1,N:'xf:input',A:{class:'',id:'txt_crnNm',placeholder:'',style:'',objType:'data',readOnly:'false'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'귀속부서',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{hideName:'Y',popupID:'',style:'',codeId:'ed_acctDeptCd',id:'udc_ilcmCd_acctDept',nameId:'txt_acctDeptNm',btnId:'img_acctDeptCd','ev:onblurCodeEvent':'scwin.udc_ilcmCd_acctDept_onblurCodeEvent',selectID:'retrieveAcctDeptCdInfo','ev:onclickEvent':'scwin.udc_ilcmCd_acctDept_onclickEvent'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'관리번호',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'txt_mgntNm',placeholder:'',style:'width: 100px;',objType:'data'}},{T:1,N:'xf:input',A:{class:'',id:'txt_mgntNo',placeholder:'',style:'',objType:'data',maxlength:'20'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'관리일자',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_mgntDt',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'','ev:onviewchange':'scwin.ed_mgntDt_onviewchange'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'관리기간',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_ilcmCd_mgntTerm',refDataMap:'',refEdDt:'',refStDt:'',style:'',edFromId:'ed_mgntTermStDt',edToId:'ed_mgntTermEndDt',objTypeFrom:'data',objTypeTo:'data',objTypeBtn:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'사원번호',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{hideName:'Y',popupID:'',style:'',codeId:'ed_mgntEmpNo',id:'udc_ilcmCd_mgntEmpNo',btnId:'img_mgntEmpNo',nameId:'txt_mgntEmpNm','ev:onblurCodeEvent':'scwin.udc_ilcmCd_mgntEmpNo_onblurCodeEvent',selectID:'retrieveAcEmpInfo','ev:onclickEvent':'scwin.udc_ilcmCd_mgntEmpNo_onclickEvent'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'적요',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'txt_summary',placeholder:'',style:'',objType:'true',mandatory:'true','ev:onkeyup':'scwin.txt_summary_onkeyup'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'지급일자',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_reqDt',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'',objType:'data','ev:onviewchange':'scwin.ed_reqDt_onviewchange'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'지급방법',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_reqPayMthdCd',search:'start',style:'width:150px;',submenuSize:'auto','ev:onviewchange':'scwin.lc_reqPayMthdCd_onviewchange',allOption:'',chooseOption:'true',chooseOptionLabel:'',ref:'',readOnly:'false',objType:'data'},E:[{T:1,N:'w2:choices'}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'어음일수',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{class:'',id:'ed_draftDdCntCd',placeholder:'',style:'width:150px;',objType:'data',readOnly:'false','ev:onviewchange':'scwin.ed_draftDdCntCd_onviewchange'}}]}]}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_slipcontents',id:'gr_slipcontents',style:'',visibleRowNum:'5',visibleRowNumFix:'true','ev:onrowindexchange':'scwin.gr_slipcontents_onrowindexchange',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',width:'40'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'지급',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'계정',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'계정명',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'귀속부서',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',value:'부서명',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',value:'차변금액',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',value:'대변금액',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column7',inputType:'text',value:'거래처',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'거래처명',width:'130'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'column37',value:'사업자번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'column34',value:'적요',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column40',value:'차대구분',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column46',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column43',value:'통화코드/환율',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'seq',inputType:'text',width:'40'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'payProcYn',inputType:'text',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'acctCd',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'acctNm',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'acctDeptCd',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'acctDeptNm',inputType:'text',width:'100',style:';text-align:left;'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'Damt',inputType:'text',width:'100',style:';text-align:right;',displayFormat:'#,###,###,###,###,###',dataType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'Camt',inputType:'text',width:'100',style:';text-align:right;',displayFormat:'#,###,###,###,###,###',dataType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'mgntClntNo',inputType:'text',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'mgntClntNm',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'crn',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'summary',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'drcrClsCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column47',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'crcCd',value:'',displayMode:'label'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'40',inputType:'text',id:'column30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column24',displayMode:'label',textAlign:'right',expression:'sum("Damt")',displayFormat:'#,###,###,###,###,###,###'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column23',displayMode:'label',textAlign:'right',expression:'sum("Camt")',displayFormat:'#,###,###,###,###,###,###'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'column39',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'column36',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column42',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column48',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column45',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalGrdRowCnt',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',btnRowDelYn:'N',btnDelYn:'N',id:'udc_bottomGrdBtn_il',rowAddFunction:'scwin.f_CopyRow',btnCancelYn:'Y',cancelFunction:'scwin.f_CancelRow',rowAddUserAuth:'C',rowDelUserAuth:'D'}}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_cancel',label:'저장',style:'display: none;',type:'button'},E:[{T:1,N:'xf:label',E:[{T:3,text:'취소'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_surtax',label:'저장',style:'',type:'button','ev:onclick':'scwin.btn_Save_onclick',userAuth:'U',objType:'bSave'},E:[{T:1,N:'xf:label',E:[{T:3,text:'부가세자료관리'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_issue',label:'저장',style:'',type:'button','ev:onclick':'scwin.btn_issue_onclick',userAuth:'U',objType:'bSave'},E:[{T:1,N:'xf:label',E:[{T:3,text:'발행'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{popupID:'',selectID:'retriveFreightPchsDrAcctCd',codeId:'',validTitle:'',skipOnBlurCodeValueEmpty:'Y',skipOnBlurNameValueEmpty:'Y',nameId:'',style:'width:%; height:px;',id:'udc_ilcmCd_FreightPchsDrAcctCd',btnId:'img_acctCd'}}]}]}]}]}]}]}]})

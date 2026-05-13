@@ -1,0 +1,3587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_retrieve">
+                <w2:keyInfo>
+                    <w2:key id="kcomcd" name="법인코드" dataType="text"></w2:key>
+                    <w2:key id="bkNo" name="BOOKING NO" dataType="text"></w2:key>
+                    <w2:key id="seq" name="BOOKING SEQ" dataType="text"></w2:key>
+                    <w2:key id="bkEtd" name="ETD" dataType="text"></w2:key>
+                    <w2:key id="bkbltype" name="Bltype" dataType="text"></w2:key>
+                    <w2:key id="inpid" name="등록자" dataType="text"></w2:key>
+                    <w2:key id="inpdt" name="등록일" dataType="text"></w2:key>
+                    <w2:key id="updid" name="수정자" dataType="text"></w2:key>
+                    <w2:key id="upddt" name="수정일" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_retrieveNo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="bkNo" name="BOOKING NO" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerBookingList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+                    <w2:column id="bkNo" name="BOOKING NO" dataType="text"></w2:column>
+                    <w2:column id="carrierBkNo" name="CARRIER BOOKING NO" dataType="text"></w2:column>
+                    <w2:column id="reDt" name="REQUEST DATE" dataType="text"></w2:column>
+                    <w2:column id="etRsltsDt" name="RESULT DATE" dataType="text"></w2:column>
+                    <w2:column id="groupNo" name="GROUP NO" dataType="text"></w2:column>
+                    <w2:column id="docCd" name="SHIPPER" dataType="text"></w2:column>
+                    <w2:column id="docCust" name="SHIPPER NAME" dataType="text"></w2:column>
+                    <w2:column id="docTel" name="SHIPPER TEL" dataType="text"></w2:column>
+                    <w2:column id="docSeq" name="SHIPPER PIC" dataType="text"></w2:column>
+                    <w2:column id="docMan" name="SHIPPER PIC NAME" dataType="text"></w2:column>
+                    <w2:column id="custCd" name="CUSTOMER" dataType="text"></w2:column>
+                    <w2:column id="custNm" name="CUSTOMER NAME" dataType="text"></w2:column>
+                    <w2:column id="custTel" name="CUSTOMER TEL" dataType="text"></w2:column>
+                    <w2:column id="custSeq" name="CUSTOMER PIC" dataType="text"></w2:column>
+                    <w2:column id="custMan" name="CUSTOMER PIC NAME" dataType="text"></w2:column>
+                    <w2:column id="contractno" name="CONTRACT NO" dataType="text"></w2:column>
+                    <w2:column id="facCd" name="FACTORY" dataType="text"></w2:column>
+                    <w2:column id="facNm" name="FACTORY NAME" dataType="text"></w2:column>
+                    <w2:column id="facTel" name="FACTORY TEL" dataType="text"></w2:column>
+                    <w2:column id="facAttn" name="FACTORY PIC" dataType="text"></w2:column>
+                    <w2:column id="facMan" name="FACTORY PIC NAME" dataType="text"></w2:column>
+                    <w2:column id="liner" name="LINER" dataType="text"></w2:column>
+                    <w2:column id="linernm" name="LINER NAME" dataType="text"></w2:column>
+                    <w2:column id="linerTel" name="LINER TEL" dataType="text"></w2:column>
+                    <w2:column id="linerattn" name="LINER PIC" dataType="text"></w2:column>
+                    <w2:column id="linerattnnm" name="LINER PIC NAME" dataType="text"></w2:column>
+                    <w2:column id="vslCd" name="VESSEL" dataType="text"></w2:column>
+                    <w2:column id="vslNm" name="VESSEL NAME" dataType="text"></w2:column>
+                    <w2:column id="voy" name="VOYAGE" dataType="text"></w2:column>
+                    <w2:column id="salesCd" name="SALESMAN" dataType="text"></w2:column>
+                    <w2:column id="salesNm" name="SALESMAN NAME" dataType="text"></w2:column>
+                    <w2:column id="lodCd" name="LOADING" dataType="text"></w2:column>
+                    <w2:column id="lodNm" name="LOADING NAME" dataType="text"></w2:column>
+                    <w2:column id="disCd" name="DISCHARGE" dataType="text"></w2:column>
+                    <w2:column id="disNm" name="DISCHARGE NAME" dataType="text"></w2:column>
+                    <w2:column id="dlvCd" name="DELIVERY" dataType="text"></w2:column>
+                    <w2:column id="dlvNm" name="DELIVERY NAME" dataType="text"></w2:column>
+                    <w2:column id="bkArea" name="AREA" dataType="text"></w2:column>
+                    <w2:column id="bkAreanm" name="AREA NAME" dataType="text"></w2:column>
+                    <w2:column id="dept" name="Department" dataType="text"></w2:column>
+                    <w2:column id="deptnm" name="Department NAME" dataType="text"></w2:column>
+                    <w2:column id="bkEtd" name="ETD" dataType="text"></w2:column>
+                    <w2:column id="bkEta" name="ETA" dataType="text"></w2:column>
+                    <w2:column id="payTerm" name="FREIGHT TERM" dataType="text"></w2:column>
+                    <w2:column id="cfs" name="CARGO TYPE" dataType="text"></w2:column>
+                    <w2:column id="svcType" name="SERVICE TERM" dataType="text"></w2:column>
+                    <w2:column id="itemCd" name="ITEM" dataType="text"></w2:column>
+                    <w2:column id="itemNm" name="ITEM NAME" dataType="text"></w2:column>
+                    <w2:column id="mark" name="MARK" dataType="text"></w2:column>
+                    <w2:column id="pkg" name="PACKAGE" dataType="text"></w2:column>
+                    <w2:column id="unit" name="UNIT" dataType="text"></w2:column>
+                    <w2:column id="unitnm" name="UNIT NAME" dataType="text"></w2:column>
+                    <w2:column id="wgt" name="WEIGHT" dataType="text"></w2:column>
+                    <w2:column id="msr" name="MEASURE" dataType="text"></w2:column>
+                    <w2:column id="bkbltype" name="Bltype" dataType="text"></w2:column>
+                    <w2:column id="cnttype1" name="CONTAINER TYPE1" dataType="text"></w2:column>
+                    <w2:column id="cnttype2" name="CONTAINER TYPE2" dataType="text"></w2:column>
+                    <w2:column id="cnttype3" name="CONTAINER TYPE3" dataType="text"></w2:column>
+                    <w2:column id="cnttype4" name="CONTAINER TYPE4" dataType="text"></w2:column>
+                    <w2:column id="cntqty1" name="CONTAINER QTY1" dataType="text"></w2:column>
+                    <w2:column id="cntqty2" name="CONTAINER QTY2" dataType="text"></w2:column>
+                    <w2:column id="cntqty3" name="CONTAINER QTY3" dataType="text"></w2:column>
+                    <w2:column id="cntqty4" name="CONTAINER QTY4" dataType="text"></w2:column>
+                    <w2:column id="remark1" name="REMARK1" dataType="text"></w2:column>
+                    <w2:column id="remark2" name="REMARK2" dataType="text"></w2:column>
+                    <w2:column id="remark3" name="REMARK3" dataType="text"></w2:column>
+                    <w2:column id="remarkMaster" name="REMARKMaster" dataType="text"></w2:column>
+                    <w2:column id="inpid" name="등록자" dataType="text"></w2:column>
+                    <w2:column id="inpdt" name="등록일" dataType="text"></w2:column>
+                    <w2:column id="updid" name="수정자" dataType="text"></w2:column>
+                    <w2:column id="upddt" name="수정일" dataType="text"></w2:column>
+                    <w2:column id="iptYn" name="" dataType="text"></w2:column>
+                    <w2:column id="refNo" name="" dataType="text"></w2:column>
+                    <w2:column id="triYn" name="" dataType="text"></w2:column>
+                    <w2:column id="triItemType" name="" dataType="text"></w2:column>
+                    <w2:column id="triWrkDesc" name="" dataType="text"></w2:column>
+                    <w2:column id="freeDay" name="" dataType="text"></w2:column>
+                    <w2:column id="custTeam" name="" dataType="text"></w2:column>
+                    <w2:column id="cfsNm" name="" dataType="text"></w2:column>
+                    <w2:column id="shrNm" name="" dataType="text"></w2:column>
+                    <w2:column id="docClosingDt" name="" dataType="text"></w2:column>
+                    <w2:column id="docClosingTime" name="" dataType="text"></w2:column>
+                    <w2:column id="docPic" name="" dataType="text"></w2:column>
+                    <w2:column id="docPicNm" name="" dataType="text"></w2:column>
+                    <w2:column id="cargoClosingDt" name="" dataType="text"></w2:column>
+                    <w2:column id="cargoClosingTime" name="" dataType="text"></w2:column>
+                    <w2:column id="cargoPic" name="" dataType="text"></w2:column>
+                    <w2:column id="cargoPicNm" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1VsslCd" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1VsslNm" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1Voy" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1PortCd" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1PortNm" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1Eta" name="" dataType="text"></w2:column>
+                    <w2:column id="ts1Etd" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2VsslCd" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2VsslNm" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2Voy" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2PortCd" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2PortNm" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2Eta" name="" dataType="text"></w2:column>
+                    <w2:column id="ts2Etd" name="" dataType="text"></w2:column>
+                    <w2:column id="refBuyingAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="refSellingAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="wrkPlNm" name="" dataType="text"></w2:column>
+                    <w2:column id="custTeamPic" name="" dataType="text"></w2:column>
+                    <w2:column id="mgntYn" name="" dataType="text"></w2:column>
+                    <w2:column id="bkIncoterm" name="" dataType="text"></w2:column>
+                    <w2:column id="bkAgent" name="" dataType="text"></w2:column>
+                    <w2:column id="bkAgentnm" name="" dataType="text"></w2:column>
+                    <w2:column id="bkPicNm" name="" dataType="text"></w2:column>
+                    <w2:column id="bkPic" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerDoorOrder" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="groupNo" name="" dataType="text"></w2:column>
+                    <w2:column id="chk" name="" dataType="text"></w2:column>
+                    <w2:column id="doordt" name="" dataType="text"></w2:column>
+                    <w2:column id="bkNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bkdoorseq" name="" dataType="text"></w2:column>
+                    <w2:column id="internalTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="transcd" name="" dataType="text"></w2:column>
+                    <w2:column id="transnm" name="" dataType="text"></w2:column>
+                    <w2:column id="fcity" name="" dataType="text"></w2:column>
+                    <w2:column id="fcitynm" name="" dataType="text"></w2:column>
+                    <w2:column id="doorcd" name="" dataType="text"></w2:column>
+                    <w2:column id="doornm" name="" dataType="text"></w2:column>
+                    <w2:column id="fdt" name="" dataType="text"></w2:column>
+                    <w2:column id="tcity" name="" dataType="text"></w2:column>
+                    <w2:column id="tcitynm" name="" dataType="text"></w2:column>
+                    <w2:column id="tdt" name="" dataType="text"></w2:column>
+                    <w2:column id="closingdt" name="" dataType="text"></w2:column>
+                    <w2:column id="remark" name="" dataType="text"></w2:column>
+                    <w2:column id="sendDt" name="" dataType="text"></w2:column>
+                    <w2:column id="mcomOdrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="inpid" name="" dataType="text"></w2:column>
+                    <w2:column id="inpdt" name="" dataType="text"></w2:column>
+                    <w2:column id="updid" name="" dataType="text"></w2:column>
+                    <w2:column id="upddt" name="" dataType="text"></w2:column>
+                    <w2:column id="orderType" name="" dataType="number"></w2:column>
+                    <w2:column id="spRtn" name="" dataType="text"></w2:column>
+                    <w2:column id="spMsg" name="" dataType="text"></w2:column>
+                    <w2:column id="bookingNo" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerDoorOrderQty" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="bkNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bkdoorseq" name="" dataType="text"></w2:column>
+                    <w2:column id="qtytype" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="inpid" name="" dataType="text"></w2:column>
+                    <w2:column id="inpdt" name="" dataType="text"></w2:column>
+                    <w2:column id="updid" name="" dataType="text"></w2:column>
+                    <w2:column id="upddt" name="" dataType="text"></w2:column>
+                    <w2:column id="transCondCd" name="" dataType="text"></w2:column>
+                    <w2:column id="carCondCd" name="" dataType="text"></w2:column>
+                    <w2:column id="doorDate" name="" dataType="text"></w2:column>
+                    <w2:column id="vehclQty" name="" dataType="text"></w2:column>
+                    <w2:column id="realQtytype" name="" dataType="text"></w2:column>
+                    <w2:column id="doorDt" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerBookingCont" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="bkNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bkdoorseq" name="" dataType="text"></w2:column>
+                    <w2:column id="cntno" name="" dataType="text"></w2:column>
+                    <w2:column id="cnttype" name="" dataType="text"></w2:column>
+                    <w2:column id="cntseal1" name="" dataType="text"></w2:column>
+                    <w2:column id="cntseal2" name="" dataType="text"></w2:column>
+                    <w2:column id="cntpkg" name="" dataType="text"></w2:column>
+                    <w2:column id="cntwgt" name="" dataType="text"></w2:column>
+                    <w2:column id="cntmsrt" name="" dataType="text"></w2:column>
+                    <w2:column id="inpid" name="" dataType="text"></w2:column>
+                    <w2:column id="inpdt" name="" dataType="text"></w2:column>
+                    <w2:column id="updid" name="" dataType="text"></w2:column>
+                    <w2:column id="upddt" name="" dataType="text"></w2:column>
+                    <w2:column id="cntrDate" name="" dataType="text"></w2:column>
+                    <w2:column id="cfsInDate" name="" dataType="text"></w2:column>
+                    <w2:column id="cfsWrkDate" name="" dataType="text"></w2:column>
+                    <w2:column id="realCntrNo" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_bookingHbl" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="bkNo" name="" dataType="text"></w2:column>
+                    <w2:column id="seq" name="" dataType="text"></w2:column>
+                    <w2:column id="hblno" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="groupNo" name="" dataType="text"></w2:column>
+                    <w2:column id="oblno" name="" dataType="text"></w2:column>
+                    <w2:column id="inpid" name="" dataType="text"></w2:column>
+                    <w2:column id="inpdt" name="" dataType="text"></w2:column>
+                    <w2:column id="updid" name="" dataType="text"></w2:column>
+                    <w2:column id="upddt" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="" dataType="text"></w2:column>
+                    <w2:column id="autono" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="hhmblno" name="" dataType="text"></w2:column>
+                    <w2:column id="hhio" name="" dataType="text"></w2:column>
+                    <w2:column id="hhbkgno" name="" dataType="text"></w2:column>
+                    <w2:column id="hhbkgseq" name="" dataType="text"></w2:column>
+                    <w2:column id="hhc1" name="" dataType="text"></w2:column>
+                    <w2:column id="hhpkg" name="" dataType="text"></w2:column>
+                    <w2:column id="hhgwgt" name="" dataType="text"></w2:column>
+                    <w2:column id="hhmsr" name="" dataType="text"></w2:column>
+                    <w2:column id="hhetd" name="" dataType="text"></w2:column>
+                    <w2:column id="hheta" name="" dataType="text"></w2:column>
+                    <w2:column id="hhcnt1type" name="" dataType="text"></w2:column>
+                    <w2:column id="hhcnt2type" name="" dataType="text"></w2:column>
+                    <w2:column id="hhcnt3type" name="" dataType="text"></w2:column>
+                    <w2:column id="hhcnt4type" name="" dataType="text"></w2:column>
+                    <w2:column id="hhbltype" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataMap baseNode="map" id="dma_retrieveCtrtClnt">
+                <w2:keyInfo>
+                    <w2:key id="odrKndCd" name="" dataType="text"></w2:key>
+                    <w2:key id="ctrtClntNo" name="" dataType="text"></w2:key>
+                    <w2:key id="ctrtDtYn" name="" dataType="text"></w2:key>
+                    <w2:key id="scDate" name="" dataType="text"></w2:key>
+                    <w2:key id="ctrtNo" name="" dataType="text"></w2:key>
+                    <w2:key id="ctrtDistrictCd" name="" dataType="text"></w2:key>
+                    <w2:key id="impExpDomesticClsCd" name="" dataType="text"></w2:key>
+                    <w2:key id="bizDivCntrYn" name="" dataType="text"></w2:key>
+                    <w2:key id="bizDivBulkYn" name="" dataType="text"></w2:key>
+                    <w2:key id="bizDomInatYn" name="" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_ctrtNo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="ctrtNo" name="" dataType="text"></w2:column>
+                    <w2:column id="clntPicNm" name="" dataType="text"></w2:column>
+                    <w2:column id="ctrtStDt" name="" dataType="text"></w2:column>
+                    <w2:column id="ctrtEndDt" name="" dataType="text"></w2:column>
+                    <w2:column id="empNm" name="" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="" dataType="text"></w2:column>
+                    <w2:column id="regBranNm" name="" dataType="text"></w2:column>
+                    <w2:column id="empNo" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerType" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="CODE" name="" dataType="text"></w2:column>
+                    <w2:column id="NAME" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_doorGridType" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="code" name="" dataType="text"></w2:column>
+                    <w2:column id="name" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerGridType" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="code" name="" dataType="text"></w2:column>
+                    <w2:column id="name" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_doorOrderQtyCheck" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="CODE" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_departmentInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="CODE" name="" dataType="text"></w2:column>
+                    <w2:column id="NAME" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_containerReceive" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="CODE" name="" dataType="text"></w2:column>
+                    <w2:column id="NAME" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_customerInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="col1" name="" dataType="text"></w2:column>
+                    <w2:column id="col2" name="" dataType="text"></w2:column>
+                    <w2:column id="col3" name="" dataType="text"></w2:column>
+                    <w2:column id="col4" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/il.seaout.sobk.RetrieveContainerBookingCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_retrieve","key":"IN_DS1"},{"id":"ds_containerBookingList","key":"OUT_DS1"},{"id":"ds_containerDoorOrder","key":"OUT_DS2"},{"id":"ds_houseblList","key":"OUT_DS3"}]'
+            target='data:json,[{"id":"ds_containerBookingList","key":"OUT_DS1"},{"id":"ds_containerDoorOrder","key":"OUT_DS2"},{"id":"ds_houseblList","key":"OUT_DS3"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveOrder"
+            action=""
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_containerDoorOrderQty","key":"OUT_DS1"},{"id":"ds_containerBookingCont","key":"OUT_DS2"}]'
+            target='data:json,[{"id":"ds_containerDoorOrderQty","key":"OUT_DS1"},{"id":"ds_containerBookingCont","key":"OUT_DS2"}]'
+            ev:submitdone="scwin.sbm_retrieveOrder_submitdone"
+            ev:submiterror="scwin.sbm_retrieveOrder_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrievebookingNo"
+            action="/il.seaout.sobk.RetrieveContainerBookingNoCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_retrieve","key":"IN_DS1"},{"id":"ds_retrieveNo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_retrieveNo","key":"OUT_DS1"}]'
+            ev:submiterror="scwin.sbm_retrievebookingNo_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrievebookingHbl"
+            action="/il.seaout.sobk.RetrieveBookingHblCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_retrieve","key":"IN_DS1"},{"id":"ds_bookingHbl","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_bookingHbl","key":"OUT_DS1"}]'
+            ev:submiterror="scwin.sbm_retrievebookingHbl_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/il.seaout.sobk.SaveContainerBookingCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_containerBookingList","key":"IN_DS1"},{"id":"ds_containerDoorOrder","key":"IN_DS2"},{"id":"ds_containerDoorOrderQty","key":"IN_DS3"},{"id":"ds_containerBookingCont","key":"IN_DS4"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_delete"
+            action="/il.seaout.sobk.DeleteContainerBookingCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_containerBookingList","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_delete_submitdone"
+            ev:submiterror="scwin.sbm_delete_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveCtrtClnt"
+            action="/il.comm.code.RetrieveInternationalContractNumberCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_retrieveCtrtClnt","key":"IN_DS1"},{"id":"ds_ctrtNo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_ctrtNo","key":"OUT_DS1"}]'
+            ev:submiterror="scwin.sbm_retrieveCtrtClnt_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_saveOrderSend"
+            action="/il.seaout.sobk.SaveOrderSendCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_containerDoorOrder","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_saveOrderSend_submitdone"
+            ev:submiterror="scwin.sbm_saveOrderSend_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+    scwin.statusFlag = "";
+    scwin.processFlag = "";
+    scwin.v_contractno = "";
+    scwin.tabIndex = 0;
+
+    scwin.v_linkcheck = "";
+    scwin.v_kcomcd = "";
+    scwin.v_blno = "";
+    scwin.v_mhno = "";
+    scwin.v_bkno = "";
+
+    scwin.vLobranCd = "";
+    scwin.vLobranNm = "";
+
+    scwin.hd_kcomcd = "DBEX";
+    scwin.hd_bkbltype = "C";
+    scwin.ed_groupNo = "";
+    scwin.hd_bkIo = "O";
+
+    scwin.vCurDate = "";
+    scwin.currentTime = "";
+    scwin.userId = "";
+    scwin.userNm = "";
+
+    scwin.onpageload = function() {
+        scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+        let now = new Date();
+        let hof = String(now.getHours()).padStart(2, "0");
+        let mm = String(now.getMinutes()).padStart(2, "0");
+        scwin.currentTime = hof + mm;
+
+        scwin.userId = $c.ses.getUserId();
+        scwin.userNm = $c.ses.getUserNm();
+        scwin.vLobranCd = $c.ses.getLobranCd();
+        scwin.vLobranNm = $c.ses.getLobranNm();
+
+        scwin.params = $c.data.getParameter();
+        if (scwin.params != null) {
+            scwin.v_linkcheck = scwin.params["linkcheck"] || "0";
+            scwin.v_kcomcd = scwin.params["kcomcd"] || "";
+            scwin.v_blno = scwin.params["blno"] || "";
+            scwin.v_mhno = scwin.params["mhno"] || "";
+            scwin.v_bkno = scwin.params["bkno"] || "";
+        } else {
+            scwin.v_linkcheck = "0";
+        }
+
+        scwin.f_DefaultValue();
+        scwin.f_Check();
+        scwin.f_ContainerTypeLoading();
+        scwin.f_getParametrSetting(scwin.v_linkcheck);
+    };
+
+    scwin.onUdcCompleted = function() {
+    };
+
+    scwin.f_getParametrSetting = function(gubun) {
+        switch (gubun) {
+            case "0":
+                break;
+            case "1":
+                let lv_kcomcd = scwin.v_kcomcd;
+                let lv_bkno = scwin.v_bkno;
+                if (lv_bkno == "null" || lv_bkno == "") {
+                    cnd_ed_bkNo.setValue("");
+                    cnd_ed_bkNo.setFocus();
+                    return false;
+                }
+                scwin.hd_kcomcd = lv_kcomcd;
+                cnd_ed_bkNo.setValue(lv_bkno);
+                scwin.f_Retrieve();
+                break;
+        }
+    };
+
+    scwin.f_Check = function() {
+        ed_cnttype1.setValue("22GP");
+        ed_cnttype2.setValue("42GP");
+        ed_cnttype3.setValue("45GP");
+        lc_cfs.setValue("F");
+        chb_iptYn.setValue("");
+        chb_triYn.setValue("");
+    };
+
+    scwin.f_DefaultValue = function() {
+        scwin.f_initSetTab();
+        scwin.f_Set("INIT");
+        cnd_ed_bkNo.setFocus();
+        scwin.processFlag = "T";
+    };
+
+    scwin.f_initSetTab = function() {
+        $c.gus.cfEnableObjects([btn_Find, btn_HouseBl, btn_DirectBl]);
+        // TODO: cfViewTab(0) - tab control
+    };
+
+    scwin.f_Set = function(gubun) {
+        switch (gubun) {
+            case "INIT":
+                $c.gus.cfDisableKeyData();
+                $c.gus.cfDisableBtnOnly([btn_Copy, btn_Cancel, btn_Save, btn_Delete, btn_Update, btn_Print, btn_HouseBl, btn_DirectBl,
+                    btn_OrderSendDel, btn_OrderSend, btn_AddRow1, btn_DelRow1, btn_CancelRow1, btn_AddRow2, btn_DelRow2, btn_CancelRow2, btn_CntrReceive, btn_AddRow3, btn_DelRow3, btn_CancelRow3]);
+                $c.gus.cfEnableBtnOnly([btn_Create, btn_Find]);
+                scwin.f_DisablePopUpObj();
+                $c.gus.cfEnableObjects([cnd_ed_bkNo]);
+                scwin.statusFlag = "I";
+                break;
+            case "RETRIEVE":
+                $c.gus.cfDisableKeyData();
+                scwin.f_DisablePopUpObj();
+                $c.gus.cfDisableBtnOnly([btn_Save, btn_Cancel,
+                    btn_AddRow1, btn_DelRow1, btn_CancelRow1, btn_AddRow2, btn_DelRow2, btn_CancelRow2, btn_CntrReceive, btn_AddRow3, btn_DelRow3, btn_CancelRow3]);
+                $c.gus.cfEnableBtnOnly([btn_Copy, btn_Create, btn_Delete, btn_Print, btn_OrderSendDel, btn_OrderSend, btn_Find, btn_HouseBl, btn_DirectBl]);
+                gr_containerDoorOrder.setColumnVisible("chk", true);
+                gr_containerDoorOrderQty.setReadOnly("grid", true);
+                gr_containerBookingCont.setReadOnly("grid", true);
+                if (scwin.statusFlag == "C") {
+                    $c.gus.cfDisableBtnOnly([btn_Update]);
+                } else {
+                    $c.gus.cfEnableBtnOnly([btn_Update]);
+                }
+                $c.gus.cfEnableObjects([cnd_ed_bkNo]);
+                scwin.statusFlag = "";
+                break;
+            case "CREATE":
+                $c.gus.cfEnableKeyData();
+                scwin.f_EnablePopUpObj();
+                $c.gus.cfDisableBtnOnly([btn_Copy, btn_Create, btn_Update, btn_Delete, btn_Print, btn_OrderSendDel, btn_OrderSend, btn_HouseBl, btn_DirectBl]);
+                $c.gus.cfEnableBtnOnly([btn_Save, btn_Cancel, btn_Find,
+                    btn_AddRow1, btn_DelRow1, btn_CancelRow1, btn_AddRow2, btn_DelRow2, btn_CancelRow2, btn_CntrReceive, btn_AddRow3, btn_DelRow3, btn_CancelRow3]);
+                gr_containerDoorOrder.setColumnVisible("chk", false);
+                gr_containerDoorOrderQty.setReadOnly("grid", false);
+                gr_containerBookingCont.setReadOnly("grid", false);
+                $c.gus.cfDisableObjects([cnd_ed_bkNo]);
+                scwin.statusFlag = "C";
+                break;
+            case "UPDATE":
+                dma_retrieve.set("kcomcd", scwin.hd_kcomcd);
+                dma_retrieve.set("bkNo", ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "bkNo"));
+                dma_retrieve.set("seq", ds_containerDoorOrder.getCellData(ds_containerDoorOrder.getRowPosition(), "bkdoorseq"));
+                $c.sbm.execute(sbm_retrievebookingHbl);
+
+                if (ds_bookingHbl.getCellData(ds_bookingHbl.getRowPosition(), "hblno") == "" || ds_bookingHbl.getRowCount() == 0) {
+                    $c.gus.cfDisableBtnOnly([btn_Copy, btn_Update, btn_Create, btn_Delete, btn_Print, btn_OrderSendDel, btn_OrderSend, btn_HouseBl, btn_DirectBl]);
+                    $c.gus.cfEnableBtnOnly([btn_Save, btn_Cancel, btn_Find,
+                        btn_AddRow1, btn_DelRow1, btn_CancelRow1, btn_AddRow2, btn_DelRow2, btn_CancelRow2, btn_CntrReceive, btn_AddRow3, btn_DelRow3, btn_CancelRow3]);
+                    $c.gus.cfDisableKey();
+                    scwin.f_EnablePopUpObj();
+                    gr_containerDoorOrder.setColumnVisible("chk", false);
+                    gr_containerDoorOrderQty.setReadOnly("grid", false);
+                    gr_containerBookingCont.setReadOnly("grid", false);
+                    $c.gus.cfDisableObjects([cnd_ed_bkNo]);
+                    scwin.statusFlag = "U";
+                } else {
+                    $c.gus.cfDisableBtnOnly([btn_Copy, btn_Update, btn_Create, btn_Delete, btn_Print, btn_OrderSendDel, btn_OrderSend, btn_HouseBl, btn_DirectBl]);
+                    $c.gus.cfEnableBtnOnly([btn_Save, btn_Cancel, btn_Find,
+                        btn_AddRow1, btn_DelRow1, btn_CancelRow1, btn_AddRow2, btn_DelRow2, btn_CancelRow2, btn_CntrReceive, btn_AddRow3, btn_DelRow3, btn_CancelRow3]);
+                    $c.gus.cfDisableKeyData();
+                    scwin.f_DisablePopUpObj2();
+                    $c.gus.cfEnableObjects([chb_triYn, lc_triItemType, ed_triWrkDesc, txt_bkPicNm,
+                        ed_ts1VsslCd, txt_ts1VsslNm, ed_ts2VsslCd, txt_ts2VsslNm, ed_ts1Voy,
+                        ed_ts2Voy, ed_ts1PortCd, txt_ts1PortNm, ed_ts2PortCd, txt_ts2PortNm,
+                        ica_ts1Etd, ica_ts1Eta, ica_ts2Etd, ica_ts2Eta, txt_remarkMaster,
+                        ed_refSellingAmt, ed_refBuyingAmt, ed_freeDay]);
+                    gr_containerDoorOrder.setReadOnly("grid", true);
+                    gr_containerDoorOrderQty.setReadOnly("grid", true);
+                    gr_containerBookingCont.setReadOnly("grid", true);
+                    $c.gus.cfDisableObjects([cnd_ed_bkNo]);
+                    scwin.statusFlag = "U";
+                }
+                break;
+            case "SAVE":
+                $c.gus.cfDisableBtnOnly([btn_Save, btn_Delete, btn_Cancel, btn_Print]);
+                $c.gus.cfEnableBtnOnly([btn_Update, btn_Create]);
+                scwin.f_Set("RETRIEVE");
+                break;
+        }
+    };
+
+    scwin.f_EnablePopUpObj = function() {
+        // TODO: Enable popup image objects
+    };
+
+    scwin.f_DisablePopUpObj = function() {
+        // TODO: Disable popup image objects
+    };
+
+    scwin.f_DisablePopUpObj2 = function() {
+        // TODO: Disable popup image objects after B/L issue
+    };
+
+    scwin.f_selectTabMenu = function(idx) {
+        switch (idx) {
+            case 0:
+                scwin.tabIndex = 0;
+                break;
+            case 1:
+                scwin.tabIndex = 1;
+                if (ds_containerDoorOrder.getRowCount() == 0) {
+                    scwin.f_autoCreateDoorOrderInfo();
+                }
+                break;
+        }
+    };
+
+    scwin.f_Retrieve = async function() {
+        if (cnd_ed_bkNo.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Booking No"]);
+            return;
+        } else {
+            dma_retrieve.set("kcomcd", scwin.hd_kcomcd);
+            dma_retrieve.set("bkNo", cnd_ed_bkNo.getValue());
+            dma_retrieve.set("bkbltype", scwin.hd_bkbltype);
+            await $c.sbm.execute(sbm_retrieve);
+            cnd_ed_bkNo.setFocus();
+        }
+    };
+
+    scwin.f_FieldClear = function() {
+        $c.gus.cfInitObjects(cnd_ed_bkNo);
+    };
+
+    scwin.f_Create = function() {
+        scwin.f_Set("CREATE");
+        cnd_ed_bkNo.setValue("");
+        ds_containerBookingList.insertRow();
+        ds_containerDoorOrder.removeAll();
+        ds_containerDoorOrderQty.removeAll();
+        ds_containerBookingCont.removeAll();
+        ds_houseblList.removeAll();
+        scwin.f_Check();
+        let row = ds_containerBookingList.getRowPosition();
+        ds_containerBookingList.setCellData(row, "reDt", scwin.vCurDate);
+        ds_containerBookingList.setCellData(row, "bkPic", scwin.userId);
+        ds_containerBookingList.setCellData(row, "bkPicNm", scwin.userNm);
+        if (!(scwin.vLobranCd == "null" || scwin.vLobranCd == null || scwin.vLobranCd == "")) {
+            ds_containerBookingList.setCellData(row, "dept", scwin.vLobranCd);
+            ds_containerBookingList.setCellData(row, "deptnm", scwin.vLobranNm);
+        }
+        ds_containerBookingList.setCellData(row, "etRsltsDt", "");
+    };
+
+    scwin.f_Update = async function() {
+        let row = ds_containerBookingList.getRowPosition();
+        if (row < 0 || ds_containerBookingList.getCellData(row, "bkNo") == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["HEADER"]);
+            return;
+        } else {
+            scwin.f_Set("UPDATE");
+        }
+    };
+
+    scwin.f_Save = async function() {
+        if (ds_containerBookingList.isUpdated() || ds_containerDoorOrder.isUpdated() || ds_containerDoorOrderQty.isUpdated() || ds_containerBookingCont.isUpdated()) {
+            if (await scwin.f_validate()) {
+                let chk = await $c.win.confirm(E_MSG_CM_CRM_001);
+                if (chk) {
+                    let bkRow = ds_containerBookingList.getRowPosition();
+                    if (ds_containerBookingList.getCellData(bkRow, "bkNo") == "") {
+                        if (ds_containerBookingList.getCellData(bkRow, "bkPic") == "" && ds_containerBookingList.getCellData(bkRow, "docPic") == "") {
+                            await $c.win.alert("Booking담당자/Doc담당자 중 한 가지는 필수로 입력하여야 합니다.");
+                            return false;
+                        }
+                        dma_retrieve.set("kcomcd", scwin.hd_kcomcd);
+                        if (ds_containerBookingList.getCellData(bkRow, "etRsltsDt") == "") {
+                            dma_retrieve.set("bkEtd", ds_containerBookingList.getCellData(bkRow, "bkEtd"));
+                            ds_containerBookingList.setCellData(bkRow, "etRsltsDt", ds_containerBookingList.getCellData(bkRow, "bkEtd"));
+                        } else {
+                            dma_retrieve.set("bkEtd", ds_containerBookingList.getCellData(bkRow, "etRsltsDt"));
+                        }
+                        if (ds_containerBookingList.getCellData(bkRow, "bkPic") == "") {
+                            ds_containerBookingList.setCellData(bkRow, "bkPic", scwin.userId);
+                            ds_containerBookingList.setCellData(bkRow, "bkPicNm", scwin.userNm);
+                        }
+                        await $c.sbm.execute(sbm_retrievebookingNo);
+                        let noRow = ds_retrieveNo.getRowPosition();
+                        if (noRow >= 0) {
+                            ds_containerBookingList.setCellData(bkRow, "bkNo", ds_retrieveNo.getCellData(noRow, "bkNo"));
+                        }
+                    }
+                    dma_retrieve.set("kcomcd", scwin.hd_kcomcd);
+                    dma_retrieve.set("bkNo", ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                    dma_retrieve.set("seq", ds_containerDoorOrder.getRowCount() > 0 ? ds_containerDoorOrder.getCellData(ds_containerDoorOrder.getRowPosition(), "bkdoorseq") : "");
+                    await $c.sbm.execute(sbm_retrievebookingHbl);
+
+                    if (ds_bookingHbl.getCellData(ds_bookingHbl.getRowPosition(), "hblno") == "" || ds_bookingHbl.getRowCount() == 0) {
+                        ds_containerBookingList.setCellData(bkRow, "kcomcd", scwin.hd_kcomcd);
+                        ds_containerBookingList.setCellData(bkRow, "bkbltype", scwin.hd_bkbltype);
+                        ds_containerBookingList.setCellData(bkRow, "bkEtd", ed_bkEtd.getValue());
+                        ds_containerBookingList.setCellData(bkRow, "inpid", scwin.userId);
+                        if (ds_containerDoorOrder.getRowCount() == 0) {
+                            scwin.f_autoCreateDoorOrderInfo();
+                        } else {
+                            let dqRow = ds_containerDoorOrderQty.getRowPosition();
+                            if (dqRow >= 0) ds_containerDoorOrderQty.setCellData(dqRow, "bkNo", ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                            let doRow = ds_containerDoorOrder.getRowPosition();
+                            if (doRow >= 0) ds_containerDoorOrder.setCellData(doRow, "bkNo", ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                        }
+                        await $c.sbm.execute(sbm_save);
+                    } else {
+                        await $c.sbm.execute(sbm_save);
+                    }
+                    scwin.f_Set("SAVE");
+                    cnd_ed_bkNo.setValue(ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                    scwin.f_Retrieve();
+                }
+            }
+        } else {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_001, ["Container Booking"]);
+        }
+    };
+
+    scwin.f_Cancel = function() {
+        if (scwin.statusFlag == "C") {
+            scwin.f_Set("INIT");
+        } else {
+            scwin.f_Set("RETRIEVE");
+            ds_containerBookingList.undoAll();
+            ds_ctrtNo.undoAll();
+            scwin.f_cancelRow(1);
+            scwin.f_cancelRow(2);
+            scwin.f_cancelRow(3);
+            cnd_ed_bkNo.setFocus();
+            scwin.processFlag = "T";
+        }
+    };
+
+    scwin.f_autoCreateDoorOrderInfo = function() {
+        ds_containerDoorOrder.insertRow();
+        ds_containerDoorOrderQty.insertRow();
+        let doRow = ds_containerDoorOrder.getRowPosition();
+        ds_containerDoorOrder.setCellData(doRow, "kcomcd", scwin.hd_kcomcd);
+        let bkRow = ds_containerBookingList.getRowPosition();
+        ds_containerDoorOrder.setCellData(doRow, "bkNo", bkRow >= 0 ? ds_containerBookingList.getCellData(bkRow, "bkNo") : "");
+        ds_containerDoorOrder.setCellData(doRow, "doordt", scwin.vCurDate + scwin.currentTime);
+        ds_containerDoorOrder.setCellData(doRow, "bkdoorseq", "01");
+        ds_containerDoorOrder.setCellData(doRow, "internalTyp", "2");
+        ds_containerDoorOrder.setCellData(doRow, "transcd", "109856");
+        ds_containerDoorOrder.setCellData(doRow, "inpid", scwin.userId);
+
+        let dqRow = ds_containerDoorOrderQty.getRowPosition();
+        ds_containerDoorOrderQty.setCellData(dqRow, "kcomcd", scwin.hd_kcomcd);
+        ds_containerDoorOrderQty.setCellData(dqRow, "bkNo", bkRow >= 0 ? ds_containerBookingList.getCellData(bkRow, "bkNo") : "");
+        ds_containerDoorOrderQty.setCellData(dqRow, "bkdoorseq", "01");
+        if (lc_cfs.getValue() == "F") {
+            ds_containerDoorOrderQty.setCellData(dqRow, "qtytype", "22GP");
+            ds_containerDoorOrderQty.setCellData(dqRow, "realQtytype", "22GP");
+        } else if (lc_cfs.getValue() == "L") {
+            ds_containerDoorOrderQty.setCellData(dqRow, "qtytype", "R/T");
+            ds_containerDoorOrderQty.setCellData(dqRow, "realQtytype", "R/T");
+        }
+        scwin.f_doorTypeQtyLoading(dqRow, "qtytype");
+        ds_containerDoorOrderQty.setCellData(dqRow, "inpid", scwin.userId);
+    };
+
+    scwin.f_Copy = function() {
+        scwin.f_Set("CREATE");
+        cnd_ed_bkNo.setValue("");
+        ds_containerDoorOrder.removeAll();
+        ds_containerDoorOrderQty.removeAll();
+        ds_containerBookingCont.removeAll();
+        ds_houseblList.removeAll();
+        ds_ctrtNo.removeAll();
+        scwin.f_Check();
+        let bkRow = ds_containerBookingList.getRowPosition();
+        if (bkRow >= 0 && ds_containerBookingList.getRowCount() > 0) {
+            ds_containerBookingList.setRowStatus(bkRow, "C");
+        }
+        if (bkRow >= 0) {
+            ds_containerBookingList.setCellData(bkRow, "bkNo", "");
+            ds_containerBookingList.setCellData(bkRow, "custCd", "");
+            ds_containerBookingList.setCellData(bkRow, "custNm", "");
+            ds_containerBookingList.setCellData(bkRow, "docPic", "");
+            ds_containerBookingList.setCellData(bkRow, "docPicNm", "");
+            ds_containerBookingList.setCellData(bkRow, "cargoPic", "");
+            ds_containerBookingList.setCellData(bkRow, "cargoPicNm", "");
+        }
+    };
+
+    scwin.f_Delete = async function() {
+        let errorChk = 0;
+        for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+            if (ds_containerDoorOrder.getCellData(i, "sendDt") != "") {
+                await $c.win.alert("Order sended : Order No -> " + ds_containerDoorOrder.getCellData(i, "bkNo") + ",Seq -> " + ds_containerDoorOrder.getCellData(i, "bkdoorseq"));
+                errorChk = 1;
+            }
+        }
+        if (errorChk == 1) return;
+
+        dma_retrieve.set("kcomcd", scwin.hd_kcomcd);
+        dma_retrieve.set("bkNo", ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "bkNo"));
+        dma_retrieve.set("seq", "");
+        await $c.sbm.execute(sbm_retrievebookingHbl);
+        let hblRow = ds_bookingHbl.getRowPosition();
+        if (hblRow >= 0 && ds_bookingHbl.getCellData(hblRow, "hblno") != "undefined" && ds_bookingHbl.getRowCount() != 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_041, ["House B/L", "delete"]);
+            return;
+        }
+
+        let chk = await $c.win.confirm(E_MSG_CM_CRM_004);
+        if (chk) {
+            for (let i = ds_containerBookingList.getRowCount() - 1; i >= 0; i--) {
+                ds_containerBookingList.removeRow(i);
+            }
+            await $c.sbm.execute(sbm_delete);
+            cnd_ed_bkNo.setValue("");
+            ds_containerBookingList.removeAll();
+            ds_containerDoorOrder.removeAll();
+            ds_containerDoorOrderQty.removeAll();
+            ds_containerBookingCont.removeAll();
+            ds_houseblList.removeAll();
+            scwin.f_Set("INIT");
+            cnd_ed_bkNo.setValue("");
+        }
+    };
+
+    scwin.f_orderSend = async function() {
+        let doRow = ds_containerDoorOrder.getRowPosition();
+        if (doRow < 0) return;
+        if (ds_containerDoorOrder.getCellData(doRow, "internalTyp") == "1") {
+            let bkRow = ds_containerBookingList.getRowPosition();
+            if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "itemCd") == "") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Item"]);
+                return;
+            }
+            let errorChk = 0;
+            let j = 0;
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                    j = j + 1;
+                }
+            }
+            if (j == 0) errorChk = 1;
+
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                    let lv_kcomcd = scwin.hd_kcomcd;
+                    let v_orderno = ds_containerDoorOrder.getCellData(i, "bkNo");
+                    let v_seq = ds_containerDoorOrder.getCellData(i, "bkdoorseq");
+                    // TODO: ds_doorOrderQtyCheck dynamic loading
+                    // ds_doorOrderQtyCheck check logic
+                }
+            }
+
+            if (errorChk == 0) {
+                for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                    if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                        ds_containerDoorOrder.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                        if (ds_containerDoorOrder.getCellData(i, "sendDt") == "") {
+                            ds_containerDoorOrder.setCellData(i, "orderType", 1);
+                        } else {
+                            ds_containerDoorOrder.setCellData(i, "orderType", 2);
+                        }
+                        ds_containerDoorOrder.setCellData(i, "inpid", scwin.userId);
+                    }
+                }
+                await $c.sbm.execute(sbm_saveOrderSend);
+                scwin.f_Retrieve();
+            }
+        } else {
+            await $c.win.alert("Normal Type");
+            return;
+        }
+    };
+
+    scwin.f_orderSendDel = async function() {
+        let doRow = ds_containerDoorOrder.getRowPosition();
+        if (doRow < 0) return;
+        if (ds_containerDoorOrder.getCellData(doRow, "internalTyp") == "1") {
+            let errorChk = 0;
+            let j = 0;
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                    j = j + 1;
+                }
+            }
+            if (j == 0) errorChk = 1;
+
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                    if (ds_containerDoorOrder.getCellData(i, "sendDt") == "") {
+                        await $c.win.alert("Order is not sended : Order No -> " + ds_containerDoorOrder.getCellData(i, "bkNo") + ",Seq -> " + ds_containerDoorOrder.getCellData(i, "bkdoorseq"));
+                        errorChk = 1;
+                    }
+                }
+            }
+
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                    if (ds_containerDoorOrder.getCellData(i, "mcomOdrNo") != "") {
+                        await $c.win.alert("Order sended : Order No -> " + ds_containerDoorOrder.getCellData(i, "bkNo") + ",Seq -> " + ds_containerDoorOrder.getCellData(i, "bkdoorseq"));
+                        errorChk = 1;
+                    }
+                }
+            }
+
+            if (errorChk == 0) {
+                for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                    if (ds_containerDoorOrder.getCellData(i, "chk") == "T") {
+                        ds_containerDoorOrder.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                        ds_containerDoorOrder.setCellData(i, "orderType", 3);
+                        ds_containerDoorOrder.setCellData(i, "inpid", scwin.userId);
+                    }
+                }
+                await $c.sbm.execute(sbm_saveOrderSend);
+                scwin.f_Retrieve();
+            }
+        } else {
+            await $c.win.alert("Normal Type");
+            return;
+        }
+    };
+
+    scwin.f_addRow = async function(disGubun) {
+        let bkRow = ds_containerBookingList.getRowPosition();
+        switch (disGubun) {
+            case 1:
+                if (bkRow < 0 || ds_containerBookingList.getCellData(bkRow, "bkNo") == "") {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Booking Header"]);
+                } else {
+                    ds_containerDoorOrder.insertRow();
+                    let doRow = ds_containerDoorOrder.getRowPosition();
+                    let v_seq = String(doRow + 1);
+                    let v_seqResult = $c.str.lpad(v_seq, "0", 2);
+                    ds_containerDoorOrder.setCellData(doRow, "bkdoorseq", v_seqResult);
+                    ds_containerDoorOrder.setCellData(doRow, "kcomcd", scwin.hd_kcomcd);
+                    ds_containerDoorOrder.setCellData(doRow, "bkNo", ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                    ds_containerDoorOrder.setCellData(doRow, "internalTyp", "1");
+                    ds_containerDoorOrder.setCellData(doRow, "inpid", scwin.userId);
+                    ds_containerDoorOrder.setCellData(doRow, "doordt", scwin.vCurDate + scwin.currentTime);
+                    gr_containerDoorOrder.setFocusedCell(doRow, "doordt");
+                }
+                break;
+            case 2:
+                if (bkRow < 0 || ds_containerBookingList.getCellData(bkRow, "bkNo") == "") {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Booking Header"]);
+                } else {
+                    let doRow2 = ds_containerDoorOrder.getRowPosition();
+                    if (doRow2 < 0 || ds_containerDoorOrder.getCellData(doRow2, "bkdoorseq") == "" || ds_containerDoorOrder.getRowCount() == 0) {
+                        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Booking Door Order"]);
+                    } else {
+                        ds_containerDoorOrderQty.insertRow();
+                        let dqRow = ds_containerDoorOrderQty.getRowPosition();
+                        ds_containerDoorOrderQty.setCellData(dqRow, "kcomcd", scwin.hd_kcomcd);
+                        ds_containerDoorOrderQty.setCellData(dqRow, "bkNo", ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                        ds_containerDoorOrderQty.setCellData(dqRow, "bkdoorseq", ds_containerDoorOrder.getCellData(doRow2, "bkdoorseq"));
+                        ds_containerDoorOrderQty.setCellData(dqRow, "inpid", scwin.userId);
+                        gr_containerDoorOrderQty.setFocusedCell(dqRow, "qtytype");
+                    }
+                }
+                break;
+            case 3:
+                if (bkRow < 0 || ds_containerBookingList.getCellData(bkRow, "bkNo") == "") {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Booking Header"]);
+                } else {
+                    let doRow3 = ds_containerDoorOrder.getRowPosition();
+                    if (doRow3 < 0 || ds_containerDoorOrder.getCellData(doRow3, "bkdoorseq") == "" || ds_containerDoorOrder.getRowCount() == 0) {
+                        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Booking Door Order"]);
+                    } else {
+                        ds_containerBookingCont.insertRow();
+                        let bcRow = ds_containerBookingCont.getRowPosition();
+                        ds_containerBookingCont.setCellData(bcRow, "kcomcd", scwin.hd_kcomcd);
+                        ds_containerBookingCont.setCellData(bcRow, "bkNo", ds_containerBookingList.getCellData(bkRow, "bkNo"));
+                        ds_containerBookingCont.setCellData(bcRow, "bkdoorseq", ds_containerDoorOrder.getCellData(doRow3, "bkdoorseq"));
+                        ds_containerBookingCont.setCellData(bcRow, "inpid", scwin.userId);
+                        gr_containerBookingCont.setFocusedCell(bcRow, "cntno");
+                    }
+                }
+                break;
+        }
+    };
+
+    scwin.f_deleteRow = async function(disGubun) {
+        switch (disGubun) {
+            case 1:
+                if (ds_containerDoorOrderQty.getRowCount() > 0 || ds_containerBookingCont.getRowCount() > 0) {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_041, ["Door Order Quantity Or Container", "delete"]);
+                } else {
+                    let doRow = ds_containerDoorOrder.getRowPosition();
+                    if (doRow >= 0 && ds_containerDoorOrder.getCellData(doRow, "sendDt") != "") {
+                        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_041, ["Order sended", "delete"]);
+                    } else if (doRow >= 0) {
+                        ds_containerDoorOrder.removeRow(doRow);
+                    }
+                }
+                break;
+            case 2:
+                let dqRow = ds_containerDoorOrderQty.getRowPosition();
+                if (dqRow >= 0) ds_containerDoorOrderQty.removeRow(dqRow);
+                break;
+            case 3:
+                let bcRow = ds_containerBookingCont.getRowPosition();
+                if (bcRow >= 0) ds_containerBookingCont.removeRow(bcRow);
+                break;
+        }
+    };
+
+    scwin.f_cancelRow = function(disGubun) {
+        switch (disGubun) {
+            case 1:
+                ds_containerDoorOrder.undoAll();
+                ds_containerDoorOrderQty.undoAll();
+                break;
+            case 2:
+                ds_containerDoorOrderQty.undoAll();
+                break;
+            case 3:
+                ds_containerBookingCont.undoAll();
+                break;
+        }
+    };
+
+    scwin.f_validate = async function() {
+        if (scwin.tabIndex == 0) {
+            if (!(await scwin.f_BookingTabValidate())) {
+                return false;
+            }
+        } else if (scwin.tabIndex == 1) {
+            if (!(await scwin.f_DoorOrderTabValidate())) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    scwin.f_BookingTabValidate = async function() {
+        let chkValid = await $c.gus.cfValidate([ed_bkEtd, ed_bkEta]);
+        if (!chkValid) {
+            return false;
+        }
+        if (ed_bkEtd.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["ETD"]);
+            ed_bkEtd.setFocus();
+            return false;
+        }
+        if (ed_bkEta.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["ETA"]);
+            ed_bkEta.setFocus();
+            return false;
+        }
+        if (!$c.gus.cfIsAfterDate(ed_bkEtd.getValue(), ed_bkEta.getValue())) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_048, ["ETD", "ETA"]);
+            ed_bkEtd.setFocus();
+            return false;
+        }
+        if (!$c.gus.cfIsAfterDate(ica_ts1Eta.getValue(), ica_ts1Etd.getValue())) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_048, ["T/S ETA", "T/S ETD"]);
+            ica_ts1Eta.setFocus();
+            return false;
+        }
+        if (!$c.gus.cfIsAfterDate(ica_ts2Eta.getValue(), ica_ts2Etd.getValue())) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_048, ["T/S ETA", "T/S ETD"]);
+            ica_ts2Eta.setFocus();
+            return false;
+        }
+        if (!(await scwin.f_containerDualCheck())) return false;
+
+        if (ed_cnttype1.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype1.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+                ed_cnttype1.setFocus();
+                return false;
+            }
+        }
+        if (ed_cnttype2.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype2.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+                ed_cnttype2.setFocus();
+                return false;
+            }
+        }
+        if (ed_cnttype3.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype3.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+                ed_cnttype3.setFocus();
+                return false;
+            }
+        }
+        if (ed_cnttype4.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype4.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+                ed_cnttype4.setFocus();
+                return false;
+            }
+        }
+        let bkRow = ds_containerBookingList.getRowPosition();
+        if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "custCd") == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Customer"]);
+            return false;
+        }
+        let ctRow = ds_ctrtNo.getRowPosition();
+        if ((ctRow >= 0 && ds_ctrtNo.getCellData(ctRow, "ctrtNo") == "선택") || lc_contractno.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Contract No"]);
+            return false;
+        }
+        if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "dept") == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Department"]);
+            return false;
+        }
+        return true;
+    };
+
+    scwin.f_DoorOrderTabValidate = async function() {
+        let msg = "[Booking] ";
+        let chkValid = await $c.gus.cfValidate([gr_containerDoorOrder]);
+        if (!chkValid) {
+            return false;
+        }
+        if (ed_bkEtd.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, [msg + "ETD"]);
+            return false;
+        }
+        if (ed_bkEta.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, [msg + "ETA"]);
+            return false;
+        }
+        if (!$c.gus.cfIsAfterDate(ed_bkEtd.getValue(), ed_bkEta.getValue())) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_048, ["ETD", "ETA"]);
+            return false;
+        }
+        if (!(await scwin.f_containerDualCheck())) return false;
+
+        if (ed_cnttype1.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype1.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, [msg + "Container Type"]);
+                return false;
+            }
+        }
+        if (ed_cnttype2.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype2.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, [msg + "Container Type"]);
+                return false;
+            }
+        }
+        if (ed_cnttype3.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype3.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, [msg + "Container Type"]);
+                return false;
+            }
+        }
+        if (ed_cnttype4.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype4.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, [msg + "Container Type"]);
+                return false;
+            }
+        }
+        let bkRow = ds_containerBookingList.getRowPosition();
+        if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "custCd") == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, [msg + "Customer"]);
+            return false;
+        }
+        let ctRow = ds_ctrtNo.getRowPosition();
+        if ((ctRow >= 0 && ds_ctrtNo.getCellData(ctRow, "ctrtNo") == "선택") || lc_contractno.getValue() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, [msg + "Contract No"]);
+            return false;
+        }
+        if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "dept") == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, [msg + "Department"]);
+            return false;
+        }
+        for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+            if (ds_containerDoorOrder.getRowStatus(i) != "D") {
+                if (ds_containerDoorOrder.getRowCount() > 0) {
+                    if (ds_containerDoorOrderQty.getRowCount() == 0) {
+                        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Door Order Qty"]);
+                        return false;
+                    }
+                }
+            }
+        }
+        for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+            if (ds_containerDoorOrder.getCellData(i, "bkdoorseq") == "") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Door Order Seq"]);
+                gr_containerDoorOrder.setFocusedCell(i, "bkdoorseq");
+                return false;
+            }
+        }
+        for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+            if (ds_containerDoorOrder.getCellData(i, "doordt") == "") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Container Order Date"]);
+                gr_containerDoorOrder.setFocusedCell(i, "doordt");
+                return false;
+            }
+        }
+        for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+            if (ds_containerDoorOrder.getCellData(i, "transcd") == "") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Container Order Trucker"]);
+                gr_containerDoorOrder.setFocusedCell(i, "transcd");
+                return false;
+            }
+        }
+        for (let i = 0; i < ds_containerDoorOrderQty.getRowCount(); i++) {
+            if (ds_containerDoorOrderQty.getCellData(i, "qtytype") == "" && ds_containerDoorOrderQty.getCellData(i, "realQtytype") == "") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Door Order Container Type"]);
+                gr_containerDoorOrderQty.setFocusedCell(i, "qtytype");
+                return false;
+            }
+        }
+        return true;
+    };
+
+    scwin.f_containerTypeValueRow = function(val) {
+        for (let i = 0; i < ds_containerType.getRowCount(); i++) {
+            if (ds_containerType.getCellData(i, "CODE") == val) {
+                return "1";
+            }
+        }
+        return "0";
+    };
+
+    scwin.f_ContainerTypeLoading = function() {
+        // TODO: Load container type via submission or combo service
+    };
+
+    scwin.f_PopUp = function(disGubun, chgGubun) {
+        let rtnList;
+        switch (disGubun) {
+            case "Shipper":
+                udc_doc.ilCommonPopUp(scwin.callbackShipper,
+                    ed_docCd.getValue().trim(), txt_docCust.getValue(),
+                    chgGubun, "10", "Shipper Code,Shipper Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+                    "140,300,100,100,100,100,100,,,100", "8,9", null, "500", "500", null, null, null,
+                    "F", "Shipper search,Shipper Code,Shipper Name");
+                break;
+            case "ShipperPic":
+                let pParam1 = ed_docCd.getValue().trim();
+                udc_doc.ilCommonPopUp(scwin.callbackShipperPic,
+                    ed_docSeq.getValue().trim(), txt_docMan.getValue(),
+                    chgGubun, "4", "Shipper PIC", "100,350", null, pParam1,
+                    "500", "500", null, null, null, "T", null);
+                break;
+            case "Customer":
+                udc_cust.ilCommonPopUp(scwin.callbackCustomer,
+                    ed_custCd.getValue().trim(), txt_custNm.getValue(),
+                    chgGubun, "10", "Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+                    "140,300,100,100,100,100,100,,,100", "8,9", null, "500", "500", null, null, null,
+                    "F", "Customer search,Customer Code,Customer Name");
+                break;
+            case "CustomerPic":
+                let pParam2 = ed_custCd.getValue().trim();
+                udc_cust.ilCommonPopUp(scwin.callbackCustomerPic,
+                    ed_custSeq.getValue().trim(), txt_custMan.getValue(),
+                    chgGubun, "4", "Customer PIC", "100,350", null, pParam2,
+                    "500", "500", null, null, null, "T", null);
+                break;
+            case "Factory":
+                udc_fac.ilCommonPopUp(scwin.callbackFactory,
+                    ed_facCd.getValue().trim(), txt_facNm.getValue(),
+                    chgGubun, "10", "Factory Code,Factory Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+                    "140,300,100,100,100,100,100,,,100", "8,9", null, "500", "500", null, null, null,
+                    "F", "Factory search,Factory Code,Factory Name");
+                break;
+            case "FactoryPic":
+                let pParam3 = ed_facCd.getValue().trim();
+                udc_fac.ilCommonPopUp(scwin.callbackFactoryPic,
+                    ed_facAttn.getValue().trim(), txt_facMan.getValue(),
+                    chgGubun, "4", "Factory PIC", "100,350", null, pParam3,
+                    "500", "500", null, null, null, "T", null);
+                break;
+            case "Liner":
+                udc_liner.ilCommonPopUp(scwin.callbackLiner,
+                    ed_liner.getValue().trim(), txt_linernm.getValue(),
+                    chgGubun, "10", "Liner Code,Liner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+                    "140,300,100,100,100,100,100,,,100", "8,9", null, "500", "500", null, null, null,
+                    "F", "Liner search,Liner Code,Liner Name");
+                break;
+            case "LinerPic":
+                let pParam4 = ed_liner.getValue().trim();
+                udc_liner.ilCommonPopUp(scwin.callbackLinerPic,
+                    ed_linerattn.getValue().trim(), txt_linerattnnm.getValue(),
+                    chgGubun, "4", "Liner PIC", "100,350", null, pParam4,
+                    "500", "500", null, null, null, "T", null);
+                break;
+            case "Partner":
+                udc_bkAgent.ilCommonPopUp(scwin.callbackPartner,
+                    ed_bkAgent.getValue().trim(), txt_bkAgentnm.getValue(),
+                    chgGubun, "10", "Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+                    "140,300,100,100,100,100,100,,,100", "8,9", null, "500", "500", null, null, null,
+                    "F", "Partner search,Partner Code,Partner Name");
+                break;
+        }
+    };
+
+    scwin.callbackShipper = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_docCd, txt_docCust);
+        let bkRow = ds_containerBookingList.getRowPosition();
+        if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "dept") == "") {
+            scwin.f_departmentInfo(ed_docCd.getValue().trim());
+        }
+    };
+
+    scwin.callbackShipperPic = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_docSeq, txt_docMan, ed_docCd);
+        if (rtnList[4] && rtnList[4].trim() != "N/A") {
+            if (rtnList[4].trim() != "") {
+                ds_containerBookingList.setCellData(ds_containerBookingList.getRowPosition(), "docTel", rtnList[4]);
+            } else {
+                ds_containerBookingList.setCellData(ds_containerBookingList.getRowPosition(), "docTel", rtnList[6]);
+            }
+        }
+    };
+
+    scwin.callbackCustomer = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_custCd, txt_custNm);
+        lc_contractno.setValue("");
+        ds_ctrtNo.removeAll();
+        if (ed_custCd.getValue() != "") {
+            scwin.f_customerInfo(ed_custCd.getValue().trim());
+        }
+        let bkRow = ds_containerBookingList.getRowPosition();
+        if (bkRow >= 0 && ds_containerBookingList.getCellData(bkRow, "dept") == "") {
+            scwin.f_departmentInfo(ed_custCd.getValue().trim());
+        }
+    };
+
+    scwin.callbackCustomerPic = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_custSeq, txt_custMan, ed_custCd);
+    };
+
+    scwin.callbackFactory = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_facCd, txt_facNm);
+    };
+
+    scwin.callbackFactoryPic = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_facAttn, txt_facMan, ed_facCd);
+        if (rtnList[4] && rtnList[4].trim() != "N/A") {
+            if (rtnList[4].trim() != "") {
+                ds_containerBookingList.setCellData(ds_containerBookingList.getRowPosition(), "facTel", rtnList[4]);
+            } else {
+                ds_containerBookingList.setCellData(ds_containerBookingList.getRowPosition(), "facTel", rtnList[6]);
+            }
+        }
+    };
+
+    scwin.callbackLiner = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_liner, txt_linernm);
+    };
+
+    scwin.callbackLinerPic = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_linerattn, txt_linerattnnm, ed_liner);
+        if (rtnList[4] && rtnList[4].trim() != "N/A") {
+            if (rtnList[4].trim() != "") {
+                ds_containerBookingList.setCellData(ds_containerBookingList.getRowPosition(), "linerTel", rtnList[4]);
+            } else {
+                ds_containerBookingList.setCellData(ds_containerBookingList.getRowPosition(), "linerTel", rtnList[6]);
+            }
+        }
+    };
+
+    scwin.callbackPartner = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_bkAgent, txt_bkAgentnm);
+    };
+
+    scwin.f_OpenCommonPopUp = function(gubun1, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+        switch (gubun1) {
+            case "Vessel":
+                udc_vsl.ilCommonPopUp(scwin.callbackVessel,
+                    ed_vslCd.getValue().trim(), txt_vslNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Vessel,Code,Name", pNoDataCloseTF);
+                break;
+            case "ts1VsslCd":
+                udc_ts1Vssl.ilCommonPopUp(scwin.callbackTs1Vssl,
+                    ed_ts1VsslCd.getValue().trim(), txt_ts1VsslNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Vessel,Code,Name", pNoDataCloseTF);
+                break;
+            case "ts2VsslCd":
+                udc_ts2Vssl.ilCommonPopUp(scwin.callbackTs2Vssl,
+                    ed_ts2VsslCd.getValue().trim(), txt_ts2VsslNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Vessel,Code,Name", pNoDataCloseTF);
+                break;
+            case "Salesman":
+                udc_sales.ilCommonPopUp(scwin.callbackSalesman,
+                    ed_salesCd.getValue().trim(), txt_salesNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Salesman,Code,Name", pNoDataCloseTF);
+                break;
+            case "Loading":
+                udc_lod.ilCommonPopUp(scwin.callbackLoading,
+                    ed_lodCd.getValue().trim(), txt_lodNm.getValue(),
+                    pWinCloseTF, "6", "Code, Name,,,, UNCODE", "80,160,,,,80", "3,4,5,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Loading,Code,Name", pNoDataCloseTF);
+                break;
+            case "ts1PortCd":
+                udc_ts1Port.ilCommonPopUp(scwin.callbackTs1Port,
+                    ed_ts1PortCd.getValue().trim(), txt_ts1PortNm.getValue(),
+                    pWinCloseTF, "6", "Code, Name,,,, UNCODE", "80,160,,,,80", "3,4,5,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "항구,Code,Name", pNoDataCloseTF);
+                break;
+            case "ts2PortCd":
+                udc_ts2Port.ilCommonPopUp(scwin.callbackTs2Port,
+                    ed_ts2PortCd.getValue().trim(), txt_ts2PortNm.getValue(),
+                    pWinCloseTF, "6", "Code, Name,,,, UNCODE", "80,160,,,,80", "3,4,5,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "항구,Code,Name", pNoDataCloseTF);
+                break;
+            case "Discharge":
+                udc_dis.ilCommonPopUp(scwin.callbackDischarge,
+                    ed_disCd.getValue().trim(), txt_disNm.getValue(),
+                    pWinCloseTF, "6", "Code, Name,,,, UNCODE", "80,160,,,,80", "3,4,5,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Discharge,Code,Name", pNoDataCloseTF);
+                break;
+            case "Delivery":
+                udc_dlv.ilCommonPopUp(scwin.callbackDelivery,
+                    ed_dlvCd.getValue().trim(), txt_dlvNm.getValue(),
+                    pWinCloseTF, "6", "Code, Name,,,, UNCODE", "80,160,,,,80", "3,4,5,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Delivery,Code,Name", pNoDataCloseTF);
+                break;
+            case "Area":
+                udc_bkArea.ilCommonPopUp(scwin.callbackArea,
+                    ed_bkArea.getValue().trim(), txt_bkAreanm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    "IL001", null, null, null, null, null, pAllSearchTF, "Area,Code,Name", pNoDataCloseTF);
+                break;
+            case "Department":
+                udc_dept.ilCommonPopUp(scwin.callbackDepartment,
+                    ed_dept.getValue().trim(), txt_deptnm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Department,Code,Name", pNoDataCloseTF);
+                break;
+            case "Item":
+                udc_item.ilCommonPopUp(scwin.callbackItem,
+                    ed_itemCd.getValue().trim(), txt_itemNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Item,Code,Name", pNoDataCloseTF);
+                break;
+            case "Unit":
+                udc_unit.ilCommonPopUp(scwin.callbackUnit,
+                    ed_unit.getValue().trim(), txt_unitnm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    "IL002", null, null, null, null, null, pAllSearchTF, "Unit,Code,Name", pNoDataCloseTF);
+                break;
+            case "ContainerType1":
+                udc_item.ilCommonPopUp(scwin.callbackContainerType1,
+                    ed_cnttype1.getValue().trim(), "",
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Type,Code,Name", "F");
+                break;
+            case "ContainerType2":
+                udc_item.ilCommonPopUp(scwin.callbackContainerType2,
+                    ed_cnttype2.getValue().trim(), "",
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Type,Code,Name", "F");
+                break;
+            case "ContainerType3":
+                udc_item.ilCommonPopUp(scwin.callbackContainerType3,
+                    ed_cnttype3.getValue().trim(), "",
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Type,Code,Name", "F");
+                break;
+            case "ContainerType4":
+                udc_item.ilCommonPopUp(scwin.callbackContainerType4,
+                    ed_cnttype4.getValue().trim(), "",
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Type,Code,Name", "F");
+                break;
+            case "DocPic":
+                udc_bkPic.ilCommonPopUp(scwin.callbackDocPic,
+                    ed_docPic.getValue().trim(), txt_bkPicNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Employee,No,Name", pNoDataCloseTF);
+                break;
+            case "CargoPic":
+                // TODO: CargoPic popup
+                break;
+            case "BkPic":
+                udc_bkPic.ilCommonPopUp(scwin.callbackBkPic,
+                    ed_bkPic.getValue().trim(), txt_bkPicNm.getValue(),
+                    pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                    null, null, null, null, null, null, pAllSearchTF, "Employee,No,Name", pNoDataCloseTF);
+                break;
+        }
+    };
+
+    scwin.callbackVessel = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_vslCd, txt_vslNm); };
+    scwin.callbackTs1Vssl = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_ts1VsslCd, txt_ts1VsslNm); };
+    scwin.callbackTs2Vssl = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_ts2VsslCd, txt_ts2VsslNm); };
+    scwin.callbackSalesman = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_salesCd, txt_salesNm); };
+    scwin.callbackLoading = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_lodCd, txt_lodNm); };
+    scwin.callbackTs1Port = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_ts1PortCd, txt_ts1PortNm); };
+    scwin.callbackTs2Port = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_ts2PortCd, txt_ts2PortNm); };
+    scwin.callbackDischarge = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_disCd, txt_disNm);
+        if (ed_disCd.getValue() != "") {
+            if (ed_bkArea.getValue() == "" && txt_bkAreanm.getValue() == "") {
+                ed_bkArea.setValue(rtnList[4]);
+                scwin.f_OpenCommonPopUp("Area", "T", "F", "F");
+            }
+        }
+    };
+    scwin.callbackDelivery = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_dlvCd, txt_dlvNm); };
+    scwin.callbackArea = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_bkArea, txt_bkAreanm); };
+    scwin.callbackDepartment = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_dept, txt_deptnm); };
+    scwin.callbackItem = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_itemCd, txt_itemNm); };
+    scwin.callbackUnit = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_unit, txt_unitnm); };
+    scwin.callbackContainerType1 = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_cnttype1, ""); };
+    scwin.callbackContainerType2 = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_cnttype2, ""); };
+    scwin.callbackContainerType3 = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_cnttype3, ""); };
+    scwin.callbackContainerType4 = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_cnttype4, ""); };
+    scwin.callbackDocPic = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_docPic, txt_bkPicNm); };
+    scwin.callbackBkPic = function(rtnList) { $c.gus.cfSetReturnValue(rtnList, ed_bkPic, txt_bkPicNm); };
+
+    scwin.f_containerDualCheck = async function() {
+        let v_containerCheck = "0";
+        if (ed_cnttype1.getValue() != "" && ed_cnttype2.getValue() != "" && ed_cnttype1.getValue() == ed_cnttype2.getValue()) v_containerCheck = "1";
+        if (ed_cnttype1.getValue() != "" && ed_cnttype3.getValue() != "" && ed_cnttype1.getValue() == ed_cnttype3.getValue()) v_containerCheck = "1";
+        if (ed_cnttype1.getValue() != "" && ed_cnttype4.getValue() != "" && ed_cnttype1.getValue() == ed_cnttype4.getValue()) v_containerCheck = "1";
+        if (ed_cnttype2.getValue() != "" && ed_cnttype3.getValue() != "" && ed_cnttype2.getValue() == ed_cnttype3.getValue()) v_containerCheck = "1";
+        if (ed_cnttype2.getValue() != "" && ed_cnttype4.getValue() != "" && ed_cnttype2.getValue() == ed_cnttype4.getValue()) v_containerCheck = "1";
+        if (ed_cnttype3.getValue() != "" && ed_cnttype4.getValue() != "" && ed_cnttype3.getValue() == ed_cnttype4.getValue()) v_containerCheck = "1";
+        if (v_containerCheck == "1") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_032, ["Container Type"]);
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    scwin.f_Print = function() {
+        let odiParam = new ODIParam("se_101_01_01");
+        odiParam.add("KCOMCD", scwin.hd_kcomcd);
+        odiParam.add("BKNO", ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "bkNo"));
+        odiParam.add("BKDOORSEQ", ds_containerDoorOrder.getCellData(ds_containerDoorOrder.getRowPosition(), "bkdoorseq"));
+        odiParam.add("DEPTCD", ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "dept"));
+        odiParam.add("USERID", scwin.userId);
+        let formParam = new FormParam();
+        let viewerParam = new ViewerParam();
+        if (chb_pre.getValue() != "") {
+            viewerParam.add("viewer.mode", "preview");
+            viewerParam.add("print.mode", "print");
+        } else {
+            viewerParam.add("viewer.mode", "print");
+            viewerParam.add("print.mode", "silent");
+        }
+        viewerParam.add("viewer.useprogressbar", "false");
+        $c.gus.cfOZReport("", "chb_previewCheck", "/il/seaout/se_101_01_01.ozr", odiParam, viewerParam, formParam);
+    };
+
+    scwin.f_departmentInfo = function(param) {
+        // TODO: Load department info via submission
+    };
+
+    scwin.f_customerInfo = function(param) {
+        // TODO: Load customer info via submission
+    };
+
+    scwin.f_doorTypeLoading = function() {
+        // TODO: Load door type via submission
+    };
+
+    scwin.f_doorTypeQtyLoading = function(row, colid) {
+        let wgt = Number(ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "wgt")) / 1000;
+        let msr = Number(ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "msr"));
+        let qtytype = ds_containerDoorOrderQty.getCellData(row, "qtytype");
+        if (qtytype == "WGT" || qtytype == "M/T") {
+            ds_containerDoorOrderQty.setCellData(row, "qty", ds_containerBookingList.getCellData(ds_containerBookingList.getRowPosition(), "wgt"));
+        } else if (qtytype == "R/T") {
+            if (wgt > msr) {
+                ds_containerDoorOrderQty.setCellData(row, "qty", wgt);
+            } else {
+                ds_containerDoorOrderQty.setCellData(row, "qty", msr);
+            }
+        } else if (qtytype == "CBM") {
+            ds_containerDoorOrderQty.setCellData(row, "qty", msr);
+        } else {
+            let bkRow = ds_containerBookingList.getRowPosition();
+            if (bkRow >= 0) {
+                if (qtytype == ds_containerBookingList.getCellData(bkRow, "cnttype1")) {
+                    ds_containerDoorOrderQty.setCellData(row, "qty", ds_containerBookingList.getCellData(bkRow, "cntqty1"));
+                } else if (qtytype == ds_containerBookingList.getCellData(bkRow, "cnttype2")) {
+                    ds_containerDoorOrderQty.setCellData(row, "qty", ds_containerBookingList.getCellData(bkRow, "cntqty2"));
+                } else if (qtytype == ds_containerBookingList.getCellData(bkRow, "cnttype3")) {
+                    ds_containerDoorOrderQty.setCellData(row, "qty", ds_containerBookingList.getCellData(bkRow, "cntqty3"));
+                } else if (qtytype == ds_containerBookingList.getCellData(bkRow, "cnttype4")) {
+                    ds_containerDoorOrderQty.setCellData(row, "qty", ds_containerBookingList.getCellData(bkRow, "cntqty4"));
+                }
+            }
+        }
+    };
+
+    scwin.f_containerTypeLoading = function() {
+        // TODO: Load container grid type via submission
+    };
+
+    scwin.f_ContractInfo = async function() {
+        ds_ctrtNo.removeAll();
+        dma_retrieveCtrtClnt.set("ctrtNo", scwin.v_contractno);
+        dma_retrieveCtrtClnt.set("ctrtClntNo", ed_custCd.getValue().trim());
+        dma_retrieveCtrtClnt.set("scDate", ed_bkEtd.getValue().trim());
+        dma_retrieveCtrtClnt.set("ctrtDtYn", "1");
+        dma_retrieveCtrtClnt.set("ctrtDistrictCd", "ZZA");
+        dma_retrieveCtrtClnt.set("impExpDomesticClsCd", "O");
+        dma_retrieveCtrtClnt.set("bizDivCntrYn", "1");
+        await $c.sbm.execute(sbm_retrieveCtrtClnt);
+    };
+
+    scwin.f_cntrReceive = function() {
+        // TODO: Container receive logic via submission
+    };
+
+    scwin.f_RunExcel = async function(dataId, gridId) {
+        let countA = dataId.getRowCount();
+        if (!(countA > 0)) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            return;
+        }
+        let sheetName = "";
+        let fileName = "";
+        if (gridId == "gr_houseblList") {
+            sheetName = "Booking List";
+            fileName = "Booking List.xls";
+        } else if (gridId == "gr_containerDoorOrder") {
+            sheetName = "Door Order List";
+            fileName = "Booking List.xls";
+        }
+        let chk = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (chk) {
+            $c.data.downloadGridViewExcel(gridId, {fileName: fileName, sheetName: sheetName});
+        }
+    };
+
+    scwin.f_openPgm = function(name) {
+        if (name == "BookingFind") {
+            let strPath = "/ui/il/seaout/sobk/se_103_01_01b.xml";
+            $c.win.openMenu("Booking Search", strPath, "se_103_01_01b.xml", {hhio: scwin.hd_bkIo});
+        } else if (name == "HouseBl") {
+            let strPath = "/ui/il/seaout/sobl/se_105_01_01b.xml";
+            $c.win.openMenu("Export House B/L", strPath, "se_105_01_01b.xml", {
+                linkcheck: "4",
+                kcomcd: scwin.hd_kcomcd,
+                bkno: cnd_ed_bkNo.getValue(),
+                carrierBkno: ed_carrierBkNo.getValue()
+            });
+        } else if (name == "DirectBl") {
+            let strPath = "/ui/il/seaout/sobl/se_107_01_01b.xml";
+            $c.win.openMenu("Direct B/L", strPath, "se_107_01_01b.xml", {
+                linkcheck: "4",
+                kcomcd: scwin.hd_kcomcd,
+                bkno: cnd_ed_bkNo.getValue(),
+                carrierBkno: ed_carrierBkNo.getValue()
+            });
+        }
+    };
+
+    scwin.f_PopUpGrid = function(disGubun, Row, pWinCloseTF, pAllSearchTF) {
+        switch (disGubun) {
+            case "Customer":
+                udc_doc.ilCommonPopUp(function(rtnList) {
+                    $c.gus.cfSetGridReturnValue(rtnList, ds_containerDoorOrder, Row, "transcd", "transnm");
+                },
+                ds_containerDoorOrder.getCellData(Row, "transcd"),
+                ds_containerDoorOrder.getCellData(Row, "transnm"),
+                pWinCloseTF, "10", "Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+                "140,300,100,100,100,100,100,,,100", "8,9", null, null, null, null, null, null,
+                pAllSearchTF, "Customer search,Customer Code,Customer Name", "F");
+                break;
+            case "Department":
+                udc_dept.ilCommonPopUp(function(rtnList) {
+                    $c.gus.cfSetGridReturnValue(rtnList, ds_containerDoorOrder, Row, "transcd", "transnm");
+                },
+                ds_containerDoorOrder.getCellData(Row, "transcd"),
+                ds_containerDoorOrder.getCellData(Row, "transnm"),
+                pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                null, null, null, null, null, null, pAllSearchTF, "Department,Code,Name", "F");
+                break;
+            case "PickupCy":
+                udc_lod.ilCommonPopUp(function(rtnList) {
+                    $c.gus.cfSetGridReturnValue(rtnList, ds_containerDoorOrder, Row, "fcity", "fcitynm");
+                },
+                ds_containerDoorOrder.getCellData(Row, "fcity"),
+                ds_containerDoorOrder.getCellData(Row, "fcitynm"),
+                pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                null, null, null, null, null, null, pAllSearchTF, "CY,Code,Name", "F");
+                break;
+            case "Door":
+                udc_lod.ilCommonPopUp(function(rtnList) {
+                    $c.gus.cfSetGridReturnValue(rtnList, ds_containerDoorOrder, Row, "doorcd", "doornm");
+                },
+                ds_containerDoorOrder.getCellData(Row, "doorcd"),
+                ds_containerDoorOrder.getCellData(Row, "doornm"),
+                pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                null, null, null, null, null, null, pAllSearchTF, "Door search,Door Code,Door Name", "F");
+                break;
+            case "GateinCy":
+                udc_lod.ilCommonPopUp(function(rtnList) {
+                    $c.gus.cfSetGridReturnValue(rtnList, ds_containerDoorOrder, Row, "tcity", "tcitynm");
+                },
+                ds_containerDoorOrder.getCellData(Row, "tcity"),
+                ds_containerDoorOrder.getCellData(Row, "tcitynm"),
+                pWinCloseTF, "2", "Code, Name", "80,230", "3,4,5,6,7,8,9,10",
+                null, null, null, null, null, null, pAllSearchTF, "CY,Code,Name", "F");
+                break;
+        }
+    };
+
+    scwin.gr_containerDoorOrder_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+        switch (columnId) {
+            case "transcd":
+                if (ds_containerDoorOrder.getCellData(rowIndex, "internalTyp") == "1") {
+                    scwin.f_PopUpGrid("Department", rowIndex, "F");
+                } else {
+                    scwin.f_PopUpGrid("Customer", rowIndex, "F");
+                }
+                break;
+            case "fcity":
+                scwin.f_PopUpGrid("PickupCy", rowIndex, "F");
+                break;
+            case "doorcd":
+                scwin.f_PopUpGrid("Door", rowIndex, "F");
+                break;
+            case "tcity":
+                scwin.f_PopUpGrid("GateinCy", rowIndex, "F");
+                break;
+            case "doordt":
+                $c.gus.cfOpenCalendar(gr_containerDoorOrder, rowIndex, columnId);
+                break;
+            case "fdt":
+                $c.gus.cfOpenCalendar(gr_containerDoorOrder, rowIndex, columnId);
+                break;
+            case "closingdt":
+                $c.gus.cfOpenCalendar(gr_containerDoorOrder, rowIndex, columnId);
+                break;
+            case "sendDt":
+                $c.gus.cfOpenCalendar(gr_containerDoorOrder, rowIndex, columnId);
+                break;
+        }
+    };
+
+    scwin.gr_houseblList_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+        if (rowIndex >= 0) {
+            if (ds_houseblList.getCellData(rowIndex, "autono") == "DIRECT" && ds_houseblList.getCellData(rowIndex, "hhbltype") != "B") {
+                let strPath = "/ui/il/seaout/sobl/se_107_01_01b.xml";
+                $c.win.openMenu("Export House B/L", strPath, "se_107_01_01b.xml", {
+                    linkcheck: "1",
+                    kcomcd: scwin.hd_kcomcd,
+                    blno: ds_houseblList.getCellData(rowIndex, "hhblno"),
+                    mhno: ds_houseblList.getCellData(rowIndex, "mhno")
+                });
+            } else if (ds_houseblList.getCellData(rowIndex, "autono") == "DIRECT" && ds_houseblList.getCellData(rowIndex, "hhbltype") == "B") {
+                let strPath = "/ui/il/seaout/sobl/se_108_01_01b.xml";
+                $c.win.openMenu("Export Bulk B/L", strPath, "se_108_01_01b.xml", {
+                    linkcheck: "1",
+                    kcomcd: scwin.hd_kcomcd,
+                    mhno: ds_houseblList.getCellData(rowIndex, "mhno")
+                });
+            } else {
+                let strPath = "/ui/il/seaout/sobl/se_105_01_01b.xml";
+                $c.win.openMenu("Export House B/L", strPath, "se_105_01_01b.xml", {
+                    linkcheck: "1",
+                    kcomcd: scwin.hd_kcomcd,
+                    blno: ds_houseblList.getCellData(rowIndex, "hhblno"),
+                    mhno: ds_houseblList.getCellData(rowIndex, "mhno")
+                });
+            }
+        }
+    };
+
+    scwin.btn_retrieve_onclick = function(e) {
+        scwin.f_Retrieve();
+    };
+
+    scwin.btn_fieldClear_onclick = function(e) {
+        scwin.f_FieldClear();
+    };
+
+    scwin.btn_OrderSend_onclick = function(e) {
+        scwin.f_orderSend();
+    };
+
+    scwin.btn_OrderSendDel_onclick = function(e) {
+        scwin.f_orderSendDel();
+    };
+
+    scwin.btn_AddRow1_onclick = function(e) {
+        scwin.f_addRow(1);
+    };
+
+    scwin.btn_DelRow1_onclick = function(e) {
+        scwin.f_deleteRow(1);
+    };
+
+    scwin.btn_CancelRow1_onclick = function(e) {
+        scwin.f_cancelRow(1);
+    };
+
+    scwin.btn_AddRow2_onclick = function(e) {
+        scwin.f_addRow(2);
+    };
+
+    scwin.btn_DelRow2_onclick = function(e) {
+        scwin.f_deleteRow(2);
+    };
+
+    scwin.btn_CancelRow2_onclick = function(e) {
+        scwin.f_cancelRow(2);
+    };
+
+    scwin.btn_CntrReceive_onclick = function(e) {
+        scwin.f_cntrReceive();
+    };
+
+    scwin.btn_AddRow3_onclick = function(e) {
+        scwin.f_addRow(3);
+    };
+
+    scwin.btn_DelRow3_onclick = function(e) {
+        scwin.f_deleteRow(3);
+    };
+
+    scwin.btn_CancelRow3_onclick = function(e) {
+        scwin.f_cancelRow(3);
+    };
+
+    scwin.btn_Copy_onclick = function(e) {
+        scwin.f_Copy();
+    };
+
+    scwin.btn_Cancel_onclick = function(e) {
+        scwin.f_Cancel();
+    };
+
+    scwin.btn_Create_onclick = function(e) {
+        scwin.f_Create();
+    };
+
+    scwin.btn_Update_onclick = function(e) {
+        scwin.f_Update();
+    };
+
+    scwin.btn_Save_onclick = function(e) {
+        scwin.f_Save();
+    };
+
+    scwin.btn_Print_onclick = function(e) {
+        scwin.f_Print();
+    };
+
+    scwin.btn_Delete_onclick = function(e) {
+        scwin.f_Delete();
+    };
+
+    scwin.btn_Find_onclick = function(e) {
+        scwin.f_openPgm("BookingFind");
+    };
+
+    scwin.btn_HouseBl_onclick = function(e) {
+        scwin.f_openPgm("HouseBl");
+    };
+
+    scwin.btn_DirectBl_onclick = function(e) {
+        scwin.f_openPgm("DirectBl");
+    };
+
+    scwin.sbm_retrieve_submitdone = async function(e) {
+        if (ds_containerBookingList.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_003);
+            scwin.f_Set("INIT");
+            scwin.f_Check();
+        } else {
+            ed_totcnt.setValue(ds_containerBookingCont.getRowCount());
+            let v_totPkg = 0;
+            let v_totWgt = 0;
+            let v_totMsr = 0;
+            for (let i = 0; i < ds_containerBookingCont.getRowCount(); i++) {
+                v_totPkg += Number(ds_containerBookingCont.getCellData(i, "cntpkg"));
+                v_totWgt += Number(ds_containerBookingCont.getCellData(i, "cntwgt"));
+                v_totMsr += Number(ds_containerBookingCont.getCellData(i, "cntmsrt"));
+            }
+            ed_totpkg.setValue(v_totPkg);
+            ed_totwgt.setValue(v_totWgt);
+            ed_totmsr.setValue(v_totMsr);
+            scwin.f_Set("RETRIEVE");
+
+            let bkRow = ds_containerBookingList.getRowPosition();
+            if (bkRow >= 0 && ds_containerBookingList.getRowCount() > 0) {
+                if (ds_containerBookingList.getCellData(bkRow, "contractno") != "") {
+                    scwin.v_contractno = ds_containerBookingList.getCellData(bkRow, "contractno");
+                    if (scwin.v_contractno == "NONE") {
+                        scwin.f_ContractInfo();
+                        ds_ctrtNo.removeAll();
+                        ds_ctrtNo.insertRow();
+                        ds_ctrtNo.setCellData(ds_ctrtNo.getRowPosition(), "ctrtNo", "NONE");
+                        lc_contractno.setSelectedIndex(0);
+                    } else {
+                        scwin.f_ContractInfo();
+                    }
+                }
+            }
+        }
+    };
+
+    scwin.sbm_retrieve_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_retrieveOrder_submitdone = function(e) {
+    };
+
+    scwin.sbm_retrieveOrder_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_save_submitdone = async function(e) {
+        await $c.gus.cfAlertMsg(E_MSG_CM_INF_001);
+    };
+
+    scwin.sbm_save_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_delete_submitdone = async function(e) {
+        await $c.gus.cfAlertMsg(E_MSG_CM_INF_004);
+    };
+
+    scwin.sbm_delete_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_saveOrderSend_submitdone = async function(e) {
+        await $c.gus.cfAlertMsg(E_MSG_CM_INF_001);
+    };
+
+    scwin.sbm_saveOrderSend_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_retrievebookingNo_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_retrieveCtrtClnt_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_retrievebookingHbl_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.ds_containerDoorOrder_onrowpositionchange = async function(rowIndex, oldRow) {
+        if (rowIndex < 0) return;
+        let v_kcomcd = ds_containerDoorOrder.getCellData(rowIndex, "kcomcd");
+        let v_bkdoorseq = ds_containerDoorOrder.getCellData(rowIndex, "bkdoorseq");
+        let v_bkNo = ds_containerDoorOrder.getCellData(rowIndex, "bkNo");
+
+        if (rowIndex >= 0 && ds_containerDoorOrder.getRowStatus(rowIndex) != "C") {
+            sbm_retrieveOrder.action = "/il.seaout.sobk.RetrieveContainerBookingOrderCMD.do?bkdoorseq=" + v_bkdoorseq + "&bkNo=" + v_bkNo + "&kcomcd=" + v_kcomcd;
+            await $c.sbm.execute(sbm_retrieveOrder);
+        } else if (ds_containerDoorOrder.getRowStatus(rowIndex) == "C") {
+            let v_cnt = 0;
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getRowStatus(i) == "C") v_cnt++;
+            }
+            if (v_cnt == 1) {
+                ds_containerDoorOrderQty.removeAll();
+            }
+        }
+    };
+
+    scwin.gr_containerDoorOrder_oneditend = async function(rowIndex, columnIndex, columnId, oldValue, newValue) {
+        if (rowIndex >= 0 && ds_containerDoorOrder.getRowCount() > rowIndex) {
+            switch (columnId) {
+                case "transcd":
+                    if (ds_containerDoorOrder.getCellData(rowIndex, columnId).trim() != "") {
+                        if (ds_containerDoorOrder.getCellData(rowIndex, "internalTyp") == "1") {
+                            ds_containerDoorOrder.setCellData(rowIndex, "transnm", "");
+                            scwin.f_PopUpGrid("Department", rowIndex, "T");
+                        } else {
+                            ds_containerDoorOrder.setCellData(rowIndex, "transnm", "");
+                            scwin.f_PopUpGrid("Customer", rowIndex, "T");
+                        }
+                    } else {
+                        ds_containerDoorOrder.setCellData(rowIndex, "transcd", "");
+                        ds_containerDoorOrder.setCellData(rowIndex, "transnm", "");
+                    }
+                    break;
+                case "fcity":
+                    if (ds_containerDoorOrder.getCellData(rowIndex, columnId).trim() != "") {
+                        ds_containerDoorOrder.setCellData(rowIndex, "fcitynm", "");
+                        scwin.f_PopUpGrid("PickupCy", rowIndex, "T");
+                    } else {
+                        ds_containerDoorOrder.setCellData(rowIndex, "fcity", "");
+                        ds_containerDoorOrder.setCellData(rowIndex, "fcitynm", "");
+                    }
+                    break;
+                case "doorcd":
+                    if (ds_containerDoorOrder.getCellData(rowIndex, columnId).trim() != "") {
+                        ds_containerDoorOrder.setCellData(rowIndex, "doornm", "");
+                        scwin.f_PopUpGrid("Door", rowIndex, "T");
+                    } else {
+                        ds_containerDoorOrder.setCellData(rowIndex, "doorcd", "");
+                        ds_containerDoorOrder.setCellData(rowIndex, "doornm", "");
+                    }
+                    break;
+                case "tcity":
+                    if (ds_containerDoorOrder.getCellData(rowIndex, columnId).trim() != "") {
+                        ds_containerDoorOrder.setCellData(rowIndex, "tcitynm", "");
+                        scwin.f_PopUpGrid("GateinCy", rowIndex, "T");
+                    } else {
+                        ds_containerDoorOrder.setCellData(rowIndex, "tcity", "");
+                        ds_containerDoorOrder.setCellData(rowIndex, "tcitynm", "");
+                    }
+                    break;
+            }
+        }
+    };
+
+    scwin.gr_containerDoorOrder_onheaderclick = function(columnIndex, columnId) {
+        if (columnId == "chk") {
+            let allChecked = true;
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "sendDt") == "" && ds_containerDoorOrder.getCellData(i, "chk") != "T") {
+                    allChecked = false;
+                    break;
+                }
+            }
+            for (let i = 0; i < ds_containerDoorOrder.getRowCount(); i++) {
+                if (ds_containerDoorOrder.getCellData(i, "sendDt") == "") {
+                    ds_containerDoorOrder.setCellData(i, "chk", allChecked ? "F" : "T");
+                }
+            }
+        }
+    };
+
+    scwin.gr_containerDoorOrderQty_ondropdown = function(rowIndex, columnIndex, columnId) {
+        scwin.f_doorTypeLoading();
+    };
+
+    scwin.gr_containerDoorOrderQty_oncloseup = function(rowIndex, columnIndex, columnId) {
+        scwin.f_doorTypeQtyLoading(rowIndex, columnId);
+    };
+
+    scwin.gr_containerBookingCont_ondropdown = function(rowIndex, columnIndex, columnId) {
+        scwin.f_containerTypeLoading();
+    };
+
+    scwin.gr_containerDoorOrder_onexit_seqcheck = async function(rowIndex, columnIndex, columnId) {
+        for (let i = 0; i < ds_containerDoorOrder.getRowCount() - 1; i++) {
+            for (let j = i + 1; j < ds_containerDoorOrder.getRowCount(); j++) {
+                if (ds_containerDoorOrder.getCellData(i, "bkdoorseq") == ds_containerDoorOrder.getCellData(j, "bkdoorseq")) {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_032, ["Container Seq"]);
+                    gr_containerDoorOrder.setFocusedCell(j, "bkdoorseq");
+                    return;
+                }
+            }
+        }
+    };
+
+    scwin.gr_containerDoorOrderQty_onexit_typecheck = async function(rowIndex, columnIndex, columnId) {
+        if (columnId == "qtytype") {
+            for (let i = 0; i < ds_containerDoorOrderQty.getRowCount() - 1; i++) {
+                for (let j = i + 1; j < ds_containerDoorOrderQty.getRowCount(); j++) {
+                    if (ds_containerDoorOrderQty.getCellData(i, "qtytype") == ds_containerDoorOrderQty.getCellData(j, "qtytype")) {
+                        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_032, ["Container Type"]);
+                        gr_containerDoorOrderQty.setFocusedCell(j, "qtytype");
+                        return;
+                    }
+                }
+            }
+        }
+    };
+
+    scwin.gr_containerBookingCont_onexit_cntnocheck = async function(rowIndex, columnIndex, columnId) {
+        for (let i = 0; i < ds_containerBookingCont.getRowCount() - 1; i++) {
+            for (let j = i + 1; j < ds_containerBookingCont.getRowCount(); j++) {
+                if (ds_containerBookingCont.getCellData(i, "cntno") == ds_containerBookingCont.getCellData(j, "cntno")) {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_032, ["Container No"]);
+                    gr_containerBookingCont.setFocusedCell(j, "cntno");
+                    return;
+                }
+            }
+        }
+    };
+
+    scwin.udc_doc_onblurCode = function() {
+        let strClntNo = ed_docCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_docCust.setValue("");
+            scwin.f_PopUp("Shipper", "T");
+        } else {
+            txt_docCust.setValue("");
+        }
+        if (ed_docCd.getValue() != "") {
+            if (ed_custCd.getValue() == "") {
+                ed_custCd.setValue(ed_docCd.getValue());
+                scwin.f_PopUp("Customer", "T");
+            }
+        }
+    };
+
+    scwin.udc_cust_onblurCode = function() {
+        let strClntNo = ed_custCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_custNm.setValue("");
+            scwin.f_PopUp("Customer", "T");
+        } else {
+            txt_custNm.setValue("");
+        }
+    };
+
+    scwin.udc_fac_onblurCode = function() {
+        let strClntNo = ed_facCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_facNm.setValue("");
+            scwin.f_PopUp("Factory", "T");
+        } else {
+            txt_facNm.setValue("");
+        }
+    };
+
+    scwin.udc_liner_onblurCode = function() {
+        let strClntNo = ed_liner.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_linernm.setValue("");
+            scwin.f_PopUp("Liner", "T");
+        } else {
+            txt_linernm.setValue("");
+        }
+    };
+
+    scwin.udc_bkAgent_onblurCode = function() {
+        let strClntNo = ed_bkAgent.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_bkAgentnm.setValue("");
+            scwin.f_PopUp("Partner", "T");
+        } else {
+            txt_bkAgentnm.setValue("");
+        }
+    };
+
+    scwin.udc_vsl_onblurCode = function() {
+        let strClntNo = ed_vslCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_vslNm.setValue("");
+            scwin.f_OpenCommonPopUp("Vessel", "T", "F", "F");
+        } else {
+            txt_vslNm.setValue("");
+        }
+    };
+
+    scwin.udc_ts1Vssl_onblurCode = function() {
+        let strClntNo = ed_ts1VsslCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_ts1VsslNm.setValue("");
+            scwin.f_OpenCommonPopUp("ts1VsslCd", "T", "F", "F");
+        } else {
+            txt_ts1VsslNm.setValue("");
+        }
+    };
+
+    scwin.udc_ts2Vssl_onblurCode = function() {
+        let strClntNo = ed_ts2VsslCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_ts2VsslNm.setValue("");
+            scwin.f_OpenCommonPopUp("ts2VsslCd", "T", "F", "F");
+        } else {
+            txt_ts2VsslNm.setValue("");
+        }
+    };
+
+    scwin.udc_sales_onblurCode = function() {
+        let strClntNo = ed_salesCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_salesNm.setValue("");
+            scwin.f_OpenCommonPopUp("Salesman", "T", "F", "F");
+        } else {
+            txt_salesNm.setValue("");
+        }
+    };
+
+    scwin.udc_lod_onblurCode = function() {
+        let strClntNo = ed_lodCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_lodNm.setValue("");
+            scwin.f_OpenCommonPopUp("Loading", "T", "F", "F");
+        } else {
+            txt_lodNm.setValue("");
+        }
+    };
+
+    scwin.udc_ts1Port_onblurCode = function() {
+        let strClntNo = ed_ts1PortCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_ts1PortNm.setValue("");
+            scwin.f_OpenCommonPopUp("ts1PortCd", "T", "F", "F");
+        } else {
+            txt_ts1PortNm.setValue("");
+        }
+    };
+
+    scwin.udc_ts2Port_onblurCode = function() {
+        let strClntNo = ed_ts2PortCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_ts2PortNm.setValue("");
+            scwin.f_OpenCommonPopUp("ts2PortCd", "T", "F", "F");
+        } else {
+            txt_ts2PortNm.setValue("");
+        }
+    };
+
+    scwin.udc_dis_onblurCode = function() {
+        let strClntNo = ed_disCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_disNm.setValue("");
+            scwin.f_OpenCommonPopUp("Discharge", "T", "F", "F");
+        } else {
+            txt_disNm.setValue("");
+        }
+    };
+
+    scwin.udc_dlv_onblurCode = function() {
+        let strClntNo = ed_dlvCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_dlvNm.setValue("");
+            scwin.f_OpenCommonPopUp("Delivery", "T", "F", "F");
+        } else {
+            txt_dlvNm.setValue("");
+        }
+    };
+
+    scwin.udc_bkArea_onblurCode = function() {
+        let strClntNo = ed_bkArea.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_bkAreanm.setValue("");
+            scwin.f_OpenCommonPopUp("Area", "T", "F", "F");
+        } else {
+            txt_bkAreanm.setValue("");
+        }
+    };
+
+    scwin.udc_dept_onblurCode = function() {
+        let strClntNo = ed_dept.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_deptnm.setValue("");
+            scwin.f_OpenCommonPopUp("Department", "T", "F", "F");
+        } else {
+            txt_deptnm.setValue("");
+        }
+    };
+
+    scwin.udc_item_onblurCode = function() {
+        let strClntNo = ed_itemCd.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_itemNm.setValue("");
+            scwin.f_OpenCommonPopUp("Item", "T", "F", "F");
+        } else {
+            txt_itemNm.setValue("");
+        }
+    };
+
+    scwin.udc_unit_onblurCode = function() {
+        let strClntNo = ed_unit.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_unitnm.setValue("");
+            scwin.f_OpenCommonPopUp("Unit", "T", "F", "F");
+        } else {
+            txt_unitnm.setValue("");
+        }
+    };
+
+    scwin.udc_bkPic_onblurCode = function() {
+        let strClntNo = ed_bkPic.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_bkPicNm.setValue("");
+            scwin.f_OpenCommonPopUp("BkPic", "T", "F", "F");
+        } else {
+            txt_bkPicNm.setValue("");
+        }
+    };
+
+    scwin.lc_contractno_ondropdown = async function() {
+        scwin.v_contractno = "";
+        if (ed_bkEtd.getValue() == "" || ed_bkEtd.getValue() == null) {
+            await $c.win.alert("ETD is mandatory to retrieve Contract No");
+            ds_ctrtNo.removeAll();
+            ed_salesCd.setValue("");
+            txt_salesNm.setValue("");
+            return false;
+        } else {
+            await scwin.f_ContractInfo();
+            if (scwin.statusFlag == "C" || scwin.statusFlag == "U") {
+                if (ds_ctrtNo.getRowCount() == 0) ds_ctrtNo.insertRow();
+                let ctRow = ds_ctrtNo.getRowPosition();
+                if (ctRow >= 0 && ds_ctrtNo.getCellData(ctRow, "empNo") != "") {
+                    if (ed_salesCd.getValue() == "") {
+                        ed_salesCd.setValue(ds_ctrtNo.getCellData(ctRow, "empNo"));
+                        scwin.f_OpenCommonPopUp("Salesman", "T", "F", "F");
+                    }
+                }
+            }
+        }
+    };
+
+    scwin.ed_cnttype1_onblur = async function() {
+        await scwin.f_containerDualCheck();
+        if (ed_cnttype1.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype1.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+            }
+        }
+        let strClntNo = ed_cnttype1.getValue().trim();
+        if (strClntNo.length > 0) {
+            scwin.f_OpenCommonPopUp("ContainerType1", "T", "F", "F");
+        }
+    };
+
+    scwin.ed_cnttype2_onblur = async function() {
+        await scwin.f_containerDualCheck();
+        if (ed_cnttype2.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype2.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+            }
+        }
+        let strClntNo = ed_cnttype2.getValue().trim();
+        if (strClntNo.length > 0) {
+            scwin.f_OpenCommonPopUp("ContainerType2", "T", "F", "F");
+        }
+    };
+
+    scwin.ed_cnttype3_onblur = async function() {
+        await scwin.f_containerDualCheck();
+        if (ed_cnttype3.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype3.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+            }
+        }
+        let strClntNo = ed_cnttype3.getValue().trim();
+        if (strClntNo.length > 0) {
+            scwin.f_OpenCommonPopUp("ContainerType3", "T", "F", "F");
+        }
+    };
+
+    scwin.ed_cnttype4_onblur = async function() {
+        await scwin.f_containerDualCheck();
+        if (ed_cnttype4.getValue() != "") {
+            let STR = scwin.f_containerTypeValueRow(ed_cnttype4.getValue());
+            if (STR == "0") {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]);
+            }
+        }
+        let strClntNo = ed_cnttype4.getValue().trim();
+        if (strClntNo.length > 0) {
+            scwin.f_OpenCommonPopUp("ContainerType4", "T", "F", "F");
+        }
+    };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="Booking No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="cnd_ed_bkNo" placeholder="" style="width:150px;"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tabbox " id="" style="">
+    				<w2:tabControl alwaysDraw="false" class="wq_tab" id="" style="">
+    					<w2:tabs disabled="false" id="tabs1" label="Booking" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs2" label="Door Order" style=""></w2:tabs>
+    					<w2:content alwaysDraw="false" id="content1" style="height: auto;">
+    						<xf:group class="tbbox" id="" style="">
+    							<xf:group class="w2tb" id="" style="" tagname="table">
+    								<w2:attributes>
+    									<w2:summary></w2:summary>
+    								</w2:attributes>
+    								<xf:group tagname="caption"></xf:group>
+    								<xf:group tagname="colgroup">
+    									<xf:group style="width:120px;" tagname="col"></xf:group>
+    									<xf:group style="" tagname="col"></xf:group>
+    									<xf:group style="width:120px;" tagname="col"></xf:group>
+    									<xf:group style="" tagname="col"></xf:group>
+    									<xf:group style="width:120px;" tagname="col"></xf:group>
+    									<xf:group style="" tagname="col"></xf:group>
+    								</xf:group>
+    								<xf:group style="" tagname="tr">
+    									<xf:group class="w2tb_th" style="" tagname="th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="req" id="" label="Booking No " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" style="" tagname="td">
+    										<w2:udc_comCode id="udc_bkPic" codeId="ed_bkPic" nameId="txt_bkPicNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group class="w2tb_th" style="" tagname="td">
+    										<w2:attributes>
+    											<w2:colspan>1</w2:colspan>
+    											<w2:rowspan>1</w2:rowspan>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Cargo Type" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<w2:autoComplete class="" editType="select" id="lc_cfs" search="start"
+    											style="width:150px;" submenuSize="auto" ref="data:ds_containerBookingList.cfs">
+    										</w2:autoComplete>
+    									</xf:group>
+    									<xf:group class="w2tb_th" tagname="th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="Request/Result" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_fromToCalendar id="udc_requestResult" edFromId="ica_reDt" edToId="ica_etRsltsDt" refDataMap="" refEdDt="" refStDt="" style=""></w2:udc_fromToCalendar>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group style="" tagname="tr">
+    									<xf:group class="w2tb_th" tagname="th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Carrier BK " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group">
+    											<xf:input style="width:150px;" id="ed_carrierBkNo" placeholder="" class="" ref="data:ds_containerBookingList.carrierBkNo"></xf:input>
+    											<xf:select ref="data:ds_containerBookingList.iptYn" appearance="full" style="" id="chb_iptYn" renderType="checkboxgroup"
+    												rows="" selectedindex="-1" class="" cols="">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[중요]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="Ref.No " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_refNo" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.refNo"></xf:input>
+    									</xf:group>
+    									<xf:group class="w2tb_th" tagname="th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="Triangle " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group">
+    											<xf:select ref="data:ds_containerBookingList.triYn" appearance="full" style="" id="chb_triYn" renderType="checkboxgroup"
+    												rows="" selectedindex="-1" class="" cols="">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width:150px;"
+    												id="lc_triItemType" class="" ref="data:ds_containerBookingList.triItemType">
+    											</w2:autoComplete>
+    											<xf:input style="width:150px;" id="ed_triWrkDesc" placeholder="" class="" ref="data:ds_containerBookingList.triWrkDesc"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr" style="">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Shipper " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_doc" codeId="ed_docCd" nameId="txt_docCust" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="작업지 " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_wrkPlNm" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.wrkPlNm"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="FREE DAY " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_freeDay" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.freeDay"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr" style="">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="req" id="" label="Customer " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_cust" codeId="ed_custCd" nameId="txt_custNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="TEAM " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_custTeam" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.custTeam"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="거래처담당 " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_custTeamPic" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.custTeamPic"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Factory " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_fac" codeId="ed_facCd" nameId="txt_facNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="CFS " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_cfsNm" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.cfsNm"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="SHORING " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_shrNm" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.shrNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Carrier " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_liner" codeId="ed_liner" nameId="txt_linernm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="DOC CLOSING " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group class="form-group" id="" style="">
+    											<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_docClosingDt"
+    												style="" ref="data:ds_containerBookingList.docClosingDt">
+    											</w2:inputCalendar>
+    											<xf:input class="w50 tac" dataType="time" id="ed_docClosingTime" style="" ref="data:ds_containerBookingList.docClosingTime"></xf:input>
+    											<xf:input class="" id="ed_docPic" placeholder="" style="width: 50px;" ref="data:ds_containerBookingList.docPic"></xf:input>
+    											<xf:trigger class="btn ico sch" id="btn_trigger7" style="" type="button">
+    												<xf:label><![CDATA[버튼]]></xf:label>
+    											</xf:trigger>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="CARGO CLOSING " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group class="form-group" id="grp_group3" style="">
+    											<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_cargoClosingDt"
+    												style="" ref="data:ds_containerBookingList.cargoClosingDt">
+    											</w2:inputCalendar>
+    											<xf:input class="w50 tac" dataType="time" id="ed_cargoClosingTime" style="" ref="data:ds_containerBookingList.cargoClosingTime"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Vessel " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_vsl" codeId="ed_vslCd" nameId="txt_vslNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="VOY " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_voy" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.voy"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Salesman " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_sales" codeId="ed_salesCd" nameId="txt_salesNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Loading " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_lod" codeId="ed_lodCd" nameId="txt_lodNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="Discharge " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_dis" codeId="ed_disCd" nameId="txt_disNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Delivery " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_dlv" codeId="ed_dlvCd" nameId="txt_dlvNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="req" id="" label="Department " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_dept" codeId="ed_dept" nameId="txt_deptnm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="req" id="" label="ETD " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_bkEtd" pickerType="dynamic"
+    											placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_containerBookingList.bkEtd" mandatory="true">
+    										</w2:inputCalendar>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="req" id="" label="ETA " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_bkEta" pickerType="dynamic"
+    											placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_containerBookingList.bkEta" mandatory="true">
+    										</w2:inputCalendar>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="T/S Vessel " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_ts1Vssl" codeId="ed_ts1VsslCd" nameId="txt_ts1VsslNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="T/S VOY " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_ts1Voy" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.ts1Voy"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="T/S Port " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_ts1Port" codeId="ed_ts1PortCd" nameId="txt_ts1PortNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="T/S ETA " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_ts1Eta" pickerType="dynamic"
+    											placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_containerBookingList.ts1Eta">
+    										</w2:inputCalendar>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="T/S ETD " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_ts1Etd" pickerType="dynamic"
+    											placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_containerBookingList.ts1Etd">
+    										</w2:inputCalendar>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="T/S Vessel " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_ts2Vssl" codeId="ed_ts2VsslCd" nameId="txt_ts2VsslNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="T/S VOY " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_ts2Voy" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.ts2Voy"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="T/S Port " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_ts2Port" codeId="ed_ts2PortCd" nameId="txt_ts2PortNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="T/S ETA " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_ts2Eta" pickerType="dynamic"
+    											placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_containerBookingList.ts2Eta">
+    										</w2:inputCalendar>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="T/S ETD " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_ts2Etd" pickerType="dynamic"
+    											placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_containerBookingList.ts2Etd">
+    										</w2:inputCalendar>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Partner " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_bkAgent" codeId="ed_bkAgent" nameId="txt_bkAgentnm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Freight Term " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:autoComplete class="" editType="select" id="lc_payTerm" search="start"
+    											style="width:150px;" submenuSize="auto" ref="data:ds_containerBookingList.payTerm">
+    										</w2:autoComplete>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="req" id="" label="Contract No " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:autoComplete class="" editType="select" id="lc_contractno" search="start"
+    											style="width:150px;" submenuSize="auto" ref="data:ds_containerBookingList.contractno" mandatory="true">
+    										</w2:autoComplete>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Service Term " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:autoComplete class="" editType="select" id="lc_svcType" search="start"
+    											style="width:150px;" submenuSize="auto" ref="data:ds_containerBookingList.svcType">
+    										</w2:autoComplete>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Item " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_item" codeId="ed_itemCd" nameId="txt_itemNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="Area " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:udc_comCode id="udc_bkArea" codeId="ed_bkArea" nameId="txt_bkAreanm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Incoterms" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:autoComplete class="" editType="select" id="lc_bkIncoterm" search="start"
+    											style="width:150px;" submenuSize="auto" ref="data:ds_containerBookingList.bkIncoterm">
+    										</w2:autoComplete>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Package " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+
+    										<xf:group id="" class="form-group">
+    											<xf:input style="width:80px;" id="ed_pkg" placeholder="" class="" ref="data:ds_containerBookingList.pkg"></xf:input>
+    											<w2:udc_comCode id="udc_unit" codeId="ed_unit" nameId="txt_unitnm" popupID="" style="" hideName="Y"></w2:udc_comCode>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="BUYING " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_refBuyingAmt" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.refBuyingAmt"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="SELLING " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_refSellingAmt" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.refSellingAmt"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Weight" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_wgt" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.wgt"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="CNTR Type" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group">
+    											<xf:group style="" id="" class="form-group">
+    												<xf:input style="width: 50px;" id="ed_cnttype1" placeholder="" class="" ref="data:ds_containerBookingList.cnttype1"></xf:input>
+    												<xf:trigger style="" id="btn_trigger8" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger>
+    											</xf:group>
+    											<xf:group style="" id="" class="form-group">
+    												<xf:input style="width: 50px;" id="ed_cnttype2" placeholder="" class="" ref="data:ds_containerBookingList.cnttype2"></xf:input>
+    												<xf:trigger style="" id="btn_trigger9" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger>
+    											</xf:group>
+    											<xf:group style="" id="" class="form-group">
+    												<xf:input style="width: 50px;" id="ed_cnttype3" placeholder="" class="" ref="data:ds_containerBookingList.cnttype3"></xf:input>
+    												<xf:trigger style="" id="btn_trigger10" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger>
+    											</xf:group>
+    											<xf:group style="" id="" class="form-group">
+    												<xf:input style="width: 50px;" id="ed_cnttype4" placeholder="" class="" ref="data:ds_containerBookingList.cnttype4"></xf:input>
+    												<xf:trigger style="" id="btn_trigger11" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    											<w2:colspan>1</w2:colspan>
+    											<w2:rowspan>2</w2:rowspan>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Remark" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes>
+    											<w2:colspan>1</w2:colspan>
+    											<w2:rowspan>2</w2:rowspan>
+    										</w2:attributes>
+    										<xf:textarea class="" id="txt_remarkMaster" style="" ref="data:ds_containerBookingList.remarkMaster"></xf:textarea>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="Measure" style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_msr" placeholder="" style="width:150px;" ref="data:ds_containerBookingList.msr"></xf:input>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_th">
+    										<w2:attributes></w2:attributes>
+    										<w2:textbox class="" id="" label="CNTR QTY " style=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group">
+    											<xf:input style="width:75px;" id="ed_cntqty1" placeholder="" class="" ref="data:ds_containerBookingList.cntqty1"></xf:input>
+    											<xf:input style="width:75px;" id="ed_cntqty2" placeholder="" class="" ref="data:ds_containerBookingList.cntqty2"></xf:input>
+    											<xf:input style="width:75px;" id="ed_cntqty3" placeholder="" class="" ref="data:ds_containerBookingList.cntqty3"></xf:input>
+    											<xf:input style="width:75px;" id="ed_cntqty4" placeholder="" class="" ref="data:ds_containerBookingList.cntqty4"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					<xf:group id="" class="row-gap-8"><xf:group style="" id="" class="title-wrap">
+    								<xf:group id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="" label="Booking Detail" class="tit"></w2:textbox>
+    								</xf:group>
+    								<xf:group id="" class="right">
+    									<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    								<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_houseblList" style="" autoFit="allColumn"
+    									id="gr_houseblList" visibleRowNum="5" class="wq_gvw" readOnly="true">
+    									<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    									<w2:header style="" id="header1">
+    										<w2:row style="" id="row1">
+    											<w2:column width="80" inputType="text" id="hhbkgseq" value="SEQ" displayMode="label"></w2:column>
+    											<w2:column width="80" inputType="text" id="hhetd" value="ETD" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="hheta" value="ETA" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhblno" value="House No"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="mhno" value="Consol No"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhmblno" value="Master No"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhc1" value="Consignee"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt1type" value="CNTR type1"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt2type" value="CNTR type2"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt3type" value="CNTR type3"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt4type" value="CNTR type4"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhpkg" value="PKG" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhgwgt" value="Weight" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhmsr" value="Measure" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="autono" value="B/L Type"
+    												displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhbltype" value="Cargo type"
+    												displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="kcomcd" value="KCOMCD" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hhio" value="HHIO" displayMode="label" hidden="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody style="" id="gBody1">
+    										<w2:row style="" id="row2">
+    											<w2:column width="80" inputType="text" id="hhbkgseq" displayMode="label"></w2:column>
+    											<w2:column width="80" inputType="text" id="hhetd" displayMode="label"></w2:column>
+    											<w2:column width="80" inputType="text" id="hheta" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhblno" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="mhno" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhmblno" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhc1" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt1type" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt2type" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt3type" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="text" id="hhcnt4type" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhpkg" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhgwgt" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhmsr" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="autono" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhbltype" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="kcomcd" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="hhio" displayMode="label"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group style="" id="" class="grid-bottom ">
+    									<xf:group id="" class="left">
+    										<xf:group id="" class="grid-total">
+    											<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    											<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num">
+    											</w2:textbox>
+    											<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group></w2:content>
+    					<w2:content alwaysDraw="false" id="content2" style="">
+    						<xf:group id="" class="lybox flex_no wfix">
+    							<xf:group id="" class="col" style="width: 70%;">
+    								<xf:group style="" id="" class="title-wrap">
+    									<xf:group id="" class="title">
+    										<w2:textbox tagname="h3" style="" id="" label="Door Order" class="tit"></w2:textbox>
+    									</xf:group>
+    									<xf:group id="" class="right">
+    										<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" style="" id="grd_section2" class="gvwbox">
+    									<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_containerDoorOrder" style="" id="gr_containerDoorOrder"
+    										visibleRowNum="5" class="wq_gvw" readOnly="false">
+    										<w2:caption style="" id="caption4" value="this is a grid caption."></w2:caption>
+    										<w2:header style="" id="header1">
+    											<w2:row style="" id="row1">
+    												<w2:column width="40" inputType="checkbox" id="chk" displayMode="label"></w2:column>
+    												<w2:column width="120" inputType="text" id="doordt" value="Order Date"
+    													displayMode="label" class="txt-red">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="bkNo" value="Order No"
+    													displayMode="label" hidden="true">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="bkdoorseq" value="SEQ" displayMode="label"
+    													class="txt-red">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="internalTyp" value="Type" displayMode="label"
+    													class="txt-red">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="transcd" value="Trucker" displayMode="label"
+    													class="txt-red">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="transnm" value="Trucker name"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="fdt" value="Pickup Date"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="fcity" value="Pickup CY"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="fcitynm" value="Pickup name"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="doorcd" value="Door" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="doornm" value="Door name"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="tcity" value="Gatein CY"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="tcitynm" value="Gatein name"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="closingdt" displayMode="label"
+    													value="Closing Time" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="sendDt" displayMode="label"
+    													value="Send Date" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="remark" displayMode="label" value="Remark"
+    													hidden="true">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="groupNo" displayMode="label"
+    													value="Group No(Header)" hidden="true">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="bookingNo" displayMode="label"
+    													value="TR Booking" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="mcomOdrNo" displayMode="label"
+    													value="TR Order" class="txt-blue">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody style="" id="gBody1">
+    											<w2:row style="" id="row2">
+    												<w2:column width="40" inputType="checkbox" id="chk" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    												<w2:column width="120" inputType="textImage" id="doordt" displayMode="label" displayFormat="####/##/##-##:##" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="120" inputType="text" id="bkNo" displayMode="label"></w2:column>
+    												<w2:column width="80" inputType="text" id="bkdoorseq" displayMode="label"></w2:column>
+    												<w2:column width="80" inputType="select" id="internalTyp" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[Internal]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[Normal]]></w2:label>
+        <w2:value><![CDATA[2]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    												<w2:column width="80" inputType="textImage" id="transcd" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="120" inputType="text" id="transnm" displayMode="label"></w2:column>
+    												<w2:column width="120" inputType="textImage" id="fdt" displayMode="label" displayFormat="####/##/##-##:##" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="120" inputType="textImage" id="fcity" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="120" inputType="text" id="fcitynm" displayMode="label"></w2:column>
+    												<w2:column width="80" inputType="textImage" id="doorcd" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="100" inputType="text" id="doornm" displayMode="label"></w2:column>
+    												<w2:column width="100" inputType="textImage" id="tcity" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="120" inputType="text" id="tcitynm" displayMode="label"></w2:column>
+    												<w2:column width="120" inputType="textImage" id="closingdt" displayMode="label" displayFormat="####/##/##-##:##" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    												<w2:column width="100" inputType="text" id="sendDt" displayMode="label" readOnly="true"></w2:column>
+    												<w2:column width="100" inputType="text" id="remark" displayMode="label"></w2:column>
+    												<w2:column width="120" inputType="text" id="groupNo" displayMode="label"></w2:column>
+    												<w2:column width="100" inputType="text" id="bookingNo" displayMode="label" readOnly="true"></w2:column>
+    												<w2:column width="100" inputType="text" id="mcomOdrNo" displayMode="label" readOnly="true"></w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    									<xf:group style="" id="" class="grid-bottom ">
+    										<xf:group id="" class="left">
+    											<xf:group id="" class="grid-total">
+    												<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    												<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id=""
+    													label="0" class="num">
+    												</w2:textbox>
+    												<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group style="" id="" class="right">
+    											<xf:trigger style="" id="btn_OrderSend" ev:onclick="scwin.btn_OrderSend_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Order Send]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_OrderSendDel" ev:onclick="scwin.btn_OrderSendDel_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Order Send Delete]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_AddRow1" ev:onclick="scwin.btn_AddRow1_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Addition]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_DelRow1" ev:onclick="scwin.btn_DelRow1_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Delete]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_CancelRow1" ev:onclick="scwin.btn_CancelRow1_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Cancel]]></xf:label>
+    											</xf:trigger>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group id="" class="col">
+    								<xf:group class="title-wrap" id="" style=""></xf:group>
+    								<xf:group adaptiveThreshold="" style="" id="grp_group18" class="gvwbox">
+    									<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_containerDoorOrderQty" style="" id="gr_containerDoorOrderQty"
+    										visibleRowNum="5" class="wq_gvw" readOnly="false">
+    										<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+    										<w2:header style="" id="header1">
+    											<w2:row style="" id="row1">
+    												<w2:column width="120" inputType="text" id="bkNo" value="Order No"
+    													displayMode="label" hidden="true">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="bkdoorseq" value="SEQ" displayMode="label"
+    													class="txt-red">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="doorDt" value="DATE" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="qtytype" value="Type" displayMode="label"
+    													class="txt-red">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="realQtytype" value="MGNT" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="qty" value="QTY" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="vehclQty" value="V.QTY" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="carCondCd" value="Car" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="transCondCd" value="Trans" displayMode="label"
+    													class="txt-blue">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody style="" id="gBody1">
+    											<w2:row style="" id="row2">
+    												<w2:column width="120" inputType="text" id="bkNo" displayMode="label"></w2:column>
+    												<w2:column width="80" inputType="text" id="bkdoorseq" displayMode="label"></w2:column>
+    												<w2:column width="100" inputType="calendar" id="doorDt" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    												<w2:column width="80" inputType="text" id="qtytype" displayMode="label">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[code:name]]></w2:label>
+        <w2:value><![CDATA[ds_doorGridType]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    												<w2:column width="80" inputType="text" id="realQtytype" displayMode="label">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[code:name]]></w2:label>
+        <w2:value><![CDATA[ds_doorGridType]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    												<w2:column width="80" inputType="text" id="qty" displayMode="label" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    												<w2:column width="80" inputType="text" id="vehclQty" displayMode="label"></w2:column>
+    												<w2:column width="100" inputType="select" id="carCondCd" displayMode="label"></w2:column>
+    												<w2:column width="100" inputType="select" id="transCondCd" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[Single]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[Return]]></w2:label>
+        <w2:value><![CDATA[2]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    									<xf:group style="" id="" class="grid-bottom ">
+    										<xf:group id="" class="left">
+    											<xf:group id="" class="grid-total">
+    												<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    												<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id=""
+    													label="0" class="num">
+    												</w2:textbox>
+    												<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="right" id="" style="">
+    											<xf:trigger class="btn" id="btn_AddRow2" ev:onclick="scwin.btn_AddRow2_onclick" style="" type="button">
+    												<xf:label><![CDATA[Addition]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger class="btn" id="btn_DelRow2" ev:onclick="scwin.btn_DelRow2_onclick" style="" type="button">
+    												<xf:label><![CDATA[Delete]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger class="btn" id="btn_CancelRow2" ev:onclick="scwin.btn_CancelRow2_onclick" style="" type="button">
+    												<xf:label><![CDATA[Cancel]]></xf:label>
+    											</xf:trigger>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+
+    							</xf:group>
+    						</xf:group>
+    						<xf:group id="" class="lybox flex_no wfix">
+    							<xf:group id="" class="col" style="width: 80%;">
+    								<xf:group style="" id="" class="title-wrap">
+    									<xf:group style="" id="" class="title">
+    										<w2:textbox tagname="h3" style="" id="" label="Container" class="tit"></w2:textbox>
+    									</xf:group>
+    									<xf:group style="" id="" class="right">
+    										<w2:udc_topGrdBtn grp="grd_section5" style="" id=""></w2:udc_topGrdBtn>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" style="" id="grd_section5" class="gvwbox">
+    									<w2:gridView rowNumWidth="50" visibleRowNumFix="true" checkAllType="false" dataList="ds_containerBookingCont"
+    										readOnly="true" rowNumHeaderValue="No" style="" autoFit="allColumn" id="gr_containerBookingCont" visibleRowNum="2" class="wq_gvw">
+    										<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+    										<w2:header style="" id="header1">
+    											<w2:row style="" id="row1">
+    												<w2:column width="120" inputType="text" id="bkNo" value="Order No"
+    													displayMode="label" hidden="true">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="bkdoorseq" value="SEQ" displayMode="label" class="txt-red">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="cntno" value="Container No"
+    													displayMode="label" class="txt-red">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="realCntrNo" value="R-Container No"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="80" inputType="text" id="cnttype" value="Type" displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="cntrDate" value="CNTR DATE"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="cfsInDate" value="CFS DATE(IN)"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="cfsWrkDate" value="CFS DATE(WRK)"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="cntseal1" value="Seal No1"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="cntseal2" value="Seal No2"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="cntpkg" value="Package"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="cntwgt" value="Weight"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="cntmsrt" value="Measure"
+    													displayMode="label" class="txt-blue">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody style="" id="gBody1">
+    											<w2:row style="" id="row2">
+    												<w2:column width="120" inputType="text" id="bkNo" displayMode="label"></w2:column>
+    												<w2:column width="80" inputType="text" id="bkdoorseq" displayMode="label"></w2:column>
+    												<w2:column width="120" inputType="text" id="cntno" class="col-type2"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="realCntrNo" displayMode="label"></w2:column>
+    												<w2:column width="80" inputType="text" id="cnttype" displayMode="label">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[code:name]]></w2:label>
+        <w2:value><![CDATA[ds_containerGridType]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    												<w2:column width="120" inputType="calendar" id="cntrDate" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    												<w2:column width="120" inputType="calendar" id="cfsInDate" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    												<w2:column width="120" inputType="calendar" id="cfsWrkDate" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    												<w2:column width="120" inputType="text" id="cntseal1" displayMode="label"></w2:column>
+    												<w2:column width="120" inputType="text" id="cntseal2" displayMode="label"></w2:column>
+    												<w2:column width="100" inputType="text" id="cntpkg" displayMode="label" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    												<w2:column width="100" inputType="text" id="cntwgt" displayMode="label" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    												<w2:column width="100" inputType="text" id="cntmsrt" displayMode="label" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    									<xf:group style="" id="" class="grid-bottom ">
+    										<xf:group id="" class="left">
+    											<xf:group style="" id="" class="grid-total">
+    												<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    												<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id=""
+    													label="0" class="num">
+    												</w2:textbox>
+    												<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    											</xf:group>
+    											<xf:group tagname="ul" id="" class="amt-wrap">
+    												<xf:group tagname="li" id="">
+    													<w2:textbox tagname="span" style="" id="" label="CNT PKG" class=""></w2:textbox>
+    													<xf:input style="" id="ed_totpkg" placeholder="" class=""></xf:input>
+    												</xf:group>
+    												<xf:group tagname="li" id="">
+    													<w2:textbox tagname="span" style="" id="" label="WGT" class=""></w2:textbox>
+    													<xf:input style="" id="ed_totwgt" placeholder="" class=""></xf:input>
+    												</xf:group>
+    												<xf:group tagname="li" id="">
+    													<w2:textbox tagname="span" style="" id="" label="MSR" class=""></w2:textbox>
+    													<xf:input style="" id="ed_totmsr" placeholder="" class=""></xf:input>
+    												</xf:group>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group style="" id="" class="right">
+    											<xf:trigger style="" id="btn_CntrReceive" ev:onclick="scwin.btn_CntrReceive_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[CNTR Receive]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_AddRow3" ev:onclick="scwin.btn_AddRow3_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Addition]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_DelRow3" ev:onclick="scwin.btn_DelRow3_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Delete]]></xf:label>
+    											</xf:trigger>
+    											<xf:trigger style="" id="btn_CancelRow3" ev:onclick="scwin.btn_CancelRow3_onclick" type="button" class="btn">
+    												<xf:label><![CDATA[Cancel]]></xf:label>
+    											</xf:trigger>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group id="" class="col">
+    								<xf:group style="" id="" class="title-wrap">
+    									<xf:group style="" id="" class="title">
+    										<w2:textbox tagname="h3" style="" id="" label="Door Order Remark" class="tit"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:textarea class="h-full" id="txa_remark" style="" ref="data:ds_containerDoorOrder.remark"></xf:textarea>
+    							</xf:group></xf:group>
+    						
+    					</w2:content>
+    				</w2:tabControl>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="left" id="" style="">
+    					<xf:group id="" class="inner"><xf:trigger style="" id="btn_Find" ev:onclick="scwin.btn_Find_onclick" type="button" class="btn">
+    						<xf:label><![CDATA[Find]]></xf:label>
+    					</xf:trigger><xf:trigger style="" id="btn_HouseBl" ev:onclick="scwin.btn_HouseBl_onclick" type="button" class="btn">
+    						<xf:label><![CDATA[H B/L]]></xf:label>
+    					</xf:trigger><xf:trigger style="" id="btn_DirectBl" ev:onclick="scwin.btn_DirectBl_onclick" type="button" class="btn">
+    						<xf:label><![CDATA[D B/L]]></xf:label>
+    					</xf:trigger></xf:group><xf:group class="inner" id="" style="">
+    						<xf:select appearance="full" class="" cols="" id="chb_pre" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+    							style="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[미리보기]]></xf:label>
+    									<xf:value><![CDATA[]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btn_Copy" ev:onclick="scwin.btn_Copy_onclick" label="저장" style="" type="button">
+    						<xf:label>Copy</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_Cancel" ev:onclick="scwin.btn_Cancel_onclick" label="저장" style="" type="button">
+    						<xf:label>Cancel</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Create" ev:onclick="scwin.btn_Create_onclick" label="저장" style="" type="button">
+    						<xf:label>Create</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Update" ev:onclick="scwin.btn_Update_onclick" label="저장" style="" type="button">
+    						<xf:label>Update</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Save" ev:onclick="scwin.btn_Save_onclick" label="저장" style="" type="button">
+    						<xf:label>Save</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Print" ev:onclick="scwin.btn_Print_onclick" label="저장" style="" type="button">
+    						<xf:label>Print</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Delete" ev:onclick="scwin.btn_Delete_onclick" label="저장" style="" type="button">
+    						<xf:label>Delete</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				
+    			</xf:group>
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

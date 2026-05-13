@@ -1,0 +1,24 @@
+tp_801_01_01t.log
+
+[2026-02-19 16:12:07.474] 변환 시작
+[2026-02-19 16:12:07.492] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 16:14:06.467] #1 검증: XML: WebSquareXmlValidator: score=0.47, grade=B, verdict=REVIEW, errors=1, warnings=2 | Adequacy: LlmConversionAdequacyValidator: score=0.97, grade=A_PLUS, verdict=PASS, errors=0, warnings=3 | LLM 118610ms, total 118975ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_setMchtOdrKndCombo, scwin.f_setLogSeqCombo, scwin.f_setOrderInfoToUI, scwin.f_TabFrameResize, scwin.btn_edit_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 16:14:06.655] #1 검증: 자동수정 2건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 16:14:06.978] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.47, grade=B, verdict=REVIEW, errors=1, warnings=2 | Adequacy: LlmConversionAdequacyValidator: score=0.97, grade=A_PLUS, verdict=PASS, errors=0, warnings=3
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_setMchtOdrKndCombo, scwin.f_setLogSeqCombo, scwin.f_setOrderInfoToUI, scwin.f_TabFrameResize, scwin.btn_edit_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 16:14:06.982] #2 재시도 (에러 1건)
+[2026-02-19 16:14:07.988] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 16:16:30.400] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.96, grade=A_PLUS, verdict=PASS, errors=0, warnings=3 | LLM 142071ms, total 142413ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-19 16:16:30.405] #1 검증: 최적 시도 #1 채택 (confidence: 0.77)
+[2026-02-19 16:16:30.405] 실패 (2회 시도, 4m 22s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_setMchtOdrKndCombo, scwin.f_setLogSeqCombo, scwin.f_setOrderInfoToUI, scwin.f_TabFrameResize, scwin.btn_edit_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+================================================================================

@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search">
+                <w2:keyInfo>
+                    <w2:key id="fixWrkPlCd" name="정비작업장코드" dataType="text"></w2:key>
+                    <w2:key id="wrkPlanDt1" name="작업계획시작일자" dataType="text"></w2:key>
+                    <w2:key id="wrkPlanDt2" name="작업계획마지막일자" dataType="text"></w2:key>
+                    <w2:key id="fixPlanNo" name="정비계획번호" dataType="text"></w2:key>
+                    <w2:key id="planDcsnYn" name="계획확정여부" dataType="number"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_310" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="planDcsnYn" name="계획확정여부" dataType="text"></w2:column>
+                    <w2:column id="fixPlanNo" name="정비계획번호" dataType="text"></w2:column>
+                    <w2:column id="vehclNo" name="장비번호" dataType="text"></w2:column>
+                    <w2:column id="wrkPlanDt" name="작업계획일자" dataType="text"></w2:column>
+                    <w2:column id="fixKndCd" name="정비종류" dataType="text"></w2:column>
+                    <w2:column id="selfOutordClsCd" name="정비구분" dataType="text"></w2:column>
+                    <w2:column id="fixWrkStndNo" name="작업표준코드" dataType="text"></w2:column>
+                    <w2:column id="wrkStndNm" name="작업표준명" dataType="text"></w2:column>
+                    <w2:column id="circulPartCd" name="수리순환품코드" dataType="text"></w2:column>
+                    <w2:column id="partNm" name="수리순환품명" dataType="text"></w2:column>
+                    <w2:column id="expireDt" name="유효기간만료일자" dataType="text"></w2:column>
+                    <w2:column id="modReqDt" name="수정요청일자" dataType="text"></w2:column>
+                    <w2:column id="modReqUserId" name="수정요청자명" dataType="text"></w2:column>
+                    <w2:column id="fixWrkNo" name="정비작업번호" dataType="text"></w2:column>
+                    <w2:column id="prdyr" name="년식" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="배정물류점소" dataType="text"></w2:column>
+                    <w2:column id="startDate" name="계획시작일자" dataType="text"></w2:column>
+                    <w2:column id="fixWrkPlCd" name="정비작업장코드" dataType="text"></w2:column>
+                    <w2:column id="eqCd" name="장비코드" dataType="text"></w2:column>
+                    <w2:column id="rglintInspExpireDt" name="정기검사만료일자" dataType="text"></w2:column>
+                    <w2:column id="mntnInspExpireDt" name="정밀검사만료일자" dataType="text"></w2:column>
+                    <w2:column id="rglintChkExpireDt" name="정기점검만료일자" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="co_ds_combo1">
+                <w2:columnInfo>
+                    <w2:column id="code" name="코드" dataType="text"></w2:column>
+                    <w2:column id="name" name="명칭" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="co_ds_combo">
+                <w2:columnInfo>
+                    <w2:column id="code" name="코드" dataType="text"></w2:column>
+                    <w2:column id="name" name="명칭" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ps.eq.fixwrkmgnt.fixwrkplanmgnt.RetrieveFixWorkPlanCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_310","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_310","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_saveFixPlan"
+            action="/ps.eq.fixwrkmgnt.fixwrkplanmgnt.SaveFixWorkPlanCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_310","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_saveFixPlan_submitdone"
+            ev:submiterror="scwin.sbm_saveFixPlan_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveCombo1"
+            action="/ps.co.RetrievePsCboCmmCMD.do?cmd=retriveHomeClsList&amp;strVal=&amp;intVal="
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"co_ds_combo1","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"co_ds_combo1","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveCombo1_submitdone"
+            ev:submiterror="scwin.sbm_retrieveCombo1_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveCombo"
+            action="/ps.co.RetrievePsCboCmmCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"co_ds_combo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"co_ds_combo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveCombo_submitdone"
+            ev:submiterror="scwin.sbm_retrieveCombo_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.cvNNew = false;
+        scwin.cvDcsnYn = false;
+        scwin.cvPopup = false;
+        scwin.eqHomeClsCd = "";
+        scwin.fixPlanNo = "";
+        scwin.homeClsCd = "";
+        scwin.outbrRsnCd = "";
+        scwin.standDate1 = "";
+        scwin.standDate2 = "";
+        scwin.vCurDate = "";
+        scwin.vNextWeekDate = "";
+
+        scwin.onpageload = async function() {
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            scwin.vNextWeekDate = $c.date.addDate(scwin.vCurDate, 7);
+
+            scwin.eqHomeClsCd = $c.ses.getEqHomeClsCd();
+
+            let params = $c.data.getParameter();
+            if (params != null) {
+                scwin.fixPlanNo = params["fixPlanNo"] || "";
+                scwin.homeClsCd = params["homeClsCd"] || "";
+                scwin.outbrRsnCd = params["outbrRsnCd"] || "";
+                scwin.standDate1 = params["standDate1"] || "";
+                scwin.standDate2 = params["standDate2"] || "";
+            }
+
+            dma_search.set("fixWrkPlCd", " ");
+            dma_search.set("wrkPlanDt1", " ");
+            dma_search.set("wrkPlanDt2", " ");
+            dma_search.set("fixPlanNo", " ");
+            dma_search.set("planDcsnYn", " ");
+
+            scwin.f_RetrieveFirst();
+
+            $c.gus.cfDisableObjects([b310Add, b310Del, b310Undo]);
+        };
+
+        scwin.onUdcCompleted = async function() {
+            if (scwin.fixPlanNo.length > 0) {
+                lux_homeClsCd.setValue(scwin.homeClsCd);
+                scwin.eqHomeClsCd = scwin.homeClsCd;
+
+                scwin.f_RetrieveSecond(lux_homeClsCd.getValue());
+                lux_fixWrkPlCd.setValue(scwin.outbrRsnCd);
+                em_fixPlanNo.setValue(scwin.fixPlanNo);
+                ed_standDate1.setValue(scwin.standDate1);
+                ed_standDate2.setValue(scwin.standDate2);
+            } else {
+                ed_standDate1.setValue(scwin.vCurDate);
+                ed_standDate2.setValue(scwin.vNextWeekDate);
+            }
+        };
+
+        scwin.f_RetrieveFirst = async function() {
+            await $c.sbm.execute(sbm_retrieveCombo1);
+        };
+
+        scwin.f_RetrieveSecond = async function(param1) {
+            sbm_retrieveCombo.action = "/ps.co.RetrievePsCboCmmCMD.do?cmd=retriveFixWrkList&strVal=" + param1 + "&intVal=";
+            await $c.sbm.execute(sbm_retrieveCombo);
+        };
+
+        scwin.f_Retrieve = async function() {
+            let chk1 = await $c.gus.cfValidate([udc_standDate]);
+            if (!chk1) return;
+
+            let standDate1Val = udc_standDate.getFromValue();
+            let standDate2Val = udc_standDate.getToValue();
+
+            if (!$c.gus.cfIsAfterDate(standDate1Val, standDate2Val, false)) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_061, ["계획시작일[" + standDate1Val + "] ", "계획종료일[" + standDate2Val + "] 보다 이전 "]);
+                udc_standDate.setFocusFrom();
+                return;
+            }
+
+            scwin.f_condition();
+
+            let strPath = "/ps.eq.fixwrkmgnt.fixwrkplanmgnt.RetrieveFixWorkPlanCMD.do";
+            sbm_retrieve.action = strPath;
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.f_condition = function() {
+            dma_search.set("fixWrkPlCd", lux_fixWrkPlCd.getValue());
+            dma_search.set("wrkPlanDt1", udc_standDate.getFromValue());
+            dma_search.set("wrkPlanDt2", udc_standDate.getToValue());
+            dma_search.set("fixPlanNo", em_fixPlanNo.getValue());
+            dma_search.set("planDcsnYn", lux_planDcsnYn.getValue());
+        };
+
+        scwin.f_Save = async function() {
+            if (ds_310.getUpdatedIndex().length == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["정비계획 "]);
+                return;
+            }
+
+            let fixKndCd = "";
+            let circulPartCd = "";
+            for (let i = 0; i < ds_310.getRowCount(); i++) {
+                let rowStatus = ds_310.getRowStatus(i);
+                if (rowStatus == "C" || rowStatus == "U") {
+                    fixKndCd = ds_310.getCellData(i, "fixKndCd");
+                    if (fixKndCd == "04") {
+                        circulPartCd = ds_310.getCellData(i, "circulPartCd");
+                        circulPartCd = circulPartCd.trim();
+                        if (circulPartCd.length == 0) {
+                            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["수리순환품코드 "]);
+                            gr_310.setFocusedCell(i, "circulPartCd");
+                            return;
+                        }
+                    }
+                }
+            }
+
+            let chk = await $c.gus.cfValidate([gr_310]);
+            if (chk) {
+                let confirmResult = await $c.win.confirm(MSG_CM_CRM_001);
+                if (confirmResult == true) {
+                    await $c.sbm.execute(sbm_saveFixPlan);
+                }
+            }
+        };
+
+        scwin.f_Addrow310 = function() {
+            scwin.cvNNew = true;
+            $c.data.insertRow(ds_310);
+            let rowPos = ds_310.getRowPosition();
+            ds_310.setCellData(rowPos, "fixWrkPlCd", lux_fixWrkPlCd.getValue());
+            gr_310.setFocusedCell(rowPos, "vehclNo");
+        };
+
+        scwin.f_Del310 = async function() {
+            if (ds_310.getRowCount() > 0) {
+                let rowPos = ds_310.getRowPosition();
+                let temp = ds_310.getCellData(rowPos, "planDcsnYn");
+                if (temp == "1") {
+                    await $c.gus.cfAlertMsg(MSG_CM_ERR_041, ["확정일때", "삭제 "]);
+                } else {
+                    ds_310.removeRow(rowPos);
+                }
+            }
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects([lux_homeClsCd, lux_fixWrkPlCd, em_fixPlanNo, lux_planDcsnYn]);
+            ed_standDate1.setValue(scwin.vCurDate);
+            ed_standDate2.setValue(scwin.vNextWeekDate);
+        };
+
+        scwin.f_openCommPopUpGrid = function(row, pClose) {
+            let rtnList;
+            let pCode = "";
+            let pName = "";
+
+            pCode = ds_310.getCellData(row, "vehclNo");
+            let temp = lux_homeClsCd.getValue();
+
+            rtnList = $c.gus.cfCommonPopUp("retrieveVehclListInfo",
+                pCode.trim(),
+                pName,
+                pClose,
+                7,
+                null,
+                null,
+                null,
+                temp,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "F",
+                "장비조회,장비번호,장비코드"
+            );
+
+            $c.gus.cfSetGridReturnValue(rtnList, ds_310, row, "vehclNo", "eqCd", ["prdyr", "lobranNm", "rglintInspExpireDt", "mntnInspExpireDt", "rglintChkExpireDt"]);
+
+            if (rtnList == null) {
+                let rowStatus = ds_310.getRowStatus(row);
+                if (rowStatus == "C") {
+                    ds_310.setCellData(row, "expireDt", "");
+                }
+            }
+
+            return false;
+        };
+
+        scwin.f_openCommPopUpGrid1 = function(row, pClose) {
+            let rtnList;
+            let pCode = "";
+            let pName = "";
+
+            pCode = ds_310.getCellData(row, "circulPartCd");
+
+            rtnList = $c.gus.cfCommonPopUp("retrievePartYnInfo",
+                pCode.trim(),
+                pName,
+                pClose,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "수리순환품조회,부품코드,부품명"
+            );
+
+            $c.gus.cfSetGridReturnValue(rtnList, ds_310, row, "circulPartCd", "partNm");
+            return false;
+        };
+
+        scwin.f_openCommPopUpGrid2 = function(row, pClose) {
+            let rtnList;
+            let pCode = "";
+            let pName = "";
+
+            pCode = ds_310.getCellData(row, "fixWrkStndNo");
+            let temp = lux_homeClsCd.getValue();
+
+            rtnList = $c.gus.cfCommonPopUp("retrieveFixWrkSdListInfo",
+                pCode.trim(),
+                pName,
+                pClose,
+                null,
+                null,
+                null,
+                null,
+                temp,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "작업표준조회,작업표준코드,작업표준명"
+            );
+
+            $c.gus.cfSetGridReturnValue(rtnList, ds_310, row, "fixWrkStndNo", "wrkStndNm");
+            return false;
+        };
+
+        scwin.btn_trigger1_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            $c.gus.cfHideDSWaitMsg(gr_310);
+            if (ds_310.getRowCount() == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                $c.gus.cfEnableObjects([b310Add, b310Del, b310Undo]);
+            } else {
+                $c.gus.cfEnableObjects([b310Add, b310Del, b310Undo]);
+            }
+        };
+
+        scwin.sbm_retrieve_submiterror = async function(e) {
+            $c.gus.cfHideDSWaitMsg(gr_310);
+            await $c.win.alert(e.errorMsg);
+        };
+
+        scwin.sbm_saveFixPlan_submitdone = async function(e) {
+            $c.gus.cfHideDSWaitMsg(gr_310);
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_saveFixPlan_submiterror = async function(e) {
+            $c.gus.cfHideDSWaitMsg(gr_310);
+            await $c.win.alert(e.errorMsg);
+        };
+
+        scwin.lux_homeClsCd_onchange = function(e) {
+            let luxIndex = lux_homeClsCd.getValue();
+            scwin.f_RetrieveSecond(luxIndex);
+        };
+
+        scwin.gr_310_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+            if (scwin.cvPopup == true) {
+                scwin.cvPopup = false;
+                return;
+            }
+
+            if (columnId == "vehclNo") {
+                scwin.f_openCommPopUpGrid(rowIndex, "F");
+            }
+
+            if (columnId == "circulPartCd") {
+                scwin.f_openCommPopUpGrid1(rowIndex, "F");
+            }
+
+            if (columnId == "fixWrkStndNo") {
+                scwin.f_openCommPopUpGrid2(rowIndex, "F");
+            }
+        };
+
+        scwin.gr_310_oncellclick = function(rowIndex, columnIndex, columnId) {
+            let planDcsnYn = ds_310.getCellData(rowIndex, "planDcsnYn");
+            let fixKndCd = ds_310.getCellData(rowIndex, "fixKndCd");
+            let temp = "04";
+
+            let rowStatus = ds_310.getRowStatus(rowIndex);
+            if (rowStatus != "C") {
+                gr_310.setCellReadOnly(rowIndex, "vehclNo", true);
+            } else {
+                gr_310.setCellReadOnly(rowIndex, "vehclNo", false);
+            }
+
+            if (planDcsnYn == "1") {
+                scwin.cvDcsnYn = true;
+                gr_310.setCellReadOnly(rowIndex, "fixKndCd", true);
+                gr_310.setCellReadOnly(rowIndex, "selfOutordClsCd", true);
+                gr_310.setCellReadOnly(rowIndex, "wrkPlanDt", true);
+                gr_310.setCellReadOnly(rowIndex, "circulPartCd", true);
+                gr_310.setCellReadOnly(rowIndex, "fixWrkStndNo", true);
+            } else {
+                scwin.cvDcsnYn = false;
+                if (fixKndCd == temp) {
+                    gr_310.setCellReadOnly(rowIndex, "circulPartCd", false);
+                } else {
+                    gr_310.setCellReadOnly(rowIndex, "circulPartCd", true);
+                }
+                gr_310.setCellReadOnly(rowIndex, "fixKndCd", false);
+                gr_310.setCellReadOnly(rowIndex, "selfOutordClsCd", false);
+                gr_310.setCellReadOnly(rowIndex, "wrkPlanDt", false);
+                gr_310.setCellReadOnly(rowIndex, "fixWrkStndNo", false);
+            }
+        };
+
+        scwin.ds_310_oncelldatachange = async function(info) {
+            let row = info.rowIndex;
+            let colid = info.columnId;
+            let olddata = info.oldValue;
+
+            if (colid == "fixKndCd") {
+                let fixKndCd1 = info.oldValue;
+                let fixKndCd2 = ds_310.getCellData(row, colid);
+                let temp = "04";
+
+                if (scwin.cvNNew == false) {
+                    if (fixKndCd1 != fixKndCd2) {
+                        if (fixKndCd2 == "13") {
+                            ds_310.setCellData(row, "expireDt", ds_310.getCellData(row, "rglintChkExpireDt"));
+                            ds_310.setCellData(row, "circulPartCd", "");
+                            ds_310.setCellData(row, "partNm", "");
+                        } else if (fixKndCd2 == "14") {
+                            ds_310.setCellData(row, "expireDt", ds_310.getCellData(row, "rglintInspExpireDt"));
+                            ds_310.setCellData(row, "circulPartCd", "");
+                            ds_310.setCellData(row, "partNm", "");
+                        } else if (fixKndCd2 == "15") {
+                            ds_310.setCellData(row, "expireDt", ds_310.getCellData(row, "mntnInspExpireDt"));
+                            ds_310.setCellData(row, "circulPartCd", "");
+                            ds_310.setCellData(row, "partNm", "");
+                        } else {
+                            ds_310.setCellData(row, "expireDt", "");
+                        }
+                    }
+                } else {
+                    if (fixKndCd2 == "13") {
+                        ds_310.setCellData(row, "expireDt", ds_310.getCellData(row, "rglintChkExpireDt"));
+                        ds_310.setCellData(row, "circulPartCd", "");
+                        ds_310.setCellData(row, "partNm", "");
+                    } else if (fixKndCd2 == "14") {
+                        ds_310.setCellData(row, "expireDt", ds_310.getCellData(row, "rglintInspExpireDt"));
+                        ds_310.setCellData(row, "circulPartCd", "");
+                        ds_310.setCellData(row, "partNm", "");
+                    } else if (fixKndCd2 == "15") {
+                        ds_310.setCellData(row, "expireDt", ds_310.getCellData(row, "mntnInspExpireDt"));
+                        ds_310.setCellData(row, "circulPartCd", "");
+                        ds_310.setCellData(row, "partNm", "");
+                    } else {
+                        ds_310.setCellData(row, "expireDt", "");
+                    }
+                }
+
+                let orgFixKndCd = info.oldValue;
+                let curFixKndCd = ds_310.getCellData(row, colid);
+                if (orgFixKndCd != curFixKndCd) {
+                    if (orgFixKndCd == "04") {
+                        ds_310.setCellData(row, "circulPartCd", "");
+                        ds_310.setCellData(row, "partNm", "");
+                    }
+                }
+            }
+
+            if (colid == "vehclNo") {
+                if (ds_310.getCellData(row, colid) != "" && ds_310.getCellData(row, colid) != olddata) {
+                    scwin.f_openCommPopUpGrid(row, "T");
+                } else if (ds_310.getCellData(row, colid) == "") {
+                    ds_310.setCellData(row, "vehclNo", "");
+                }
+            }
+
+            if (colid == "circulPartCd") {
+                if (ds_310.getCellData(row, colid) != "" && ds_310.getCellData(row, colid) != olddata) {
+                    scwin.f_openCommPopUpGrid1(row, "T");
+                } else if (ds_310.getCellData(row, colid) == "") {
+                    ds_310.setCellData(row, "circulPartCd", "");
+                    ds_310.setCellData(row, "partNm", "");
+                }
+            }
+
+            if (colid == "fixWrkStndNo") {
+                if (ds_310.getCellData(row, colid) != "" && ds_310.getCellData(row, colid) != olddata) {
+                    scwin.f_openCommPopUpGrid2(row, "T");
+                } else if (ds_310.getCellData(row, colid) == "") {
+                    ds_310.setCellData(row, "fixWrkStndNo", "");
+                    ds_310.setCellData(row, "wrkStndNm", "");
+                }
+            }
+
+            if (colid == "wrkPlanDt") {
+                let wrkPlanDt = ds_310.getCellData(row, colid);
+                let orgWrkPlanDt = olddata;
+                let rowStatus = ds_310.getRowStatus(row);
+
+                if (rowStatus == "C") {
+                    orgWrkPlanDt = "";
+                }
+
+                if (wrkPlanDt != orgWrkPlanDt) {
+                    wrkPlanDt = wrkPlanDt.trim();
+
+                    if (wrkPlanDt.length != 8) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_005, ["작업계획일자", "8"]);
+                        ds_310.setCellData(row, "wrkPlanDt", orgWrkPlanDt);
+                        return;
+                    }
+
+                    let startDate = $c.date.addDate(scwin.vCurDate, 1);
+
+                    if (!$c.gus.cfIsAfterDate(startDate, wrkPlanDt, false)) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_061, ["작업계획일자[" + wrkPlanDt + "] ", "계획시작가능일자[" + startDate + "] 보다 이후 "]);
+
+                        if (rowStatus == "U") {
+                            ds_310.undoRow(row);
+                        } else if (rowStatus == "C") {
+                            ds_310.setCellData(row, "wrkPlanDt", "");
+                        }
+                        return;
+                    }
+
+                    let endDate = $c.date.addMonth(scwin.vCurDate, 1);
+
+                    if (!$c.gus.cfIsAfterDate(wrkPlanDt, endDate, false)) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_061, ["계획일자[" + wrkPlanDt + "] ", "계획종료가능일자[" + endDate + "] 보다 이전 "]);
+
+                        if (rowStatus == "U") {
+                            ds_310.undoRow(row);
+                        } else if (rowStatus == "C") {
+                            ds_310.setCellData(row, "wrkPlanDt", "");
+                        }
+                        gr_310.setFocusedCell(row, "wrkPlanDt");
+                    }
+                }
+            }
+        };
+
+        scwin.ds_310_onrowpositionchange = function(rowIndex) {
+            $c.gus.cfPrepareHidVal(ds_310, rowIndex, ["vehclNo", "eqCd", "prdyr", "lobranNm", "rglintInspExpireDt", "mntnInspExpireDt", "rglintChkExpireDt", "circulPartCd", "partNm", "fixWrkStndNo", "wrkStndNm"]);
+        };
+
+        scwin.sbm_retrieveCombo1_submitdone = function(e) {
+            lux_homeClsCd.removeAll();
+            for (let i = 0; i < co_ds_combo1.getRowCount(); i++) {
+                lux_homeClsCd.addItem(co_ds_combo1.getCellData(i, "name"), co_ds_combo1.getCellData(i, "code"));
+            }
+            if (scwin.eqHomeClsCd == "TR") {
+                lux_homeClsCd.setSelectedIndex(1);
+            } else {
+                lux_homeClsCd.setSelectedIndex(0);
+            }
+        };
+
+        scwin.sbm_retrieveCombo1_submiterror = function(e) {
+        };
+
+        scwin.sbm_retrieveCombo_submitdone = function(e) {
+            lux_fixWrkPlCd.removeAll();
+            for (let i = 0; i < co_ds_combo.getRowCount(); i++) {
+                lux_fixWrkPlCd.addItem(co_ds_combo.getCellData(i, "name"), co_ds_combo.getCellData(i, "code"));
+            }
+
+            let fixWrkPlCdVal = $c.ses.getFixWrkPlCd();
+            lux_fixWrkPlCd.setValue(fixWrkPlCdVal);
+
+            if (lux_fixWrkPlCd.getSelectedIndex() == -1) {
+                lux_fixWrkPlCd.setSelectedIndex(0);
+            }
+
+            if (scwin.homeClsCd != "") {
+                lux_fixWrkPlCd.setValue(scwin.outbrRsnCd);
+
+                if (scwin.homeClsCd == "TR") {
+                    scwin.f_Retrieve();
+                } else if (scwin.homeClsCd == "LO") {
+                    scwin.f_Retrieve();
+                }
+            }
+        };
+
+        scwin.sbm_retrieveCombo_submiterror = function(e) {
+        };
+
+        scwin.f_RunExcel = function() {
+            $c.data.downloadGridViewExcel(gr_310, {"fileName": "작업계획목록.xlsx", "sheetName": "작업계획목록"});
+        };
+
+        scwin.f_addRow = function() {
+            scwin.f_Addrow310();
+        };
+
+        scwin.f_deleteRow = function() {
+            scwin.f_Del310();
+        };
+
+        scwin.f_undoRow = function() {
+            let rowPos = ds_310.getRowPosition();
+            if (rowPos > -1) {
+                ds_310.undoRow(rowPos);
+            }
+        };
+
+        scwin.f_btnSave_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.f_btnFieldClear_onclick = function(e) {
+            scwin.f_FieldClear();
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="계획일 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_standDate"
+    								refEdDt="">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="사업부문 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lux_homeClsCd" style="width: 150px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="대표작업장 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lux_fixWrkPlCd" style="width: 150px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="계획번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="em_fixPlanNo" style="width: 150px;" mandatory="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="확정여부 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lux_planDcsnYn" style="width: 150px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="작업계획 목록 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_310" focusMode="row"
+    					id="gr_310" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="planDcsnYn" inputType="text" style="" value="계획확정&lt;/br&gt;여부"
+    								width="100">
+    							</w2:column>
+    							<w2:column displayMode="label" id="fixPlanNo" inputType="text" style="" value="정비계획번호" width="120"></w2:column>
+    							<w2:column displayMode="label" id="vehclNo" inputType="text" style="" value="장비번호" width="100" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="wrkPlanDt" inputType="text" style="" value="작업계획일자" width="130" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="fixKndCd" inputType="text" style="" value="정비종류" width="100" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="selfOutordClsCd" inputType="text" style="" value="정비구분" width="100" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="fixWrkStndNo" inputType="text" style="" value="작업표준코드" width="130" class="txt-blue"></w2:column>
+    							<w2:column displayMode="label" id="wrkStndNm" inputType="text" style="" value="작업표준명" width="120"></w2:column>
+    							<w2:column displayMode="label" id="circulPartCd" inputType="text" style="" value="수리순환품코드" width="130"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="partNm" value="수리순환품명" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="expireDt" value="유효기간만료일자" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="modReqDt" value="수정요청일자" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="modReqUserId" value="수정요청자명" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="fixWrkNo" value="정비작업번호" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="prdyr" value="년식" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="lobranNm" value="배정물류점소" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="startDate" value="계획시작일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="fixWrkPlCd" value="정비작업장코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="eqCd" value="장비코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="rglintInspExpireDt" value="정기검사만료일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="mntnInspExpireDt" value="정밀검사만료일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="rglintChkExpireDt" value="정기점검만료일자" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="planDcsnYn" inputType="checkbox" style="" value="" width="100" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    							<w2:column displayMode="label" id="fixPlanNo" inputType="text" style="" value="" width="120" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="vehclNo" inputType="textImage" style="" value="" width="100" maxLength="9" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column displayMode="label" id="wrkPlanDt" inputType="calendar" style="" value="" width="130" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column displayMode="label" id="fixKndCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="selfOutordClsCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="fixWrkStndNo" inputType="textImage" style="" value="" width="130" allowChar="0-9" maxLength="6" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column displayMode="label" id="wrkStndNm" inputType="text" style="" value="" width="120" textAlign="center" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="circulPartCd" inputType="textImage" style="" value="" width="130" allowChar="0-9" maxLength="6" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="partNm" value="" displayMode="label" textAlign="center" readOnly="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="expireDt" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="modReqDt" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="modReqUserId" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="fixWrkNo" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="prdyr" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="lobranNm" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="startDate" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="fixWrkPlCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="eqCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="rglintInspExpireDt" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="mntnInspExpireDt" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="rglintChkExpireDt" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_bottomGrdBtn btnCancelYn="N" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="Y" btnRowDelYn="Y">
+    						</w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="" style="" type="button">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_sapCode" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="acctCd" name="DEBIS;계정코드" dataType="text"></w2:column>
+						<w2:column id="acctNm" name="DEBIS;계정명" dataType="text"></w2:column>
+						<w2:column id="sapAcctCd" name="SAP;계정코드" dataType="text"></w2:column>
+						<w2:column id="sapAcctNm" name="SAP;계정명" dataType="text"></w2:column>
+						<w2:column id="regId" name="등록자" dataType="text"></w2:column>
+						<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+						<w2:column id="modId" name="수정자" dataType="text"></w2:column>
+						<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_search">
+					<w2:keyInfo>
+						<w2:key id="acctCd" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_search" action="" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"}
+, {"id":"ds_sapCode","key":"OUT_DS1"}]' target='data:json,{"id":"ds_sapCode","key":"OUT_DS1"}' encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitDone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveSapCode" action="" method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_sapCode","key":"IN_DS1"}' target="" encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//
+
+scwin.row;
+scwin.data;
+scwin.prevRow = "";
+
+scwin.onpageload = function() {
+	
+    scwin.f_Retrieve();
+
+};
+
+scwin.ed_acct_onclickEvent = function (e) {
+    scwin.f_openPopUp('1','T');
+};
+
+scwin.trigger5_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.openPop = function(rowIndex, colId, nowValue){
+    scwin.row = rowIndex;
+    scwin.data = nowValue;
+
+    scwin.udc_comCode1_onclickEvent();
+}
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() { 
+    dma_search.set("acctCd", ed_acctCd.getValue()); 
+
+    sbm_search.action="/ac.fi.sap.RetrieveSapAcctCdListCMD.do";
+    $c.sbm.execute(sbm_search);
+};
+
+scwin.sbm_search_submitDone = async function(){
+    totalRows.setValue(ds_sapCode.getRowCount())
+   
+	//조회결과가 0인경우
+    if(ds_sapCode.getRowCount() ==0){
+   		$c.win.alert("조회된 데이터가 없습니다.");
+ 		await $c.gus.cfDisableBtn([ btn_save]);
+	}else if(ds_sapCode.getRowCount() >0){
+		await $c.gus.cfEnableObjects([btn_save]);
+        for(var i=0; i<= ds_sapCode.getRowCount(); i++){
+            gr_sapCode.setCellInputType(i, "sapAcctCd", {inputType : "textImage"});
+        
+        }
+        //$c.gus.cfGoPrevPosition(ds_sapCode, scwin.prevRow);
+	}
+};
+
+
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function(){
+  
+    //변경한 데이터가 있는지 체크한다. 	
+    if(ds_sapCode.getModifiedIndex().length == 0){
+        $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    };	
+    
+    if(await $c.win.confirm("저장하시겠습니까?")){
+        
+        sbm_saveSapCode.action ="/ac.fi.sap.SaveSapAcctCdCMD.do";
+        await $c.sbm.execute(sbm_saveSapCode);
+            
+    }	
+    
+    await scwin.f_Retrieve(); 
+};
+
+
+scwin.f_downExcelSheet = async function(){
+     let ret = await $c.win.confirm("Excel로 다운로드 하시겠습니까?");
+    if (ret) {
+    
+        if(ds_sapCode.getRowCount() > 0){
+
+            const options = {
+                fileName: "SAP 계정코드 매핑.xlsx",    // + ".xls",
+                sheetName: "SAP 계정코드 매핑",
+                useStyle: true,     
+                startColumnIndex : 0,
+            };
+                await $c.data.downloadGridViewExcel(gr_sapCode, options);
+        }  else {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        };
+    }
+
+};
+	
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(flag,check) {
+
+    var rtnList = new Array();
+    switch (flag){
+        case '1':   
+            // 계정
+            udc_acct.setSelectId("retrieveAcctCdInfo");
+            rtnList = udc_acct.cfCommonPopUp(scwin.retrieveAcctCdInfoCb,ed_acctCd.getValue(),ed_acctNm.getValue(),check,null,null,null,null,null,null,null,null,null);
+           
+        
+        break; 
+    }
+};
+scwin.retrieveAcctCdInfoCb = function(rtnList){
+    scwin.f_resultPopEd(ed_acctCd,ed_acctNm,rtnList); 
+}
+
+//-------------------------------------------------------------------------
+// 팝업체크
+//-------------------------------------------------------------------------
+scwin.f_checkPopEd = function(strCd,strNm,flag){
+    // 사용안함
+    if (strCd.text.trim() == strCd.hidVal)
+        return;
+        
+    strNm.value="";
+    strCd.hidVal="";
+    if(strCd.text.trim()!="") f_openPopUp(flag,'T');
+    
+};
+	
+//-------------------------------------------------------------------------
+// 팝업결과
+//-------------------------------------------------------------------------
+scwin.f_resultPopEd = function(strCd,strNm,rtnList){
+    if (rtnList != null ) {
+        if (rtnList[0] == "N/A") return;
+        strCd.setValue(rtnList[0]);	// 코드
+        strNm.setValue(rtnList[1]);	// 명
+        strCd.options.hidVal = rtnList[0];  // 히든값
+    }else{
+        strCd.setValue("");
+        strNm.setValue("");
+        strCd.hidVal = "";
+    }
+};
+	
+	  
+//-------------------------------------------------------------------------
+// sap 계정코드 팝업
+//-------------------------------------------------------------------------
+scwin.f_sapAcctCdPopUp = async function(row,data) {
+   
+    var rtnList = new Array();
+    udc_comCode1.setSelectId('retrieveSapAcctCd');
+    rtnList = await udc_comCode1.cfCommonPopUp(scwin.retrieveSapAcctCdCb,data,'',"F",null,null,null,null,null,null,null,null,null);  
+    
+};
+
+scwin.retrieveSapAcctCdCb = function(rtnList){
+      //통장코드
+    if (rtnList != null ) {
+        if(rtnList[0] == "N/A") return false;
+        
+        ds_sapCode.setCellData(scwin.row,"sapAcctCd", rtnList[0]);   
+        ds_sapCode.setCellData(scwin.row,"sapAcctNm", rtnList[1]); 
+        scwin.row = "";
+        scwin.data = "";
+    }else{
+        ds_sapCode.setCellData(scwin.row,"sapAcctCd", "");   
+        ds_sapCode.setCellData(scwin.row,"sapAcctNm", ""); 
+        scwin.row = "";
+        scwin.data = "";
+    }
+}
+
+scwin.udc_comCode1_onclickEvent = function (e) {
+    scwin.f_sapAcctCdPopUp(scwin.row,scwin.data);
+     
+};
+
+scwin.udc_acct_onblurCodeEvent = function (e) {
+    scwin.f_openPopUp('1','T');
+};
+]]></script>
+		<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="계정코드 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:udc_comCode popupID="" style="" codeId="ed_acctCd" nameId="ed_acctNm" id="udc_acct" btnId="btn_acct"
+									ev:onclickEvent="scwin.ed_acct_onclickEvent" ev:onblurCodeEvent="scwin.udc_acct_onblurCodeEvent" allowCharCode="0-9" maxlengthCode="7">
+								</w2:udc_comCode>
+								<w2:udc_comCode codeId="" id="udc_comCode1" nameId="" popupID="" style="display : none;" ev:onclickEvent="scwin.udc_comCode1_onclickEvent">
+								</w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn sch" disabled="" escape="false" id="trigger5" style="" type="button" ev:onclick="scwin.trigger5_onclick" userAuth="R">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="SAP 계정코드 매핑 " style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" gridDownFn="scwin.f_downExcelSheet" gridID="gr_sapCode" id="udc_utilComp"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_sapCode" id="gr_sapCode" style="" visibleRowNum="16"
+						visibleRowNumFix="true" setCellInputTypeCustom="true" rowStatusVisible="true">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="text" style="" value="DEBIS&lt;br/&gt;계정코드" width="100"></w2:column>
+								<w2:column displayMode="label" id="column17" inputType="text" style="" value="DEBIS&lt;br/&gt;계정명" width="150"></w2:column>
+								<w2:column displayMode="label" id="column15" inputType="text" style="" value="SAP&lt;br/&gt;계정코드" width="100"
+									class="txt-blue"></w2:column>
+								<w2:column displayMode="label" id="column13" inputType="text" style="" value="SAP&lt;br/&gt;계정명" width="150"></w2:column>
+								<w2:column displayMode="label" id="column11" inputType="text" style="" value="등록자" width="70"></w2:column>
+								<w2:column displayMode="label" id="column9" inputType="text" style="" value="등록일시" width="70"></w2:column>
+								<w2:column displayMode="label" id="column3" inputType="text" style="" value="수정자" width="70"></w2:column>
+								<w2:column displayMode="label" id="column5" inputType="text" style="" value="수정일시" width="70"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="acctCd" inputType="text" style="" value="" width="100" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="acctNm" inputType="text" style="" value="" width="150" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="sapAcctCd" inputType="custom" style="" value="" width="100" imageClickFunction="scwin.openPop"></w2:column>
+								<w2:column displayMode="label" id="sapAcctNm" inputType="text" style="" value="" width="150" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="regId" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="regDtm" inputType="text" style="" value="" width="70" dataType="date" displayFormat="yyyy/MM/dd" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="modId" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="modDtm" inputType="text" style="" value="" width="70" dataType="date" displayFormat="yyyy/MM/dd" readOnly="true"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="" style="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="right" id="" style="">
+						<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+							<xf:label><![CDATA[저장]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

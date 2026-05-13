@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="dma_search">
+        			<w2:keyInfo>
+        				<w2:key id="wrkPlCd" name="name1" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="wrkPlCd" name="name1" dataType="text"></w2:column>
+        				<w2:column id="conSts" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieve" action="/ncall.tn.op.transwrkindict.cntr.RetrieveCyCongestionCMD.do" method="post"
+        		mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},
+{"id":"ds_result","key":"OUT_DS1"}]'
+        		target='data:json,
+{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitDone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[// 전역변수
+
+scwin.wrkPlCd;
+scwin.timer;
+scwin.interval;
+scwin.v_cnt = 0;
+scwin.params;
+
+
+scwin.onpageload = async function() {
+
+	scwin.params = $p.getParameter("params");
+
+    scwin.wrkPlCd = scwin.params.wrkPlCd == null? "" :  scwin.params.wrkPlCd;
+   
+    scwin.f_Retrieve();
+    scwin.v_cnt = 0;
+};
+
+scwin.f_Retrieve = function(){
+
+    dma_search.set("wrkPlCd", scwin.wrkPlCd);
+      $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitDone = function(){
+   
+    var stats = ""
+     stats	 = ds_result.getCellData(0, "conSts");
+	var waitTime = ""; 
+    waitTime = ds_result.getCellData(0, "waitTime")
+
+	if (ds_result.getRowCount() > 0){
+		//alert("ds_result.CountRow="+ds_result.CountRow);
+        $p.getFrame().getScopeWindow().scwin.f_displayCongestion(stats, waitTime);
+		
+	}else{
+		$p.getFrame().getScopeWindow().scwin.f_displayCongestion(0, null);
+	}
+
+}
+
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload"/>
+</html>

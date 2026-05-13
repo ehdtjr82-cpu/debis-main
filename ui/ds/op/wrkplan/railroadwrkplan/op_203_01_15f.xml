@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_condition" saveRemovedData="true">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_inoutInfo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="supplier" name="공급사" dataType="text" defaultValue="" length="10"></w2:column>
+    					<w2:column id="base" name="거점" dataType="text" defaultValue="" length="10"></w2:column>
+    					<w2:column id="volDt" name="일자" dataType="text" defaultValue="" length="8"></w2:column>
+    					<w2:column id="planActCls" name="구분(0:예정,1:실행)" dataType="text" defaultValue="" length="1"></w2:column>
+    					<w2:column id="inQty" name="입고수량" dataType="number" defaultValue="0" length="14.3"></w2:column>
+    					<w2:column id="outQty" name="납품 수량" dataType="number" defaultValue="0" length="14.3"></w2:column>
+    					<w2:column id="stockQty" name="재고" dataType="number" defaultValue="0" length="14.3"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_detail" action="/ds.op.wrkplan.railroadwrkplan.RetrieveKoenTransPlanDetailInfoCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"ds_condition","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_detail_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.wrkplan.railroadwrkplan.SaveKoenInoutInfoCMD.do" method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_inoutInfo","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    const codeOptions = [
+        { grpCd: "OP651", compID: "gr_inoutInfo:supplier" },    // 공급사
+        { grpCd: "OP657", compID: "gr_inoutInfo:base" } // 거점
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    // 그리드 maxlength 설정
+    scwin.f_SetGridColumnMaxLength(gr_inoutInfo);
+};
+
+//-------------------------------------------------------------------------
+// 입력 그리드 maxlength 설정
+//-------------------------------------------------------------------------
+scwin.f_SetGridColumnMaxLength = function (gridViewObj) {
+    for (let i = 0; i < gridViewObj.getTotalCol(); i++) {
+        let colNm = gridViewObj.getColumnID(i);
+        let dataObj = $c.gus.object(gridViewObj.getDataList());
+        let colInfo = dataObj.getColumnInfo(colNm);
+
+        if (typeof colInfo != "undefined") {
+            gridViewObj.setMaxLength(i, colInfo.length);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 상세 조회
+//-------------------------------------------------------------------------
+scwin.f_detail = function (co_shippingRelationNumber, transWrkIndictNo) {
+    $c.sbm.execute(sbm_detail);
+};
+
+//-------------------------------------------------------------------------
+// 행추가 조회
+//-------------------------------------------------------------------------
+scwin.f_addrow = function () {
+    var newRow = ds_inoutInfo.insertRow();
+    ds_inoutInfo.setRowPosition(newRow);
+    ds_inoutInfo.setCellData(ds_inoutInfo.getRowPosition(), "planActCls", $p.parent().rd_planActCls.getValue());
+};
+
+//-------------------------------------------------------------------------
+// 저장 조회
+//-------------------------------------------------------------------------
+scwin.f_Save = function () {
+    $c.sbm.execute(sbm_save);
+};
+
+//-------------------------------------------------------------------------
+// 상세조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_detail_submitdone = function (e) {
+    // if (rowCnt == 0) { //ds_shippingd 사용되지 않음
+    //     ds_shippingd.ClearData();
+    // }
+    // cfShowTotalRows(totalRows, rowCnt);
+};
+
+//-------------------------------------------------------------------------
+// 저장 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    $p.parent().scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 물동량계획/실행 그리드 : 구분 displayFormatter
+//-------------------------------------------------------------------------
+scwin.planActClsExp = function (data) {
+    return $c.gus.decode(data, "0", "계획", "실행");
+};
+
+//-------------------------------------------------------------------------
+// 물동량계획/실행 그리드 : 입고 customFormatter
+//-------------------------------------------------------------------------
+scwin.qtyExp  = function (data, formatData, rowIdx, colIdx) {
+    if (formatData == null || formatData === "") return "";
+
+    var num = Number(formatData.replace(/,/g, ""));
+    if (isNaN(num)) return formatData;
+
+    return num.toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="물동량계획/실행" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" grdDownOpts='{"fileName":"입고예정물량정보.xlsx","sheetName":"입고예정물량정보","type":"4+8+16"}' gridID="gr_inoutInfo" gridUpYn="N" templateYn="N" gridDownYn="Y"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_inoutInfo"
+    									id="gr_inoutInfo" style="" visibleRowNum="15" visibleRowNumFix="true" rowStatusVisible="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="구분" width="70"
+    												class="txt-red">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="일자" width="100"
+    												class="txt-blue">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="공급사" width="150"
+    												class="txt-blue">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="거점" width="150"
+    												class="txt-blue">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="입고" width="120"
+    												class="txt-blue">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="출고" width="120"
+    												class="txt-blue">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" value="재고" width="120"
+    												class="txt-blue">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="planActCls" inputType="text" width="70"
+    												displayFormatter="scwin.planActClsExp" readOnly="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="volDt" inputType="calendar" width="100"></w2:column>
+    											<w2:column displayMode="label" id="supplier" inputType="select" width="150" textAlign="left"
+    												chooseOption="true" chooseOptionLabel="$blank">
+    												<w2:choices></w2:choices>
+    											</w2:column>
+    											<w2:column displayMode="label" id="base" inputType="select" width="150" textAlign="left"
+    												chooseOption="true" chooseOptionLabel="$blank">
+    												<w2:choices></w2:choices>
+    											</w2:column>
+    											<w2:column displayMode="label" id="inQty" inputType="text" width="120" textAlign="right"
+    												dataType="float" maxLength="14.3" allowChar="0-9." customFormatter="scwin.qtyExp" displayFormat="#,##0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="outQty" inputType="text" width="120" textAlign="right"
+    												dataType="float" maxLength="14.3" allowChar="0-9." customFormatter="scwin.qtyExp" displayFormat="#,##0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="stockQty" inputType="text" width="120" textAlign="right"
+    												dataType="float" maxLength="14.3" allowChar="0-9." customFormatter="scwin.qtyExp" displayFormat="#,##0">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:udc_bottomGrdBtn style="" id="udc_bottomGrdBtn" btnDelYn="N" btnCancelYn="Y" btnRowAddYn="Y" btnRowDelYn="Y" rowAddFunction="scwin.f_addrow" gridID="gr_inoutInfo" rowAddUserAuth="C" rowAddObjType="data" rowDelObjType="data" cancelObjType="data" rowDelUserAuth="D"></w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group><xf:group class="btnbox" id="">
+    						<xf:group class="right" id="">
+    							<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    </body>
+</html>

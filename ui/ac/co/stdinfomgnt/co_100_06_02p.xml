@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="dma_master">
+        			<w2:keyInfo>
+        				<w2:key id="stdBookKndCd" name="name1" dataType="text"></w2:key>
+        				<w2:key id="targetBookKndCd" name="name2" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_master" action="/ac.co.stdinfomgnt.CreatePrintFormAutoCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"dma_master","key":"IN_DS1"}' target="" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_master_submitdone"
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	const codeOptions = [{ grpCd : "FI010", compID : "lc_stdBookKndCd,lc_targetBookKndCd" }]
+    $c.data.setCommonCode(codeOptions);
+};
+
+//-------------------------------------------------------------------------
+// 생성 : 
+//-------------------------------------------------------------------------
+scwin.f_Create = async function() {
+    //생성조건 입력여부 및 형식 체크
+    let ret = await $c.gus.cfValidate([lc_stdBookKndCd,lc_targetBookKndCd]);
+    if (!ret) {
+        return false;
+    }
+
+    //반영할 년도와 기준년도가 같은 지 체크
+    if (lc_stdBookKndCd.getValue() == lc_targetBookKndCd.getValue()) {
+        await $c.win.alert("기준장부와 복사할 장부가 같습니다.");
+        lc_stdBookKndCd.focus();
+        return;
+    }
+
+    if (await $c.win.confirm("복사할 장부의 기존 자료는 삭제됩니다.\n\n계속하시겠습니까?")) {
+        $c.sbm.execute(sbm_master);
+    }
+};
+scwin.sbm_master_submitdone = async function (e) {
+    await $c.win.alert(MSG_CM_INF_001);
+    $c.win.closePopup();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group id="" class="round-box">
+    					<xf:group style="" id="" class="tbbox">
+    						<xf:group   tagname="table" style="" id="tbl_search" class="w2tb tb">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group tagname="col" style="width:120px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group tagname="th" style="" class="w2tb_th">
+    									<w2:textbox ref="" style="" userData2="" id="" label="기준장부" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" style="" class="w2tb_td">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control col7"
+    										direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_stdBookKndCd" ref="data:dma_master.stdBookKndCd"
+    										renderType="" style="" submenuSize="auto" objType="data" mandatory="true" validExp="기준 장부:yes" displayMode="value delim label"
+    										chooseOptionLabel="" emptyItem="true" visibleRowNum="25" title="기준장부">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="복사할 장부" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control col7" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_targetBookKndCd" ref="data:dma_master.targetBookKndCd" renderType="" style="" submenuSize="auto" objType="data" mandatory="true" validExp="복사할 장부:yes" displayMode="value delim label" emptyItem="true" visibleRowNum="25" title="복사할 장부">
+    										<xf:choices>
+    											<xf:itemset nodeset="">
+    												<xf:label ref="name"></xf:label>
+    												<xf:value ref="code"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="" style="" type="button" userAuth="C" objType="bSave" ev:onclick="scwin.f_Create">
+    						<xf:label><![CDATA[생성]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_close" style="" title="엑셀 UP" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

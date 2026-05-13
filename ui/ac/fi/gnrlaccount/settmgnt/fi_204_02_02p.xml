@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="slipDtSt" name="" dataType="text"></w2:key>
+    					<w2:key id="slipAcctDeptCdSt" name="" dataType="text"></w2:key>
+    					<w2:key id="slipDtEnd" name="" dataType="text"></w2:key>
+    					<w2:key id="drawEmpNo" name="" dataType="text"></w2:key>
+    					<w2:key id="postYn" name="" dataType="number"></w2:key>
+    					<w2:key id="slipAcctDeptCdEnd" name="" dataType="text"></w2:key>
+    					<w2:key id="slipKndCd" name="" dataType="text"></w2:key>
+    					<w2:key id="slipKndNm" name="" dataType="text"></w2:key>
+    					<w2:key id="slipNo" name="" dataType="text"></w2:key>
+    					<w2:key id="elecApprvInfoYn" name="" dataType="number"></w2:key>
+    					<w2:key id="coCd" name="" dataType="text"></w2:key>
+    					<w2:key id="coClsCd" name="" dataType="text"></w2:key>
+    					<w2:key id="cancleApprvNoDel" name="" dataType="number"></w2:key>
+    					<w2:key id="dtClsCd" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_search2">
+    				<w2:keyInfo>
+    					<w2:key id="coCd" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_slipNo" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+    					<w2:column id="coCd" name="" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_txt" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="checkYn" name="checkYn" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="작성일자" dataType="text"></w2:column>
+    					<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+    					<w2:column id="drawAcctDeptNm" name="작성부서" dataType="text"></w2:column>
+    					<w2:column id="slipKndCd" name="전표종류" dataType="text"></w2:column>
+    					<w2:column id="slipKndNm" name="전표종류" dataType="text"></w2:column>
+    					<w2:column id="dsum" name="차변금액" dataType="text"></w2:column>
+    					<w2:column id="csum" name="대변금액" dataType="text"></w2:column>
+    					<w2:column id="postDt" name="회계일자" dataType="text"></w2:column>
+    					<w2:column id="postAcctDeptNm" name="회계부서" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNm" name="작성자" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_getMaxCloseYm" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="closeYm" name="name1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_tr_search" action="/ac.fi.gnrlaccount.slipmgnt.RetrieveSlipListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_txt","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_txt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_delete" action="/ac.fi.gnrlaccount.settmgnt.ReverseControlSlipCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_txt","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_delete_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_getMaxCloseYm" action="/cm.bc.comnmgnt.closemgnt.RetrieveMaxCloseYmCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search2","key":"IN_DS1"},{"id":"ds_getMaxCloseYm","key":"OUT_DS1"}]' target='data:json,{"id":"ds_getMaxCloseYm","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_getMaxCloseYm_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 실물화전표 삭제
+ * 메뉴경로 : 회계/재무회계/일반회계/결산관리/결산조정전표조회
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ac/fi/gnrlaccount/settmgnt/fi_204_02_02p.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-12-17
+ * 수정이력  :
+ *    - 2025-12-17      정승혜    최초작성
+ *    - 2026-01-18      정승혜    기타수정
+ *    - 2026-01-19      정승혜    submitdone 조건수정
+ * 메모 : 부모페이지 fi_204_02_02b
+ * 실물화 역전표발행 시 에러발생됨 -> asis 같은현상 
+ * 보통 현업에서는 사번6자리로 아이디를 사용하고있음. 현재 inswave 계정이 7자리로 되어있어 오류가 발생한걸로 보입니다. 
+ - Test ID정보 : 111973 / 1111
+ * 조회조건 : 20110101~20111231
+ */
+scwin.memJson = $c.data.getMemInfo();
+scwin.privAdmin = $c.data.getMemInfo("privAdmin");    // ADMIN 권한 CHK : 'T' : ADMIN , 'F': ADMIN 아님
+scwin.strToDate = $c.date.getServerDateTime("yyyyMMdd");
+
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd; // 소속 자회사  
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd;//회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd= scwin.memJson.userHomeClsCd;  // 사용자소속구분코드 
+scwin.vCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd; 
+
+scwin.isSubCompany = false;
+
+//hidden
+scwin.txtCoClsCd = "";
+
+	//-------------------------------------------------------------------------
+	// 화면로딩시
+	//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.f_Header();
+    scwin.getMaxCloseYm();
+};
+
+	//-------------------------------------------------------------------------
+	// 전월 마감여부 
+	//-------------------------------------------------------------------------
+scwin.getMaxCloseYm = function() {
+    $c.sbm.execute(sbm_tr_getMaxCloseYm);
+};
+
+	//-------------------------------------------------------------------------
+	// 헤더생성
+	//-------------------------------------------------------------------------
+scwin.f_Header = function() {
+    dma_search2.set("coCd", scwin.vCoCd);
+    ds_slipNo.insertRow();
+    scwin.f_Setting(); 
+};
+
+	//-------------------------------------------------------------------------
+	// 조회조건 셋팅 
+	//-------------------------------------------------------------------------
+scwin.f_Setting = function() {
+    dma_search.set("slipDtSt", scwin.strToDate.substring(0,6)+"01");
+    dma_search.set("slipDtEnd", scwin.strToDate);
+
+    //ed_slipDtSt.setValue(scwin.strToDate.substring(0,6)+"01");
+    //ed_slipDtEnd.setValue(scwin.strToDate); 
+    //ed_slipDtSt.focus();
+    lc_dtClsCd.setSelectedIndex(0);
+};
+
+	//-------------------------------------------------------------------------
+	// 재조회
+	//-------------------------------------------------------------------------
+scwin.f_SearchClear = function() {
+    $c.gus.cfInitObjects(searchTable);
+    scwin.f_Setting();
+};
+
+	//-------------------------------------------------------------------------
+	// 조회(거래목록)
+	//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    let ret = await $c.gus.cfValidate([ed_slipDtSt,ed_slipDtEnd]);
+    if (!ret){
+        return false;
+    }
+        
+    if (! await $c.gus.cfIsAfterDate(ed_slipDtSt.getValue().trim(), ed_slipDtEnd.getValue().trim())){
+        await $c.win.alert(MSG_CM_ERR_039); 
+        ed_slipDtSt.focus();
+        return false;
+    }  
+    
+    dma_search.set( "coCd", scwin.vCoCd);
+    dma_search.set( "slipKndCd", 'A10');
+    dma_search.set( "postYn", '1');
+
+    $c.sbm.execute(sbm_tr_search);
+};
+
+	//-------------------------------------------------------------------------
+	// 실물화전표 역전표 발행
+	//-------------------------------------------------------------------------
+scwin.f_Delete = async function() {
+    if(ds_txt.getModifiedIndex().length == 0){
+        await $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_056,"데이타"));
+        return;
+    }
+    
+    if(await $c.win.confirm("선택하신  실물화전표의 역전표발행 하시겠습니까?")==true){	
+        $c.sbm.execute(sbm_tr_delete);    
+    }
+};
+
+	//-------------------------------------------------------------------------
+	// 상세
+	//-------------------------------------------------------------------------
+scwin.f_Detail = function() {
+    // 호출되는곳 없음
+};
+
+// 닫기
+scwin.f_close = function() {
+    $c.win.closePopup();
+};
+
+// 서브미션
+scwin.sbm_tr_search_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    totalRows.setValue(ds_txt.getRowCount());
+    if(ds_txt.getRowCount() == 0){
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }else{
+        ds_txt.setRowPosition(0);
+        $c.gus.cfGoPrevPosition(gr_txt, 0);
+        ds_slipNo.setCellData(0, "slipNo", ds_txt.getCellData(0, "slipNo"));
+    }
+};
+
+// 서브미션
+scwin.sbm_tr_delete_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert(MSG_CM_INF_004 );	// 성공적으로삭제하였습니다
+    ds_txt.removeAll();
+    scwin.f_Retrieve();
+    //gr_txt.ColumnProp('checkYn','HeadCheck')="false";
+};
+
+// 서브미션
+scwin.sbm_tr_getMaxCloseYm_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    let thisYm = scwin.strToDate; // 오늘일자 가져오기
+    //최소 미마감월이 당월이 아닐때
+    if(ds_getMaxCloseYm.getCellData(0, "closeYm") != thisYm.substring(0,6)){ 
+        let closeYm = ds_getMaxCloseYm.getCellData(0, "closeYm");
+        let firstDay = closeYm.substring(0,4)+closeYm.substring(4,6)+"01";  // 1일
+        let lastDay =  closeYm.substring(0,4)+closeYm.substring(4,6) + new Date(closeYm.substring(0,4),closeYm.substring(4,2),0).getDate(); // 마지막날
+        ed_slipDtEnd.setValue(lastDay); //작성일자 셋팅
+        ed_slipDtSt.setValue(firstDay);
+    }else{
+        let firstDay = thisYm.substring(0,4)+thisYm.substring(4,6)+"01";  //당월 1일
+        let lastDay = thisYm.substring(0,4)+thisYm.substring(4,6)+ new Date(thisYm.substring(0,4),thisYm.substring(4,2),0).getDate(); //당월 마지막날
+        ed_slipDtEnd.setValue(lastDay); //작성일자 셋팅
+        ed_slipDtSt.setValue(firstDay);
+    }
+};
+
+scwin.gr_txt_oncellclick = function (rowIndex, columnIndex, columnId) {
+    if(columnId=="slipNo"){
+        $c.gus.cfShowSlipInfo(ds_txt.getCellData(rowIndex, "slipNo"));
+	}
+};
+
+scwin.gr_txt_onkeydown = function (e) {
+    if (e.keyCode === 9) {
+        e.preventDefault();
+        let row = gr_txt.getFocusedRowIndex();
+        let col = gr_txt.getFocusedColumnIndex();
+        if (row < ds_txt.getRowCount() - 1) {
+            gr_txt.setFocusedCell(row + 1, 0);
+        }
+        return false;
+    }
+};
+]]></script>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="searchTable" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="req" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_dtClsCd" style="width: 150px;" submenuSize="fixed" ref="data:dma_search.dtClsCd">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[작성일자]]></xf:label>
+    										<xf:value><![CDATA[slipDt]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[회계일자]]></xf:label>
+    										<xf:value><![CDATA[postDt]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[생성일자]]></xf:label>
+    										<xf:value><![CDATA[regDt]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar refStDt="slipDtSt" refDataMap="dma_search" style="" id="udc_fromToCalendar1"
+    								refEdDt="slipDtEnd" edFromId="ed_slipDtSt" edToId="ed_slipDtEnd" mandatoryTo="true" mandatoryFrom="true" class="req" titleTo="작성일자To" titleFrom="작성일자From">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button" ev:onclick="scwin.f_SearchClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grp_group1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_txt" id="gr_txt" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5" visibleRowNumFix="true"
+    					readOnly="true" ev:oncellclick="scwin.gr_txt_oncellclick" ev:onkeydown="scwin.gr_txt_onkeydown">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column23" inputType="checkbox" style="" value="" width="50"
+    								fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column21" inputType="text" style="" value="작성일자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" style="" value="전표번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="작성부서" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" style="" value="전표종류" width="100">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="전표종류" width="100"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column31" value="차변금액" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column29" value="대변금액" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column25" value="회계일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column33" value="회계부서" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column35" value="작성자" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="checkYn" inputType="checkbox" style="" value="" width="50"
+    								fixColumnWidth="true" readOnly="false" falseValue="F" trueValue="T" valueType="other">
+    							</w2:column>
+    							<w2:column displayMode="label" id="slipDt" inputType="calendar" style="" value="" width="100" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column displayMode="label" id="slipNo" inputType="text" style=";color:blue;" value="" width="100" class="underline"></w2:column>
+    							<w2:column displayMode="label" id="drawAcctDeptNm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="slipKndCd" inputType="text" style="" value="" width="100" hidden="true" ></w2:column>
+    							<w2:column displayMode="label" id="slipKndNm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="dsum" value="" displayMode="label" displayFormat="#,##0" dataType="number" excelCellType="number" textAlign="right"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="csum" value="" displayMode="label" displayFormat="#,##0" dataType="number" excelCellType="number" textAlign="right"></w2:column>
+    							<w2:column width="100" inputType="calendar" style="" id="postDt" value="" displayMode="label" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="postAcctDeptNm" value="" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="drawEmpNm" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="" style="" type="button" ev:onclick="scwin.f_close">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="" style="" type="button" ev:onclick="scwin.f_Delete" userAuth="D">
+    				<xf:label><![CDATA[실물화 역전표발행]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

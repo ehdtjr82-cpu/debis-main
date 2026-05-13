@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="stdYm" name="기준년월" dataType="text"></w2:key>
+    					<w2:key id="stdCls" name="기준구분" dataType="text"></w2:key>
+    					<w2:key id="stdDt" name="기준일자" dataType="text"></w2:key>
+    					<w2:key id="collMoneyAcctDept" name="수금귀속부서" dataType="text"></w2:key>
+    					<w2:key id="bilgAcctDept" name="수금귀속부서" dataType="text"></w2:key>
+    					<w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+    					<w2:key id="clntCls" name="거래처구분" dataType="text"></w2:key>
+    					<w2:key id="qryCls" name="조회구분" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_acctrecvperiod" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="collMoneyAcctDeptCd" name="수금귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="sellAcctDeptCd" name="매출귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="saleAcctDeptNm" name="매출귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="crn" name="사업자등록번호" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="clntTelNo" name="전화번호" dataType="text"></w2:column>
+    					<w2:column id="clntPersNm" name="담당자명" dataType="text"></w2:column>
+    					<w2:column id="stsCd" name="구분" dataType="text"></w2:column>
+    					<w2:column id="thismonth" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth2" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth3" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth4" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth5" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth6" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth7" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth8" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth9" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth10" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth11" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonth12" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="beforemonthunder" name="컬럼헤더명" dataType="number"></w2:column>
+    					<w2:column id="acctCd" name="계정코드" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+    					<w2:column id="culmulative" name="누계" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_retrieveAcctRecvMgnt" action="/ac.fm.acctrecvmgnt.acctrecvperiodmgnt.RetrieveAcctrecvperiodDetailCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_acctrecvperiod","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_acctrecvperiod","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveAcctRecvMgnt_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.params = "";
+scwin.strToDate = $c.date.getServerDateTime("yyyyMMdd");
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	scwin.params = $c.data.getParameter();
+    scwin.stdYm = scwin.params.stdYm;
+    scwin.clntNo = scwin.params.clntNo;
+    if ( scwin.clntNo == null )
+	    scwin.clntNo = "";
+
+    scwin.collMoneyAcctDept = scwin.params.collMoneyAcctDept;
+    if ( scwin.collMoneyAcctDept == null )
+	    scwin.collMoneyAcctDept = "";
+
+    scwin.bilgAcctDept = scwin.params.bilgAcctDept;
+    if ( scwin.bilgAcctDept == null )
+	    scwin.bilgAcctDept = "";
+
+    ed_stdYm.setValue(scwin.stdYm);
+    ds_condition.set("clntNo", scwin.clntNo);
+    ds_condition.set("collMoneyAcctDept", scwin.collMoneyAcctDept);
+    ds_condition.set("bilgAcctDept", scwin.bilgAcctDept);
+    $c.gus.cfDisableObjects([ed_stdYm]);
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    try{
+        let ret = await $c.gus.cfValidate([ed_stdYm]);
+        if (!ret) {
+            return false;
+        }
+        let sDate = ed_stdYm.getValue()+"01"
+        gr_acctrecvperiod.setHeaderValue("thismonth", sDate.toDate().after(0,0,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth", sDate.toDate().after(0,-1,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth2", sDate.toDate().after(0,-2,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth3", sDate.toDate().after(0,-3,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth4", sDate.toDate().after(0,-4,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth5", sDate.toDate().after(0,-5,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth6", sDate.toDate().after(0,-6,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth7", sDate.toDate().after(0,-7,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth8", sDate.toDate().after(0,-8,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth9", sDate.toDate().after(0,-9,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth10", sDate.toDate().after(0,-10,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth11", sDate.toDate().after(0,-11,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonth12", sDate.toDate().after(0,-12,0).format("YYYY년MM월"));
+        gr_acctrecvperiod.setHeaderValue("beforemonthunder", sDate.toDate().after(0,-13,0).format("YYYY년MM월"));
+
+        ds_condition.set("stdCls", 2);
+        $c.sbm.execute(sbm_retrieveAcctRecvMgnt);
+    } catch (e) {
+       console.log("f_Retrieve " + e);
+    }
+}; 
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieveAcctRecvMgnt_submitdone = function(e) {
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0)  return; //onFail
+        
+        tbx_totalRows.setValue($c.gus.cfInsertComma(ds_acctrecvperiod.getRowCount()));
+        if( ds_acctrecvperiod.getRowCount() == 0 ){
+            $c.win.alert("조회된 데이터가 없습니다");
+        }else{
+            
+            var options = {};
+            options.sortIndex = "collMoneyAcctDeptCd crn clntNm";
+            options.sortOrder = "1 1 1";
+            ds_acctrecvperiod.multisort( options );//SortExpr +collMoneyAcctDeptCd +crn +clntNm
+            $c.gus.cfGoPrevPosition(gr_acctrecvperiod, 0); //첫번째 row 포지션이동
+        }
+    } catch (e) {
+       console.log("sbm_retrieveAcctRecvMgnt_submitdone : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀저장
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel = function() {
+    try{
+		let gridName = "";
+
+        if ( ds_acctrecvperiod.getRowCount() <= 0)
+        {
+            $c.win.alert("월령상세내역이 존재하지않습니다.");
+            return false;
+        }
+        gridName = "월령상세조회";
+        
+        const options = {
+            fileName : gridName +".xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+            ,sheetName :gridName //엑셀내 시트명 지정필요시
+        };
+        const infoArr = [];
+        $c.data.downloadGridViewExcel(gr_acctrecvperiod, options, infoArr);
+    } catch (e) {
+       console.log("f_GridToExcel : " + e);
+    }        
+};
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+//-------------------------------------------------------------------------
+// 거래처팝업화면 호출
+//-------------------------------------------------------------------------
+scwin.gr_acctrecvperiod_oncellclick = function (rowIndex, columnIndex, columnId) {
+    if (columnId == "clntNo" ) {
+        if ( !(ds_acctrecvperiod.getCellData(rowIndex, columnId) == null &&  ds_acctrecvperiod.getCellData(rowIndex, columnId) == ""))
+        {
+            $c.gus.cfViewClntInfo(ds_acctrecvperiod.getCellData(rowIndex, columnId));
+        }
+    }
+};
+]]></script>
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="기준월" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_stdYm" displayFormat="yyyy/MM" mandatory="true" style="" ref="data:ds_condition.stdYm">
+    									</w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					
+    				</xf:group>
+                    <xf:group class="round-box" id="" style="">
+    					<xf:group class="row-gap-8" id="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_acctrecvperiod" gridUpYn="N" gridDownFn="scwin.f_GridToExcel" btnUser="N"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+                                <w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_acctrecvperiod" visibleRowNum="15" id="gr_acctrecvperiod" scrollByColumn="false" scrollByColumnAdaptive="false" style="" fixedColumn="7" readOnly="true" resize="true" columnMove="true" fixedColumnNoMove="true" ev:oncellclick="scwin.gr_acctrecvperiod_oncellclick">
+                                    <w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+                                    <w2:header id="header2" style="">
+                                        <w2:row id="row3" style="">
+                                            <w2:column width="100" inputType="text" id="column31" value="청구부서" displayMode="label" sortable="true">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="column29" value="청구부서명" displayMode="label" sortable="true">
+                                            </w2:column>
+                                            <w2:column width="110" inputType="text" id="column27" value="사업자번호" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="110" inputType="text" id="column25" value="거래처번호" displayMode="label" sortable="true">
+                                            </w2:column>
+                                            <w2:column width="140" inputType="text" id="column23" value="거래처명" displayMode="label" sortable="true">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="column21" value="매출부서" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="column19" value="부서명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="column13" value="계정코드" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="column15" value="계정명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="70" inputType="text" id="column17" value="구분" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonthunder" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth12" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth11" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth10" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth9" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth8" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth7" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth6" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth5" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth4" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth3" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth2" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="thismonth" value="컬럼헤더명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="70" inputType="text" id="column49" value="누계" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="column59" value="전화번호" displayMode="label" sortable="false">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="column61" value="담당자명" displayMode="label" sortable="false">
+                                            </w2:column>
+                                        </w2:row>
+                                    </w2:header>
+                                    <w2:gBody id="gBody2" style="">
+                                        <w2:row id="row4" style="">
+                                            <w2:column width="100" inputType="text" id="collMoneyAcctDeptCd" displayMode="label" textAlign="center" fixColumnWidth="true" colMerge="true">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="acctDeptNm" displayMode="label" textAlign="center" fixColumnWidth="true" colMerge="true" upperColumn="collMoneyAcctDeptCd">
+                                            </w2:column>
+                                            <w2:column width="110" inputType="text" id="crn" displayMode="label" textAlign="center" fixColumnWidth="true" colMerge="true" upperColumn="acctDeptNm"></w2:column>
+                                            <w2:column width="110" inputType="link" id="clntNo" displayMode="label" textAlign="center" class="linktype" fixColumnWidth="true" colMerge="true" upperColumn="crn">
+                                            </w2:column>
+                                            <w2:column width="140" inputType="text" id="clntNm" displayMode="label" textAlign="left" fixColumnWidth="true" colMerge="true" upperColumn="clntNo"></w2:column>
+                                            <w2:column width="100" inputType="text" id="sellAcctDeptCd" displayMode="label" textAlign="center" fixColumnWidth="true">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="saleAcctDeptNm" displayMode="label" textAlign="left" fixColumnWidth="true">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="acctCd" displayMode="label" textAlign="center">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="acctNm" displayMode="label" textAlign="left"></w2:column>
+                                            <w2:column width="70" inputType="select" id="stsCd" displayMode="label" textAlign="center" allOption="" chooseOption="" ref="">
+                                                <w2:choices>
+                                                    <w2:item>
+                                                        <w2:label><![CDATA[발생]]></w2:label>
+                                                        <w2:value><![CDATA[01]]></w2:value>
+                                                    </w2:item>
+                                                    <w2:item>
+                                                        <w2:label><![CDATA[정리]]></w2:label>
+                                                        <w2:value><![CDATA[02]]></w2:value>
+                                                    </w2:item>
+                                                    <w2:item>
+                                                        <w2:label><![CDATA[잔액]]></w2:label>
+                                                        <w2:value><![CDATA[99]]></w2:value>
+                                                    </w2:item>
+                                                </w2:choices>
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonthunder" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth12" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth11" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth10" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth9" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth8" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth7" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth6" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth5" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth4" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth3" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="130" inputType="text" id="beforemonth2" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="70" inputType="text" id="beforemonth" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="70" inputType="text" id="thismonth" displayMode="label" textAlign="right" displayFormat="#,##0">
+                                            </w2:column>
+                                            <w2:column width="70" inputType="expression" id="culmulative" displayMode="label" textAlign="right" displayFormat="#,##0" expression="Number(display('thismonth'))+Number(display('beforemonth2'))+Number(display('beforemonthunder'))">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="clntTelNo" displayMode="label" textAlign="left">
+                                            </w2:column>
+                                            <w2:column width="100" inputType="text" id="clntPersNm" displayMode="label" textAlign="left">
+                                            </w2:column>
+                                        </w2:row>
+                                    </w2:gBody>
+                                </w2:gridView>
+                            </xf:group>
+                            <xf:group class="grid-bottom " id="" style="">
+                                <xf:group class="left" id="">
+                                    <xf:group class="grid-total" id="">
+                                        <w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+                                        <w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+                                        <w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+                                    </xf:group>
+                                </xf:group>
+                            </xf:group>
+    				    </xf:group>
+    				</xf:group>
+    				<xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

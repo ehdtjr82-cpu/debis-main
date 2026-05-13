@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_popup" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="vehclShortCd" name="name7" dataType="text"></w2:column><w2:column id="vehclNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="name2" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="name3" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="name5" dataType="text"></w2:column>
+    					<w2:column id="eqCd" name="name6" dataType="text"></w2:column>
+    					
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="lobranCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="vehclNo" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lobran" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="name1" dataType="text"></w2:column>
+    					<w2:column id="name" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_lobran">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    					<w2:key id="param2" name="name4" dataType="text"></w2:key>
+    					<w2:key id="param3" name="name5" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.fs.consignmgnt.longtermvehcl.RetrieveLongTermVehclPopUpListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_popup","key":"OUT_DS1"}]' target='data:json,{"id":"ds_popup","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="조회중..." ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+            
+            <!--
+                RetreiveLoBranCMD.do 사용 중 (필터 없이 46건)
+                AS-IS는 RetrieveComboCMD.do + retriveLobran2CodeList로(param1="1") 26건 나옴
+                tb_op116.xml의 retriveLobran2CodeList resultClass가 java.util.HashMap이라 code/name 매핑 실패 (CODE / NAME으로 쿼리중)
+
+                백엔드에서 resultClass="dbl.cm.zz.dto.ComboDTO"로 변경 후
+                이 submission을 /cm.zz.RetrieveComboCMD.do + dma_lobran(sysCd/queryId/param1) 방식으로 원복
+                ds_lobran 컬럼도 lobranCd/lobranNm -> code/name으로 변경필요
+                콤보 itemset ref도 lobranCd/lobranNm -> code/name으로 변경필요
+            -->
+            <xf:submission id="sbm_lobran" action="/ds.co.RetreiveLoBranCMD.do" method="post" mediatype="application/json"
+    			ref="" target='data:json,{"id":"ds_lobran","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_lobran_combo" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"dma_lobran","key":"dma_lobran"}' target='data:json,GAUCE' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = async function() {
+debugger;
+    scwin.params = $c.data.getParameter();
+    scwin.strOnCloseTF = scwin.params.closeTF || scwin.params.param3 || "";
+    lc_logisticsBranch.setValue(scwin.params.param0);
+    ed_vehclNo.setValue(scwin.params.param1);
+
+    const codeOptions = [
+        {
+            method: "getLuxeComboData",
+            param1: "WorkImplementEBC",
+            param2: "retriveLobran2CodeList",
+            param3: ["1"],
+            compID: "lc_logisticsBranch"
+        }
+    ];
+   
+    $c.data.setGauceUtil(codeOptions, function() {
+        if (scwin.params.param0) {
+            lc_logisticsBranch.setValue(scwin.params.param0);
+        }
+
+        if (ed_vehclNo.getValue() != "") {
+            scwin.btn_search_onclick();
+        }
+        
+    });
+  
+ //   scwin.btn_search_onclick();
+};
+
+scwin.btn_undo_onclick = function (e) {
+    scwin.init();
+};
+
+//초기화
+scwin.init = function() {
+
+    lc_logisticsBranch.setValue("");
+    ed_vehclNo.setValue("");
+    ed_vehclNo.focus();
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------      
+scwin.btn_search_onclick = function() {
+/*
+    if ( ed_vehclNo.getValue() === "" &&  lc_logisticsBranch.getValue() === ""){
+        $c.gus.cfAlertMsg("점소 선택 또는 차량번호 입력 후 검색하세요.");
+        return ;
+    }
+*/
+    if ( ed_vehclNo.getValue() === "" &&  lc_logisticsBranch.getValue() === ""){
+        ed_vehclNo.focus();
+    }
+    else {
+        dma_search.set("lobranCd", lc_logisticsBranch.getValue());
+        dma_search.set("vehclNo", ed_vehclNo.getValue());
+        ds_popup.removeAll();
+        $c.sbm.execute(sbm_retrieve);
+    }
+
+
+}  
+
+scwin.sbm_retrieve_submitdone = function (e) {
+
+    let nRow = ds_popup.getRowCount();
+
+    if (nRow == 0) {
+        total.setValue(nRow);
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다.
+        return;
+    }
+
+    if (nRow == 1 && scwin.strOnCloseTF == "T") {
+        scwin.f_rtnValue(0);
+        return;
+    }
+
+    ds_popup.setRowPosition(0);
+
+    total.setValue(nRow);
+
+};
+
+
+scwin.f_rtnValue = function (row) {
+
+    var ret = [];
+    ret[0] = ds_popup.getCellData(row, "vehclShortCd");
+    ret[1] = ds_popup.getCellData(row, "vehclNo");
+    ret[2] = ds_popup.getCellData(row, "clntNm");
+    ret[3] = ds_popup.getCellData(row, "lobranNm");
+    ret[4] = ds_popup.getCellData(row, "clntNo");
+    ret[5] = ds_popup.getCellData(row, "eqCd");
+    ret[6] = ds_popup.getCellData(row, "lobranCd");
+
+    $c.win.closePopup(ret);
+};
+
+scwin.gr_popup_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+
+    scwin.f_rtnValue(rowIndex);
+};
+
+scwin.btn_close_onclick = function (e) {
+
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<!-- <w2:attributes></w2:attributes> -->
+    							<!-- <xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_logisticsBranch" style="width:150px;" submenuSize="auto" textAlign="left"
+    								displayMode="value delim label" visibleRowNum="10" ref="" chooseOptionLabel="전체">
+    								<xf:choices></xf:choices>
+    							</xf:select1> -->
+                                <w2:autoComplete class="" editType="select" id="lc_logisticsBranch" search="start" style="width:150px;"
+									submenuSize="auto" visibleRowNum="10" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="">
+									<w2:choices></w2:choices>
+								</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="차량번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_vehclNo" style="width:150px;" mandatory="true" objType="key" ref="data:dma_search.vehclNo"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_undo" style="" type="button" ev:onclick="scwin.btn_undo_onclick">
+    					<xf:label><![CDATA[초기화]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R"
+    					ev:onclick="scwin.btn_search_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_popup" id="gr_popup" style="" autoFit="allColumn"
+    					visibleRowNum="13" visibleRowNumFix="true" readOnly="true" ev:oncelldblclick="scwin.gr_popup_oncelldblclick">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="차량번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="거래처명" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="배정점소" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="vehclNo" inputType="text" style="" value="" width="100"
+    								textAlign="center" sortable="true" sortLabel="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="150"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="lobranNm" inputType="text" style="" value="" width="100"
+    								textAlign="left">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="total" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

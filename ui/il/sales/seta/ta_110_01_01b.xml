@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_OtherTariff" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="Currow" name="SEQ" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="cust" name="Code" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="custnm" name="Name" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="iogb" name="Export/Import" dataType=""></w2:column>
+    					<w2:column id="locCd" name="Code" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="locCdNm" name="Name" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="type" name="Unit" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="fcode" name="Code" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="fcodenm" name="Name" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="selpchItemCd" name="매출입항목코드" dataType=""></w2:column>
+    					<w2:column id="fromDt" name="FromDate" dataType=""></w2:column>
+    					<w2:column id="curr" name="CURR" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="amount" name="Rate" dataType="" defaultValue="0"></w2:column>
+    					<w2:column id="sellYn" name="Sell" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="buyYn" name="Buy" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="blank" name="End" dataType=""></w2:column>
+    					<w2:column id="kcomcd" name="name17" dataType="text"></w2:column>
+    					<w2:column id="sellYnTemp" name="name18" dataType="text"></w2:column>
+    					<w2:column id="buyYnTemp" name="name19" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_SearchParam">
+    				<w2:keyInfo>
+    					<w2:key id="iogb" name="name1" dataType="text"></w2:key>
+    					<w2:key id="locCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="fromDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="workFlag" name="name4" dataType="text"></w2:key>
+    					<w2:key id="cust" name="name5" dataType="text"></w2:key>
+    					<w2:key id="kcomcd" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/il.sales.seta.RetrieveSeaOtherTariffCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_SearchParam","key":"IN_DS1"},{"id":"ds_OtherTariff","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_OtherTariff","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/il.sales.seta.SaveSeaOtherTariffCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_OtherTariff","key":"IN_DS1","action":"modified"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="false" src="/ui/js/il/ilcommon.js" scopeVariable="" type="text/javascript"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.memJson = $c.data.getMemInfo();
+scwin.userId = scwin.memJson.userId;  //사용자
+
+scwin.preRowPos = 0;
+scwin.statusFlag = "";
+scwin.ctrtNoRowCount = 0;
+
+scwin.AreaInfoMap = {};			//Area 정보 저장하는 Map
+scwin.FreightInfoMap = {};		//Freight 정보 저장하는 Map
+scwin.CurrencyInfoMap = {};		//Currency 정보 저장하는 Map
+scwin.ContainerTypeInfoMap = {};//Container Type 정보 저장하는 Map
+scwin.CustomerInfoMap = {};		//Customer 정보 저장하는 Map
+
+scwin.onpageload = function() {
+
+	scwin.f_DefaultValue();
+};
+
+//초기화
+scwin.btn_fieldClear_onclick = function (e) {
+
+    $c.gus.cfInitObjects(tb_searchCondition,null);
+    ds_OtherTariff.removeAll();
+    scwin.f_DefaultValue();
+};
+
+scwin.f_DefaultValue = function() {
+
+    scwin.f_Set("INIT");
+    cnd_lc_iogb.setValue("");
+    cnd_lc_workFlag.setValue("");
+    cnd_lc_iogb.focus();
+};
+
+scwin.onUdcCompleted = function() {
+
+    udc_bottomGrdBtnil.setDisabled(true); //udc disable 
+};
+
+scwin.f_Set = function(gubun) {
+
+    switch ( gubun ) {
+        case "INIT" : //초기화
+            $c.gus.cfDisableBtn([btn_cancel, btn_save]);
+            $c.gus.cfDisableBtnOnly([btn_deleteRowAll]);
+            //udc_bottomGrdBtnil.setDisabled(true); //udc disable 
+            scwin.statusFlag = "INIT";
+            break;
+        case "RETRIEVE" ://조회모드
+            $c.gus.cfEnableBtnOnly([btn_addRow, btn_deleteRow, btn_undoRow, btn_deleteRowAll]);
+            $c.gus.cfDisableBtnOnly([btn_cancel]);
+            $c.gus.cfEnableBtnOnly([btn_save, btn_create]);
+            scwin.statusFlag = "RETRIEVE";
+            break;
+        case "CREATE" :  //신규
+            $c.gus.cfDisableBtnOnly([btn_create, btn_save]);
+            $c.gus.cfEnableBtnOnly([btn_addRow, btn_deleteRow, btn_undoRow, btn_deleteRowAll]);
+            $c.gus.cfEnableBtnOnly([btn_cancel, btn_save]);
+            scwin.statusFlag = "CREATE";
+            break;
+        case "UPDATE" :	 //수정
+            scwin.statusFlag = "UPDATE";
+            break;
+        case "SAVE" :	 //저장
+            cfEnableBtnOnly([btn_save]);
+            scwin.statusFlag = "SAVE";
+            break;
+        case "DELETE" :	 //삭제
+            break;
+    }
+};
+
+//조회
+scwin.btn_retrieve_onclick = async function (e) {
+
+    if (! await scwin.f_ReqFieldChk()) {
+		return;
+	}
+
+    dma_SearchParam.set("iogb",cnd_lc_iogb.getValue());
+    dma_SearchParam.set("locCd",cnd_ed_locCd.getValue());
+    dma_SearchParam.set("fromDt",cnd_ed_fromDt.getValue());
+    dma_SearchParam.set("workFlag",cnd_lc_workFlag.getValue());
+    dma_SearchParam.set("cust",cnd_ed_cust.getValue());
+    dma_SearchParam.set("kcomcd","DBEX");
+    
+    await $c.sbm.execute(sbm_retrieve);
+};
+
+//조회 callback
+scwin.sbm_retrieve_submitdone = function() {
+
+    let nCnt = ds_OtherTariff.getRowCount();
+
+    if (nCnt == 0) {
+		$c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+        total.setValue(nCnt);
+		scwin.f_Set("INIT");
+	} else {
+        gr_OtherTariff.setFocusedCell(0, 0);
+        total.setValue(nCnt);
+        scwin.f_Set("RETRIEVE");
+    }
+
+    /*onloadcom*/
+    gr_OtherTariff.setCellReadOnly(nCnt, "cust", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "custnm", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "iogb", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "locCd", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "locCdNm", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "type", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "fcode", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "fcodenm", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "fromDt", true);
+    gr_OtherTariff.setCellReadOnly(nCnt, "curr", true);
+};
+
+scwin.f_ReqFieldChk = async function() {
+    //필수입력항목 체크
+	let validArry = [
+		{ id: "cust", name: "Customer", mandatory: false, key: true } //cust:Customer:no::key,
+		, { id: "iogb", name: "Export/Import", mandatory: true, key: true } //iogb:Export/Import:yes::key,
+		, { id: "locCd", name: "Area", mandatory: true, key: true } //locCd:Area:yes::key,
+		, { id: "type", name: "Unit", mandatory: true, key: true } //type:Unit:yes::key,
+		, { id: "fcode", name: "Freight Code", mandatory: true, key: true } //fcode:Freight Code:yes::key,
+		, { id: "curr", name: "Currency", mandatory: true, maxLength: 3, key: true } //curr:Currency:yes:length=3:key,
+		, { id: "fromDt", name: "From Date", mandatory: true, maxLength: 8, valid: "date", format: "YYYYMMDD", key: true } //fromDt:From Date:yes:length=8&date=YYYYMMDD:key,
+		, { id: "sellYn", name: "Sell", mandatory: true, key: true } //sellYn:Sell:yes::key,
+		, { id: "buyYn", name: "buyYn", mandatory: true, key: true } //buyYn:buyYn:yes::key
+	];
+    let gridName = "Tariff List";
+
+    let rtn = await $c.gus.cfValidateGrid(gr_OtherTariff, null, null, validArry, gridName);
+    if (! rtn) {        
+        return false;
+    }
+    return true;
+};
+
+scwin.udc_ilcomCode_loc_onclickEvent = function (e) {
+
+    scwin.f_PopUp('Area', 'F', 'F', 'F');
+};
+
+//area pop callback
+scwin.udc_ilcomCode_loc_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, cnd_ed_locCd, cnd_ed_locCdNm);
+    //console.log(ret);
+};
+
+scwin.udc_ilcomCode_loc_onblurCodeEvent = function (e) {
+	scwin.f_BeforePopUpEd(cnd_ed_locCdNm, cnd_ed_locCd, "Area",	"T", "F");
+};
+
+scwin.udc_ilcomCode_loc_onviewchangeNameEvent = function (info) {
+    scwin.f_ChkPopUp(this, cnd_ed_locCd, 'Area', false);
+};
+
+scwin.udc_ilcomCode_cust_onclickEvent = function (e) {
+
+    scwin.f_PopUp('Customer', 'F', 'F', 'F');
+};
+
+scwin.udc_ilcomCode_cust_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, cnd_ed_cust, cnd_ed_custnm);
+    //console.log(ret);
+};
+
+scwin.udc_ilcomCode_cust_onblurCodeEvent = function (e) {
+	scwin.f_BeforePopUpEd(cnd_ed_custnm, cnd_ed_cust, "Customer",	"T", "F");
+};
+
+scwin.udc_ilcomCode_cust_onviewchangeNameEvent = function (info) {
+
+    scwin.f_ChkPopUp(this, cnd_ed_cust, 'Customer', false);
+};
+
+//onclick event.
+scwin.gr_OtherTariff_oncellclick = function (rowIndex, columnIndex, columnId) {
+
+    switch (columnId)
+	{
+		case "contractno":
+		let value = ds_OtherTariff.getCellData(rowIndex,columnId);
+		//계약번호 재조회
+		if(ds_OtherTariff.getRowStatusValue(rowIndex) == 2){ //신규
+			//scwin.f_ContractInfo();  //계약번호조회 asis 없음
+		}
+	}
+};
+
+scwin.gr_OtherTariff_onrowindexchange = function (rowIndex, oldRow) {
+
+    if (ds_OtherTariff.getRowStatusValue(rowIndex) == 2) {
+
+		gr_OtherTariff.setCellReadOnly(rowIndex, "cust", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "custnm", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "iogb", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "locCd", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "type", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "fcode", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "fromDt", false);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "curr", false);
+
+	} else {
+        gr_OtherTariff.setCellReadOnly(rowIndex, "cust", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "custnm", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "iogb", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "locCd", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "locCdNm", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "type", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "fcode", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "fcodenm", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "fromDt", true);
+        gr_OtherTariff.setCellReadOnly(rowIndex, "curr", true);
+    }    
+};
+
+scwin.gr_OtherTariff_onafteredit = function (rowIndex, columnIndex, value) {
+    if(rowIndex < 0) {
+        return;
+    }
+    if(ds_OtherTariff.getRowCount() < rowIndex) {
+        return;
+    }
+
+    let columnId = ds_OtherTariff.getColumnID(columnIndex);
+    let columnValue = ds_OtherTariff.getCellData(rowIndex,columnIndex).trim();
+
+    switch (columnId) {
+
+        case "locCd":
+            //코드값이 공백이 아닌경우 팝업을 호출한다.
+            if (columnValue != ""){
+                scwin.f_PopUpGrid("Area", rowIndex, "T", "F");
+            } else {
+                ds_OtherTariff.setCellData(rowIndex, "locCdNm", "");
+            }
+            break;
+
+        case "fcode":
+            //코드값이 공백이 아닌경우 팝업을 호출한다.
+            if (columnValue != "" ){
+                ds_OtherTariff.setCellData(rowIndex,"selpchItemCd", "");
+                scwin.f_PopUpGrid("Freight", rowIndex, "T", "F");
+            } else {
+                ds_OtherTariff.setCellData(rowIndex, "fcodenm", "");
+            }
+            break;
+        case "curr":
+            //코드값이 공백이 아닌경우 팝업을 호출한다.
+            if (columnValue != ""){
+                scwin.f_PopUpGrid("Currency", rowIndex, "T", "F");
+            }
+            break;
+        case "type":
+            //코드값이 공백이 아닌경우 팝업을 호출한다.
+            if (columnValue != ""){
+                scwin.f_PopUpGrid("CNTR_TYPE", rowIndex, "T", "F");
+            }
+            break;
+        case "cust":
+            //코드값이 공백이 아닌경우 팝업을 호출한다.
+            if (columnValue != ""){
+                scwin.f_PopUpGrid("Customer", rowIndex, "T", "F");
+            } else {
+                ds_OtherTariff.setCellData(rowIndex, "custnm", "");
+            }
+            break;
+        default:
+            break;
+    }
+};
+
+// scwin.gr_OtherTariff_oncellindexchange = function (rowIndex, columnIndex, oldRow, oldColumnIndex) {
+// 	console.log("new row : " + rowIndex + ", old row : "+ oldRow + ", new col : " +columnIndex + ", old col : " + oldColumnIndex);
+// 	scwin.grid_popup(rowIndex, columnIndex);
+// };
+
+// scwin.gr_OtherTariff_onafteredit = async function (rowIndex, columnIndex, value) {
+// 	let columnId = gr_OtherTariff.getColumnID(columnIndex);
+//     switch (columnId) {
+// 		case "cust":
+// 		case "locCd":
+// 		case "type":
+// 		case "fcode":
+// 		case "curr":
+// 			scwin.grid_popup(rowIndex, columnIndex, value);
+//             break;
+// 	}
+	
+// };
+
+//키 종료시
+// scwin.gr_OtherTariff_oneditkeyup = function (info) {
+// 	let colID = info.colID;
+// 	let newValue = info.newValue;
+
+// 	// amount 필드는 최대 소수점 둘째자리까지 허용 (예: 0.12 입력 가능)
+// 	// 정규식: ^[-]?\d{1,10}(\.\d{1,2})?$  → 1~10자리 정수, 선택적 음수, 소수점 이하 0~2자리
+// 	// 예시: 0.12, 1234567890.99, -1.23 모두 허용
+// 	if (colID == "amount") {
+// 		if (!/^[-]?\d{1,10}(\.\d{1,2})?$/.test(newValue)) {
+// 			ds_OtherTariff.setCellData(info.rowIndex, colID, info.oldValue);
+//             gr_OtherTariff.setFocusedCell(rowIndex, colID, true);
+// 		}
+// 	}
+// }; 
+
+//엑셀 업로드 끝난 후.
+scwin.gr_OtherTariff_onfilereadend = async function (value) {
+	let rowCount = ds_OtherTariff.getRowCount();
+	for(var i = 0; i < rowCount; i++){
+
+		if(ds_OtherTariff.getCellData(i, "iogb").toUpperCase() =="I"){
+			ds_OtherTariff.setCellData(i, "iogb", "I");
+		}else{
+			ds_OtherTariff.setCellData(i, "iogb", "O");
+		}
+
+		let fromDT = ds_OtherTariff.getCellData(i, "fromDt");
+		if(fromDT.indexOf("/") > -1){
+			fromDT = fromDT.removeAll("/","");
+		}
+		if(fromDT.indexOf("-") > -1){
+			fromDT = fromDT.removeAll("-","");
+		}
+		
+		ds_OtherTariff.setCellData(i, "fromDt", fromDT);		
+		ds_OtherTariff.setCellData(i, "kcomcd", "DBEX");
+
+		//////Data 유효성 체크 시작.
+		if (ds_OtherTariff.getCellData(i, "iogb").trim() == "") {
+			await $c.win.alert((i+1) + " 행의 Export/Import 코드 오류입니다. 확인 하십시요.");
+			ds_OtherTariff.removeAll();
+			return;
+		}
+
+		//필수가 아닌경우 값이 없을경우 체크안함.
+		//Customer Code이 있는 경우 팝업호출하여 유효성 체크
+		let cust = ds_OtherTariff.getCellData(i, "cust").trim();
+		if (cust != "") {
+			if (await scwin.f_PopUpExcel("Customer", i, "T", "T", "K") != true ||
+				ds_OtherTariff.getCellData(i, "cust").length < 6) {
+				await $c.win.alert((i+1) + " 행의 Customer 코드 오류입니다. 확인 하십시요.");
+				ds_OtherTariff.removeAll();
+				return;
+			}
+		}
+		//Area Code 팝업호출하여 유효성 체크
+		let locCd = ds_OtherTariff.getCellData(i, "locCd").trim();
+		if (locCd == "" || await scwin.f_PopUpExcel("Area", i, "T", "T", "K") != true) {
+			await $c.win.alert((i+1) + " 행의 Area 코드 오류입니다. 확인 하십시요.");
+			ds_OtherTariff.removeAll();
+			return;
+		}
+
+		let type = ds_OtherTariff.getCellData(i, "type").trim();
+		if (type == "" || await scwin.f_PopUpExcel("CNTR_TYPE", i, "T", "T", "K") != true) {
+			await $c.win.alert((i+1) + " 행의 Unit 코드 오류입니다. 확인 하십시요.");
+			ds_OtherTariff.removeAll();
+			return;
+		}
+
+		let fcode = ds_OtherTariff.getCellData(i, "fcode").trim();
+		if (fcode == "" || await scwin.f_PopUpExcel("Freight", i, "T", "T", "K") != true ||
+			fcode.length < 3) {
+			await $c.win.alert((i+1) + " 행의 Freight 코드 오류입니다. 확인 하십시요.");
+			ds_OtherTariff.removeAll();
+			return;
+		}
+
+		let fromDt = ds_OtherTariff.getCellData(i, "fromDt").trim();
+		if (fromDt.length < 8) {
+			await $c.win.alert((i+1) + " 행의 From Date 오류입니다. 확인 하십시요.");
+			ds_OtherTariff.removeAll();
+			return;
+		}
+
+		//필수가 아닌경우 값이 없을경우 체크안함.
+		let curr = ds_OtherTariff.getCellData(i, "curr").trim();
+		if (curr != "") {
+			if (curr.length < 3 || await scwin.f_PopUpExcel("Currency", i, "T", "T", "K") != true) {
+				await $c.win.alert((i+1) + " 행의 Currency 코드 오류입니다. 확인 하십시요.");
+				ds_OtherTariff.removeAll();
+				return;
+			}
+		}
+
+	}
+
+	//총건수 세팅
+	total.setValue(rowCount);
+	gr_OtherTariff.setFocusedCell(0, 0);
+};
+
+scwin.f_PopUpExcel = async function(disGubun, row, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+
+	//매번 서버에 호출하게 되면 오래걸리므로 사전에 조회했던 값이 있으면 그걸 반환하고 아니면 서버에 호출하여 값을 받아오도록 한다.
+	return await new Promise(function (resolve) {
+		let searchKey = "";
+        let searchData = null;
+		switch (disGubun) {
+			case "Area": //Area
+				let locCd = ds_OtherTariff.getCellData(row, "locCd");
+				if (locCd == null || locCd.trim() == "") {
+                    resolve(false);
+                    return;
+                }
+
+				//먼저 저장된 값이 있는지 판단해서 있으면 해당 값을 반환한다.
+                searchKey = locCd.trim();
+                searchData = scwin.AreaInfoMap[searchKey];
+				if (searchData != undefined && searchData != null) {
+                    $c.gus.cfSetGridReturnValue(searchData, ds_OtherTariff, row, "locCd", "locCdNm", [""]);
+                    resolve(true);
+                    return;
+                }
+				
+				//저장된 값이 없으면 팝업을 띄워서 값을 받아온다.
+				udc_grid_popUp.setSelectId("retrieveAreaCode");
+				udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+						if (rtnList != "") {
+							scwin.AreaInfoMap[searchKey] = rtnList;   //받아온 값을 저장해둔다.
+							$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "locCd", "locCdNm", [""]);
+							resolve(true);
+						} else {
+							resolve(false);
+						}
+					}
+					, locCd	 //코드
+					, '' 	 //코드명
+					, pWinCloseTF						// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+					, '2'								// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+					, "Area Code,Area Name,"		// Title순서
+					, '130,300'							// 보여주는 각 컬럼들의 폭
+					, "3,4,5,6,7,8,9,10"					// 컬럼중에서 숨기는	컬럼 지정
+					, null								// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+					, '500'								// POP-UP뛰을때 원도우의	사용자 정의	폭
+					, '500'								// POP-UP뛰을때	우도우의	사용자 정의	높이
+					, null								// 윈도우 위치 Y좌표
+					, null								// 윈도우 위치 X좌표
+					, null								// 중복체크여부	("F")
+					, pAllSearchTF						// 전체검색허용여부	("F")
+					, "Area Search,Area Code,Area Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+					, 'F'								// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+				);
+				
+				break;
+
+			case "Freight"://Fleight
+				let fcode = ds_OtherTariff.getCellData(row, "fcode");
+				if (fcode == null || fcode.trim() == "") {
+					resolve(false);
+					return;
+				}
+
+				//먼저 저장된 값이 있는지 판단해서 있으면 해당 값을 반환한다.
+				searchKey = fcode.trim();
+				searchData = scwin.FreightInfoMap[searchKey];
+				if (searchData != undefined && searchData != null) {
+					$c.gus.cfSetGridReturnValue(searchData, ds_OtherTariff, row, "fcode", "fcodenm", [""]);
+					resolve(true);
+					return;
+				}
+
+				//저장된 값이 없으면 팝업을 띄워서 값을 받아온다.
+				udc_grid_popUp.setSelectId("retriveFreightCodeInfo");
+				udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+						var arry = ["", "selpchItemCd", "", "", "", "", "", ""];
+						if (rtnList != "") {
+							scwin.FreightInfoMap[searchKey] = rtnList;   //받아온 값을 저장해둔다.
+							$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "fcode", "fcodenm", arry);
+							resolve(true);
+						} else {
+							resolve(false);
+						}
+					}
+					, fcode	 //코드
+					, ''	 //코드명
+					, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+					, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+					, "Freight Code, Freight Name,"		// Title순서
+					, '130,300'              // 보여주는 각 컬럼들의 폭
+					, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+					, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+					, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+					, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+					, null				// 윈도우 위치 Y좌표
+					, null				// 윈도우 위치 X좌표
+					, null				// 중복체크여부	("F")
+					, pAllSearchTF			// 전체검색허용여부	("F")
+					, "Freight Search,Freight Code,Freight Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+					, 'F'				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+				);
+
+				break;
+
+			case "Currency"://Currency
+				let curr = ds_OtherTariff.getCellData(row, "curr");
+				if (curr == null || curr.trim() == "") {
+					resolve(false);
+					return;
+				}
+
+				//먼저 저장된 값이 있는지 판단해서 있으면 해당 값을 반환한다.
+				searchKey = curr.trim();
+				searchData = scwin.CurrencyInfoMap[searchKey];
+				if (searchData != undefined && searchData != null) {
+					$c.gus.cfSetGridReturnValue(searchData, ds_OtherTariff, row, "curr", "", [""]);
+					resolve(true);
+					return;
+				}
+
+				//저장된 값이 없으면 팝업을 띄워서 값을 받아온다.
+				udc_grid_popUp.setSelectId("retriveCurrencyCodeInfo");
+				udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+						if (rtnList != "") {
+							scwin.CurrencyInfoMap[searchKey] = rtnList;   //받아온 값을 저장해둔다.
+							$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "curr", "", [""]);
+							resolve(true);
+						} else {
+							resolve(false);
+						}
+					}
+					, curr	 //코드
+					, '' 	 //코드명
+					, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+					, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+					, "Currency Code, Currency Name,"		// Title순서
+					, '130,300'              // 보여주는 각 컬럼들의 폭
+					, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+					, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+					, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+					, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+					, null				// 윈도우 위치 Y좌표
+					, null				// 윈도우 위치 X좌표
+					, null				// 중복체크여부	("F")
+					, pAllSearchTF			// 전체검색허용여부	("F")
+					, "Currency Search,Currency Code,Currency Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+					, pNoDataCloseTF				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+				);
+
+				break;
+			case "CNTR_TYPE"://Container Type
+				let cntrType = ds_OtherTariff.getCellData(row, "type");
+				if (cntrType == null || cntrType.trim() == "") {
+					resolve(false);
+					return;
+				}
+
+				//먼저 저장된 값이 있는지 판단해서 있으면 해당 값을 반환한다.
+				searchKey = cntrType.trim();
+				searchData = scwin.ContainerTypeInfoMap[searchKey];
+				if (searchData != undefined && searchData != null) {
+					$c.gus.cfSetGridReturnValue(searchData, ds_OtherTariff, row, "type", "", [""]);
+					resolve(true);
+					return;
+				}
+
+				//저장된 값이 없으면 팝업을 띄워서 값을 받아온다.
+				udc_grid_popUp.setSelectId("retriveContainerTypeCodeInfo");
+				udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+						if (rtnList != "") {
+							scwin.ContainerTypeInfoMap[searchKey] = rtnList;   //받아온 값을 저장해둔다.
+							$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "type", "", [""]);
+							resolve(true);
+						} else {
+							resolve(false);
+						}					
+					}
+					, cntrType	 //코드
+					, '' 	 //코드명
+					, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+					, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+					, "Container Code, Container Name,"		// Title순서
+					, '130,300'              // 보여주는 각 컬럼들의 폭
+					, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+					, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+					, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+					, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+					, null				// 윈도우 위치 Y좌표
+					, null				// 윈도우 위치 X좌표
+					, null				// 중복체크여부	("F")
+					, pAllSearchTF			// 전체검색허용여부	("F")
+					, "Container Search,Container Code,Container Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+					, pNoDataCloseTF				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+				);
+				break;
+
+			case "Customer"://Customer
+				let cust = ds_OtherTariff.getCellData(row, "cust");
+				if (cust == null || cust.trim() == "") {
+					resolve(false);
+					return;
+				}
+
+				//먼저 저장된 값이 있는지 판단해서 있으면 해당 값을 반환한다.
+				searchKey = cust.trim();
+				searchData = scwin.CustomerInfoMap[searchKey];
+				if (searchData != undefined && searchData != null) {
+					$c.gus.cfSetGridReturnValue(searchData, ds_OtherTariff, row, "cust", "custnm", [""]);
+					resolve(true);
+					return;
+				}	
+
+				//저장된 값이 없으면 팝업을 띄워서 값을 받아온다.
+				udc_grid_popUp.setSelectId("retrieveEngClntInfo");
+				udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+						if (rtnList != "") {
+							scwin.CustomerInfoMap[searchKey] = rtnList;   //받아온 값을 저장해둔다.
+							$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "cust", "custnm", [""]);
+							resolve(true);
+						} else {
+							resolve(false);
+						}
+					}
+					, cust	 //코드
+					, '' 	 //코드명
+					, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+					, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+					, "Container Code, Container Name,"		// Title순서
+					, '130,300'              // 보여주는 각 컬럼들의 폭
+					, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+					, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+					, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+					, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+					, null				// 윈도우 위치 Y좌표
+					, null				// 윈도우 위치 X좌표
+					, null				// 중복체크여부	("F")
+					, pAllSearchTF			// 전체검색허용여부	("F")
+					, "Container Search,Container Code,Container Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+					, pNoDataCloseTF				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+				);
+				break;
+			default:
+				resolve(false);
+				break;
+		}
+	})
+};
+
+
+//-------------------------------------------------------------------------
+// function	name : f_PopUp
+// function	desc : popup
+//-------------------------------------------------------------------------
+scwin.f_PopUp = async function(pPopGubun, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+	console.log("f_PopUp call : " + pPopGubun);
+	let pCode = "";
+	let pName = "";
+	let pWhere = "";
+	let pWtitleSearch = "";
+	let pSelectID = "";
+
+	switch (pPopGubun) {
+
+		case "Area":
+			pCode = cnd_ed_locCd.getValue().trim();
+			pName = cnd_ed_locCdNm.getValue();
+			udc_ilcomCode_loc.setSelectId("retrieveAreaCode");	// XML상의 SELECT ID
+			udc_ilcomCode_loc.ilCommonPopUp(scwin.udc_ilcomCode_loc_callBackFunc
+				, pCode				// 화면에서의 ??? Code Element의	Value
+				, pName				// 화면에서의 ??? Name Element의	Value
+				, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '2'					// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, "Loading Code, Loading Name,"			// Title순서
+				, '130,300'              // 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+				, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null				// 윈도우 위치 Y좌표
+				, null				// 윈도우 위치 X좌표
+				, null				// 중복체크여부	("F")
+				, pAllSearchTF			// 전체검색허용여부	("F")
+				, "Loading Search,Loading Code,Loading Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, pNoDataCloseTF		// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			break;
+		case "Customer":
+			pCode = cnd_ed_cust.getValue().trim();
+			pName = cnd_ed_custnm.getValue();
+			udc_ilcomCode_cust.setSelectId("retrieveEngClntInfo");	// XML상의 SELECT ID
+			udc_ilcomCode_cust.ilCommonPopUp(scwin.udc_ilcomCode_cust_callBackFunc	
+				, pCode					// 화면에서의 ??? Code Element의	Value
+				, pName					// 화면에서의 ??? Name Element의	Value
+				, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '2'					// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, 'Customer Code,Customer Name,'		// Title순서
+				, '130,300'              // 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+				, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'					// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null					// 윈도우 위치 Y좌표
+				, null					// 윈도우 위치 X좌표
+				, null					// 중복체크여부	("F")
+				, pAllSearchTF			// 전체검색허용여부	("F")
+				, "Customer Search,Customer Code,Customer Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, pNoDataCloseTF			// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			break;
+	}
+};
+
+scwin.grid_popup = function(rowIndex, colIndex, newValue = null) {
+	let columnId = gr_OtherTariff.getColumnID(colIndex);
+    console.log("grid_popup call : " + columnId + ", newValue : " + newValue);
+    if(newValue == null)
+        return;
+
+	let pCode = "";
+	let pName = "";
+	switch (columnId){
+		case "locCd":
+			scwin.f_PopUpGrid("Area", rowIndex, "T", "F");
+			break;
+		case "fcode":
+			scwin.f_PopUpGrid("Freight", rowIndex, "T", "F");
+			break;
+		case "curr":
+			scwin.f_PopUpGrid("Currency", rowIndex, "T", "F");
+			break;
+		case "type":
+			scwin.f_PopUpGrid("CNTR_TYPE", rowIndex, "T", "F");
+			break;
+		case "cust":
+			scwin.f_PopUpGrid("Customer", rowIndex, "T", "F");
+			break;
+
+		default:
+			break;
+	}
+};
+
+//-------------------------------------------------------------------------
+// function	name : f_PopUpGrid
+// function	desc : Grid popup
+//-------------------------------------------------------------------------
+scwin.f_PopUpGrid = function(disGubun, row, pWinCloseTF, pAllSearchTF) {
+
+	switch (disGubun) {
+		case "Area": //Area
+			udc_grid_popUp.setSelectId("retrieveAreaCode");	// XML상의 SELECT ID
+			udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+                    if(rtnList.length == 1 && rtnList[0] == "N/A") {
+                        rtnList = ["", "", "", "", "", "", "", "", ""];
+                    }
+
+					$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "locCd", "locCdNm", [""]);
+				}
+				, ds_OtherTariff.getCellData(row, "locCd")	 //코드
+				, '' 	 //코드명
+				, pWinCloseTF						// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '2'								// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, "Area Code,Area Name,"		// Title순서
+				, '130,300'							// 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"					// 컬럼중에서 숨기는	컬럼 지정
+				, null								// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'								// POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'								// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null								// 윈도우 위치 Y좌표
+				, null								// 윈도우 위치 X좌표
+				, null								// 중복체크여부	("F")
+				, pAllSearchTF						// 전체검색허용여부	("F")
+				, "Area Search,Area Code,Area Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, 'F'								// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			
+			break;
+
+		case "Freight"://Fleight
+			udc_grid_popUp.setSelectId("retriveFreightCodeInfo");	// XML상의 SELECT ID
+			udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+                    if(rtnList.length == 1 && rtnList[0] == "N/A") {
+                        rtnList = ["", "", "", "", "", "", "", "", ""];
+                    }
+
+					var arry = ["", "selpchItemCd", "", "", "", "", "", ""];
+					$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "fcode", "fcodenm", arry);
+				}
+				, ds_OtherTariff.getCellData(row, "fcode")	 //코드
+				, '' 	 //코드명
+				, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, "Freight Code, Freight Name,"		// Title순서
+				, '130,300'              // 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+				, 'S'                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null				// 윈도우 위치 Y좌표
+				, null				// 윈도우 위치 X좌표
+				, null				// 중복체크여부	("F")
+				, pAllSearchTF			// 전체검색허용여부	("F")
+				, "Freight Search,Freight Code,Freight Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, 'F'				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			
+			break;
+
+		case "Currency"://Currency
+			udc_grid_popUp.setSelectId("retriveCurrencyCodeInfo");	// XML상의 SELECT ID
+			udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+                    if(rtnList.length == 1 && rtnList[0] == "N/A") {
+                        rtnList = ["", "", "", "", "", "", "", "", ""];
+                    }
+
+                    $c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "curr", "", [""]);
+				}
+				, ds_OtherTariff.getCellData(row, "curr")	 //코드
+				, '' 	 //코드명
+				, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, "Currency Code, Currency Name,"		// Title순서
+				, '130,300'              // 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+				, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null				// 윈도우 위치 Y좌표
+				, null				// 윈도우 위치 X좌표
+				, null				// 중복체크여부	("F")
+				, pAllSearchTF			// 전체검색허용여부	("F")
+				, "Currency Search,Currency Code,Currency Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, 'F'				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			break;
+		case "CNTR_TYPE"://Container Type
+			udc_grid_popUp.setSelectId("retriveContainerTypeCodeInfo");	// XML상의 SELECT ID
+			udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+                    if(rtnList.length == 1 && rtnList[0] == "N/A") {
+                        rtnList = ["", "", "", "", "", "", "", "", ""];
+                    }
+
+					$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "type", "", [""]);
+				}
+				, ds_OtherTariff.getCellData(row, "type")	 //코드
+				, '' 	 //코드명
+				, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '10'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, "Container Code, Container Name,"		// Title순서
+				, '130,300'              // 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+				, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null				// 윈도우 위치 Y좌표
+				, null				// 윈도우 위치 X좌표
+				, null				// 중복체크여부	("F")
+				, pAllSearchTF			// 전체검색허용여부	("F")
+				, "Container Type Search,Container Code,Container Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, 'F'				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			break;
+
+		case "Customer": //Customer
+			udc_grid_popUp.setSelectId("retrieveEngClntInfo");	// XML상의 SELECT ID
+			udc_grid_popUp.ilCommonPopUp(function(rtnList) {
+                    if(rtnList.length == 1 && rtnList[0] == "N/A") {
+                        rtnList = ["", "", "", "", "", "", "", "", ""];
+                    }
+                    
+					$c.gus.cfSetGridReturnValue(rtnList, ds_OtherTariff, row, "cust", "custnm", [""]);
+				}
+				, ds_OtherTariff.getCellData(row, "cust")	 //코드
+				, ""	 //코드명
+				, pWinCloseTF			// 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+				, '2'				// 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+				, "Customer Code,Customer Name,"		// Title순서
+				, '130,300'              // 보여주는 각 컬럼들의 폭
+				, "3,4,5,6,7,8,9,10"     // 컬럼중에서 숨기는	컬럼 지정
+				, null                   // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+				, '500'                  // POP-UP뛰을때 원도우의	사용자 정의	폭
+				, '500'				// POP-UP뛰을때	우도우의	사용자 정의	높이
+				, null				// 윈도우 위치 Y좌표
+				, null				// 윈도우 위치 X좌표
+				, null				// 중복체크여부	("F")
+				, pAllSearchTF			// 전체검색허용여부	("F")
+				, "Customer Search,Customer Code,Customer Name"	// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+				, 'F'				// Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+			);
+			
+			break;
+		default:
+			break;
+
+	}
+};
+
+//-------------------------------------------------------------------------
+// function	name : f_BeforePopUpEd
+// function	desc : 공통팝업 열기 전에 체크- EMEDIT onKillFocus 이벤트	발생시
+//					nmObj-코드명(text),	cdObj-코드(emedit),	gubun1
+//-------------------------------------------------------------------------
+scwin.f_BeforePopUpEd = function(nmObj, cdObj, gubun1, pWinCloseTF, pAllSearchTF) {
+	let cdObjVal = cdObj.getValue().trim();
+	if (cdObjVal == "") {
+		nmObj.setValue("");
+	} else {
+		nmObj.setValue("");
+		scwin.f_PopUp(gubun1, pWinCloseTF, pAllSearchTF);
+	}
+};
+
+//-------------------------------------------------------------------------
+// function	name : f_ChkPopUp
+// function	desc : 팝업	처리시 검색된 데이터인 경우	팝업 처리 안함.
+//------------------------------------------------------------------------
+scwin.f_ChkPopUp = function(inObj, pairObj, disGubun, isCode) {
+
+	// 값이	입력이 안된	경우, 해당 Text	Box가 readonly 인 경우,	이전값과 동일한	경우 팝업을	실행하지 않음.
+	if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+		return;
+	// 짝이	되는 오브젝트의	값 제거
+	$c.gus.cfClearPairObj(pairObj);
+	// 검색어 세팅
+	let pVal = $c.gus.cfGetValue(inObj);
+	// inObj가 코드	필드일 경우	팝업
+	if (isCode == null || isCode == true)
+		scwin.f_PopUp(disGubun, 'T', 'T', 'F');
+	// inObj가 코드명 필드일 경우 팝업
+	else
+		scwin.f_PopUp(disGubun, 'T', 'T', 'F');
+};
+
+//grid addrow
+scwin.addRow = function() {
+
+    let rowIndex = ds_OtherTariff.getRowCount();
+    
+    ds_OtherTariff.insertRow(rowIndex);
+    gr_OtherTariff.setFocusedCell(rowIndex, 0);
+    
+    ds_OtherTariff.setCellData(rowIndex, "kcomcd","DBEX") ;
+    gr_OtherTariff.setFocusedCell(rowIndex,"iogb");
+
+    if (ds_OtherTariff.getModifiedIndex().length > 0) {
+        $c.gus.cfEnableBtnOnly([btn_save])
+    }
+};
+
+scwin.delRow = function() {
+
+    ds_OtherTariff.modifyRowStatus(ds_OtherTariff.getRowPosition(),"D");
+};
+
+scwin.undoRow = function() {
+    let rowIndex = ds_OtherTariff.getRowPosition();
+    if(ds_OtherTariff.getRowStatus(rowIndex) == "C") {
+        ds_OtherTariff.removeRow(rowIndex);
+    }   
+
+	if (ds_OtherTariff.getModifiedIndex().length > 0) {
+		$c.gus.cfEnableBtnOnly([btn_save]);
+	}
+};
+
+//delete Allrow
+scwin.btn_deleteRowAll_onclick = async function (e) {
+
+    let confirm = await $c.win.confirm("전체 삭제을 적용하시겠습니까?")
+        
+    if( confirm ) {
+        ds_OtherTariff.modifyAllStatus("D");
+    }
+    if (ds_OtherTariff.getModifiedIndex().length > 0) {
+        $c.gus.cfEnableBtnOnly([btn_save])
+    }
+};
+
+//cancel btn
+scwin.btn_cancel_onclick = function (e) {
+
+    ds_OtherTariff.removeAll();
+	scwin.f_Set("RETRIEVE");	
+};
+
+scwin.btn_create_onclick = function (e) {
+
+    ds_OtherTariff.removeAll();
+    scwin.addRow();
+
+    scwin.f_Set("CREATE");
+};
+
+//저장
+scwin.btn_save_onclick = async function (e) {
+
+    if (ds_OtherTariff.getModifiedIndex().length < 1) {
+        await $c.win.alert("There have been no changes for Sea Other Tariff");//"@은(는) 변경된 사항이 없습니다.";
+        return;
+    }
+    //필수사항 check
+    if (await scwin.f_ReqFieldChk()) {
+
+        let confirm = await $c.win.confirm("Do you wish to save?");
+        if( confirm ) {
+            
+            $c.sbm.execute(sbm_save);
+        }    
+    }
+};
+
+//저장 callback
+scwin.sbm_save_submitdone = function(e) {
+
+	let body = e.responseJSON;
+ 	if(body.resultDataSet[0].Code == "0") {
+		$c.gus.cfAlertMsg(E_MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+		scwin.btn_retrieve_onclick();
+	}
+};
+
+//excelDw 
+scwin.excelDw = async function() {
+
+	if(ds_OtherTariff.getRowCount() == 0) {
+		await $c.win.alert(E_MSG_CM_WRN_002);
+		return;
+	}
+
+    let options = {
+        fileName : "SeaOtherTariff.xlsx",
+        sheetName : "SeaOtherTariff"
+    }
+    let infoArr = {};
+
+	let rtn = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+	if(rtn) {
+		$c.data.downloadGridViewExcel(gr_OtherTariff, options, infoArr)
+	}
+};
+
+scwin.excelUp = async function() {
+
+if (scwin.statusFlag != "CREATE") {
+        await $c.win.alert("신규모드에서 실행 가능합니다.");
+        return;
+    }
+
+    //UPLOAD 전 ds_OtherTariff 삭제.
+    ds_OtherTariff.removeAll();
+
+    let options = {};
+    if(udc_gr_OtherTariff_topGrdBtn.getUpExt() == "1") {    //ASIS csv 는 헤더가 2줄이다.
+        options = {
+            "status": "C",
+            "startRowIndex": 2,
+            "type": "1",
+            "expression" : "0"
+        };
+    } else {
+
+        options = {
+            "status": "C",
+            "headerExist": 1,
+            "type": "1",
+            "startRowIndex": 0,
+            "footerExist": 0,
+        };
+    }
+
+    await udc_gr_OtherTariff_topGrdBtn.uploadGridViewExcel(gr_OtherTariff, options);
+};
+
+scwin.upperCaseDisplayFormatterFunc = function(value) {
+    return value.toUpperCase();
+}
+
+
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="tb_searchCondition" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Export/Import" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 id="cnd_lc_iogb" style="width:148px; height:21px; " submenuSize="auto"
+    								allOption="" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="" chooseOption="true" chooseOptionLabel="All">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Export]]></xf:label>
+    										<xf:value><![CDATA[O]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Import]]></xf:label>
+    										<xf:value><![CDATA[I]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Area" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_ilcomCode codeId="cnd_ed_locCd" nameId="cnd_ed_locCdNm" popupID="" selectID="retrieveAreaCode"
+    								style="" validTitle="" id="udc_ilcomCode_loc" UpperFlagCode="1" maxlengthCode="6"
+    								ev:onclickEvent="scwin.udc_ilcomCode_loc_onclickEvent" ev:onblurCodeEvent="scwin.udc_ilcomCode_loc_onblurCodeEvent"
+    								ev:onviewchangeNameEvent="scwin.udc_ilcomCode_loc_onviewchangeNameEvent" allowCharCode="0-9a-zA-Z">
+    							</w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="From Date" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="cnd_ed_fromDt" pickerType="selectbox"
+    								placeholderLocaleRef="yearMonthDate" style="" displayFormat="yyyy/MM/dd">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Sell/Buy" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 id="cnd_lc_workFlag" chooseOption="true" style="width:148px; height:21px; " submenuSize="auto"
+    								allOption="" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="" chooseOptionLabel="All">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Sell]]></xf:label>
+    										<xf:value><![CDATA[S]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Buy]]></xf:label>
+    										<xf:value><![CDATA[B]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Customer" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_ilcomCode codeId="cnd_ed_cust" nameId="cnd_ed_custnm" popupID="" selectID="retrieveEngClntInfo"
+    								style="" validTitle="" id="udc_ilcomCode_cust" ev:onclickEvent="scwin.udc_ilcomCode_cust_onclickEvent"
+    								ev:onblurCodeEvent="scwin.udc_ilcomCode_cust_onblurCodeEvent"
+    								ev:onviewchangeNameEvent="scwin.udc_ilcomCode_cust_onviewchangeNameEvent" allowCharCode="0-9a-zA-Z" UpperFlagCode="1"
+    								maxlengthCode="6">
+    							</w2:udc_ilcomCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button"
+    					ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[Clear]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button"
+    					ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="Tariff List" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn id="udc_gr_OtherTariff_topGrdBtn" grp="grd_section1" style="" gridID="gr_OtherTariff" btnPlusYn="Y" gridDownYn="Y"
+    						gridUpYn="Y" gridDownFn="scwin.excelDw" gridUpUserAuth="C" gridDownUserAuth="X" btnUser="N" gridUpFn="scwin.excelUp">
+    					</w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_OtherTariff" id="gr_OtherTariff"
+    					style="" visibleRowNum="15" focusMove="true" rowStatusVisible="true"
+    					ev:onrowindexchange="scwin.gr_OtherTariff_onrowindexchange" ev:oncellclick="scwin.gr_OtherTariff_oncellclick" columnMove="false" visibleRowNumFix="true" ev:onafteredit="scwin.gr_OtherTariff_onafteredit" ev:onfilereadend="scwin.gr_OtherTariff_onfilereadend" ev:oncellindexchange="scwin.gr_OtherTariff_oncellindexchange" ev:oneditkeyup="scwin.gr_OtherTariff_oneditkeyup">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="SEQ" width="60" rowSpan="2" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="Customer" width="140" colSpan="2"
+    								class="txt-blue" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="Export&lt;br&gt;Import" width="80"
+    								rowSpan="2" class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="Area" width="140" colSpan="2"
+    								class="txt-red" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="Unit" width="80" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="Freight" width="140" colSpan="2"
+    								class="txt-red" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="매출입항목코드" width="120" rowSpan="2"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="column52" value="FromDate" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column49" value="CURR" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column46" value="Rate" displayMode="label" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column43" value="Sell" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column40" value="Buy" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column31" value="End" displayMode="label" rowSpan="2"
+    								hidden="true">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="80" inputType="text" id="column29" value="Code" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="80" inputType="text" id="column28" value="Name" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="80" inputType="text" id="column26" value="Code" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="80" inputType="text" id="column25" value="Name" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="80" inputType="text" id="column23" value="Code" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="80" inputType="text" id="column22" value="Name" displayMode="label" class="txt-blue"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="Currow" inputType="expression" width="60" expression="rowindex() + 1"></w2:column>
+    							<w2:column displayMode="label" id="cust" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" allowChar="0-9a-zA-Z" maxLength="6" applyFormat="all" displayFormatter="scwin.upperCaseDisplayFormatterFunc">
+    							</w2:column>
+    							<w2:column displayMode="label" id="custnm" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="iogb" inputType="select" width="80" allOption="" chooseOption="true"
+    								mandatory="true" chooseOptionLabel="$blank" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[Export]]></w2:label>
+    										<w2:value><![CDATA[O]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[Import]]></w2:label>
+    										<w2:value><![CDATA[I]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="locCd" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" allowChar="0-9a-zA-Z" maxLength="6" displayFormatter="scwin.upperCaseDisplayFormatterFunc" applyFormat="all">
+    							</w2:column>
+    							<w2:column displayMode="label" id="locCdNm" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="type" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" maxLength="4" allowChar="0-9a-zA-Z\/" applyFormat="all" displayFormatter="scwin.upperCaseDisplayFormatterFunc">
+    							</w2:column>
+    							<w2:column displayMode="label" id="fcode" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" allowChar="0-9a-zA-Z" maxLength="4" style=";text-transform:uppercase;" applyFormat="all" displayFormatter="scwin.upperCaseDisplayFormatterFunc">
+    							</w2:column>
+    							<w2:column displayMode="label" id="fcodenm" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="selpchItemCd" inputType="text" width="120"></w2:column>
+    							<w2:column width="120" inputType="calendar" id="fromDt" displayMode="label" displayFormat="yyyy/MM/dd" mandatory="true"></w2:column>
+    							<w2:column width="80" inputType="textImage" id="curr" displayMode="label" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" maxLength="3" allowChar="0-9a-zA-Z" applyFormat="all" displayFormatter="scwin.upperCaseDisplayFormatterFunc">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="amount" displayMode="label" dataType="float"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" allowChar="0-9." validateOnInput="true" maxLength="8.2">
+    							</w2:column>
+    							<w2:column width="80" inputType="checkbox" id="sellYn" displayMode="label" falseValue="0" trueValue="1" valueType="other"></w2:column>
+    							<w2:column width="80" inputType="checkbox" id="buyYn" displayMode="label" valueType="other" falseValue="0" trueValue="1"></w2:column>
+    							<w2:column width="80" inputType="text" id="blank" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="total" label="0" style=""
+    								tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn style="" EngYn="Y" gridID="gr_OtherTariff" btnCancelYn="Y"
+    							rowAddFunction="scwin.addRow" btnRowDelYn="Y" btnDelYn="N" id="udc_bottomGrdBtnil" rowDelFunction="scwin.delRow" cancelFunction="scwin.undoRow" btnRowAddObj="btn_addRow" btnRowDelObj="btn_deleteRow" btnCancelObj="btn_undoRow">
+    						</w2:udc_bottomGrdBtn>
+    						<xf:trigger class="btn" id="btn_deleteRowAll" style="" type="button"
+    							ev:onclick="scwin.btn_deleteRowAll_onclick">
+    							<xf:label><![CDATA[Delete All]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btn_cancel" style="" type="button" ev:onclick="scwin.btn_cancel_onclick" userAuth="">
+    						<xf:label>Cancel</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_create" style="" type="button" ev:onclick="scwin.btn_create_onclick" userAuth="C">
+    						<xf:label>Create</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    						<xf:label>Save</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:udc_ilcomCode popupID="" selectID="" codeId="" validTitle="" nameId="" style="width:%; height:px;display: none" id="udc_grid_popUp"></w2:udc_ilcomCode>
+    	</xf:group>
+    </body>
+</html>

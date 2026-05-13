@@ -1,0 +1,36 @@
+se_107_01_01b.log
+
+[2026-02-20 14:06:39.916] 변환 시작
+[2026-02-20 14:06:40.120] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 14:14:41.321] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=3, warnings=8 | LLM 480749ms, total 481201ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] DATASET 전환 — 누락 16건: ds_exHouseRate, ds_exMasterRate, ds_exRateSellingGrid, ds_exRateBuyingGrid, ds_containerType
+    - [적정성] async 선언 누락 — scwin.f_containerDualCheck (uses $c.gus.cfAlertMsg), scwin.f_JobCloseYn (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_containerDualCheck → $c.gus.cfAlertMsg, scwin.f_JobCloseYn → $c.gus.cfAlertMsg
+[2026-02-20 14:14:41.677] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 14:14:42.484] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=8
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 11건: cnd_lc_autono (LUXECOMBO→w2:autoComplete), lc_hhpcgb (LUXECOMBO→w2:autoComplete), lc_hhbltype (LUXECOMBO→w2:autoComplete), lc_hhisunm (LUXECOMBO→w2:autoComplete), lc_hhpaynm (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 16건: ds_exHouseRate, ds_exMasterRate, ds_exRateSellingGrid, ds_exRateBuyingGrid, ds_containerType
+[2026-02-20 14:14:42.499] #2 재시도 (에러 5건)
+[2026-02-20 14:14:43.501] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 14:22:52.433] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=8 | LLM 488217ms, total 488932ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-20 14:22:52.436] 실패 (2회 시도, 16m 12s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+  2. [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+  3. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

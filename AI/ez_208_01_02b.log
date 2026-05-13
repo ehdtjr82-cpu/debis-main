@@ -1,0 +1,32 @@
+ez_208_01_02b.log
+
+[2026-02-19 00:11:18.189] 변환 시작
+[2026-02-19 00:11:18.216] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 00:15:24.413] #1 검증: XML: WebSquareXmlValidator: score=0.50, grade=B, verdict=REVIEW, errors=2, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=7 | LLM 246032ms, total 246197ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_filter → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [XML] 코드 축약 발견 ('// ...' 등 생략 표시): scwin.showmb → 원본 비즈니스 로직을 빠짐없이 변환해야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_cargoGub (LUXECOMBO→w2:autoComplete)
+[2026-02-19 00:15:24.511] #1 검증: 자동수정 3건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U09: 버튼 ID btn_triggerN → JSP 원본 ID
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 00:15:24.662] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.50, grade=B, verdict=REVIEW, errors=2, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=7
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_filter → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [XML] 코드 축약 발견 ('// ...' 등 생략 표시): scwin.showmb → 원본 비즈니스 로직을 빠짐없이 변환해야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: lc_impExpDomesticClsCd (LUXECOMBO→w2:autoComplete), lc_carAllocGub (LUXECOMBO→w2:autoComplete), lc_cargoGub (LUXECOMBO→w2:autoComplete)
+[2026-02-19 00:15:31.248] #2 재시도 (에러 3건)
+[2026-02-19 00:15:32.256] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 00:20:08.390] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 276002ms, total 276134ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_cargoGub (LUXECOMBO→w2:autoComplete)
+[2026-02-19 00:20:08.394] #1 검증: 최적 시도 #1 채택 (confidence: 0.75)
+[2026-02-19 00:20:08.394] 실패 (2회 시도, 8m 50s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_filter → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [XML] 코드 축약 발견 ('// ...' 등 생략 표시): scwin.showmb → 원본 비즈니스 로직을 빠짐없이 변환해야 함
+  3. [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_cargoGub (LUXECOMBO→w2:autoComplete)
+================================================================================

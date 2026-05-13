@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="dma_search">
+					<w2:keyInfo>
+                        <w2:key id="slipDateFrom"     name="" dataType="text"></w2:key>
+                        <w2:key id="slipDateTo"       name="" dataType="text"></w2:key>
+                        <w2:key id="drawAcctDeptCd"   name="" dataType="text"></w2:key>
+                        <w2:key id="drawEmpNo"        name="" dataType="text"></w2:key>
+                        <w2:key id="bidcSlipNo"       name="" dataType="text"></w2:key>
+                        <w2:key id="slipNo"           name="" dataType="text"></w2:key>
+                        <w2:key id="slipKndCd"        name="" dataType="text"></w2:key>
+                        <w2:key id="bidcDelYn"        name="" dataType="text"></w2:key>
+                        <w2:key id="blNo"             name="" dataType="text"></w2:key>
+                        <w2:key id="empNo"            name="" dataType="text"></w2:key>
+                        <w2:key id="acctDeptCd"       name="" dataType="text"></w2:key>
+                    </w2:keyInfo>
+				</w2:dataMap>
+
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_bidcSlip" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="checkYn"          name="checkYn"          dataType="text"></w2:column>
+                        <w2:column id="slipDt"           name="slipDt"           dataType="text"></w2:column>
+                        <w2:column id="slipKndCd"        name="slipKndCd"        dataType="text"></w2:column>
+                        <w2:column id="bidcSlipNo"       name="bidcSlipNo"       dataType="text"></w2:column>
+                        <w2:column id="slipNo"           name="slipNo"           dataType="text"></w2:column>
+                        <w2:column id="amt"              name="amt"              dataType="text"></w2:column>
+                        <w2:column id="drawAcctDeptNm"   name="drawAcctDeptNm"   dataType="text"></w2:column>
+                        <w2:column id="drawEmpNm"        name="drawEmpNm"        dataType="text"></w2:column>
+                        <w2:column id="apprvStsCd"       name="apprvStsCd"       dataType="text"></w2:column>
+                        <w2:column id="delYn"            name="delYn"            dataType="text"></w2:column>
+                        <w2:column id="drawEmpNo"        name="drawEmpNo"        dataType="text"></w2:column>
+                        <w2:column id="drawAcctDeptCd"   name="drawAcctDeptCd"   dataType="text"></w2:column>
+                        <w2:column id="postDt"           name="postDt"           dataType="text"></w2:column>
+                        <w2:column id="blNo"             name="blNo"             dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_targetBidcSlip" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="checkYn"          name="checkYn"          dataType="text"></w2:column>
+                        <w2:column id="slipDt"           name="slipDt"           dataType="text"></w2:column>
+                        <w2:column id="slipKndCd"        name="slipKndCd"        dataType="text"></w2:column>
+                        <w2:column id="bidcSlipNo"       name="bidcSlipNo"       dataType="text"></w2:column>
+                        <w2:column id="slipNo"           name="slipNo"           dataType="text"></w2:column>
+                        <w2:column id="amt"              name="amt"              dataType="text"></w2:column>
+                        <w2:column id="drawAcctDeptNm"   name="drawAcctDeptNm"   dataType="text"></w2:column>
+                        <w2:column id="drawEmpNm"        name="drawEmpNm"        dataType="text"></w2:column>
+                        <w2:column id="apprvStsCd"       name="apprvStsCd"       dataType="text"></w2:column>
+                        <w2:column id="delYn"            name="delYn"            dataType="text"></w2:column>
+                        <w2:column id="drawEmpNo"        name="drawEmpNo"        dataType="text"></w2:column>
+                        <w2:column id="drawAcctDeptCd"   name="drawAcctDeptCd"   dataType="text"></w2:column>
+                        <w2:column id="postDt"           name="postDt"           dataType="text"></w2:column>
+                        <w2:column id="blNo"             name="blNo"             dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+
+    		</w2:dataCollection>
+
+            <!-- 조회 TR -->
+			<xf:submission id="sbm_search" action="/ac.fi.gnrlaccount.slipmgnt.RetrieveBidcSlipListCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_bidcSlip","key":"OUT_DS1"}]'
+				target='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_bidcSlip","key":"OUT_DS1"}]' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+
+            <!-- 삭제 TR -->
+			<xf:submission id="sbm_delete" action="/ac.fi.gnrlaccount.slipmgnt.DeleteBidcSlipCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"ds_targetBidcSlip","key":"IN_DS1"}]'
+				target='data:json,[{"id":"ds_targetBidcSlip","key":"IN_DS1"}]' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_delete_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fi_201_01_11b
+// 이름     : BIDC 매출입전표 발행
+// 경로     : 자회사 / 회계/재무회계/일반회계/전표관리/
+// 작 성 자 : 오영재
+// 작 업 일 : 2025-12-09
+// 사용계정 : 내부
+// 비고     :
+//
+// 업로드   :
+// 다운로드 : 
+// 레포트   :
+// 호출     : 
+//==================================================================================================================
+
+// 전역 변수
+scwin.memJson = $c.data.getMemInfo();
+
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd;
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd;
+scwin.vAcctDeptCd = scwin.memJson.acctDeptCd;
+
+scwin.vEmpNo = scwin.memJson.empNo;
+scwin.vEmpNm = scwin.memJson.userNm;
+
+scwin.strCurDate = $c.date.getServerDateTime("yyyyMMdd");	
+
+scwin.onpageload = function() {
+
+};
+
+scwin.onUdcCompleted = function() {
+    
+	const codeOptions = [
+        { grpCd : "ZZ021", compID : "gr_prov:apprvStsCd"},
+        { grpCd : "RC423", compID : "gr_prov:delYn"}
+    ];
+
+    $c.data.setCommonCode(codeOptions, scwin.onCommonCodeLoadCallbackFunc);
+};
+
+
+scwin.onCommonCodeLoadCallbackFunc = function() {
+	//공통코드 조회 후에 초기화 실행.
+
+    lc_slipKndCd.setSelectedIndex(0);
+	lc_bidcDelYn.setSelectedIndex(0);
+
+	ed_drawEmpNo.setValue( scwin.vEmpNo );
+	ed_drawEmpNm.setValue( scwin.vEmpNm );
+	
+    //디폴트 날짜 변경(1월1일 ~ 해당월말일까지)	
+	ed_slipDateFrom.setValue( scwin.strCurDate.substring(0, 6) + "01" );
+	ed_slipDateTo.setValue( scwin.strCurDate) ; 
+
+	// 작성자 udc_ComCode OnKeyup 이벤트 바인딩
+	ed_drawEmpNo.bind("onkeyup", scwin.udc_drawEmpNo_onkeyup);
+
+    //디버깅용
+    // ed_slipDateFrom.setValue("20250301");
+    // ed_slipDateTo.setValue("20250331");
+    // lc_bidcDelYn.setSelectedIndex(0);
+		
+	scwin.f_Retrieve();
+};
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {  
+	let ret;
+    ret = $c.gus.cfValidate([ ed_slipDateFrom,ed_slipDateTo,lc_slipKndCd ]); 
+    if (!ret)
+		return true;
+  	
+	if(ed_slipDateFrom.getValue() == "" || ed_slipDateTo.getValue() == ""){
+		await $c.win.alert("전표일자는 필수 입력 항목입니다.");
+		ed_slipDateFrom.focus();
+		return;
+	}
+
+	// AS-IS : f_BetweenCheck 으로 구현 - 일자 유효성 체크라 cfIsAfterDate와 기능이 동일
+	// if (!scwin.f_BetweenCheck(ed_slipDateFrom.getValue(), ed_slipDateTo.getValue())) { 
+	if (!$c.gus.cfIsAfterDate(ed_slipDateFrom.getValue(), ed_slipDateTo.getValue())) {
+		await $c.win.alert($c.data.getMessage(MSG_CM_ERR_057, "전표일자To", "전표일자From")); // %1은(는) %2 보다 큰 값으로 입력하십시오.
+        ed_drawAcctDeptCd.focus();
+        return;
+    }
+  	 
+	// AS-IS 에서 일자 유효성 체크가 중복되어있으나 해당 부분 우선 유지
+	if (!$c.gus.cfIsAfterDate(ed_slipDateFrom.getValue().trim(), ed_slipDateTo.getValue().trim())) {
+		await $c.win.alert($c.data.getMessage(MSG_CM_ERR_039)); // 시작일자가 종료일자 이전이어야 합니다.
+	 	ed_slipDateFrom.focus();
+	    return;
+	}  
+  	 
+	ed_slipDateFrom.setValue( ed_slipDateFrom.getValue().trim() );
+	ed_slipDateTo.setValue( ed_slipDateTo.getValue().trim() );
+
+	dma_search.set("empNo", scwin.vEmpNo);
+    dma_search.set("acctDeptCd", scwin.vAcctDeptCd);
+
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = async function() {
+
+	if (lc_bidcDelYn.getSelectedIndex() == 1) {
+		await $c.win.alert("BIDC전표 삭제된 내역입니다.");
+		return;
+	}
+	
+	if(ds_bidcSlip.getModifiedIndex().length < 1){
+	    await $c.win.alert($c.data.getMessage(MSG_CM_ERR_056, "데이타"));
+	    return;
+	}
+
+   // 이미 발행된건 삭제하지 않는다.
+	for (i=0; i< ds_bidcSlip.getRowCount() ; i++){
+		if(ds_bidcSlip.getRowStatus(i) == "U" && ds_bidcSlip.getCellData(i,"slipNo") != "" ){
+			await $c.win.alert(i+"번째 데이타는 전표내역이 있어 삭제할 수 없습니다.");
+			return;
+		} 
+	}
+
+    //삭제할 것만 추려서 넣는다.
+    let data = ds_bidcSlip.getModifiedJSON();
+    ds_targetBidcSlip.setJSON(data);
+    ds_targetBidcSlip.modifyAllStatus("U");
+    
+    let ret = await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_008, "선택하신 데이타"));
+	if(ret==true){	
+        $c.sbm.execute(sbm_delete);
+	}
+};
+
+scwin.f_Save = async function() {
+	if (lc_bidcDelYn.getSelectedIndex() == 1) {
+		await $c.win.alert("BIDC전표 삭제된 내역입니다. 발행 할 수 없습니다.");
+		return;
+	}
+	
+	if(ds_bidcSlip.getModifiedIndex().length < 1){
+	    await $c.win.alert($c.data.getMessage(MSG_CM_ERR_056, "데이타"));
+	    return;
+	}
+	
+	var i             = 0;
+  	var count         = 0;
+  	var slipCount     = 0;
+	
+	// 조회결과 데이터셋의 루프만큼
+	for ( i = 0 ; i < ds_bidcSlip.getRowCount() ; i++) {
+	    // 체크된 것만 로직을 타고, 
+		if ( ds_bidcSlip.getCellData(i,"checkYn") == "T") {
+			count = count + 1;	        
+	        // 행의 전표번호가 없다면 전표번호의 갯수를 1증가한다. 
+	        if ( ds_bidcSlip.getCellData(i,"slipNo") != "") {
+	        	slipCount = slipCount + 1;
+	        }	        
+	    }
+	}
+	
+	if ( count > 1) {
+		await $c.win.alert("전표 발행은 1건씩 가능합니다.");
+		return false;
+	}
+	
+	//var valueObject = new Object();
+    let data;
+		
+	// 조회결과 데이터셋의 루프만큼
+	for ( i = 0 ; i < ds_bidcSlip.getRowCount(); i++) {
+		// 체크된 것만 로직을 타고, 
+        if ( ds_bidcSlip.getCellData(i,"checkYn") == "T") {
+            data = {
+                "bidcSlipNo" : ds_bidcSlip.getCellData(i,"bidcSlipNo"), 
+                "slipKndCd" : ds_bidcSlip.getCellData(i,"slipKndCd"), 
+                "slipAcctDeptCd" : ds_bidcSlip.getCellData(i,"slipAcctDeptCd")
+            }
+		}
+	}
+
+	//var sFeatures =	"dialogWidth:840px; dialogHeight:800px; scroll:yes; resizable:yes; status:yes;";
+    //debugger;
+    //console.log( data );
+	sURL = "/ui/ac/fi/gnrlaccount/slipmgnt/fi_201_01_11p.xml";
+    const options = {
+        id: "fi_201_01_11p",
+        type: "browserPopup",
+        modal : true,
+        popupName:"BIDC 매출입전표발행",
+        width: 1080,
+        height:950
+    };
+
+    let rtrValue = await $c.win.openPopup(sURL,options,data);
+		
+	if (rtrValue != null) {
+		if(rtrValue.SlipNo == "Y"){
+			scwin.f_Retrieve();
+		}
+	}
+	
+};
+
+//-------------------------------------------------------------------------
+// 숫자차이체크
+//  - AS-IS에서 일자 유효성 체크로 사용하나, cfIsAfterDate로 대체 가능한 함수
+//-------------------------------------------------------------------------
+scwin.f_BetweenCheck = function(str1,str2){
+  	if((str1==""&& str2!="" ) || (str1!=""&&str2 =="")) {
+  		return false;
+  	}
+  	if(parseInt(str2)-parseInt(str1) < 0) {
+  		return false;
+	}
+	return true;
+};
+
+scwin.formatSlipKnd = function(v) {
+    return (v == "K12") ? "매출전표" : "매입전표";
+};
+
+//-------------------------------------------------------------------------
+//팝업
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(flag, check) {
+	let param;
+    let resignYn;
+
+    switch (flag) {
+        case '1':  // 부서조회
+			// @TODO 아래 param 부분 확인이 필요
+            param = "," + scwin.vLoginCoCd + "," + scwin.vLoginCoClsCd +",0";  
+            
+			// Select ID : retrieveAcctDeptCdInfo6
+			udc_drawAcctDeptCd.cfCommonPopUp(
+				scwin.udc_drawAcctDeptCd_callbackfunc // 팝업 콜백 리턴결과 Array 형태로 SQL Select 순서로 Return
+				,ed_drawAcctDeptCd.getValue().trim()                  // 화면에서의 ??? Code Element의 Value
+				,ed_drawAcctDeptNm.getValue()                  // 화면에서의 ??? Name Element의 Value
+				,check                 // 결과가 1건 일때 원도우를 AutoClose 여부 (T:Close,F:Opened)
+				,null					// 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) 	MAX:10     null(2)   "5"
+				,null					// Title명's                         	null    "100,200"
+				,null					// 보여주는 각 컬럼들의 폭               null    "100,200"
+				,null					// 컬럼중에서 숨기는 컬럼 지정           null    "7,8,9,10"		
+				,param					// SQL절의 WHERE절에 원하는 조건을 선택함 MAX:12개까지 가능     null    "SHIP"
+				,null					// POP-UP 띄울때 원도우의 사용자 정의 폭              null    "500"
+				,null					// POP-UP 띄울때 윈도우의 사용자 정의 높이             null    "600"
+				,null					// 윈도우 위치 Y좌표
+				,null					// 윈도우 위치 X좌표  
+				,null					// 중복체크여부
+				,null 					// 전체검색허용여부 ("F")
+				,null					// POP-UP Window Title 검색어1,2(각화면에서 변경할경우)        null    "Win타이틀,검색어1,검색어2"
+				,null					// Data건수가 0건일때 Window를 띄우지 않음 리턴
+		);
+
+        break;
+        
+        case '2': // 사원(작성자)
+            param=''; 
+            resignYn ='';
+
+			var chkValue = chk_resignYn.getValue();
+			resignYn = (chkValue != null && chkValue.length > 0) ? 'Y' : '' ;
+            param = scwin.vLoginCoCd + "," + scwin.vLoginCoClsCd + "," + resignYn;
+            
+			// Select ID : retrieveAcEmpInfo
+            udc_drawEmpNo.cfCommonPopUp(
+				scwin.udc_drawEmpNo_callbackfunc
+				, ed_drawEmpNo.getValue().trim()
+				, ed_drawEmpNm.getValue()
+				, check, null, null, null, null
+				,param, null, null, null, null); 
+        	break;
+
+        default:
+        break; 
+    }
+};
+
+///////////////////////////////////////////// S U B M I S S I O N    E V E N T /////////////////////////////////////////
+
+// 조회
+scwin.sbm_search_submitdone = async function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) 
+		return;
+
+    let count = ds_bidcSlip.getRowCount();
+    if(count == 0 ) 
+		await $c.win.alert($c.data.getMessage(MSG_CM_WRN_002)); // 조회결과가 존재하지 않습니다.
+    
+	ed_totalRows.setValue(ds_bidcSlip.getRowCount());
+};
+
+scwin.sbm_delete_submitdone = function(e) {
+	if(e.responseJSON.resultDataSet[0].Code == 0) {
+		$c.win.alert(MSG_CM_INF_004);
+		scwin.f_Retrieve();
+	}
+};
+
+
+///////////////////////////////////////////// U D C   E V E N T /////////////////////////////////////////
+
+// 작성부서 onClick
+scwin.udc_drawAcctDeptCd_onclickEvent = function (e) {
+    scwin.f_openPopUp('1','F');
+};
+scwin.udc_drawAcctDeptCd_onblurCodeEvent = function (e) {
+    scwin.f_openPopUp('1','T');
+};
+
+// 작성부서 팝업 콜백함수
+scwin.udc_drawAcctDeptCd_callbackfunc = function(rtnList) {
+	$c.gus.cfSetReturnValue(rtnList, ed_drawAcctDeptCd, ed_drawAcctDeptNm);
+};
+
+// 작성자 onClick
+scwin.udc_drawEmpNo_onclickEvent = function (e) {
+    scwin.f_openPopUp('2','F');
+};
+scwin.udc_drawEmpNo_onblurCodeEvent = function (e) {
+    scwin.f_openPopUp('2','T');
+};
+
+// 작성자 팝업 콜백함수
+scwin.udc_drawEmpNo_callbackfunc = function(rtnList) {
+	$c.gus.cfSetReturnValue(rtnList, ed_drawEmpNo, ed_drawEmpNm);
+};
+
+// 작성자 코드 onKeyup - 영문/숫자만 입력 허용, 첫글자는 영문/숫자, 이후는 숫자만 허용
+scwin.udc_drawEmpNo_onkeyup = function(e) {
+	let val = ed_drawEmpNo.getValue();
+	
+	let first = val.charAt(0);
+	let rest = val.substring(1);
+
+	// 첫글자: 영문/숫자 아니면 제거
+	if (!/^[A-Z0-9]/.test(first)) {
+		first = '';
+	}
+	
+	// 이후: 숫자만
+	rest = rest.replace(/[^0-9]/g, '');
+	
+	let filtered = first + rest;
+	
+	if (val !== filtered) {
+		ed_drawEmpNo.setValue(filtered);
+	}
+};
+
+///////////////////////////////////////////// C O M P O N E N T   E V E N T /////////////////////////////////////////
+
+
+scwin.gr_gridView1_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    if(columnId=="slipNo" && rowIndex >=0 && ds_bidcSlip.getCellData(rowIndex,"slipNo") != ""){
+		$c.gus.cfShowSlipInfo(ds_bidcSlip.getCellData(rowIndex,"slipNo"));	
+	}
+
+    if ( columnId == "checkYn"){
+    	if (ds_bidcSlip.getCellData(rowIndex,"slipNo") != ""){
+    		await $c.win.alert("전표가 이미 발행 된 상태입니다.")	;
+    		ds_bidcSlip.setCellData(rowIndex,"checkYn", "F");
+    	}
+    }
+};
+
+scwin.btn_delete_onclick = function (e) {
+    scwin.f_Delete();
+};
+
+scwin.bSav1_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+// BL번호 대문자
+scwin.ed_blNo_onkeyup = function (e) {
+	this.setValue(e.target.value.toUpperCase());
+};
+
+// BIDC전표 대문자
+scwin.ed_bidcSlipNo_onkeyup = function (e) {
+	this.setValue(e.target.value.toUpperCase());
+};
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox " id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="전표일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_fromToCalendar id="" refDataMap="dma_search" refStDt="slipDateFrom" refEdDt="slipDateTo" style="" edFromId="ed_slipDateFrom" edToId="ed_slipDateTo" titleFrom="전표일자" titleTo="전표일자" mandatoryFrom="true" mandatoryTo="true"></w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="작성부서" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_comCode id="udc_drawAcctDeptCd" codeId="ed_drawAcctDeptCd" nameId="ed_drawAcctDeptNm" selectID="retrieveAcctDeptCdInfo6" objTypeCode="data" objTypeName="data"
+											allowCharCode="0-9" class="" refDataCollection="dma_search" code="drawAcctDeptCd" validTitle="작성부서" mandatoryCode="true" mandatoryName="true" maxlengthCode="5" maxlengthName="50" UpperFlagCode="1" 
+    										ev:onblurCodeEvent="scwin.udc_drawAcctDeptCd_onblurCodeEvent" 
+											ev:onclickEvent="scwin.udc_drawAcctDeptCd_onclickEvent" validExpCode="작성부서:no:format=00000">
+    									</w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="작성자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode id="udc_drawEmpNo" codeId="ed_drawEmpNo" nameId="ed_drawEmpNm" selectID="retrieveAcEmpInfo" refDataCollection="dma_search" code="drawEmpNo"
+											UpperFlagCode="1" allowCharCode="a-zA-Z0-9" btnId="btn_drawEmpNo" class="" validExpCode="작성자:no:format=#000000" validTitle="회사코드"
+											maxlengthCode="7" mandatoryCode="true" objTypeCode="data" objTypeName="data"
+    										ev:onclickEvent="scwin.udc_drawEmpNo_onclickEvent" ev:onblurCodeEvent="scwin.udc_drawEmpNo_onblurCodeEvent">
+    									</w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>2</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:select appearance="full" class="chk-grp" cols="" id="chk_resignYn"
+    										ref="" renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[퇴사자포함]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="BIDC전표" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:input class="" id="ed_bidcSlipNo" placeholder="" style="width: 208px;text-transform:uppercase;" ref="data:dma_search.bidcSlipNo" objType="data" maxlength="20" ev:onkeyup="scwin.ed_bidcSlipNo_onkeyup" allowChar="0-9a-zA-Z" ></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="DEBIS전표" style="" ></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="ed_slipNo" placeholder="" style="width: 230px;text-transform:uppercase;" ref="data:dma_search.slipNo" objType="data" maxlength="10" validExp="전표번호:no:format=0000000000" allowChar="0-9"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="전표종류" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 id="lc_slipKndCd" chooseOption="" style="width:148px; height:21px; " submenuSize="auto" objType="data"
+    										direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="data:dma_search.slipKndCd" displayMode="value delim label">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[매출전표]]></xf:label>
+    												<xf:value><![CDATA[K12]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[매입전표]]></xf:label>
+    												<xf:value><![CDATA[K13]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+								<xf:group class="w2tb_th" id="" tagname="th">
+									<w2:attributes></w2:attributes>
+									<w2:textbox class="" id="" label="BIDC전표삭제여부" style=""></w2:textbox>
+								</xf:group>
+								<xf:group class="w2tb_td" id="" tagname="td">
+									<w2:attributes></w2:attributes>
+									<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+										disabledClass="w2selectbox_disabled" id="lc_bidcDelYn" style="width:148px; height:21px; " submenuSize="auto" ref="data:dma_search.bidcDelYn" objType="data" displayMode="label">
+										<xf:choices>
+											<xf:item>
+												<xf:label><![CDATA[미삭제]]></xf:label>
+												<xf:value><![CDATA[0]]></xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[삭제]]></xf:label>
+												<xf:value><![CDATA[1]]></xf:value>
+											</xf:item>
+										</xf:choices>
+									</xf:select1>
+								</xf:group>
+    							<xf:group class="w2tb_th" id="" tagname="th" style="">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="BL번호" style=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" id="" tagname="td" style="">
+    								<w2:attributes></w2:attributes>
+    								<xf:input class="" id="ed_blNo" ref="data:dma_search.blNo"  placeholder="" style="width: 208px;text-transform:uppercase;" maxlength="33" objType="data" ev:onkeyup="scwin.ed_blNo_onkeyup" allowChar="0-9a-zA-Z" ></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+					<xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+							<xf:group class="title" id="">
+								<w2:textbox class="tit" id="" label="BIDC매출입전표 내역" style="" tagname="h3"></w2:textbox>
+							</xf:group>
+							<xf:group class="right" id="">
+								<w2:udc_topGrdBtn grp="grd_section1" gridID="gr_prov" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownUserAuth="X" grdDownOpts='{"fileName":"BIDC 매출입전표.xlsx","sheetName": "BIDC 매출입전표"}'></w2:udc_topGrdBtn>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_bidcSlip" id="gr_prov"
+								style="" visibleRowNum="13" visibleRowNumFix="true" ev:oncellclick="scwin.gr_gridView1_oncellclick" >
+								<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label" id="column1" inputType="checkbox" width="50" fixColumnWidth="true" readOnly="false" value=" "></w2:column>
+										<w2:column displayMode="label" id="column17" inputType="text" value="전표일자" width="100"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" value="전표종류" width="100"></w2:column>
+										<w2:column displayMode="label" id="column13" inputType="text" value="BIDC전표번호" width="130"></w2:column>
+										<w2:column displayMode="label" id="column11" inputType="text" value="DEBIS전표번호" width="130"></w2:column>
+										<w2:column displayMode="label" id="column9" inputType="text" value="금액" width="122"></w2:column>
+										<w2:column displayMode="label" id="column3" inputType="text" value="작성부서" width="100"></w2:column>
+										<w2:column displayMode="label" id="column5" inputType="text" value="작성자" width="80"></w2:column>
+										<w2:column displayMode="label" id="column7" inputType="text" value="결재상태" width="100"></w2:column>
+										<w2:column displayMode="label" id="column19" inputType="text" value="DEBIS전표삭제유무" width="150"></w2:column>
+										<w2:column width="150" inputType="text" id="column31" value="작성자사원번호" displayMode="label" hidden="true"></w2:column>
+										<w2:column width="150" inputType="text" id="column34" value="작성자귀속부서코드" displayMode="label" hidden="true"></w2:column>
+										<w2:column width="120" inputType="text" style="" id="column37" value="회계처리일자" displayMode="label" hidden="true"></w2:column>
+										<w2:column width="100" inputType="text" style="" id="column40" value="BL번호" displayMode="label"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label" id="checkYn" inputType="checkbox" width="50" trueValue="T" falseValue="F" readOnly="false" valueType="other"></w2:column>
+										<w2:column displayMode="label" id="slipDt" inputType="text" width="100" displayFormat="yyyy/MM/dd" dataType="date" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="slipKndCd" inputType="text" width="100" formatFunction="scwin.formatSlipKnd" displayFormatter="scwin.formatSlipKnd" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="bidcSlipNo" inputType="text" width="130" class="underline" style="color:blue" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="slipNo" inputType="text" width="130" class="underline" style="color:blue" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="amt" inputType="text" width="122" textAlign="right" displayFormat="#,##0" dataType="number" readOnly="true" excelCellType="bigDecimal"></w2:column>
+										<w2:column displayMode="label" id="drawAcctDeptNm" inputType="text" width="100" textAlign="left" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="drawEmpNm" inputType="text" width="80" readOnly="true" textAlign="left"></w2:column>
+										<w2:column displayMode="label" id="apprvStsCd" inputType="select" width="100" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="delYn" inputType="select" width="150" readOnly="true"></w2:column>
+										<w2:column width="150" inputType="text" id="drawEmpNo" displayMode="label" hidden="true"></w2:column>
+										<w2:column width="150" inputType="text" id="drawAcctDeptCd" displayMode="label" hidden="true"></w2:column>
+										<w2:column width="120" inputType="calendar" style="" id="postDt" value="" displayMode="label" hidden="true"></w2:column>
+										<w2:column width="100" inputType="text" style="" id="blNo" value="" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+									</w2:row>
+								</w2:gBody>
+								<w2:footer style="" id="footer1">
+									<w2:row style="" id="row3">
+										<w2:column width="50" inputType="text" id="column30" displayMode="label"></w2:column>
+										<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+										<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+										<w2:column width="130" inputType="text" id="column27" displayMode="label"></w2:column>
+										<w2:column width="130" inputType="text" id="column26" displayMode="label"></w2:column>
+										<w2:column width="122" inputType="expression" id="column25" displayMode="label" textAlign="right" value="" displayFormat="#,##0" class="tar" dataType="number" expression="SUM('amt')"></w2:column>
+										<w2:column width="100" inputType="text" id="column24" displayMode="label"></w2:column>
+										<w2:column width="80" inputType="text" id="column23" displayMode="label"></w2:column>
+										<w2:column width="100" inputType="text" id="column22" displayMode="label"></w2:column>
+										<w2:column width="150" inputType="text" id="column21" displayMode="label"></w2:column>
+										<w2:column width="150" inputType="text" id="column33" displayMode="label"></w2:column>
+										<w2:column width="150" inputType="text" id="column36" displayMode="label"></w2:column>
+										<w2:column width="120" inputType="text" style="" id="column39" value="" displayMode="label"></w2:column>
+										<w2:column width="100" inputType="text" style="" id="column42" value="" displayMode="label"></w2:column>
+									</w2:row>
+								</w2:footer>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="">
+									<xf:group class="grid-total" id="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="ed_totalRows" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+    					<xf:group class="btnbox" id="">
+							<xf:group id="" class="left">
+								<xf:group style="" id="" class="info-list blk">
+                                    <w2:textbox tagname="p" style=";color:#000000;" id="" label='&lt;span class="bold"&gt;삭제&lt;/span&gt;: DEBIS 전표가 생성되지 않은 건에 대해서 WMS시스템에서 전송된 내역을 삭제&lt;br/&gt;' class="" escape="false"></w2:textbox>
+                                    <w2:textbox tagname="p" style=";color:#000000;" id="" label='&lt;span class="bold"&gt;발행&lt;/span&gt;: DEBIS전표발행은 1건씩 생성 가능' class="" escape="false"></w2:textbox>
+								</xf:group>
+							</xf:group>
+							<xf:group class="right" id="">
+    							<xf:trigger class="btn " id="btn_delete" label="저장" style="" type="button" ev:onclick="scwin.btn_delete_onclick" userAuth="D">
+    								<xf:label>삭제</xf:label>
+    							</xf:trigger>
+    							<xf:trigger class="btn" id="bSav1" label="저장" style="" type="button" ev:onclick="scwin.bSav1_onclick" userAuth="U">
+    								<xf:label>발행</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

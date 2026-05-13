@@ -1,0 +1,2783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_condition" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="wrkDt" name="name2" dataType="text"></w2:column>
+    					<w2:column id="wrkPlClsCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="name5" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="name6" dataType="text"></w2:column>
+    					<w2:column id="staffNo" name="name7" dataType="text"></w2:column>
+    					<w2:column id="dtlOccptypeCd" name="name8" dataType="text"></w2:column>
+    					<w2:column id="gubun" name="name9" dataType="text"></w2:column>
+    					<w2:column id="eqCd" name="name10" dataType="text"></w2:column>
+    					<w2:column id="stvWrkIndictNo" name="name11" dataType="text"></w2:column>
+    					<w2:column id="cvsslMgntNo" name="name12" dataType="text"></w2:column>
+    					<w2:column id="arvStDt" name="name13" dataType="text"></w2:column>
+    					<w2:column id="arvEndDt" name="name14" dataType="text"></w2:column>
+    					<w2:column id="wrkPlCd" name="name16" dataType="text"></w2:column>
+    					<w2:column id="adptYm" name="name17" dataType="text"></w2:column>
+    					<w2:column id="occpgrdCd" name="name18" dataType="text"></w2:column>
+    					<w2:column id="stdYm" name="name20" dataType="text"></w2:column>
+    					<w2:column id="endYm" name="name21" dataType="text"></w2:column>
+    					<w2:column id="vacaClsCd" name="name22" dataType="text"></w2:column>
+    					<w2:column id="districtCd" name="name23" dataType="text"></w2:column>
+    					<w2:column id="checkValue" name="name24" dataType="text"></w2:column>
+    					<w2:column id="checkChief" name="name25" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_manList" saveRemovedData="true"
+    				ev:ondataload="scwin.ds_manList_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="workDt" name="일자" dataType="text"></w2:column>
+    					<w2:column id="weekday" name="요일" dataType="text"></w2:column>
+    					<w2:column id="shiftClsCd" name="SHIFT" dataType="text"></w2:column>
+    					<w2:column id="workHhDiff" name="시간" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="extdCnt" name="연장" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="wrkPlNm" name="본선" dataType="text"></w2:column>
+    					<w2:column id="threeShiftCnt" name="연근" dataType="text"></w2:column>
+    					<w2:column id="additionalCnt" name="추가제외" dataType="text"></w2:column>
+    					<w2:column id="staffNm" name="name9" dataType="text"></w2:column>
+    					<w2:column id="mergeCol1" name="name10" dataType="text"></w2:column>
+    					<w2:column id="mergeCol2" name="name11" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_dayList" saveRemovedData="true"
+    				ev:ondataload="scwin.ds_dayList_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="managerChiefYn" name="소반장여부" dataType="text"></w2:column>
+    					<w2:column id="staffNm" name="사원명" dataType="text"></w2:column>
+    					<w2:column id="day1Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day1Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day1DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day1Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day1Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day1NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day2Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day2Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day2DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day2Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day2Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day2NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day3Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day3Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day3DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day3Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day3Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day3NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day4Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day4Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day4DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day4Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day4Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day4NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day5Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day5Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day5DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day5Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day5Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day5NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day6Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day6Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day6DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day6Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day6Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day6NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day7Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day7Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day7DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day7Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day7Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day7NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day8Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day8Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day8DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day8Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day8Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day8NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day9Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day9Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day9DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day9Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day9Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day9NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day10Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day10Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day10DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day10Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day10Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day10NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day11Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day11Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day11DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day11Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day11Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day11NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day12Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day12Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day12DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day12Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day12Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day12NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day13Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day13Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day13DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day13Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day13Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day13NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day14Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day14Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day14DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day14Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day14Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day14NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day15Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day15Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day15DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day15Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day15Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day15NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day16Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day16Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day16DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day16Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day16Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day16NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day17Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day17Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day17DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day17Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day17Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day17NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day18Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day18Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day18DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day18Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day18Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day18NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day19Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day19Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day19DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day19Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day19Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day19NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day20Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day20Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day20DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day20Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day20Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day20NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day21Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day21Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day21DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day21Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day21Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day21NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day22Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day22Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day22DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day22Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day22Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day22NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day23Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day23Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day23DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day23Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day23Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day23NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day24Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day24Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day24DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day24Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day24Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day24NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day25Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day25Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day25DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day25Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day25Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day25NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day26Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day26Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day26DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day26Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day26Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day26NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day27Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day27Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day27DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day27Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day27Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day27NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day28Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day28Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day28DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day28Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day28Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day28NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day29Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day29Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day29DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day29Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day29Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day29NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day30Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day30Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day30DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day30Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day30Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day30NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day31Dshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day31Dextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day31DwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day31Nshift" name="시간" dataType="text"></w2:column>
+    					<w2:column id="day31Nextd" name="연장" dataType="text"></w2:column>
+    					<w2:column id="day31NwrkNm" name="본선명" dataType="text"></w2:column>
+    					<w2:column id="day1VoCnt" name="name189" dataType="text"></w2:column>
+    					<w2:column id="day2VoCnt" name="name190" dataType="text"></w2:column>
+    					<w2:column id="day3VoCnt" name="name191" dataType="text"></w2:column>
+    					<w2:column id="day4VoCnt" name="name192" dataType="text"></w2:column>
+    					<w2:column id="day5VoCnt" name="name193" dataType="text"></w2:column>
+    					<w2:column id="day6VoCnt" name="name194" dataType="text"></w2:column>
+    					<w2:column id="day7VoCnt" name="name195" dataType="text"></w2:column>
+    					<w2:column id="day8VoCnt" name="name196" dataType="text"></w2:column>
+    					<w2:column id="day9VoCnt" name="name197" dataType="text"></w2:column>
+    					<w2:column id="day10VoCnt" name="name198" dataType="text"></w2:column>
+    					<w2:column id="day11VoCnt" name="name199" dataType="text"></w2:column>
+    					<w2:column id="day12VoCnt" name="name200" dataType="text"></w2:column>
+    					<w2:column id="day13VoCnt" name="name201" dataType="text"></w2:column>
+    					<w2:column id="day14VoCnt" name="name202" dataType="text"></w2:column>
+    					<w2:column id="day15VoCnt" name="name203" dataType="text"></w2:column>
+    					<w2:column id="day16VoCnt" name="name204" dataType="text"></w2:column>
+    					<w2:column id="day17VoCnt" name="name205" dataType="text"></w2:column>
+    					<w2:column id="day18VoCnt" name="name206" dataType="text"></w2:column>
+    					<w2:column id="day19VoCnt" name="name207" dataType="text"></w2:column>
+    					<w2:column id="day20VoCnt" name="name208" dataType="text"></w2:column>
+    					<w2:column id="day21VoCnt" name="name209" dataType="text"></w2:column>
+    					<w2:column id="day22VoCnt" name="name210" dataType="text"></w2:column>
+    					<w2:column id="day23VoCnt" name="name211" dataType="text"></w2:column>
+    					<w2:column id="day24VoCnt" name="name212" dataType="text"></w2:column>
+    					<w2:column id="day25VoCnt" name="name213" dataType="text"></w2:column>
+    					<w2:column id="day26VoCnt" name="name214" dataType="text"></w2:column>
+    					<w2:column id="day27VoCnt" name="name215" dataType="text"></w2:column>
+    					<w2:column id="day28VoCnt" name="name216" dataType="text"></w2:column>
+    					<w2:column id="day29VoCnt" name="name217" dataType="text"></w2:column>
+    					<w2:column id="day30VoCnt" name="name218" dataType="text"></w2:column>
+    					<w2:column id="day31VoCnt" name="name219" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_manCrs" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="workDt" name="일자" dataType="text"></w2:column>
+    					<w2:column id="weekday" name="요일" dataType="text"></w2:column>
+    					<w2:column id="shiftClsCd" name="SHIFT" dataType="text"></w2:column>
+    					<w2:column id="workHhDiff" name="시간" dataType="text"></w2:column>
+    					<w2:column id="extdCnt" name="연장" dataType="text"></w2:column>
+    					<w2:column id="wrkPlNm" name="본선" dataType="text"></w2:column>
+    					<w2:column id="threeShiftCnt" name="연근" dataType="text"></w2:column>
+    					<w2:column id="additionalCnt" name="추가제외" dataType="text"></w2:column>
+    					<w2:column id="staffNm" name="name12" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="co_ds_combo1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="name1" dataType="text"></w2:column>
+    					<w2:column id="name" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="co_ds_combo1_search">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.stvwrk.RetrieveRegularManDailyWorkRsltsCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_manList","key":"OUT_DS1"},{"id":"ds_dayList","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"ds_manList","key":"OUT_DS1"},{"id":"ds_dayList","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_lobranCd" action="/cm.zz.RetrieveComboCMD.do"
+    			method="post" mediatype="application/json" ref="data:json,co_ds_combo1_search" target='' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : op_210_02_14b 
+// 이름     : 상용직 투입현황
+// 경로     : 물류/하역(인천)/현황/
+// 작 성 자 : 조성빈
+// 작 업 일 : 2026-04-07
+// 사용계정 : 내부
+// 비고     :  ***
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+scwin.onpageload = async function() {
+	scwin.lobranCd  = $c.gus.cfIsNull($c.data.getMemInfo("lobranCd")) ? "" : $c.data.getMemInfo("lobranCd");  // 물류 점소 코드
+	
+	scwin.vCurDate  = $c.date.getServerDateTime("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+	scwin.vwrkStDt  = scwin.vCurDate.substring(0, 6) + "01";  // 입항예정일자 from(현재 날짜가 포함된 달의 시작 일자)
+	scwin.vwrkEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDateOfMonth(scwin.vCurDate.substring(0, 6));  // 입항예정일자 to(현재 날짜가 포함된 달의 마지막 일자)
+
+    scwin.v_workClsCd   = ""; 
+    scwin.bOnPopUp      = false;
+
+    var rowIndex = ds_condition.insertRow();
+    ds_condition.setRowPosition(rowIndex);
+
+    const codeOptions = [
+        { grpCd : "OP117", compID : "gr_manList:shiftClsCd" }, //반출입구분
+
+    ];
+    $c.data.setCommonCode(codeOptions, scwin.setCommonCodeCallBack);
+    
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(async function() {
+
+    }, {"delay":50});
+};
+
+scwin.setCommonCodeCallBack = async function () {
+    co_ds_combo1_search.set("sysCd", "BerthNonUsableEBC");
+    co_ds_combo1_search.set("queryId", "retriveLobranCodeList");
+    var rs = await $c.sbm.execute(sbm_lobranCd);
+    if (rs.responseJSON.resultDataSet[0].Msg == "SUCC"){
+        co_ds_combo1.setJSON(rs.responseJSON.GAUCE);
+        co_ds_combo1.sort("code", 0);
+
+        scwin.f_SetDefaultData();
+    };
+    tab_control_1.setSelectedTabIndex(1);
+    tab_control_1.setSelectedTabIndex(0);
+};
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function () {
+	ica_wrkDt.setValue(scwin.vCurDate);  	
+	
+	lc_lobranCd.setValue(scwin.lobranCd);
+	lc_lobranCd.focus();
+
+    // $p.setTimeout(function() {
+    //     // ica_wrkDt.setValue("202001");
+    //     // lc_lobranCd.setValue("4AA");
+    //     // ica_wrkDt.setValue("202505");
+    //     ica_wrkDt.setValue("202501");
+    //     lc_lobranCd.setValue("4AA");
+    // }, {"delay":1200});
+};
+
+//-------------------------------------------------------------------------
+// 본선작업계획현황조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    // 검색조건 필수 입력 체크
+  	if (!await $c.gus.cfValidate([lc_lobranCd, ica_wrkDt])) {
+  		return;
+	}
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.f_gridToExcel = function (argGrid, argTitle) {
+    // Title
+    // argGrid.SetExcelTitle(0, "");
+    // argGrid.SetExcelTitle(1,"value:" + argTitle + ";" // 표시할 타이틀
+    //                       + "font-face:'돋움체';"      // 폰트
+    //                       + "font-size:16pt;"         // 폰트 크기
+    //                       + "font-color:black;"       // 폰트 색깔
+    //                       + "bgcolor:#ffffff;"        // 배경 색깔
+    //                       + "align:center;"           // 정렬
+    //                       + "line-color:white;"       // 타이틀 부분 테두리선 색깔
+    //                       + "line-width:0pt;"         // 타이틀 테두리선 굵기
+    //                       + "skiprow:1;");            // 타이틀 다음 떼는 로우 수
+    // 검색조건
+    var vDay = "점소 | " + lc_lobranCd.getText(true) + " | "
+             + "작업일자 | " + ica_wrkDt.getValue();
+    // var vSearchOption = ";font-face:굴림체;font-size:10pt;font-color:black;bgcolor:#ffffff;align: left;line-color:red;line-width:0pt;";
+    // argGrid.SetExcelTitle(1, "value:" + vDay.replace(/:/g,'|').replace(/;/g,'') + vSearchOption );
+    // cfGridToExcel(argGrid, argTitle, argTitle+".xls", 4+8+16);
+
+    var argGridTotalCol = 0;
+    for (var i = 0 ; i < argGrid.getTotalCol(); i++) {
+        if (argGrid.getColumnVisible(i)) {
+            argGridTotalCol++;
+        }
+    }
+
+    const infoArr = [{
+          rowIndex    : 0
+        , colIndex    : 0
+        , rowSpan     : 1
+        , colSpan     : argGridTotalCol
+        , text        : argTitle
+        , textAlign   : "center"
+        , fontSize    : "24"
+        , fontName    : "돋움체"
+        , color       : "black"
+        , fontWeight  : ""
+        , drawBorder  : "false"
+        , borderColor : ""
+        , borderWidth : ""
+        , wordWrap    : "true"
+        , bgColor     : "#ffffff"
+    },{
+          rowIndex    : 2
+        , colIndex    : 0
+        , rowSpan     : 1
+        , colSpan     : argGridTotalCol
+        , text        : vDay
+        , textAlign   : "left"
+        // , fontSize    : "12"
+        , fontName    : "돋움체"
+        , color       : "black"
+        , fontWeight  : ""
+        , drawBorder  : "false"
+        , borderColor : ""
+        , borderWidth : ""
+        , wordWrap    : "true"
+        , bgColor     : "#ffffff"
+    }];
+    const options = {
+        fileName : argTitle + ".xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: argTitle,
+        type : "1",
+        startRowIndex: 3,
+        // removeColumns: "1",
+        // hiddenVisible : true,
+        // useSubTotal :"true", 
+        // useSubTotalData  : "true",
+        // oddRowBackgroundColor  : "",                        // excel파일에서 그리드 body의 홀수줄의 배경색
+        // evenRowBackgroundColor : "#F5FFF5"                  // excel파일에서 그리드 body의 짝수줄의 배경색
+    };
+    $c.data.downloadGridViewExcel(argGrid, options, infoArr);
+}
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch) {
+  	// 선언부
+	var rtnList;  // 공통POP-UP -> 요청화면 	
+   	
+	switch (disGubun) {
+  		case 1:			
+ 			var arrParam = new Array();
+            arrParam[0] = pCode; //사번
+            arrParam[1] = pName; //사원명
+            arrParam[2] = lc_lobranCd.getValue(); //점소코드
+            arrParam[3] = lc_lobranCd.getText(true);  //점소명
+            arrParam[4] = ''; //작업장코드
+            arrParam[5] = '';//직종  (정규직)
+            // arrParam[6] = lc_dtlOccptypeCd.getValue(); //상세직종코드 
+            arrParam[6] = ''; //상세직종코드 
+            arrParam[7] = ''; //직급
+            arrParam[8] = '';  //작업일
+            arrParam[9] = ''; //배치가능여부
+ 			arrParam[10] = 'T'; //WINDOW CLOSE 여부
+ 			arrParam[11] = "1"; //상세직종Flag
+
+            let win_url = "/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml";
+            let opts = {
+                id : ""
+                , popupName : ""
+                , modal : true
+                , type : "browserPopup"
+                , width : 1000
+                , height : 600
+                , title : ""
+            };
+            var rtnValues = await $c.win.openPopup(win_url, opts, args);
+            //(0)직종코드		
+            //(1)직종명	        
+            //(2)인원번호		
+            //(3)인원명	                          
+            //(4)직급		    
+            //(5)직급명		    
+            //(6)물류점소코드   
+            //(7)물류점소명		
+            //(8)상세직종코드	
+            //(9)상세직종명		                  
+            //(10)배치가능여부	
+            //(11)본사계약직여부 
+            //(12)연근여부		
+           
+            if (rtnValues != null) {
+                ed_staffNo.setValue(rtnList[2]);	//사원코드
+			    ed_staffNm.setValue(rtnList[3]);	//사원명
+		 	}else{
+		 	    ed_staffNo.setValue("");	//사원코드
+			    ed_staffNm.setValue("");	//사원명
+		 	}
+		    break;	
+	}
+};
+	
+//-------------------------------------------------------------------------
+// 검색영역 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function () {
+	$c.gus.cfInitObjects(tb_mainData);
+	scwin.f_SetDefaultData();
+};
+
+scwin.btn_clear_onclick = function (e) {
+    scwin.f_InitObjects();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.tab_control_1_ontabclick = function (tabId, index) {
+    // if (index == 0){
+    //     cfViewTab(0);
+    // } else if (index == 1) {
+    //     cfViewTab(1);
+    // }
+};
+
+scwin.excelDown1 = function () {
+    scwin.f_gridToExcel(gr_manList,'인원별 투입현황');
+};
+
+scwin.excelDown2 = function () {
+    scwin.f_gridToExcel(gr_dayList,'일자별 투입현황');
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    txt_totalRows1.setValue(0);
+    txt_totalRows2.setValue(0);
+
+    if (e.responseJSON.resultDataSet[0].Msg == "FAIL") {
+
+    } else {
+        // ds_manCrs event=OnLoadCompleted(rowCnt)> *crosstab*
+        ds_manCrs.setJSON(ds_manList.getAllJSON());
+
+        options = {}
+        sGroupExpr  = "workDt:weekday:shiftClsCd,staffNm,workHhDiff:extdCnt:wrkPlNm:threeShiftCnt:additionalCnt";
+        await $c.data.applyGridViewGroupExpr(ds_manCrs, gr_manList, sGroupExpr, options);
+
+        for (var i = 0 ; i < ds_manCrs_GroupExpr.getRowCount() ; i ++) {
+            for (var j = 0 ; j < ds_manCrs_GroupExpr.getTotalCol() ; j ++) {
+                var colid = ds_manCrs_GroupExpr.getColumnID(j);
+                if (colid.indexOf("workHhDiff_") >= 0 || colid.indexOf("extdCnt_") >= 0) {
+                    
+                    // ds_manCrs_GroupExpr.setColumnDefaultValue(colid , 0);
+                    if (ds_manCrs_GroupExpr.getCellData(i, colid) == "") {
+                        ds_manCrs_GroupExpr.setCellData(i, colid, "0");
+                    }
+                }
+            }
+        }
+
+        
+
+        if ($p.getComponentById("ds_manCrs_GroupExpr") != null) {
+            if (ds_manCrs.getRowCount() == 0) {
+                ds_manCrs_GroupExpr.removeAll();
+            }
+
+            var rowCnt = ds_manCrs_GroupExpr.getRowCount();
+            txt_totalRows1.setValue(rowCnt);
+
+            var cntColumn = gr_manList.getTotalCol();
+            cntColumn = (cntColumn -3) / 5 ; 
+            // 기본항목 3개 제외(일자_요일_shift) , 시간_연장_본선_연근_추가 항목 5 나눔처리
+            
+            var arrWorkHhDiff = new Array();
+            var arrExtdCnt = new Array();
+            var arrThreeShiftCnt = new Array();
+            var arradditionalCnt = new Array();
+        // 	var arrWorkDt = new Array();
+
+            for (var j = 0; j < cntColumn; j++) {
+                for (var i = 0; i < ds_manCrs_GroupExpr.getRowCount() ; i++) {
+                    arrWorkHhDiff.push(ds_manCrs_GroupExpr.getCellData(i, "workHhDiff_"+j));
+                    arrExtdCnt.push(ds_manCrs_GroupExpr.getCellData(i, "extdCnt_"+j));
+                    arrThreeShiftCnt.push(ds_manCrs_GroupExpr.getCellData(i, "threeShiftCnt_"+j));
+                    arradditionalCnt.push(ds_manCrs_GroupExpr.getCellData(i, "additionalCnt_"+j));
+        // 			arrWorkDt.push(ds_manCrs_GroupExpr.NameValue(i,"workDt"));
+                }
+            }
+
+            var totCnt = arrWorkHhDiff.length;//ds_manCrs_GroupExpr.getRowCount() * cntColumn;
+            
+            var rowIndex = ds_manCrs_GroupExpr.insertRow();
+            ds_manCrs_GroupExpr.setRowPosition(rowIndex);
+
+            var _workHhDiff = 0;
+            var _extdCnt = 0;
+            var valCol = 1;
+            var realCount = ds_manCrs_GroupExpr.getRowCount()-1;
+            var _additionalCnt = 0;
+            var _workChk = 1 ;	//전월-2, -1 실적에 대해선  제외하기 위한 변수
+            for (var i=1; i <= totCnt; i++) {
+                if (i % realCount == 0) {
+                    _workHhDiff += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                    _extdCnt += !$c.num.isNumber(parseInt(arrExtdCnt[i - 1])) ? 0 : parseInt(arrExtdCnt[i - 1])
+                    _additionalCnt += !$c.num.isNumber(parseInt(arradditionalCnt[i - 1])) ? 0 : parseInt(arradditionalCnt[i - 1])
+                    
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workDt", "시간 계");
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+ (valCol-1), _workHhDiff);
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+ (valCol-1), _extdCnt);
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "additionalCnt_"+ (valCol-1), _additionalCnt);
+                    
+                    _workHhDiff = 0;
+                    _extdCnt = 0;
+                    _additionalCnt = 0;
+                    valCol ++;
+                    _workChk = 1;
+                } else {
+                    if (_workChk > 4) {//전월-2, -1 실적에 대해선  제외
+                        _workHhDiff += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                        _extdCnt += !$c.num.isNumber(parseInt(arrExtdCnt[i - 1])) ? 0 : parseInt(arrExtdCnt[i - 1])
+                        _additionalCnt += !$c.num.isNumber(parseInt(arradditionalCnt[i - 1])) ? 0 : parseInt(arradditionalCnt[i - 1])
+                    }else{
+                        _workChk++;
+                    }
+                }
+            }
+
+            var rowIndex = ds_manCrs_GroupExpr.insertRow();
+            ds_manCrs_GroupExpr.setRowPosition(rowIndex);
+
+            ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"workDt", "SHIFT 계");
+            for (var i = 0 ; i < cntColumn; i++) {
+                ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"workHhDiff_"+i, (ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowCount()-2,"workHhDiff_"+i)/8));
+                ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+i, 0);
+            }
+
+            var rowIndex = ds_manCrs_GroupExpr.insertRow();
+            ds_manCrs_GroupExpr.setRowPosition(rowIndex);
+
+            var _threeShiftCnt = 0;
+            valCol = 1;
+            realCount = ds_manCrs_GroupExpr.getRowCount()-3;
+            var _workChk = 0;
+            var _shiftChk = 0;
+            _workChk = 1 ;	//전월-2, -1 실적에 대해선  제외하기 위한 변수
+        // 	alert("getRowCount() > " + ds_manCrs_GroupExpr.getRowCount());//row +3 = 67
+            
+            var wrkYm = ica_wrkDt.getValue().substring(0,4) +"/" + ica_wrkDt.getValue().substring(4,6)+"/";
+            var dayChk = -1;
+            // 240902) 24년 상용직 20일 부터 shift체크해서 3연근 count
+            if(wrkYy < 2024) dayChk = 21*2; //21일*2(주/야) + 전일 2개row
+            else if(wrkYy >= 2024) dayChk = 20*2; //20일*2(주/야) + 전일 2개row
+            
+            var wrkYy = Number(ica_wrkDt.getValue().substring(0,4));
+            
+            //23shift
+            if(wrkYy < 2024){
+                for (var i=1; i <= totCnt; i++) {
+                // for (var i = 0 ; i < totCnt; i++) {
+                    //인원별 마지막 라인 데이터 추가
+                    if (i % realCount == 0) {
+                
+                        _workChk += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                        _shiftChk = _workChk/8;
+                        if( (_shiftChk) < 23 ) {
+                            _threeShiftCnt += !$c.num.isNumber(parseInt(arrThreeShiftCnt[i - 1])) ? 0 : parseInt(arrThreeShiftCnt[i - 1])
+                        }
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workDt", "연근 계");
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+ (valCol-1), _threeShiftCnt);
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+ (valCol-1), 0);
+                        
+                        _threeShiftCnt = 0;
+                        _workChk = 0;
+                        _shiftChk = 0;
+                        dayChk = 44 + (realCount*valCol);
+                        valCol ++;//다음사람 체크
+                        _workChk = 1;
+                    } else {
+                        //상용직은 23시프트가 초과되면 초과 수당만 발생하고, 연근 수당은 지급하지 않음
+                        if ( i % dayChk == 0 ) { //21일이 넘어가는경우 shift초과 체크
+                            _shiftChk = _workChk/8;
+                            if( (_shiftChk) < 23) {	
+                                _threeShiftCnt += !$c.num.isNumber(parseInt(arrThreeShiftCnt[i - 1])) ? 0 : parseInt(arrThreeShiftCnt[i - 1])
+                                _workChk += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                            }
+                            dayChk ++;
+                        } else {
+                            if (_workChk > 4) {//전월-2, -1 실적에 대해선  제외
+                                _threeShiftCnt += !$c.num.isNumber(parseInt(arrThreeShiftCnt[i - 1])) ? 0 : parseInt(arrThreeShiftCnt[i - 1])
+                                _workChk += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                            } else {
+                                _workChk++;
+                            }
+                        }
+                    }
+                }
+                
+                var rowIndex = ds_manCrs_GroupExpr.insertRow();
+                ds_manCrs_GroupExpr.setRowPosition(rowIndex);
+
+                ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"workDt", "SHIFT 초과");
+                var _shiftOver = 0;
+                for (var i = 0 ; i < cntColumn; i++) {
+                    if ((23 - ds_manCrs_GroupExpr.getCellData((ds_manCrs_GroupExpr.getRowPosition()-2), "workHhDiff_"+i)) < 0 ) {
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+i, (23 - ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowPosition()-2,"workHhDiff_"+i)) * -1);
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+i, 0);
+                    } else {
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+i, 0);
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+i, 0);
+                    }
+                    
+                    //추가실적등록건에 대해 SHIFT 초과 계산
+                    _shiftOver = ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowPosition(),"workHhDiff_"+i);
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"workHhDiff_"+i, _shiftOver + ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowPosition()-3,"additionalCnt_"+i));
+                }
+            }
+            //2024년 23shift에서 22shift로 정책 변경
+            else{
+                
+                for (var i=1; i <= totCnt; i++) {
+                // for (var i = 0 ; i < totCnt; i++) {
+                    //인원별 마지막 라인 데이터 추가
+                    if (i % realCount == 0) {
+                
+                        _workChk += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                        _shiftChk = _workChk/8;
+                        if( (_shiftChk) < 22 ) {
+                            _threeShiftCnt += !$c.num.isNumber(parseInt(arrThreeShiftCnt[i - 1])) ? 0 : parseInt(arrThreeShiftCnt[i - 1])
+                        }
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"workDt", "연근 계");
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"workHhDiff_"+ (valCol-1), _threeShiftCnt);
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(),"extdCnt_"+ (valCol-1), 0);
+                        
+                        _threeShiftCnt = 0;
+                        _workChk = 0;
+                        _shiftChk = 0;
+                        dayChk = 40 + (realCount*valCol); // 240902) 24년 상용직 20일 부터 shift체크해서 3연근 count
+                        valCol ++;//다음사람 체크
+                        _workChk = 1;
+                    } else {
+                        //상용직은 22시프트가 초과되면 초과 수당만 발생하고, 연근 수당은 지급하지 않음
+                        if ( i % dayChk == 0 ) { //21일이 넘어가는경우 shift초과 체크
+                            _shiftChk = _workChk/8;
+                            if( (_shiftChk) < 22) {	
+                                _threeShiftCnt += !$c.num.isNumber(parseInt(arrThreeShiftCnt[i - 1])) ? 0 : parseInt(arrThreeShiftCnt[i - 1])
+                                _workChk += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                            }
+                            dayChk ++;
+                        } else {
+                            if (_workChk > 4) {//전월-2, -1 실적에 대해선  제외
+                                _threeShiftCnt += !$c.num.isNumber(parseInt(arrThreeShiftCnt[i - 1])) ? 0 : parseInt(arrThreeShiftCnt[i - 1])
+                                _workChk += !$c.num.isNumber(parseInt(arrWorkHhDiff[i - 1])) ? 0 : parseInt(arrWorkHhDiff[i - 1])
+                            } else {
+                                _workChk++;
+                            }
+                        }
+                    }
+                }
+                
+                var rowIndex = ds_manCrs_GroupExpr.insertRow();
+                ds_manCrs_GroupExpr.setRowPosition(rowIndex);
+
+                ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workDt", "SHIFT 초과");
+                var _shiftOver = 0;
+                for (var i = 0; i < cntColumn; i++) {
+                    if ((22 - ds_manCrs_GroupExpr.getCellData((ds_manCrs_GroupExpr.getRowPosition()-2), "workHhDiff_"+i)) < 0 ) {
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+i, (22 - ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowPosition()-2,"workHhDiff_"+i)) * -1);
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+i, 0);
+                    } else {
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+i, 0);
+                        ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+i, 0);
+                    }
+                    
+                    //추가실적등록건에 대해 SHIFT 초과 계산
+                    _shiftOver = ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+i);
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "workHhDiff_"+i, _shiftOver + ds_manCrs_GroupExpr.getCellData(ds_manCrs_GroupExpr.getRowPosition()-3,"additionalCnt_"+i));
+                    ds_manCrs_GroupExpr.setCellData(ds_manCrs_GroupExpr.getRowPosition(), "extdCnt_"+i, 0);
+                }
+            }
+            
+        } else {
+            
+        }
+
+        // ds_dayList event=OnLoadCompleted(rowCnt)>
+        // 총 조회건수 표시
+        var rowCnt = ds_dayList.getRowCount();
+        txt_totalRows2.setValue(rowCnt);
+
+        //소반장 Count
+        var arrDayDshiftLeader = new Array();//주간시간
+        var arrDayNshiftLeader = new Array();//야간시간
+        var _dayDshiftLeader = 0;
+        var _dayNshiftLeader = 0;
+        var arrDayVoCntLeader = new Array();//휴가
+        var _dayVoCntLeader = 0;
+        
+        //소반장 제외 Count
+        var arrDayDshift = new Array();//주간시간
+        var arrDayNshift = new Array();//야간시간
+        var _dayDshift = 0;
+        var _dayNshift = 0;
+        var arrDayVoCnt = new Array();//휴가
+        var _dayVoCnt = 0;
+        
+        for (var j=1; j<= 31; j++) {
+            for (var i = 0; i < ds_dayList.getRowCount() ; i++) {
+                if (ds_dayList.getCellData(i, "managerChiefYn") == "N") {//소반장제외
+                    _dayDshift += parseInt(ds_dayList.getCellData(i, "day"+ j + "Dshift" ));
+                    _dayNshift += parseInt(ds_dayList.getCellData(i, "day"+ j + "Nshift" ));
+                    _dayVoCnt  += parseInt(ds_dayList.getCellData(i, "day"+ j + "VoCnt" ));
+                } else {
+                    _dayDshiftLeader += parseInt(ds_dayList.getCellData(i, "day"+ j + "Dshift" ));
+                    _dayNshiftLeader += parseInt(ds_dayList.getCellData(i, "day"+ j + "Nshift" ));
+                    _dayVoCntLeader  += parseInt(ds_dayList.getCellData(i, "day"+ j + "VoCnt" ));
+                }
+                
+            }
+            //소계 금액이 합산됨에 따라 나누기 적용
+            // TOBE에서는 소계 금액 합산되지 않음 따라서 /2 제거
+            // arrDayDshiftLeader.push(_dayDshiftLeader/2); 
+            // arrDayNshiftLeader.push(_dayNshiftLeader/2); 
+            arrDayDshiftLeader.push(_dayDshiftLeader); 
+            arrDayNshiftLeader.push(_dayNshiftLeader); 
+            _dayDshiftLeader = 0;
+            _dayNshiftLeader = 0;
+            // arrDayVoCntLeader.push(_dayVoCntLeader/2); 
+            arrDayVoCntLeader.push(_dayVoCntLeader); 
+            _dayVoCntLeader = 0;
+            
+            // arrDayDshift.push(_dayDshift/2); 
+            // arrDayNshift.push(_dayNshift/2); 
+            arrDayDshift.push(_dayDshift); 
+            arrDayNshift.push(_dayNshift); 
+            _dayDshift = 0;
+            _dayNshift = 0;
+            // arrDayVoCnt.push(_dayVoCnt/2); 
+            arrDayVoCnt.push(_dayVoCnt); 
+            _dayVoCnt = 0;
+        }
+        
+        var rowIndex = ds_dayList.insertRow();
+        ds_dayList.setRowPosition(rowIndex);
+
+        ds_dayList.setCellData(ds_dayList.getRowPosition(),"staffNm", "소반장SHIFT 계");
+        
+        for (var j = 1 ; j <= 31 ; j++) {
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dshift", arrDayDshiftLeader[j-1]/8);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nshift", arrDayNshiftLeader[j-1]/8);
+            
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dextd", 0);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nextd", 0);
+        }
+        
+        var rowIndex = ds_dayList.insertRow();
+        ds_dayList.setRowPosition(rowIndex);
+
+        ds_dayList.setCellData(ds_dayList.getRowPosition(),"staffNm", "그외SHIFT 계");
+        
+        for (var j=1; j<= 31; j++) {
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dshift", arrDayDshift[j-1]/8);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nshift", arrDayNshift[j-1]/8);
+
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dextd", 0);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nextd", 0);
+        }
+        
+        var rowIndex = ds_dayList.insertRow();
+        ds_dayList.setRowPosition(rowIndex);
+
+        ds_dayList.setCellData(ds_dayList.getRowPosition(),"staffNm", "SHIFT 합계");
+        
+        for (var j=1; j<= 31; j++) {
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dshift", (arrDayDshiftLeader[j-1]/8) + (arrDayDshift[j-1]/8));
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nshift", (arrDayNshiftLeader[j-1]/8) + (arrDayNshift[j-1]/8));
+        
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dextd", 0);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nextd", 0);
+        }
+        
+        var rowIndex = ds_dayList.insertRow();
+        ds_dayList.setRowPosition(rowIndex);
+
+        ds_dayList.setCellData(ds_dayList.getRowPosition(),"staffNm", "휴가계");
+        
+        for (var j=1; j<= 31; j++) {
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dshift", arrDayVoCntLeader[j-1] + arrDayVoCnt[j-1]);
+
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nshift", 0);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dextd", 0);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nextd", 0);
+        }
+        
+        var rowIndex = ds_dayList.insertRow();
+        ds_dayList.setRowPosition(rowIndex);
+
+        ds_dayList.setCellData(ds_dayList.getRowPosition(),"staffNm", "실SHIFT합계");//SHIFT합계 - 휴가계(소반장 휴가 제외)
+        
+        for (var j=1; j<= 31; j++) {
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dshift", ds_dayList.getCellData(ds_dayList.getRowPosition()-3,"day"+ j + "Dshift") - arrDayVoCnt[j-1]);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nshift", ds_dayList.getCellData(ds_dayList.getRowPosition()-3,"day"+ j + "Nshift"));
+
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Dextd", 0);
+            ds_dayList.setCellData(ds_dayList.getRowPosition(),"day"+ j + "Nextd", 0);
+        }
+
+
+        // gr_dayList.mergeCells("byrestriccol");
+        // gr_dayList.setFixedColumn(3);
+
+    } 
+};
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_mainData" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="점소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_lobranCd" style="width: 150px;" submenuSize="fixed" ref="data:ds_condition.lobranCd" title="점소">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:co_ds_combo1">
+    										<xf:label ref="name"></xf:label>
+    										<xf:value ref="code"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_wrkDt" style="" mandatory="true" title="작업일자" objType="data" ref="data:ds_condition.wrkDt"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="작업장구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_wrkPlClsCd" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="전체"
+    								ref="data:ds_condition.wrkPlClsCd">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[전체]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[인천내항]]></xf:label>
+    										<xf:value><![CDATA[01]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[인천북항]]></xf:label>
+    										<xf:value><![CDATA[02]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group><xf:group class="round-box" id="" style="">
+    			<xf:group class="tabbox " id="" style="">
+    					<w2:tabControl alwaysDraw="true" class="wq_tab" id="tab_control_1" style="" ev:ontabclick="scwin.tab_control_1_ontabclick">
+    						<w2:tabs disabled="false" id="tabs8" label="인원별" style=""></w2:tabs>
+    						<w2:tabs disabled="false" id="tabs9" label="일자별" style=""></w2:tabs>
+    						<w2:content alwaysDraw="true" id="content8" style="height: auto;">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="인원별 투입현황" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_topGrdBtn1" gridID="gr_manList" gridDownFn="scwin.excelDown1" btnPlusYn="Y" btnUser="N" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<xf:group id="">
+    									<w2:gridView scrollByColumnAdaptive="false" scrollByColumn="false" dataName="인원별 투입현황"
+    										checkReadOnlyOnPasteEnable="" focusMode="row" visibleRowNumFix="true" dataList="data:ds_manCrs" style="" dynamic="true"
+    										id="gr_manList" visibleRowNum="15" autoFit="none" class="wq_gvw" fixedColumn="3" fixedColumnNoMove="true">
+    										<w2:caption style="" id="caption6" value="this is a grid caption."></w2:caption>
+    										<w2:header style="" id="header2">
+    											<w2:row style="" id="row5">
+    												<w2:column rowSpan="2" width="100" inputType="text" id="column32" value="일자"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column rowSpan="2" width="70" inputType="text" id="column29" value="요일"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column rowSpan="2" width="70" inputType="text" id="column50" value="SHIFT"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column colSpan="5" width="380" inputType="text" id="$xkeyname_$$" sortable="false"
+    													displayMode="label">
+    												</w2:column>
+    											</w2:row>
+    											<w2:row style="" id="row3">
+    												<w2:column width="70" inputType="text" id="workHhDiff_$$" value="시간"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" id="extdCnt_$$" value="연장" displayMode="label">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" id="wrkPlNm_$$" value="본선" displayMode="label">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" id="threeShiftCnt_$$" value="연근"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="additionalCnt_$$" value="추가제외"
+    													displayMode="label">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody style="" id="gBody2">
+    											<w2:row style="" id="row4">
+    												<w2:column width="100" inputType="text" id="workDt" displayMode="label"
+    													readOnly="true" colMerge="true">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" id="weekday" displayMode="label"
+    													readOnly="true" colMerge="true">
+    												</w2:column>
+    												<w2:column width="70" inputType="select" id="shiftClsCd" displayMode="label"
+    													readOnly="true">
+    													<w2:choices>
+    														<w2:itemset nodeset="data:dlt_commonCodeOP117">
+    															<w2:label ref="cdNm"></w2:label>
+    															<w2:value ref="cd"></w2:value>
+    														</w2:itemset>
+    													</w2:choices>
+    												</w2:column>
+    												<w2:column textAlign="right" dataType="number" width="70" colMerge="false"
+    													displayFormat="#,###.##" inputType="text" id="workHhDiff" displayMode="label" defaultValue="0" excelCellType="number"
+    													excelFormat="#,##0.00" readOnly="true">
+    												</w2:column>
+    												<w2:column textAlign="right" dataType="number" width="70" colMerge="false"
+    													displayFormat="#,###" inputType="text" id="extdCnt" displayMode="label" defaultValue="0" excelCellType="number"
+    													readOnly="true" excelFormat="#,##0">
+    												</w2:column>
+    												<w2:column textAlign="left" dataType="text" width="70" colMerge="false"
+    													displayFormat="#,###" inputType="text" id="wrkPlNm" displayMode="label" readOnly="true">
+    												</w2:column>
+    												<w2:column hidden="true" textAlign="left" dataType="number" width="70" colMerge="false"
+    													displayFormat="#,###" inputType="text" id="threeShiftCnt" displayMode="label" readOnly="true">
+    												</w2:column>
+    												<w2:column textAlign="left" dataType="number" width="100" colMerge="false"
+    													displayFormat="#,###.##" inputType="text" id="additionalCnt" displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView></xf:group><xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="" style="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows1" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="true" id="content9" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="일자별 투입현황" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section2" style="" id="udc_topGrdBtn2" gridID="gr_dayList" gridDownUserAuth="X" gridDownFn="scwin.excelDown2" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    								<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_dayList"
+    									fixedColumn="2" focusMode="row" id="gr_dayList" scrollByColumn="false" scrollByColumnAdaptive="false" style=""
+    									visibleRowNum="15" visibleRowNumFix="true" dataName="일자별 투입현황" validFeatures="ignoreStatus=no" fixedColumnNoMove="true">
+    									<w2:caption id="caption8" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column displayMode="label" id="column30" inputType="text" rowSpan="3" value="소반장여부"
+    												width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column38" inputType="text" rowSpan="3" value="사원명"
+    												width="100">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column36" inputType="text" value="1"
+    												width="450" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column24" inputType="text" value="2"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column90" inputType="text" value="3"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column58" inputType="text" value="4"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column126" inputType="text" value="5"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column146" inputType="text" value="6"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column158" inputType="text" value="7"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column338" inputType="text" value="8"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column314" inputType="text" value="9"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column290" inputType="text" value="10"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column266" inputType="text" value="11"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column242" inputType="text" value="12"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column218" inputType="text" value="13"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column194" inputType="text" value="14"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column386" inputType="text" value="15"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column354" inputType="text" value="16"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column474" inputType="text" value="17"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column430" inputType="text" value="18"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column454" inputType="text" value="19"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column554" inputType="text" value="20"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column530" inputType="text" value="21"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column506" inputType="text" value="22"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column654" inputType="text" value="23"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column630" inputType="text" value="24"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column606" inputType="text" value="25"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column578" inputType="text" value="26"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column754" inputType="text" value="27"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column730" inputType="text" value="28"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column706" inputType="text" value="29"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column682" inputType="text" value="30"
+    												width="420" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="6" displayMode="label" id="column794" inputType="text" value="31"
+    												width="420" sortable="false">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row id="row5" style="">
+    											<w2:column colSpan="3" displayMode="label" id="column46" inputType="text" value="주간"
+    												width="240" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column43" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column40" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column103" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column91" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column79" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column59" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column139" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column127" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column115" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column147" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column179" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column159" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column351" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column339" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column327" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column315" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column303" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column291" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column279" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column267" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column255" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column243" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column231" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column219" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column207" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column195" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column423" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column387" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column375" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column355" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column487" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column475" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column463" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column431" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column443" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column455" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column567" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column555" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column543" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column531" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column519" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column507" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column495" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column655" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column643" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column631" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column619" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column607" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column595" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column579" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column767" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column755" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column743" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column731" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column719" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column707" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column695" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column683" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column667" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column795" inputType="text" value="주간"
+    												width="210" sortable="false">
+    											</w2:column>
+    											<w2:column colSpan="3" displayMode="label" id="column783" inputType="text" value="야간"
+    												width="210" sortable="false">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row id="row6" style="">
+    											<w2:column displayMode="label" id="column55" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column54" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column53" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column52" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column51" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column50" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column49" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column112" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column108" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column104" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column100" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column96" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column92" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column88" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column84" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column80" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column76" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column72" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column60" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column64" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column68" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column140" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column136" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column132" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column128" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column124" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column120" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column116" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column156" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column152" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column148" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column144" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column184" inputType="text" value="본선명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column180" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column176" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column172" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column160" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column164" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column168" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column352" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column348" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column344" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column340" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column336" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column332" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column328" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column324" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column320" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column316" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column312" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column308" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column304" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column300" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column296" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column292" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column288" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column284" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column280" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column276" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column272" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column268" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column264" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column260" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column256" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column252" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column248" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column244" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column240" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column236" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column232" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column228" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column224" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column220" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column216" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column212" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column208" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column204" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column200" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column196" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column188" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column192" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column424" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column420" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column416" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column388" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column384" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column380" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column376" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column372" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column368" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column356" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column360" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column364" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column488" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column484" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column480" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column476" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column472" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column468" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column464" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column460" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column428" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column432" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column436" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column440" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column444" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column448" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column452" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column456" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column576" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column572" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column568" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column564" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column560" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column556" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column552" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column548" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column544" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column540" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column536" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column532" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column528" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column524" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column520" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column516" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column512" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column508" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column504" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column492" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column496" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column500" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column660" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column656" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column652" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column648" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column644" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column640" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column636" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column632" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column628" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column624" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column620" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column616" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column612" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column608" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column604" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column600" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column596" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column592" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column588" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column580" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column584" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column772" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column768" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column764" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column760" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column756" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column752" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column748" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column744" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column740" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column736" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column732" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column728" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column724" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column720" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column716" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column712" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column708" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column704" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column700" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column696" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column692" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column688" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column684" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column680" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column664" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column668" inputType="text" value="시간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column672" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column676" inputType="text" value="본선명" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column796" inputType="text" value="시간" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column792" inputType="text" value="연장" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column788" inputType="text" value="본선명" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column784" inputType="text" value="시간" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column780" inputType="text" value="연장" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column776" inputType="text" value="본선명" width="70">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column displayMode="label" id="managerChiefYn" inputType="text" width="120"
+    												hidden="true" readOnly="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="staffNm" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="day1Dshift" inputType="text" width="70"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" dataType="number" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day1Dextd" inputType="text" width="70"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" dataType="number" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day1DwrkNm" inputType="text" width="100" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day1Nshift" inputType="text" width="70"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" dataType="number" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day1Nextd" inputType="text" width="70"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" dataType="number" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day1NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day2Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day2Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day2DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day2Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day2Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day2NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day3Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day3Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day3DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day3Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day3Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day3NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day4Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day4Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day4DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day4Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day4Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day4NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day5Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day5Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day5DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day5Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day5Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day5NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day6Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day6Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day6DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day6Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day6Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day6NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day7Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day7Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day7DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day7Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day7Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day7NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day8Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day8Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day8DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day8Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day8Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day8NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day9Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day9Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day9DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day9Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day9Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day9NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day10Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day10Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day10DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day10Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day10Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day10NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day11Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day11Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day11DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day11Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day11Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day11NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day12Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day12Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day12DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day12Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day12Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day12NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day13Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day13Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day13DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day13Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day13Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day13NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day14Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day14Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day14DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day14Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day14Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day14NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day15Dshift" inputType="text" width="70"
+    												displayFormat="#,##0" dataType="number" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day15Dextd" inputType="text" width="70"
+    												displayFormat="#,##0" dataType="number" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day15DwrkNm" inputType="text" width="70" dataType="text"
+    												readOnly="true" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day15Nshift" inputType="text" width="70"
+    												displayFormat="#,##0" dataType="number" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day15Nextd" inputType="text" width="70"
+    												displayFormat="#,##0" dataType="number" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day15NwrkNm" inputType="text" width="70" dataType="text"
+    												readOnly="true" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day16Dshift" inputType="text" width="70"
+    												dataType="number" displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day16Dextd" inputType="text" width="70" dataType="number"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day16DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day16Nshift" inputType="text" width="70"
+    												dataType="number" displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day16Nextd" inputType="text" width="70" dataType="number"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day16NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day17Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day17Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day17DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day17Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day17Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day17NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day18Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day18Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day18DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day18Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day18Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day18NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day19Dshift" inputType="text" width="70"
+    												dataType="number" displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day19Dextd" inputType="text" width="70" dataType="number"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day19DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day19Nshift" inputType="text" width="70"
+    												dataType="number" displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day19Nextd" inputType="text" width="70" dataType="number"
+    												displayFormat="#,##0" readOnly="true" textAlign="right" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day19NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day20Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day20Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day20DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day20Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day20Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day20NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day21Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day21Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day21DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day21Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day21Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day21NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day22Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day22Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day22DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day22Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day22Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day22NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day23Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day23Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day23DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day23Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day23Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day23NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day24Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day24Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day24DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day24Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day24Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day24NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day25Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day25Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day25DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day25Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day25Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day25NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day26Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day26Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day26DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day26Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day26Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day26NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day27Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day27Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day27DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day27Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day27Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day27NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day28Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day28Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day28DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day28Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day28Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day28NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day29Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day29Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day29DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day29Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day29Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day29NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day30Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day30Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day30DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day30Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day30Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day30NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day31Dshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day31Dextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day31DwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day31Nshift" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day31Nextd" inputType="text" width="70" readOnly="true"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number" defaultValue="0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="day31NwrkNm" inputType="text" width="70" readOnly="true"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:subTotal targetColumnID="managerChiefYn" style="" id="subTotal1">
+    										<w2:row style="" id="row5">
+    											<w2:column displayMode="label" id="s1_managerChiefYn" inputType="text" width="120"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_staffNm" inputType="text" width="100" value="시간 계"></w2:column>
+    											<w2:column displayMode="label" id="s1_day1Dshift" inputType="expression" width="70"
+    												displayFormat="#,##0" expression="sum('day1Dshift')" textAlign="right" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day1Dextd" inputType="expression" width="70"
+    												displayFormat="#,##0" expression="sum('day1Dextd')" textAlign="right" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day1DwrkNm" inputType="text" width="100"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day1Nshift" inputType="expression" width="70"
+    												displayFormat="#,##0" expression="sum('day1Nshift')" textAlign="right" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day1Nextd" inputType="expression" width="70"
+    												displayFormat="#,##0" expression="sum('day1Nextd')" textAlign="right" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day1NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day2Dshift" inputType="expression" width="70"
+    												expression="sum('day2Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day2Dextd" inputType="expression" width="70"
+    												expression="sum('day2Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day2DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day2Nshift" inputType="expression" width="70"
+    												expression="sum('day2Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day2Nextd" inputType="expression" width="70"
+    												expression="sum('day2Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day2NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day3Dshift" inputType="expression" width="70"
+    												expression="sum('day3Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day3Dextd" inputType="expression" width="70"
+    												expression="sum('day3Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day3DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day3Nshift" inputType="expression" width="70"
+    												expression="sum('day3Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day3Nextd" inputType="expression" width="70"
+    												expression="sum('day3Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day3NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day4Dshift" inputType="expression" width="70"
+    												expression="sum('day4Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day4Dextd" inputType="expression" width="70"
+    												expression="sum('day4Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day4DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day4Nshift" inputType="expression" width="70"
+    												expression="sum('day4Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day4Nextd" inputType="expression" width="70"
+    												expression="sum('day4Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day4NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day5Dshift" inputType="expression" width="70"
+    												expression="sum('day5Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day5Dextd" inputType="expression" width="70"
+    												expression="sum('day5Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day5DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day5Nshift" inputType="expression" width="70"
+    												expression="sum('day5Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day5Nextd" inputType="expression" width="70"
+    												expression="sum('day5Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day5NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day6Dshift" inputType="expression" width="70"
+    												expression="sum('day6Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day6Dextd" inputType="expression" width="70"
+    												expression="sum('day6Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day6DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day6Nshift" inputType="expression" width="70"
+    												expression="sum('day6Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day6Nextd" inputType="expression" width="70"
+    												expression="sum('day6Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day6NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day7Dshift" inputType="expression" width="70"
+    												expression="sum('day7Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day7Dextd" inputType="expression" width="70"
+    												expression="sum('day7Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day7DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day7Nshift" inputType="expression" width="70"
+    												expression="sum('day7Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day7Nextd" inputType="expression" width="70"
+    												expression="sum('day7Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day7NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day8Dshift" inputType="expression" width="70"
+    												expression="sum('day8Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day8Dextd" inputType="expression" width="70"
+    												expression="sum('day8Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day8DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day8Nshift" inputType="expression" width="70"
+    												expression="sum('day8Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day8Nextd" inputType="expression" width="70"
+    												expression="sum('day8Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day8NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day9Dshift" inputType="expression" width="70"
+    												expression="sum('day9Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day9Dextd" inputType="expression" width="70"
+    												expression="sum('day9Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day9DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day9Nshift" inputType="expression" width="70"
+    												expression="sum('day9Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day9Nextd" inputType="expression" width="70"
+    												expression="sum('day9Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day9NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day10Dshift" inputType="expression" width="70"
+    												expression="sum('day10Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day10Dextd" inputType="expression" width="70"
+    												expression="sum('day10Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day10DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day10Nshift" inputType="expression" width="70"
+    												expression="sum('day10Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day10Nextd" inputType="expression" width="70"
+    												expression="sum('day10Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day10NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day11Dshift" inputType="expression" width="70"
+    												expression="sum('day11Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day11Dextd" inputType="expression" width="70"
+    												expression="sum('day11Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day11DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day11Nshift" inputType="expression" width="70"
+    												expression="sum('day11Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day11Nextd" inputType="expression" width="70"
+    												expression="sum('day11Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day11NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day12Dshift" inputType="expression" width="70"
+    												expression="sum('day12Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day12Dextd" inputType="expression" width="70"
+    												expression="sum('day12Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day12DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day12Nshift" inputType="expression" width="70"
+    												expression="sum('day12Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day12Nextd" inputType="expression" width="70"
+    												expression="sum('day12Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day12NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day13Dshift" inputType="expression" width="70"
+    												expression="sum('day13Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day13Dextd" inputType="expression" width="70"
+    												expression="sum('day13Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day13DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day13Nshift" inputType="expression" width="70"
+    												expression="sum('day13Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day13Nextd" inputType="expression" width="70"
+    												expression="sum('day13Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day13NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day14Dshift" inputType="expression" width="70"
+    												expression="sum('day14Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day14Dextd" inputType="expression" width="70"
+    												expression="sum('day14Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day14DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day14Nshift" inputType="expression" width="70"
+    												expression="sum('day14Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day14Nextd" inputType="expression" width="70"
+    												expression="sum('day14Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day14NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day15Dshift" inputType="expression" width="70"
+    												displayFormat="#,##0" dataType="number" expression="sum('day15Dshift')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day15Dextd" inputType="expression" width="70"
+    												displayFormat="#,##0" dataType="number" expression="sum('day15Dextd')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day15DwrkNm" inputType="text" width="70"
+    												dataType="text" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day15Nshift" inputType="expression" width="70"
+    												displayFormat="#,##0" dataType="number" expression="sum('day15Nshift')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day15Nextd" inputType="expression" width="70"
+    												displayFormat="#,##0" dataType="number" expression="sum('day15Nextd')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day15NwrkNm" inputType="text" width="70"
+    												dataType="text" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day16Dshift" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day16Dshift')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day16Dextd" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day16Dextd')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day16DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day16Nshift" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day16Nshift')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day16Nextd" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day16Nextd')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day16NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day17Dshift" inputType="expression" width="70"
+    												expression="sum('day17Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day17Dextd" inputType="expression" width="70"
+    												expression="sum('day17Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day17DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day17Nshift" inputType="expression" width="70"
+    												expression="sum('day17Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day17Nextd" inputType="expression" width="70"
+    												expression="sum('day17Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day17NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day18Dshift" inputType="expression" width="70"
+    												expression="sum('day18Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day18Dextd" inputType="expression" width="70"
+    												expression="sum('day18Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day18DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day18Nshift" inputType="expression" width="70"
+    												expression="sum('day18Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day18Nextd" inputType="expression" width="70"
+    												expression="sum('day18Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day18NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day19Dshift" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day19Dshift')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day19Dextd" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day19Dextd')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day19DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day19Nshift" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day19Nshift')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day19Nextd" inputType="expression" width="70"
+    												dataType="number" displayFormat="#,##0" expression="sum('day19Nextd')" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day19NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day20Dshift" inputType="expression" width="70"
+    												expression="sum('day20Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day20Dextd" inputType="expression" width="70"
+    												expression="sum('day20Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day20DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day20Nshift" inputType="expression" width="70"
+    												expression="sum('day20Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day20Nextd" inputType="expression" width="70"
+    												expression="sum('day20Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day20NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day21Dshift" inputType="expression" width="70"
+    												expression="sum('day21Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day21Dextd" inputType="expression" width="70"
+    												expression="sum('day21Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day21DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day21Nshift" inputType="expression" width="70"
+    												expression="sum('day21Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day21Nextd" inputType="expression" width="70"
+    												expression="sum('day21Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day21NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day22Dshift" inputType="expression" width="70"
+    												expression="sum('day22Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day22Dextd" inputType="expression" width="70"
+    												expression="sum('day22Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day22DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day22Nshift" inputType="expression" width="70"
+    												expression="sum('day22Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day22Nextd" inputType="expression" width="70"
+    												expression="sum('day22Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day22NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day23Dshift" inputType="expression" width="70"
+    												expression="sum('day23Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day23Dextd" inputType="expression" width="70"
+    												expression="sum('day23Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day23DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day23Nshift" inputType="expression" width="70"
+    												expression="sum('day23Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day23Nextd" inputType="expression" width="70"
+    												expression="sum('day23Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day23NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day24Dshift" inputType="expression" width="70"
+    												expression="sum('day24Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day24Dextd" inputType="expression" width="70"
+    												expression="sum('day24Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day24DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day24Nshift" inputType="expression" width="70"
+    												expression="sum('day24Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day24Nextd" inputType="expression" width="70"
+    												expression="sum('day24Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day24NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day25Dshift" inputType="expression" width="70"
+    												expression="sum('day25Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day25Dextd" inputType="expression" width="70"
+    												expression="sum('day25Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day25DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day25Nshift" inputType="expression" width="70"
+    												expression="sum('day25Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day25Nextd" inputType="expression" width="70"
+    												expression="sum('day25Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day25NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day26Dshift" inputType="expression" width="70"
+    												expression="sum('day26Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day26Dextd" inputType="expression" width="70"
+    												expression="sum('day26Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day26DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day26Nshift" inputType="expression" width="70"
+    												expression="sum('day26Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day26Nextd" inputType="expression" width="70"
+    												expression="sum('day26Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day26NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day27Dshift" inputType="expression" width="70"
+    												expression="sum('day27Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day27Dextd" inputType="expression" width="70"
+    												expression="sum('day27Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day27DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day27Nshift" inputType="expression" width="70"
+    												expression="sum('day27Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day27Nextd" inputType="expression" width="70"
+    												expression="sum('day27Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day27NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day28Dshift" inputType="expression" width="70"
+    												expression="sum('day28Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day28Dextd" inputType="expression" width="70"
+    												expression="sum('day28Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day28DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day28Nshift" inputType="expression" width="70"
+    												expression="sum('day28Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day28Nextd" inputType="expression" width="70"
+    												expression="sum('day28Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day28NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day29Dshift" inputType="expression" width="70"
+    												expression="sum('day29Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day29Dextd" inputType="expression" width="70"
+    												expression="sum('day29Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day29DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day29Nshift" inputType="expression" width="70"
+    												expression="sum('day29Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day29Nextd" inputType="expression" width="70"
+    												expression="sum('day29Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day29NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day30Dshift" inputType="expression" width="70"
+    												expression="sum('day30Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day30Dextd" inputType="expression" width="70"
+    												expression="sum('day30Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day30DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day30Nshift" inputType="expression" width="70"
+    												expression="sum('day30Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day30Nextd" inputType="expression" width="70"
+    												expression="sum('day30Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day30NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day31Dshift" inputType="expression" width="70"
+    												expression="sum('day31Dshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day31Dextd" inputType="expression" width="70"
+    												expression="sum('day31Dextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day31DwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day31Nshift" inputType="expression" width="70"
+    												expression="sum('day31Nshift')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day31Nextd" inputType="expression" width="70"
+    												expression="sum('day31Nextd')" textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="s1_day31NwrkNm" inputType="text" width="70"
+    												textAlign="left" dataType="text">
+    											</w2:column>
+
+    										</w2:row>
+    									</w2:subTotal>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="" style="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows2" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    					</w2:tabControl>
+    				</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_MonthEachOilIn" saveRemovedData="true"
+    				ev:onbeforerowpositionchange="scwin.ds_MonthEachOilIn_onbeforerowpositionchange"
+    				ev:onrowpositionchange="scwin.ds_MonthEachOilIn_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="homeClsCd" name="소속구분" dataType="text"></w2:column>
+    					<w2:column id="oilCoNm" name="정유사" dataType="text"></w2:column>
+    					<w2:column id="oilStatNm" name="주유소명" dataType="text"></w2:column>
+    					<w2:column id="oilStatClsNm" name="주유소구분" dataType="text"></w2:column>
+    					<w2:column id="inQty" name="입고수량(L)" dataType="text"></w2:column>
+    					<w2:column id="inAmt" name="입고금액(원)" dataType="text"></w2:column>
+    					<w2:column id="vatAmt" name="부가세" dataType="text"></w2:column>
+    					<w2:column id="stdYm" name="name8" dataType="text"></w2:column>
+    					<w2:column id="oilStatClsCd" name="name9" dataType="text"></w2:column>
+    					<w2:column id="oilStatClntNo" name="name10" dataType="text"></w2:column>
+    					<w2:column id="oilCoClntNo" name="name11" dataType="text"></w2:column>
+    					<w2:column id="inAggrSeq" name="name12" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_dummy">
+    				<w2:keyInfo>
+    					<w2:key id="stdYm" name="기준년월" dataType="text"></w2:key>
+    					<w2:key id="homeClsCd" name="소속구분" dataType="text"></w2:key>
+    					<w2:key id="oilCoClntNo" name="정유사코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ps.tr.expropmgnt.oilingmgnt.RetrieveMonthEachOilInContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_dummy","key":"IN_DS1"},{"id":"ds_MonthEachOilIn","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_MonthEachOilIn","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ps.tr.expropmgnt.oilingmgnt.UpdateMonthEachOilInValueAddedTaxCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_MonthEachOilIn","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.isRetrieve = false;
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	const codeOptions = [
+        { grpCd: "ZZ205", compID: "acb_homeClsCd,gr_MonthEachOilIn:homeClsCd", opt :{"range" : "2,TR"} },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    const param = [
+        {
+            method: "getLuxeComboData",
+            param1: "PsCommonEBC",
+            param2: "retrieveOilCompany",
+            compID: "acb_oilCompany"
+        }
+    ];
+    
+    $c.data.setGauceUtil(param);
+
+};
+
+scwin.ondataload = function() { 
+    ica_standardYearMonth.setValue($c.date.getServerDateTime("yyyyMM"));
+    lc_homeClsCd.setValue("LO");
+    ica_standardYearMonth.focus();
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    if (ica_standardYearMonth.getValue().trim().length !== 6) {
+        await $c.win.alert("기준년월은 필수입력 입니다.");
+        ica_standardYearMonth.focus();
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function(cls) {
+    if (cls === 3) {
+        if (ds_MonthEachOilIn.getModifiedIndex().length === 0) {
+            await $c.win.alert("변경된 자료가 없습니다.");
+            return;
+        }
+
+        let ret = await $c.gus.cfValidate([gr_MonthEachOilIn]);
+        if (!ret) {
+            return false;
+        }
+
+        for(let i = 0; i < ds_MonthEachOilIn.getRowCount(); i++){
+            if(ds_MonthEachOilIn.getCellData(i, "vatAmt") == 0){
+                await $c.win.alert($c.data.getMessage("정유사 입고내역 그리드의 "+(i+1)+"번째 데이터에서 "+MSG_CM_ERR_013, ['부가세'],1));
+                gr_MonthEachOilIn.setFocusedCell(i, "vatAmt", true);
+                return;
+            }
+        }
+        
+
+        if (!await $c.win.confirm("저장하시겠습니까?")) {
+            return;
+        }
+
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 부가세 수정가능 여부 처리
+//-------------------------------------------------------------------------
+scwin.f_control = async function() {
+    let rtn = "";
+
+    let stdYm = ica_standardYearMonth.getValue().trim();
+
+    rtn = await udc_chekYn.cfJobCloseYN("CUR", stdYm, "00", "TR39", "00", "", "N");
+    if (rtn !== "1" && rtn !== "DNF") {
+        gr_MonthEachOilIn.setColumnReadOnly("vatAmt", true);
+    } else {
+        gr_MonthEachOilIn.setColumnReadOnly("vatAmt", false);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 휴지통 처리
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tb_retrieve, null);
+    ica_standardYearMonth.focus();
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {
+    let count = ds_MonthEachOilIn.getRowCount();
+
+    if (!(count > 0)) return;
+    acb_homeClsCd.setDisplayMode("label");
+    let gridColCount = gr_MonthEachOilIn.getTotalCol();
+    let infoArr = [{
+        rowIndex : 0,             // 첫 번째 줄
+        colIndex : 0,             // 첫 번째 칸부터
+        colSpan : gridColCount,   // 그리드 전체 너비만큼 병합
+        rowSpan : 1,
+        text : "정유사 입고",
+        textAlign : "center",     //정렬
+        fontSize : 12,
+        drawBorder : false,        // 테두리
+        color : "black",          // 글자색
+        backgroundColor : "white" // 배경색
+    },{
+        rowIndex : 2,             // 첫 번째 줄
+        colIndex : 0,             // 첫 번째 칸부터
+        colSpan : gridColCount,   // 그리드 전체 너비만큼 병합
+        rowSpan : 1,
+        text : "기준년월 ["+$c.gus.cfGetFormatStr(ica_standardYearMonth.getValue(), "####/##")+"]",
+        textAlign : "left",     //정렬
+        fontSize : 10,
+        drawBorder : false,        // 테두리
+        color : "black",          // 글자색
+        backgroundColor : "white" // 배경색
+    },{
+        rowIndex : 3,             // 첫 번째 줄
+        colIndex : 0,             // 첫 번째 칸부터
+        colSpan : gridColCount,   // 그리드 전체 너비만큼 병합
+        rowSpan : 1,
+        text : "소속구분 ["+acb_homeClsCd.getText()+"]",
+        textAlign : "left",     //정렬
+        fontSize : 10,
+        drawBorder : false,        // 테두리
+        color : "black",          // 글자색
+        backgroundColor : "white" // 배경색
+    }]
+
+    const options = {
+        fileName: "정유사 입고.xlsx",
+        sheetName: "정유사 입고",
+        startRowIndex : 4,        
+        startColumnIndex : 0,
+        type : 1
+    };
+
+    $c.data.downloadGridViewExcel(gr_MonthEachOilIn, options,infoArr);
+    acb_homeClsCd.setDisplayMode("value delim label");
+};
+
+scwin.f_setqrynm = function( tname, str) {
+	let vSearchOption = ";font-face:굴림체;font-size:10pt;font-color:black;bgcolor:#ffffff;align: left;line-color:red;line-width:0pt;";
+	gr_MonthEachOilIn.SetExcelTitle(1, "value:" + tname + " [" + str + "]" + vSearchOption );
+}  
+
+
+scwin.sbm_save_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        await $c.win.alert(MSG_CM_INF_001);  // 성공적으로 저장하였습니다.
+        ds_MonthEachOilIn.reform();
+        scwin.f_Retrieve();
+    }
+};
+
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    scwin.isRetrieve=true;
+    let rowCnt = ds_MonthEachOilIn.getRowCount();
+    totalRows.setValue(rowCnt);
+
+    if (rowCnt === 0) {
+        await $c.win.alert("조회된 데이터가 없습니다.");
+    } else {
+        scwin.f_control();
+    }
+    gr_MonthEachOilIn.setFocusedCell(0, 0);
+};
+
+scwin.gr_MonthEachOilIn_oncellclick = function (rowIndex, columnIndex, columnId) {
+    if( columnId == "vatAmt" ){
+		scwin.f_control();
+	}
+};
+
+scwin.btn_clear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save(3);
+};
+
+scwin.gr_MonthEachOilIn_onviewchange = function (info) {
+    if(info.colId == "vatAmt"){
+        if(info.newValue == "" || info.newValue==0){
+            info.newValue = 0;
+            ds_MonthEachOilIn.setCellData(info.rowIndex, "vatAmt", info.newValue);
+        }
+    }
+};
+
+scwin.ds_MonthEachOilIn_onrowpositionchange = async function (info) {
+    if(scwin.isRetrieve == true) {
+        scwin.isRetrieve=false;
+        return;
+    }
+    let rowIndex = info.oldRowIndex;
+
+    if (ds_MonthEachOilIn.getCellData(rowIndex, "vatAmt") == 0 || ds_MonthEachOilIn.getCellData(rowIndex, "vatAmt")=="") {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_013, ['부가세'],1));
+
+        ds_MonthEachOilIn.setCellData(rowIndex, "vatAmt", ds_MonthEachOilIn.getOriginalCellData(rowIndex, "vatAmt"));
+        gr_MonthEachOilIn.setFocusedCell(rowIndex, "vatAmt", true);
+
+        return false;
+    } else {
+        return true;
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comChkRes" type="page" variableClone="" src="/cm/udc/comChkRes.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_retrieve" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기준 년/월" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_standardYearMonth" style="" displayFormat="yyyy/MM" mandatory="true" pickerType="dynamic" ref="data:dma_dummy.stdYm" title="기준년월" validateOnInput="true"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="소속구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_homeClsCd" search="start" style="width:150px;"
+    								submenuSize="fixed" mandatory="false" ref="data:dma_dummy.homeClsCd" title="소속구분">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="정유사 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_oilCompany" mandatory="false" search="start"
+    								style="width:220px;" submenuSize="fixed" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="data:dma_dummy.oilCoClntNo" title="정유사" visibleRowNum="25">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" btnUser="Y" gridUpYn="N" gridDownUserAuth="X"
+    							gridID="gr_MonthEachOilIn" dataName="정유사 입고내역 그리드" validFeatures="ignoreStatus=no" gridDownFn="scwin.f_Excel">
+    						</w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_MonthEachOilIn"
+    						id="gr_MonthEachOilIn" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="13" visibleRowNumFix="true"
+    						editModeEvent="onclick" columnMove="true" ev:oncellclick="scwin.gr_MonthEachOilIn_oncellclick" rowStatusVisible="true"
+    						rowStatusWidth="20" columnMoveWithFooter="true" ev:onviewchange="scwin.gr_MonthEachOilIn_onviewchange" ev:onrowindexchange="scwin.gr_MonthEachOilIn_onrowindexchange">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" value="소속구분" width="100"
+    									sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" value="정유사" width="100" sortable="true"></w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" value="주유소명" width="100"
+    									sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" value="주유소구분" width="120"
+    									sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column32" inputType="text" value="입고수량(L)" width="120"
+    									sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" value="입고금액(원)" width="130"
+    									sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="text" value="부가세" width="100" class="txt-red"
+    									sortable="true">
+    								</w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="homeClsCd" inputType="select" width="100" readOnly="true" textAlign="center"></w2:column>
+    								<w2:column displayMode="label" id="oilCoNm" inputType="text" width="100" readOnly="true" textAlign="left"></w2:column>
+    								<w2:column displayMode="label" id="oilStatNm" inputType="text" width="100" readOnly="true" textAlign="left"></w2:column>
+    								<w2:column displayMode="label" id="oilStatClsNm" inputType="text" width="120" readOnly="true" textAlign="center"></w2:column>
+    								<w2:column displayMode="label" id="inQty" inputType="text" width="120" readOnly="true" dataType="number"
+    									displayFormat="#,##0" textAlign="right" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="inAmt" inputType="text" width="130" readOnly="true"
+    									displayFormat="#,##0" dataType="number" textAlign="right" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="vatAmt" inputType="text" width="100" displayFormat="#,##0"
+    									dataType="number" allowChar="0-9" textAlign="right" excelCellType="number" validateOnInput="true" maxLength="13" mandatory="true">
+    								</w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer id="footer1" style="">
+    							<w2:row id="row5" style="">
+    								<w2:column displayMode="label" id="column48" inputType="text" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column47" inputType="text" value="총계" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column46" inputType="text" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column45" inputType="text" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column44" inputType="expression" width="120" dataType="number"
+    									expression='sum("inQty")' displayFormat="#,##0" excelCellType="number" textAlign="right">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column43" inputType="expression" width="130" dataType="number"
+    									displayFormat="#,##0" expression='sum("inAmt")' excelCellType="number" textAlign="right">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column42" inputType="expression" width="100" dataType="number"
+    									displayFormat="#,##0" expression='sum("vatAmt")' excelCellType="number" textAlign="right">
+    								</w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" userAuth="U" objType="bSave"
+    						ev:onclick="scwin.btn_save_onclick">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			<w2:udc_comChkRes selectID="" codeId="" nameId="" style="width:%; height:px; ;visibility:hidden;" id="udc_chekYn"></w2:udc_comChkRes>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

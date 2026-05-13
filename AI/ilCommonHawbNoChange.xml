@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.arrRtnVal = [];
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            scwin.pBlno = (scwin.params != null && scwin.params["pBlno"]) ? scwin.params["pBlno"] : "";
+            ed_oldBlno.setValue(scwin.pBlno);
+        };
+
+        scwin.f_FieldClear = function() {
+            if (scwin.bOptDisableTF == "T") return;
+            $c.gus.cfInitObjects(tbl_search, null);
+            txt_Condition2.setFocus();
+        };
+
+        scwin.f_WinClose = function() {
+            scwin.arrRtnVal[0] = "N/A";
+            scwin.arrRtnVal[1] = ed_newBlno.getValue();
+            $c.win.closePopup(scwin.arrRtnVal);
+        };
+
+        scwin.btn_trigger2_onclick = function(e) {
+            scwin.f_WinClose();
+        };
+
+        scwin.f_PopUp = function(disGubun, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+            let rtnList = [];
+
+            switch (disGubun) {
+                case "oldCustomer":
+                    udc_comCode_Grid.ilCommonPopUp(scwin.callbackOldCustomer,
+                        ed_oldCust.getValue(),
+                        txt_oldCustnm.getValue(),
+                        pWinCloseTF,
+                        '6',
+                        'Customer',
+                        '140,300',
+                        null,
+                        null,
+                        '500',
+                        '500',
+                        null,
+                        null,
+                        null,
+                        pAllSearchTF,
+                        null,
+                        pNoDataCloseTF);
+                    break;
+                case "newCustomer":
+                    udc_comCode_Grid.ilCommonPopUp(scwin.callbackNewCustomer,
+                        ed_newCust.getValue().trim(),
+                        txt_newCustnm.getValue(),
+                        pWinCloseTF,
+                        '6',
+                        'Customer',
+                        '140,300',
+                        null,
+                        null,
+                        '500',
+                        '500',
+                        null,
+                        null,
+                        null,
+                        pAllSearchTF,
+                        null,
+                        pNoDataCloseTF);
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        scwin.callbackOldCustomer = function(rtnList) {
+            if (typeof(rtnList) != "undefined") {
+                if (rtnList[0] != "N/A") {
+                    $c.gus.cfSetReturnValue(rtnList, ed_oldCust, txt_oldCustnm);
+                }
+            }
+        };
+
+        scwin.callbackNewCustomer = function(rtnList) {
+            if (typeof(rtnList) != "undefined") {
+                if (rtnList[0] != "N/A") {
+                    $c.gus.cfSetReturnValue(rtnList, ed_newCust, txt_newCustnm);
+                }
+            }
+        };
+    ]]></script>
+
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:200px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="Old House B/L No" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:input class="" id="ed_oldBlno" style="" readOnly="true" mandatory="true"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="New House B/L No" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:input class="" id="ed_newBlno" style="" mandatory="true"></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_trigger2" style="" type="button">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

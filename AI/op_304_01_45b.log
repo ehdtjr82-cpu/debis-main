@@ -1,0 +1,25 @@
+op_304_01_45b.log
+
+[2026-02-19 14:45:10.815] 변환 시작
+[2026-02-19 14:45:10.848] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 14:46:05.571] #1 검증: XML: WebSquareXmlValidator: score=0.60, grade=B, verdict=REVIEW, errors=1, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=0, warnings=8 | LLM 54619ms, total 54723ms
+    - [XML] 'lc_odrSearchCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_odrSearchCd
+[2026-02-19 14:46:05.665] #1 검증: 자동수정 2건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:46:05.766] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.60, grade=B, verdict=REVIEW, errors=1, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=8
+    - [XML] 'acb_odrSearchCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — acb_odrSearchCd
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_odrSearchCd (LUXECOMBO→w2:autoComplete)
+[2026-02-19 14:46:13.457] #2 재시도 (에러 1건)
+[2026-02-19 14:46:14.468] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 14:47:21.061] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=0, warnings=8 | LLM 66446ms, total 66593ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-19 14:47:21.069] #1 검증: 최적 시도 #1 채택 (confidence: 0.79)
+[2026-02-19 14:47:21.070] 실패 (2회 시도, 2m 10s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 'lc_odrSearchCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_odrSearchCd
+================================================================================

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_view_cond">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="시스템" dataType="text"></w2:key>
+    					<w2:key id="msgCd" name="종류" dataType="text"></w2:key>
+    					<w2:key id="msgNm" name="메시지" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_pageIN">
+    				<w2:keyInfo>
+    					<w2:key id="targetRow" name="targetRow" dataType="number" defaultValue="1"></w2:key>
+    					<w2:key id="numOfRowPerPage" name="numOfRowPerPage" dataType="number" defaultValue="10"></w2:key>
+    					<w2:key id="numOfIndexPerPage" name="numOfIndexPerPage" dataType="number"></w2:key>
+    					<w2:key id="currentPage" name="currentPage" dataType="number"></w2:key>
+    					<w2:key id="totalPage" name="totalPage" dataType="number"></w2:key>
+    					<w2:key id="totalRecords" name="totalRecords" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_msg" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="sysCd" name="sysCd" dataType="text"></w2:column>
+    					<w2:column id="msgCd" name="msgCd" dataType="text"></w2:column>
+    					<w2:column id="msgCdType" name="msgCdType" dataType="text"></w2:column>
+    					<w2:column id="msgNm" name="msgNm" dataType="text"></w2:column>
+    					<w2:column id="regId" name="regId" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="regDtm" dataType="text"></w2:column>
+    					<w2:column id="modId" name="modId" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="modDtm" dataType="text"></w2:column>
+    					<w2:column id="mesursItm" name="mesursItm" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_pageOUT" style="" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column dataType="number" defaultValue="" id="targetRow" name="targetRow"></w2:column>
+    					<w2:column dataType="text" defaultValue="" id="numOfRowPerPage" name="numOfRowPerPage"></w2:column>
+    					<w2:column dataType="text" id="numOfIndexPerPage" name="numOfIndexPerPage"></w2:column>
+    					<w2:column dataType="text" id="currentPage" name="currentPage"></w2:column>
+    					<w2:column dataType="text" id="totalPage" name="totalPage"></w2:column>
+    					<w2:column dataType="text" id="totalRecords" name="totalRecords"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieveMsgPage" action="/cm.mg.RetrieveMessageCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_pageIN","key":"IN_DS1"},{"id":"dma_view_cond","key":"IN_DS2"},
+{"id":"ds_pageOUT","key":"OUT_DS1"},{"id":"ds_msg","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"ds_msg","key":"OUT_DS2"},{"id":"dma_page","key":"OUT_DS1"},{"id":"ds_pageOUT","key":"IN_DS1"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveMsgPage_submitdone" ev:submiterror="scwin.sbm_retrieveMsgPage_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveMsg" action='/cm.mg.CUDMessageCMD.do' method="post" mediatype="application/json"
+    			ref='data:json,[{"action":"modified","id":"ds_msg","key":"IN_DS1"},{"id":"dma_view_cond","key":"IN_DS21"}]' target='' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveMsg_submitdone" ev:submiterror="scwin.sbm_saveMsg_submiterror"
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    const param = [
+        {
+            method: "getSubSysCodeList",
+            compID: "lc_commonCode"
+        }
+    ];
+    $c.data.setGauceUtil(param, scwin.callbackInit);    
+};
+
+scwin.callbackInit = function() {
+    dma_view_cond.set("sysCd", "AS");
+    dma_view_cond.set("msgCd", "%");
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() {
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+
+//-------------------------------------------------------------------------
+// displayFormatter 처리
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    scwin.moveToPage(''); // 현재 페이지 검색      
+};
+
+scwin.f_addRow = function () {
+    var rowIndexC = ds_msg.getTotalRow();
+    ds_msg.insertRow(rowIndexC);
+    gr_msg.setFocusedCell(rowIndexC, 0);
+};
+
+scwin.f_delRow = function () {
+    // $c.data.deleteRow(ds_msg);
+    let row = ds_msg.getRowPosition();
+    if (ds_msg.getRowStatus(row) == "C") {
+        ds_msg.removeRow(row);
+    } else {
+        ds_msg.deleteRow(row);
+    }
+    gr_msg.setFocusedCell(row, "msgCdType", true);
+};
+
+scwin.f_cancelRow = function () {
+    $c.data.undoRow(ds_msg, "Y");
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    //변경한 데이터가 있는지 체크한다. 	
+    if( ds_msg.getModifiedIndex().length == 0 ){
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    }	
+    
+    let confirmmsg = await $c.win.confirm(MSG_CM_CRM_001);
+    if (confirmmsg) {
+        // var arrJson = { sysCd: lc_commonCode.getValue()};
+        // $c.sbm.execute(sbm_saveMsg, arrJson);
+        $c.sbm.execute(sbm_saveMsg);
+    }
+
+};
+
+// 페이지 이동
+scwin.moveToPage = function(targetRow) {
+    // cfSetTargetRow(oGDS_page, targetRow) ;  
+    // oGDS_view_cond.UseChangeInfo = false ; // 조회조건으로 넘기기위하여 임의로 모든 Data를 Insert Status로 변경
+    // tr_retrieveMsgPage.Action = "/cm.mg.RetrieveMessageCMD.do";    
+    // tr_retrieveMsgPage.Post();
+    $c.sbm.execute(sbm_retrieveMsgPage);
+};
+
+scwin.sbm_retrieveMsgPage_submitdone = function (e) {
+    var rowCnt = ds_msg.getRowCount();
+	if (rowCnt == 0) {
+		$c.gus.cfAlertMsg(MSG_CM_WRN_002);
+	}
+    gr_msg_spanTotal.setLabel(rowCnt);
+    gr_msg.setFocusedCell(0, 0);
+
+    let totrowcnt = ds_pageOUT.getCellData(0, "totalRecords");
+    scwin.setPageListCount(totrowcnt);  //페이징 갯수 세팅
+};
+
+//페이징 갯수 세팅
+scwin.setPageListCount = function(totrowcnt) {
+    // let cnt = Number(totrowcnt) / ds_pageOUT.getCellData(0, "totalPage");
+    let cnt = 1;
+    if(ds_pageOUT.getCellData(0, "totalRecords") > 10) {
+        //cnt = Number(totrowcnt) / ds_pageOUT.getCellData(0, "totalPage");
+        cnt = Number(totrowcnt) / 10;
+    }
+    cnt = Math.ceil(cnt);
+    console.log(cnt);
+    if(pgl_msgpageList.getCount() !== cnt){
+        pgl_msgpageList.setCount(cnt);
+    }
+        
+};
+
+scwin.pgl_msgpageList_onclick = function (index) {
+    dma_pageIN.set("targetRow", ((index -1) * 10) +1);
+    $c.sbm.execute(sbm_retrieveMsgPage);
+};
+
+scwin.sbm_retrieveMsgPage_submiterror = function (e) {
+
+};
+
+scwin.sbm_saveMsg_submitdone = function (e) {
+    $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_saveMsg_submiterror = function (e) {
+
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="시스템 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete allOption="" chooseOption="" class="" editType="select" id="lc_commonCode" mandatory="true"
+    								ref="data:dma_view_cond.sysCd" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15" sortOption="value" sortMethod="ascending">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="종류 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete allOption="" chooseOption="" class="" editType="select" id="lc_msgTypeCode"
+    								mandatory="true" ref="data:dma_view_cond.msgCd" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15" sortOption="value" sortMethod="ascending">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[%]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[정보]]></w2:label>
+    										<w2:value><![CDATA[I]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[오류]]></w2:label>
+    										<w2:value><![CDATA[E]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[확인]]></w2:label>
+    										<w2:value><![CDATA[C]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[경고]]></w2:label>
+    										<w2:value><![CDATA[W]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="메시지 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_msgPartNm" style="width: 150px;" ref="data:dma_view_cond.msgNm"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group1" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_msg"
+    						focusMode="row" id="gr_msg" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10"
+    						visibleRowNumFix="true" readOnly="true" rowStatusVisible="true" rowStatusWidth="30">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" style="" value="종류" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" style="" value="코드" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" style="" value="메시지" width="200"></w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" style="" value="조치사항" width="200"></w2:column>
+    								<w2:column displayMode="label" id="column32" inputType="text" style="" value="등록자" width="80"></w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" style="" value="등록일" width="80"></w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="text" style="" value="수정자" width="80"></w2:column>
+    								<w2:column displayMode="label" id="column22" inputType="text" style="" value="수정일" width="80"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="msgCdType" inputType="select" style="" value="" width="70"
+    									allOption="" chooseOption="" ref="" readOnly="false">
+    									<w2:choices>
+    										<w2:item>
+    											<w2:label><![CDATA[정보]]></w2:label>
+    											<w2:value><![CDATA[I]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[오류]]></w2:label>
+    											<w2:value><![CDATA[E]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[확인]]></w2:label>
+    											<w2:value><![CDATA[C]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[경고]]></w2:label>
+    											<w2:value><![CDATA[W]]></w2:value>
+    										</w2:item>
+    									</w2:choices>
+    								</w2:column>
+    								<w2:column displayMode="label" id="msgCd" inputType="text" style="" value="" width="70"></w2:column>
+    								<w2:column displayMode="label" id="msgNm" inputType="text" style="" value="" width="200" textAlign="left" readOnly="false"></w2:column>
+    								<w2:column displayMode="label" id="mesursItm" inputType="text" style="" value="" width="200" textAlign="left" readOnly="false"></w2:column>
+    								<w2:column displayMode="label" id="regId" inputType="text" style="" value="" width="80" dataType="date"></w2:column>
+    								<w2:column displayMode="label" id="regDtm" inputType="text" style="" value="" width="80" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    								<w2:column displayMode="label" id="modId" inputType="text" style="" value="" width="80"></w2:column>
+    								<w2:column displayMode="label" id="modDtm" inputType="text" style="" value="" width="80" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="gr_msg_spanTotal" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+
+    						</xf:group>
+    						<xf:group id="" class="right">
+    							<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="N" btnRowDelYn="Y" id="udc_gr1btn" rowAddFunction="scwin.f_addRow" rowDelFunction="scwin.f_delRow" cancelFunction="scwin.f_cancelRow">
+    							</w2:udc_bottomGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    				<w2:pageList class="wq_pglist" displayButtonType="display" displayFormat="#" id="pgl_msgpageList" pageSize="10" pagingType="0" style="" ev:onclick="scwin.pgl_msgpageList_onclick">
+    				</w2:pageList></xf:group>
+    				
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    			<xf:group id="" class="right"><xf:trigger style="" id="btn_save" type="button" class="btn" userAuth="C" ev:onclick="scwin.f_Save">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger></xf:group></xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="mrn" name="MRN" dataType="text"></w2:key>
+    					<w2:key id="shpCoMark" name="선사부호" dataType="text"></w2:key>
+    					<w2:key id="msn" name="MSN" dataType="number"></w2:key>
+    					<w2:key id="hsn" name="화물관리번호-HSN" dataType="number"></w2:key>
+    					<w2:key id="rcvDtFrom" name="수신시작일자" dataType="text"></w2:key>
+    					<w2:key id="mcomDsmbrkPlcCd" name="당사하선장소코드" dataType="text"></w2:key>
+    					<w2:key id="rcvDtTo" name="수신종료일자" dataType="text"></w2:key>
+    				</w2:keyInfo></w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieve" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="mrn" name="MRN" dataType="String"></w2:column>
+    					<w2:column id="msn" name="MSN" dataType="number"></w2:column>
+    					<w2:column id="hsn" name="화물관리번호-HSN" dataType="number"></w2:column>
+    					<w2:column id="shpCoMark" name="선사부호" dataType="String"></w2:column>
+    					<w2:column id="chgContentNm" name="" dataType="String"></w2:column>
+    					<w2:column id="mainMainBfCont" name="정정전내역" dataType="String"></w2:column>
+    					<w2:column id="mainMainAfCont" name="정정후내역" dataType="String"></w2:column>
+    					<w2:column id="reportDtm" name="통보일시" dataType="String"></w2:column>
+    					<w2:column id="rcvDtm" name="수신일시" dataType="String"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.sd.odrmgnt.odrprewrk.RetrieveManifestChangeContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"} ,{"id":"ds_retrieve","key":"OUT_DS1"}]' target='data:json,[{"id":"ds_retrieve","key":"OUT_DS1"}]' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.strToDate = $c.date.getServerDateTime("yyyyMMdd");
+scwin.strFromDate = $c.date.getServerDateTime("yyyyMM") + "01"; // 현재일자를 구한다.
+
+// 적하목록 변경내역 조회
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+	// 1. 파라미터 한번만 가져오기
+    var params = $c.data.getParameter();
+    
+    // 2. 파라미터 세팅
+    scwin.mrn = $c.util.isEmpty(params.mrn) ? ""  : params.mrn;
+    scwin.msn = $c.util.isEmpty(params.msn) ? -1  : params.msn;
+    scwin.hsn = $c.util.isEmpty(params.hsn) ? -1  : params.hsn;
+	
+    // 4. 파라미터 있을 때 자동 조회
+    // === 로 타입까지 비교
+    if (!$c.util.isEmpty(scwin.mrn) 
+     && scwin.msn !== -1 
+     && scwin.hsn !== -1) {
+        ed_mrn.setValue(scwin.mrn);
+        ed_msn.setValue(parseInt(scwin.msn));
+        ed_hsn.setValue(scwin.hsn);
+
+        scwin.f_OpenRetrieve();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시 UDC 호출
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    scwin.f_defaultValue();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_defaultValue
+// function desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function () {
+    // udc_fromToCalendar UDC 에 있는 setInitDate 호출
+    udc_fromToCalendar1.setInitDate(scwin.strFromDate, scwin.strToDate);
+
+    $c.gus.cfEnableKeyData();
+    $c.gus.cfDisableKey();
+
+    // 파라미터가 없을 때만 초기화
+    if ($c.util.isEmpty(scwin.mrn) || scwin.msn === -1 || scwin.hsn === -1) {
+        ed_msn.setValue("");
+        ed_hsn.setValue("");
+    }
+}
+
+//-------------------------------------------------------------------------
+// 조회 - 적하목록 변경내역 조회
+//-------------------------------------------------------------------------
+scwin.f_OpenRetrieve = function () {
+    ds_condition.set("mrn", scwin.mrn);
+    ds_condition.set("msn", scwin.msn);
+    ds_condition.set("hsn", scwin.hsn);
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+
+//-------------------------------------------------------------------------
+// 조회 - 적하목록 변경내역 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    ds_condition.set("mcomDsmbrkPlcCd", ed_mcomDsmbrkPlcCd.getValue());
+    ds_condition.set("msn", ed_msn.getValue() == "" ? -1 : ed_msn.getValue());
+    ds_condition.set("hsn", ed_hsn.getValue() == "" ? -1 : ed_hsn.getValue());
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+scwin.f_FieldClear = function () {
+    scwin.f_defaultValue();
+}
+
+//-------------------------------------------------------------------------
+// 당사 하선장소 팝업 호출
+//-------------------------------------------------------------------------
+scwin.udc_comCode_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp('', '', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (pCode, pName, pClose) {
+
+    // 선언부
+    // 공통POP-UP -> 요청화면 
+    // let pCode = ""
+    // let pName = ""
+    let row = ds_retrieve.getRowPosition();
+
+    // 하선장소코드팝업	- 물류점소 - 보세구분코드 	
+    pCode = ed_mcomDsmbrkPlcCd.getValue();
+    pName = ed_mcomDsmbrkPlcNm.getValue();
+
+    udc_comCode.setSelectId('retrieveBondZone');	// XML상의 SELECT ID	
+    await udc_comCode.cfCommonPopUp(
+        scwin.udc_comCode_callBackFunc
+        , pCode					// 화면에서의 ??? Code Element의	Value
+        , pName					// 화면에서의 ??? Name Element의	Value
+        , pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+        , null					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null					// Title순서	
+        , null					// 보여주는 각 컬럼들의 폭	
+        , null					// 컬럼중에서 숨기는	컬럼 지정	
+        , "04"					// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+        , null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+        , null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+        , null					// 윈도우 위치 Y좌표	
+        , null					// 윈도우 위치 X좌표
+        , null
+        , null
+        , "하선장소,하선장코드,하선장명"
+    )
+
+
+}
+
+// 당사 하선장소 공통 팝업 CallBack
+scwin.udc_comCode_callBackFunc = function (rtnList) {
+    if (rtnList != null) {
+        //return value Assign
+        ed_mcomDsmbrkPlcCd.setValue(rtnList[7]);	//하선장소코드
+        ed_mcomDsmbrkPlcNm.setValue(rtnList[1]);	//하선장소
+    } else {
+        ed_mcomDsmbrkPlcCd.setValue("");	//하선장소코드
+        ed_mcomDsmbrkPlcNm.setValue("");	//하선장소
+    }
+}
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (ds_retrieve.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    }
+    ds_condition.set("msn", ed_msn.getValue() == -1 ? '' : ed_msn.getValue());
+    ds_condition.set("hsn", ed_hsn.getValue() == -1 ? '' : ed_hsn.getValue());
+
+    // 그리드 조회건수
+    tbx_totalRows.setValue(ds_retrieve.getRowCount())
+};
+
+// 선사부호 입력 -> 대문자 변환
+scwin.capitalMask = function (value) {
+    return value.toUpperCase();
+}
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:80px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:105px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:80px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="" id="" label="수신기간 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_fromToCalendar refStDt="rcvDtFrom" refDataMap="ds_condition" style="" id="udc_fromToCalendar1" refEdDt="rcvDtTo" objType="Data" edFromId="ed_rcvDtFrom" edToId="ed_rcvDtTo">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="MRN " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="ed_mrn" placeholder="" style="width:150px;" maxlength="11" allowChar="A-Z0-9" objType="Data" ref="data:ds_condition.mrn"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="MSN " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_msn" placeholder="" style="width:70px;" objType="Data" maxlength="4" allowChar="A-Z0-9" ref="data:ds_condition.msn"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="HSN" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_hsn" placeholder="" style="width:70px;" objType="Data" maxlength="4" allowChar="A-Z0-9" ref="data:ds_condition.hsn"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="당사 하선장소" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="retrieveBondZonePopup" style="" id="udc_comCode" codeId="ed_mcomDsmbrkPlcCd" maxlengthCode="6" UpperFlagCode="1" validExpCode="작업장 코드:yes:" objTypeName="key" nameId="ed_mcomDsmbrkPlcNm" btnId="btn_wrkPlCd" refDataCollection="ds_condition" selectID="retrieveBondZone" popupTitle="하선장소" popupGridHeadTitle="보세구역코드,보세구역명" popupGridHiddenColumn="3,4,5,6,7,8,9,10" ev:onclickEvent="scwin.udc_comCode_onclickEvent"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="선사부호 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="ed_shpCoMark" placeholder="" style="width:150px;" allowChar="a-zA-Z0-9" maxlength="4" objType="data" ref="data:ds_condition.shpCoMark" applyFormat="all" displayFormatter="scwin.capitalMask"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_refresh" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_retrieve" fixedColumn="2" focusMode="cell" id="gr_retrieve" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="18" visibleRowNumFix="true" readOnly="true" sortable="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" value="MRN" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" value="MSN" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" value="HSN" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false" value="선사부호" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="text" value="정정구분" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="정정전내역" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="정정후내역" width="100"></w2:column>
+    											<w2:column displayMode="label" hidden="false" id="column38" inputType="text" value="통보일시" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="false" id="column39" inputType="text" value="수신일시" width="100">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="mrn" inputType="text" removeBorderStyle="false" width="70">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="msn" inputType="text" removeBorderStyle="false" width="70" displayFormat="#,##0">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="hsn" inputType="text" removeBorderStyle="false" width="70" displayFormat="#,##0">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="shpCoMark" inputType="text" removeBorderStyle="false" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="chgContentNm" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="mainMainBfCont" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="mainMainAfCont" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="reportDtm" inputType="text" width="70" editFormat="XXXX/XX/XX XX:XX:XX">
+    											</w2:column>
+    											<w2:column displayMode="label" id="rcvDtm" inputType="text" width="70" editFormat="XXXX/XX/XX">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								
+    							<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

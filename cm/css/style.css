@@ -1,0 +1,235 @@
+@charset "utf-8";
+@import url("/cm/css/pda.css") screen and (min-width: 768px) and (max-width: 1024px);
+
+
+body.dark {
+	--dw-white:#2d353c;
+	--dw-black:#fff;
+	--dw-bgcolor:#20252a;
+	--dw-gray1:#20252a;
+	--dw-gray3: #9d9d9d;
+	--dw-gray4:#59606E;
+	--dw-gray5:#59606E;
+	--dw-gray10:#fff;
+	--dw-gray12:#fff;
+	--dw-gray14:#f3f3f3;
+	--dw-gray22:#3f4850;
+	--dw-gray33:#59606E;
+	--dw-gray44:#949494;
+	--dw-gray51:#687078;
+	
+	--dw-bg-type1:#ff6464;
+    --dw-bg-type2:#4b96ff;
+    --dw-bg-type3:#ffb513;
+    --dw-bg-type4:#6ac7ff;
+    --dw-bg-type5:#c5baa4;
+    --dw-bg-type6:#aa72ff;
+	
+	--dw-tac-color1:#485057;
+	--dw-tac-color2:#3f4850;	
+	--pda-color2:#eaeaea;
+		
+	--form-dis-bgcolor:#4c535b;
+	--form-dis-fontcolor:#A4ACB7;
+	--full-cal-color:#ffffff;
+	--full-cal-color2:#434c56;
+	--full-cal-color3:#ffb513;
+    --full-cal-color4:#4b96ff;
+	
+	 body {color:#fff;}	
+	.side .w2treeview_virtual .treeview_virtual_node.leaf.treeview_select_nodedom,
+	.round-box .shbox {background: #20252a;}
+	.w2tabcontrol_tabhost li a {color:#fff;}
+	.w2input, .w2selectbox, .w2autoComplete, .w2textarea, .w2inputCalendar_divInput, .w2autoComplete_acc {color:var(--dw-gray14)}	
+	.side .tabbox li.w2tabcontrol_active .w2tabcontrol_tab_center {box-shadow:none}
+	.side .tvwbox .w2treeview_virtual .treeview_virtual_node.w2tree_depth_1 {border-bottom: 1px solid var(--dw-gray33);}
+	.btn {border:1px solid var(--dw-gray4);}
+	.btn:active {border-color: var(--dw-gray13);background-color: var(--dw-gray1); color: var(--dw-gray10);}
+	.btn.ico.sch {background:transparent url(/cm/images/base/ico_search_white.png) no-repeat left 6px center;filter: none !important; }
+	/* .round-box .shbox .btn-shbox .sch {background:transparent url(/cm/images/base/ico_search_white.png) no-repeat left 6px center} */
+	.info-box {background: #35414c;}
+	.wq_gvw th.gridHeaderTDDefault,
+	.wq_gvw .gridBodyDefault {color: #333;}
+	.wq_gvw th.gridHeaderTDDefault nobr,
+	.wq_gvw .gridBodyDefault nobr {color: var(--dw-gray12);}
+	.wq_gvw .gridBodyDefault[style*="color: blue"],
+	.wq_gvw .gridBodyDefault[style*="color: blue"] nobr {color:var(--dw-color-blue) !important}
+	.wq_gvw .grid_body_row:hover td.gridBodyDefault {background-color:#2f475f; }
+    .wq_gvw .gridFooterTDDefault, .wq_gvw .gridSubtotalDefault {background: #abc1d8;border-color:var(--dw-gray5);}
+	/*.wq_gvw .gridBodyDefault.focusedTd, .wq_gvw .gridBodyDefault.focusedTr {background-color:#334c64 !important; }*/
+	.wq_gvw .gridBodyDefault.focusedTr {background-color:#334c64 !important}
+	.wq_gvw .gridBodyDefault.focusedTd {background-color:#203950 !important}
+	.wq_gvw .gridBodyDefault.focusedTd::before {content:'';position:absolute;top:0;right:0;bottom:0;left:0;border:1px solid #0e508f}
+	
+	.wq_gvw .gridBodyDefault[style*="yellow"] {background-color:var(--dw-bg-type3) !important}
+	.wq_gvw .gridBodyDefault[style*="color: red"] nobr {color:red}
+	.w2grid_head_sort_none {background-image: url(/cm/images/dark/ico_sort.svg);}
+	.wq_gvw th.gridHeaderTDDefault[class*="bg-type"] .w2grid_head_sort_none {filter:none !important;}	
+	.w2editablePivot_cell, .pvtTotal, .pvtGrandTotal {border-color: var(--dw-gray5);}
+	.pda-login {background:var(--dw-bgcolor)}
+	.keypad .w2trigger {background-color: var(--dw-tac-color1); color: var(--pda-color2);}
+	.keypad .w2trigger:hover {background-color: var(--dw-tac-color2)}
+	.keypad .w2trigger.keypad-del {background-image: url(/cm/images/dark/keypad-del.svg);}
+	.pda-wrap .shbox .btn-shbox .sch { color: #fff; background: var(--dw-color-blue2) url(/cm/images/base/ico_search_white.svg) no-repeat left 6px center;border: 1px solid var(--dw-color-blue2);}
+	.container .menu-btn {background: #485057;}
+	.container .menu-btn:before {filter: invert(1) grayscale(1) contrast(1);}
+	.w2scheduleCalendar_tooltip td.schedule_table_header_center {background-color:#313f4c}
+	.w2scheduleCalendar_tooltip td {background-color:var(--dw-white)}
+	.div_bar::before {background-color:#878a8d}
+	.grp_excel {border-color:#878a8d}
+	
+	/* 컴포넌트 */
+	.grid_body_row {background-color:transparent !important}
+	.wq_gvw .gridBodyDefault {border-color: var(--dw-gray5);}
+	.w2input_disabled {color: var(--form-dis-fontcolor) }
+	.w2autoComplete_input,
+	.w2upload .w2upload_input {background: transparent;}
+	.w2table_sb,
+	.w2table_sb_mai,
+	.w2table_sb_col,
+	.w2input_table_sb {background: var(--dw-white);}
+	.w2table_sb_col_over,
+	.w2input_table_sb_col_over {color:var(--dw-black);background: var(--dw-bgcolor);}
+	.btn:disabled, .btn:disabled:hover, .btn.w2trigger_disabled, .btn.w2trigger_disabled:hover, 
+	.btn.btn-line:disabled, .btn.btn-line:disabled:hover, 
+	.btn.btn-line.w2trigger_disabled, .btn.btn-line.w2trigger_disabled:hover {background-color: var(--form-dis-bgcolor) !important;filter: none !important;}
+	input[type="checkbox"]:disabled + .w2checkbox_label:before,
+	input[type="radio"]:disabled + .w2radio_label:before {background-color:#4c535b;border-color: var(--dw-gray4);}
+	.btn.ico:disabled,
+	.btn.ico:hover:disabled {background-color: color(srgb 0.3 0.3 0.3 / 0.47) !important;filter: invert(1) grayscale(1) contrast(1) !important;opacity:1;}
+	.tabbox > .wq_tab .w2tabcontrol_tabhost {border-bottom: 1px solid var(--dw-gray4);}
+	.w2popup_window {border: 2px solid #687078;}
+	.w2popup_window .w2window_header .w2window_header_title {color:#fff;}
+	.msg_box .txt_con {background:var(--dw-gray1)}
+	.pop_contents .pop-btnbox .btn {color:#fff;}
+	.btn.link {color:var(--dw-white)}
+	.w2table_tabControl .w2table_tabControl_col::before {background:var(----dw-gray3)}
+	.w2table_tabControl .w2table_tabControl_col_over {background-color:var(--dw-bgcolor); color:var(--dw-color-blue2);}
+	.wq_gvw .gridBodyDefault_calendar {background-image: url(/cm/images/dark/ico_calendar.svg);}
+	.calender-wrap .w2selectbox {background:#fff;color:#333;}
+	.calender-wrap .w2selectbox .w2selectbox_col_button {filter:none !important;}
+	.fc th {background: #313f4c;}
+	.w2anchor a, .w2anchor2 {color:var(--dw-black)}
+	
+	 /* 이미지 변환 */
+	.btn.ico,
+	.breadcrumb ul li span:before,
+	.side .w2treeview_virtual .treeview_virtual_node .treeview_icon_navi,
+	.side .tvwbox .w2treeview_virtual .treeview_virtual_node.closed .treeview_icon_open,
+	.tbc_layout .w2tabcontrol_tab_close,
+	.tvw-wrap .w2treeview_virtual .treeview_icon_navi,
+	.w2inputCalendar_div_img button,
+	.w2selectbox .w2selectbox_col_button, 
+	.wq_pglist .w2pageList_table,
+	.w2table_tabControl .w2tabcontrol_tab_list_close_button,
+	.w2autoComplete .w2autoComplete_col_button,
+	.w2upload .w2upload_image,
+	img,
+	.pda-wrap .w2autoComplete_acc .w2autoComplete_col_button,
+	.pda-wrap .w2autoComplete_acc .w2autoComplete_col_button:hover, 
+	.pda-wrap .w2autoComplete_acc.w2autoComplete_selected .w2autoComplete_col_button,
+	.pda-wrap .w2autoComplete_acc.w2autoComplete_selected .w2autoComplete_col_button:hover  {filter: invert(1) grayscale(1) contrast(1);}
+	.tbc_layout > .w2tabcontrol_control [class*="btn_"], .page-btn {border: 1px solid var(--dw-gray4); filter: invert(1) grayscale(1) contrast(1);}
+	.header .user-support .btn.ico,
+	.shbox .btn-shbox .sch,
+	.btn.bookmark,
+	.btn.bookmark.on,
+	.pgtbox .help,
+	.tbc_layout .mask .w2tabcontrol_tabhost li.w2tabcontrol_active .w2tabcontrol_tab_close {filter: none;}
+	.btn.ico,
+	.shbox .btn-shbox .btn.ico {background-color: transparent;}
+	.btn.ico:hover {background-color: transparent;opacity: 0.7;}
+	.tbc_layout .w2tabcontrol_control .w2tabcontrol_control[class*="_over"],
+	.page-btn:hover {background-color: #a9a9a9 !important;}
+	.btn.bookmark, .btn.bookmark:hover {background: #000 url(/cm/images/base/ico_bookmark_off.png)no-repeat center; border:0 !important;}
+	.btn.bookmark.on {background: #000 url(/cm/images/base/ico_bookmark_on.png)no-repeat center;}	
+	
+	.w2treeview_virtual .w2treeview_virtual_scrollY_div::-webkit-scrollbar {background: var(--dw-gray1);}
+	.line-dash{background-image: linear-gradient(to right, white 80%, rgba(255, 255, 255, 0) 0%);}
+	.wq_gvw .gridBodyDefault button:active, .wq_gvw .gridBodyDefault .btn_cm:active:hover {background-color: transparent;}
+	.wq_pglist .w2pageList_col_prev_over,
+	.wq_pglist .w2pageList_col_prevPage_over,
+	.wq_pglist .w2pageList_col_next_over,
+	.wq_pglist .w2pageList_col_nextPage_over {background-color:transparent;border-color:var(--dw-gray13);color:var(--dw-gray10);}
+	
+	.btn.map   {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_map.svg); background-repeat: no-repeat;background-position:left 6px center;}
+	.btn.map:disabled, .btn.map:disabled:hover {background-image: url(/cm/images/dark/ico_map_dis.svg);}
+	.btn.align     {padding:0 6px 0 22px;background-image: url(/cm/images/dark/ico_align.svg);background-repeat: no-repeat;background-position:left 6px center;}
+	.btn.align:disabled, .btn.align:disabled:hover {background-image: url(/cm/images/dark/ico_align_dis.svg);}
+	.btn.file-up   {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_file_up.svg);background-repeat: no-repeat;background-position:left 6px center}
+	.btn.file-up:disabled, .btn.file-up:disabled:hover {background-image: url(/cm/images/dark/ico_file_up_dis.svg);}
+	.btn.file-down {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_file_down.svg);background-repeat: no-repeat;background-position:left 6px center}
+	.btn.file-down:disabled, .btn.file-down:disabled:hover {background-image: url(/cm/images/dark/ico_file_down_dis.svg);}
+	.btn.file-del  {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_file_del.svg);background-repeat: no-repeat;background-position:left 6px center}
+	.btn.file-del:disabled, .btn.file-del:disabled:hover {background-image: url(/cm/images/dark/ico_file_del_dis.svg);}
+	.btn.excel-up  {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_excel_up.svg);background-repeat: no-repeat;background-position:left 6px center}
+	.btn.excel-up:disabled, .btn.excel-up:disabled:hover {background-image: url(/cm/images/dark/ico_excel_up_dis.svg);}
+	.btn.excel-down{padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_excel_down.svg);background-repeat: no-repeat;background-position:left 6px center}
+	.btn.excel-down:disabled, .btn.excel-down:disabled:hover {background-image: url(/cm/images/dark/ico_excel_down_dis.svg);}
+	.btn.template  {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_template.svg);background-repeat: no-repeat;background-position:left 6px center}
+	.btn.template:disabled, .btn.template:disabled:hover {background-image: url(/cm/images/dark/ico_template_dis.svg);}
+	.btn.form      {padding:0 6px 0 24px;background-image: url(/cm/images/dark/ico_form.svg);background-repeat: no-repeat;background-position: left 6px center}
+	.btn.form:disabled, .btn.form:disabled:hover {background-image: url(/cm/images/dark/ico_form_dis.svg);}
+	
+	/* 엔콜 배차관리 */	
+	.btn.ncall.nc01 {background-image: url(/cm/images/dark/ico_ncall01.svg); } /* 운송차량, 용차  */
+	.btn.ncall.nc02 {background-image: url(/cm/images/dark/ico_ncall02.svg); } /* 배차취소  */
+	.btn.ncall.nc03 {background-image: url(/cm/images/dark/ico_ncall03.svg); } /* 운송보고  */
+	.btn.ncall.nc04 {background-image: url(/cm/images/dark/ico_ncall04.svg); } /* 운송접수  */
+	.btn.ncall.nc05 {background-image: url(/cm/images/dark/ico_ncall05.svg); } /* 화물분할  */
+	.btn.ncall.nc06 {background-image: url(/cm/images/dark/ico_ncall06.svg); } /* 화물삭제  */
+	.btn.ncall.nc07 {background-image: url(/cm/images/dark/ico_ncall07.svg); } /* 화물복사  */
+	.btn.ncall.nc08 {background-image: url(/cm/images/dark/ico_ncall08.svg); } /* 수수료 */
+	.btn.ncall.nc09 {background-image: url(/cm/images/dark/ico_ncall09.svg); } /* 명세서확인  */
+	.btn.ncall.nc10 {background-image: url(/cm/images/dark/ico_ncall10.svg); } /* 거래명세서인쇄  */
+	.btn.ncall.nc11 {background-image: url(/cm/images/dark/ico_ncall11.svg); } /* 세금계산서 발행취소  */
+	.btn.ncall.nc12 {background-image: url(/cm/images/dark/ico_ncall12.svg); } /* 입출금관리  */
+	.btn.ncall.nc13 {background-image: url(/cm/images/dark/ico_ncall13.svg); } /* 인쇄하기  */
+	.btn.ncall.nc14 {background-image: url(/cm/images/dark/ico_ncall14.svg); } /* 조회하기  */
+	.btn.ncall.nc15 {background-image: url(/cm/images/dark/ico_ncall15.svg); } /* 조회조건  */
+	.btn.ncall.nc16 {background-image: url(/cm/images/dark/ico_ncall16.svg); } /* 배차  */
+	.btn.ncall.nc17 {background-image: url(/cm/images/dark/ico_ncall17.svg); } /* 신규등록  */
+	.btn.ncall.nc18 {background-image: url(/cm/images/dark/ico_ncall18.svg); } /* 삭제하기  */
+	.btn.ncall.nc19 {background-image: url(/cm/images/dark/ico_ncall19.svg); } /* 운송접수2  */
+	.btn.ncall.nc20 {background-image: url(/cm/images/dark/ico_ncall20.svg); } /* 저장하기  */
+	.btn.ncall.nc21 {background-image: url(/cm/images/dark/ico_ncall21.svg); } /* 운송보고2  */
+	.btn.ncall.nc22 {background-image: url(/cm/images/dark/ico_ncall22.svg); } /* 직원소속관리  */
+	
+	.btn.ncall:disabled, .btn.ncall:disabled:hover {background-color: transparent !important;}
+	.btn.ncall.nc01:disabled {background-image: url(/cm/images/dark/ico_ncall01_dis.svg); } /* 운송차량, 용차  */
+	.btn.ncall.nc02:disabled {background-image: url(/cm/images/dark/ico_ncall02_dis.svg); } /* 배차취소  */
+	.btn.ncall.nc03:disabled {background-image: url(/cm/images/dark/ico_ncall03_dis.svg); } /* 운송보고  */
+	.btn.ncall.nc04:disabled {background-image: url(/cm/images/dark/ico_ncall04_dis.svg); } /* 운송접수  */
+	.btn.ncall.nc05:disabled {background-image: url(/cm/images/dark/ico_ncall05_dis.svg); } /* 화물분할  */
+	.btn.ncall.nc06:disabled {background-image: url(/cm/images/dark/ico_ncall06_dis.svg); } /* 화물삭제  */
+	.btn.ncall.nc07:disabled {background-image: url(/cm/images/dark/ico_ncall07_dis.svg); } /* 화물복사  */
+	.btn.ncall.nc08:disabled {background-image: url(/cm/images/dark/ico_ncall08_dis.svg); } /* 수수료 */
+	.btn.ncall.nc09:disabled {background-image: url(/cm/images/dark/ico_ncall09_dis.svg); } /* 명세서확인  */
+	.btn.ncall.nc10:disabled {background-image: url(/cm/images/dark/ico_ncall10_dis.svg); } /* 거래명세서인쇄  */
+	.btn.ncall.nc11:disabled {background-image: url(/cm/images/dark/ico_ncall11_dis.svg); } /* 세금계산서 발행취소  */
+	.btn.ncall.nc12:disabled {background-image: url(/cm/images/dark/ico_ncall12_dis.svg); } /* 입출금관리  */
+	.btn.ncall.nc13:disabled {background-image: url(/cm/images/dark/ico_ncall13_dis.svg); } /* 인쇄하기  */
+	.btn.ncall.nc14:disabled {background-image: url(/cm/images/dark/ico_ncall14_dis.svg); } /* 조회하기  */
+	.btn.ncall.nc15:disabled {background-image: url(/cm/images/dark/ico_ncall15_dis.svg); } /* 조회조건  */
+	.btn.ncall.nc16:disabled {background-image: url(/cm/images/dark/ico_ncall16_dis.svg); } /* 배차  */
+	.btn.ncall.nc17:disabled {background-image: url(/cm/images/dark/ico_ncall17_dis.svg); } /* 신규등록  */
+	.btn.ncall.nc18:disabled {background-image: url(/cm/images/dark/ico_ncall18_dis.svg); } /* 삭제하기  */
+	.btn.ncall.nc19:disabled {background-image: url(/cm/images/dark/ico_ncall19_dis.svg); } /* 운송접수2  */
+	.btn.ncall.nc20:disabled {background-image: url(/cm/images/dark/ico_ncall20_dis.svg); } /* 저장하기  */
+	.btn.ncall.nc21:disabled {background-image: url(/cm/images/dark/ico_ncall21_dis.svg); } /* 운송보고2  */
+	.btn.ncall.nc22:disabled {background-image: url(/cm/images/dark/ico_ncall22_dis.svg); } /* 직원소속관리  */
+	
+	[style*="background-color: yellow;"] {color:#0c172c}
+	
+	
+	.txt-red,
+	.col-type1, 
+	.col-type1 nobr, .col-type1 .w2checkbox_label,
+	.txt-red nobr, .txt-red .w2checkbox_label,
+	.txt-red .treeview_label {color:var(--dw-color-red1) !important; }
+	
+	.exup_header .title,
+	.exup_content .filebox span,
+	.exup_header .title2,
+	.exup_tbl th .dot {color:#000}
+}

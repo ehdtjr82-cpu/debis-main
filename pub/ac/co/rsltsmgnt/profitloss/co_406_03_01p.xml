@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기준년월" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_inputCalendar1" style=""></w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="생성기간" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_fromToCalendar1"
+    								refEdDt="">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="기준부서" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:udc_comCode popupID="" selectID="" codeId="" validTitle="" nameId="" style="width: 400px;"></w2:udc_comCode>
+    					</xf:group></xf:group></xf:group>
+    			</xf:group>
+    		<xf:group id="" class="row-gap-8">
+    			<xf:group style="" id="" class="title-wrap">
+    				<xf:group class="title" id="" style="">
+    					<w2:textbox class="tit" id="" label="배부부서" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group id="" class="right">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    				<w2:gridView scrollByColumnAdaptive="false" focusMode="row" visibleRowNumFix="true" dataList="data:dataList1" scrollByColumn="false" style="" autoFit="allColumn" id="" visibleRowNum="5" class="wq_gvw" checkReadOnlyOnPasteEnable="">
+    					<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    					<w2:header style="" id="header2">
+    						<w2:row style="" id="row3">
+    							<w2:column width="100" inputType="text" style="" id="column23" value="배부부서" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column21" value="부서명" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody style="" id="gBody2">
+    						<w2:row style="" id="row4">
+    							<w2:column width="100" inputType="text" style="" id="column24" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column22" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group style="" id="" class="grid-bottom ">
+    					<xf:group id="" class="left">
+    						<xf:group id="" class="grid-total">
+    							<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    							<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num"></w2:textbox>
+    							<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group id="" class="right"><w2:udc_bottomGrdBtn btnCancelYn="N" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="Y" btnRowDelYn="Y">
+    					</w2:udc_bottomGrdBtn></xf:group></xf:group>
+    			</xf:group></xf:group></xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="" style="" type="button">
+    				<xf:label><![CDATA[생성]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

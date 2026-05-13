@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_Retrieve">
+    				<w2:keyInfo>
+    					<w2:key id="rentloanShapeCd" name="" dataType="text"></w2:key>
+    					<w2:key id="collMoneyPayClsCd" name="" dataType="text"></w2:key>
+    					<w2:key id="usePurpsCd" name="" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="" dataType="text"></w2:key>
+    					<w2:key id="costClsCd" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_information" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="rentloanShapeCd" name="계약;형태" dataType="text"></w2:column>
+    					<w2:column id="collMoneyPayClsCd" name="수급지급구분" dataType="text"></w2:column>
+    					<w2:column id="usePurpsCd" name="사용용도" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="귀속;부서" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서명" dataType="number"></w2:column>
+    					<w2:column id="costClsCd" name="비용구분" dataType="text"></w2:column>
+    					<w2:column id="seq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="drcrClsCd" name="차대;구분" dataType="text"></w2:column>
+    					<w2:column id="acctCd" name="계정코드" dataType="number"></w2:column>
+    					<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+    					<w2:column id="sortSeq" name="정렬;순번" dataType="text" defaultValue="0"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_Vinformation" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="rentloanShapeCd" name="" dataType="text"></w2:column>
+    					<w2:column id="collMoneyPayClsCd" name="" dataType="text"></w2:column>
+    					<w2:column id="usePurpsCd" name="" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="" dataType="text"></w2:column>
+    					<w2:column id="seq" name="" dataType="number"></w2:column>
+    					<w2:column id="drcrClsCd" name="" dataType="text"></w2:column>
+    					<w2:column id="acctCd" name="" dataType="text"></w2:column>
+    					<w2:column id="costClsCd" name="" dataType="text"></w2:column>
+    					<w2:column id="sortSeq" name="" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_collMoneyPayClsCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name5" dataType="text"></w2:column>
+    					<w2:column id="col6" name="name6" dataType="text"></w2:column>
+    					<w2:column id="col7" name="name7" dataType="text"></w2:column>
+    					<w2:column id="col8" name="name8" dataType="text"></w2:column>
+    					<w2:column id="col9" name="name9" dataType="text"></w2:column>
+    					<w2:column id="col10" name="name10" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_tr_Retrieve" action="/cm.bc.rentloan.RetrieveDrcrClsCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_Retrieve","key":"IN_DS1"},{"id":"ds_information","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_information","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_Retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_save_in" action="/cm.bc.rentloan.RegistDrcrClsCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_information","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_save_in_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission abortTrigger="" action="/cm.bc.rentloan.RegistDrcrClsCMD.do" customHandler="" encoding="UTF-8" errorHandler=""
+    			ev:submit="" ev:submitdone="scwin.sbm_tr_save_vin_submitdone" ev:submiterror="" id="sbm_tr_save_vin" instance=""
+    			mediatype="application/json" method="post" mode="asynchronous" processMsg="" ref='data:json,{"id":"ds_Vinformation","key":"IN_DS1"}'
+    			replace="" target="" style="">
+    		</xf:submission>
+    		<xf:submission id="sbm_ds_collMoneyPayClsCd" action="" method="post" mediatype="application/json" ref=""
+    			target='data:json,{"id":"ds_collMoneyPayClsCd","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_ds_collMoneyPayClsCd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 임대차[전대차] 전표분개내역등록
+ * 메뉴경로 : 공통/총무업무/임대차관리/
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/cm/bc/rentloan/zz_900_06_01p.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-12-01
+ * 수정이력  :
+ *    - 2025-12-01      정승혜    최초작성
+ *    - 2026-03-04      정승혜    기타수정
+ * 메모 : 
+ * 팝업아님
+ * 조회조건 : 
+ * 계약형태-전체/수급지급구분-전체/비용구분-전체
+ *    - 2026-03-04      정승혜    기타수정
+ */
+
+scwin.memJson = $c.data.getMemInfo();
+scwin.userId = scwin.memJson.userId;
+scwin.userNm = scwin.memJson.userNm;
+scwin.empNo = scwin.memJson.empNo;
+scwin.sysAdminYn = scwin.memJson.sysAdminYn;
+
+//hidden
+scwin.hid_rentloanShapeCd = "";
+scwin.hid_collMoneyPayClsCd = "";
+scwin.hid_usePurpsCd = "";
+scwin.hid_acctDeptCd = "";
+scwin.hid_acctDeptNm = "";
+scwin.hid_costClsCd = "";
+
+    //-------------------------------------------------------------------------
+    // 화면로딩시
+    //-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    const codeOptions = [
+    { grpCd : "ZZ911", compID : "gr_information:rentloanShapeCd, lc_rentloanShapeCd" },
+    { grpCd : "ZZ918", compID : "gr_information:collMoneyPayClsCd" },
+    { grpCd : "ZZ913", compID : "gr_information:usePurpsCd, lc_usePurpsCd" },
+    { grpCd : "FI042", compID : "gr_information:costClsCd, lc_costClsCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    scwin.f_createHeader();
+    scwin.f_createHeader4();
+};
+
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+scwin.onUdcCompleted = function() {
+};
+
+scwin.ondataload = function() { 
+    lc_rentloanShapeCd.setValue("01");
+    scwin.f_RetrieveCollMoneyPayClsCd();
+    lc_usePurpsCd.setValue("01");
+    lc_costClsCd.setValue("01");
+
+    $c.gus.cfDisableObjects([btn_add,btn_del,btn_cancel]);
+};
+
+    //-------------------------------------------------------------------------
+    // 조회 조건 DataSet 헤더 선언
+    //-------------------------------------------------------------------------
+scwin.f_createHeader = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+    //-------------------------------------------------------------------------
+    // function name : f_RetrieveCollMoneyPayClsCd
+    // function desc : 청구/정산구분 조회
+    // function Parameter : null 
+    //-------------------------------------------------------------------------	
+scwin.f_RetrieveCollMoneyPayClsCd = function() {
+    let nRow = 0;
+    let sFilter1 = "";
+    let sFilter2 = "";
+    
+    let vRentloanShapeCd = lc_rentloanShapeCd.getValue();
+    
+    if ( vRentloanShapeCd == "01" || vRentloanShapeCd == "02") {
+        sFilter1 = "1";
+        sFilter2 = "";
+    } else if ( vRentloanShapeCd == "03" || vRentloanShapeCd == "04") {
+        sFilter1 = "";
+        sFilter2 = "1";
+    } else {
+    
+    }
+
+    sbm_ds_collMoneyPayClsCd.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC"
+										+ "&queryId=retrieveCommonFilterPopup&param1=ZZ918&param2=" + sFilter1 + "&param3=" + sFilter2;
+
+    $c.sbm.execute(sbm_ds_collMoneyPayClsCd);
+}
+
+    //-------------------------------------------------------------------------
+    // function name : f_createHeader4
+    // function desc : 엑셀 데이타 업로드시 mapping 되는 데이타셋 정의
+    //-------------------------------------------------------------------------
+scwin.f_createHeader4 = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+    //-------------------------------------------
+    // 엑셀로 다운로드
+    //-------------------------------------------
+// 엑셀다운 4+8+16
+scwin.f_runExcel = async function() {
+    let confirm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?")
+    let totCnt = ds_information.getRowCount();
+    if(totCnt != 0) {
+        if( confirm ) {
+            const options = {
+                fileName : "임대차_전대차 전표내역등록.xlsx", 
+                sheetName : "임대차_전대차 전표내역등록",
+            };
+            await $c.data.downloadGridViewExcel(gr_information, options);
+        }  
+    }else{
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+    //-------------------------------------------------------------------------
+    // function name : f_SearchPopUp
+    // function desc : 조회 팝업
+    // function Parameter : null 
+    //-------------------------------------------------------------------------
+scwin.f_SearchPopUp = function(flag,check,isCdYn) {
+    let param = "";
+    switch (flag)
+    {
+        case '1':
+        // 부서
+            udc_acctDeptCdInfo7.cfCommonPopUp(scwin.udc_acctDeptCdInfo7_callBackFunc,
+            ed_acctDeptCd.getValue(),ed_acctDeptNm.getValue(),check,null,null,null,null,param,null,null,null,null
+            );
+        break;
+
+    default:
+  	break;        
+    }
+};
+
+scwin.udc_acctDeptCdInfo7_callBackFunc = function(rtnList) {
+    if(rtnList != null && rtnList[0] != "N/A" ) {
+        ed_acctDeptCd.setValue(rtnList[0]); 
+        ed_acctDeptNm.setValue(rtnList[1]); 
+    }else{
+        ed_acctDeptCd.setValue(""); 
+        ed_acctDeptNm.setValue(""); 
+    }
+};
+
+scwin.udc_acctDeptCdInfo7_onclickEvent = function (e) {
+    scwin.f_SearchPopUp('1','F');
+};
+
+	//-------------------------------------------------------------------------
+    // function name : f_checkPopEd
+    // function desc : 팝업체크
+    // function Parameter : strCd : 코드, strNm : 코드명, flag : 플래그
+    //-------------------------------------------------------------------------
+scwin.f_checkPopEd = function(strCd,strNm,flag) {
+    ed_acctDeptNm.setValue("");
+    if(ed_acctDeptCd.getValue().trim() !=""){
+        scwin.f_SearchPopUp(flag,'T');
+    }
+};
+
+scwin.udc_acctDeptCdInfo7_onblurCodeEvent = function (e) {
+    scwin.f_checkPopEd("ed_acctDeptCd","ed_acctDeptNm",'1');
+};
+
+	//-------------------------------------------------------------------------
+    // function name : f_resultPopEd
+    // function desc : 팝업결과 셋팅
+    // function Parameter : strCd : 코드, strNm : 코드명, rtnList : 결과 리스트
+    //-------------------------------------------------------------------------
+scwin.f_resultPopEd = function() {
+    //udc
+};
+
+    //-------------------------------------------------------------------------
+    // 조회
+    //-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    $c.gus.cfEnableObjects([btn_add,btn_del,btn_cancel]);
+    $c.sbm.execute(sbm_tr_Retrieve);
+};
+
+// 저장
+scwin.f_Save = async function() {
+    if(scwin.hid_rentloanShapeCd == ""){
+        await $c.win.alert("전체로 조회시 저장할 수 없습니다.");
+        return;
+    }else if(scwin.hid_collMoneyPayClsCd == ""){
+        await $c.win.alert("전체로 조회시 저장할 수 없습니다.");
+        return;
+    }else if(scwin.hid_usePurpsCd == ""){
+        await $c.win.alert("전체로 조회시 저장할 수 없습니다.");
+        return;
+    }else if(scwin.hid_costClsCd == ""){
+        await $c.win.alert("전체로 조회시 저장할 수 없습니다.");
+        return;
+    }
+
+    if( ds_information.getModifiedIndex().length == 0 ) {
+        await $c.win.alert("변경된 데이타가 없습니다.");
+        return;
+    }
+
+    let confirm = await scwin.f_Check();
+    if( !confirm ) {
+        return;
+    }
+
+    let confirm2 = await $c.win.confirm("저장하시겠습니까?");
+    if( !confirm2 ) {
+        return;
+    }else{
+        ds_Vinformation.removeAll();
+        
+        // ds_Vinformation으로 dataset 복사
+        // 변경이 되지 않은 row도 insert하기 위하여 사용            
+        for(i=0; i<ds_information.getRowCount(); i++) {
+
+            if(ds_information.getRowStatus(i) != "D") {
+                ds_Vinformation.insertRow();  
+                    
+                ds_Vinformation.setCellData(i, "rentloanShapeCd", ds_information.getCellData(i, "rentloanShapeCd") );            
+                ds_Vinformation.setCellData(i, "collMoneyPayClsCd", ds_information.getCellData(i, "collMoneyPayClsCd") );
+                ds_Vinformation.setCellData(i, "usePurpsCd", ds_information.getCellData(i, "usePurpsCd") );
+                ds_Vinformation.setCellData(i, "acctDeptCd", ds_information.getCellData(i, "acctDeptCd") );
+                ds_Vinformation.setCellData(i, "seq", ds_information.getCellData(i, "seq") );
+                ds_Vinformation.setCellData(i, "drcrClsCd", ds_information.getCellData(i, "drcrClsCd") );
+                ds_Vinformation.setCellData(i, "acctCd", ds_information.getCellData(i, "acctCd") );
+                ds_Vinformation.setCellData(i, "costClsCd", ds_information.getCellData(i, "costClsCd") );
+                ds_Vinformation.setCellData(i, "sortSeq", ds_information.getCellData(i, "sortSeq") );    
+            }                         
+        }
+        
+        // 모든 row가 delete되었을 경우는 delete만 하기 위해 복사하는 dataset으로 transaction한다.            
+        if(ds_Vinformation.getRowCount() == 0) { 
+            $c.sbm.execute(sbm_tr_save_in);
+        }
+        else {
+            $c.sbm.execute(sbm_tr_save_vin);
+        }
+    }
+};
+
+scwin.f_Check = async function() {
+    for (i = 0; i < ds_information.getRowCount(); i++)
+    {
+        if(ds_information.getCellData(i, "drcrClsCd") == "") {
+            await $c.win.alert("[차대구분]은 필수 입력항목입니다.");
+            return false;
+        }
+        
+        if(ds_information.getCellData(i, "acctCd") == "") {
+            await $c.win.alert("[계정코드]는 필수 입력항목입니다.");
+            return false;
+        }
+    }
+    let validArray = [];
+    let ret = await $c.gus.cfValidateGrid(gr_information, null, null, validArray, "차대계약정보");
+    if (!ret){
+        return false
+    }
+    
+    return true;
+};
+
+    //-------------------------------------------------------------------------
+    // 행추가
+    //-------------------------------------------------------------------------
+scwin.f_addRow = function() {
+    if(scwin.hid_rentloanShapeCd == ""){
+        return;
+    }else if(scwin.hid_collMoneyPayClsCd == ""){
+        return;
+    }else if(scwin.hid_usePurpsCd == ""){
+        return;
+    }else if(scwin.hid_costClsCd == ""){
+        return;
+    }
+    let row = ds_information.insertRow();
+    gr_information.setFocusedCell(row, 0, false);
+    ds_information.setCellData(row, "rentloanShapeCd", scwin.hid_rentloanShapeCd);
+    ds_information.setCellData(row, "collMoneyPayClsCd", scwin.hid_collMoneyPayClsCd);
+    ds_information.setCellData(row, "usePurpsCd", scwin.hid_usePurpsCd);
+    ds_information.setCellData(row, "acctDeptCd", scwin.hid_acctDeptCd);
+    ds_information.setCellData(row, "acctDeptNm", scwin.hid_acctDeptNm);
+    ds_information.setCellData(row, "costClsCd",scwin.hid_costClsCd);
+};
+
+    //-------------------------------------------------------------------------
+    // 행삭제
+    //-------------------------------------------------------------------------
+scwin.f_delRow = function() {
+    if(ds_information.getRowCount() == 0){
+        $c.win.alert("삭제할 데이타가 없습니다");
+    }else{
+        let nowRow = ds_information.getRowPosition();
+        let sts = ds_information.getRowStatus(gr_information.getFocusedRowIndex());
+
+        if(nowRow != null){
+            if(sts == "C") {
+                ds_information.removeRow(nowRow);
+                gr_information.setFocusedCell(nowRow-1, 0, false);
+            }else if(sts == "D"){
+                //아무동작 하지 않음
+            }else{
+                ds_information.deleteRow(nowRow);
+                //gr_information.setRowDisabled(nowRow, true);
+            }
+        }
+    }
+};
+
+// 행취소
+scwin.f_cancelRow = function() {
+    let nowRow = ds_information.getRowPosition();
+    let sts = ds_information.getRowStatus(gr_information.getFocusedRowIndex());
+    if(nowRow != null){
+        if(sts == "C") {
+            ds_information.removeRow(nowRow);
+            gr_information.setFocusedCell(nowRow-1, 0, false);
+        }else{
+            ds_information.undoRow(nowRow);
+        }
+    }
+};
+
+    //-------------------------------------------------------------------------
+    // function name : f_openPopUp
+    // function desc : 팝업
+    // function Parameter : Colid(컬럼명), objGrd : 그리드
+    //-------------------------------------------------------------------------
+scwin.f_openPopUp = async function(sColid, objGrd) {
+    if(objGrd == "acctCd"){
+        await udc_acctCdContentsInfo3.cfCommonPopUp(scwin.udc_acctCdContentsInfo3_callBackFunc,
+                                        '','',null,null,null,null,null,null,null,null,null,null
+            );
+    }
+};
+
+scwin.udc_acctCdContentsInfo3_callBackFunc = function(rtnList) {
+    if(rtnList != null && rtnList[0] != "N/A" ) {
+        let rowIdx = gr_information.getFocusedRowIndex();
+        ds_information.setCellData(rowIdx, "acctCd", rtnList[0]);
+        ds_information.setCellData(rowIdx, "acctNm", rtnList[1]);
+    }
+};
+
+scwin.gr_acctCd_ontextimageclick = function(rowIndex, columnIndex) {
+    if(columnIndex == "acctCd"){
+        scwin.f_openPopUp(rowIndex,columnIndex);
+    }
+};
+
+    //-------------------------------
+    // 그리드 높이 늘리고 줄이기
+    //-------------------------------
+scwin.f_grdHeiht = function() {
+
+};
+
+    //-------------------------------------------------------------------------
+    // 휴지통 처리
+    //-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects([ed_acctDeptCd,ed_acctDeptNm]);
+};
+
+scwin.f_FieldClear2 = function() {
+    $c.gus.cfInitObjects([ed_acctDeptCd,ed_acctDeptNm]);
+};
+
+scwin.lc_rentloanShapeCd_onviewchange = function (info) {
+    scwin.f_RetrieveCollMoneyPayClsCd();
+};
+
+// grid decode format
+scwin.acctDeptNmDisplayFm = function(data) {
+    return $c.gus.decode(data, "", "기본값", data);
+};
+
+// 서브미션
+scwin.sbm_tr_Retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    totalRows.setValue(gr_information.getRowCount());
+    gr_information.setFocusedCell(0,"rentloanShapeCd",false)
+
+    if( ds_information.getRowCount() == 0 ){ 
+        await $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_003,"조회결과"));
+    }
+    
+    scwin.hid_rentloanShapeCd = lc_rentloanShapeCd.getValue();
+    scwin.hid_collMoneyPayClsCd = lc_collMoneyPayClsCd.getValue();
+    scwin.hid_usePurpsCd = lc_usePurpsCd.getValue();
+    scwin.hid_acctDeptCd = ed_acctDeptCd.getValue();
+    scwin.hid_acctDeptNm = ed_acctDeptNm.getValue();
+    scwin.hid_costClsCd = lc_costClsCd.getValue();    
+};
+
+// 서브미션
+scwin.sbm_tr_save_vin_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001); // 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+};
+
+// 서브미션
+scwin.sbm_tr_save_in_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001); // 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+};
+
+// 서브미션
+scwin.sbm_ds_collMoneyPayClsCd_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    ds_collMoneyPayClsCd.sort("col1", 0);
+    lc_collMoneyPayClsCd.setSelectedIndex(1);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="계약형태" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class=" w150" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_rentloanShapeCd" style="" submenuSize="auto"
+    								ref="data:dma_Retrieve.rentloanShapeCd" chooseOptionLabel="전체" ev:onviewchange="scwin.lc_rentloanShapeCd_onviewchange">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="수금지급구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class=" w150" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_collMoneyPayClsCd" style="" submenuSize="auto"
+    								ref="data:dma_Retrieve.collMoneyPayClsCd" chooseOptionLabel="전체" visibleRowNum="20">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:ds_collMoneyPayClsCd">
+    										<xf:label ref="col2"></xf:label>
+    										<xf:value ref="col1"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="사용용도 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class=" w150" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_usePurpsCd" style="" submenuSize="auto"
+    								ref="data:dma_Retrieve.usePurpsCd" chooseOptionLabel="전체">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="귀속부서 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group id="" class="form-group">
+    								<w2:udc_comCode selectID="retrieveAcctDeptCdInfo7" codeId="ed_acctDeptCd" popupID="" popupTitle=""
+    									validTitle="" nameId="ed_acctDeptNm" style="" maxlengthCode="5" allowCharCode="0-9" code="acctDeptCd"
+    									refDataCollection="dma_Retrieve" id="udc_acctDeptCdInfo7" ev:onclickEvent="scwin.udc_acctDeptCdInfo7_onclickEvent"
+    									ev:onblurCodeEvent="scwin.udc_acctDeptCdInfo7_onblurCodeEvent" objTypeCode="data" objTypeName="data" btnId="btn_acctDeptCd">
+    								</w2:udc_comCode>
+    								<xf:trigger style="" id="" type="button" class="btn ico refresh" ev:onclick="scwin.f_FieldClear2">
+    									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="비용구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class=" w150" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_costClsCd" style="" submenuSize="auto"
+    								ref="data:dma_Retrieve.costClsCd" chooseOptionLabel="전체">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button"
+    					ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="차대계약정보 " style="" tagname="h3"></w2:textbox>
+
+    				</xf:group>
+    				<xf:group class="left" id="" style="">
+    					<w2:textbox class="txt-red" id="" label="귀속부서를 넣지 않고 조회시 기본값을 보여줍니다. " style=""></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_information" gridUpYn="N" gridDownFn="scwin.f_runExcel" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_information" id="gr_information"
+    					style="" visibleRowNum="10" visibleRowNumFix="true" readOnly="true" rowStatusVisible="true" rowStatusWidth="20" >
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="계약&lt;/br&gt;형태" width="70">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="수급지급구분" width="130">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="사용용도" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" style="" value="귀속&lt;/br&gt;부서" width="70">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" style="" value="귀속부서명" width="130">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" style="" value="비용구분" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" style="" value="순번" width="70">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" style="" value="차대&lt;/br&gt;구분" width="70"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" style="" value="계정코드" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" style="" value="계정명" width="200"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column21" value="정렬&lt;/br&gt;순번" displayMode="label"
+    								class="txt-blue">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="rentloanShapeCd" inputType="select" style="" value="" width="70">
+    							</w2:column>
+    							<w2:column displayMode="label" id="collMoneyPayClsCd" inputType="select" style="" value="" width="130" textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="usePurpsCd" inputType="select" style="" value="" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="acctDeptCd" inputType="text" style="" value="" width="70"></w2:column>
+    							<w2:column displayMode="label" id="acctDeptNm" inputType="text" style="" value="" width="130"
+    								displayFormatter="scwin.acctDeptNmDisplayFm" textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="costClsCd" inputType="select" style="" value="" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="seq" inputType="text" style="" value="" width="70" textAlign="right" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="drcrClsCd" inputType="select" style="" value="" width="70"
+    								readOnly="false" allOption="" chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[차변]]></w2:label>
+    										<w2:value><![CDATA[D]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[대변]]></w2:label>
+    										<w2:value><![CDATA[C]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="acctCd" inputType="textImage" style="" value="" width="100"
+    								readOnly="true" imageClickFunction="scwin.gr_acctCd_ontextimageclick" viewType="icon" dataType="text" excelCellType="text">
+    							</w2:column>
+    							<w2:column displayMode="label" id="acctNm" inputType="text" style="" value="" width="200" textAlign="left"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="sortSeq" value="" displayMode="label"
+    								readOnly="false" textAlign="right" maxLength="2" allowChar="0-9" dataType="number" excelCellType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn btnDelYn="N" btnCancelYn="Y" style="" btnRowAddYn="Y" btnRowDelYn="Y"
+    							rowAddFunction="scwin.f_addRow" rowDelFunction="scwin.f_delRow" cancelFunction="scwin.f_cancelRow" rowAddObjType="ctrlBtn" rowDelObjType="ctrlBtn" cancelObjType="ctrlBtn" btnRowAddObj="btn_add" btnRowDelObj="btn_del" btnCancelObj="btn_cancel">
+    						</w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" objType="bUpdate" userAuth="P">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+
+    			</xf:group>
+    			<xf:group class="info-box" id="" style="">
+    				<w2:textbox class="info-ico" id="" label="전표내역 계정 등록 시 부가세가 존재하는 경우에 내역일 경우 " style=""></w2:textbox>
+    				<w2:textbox class="" id="" label="마지막행은 전표분개 자동생성 시 차대변 금액을 일치시키는 행이 되므로 올바른 계정을 등록하십시요(예:미지급비용, 미수금)" style="">
+    				</w2:textbox>
+    				<xf:group id="" class="info-list row">
+    					<w2:textbox class="" id="" label="등록 예)" style=""></w2:textbox>
+    					<xf:group id="">
+    						<w2:textbox style="" id="" label="임차(임차료)" class=""></w2:textbox>
+    						<w2:textbox class="" id="" label="차변 4203550 - 원)지급임차료-토지/건물" style=""></w2:textbox>
+    						<w2:textbox class="" id="" label="차변 1111210 - 부가세대급금-일반" style=""></w2:textbox>
+    						<w2:textbox class="" id="" label="대변 2100810 - 미지급비용-거래처" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group id="">
+    						<w2:textbox style="" id="" label="임대(임대료)" class=""></w2:textbox>
+    						<w2:textbox class="" id="" label="대변 6110050 - 수입임대료 " style=""></w2:textbox>
+    						<w2:textbox class="" id="" label="대변 2100710 - 부가세예수금-일반 " style=""></w2:textbox>
+    						<w2:textbox class="" id="" label="차변 1110730 - 미수금-임대차 " style=""></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:udc_comCode codeId="ed_acctCd"
+    			ev:onblurCodeEvent="scwin.udc_acctDeptCdInfo7_onblurCodeEvent" ev:onclickEvent="scwin.udc_acctDeptCdInfo7_onclickEvent"
+    			id="udc_acctCdContentsInfo3" nameId="" popupID="" popupTitle="" selectID="retrieveAcctCdContentsInfo3" style="visibility:hidden;display: none;" validTitle="" code="gridAcctCd">
+    		</w2:udc_comCode>
+    	</xf:group>
+    </body>
+</html>

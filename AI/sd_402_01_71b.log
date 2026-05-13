@@ -1,0 +1,47 @@
+sd_402_01_71b.log
+
+[2026-02-20 13:29:39.896] 변환 시작
+[2026-02-20 13:29:40.397] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 13:36:40.492] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=3, warnings=9 | LLM 417978ms, total 420095ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 22건: lc_cnd_odrKndCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_ctrtNo (LUXECOMBO→w2:autoComplete), lc_reqClntNm (LUXECOMBO→w2:autoComplete), lc_bilgClntNm (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 14건: ds_lobranQueryCondition, ds_lobranSales, ds_lobranTrans, ds_cntrSize, ds_cntrType
+    - [적정성] 분기 로직 대량 감소 — 소스 868건→출력 144건 (17%) — 로직 삭제 의심
+[2026-02-20 13:36:40.840] #1 검증: 자동수정 7건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U15: udc_comCode id ed_ → udc_ + codeId
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+[2026-02-20 13:36:42.862] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=3, warnings=9
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 22건: lc_cnd_odrKndCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_ctrtNo (LUXECOMBO→w2:autoComplete), lc_reqClntNm (LUXECOMBO→w2:autoComplete), lc_bilgClntNm (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 14건: ds_lobranQueryCondition, ds_lobranSales, ds_lobranTrans, ds_cntrSize, ds_cntrType
+    - [적정성] 분기 로직 대량 감소 — 소스 868건→출력 144건 (17%) — 로직 삭제 의심
+[2026-02-20 13:36:42.867] #2 재시도 (에러 5건)
+[2026-02-20 13:36:43.878] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 13:46:00.574] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.77, grade=C, verdict=REVIEW, errors=6, warnings=9 | LLM 555038ms, total 556696ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 22건: lc_cnd_odrKndCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_ctrtNo (LUXECOMBO→w2:autoComplete), lc_reqClntNm (LUXECOMBO→w2:autoComplete), lc_bilgClntNm (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 1건 잔존
+    - [적정성] async 선언 누락 — scwin.f_addRow (uses $c.gus.cfAlertMsg), scwin.f_setValueBeforeValidation (uses $c.gus.cfAlertMsg), scwin.f_discountSurcharge (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_addRow → $c.gus.cfAlertMsg, scwin.f_setValueBeforeValidation → $c.gus.cfAlertMsg, scwin.f_discountSurcharge → $c.gus.cfAlertMsg
+    - [적정성] 분기 로직 대량 감소 — 소스 868건→출력 191건 (22%) — 로직 삭제 의심
+[2026-02-20 13:46:00.581] #1 검증: 최적 시도 #1 채택 (confidence: 0.51)
+[2026-02-20 13:46:00.582] 실패 (2회 시도, 16m 20s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+  2. [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+  3. [적정성] 컴포넌트 ID 유지 — 누락 22건: lc_cnd_odrKndCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_ctrtNo (LUXECOMBO→w2:autoComplete), lc_reqClntNm (LUXECOMBO→w2:autoComplete), lc_bilgClntNm (LUXECOMBO→w2:autoComplete)
+  4. [적정성] DATASET 전환 — 누락 14건: ds_lobranQueryCondition, ds_lobranSales, ds_lobranTrans, ds_cntrSize, ds_cntrType
+  5. [적정성] 분기 로직 대량 감소 — 소스 868건→출력 144건 (17%) — 로직 삭제 의심
+================================================================================

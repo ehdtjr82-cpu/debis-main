@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_grid_draftCheckClsCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_grid_draftStsCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="draftCheckClsCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="prtBank" name="name2" dataType="text"></w2:key>
+    					<w2:key id="recDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="recStDt" name="name4" dataType="text"></w2:key>
+    					<w2:key id="recEndDt" name="name5" dataType="text"></w2:key>
+    					<w2:key id="dueStDt" name="name6" dataType="text"></w2:key>
+    					<w2:key id="dueEndDt" name="name7" dataType="text"></w2:key>
+    					<w2:key id="draftCheckNo" name="name8" dataType="text"></w2:key>
+    					<w2:key id="draftStsCd" name="name9" dataType="text"></w2:key>
+    					<w2:key id="scClsCd" name="name10" dataType="text"></w2:key>
+    					<w2:key id="slipNo" name="name11" dataType="text"></w2:key>
+    					<w2:key id="dueSlipNo" name="name12" dataType="text"></w2:key>
+    					<w2:key id="draftCheckNoFrom" name="name13" dataType="text"></w2:key>
+    					<w2:key id="draftCheckNoTo" name="name14" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_disuse" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="draftCheckNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="draftCheckClsCd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="bfDraftStsCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="draftStsCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="issueBankCd" name="name5" dataType="text"></w2:column>
+    					<w2:column id="issueBankNm" name="name6" dataType="text"></w2:column>
+    					<w2:column id="recDt" name="name7" dataType="text"></w2:column>
+    					<w2:column id="prtDt" name="name8" dataType="text"></w2:column>
+    					<w2:column id="dueDt" name="name9" dataType="text"></w2:column>
+    					<w2:column id="disuseDt" name="name10" dataType="text"></w2:column>
+    					<w2:column id="draftCheckAmt" name="name11" dataType="text"></w2:column>
+    					<w2:column id="dueSlipNo" name="name12" dataType="text"></w2:column>
+    					<w2:column id="dueSlipSeq" name="name13" dataType="text"></w2:column>
+    					<w2:column id="draftCheckDesc" name="name14" dataType="text"></w2:column>
+    					<w2:column id="refDraftCheckNo" name="name15" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="name16" dataType="text"></w2:column>
+    					<w2:column id="regId" name="name17" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="name18" dataType="text"></w2:column>
+    					<w2:column id="modId" name="name19" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="name20" dataType="text"></w2:column>
+    					<w2:column id="payBankbookNo" name="name21" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="name22" dataType="text"></w2:column>
+    					<w2:column id="selYn" name="선택" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="name24" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="name25" dataType="text"></w2:column>
+    					<w2:column id="cumulDraftAmt" name="name26" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="name27" dataType="text"></w2:column>
+    					<w2:column id="outbrSummary" name="name28" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="name29" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieveDraft" action="/ac.fm.paymgnt.notepay.RetrieveDraftCheckContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_disuse","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_disuse","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_disuseDraft" action="" method="post" mediatype="application/json"
+    			ref='data:json,{"action":"modified","id":"ds_disuse","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.comboRtnFlag01;
+scwin.interval01;
+
+scwin.NEW;
+scwin.GENUIN;
+scwin.BLNK;
+scwin.ACCMO;
+scwin.DUE;   
+scwin.DISUSE;
+
+scwin.b_disusegb;
+scwin.g_sCurrDate; 
+
+scwin.onpageload = function() {
+	//전역변수값 셋팅함수.
+	scwin.initSetVal();
+
+    const codeOptions1 = [
+        { grpCd: "FM012", compID: "lc_draft_check_cls_cd"},  //구분 코드셋팅처리. 
+        { grpCd: "FM013", compID: "lc_srchdraftStsCd" },  //그리드의 상태 코드셋팅처리. 
+    ];
+    $c.data.setCommonCode(codeOptions1, scwin.commonCodeCallBack01);
+
+    scwin.interval01 = setInterval(async function() {
+        if(scwin.comboRtnFlag01 == true) {
+            clearInterval(scwin.interval01);
+            //초기화
+  	        await scwin.initOnload();
+        }
+    }, 300);
+};
+
+
+scwin.initSetVal = function() {
+    scwin.NEW    = "01"; // 신규
+    scwin.GENUIN = "02"; // 진성
+    scwin.BLNK   = "03"; // 견질
+    scwin.ACCMO  = "04"; // 융통
+    scwin.DUE    = "05"; // 만기   
+    scwin.DISUSE = "06"; // 폐기
+
+    scwin.b_disusegb = false;
+    scwin.g_sCurrDate = $c.date.getServerDateTime("yyyyMMdd");
+};
+
+
+scwin.commonCodeCallBack01 =  function() {
+    let ds_obj = $p.getComponentById(lc_draft_check_cls_cd.getDataListInfo().id);
+    for(var i=0;i<ds_obj.getRowCount();i++) {
+        ds_grid_draftCheckClsCd.insertRow(i);
+        ds_grid_draftCheckClsCd.setCellData(i, "cd", ds_obj.getCellData(i, "cd"));
+        ds_grid_draftCheckClsCd.setCellData(i, "cdNm", ds_obj.getCellData(i, "cdNm"));
+    }
+
+    ds_obj.setColumnFilter( 
+        {type:'regExp', colIndex:'fltrCd1', key:/10/gi, condition:'and'}
+    );
+
+    ds_obj.insertRow(0);
+    ds_obj.setCellData(0, "cd", "");
+    ds_obj.setCellData(0, "cdNm", "전체");
+
+    lc_draft_check_cls_cd.setSelectedIndex(0);
+
+    ds_obj = $p.getComponentById(lc_srchdraftStsCd.getDataListInfo().id);
+    for(var i=0;i<ds_obj.getRowCount();i++) {
+        ds_grid_draftStsCd.insertRow(i);
+        ds_grid_draftStsCd.setCellData(i, "cd", ds_obj.getCellData(i, "cd"));
+        ds_grid_draftStsCd.setCellData(i, "cdNm", ds_obj.getCellData(i, "cdNm"));
+    }
+
+    ds_obj.setColumnFilter( 
+        {type:'regExp', colIndex:'fltrCd3', key:/30/gi, condition:'and'}
+    );
+
+    ds_obj.insertRow(0);
+    ds_obj.setCellData(0, "cd", "");
+    ds_obj.setCellData(0, "cdNm", "전체");
+
+    lc_srchdraftStsCd.setSelectedIndex(0);
+
+
+    scwin.comboRtnFlag01 = true;
+};
+
+scwin.initOnload = async function() {
+    ica_srchrecDt.setValue(scwin.g_sCurrDate);
+};
+
+
+//-------------------------------------------------------------------------
+// 폐기처리
+//-------------------------------------------------------------------------
+scwin.f_Disuse = async function() {
+    scwin.b_disusegb = true;
+	var cnt = 0;
+	var i=0;
+
+	if(ds_disuse.getRowCount() == 0 ){
+        await $c.win.alert(MSG_CM_ERR_003);
+        return false;
+    }else{
+		for ( i = 0 ; i < ds_disuse.getRowCount(); i++) {
+			if ( Number(ds_disuse.getCellData(i,"selYn")) > 0 ) {
+				cnt++;
+			}
+		}
+
+		if ( cnt <= 0 ) {
+			await $c.win.alert("폐기처리할 자료를 선택하십시오");
+			return false;
+		}
+		
+		for ( i = 0 ; i < ds_disuse.getRowCount(); i++) {		
+            // 폐기일자 오늘일자 넣어주는거 손현정씨 요청으로 제외 하고 알아서 넣어주기, 그렇지 않으면 에러메시지 출력
+            if((ds_disuse.getCellData(i,"disuseDt") == '') && (ds_disuse.getCellData(i,"selYn") == "1" )) {
+                await $c.win.alert((i+1) + "번째 행 폐기일자를 입력해 주세요");
+                return false;
+            }
+            
+            if((Number(ds_disuse.getCellData(i,"recDt")) > Number(ds_disuse.getCellData(i,"disuseDt"))) && (ds_disuse.getCellData(i,"selYn") == "1" )) {
+                await $c.win.alert((i+1) + "번째 행 폐기일자가 수취일자 보다 더 작습니다.");
+                return false;
+            }
+            
+            if((Number(ds_disuse.getCellData(i,"disuseDt")) > Number(scwin.g_sCurrDate)) && (ds_disuse.getCellData(i,"selYn") == "1" )) {
+                await $c.win.alert((i+1) + "번째 행 폐기일자가 오늘 일자보다 더 큽니다.");
+                return false;
+            }
+		}
+
+        let ret = await $c.gus.cfValidate([gr_disuse]);
+        if (ret) {
+            let confirmResult = await $c.win.confirm(MSG_CM_CRM_001);
+            if(confirmResult){
+                for ( i = 0 ; i < ds_disuse.getRowCount(); i++) {
+                    if ( Number(ds_disuse.getCellData(i,"selYn")) > 0 ) {
+                        ds_disuse.setCellData(i,"bfDraftStsCd", ds_disuse.getCellData(i,"draftStsCd"));
+                        ds_disuse.setCellData(i,"draftStsCd", scwin.DISUSE);		// 상태값 수취 -> 폐기
+                    }
+                }
+
+                sbm_disuseDraft.action = "/ac.fm.paymgnt.notepay.ProcessDraftCheckDisuseCMD.do";
+
+                //submit 처리.
+                let objSubmit = await $c.sbm.execute(sbm_disuseDraft);
+
+                if(objSubmit.responseJSON.resultDataSet[0].Msg == "SUCC") {   
+                    await scwin.sbm_disuseDraft_submitdone();
+                }
+            } 
+        } 
+    }
+};
+
+
+
+//-------------------------------------------------------------------------
+// 폐기취소
+//-------------------------------------------------------------------------
+scwin.f_Cancel = async function() {
+    scwin.b_disusegb = false;
+	var cnt = 0;
+	var i = 0;
+	if(ds_disuse.getRowCount() == 0 ) {
+        await $c.win.alert(MSG_CM_ERR_003);
+        return false;
+    } else {
+        for ( i = 0 ; i < ds_disuse.getRowCount(); i++) {
+            if ( Number(ds_disuse.getCellData(i,"selYn")) > 0 ) {
+                cnt++;
+            }
+        }
+
+        if ( cnt <= 0 ) {
+            await $c.win.alert("폐기처리할 자료를 선택하십시오");
+            return false;
+        }
+
+        let ret = await $c.gus.cfValidate([gr_disuse]);
+        if (ret) {
+            let confirmResult = await $c.win.confirm(MSG_CM_CRM_001);
+            if(confirmResult){
+                for ( i = 0 ; i < ds_disuse.getRowCount(); i++) {
+                    if ( Number(ds_disuse.getCellData(i,"selYn")) > 0 ) {
+                        ds_disuse.setCellData(i,"draftStsCd", ds_disuse.getCellData(i,"bfDraftStsCd"));
+                        ds_disuse.setCellData(i,"bfDraftStsCd", scwin.DISUSE);
+                        ds_disuse.setCellData(i,"disuseDt", "");
+                    }
+                }
+
+                sbm_disuseDraft.action = "/ac.fm.paymgnt.notepay.CancelDraftCheckDisuseCMD.do";
+
+                //submit 처리.
+                let objSubmit = await $c.sbm.execute(sbm_disuseDraft);
+
+                if(objSubmit.responseJSON.resultDataSet[0].Msg == "SUCC") {   
+                    await scwin.sbm_disuseDraft_submitdone();
+                }
+            } 
+        } 
+    }
+};
+
+
+
+
+scwin.sbm_disuseDraft_submitdone = async function (e) {
+    await $c.win.alert(MSG_CM_INF_001);
+	$c.gus.cfDisableObjects([btn_disuse,btn_cancel]);
+	await scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    dma_condition.set("scClsCd", "2");
+
+    //submit 처리.
+    let objSubmit = await $c.sbm.execute(sbm_retrieveDraft);
+
+    if(objSubmit.responseJSON.resultDataSet[0].Msg == "SUCC") {   
+        await scwin.sbm_retrieveDraft_submitdone();
+    }
+};
+
+scwin.sbm_retrieveDraft_submitdone = async function (e) {
+    tbx_totalRows.setValue(ds_disuse.getRowCount());
+
+	if( ds_disuse.getRowCount() == 0 ) {
+		await $c.win.alert(MSG_CM_ERR_003);
+        return false;
+	}
+
+	if (lc_srchdraftStsCd.getValue() == scwin.DISUSE) {
+		$c.gus.cfEnableObjects([btn_cancel]);
+		$c.gus.cfDisableObjects([btn_disuse]);
+
+        gr_disuse.setReadOnly("column","disuseDt",true);
+	} else if (lc_srchdraftStsCd.getValue() == scwin.NEW || lc_srchdraftStsCd.getValue() == scwin.BLNK) {
+		$c.gus.cfEnableObjects([btn_disuse]);
+		$c.gus.cfDisableObjects([btn_cancel]);
+
+        gr_disuse.setReadOnly("column","disuseDt",false);
+	}else{
+		$c.gus.cfDisableObjects([btn_disuse,btn_cancel]);
+
+        gr_disuse.setReadOnly("column","disuseDt",true);
+	}
+	
+	if (lc_srchdraftStsCd.getValue() == scwin.NEW) {
+        gr_disuse.setHeaderClass("column22", "txt-red");     
+	} else {
+        gr_disuse.removeHeaderClass("column22", "txt-red")
+	}
+
+	//gr_disuse.ColumnProp('selYn', 'HeadCheck') = "FALSE"
+};
+
+//-------------------------------------------							
+// 그리드 데이터 엑셀로 다운							
+//-------------------------------------------	
+scwin.f_runExcel = async function () {
+    var totCnt      = ds_disuse.getRowCount();							
+    var sheetTitle  = "어음수표폐기처리 ";							
+                            
+    if ( totCnt != 0) {							
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");					
+                                    
+        if (cfrm) {							
+            const options = {
+                fileName: sheetTitle,
+                sheetName : sheetTitle,
+                type:1,
+                //footerColor: '#D4DAE2',
+                useStyle:true
+            };
+            $c.data.downloadGridViewExcel(gr_disuse, options);							
+        }							
+    } else {							
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);    							
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+scwin.tbx_totalRows_onclick = function (e) {
+    debugger;
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_draft_check_cls_cd" style="width: 150px;" submenuSize="fixed" displayMode="value delim label" ref="data:dma_condition.draftCheckClsCd">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="어음수표번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class="" id="ed_srchdraftCheckNo" style="width: 150px;" ref="data:dma_condition.draftCheckNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="수취일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_srchrecDt" style="" displayFormat="yyyy/MM/dd" ref="data:dma_condition.recDt"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="상태 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_srchdraftStsCd" style="width: 150px;" submenuSize="fixed" displayMode="value delim label" ref="data:dma_condition.draftStsCd">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_disuse" id="udc_topGrd" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_runExcel"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_disuse" focusMode="row"
+    					id="gr_disuse" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="true" columnMove="true" rowStatusVisible="true" rowStatusWidth="20">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true"></w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" style="" value="구분" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column36" inputType="text" style="" value="수취일자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" style="" value="어음수표번호" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column32" inputType="text" style="" value="수취은행" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" style="" value="상태" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" style="" value="발행일" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" style="" value="폐기일자" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="selYn" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true" falseValue="0" trueValue="1" valueType="other" readOnly="false"></w2:column>
+    							<w2:column displayMode="label" id="draftCheckClsCd" inputType="select" style="" value="" width="70" allOption=""
+    								chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_grid_draftCheckClsCd">
+    										<w2:label ref="cdNm"></w2:label>
+    										<w2:value ref="cd"></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="recDt" inputType="text" style="" value="" width="100" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column displayMode="label" id="draftCheckNo" inputType="text" style="" value="" width="120"></w2:column>
+    							<w2:column displayMode="label" id="issueBankNm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="draftStsCd" inputType="select" style="" value="" width="70" allOption=""
+    								chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_grid_draftStsCd">
+    										<w2:label ref="cdNm"></w2:label>
+    										<w2:value ref="cd"></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="prtDt" inputType="text" style="" value="" width="100" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column displayMode="label" id="disuseDt" inputType="calendar" style="" value="" width="100" readOnly="false" dataType="date" displayFormat="yyyy/MM/dd" viewTypeIconImage="false" allowChar="0-9"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span" ev:onclick="scwin.tbx_totalRows_onclick">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn white" id="btn_disuse" style="" type="button" ev:onclick="scwin.f_Disuse">
+    						<xf:label><![CDATA[폐기]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn white" id="btn_cancel" style="" type="button" ev:onclick="scwin.f_Cancel">
+    						<xf:label><![CDATA[폐기취소]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

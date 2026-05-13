@@ -1,0 +1,34 @@
+op_202_02_37p.log
+
+[2026-02-20 12:48:20.813] 변환 시작
+[2026-02-20 12:48:20.980] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 12:54:23.580] #1 검증: XML: WebSquareXmlValidator: score=0.18, grade=B, verdict=REVIEW, errors=3, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=3, warnings=6 | LLM 361689ms, total 362599ms
+    - [XML] scwin.f_openCommonPopUp에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_openCommonPopUp
+    - [XML] scwin.f_openCommonPopUp이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_openCommonPopUp
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: lc_selfCls2 (LUXECOMBO→w2:autoComplete), lc_tsCls2 (LUXECOMBO→w2:autoComplete), lc_bondTransVehclYn2 (LUXECOMBO→w2:autoComplete), lc_chassisPosInfo2 (LUXECOMBO→w2:autoComplete), lc_vehclCls2 (LUXECOMBO→w2:autoComplete)
+    - [적정성] async 선언 누락 — scwin.f_openCommonPopUp (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_openCommonPopUp → $c.gus.cfAlertMsg
+[2026-02-20 12:54:23.944] #1 검증: 자동수정 4건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 12:54:24.931] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.35, grade=B, verdict=REVIEW, errors=1, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 18건: lc_expimpClsCd1 (LUXECOMBO→w2:autoComplete), lc_fullEmptyClsCd1 (LUXECOMBO→w2:autoComplete), ed_crryinoutDt1 (EMEDIT→xf:input), lc_selfCls1 (LUXECOMBO→w2:autoComplete), lc_tsCls1 (LUXECOMBO→w2:autoComplete)
+[2026-02-20 12:54:31.361] #2 재시도 (에러 6건)
+[2026-02-20 12:54:32.367] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 13:01:00.289] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 387426ms, total 387922ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: lc_selfCls2 (LUXECOMBO→w2:autoComplete), lc_tsCls2 (LUXECOMBO→w2:autoComplete), lc_bondTransVehclYn2 (LUXECOMBO→w2:autoComplete), lc_chassisPosInfo2 (LUXECOMBO→w2:autoComplete), lc_vehclCls2 (LUXECOMBO→w2:autoComplete)
+[2026-02-20 13:01:00.292] #1 검증: 최적 시도 #1 채택 (confidence: 0.69)
+[2026-02-20 13:01:00.293] 실패 (2회 시도, 12m 39s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 ID 유지 — 누락 18건: lc_expimpClsCd1 (LUXECOMBO→w2:autoComplete), lc_fullEmptyClsCd1 (LUXECOMBO→w2:autoComplete), ed_crryinoutDt1 (EMEDIT→xf:input), lc_selfCls1 (LUXECOMBO→w2:autoComplete), lc_tsCls1 (LUXECOMBO→w2:autoComplete)
+================================================================================

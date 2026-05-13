@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true" ev:ondataload="scwin.ds_master_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="odrNo" name="오더번호" dataType=""></w2:column>
+    					<w2:column id="sellSeq" name="오더순서" dataType="text"></w2:column>
+    					<w2:column id="mchtOdrNo" name="크나우프오더번호" dataType="text"></w2:column>
+    					<w2:column id="bizLongNm" name="사업장" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="dmndNo" name="판매처번호" dataType="text"></w2:column>
+    					<w2:column id="salePlCoNm" name="거래처명" dataType=""></w2:column>
+    					<w2:column id="wrkPatternCd" name="오더종류" dataType=""></w2:column>
+    					<w2:column id="commClssCd" name="품목코드" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="commClssNm" name="품목명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="clntCommCd" name="품번" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="commNm" name="품명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="wrkQty" name="작업수량" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="qtyUnitCd" name="작업단위" dataType=""></w2:column>
+    					<w2:column id="smQty" name="SM수량" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="smQty1" name="SM단위" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="wrkWt" name="작업중량" dataType=""></w2:column>
+    					<w2:column id="unitCd" name="중량단위" dataType=""></w2:column>
+    					<w2:column id="arvWrkPlCd" name="권역" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="arvWrkPlCd1" name="권역1" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="arvWrkPlCd2" name="권역2" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="osideCdNm" name="우편명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="tplZip" name="우편번호" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="odrDt" name="오더일자" dataType=""></w2:column>
+    					<w2:column id="ioDt" name="입출고일자" dataType="text"></w2:column>
+    					<w2:column id="selfVehclNo" name="차량번호" dataType=""></w2:column>
+    					<w2:column id="maxShipwgtVol" name="차량규격" dataType="text"></w2:column>
+    					<w2:column id="col27" name="공장코드" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="selpchItemNm" name="매출입항목" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlCd" name="출발지" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="transWrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="bizLongCd" name="사업장" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="commCd" name="품목코드" dataType=""></w2:column>
+    					<w2:column id="dptDt" name="name36" dataType="text"></w2:column>
+    					<w2:column id="sellAmt" name="name37" dataType="number"></w2:column>
+    					<w2:column id="regBranCd" name="등록점소코드" dataType="text"></w2:column>
+    					<w2:column id="regBranNm" name="등록점소명" dataType="text"></w2:column>
+    					<w2:column id="sellUpr" name="name38" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_Query">
+    				<w2:keyInfo>
+    					<w2:key id="odrNo" name="name1" dataType="text"></w2:key>
+    					<w2:key id="mchtOdrNo" name="name2" dataType="text"></w2:key>
+    					<w2:key id="clntNo" name="name3" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="name4" dataType="text"></w2:key>
+    					<w2:key id="lobranCd" name="name5" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.transwrkrslts.RetrieveLafargeOrderInfoCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_Query","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.paramData = {};
+scwin.odrNo = "";
+scwin.mchtOdrNo = "";
+scwin.clntNo = "";
+scwin.wrkPlCd = "";
+scwin.lobranCd = "";
+
+
+scwin.onpageload = function () {
+    scwin.paramData = $c.data.getParameter();
+    console.log(scwin.paramData);
+    debugger;
+    if (!scwin.paramData) {
+        scwin.paramData = {
+            "odrNo": "",
+            "mchtOdrNo": "",
+            "clntNo": "",
+            "wrkPlCd": "",
+            "lobranCd": ""
+        };
+    }
+
+    scwin.odrNo 		= scwin.paramData.odrNo 	== null ? "" : scwin.paramData.odrNo;
+    scwin.mchtOdrNo 	= scwin.paramData.mchtOdrNo == null ? "" : scwin.paramData.mchtOdrNo;
+    scwin.clntNo 		= scwin.paramData.clntNo 	== null ? "" : scwin.paramData.clntNo;
+    scwin.wrkPlCd 		= scwin.paramData.wrkPlCd 	== null ? "" : "999";   //scwin.paramData.wrkPlCd;
+    scwin.lobranCd 		= scwin.paramData.lobranCd 	== null ? "" : scwin.paramData.lobranCd;
+
+    dma_Query.set("odrNo", scwin.odrNo);
+    dma_Query.set("mchtOdrNo", scwin.mchtOdrNo);
+    dma_Query.set("clntNo", scwin.clntNo);
+    dma_Query.set("wrkPlCd", scwin.wrkPlCd);
+    dma_Query.set("lobranCd", scwin.lobranCd);
+
+    if (scwin.odrNo == "" && scwin.mchtOdrNo == "") {
+        return;
+    }
+    $c.sbm.execute(sbm_retrieve);
+};
+
+// 조회
+scwin.f_Retrieve = async function (e) {
+    if ($c.util.isEmpty(ed_odrNo.getValue()) && $c.util.isEmpty(ed_mchtOdrNo.getValue())) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["오더번호"]);
+        return;
+    }
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (ds_master.getRowCount() == 0) {
+        $c.win.alert("조회된 데이터가 없습니다.");
+    } else {
+        totalRows.setValue(ds_master.getRowCount());
+    }
+};
+
+//화면 종료시
+scwin.f_OnUnload = function (row) {
+    ds_master.getCellData(row, "odrNo");
+    let callbackParam = {
+        odrNo			: ds_master.getCellData(row, "odrNo"),
+        sellSeq			: ds_master.getCellData(row, "sellSeq"),
+        mchtOdrNo		: ds_master.getCellData(row, "mchtOdrNo"),
+        bizLongNm		: ds_master.getCellData(row, "bizLongNm"),
+        dmndNo			: ds_master.getCellData(row, "dmndNo"),
+        salePlCoNm		: ds_master.getCellData(row, "salePlCoNm"),
+        wrkPatternCd	: ds_master.getCellData(row, "wrkPatternCd"),
+        commClssCd		: ds_master.getCellData(row, "commClssCd"),
+        commClssNm		: ds_master.getCellData(row, "commClssNm"),
+        clntCommCd		: ds_master.getCellData(row, "clntCommCd"),
+        commNm			: ds_master.getCellData(row, "commNm"),
+        wrkQty			: ds_master.getCellData(row, "wrkQty"),
+        qtyUnitCd		: ds_master.getCellData(row, "qtyUnitCd"),
+        smQty			: ds_master.getCellData(row, "smQty"),
+        smQty1			: ds_master.getCellData(row, "smQty1"),
+        wrkWt			: ds_master.getCellData(row, "wrkWt"),
+        unitCd			: ds_master.getCellData(row, "unitCd"),
+        arvWrkPlCd		: ds_master.getCellData(row, "arvWrkPlCd"),
+        arvWrkPlCd1		: ds_master.getCellData(row, "arvWrkPlCd1"),
+        arvWrkPlCd2		: ds_master.getCellData(row, "arvWrkPlCd2"),
+        osideCdNm		: ds_master.getCellData(row, "osideCdNm"),
+        tplZip			: ds_master.getCellData(row, "tplZip"),
+        odrDt			: ds_master.getCellData(row, "odrDt"),
+        ioDt			: ds_master.getCellData(row, "ioDt"),
+        selfVehclNo		: ds_master.getCellData(row, "selfVehclNo"),
+        maxShipwgtVol	: ds_master.getCellData(row, "maxShipwgtVol"),
+        mchtOdrNo		: ds_master.getCellData(row, "mchtOdrNo"),
+        selpchItemNm	: ds_master.getCellData(row, "selpchItemNm"),
+        dptWrkPlCd		: ds_master.getCellData(row, "dptWrkPlCd"),
+        transWrkIndictNo: ds_master.getCellData(row, "transWrkIndictNo"),
+        bizLongCd		: ds_master.getCellData(row, "bizLongCd"),
+        clntNo			: ds_master.getCellData(row, "clntNo"),
+        commCd			: ds_master.getCellData(row, "commCd"),
+        dptDt			: ds_master.getCellData(row, "dptDt"),
+        sellAmt			: ds_master.getCellData(row, "sellAmt"),
+        regBranCd		: ds_master.getCellData(row, "regBranCd"),
+        regBranNm		: ds_master.getCellData(row, "regBranNm"),
+        sellUpr			: ds_master.getCellData(row, "sellUpr"),
+    };
+
+    $c.win.closePopup(callbackParam);
+};
+
+scwin.ed_odrNo_oneditkeyup = function (info, e) {
+    let val = info.newValue;
+    this.setValue(val.toUpperCase());
+};
+
+scwin.ed_mchtOdrNo_oneditkeyup = function (info, e) {
+    let val = info.newValue;
+    this.setValue(val.toUpperCase());
+};
+
+scwin.btn_trigger1_onclick = function (e) {
+
+    let rowCnt = ds_master.getRowCount()
+    
+    if (rowCnt == 1){
+        scwin.f_OnUnload(0);
+    }else{
+        scwin.f_OnUnload(gr_master.getFocusedRowIndex());
+    }
+    
+};
+
+scwin.gr_master_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.f_OnUnload(rowIndex);
+};
+
+scwin.f_FieldClear = function (e) {
+    totalRows.setValue(0);
+    ed_odrNo.setValue("");
+    ed_mchtOdrNo.setValue("");
+    ds_master.removeAll();
+};
+
+scwin.ds_master_ondataload = function () {
+    if(ds_master.getRowCount() == 1) {
+        scwin.f_OnUnload(0);
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="tb_mainData" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="당사오더번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_odrNo" style="width:150px;" objType="data" maxlength="13"
+    								allowChar="a-zA-Z0-9" ref="data:dma_Query.odrNo" validateOnInput="true" ev:oneditkeyup="scwin.ed_odrNo_oneditkeyup">
+    							</xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="화주오더번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mchtOdrNo" style="width:150px;" objType="data" maxlength="20"
+    								allowChar="a-zA-Z0-9" ref="data:dma_Query.mchtOdrNo" ev:oneditkeyup="scwin.ed_mchtOdrNo_oneditkeyup" validateOnInput="true">
+    							</xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+    					ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group style="" id="" class="title-wrap">
+    				<xf:group id="" class="right">
+    					<w2:udc_topGrdBtn gridDownYn="N" gridUpYn="N" grp="grd_section1" templateYn="N" style="" gridID="gr_master"
+    						btnUser="Y" btnPlusYn="N">
+    					</w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_master" id="gr_master" style="" visibleRowNum="10"
+    					visibleRowNumFix="true" ev:oncelldblclick="scwin.gr_master_oncelldblclick" readOnly="true" showSortableUseFilter="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="오더번호" width="130"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="오더&lt;br/&gt;순서" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="크나우프&lt;br/&gt;오더번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="사업장" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="판매처번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="거래처명" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="오더종류" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="품목코드" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" value="품목명" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="품번" width="100"></w2:column>
+    							<w2:column width="170" inputType="text" id="column41" value="품명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column39" value="작업수량" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column37" value="작업단위" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column35" value="SM수량" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column33" value="SM단위" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column31" value="작업중량" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column29" value="중량단위" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column27" value="권역" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column21" value="권역1" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="column23" value="권역2" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column25" value="우편명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column61" value="우편번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column59" value="오더일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="column57" value="입출고일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column55" value="차량번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column53" value="차량규격" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="column49" value="매출입항목" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="column43" value="출발지" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="column45" value="작업지시번호" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="column47" value="사업장" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="column69" value="거래처번호" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="column67" value="품목코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="column63" value="등록점소코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="column65" value="등록점소명" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="odrNo" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="sellSeq" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="mchtOdrNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="bizLongNm" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="dmndNo" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="salePlCoNm" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="wrkPatternCd" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="commClssCd" inputType="text" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="commClssNm" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="clntCommCd" inputType="text" width="70"></w2:column>
+    							<w2:column width="170" inputType="text" id="commNm" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="wrkQty" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="qtyUnitCd" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="smQty" displayMode="label" dataType="number"
+    								displayFormat="#,##0.0">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="smQty1" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="wrkWt" displayMode="label" dataType="number"
+    								displayFormat="#,##0.000">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="unitCd" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="arvWrkPlCd" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="arvWrkPlCd1" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="arvWrkPlCd2" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="osideCdNm" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="tplZip" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="odrDt" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="ioDt" displayMode="label" dataType="date"
+    								displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="selfVehclNo" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="maxShipwgtVol" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="selpchItemNm" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="dptWrkPlCd" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="transWrkIndictNo" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="bizLongCd" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="clntNo" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="commCd" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="regBranCd" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="regBranNm" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<w2:textbox class="info-ico" id="" label="자가운송건은 조회되지 않습니다." style="" tagname="p"></w2:textbox></xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_trigger1" style="" type="button" ev:onclick="scwin.btn_trigger1_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

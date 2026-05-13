@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_RetrieveWorkResult" saveRemovedData="true" ev:ondataload="scwin.ds_RetrieveWorkResult_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="selpchItemCd" name="컬럼헤더명" dataType="text"></w2:column>
+    					<w2:column id="selpchItemNm" name="매입항목명" dataType="text"></w2:column>
+    					<w2:column id="selpchItemEngNm" name="매입항목 영문명" dataType="text"></w2:column>
+    					<w2:column id="sellPchsCls" name="매출입;구분" dataType="text"></w2:column>
+    					<w2:column id="sellYn" name="컬럼헤더명" dataType="text"></w2:column>
+    					<w2:column id="pchsYn" name="컬럼헤더명" dataType="text"></w2:column>
+    					<w2:column id="bizDom" name="사업영역" dataType="text"></w2:column>
+    					<w2:column id="sellDrAcctCd" name="매출차변명" dataType="text"></w2:column>
+    					<w2:column id="sellDrAcctNm" name="매출대변명" dataType="text"></w2:column>
+    					<w2:column id="sellCrAcctCd" name="컬럼헤더명" dataType="text"></w2:column>
+    					<w2:column id="sellCrAcctNm" name="매출차변명" dataType="text"></w2:column>
+    					<w2:column id="pchsDrAcctCd" name="컬럼헤더명" dataType="text"></w2:column>
+    					<w2:column id="pchsDrAcctNm" name="매입대변명" dataType="text"></w2:column>
+    					<w2:column id="pchsCrAcctCd" name="컬럼헤더명" dataType="text"></w2:column>
+    					<w2:column id="pchsCrAcctNm" name="매입차변명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_QueryCondition">
+    				<w2:keyInfo>
+    					<w2:key id="selpchItemCd" name="물류점소코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.fs.adjm.adjmbdcalc.RetrieveSellPchItemInfoCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_QueryCondition","key":"IN_DS1"},{"id":"ds_RetrieveWorkResult","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_RetrieveWorkResult","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="조회 중..." ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitDone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// 완료라고 보면 됨 검토만 하는걸로
+//-------------------------------------------------------------------------
+// 모화면 파라미터
+//-------------------------------------------------------------------------
+scwin.args = "";
+scwin.selpchItemCd = "";
+
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.popTitleCh();
+
+
+    scwin.args = $p.getAllParameter().paramData.data;
+    scwin.selpchItemCd = scwin.args[0];
+
+    console.log("파라미터 체크"+scwin.selpchItemCd);
+
+    //공통코드데이터 호출   
+    const codeOptions = [
+        { grpCd: "FS401", compID: "acb_selPchItemCd" } // 셀렉트
+    ];
+    $c.data.setCommonCode(codeOptions);	
+
+
+    dma_QueryCondition.set("selpchItemCd", scwin.selpchItemCd);
+
+
+    $c.sbm.execute(sbm_retrieve);
+
+    
+};
+
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("매입항목 계정 연결 정보");
+
+}
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.btn_retrieveButton_onClick = function (e) {
+    
+    dma_QueryCondition.set("selpchItemCd", acb_selPchItemCd.getValue());
+    
+    $c.sbm.execute(sbm_retrieve);
+};
+
+
+
+//-------------------------------------------------------------------------
+// 데이터 로드 완료시
+//-------------------------------------------------------------------------
+scwin.ds_RetrieveWorkResult_ondataload = function () {
+    let rowCnt = ds_RetrieveWorkResult.getTotalRow();
+
+    if(rowCnt == 0) {
+        $c.win.alert($c.data.getMessage(MSG_CM_ERR_003, "매입항목 계정 연결 정보"));
+    }
+
+    spa_totalRows.setValue(rowCnt);
+};
+
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.btn_close_onClick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group id="" class="left">
+    								<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width: 200px;"
+    									id="acb_selPchItemCd" class=" bold" allOption="" chooseOption="" ref="" displayMode="label">
+    									<w2:choices></w2:choices>
+    								</w2:autoComplete>
+    								<xf:trigger style="" id="btn_retrieveButton" type="button" class="btn sch" userAuth="R" ev:onclick="scwin.btn_retrieveButton_onClick">
+    									<xf:label><![CDATA[조회]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownYn="Y" gridID="gr_RetrieveWorkResult" id="udc_grid_excel" grdDownOpts='{"fileName":"중기별 전체 상세 작업실적.xlsx", "sheetName": "중기별 전체 상세 작업실적"}'></w2:udc_topGrdBtn>
+    							</xf:group>
+
+
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    								<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_RetrieveWorkResult"
+    									id="gr_RetrieveWorkResult" style="" visibleRowNum="10" visibleRowNumFix="true" autoFit="allColumn" resize="true"
+    									columnMove="true" readOnly="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="매입항목명" width="140">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="매입항목 영문명" width="140"
+    												escape="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="매출입 구분" width="150"
+    												escape="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" value="사업영역" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" value="매출차변명" width="100" hidden="true" hiddenCol="true"></w2:column>
+    											<w2:column displayMode="label" id="column7" inputType="text" value="매출대변명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column33" value="매출차변명" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column31" value="컬럼헤더명" displayMode="label"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column29" value="매입대변명" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column27" value="컬럼헤더명" displayMode="label"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column21" value="매입차변명" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="selpchItemCd" inputType="text" width="100" hidden="true"
+    												hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="selpchItemNm" inputType="text" width="140"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="selpchItemEngNm" inputType="text" width="140"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="sellPchsCls" inputType="text" width="150"></w2:column>
+    											<w2:column displayMode="label" id="sellYn" inputType="text" width="100" hidden="true"
+    												hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="pchsYn" inputType="text" width="100" hidden="true"
+    												hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="bizDom" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="sellDrAcctCd" inputType="text" width="100"
+    												textAlign="left" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="sellDrAcctNm" inputType="text" width="100"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="sellCrAcctCd" inputType="text" width="100" hidden="true"
+    												hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="sellCrAcctNm" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="pchsDrAcctCd" displayMode="label" hidden="true"
+    												hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="pchsDrAcctNm" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="pchsCrAcctCd" displayMode="label" hidden="true"
+    												hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="pchsCrAcctNm" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+                                        <w2:footer style="" id="footer1">
+    										<w2:row style="" id="row6">
+    											<w2:column width="70" inputType="text" style="" id="column288" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column287" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column286" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column285" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column284" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column283" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column282" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column281" value="" displayMode="label" >
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column280" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column279" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column278" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column277" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column276" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column275" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column274" value="" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spa_totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onClick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

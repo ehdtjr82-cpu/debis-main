@@ -1,0 +1,574 @@
+/*amd /ui/ac/fm/acctrecvmgnt/crdtmgnt/fm_604_01_01b.xml 43847 82b6f46670df35e812fa5e29e063ad34ee2e8a52b8b0f5e935ebd5245ecf8a44 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_excel',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'confYr',name:'신용년도',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자등록번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confGrd',name:'신용등급',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liablRt',name:'부채비율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmtIncrRt',name:'매출금액증가율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'flowRt',name:'유동비율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmtMwoundMarginRt',name:'매출금액경상이익율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'totSellAmt',name:'총매출금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'aset',name:'자산',dataType:'number'}},{T:1,N:'w2:column',A:{id:'capi',name:'자본',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bizStDd',name:'사업시작일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'entrScal',name:'기업척도',dataType:'text'}},{T:1,N:'w2:column',A:{id:'staffCnt',name:'인원',dataType:'number'}},{T:1,N:'w2:column',A:{id:'closureQuitYn',name:'휴업폐업여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_temp',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'confYr',name:'신용년도',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자등록번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confGrd',name:'신용등급',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liablRt',name:'부채비율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmtIncrRt',name:'매출금액증가율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'flowRt',name:'유동비율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmtMwoundMarginRt',name:'매출금액경상이익율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'totSellAmt',name:'총매출금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'aset',name:'자산',dataType:'number'}},{T:1,N:'w2:column',A:{id:'capi',name:'자본',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bizStDd',name:'사업시작일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'entrScal',name:'기업척도',dataType:'text'}},{T:1,N:'w2:column',A:{id:'staffCnt',name:'인원',dataType:'number'}},{T:1,N:'w2:column',A:{id:'closureQuitYn',name:'휴업폐업여부',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_searchConfidenceInfo'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'confYr',name:'신용년도',dataType:'text'}},{T:1,N:'w2:key',A:{id:'crn',name:'사업자번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'crnNm',name:'사업자명',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_ConfidenceInfo',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'num',name:'선택여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confYr',name:'신용년도',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자등록번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crnNm',name:'사업자명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confGrd',name:'신용등급',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liablRt',name:'부채비율',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellAmtIncrRt',name:'매출금액증가율',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'flowRt',name:'유동비율',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellAmtMwoundMarginRt',name:'매출금액경상이익율',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'totSellAmt',name:'총매출금액',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'aset',name:'자산',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'capi',name:'자본',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'bizStDd',name:'사업시작일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'entrScal',name:'기업척도',dataType:'text'}},{T:1,N:'w2:column',A:{id:'staffCnt',name:'인원',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'closureQuitYn',name:'휴업폐업여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_judge',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'col1',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_judgeCondition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'시스템코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'쿼리ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'파라메터1',dataType:'text'}}]}]}]},{T:1,N:'xf:submission',A:{id:'sbm_judge',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_judgeCondition',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_judge_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_searchConfidenceInfo',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_searchConfidenceInfo","key":"IN_DS1"},{"id":"ds_ConfidenceInfo","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_ConfidenceInfo","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_searchConfidenceInfo_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_ConfidenceInfo',action:'',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_ConfidenceInfo","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_ConfidenceInfo_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_createCreditLimit',action:'/ac.fm.acctrecvmgnt.crdtmgnt.ProcessCreateCreditLimitCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_ConfidenceInfo","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_createCreditLimit_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.memJson = $c.data.getMemInfo($p); // 로그인 정보를 가져온다.
+scwin.g_sUserId = scwin.memJson.empNo;
+scwin.gJudgeYn = "0";
+//-------------------------------------------------------------------------
+// 전역변수 선언
+//-------------------------------------------------------------------------
+scwin.pos_groupCode = 0; // Grid의 저장시 위치로 이동하게 하는 전역변수
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  //공통코드 적용
+  const codeOptions = [{
+    grpCd: "FM056",
+    compID: "gr_ConfidenceInfo:confGrd"
+  }, {
+    grpCd: "FM088",
+    compID: "gr_ConfidenceInfo:entrScal"
+  }, {
+    grpCd: "FM089",
+    compID: "gr_ConfidenceInfo:closureQuitYn"
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  ed_crn.focus();
+  scwin.f_Reset();
+  scwin.f_retrieveJudge();
+};
+
+//-------------------------------------------------------------------------
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+//-------------------------------------------------------------------------
+scwin.ondataload = function () {};
+
+//-------------------------------------------------------------------------
+// 사업자번호 찾기
+//-------------------------------------------------------------------------
+scwin.udc_crn_onclickEvent = function (e) {
+  scwin.f_openPopUp(ed_crn, ed_crnNm, '3', 'ALL');
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+// flag값이 CD:코드변경이 없으면 POPUP안뛰움, NM:무조건 POPUP뛰움
+//-------------------------------------------------------------------------
+scwin.f_CheckPopUp = function (orgObjCd, orgObjNm, select_code, flag) {
+  try {
+    if (flag == "CD") {
+      if (orgObjCd.getValue() == orgObjCd.hidVal) {
+        return;
+      } else {
+        orgObjNm.setValue("");
+      }
+    } else {
+      if (orgObjNm.getValue() == orgObjNm.hidVal) {
+        return;
+      } else {
+        orgObjCd.setValue("");
+      }
+    }
+    if (orgObjCd.getValue().trim() != "" || flag == "NM") {
+      if (orgObjNm.getValue().trim() != "" || flag == "CD") {
+        orgObjCd.setValue(orgObjCd.getValue().trim());
+        orgObjNm.setValue(orgObjNm.getValue().trim());
+        scwin.f_openPopUp(orgObjCd, orgObjNm, select_code, "NO");
+      }
+    } else {
+      orgObjNm.setValue("");
+      orgObjCd.setValue("");
+      orgObjCd.hidVal = "";
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:조회->귀속부서, 2:조회->거래처
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function (orgObjCd, orgObjNm, select_code, flag) {
+  try {
+    let cd = "";
+    let nm = "";
+
+    // POPUP 돋보기 클릭시는 모든값을 조회 할 수 있도록 한다. flag:ALL일 경우는 돋보기 클릭한것임.
+    // 넘어온 OBJ가 EMEdit인지 TextBox인지 구분한다.
+    if (flag == "ALL") {
+      cd = "";
+      nm = "";
+    } else {
+      cd = orgObjCd.getValue();
+      nm = orgObjNm.getValue();
+    }
+    switch (select_code) {
+      // 사업자번호
+      case '3':
+        //rtnList = cfCommonPopUp('retrieveCreditCrnInfo',cd,nm,"T",null,null,null,null,null,null,null,null,null); //사업자번호
+        udc_crn.setSelectId('retrieveCreditCrnInfo');
+        udc_crn.cfCommonPopUp(scwin.udc_crn_callBackFunc // 콜백 함수
+        , cd // 화면에서의 ??? Code Element의 Value
+        , nm // 화면에서의 ??? Name Element의 Value
+        , 'T' // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+        , null // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null // Title순서
+        , null // 보여주는 각 컬럼들의 폭
+        , null // 컬럼중에서 숨기는 컬럼 지정
+        , null // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+        , null // POP-UP뛰을때 원도우의 사용자 정의 폭
+        , null // POP-UP뛰을때 윈도우의 사용자 정의 높이
+        , null // 윈도우 위치 Y좌표
+        , null // 윈도우 위치 X좌표
+        , null // 중복체크여부	("F")
+        , null // 전체검색허용여부	("F")
+        , null // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+        );
+        break;
+      default:
+        $c.gus.cfAlertMsg($p, "잘못된 Function호출 입니다. 관리자에게 문의하시기 바랍니다.");
+        break;
+    }
+  } catch (e) {
+    console.log("f_openPopUp : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 사업자번호 팝업 콜백
+//-------------------------------------------------------------------------
+scwin.udc_crn_callBackFunc = function (ret) {
+  try {
+    // 선언부
+    let rtnList = new Array(); // 공통POP-UP -> 요청화면
+    rtnList = ret;
+    if (rtnList != null) {
+      if (rtnList[0] == "N/A") return;
+      ed_crn.setValue(rtnList[0]); // 코드값
+      ed_crnNm.setValue(rtnList[1]); // 코드명
+      ed_crn.hidVal = rtnList[0]; // HIDDEN 코드값
+      ed_crnNm.hidVal = rtnList[0]; // HIDDEN 코드값
+    } else {
+      ed_crn.setValue("");
+      ed_crnNm.setValue("");
+      ed_crn.hidVal = "";
+      ed_crnNm.hidVal = "";
+    }
+  } catch (e) {
+    console.log("udc_crn_callBackFunc " + e);
+  }
+};
+scwin.gr_ConfidenceInfo_ontextimageclick = function (rowIndex, columnIndex) {
+  try {
+    let colid = gr_ConfidenceInfo.getColumnID(columnIndex);
+    if (colid == "crn") {
+      scwin.f_openCommonPopUp('2', "crn", "crnNm", rowIndex, 'F');
+    }
+  } catch (e) {
+    console.log("gr_ConfidenceInfo_ontextimageclick " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// ASIS  gr_ConfidenceInfo event=OnExit
+//-------------------------------------------------------------------------
+scwin.gr_ConfidenceInfo_onafteredit = function (rowIndex, columnIndex, value, info) {
+  let colid = gr_ConfidenceInfo.getColumnID(columnIndex);
+  if (colid == "crn") {
+    if (info.type === 'mousedown') {
+      //테스트해보면 입력에는 keydown, 이미지클릭시 mousedown
+      //console.log("방지");
+      return false; // onafteredit 로직 중단
+    }
+    scwin.f_checkCommonPopUp('2', "crn", "crnNm", rowIndex);
+  }
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.(그리드용)
+//-------------------------------------------------------------------------
+scwin.f_checkCommonPopUp = function (select_code, pCode, pName, Row) {
+  try {
+    // 선언부
+    let code = ds_ConfidenceInfo.getCellData(Row, pCode); //let code = ds_ConfidenceInfo.getCellData(Row, pCode);
+
+    if (code.trim() != "") {
+      scwin.f_openCommonPopUp(select_code, pCode, pName, Row, "T");
+    } else {
+      ds_ConfidenceInfo.setCellData(Row, pCode, "");
+      ds_ConfidenceInfo.setCellData(Row, pName, "");
+    }
+  } catch (e) {
+    console.log("f_checkCommonPopUp " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 사업자팝업
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (select_code, pCode, pName, Row, pClose) {
+  try {
+    // 선언부
+    let code = ds_ConfidenceInfo.getCellData(Row, pCode);
+    if (code == null || code == "") code = "";
+    switch (select_code) {
+      // 여신대상사업자번호 PopUp 호출
+      case '2':
+        //sCmdName = "retrieveCreditCrnInfo"
+        //rtnList = cfCommonPopUp(sCmdName,code,"",pClose,null,null,null,null,null,null,null,null,null,null,null,null,null); // 여신대상사업자번호
+        //ASIS 팝업호출시 전체검색되지 않는데 TOBE 전체검색처리되어 하단 전체검색허용여부 F 추가함.
+        udc_comCodeGrid.setSelectId('retrieveCreditCrnInfo');
+        udc_comCodeGrid.cfCommonPopUp(scwin.udcGrid_crn_callBackFunc // 콜백 함수
+        , code // 화면에서의 ??? Code Element의 Value
+        , '' // 화면에서의 ??? Name Element의 Value
+        , pClose // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+        , null // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null // Title순서
+        , null // 보여주는 각 컬럼들의 폭
+        , null // 컬럼중에서 숨기는 컬럼 지정
+        , null // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+        , null // POP-UP뛰을때 원도우의 사용자 정의 폭
+        , null // POP-UP뛰을때 윈도우의 사용자 정의 높이
+        , null // 윈도우 위치 Y좌표
+        , null // 윈도우 위치 X좌표
+        , null // 중복체크여부	("F")
+        , 'F' // 전체검색허용여부	("F")
+        , null // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+        );
+        break;
+    }
+  } catch (e) {
+    console.log("f_openCommonPopUp " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 팝업 콜백(사럽자)
+//-------------------------------------------------------------------------
+scwin.udcGrid_crn_callBackFunc = function (ret) {
+  $c.gus.cfSetGridReturnValue($p, ret, ds_ConfidenceInfo, ds_ConfidenceInfo.getRowPosition(), "crn", "crnNm");
+};
+
+//-------------------------------------------------------------------------
+//저장 완료후 화면 Reset시 사용하는 함수 
+//-------------------------------------------------------------------------
+scwin.f_Reset = function () {
+  scwin.f_Initial();
+};
+
+//-------------------------------------------------------------------------
+//초기화 관련 변수 정의 함수
+//-------------------------------------------------------------------------
+scwin.f_Initial = function () {
+  $c.gus.cfDisableKey($p);
+};
+
+//-------------------------------------------------------------------------
+// 심사권한조회
+//-------------------------------------------------------------------------
+scwin.f_retrieveJudge = function () {
+  const params = {
+    sysCd: "CommonEBC",
+    queryId: "retrieveBorrowAcqKindInfo",
+    param1: "FM092"
+  };
+
+  //데이터셋에 정보설정
+  ds_judgeCondition.setJSON(params);
+  $c.sbm.execute($p, sbm_judge);
+};
+
+//-------------------------------------------------------------------------
+// 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_judge_submitdone = function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+  if (e.responseJSON.GAUCE) {
+    ds_judge.setJSON(e.responseJSON.GAUCE);
+    for (let i = 0; i < ds_judge.getRowCount(); i++) {
+      if (ds_judge.getCellData(i, "col1") == scwin.g_sUserId) {
+        scwin.gJudgeYn = "1";
+      }
+    }
+    if (scwin.gJudgeYn == "1") {
+      $c.gus.cfEnableObjects($p, [btn_set]);
+    } else {
+      $c.gus.cfDisableObjects($p, [btn_set]);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  try {
+    if (ed_crn.getValue().trim() == "" && ed_crnNm.getValue().trim() == "") {
+      // 필수 조회조건 입력 여부(거래처명) Check
+      /*let ret = await $c.gus.cfValidate([ed_crnNm]);
+      if (!ret) {
+          return false;
+      }
+      UDC에서 명의 타이틀을 못읽는 현상으로 임시 처리로 변경.
+      */
+      if (ed_crnNm.getValue() == "") {
+        await $c.gus.cfAlertMsg($p, "사업자명은(는) 필수 입력 항목입니다.");
+        ed_crnNm.focus();
+        return false;
+      }
+    }
+    sbm_searchConfidenceInfo.action = "/ac.fm.acctrecvmgnt.crdtmgnt.RetrieveConfidenceInformationListCMD.do";
+    ds_ConfidenceInfo.removeAll();
+    $c.sbm.execute($p, sbm_searchConfidenceInfo);
+  } catch (e) {
+    console.log("f_Retrieve " + e);
+  }
+};
+
+//sbm_searchConfidenceInfo_submitdone
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_searchConfidenceInfo_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+    tbx_totalRows.setValue($c.gus.cfInsertComma($p, ds_ConfidenceInfo.getRowCount()));
+    if (ds_ConfidenceInfo.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    }
+
+    // 저장전의 위치로 이동시킨다.
+    $c.gus.cfGoPrevPosition($p, gr_ConfidenceInfo, scwin.pos_groupCode);
+  } catch (e) {
+    console.log("sbm_searchConfidenceInfo_submitdone " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_AddRow = async function () {
+  try {
+    let row = $c.data.insertRow($p, $p.getComponentById("gr_ConfidenceInfo"));
+  } catch (e) {
+    console.log("f_AddRow : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 행삭제
+//-------------------------------------------------------------------------
+scwin.f_delMarked = async function () {
+  try {
+    for (let i = 0; i < ds_ConfidenceInfo.getRowCount(); i++) {
+      if (ds_ConfidenceInfo.getCellData(i, "num") == "T") {
+        //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+        if (ds_ConfidenceInfo.getRowStatus(i) == "C") {
+          ds_ConfidenceInfo.removeRow(i);
+        } else {
+          ds_ConfidenceInfo.deleteRow(i);
+          $c.gus.cfGoPrevPosition($p, gr_ConfidenceInfo, i);
+        }
+      }
+    }
+  } catch (e) {
+    console.log("f_delMarked : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_Undo = function () {
+  try {
+    //for (let i=0; i < ds_ConfidenceInfo.getRowCount(); i++){
+    for (let i = ds_ConfidenceInfo.getRowCount(); i >= 0; i--) {
+      //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+      if (ds_ConfidenceInfo.getRowStatus(i) == "C") {
+        ds_ConfidenceInfo.removeRow(i);
+      } else {
+        ds_ConfidenceInfo.undoRow(i);
+        //TODO 포커스 확인필요.
+        //$c.gus.cfGoPrevPosition(gr_ConfidenceInfo, ds_ConfidenceInfo.getRowPosition());    
+      }
+    }
+  } catch (e) {
+    console.log("f_Undo : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (info) {
+  try {
+    if (ds_ConfidenceInfo.getModifiedIndex().length == 0) {
+      $c.gus.cfAlertMsg($p, "변경된 사항이 없습니다.");
+      return false;
+    }
+
+    // 필수입력사항에 대해서 Check한다.
+    let ret = await $c.gus.cfValidate($p, [gr_ConfidenceInfo]);
+    if (!ret) {
+      return false;
+    }
+
+    // 저장확인
+    if (await $c.win.confirm($p, "저장하시겠습니까?")) {
+      scwin.pos_crn = ds_ConfidenceInfo.getRowPosition();
+      sbm_ConfidenceInfo.action = "/ac.fm.acctrecvmgnt.crdtmgnt.RegistConfidenceInformationCMD.do";
+      $c.sbm.execute($p, sbm_ConfidenceInfo);
+    }
+  } catch (e) {
+    console.log("f_Save : " + e);
+  }
+};
+//그리드 필수정보. for (i=0; i< ds_acctRecv.getRowCount(); i++){
+//confYr :신용년도:yes:number&length=4,
+//crn:사업자번호:yes:number&length=10,confGrd:신용등급:yes,liablRt:부채비율:yes:number,liablRt:매출액증가율:yes:number
+
+//-------------------------------------------------------------------------
+// 저장 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_ConfidenceInfo_submitdone = async function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    await $c.gus.cfAlertMsg($p, MSG_CM_INF_001); // 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+  } catch (e) {
+    console.log("sbm_ConfidenceInfo_submitdone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀저장
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function () {
+  if (await $c.win.confirm($p, "Excel로 다운로드 하시겠습니까?")) {
+    const options = {
+      fileName: "신용정보조회.xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+      ,
+      sheetName: "신용정보" //엑셀내 시트명 지정필요시
+    };
+    const infoArr = [];
+    $c.data.downloadGridViewExcel($p, gr_ConfidenceInfo, options, infoArr);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 일괄한도설정
+//-------------------------------------------------------------------------
+scwin.f_Create = async function () {
+  try {
+    if (ed_confYr.getValue().trim() == "") {
+      //필수 조회조건 입력 여부(신용년도) Check
+      let ret = await $c.gus.cfValidate($p, [ed_confYr]);
+      if (!ret) {
+        return false;
+      }
+    }
+    if (await $c.win.confirm($p, "일괄한도를 설정하시겠습니까?")) {
+      $c.sbm.execute($p, sbm_createCreditLimit);
+    }
+  } catch (e) {
+    console.log("f_Create : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 일괄한도설정 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_createCreditLimit_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    $c.gus.cfAlertMsg($p, MSG_CM_INF_001); // 성공적으로 저장하였습니다
+  } catch (e) {
+    console.log("sbm_createCreditLimit_submitdone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 Upload
+// TOBE 변경 엑셀을 그리드에 업로드 처리한 후 해당 정보를 다시 원래 그리드로 옮김
+// TOBE ds_temp 미사용 그리드에 바인드시킨 ds_excel만 사용함.
+//-------------------------------------------------------------------------
+scwin.f_Import = async function () {
+  try {
+    ds_excel.setJSON([]); //ds_excel.removeAll();
+    console.log("excelUdc.getUpExt() :" + excelUdc.getUpExt());
+    if (excelUdc.getUpExt() == "1") {
+      // csv
+      let options = {
+        "fileName": "gridDataUpload.csv",
+        "status": "C",
+        "header": 1,
+        "useMaxByteLength": ",",
+        "type": "1",
+        "startRowIndex": 0,
+        "footerExist": "0"
+      };
+      await $c.data.uploadGridViewCSV($p, gr_excelUpload, options);
+    } else {
+      // 엑셀
+      let options = {
+        "fileName": "gridDataUpload.xlsx",
+        "status": "C",
+        "headerExist": 1,
+        "useMaxByteLength": ",",
+        "type": "1",
+        "startRowIndex": 0,
+        "footerExist": "0"
+      };
+      await $c.data.uploadGridViewExcel($p, gr_excelUpload, options);
+    }
+  } catch (e) {
+    console.log("f_Import : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 업로드 진행 후 
+//-------------------------------------------------------------------------
+scwin.gr_excelUpload_onfilereadend = function (value) {
+  let row = 0;
+  if (ds_excel.getRowCount() == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_ERR_003);
+    return false;
+  } else {
+    //ASIS f_AddRowUploaded
+    ds_ConfidenceInfo.removeAll();
+    for (let i = 0; i < ds_excel.getRowCount(); i++) {
+      row = ds_ConfidenceInfo.insertRow(i);
+      ds_ConfidenceInfo.setCellData(row, "confYr", ds_excel.getCellData(i, "confYr"));
+      ds_ConfidenceInfo.setCellData(row, "crn", ds_excel.getCellData(i, "crn"));
+      ds_ConfidenceInfo.setCellData(row, "confGrd", ds_excel.getCellData(i, "confGrd"));
+      ds_ConfidenceInfo.setCellData(row, "liablRt", ds_excel.getCellData(i, "liablRt"));
+      ds_ConfidenceInfo.setCellData(row, "sellAmtIncrRt", ds_excel.getCellData(i, "sellAmtIncrRt"));
+      ds_ConfidenceInfo.setCellData(row, "flowRt", ds_excel.getCellData(i, "flowRt"));
+      ds_ConfidenceInfo.setCellData(row, "sellAmtMwoundMarginRt", ds_excel.getCellData(i, "sellAmtMwoundMarginRt"));
+      ds_ConfidenceInfo.setCellData(row, "totSellAmt", ds_excel.getCellData(i, "totSellAmt"));
+      ds_ConfidenceInfo.setCellData(row, "aset", ds_excel.getCellData(i, "aset"));
+      ds_ConfidenceInfo.setCellData(row, "capi", ds_excel.getCellData(i, "capi"));
+      ds_ConfidenceInfo.setCellData(row, "bizStDd", ds_excel.getCellData(i, "bizStDd"));
+      ds_ConfidenceInfo.setCellData(row, "entrScal", ds_excel.getCellData(i, "entrScal"));
+      ds_ConfidenceInfo.setCellData(row, "staffCnt", ds_excel.getCellData(i, "staffCnt"));
+      ds_ConfidenceInfo.setCellData(row, "closureQuitYn", ds_excel.getCellData(i, "closureQuitYn"));
+    }
+    tbx_totalRows.setValue($c.gus.cfInsertComma($p, ds_ConfidenceInfo.getRowCount()));
+    $c.gus.cfAlertMsg($p, "업로드작업이 완료되었습니다.");
+  }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 업로드 진행 후 
+//-------------------------------------------------------------------------
+scwin.gr_coilList_onfilereadend = function (value) {
+  console.log("gr_coilList_onfilereadend 엑셀업로드가 끝난후");
+};
+
+//-------------------------------------------------------------------------
+// 초기화
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function (value) {
+  $c.gus.cfInitObjects($p, table1, []);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYearMon',type:'page',variableClone:'true',src:'/cm/udc/fromToYearMon.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendarTime',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendarTime.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYear',type:'page',variableClone:'true',src:'/cm/udc/fromToYear.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'table1',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'신용년도',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:inputCalendar',A:{calendarValueType:'year',class:'',id:'ed_confYr',style:'',pickerType:'dynamic',displayFormat:'yyyy',objType:'data',mandatory:'true',title:'신용년도',ref:'data:ds_searchConfidenceInfo.confYr'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'사업자번호 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{codeId:'ed_crn',nameId:'ed_crnNm',onloadCallbackFunc:'',popupID:'',popupTitle:'',selectID:'retrieveCreditCrnInfo',style:'',btnId:'btn_crd',validTitle:'사업자명',code:'crn',refDataCollection:'ds_searchConfidenceInfo',allowCharCode:'0-9',maxlengthCode:'13',objTypeCode:'data',objTypeName:'data',id:'udc_crn','ev:onclickEvent':'scwin.udc_crn_onclickEvent',mandatoryCode:'true',maxlengthName:'50',mandatoryName:'true',name:'crnNm',skipOnBlurCodeValueEmpty:'N',skipOnBlurNameValueEmpty:'N'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_Clear',style:'',type:'button','ev:onclick':'scwin.f_FieldClear'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_Retrieve',style:'',type:'button',userAuth:'R','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridDownYn:'Y',gridUpYn:'N',gridID:'gr_ConfidenceInfo',gridDownFn:'scwin.f_Excel',gridUpObjType:'bSave',gridUpUserAuth:'C',gridUpFn:'scwin.f_Import',id:'excelUdc'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_ConfidenceInfo',id:'gr_ConfidenceInfo',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'17',visibleRowNumFix:'true','ev:ontextimageclick':'scwin.gr_ConfidenceInfo_ontextimageclick','ev:onafteredit':'scwin.gr_ConfidenceInfo_onafteredit',rowStatusVisible:'true','ev:onfilereadend':'scwin.gr_coilList_onfilereadend',gridName:'신용정보등록'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',id:'column63',displayMode:'label',fixColumnWidth:'true',value:' '}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'text',value:'신용년도',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',value:'사업자번호',width:'120',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',value:'법인명',width:'200'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column58',value:'신용등급',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column55',value:'부채비율',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column49',value:'매출액증가율',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column52',value:'유동비율',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column79',value:'매출액경상이익률',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column77',value:'총매출액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column75',value:'자산',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column73',value:'자본',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column71',value:'설립년월',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column69',value:'기업규모',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column67',value:'인원수',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column65',value:'휴폐업여부',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'checkbox',id:'num',displayMode:'label',textAlign:'center',trueValue:'T',falseValue:'F',valueType:'other',checkAlways:'true',readOnly:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'confYr',inputType:'text',width:'100',textAlign:'center',allowChar:'0-9',minLength:'4',maxByteLength:'4',mandatory:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'crn',inputType:'textImage',width:'120',textAlign:'left',mandatory:'true',max:'13'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'crnNm',inputType:'text',width:'100',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'select',id:'confGrd',displayMode:'label',textAlign:'center',mandatory:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'liablRt',displayMode:'label',textAlign:'center',maxLength:'5.2',allowChar:'0-9.',mandatory:'true',dataType:'float',displayFormat:'#,##0.00'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'sellAmtIncrRt',displayMode:'label',textAlign:'center',maxLength:'5.2',allowChar:'0-9.',dataType:'float',displayFormat:'#,##0.00'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'flowRt',displayMode:'label',textAlign:'center',maxLength:'5.2',allowChar:'0-9.',dataType:'float',displayFormat:'#,##0.00'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'sellAmtMwoundMarginRt',displayMode:'label',textAlign:'center',maxLength:'3.2',allowChar:'0-9.',dataType:'float',displayFormat:'#,##0.00'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'totSellAmt',displayMode:'label',textAlign:'center',maxLength:'25',allowChar:'0-9',displayFormat:'#,##0',dataType:'number'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'aset',displayMode:'label',textAlign:'center',maxLength:'25',allowChar:'0-9',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'capi',displayMode:'label',textAlign:'center',maxLength:'25',allowChar:'0-9',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'bizStDd',displayMode:'label',textAlign:'center',sortable:'false',allowChar:'0-9',maxLength:'6'}},{T:1,N:'w2:column',A:{width:'70',inputType:'select',id:'entrScal',displayMode:'label',textAlign:'center'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'staffCnt',displayMode:'label',textAlign:'center',maxLength:'5',allowChar:'0-9',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'70',inputType:'select',id:'closureQuitYn',displayMode:'label',textAlign:'center'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',id:'tbx_totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'(단위 : 백만원)',class:''}}]},{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',btnCancelYn:'Y',btnDelYn:'N',btnRowDelYn:'Y',btnRowAddYn:'Y',rowAddFunction:'scwin.f_AddRow',rowAddUserAuth:'C',rowDelFunction:'scwin.f_delMarked',rowDelObjType:'ctrlBtn',cancelFunction:'scwin.f_Undo',gridID:'gr_ConfidenceInfo',id:'udc_gridAddDel',cancelUserAuth:'D',rowDelUserAuth:'D',rowAddObjType:'ctrlBtn',cancelObjType:'ctrlBtn',delObjType:'ctrlBtn'}}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_set',style:'',type:'button','ev:onclick':'scwin.f_Create',userAuth:'U',objType:'bSave'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'일괄한도설정'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Save',style:'',type:'button','ev:onclick':'scwin.f_Save',userAuth:'C',objType:'bSave'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]}]}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'group2',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_excel',id:'gr_excelUpload',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:';display:none;',visibleRowNum:'17',visibleRowNumFix:'true','ev:onfilereadend':'scwin.gr_excelUpload_onfilereadend'},E:[{T:1,N:'w2:caption',A:{id:'caption4',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'text',value:'신용년도',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',value:'사업자번호',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column58',inputType:'text',value:'신용등급',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column55',inputType:'text',value:'부채비율',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column49',inputType:'text',value:'매출액증가율',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column52',inputType:'text',value:'유동비율',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column79',inputType:'text',value:'매출액경상이익률',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column77',inputType:'text',value:'총매출액',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column75',inputType:'text',value:'자산',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column73',inputType:'text',value:'자본',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column71',inputType:'text',sortable:'false',value:'설립년월',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column69',inputType:'text',value:'기업규모',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column67',inputType:'text',value:'인원수',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column65',inputType:'text',value:'휴폐업여부',width:'100'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'confYr',inputType:'text',maxByteLength:'4',textAlign:'center',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'crn',inputType:'text',textAlign:'left',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'confGrd',inputType:'text',textAlign:'center',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'liablRt',inputType:'text',maxLength:'5.2',textAlign:'center',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'sellAmtIncrRt',inputType:'text',maxLength:'5.2',textAlign:'center',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'flowRt',inputType:'text',maxLength:'5.2',textAlign:'center',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'sellAmtMwoundMarginRt',inputType:'text',maxLength:'3.2',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'totSellAmt',inputType:'text',maxLength:'15',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aset',inputType:'text',maxLength:'15',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'capi',inputType:'text',maxLength:'15',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'bizStDd',inputType:'text',sortable:'false',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'entrScal',inputType:'text',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{allowChar:'0-9',displayMode:'label',id:'staffCnt',inputType:'text',maxLength:'5',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'closureQuitYn',inputType:'text',textAlign:'center',width:'70'}}]}]}]}]}]},{T:1,N:'w2:udc_comCode',A:{btnId:'',codeId:'',id:'udc_comCodeGrid',nameId:'',popupID:'',selectID:'',style:'display:none'}}]}]}]})

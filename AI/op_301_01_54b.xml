@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_search">
+                <w2:keyInfo>
+                    <w2:key id="arrvlportDtmFrom" name="입항일자From" dataType="text"></w2:key>
+                    <w2:key id="arrvlportDtmTo" name="입항일자To" dataType="text"></w2:key>
+                    <w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+                    <w2:key id="expimpClsCd" name="수출입구분" dataType="text"></w2:key>
+                    <w2:key id="inOdrNo" name="반입오더번호" dataType="text"></w2:key>
+                    <w2:key id="outOdrNo" name="반출오더번호" dataType="text"></w2:key>
+                    <w2:key id="sellCreateYn" name="매출생성여부" dataType="text"></w2:key>
+                    <w2:key id="lineCd" name="라인코드" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="expimpClsCd" name="수출입구분" dataType="text"></w2:column>
+                    <w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="라인" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="반입오더출발지코드" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="반입오더출발지" dataType="text"></w2:column>
+                    <w2:column id="pluginDt" name="PLUG IN" dataType="text"></w2:column>
+                    <w2:column id="pluginHh" name="PLUG IN 시간" dataType="text"></w2:column>
+                    <w2:column id="plugoutDt" name="PLUG OUT" dataType="text"></w2:column>
+                    <w2:column id="plugoutHh" name="PLUG OUT 시간" dataType="text"></w2:column>
+                    <w2:column id="totDay" name="총장치일수" dataType="number"></w2:column>
+                    <w2:column id="applyDt" name="적용일시" dataType="text"></w2:column>
+                    <w2:column id="applyHh" name="적용시간" dataType="text"></w2:column>
+                    <w2:column id="inOdrSellDay" name="반입오더매출일수" dataType="number"></w2:column>
+                    <w2:column id="outOdrSellDay" name="반출오더매출일수" dataType="number"></w2:column>
+                    <w2:column id="inOdrChk" name="반입오더체크" dataType="text"></w2:column>
+                    <w2:column id="inOdrNo" name="반입오더번호" dataType="text"></w2:column>
+                    <w2:column id="inOdrSellClsCd" name="반입매출구분" dataType="text"></w2:column>
+                    <w2:column id="inOdrDcsnClsCd" name="반입오더매출확정구분코드" dataType="text"></w2:column>
+                    <w2:column id="outOdrChk" name="반출오더체크" dataType="text"></w2:column>
+                    <w2:column id="outOdrNo" name="반출오더번호" dataType="text"></w2:column>
+                    <w2:column id="outOdrSellClsCd" name="반출매출구분" dataType="text"></w2:column>
+                    <w2:column id="outOdrDcsnClsCd" name="반출오더매출확정구분코드" dataType="text"></w2:column>
+                    <w2:column id="totBillingDay" name="총청구일수" dataType="text"></w2:column>
+                    <w2:column id="xrayYn" name="XLAY여부" dataType="text"></w2:column>
+                    <w2:column id="stvChrgClsCd" name="전배여부" dataType="text"></w2:column>
+                    <w2:column id="cntrSizCd" name="컨테이너사이즈" dataType="text"></w2:column>
+                    <w2:column id="setupTemper" name="설정온도" dataType="text"></w2:column>
+                    <w2:column id="reqTemper" name="요청온도" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="모선코드" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="모선명" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="pluginModId" name="PLUG IN 수정자ID" dataType="text"></w2:column>
+                    <w2:column id="plugoutModId" name="PLUG OUT 수정자ID" dataType="text"></w2:column>
+                    <w2:column id="pluginModNm" name="PLUG IN 수정자" dataType="text"></w2:column>
+                    <w2:column id="plugoutModNm" name="PLUG OUT 수정자" dataType="text"></w2:column>
+                    <w2:column id="arrvlportDtm" name="입항일자" dataType="text"></w2:column>
+                    <w2:column id="alngpierDtm" name="접안일시" dataType="text"></w2:column>
+                    <w2:column id="seq" name="SEQ" dataType="text"></w2:column>
+                    <w2:column id="expimpClsCd2" name="수출입구분(TB_OP681)" dataType="text"></w2:column>
+                    <w2:column id="sellCreateYn" name="매출생성여부" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="BL번호" dataType="text"></w2:column>
+                    <w2:column id="impVsslCd" name="수입모선코드" dataType="text"></w2:column>
+                    <w2:column id="impPortcnt" name="수입항차" dataType="text"></w2:column>
+                    <w2:column id="expVsslCd" name="수출모선코드" dataType="text"></w2:column>
+                    <w2:column id="expPortcnt" name="수출항차" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_ret"
+            action="/ds.op.wrkrslts.cywrkrslts.RetrieveDpctFreezingContainerListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_master","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_ret_submitdone"
+            ev:submiterror="scwin.sbm_ret_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/ds.op.wrkrslts.cywrkrslts.SaveDpctFreezingContainerSellingListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_master","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.regId = "";
+
+        scwin.onpageload = function() {
+            scwin.regId = $c.ses.getUserId();
+        };
+
+        scwin.onUdcCompleted = function() {
+            let curDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            let monthStart = curDate.substring(0, 6) + "01";
+            udc_arrvlportDtm.setInitDate(monthStart, curDate);
+        };
+
+        scwin.updateDate = function(temp, index) {
+            let newDate = new Date(
+                parseInt(temp.substring(0, 4), 10),
+                parseInt(temp.substring(4, 6), 10) - 1,
+                parseInt(temp.substring(6, 8), 10),
+                parseInt(temp.substring(8, 10), 10),
+                parseInt(temp.substring(10), 10) + index
+            );
+            return scwin.dateToStr(newDate);
+        };
+
+        scwin.dateToStr = function(user_day) {
+            let year = user_day.getFullYear();
+            let month = user_day.getMonth() + 1;
+            month = month < 10 ? "0" + month : "" + month;
+            let date = user_day.getDate();
+            date = date < 10 ? "0" + date : "" + date;
+            let hour = user_day.getHours();
+            hour = hour < 10 ? "0" + hour : "" + hour;
+            let minute = user_day.getMinutes();
+            minute = minute < 10 ? "0" + minute : "" + minute;
+            return (year + "" + month + "" + date + "" + hour + "" + minute);
+        };
+
+        scwin.getOffsetDate = function(sDate1, sDate2) {
+            let date1 = scwin.parseDate(sDate1);
+            let date2 = scwin.parseDate(sDate2);
+
+            let month1 = sDate1.substring(4, 6);
+            let month2 = sDate2.substring(4, 6);
+
+            let num_days = (date1 - date2) / (1000 * 60 * 60 * 24);
+
+            if ((month1 - month2) == 1 && month2 == '01') { num_days = num_days + 3; }
+            if ((month1 - month2) == 1 && month2 == '02') { num_days = num_days - 3; }
+            if ((month1 - month2) == 1 && month2 == '03') { num_days = num_days + 1; }
+            if ((month1 - month2) == 1 && month2 == '04') { num_days = num_days - 1; }
+            if ((month1 - month2) == 1 && month2 == '05') { num_days = num_days + 1; }
+
+            if (num_days < 0) num_days = 0;
+
+            return Math.ceil(num_days);
+        };
+
+        scwin.parseDate = function(sDate) {
+            let year = sDate.substring(0, 4);
+            let month = sDate.substring(4, 6);
+            let day = sDate.substring(6, 8);
+            let hours = sDate.substring(8, 10);
+            let minutes = sDate.substring(10, 12);
+            let seconds = sDate.substring(12, 14);
+            let date = new Date(year, month, day, hours, minutes, seconds, 0);
+            return date;
+        };
+
+        scwin.parseDate2 = function(sDate) {
+            let year = sDate.substring(0, 4);
+            let month = sDate.substring(4, 6);
+            let day = sDate.substring(6, 8);
+            let date = new Date(year, month, day);
+            return date;
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (!(await $c.gus.cfValidate([tbl_search]))) return;
+
+            if (ds_search.get("arrvlportDtmFrom") > ds_search.get("arrvlportDtmTo")) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+                return;
+            }
+
+            await $c.sbm.execute(sbm_ret);
+        };
+
+        scwin.btn_save_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.f_Save = async function() {
+            if (!ds_master.isUpdated()) return;
+
+            let chkCount = 0;
+            for (let i = 0; i < ds_master.getRowCount(); i++) {
+                if (ds_master.getCellData(i, "inOdrChk") == 1 || ds_master.getCellData(i, "outOdrChk") == 1) {
+                    chkCount++;
+                }
+            }
+            if (chkCount == 0) {
+                await $c.gus.cfAlertMsg("선택된 건이 하나도 없습니다.\n확인해 주십시오.");
+                return;
+            }
+            if (!(await scwin.f_Check())) return;
+
+            let confirmResult = await $c.win.confirm("저장하시겠습니까?");
+            if (!confirmResult) return;
+
+            await $c.sbm.execute(sbm_save);
+        };
+
+        scwin.f_Check = async function() {
+            for (let i = 0; i < ds_master.getRowCount(); i++) {
+                let displayRow = i + 1;
+
+                if (ds_master.getCellData(i, "inOdrChk") == 1 || ds_master.getCellData(i, "outOdrChk") == 1) {
+                    if (ds_master.getCellData(i, "pluginDt") == "" && ds_master.getCellData(i, "plugoutDt") == "") {
+                        await $c.gus.cfAlertMsg(displayRow + "번째 항의 PLUG IN과 PLUG OUT은 필수 입력 사항입니다.\n자동 선택 해제 처리 합니다.");
+                        ds_master.setCellData(i, "inOdrChk", "F");
+                        ds_master.setCellData(i, "outOdrChk", "F");
+                        return false;
+                    }
+
+                    if (ds_master.getCellData(i, "pluginDt") != "" && ds_master.getCellData(i, "plugoutDt") == "") {
+                        ds_master.setCellData(i, "outOdrNo", "");
+                    }
+
+                    if (ds_master.getCellData(i, "pluginDt") == "" && ds_master.getCellData(i, "plugoutDt") != "") {
+                        ds_master.setCellData(i, "inOdrNo", "");
+                    }
+                }
+
+                if (ds_master.getCellData(i, "inOdrChk") == 1) {
+                    if (ds_master.getCellData(i, "inOdrDcsnClsCd") > 1) {
+                        await $c.gus.cfAlertMsg(displayRow + "번째 항의 반입오더 매출이 미확정이 아닙니다.\n자동 선택 해제 처리 합니다.");
+                        ds_master.setCellData(i, "inOdrChk", "F");
+                        return false;
+                    }
+                }
+
+                if (ds_master.getCellData(i, "outOdrChk") == 1) {
+                    if (ds_master.getCellData(i, "outOdrDcsnClsCd") > 1) {
+                        await $c.gus.cfAlertMsg(displayRow + "번째 항의 반출오더 매출이 미확정이 아닙니다.\n자동 선택 해제 처리 합니다.");
+                        ds_master.setCellData(i, "outOdrChk", "F");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects(tbl_search, null);
+        };
+
+        scwin.f_chkOpenCommonPopUpText = function(inObj, codeObj, disGubun) {
+            let pCode = "";
+            let pName = "";
+
+            if (inObj.getDisabled && inObj.getDisabled()) return;
+            if (inObj.getValue() == inObj.hidVal) return;
+
+            if (codeObj != null) {
+                codeObj.setValue("");
+            }
+
+            pName = inObj.getValue();
+
+            scwin.f_openCommonPopUp(disGubun, pCode, pName, 'T', 'T');
+        };
+
+        scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+
+            $c.gus.cfClearPairObj(pairObj);
+
+            let pVal = $c.gus.cfGetValue(inObj);
+
+            if (isCode == null || isCode == true)
+                scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+            else
+                scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+        };
+
+        scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList = [];
+
+            switch (disGubun) {
+                case 1:
+                    udc_line.ilCommonPopUp(scwin.callbackLineInfo,
+                        pCode, pName, pClose, null, null, null, null,
+                        '2', null, null, null, null, null,
+                        pAllSearch, "LINE조회,LINE코드,LINE명");
+                    break;
+
+                case 2:
+                    udc_comCode_Grid.ilCommonPopUp(scwin.callbackVsslInfo,
+                        pCode, pName, pClose, null, null, null, null,
+                        null, null, null, null, null, null,
+                        'T', null);
+                    break;
+            }
+        };
+
+        scwin.callbackLineInfo = function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_lineCd, txt_lineNm);
+        };
+
+        scwin.callbackVsslInfo = function(rtnList) {
+            let row = ds_master.getRowPosition();
+            if (rtnList != null && rtnList.length > 0) {
+                ds_master.setCellData(row, "vsslCd", rtnList[0]);
+                ds_master.setCellData(row, "vsslNm", rtnList[1]);
+            }
+        };
+
+        scwin.f_Excel = function() {
+            if (ds_master.getRowCount() == 0) return;
+            $c.data.downloadGridViewExcel(grd_master, {fileName: "DPCT냉동컨테이너.xlsx", sheetName: "DPCT 냉동컨테이너"});
+        };
+
+        scwin.f_cntrSearch = function() {
+            let row = ds_master.getRowPosition();
+            if (row > -1) {
+                let v_cntrNo = ds_master.getCellData(row, "cntrNo");
+                let param = {
+                    cntrNo: v_cntrNo
+                };
+                $c.win.openMenu("컨테이너  화물추적", "/ui/ds/as/cstmrsrvc/coafmgnt/as_102_01_02b.xml", "as_102_01_02b.xml", param);
+            }
+        };
+
+        scwin.f_openPopUpCntrSearch = async function() {
+            let cntrNo = "";
+            let row = ds_master.getRowPosition();
+
+            if (cntrNo == "") {
+                cntrNo = ds_master.getCellData(row, "cntrNo");
+            }
+            if (cntrNo == "") {
+                await $c.win.alert("오더번호가 없습니다.");
+                return false;
+            }
+
+            let obj = {
+                cntrNo: cntrNo
+            };
+
+            let rtnValues = await $c.win.openPopup("/ui/ds/op/wrkrslts/cywrkrslts/op_301_01_54p.xml", {
+                width: 500,
+                height: 400,
+                modal: true,
+                data: obj
+            });
+
+            if (rtnValues != null) {
+                if (rtnValues[0] != null) {
+                    ds_master.setCellData(row, "arrvlportDtm", rtnValues[1]);
+
+                    if (ds_master.getCellData(row, "expimpClsCd") == "D") {
+                        if (ds_master.getCellData(row, "blNo") != "") {
+                            ds_master.setCellData(row, "impVsslCd", rtnValues[2]);
+                            ds_master.setCellData(row, "impPortcnt", rtnValues[3]);
+                        } else if (ds_master.getCellData(row, "blNo") == "") {
+                            ds_master.setCellData(row, "expVsslCd", rtnValues[2]);
+                            ds_master.setCellData(row, "expPortcnt", rtnValues[3]);
+                        }
+                    }
+                }
+            }
+        };
+
+        scwin.sbm_ret_submitdone = async function(e) {
+        };
+
+        scwin.sbm_ret_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_save_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_save_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.ds_master_onloadcompleted = async function(e) {
+            let rowCnt = ds_master.getRowCount();
+
+            if (rowCnt == 0) {
+                await $c.gus.cfAlertMsg("[DPCT 냉동 컨테이너 조회 ] " + MSG_CM_ERR_003);
+            }
+
+            spa_totalRow.setValue(rowCnt);
+        };
+
+        scwin.grd_master_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+            if (columnId == "vsslCd") {
+                scwin.f_openCommonPopUp(2, ds_master.getCellData(rowIndex, "vsslCd"), ds_master.getCellData(rowIndex, "vsslNm"), "F");
+            }
+
+            if (columnId == "arrvlportDtm") {
+                scwin.f_openPopUpCntrSearch();
+            }
+        };
+
+        scwin.grd_master_oneditend = async function(rowIndex, columnId, oldValue, newValue) {
+            let row = rowIndex;
+
+            if (columnId == "plugoutDt" || columnId == "pluginDt") {
+                if (!(ds_master.getCellData(row, 'pluginDt') == "") && !(ds_master.getCellData(row, 'applyDt') == "")) {
+                    ds_master.setCellData(row, 'inOdrSellDay', scwin.getOffsetDate(ds_master.getCellData(row, 'applyDt') + "00", ds_master.getCellData(row, 'pluginDt') + "00"));
+                }
+
+                if (!(ds_master.getCellData(row, 'plugoutDt') == "") && !(ds_master.getCellData(row, 'applyDt') == "")) {
+                    ds_master.setCellData(row, 'outOdrSellDay', scwin.getOffsetDate(ds_master.getCellData(row, 'plugoutDt') + "00", ds_master.getCellData(row, 'applyDt') + "00"));
+                }
+
+                if (!(ds_master.getCellData(row, 'pluginDt') == "") && !(ds_master.getCellData(row, 'plugoutDt') == "")) {
+                    ds_master.setCellData(row, 'totDay', scwin.getOffsetDate(ds_master.getCellData(row, 'plugoutDt') + "00", ds_master.getCellData(row, 'pluginDt') + "00"));
+                }
+
+                if (columnId == "pluginDt") {
+                    if (ds_master.getCellData(row, 'pluginDt') != oldValue) {
+                        ds_master.setCellData(row, 'pluginModId', scwin.regId);
+                    }
+                }
+
+                if (columnId == "plugoutDt") {
+                    if (ds_master.getCellData(row, 'plugoutDt') != oldValue) {
+                        ds_master.setCellData(row, 'plugoutModId', scwin.regId);
+                    }
+                }
+            }
+
+            if (columnId == "applyDt") {
+                if (ds_master.getCellData(row, 'inOdrDcsnClsCd') > 1 || ds_master.getCellData(row, 'outOdrDcsnClsCd') > 1) {
+                    await $c.gus.cfAlertMsg((row + 1) + "번째 항의 적용일시는 반입오더 or 반출오더가 미확정이 아닐경우 수정하실수 없습니다.");
+                    ds_master.setCellData(row, 'applyDt', oldValue);
+                    return true;
+                }
+
+                if (ds_master.getCellData(row, 'pluginDt') != '' && ds_master.getCellData(row, 'plugoutDt') != '') {
+                    if ((ds_master.getCellData(row, 'applyDt') > ds_master.getCellData(row, 'plugoutDt'))
+                            || (ds_master.getCellData(row, 'applyDt') < ds_master.getCellData(row, 'pluginDt'))) {
+                        await $c.gus.cfAlertMsg("적용일시는 PLUGIN보다 크고 PLUGOUT보다 작아야합니다.");
+                        ds_master.setCellData(row, 'applyDt', oldValue);
+                        return true;
+                    }
+                }
+
+                if (!(ds_master.getCellData(row, 'pluginDt') == "")) {
+                    if (ds_master.getCellData(row, 'pluginDt') == ds_master.getCellData(row, 'applyDt')) {
+                        ds_master.setCellData(row, 'inOdrSellDay', 0);
+                    } else {
+                        ds_master.setCellData(row, 'inOdrSellDay', scwin.getOffsetDate(ds_master.getCellData(row, 'applyDt') + "00", ds_master.getCellData(row, 'pluginDt') + "00"));
+                    }
+                }
+
+                if (!(ds_master.getCellData(row, 'plugoutDt') == "")) {
+                    ds_master.setCellData(row, 'outOdrSellDay', scwin.getOffsetDate(ds_master.getCellData(row, 'plugoutDt') + "00", ds_master.getCellData(row, 'applyDt') + "00"));
+                }
+            }
+
+            if (columnId == "inOdrSellDay") {
+                if (ds_master.getCellData(row, 'inOdrDcsnClsCd') > 1 || ds_master.getCellData(row, 'outOdrDcsnClsCd') > 1) {
+                    await $c.gus.cfAlertMsg((row + 1) + "번째 항의 반입오더 매출일수는 반입오더 or 반출오더가 미확정이 아닐경우 수정하실수 없습니다.");
+                    ds_master.setCellData(row, 'inOdrSellDay', oldValue);
+                    return true;
+                }
+
+                if (ds_master.getCellData(row, 'inOdrSellDay') < 0) {
+                    await $c.gus.cfAlertMsg("반입오더 매출일수를 잘못 입력하셨습니다.");
+                    ds_master.setCellData(row, 'inOdrSellDay', oldValue);
+                    return true;
+                }
+
+                if (!(ds_master.getCellData(row, 'pluginDt') == "")) {
+                    if (ds_master.getCellData(row, 'pluginDt') != '' && ds_master.getCellData(row, 'plugoutDt') != '') {
+                        if ((ds_master.getCellData(row, 'applyDt') > ds_master.getCellData(row, 'plugoutDt'))
+                                || (ds_master.getCellData(row, 'applyDt') < ds_master.getCellData(row, 'pluginDt'))) {
+                            await $c.gus.cfAlertMsg("적용일시는 PLUGIN보다 크고 PLUGOUT보다 작아야합니다.");
+                            ds_master.setCellData(row, 'inOdrSellDay', oldValue);
+                            return true;
+                        }
+                    }
+
+                    if (ds_master.getCellData(row, 'inOdrSellDay') == 0) {
+                        ds_master.setCellData(row, 'applyDt', ds_master.getCellData(row, 'pluginDt'));
+                    } else {
+                        let minutes = (ds_master.getCellData(row, 'inOdrSellDay') * 24 * 60) - 1;
+
+                        if (ds_master.getCellData(row, 'plugoutDt') != "") {
+                            if (scwin.updateDate(ds_master.getCellData(row, 'pluginDt'), minutes) > ds_master.getCellData(row, 'plugoutDt')) {
+                                await $c.gus.cfAlertMsg("반입오더 매출일수를 다시 입력해주세요.");
+                                ds_master.setCellData(row, 'inOdrSellDay', oldValue);
+                                return true;
+                            }
+                        }
+
+                        ds_master.setCellData(row, 'applyDt', scwin.updateDate(ds_master.getCellData(row, 'pluginDt'), minutes));
+                    }
+                }
+
+                if (!(ds_master.getCellData(row, 'plugoutDt') == "") && !(ds_master.getCellData(row, 'applyDt') == "")) {
+                    if (ds_master.getCellData(row, 'plugoutDt') == ds_master.getCellData(row, 'applyDt')) {
+                        ds_master.setCellData(row, 'outOdrSellDay', 0);
+                    } else {
+                        ds_master.setCellData(row, 'outOdrSellDay', scwin.getOffsetDate(ds_master.getCellData(row, 'plugoutDt') + "00", ds_master.getCellData(row, 'applyDt') + "00"));
+                    }
+                }
+            }
+
+            if (columnId == "outOdrSellDay") {
+                if (ds_master.getCellData(row, 'inOdrDcsnClsCd') > 1 || ds_master.getCellData(row, 'outOdrDcsnClsCd') > 1) {
+                    await $c.gus.cfAlertMsg((row + 1) + "번째 항의 반출오더 매출일수는 반입오더 or 반출오더가 미확정이 아닐경우 수정하실수 없습니다.");
+                    ds_master.setCellData(row, 'outOdrSellDay', oldValue);
+                    return true;
+                }
+
+                if (ds_master.getCellData(row, 'outOdrSellDay') < 0) {
+                    await $c.gus.cfAlertMsg("반입오더 매출일수를 잘못 입력하셨습니다.");
+                    ds_master.setCellData(row, 'outOdrSellDay', oldValue);
+                    return true;
+                }
+
+                if (!(ds_master.getCellData(row, 'plugoutDt') == "")) {
+                    if (ds_master.getCellData(row, 'pluginDt') != '' && ds_master.getCellData(row, 'plugoutDt') != '') {
+                        if ((ds_master.getCellData(row, 'applyDt') > ds_master.getCellData(row, 'plugoutDt'))
+                                || (ds_master.getCellData(row, 'applyDt') < ds_master.getCellData(row, 'pluginDt'))) {
+                            await $c.gus.cfAlertMsg("적용일시는 PLUGIN보다 크고 PLUGOUT보다 작아야합니다.");
+                            ds_master.setCellData(row, 'outOdrSellDay', oldValue);
+                            return true;
+                        }
+                    }
+
+                    if (ds_master.getCellData(row, 'outOdrSellDay') == 0) {
+                        ds_master.setCellData(row, 'applyDt', ds_master.getCellData(row, 'plugoutDt'));
+                    } else {
+                        let minutes = (ds_master.getCellData(row, 'outOdrSellDay') * 24 * 60) - 1;
+
+                        if (scwin.updateDate(ds_master.getCellData(row, 'plugoutDt'), -minutes) > ds_master.getCellData(row, 'plugoutDt')) {
+                            await $c.gus.cfAlertMsg("반입오더 매출일수를 다시 입력해주세요.");
+                            ds_master.setCellData(row, 'outOdrSellDay', oldValue);
+                            return true;
+                        }
+
+                        ds_master.setCellData(row, 'applyDt', scwin.updateDate(ds_master.getCellData(row, 'plugoutDt'), -minutes));
+                    }
+                }
+
+                if (!(ds_master.getCellData(row, 'pluginDt') == "") && !(ds_master.getCellData(row, 'applyDt') == "")) {
+                    ds_master.setCellData(row, 'inOdrSellDay', scwin.getOffsetDate(ds_master.getCellData(row, 'applyDt') + "00", ds_master.getCellData(row, 'pluginDt') + "00"));
+                }
+            }
+        };
+
+        scwin.ds_master_onrowpositionchange = function(rowIndex, oldRowIndex) {
+            grd_master.setColumnProp("applyDt", "readOnly", false);
+            grd_master.setColumnProp("inOdrSellDay", "readOnly", false);
+            grd_master.setColumnProp("outOdrSellDay", "readOnly", false);
+        };
+
+        scwin.ds_master_oncelldatachange = function(info) {
+            let colid = info.colId;
+
+            if (colid == "applyDt") {
+                if (ds_master.isUpdated()) {
+                    grd_master.setColumnProp("inOdrSellDay", "readOnly", true);
+                    grd_master.setColumnProp("outOdrSellDay", "readOnly", true);
+                }
+            }
+
+            if (colid == "inOdrSellDay") {
+                if (ds_master.isUpdated()) {
+                    grd_master.setColumnProp("applyDt", "readOnly", true);
+                    grd_master.setColumnProp("outOdrSellDay", "readOnly", true);
+                }
+            }
+
+            if (colid == "outOdrSellDay") {
+                if (ds_master.isUpdated()) {
+                    grd_master.setColumnProp("applyDt", "readOnly", true);
+                    grd_master.setColumnProp("inOdrSellDay", "readOnly", true);
+                }
+            }
+        };
+
+        scwin.grd_master_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+            if (rowIndex > -1) {
+                if (columnId == "cntrNo") {
+                    scwin.f_cntrSearch();
+                }
+            }
+        };
+
+        scwin.grd_master_onheaderclick = function(columnIndex, columnId) {
+            if (columnId == "inOdrChk") {
+                let allChecked = true;
+                for (let i = 0; i < ds_master.getRowCount(); i++) {
+                    if (ds_master.getCellData(i, "inOdrChk") != "T" && ds_master.getCellData(i, "inOdrChk") != 1) {
+                        allChecked = false;
+                        break;
+                    }
+                }
+                if (!allChecked) {
+                    for (let i = 0; i < ds_master.getRowCount(); i++) {
+                        ds_master.setCellData(i, "inOdrChk", 1);
+                    }
+                } else {
+                    for (let i = 0; i < ds_master.getRowCount(); i++) {
+                        ds_master.setCellData(i, "inOdrChk", 0);
+                    }
+                }
+            }
+
+            if (columnId == "outOdrChk") {
+                let allChecked = true;
+                for (let i = 0; i < ds_master.getRowCount(); i++) {
+                    if (ds_master.getCellData(i, "outOdrChk") != "T" && ds_master.getCellData(i, "outOdrChk") != 1) {
+                        allChecked = false;
+                        break;
+                    }
+                }
+                if (!allChecked) {
+                    for (let i = 0; i < ds_master.getRowCount(); i++) {
+                        ds_master.setCellData(i, "outOdrChk", 1);
+                    }
+                } else {
+                    for (let i = 0; i < ds_master.getRowCount(); i++) {
+                        ds_master.setCellData(i, "outOdrChk", 0);
+                    }
+                }
+            }
+        };
+    ]]></script>
+
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="입항일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_arrvlportDtm" refDataMap="" refEdDt="ica_arrvlportDtmTo" refStDt="ica_arrvlportDtmFrom" style=""></w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="컨테이너번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class="" id="ed_cntrNo" placeholder="" style="width:150px;" ref="data:ds_search.cntrNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="수출입구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_expimpClsCd" search="start" style="width:150px;"
+    								submenuSize="auto" ref="data:ds_search.expimpClsCd">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="반입오더번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="ed_inOdrNo" placeholder="" style="width:150px;" ref="data:ds_search.inOdrNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="반출오더번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class="" id="ed_outOdrNo" placeholder="" style="width:150px;" ref="data:ds_search.outOdrNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="매출생성여부" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_sellCreateYn" search="start" style="width:150px;"
+    								submenuSize="auto" ref="data:ds_search.sellCreateYn">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Line" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_line" codeId="ed_lineCd" nameId="txt_lineNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" ev:onclick="scwin.btn_retrieve_onclick" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="DPCT 냉동 컨테이너 조회/매출등록" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="ds_master" id="grd_master" style=""
+    					visibleRowNum="15" visibleRowNumFix="true" fixedColumn="2" readOnly="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="expimpClsCd" inputType="text" value="수출입&lt;br/&gt;구분" width="70" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="cntrNo" inputType="text" value="컨네이너번호" width="120" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="lineCd" inputType="text" value="라인" width="80" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="dptWrkPlCd" inputType="text" value="반입오더&lt;br/&gt;출발지코드" width="100"
+    								colSpan="" rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" value="반입오더&lt;br/&gt;출발지" width="100"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="pluginDt" inputType="text" value="PLUG IN" width="120" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="pluginHh" inputType="text" value="PLUG IN 시간" width="120" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="plugoutDt" inputType="text" value="PLUG OUT" width="120" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="plugoutHh" inputType="text" value="PLUG OUT 시간" width="120" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="totDay" inputType="text" value="총 장치일수" width="100" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="applyDt" value="적용일시" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="applyHh" value="적용시간" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="inOdrSellDay" value="반입오더&lt;br/&gt;매출일수" displayMode="label"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="outOdrSellDay" value="반출오더&lt;br/&gt;매출일수" displayMode="label"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="260" inputType="text" id="inOdrChk" value="반입오더" displayMode="label" colSpan="4"
+    								rowSpan="">
+    							</w2:column>
+    							<w2:column width="260" inputType="text" id="inOdrNo" value="반출오더" displayMode="label" colSpan="4"
+    								rowSpan="">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="inOdrSellClsCd" value="총청구일수" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="inOdrDcsnClsCd" value="XLAY여부" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="outOdrChk" value="전배여부" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="outOdrNo" value="컨테이너&lt;br/&gt;사이즈" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="outOdrSellClsCd" value="설정&lt;br/&gt;온도" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="outOdrDcsnClsCd" value="요청&lt;br/&gt;온도" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="totBillingDay" value="모선명" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="xrayYn" value="모선명" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="stvChrgClsCd" value="항차" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="cntrSizCd" value="PLUG IN&lt;br/&gt;수정자ID" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="setupTemper" value="PLUG OUT&lt;br/&gt;수정자ID" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="reqTemper" value="PLUG IN&lt;br/&gt;수정자" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="vsslCd" value="PLUG OUT&lt;br/&gt;수정자" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="vsslNm" value="입항일자" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="portcnt" value="접안일시" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="pluginModId" value="SEQ" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="plugoutModId" value="수출입구분&lt;br/&gt;(TB_OP681)" displayMode="label" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="pluginModNm" value="매출생성여부" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="50" inputType="checkbox" style="" id="expimpClsCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="cntrNo" value="오더번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="lineCd" value="매출구분" displayMode="label"></w2:column>
+    							<w2:column width="180" inputType="text" style="" id="dptWrkPlCd" value="반입오더 매출 확정구분코드"
+    								displayMode="label" hidden="true">
+    							</w2:column>
+    							<w2:column width="50" inputType="checkbox" style="" id="dptWrkPlNm" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="pluginDt" value="오더번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="pluginHh" value="매출구분" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="180" inputType="text" style="" id="plugoutDt" value="반출오더 매출 확정구분코드"
+    								displayMode="label" hidden="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="expimpClsCd" inputType="select" width="70" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[수입]]></w2:label>
+        <w2:value><![CDATA[I]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[수출]]></w2:label>
+        <w2:value><![CDATA[O]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[내수]]></w2:label>
+        <w2:value><![CDATA[D]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column displayMode="label" id="cntrNo" inputType="text" width="120" readOnly="true" class="underline" style="color:<%=dcss.optional_color%>;"></w2:column>
+    							<w2:column displayMode="label" id="lineCd" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="dptWrkPlCd" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="pluginDt" inputType="text" width="120" displayFormat="####/##/## ##:##"></w2:column>
+    							<w2:column displayMode="label" id="pluginHh" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="plugoutDt" inputType="text" width="120" displayFormat="####/##/## ##:##"></w2:column>
+    							<w2:column displayMode="label" id="plugoutHh" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="totDay" inputType="text" width="100" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="120" inputType="text" id="applyDt" displayMode="label" displayFormat="####/##/## ##:##"></w2:column>
+    							<w2:column width="100" inputType="text" id="applyHh" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="inOdrSellDay" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" id="outOdrSellDay" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="50" inputType="checkbox" id="inOdrChk" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="inOdrNo" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="select" style="" id="inOdrSellClsCd" value="" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[생성]]></w2:label>
+        <w2:value><![CDATA[Y]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[미생성]]></w2:label>
+        <w2:value><![CDATA[N]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="180" inputType="text" style="" id="inOdrDcsnClsCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="50" inputType="checkbox" id="outOdrChk" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="outOdrNo" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="select" style="" id="outOdrSellClsCd" value="" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[생성]]></w2:label>
+        <w2:value><![CDATA[Y]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[미생성]]></w2:label>
+        <w2:value><![CDATA[N]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="180" inputType="text" style="" id="outOdrDcsnClsCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="totBillingDay" displayMode="label" dataType="float" maxLength="0.1" displayFormat="#,##0.0"></w2:column>
+    							<w2:column width="100" inputType="text" id="xrayYn" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="select" id="stvChrgClsCd" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[전배]]></w2:label>
+        <w2:value><![CDATA[B]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="100" inputType="text" id="cntrSizCd" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="setupTemper" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="reqTemper" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="vsslCd" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="vsslNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="portcnt" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="pluginModId" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="plugoutModId" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="pluginModNm" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="plugoutModNm" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="arrvlportDtm" displayMode="label" displayFormat="####/##/## ##:##"></w2:column>
+    							<w2:column width="120" inputType="text" id="alngpierDtm" displayMode="label" displayFormat="####/##/## ##:##"></w2:column>
+    							<w2:column width="70" inputType="text" id="seq" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="expimpClsCd2" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="select" id="sellCreateYn" displayMode="label" readOnly="true" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[생성]]></w2:label>
+        <w2:value><![CDATA[Y]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[미생성]]></w2:label>
+        <w2:value><![CDATA[N]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group id="" class="left"><xf:group style="" id="" class="list-box">
+    					<w2:textbox style="" id="" label="수입 전배 모선인 경우 PLUG IN시간을 타터미널 PLUG IN시간으로 변경 필요" class="txt-dot txt-red" escape="false"></w2:textbox>
+    					<w2:textbox style="" id="" label="수출 전배 모선인 경우 PLUG OUT시간을 타터미널 PLUG OUT시간으로 변경필요" class="txt-dot txt-red" escape="false"></w2:textbox>
+    				</xf:group></xf:group><xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" ev:onclick="scwin.btn_save_onclick" label="저장" style="" type="button">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

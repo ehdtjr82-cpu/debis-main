@@ -1,0 +1,36 @@
+op_306_01_34b.log
+
+[2026-02-19 15:03:40.930] 변환 시작
+[2026-02-19 15:03:41.120] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:09:10.084] #1 검증: XML: WebSquareXmlValidator: score=0.39, grade=C, verdict=REVIEW, errors=4, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.97, grade=A_PLUS, verdict=PASS, errors=0, warnings=3 | LLM 327968ms, total 328964ms
+    - [XML] submission 'sbm_wrkStpCd'에 action 속성 누락 — sbm_wrkStpCd
+    - [XML] submission 'sbm_nesEqNrmCd'에 action 속성 누락 — sbm_nesEqNrmCd
+    - [XML] submission 'sbm_tocWrkPl'에 action 속성 누락 — sbm_tocWrkPl
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:09:10.362] #1 검증: 자동수정 5건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U22: submission ref에 누락된 O(출력) 엔트리 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:09:11.363] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.39, grade=C, verdict=REVIEW, errors=4, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.97, grade=A_PLUS, verdict=PASS, errors=0, warnings=3
+    - [XML] submission 'sbm_wrkStpCd'에 action 속성 누락 — sbm_wrkStpCd
+    - [XML] submission 'sbm_nesEqNrmCd'에 action 속성 누락 — sbm_nesEqNrmCd
+    - [XML] submission 'sbm_tocWrkPl'에 action 속성 누락 — sbm_tocWrkPl
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:09:11.371] #2 재시도 (에러 4건)
+[2026-02-19 15:09:12.386] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:14:53.964] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.97, grade=A_PLUS, verdict=PASS, errors=0, warnings=3 | LLM 340834ms, total 341577ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-19 15:14:53.971] #1 검증: 최적 시도 #1 채택 (confidence: 0.74)
+[2026-02-19 15:14:53.972] 실패 (2회 시도, 11m 13s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] submission 'sbm_wrkStpCd'에 action 속성 누락 — sbm_wrkStpCd
+  2. [XML] submission 'sbm_nesEqNrmCd'에 action 속성 누락 — sbm_nesEqNrmCd
+  3. [XML] submission 'sbm_tocWrkPl'에 action 속성 누락 — sbm_tocWrkPl
+  4. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+================================================================================

@@ -1,0 +1,1265 @@
+/*amd /ui/ds/op/wrkplan/stvwrkplan/op_204_03_07b.xml 77620 a8cc01a6289e09ae79a3aeed0a670a3ea21ba7c25124dcfa26cee5e1d567b78a */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_planList',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_shiftSearch'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'lobranCd',name:'지점코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkIntendDt',name:'작업예정일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'shiftClsCd',name:'Shift코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkIndictNo',name:'작업지시번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStDt',name:'작업시작일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStHh',name:'작업시작시간',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkEndDt',name:'작업종료일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkEndHh',name:'작업종료시간',dataType:'text'}}]}]},{T:1,N:'w2:aliasDataList',A:{studioSrc:'',scope:'../ds_heavy1',id:'ds_heavy1'}},{T:1,N:'w2:aliasDataList',A:{studioSrc:'',scope:'../ds_heavy2',id:'ds_heavy2'}},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_planList'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkDt',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_heavySave'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'shiftYN',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkIndictNo',name:'name2',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_planList',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_planList',target:'data:json,{"id":"ds_planList","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_shiftSearch',action:'/ds.op.wrkplan.stvwrkplan.cmd.RetrieveDayShiftHeavyEquipInputPlanCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_shiftSearch","key":"IN_DS1"},{"id":"ds_heavy1","key":"OUT_DS1"},{"id":"ds_heavy2","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_heavy1","key":"OUT_DS1"},{"id":"ds_heavy2","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_heavySave',action:'/ds.op.wrkplan.stvwrkplan.cmd.SaveHeavyEquipInputPlanCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_heavy1","key":"IN_DS1"},{"id":"ds_heavy2","key":"IN_DS2"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_heavySave_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//-------------------------------------------------------------------------
+// 전역변수
+//-------------------------------------------------------------------------
+scwin.strCurDate = WebSquare.date.getCurrentServerDate(); // 서버를 기준으로 현재 날짜 반환
+scwin.heqKndCd = "";
+scwin.heqKndNm = "";
+scwin.p_shiftSearch = "";
+scwin.p_heavy1Cnt = "";
+scwin.p_heavy2Cnt = "";
+scwin.txtShiftYN = "";
+// 메인화면 통신을 위한 호출
+scwin.parentFrame = $c.win.getParent($p);
+
+// 모화면 scwin 전역변수 호출
+// 여긴 모화면 연결시 사용, 현재는 정의 안되어서 오류 값 뜸
+scwin.searchKind = "";
+scwin.parentscwin = "";
+scwin.txtWrkIndictNo = "";
+scwin.txtCfmanYn = "";
+scwin.count = "";
+scwin.olddata = "";
+
+//-------------------------------------------------------------------------
+// 화면 로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  $c.gus.cfEnableObj($p, btn_shift, false);
+  $c.gus.cfEnableObj($p, acb_planList, false);
+
+  // 메인화면에서 작업지시번호 받아옴
+  scwin.txtWrkIndictNo = String(scwin.parentFrame.scwin.txtWrkIndictNo);
+  scwin.searchKind = String(scwin.parentFrame.scwin.searchKind);
+
+  // console.log(typeof(scwin.txtWrkIndictNo));
+
+  const param = [{
+    method: "getGridCombo",
+    param1: "DailyStevedoringWorkIndicationEBC",
+    param2: "retrieveWorkPlaceWorkStep",
+    param3: false,
+    compID: "gr_heavy1:wrkStpCd"
+  }, {
+    method: "getGridCombo",
+    param1: "DailyStevedoringWorkIndicationEBC",
+    param2: "retrieveWorkPlaceWorkStep",
+    param3: false,
+    compID: "gr_heavy2:wrkStpCd"
+  }];
+  $c.data.setGauceUtil($p, param);
+};
+
+//-------------------------------------------------------------------------
+// 메인화면에서 호출시 보내는 파라미터를 통한 데이터 통신(op_204_03_02b)
+//-------------------------------------------------------------------------
+scwin.shift = function (wrkPlCd, wrkDt) {
+  dma_planList.set("wrkPlCd", wrkPlCd);
+  dma_planList.set("wrkDt", wrkDt);
+  dma_planList.set("sysCd", "DailyStevedoringWorkIndicationEBC");
+  dma_planList.set("queryId", "retrieveWorkPlanList");
+  $c.sbm.execute($p, sbm_planList);
+};
+
+//-------------------------------------------------------------------------
+// 주간 shift 계획 사용
+//-------------------------------------------------------------------------
+scwin.btn_shift_onClick = function (e) {
+  if (scwin.searchKind == "" && scwin.txtWrkIndictNo == "") {
+    $c.win.alert($p, "먼저 기본정보를 조회해 주십시오.");
+    return;
+  } else if (scwin.searchKind == "E") {
+    $c.win.alert($p, "기본 정보를 등록하십시오.");
+    return;
+  }
+  dma_shiftSearch.set("lobranCd", scwin.parentFrame.scwin.acb_lobranCd);
+  dma_shiftSearch.set("wrkPlCd", $p.parent().ed_works_01.getValue());
+  dma_shiftSearch.set("wrkIntendDt", $p.parent().ica_inqDt.getValue());
+  dma_shiftSearch.set("shiftClsCd", "D"); //주간
+  dma_shiftSearch.set("wrkIndictNo", acb_planList.getValue());
+  dma_shiftSearch.set("wrkStDt", scwin.parentFrame.ica_wrkStDt.getValue());
+  dma_shiftSearch.set("wrkStHh", scwin.parentFrame.ica_wrkStHh.getValue());
+  dma_shiftSearch.set("wrkEndDt", scwin.parentFrame.ica_wrkEndDt.getValue());
+  dma_shiftSearch.set("wrkEndHh", scwin.parentFrame.ica_wrkEndHh.getValue());
+  scwin.p_shiftSearch = "Y";
+  $c.sbm.execute($p, sbm_shiftSearch);
+  scwin.txtShiftYN = "Y";
+};
+
+//-------------------------------------------------------------------------
+// 저장버튼 클릭시 
+//-------------------------------------------------------------------------
+scwin.btn_save_onClick = async function (e) {
+  scwin.count++;
+  if (scwin.searchKind == "" && scwin.txtWrkIndictNo == "") {
+    $c.win.alert($p, "먼저 기본정보를 조회해 주십시오.");
+    return;
+  } else if (scwin.searchKind == "E") {
+    $c.win.alert($p, "기본 정보를 등록하십시오.");
+    return;
+  }
+  let validArray = [{
+    id: "vehclShortCd",
+    name: "중기",
+    mandatory: true
+  }, {
+    id: "eqCd",
+    name: "중기",
+    mandatory: true,
+    length: 6,
+    key: true
+  }, {
+    id: "wrkStpCd",
+    name: "작업단계",
+    mandatory: true
+  }, {
+    id: "wrkStHh",
+    name: "작업시작시간",
+    mandatory: true,
+    valid: "date",
+    format: "HHmm"
+  }, {
+    id: "wrkEndHh",
+    name: "작업종료시간",
+    mandatory: true,
+    valid: "date",
+    format: "HHmm"
+  }];
+  if (!(await $c.gus.cfValidateGrid($p, gr_heavy1, null, null, validArray, "자사/용중기"))) {
+    return;
+  }
+
+  //작업시간 입력 첵크
+  if (!(await scwin.f_workTimeValidate_heavy1())) {
+    return;
+  }
+
+  //자사 용중기 기사 입력여부 첵크		
+  for (i = 0; i < ds_heavy1.getTotalRow(); i++) {
+    if (ds_heavy1.getCellData(i, "drvStaffNo1") != "" && ds_heavy1.getCellData(i, "drvStaffNm1") == "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setFocusedCell(i, "drvStaffNm1");
+      return;
+    } else if (ds_heavy1.getCellData(i, "drvStaffNo1") == "" && ds_heavy1.getCellData(i, "drvStaffNm1") != "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setFocusedCell(i, "drvStaffNo1");
+      return;
+    }
+    if (ds_heavy1.getCellData(i, "drvStaffNo2") != "" && ds_heavy1.getCellData(i, "drvStaffNm2") == "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setFocusedCell(i, "drvStaffNm2");
+      return;
+    } else if (ds_heavy1.getCellData(i, "drvStaffNo2") == "" && ds_heavy1.getCellData(i, "drvStaffNm2") != "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setFocusedCell(i, "drvStaffNo2");
+      return;
+    }
+    if (ds_heavy1.getCellData(i, "clntNm") == "자사") {
+      if (ds_heavy1.getCellData(i, "drvStaffNo1") == "" && ds_heavy1.getCellData(i, "drvStaffNo2") == "") {
+        $c.win.alert($p, "기사를 입력하십시오.");
+        gr_heavy1.setFocusedCell(i, "drvStaffNo1");
+        return;
+      }
+      if (ds_heavy1.getCellData(i, "drvStaffNm1") == "" && ds_heavy1.getCellData(i, "drvStaffNm2") == "") {
+        $c.win.alert($p, "기사를 입력하십시오.");
+        if (ds_heavy1.getCellData(i, "drvStaffNo1") == "") {
+          gr_heavy1.setFocusedCell(i, "drvStaffNm1");
+          return;
+        } else {
+          gr_heavy1.setFocusedCell(i, "drvStaffNm2");
+          return;
+        }
+      }
+    }
+  }
+  let validArray2 = [{
+    id: "eqKndCd",
+    name: "중기종류",
+    mandatory: true
+  }, {
+    id: "wrkStpCd",
+    name: "작업단계",
+    mandatory: true
+  }, {
+    id: "wrkStDt",
+    name: "작업시작일자",
+    mandatory: true,
+    valid: "date",
+    format: "YYYYMMDD"
+  }, {
+    id: "wrkStHh",
+    name: "작업시작시간",
+    mandatory: true,
+    length: 4
+  }, {
+    id: "wrkEndDt",
+    name: "작업시작시간",
+    mandatory: true,
+    valid: "date",
+    format: "YYYYMMDD"
+  }, {
+    id: "wrkEndHh",
+    name: "작업종료시간",
+    mandatory: true,
+    length: 4
+  }, {
+    id: "clntNo",
+    name: "협력업체",
+    mandatory: true,
+    length: 6
+  }, {
+    id: "clntNm",
+    name: "협력업체",
+    mandatory: true
+  }, {
+    id: "reqHveqCnt",
+    name: "배정대수",
+    minNumber: 1
+  }];
+  if (!(await $c.gus.cfValidateGrid($p, gr_heavy2, null, null, validArray2, "협력업체배정"))) {
+    return;
+  }
+
+  //작업시간 입력 첵크
+  if (!(await scwin.f_workTimeValidate_heavy2())) {
+    return;
+  }
+
+  //삭제를 제외한 Row Insert로 변경 주간인경우
+  if (scwin.txtShiftYN == "Y") {
+    scwin.f_flagSet();
+  }
+  if (!(await $c.win.confirm($p, MSG_CM_CRM_001))) {
+    return;
+  } else {
+    // dma_heavySave.set("shiftYN", scwin.txtShiftYN);
+    // dma_heavySave.set("wrkIndictNo", scwin.txtWrkIndictNo);
+    $c.sbm.setAction($p, sbm_heavySave, "/ds.op.wrkplan.stvwrkplan.cmd.SaveHeavyEquipInputPlanCMD.do?shiftYN=" + scwin.txtShiftYN + "&wrkIndictNo=" + scwin.txtWrkIndictNo);
+    $c.sbm.execute($p, sbm_heavySave);
+  }
+};
+scwin.btn_f_cancelHeavy1_onClick = function () {
+  let row = ds_heavy1.getRowPosition();
+  if (ds_heavy1.getRowStatus(row) == "C") {
+    ds_heavy1.removeRow(row);
+    gr_heavy1.setFocusedCell(0, 0);
+  } else {
+    ds_heavy1.undoRow(row);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 자사/용중기 Grid 행추가 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_f_AddRowHeavy1_onClick = async function () {
+  let wrkStDt = scwin.parentFrame.ica_wrkStDt.getValue();
+  let wrkEndDt = scwin.parentFrame.ica_wrkEndDt.getValue();
+  let wrkStHh = scwin.parentFrame.ica_wrkStHh.getValue();
+  let wrkEndHh = scwin.parentFrame.ica_wrkEndHh.getValue();
+  if (scwin.parentFrame.scwin.searchKind == "" && scwin.parentFrame.scwin.txtWrkIndictNo == "") {
+    $c.win.alert($p, "먼저 기본정보를 조회해 주십시오.");
+    return;
+  } else if (scwin.parentFrame.scwin.searchKind == "E") {
+    $c.win.alert($p, "기본 정보를 등록하십시오.");
+    return;
+  }
+  let validArray = [{
+    id: "eqCd",
+    name: "중기",
+    mandatory: true,
+    length: 6
+  }, {
+    id: "wrkStpCd",
+    name: "작업단계",
+    mandatory: true
+  }, {
+    id: "wrkStHh",
+    name: "작업시작시간",
+    mandatory: true,
+    valid: "date",
+    format: "HHmm"
+  }, {
+    id: "wrkEndHh",
+    name: "작업종료시간",
+    mandatory: true,
+    valid: "date",
+    format: "HHmm"
+  }];
+  if (!(await $c.gus.cfValidateGrid($p, gr_heavy1, null, null, validArray, "자사/용중기"))) {
+    return;
+  }
+  if (ds_heavy1.getTotalRow() == 0) {
+    let row1 = ds_heavy1.insertRow();
+    ds_heavy1.setCellData(row1, "wrkIndictNo", scwin.parentFrame.ed_txtWrkIndictNo.getValue());
+    ds_heavy1.setCellData(row1, "wrkStDt", wrkStDt);
+    ds_heavy1.setCellData(row1, "wrkStHh", wrkStHh);
+    ds_heavy1.setCellData(row1, "wrkEndDt", wrkEndDt);
+    ds_heavy1.setCellData(row1, "wrkEndHh", wrkEndHh);
+    ds_heavy1.setCellData(row1, "assgnSeq", "0");
+    gr_heavy1.focus();
+    gr_heavy1.setFocusedCell(row, 0);
+    return;
+  }
+
+  //작업시간 입력 첵크                 
+  if (!scwin.f_workTimeValidate_heavy1()) {
+    return;
+  }
+
+  //자사 용중기 기사 입력여부 첵크		
+  for (i = 0; i < ds_heavy1.getTotalRow(); i++) {
+    if (ds_heavy1.getCellData(i, "drvStaffNo1") != "" && ds_heavy1.getCellData(i, "drvStaffNm1") == "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setScrollLeft(i);
+      gr_heavy1.setFocusedCell(i, "drvStaffNm1");
+      return;
+    } else if (ds_heavy1.getCellData(i, "drvStaffNo1") == "" && ds_heavy1.getCellData(i, "drvStaffNm1") != "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setScrollLeft(i);
+      gr_heavy1.setFocusedCell(i, "drvStaffNo1");
+      return;
+    }
+    if (ds_heavy1.getCellData(i, "drvStaffNo2") != "" && ds_heavy1.getCellData(i, "drvStaffNm2") == "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setScrollLeft(i);
+      gr_heavy1.setFocusedCell(i, "drvStaffNm2");
+      return;
+    } else if (ds_heavy1.getCellData(i, "drvStaffNo2") == "" && ds_heavy1.getCellData(i, "drvStaffNm2") != "") {
+      $c.win.alert($p, "기사를 입력하십시오.");
+      gr_heavy1.setScrollLeft(i);
+      gr_heavy1.setFocusedCell(i, "drvStaffNo2");
+      return;
+    }
+    if (ds_heavy1.getCellData(i, "clntNm") == "자사") {
+      if (ds_heavy1.getCellData(i, "drvStaffNo1") == "" && ds_heavy1.getCellData(i, "drvStaffNo2") == "") {
+        $c.win.alert($p, "기사를 입력하십시오.");
+        gr_heavy1.setScrollLeft(i);
+        gr_heavy1.setFocusedCell(i, "drvStaffNo1");
+        return;
+      }
+      if (ds_heavy1.getCellData(i, "drvStaffNm1") == "" && ds_heavy1.getCellData(i, "drvStaffNm2") == "") {
+        $c.win.alert($p, "기사를 입력하십시오.");
+        gr_heavy1.setScrollLeft(i);
+        if (ds_heavy1.getCellData(i, "drvStaffNo1") == "") {
+          gr_heavy1.setScrollLeft(i);
+          gr_heavy1.setFocusedCell(i, "drvStaffNm1");
+          return;
+        } else {
+          gr_heavy1.setScrollLeft(i);
+          gr_heavy1.setFocusedCell(i, "drvStaffNm2");
+          return;
+        }
+      }
+    }
+  }
+  let row2 = ds_heavy1.insertRow();
+  ds_heavy1.setCellData(row2, "wrkIndictNo", scwin.parentFrame.ed_txtWrkIndictNo.getValue());
+  ds_heavy1.setCellData(row2, "wrkStDt", wrkStDt);
+  ds_heavy1.setCellData(row2, "wrkStHh", wrkStHh);
+  ds_heavy1.setCellData(row2, "wrkEndDt", wrkEndDt);
+  ds_heavy1.setCellData(row2, "wrkEndHh", wrkEndHh);
+  ds_heavy1.setCellData(row2, "assgnSeq", "0");
+  gr_heavy1.setFocusedCell(row2, 0);
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 Grid 행추가 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_f_AddRowHeavy2_onClick = async function () {
+  if ($p.parent().scwin.searchKind == "" && scwin.txtWrkIndictNo == "") {
+    $c.win.alert($p, "먼저 기본정보를 조회해 주십시오.");
+    return;
+  } else if ($p.parent().scwin.searchKind == "E") {
+    $c.win.alert($p, "기본 정보를 등록하십시오.");
+    return;
+  }
+  let validArray = [{
+    id: "eqKndCd",
+    name: "중기종류",
+    mandatory: true
+  }, {
+    id: "wrkStpCd",
+    name: "작업단계",
+    mandatory: true
+  }, {
+    id: "wrkStDt",
+    name: "작업시작일자",
+    mandatory: true,
+    valid: "date",
+    format: "YYYYMMDD"
+  }, {
+    id: "wrkStHh",
+    name: "작업시작시간",
+    mandatory: true,
+    length: 4
+  }, {
+    id: "wrkEndDt",
+    name: "작업시작시간",
+    mandatory: true,
+    valid: "date",
+    format: "YYYYMMDD"
+  }, {
+    id: "wrkEndHh",
+    name: "작업종료시간",
+    mandatory: true,
+    length: 4
+  }, {
+    id: "clntNo",
+    name: "협력업체",
+    mandatory: true,
+    length: 6
+  }, {
+    id: "clntNm",
+    name: "협력업체",
+    mandatory: true
+  }, {
+    id: "reqHveqCnt",
+    name: "배정대수",
+    mandatory: true,
+    minNumber: 1
+  }];
+  if (!(await $c.gus.cfValidateGrid($p, gr_heavy2, null, null, validArray, "협력업체배정"))) {
+    return;
+  }
+  if (ds_heavy2.getTotalRow() == 0) {
+    let row = ds_heavy2.insertRow();
+    ds_heavy2.setCellData(row, "wrkIndictNo", scwin.parentFrame.ed_txtWrkIndictNo.getValue());
+    ds_heavy2.setCellData(row, "wrkStDt", $p.parent().ica_wrkStDt.getValue());
+    ds_heavy2.setCellData(row, "wrkStHh", $p.parent().ica_wrkStHh.getValue());
+    ds_heavy2.setCellData(row, "wrkEndDt", $p.parent().ica_wrkEndDt.getValue());
+    ds_heavy2.setCellData(row, "wrkEndHh", $p.parent().ica_wrkEndHh.getValue());
+    ds_heavy2.setCellData(row, "reqHveqCnt", 0);
+    gr_heavy2.setFocusedCell(row, eqKndCd);
+    return;
+  }
+
+  // 작업일자 Validation
+  let wrkStDt = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "wrkStDt");
+  let wrkEndDt = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "wrkEndDt");
+  let wrkStHh = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "wrkStHh");
+  let wrkEndHh = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "wrkEndHh");
+
+  //작업시간 입력 첵크                 
+  if (!scwin.f_workTimeValidate_heavy2()) {
+    return;
+  }
+  let row = ds_heavy2.insertRow();
+  ds_heavy2.setCellData(row, "wrkIndictNo", scwin.parentFrame.ed_txtWrkIndictNo.getValue());
+  ds_heavy2.setCellData(row, "wrkStDt", $p.parent().ica_wrkStDt.getValue());
+  ds_heavy2.setCellData(row, "wrkStHh", $p.parent().ica_wrkStHh.getValue());
+  ds_heavy2.setCellData(row, "wrkEndDt", $p.parent().ica_wrkEndDt.getValue());
+  ds_heavy2.setCellData(row, "wrkEndHh", $p.parent().ica_wrkEndHh.getValue());
+  ds_heavy2.setCellData(row, "reqHveqCnt", 0);
+  gr_heavy2.setFocusedCell(row, "eqKndCd");
+};
+
+//-------------------------------------------------------------------------
+// 자사 Grid 행삭제 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_f_DeleteRowHeavy1 = function (e) {
+  let row = ds_heavy1.getRowPosition();
+  if (ds_heavy1.getCellData(row, "assgnSeq") != "0") {
+    $c.win.alert($p, "협력업체 배정에 대한 투입중기이므로 삭제할 수 없습니다");
+    return;
+  }
+  if (ds_heavy1.getRowStatus(row) == "C") {
+    ds_heavy1.removeRow(row);
+  } else {
+    ds_heavy1.deleteRow(row);
+    gr_heavy1.setFocusedCell(row, 0);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 장비배정 Grid 행삭제 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_f_DeleteRowHeavy2 = function (e) {
+  let row = ds_heavy2.getRowPosition();
+  if (ds_heavy2.getCellData(row, "inputHveqCnt") > 0) {
+    $c.win.alert($p, "투입대수가 있으므로 삭제할 수 없습니다.");
+    return;
+  }
+  if (ds_heavy2.getRowStatus(row) == "C") {
+    ds_heavy2.removeRow(row);
+  } else {
+    ds_heavy2.deleteRow(row);
+    gr_heavy2.setFocusedCell(row, 0);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 장비배정 Grid 행추가 버튼 클릭
+//-------------------------------------------------------------------------
+
+scwin.f_AddRowHeavy2 = async function () {
+  if (scwin.parentFrame.scwin.searchKind == "" && scwin.parentFrame.scwin.ed_txtWrkIndictNo.getValue() == "") {
+    $c.win.alert($p, "먼저 기본정보를 조회해 주십시오.");
+    return;
+  } else if (scwin.parentFrame.scin.searchKind == "E") {
+    $c.win.alert($p, "기본 정보를 등록하십시오.");
+    return;
+  }
+  if (!$c.gus.cfValidate($p, [gr_heavy2])) {
+    return;
+  }
+  if (ds_heavy2.getTotalRow() == 0) {
+    ds_heavy2.insertRow()();
+    ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkIndictNo", scwin.parentFrame.scwin.ed_txtWrkIndictNo.getValue());
+    ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkStDt", scwin.parentFrame.scwin.ica_wrkStDt.getValue());
+    ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkStHh", scwin.parentFrame.scwin.ed_wrkStTm.getValue());
+    ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkEndDt", scwin.parentFrame.scwin.ica_wrkEndDt.getValue());
+    ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkEndHh", scwin.parentFrame.scwin.ed_wrkEndTm.getValue());
+    gr_heavy2.setFocusedCell(0, "eqKndCd");
+    return;
+  }
+
+  // 작업일자 Validation
+  let wrkStDt = ds_heavy2.getCellData(ds_heavy2.getTotalRow(), "wrkStDt");
+  let wrkEndDt = ds_heavy2.getCellData(ds_heavy2.getTotalRow(), "wrkEndDt");
+  let wrkStHh = ds_heavy2.getCellData(ds_heavy2.getTotalRow(), "wrkStHh");
+  let wrkEndHh = ds_heavy2.getCellData(ds_heavy2.getTotalRow(), "wrkEndHh");
+
+  //작업시간 입력 첵크                 
+  if (!(await scwin.f_workTimeValidate_heavy2())) {
+    return;
+  }
+  ds_heavy2.AddRow();
+  ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkIndictNo", scwin.parentFrame.scwin.ed_txtWrkIndictNo.getValue());
+  ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkStDt", scwin.parentFrame.scwin.ica_wrkStDt.getValue());
+  ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkStHh", scwin.parentFrame.scwin.ed_wrkStTm.getValue());
+  ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkEndDt", scwin.parentFrame.scwin.ica_wrkEndDt.getValue());
+  ds_heavy2.setCellData(ds_heavy2.getTotalRow(), "wrkEndHh", scwin.parentFrame.ed_wrkEndTm.getValue());
+  gr_heavy2.setFocusedCell(0, "drvStaffNm2");
+  gr_heavy2.setFocusedCell(0, "eqKndCd");
+};
+
+//-------------------------------------------------------------------------
+// 자사 용중기 작업시간 입력 체크
+//-------------------------------------------------------------------------
+scwin.f_workTimeValidate_heavy1 = async function () {
+  let wrkStDt;
+  let wrkStHh;
+  let wrkEndDt;
+  let wrkEndHh;
+  let wrkStDtm;
+  let wrkEndDtm;
+  let mainWrkStDt = $p.parent().ica_wrkStDt.getValue();
+  let mainWrkStHh = $p.parent().ica_wrkStHh.getValue();
+  let mainWrkStDtm = mainWrkStDt + mainWrkStHh;
+  let mainWrkEndDt = $p.parent().ica_wrkEndDt.getValue();
+  let mainWrkEndHh = $p.parent().ica_wrkEndHh.getValue();
+  let mainWrkEndDtm = mainWrkEndDt + mainWrkEndHh;
+
+  // 자사 용중기 작업일자 Validation
+  for (i = 0; i < ds_heavy1.getTotalRow(); i++) {
+    wrkStDt = ds_heavy1.getCellData(i, "wrkStDt");
+    wrkStHh = ds_heavy1.getCellData(i, "wrkStHh");
+    wrkEndDt = ds_heavy1.getCellData(i, "wrkEndDt");
+    wrkEndHh = ds_heavy1.getCellData(i, "wrkEndHh");
+    wrkStDtm = wrkStDt + wrkStHh;
+    wrkEndDtm = wrkEndDt + wrkEndHh;
+    if (wrkStDt != "99999999") {
+      if (!(await $c.date.isDate($p, wrkStDt))) {
+        $c.win.alert($p, $c.data.getMessage($p, MSG_CM_ERR_018, "작업시작일자"));
+        return false;
+      }
+    }
+    if (wrkEndDt != "99999999") {
+      if (!(await $c.date.isDate($p, wrkEndDt))) {
+        $c.win.alert($p, $c.data.getMessage($p, MSG_CM_ERR_018, "작업종료일자"));
+        return false;
+      }
+    }
+
+    //입력한 작업시작일자가 기본종료일자이후인가
+
+    if (mainWrkStDtm > wrkStDtm) {
+      if (Number(mainWrkStDt) > Number(wrkStDt)) {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy1.setFocusedCell(i, "13");
+        return false;
+      } else {
+        gr_heavy1.setFocusedCell(i, "13");
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        return false;
+      }
+    }
+
+    //입력한 작업종료일자가 기본종료일자이내인가
+    if (mainWrkEndDtm < wrkEndDtm) {
+      if (Number(mainWrkEndDt) < Number(wrkEndDt)) {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy1.setScrollLeft(i);
+        return false;
+      } else {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy1.setScrollLeft(i);
+        return false;
+      }
+    }
+
+    //작업시작일자가 작업종료일자 이후 인가
+    if (wrkStDt > wrkEndDt) {
+      $c.win.alert($p, MSG_CM_ERR_039);
+      gr_heavy1.setScrollLeft(i);
+      return false;
+    }
+    if (wrkStDtm > wrkEndDtm) {
+      $c.win.alert($p, MSG_CM_ERR_039);
+      gr_heavy1.setScrollLeft(i);
+      return false;
+    }
+    if (wrkStDt + wrkStHh == wrkEndDt + wrkEndHh) {
+      $c.win.alert($p, MSG_CM_ERR_039);
+      gr_heavy1.setScrollLeft(i);
+      return false;
+    }
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 협력업체배정 작업시간 입력 체크
+//-------------------------------------------------------------------------
+scwin.f_workTimeValidate_heavy2 = function () {
+  let wrkStDt;
+  let wrkStHh;
+  let wrkEndDt;
+  let wrkEndHh;
+  let wrkStDtm;
+  let wrkEndDtm;
+  let mainWrkStDt = $p.parent().ica_wrkStDt.getValue();
+  let mainWrkStHh = $p.parent().ica_wrkStHh.getValue();
+  let mainWrkStDtm = mainWrkStDt + mainWrkStHh;
+  let mainWrkEndDt = $p.parent().ica_wrkEndDt.getValue();
+  let mainWrkEndHh = $p.parent().ica_wrkEndHh.getValue();
+  let mainWrkEndDtm = mainWrkEndDt + mainWrkEndHh;
+
+  // 자사 용중기 작업일자 Validation
+  for (i = 0; i < ds_heavy2.getTotalRow(); i++) {
+    wrkStDt = ds_heavy2.getCellData(i, "wrkStDt");
+    wrkStHh = ds_heavy2.getCellData(i, "wrkStHh");
+    wrkEndDt = ds_heavy2.getCellData(i, "wrkEndDt");
+    wrkEndHh = ds_heavy2.getCellData(i, "wrkEndHh");
+    wrkStDtm = wrkStDt + wrkStHh;
+    wrkEndDtm = wrkEndDt + wrkEndHh;
+
+    //입력한 작업시작일자가 기본종료일자이후인가
+    if (mainWrkStDtm > wrkStDtm) {
+      if (mainWrkStDt > wrkStDt) {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy2.setScrollLeft(i);
+        return false;
+      } else {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy2.setScrollLeft(i);
+        return false;
+      }
+    }
+
+    //입력한 작업종료일자가 기본종료일자이내인가
+    if (mainWrkEndDtm < wrkEndDtm) {
+      if (mainWrkEndDt < wrkEndDt) {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy2.setScrollLeft(i);
+        gr_heavy2.setFocusedCell(i, "wrkEndDt");
+        return false;
+      } else {
+        $c.win.alert($p, "중기작업시간이 기본작업시간을 초과합니다.");
+        gr_heavy2.setScrollLeft(i);
+        return false;
+      }
+    }
+    //작업시작일자가 작업종료일자 이후 인가
+    if (wrkStDt > wrkEndDt) {
+      $c.win.alert($p, MSG_CM_ERR_039);
+      gr_heavy2.setFocusedCell(i, "wrkStDt");
+      return false;
+    }
+    if (wrkStDtm > wrkEndDtm) {
+      $c.win.alert($p, MSG_CM_ERR_039);
+      gr_heavy2.setFocusedCell(i, "wrkStDt");
+      return false;
+    }
+    if (wrkStDt + wrkStHh == wrkEndDt + wrkEndHh) {
+      $c.win.alert($p, MSG_CM_ERR_039);
+      gr_heavy2.setFocusedCell(i, "wrkStDt");
+      return false;
+    }
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 배정여부 decode
+//-------------------------------------------------------------------------
+scwin.displayFm = function (data) {
+  return $c.gus.decode($p, data, "0", "N", "Y");
+};
+scwin.sbm_heavySave_submitdone = async function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    await $c.win.alert($p, MSG_CM_INF_001);
+    scwin.parentFrame.scwin.btn_retrieve_Onclick();
+  } catch (e) {
+    console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 자사/용중기 그리드 Editable 제어
+//-------------------------------------------------------------------------
+scwin.gr_heavy1_oncellclick = function (rowIndex, columnIndex, columnId) {
+  if (ds_heavy1.getCellData(rowIndex, "assgnSeq") != "0") {
+    gr_heavy1.setCellReadOnly(rowIndex, "vehclNo", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqKndCd", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqKndNm", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqNrmCd", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqNrmNm", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "clntNo", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "clntNm", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "wrkStDt", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "wrkStHh", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "wrkEndDt", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "wrkEndHh", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNo1", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNm1", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNo2", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNm2", true);
+    return;
+  }
+
+  //gr_heavy1.setCellReadOnly(rowIndex, "vehclNo", true);	        
+  gr_heavy1.setCellReadOnly(rowIndex, "eqKndCd", true);
+  gr_heavy1.setCellReadOnly(rowIndex, "eqKndNm", true);
+  gr_heavy1.setCellReadOnly(rowIndex, "eqNrmCd", true);
+  gr_heavy1.setCellReadOnly(rowIndex, "eqNrmNm", true);
+  gr_heavy1.setCellReadOnly(rowIndex, "clntNo", true);
+  gr_heavy1.setCellReadOnly(rowIndex, "clntNm", true);
+  gr_heavy1.setCellReadOnly(rowIndex, "wrkStDt", false);
+  gr_heavy1.setCellReadOnly(rowIndex, "wrkStHh", false);
+  gr_heavy1.setCellReadOnly(rowIndex, "wrkEndDt", false);
+  gr_heavy1.setCellReadOnly(rowIndex, "wrkEndHh", false);
+  if (ds_heavy1.getCellData(rowIndex, "clntNm") == '자사') {
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNo1", false);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNm1", false);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNo2", false);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNm2", false);
+  } else {
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNo1", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNm1", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNo2", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "drvStaffNm2", true);
+  }
+  if (ds_heavy1.getRowStatus(rowIndex) == "C") {
+    gr_heavy1.setCellReadOnly(rowIndex, "vehclShortCd", false);
+    gr_heavy1.setCellReadOnly(rowIndex, "vehclNo", false);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqKndCd", false);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqKndNm", false);
+  } else {
+    gr_heavy1.setCellReadOnly(rowIndex, "vehclShortCd", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "vehclNo", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqKndCd", true);
+    gr_heavy1.setCellReadOnly(rowIndex, "eqKndNm", true);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 그리드 Editable 제어
+//-------------------------------------------------------------------------
+scwin.gr_heavy2_oncellclick = function (rowIndex, columnIndex, columnId) {
+  if (ds_heavy2.getCellData(rowIndex, "inputHveqCnt") > 0) {
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkIndictNo", true); //작업지시번호  
+    gr_heavy2.setCellReadOnly(rowIndex, 'eqKndCd', true); //중기종류코드  
+    gr_heavy2.setCellReadOnly(rowIndex, "eqKndNm", true); //중기종류명    
+    gr_heavy2.setCellReadOnly(rowIndex, "nesEqNrmCd", true); //필요규격코드  
+    gr_heavy2.setCellReadOnly(rowIndex, "nesEqNrmNm", true); //필요규격(ton) 
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkStpCd", true); //작업단계   	
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkStDt", true); //시작일자  
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkStHh", true); //시작시간  
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkEndDt", true); //종료일자  
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkEndHh", true); //종료시간  
+    gr_heavy2.setCellReadOnly(rowIndex, "clntNo", true); //업체코드  
+    gr_heavy2.setCellReadOnly(rowIndex, "clntNm", true); //업체명   	
+    gr_heavy2.setCellReadOnly(rowIndex, "assgnSeq", true); //배정순번   
+    gr_heavy2.setCellReadOnly(rowIndex, "reqHveqCnt", true); //배정대수   
+    gr_heavy2.setCellReadOnly(rowIndex, "inputHveqCnt", true); //투입대수   
+    gr_heavy2.setColumnReadOnly("existRow", true); //기존Row     
+    $c.win.alert($p, "협력업체 배정에 의한 투입중기이므로 수정할 수 없습니다.");
+    return;
+  }
+  gr_heavy2.setCellReadOnly("inputHveqCnt", true); //투입대수
+  gr_heavy2.setCellReadOnly("nesEqNrmNm", true); //필요규격
+
+  if (ds_heavy2.getRowStatus(rowIndex) == "C") {
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkStpCd", false); //작업단계   	
+    gr_heavy2.setCellReadOnly(rowIndex, "eqKndCd", false);
+    gr_heavy2.setCellReadOnly(rowIndex, "eqKndNm", true);
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkStDt", false);
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkStHh", false);
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkEndDt", false);
+    gr_heavy2.setCellReadOnly(rowIndex, "wrkEndHh", false);
+    gr_heavy2.setCellReadOnly(rowIndex, "clntNo", false); //업체코드  
+    gr_heavy2.setCellReadOnly(rowIndex, "clntNm", false); //업체명   	
+    gr_heavy2.setCellReadOnly(rowIndex, "reqHveqCnt", false);
+  } else {
+    gr_heavy2.setCellReadOnly(rowIndex, "eqKndCd", true);
+    gr_heavy2.setCellReadOnly(rowIndex, "eqKndNm", true);
+    if (ds_heavy2.getCellData(rowIndex, "inputHveqCnt") > 0) {
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkStDt", true);
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkStHh", true);
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkEndDt", true);
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkEndHh", true);
+      gr_heavy2.setCellReadOnly(rowIndex, "clntNo", true);
+      gr_heavy2.setCellReadOnly(rowIndex, "clntNm", true);
+      gr_heavy2.setCellReadOnly(rowIndex, "reqHveqCnt", true);
+    } else {
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkStpCd", false); //작업단계   	
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkStDt", false);
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkStHh", false);
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkEndDt", false);
+      gr_heavy2.setCellReadOnly(rowIndex, "wrkEndHh", false);
+      gr_heavy2.setCellReadOnly(rowIndex, "clntNo", false);
+      gr_heavy2.setCellReadOnly(rowIndex, "clntNm", false);
+      gr_heavy2.setCellReadOnly(rowIndex, "reqHveqCnt", false);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 자사/용중기 그리드 셀 편집 진입시
+//-------------------------------------------------------------------------
+scwin.gr_heavy1_onbeforeedit = function (rowIndex, columnIndex, value) {
+  scwin.olddata = value;
+};
+
+//-------------------------------------------------------------------------
+// 자사/용중기 그리드 셀 편집 후
+//-------------------------------------------------------------------------
+scwin.gr_heavy1_onafteredit = function (rowIndex, columnIndex, value) {
+  let colid = gr_heavy1.getColumnID(columnIndex);
+  ds_heavy1.setCellData(rowIndex, colid, ds_heavy1.getCellData(rowIndex, colid).toUpperCase());
+  var v_vehclShortCd = ds_heavy1.getCellData(rowIndex, "vehclShortCd");
+  var v_drvStaffNo1 = ds_heavy1.getCellData(rowIndex, "drvStaffNo1");
+  var v_drvStaffNo2 = ds_heavy1.getCellData(rowIndex, "drvStaffNo2");
+  var v_eqKndCd = ds_heavy1.getCellData(rowIndex, "eqKndCd");
+  var v_eqKndNm = ds_heavy1.getCellData(rowIndex, "eqKndNm");
+  if (ds_heavy1.getCellData(rowIndex, colid) != scwin.olddata) {
+    //인서트일때 왼쪽 데이터가 바뀌면 오른쪽 그리드에도 적용해야한다
+
+    if (colid == "vehclShortCd") {
+      ds_heavy1.setCellData(rowIndex, "eqCd", ""); //중기코드  
+      ds_heavy1.setCellData(rowIndex, "vehclNo", ""); //차량FULL코드
+      ds_heavy1.setCellData(rowIndex, "eqKndCd", ""); //중기종류코드
+      ds_heavy1.setCellData(rowIndex, "eqKndNm", ""); //중기종류
+      ds_heavy1.setCellData(rowIndex, "eqNrmCd", ""); //중기규격코드
+      ds_heavy1.setCellData(rowIndex, "eqNrmNm", ""); //중기규격
+      ds_heavy1.setCellData(rowIndex, "clntNo", ""); //소속코드
+      ds_heavy1.setCellData(rowIndex, "clntNm", ""); //소속명
+      ds_heavy1.setCellData(rowIndex, "drvStaffNo1", ""); //기사사번1
+      ds_heavy1.setCellData(rowIndex, "drvStaffNm1", ""); //기사명1
+      ds_heavy1.setCellData(rowIndex, "drvStaffNo2", ""); //기사사번2
+      ds_heavy1.setCellData(rowIndex, "drvStaffNm2", ""); //기사명2
+
+      v_vehclShortCd = scwin.olddata;
+      scwin.f_openCommonPopUp(1, "", "onafteredit", value);
+    } else if (colid == "vehclNo") {
+      ds_heavy1.setCellData(rowIndex, "vehclShortCd", ""); //단축코드
+      ds_heavy1.setCellData(rowIndex, "eqCd", ""); //중기코드  
+      ds_heavy1.setCellData(rowIndex, "eqKndCd", ""); //중기종류코드
+      ds_heavy1.setCellData(rowIndex, "eqKndNm", ""); //중기종류
+      ds_heavy1.setCellData(rowIndex, "eqNrmCd", ""); //중기규격코드
+      ds_heavy1.setCellData(rowIndex, "eqNrmNm", ""); //중기규격
+      ds_heavy1.setCellData(rowIndex, "clntNo", ""); //소속코드
+      ds_heavy1.setCellData(rowIndex, "clntNm", ""); //소속명
+      ds_heavy1.setCellData(rowIndex, "drvStaffNo1", ""); //기사사번1
+      ds_heavy1.setCellData(rowIndex, "drvStaffNm1", ""); //기사명1
+      ds_heavy1.setCellData(rowIndex, "drvStaffNo2", ""); //기사사번2
+      ds_heavy1.setCellData(rowIndex, "drvStaffNm2", ""); //기사명2
+
+      v_vehclShortCd = scwin.olddata;
+      scwin.f_openCommonPopUp(1, "", "onafteredit"), value;
+    } else if (colid == "drvStaffNo1") {
+      // ds_heavy1.setCellData(rowIndex, "drvStaffNm1", ""); 
+      v_drvStaffNo1 = scwin.olddata;
+      scwin.f_openCommonPopUp(2, "", "onafteredit", value);
+    } else if (colid == "drvStaffNm1") {
+      // ds_heavy1.setCellData(rowIndex, "drvStaffNo1", "" ); 
+      v_drvStaffNo1 = scwin.olddata;
+      scwin.f_openCommonPopUp(2, "", "onafteredit", value);
+    } else if (colid == "drvStaffNo2") {
+      // ds_heavy1.setCellData(rowIndex, "drvStaffNm2", "" ); 
+      v_drvStaffNo2 = scwin.olddata;
+      scwin.f_openCommonPopUp(3, "", "onafteredit", value);
+    } else if (colid == "drvStaffNm2") {
+      // ds_heavy1.setCellData(rowIndex, "drvStaffNo2", "" ); 
+      v_drvStaffNo2 = scwin.olddata;
+      scwin.f_openCommonPopUp(3, "", "onafteredit", value);
+    } else if (colid == "eqKndCd") {
+      // ds_heavy1.setCellData(rowIndex, "eqKndNm", "" );
+      v_eqKndCd = scwin.olddata;
+      scwin.f_openCommonPopUp(6, "", "onafteredit", value);
+    } else if (colid == "eqKndNm") {
+      // ds_heavy1.setCellData(rowIndex, "eqKndCd", "" );
+      v_eqKndNm = scwin.olddata;
+      scwin.f_openCommonPopUp(7, "", "onafteredit", value);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 자사/용중기 그리드 팝업 클릭시
+//-------------------------------------------------------------------------
+scwin.gr_heavy1_ontextimageclick = function (rowIndex, columnIndex) {
+  let colid = gr_heavy1.getColumnID(columnIndex);
+  var gubun;
+  if (colid == "vehclShortCd") {
+    gubun = 1;
+  } else if (colid == "drvStaffNo1") {
+    gubun = 2;
+  } else if (colid == "drvStaffNo2") {
+    gubun = 3;
+  } else if (colid == "eqKndCd") {
+    gubun = 6;
+  } else if (colid == "eqKndNm") {
+    gubun = 7;
+  }
+  scwin.f_openCommonPopUp(gubun, "F", "ontextimageclick");
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 그리드 셀 편집 진입시
+//-------------------------------------------------------------------------
+scwin.gr_heavy2_onbeforeedit = function (rowIndex, columnIndex, value) {
+  scwin.olddata = value;
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 그리드 셀 편집 후
+//-------------------------------------------------------------------------
+scwin.gr_heavy2_onafteredit = function (rowIndex, columnIndex, value) {
+  let colid = gr_heavy2.getColumnID(columnIndex);
+  if (colid == "eqKndCd" || colid == "clntNo") {
+    ds_heavy2.setCellData(rowIndex, colid, ds_heavy2.getCellData(rowIndex, colid).toUpperCase());
+  }
+  var v_eqKndCd = ds_heavy2.getCellData(rowIndex, "eqKndCd");
+  var v_clntNo = ds_heavy2.getCellData(rowIndex, "clntNo");
+  if (value !== scwin.olddata) {
+    //인서트일때 왼쪽 데이터가 바뀌면 오른쪽 그리드에도 적용해야한다
+    if (colid == "eqKndCd") {
+      ds_heavy2.setCellData(rowIndex, "eqKndNm", "");
+      v_eqKndCd = scwin.olddata;
+      scwin.f_openCommonPopUp(4, "", "onafteredit", value);
+    } else if (colid == "eqKndNm") {
+      ds_heavy2.setCellData(rowIndex, "eqKndCd", "");
+      v_eqKndCd = scwin.olddata;
+      scwin.f_openCommonPopUp(4, "", "onafteredit", value);
+    } else if (colid == "clntNo") {
+      ds_heavy2.setCellData(rowIndex, "clntNm", "");
+      v_clntNo = scwin.olddata;
+      scwin.f_openCommonPopUp(5, "", "onafteredit", value);
+    } else if (colid == "clntNm") {
+      ds_heavy2.setCellData(rowIndex, "clntNo", "");
+      v_clntNo = scwin.olddata;
+      scwin.f_openCommonPopUp(5, "", "onafteredit", value);
+    } else if (colid == "reqHveqCnt") {
+      if (value.length >= 2 && value.substring(0, 1) == 0) {
+        ds_heavy2.setCellData(rowIndex, "reqHveqCnt", value.substring(1, 2));
+      } else if (value == "") {
+        ds_heavy2.setCellData(rowIndex, "reqHveqCnt", 0);
+      }
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 그리드 셀 팝업 클릭시
+//-------------------------------------------------------------------------
+scwin.gr_heavy2_ontextimageclick = function (rowIndex, columnIndex) {
+  let colid = gr_heavy2.getColumnID(columnIndex);
+  var gubun;
+  if (colid == "eqKndCd") {
+    gubun = 4;
+  } else if (colid == "clntNo") {
+    gubun = 5;
+  }
+  scwin.f_openCommonPopUp(gubun, "F", "ontextimageclick");
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (disGubun, pWinCloseTF) {
+  // 선언부
+  var sWinCloseTF = pWinCloseTF == "" ? "T" : pWinCloseTF;
+  var rtnList = new Array(); // 공통POP-UP -> 요청화면 
+  var pCode = "";
+  var pName = "";
+  var pWtitleSearch = "";
+  let evNm = arguments[2] || "";
+  let colid1 = gr_heavy1.getFocusedColumnID();
+  if (disGubun == "4" || disGubun == "5") {
+    if (evNm && $c.win.getEventList($p, gr_heavy2, evNm)) {
+      scwin.eventCnt++;
+    }
+  } else {
+    if (evNm && $c.win.getEventList($p, gr_heavy1, evNm)) {
+      scwin.eventCnt++;
+    }
+  }
+  $p.setTimeout(function () {
+    scwin.eventCnt = 0;
+  }, {
+    delay: 1500
+  });
+  if (evNm == "onafteredit" && arguments[3] == "") {
+    pCode = "";
+    pName = "";
+  } else if (evNm == "onafteredit" && arguments[3] != "" && disGubun == 2) {
+    pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNo1").replace(/\s*$/, '');
+    pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNm1");
+  } else if (evNm == "onafteredit" && arguments[3] != "" && disGubun == 3) {
+    pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNo2").replace(/\s*$/, '');
+    pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNm2");
+  }
+  var arrParam = new Array();
+  let options = "";
+  switch (disGubun) {
+    case 1:
+      //중기(grid)
+
+      var arrParam = new Array();
+      pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "vehclShortCd").replace(/\s*$/, '');
+      pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "vehclNo");
+      arrParam[0] = scwin.parentFrame.scwin.acb_lobranCd; //assgnLobranCd점소코드
+      arrParam[1] = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "eqKndCd"); //eqKndCd중기종류
+      //arrParam[1] = "";			//eqKndCd중기종류
+      arrParam[2] = ""; //clntCd거래처코드
+      if (scwin.parentFrame.scwin.hid_txt_inqDt === "99999999") {
+        arrParam[3] = scwin.strCurDate; //usblDt작업계획일지
+      } else {
+        arrParam[3] = scwin.parentFrame.scwin.hid_txt_inqDt; //usblDt작업계획일지
+      }
+      arrParam[4] = pCode; //eqNo
+      arrParam[5] = pName; //차량번호
+      arrParam[6] = sWinCloseTF; //T,F구분
+      arrParam[7] = 'T'; //T,F구분
+
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqCd", ""); //중기코드  
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "vehclShortCd", ""); //단축코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "vehclNo", ""); //차량FULL코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", ""); //중기종류코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", ""); //중기종류
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqNrmCd", ""); //중기규격코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqNrmNm", ""); //중기규격
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "clntNo", ""); //소속코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "clntNm", ""); //소속명
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNo1", ""); //기사사번1
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNm1", ""); //기사명1
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNo2", ""); //기사사번2
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNm2", ""); //기사명2
+
+      // 팝업 옵션 설정
+      options = {
+        id: "taxPop",
+        popupName: "중기조회",
+        width: 1100,
+        height: 650
+      };
+      rtnList = await $c.win.openPopup($p, "/ui/ds/op/rscconfirm/transrscconfirm/op_101_01_12p.xml", options, arrParam);
+      if (rtnList != null) {
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqCd", rtnList[12]); //중기코드  
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "vehclShortCd", rtnList[0]); //단축코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "vehclNo", rtnList[1]); //차량FULL코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", rtnList[15]); //중기종류코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", rtnList[2]); //중기종류
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqNrmCd", rtnList[15]); //중기규격코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqNrmNm", rtnList[3]); //중기규격
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "clntNo", rtnList[29]); //소속코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "clntNm", rtnList[5]); //소속명
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNo1", rtnList[16]); //기사사번1
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNm1", rtnList[7]); //기사명1
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNo2", rtnList[17]); //기사사번2
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNm2", rtnList[8]); //기사명2
+
+        if (ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "clntNm") == '자사') {
+          gr_heavy1.setHeaderClass("column54", "txt-red");
+          gr_heavy1.setHeaderClass("column45", "txt-red");
+          gr_heavy1.setHeaderClass("column53", "txt-red");
+        } else {
+          gr_heavy1.removeHeaderClass("column54", "txt-red");
+          gr_heavy1.removeHeaderClass("column45", "txt-red");
+          gr_heavy1.removeHeaderClass("column53", "txt-red");
+        }
+        return;
+      } else {
+        break;
+      }
+    case 2:
+      //기사1(grid)
+
+      // pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNo1").replace(/\s*$/, '');
+      // pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNm1");
+
+      ds_heavy1.setCellData(gr_heavy1.getFocusedRowIndex(), "drvStaffNo1", ""); //사원코드
+      ds_heavy1.setCellData(gr_heavy1.getFocusedRowIndex(), "drvStaffNm1", ""); //사원명
+
+      arrParam[0] = pCode; //사번
+      arrParam[1] = pName; //사원명
+      arrParam[2] = scwin.parentFrame.scwin.acb_lobranCd; //점소코드
+      // arrParam[3] = scwin.parentFrame.scwin.acb_lobranNm;  //점소명
+      arrParam[3] = ""; //점소명
+      // arrParam[4] = scwin.parentFrame.scwin.hid_txt_wrkCd; //작업장코드
+      arrParam[4] = ""; //작업장코드
+      // arrParam[5] = ',D';//직종  (전체)
+      arrParam[5] = ''; //직종  (전체)
+      arrParam[6] = '01,D'; //상세직종코드 (하역직)
+      arrParam[7] = ''; //직급
+      arrParam[8] = scwin.parentFrame.scwin.hid_txt_inqDt.value == '99999999' ? scwin.strCurDate : scwin.parentFrame.scwin.hid_txt_inqDt; //작업일
+      arrParam[9] = 'Y'; //배치가능여부
+      arrParam[10] = sWinCloseTF; //WINDOW CLOSE 여부
+      arrParam[11] = "1"; //상세직종Flag
+
+      // 팝업 옵션 설정
+      options = {
+        id: "taxPop",
+        popupName: "인력검색",
+        width: 1080,
+        height: 650
+      };
+      rtnList = await $c.win.openPopup($p, "/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", options, arrParam);
+      if (rtnList != null) {
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNo1", rtnList[2]); //사원코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNm1", rtnList[3]); //사원명
+      } else {
+        break;
+      }
+      break;
+    case 3:
+      //기사2(grid)                               
+
+      // pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNo2").replace(/\s*$/, '');
+      // pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "drvStaffNm2");
+      ds_heavy1.setCellData(gr_heavy1.getFocusedRowIndex(), "drvStaffNo2", ""); //사원코드
+      ds_heavy1.setCellData(gr_heavy1.getFocusedRowIndex(), "drvStaffNm2", ""); //사원명
+
+      arrParam[0] = pCode; //사번
+      arrParam[1] = pName; //사원명
+      arrParam[2] = scwin.parentFrame.scwin.acb_lobranCd; //점소코드
+      // arrParam[3] = scwin.parentFrame.scwin.acb_lobranNm;  //점소명
+      arrParam[3] = ""; //점소명
+      // arrParam[4] = scwin.parentFrame.scwin.hid_txt_wrkCd; //작업장코드
+      arrParam[4] = ""; //작업장코드
+      // arrParam[5] = ',D';//직종  (전체)
+      arrParam[5] = ''; //직종  (전체)
+      arrParam[6] = '01,D'; //상세직종코드 (하역직)
+      arrParam[7] = ''; //직급
+      arrParam[8] = scwin.parentFrame.scwin.hid_txt_inqDt.value == '99999999' ? scwin.strCurDate : scwin.parentFrame.scwin.hid_txt_inqDt; //작업일
+      arrParam[9] = 'Y'; //배치가능여부
+      arrParam[10] = sWinCloseTF; //WINDOW CLOSE 여부
+      arrParam[11] = "1"; //상세직종Flag
+
+      // 팝업 옵션 설정
+      options = {
+        id: "taxPop",
+        popupName: "인력검색",
+        width: 1080,
+        height: 650
+      };
+      rtnList = await $c.win.openPopup($p, "/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", options, arrParam);
+      if (rtnList != null) {
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNo2", rtnList[2]); //사원코드
+        ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "drvStaffNm2", rtnList[3]); //사원명
+      } else {}
+      break;
+    case 4:
+      //중기종류(grid)                            
+      pCode = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "eqKndCd").replace(/\s*$/, '');
+      pName = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "eqKndNm");
+      ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "eqKndCd", "");
+      ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "eqKndNm", "");
+      udc_comCode_Grid.setSelectId("retrieveClntHeavyMachineryInfo");
+      rtnList = udc_comCode_Grid.cfCommonPopUp(scwin.udc_eqKndCd_callBack, pCode, pName, sWinCloseTF, null, null, null, null, null, 420, 500, null, null); // 중기LIST
+
+      break;
+    case 5:
+      //업체코드(grid)                            
+      pCode = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "clntNo").replace(/\s*$/, '');
+      pName = ds_heavy2.getCellData(ds_heavy2.getRowPosition(), "clntNm");
+      ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "clntNo", "");
+      ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "clntNm", "");
+      udc_comCode_Grid.setSelectId("retrieveHeavyMachineryClntInfo");
+      udc_comCode_Grid.cfCommonPopUp(scwin.udc_clntNo_callBack, pCode, pName, "F", null, null, null, null, null, 450, 500, null, null); // 중기협력업체
+
+      break;
+    case 6:
+      //중기종류코드
+      pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "eqKndCd").replace(/\s*$/, '');
+      pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "eqKndNm");
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", "");
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", "");
+      udc_comCode_Grid.setSelectId("retrieveHeavyMachineryKind");
+      udc_comCode_Grid.cfCommonPopUp(scwin.udc_eqKnd_callBack, pCode, pName, "T", null, null, null, null, null, 420, 500, null, null, null, "T", null); // 중기종류
+
+      break;
+    case 7:
+      //중기종류명
+      pCode = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "eqKndCd").replace(/\s*$/, '');
+      pName = ds_heavy1.getCellData(ds_heavy1.getRowPosition(), "eqKndNm");
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", "");
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", "");
+      udc_comCode_Grid.setSelectId("retrieveHeavyMachineryKind");
+      udc_comCode_Grid.cfCommonPopUp(scwin.udc_eqKnd2_callBack, pCode, pName, "T", null, null, null, null, null, 420, 500, null, null, null, "T", null); // 중기종류
+
+      break;
+    default:
+      break;
+  }
+};
+scwin.udc_eqKndCd_callBack = function (rtnList) {
+  if (rtnList != null) {
+    ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "eqKndCd", rtnList[0]); //중기종류코드
+    ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "eqKndNm", rtnList[1]); //중기종류명
+    ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "nesEqNrmCd", rtnList[2]); //중기규격코드
+    ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "nesEqNrmNm", rtnList[3]); //중기규격
+  }
+};
+scwin.udc_clntNo_callBack = function (rtnList) {
+  if (rtnList != null) {
+    ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "clntNo", rtnList[0]); //협력업체코드
+    ds_heavy2.setCellData(ds_heavy2.getRowPosition(), "clntNm", rtnList[1]); //협력업체명
+  }
+};
+scwin.udc_eqKnd_callBack = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", scwin.heqKndCd);
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", scwin.heqKndNm);
+    } else {
+      scwin.heqKndCd = rtnList[0]; //중기종류코드
+      scwin.heqKndNm = rtnList[1]; //중기종류명
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", rtnList[0]); //중기종류코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", rtnList[1]); //중기종류명
+    }
+  } else {
+    ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", "");
+    ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", "");
+  }
+};
+scwin.udc_eqKnd2_callBack = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", scwin.heqKndCd);
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", scwin.heqKndNm);
+    } else {
+      heqKndCd.value = rtnList[0]; //중기종류코드
+      heqKndNm.value = rtnList[1]; //중기종류명
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", rtnList[0]); //중기종류코드
+      ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", rtnList[1]); //중기종류명
+    }
+  } else {
+    ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndCd", "");
+    ds_heavy1.setCellData(ds_heavy1.getRowPosition(), "eqKndNm", "");
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Shift',class:''}},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',editType:'select',style:'',id:'acb_planList',class:' w250',displayMode:'value delim label',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_planList'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_shift',title:'엑셀 UP',type:'button',class:'btn','ev:onclick':'scwin.btn_shift_onClick',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'주간 Shift 계획사용'}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'자사/용중기',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',grdDownOpts:'{"fileName":"자사 용중기.xlsx", "sheetName": "자사 용중기"}',gridID:'gr_heavy1'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section1',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{scrollByColumnAdaptive:'false',focusMode:'row',visibleRowNumFix:'true',dataList:'data:ds_heavy1',scrollByColumn:'false',style:'',autoFit:'allColumn',id:'gr_heavy1',visibleRowNum:'5',class:'wq_gvw',checkReadOnlyOnPasteEnable:'',validExp:'eqCd:중기:yes:length=6:key,wrkStpCd:작업단계:yes,wrkStHh:작업시작시간:yes:date=HHmm,wrkEndHh:작업종료시간:yes:date=HHmm',resize:'true',columnMove:'true','ev:oncellclick':'scwin.gr_heavy1_oncellclick','ev:onafteredit':'scwin.gr_heavy1_onafteredit','ev:onbeforeedit':'scwin.gr_heavy1_onbeforeedit','ev:ontextimageclick':'scwin.gr_heavy1_ontextimageclick',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption10',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',removeBorderStyle:'false',width:'120',inputType:'text',id:'column12',value:'작업지시번호',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',removeBorderStyle:'false',width:'100',inputType:'text',id:'column11',value:'중기번호',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',removeBorderStyle:'false',width:'100',inputType:'text',id:'column10',value:'단축코드',class:'txt-red',blockSelect:'false',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',removeBorderStyle:'false',width:'100',inputType:'text',id:'column9',value:'차량번호',blockSelect:'false',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'120',inputType:'text',id:'column21',value:'중기종류코드',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',id:'column19',value:'중기종류',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',id:'column13',value:'규격코드',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',id:'column15',value:'규격<br/>(ton)',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',id:'column41',value:'작업단계',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',id:'column38',value:'거래처코드',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',id:'column32',value:'소속',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',id:'column35',value:'시작',class:'txt-red',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',id:'column59',value:'종료',class:'txt-red',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',id:'column53',value:'기사1',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',id:'column47',value:'기사2',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column74',value:'배정여부',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column71',value:'기존Row',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',style:'',id:'column65',value:'필요',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',style:'',id:'column68',value:'필요',displayMode:'label',hidden:'true',hiddenCol:'true'}}]},{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column26',value:'코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column25',value:'명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column36',value:'일',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column63',value:'시',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column60',value:'일',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column57',value:'시',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column54',value:'사번',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column45',value:'이름',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column48',value:'사번',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column51',value:'이름',displayMode:'label',sortable:'true'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'120',inputType:'text',id:'wrkIndictNo',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'100',inputType:'text',id:'eqCd',blockSelect:'false',displayMode:'label',hidden:'true',mandatory:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'100',inputType:'textImage',id:'vehclShortCd',blockSelect:'false',displayMode:'label',imageClickFunction:'scwin.vehclShortCd_onClick'}},{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'100',inputType:'text',id:'vehclNo',blockSelect:'false',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'code',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'textImage',id:'eqKndCd',displayMode:'label',imageClickFunction:'scwin.udc_commonGrid_onClick'}},{T:1,N:'w2:column',A:{textAlign:'center',width:'70',inputType:'textImage',id:'eqKndNm',displayMode:'label',imageClickFunction:'scwin.udc_commonGrid_onClick'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'eqNrmCd',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'70',inputType:'text',id:'eqNrmNm',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'select',id:'wrkStpCd',displayMode:'label',mandatory:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'clntNo',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',id:'clntNm',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'wrkStDt',displayMode:'label',displayFormat:'####/##/##'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'wrkStHh',displayMode:'label',displayFormat:'##:##',mandatory:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'wrkEndDt',displayMode:'label',displayFormat:'####/##/##'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'wrkEndHh',displayMode:'label',displayFormat:'##:##',mandatory:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'textImage',id:'drvStaffNo1',displayMode:'label',displayFormat:'######',imageClickFunction:'scwin.drvStaffNo1_onClick'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'drvStaffNm1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'textImage',id:'drvStaffNo2',displayMode:'label',displayFormat:'######',imageClickFunction:'scwin.drvStaffNo2_onClick'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'drvStaffNm2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'assgnSeq',value:'',displayMode:'label',displayFormatter:'scwin.displayFm',readOnly:'true'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'existRow',value:'',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'nesEqNrmCd',value:'',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'tformEqKndCd',value:'',displayMode:'label',hidden:'true',hiddenCol:'true'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'spa_totalRows1',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',rowDelFunction:'scwin.btn_f_DeleteRowHeavy1',id:'udc_heavy1_btn',gridID:'gr_heavy1',rowAddFunction:'scwin.btn_f_AddRowHeavy1_onClick',cancelFunction:'scwin.btn_f_cancelHeavy1_onClick',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelYn:'Y'}}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'협력업체배정',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section2',style:'',gridUpYn:'N',grdDownOpts:'{"fileName":"협력업체배정.xlsx", "sheetName": "협력업체배정"}',gridID:'gr_heavy2'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section2',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{scrollByColumnAdaptive:'false',focusMode:'row',visibleRowNumFix:'true',dataList:'data:ds_heavy2',scrollByColumn:'false',style:'',autoFit:'allColumn',id:'gr_heavy2',visibleRowNum:'5',class:'wq_gvw',checkReadOnlyOnPasteEnable:'',validExp:'eqKndCd:중기종류:yes,wrkStpCd:작업단계:yes,wrkStDt:작업시작일자:yes:date=YYYYMMDD,wrkStHh:작업시작시간:yes:length=4,wrkEndDt:작업종료일자:yes:date=YYYYMMDD,wrkEndHh:작업종료시간:yes:length=4,clntNo:협력업체:yes:length=6,clntNm:협력업체:yes,reqHveqCnt:배정대수:yes:minNumber=1',resize:'true',columnMove:'true','ev:oncellclick':'scwin.gr_heavy2_oncellclick','ev:onbeforeedit':'scwin.gr_heavy2_onbeforeedit','ev:onafteredit':'scwin.gr_heavy2_onafteredit','ev:ontextimageclick':'scwin.gr_heavy2_ontextimageclick',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption10',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',removeBorderStyle:'false',width:'120',inputType:'text',id:'column12',value:'작업지시번호',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',removeBorderStyle:'false',width:'140',inputType:'text',id:'column11',value:'중기종류',blockSelect:'false',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',removeBorderStyle:'false',width:'120',inputType:'text',id:'column9',value:'필요규격코드',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'120',inputType:'text',style:'',id:'column21',value:'필요규격<br/>(ton)',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column19',value:'작업단계',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column17',value:'시작',class:'txt-red',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column15',value:'종료',class:'txt-red',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column41',value:'협력업체',class:'',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'120',inputType:'text',style:'',id:'column35',value:'배정순번',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column38',value:'배정대수',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column47',value:'투입대수',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column50',value:'기존Row',displayMode:'label',hidden:'true',hiddenCol:'true'}}]},{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column30',value:'코드',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column29',value:'명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column25',value:'일',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column24',value:'시',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column23',value:'일',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column45',value:'시',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column42',value:'코드',class:'txt-red',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column33',value:'명',class:'txt-red',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'120',inputType:'text',id:'wrkIndictNo',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'100',inputType:'textImage',id:'eqKndCd',blockSelect:'false',displayMode:'label',imageClickFunction:'scwin.udc_commonGrid2_onClick',maxByteLength:'2'}},{T:1,N:'w2:column',A:{textAlign:'left',removeBorderStyle:'false',width:'120',inputType:'text',id:'eqKndNm',blockSelect:'false',displayMode:'label',imageClickFunction:'scwin.udc_commonGrid_onClick',readOnly:'true'}},{T:1,N:'w2:column',A:{removeBorderStyle:'false',width:'120',inputType:'text',id:'nesEqNrmCd',blockSelect:'false',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',style:'',id:'nesEqNrmNm',value:'',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'select',style:'',id:'wrkStpCd',value:'',displayMode:'label',sortable:'false',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'wrkStDt',value:'',displayMode:'label',displayFormat:'####/##/##',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'wrkStHh',value:'',displayMode:'label',displayFormat:'##:##',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'wrkEndDt',value:'',displayMode:'label',displayFormat:'####/##/##',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'wrkEndHh',value:'',displayMode:'label',displayFormat:'##:##',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'textImage',style:'',id:'clntNo',value:'',displayMode:'label',imageClickFunction:'scwin.udc_commonGrid2_onClick',maxByteLength:'6'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'120',inputType:'text',style:'',id:'clntNm',value:'',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'assgnSeq',value:'',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'text',style:'',id:'reqHveqCnt',value:'',displayMode:'label',sortable:'false',dataType:'number',defaultValue:'0',allowChar:'0-9',maxLength:'2'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'text',style:'',id:'inputHveqCnt',value:'',displayMode:'label',sortable:'false',readOnly:'true',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'existRow',value:'',displayMode:'label',hidden:'true',hiddenCol:'true'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'spa_totalRows2',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{btnCancelYn:'Y',style:'',btnRowAddYn:'Y',btnDelYn:'N',btnRowDelYn:'Y',rowDelFunction:'scwin.btn_f_DeleteRowHeavy2',gridID:'gr_heavy2',rowAddFunction:'scwin.btn_f_AddRowHeavy2_onClick',btnCancelObj:'btn_heavy2_cancle',btnRowAddObj:'btn_heavy2_add',btnRowDelObj:'btn_heavy2_del',id:'udc_heavy2_btn'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_save',label:'저장',style:'',type:'button','ev:onclick':'scwin.btn_save_onClick',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'저장'}]}]}]}]},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:';visibility:hidden;'}},{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'',codeId:'ed_gridCd',validTitle:'',nameId:'ed_gridNm',style:'width:%; height:px; ;visibility:hidden;',id:'udc_comCode_Grid','ev:onclickEvent':'scwin.udc_commonGrid_onClick'}}]}]}]})

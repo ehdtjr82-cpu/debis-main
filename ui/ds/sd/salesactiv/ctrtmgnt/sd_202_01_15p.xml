@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_ctrtTrf" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="ctrtNo" name="name1" dataType="text"></w2:column>
+        				<w2:column id="selpchItemCd" name="name2" dataType="text"></w2:column>
+        				<w2:column id="selpchItemNm" name="name3" dataType="text"></w2:column>
+        				<w2:column id="ctrlRt" name="name4" dataType="text"></w2:column>
+        				<w2:column id="adptTrgtClsCd" name="name5" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieve" action="" method="post" mediatype="application/json"
+        		ref='data:json,{"id":"ds_ctrtTrf","key":"OUT_DS1"}' target='data:json,{"id":"ds_ctrtTrf","key":"OUT_DS1"}' encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission id="sbm_save" action="/ds.sd.salesactiv.ctrtmgnt.UpdateContractTariffWholeCMD.do" method="post"
+        		mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_ctrtTrf","key":"IN_DS1"}' target="" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitDone"
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.pos_rowSts = 0;
+scwin.oCtrtObject = "";
+scwin.ctrtNo = "";
+scwin.MSG_SD_INF_001 = "일괄조정을 완료하였습니다.";
+scwin.params;
+
+scwin.onpageload = async function() {
+
+    
+    scwin.f_defaultValue();
+	
+    await scwin.f_Retrieve();
+	await $c.gus.cfDisableObjects([btn_batch]);
+   
+
+};
+
+scwin.f_defaultValue = async function(){
+    scwin.params = $c.data.getParameter();
+    //scwin.ctrtNo  =   "C0701032802"
+    scwin.ctrtNo  = scwin.params.ctrtNo == null ? "" : scwin.params.ctrtNo;
+    await $c.gus.cfDisableKey();
+
+
+    
+};
+
+scwin.f_Retrieve = async function(){
+
+    sbm_retrieve.action = "/ds.sd.salesactiv.ctrtmgnt.RetrieveContractTariffWholeChangeItemListCMD.do?contractNumber="+scwin.ctrtNo;
+     await $c.sbm.execute(sbm_retrieve)
+};
+
+scwin.f_create = async function(){
+  
+    // let oValidExp = {dataName:"계약요율 일괄조정",
+    //         validFeatures:"ignoreStatus=no,",
+    //         validExp:`ctrlRt:적용률(%):yes:minNumber=0.01:key`};
+    //         $c.gus.setValidExp(gr_ctrtTrf, oValidExp);
+
+
+    // if( ! await $c.gus.cfValidate([gr_ctrtTrf])){
+    //     return false;
+    // };
+    for(var i=0; i< ds_ctrtTrf.getRowCount(); i++){
+        var count = i+1;
+        if(ds_ctrtTrf.getCellData(i, "ctrlRt") < 0.01){
+            await $c.win.alert("계약요율 일괄조정의 "+count+"번째 데이터에서 적용률(%)은(는) 0.01 이상으로 입력하십시오.");
+            gr_ctrtTrf.setFocusedCell(i, "ctrlRt");
+            return;
+        }
+    }
+
+    if(await $c.win.confirm("계약요율 일괄조정을(를) 생성하시겠습니까?") == true){
+        $c.sbm.execute(sbm_save);
+    };
+}
+
+scwin.sbm_save_submitDone = async function(){
+   
+    await $c.gus.cfAlertMsg("일괄조정을 완료하였습니다");
+    $c.win.closePopup();
+};
+
+
+
+scwin.gr_ctrtTrf_onafteredit = function (rowIndex, columnIndex, value) {
+ 
+ 
+    if(value == 100){
+        var cnt = 0;
+        for(var i=0; i< ds_ctrtTrf.getRowCount(); i++){
+            if(ds_ctrtTrf.getCellData(i, "ctrlRt") == 100){
+                cnt ++
+            };
+        }
+        if(cnt == ds_ctrtTrf.getRowCount()){
+            $c.gus.cfDisableObjects([btn_batch]);
+        }
+    } else {
+        $c.gus.cfEnableObjects([btn_batch]);
+    }
+};
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    var cnt = 0;
+    for(var i=0; i<ds_ctrtTrf.getRowCount(); i++){
+        if(ds_ctrtTrf.getCellData(i, "ctrlRt") == 100){
+            cnt ++;
+        }
+    };
+    if(ds_ctrtTrf.getRowCount() == cnt){
+         $c.gus.cfDisableObjects([btn_batch]);
+    } else {
+         $c.gus.cfEnableObjects([btn_batch]);
+    }
+    totalRows.setValue(ds_ctrtTrf.getRowCount());
+};
+
+scwin.f_WinClose = function (e) {
+ 
+     $c.win.closePopup();
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_ctrtTrf" id="gr_ctrtTrf" style="" readOnly="true" selectedCellColor="   " rowStatusVisible="true" ev:onafteredit="scwin.gr_ctrtTrf_onafteredit">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style=";color:#FF0000;" value="요율항목" width="353" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style=";color:#FF0000;" value="적용율(%)" width="353" colSpan="" rowSpan="2" editType="select">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="selpchItemNm" inputType="" style="" value="" width="353" mandatory="true" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="ctrlRt" inputType="text" style="" value="" width="353" displayFormat="###.00" mandatory="true" dataType="float" readOnly="false" maxLength="3.2" textAlign="right">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_batch" style="" type="button" ev:onclick="scwin.f_create">
+    				<xf:label><![CDATA[일괄조정]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" ev:onclick="scwin.f_WinClose" id="btn_trigger2" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group></xf:group>
+    </body>
+</html>

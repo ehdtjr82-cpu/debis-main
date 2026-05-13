@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="index" meta_screenName="퍼블가이드" meta_desc=" ">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_dataMap1">
+    				<w2:keyInfo>
+    					<w2:key id="grpCode" name="name1" dataType="text"></w2:key>
+    					<w2:key id="key2" name="name2" dataType="text"></w2:key>
+    					<w2:key id="key3" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<col1><![CDATA[HX]]></col1>
+    					</w2:row>
+    					<w2:row>
+    						<col1><![CDATA[HY]]></col1>
+    						<col3><![CDATA[]]></col3>
+    					</w2:row>
+    					<w2:row></w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_test" action="/cmn/selectGrpCdList.do" method="get" mediatype="application/json" ref=""
+    			target='data:json,{"id":"dlt_dataList1","key":"response"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_submission1_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" /> 
+    	<script lazy="false" type="text/javascript"><![CDATA[ ]]></script>
+    	
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" class="debis-login">
+    	<xf:group style="" id="" class="login-wrap-debis">
+
+    		<xf:group style="" id="" class="visual-area">
+    			<xf:group id="" class="visual-wrap"><xf:group style="" id="" class="visual bg01"></xf:group><xf:group style="" id="" class="visual bg02"></xf:group><xf:group style="" id="" class="visual bg03"></xf:group><xf:group style="" id="" class="visual bg04"></xf:group></xf:group><xf:group id="" class="copy">
+    				<w2:textbox ref="" style="" id="" label="Dongwon Loex&lt;br/&gt;Intergration System" class="" escape="false"
+    					tagname="p">
+    				</w2:textbox>
+    				<w2:textbox ref="" style="" id="" label="좋은 파트너를 만나면 물류가 편해집니다." class="" escape="false" tagname="span"></w2:textbox>
+    			</xf:group>
+    			
+
+
+    		<xf:group id="" style="" tagname="h1" class=""></xf:group></xf:group>
+    		<xf:group id="" style="" class="login-area">
+    			<xf:group class="login-box" id="" style="">
+    				<w2:textbox class="login-title" escape="false" id="" label="LOGIN" style=""></w2:textbox>
+    				<xf:input id="" placeholder="아이디를 입력해주세요." style=""></xf:input>
+    				<xf:group class="input_pw" id="">
+    					<w2:searchbox id="" placeholder="비밀번호를 입력해주세요." style="" type="password"></w2:searchbox>
+    					<xf:trigger class="btn-eye" id="" style="display: none;" type="button">
+    						<xf:label></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:trigger class="" id="" style="" title="로그인" type="button">
+    					<xf:label><![CDATA[로그인]]></xf:label>
+    				</xf:trigger>
+    				<xf:select appearance="full" class="tar mt12" cols="1" id="" ref="" renderType="checkboxgroup" rows=""
+    					selectedindex="-1" style="">
+    					<xf:choices>
+    						<xf:item>
+    							<xf:label><![CDATA[아이디 저장]]></xf:label>
+    							<xf:value><![CDATA[]]></xf:value>
+    						</xf:item>
+    					</xf:choices>
+    				</xf:select>
+    				<xf:group id="" class="etc-box">
+    					<w2:anchor outerDiv="false" style="" id="" class="" escape="false">
+    						<xf:label><![CDATA[계정잠금해제]]></xf:label>
+    					</w2:anchor>
+    					<w2:anchor outerDiv="false" style="" id="" class="" escape="false">
+    						<xf:label><![CDATA[비밀번호 변경]]></xf:label>
+    					</w2:anchor>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+
+
+    </body>
+</html>

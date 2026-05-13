@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="smsCd" name="SMS코드" dataType="text"></w2:key>
+    					<w2:key id="rentcarSmsClssCd" name="분류코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="smsCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="rentcarSmsClssCd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="msgClsCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="tranTmplCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="msgNm" name="name5" dataType="text"></w2:column>
+    					<w2:column id="msgLen" name="name6" dataType="text"></w2:column>
+    					<w2:column id="regId" name="name7" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="name8" dataType="text"></w2:column>
+    					<w2:column id="modId" name="name9" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="name10" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="name11" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ps.rc.sales.RetrieveRentACarSMSMsgListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_Save" action="/ps.rc.sales.SaveRentACarSMSMsgCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_master","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.onpageload = function() {
+   debugger
+   ed_smsCd.focus();
+    
+};
+
+
+//-------------------------------------------------------------------------
+// 조회조건 상태 설정;
+//-------------------------------------------------------------------------
+// scwin.f_SeachConditionCreate = function(){
+//    var GAUCE_DATASET_HEADER = "smsCd:STRING,rentcarSmsClssCd:STRING";   //코드, 분류코
+//    ds_search.SetDataHeader(GAUCE_DATASET_HEADER);
+//  }
+
+
+
+//-------------------------------------------------------------------------
+// 조회;
+//-------------------------------------------------------------------------
+// scwin.f_retrieve = function() {
+
+//     console.log("조회 >>> 클릭");
+//     debugger
+//    ds_search.removeAll(); // ds_search.ClearData();
+//    ds_search.insertRow; // ds_search.addrow();
+//    ds_search.set("smsCd", ed_smsCd.getValue());
+//    ds_search.set("rentcarSmsClssCd", lux_rentcarSmsClssCd.getValue());
+//    //ds_search.NameValue(1, "useYn")            = 1;
+//    $c.sbm.execute(sbm_retrieve); // tr_retrieve.post();
+// }
+
+
+//-------------------------------------------------------------------------
+// 조건필드 클리어;
+//-------------------------------------------------------------------------
+// scwin.f_FieldClear = function() {
+//     debugger
+//     $c.gus.cfInitObjects(tbl_search,null);
+//     ed_smsCd.focus();
+// }
+
+
+//-------------------------------------------------------------------------
+// 엑셀;
+//-------------------------------------------------------------------------
+
+
+//-------------------------------------------------------------------------
+// SMS byte 계산 ;
+//-------------------------------------------------------------------------  
+// scwin.calc_msgLen = function(message){
+// 	var nbytes = 0;
+// 	for (i = 0; i < message.length; i++){
+// 		var ch = message.charAt(i);
+// 		if (escape(ch).length > 4) 
+// 		{
+// 			nbytes += 2;
+// 		} 
+// 		else if (ch != "\r") 
+// 		{
+// 			nbytes++;
+// 		}
+// 	}
+	
+// 	return nbytes;
+// }
+
+
+
+
+// scwin.sbm_Save_submitdone = function (e) {
+// 	$c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+// 	scwin.f_retrieve();
+// };
+
+
+// pop up 완료후 처리
+// <script language="javascript"  for=grd_master event=OnExit(row,colid,olddata)>
+//    if (colid == "msgNm") 
+//    {
+//    	if (ds_master.NameValue(row, colid) != olddata) 
+//    	{
+//    	     ds_master.NameValue(row, "msgLen") = calc_msgLen(ds_master.NameValue(row, colid)) ;
+//    	}
+//    }
+// </script>]]></script>
+    	<w2:require as="udc_schInput" type="page" variableClone="true" src="/cm/udc/schInput.xml"></w2:require>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="SMS분류코드" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								id="lux_rentcarSmsClssCd" style="width: 150px;" submenuSize="fixed" ref="" disabledClass="w2selectbox_disabled">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[전체]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[예약]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[예약취소]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[회원가입]]></xf:label>
+    										<xf:value><![CDATA[3]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[온라인정비요청]]></xf:label>
+    										<xf:value><![CDATA[4]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[장기대여견적등록]]></xf:label>
+    										<xf:value><![CDATA[5]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[기타]]></xf:label>
+    										<xf:value><![CDATA[6]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[채권관리]]></xf:label>
+    										<xf:value><![CDATA[7]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[범칙금]]></xf:label>
+    										<xf:value><![CDATA[8]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[회계_관리채권]]></xf:label>
+    										<xf:value><![CDATA[9]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[FMS유류대금청구]]></xf:label>
+    										<xf:value><![CDATA[10]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[면책금 청구]]></xf:label>
+    										<xf:value><![CDATA[11]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[차량탁송 요청]]></xf:label>
+    										<xf:value><![CDATA[12]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[차량탁송 완료]]></xf:label>
+    										<xf:value><![CDATA[13]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[단기예약확인]]></xf:label>
+    										<xf:value><![CDATA[14]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[단기반납요청]]></xf:label>
+    										<xf:value><![CDATA[15]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[수하물발송 확인]]></xf:label>
+    										<xf:value><![CDATA[16]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[전세버스요청]]></xf:label>
+    										<xf:value><![CDATA[17]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[FMS유류입고요청]]></xf:label>
+    										<xf:value><![CDATA[18]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[렌터카정비마감안내]]></xf:label>
+    										<xf:value><![CDATA[19]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="SMS코드" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class="" id="ed_smsCd" style="width: 80px;"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label=" SMS메시지코드 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_Excel" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:dataList1" focusMode="row"
+    					id="grd_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" columnMove="true" sortable="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" style="" value="코드" width="70" class="txt-red" sortable="true"></w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" style="" value="분류코드" width="100" class="txt-red" sortable="true"></w2:column>
+    							<w2:column displayMode="label" id="column36" inputType="text" style="" value="전송&lt;/br&gt;방식" width="70" class="txt-red" sortable="true"></w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" style="" value="템플릿" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column32" inputType="text" style="" value="메시지" width="100" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" style="" value="Bytes" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" style="" value="등록자ID" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" style="" value="등록일" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column24" inputType="text" style="" value="수정자ID" width="120"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column40" value="수정일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column42" value="사용여부" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="smsCd" inputType="text" style="" value="" width="70"></w2:column>
+    							<w2:column displayMode="label" id="rentcarSmsClssCd" inputType="select" style="" value="" width="100"
+    								textAlign="left" allOption="" chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[예약]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[예약취소]]></w2:label>
+    										<w2:value><![CDATA[2]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[회원가입]]></w2:label>
+    										<w2:value><![CDATA[3]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[온라인정비요청]]></w2:label>
+    										<w2:value><![CDATA[4]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[장기대여견적등록]]></w2:label>
+    										<w2:value><![CDATA[5]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[기타]]></w2:label>
+    										<w2:value><![CDATA[6]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[채권관리]]></w2:label>
+    										<w2:value><![CDATA[7]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[범칙금]]></w2:label>
+    										<w2:value><![CDATA[8]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[회계_관리채권]]></w2:label>
+    										<w2:value><![CDATA[9]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[FMS유류대금청구]]></w2:label>
+    										<w2:value><![CDATA[10]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[면책금 청구]]></w2:label>
+    										<w2:value><![CDATA[11]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[차량탁송 요청]]></w2:label>
+    										<w2:value><![CDATA[12]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[차량탁송 완료]]></w2:label>
+    										<w2:value><![CDATA[13]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[단기예약확인]]></w2:label>
+    										<w2:value><![CDATA[14]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[단기반납요청]]></w2:label>
+    										<w2:value><![CDATA[15]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[수하물발송 확인]]></w2:label>
+    										<w2:value><![CDATA[16]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[전세버스요청]]></w2:label>
+    										<w2:value><![CDATA[17]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[FMS유류입고요청]]></w2:label>
+    										<w2:value><![CDATA[18]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[렌터카정비마감안내]]></w2:label>
+    										<w2:value><![CDATA[19]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="msgClsCd" inputType="select" style="" value="" width="70" allOption=""
+    								chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[SMS]]></w2:label>
+    										<w2:value><![CDATA[A]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[알림톡]]></w2:label>
+    										<w2:value><![CDATA[K]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="tranTmplCd" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="msgNm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="msgLen" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="regId" inputType="text" style="" value="" width="120"></w2:column>
+    							<w2:column displayMode="label" id="regDtm" inputType="text" style="" value="" width="100" displayFormat="####/##/##"></w2:column>
+    							<w2:column displayMode="label" id="modId" inputType="text" style="" value="" width="120"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="modDtm" value="" displayMode="label" displayFormat="####/##/##"></w2:column>
+    							<w2:column width="100" inputType="checkbox" style="" id="useYn" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_bottomGrdBtn btnCancelYn="N" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="Y" btnRowDelYn="Y">
+    						</w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="b_Save" style="" type="button" ev:onclick="scwin.f_Save">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

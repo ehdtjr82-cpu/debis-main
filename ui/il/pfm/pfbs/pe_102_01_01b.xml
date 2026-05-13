@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_BookingSheetList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="CHK" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="mblno" name="Master B/L No" dataType=""></w2:column>
+    					<w2:column id="blno" name="House B/L No" dataType=""></w2:column>
+    					<w2:column id="ondt" name="Ondt/Avdt" dataType=""></w2:column>
+    					<w2:column id="mhno" name="Consol No" dataType=""></w2:column>
+    					<w2:column id="customernm" name="Customer" dataType=""></w2:column>
+    					<w2:column id="hhvsl" name="Vessel" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="slipNo" name="Slip No" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="kcomcd" name="kcomcd" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhlinernm" name="LinerName" dataType=""></w2:column>
+    					<w2:column id="userId" name="UserId" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="userNm" name="UserName" dataType=""></w2:column>
+    					<w2:column id="custNmDetail" name="거래처명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="linerNmDetail" name="선사명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhvslDetail" name="VESSEL" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhetdDetail" name="ETD" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhetaDetail" name="ETA" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="loadNmDetail" name="출발지명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="discNmDetail" name="도착지명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="deptNmDetail" name="부서명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="wtDetail" name="WT" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="sellAmtDetail" name="매출" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsAmtDetail" name="매입" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="profitDetail" name="이익" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="profitPerDetail" name="이익율" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsPerDetail" name="원가율" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="itemNmDetail" name="품목명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="bkNoDetail" name="BK NO" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pnNmDetail" name="파트너명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="loadCdDetail" name="출발지" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="discCdDetail" name="도착지" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="arNmDetail" name="지역명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="cntyNmDetail" name="국가명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="salesNmDetail" name="영업사원" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pkgDetail" name="PKG" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="hhondtDetail" name="ON BOARD" dataType=""></w2:column>
+    					<w2:column id="odrNoDetail" name="ODRNO" dataType="" defaultValue=""></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_Search">
+    				<w2:keyInfo>
+    					<w2:key id="kcomcd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="seaair" name="name2" dataType="text"></w2:key>
+    					<w2:key id="iogb" name="name3" dataType="text"></w2:key>
+    					<w2:key id="searchGubun" name="name4" dataType="text"></w2:key>
+    					<w2:key id="fromDate" name="name5" dataType="text"></w2:key>
+    					<w2:key id="toDate" name="name6" dataType="text"></w2:key>
+    					<w2:key id="custmer" name="name7" dataType="text"></w2:key>
+    					<w2:key id="sales" name="name8" dataType="text"></w2:key>
+    					<w2:key id="dept" name="name9" dataType="text"></w2:key>
+    					<w2:key id="deptGubun" name="name10" dataType="text"></w2:key>
+    					<w2:key id="bltype" name="name11" dataType="text"></w2:key>
+    					<w2:key id="slipNo" name="name12" dataType="text"></w2:key>
+    					<w2:key id="confirm" name="name13" dataType="text"></w2:key>
+    					<w2:key id="slipNoYn" name="name14" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/il.pfm.pfbs.RetrieveBookingSheetListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_Search","key":"IN_DS1"},{"id":"ds_BookingSheetList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_BookingSheetList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/il.pfm.pfbs.SaveBookingSheetListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_BookingSheetList","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="false" src="/ui/js/il/ilcommon.js" scopeVariable="" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.txt_countRow = "";
+scwin.hid_kcomcd = "DBEX";  //대표거래처 코드
+
+scwin.strCurDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.strPreDate = $c.date.addMonth(scwin.strCurDate, -1); //한달전
+
+scwin.memJson = $c.data.getMemInfo();
+scwin.userId = scwin.memJson.userId;  //사용자
+
+scwin.loginClntNo = $c.data.getMemInfo("clntNo") == null ? "-" : $c.data.getMemInfo("clntNo");
+scwin.loginClntNm = $c.data.getMemInfo("clntNm") == null ? "" : $c.data.getMemInfo("clntNm"); //거래처명
+scwin.userClsCd = $c.data.getMemInfo("userClsCd");	// 사용자 구분코드
+
+scwin.onpageload = function() {
+	
+    scwin.f_DefaultValue();
+    scwin.f_Set("INIT");	 
+};
+
+scwin.f_Set = function(gubun) {
+    switch ( gubun ) {
+        case "INIT" : //초기화
+            cnd_rd_dpgb.setValue("1");
+            cnd_lc_jobgb.setSelectedIndex(0);
+            cnd_lc_iogb.setSelectedIndex(0);
+            cnd_lc_bltype.setSelectedIndex(0);
+            cnd_lc_searchGubun.setSelectedIndex(0);
+            gr_BookingSheetList.setReadOnly("grid",true);
+        break;
+        case "RETRIEVE" :  //조회모드	
+        break;        	
+    }
+};
+  
+scwin.f_DefaultValue = function() {
+
+    udc_fromToCalendar.setInitDate(scwin.strPreDate,scwin.strCurDate); //udc
+};
+
+//초기화
+scwin.btn_fieldClear_onclick = function (e) {
+
+    $c.gus.cfInitObjects(tb_searchCondition, [cnd_rd_dpgb]);
+    //cnd_rd_dpgb.setSelectedIndex(1);
+};
+
+//조회
+scwin.btn_retrieve_onclick = function (e) {
+
+    if (cnd_ed_fromDate.getValue() == "" || cnd_ed_toDate.getValue() == "") {
+		$c.gus.cfAlertMsg("OnBoard/Arrival or Result Date is mandatory.");	
+		cnd_ed_fromDate.focus();
+		return;  		
+	} else {   
+        	
+ 		ds_BookingSheetList.removeAll();
+ 		dma_Search.set("kcomcd",scwin.hid_kcomcd);
+
+ 		if (cnd_chb_Confirm.getValue() == "1") {
+	 		dma_Search.set("confirm","N"); 
+ 		} else {	
+	 		dma_Search.set("confirm","");  		
+ 		}
+ 		
+ 		if (cnd_chb_slipNo.getValue()) {
+	 		dma_Search.set("slipNoYn","Y"); 
+ 		} else {	
+	 		dma_Search.set("slipNoYn","");  		
+	    }
+ 		
+        //dataMap Binding...
+        dma_Search.set("seaair",cnd_lc_jobgb.getValue());
+        dma_Search.set("iogb",cnd_lc_iogb.getValue());
+        dma_Search.set("searchGubun",cnd_lc_searchGubun.getValue());
+        dma_Search.set("fromDate",cnd_ed_fromDate.getValue());
+        dma_Search.set("toDate",cnd_ed_toDate.getValue());
+        dma_Search.set("custmer",ed_custCd.getValue());
+        dma_Search.set("sales",ed_sacd.getValue());
+        dma_Search.set("dept",ed_dept.getValue());
+        dma_Search.set("deptGubun",cnd_rd_dpgb.getValue());
+        dma_Search.set("bltype",cnd_lc_bltype.getValue());
+        dma_Search.set("slipNo",ed_slipNo.getValue());
+
+        $c.sbm.execute(sbm_retrieve);
+        scwin.f_Set("RETRIEVE");
+	}
+};
+
+
+//조회callback
+scwin.sbm_retrieve_submitdone = function() {
+
+    let nCnt = ds_BookingSheetList.getRowCount();
+
+    if (nCnt == 0) {
+        total.setValue(nCnt);
+		$c.gus.cfAlertMsg("결과값이 없습니다.");
+		scwin.processFlag = "INIT";
+	} else {
+        gr_BookingSheetList.setFocusedCell(0, 0);
+        total.setValue(nCnt);
+	}
+
+	if (cnd_chb_slipNo.getValue() == "1") {
+        gr_BookingSheetList.setColumnVisible("slipNo", true);
+
+	} else {	
+        gr_BookingSheetList.setColumnVisible("slipNo", false);
+	}
+
+};
+
+//customer pop
+scwin.udc_ilcomCode_cust_onclickEvent = function (e) {
+
+    udc_ilcomCode_cust.ilCommonPopUp(scwin.udc_ilcomCode_cust_callBackFunc,ed_custCd.getValue(), ed_custNm.getValue(),"T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Customer,Code,Name",null);
+};
+
+scwin.udc_ilcomCode_cust_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_custCd, ed_custNm);
+};
+
+scwin.udc_ilcomCode_cust_onblurCodeEvent = function (e) {
+    if(ed_custCd.getValue() === "") {
+        ed_custNm.setValue("");
+    } else {
+        udc_ilcomCode_cust.ilCommonPopUp(scwin.udc_ilcomCode_cust_callBackFunc,ed_custCd.getValue(), "","T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Customer,Code,Name",null);
+    }
+};
+
+scwin.udc_ilcomCode_cust_onviewchangeNameEvent = function (info) {
+    if(ed_custNm.getValue() === "") {
+        ed_custCd.setValue("");
+    } else {
+        udc_ilcomCode_cust.ilCommonPopUp(scwin.udc_ilcomCode_cust_callBackFunc,"", ed_custNm.getValue(),"T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Customer,Code,Name",null);
+    }
+};
+
+////Department pop
+scwin.udc_ilcomCode_dept_onclickEvent = function (e) {
+
+    udc_ilcomCode_dept.ilCommonPopUp(scwin.udc_ilcomCode_dept_callBackFunc,ed_dept.getValue(), ed_deptnm.getValue(),"T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Department,Code,Name",null);
+
+};
+
+scwin.udc_ilcomCode_dept_callBackFunc = function(ret) {
+
+    $c.gus.cfSetReturnValue(ret, ed_dept, ed_deptnm);
+};
+
+scwin.udc_ilcomCode_dept_onblurCodeEvent = function (e) {
+    if(ed_dept.getValue() === "") {
+        ed_deptnm.setValue("");
+    } else {
+        udc_ilcomCode_dept.ilCommonPopUp(scwin.udc_ilcomCode_dept_callBackFunc,ed_dept.getValue(),"","T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Department,Code,Name",null);
+    }
+};
+
+scwin.udc_ilcomCode_dept_onviewchangeNameEvent = function (info) {
+    if(ed_deptnm.getValue() === "") {
+        ed_dept.setValue("");
+    } else {
+        udc_ilcomCode_dept.ilCommonPopUp(scwin.udc_ilcomCode_dept_callBackFunc,"", ed_deptnm.getValue(),"T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Department,Code,Name",null);
+    }
+};
+
+//Salesman pop
+scwin.udc_ilcomCode_sa_onclickEvent = function (e) {
+    udc_ilcomCode_sa.ilCommonPopUp(scwin.udc_ilcomCode_sa_callBackFunc,ed_sacd.getValue(), ed_sanm.getValue(),"T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Salesman,Code,Name",null);
+};
+scwin.udc_ilcomCode_sa_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_sacd, ed_sanm);
+};
+scwin.udc_ilcomCode_sa_onblurCodeEvent = function (e) {
+    if(ed_sacd.getValue() === "") {
+        ed_sanm.setValue("");
+    } else {
+        udc_ilcomCode_sa.ilCommonPopUp(scwin.udc_ilcomCode_sa_callBackFunc,ed_sacd.getValue(), "","T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Salesman,Code,Name",null);
+    }
+};
+
+scwin.udc_ilcomCode_sa_onviewchangeNameEvent = function (info) {
+    if(ed_sanm.getValue() === "") {
+        ed_sacd.setValue("");
+    } else {
+        udc_ilcomCode_sa.ilCommonPopUp(scwin.udc_ilcomCode_sa_callBackFunc,"", ed_sanm.getValue(),"T","2","Code, Name",null,null,null,null,null,null,null,null,"F","Salesman,Code,Name",null);
+    }
+};
+
+//job type 선택시
+scwin.cnd_lc_jobgb_onselected = function () {
+    if(cnd_lc_jobgb.getValue() == "") {
+        cnd_lc_searchGubun.setValue("2");
+        $c.gus.cfDisableObjects([cnd_lc_iogb]);
+    } else {
+        $c.gus.cfEnableObjects([cnd_lc_iogb]);
+    }
+};
+
+//저장()
+scwin.btn_save_onclick = function (e) {
+    ds_BookingSheetList.modifyAllStatus("C");
+  	$c.sbm.execute(sbm_save);
+};
+
+scwin.sbm_save_submitdone = function() {
+    scwin.f_print();
+};
+
+scwin.f_print = async function() {
+
+    let data = "";
+    let iogb = "";
+    let confirmVal = "";
+    let vChkCnt = 0;
+
+    if (cnd_lc_iogb.getSelectedIndex() == 0){
+        iogb = "O";
+    } else {
+        iogb = "I";
+    }
+
+    for (var i = 0; i < ds_BookingSheetList.getRowCount(); i++){
+        let vChkYn = ds_BookingSheetList.getCellData(i, "chk");
+        if (vChkYn == "T") { vChkCnt++; }
+    }
+
+    if (vChkCnt < 1) {
+        $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Row"]);
+        return;
+    }
+
+    if (cnd_chb_Confirm.getValue() == "1") {
+        confirmVal = "N";
+    } else {
+        confirmVal = "";
+    }
+
+    if (cnd_lc_jobgb.getValue() == "S"){ //해운
+        data = {
+            reportName: "/il/pfm/pe_102_01_02b.ozr",
+            odiParam: {
+                SEAAIR:  "S",
+                KCOMCD:  scwin.hid_kcomcd,
+                USERID:  scwin.userId,
+                IOGB:    iogb,
+                CONFIRM: confirmVal
+            },
+            viewerParam: {
+                useprogressbar: false,
+                mode: "preview"
+            },
+            formParam: {}
+        };
+        await scwin.openPopup(data);
+    } else { // 항공
+        data = {
+            reportName: "/il/pfm/pe_102_01_01b.ozr",
+            odiParam: {
+                SEAAIR:  "A",
+                KCOMCD:  scwin.hid_kcomcd,
+                USERID:  scwin.userId,
+                IOGB:    iogb
+            },
+            viewerParam: {
+                useprogressbar: false,
+                mode: "preview"
+            },
+            formParam: {}
+        };
+        await scwin.openPopup(data);
+    }
+};
+
+scwin.btn_edit_onclick = async function (e) {
+
+    // 선택한 로우가 있는지 확인
+    let vChkCnt = 0;
+    let vChkYn  = "";
+            
+    for(var i=0; i<ds_BookingSheetList.getRowCount(); i++){
+    
+        vChkYn = ds_BookingSheetList.getCellData(i,"chk");	  	
+        
+        if(vChkYn == 'T'){ 	vChkCnt++; }			
+    }	
+
+    if(vChkCnt < 1) {
+        $c.win.alert("Nothing has been selected.") ;
+        return;
+    }
+
+    // 체크된 갯수만큼 오즈리포트를 출력한다. 
+    for(var i=0; i<ds_BookingSheetList.getRowCount(); i++){
+    
+        vChkYn = ds_BookingSheetList.getCellData(i,"chk");	  	
+        
+        if(vChkYn == 'T'){	  			
+
+            if (cnd_lc_jobgb.getValue() == "S"){ //해운
+				// 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+                let data = {
+                    reportName: "/il/pfm/pe_101_01_02b.ozr",
+                    odiParam: {
+                        KCOMCD: ds_BookingSheetList.getCellData( i,"kcomcd"),
+                        MHNO: ds_BookingSheetList.getCellData( i,"mhno"),
+                        MBLNO: ds_BookingSheetList.getCellData( i,"mblno")
+                    },
+                    viewerParam: {
+                        useprogressbar: false,
+                        mode: "silent"
+                    },
+                    formParam: {
+                    //
+                    }
+                }
+
+                await scwin.openPopup(data);
+            } else { // 항공
+				// 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+                let data = {
+                    reportName: "/il/pfm/pe_101_01_01b.ozr",
+                    odiName: "pe_101_01_02b",
+                    odiParam: {
+                        KCOMCD: ds_BookingSheetList.getCellData( i,"kcomcd"),
+                        MHNO: ds_BookingSheetList.getCellData( i,"mhno"),
+                        MBLNO: ds_BookingSheetList.getCellData( i,"mblno")
+                    },
+                    viewerParam: {
+                        useprogressbar: false,
+                        mode: "silent"
+                    },
+                    formParam: {
+                    //
+                    }
+                }
+
+                await scwin.openPopup(data);
+                
+            }
+        }
+    }
+};
+
+scwin.openPopup = async function(data){
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+scwin.cnd_chb_Confirm_onchange = function (info) {
+    
+    ds_BookingSheetList.removeAll();
+};
+
+scwin.cnd_chb_slipNo_onchange = function (info) {
+    
+    ds_BookingSheetList.removeAll();
+};
+
+scwin.getFloorValue = function(value) {
+    if (value === "" || value === undefined || value === null) return "";
+    return $c.gus.cfInsertComma(Math.trunc(Number(value).toFixed(1)));
+};
+
+scwin.finalSumFormatter = function(data) {
+    if (data === "" || data === undefined || data === null || isNaN(data)) return "0";
+    
+    var val = Number(data);
+    var step1 = Number(val.toFixed(1));
+    var finalInt = Math.trunc(step1);
+    
+    return $c.gus.cfInsertComma(finalInt);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="tb_searchCondition" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Job Type" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 id="cnd_lc_jobgb" chooseOption="" style="width:110px;" submenuSize="auto"
+    								allOption="" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="" objType="data"
+    								ev:onchange="scwin.cnd_lc_jobgb_onselected">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Sea]]></xf:label>
+    										<xf:value><![CDATA[S]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Air]]></xf:label>
+    										<xf:value><![CDATA[A]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[All]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Export/Import" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="cnd_lc_iogb" ref="" style="width:110px;" submenuSize="auto" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Export]]></xf:label>
+    										<xf:value><![CDATA[O]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Import]]></xf:label>
+    										<xf:value><![CDATA[I]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Search Option" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:group class="form-group" id="" style="">
+    								<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    									disabledClass="w2selectbox_disabled" id="cnd_lc_searchGubun" ref="" style="width:120px;" submenuSize="auto" objType="data">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[ONDT/AVDT]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[Result Date]]></xf:label>
+    											<xf:value><![CDATA[2]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select1>
+    								<w2:udc_fromToCalendar edFromId="cnd_ed_fromDate" edToId="cnd_ed_toDate" id="udc_fromToCalendar"
+    									refDataMap="" refEdDt="" refStDt="" style="">
+    								</w2:udc_fromToCalendar>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group></xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Customer" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_ilcomCode codeId="ed_custCd" nameId="ed_custNm" popupID="" selectID="retrieveEngClntInfo" style="width: 100%;" validTitle="" id="udc_ilcomCode_cust" UpperFlagCode="1" maxlengthCode="6" ev:onclickEvent="scwin.udc_ilcomCode_cust_onclickEvent" ev:onblurCodeEvent="scwin.udc_ilcomCode_cust_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_ilcomCode_cust_onviewchangeNameEvent" allowCharCode="0-9a-zA-Z"></w2:udc_ilcomCode>
+    						</xf:group><xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Salesman" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_ilcomCode codeId="ed_sacd" nameId="ed_sanm" popupID="" selectID="retrieveEmpInfo" style="width: 100%;" validTitle="" id="udc_ilcomCode_sa" maxlengthCode="6" UpperFlagCode="1" ev:onclickEvent="scwin.udc_ilcomCode_sa_onclickEvent" ev:onblurCodeEvent="scwin.udc_ilcomCode_sa_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_ilcomCode_sa_onviewchangeNameEvent" allowCharCode="0-9a-zA-Z"></w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:colspan>2</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:select1 appearance="full" class="mr8" cols="" id="cnd_rd_dpgb" ref="" renderType="radiogroup"
+    									rows="" selectedIndex="0" style="" objType="data">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[DEPT Only]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[DEPT Exclude]]></xf:label>
+    											<xf:value><![CDATA[2]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select1>
+    								<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+    									disabledClass="w2selectbox_disabled" id="cnd_lc_bltype" ref="" style="width:148px; height:21px; " submenuSize="auto" objType="data">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[All]]></xf:label>
+    											<xf:value><![CDATA[A]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[Bulk]]></xf:label>
+    											<xf:value><![CDATA[B]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[Container]]></xf:label>
+    											<xf:value><![CDATA[C]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    						</xf:group></xf:group>
+    					<xf:group tagname="tr" id="">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Department" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_ilcomCode codeId="ed_dept" nameId="ed_deptnm" popupID="" selectID="retrieveOpDeptCdInfo" style="width: 100%;"
+    								validTitle="" id="udc_ilcomCode_dept" UpperFlagCode="1" maxlengthCode="6"
+    								ev:onclickEvent="scwin.udc_ilcomCode_dept_onclickEvent" ev:onblurCodeEvent="scwin.udc_ilcomCode_dept_onblurCodeEvent"
+    								ev:onviewchangeNameEvent="scwin.udc_ilcomCode_dept_onviewchangeNameEvent" allowCharCode="0-9a-zA-Z">
+    							</w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Slip No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input class="mr8" id="ed_slipNo" maxlength="10" placeholder="" style="width:150px;" objType="data"></xf:input>
+    								<xf:group class="form-group mr8" id="">
+    									<w2:textbox class="" id="" label="Unsettled" style=""></w2:textbox>
+    									<xf:select appearance="full" class="" cols="" ev:onchange="scwin.cnd_chb_Confirm_onchange"
+    										id="cnd_chb_Confirm" ref="" renderType="checkboxgroup" rows="" selectedindex="-1" style="" objType="data">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select>
+    								</xf:group>
+    								<xf:group class="form-group" id="" style="">
+    									<w2:textbox class="" id="" label="SlipNo표시여부" style=""></w2:textbox>
+    									<xf:select appearance="full" class="" cols="" ev:onchange="scwin.cnd_chb_slipNo_onchange"
+    										id="cnd_chb_slipNo" ref="" renderType="checkboxgroup" rows="" selectedindex="-1" style="" objType="data">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						
+    					</xf:group></xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="B/L List" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" btnUser="Y" gridUpYn="N" gridID="gr_BookingSheetList" btnPlusYn="Y" grdDownOpts='{"fileName":"BookingSheetList.xlsx", "sheetName": "BookingSheetList"}' gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_BookingSheetList" id="gr_BookingSheetList" style=""
+    					visibleRowNum="13" visibleRowNumFix="true" focusMode="" focusMove="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="checkbox" value=" " width="70"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="Master B/L No" width="130"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="House B/L No" width="130"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="Ondt/Avdt" width="120" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="Consol No" width="120" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" width="120" value="Customer" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" width="100" value="Vessel" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" width="100" value="Slip No" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" width="100" value="kcomcd" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" width="100" value="LinerName" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column41" displayMode="label" value="UserId" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column39" displayMode="label" value="UserName" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column37" displayMode="label" value="거래처명" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column35" displayMode="label" value="선사명" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column33" displayMode="label" value="VESSEL" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column31" displayMode="label" value="ETD" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column29" displayMode="label" value="ETA" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column27" displayMode="label" value="출발지명" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column21" displayMode="label" value="도착지명" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column23" displayMode="label" value="부서명" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column25" displayMode="label" value="WT" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column85" value="매출" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column83" value="매입" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column81" value="이익" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column79" value="이익율" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column77" value="원가율" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column75" value="품목명" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column73" value="BK NO" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column71" value="파트너명" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column69" value="출발지" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column67" value="도착지" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column65" value="지역명" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column63" value="국가명" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column61" value="영업사원" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="80" inputType="text" id="column59" value="PKG" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column57" value="ON BOARD" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="100" inputType="text" id="column55" value="ODRNO" displayMode="label" sortable="false"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="chk" inputType="checkbox" width="70" falseValue="F" trueValue="T" valueType="other" readOnly="false"></w2:column>
+    							<w2:column displayMode="label" id="mblno" inputType="text" width="130" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="blno" inputType="text" width="130" class="underline" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="ondt" inputType="text" width="120" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="mhno" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="customernm" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="hhvsl" inputType="text" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="slipNo" inputType="text" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="kcomcd" inputType="text" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="hhlinernm" inputType="text" width="100" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="userId" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="userNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="custNmDetail" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="linerNmDetail" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="hhvslDetail" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="calendar" id="hhetdDetail" displayMode="label" displayFormat="yyyy/MM/dd" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="calendar" id="hhetaDetail" displayMode="label" displayFormat="yyyy/MM/dd" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="loadNmDetail" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="discNmDetail" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" id="deptNmDetail" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="80" inputType="text" excelCellType="number" id="wtDetail" displayMode="label" dataType="number" textAlign="right" displayFormatter="scwin.getFloorValue"></w2:column>
+    							<w2:column width="80" inputType="text" excelCellType="number" id="sellAmtDetail" displayMode="label" dataType="number" displayFormat="#,##0" textAlign="right"></w2:column>
+    							<w2:column width="80" inputType="text" excelCellType="number" id="pchsAmtDetail" displayMode="label" dataType="number" displayFormat="#,##0" textAlign="right"></w2:column>
+    							<w2:column width="80" inputType="text" excelCellType="number" id="profitDetail" displayMode="label" dataType="number" displayFormat="#,##0" textAlign="right"></w2:column>
+    							<w2:column width="80" inputType="text" excelCellType="number" id="profitPerDetail" displayMode="label" dataType="number" textAlign="right" displayFormatter="scwin.getFloorValue"></w2:column>
+    							<w2:column width="80" inputType="text" excelCellType="number" id="pchsPerDetail" displayMode="label" dataType="number" textAlign="right" displayFormatter="scwin.getFloorValue"></w2:column>
+    							<w2:column width="80" inputType="text" id="itemNmDetail" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="bkNoDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="pnNmDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="loadCdDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="discCdDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="arNmDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="cntyNmDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="salesNmDetail" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="pkgDetail" displayMode="label" dataType="number" displayFormat="#,##0" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="calendar" id="hhondtDetail" displayMode="label" displayFormat="yyyy/MM/dd" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="odrNoDetail" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row3">
+    							<w2:column width="70" inputType="text" style="" id="column123" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="column122" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="column121" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column120" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column119" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column118" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column117" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column116" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column115" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column114" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column113" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column112" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column111" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column110" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column109" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column108" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column107" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column106" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column105" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column104" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="expression" style="" id="column103" value="" displayMode="label" textAlign="right" expression="SUM('wtDetail')" dataType="number" displayFormatter="scwin.finalSumFormatter" excelCellType="number" excelFormat="#,##0"></w2:column>
+    							<w2:column width="80" inputType="expression" style="" id="column102" value="" displayMode="label" displayFormat="#,##0" textAlign="right" expression="SUM('sellAmtDetail')" dataType="number"></w2:column>
+    							<w2:column width="80" inputType="expression" style="" id="column101" value="" displayMode="label" displayFormat="#,##0" textAlign="right" expression="SUM('pchsAmtDetail')" dataType="number"></w2:column>
+    							<w2:column width="80" inputType="expression" style="" id="column100" value="" displayMode="label" displayFormat="#,##0" textAlign="right" expression="SUM('profitDetail')" dataType="number"></w2:column>
+    							<w2:column width="80" inputType="expression" style="" id="column99" value="" displayMode="label" textAlign="right" expression="SUM('profitPerDetail')" dataType="number" displayFormatter="scwin.finalSumFormatter" excelCellType="number" excelFormat="#,##0"></w2:column>
+    							<w2:column width="80" inputType="expression" style="" id="column98" value="" displayMode="label" textAlign="right" expression="SUM('pchsPerDetail')" dataType="number" displayFormatter="scwin.finalSumFormatter" excelCellType="number" excelFormat="#,##0"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column97" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column96" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column95" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column94" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column93" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column92" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column91" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column90" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column89" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column88" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column87" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="total" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btn_edit" style="" type="button" ev:onclick="scwin.btn_edit_onclick" userAuth="U">
+    						<xf:label>SerialPrint</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    						<xf:label>Print</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

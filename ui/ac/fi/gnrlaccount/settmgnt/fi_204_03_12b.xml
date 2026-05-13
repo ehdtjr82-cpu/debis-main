@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="closeYm1" name="" dataType="text"></w2:key>
+    					<w2:key id="closeYm2" name="" dataType="text"></w2:key>
+    					<w2:key id="closeYm3" name="" dataType="text"></w2:key>
+    					<w2:key id="type" name="" dataType="text"></w2:key>
+    					<w2:key id="bizDomCd" name="" dataType="text"></w2:key>
+    					<w2:key id="bizDomNm" name="" dataType="text"></w2:key>
+    					<w2:key id="deptCd" name="" dataType="text"></w2:key>
+    					<w2:key id="deptNm" name="" dataType="text"></w2:key>
+    					<w2:key id="compYm1" name="" dataType="text"></w2:key>
+    					<w2:key id="compYm2" name="" dataType="text"></w2:key>
+    					<w2:key id="compYm3" name="" dataType="text"></w2:key>
+    					<w2:key id="flag" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_bizCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name5" dataType="text"></w2:column>
+    					<w2:column id="col6" name="name6" dataType="text"></w2:column>
+    					<w2:column id="col7" name="name7" dataType="text"></w2:column>
+    					<w2:column id="col8" name="name8" dataType="text"></w2:column>
+    					<w2:column id="col9" name="name9" dataType="text"></w2:column>
+    					<w2:column id="col10" name="name10" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_ds_bizCd" action="" method="post" mediatype="application/json" ref="" target='data:json,{"id":"ds_bizCd","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_ds_bizCd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+       <script cache="false" scopeExternal="false" src="http://code.jquery.com/jquery-1.8.3.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+        <script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript" scopeVariable="ACConstants"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 사업영역별 손익계산서
+ * 메뉴경로 : 회계/재무회계/일반회계/결산관리/
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ac/fi/gnrlaccount/settmgnt/fi_204_03_12b.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-12-19
+ * 수정이력  :
+ *    - 2025-12-19      정승혜    최초작성
+ *    - 2026-01-30      정승혜    기타수정
+ * 메모 : 
+ */
+scwin.memJson = $c.data.getMemInfo();
+
+scwin.vCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd;            // 소속 자회사  
+scwin.vCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd;   //회계_회사구분('CO035' : 0:동부 EXPRESS)
+
+scwin.strToDay = $c.date.getServerDateTime("yyyyMMdd");
+
+// hidden
+scwin.txtCoClsCd = "";
+scwin.txtCoCd = "";
+scwin.txt_deptNm = "";
+scwin.txt_closeYm1 = "";
+scwin.txt_closeYm3 = "";
+scwin.txt_compYm1 = "";
+scwin.txt_compYm3 = "";
+
+  //-------------------------------------------------------------------------
+  // 화면로딩시
+  //-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    // getCodeList
+    const codeOptions = [
+        { grpCd : "CO022", compID : "lc_flag" },
+    ];
+    $c.data.setCommonCode(codeOptions);		
+};
+
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+scwin.onUdcCompleted = function() {
+    scwin.f_Header();
+    rd_type.setValue("2");
+    lc_flag.setSelectedIndex(0);
+    //날짜셋팅
+    ed_closeYm2.setValue(scwin.strToDay);
+    ed_compYm2.setValue($c.date.addMonth(scwin.strToDay, -12).substring(0,6));
+     
+    if(scwin.vCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {   // 자회사인 경우에만  회사코드 check
+        scwin.txtCoCd = scwin.vCoCd;
+        scwin.txtCoClsCd = scwin.vCoClsCd;
+    }
+    scwin.f_setBizCd(); 
+   
+	ed_closeYm2.focus();    
+};
+
+scwin.ondataload = function() { 
+
+};
+
+	//-------------------------------------------------------------------------
+	// 헤더생성
+	//-------------------------------------------------------------------------
+scwin.f_Header = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};    
+
+//-------------------------------------------------------------------------
+// 날짜셋팅 
+//-------------------------------------------------------------------------
+scwin.f_Setting = function() {
+	let imsi_date1 = ed_closeYm2.getValue().trim() + "01";
+	let imsi_date2 = ed_compYm2.getValue().trim() + "01";
+	
+	if(imsi_date1.substring(4,6)=="01" || imsi_date1.substring(4,6)=="00"){
+		scwin.txt_closeYm1 = imsi_date1.substring(0,4)+"00";
+	}else{
+		scwin.txt_closeYm1 = imsi_date1.toDate().after(0,-1,0).format("YYYYMM");
+	}
+	
+	if(imsi_date2.substring(4,6)=="01" || imsi_date2.substring(4,6)=="00"){
+		scwin.txt_compYm1 = imsi_date2.substring(0,4)+"00";
+	}else{
+		scwin.txt_compYm1 = imsi_date2.toDate().after(0,-1,0).format("YYYYMM");
+	}
+	
+    scwin.txt_closeYm3 = ed_closeYm2.getValue().substring(0,4);
+    scwin.txt_compYm3 = ed_compYm2.getValue().substring(0,4);
+
+};
+
+//-------------------------------------------------------------------------
+// 손익계산서 발행 
+//-------------------------------------------------------------------------
+scwin.f_OzReport = async function () {
+    let ret = await $c.gus.cfValidate([ed_closeYm2, rd_type, lc_deptCd, ed_compYm2]);
+    if (!ret){
+        return;
+    }
+    scwin.f_Setting();	
+
+	// 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)	
+    let data = {
+        reportName: "/ac/fi/gnrlaccount/settmgnt/fi_204_03_12p.ozr",
+        odiParam: {
+            sysPath: "dbl.ac.fi.gnrlaccount.settmgnt",
+            closeYm1: scwin.txt_closeYm1,
+            closeYm2: ed_closeYm2.getValue(),
+            closeYm3: scwin.txt_closeYm3,
+            type: rd_type.getValue().trim(),
+            bizDomCd: ed_BizDomCd.getValue(),
+            deptCd: lc_deptCd.getValue().trim(),
+            deptNm: scwin.txt_deptNm,
+            compYm1: scwin.txt_compYm1,
+            compYm2: ed_compYm2.getValue(),
+            compYm3: scwin.txt_compYm3,
+            flag: lc_flag.getValue().trim(),
+            coCd: scwin.txtCoCd,
+            coClsCd: scwin.txtCoClsCd,
+        },
+        viewerParam: {
+            showtree: false,
+            zoom: 100,
+            useprogressbar: false,
+        },
+        formParam: {
+            //
+        }
+    }
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+};
+
+	//-------------------------------------------------------------------------
+	//사업부 조회 
+	//------------------------------------------------------------------------- 
+scwin.f_setBizCd = function() {
+
+    //사업부 조회 
+	if(scwin.vCoClsCd > ACConstants.CO_CLS_CD_DONGBU){ // 자회사인 경우 
+		sbm_ds_bizCd.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC" 
+					    + "&queryId=retrieveAcctDeptCdInfo2&param1=&param2=&param7="+scwin.vCoCd+"&param8="+scwin.vCoClsCd+"&param9=1";
+	}else{
+		sbm_ds_bizCd.action ="/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC"
+				        + "&queryId=retrieveAcctDeptCdInfo2&param1=&param2=&param9=1";							 
+	}	
+	$c.sbm.execute(sbm_ds_bizCd);
+};
+
+	//-------------------------------------------------------------------------
+	// 콤보데이터 검증
+	//------------------------------------------------------------------------- 
+scwin.f_CheckComboData = function() {
+
+};
+	
+	//-------------------------------------------------------------------------
+	// 사업영역코드팝업
+	//-------------------------------------------------------------------------    
+scwin.f_BizDomPopUp = function(key) {
+    let paramArray = new Object();
+    udc_bizDomCdInfo.setSelectId("retrieveBizDomCdInfo"); 
+    paramArray.pCode = ed_BizDomCd;
+    paramArray.pName = ed_BizDomNm;
+    paramArray.pW = "410";
+    paramArray.key = key;
+
+    scwin.f_PopUp(paramArray);
+
+};
+
+	//-------------------------------------------------------------------------
+	// 팝업
+	//-------------------------------------------------------------------------
+scwin.f_PopUp = async function(paramArray) {
+    let codeObj = paramArray.pCode;
+    let nameObj = paramArray.pName;
+    let key = "F";
+    if(paramArray.key == "onblur"){
+        key = "T";
+    }
+
+    udc_bizDomCdInfo.cfCommonPopUp(scwin.udc_bizDomCdInfo_callBackFunc, codeObj.getValue(), ""
+                        ,key, paramArray.pDispCnt
+                        ,paramArray.pTitle, paramArray.pWidth
+                        ,paramArray.pHidden, paramArray.pWhere
+                        ,paramArray.pW, paramArray.pH
+                        ,paramArray.pTop, paramArray.pLeft
+                        ,paramArray.pExistTF, paramArray.pAllSearchTF
+                        ,paramArray.pWtitleSearch)    
+};
+
+scwin.udc_bizDomCdInfo_callBackFunc = function(rtnList) {
+    if (rtnList) {
+        if (rtnList[0] == "N/A") return;
+        ed_BizDomCd.setValue(rtnList[0]);
+        ed_BizDomNm.setValue(rtnList[1]);
+        ed_BizDomCd.options.hidVal = rtnList[0];
+    } else {
+        ed_BizDomCd.setValue("");
+        ed_BizDomNm.setValue("");
+        ed_BizDomCd.options.hidVal = "";
+    }
+};
+
+scwin.udc_bizDomCdInfo_onclickEvent = function (e) {
+    //if (scwin.f_IsPopUp(ed_BizDomCd, ed_BizDomNm) == false) return;
+    scwin.f_BizDomPopUp("click");
+};
+
+scwin.udc_bizDomCdInfo_onblurCodeEvent = function (e) {
+    //if (scwin.f_IsPopUp(ed_BizDomCd, ed_BizDomNm) == false) return;
+    scwin.f_BizDomPopUp("onblur");
+};
+
+	//-------------------------------------------------------------------------
+	// 팝업 여부 검사
+	//-------------------------------------------------------------------------
+scwin.f_IsPopUp = function(inObj) {
+    let inValue = $c.gus.cfGetValue(inObj);
+    let hidValue = inObj.options.hidVal;
+    if (ed_BizDomCd.getValue() == "") {
+        ed_BizDomCd.options.hidVal = "";
+    }
+
+    if ($c.gus.cfIsNull(inValue)) {
+        inObj.options.hidVal = "";
+        for (let i=0; i < scwin.f_IsPopUp.arguments.length; i++) {
+            $c.gus.cfSetValue(scwin.f_IsPopUp.arguments[i],"");
+        }
+        return false;
+    }
+    if (inValue == hidValue) return false;
+
+    return true;
+};
+
+	//-------------------------------------------------------------------------
+	// 팝업 이벤트에 따라 팝업창의 자동닫기 여부를 반환
+	//-------------------------------------------------------------------------
+scwin.f_EventCheck = function() {
+    
+};
+
+// 서브미션
+scwin.sbm_ds_bizCd_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    ds_bizCd.sort("col1", 0)
+    lc_deptCd.setSelectedIndex(0);
+    scwin.txt_deptNm = lc_deptCd.getText(true);
+    dma_search.set("deptNm", scwin.txt_deptNm);
+};
+
+scwin.lc_deptCd_onviewchange = function (info) {
+    scwin.txt_deptNm = lc_deptCd.getText(true);
+    dma_search.set("deptNm", scwin.txt_deptNm);
+};
+]]></script>
+        <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="결산년월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_closeYm2" style="width:100px;" displayFormat="yyyy/MM" ref="data:dma_search.closeYm2" mandatory="true" title="결산년월" objType="data"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="비교년월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_compYm2" style="width:100px;" ref="data:dma_search.compYm2" displayFormat="yyyy/MM" mandatory="true" title="비교년월" objType="data"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_flag" style="width: 100px;" submenuSize="fixed" ref="data:dma_search.flag" objType="data">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 appearance="full" class="" cols="" id="rd_type" ref="data:dma_search.type" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[조정전]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[조정반영]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="사업영역 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode codeId="ed_BizDomCd" ev:onclickEvent="scwin.udc_bizDomCdInfo_onclickEvent"
+    								id="udc_bizDomCdInfo" nameId="ed_BizDomNm" popupID="" selectID="retrieveBizDomCdInfo" style="" validTitle="" ev:onblurCodeEvent="scwin.udc_bizDomCdInfo_onblurCodeEvent" objTypeCode="data" objTypeName="data">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="사업부 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_deptCd" ref="data:dma_search.deptCd" style="width: 200px;" submenuSize="fixed" visibleRowNum="25" mandatory="true" title="사업부" objType="data" ev:onviewchange="scwin.lc_deptCd_onviewchange">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:ds_bizCd">
+    										<xf:label ref="col2"></xf:label>
+    										<xf:value ref="col1"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_OzReport" userAuth="P">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="ozWrap" id="ozFrame " style="">
+    				<w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style=""></w2:iframe>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

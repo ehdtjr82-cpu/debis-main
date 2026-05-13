@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_formulalist_con">
+    				<w2:keyInfo>
+    					<w2:key id="fmlaClsCd" name="서식구분코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_formulalist" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="fmlaClsCd" name="서식구분코드" dataType="text" defaultValue="" length="2"></w2:column>
+    					<w2:column id="fmlaPatternCd" name="서식유형코드" dataType="text" defaultValue="" length="2"></w2:column>
+    					<w2:column id="fmlaNm" name="서식명" dataType="text" defaultValue="" length="100"></w2:column>
+    					<w2:column id="lvlFmlaPatternCd" name="레벨서식유형코드" dataType="text" defaultValue="" length="4"></w2:column>
+    					<w2:column id="lvlFmlaNm" name="레벨서식명" dataType="text" defaultValue="" length="102"></w2:column>
+    					<w2:column id="upperFmlaClsCd" name="상위서식구분코드" dataType="text" defaultValue="" length="2"></w2:column>
+    					<w2:column id="upperFmlaPatternCd" name="상위서식유형코드" dataType="text" defaultValue="" length="2"></w2:column>
+    					<w2:column id="upperFmlaNm" name="상위서식명" dataType="text" defaultValue="" length="100"></w2:column>
+    					<w2:column id="fmlaPrtnYn" name="서식출력여부" dataType="number" defaultValue="0" length="1"></w2:column>
+    					<w2:column id="bizClsCd" name="사업구분코드" dataType="text" defaultValue="" length="2"></w2:column>
+    					<w2:column id="unqItm" name="특이사항" dataType="text" defaultValue="" length="60"></w2:column>
+    					<w2:column id="inscrpFmlaClsCd" name="표기서식구분코드" dataType="text" defaultValue="" length="2"></w2:column>
+    					<w2:column id="inscrpFmlaPatternCd" name="표기서식유형코드" dataType="text" defaultValue="" length="2"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_formulalist_retrieve" action="/ds.fs.bilg.bilgcomncdmgnt.RetrieveFormulaListCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_formulalist_con","key":"IN_DS1"},{"id":"ds_formulalist","key":"OUT_DS1"}]' target='data:json,{"id":"ds_formulalist","key":"OUT_DS1"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_formulalist_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_formula_save" action="/ds.fs.bilg.bilgcomncdmgnt.SaveFormulaCMD.do" method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_formulalist","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_formula_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//메세지용 전역변수 SETTING
+scwin.MSG_FS_WRN_007 = "존재하지않는 유형코드입니다.";
+scwin.MSG_FS_WRN_008 = "저장된 코드가 아닙니다. 저장을 먼저 하십시오.";
+scwin.MSG_FS_WRN_013 = "상위 유형코드는 청구서 유형코드와 동일할 수 없습니다.";
+scwin.MSG_FS_WRN_014 = "해당 서식 출력여부가 YES가 아닙니다.";
+scwin.MSG_FS_WRN_015 = "해당 표기서식 유형코드를 삭제하고 변경하십시오.";
+
+scwin.gridPos = 0;
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    rd_fmlaClsCd.setValue("01");
+};
+
+//-------------------------------------------------------------------------
+// UDC Completed
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    $p.setTimeout(function () {
+        //소스
+        $c.gus.cfDisableObjects([btn_addRow, btn_deleteRow, btn_cancelRow]);
+        $c.gus.cfDisableBtn([$c.gus.getctrlBtn('bSave')]);
+    }, { "delay": 50 });
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    ds_formulalist_con.set("fmlaClsCd",rd_fmlaClsCd.getValue());
+    $c.sbm.execute(sbm_formulalist_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 추가
+//-------------------------------------------------------------------------
+scwin.f_AddRow = function () {
+    let row = ds_formulalist.insertRow();
+    //ds_formulalist.setRowPosition(row);
+    ds_formulalist.setCellData(row, "fmlaClsCd", rd_fmlaClsCd.getValue());
+    ds_formulalist.setCellData(row, "bizClsCd", "01");
+    ds_formulalist.setRowPosition(row);
+    gr_formulalist.setFocusedCell(row, "fmlaPatternCd", false);
+    //scwin.gr_formulalist_oncellclick(row, 1, "fmlaClsCd");
+};
+
+scwin.f_deleteRow = function(){
+    var row = ds_formulalist.getRowPosition();
+    if(ds_formulalist.getRowStatus(row) == "C"){
+        ds_formulalist.removeRow(row);
+    }else{
+        ds_formulalist.deleteRow(row);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+
+    if (ds_formulalist.getModifiedIndex().length == 0) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_001, "청구서유형"));
+        return;
+    }
+
+    // Grid의 필수 입력 항목에 대해서 Check 한다.
+    let ret = await $c.gus.cfValidate([gr_formulalist],null,true);
+    if (!ret) {
+        return;
+    }
+
+    for (var i = 0; i < ds_formulalist.getRowCount(); i++) {
+        ret = await scwin.f_ValidCheck(i, "upperFmlaPatternCd");
+        if (!ret) return;
+
+        ret = await scwin.f_ValidCheck(i, "inscrpFmlaPatternCd");
+        if (!ret) return;
+    }
+
+    ret = await $c.win.confirm(MSG_CM_CRM_001);
+    if (!ret) return;
+
+    for (var i = 0; i < ds_formulalist.getRowCount(); i++) {
+        if (ds_formulalist.getCellData(i, "upperFmlaPatternCd") == "") {
+            ds_formulalist.setCellData(i, "upperFmlaClsCd", "");
+        } else {
+            ds_formulalist.setCellData(i, "upperFmlaClsCd", ds_formulalist.getCellData(i, "fmlaClsCd"));
+        }
+    }
+
+    $c.sbm.execute(sbm_formula_save);
+};
+
+//-------------------------------------------------------------------------
+// 컬럼값 변경시 유효한 값인지 체크
+//-------------------------------------------------------------------------  	
+scwin.f_ValidCheck = async function (row, colid) {
+    var vrow = -1;
+
+    if (ds_formulalist.getCellData(row, colid) != "") {
+        var tmpRsData = ds_formulalist.getMatchedIndex("fmlaPatternCd", ds_formulalist.getCellData(row, colid));
+        if (tmpRsData.length != 0) {
+            vrow = tmpRsData[0];
+        }
+    }
+
+console.log("f_ValidCheck colid-" +colid);
+console.log("vrow=>" +vrow);
+
+    //상위유형코드 입력시 유효값 체크
+    if (colid == "upperFmlaPatternCd") {
+        if (vrow == -1 && ds_formulalist.getCellData(row, colid) != "") {
+            await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_007);
+            if(ds_formulalist.getRowStatus(row) == "C"){
+                ds_formulalist.removeRow(row);
+            }else{
+                ds_formulalist.undoRow(row);
+            }
+            return false;
+        } else if (vrow != -1) {
+            if (ds_formulalist.getCellData(row, "fmlaPatternCd") != ds_formulalist.getCellData(row, "upperFmlaPatternCd")) {
+                if (ds_formulalist.getRowStatus(vrow) == "C") {
+                    await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_008);
+                    if (ds_formulalist.getRowStatus(row) == "C") {
+                        ds_formulalist.setCellData(row, colid, "");
+                    } else {
+                        ds_formulalist.undoRow(row);
+                    }
+                    return false;
+                } else {
+                    ds_formulalist.setCellData(row, "upperFmlaNm", ds_formulalist.getCellData(vrow, "fmlaNm"));
+                }
+            } else {
+                if (ds_formulalist_con.get("fmlaClsCd") == "01") {
+                    await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_013);
+                    ds_formulalist.setCellData(row, colid, "");
+                    return false;
+                }
+            }
+        }
+        //표기서식유형코드 입력시 유효값 체크
+    } else if (colid == "inscrpFmlaPatternCd") {
+        if (vrow == -1 && ds_formulalist.getCellData(row, colid) != "") {
+            $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_007);
+            if(ds_formulalist.getRowStatus(row) == "C"){
+                ds_formulalist.removeRow(row);
+            }else{
+                ds_formulalist.undoRow(row);
+            }
+            return false;
+        } else if (vrow != -1) {
+            if (ds_formulalist.getCellData(row, "fmlaPrtnYn") == "0") {
+                if (ds_formulalist.getCellData(vrow, "fmlaPrtnYn") != "1") {
+                    await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_014);
+                    ds_formulalist.setCellData(row, colid, "");
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+//-------------------------------------------------------------------------
+// 팝업창 처리
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+
+    switch (disGubun) {
+        case 1:
+            //청구부서코드팝업
+            udc_bilgLodeptCd.setSelectId("retrieveOpDeptCdInfo");
+            udc_bilgLodeptCd.cfCommonPopUp(scwin.udc_bilgLodeptCd_callBackFunc
+                , pCode.trim()
+                , pName
+                , pClose
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , pAllSearch
+                , null
+            );
+
+            break;
+
+        case 2:
+            //청구화주코드팝업
+            udc_bilgClntNo.setSelectId("retrieveClntInfo");
+            udc_bilgClntNo.cfCommonPopUp(scwin.udc_bilgClntNo_callBackFunc
+                , pCode.trim()
+                , pName
+                , pClose
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , null
+                , pAllSearch
+                , null
+            );
+
+            break;
+
+        default:
+            break;
+    }
+
+}
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    var pVal = $c.gus.cfGetValue(inObj);
+
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+    else
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+}
+
+//-------------------------------------------------------------------------
+//  거래명세서 팝업
+//-------------------------------------------------------------------------
+scwin.f_CertiNoPopUp = async function () {
+    if (ds_formulalist.getRowCount() < 1) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_WRN_018, "미리보기할 데이터", "조회"));
+        return;
+    }
+
+    let strPath = "/ui/ds/fs/bilg/";
+    var strProgramId = "";
+    var strpopupName = "";
+
+    if (ds_formulalist_con.get("fmlaClsCd") == "01") {
+        strProgramId = "fs_204_02_51p";
+        strpopupName = "거래명세서 팝업";
+    } else {
+        strProgramId = "fs_204_02_52p";
+        strpopupName = "CERTI 팝업";
+    }
+
+    let opts = {
+        id: strProgramId,
+        popupName: strpopupName,
+        modal: true,
+        type: "browserPopup",
+        width: 1200,
+        height: 750,
+        title: strpopupName
+    };
+
+    var p_bilgLodeptCd = ed_bilgLodeptCd.getValue();
+    var p_bilgLodeptNm = ed_bilgLodeptNm.getValue();
+    var p_pgmId = "";
+    var arrParm = new Array(p_bilgLodeptCd, p_bilgLodeptNm, p_pgmId);
+
+    var returnValue = await $c.win.openPopup(strPath + strProgramId + ".xml", opts, arrParm);
+
+    if (returnValue != null) {
+        ed_certiNo.setValue(returnValue);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 인쇄 (조건에 따라 출력물을 분기한다.)
+//-------------------------------------------------------------------------
+scwin.f_Preview = async function () {
+    if (ds_formulalist.getRowCount() < 1) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_WRN_018, "미리보기할 데이터", "조회"));
+        return;
+    }
+    if (ds_formulalist_con.get("fmlaClsCd") == "01") {
+        if (! await $c.gus.cfValidate([ed_bilgLodeptCd, ed_certiNo])) {
+            return;
+        }
+//console.log('111~~');
+        scwin.f_certiPrint1();
+    } else {
+        if (! await $c.gus.cfValidate([ed_certiNo])) {
+            return;
+        }
+//console.log('2222~~');
+        scwin.f_certiPrint2();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 인쇄 (거래명세서)
+//-------------------------------------------------------------------------
+scwin.f_certiPrint1 = function () {
+    var row = ds_formulalist.getRowPosition();
+    var odi1 = "01";
+    var odi2 = ds_formulalist.getCellData(row, "inscrpFmlaPatternCd");
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    var odiParam = {};
+    odiParam.bilgLodeptCd = ed_bilgLodeptCd.getValue();
+    odiParam.bilgClntNo = ed_bilgClntNo.getValue();
+    odiParam.qryConKnd = "02";
+    odiParam.confirmDtFm = "";
+    odiParam.confirmDtTo = "";
+    odiParam.spplyDtFm = "";
+    odiParam.spplyDtTo = "";
+    odiParam.modId = "";
+    odiParam.printFg = "";
+    odiParam.certiAggregateFg = "";
+    odiParam.dcsnClsCd = "";
+    odiParam.certiNo = ed_certiNo.getValue();
+    odiParam.fmlaClsCd = ds_formulalist.getCellData(row, "fmlaClsCd");
+    odiParam.fmlaPatternCd = ds_formulalist.getCellData(row, "fmlaPatternCd");
+    odiParam.upperFmlaClsCd = "";
+    odiParam.upperFmlaPatternCd = "";
+    odiParam.sellVatNo = "";
+    odiParam.spplyFg = "receive";
+    odiParam.inscrpFmlaPatternCd = ds_formulalist.getCellData(row, "inscrpFmlaPatternCd");
+    odiParam.sumGbn = "N";
+
+//console.log('레포트1~~');
+//console.log(odiParam);
+
+    var ozMode = "";
+    var data = {
+        odiName: "fs_202_06_10_" + odi1 + "_" + odi2,
+        reportName: "/ds/fs/fs_202_06_10_" + odi1 + "_" + odi2 + ".ozr",
+        odiParam: odiParam,
+        viewerParam: {
+            useprogressbar: false, // 프로그레스바 쓸지 말지
+            zoom: 100, // 배율 설정
+            mode : ozMode
+        },
+        formParam: {
+
+        }
+    };
+
+    scwin.openPopup(data);
+}
+
+//-------------------------------------------------------------------------
+// 인쇄 (CERTI)
+//-------------------------------------------------------------------------
+scwin.f_certiPrint2 = function () {
+    var row = ds_formulalist.getRowPosition();
+    var ozr = ds_formulalist.getCellData(row, "upperFmlaPatternCd");
+    var odi = "fs_202_05_21_C";
+    if (ozr == "16") {
+        odi = odi + ozr;
+    }
+
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    //var odiParam = new ODIParam(odi);
+    
+    var odiParam = {};
+    odiParam.certiNo = ed_certiNo.getValue();
+    odiParam.dspTotAmt = "N";
+
+    //console.log('레포트2~~');
+    //console.log(odiParam);
+
+    var ozMode = "";
+    var data = {
+        odiName: odi,
+        reportName: "/ds/fs/fs_202_05_21_C" + ozr + ".ozr",
+        odiParam: odiParam,
+        viewerParam: {
+            useprogressbar: false, // 프로그레스바 쓸지 말지
+            zoom: 100, // 배율 설정
+            mode : ozMode
+        },
+        formParam: {
+
+        }
+    };
+
+    scwin.openPopup(data);
+};
+
+//-------------------------------------------------------------------------
+// OzReport
+//-------------------------------------------------------------------------
+scwin.openPopup = async function(data){
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+}
+
+scwin.sbm_formulalist_retrieve_submitdone = function (e) {
+    tbx_totalRows.setValue(ds_formulalist.getRowCount());
+
+    if (ds_formulalist.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+    $c.gus.cfEnableObjects([btn_addRow, btn_deleteRow, btn_cancelRow]);
+    $c.gus.cfEnableAllBtn();
+
+    if (rd_fmlaClsCd.getValue() == "01") {
+        gr_formulalist.setHeaderValue("upperFmlaPatternCdHd", "상위<br/>유형코드");
+        gr_formulalist.setHeaderValue("upperFmlaNmHd", "상위유형명");
+        ed_bilgLodeptCd.setMandatory(true);
+        tbx_bilgLodeptCd.addClass("req");
+        $c.gus.cfEnableObjects([ed_bilgClntNo, ed_bilgClntNm, btn_bilgClntNo]);
+    } else {
+        gr_formulalist.setHeaderValue("upperFmlaPatternCdHd", "CERTI<br/>유형코드");
+        gr_formulalist.setHeaderValue("upperFmlaNmHd", "CERTI유형명");
+        ed_bilgLodeptCd.setMandatory(false);
+        tbx_bilgLodeptCd.removeClass("req");
+        ed_bilgClntNo.setValue("");
+        ed_bilgClntNm.setValue("");
+        $c.gus.cfDisableObjects([ed_bilgClntNo, ed_bilgClntNm, btn_bilgClntNo]);
+    }
+
+    gr_formulalist.setFocusedCell(0, 'fmlaPatternCd', false);
+};
+
+scwin.sbm_formula_save_submitdone = async function (e) {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 대문자 입력
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+// ASIS gr_formulalist OnClick(row,colid) 로컬에서는 대문자만허용되는데, 개발에서는 소문자도 허용됨. 결함등록으로 개발에 맞춰 수정함.
+scwin.gr_formulalist_oneditkeyup = function (info) {
+    const inputEl = event.target;
+
+    switch (info.colID) {
+        case "fmlaPatternCd":
+            inputEl.value = info.newValue.toUpperCase();
+            break;
+        case "inscrpFmlaPatternCd":
+            inputEl.value = info.newValue.toUpperCase();
+            break;
+        case "upperFmlaPatternCd":
+            inputEl.value = info.newValue.toUpperCase();
+            break;
+        default:
+            break;
+    }
+};
+
+/*
+scwin.gr_formulalist_onafteredit = async function (rowIndex, columnIndex, value, info) {
+    console.log("scwin.gr_formulalist_onafteredit~~");
+
+    var colid = gr_formulalist.getColumnID(columnIndex)
+    var yrow = -1;
+
+    if (ds_formulalist.getCellData(rowIndex, "fmlaPatternCd") != "") {
+        var tmpRsData = ds_formulalist.getMatchedIndex("inscrpFmlaPatternCd", ds_formulalist.getCellData(rowIndex, "fmlaPatternCd"));
+
+        if (tmpRsData.length != 0) {
+            yrow = tmpRsData[0];
+        }
+    }
+
+//console.log("colid" +colid);
+
+    //서식출력여부 입력시 유효값 체크
+    if (colid == "fmlaPrtnYn") {
+        if (ds_formulalist.getCellData(rowIndex, "fmlaPrtnYn") == "0") {
+            if (yrow != -1) {
+                await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_015);
+                ds_formulalist.setCellData(yrow, "inscrpFmlaPatternCd", "");
+                ds_formulalist.setCellData(rowIndex, "fmlaPrtnYn", "1");
+                gr_formulalist.setFocusedCell(rowIndex, colid, true); //edit : true
+                //return false;
+            }
+        }
+    }
+
+    if (info.type === 'mousedown' || info.type === 'keydown' || info.type === 'click') { //테스트해보면 입력에는 keydown, 이미지클릭시 mousedown
+        return false; // onafteredit 로직 중단
+    }
+
+console.log(value);
+console.log(info);
+    var returnVal = await scwin.f_ValidCheck(rowIndex, colid);
+
+
+    //var returnVal = true;
+    //if (!returnVal) {
+    //    gr_formulalist.setFocusedCell(rowIndex, colid, true); //edit : true
+    //}
+};
+*/
+scwin.g_colId = "";
+scwin.gr_formulalist_onafteredit = async function (rowIndex, columnIndex, value, info) {
+    console.log("gr_formulalist_onafteredit~~");
+    scwin.g_colId = gr_formulalist.getColumnID(columnIndex);
+};
+
+scwin.gr_formulalist_oncellclick = function (rowIndex, columnIndex, columnId) {
+    if(ds_formulalist.getRowStatus(rowIndex) == "C"){
+    	gr_formulalist.setReadOnly("cell", rowIndex, "fmlaPatternCd", false);
+	} else {
+        gr_formulalist.setReadOnly("cell", rowIndex, "fmlaPatternCd", true);
+	}
+    gr_formulalist.setReadOnly("cell", rowIndex, "upperFmlaNm", true);
+};
+
+scwin.gr_formulalist_oncellindexchange = async function (rowIndex, columnIndex, oldRow, oldColumnIndex) {
+console.log("scwin.gr_formulalist_oncellindexchange~~");
+    if ( oldColumnIndex == columnIndex) return;
+    
+    var colid = gr_formulalist.getColumnID(oldColumnIndex);
+    var returnVal = await scwin.f_ValidCheck(rowIndex, colid);
+    if (!returnVal) {
+        gr_formulalist.setFocusedCell(rowIndex, colid, true); //edit : true
+    }
+};
+
+scwin.gr_formulalist_onrowindexchange = async function (rowIndex, oldRow) {
+console.log("gr_formulalist_onrowindexchange");
+    var colid = scwin.g_colId;
+    if(rowIndex != oldRow){
+        var returnVal = await scwin.f_ValidCheck(oldRow, colid);
+        if (!returnVal) {
+            if(oldRow >= ds_formulalist.getRowCount()){
+                oldRow = oldRow-1;
+            }
+            gr_formulalist.setFocusedCell(oldRow, colid, true); //edit : true
+        }
+    }
+};
+
+scwin.udc_bilgLodeptCd_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_bilgLodeptCd.getValue(), ed_bilgLodeptNm.getValue(), 'F', 'F');
+};
+
+scwin.udc_bilgLodeptCd_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_bilgLodeptCd, ed_bilgLodeptNm, 1);
+};
+
+scwin.udc_bilgLodeptCd_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_bilgLodeptNm, ed_bilgLodeptCd, 1, false);
+};
+
+scwin.udc_bilgLodeptCd_callBackFunc = function (ret) {
+    $c.gus.cfSetReturnValue(ret, ed_bilgLodeptCd, ed_bilgLodeptNm);
+};
+
+scwin.udc_bilgClntNo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_bilgClntNo.getValue(), ed_bilgClntNm.getValue(), 'F', 'F');
+};
+
+scwin.udc_bilgClntNo_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_bilgClntNo, ed_bilgClntNm, 2);
+};
+
+scwin.udc_bilgClntNo_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_bilgClntNm, ed_bilgClntNo, 2, false);
+};
+
+scwin.udc_bilgClntNo_callBackFunc = function (ret) {
+    $c.gus.cfSetReturnValue(ret, ed_bilgClntNo, ed_bilgClntNm);
+};
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="청구서유형구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 appearance="full" class="" cols="" id="rd_fmlaClsCd" ref="" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[거래명세서]]></xf:label>
+    										<xf:value><![CDATA[01]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[BILL]]></xf:label>
+    										<xf:value><![CDATA[03]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td"></xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="tbx_bilgLodeptCd" label="청구지점 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_bilgLodeptCd" maxlengthCode="4" UpperFlagCode="1" allowCharCode="a-zA-Z0-9" nameId="ed_bilgLodeptNm" id="udc_bilgLodeptCd" objTypeCode="Data" objTypeName="key" btnId="btn_bilgLodeptCd" ev:onclickEvent="scwin.udc_bilgLodeptCd_onclickEvent" ev:onblurCodeEvent="scwin.udc_bilgLodeptCd_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_bilgLodeptCd_onviewchangeNameEvent" validTitle="청구부서" mandatoryCode="true"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="청구처 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_bilgClntNo" nameId="ed_bilgClntNm" id="udc_bilgClntNo" btnId="btn_bilgClntNo" UpperFlagCode="1" maxlengthCode="6" allowCharCode="a-zA-Z0-9" objTypeCode="Data" ev:onclickEvent="scwin.udc_bilgClntNo_onclickEvent" ev:onblurCodeEvent="scwin.udc_bilgClntNo_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_bilgClntNo_onviewchangeNameEvent" validTitle="청구처"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="거래명세서/CERTI" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input class="" id="ed_certiNo" placeholder="" style="width: 100px;" allowChar="a-zA-Z0-9" ev:onkeyup="scwin.onkeyup" mandatory="true" title="CERTI번호"></xf:input>
+    								<xf:trigger class="btn ico sch" id="btn_certiNo" style="" type="button" ev:onclick="scwin.f_CertiNoPopUp">
+    									<xf:label><![CDATA[버튼]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn " disabled="" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_Preview" userAuth="R">
+    					<xf:label><![CDATA[미리보기]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_formulalist" id="gr_formulalist"
+    					style="" visibleRowNum="15" visibleRowNumFix="true" rowStatusVisible="true" gridName="청구서 유형" ev:oncellindexchange="scwin.gr_formulalist_oncellindexchange" dataName="청구서 유형" validFeatures="ignoreStatus=yes"
+               							validExp="fmlaPatternCd:청구서 유형코드:yes:string&amp;maxlength=2:key,fmlaNm:유형명:yes:string&amp;maxlength=100,fmlaPrtnYn:서식출력여부:yes:number&amp;maxlength=1,inscrpFmlaPatternCd:표기서식유형코드:yes:string&amp;maxlength=2,bizClsCd:사업구분코드:yes:string&amp;maxlength=2" ev:onrowindexchange="scwin.gr_formulalist_onrowindexchange" ev:onafteredit="scwin.gr_formulalist_onafteredit" ev:oncellclick="scwin.gr_formulalist_oncellclick" ev:oneditkeyup="scwin.gr_formulalist_oneditkeyup">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="청구서&lt;br/&gt;유형코드" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="유형명" width="200" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="upperFmlaPatternCdHd" inputType="text" value="상위&lt;br/&gt;유형코드"
+    								width="100" class="txt-blue">
+    							</w2:column>
+    							<w2:column displayMode="label" id="upperFmlaNmHd" inputType="text" value="상위유형명" width="200"
+    								class="txt-blue">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="서식&lt;br/&gt;출력여부" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="사업&lt;br/&gt;구분코드" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="표기서식&lt;br/&gt;유형코드" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="비고" width="200" class="txt-blue"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="fmlaPatternCd" inputType="text" width="100" mandatory="true" maxLength="2" allowChar="A-Za-z0-9"></w2:column>
+    							<w2:column displayMode="label" id="fmlaNm" inputType="text" width="200" textAlign="left" mandatory="true" maxByteLength="100"></w2:column>
+    							<w2:column displayMode="label" id="upperFmlaPatternCd" inputType="text" width="100" allowChar="A-Za-z0-9" maxLength="2"></w2:column>
+    							<w2:column displayMode="label" id="upperFmlaNm" inputType="text" width="200" textAlign="left"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="fmlaPrtnYn" inputType="select" width="100" mandatory="true" maxLength="1">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[Yes]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[No]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="bizClsCd" inputType="select" width="100" mandatory="true" maxLength="2">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[운송]]></w2:label>
+    										<w2:value><![CDATA[01]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[보관]]></w2:label>
+    										<w2:value><![CDATA[02]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[하역]]></w2:label>
+    										<w2:value><![CDATA[03]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="inscrpFmlaPatternCd" inputType="text" width="100" mandatory="true" maxLength="2" allowChar="A-Za-z0-9"></w2:column>
+    							<w2:column displayMode="label" id="unqItm" inputType="text" width="200" textAlign="left" maxByteLength="60"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn style="" id="udc_bottomGrdBtn" btnDelYn="N" btnRowAddObj="btn_addRow" btnRowDelObj="btn_deleteRow" btnCancelObj="btn_cancelRow" rowAddFunction="scwin.f_AddRow" btnCancelYn="Y" btnRowAddYn="Y" btnRowDelYn="Y" gridID="gr_formulalist" rowAddUserAuth="C" rowDelUserAuth="D" rowDelFunction="scwin.f_deleteRow"></w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" objType="bSave" userAuth="U">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

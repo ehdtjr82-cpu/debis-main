@@ -1,0 +1,25 @@
+op_304_09_01b.log
+
+[2026-02-19 14:52:03.871] 변환 시작
+[2026-02-19 14:52:03.912] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:52:52.414] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=C, verdict=REVIEW, errors=4, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=6 | LLM 48398ms, total 48502ms
+    - [XML] scwin.dataSetDebug에서 $c.win.alert를 await 없이 호출 — script:scwin.dataSetDebug
+    - [XML] scwin.dataSetDebug이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.dataSetDebug
+    - [XML] scwin.f_runExcel에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_runExcel
+    - [XML] scwin.f_runExcel이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_runExcel
+    - [적정성] async 선언 누락 — scwin.dataSetDebug (uses $c.win.alert), scwin.f_runExcel (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.dataSetDebug → $c.win.alert, scwin.f_runExcel → $c.gus.cfAlertMsg
+[2026-02-19 14:52:52.513] #1 검증: 자동수정 3건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:52:52.633] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=6
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_searchDeptCd (LUXECOMBO→w2:autoComplete), lc_searchItemCd (LUXECOMBO→w2:autoComplete)
+[2026-02-19 14:52:52.636] #2 재시도 (에러 6건)
+[2026-02-19 14:52:53.648] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:53:43.278] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 49533ms, total 49629ms
+[2026-02-19 14:53:43.280] 성공 (#2, 1m 39s, confidence:0.96)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_cndInfo">
+    				<w2:keyInfo>
+    					<w2:key dataType="String" name="Vessel코드" id="vsslCd"></w2:key>
+    					<w2:key id="callsignCd" name="신호부자코드" dataType="String"></w2:key>
+    					<w2:key id="portcnt" name="항차" dataType="String"></w2:key>
+    					<w2:key id="portCd" name="항구코드" dataType="String"></w2:key>
+    					<w2:key id="mrn" name="MRN" dataType="String"></w2:key>
+    					<w2:key id="msn" name="MSN" dataType="number"></w2:key>
+    					<w2:key id="hsn" name="화물관리번호-HSN" dataType="number"></w2:key>
+    					<w2:key id="hblNo" name="H B/L번호" dataType="String" defaultValue=""></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_blInfo" saveRemovedData="true"
+    				ev:onrowpositionchange="scwin.ds_blInfo_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="mrn" name="MRN" dataType="String"></w2:column>
+    					<w2:column id="msn" name="MSN" dataType="number"></w2:column>
+    					<w2:column id="hsn" name="화물관리번호-HSN" dataType="number"></w2:column>
+    					<w2:column id="mblNo" name="M B/L번호" dataType="String"></w2:column>
+    					<w2:column id="hblNo" name="H B/L번호" dataType="String"></w2:column>
+    					<w2:column id="dsmbrkDeclarRepairNo" name="하선신고수리번호" dataType="String"></w2:column>
+    					<w2:column id="blTypCd" name="BL_TYPE코드" dataType="String"></w2:column>
+    					<w2:column id="cargoClsCd" name="화물구분코드" dataType="String"></w2:column>
+    					<w2:column id="shpCoMark" name="선사부호" dataType="String"></w2:column>
+    					<w2:column id="vsslAgcyMark" name="선박대리점부호" dataType="String"></w2:column>
+    					<w2:column id="vsslAgcyNm" name="선박대리점명" dataType="String"></w2:column>
+    					<w2:column id="shipwgtPortCd" name="적재항구코드" dataType="String"></w2:column>
+    					<w2:column id="bodCd" name="BOD코드" dataType="String"></w2:column>
+    					<w2:column id="dsmbrkFrgtCd" name="하선물품코드" dataType="String"></w2:column>
+    					<w2:column id="dsmbrkBondZoneCd" name="하선보세구역코드" dataType="String"></w2:column>
+    					<w2:column id="dsmbrkPlcCd" name="하선장소코드" dataType="String"></w2:column>
+    					<w2:column id="assgnBondZoneCd" name="배정보세구역코드" dataType="String"></w2:column>
+    					<w2:column id="assgnWhouseCd" name="배정창고코드" dataType="String"></w2:column>
+    					<w2:column id="assgnClsCd" name="배정구분코드" dataType="String"></w2:column>
+    					<w2:column id="mcomAssgnClsCd" name="당사배정구분코드" dataType="String"></w2:column>
+    					<w2:column id="mfCommNm" name="적하목록품명명" dataType="String"></w2:column>
+    					<w2:column id="commCd" name="품명코드" dataType="String"></w2:column>
+    					<w2:column id="packCnt" name="포장개수" dataType="number"></w2:column>
+    					<w2:column id="packUnitCd" name="포장단위코드" dataType="String"></w2:column>
+    					<w2:column id="totWt" name="중량" dataType="bigDecimal"></w2:column>
+    					<w2:column id="totCbm" name="총CBM" dataType="bigDecimal"></w2:column>
+    					<w2:column id="lcNo" name="LC번호" dataType="String"></w2:column>
+    					<w2:column id="speclCargoMark1" name="특수화물부호1" dataType="String"></w2:column>
+    					<w2:column id="speclCargoMark2" name="특수화물부호2" dataType="String"></w2:column>
+    					<w2:column id="speclCargoMark3" name="특수화물부호3" dataType="String"></w2:column>
+    					<w2:column id="bondTransCoMark" name="보세운송업체부호" dataType="String"></w2:column>
+    					<w2:column id="cargoAttrCd" name="화물속성코드" dataType="String"></w2:column>
+    					<w2:column id="dsmbrkDeclarRepairDtm" name="하선신고수리일시" dataType="String"></w2:column>
+    					<w2:column id="lupDtmFrom" name="검색일시FROM" dataType="String"></w2:column>
+    					<w2:column id="lupDtmTo" name="검색일시TO" dataType="String"></w2:column>
+    					<w2:column id="rettlPosCd" name="검색기위치코드" dataType="String"></w2:column>
+    					<w2:column id="shprNmCmpy" name="송하인상호" dataType="String"></w2:column>
+    					<w2:column id="shprAddr" name="송하인주소" dataType="String"></w2:column>
+    					<w2:column id="shprTelNo" name="송하인전화번호" dataType="String"></w2:column>
+    					<w2:column id="cnsgnCrn" name="수하인사업자등록번호" dataType="String"></w2:column>
+    					<w2:column id="cnsgnNmCmpy" name="수하인상호" dataType="String"></w2:column>
+    					<w2:column id="cnsgnAddr" name="수하인주소" dataType="String"></w2:column>
+    					<w2:column id="cnsgnTelNo" name="수하인전화번호" dataType="String"></w2:column>
+    					<w2:column id="ntcPlCrn" name="통지처사업자등록번호" dataType="String"></w2:column>
+    					<w2:column id="ntcPlNmCmpy" name="통지처상호" dataType="String"></w2:column>
+    					<w2:column id="ntcPlAddr" name="통지처주소" dataType="String"></w2:column>
+    					<w2:column id="ntcPlTelNo" name="통지처전화번호" dataType="String"></w2:column>
+    					<w2:column id="fioBtClsCd" name="FIO_BT구분코드" dataType="String"></w2:column>
+    					<w2:column id="lclYn" name="LCL여부" dataType="number"></w2:column>
+    					<w2:column id="bulkYn" name="벌크여부" dataType="number"></w2:column>
+    					<w2:column id="doYn" name="DO여부" dataType="number"></w2:column>
+    					<w2:column id="doConfirmDt" name="DO확인일자" dataType="String"></w2:column>
+    					<w2:column id="doConfirmHh" name="DO확인시간" dataType="String"></w2:column>
+    					<w2:column id="doNo" name="도(행정구역)번호" dataType="String"></w2:column>
+    					<w2:column id="doConfirmPicId" name="DO확인담당자ID" dataType="String"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="String"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="String"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="String"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="String"></w2:column>
+    					<w2:column id="mcomDsmbrkPlcCd" name="당사하선장소코드" dataType="String"></w2:column>
+    					<w2:column id="mcomLineCd" name="당사LINE코드" dataType="String"></w2:column>
+    					<w2:column id="stdBlYn" name="기준BL여부" dataType="number"></w2:column>
+    					<w2:column id="commNm" name="품명" dataType="String"></w2:column>
+    					<w2:column id="doConfirmPicNm" name="DO확인담당자명" dataType="String"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.sd.odrmgnt.odrprewrk.RetrieveDoConfirmationCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_cndInfo","key":"IN_DS1"},{"id":"ds_blInfo","key":"OUT_DS1"}]'
+    			target='data:json,[{"id":"ds_blInfo","key":"OUT_DS1"}]' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.sd.odrmgnt.odrprewrk.RegistDoConfirmationCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_blInfo","key":"IN_DS1"}]' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+// String curDtm = dateFormat.format(new Date());
+
+// // 세션정보 가져오기
+// LoginDTO loginDTO = LoginUtil.getLoginDTO(request);
+// String userId = DCheckIf.isNull(loginDTO.getUserId())? "":loginDTO.getUserId();
+// String userNm = DCheckIf.isNull(loginDTO.getUserNm())? "":loginDTO.getUserNm();
+
+scwin.curDtm = $c.date.getServerDateTime("yyyyMMddHHmm");   // 현재년월일을 구한다.
+scwin.curDate = "";
+scwin.curTime = "";
+
+// 세션정보 가져오기
+scwin.userId = $c.data.getMemInfo("userId");
+scwin.userNm = $c.data.getMemInfo("userNm");
+
+
+// 화면 로딩시
+scwin.onpageload = function () {
+    if (scwin.curDtm.trim() != "" && scwin.curDtm.length == 12) {
+        scwin.curDate = scwin.curDtm.substring(0, 8);
+        scwin.curTime = scwin.curDtm.substring(8);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시 UDC 호출
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    // scwin.f_defaultValue();
+};
+
+// 조회 초기화
+scwin.f_FieldClear = function (e) {
+    $c.gus.cfInitObjects(tbl_cndArea, null);
+};
+
+// 조회
+scwin.f_Retrieve = function (e) {
+    ds_cndInfo.set("msn", ed_msn.getValue() == "" ? -1 : ed_msn.getValue());
+    ds_cndInfo.set("hsn", ed_hsn.getValue() == "" ? -1 : ed_hsn.getValue());
+
+    if (ds_cndInfo.get("mrn") == "" && ds_cndInfo.get("hblNo") == "") {
+        $c.gus.cfAlertMsg("MRN 또는 B/L번호는 필수조회 조건입니다");
+        return false;
+    }
+
+    if ($c.gus.cfValidate(tbl_cndArea)) {
+        $c.sbm.execute(sbm_retrieve);
+    }
+};
+
+
+// 저장
+scwin.f_Save = async function (e) {
+    if (await $c.win.confirm(MSG_CM_CRM_001)) { //저장하시겠습니까?
+        if (ds_blInfo.getModifiedIndex().length > 0) {
+            if (await $c.gus.cfValidate(gr_blInfo)) {
+                $c.sbm.execute(sbm_save);
+            }
+        } else {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["컨테이너오더"]); // @은(는) 변경된 사항이 없습니다.
+        }
+    }
+};
+
+// 취소
+scwin.f_UndoRow = function (e) {
+    if (ds_blInfo.getRowCount() > 0) {
+        ds_blInfo.undoRow(ds_blInfo.getRowPosition());
+    }
+};
+
+// 조회 완료
+scwin.sbm_retrieve_submitdone = function (e) {
+    ds_cndInfo.set("msn", ds_cndInfo.get("msn") == -1 ? "" : ds_cndInfo.get("msn"));
+    ds_cndInfo.set("hsn", ds_cndInfo.get("msn") == -1 ? "" : ds_cndInfo.get("msn"));
+
+    let options = {};
+    options.sortIndex = "mrn hsn mblNo hblNo";
+    options.sortOrder = "1 1 1 1";    
+    ds_blInfo.multisort(options);
+    if (e.responseJSON.resultDataSet[0].Code == 0) {
+        if (ds_blInfo.getRowCount() > 0) {
+            ds_blInfo.setRowPosition(0);
+        } else {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_003, ["조회결과"]);
+        }
+
+        // 그리드 조회건수
+        tbx_totalRows.setValue(ds_blInfo.getRowCount());
+    }
+};
+
+// 저장 완료
+scwin.sbm_save_submitdone = function (e) {
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+scwin.gr_blInfo_oncellclick = function (rowIndex, columnIndex, columnId) {
+    console.log("doYn" + ds_blInfo.getCellData(rowIndex, columnId));
+    if (columnId == "doYn") {
+        if (ds_blInfo.getCellData(rowIndex, columnId) == 1) { // DO확인 여부를 체크한 경우
+            //그리드컬럼 활성
+            gr_blInfo.setCellReadOnly(rowIndex, "doNo", false);
+            gr_blInfo.setCellReadOnly(rowIndex, "doConfirmDt", false);
+            gr_blInfo.setCellReadOnly(rowIndex, "doConfirmHh", false);
+
+            //값세팅
+            ds_blInfo.setCellData(rowIndex, "doConfirmDt", scwin.curDate);
+            ds_blInfo.setCellData(rowIndex, "doConfirmHh", scwin.curTime);
+            ds_blInfo.setCellData(rowIndex, "doConfirmPicId", scwin.userId);
+            ds_blInfo.setCellData(rowIndex, "doConfirmPicNm", scwin.userNm);
+
+        } else { //DO확인 여부를 체크하지 않은 경우
+            //그리드컬럼 비활성
+            gr_blInfo.setCellReadOnly(rowIndex, "doNo", true);
+            gr_blInfo.setCellReadOnly(rowIndex, "doConfirmDt", true);
+            gr_blInfo.setCellReadOnly(rowIndex, "doConfirmHh", true);
+
+            //값세팅
+            ds_blInfo.setCellData(rowIndex, "doConfirmDt", "");
+            ds_blInfo.setCellData(rowIndex, "doConfirmHh", "");
+            ds_blInfo.setCellData(rowIndex, "doConfirmPicId", "");
+            ds_blInfo.setCellData(rowIndex, "doConfirmPicNm", "");
+        }
+    }
+};
+
+scwin.ds_blInfo_onrowpositionchange = function (info) {
+    if (ds_blInfo.getCellData(ds_blInfo.getRowPosition(), "doYn") == 1) { // DO확인 여부를 체크한 경우
+        //그리드컬럼 활성
+        gr_blInfo.setCellReadOnly(ds_blInfo.getRowPosition(), "doNo", false);
+        gr_blInfo.setCellReadOnly(ds_blInfo.getRowPosition(), "doConfirmDt", false);
+        gr_blInfo.setCellReadOnly(ds_blInfo.getRowPosition(), "doConfirmHh", false);
+    } else { //DO확인 여부를 체크하지 않은 경우
+        //그리드컬럼 비활성
+        gr_blInfo.setCellReadOnly(ds_blInfo.getRowPosition(), "doNo", true);
+        gr_blInfo.setCellReadOnly(ds_blInfo.getRowPosition(), "doConfirmDt", true);
+        gr_blInfo.setCellReadOnly(ds_blInfo.getRowPosition(), "doConfirmHh", true);
+    }
+};
+
+// 모선 팝업
+scwin.udc_comCode1_onclickEvent = async function (e) {
+    scwin.f_openCommonPopUp(1, ed_vsslCd.getValue(), ed_vsslNm.getValue(),'F','F');
+};
+
+// 항구 팝업
+scwin.udc_comCode2_onclickEvent = async function (e) {
+    scwin.f_openCommonPopUp(2, ed_portCd.getValue(), ed_portNm.getValue(),'F','F');
+};
+
+
+//팝업 처리시 검색된 데이터인 경우 팝업 처리 안함
+// 모선코드 BLUR
+scwin.udc_comCode1_onblurCodeEvent = async function (e) {    
+    if (!$c.gus.cfCanOpenPopup(ed_vsslCd, ed_vsslNm, 1)) return;
+    $c.gus.cfClearPairObj(ed_vsslNm);
+    
+    scwin.f_openCommonPopUp(1, ed_vsslCd.getValue(), '', 'T', 'T');
+};
+
+scwin.udc_comCode1_onblurNameEvent = async function (e) {
+    scwin.f_openCommonPopUp(1, "", ed_vsslNm.getValue(), 'T', 'T');    
+};
+
+//공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pWinCloseTF, pAllSearchTF) {
+	// 선언부
+	let rtnList;  // 공통POP-UP -> 요청화면 
+			
+	switch (disGubun){
+		case 1:
+			rtnList = await udc_comCode1.cfCommonPopUpAsync("retrieveVsslCdInfo",			//pSelectID
+									pCode,							//pCode
+									pName,							//pName
+									pWinCloseTF,					//pWinCloseTF
+									null,							//pDispCnt
+									null,							//pTitle
+									null,							//pWidth
+									null,							//pHidden
+									null,							//pWhere
+									null,							//pW
+									null,							//pH
+									null,							//pTop
+									null,							//pLeft
+  									null,							//pExistTF - 중복체크여부	("F")
+  									pAllSearchTF,					//pAllSearchTF - 전체검색허용여부	("F")
+  									"선박,선박코드,선박명",				//pWtitleSearch - POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+  									null							//Data건수가 0건일때 Window를 뛰우지 않음 리턴:"N/A"
+  									); 
+  									
+            ed_vsslCd.setValue(rtnList[0]);
+            ed_vsslNm.setValue(rtnList[1]);
+			break;
+		
+		case 2:
+			rtnList = await udc_comCode2.cfCommonPopUpAsync("retrievePortInfo",				//pSelectID
+									pCode,							//pCode
+									pName,							//pName
+									pWinCloseTF,					//pWinCloseTF
+									null,							//pDispCnt
+									null,							//pTitle
+									null,							//pWidth
+									null,							//pHidden
+									null,							//pWhere
+									null,							//pW
+									null,							//pH
+									null,							//pTop
+									null,							//pLeft
+  									null,							//pExistTF - 중복체크여부	("F")
+  									pAllSearchTF,					//pAllSearchTF - 전체검색허용여부	("F")
+  									"항구,항구코드,항구명",				//pWtitleSearch - POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+  									null							//Data건수가 0건일때 Window를 뛰우지 않음 리턴:"N/A"
+  									); 
+  									
+            ed_portCd.setValue(rtnList[0]);
+            ed_portNm.setValue(rtnList[1]);
+			break;	
+	}	
+}
+
+// 항구코드 BLUR
+scwin.udc_comCode2_onblurCodeEvent = async function (e) {
+    if (!$c.gus.cfCanOpenPopup(ed_portCd, ed_portNm)) return;
+
+    $c.gus.cfClearPairObj(ed_portNm);
+    scwin.f_openCommonPopUp(2, ed_portCd.getValue(), '', 'T', 'T');
+};
+
+scwin.udc_comCode2_onblurNameEvent = function (e) {
+    scwin.f_openCommonPopUp(2, "", ed_portNm.getValue(), 'T', 'T');
+};
+
+scwin.ed_portcnt_oneditkeyup = function (info, e) {  
+    $c.gus.cfToUpper(this);
+};
+
+scwin.ed_mrn_oneditkeyup = function (info, e) {
+    $c.gus.cfToUpper(this);
+};
+
+scwin.ed_blNo_oneditkeyup = function (info, e) {
+    $c.gus.cfToUpper(this);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="tbl_cndArea" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="" id="" label="모선 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="retrieveVsslCdInfoPopup" style="" codeId="ed_vsslCd" objTypeCode="Data" UpperFlagCode="1" maxlengthCode="4" nameId="ed_vsslNm" id="udc_comCode1" refDataCollection="ds_cndInfo" code="vsslCd" name="vsslNm" popupGridHeadTitle="선박코드,선박명" selectID="retrieveVsslCdInfo" popupTitle="선박,선박코드,선박명" ev:onclickEvent="scwin.udc_comCode1_onclickEvent" objTypeName="Data" ev:onblurCodeEvent="scwin.udc_comCode1_onblurCodeEvent" btnId="btn_comCode1" ev:onblurNameEvent="scwin.udc_comCode1_onblurNameEvent" allowCharCode="a-zA-Z0-9"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="항차 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="ed_portcnt" placeholder="" style="width: 230px" objType="Data" maxlength="10" ref="data:ds_cndInfo.portcnt" allowChar="a-zA-Z0-9" ev:oneditkeyup="scwin.ed_portcnt_oneditkeyup"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="항구 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="retrievePortInfoPopup" style="" codeId="ed_portCd" maxlengthCode="5" UpperFlagCode="1" objTypeCode="Data" nameId="ed_portNm" maxlengthName="50" objTypeName="Data" id="udc_comCode2" refDataCollection="ds_cndInfo" code="portCd" name="portNm" selectID="retrievePortInfo" popupGridHeadTitle="항구코드,항구명" popupTitle="항구,항구코드,항구명" ev:onclickEvent="scwin.udc_comCode2_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCode2_onblurCodeEvent" btnId="btn_comCode2" ev:onblurNameEvent="scwin.udc_comCode2_onblurNameEvent" allowCharCode="a-zA-Z0-9"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th"><w2:textbox class="req" id="" label="MRN " style=""></w2:textbox></xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:input class="" id="ed_mrn" placeholder="" style="" objType="Data" mandatory="true" maxlength="11" allowChar="a-zA-Z0-9" ref="data:ds_cndInfo.mrn" ev:oneditkeyup="scwin.ed_mrn_oneditkeyup"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="MSN " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="ed_msn" placeholder="" style="" objType="Data" maxlength="4" allowChar="0-9" ref=""></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="HSN " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_hsn" placeholder="" style="width: 230px;" maxlength="4" allowChar="0-9" ref=""></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="B/L번호 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="th" id="" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<xf:input class="" id="ed_blNo" placeholder="" style="width: 230px;" objType="data" maxlength="16" mandatory="true" allowChar="a-zA-Z0-9" ref="data:ds_cndInfo.hblNo" ev:oneditkeyup="scwin.ed_blNo_oneditkeyup"></xf:input>
+    								</xf:group></xf:group></xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_reset" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retreive" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label=" D/O확인등록 " class="tit"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" id="udc_topGrd" gridID="gr_blInfo" grdDownOpts='{"fileName": "DO확인등록.xlsx", "sheetName": "DO확인등록", "type": "4+8+16" }'></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    								<w2:gridView scrollByColumnAdaptive="false" focusMode="row" dataList="data:ds_blInfo" scrollByColumn="false" style="" id="gr_blInfo" class="wq_gvw" checkReadOnlyOnPasteEnable="" fixedColumn="3" autoFit="allColumn" ev:oncellclick="scwin.gr_blInfo_oncellclick" readOnly="true" visibleRowNumFix="true" visibleRowNum="15" autoFitMinWidth="2000" rowStatusVisible="true" fixedColumnNoMove="true" columnMove="true">
+    									<w2:caption style="" id="caption10" value="this is a grid caption."></w2:caption>
+    									<w2:header style="" id="header2">
+    										<w2:row style="" id="row3">
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="column12" value="MRN" blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="column11" value="MSN" blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="column10" value="HSN" blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="column9" value="M B/L" blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column21" value="H B/L" displayMode="label">
+    											</w2:column>
+    											<w2:column hidden="false" width="200" inputType="text" id="column38" value="품명" displayMode="label">
+    											</w2:column>
+    											<w2:column hidden="false" width="100" inputType="text" id="column39" value="당사품명" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column44" value="수량" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column40" value="중량(KG)" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column42" value="CBM" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column84" value="D/O확인" displayMode="label" class="col-type2">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column46" value="D/O번호" displayMode="label" class="col-type2">
+    											</w2:column>
+    											<w2:column hidden="false" width="100" inputType="text" id="column87" value="D/O일자" displayMode="label" class="col-type2">
+    											</w2:column>
+    											<w2:column hidden="false" width="100" inputType="text" id="column88" value="D/O시간" displayMode="label" class="col-type2">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column48" value="D/O담당자" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody style="" id="gBody2">
+    										<w2:row style="" id="row4">
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="mrn" blockSelect="false" displayMode="label" textAlign="center" colMerge="true" sortable="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="msn" blockSelect="false" displayMode="label" textAlign="center" colMerge="true" sortable="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="70" inputType="text" id="hsn" blockSelect="false" displayMode="label" textAlign="center" sortable="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="mblNo" blockSelect="false" displayMode="label" textAlign="center" colMerge="true" sortable="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="hblNo" displayMode="label" textAlign="center" colMerge="true" sortable="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" id="mfCommNm" displayMode="label" textAlign="left" sortable="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="commNm" displayMode="label" textAlign="left" sortable="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="packCnt" displayMode="label" textAlign="right" sortable="true" dataType="number" displayFormat="#,##0" excelFormat="#,##0">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="totWt" displayMode="label" textAlign="right" sortable="true" dataType="float" displayFormat="#,##0.000" excelFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="totCbm" displayMode="label" textAlign="right" sortable="true" dataType="bigDecimal" displayFormat="#,##0.##0" excelFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="checkbox" id="doYn" displayMode="label" textAlign="center" sortable="true" readOnly="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="doNo" displayMode="label" textAlign="left" sortable="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="doConfirmDt" displayMode="label" textAlign="center" editFormat="XXXX/XX/XX" sortable="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="doConfirmHh" displayMode="label" textAlign="center" editFormat="XX:XX" sortable="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="doConfirmPicNm" displayMode="label" textAlign="center" sortable="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span"
+    												dataType="number" displayFormat="#,##0">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group id="" class="right"><w2:udc_bottomGrdBtn style="" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="N" btnRowDelYn="N" cancelFunction="scwin.f_UndoRow"></w2:udc_bottomGrdBtn></xf:group></xf:group></xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" objType="ctrlBtn" userAuth="U" ev:onclick="scwin.f_Save">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_fileDeleteGDS" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="fileSeq" name="fileSeq" dataType="text"></w2:column>
+    					<w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_attachedFileList" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="fileClsCd" name="fileClsCd" dataType="text"></w2:column>
+    					<w2:column id="fileClsNm" name="fileClsNm" dataType="text"></w2:column>
+    					<w2:column id="fileName" name="fileName" dataType="text"></w2:column>
+    					<w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+    					<w2:column id="fileSeq" name="fileSeq" dataType="text"></w2:column>
+    					<w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+    					<w2:column id="houseNo" name="houseNo" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieveAttachedFileList" action="/ac.fm.paymgnt.advcdmgnt.RetreiveAdvancedPaymentAttachFileListCMD.do"
+    			method="post" mediatype="application/json" mode="asynchronous" ref='data:json,{"id":"ds_attachedFileList","key":"OUT_DS1"}'
+    			target='data:json,{"id":"ds_attachedFileList","key":"OUT_DS1"}' ev:submitdone="scwin.sbm_retrieveAttachedFileList_submitdone">
+    		</xf:submission>
+    		<xf:submission id="sbm_deleteFile" action="/ac.fm.paymgnt.advcdmgnt.DeleteAdvancedPaymentAttachFileCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_fileDeleteGDS","key":"IN_DS1"}]' target='data:json,[]' encoding="UTF-8"
+    			mode="asynchronous" processMsg="none" ev:submitdone="scwin.sbm_deleteFile_submitdone"
+    			ev:submiterror="scwin.sbm_default_submiterror">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 차량정보사진
+ * 메뉴경로 : 물류(N)/국내 운영(협력)/차량정보사진
+ * ASIS경로 : /dongwon-ntis-engine/src/main/webapp/bp/fbp/bi/vi/ez_104_01_02p.jsp
+ * 작 성 자 : 유청아
+ * 작 업 일 : 2026-03-23
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항
+
+ * 수정이력 :
+ *    - 2026-03-23      유청아    최초작성
+ *    - 2026-04-13      이진우    T-6189 조치완료(파일첨부갯수10,화면타이틀 수정)
+ */
+
+scwin.params = null;
+scwin.filePath = "";
+scwin.fileName = "";
+scwin.fileSize = "";
+
+//-------------------------------------------------------------------------
+// 페이지로드
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.params = $c.data.getParameter();
+
+    if (!$c.util.isEmpty(scwin.params["attachFilePath"])) {
+        scwin.filePath = scwin.params["attachFilePath"];
+    }
+
+    if (!$c.util.isEmpty(scwin.params["attachFileNm"])) {
+        scwin.fileName = scwin.params["attachFileNm"];
+    }
+};
+
+//-------------------------------------------------------------------------
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+
+};
+
+//-------------------------------------------------------------------------
+// 파일 업로드(UDC 저장버튼)
+//-------------------------------------------------------------------------
+scwin.fileSubmit = async function () {
+    udc_fielUpload.startFileUpload();
+
+    // let fileList = udc_fileUpload.getData() || [];
+    // let hasNewFile = false;
+    // let hasDeleteFile = false;
+
+    // for (let i = 0; i < fileList.length; i++) {
+        
+    //     //fileList.modifyRowStatus(i, "R");
+
+    //     if ($c.util.isEmpty(fileList[i].hiddenKey)) {
+    //         hasNewFile = true;
+    //     }
+
+    //     if (fileList[i].chk == "1" && !$c.util.isEmpty(fileList[i].hiddenKey)) {
+    //         let row = ds_fileDeleteGDS.insertRow();
+    //         ds_fileDeleteGDS.setCellData(row, "fileSeq", fileList[i].hiddenKey);
+    //         ds_fileDeleteGDS.setCellData(row, "filePath", fileList[i].FILE_STORED_PATH || "");
+    //         hasDeleteFile = true;
+    //     }
+    // }
+
+    // if (hasNewFile) {
+    //     await udc_fileUpload.startFileUpload();
+    //     return;
+    // }
+
+    // if (hasDeleteFile) {
+    //     await $c.sbm.execute(sbm_deleteFile);
+    //     return;
+    // }
+
+    // await $c.win.alert("No file changes.");
+
+};
+
+scwin.sbm_deleteFile_submitdone = function() {
+    ds_fileDeleteGDS.removeAll();
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_default_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.f_Retrieve = function() {
+    $c.sbm.execute(sbm_retrieveAttachedFileList);
+
+};
+
+scwin.sbm_retrieveAttachedFileList_submitdone = function() {
+    let fileList = [];
+
+    for (let i = 0; i < ds_attachedFileList.getRowCount(); i++) {
+        const fileName = ds_attachedFileList.getCellData(i, "fileName");
+        const filePath = ds_attachedFileList.getCellData(i, "filePath");
+
+        fileList.push({
+            chk: "0",
+            FILE_STORED_PATH: filePath,
+            STORED_FILE_NM: fileName,
+            ORIGIN_FILE_NM: fileName,
+            FILE_EXPLAIN: "",
+            FILE_SIZE: ds_attachedFileList.getCellData(i, "fileSize"),
+            status: "Completed",
+            hiddenKey: ds_attachedFileList.getCellData(i, "fileSeq")
+        });
+    }
+
+    udc_fileUpload.setData(fileList);
+    
+};
+
+//-------------------------------------------------------------------------
+// 업로드 완료
+//-------------------------------------------------------------------------
+scwin.uploadComplete = async function () {
+    
+    await $c.gus.cfAlertMsg(MSG_CM_INF_002);  // 성공적으로 등록하였습니다.
+    scwin.f_Close();
+};
+
+//-------------------------------------------------------------------------
+// 화면닫기
+//------------------------------------------------------------------------- 	
+scwin.f_Close = function () {
+    // 차량사진 첨부파일은 마지막 한건만 등록 가능
+    let fileList = udc_fielUpload.getData();
+
+    if (fileList.length > 0) {
+        let lenCnt = fileList.length;
+        console.log("lenCnt::", lenCnt);
+
+        let status = fileList[lenCnt-1].status;
+        if (status == "Completed") {
+            scwin.filePath = fileList[lenCnt-1].filePath;
+            scwin.fileName = fileList[lenCnt-1].fileName;
+            scwin.fileSize = fileList[lenCnt-1].fileSize;
+
+            if ($c.gus.cfIsNull(scwin.fileName)) {
+                scwin.fileName = fileList[lenCnt-1].ORIGIN_FILE_NM;
+            }
+            if ($c.gus.cfIsNull(scwin.filePath)) {
+                scwin.filePath = fileList[lenCnt-1].FILE_STORED_PATH + fileList[lenCnt-1].STORED_FILE_NM;
+            }
+            if ($c.gus.cfIsNull(scwin.fileSize)) {
+                scwin.fileSize = fileList[lenCnt-1].FILE_SIZE;
+            }
+        }
+    }
+
+    let rtnList = new Array();
+    rtnList[0] = scwin.filePath;
+    rtnList[1] = scwin.fileName;
+    rtnList[2] = scwin.fileSize;
+
+    $c.win.closePopup(rtnList);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    	<style type="text/css"><![CDATA[.file-wrap {height:100%}
+.w2udc2.fix_no,
+.w2udc2.fix_no .file-upload {height:100%}
+.w2udc2.fix_no  .gvwbox .wq_gvw {flex:1}]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<xf:group class="pgtbox" id="" style="">
+    			<xf:group class="pg-tit" id="">
+    				<xf:group class="tit" id="">
+    					<w2:textbox class="pgt_tit" id="tbx_textbox1" label="차량정보사진" style="" tagname=""></w2:textbox>
+    				</xf:group>
+    				<xf:trigger class="btn ico help" id="" style="" type="button">
+    					<xf:label></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box flex-full" id=""><xf:group id="" class="file-wrap no-title"><w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="" id="udc_fielUpload" ev:onFileUploadDone="scwin.uploadComplete" subDir="/tn/op/rscmgnt/" readOnlyYn="Y" class="fix_no">
+    			</w2:udc_fileMultiUpload></xf:group></xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_Close">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

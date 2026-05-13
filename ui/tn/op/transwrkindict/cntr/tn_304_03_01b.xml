@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_query">
+					<w2:keyInfo>
+						<w2:key id="vehclNo" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" id="ds_outInfo" repeatNode="map" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+						<w2:column id="eqCd" name="name2" dataType="text"></w2:column>
+						<w2:column id="wrkPlCd" name="name3" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/ncall.tn.op.transwrkindict.cntr.RetrieveCyRsLoginInfoCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"dma_query","key":"IN_DS1"},{"id":"ds_outInfo","key":"OUT_DS1"}]' target='data:json,{"id":"ds_outInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitDone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[scwin.loginID;
+scwin.reqWrkDt;
+scwin.eqCd;
+scwin.wrkPlCd;
+scwin.lobranCd;
+scwin.fullEmptyClsCd;
+scwin.selfClsCd;
+scwin.memJson;
+scwin.g_selected_input_box = "ed_vehclNo";
+scwin.pgrId;
+
+scwin.onpageload = function () {
+    scwin.initSetVal();
+
+    if(scwin.eqCd == "" || scwin.lobranCd == "" || scwin.wrkPlCd == ""){
+        let data = scwin.getCYLoginData();
+        if(data != null) {
+            scwin.wrkPlCd = data.wrkPlCd ?? "";
+            scwin.lobranCd = data.lobranCd ?? "";
+            scwin.eqCd = data.eqCd ?? "";
+        }
+    }
+
+    if (scwin.eqCd != "" && scwin.lobranCd != "" && scwin.wrkPlCd != "") {
+        //로그인 된 정보가 존재하면 이동
+        scwin.movePage(scwin.eqCd, scwin.wrkPlCd, scwin.lobranCd);
+        return;
+    }
+
+    $c.win.sKeyInit("singleKey", "Enter", "scwin.enter");
+    ed_vehclNo.focus();
+}
+
+scwin.setCYLoginData = function (value) {
+    var enc = btoa(unescape(encodeURIComponent(JSON.stringify(value))));
+    localStorage.setItem("CY_LOGIN_INFO", enc);
+};
+
+scwin.getCYLoginData = function () {
+    var raw = localStorage.getItem("CY_LOGIN_INFO");
+    if (!raw) return {};
+
+    try {
+        return JSON.parse(decodeURIComponent(escape(atob(raw))));
+    } catch (e) {
+        return {};
+    }
+};
+
+scwin.enter = async function (e) {
+    await scwin.jsLogin();
+};
+
+scwin.btn_del_onclick = function (e) {
+    scwin.f_DelClick()
+};
+
+scwin.initSetVal = function () {
+
+    scwin.memJson = $c.data.getMemInfo();
+    //README : 로그인 창을 바로 띄웠을때는 pgrId가 없기때문에 스스로(tn_304_03_01b)가 기준이 되고, 
+    //          다른 화면에서 로그인데이터가 없어서 이 화면으로 왔을 경우에는 해당 화면이 기준이 된다.
+    scwin.pgrId = $c.data.getParameter("pgrId") ?? "tn_304_03_01b";
+    scwin.eqCd = $c.data.getParameter("eqCd") ?? "";
+    scwin.wrkPlCd = $c.data.getParameter("wrkPlCd") ?? "";
+    scwin.lobranCd = $c.data.getParameter("lobranCd") ?? "";
+};
+
+//-------------------------------------------------------------------------
+// 
+//-------------------------------------------------------------------------     
+scwin.jsLogin = async function () {
+    // f_twinkleBtn("login",0); 
+
+    if (ed_vehclNo.getValue() == null || ed_vehclNo.getValue() == "") {
+        await $c.win.alert("&quot;차량번호는 필수입니다.&quot;");
+
+        ed_vehclNo.focus();
+        return;
+    };
+
+    await scwin.tr_retrieve();
+};
+
+
+scwin.tr_retrieve = function () {
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 
+//-------------------------------------------------------------------------
+scwin.f_Check = function (code) {
+    if (code == 'ed_vehclNo') {
+        scwin.g_selected_input_box = 'ed_vehclNo';
+    }
+};
+
+//-------------------------------------------------------------------------
+// 
+//-------------------------------------------------------------------------     
+scwin.f_Click = function (e) {
+    //f_twinkleBtn(code,80);
+    let code = this.getValue();
+
+    if (scwin.g_selected_input_box == 'ed_vehclNo') {
+        if (ed_vehclNo.getValue().length == 4) { //사번은 6자리
+            return;
+        };
+
+        let value = ed_vehclNo.getValue();
+        ed_vehclNo.setValue(value + '' + code);
+    };
+};
+
+scwin.f_DelClick = function () {
+    //f_twinkleBtn("del");
+
+    if (scwin.g_selected_input_box == 'ed_vehclNo') {
+
+        var value = ed_vehclNo.getValue();
+
+        if (value.length != 0) {
+            value = value.substring(0, value.length - 1);
+        }
+
+        ed_vehclNo.setValue(value);
+
+    } else if (scwin.g_selected_input_box == 'ed_passwd') {
+
+        var value = ed_passwd.getValue();
+
+        if (value.length != 0) {
+            value = value.substring(0, value.length - 1);
+        }
+
+        ed_passwd.setValue(value);
+    } else if (scwin.g_selected_input_box == 'ed_eqCd') {
+
+        var value = ed_eqCd.getValue();
+
+        if (value.length != 0) {
+            value = value.substring(0, value.length - 1);
+        }
+
+        ed_eqCd.value.setValue(value);
+    }
+};
+
+
+scwin.sbm_retrieve_submitDone = async function () {
+
+    if (ds_outInfo.getRowCount() == 0) {
+        await $c.win.alert("차량번호가 존재하지 않습니다.");
+        return;
+    }
+
+    let eqCd = ds_outInfo.getCellData(0, "eqCd");
+    let wrkPlCd = ds_outInfo.getCellData(0, "wrkPlCd");
+    let lobranCd = ds_outInfo.getCellData(0, "lobranCd");
+
+    scwin.setCYLoginData({
+        wrkPlCd: wrkPlCd,
+        lobranCd: lobranCd,
+        eqCd: eqCd,
+    });
+
+    await $c.win.alert("&quot;" + eqCd + '님 안녕하세요?&quot;');
+
+    scwin.movePage(eqCd, wrkPlCd, lobranCd);
+};
+
+scwin.movePage = function (eqCd, wrkPlCd, lobranCd) {
+
+    let paramObj = {
+        eqCd: eqCd,
+        wrkPlCd: wrkPlCd,
+        lobranCd: lobranCd,
+        pgrId: scwin.pgrId
+    };
+
+    let strUrl, menuNm;
+    switch (scwin.pgrId) {
+        case "tn_304_03_03b":
+            strUrl = "/ui/tn/op/transwrkindict/cntr/tn_304_03_03b.xml";
+            menuNm = "CY상차실적등록(R/S)";
+            break;
+        case "tn_304_03_04b":
+            strUrl = "/ui/tn/op/transwrkindict/cntr/tn_304_03_04b.xml";
+            menuNm = "CY하차실적등록(R/S)";
+            break;
+        case "tn_304_03_13b":
+            strUrl = "/ui/tn/op/transwrkindict/cntr/tn_304_03_13b.xml";
+            menuNm = "CY이적등록(R/S)";
+            break;
+        case "tn_304_03_11b":
+            strUrl = "/ui/tn/op/transwrkindict/cntr/tn_304_03_11b.xml";
+            menuNm = "CY적재내역등록(R/S)";
+            break;
+        default:
+            strUrl = "/ui/tn/op/transwrkindict/cntr/tn_304_03_02b.xml";
+            menuNm = "CY상하차정보조회(R/S)";
+            break;
+    }
+
+    $c.win.openMenu(menuNm, strUrl, scwin.pgrId, paramObj, { openAction : "exist", mdiTitle : menuNm });
+}
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onbeforepageunload="scwin.unpageload">
+		<xf:group class="sub_contents" id="enterGrp" style="">
+			<xf:group class="round-box" id="">
+				<xf:group class="pda-wrap" id="" style="">
+					<xf:group id="" class="pda-login">
+						<xf:group style="" id="" class="input-wrap">
+							<xf:group id="" class="input-wrap-inner">
+								<w2:textbox style="" id="" label="차량번호" class="title"></w2:textbox>
+								<xf:input style="" id="ed_vehclNo" placeholder="차량번호를 입력해 주세요" ref="data:dma_query.vehclNo" ev:onfocus="scwin.ed_vehclNo_onfocus"></xf:input>
+							</xf:group>
+							<xf:trigger style="" id="btn_login" title="로그인" type="button" class="login" ev:onclick="scwin.jsLogin">
+								<xf:label><![CDATA[로그인]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<xf:group style="" id="" class="keypad">
+							<xf:trigger style="" id="btn_7" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[7]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_8" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[8]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_9" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[9]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_4" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[4]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_5" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[5]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_6" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[6]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_1" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[1]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_2" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[2]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_3" type="button" class="" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[3]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_0" type="button" class="last" ev:onclick="scwin.f_Click">
+								<xf:label><![CDATA[0]]></xf:label>
+							</xf:trigger>
+							<xf:trigger style="" id="btn_del" type="button" class="keypad-del" ev:onclick="scwin.btn_del_onclick">
+								<xf:label><![CDATA[삭제]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

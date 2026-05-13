@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_AccidentQry">
+    				<w2:keyInfo>
+    					<w2:key id="accdOutbrDtFrom" name="사고발생일자From" dataType="text"></w2:key>
+    					<w2:key id="accdOutbrDtTo" name="사고발생일자To" dataType="text"></w2:key>
+    					<w2:key id="bizDiv" name="사업부문" dataType="text"></w2:key>
+    					<w2:key id="accdProcBranchCd" name="사고처리지점코드" dataType="text"></w2:key>
+    					<w2:key id="accdPatternCd" name="사고유형코드" dataType="text"></w2:key>
+    					<w2:key id="clntNo" name="거래처코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_AccidentDet" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="accdNo" name="사고번호" dataType="text"></w2:column>
+    					<w2:column id="accdHomeDivCd" name="사고소속부문코드" dataType="text"></w2:column>
+    					<w2:column id="accdPattern" name="사고유형" dataType="text"></w2:column>
+    					<w2:column id="persNm" name="기사성명" dataType="text"></w2:column>
+    					<w2:column id="accdProcBranch" name="사고처리지점" dataType="text"></w2:column>
+    					<w2:column id="accdDt" name="사고일자" dataType="text"></w2:column>
+    					<w2:column id="accdOutbrRepoDt" name="발생보고일자" dataType="text"></w2:column>
+    					<w2:column id="accdOutbrBranchApprvDt" name="발생지점결재일자" dataType="text"></w2:column>
+    					<w2:column id="accdTmntDt" name="종결일자" dataType="text"></w2:column>
+    					<w2:column id="accdTmntRepoDt" name="종결보고일자" dataType="text"></w2:column>
+    					<w2:column id="tmntBranchApprvDt" name="종결지점결재일자" dataType="text"></w2:column>
+    					<w2:column id="tmntAfProcDt" name="종결후처리일자" dataType="text"></w2:column>
+    					<w2:column id="outbrApprvStsCd" name="발생전자결재상태" dataType="text"></w2:column>
+    					<w2:column id="tmntApprvStsCd" name="종결전자결재상태" dataType="text"></w2:column>
+    					<w2:column id="vehclShortCd" name="단축코드" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처코드" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_Accident" action="/ps.tr.safemgnt.accdmgnt.RetrieveAccidentListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_AccidentQry","key":"IN_DS1"},{"id":"ds_AccidentDet","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_AccidentDet","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Accident_submitdone" ev:submiterror="scwin.sbm_Accident_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript">
+// scwin.memJson = $c.data.getMemInfo();
+scwin.wrkDate = WebSquare.date.getFormattedDate (new Date(), &quot;yyyyMM&quot;) + &quot;01&quot;;
+scwin.curDate = WebSquare.date.getFormattedDate (new Date(), &quot;yyyyMMdd&quot;);
+scwin.allchkb = &quot;0&quot;;
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+
+    const codeOptions = [ 
+        { grpCd : &quot;ZZ005&quot;, compID : &quot;lc_bizDiv&quot; },
+        { grpCd : &quot;ZZ515&quot;, compID : &quot;gr_Accident:accdPattern&quot; },
+        { grpCd : &quot;ZZ021&quot;, compID : &quot;gr_Accident:outbrApprvStsCd, gr_Accident:tmntApprvStsCd&quot; },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    const codeOptions2 = [ 
+        { method: &quot;getLuxeComboData&quot;
+        , param1: &quot;PsCommonEBC&quot;
+        , param2: &quot;retriveBranchCd&quot;
+        , param3: [&quot;&quot;]
+        , compID: &quot;lc_accdProcBranchCd, gr_Accident:accdProcBranch&quot; 
+        },
+    ];
+    $c.data.setGauceUtil(codeOptions2);
+
+	// $c.gus.cfDisableBtn([bUpdate, bDelete]); //발생상세, 종결상세
+    $c.gus.cfDisableBtn([$c.gus.getctrlBtn('bUpdate'), $c.gus.getctrlBtn('bDelete')]);
+	// 사고유형 체크박스 체크
+    cbx_chkb.checkAll(true);
+
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() {
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+	ica_accdOutbrDtFrom.setValue(scwin.wrkDate);
+	ica_accdOutbrDtTo.setValue(scwin.curDate);
+    ica_accdOutbrDtFrom.focus();
+};
+    
+//-----------------------------------------------------------------------------
+//  check box 컨트롤
+//------------------------------------------------------------------------------
+scwin.cbx_chkb_onviewchange = function (info) {
+    var cbx_chkbs = cbx_chkb.getSelectedIndex().split(&quot;:&quot;);
+    if( cbx_chkbs.length &gt; 0) {
+        if( &quot;0&quot; == cbx_chkbs[0] ) {
+            scwin.allchkb = &quot;0&quot;;
+            cbx_chkb.checkAll(true);
+        } else {
+            if( &quot;0&quot; == scwin.allchkb ) {
+                scwin.allchkb = &quot;&quot;;
+                cbx_chkb.checkAll(false);
+            }
+        }
+    } else {
+        cbx_chkb.checkAll(false);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+
+    // if ( ica_accdOutbrDtFrom.Text.trim().length != 8 ) {
+    if (&quot;&quot; == ica_accdOutbrDtFrom.getValue()) {
+        // cfAlertMsg(MSG_CM_ERR_002 , [&quot;사고기간&quot;]);
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002, &quot;사고기간&quot;));
+        ica_accdOutbrDtFrom.focus();
+        return;
+    }
+    if (&quot;&quot; == ica_accdOutbrDtTo.getValue()) {
+        // cfAlertMsg(MSG_CM_ERR_002 , [&quot;사고기간&quot;]);
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002, &quot;사고기간&quot;));
+        ica_accdOutbrDtTo.focus();
+        return;
+    }
+
+    if ( ica_accdOutbrDtTo.getValue() &lt; ica_accdOutbrDtFrom.getValue() ) {        	
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002, &quot;사고기간&quot;));
+        ica_accdOutbrDtFrom.focus();
+        return;
+    }
+    
+console.log(&quot;== cbx_chkb.getValue() ==&quot;+ cbx_chkb.getValue());
+
+    //사고유형 코드 입력 check
+    if (&quot;X&quot; == cbx_chkb.getValue()) {
+    // if ( chkb_Main.checked == false &amp;&amp; chkb1.checked == false &amp;&amp; chkb2.checked == false &amp;&amp; chkb3.checked == false &amp;&amp; chkb4.checked == false &amp;&amp; chkb5.checked == false &amp;&amp; chkb6.checked == false) {
+    //     cfAlertMsg(MSG_CM_ERR_002 , [&quot;전체 선택 또는 사고유형 선택&quot;]);
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002, &quot;전체 선택 또는 사고유형 선택&quot;));
+        cbx_chkb.focus();
+        return;
+    }
+
+    dma_AccidentQry.set(&quot;accdOutbrDtFrom&quot;, ica_accdOutbrDtFrom.getValue());
+    dma_AccidentQry.set(&quot;accdOutbrDtTo&quot;, ica_accdOutbrDtTo.getValue());
+    dma_AccidentQry.set(&quot;bizDiv&quot;, lc_bizDiv.getValue());
+    dma_AccidentQry.set(&quot;accdProcBranchCd&quot;, lc_accdProcBranchCd.getValue());
+    dma_AccidentQry.set(&quot;accdPatternCd&quot;, cbx_chkb.getValue());
+    dma_AccidentQry.set(&quot;clntNo&quot;, ed_clntNoCond.getValue());
+
+    $c.sbm.execute(sbm_Accident);    
+};
+
+//-------------------------------------------------------------------------
+// 신규
+//-------------------------------------------------------------------------
+scwin.f_Create = async function() {
+    // 사업부문 체크(물류/고속)
+    var bizDiv = lc_bizDiv.getValue();
+    if ( bizDiv == &quot;&quot; ) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002, &quot;신규 등록시 사업부문&quot;));
+        lc_bizDiv.focus();
+  		return;
+  	}
+
+    // //팝업화면에게 KEY 정보를 넘겨준다.	    
+    // var argObject = new Object();
+    // argObject.accdNo = &quot;&quot;;
+    // var argPath = &quot;&quot;;
+    // if ( bizDiv == &quot;T&quot; ) {
+    //     argPath = &quot;./tr_510_01_02b.jsp&quot;;	// 고속
+    // } else if ( bizDiv == &quot;L&quot; )  {
+    //     argPath = &quot;./tr_510_01_05b.jsp&quot;;	// 물류
+    // }
+
+    // var result = window.showModalDialog(argPath, argObject, &quot;dialogWidth:1020px; dialogHeight:900px; status:no; scroll:yes&quot;);
+
+	var data = { accdNo: &quot;&quot;
+        };
+    var argPath = &quot;&quot;;
+    if ( bizDiv == &quot;T&quot; ) {
+        argPath = &quot;/ui/ps/tr/safemgnt/accdmgnt/tr_510_01_02b.xml&quot;;	// 고속
+    } else if ( bizDiv == &quot;L&quot; )  {
+        argPath = &quot;/ui/ps/tr/safemgnt/accdmgnt/tr_510_01_05b.xml&quot;;	// 물류
+    }
+
+	var opts = {
+		id : &quot;Pop&quot;,
+		popupName : &quot;팝업&quot;,
+		modal : true,
+		type : &quot;browserPopup&quot; ,
+		title : &quot;Win pop&quot;,
+        width: 1020,
+        height: 900,
+	};
+    
+	var rtnList = await $c.win.openPopup(argPath, opts, data);
+    if(rtnList != null){
+    }
+
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 발생보고(S)/종결보고(E)
+//-------------------------------------------------------------------------
+scwin.f_Detail = async function(cls) {
+
+    var rowPos = ds_AccidentDet.getRowPosition();
+    if ( rowPos &lt; 1 ) {
+        await $c.win.alert(&quot;선택한 사고번호가 없습니다.&quot;);
+        return;
+    }
+
+    //팝업화면에게 KEY 정보를 넘겨준다.
+    var bizDiv = ds_AccidentDet.getCellData(rowPos, &quot;accdHomeDivCd&quot;);
+    var argObject = new Object();
+    argObject.accdNo = ds_AccidentDet.getCellData(rowPos, &quot;accdNo&quot;);
+    var argPath = &quot;&quot;;
+    var dialSize = &quot;&quot;;
+
+    if ( cls == &quot;E&quot; ) {
+        // if (ds_AccidentDetaccdNo.NameValue(rowPos, &quot;accdOutbrBranchApprvDt&quot;).trim() == &quot;&quot; ) {
+        if (ds_AccidentDet.getCellData(rowPos, &quot;accdNo&quot;) == &quot;&quot; ) {
+            await $c.win.alert(&quot;발생보고 결재 전이므로 종결보고할 수 없습니다.&quot;);
+            return;
+        }	      
+    }
+
+    if ( bizDiv == &quot;T&quot; ) {
+        if ( cls == &quot;S&quot; ) {
+            argPath = &quot;./tr_510_01_02b.jsp&quot;;	// 고속발생
+            dialSize = &quot;dialogWidth:1020px; dialogHeight:900px; status:no; scroll:yes&quot;;
+        }
+        else if ( cls == &quot;E&quot; ) {
+            argPath = &quot;./tr_510_01_03b.jsp&quot;;	// 고속종결
+            dialSize = &quot;dialogWidth:1020px; dialogHeight:1000px; status:no; scroll:yes&quot;;
+        }
+    } else if ( bizDiv == &quot;L&quot; )  {
+        if ( cls == &quot;S&quot; ) {
+            argPath = &quot;./tr_510_01_05b.jsp&quot;;	// 물류발생
+            dialSize = &quot;dialogWidth:1020px; dialogHeight:900px; status:no; scroll:yes&quot;;
+        }
+        else if ( cls == &quot;E&quot; ) {
+            argPath = &quot;./tr_510_01_06b.jsp&quot;;	// 물류종결
+            dialSize = &quot;dialogWidth:1020px; dialogHeight:1000px; status:no; scroll:yes&quot;;
+        }
+    }
+
+    // var RowPos = ds_AccidentDet.RowPosition;
+
+    // var result = window.showModalDialog(argPath, argObject, dialSize);
+
+    scwin.f_Retrieve();
+    // ds_AccidentDet.RowPosition = RowPos;
+    return;
+};
+
+//-------------------------------------------------------------------------
+// 휴지통 처리
+//-------------------------------------------------------------------------
+// scwin.f_FieldClear = function() {
+// 	cfInitObjects(tb_retrieve,null);
+// 	em_accdOutbrDtFrom.focus();
+// };
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = function() {	  
+    // if ( !(ds_AccidentDet.CountRow &gt; 0) ) return;
+    var rowCnt = ds_AccidentDet.getRowCount();
+    if ( rowCnt == 0) return;
+
+    let sheetTitle = &quot;사고처리 현황&quot;;
+    const options = {
+        fileName: sheetTitle + &quot;.xlsx&quot;,
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_Accident, options);	 
+};
+   
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// scwin.name : f_openCommonPopUp
+// scwin.desc : popup
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function(disGubun, pCode, pName, pClose, pAllSearch) {
+    var rtnList = new Array();
+    switch (disGubun)
+    {
+        case 1: 
+            await udc_clntNoCond.cfCommonPopUp(
+                                     scwin.udc_clntNoCond_callback
+                                    ,pCode                  // 화면에서의 ??? Code Element의  Value
+                                    ,pName                  // 화면에서의 ??? Name Element의  Value
+                                    ,pClose                 // 결과가 1건 일때  원도우를  AutoClose 여부    (T:Close,F:Opened)
+                                    ,'5'                    // 검색 결과    컬럼의 보여주는    개수 (SELECT절의 순서) MAX:10 - default (2)
+                                    ,null                   // Title순서  
+                                    ,'150,170'              // 보여주는 각 컬럼들의 폭    
+                                    ,'3,4,5,6,7,8,9,10'     // 컬럼중에서 숨기는    컬럼 지정   
+                                    ,null                   // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                                    ,null                   // POP-UP뛰을때 원도우의   사용자 정의  폭
+                                    ,null                   // POP-UP뛰을때 우도우의   사용자 정의  높이  
+                                    ,null                   // 윈도우 위치 Y좌표   
+                                    ,null                   // 윈도우 위치 X좌표
+                                    ,null                   // 중복체크여부   (&quot;F&quot;)
+                                    ,pAllSearch             // 전체검색허용여부 (&quot;F&quot;)
+                                    ,'거래처 조회,거래처코드 ,거래처명 '                  // POP-UP Window Title 검색어1,2    (&quot;Win타이틀,첫번검색Nm,두번?검색Nm&quot;)
+                                   );                               
+            break;  
+
+        default:
+            break;
+    }
+};
+
+scwin.udc_clntNoCond_callback = function(rtnList) {
+    if (rtnList != null ) {
+    	if (rtnList[0] != &quot;N/A&quot;) {
+    		ed_clntNoCond.setValue(rtnList[0]);
+			ed_clntNoCond.options.hidVal = rtnList[0];
+			ed_clntNmCond.setValue(rtnList[1]);
+		}
+    } else {
+		ed_clntNoCond.setValue(&quot;&quot;);
+		ed_clntNoCond.options.hidVal = &quot;&quot;;
+		ed_clntNmCond.setValue(&quot;&quot;);
+    }
+};
+
+scwin.sbm_Accident_submitdone = function (e) {
+    var rowCnt = ds_AccidentDet.getRowCount();
+	spanTotal.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    } else {
+        $c.gus.cfEnableAllBtn();
+    }
+    gr_Accident.setFocusedCell(0, 0);
+};
+
+scwin.sbm_Accident_submiterror = function (e) {
+
+};
+
+scwin.udc_clntNoCond_onblurCodeEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_clntNoCond.getValue(), ed_clntNmCond.getValue(),'T','F');
+};
+
+scwin.udc_clntNoCond_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_clntNoCond.getValue(), ed_clntNmCond.getValue(),'T','F');
+};
+
+scwin.lc_bizDiv_onchange = function (info) {
+    console.log(&quot;============&quot;+info.newValue);
+	if ( info.newValue == &quot;T&quot; ) {
+		lc_accdProcBranchCd.setValue(&quot;&quot;);
+		lc_accdProcBranchCd.setDisabled(true);
+	} else {
+		lc_accdProcBranchCd.setValue(&quot;&quot;);
+        lc_accdProcBranchCd.setDisabled(false);
+	}
+};
+</script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="거래처 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode allowCharCode="0-9" btnId="btn_clntNoCond" codeId="ed_clntNoCond"
+    								editTypeName="focus" ev:onblurCodeEvent="scwin.udc_clntNoCond_onblurCodeEvent"
+    								ev:onclickEvent="scwin.udc_clntNoCond_onclickEvent" id="udc_clntNoCond" maxlengthCode="6" maxlengthName="30" name="clntNm"
+    								nameId="ed_clntNmCond" objTypeCode="data" objTypeName="data" onloadCallbackFunc="" popupGridHeadTitle="귀속코드,부서명" popupID=""
+    								popupTitle="귀속부서조회,귀속부서코드,귀속부서명" refDataCollection="dma_AccidentQry" selectID="retrieveClntList" style=""
+    								validExpCode="거래처:yes" code="clntNo">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th"><w2:textbox class="req" id="" label="사고기간 " style=""></w2:textbox></xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_fromToCalendar edFromId="ica_accdOutbrDtFrom" edToId="ica_accdOutbrDtTo" id="udc_fromToCalendar4" mandatoryFrom="true"
+    								mandatoryTo="true" refDataMap="dma_AccidentQry" refEdDt="accdOutbrDtTo" refStDt="accdOutbrDtFrom" style="">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="사업부문 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="true" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_bizDiv" style="width: 100px;" submenuSize="fixed" chooseOptionLabel="전체" ev:onchange="scwin.lc_bizDiv_onchange">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="처리지점 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete allOption="" chooseOption="true" class="" editType="select" id="lc_accdProcBranchCd" mandatory="true"
+    								ref="" search="start" style="width:100px;" submenuSize="auto" visibleRowNum="15" chooseOptionLabel="전체">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="사고유형 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    						<xf:group id="" class="form-group">
+    							<xf:select ref="" appearance="full" style="" id="cbx_chkb" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" class="" cols="" separator=":" ev:onviewchange="scwin.cbx_chkb_onviewchange" ev:onchange="scwin.cbx_chkb_onchange" falseValue="X">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[전체 ]]></xf:label>
+    										<xf:value><![CDATA[0]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[단독]]></xf:label>
+    										<xf:value><![CDATA[D]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[기타]]></xf:label>
+    										<xf:value><![CDATA[G]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[자차]]></xf:label>
+    										<xf:value><![CDATA[J]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[가해]]></xf:label>
+    										<xf:value><![CDATA[K]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[피해]]></xf:label>
+    										<xf:value><![CDATA[P]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[쌍방]]></xf:label>
+    										<xf:value><![CDATA[S]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select></xf:group></xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="" ev:onclick="f_Create">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="사고처리 목록 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_Accident" gridDownFn="scwin.f_Excel"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_AccidentDet"
+    						focusMode="row" id="gr_Accident" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15"
+    						visibleRowNumFix="true" readOnly="true">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" style="" value="사고번호" width="100"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" style="" value="거래처명" width="100"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" style="" value="처리&lt;/br&gt;지점"
+    									width="70" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column73" value="사고&lt;/br&gt;유형"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column70" value="기사&lt;/br&gt;성명"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column67" value="차량&lt;/br&gt;번호"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="400" inputType="text" style="" id="column64" value="사고발생" displayMode="label"
+    									colSpan="4" rowSpan="">
+    								</w2:column>
+    								<w2:column width="530" inputType="text" style="" id="column52" value="사고종결" displayMode="label"
+    									colSpan="5" rowSpan="">
+    								</w2:column>
+    							</w2:row>
+    							<w2:row style="" id="row5">
+    								<w2:column width="100" inputType="text" style="" id="column65" value="사고발생" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column62" value="보고일자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column59" value="결재일자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column56" value="결재상태" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column53" value="사고종결" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column50" value="보고일자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column45" value="결재일자" displayMode="label"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column44" value="종결후처리" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column43" value="결재상태" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="accdNo" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="100"
+    									textAlign="left">
+    								</w2:column>
+    								<w2:column displayMode="label" id="accdProcBranch" inputType="select" style="" value="" width="70" textAlign="left"></w2:column>
+    								<w2:column width="70" inputType="select" style="" id="accdPattern" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="persNm" value="" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="vehclShortCd" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="accdDt" value="" displayMode="label" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="accdOutbrRepoDt" value=""
+    									displayMode="label" displayFormat="yyyy/MM/dd" dataType="date">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="accdOutbrBranchApprvDt" value="" displayMode="label" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    								<w2:column width="100" inputType="select" style="" id="outbrApprvStsCd" value="" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="accdTmntDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="accdTmntRepoDt" value="" displayMode="label" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    								<w2:column displayMode="label" id="tmntBranchApprvDt" inputType="text" style="" value="" width="100" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    								<w2:column displayMode="label" id="tmntAfProcDt" inputType="text" style="" value="" width="130" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    								<w2:column displayMode="label" id="tmntApprvStsCd" inputType="select" style="" value="" width="100" textAlign="left"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spanTotal" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn white" id="btn_Add" style="" type="button" ev:onclick="scwin.f_Create" userAuth="C" objType="bCreate">
+    						<xf:label><![CDATA[신규]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn white" id="btn_Start" style="" type="button" disabled="true" ev:onclick="scwin.f_Detail('S')" userAuth="R" objType="bDelete">
+    						<xf:label><![CDATA[사고발생보고상세]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn white" id="" style="" type="button" disabled="true" ev:onclick="scwin.f_Detail('E')" userAuth="R" objType="bUpdate">
+    						<xf:label><![CDATA[사고종결보고상세]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

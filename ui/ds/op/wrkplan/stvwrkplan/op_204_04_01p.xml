@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_workPlaceInfoDetail" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="commCd" name="품목코드" dataType="text"></w2:column>
+    					<w2:column id="commNm" name="품목명" dataType="text"></w2:column>
+    					<w2:column id="cd" name="분류코드" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="품명분류명" dataType="text"></w2:column>
+    					<w2:column id="grpCd" name="그룹코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_workPlaceInfo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="분류코드" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="품명분류명" dataType="text"></w2:column>
+    					<w2:column id="grpCd" name="그룹코드" dataType="text"></w2:column>
+    					<w2:column id="cdEngNmAbbr" name="중분류코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_oGDS_view_cond">
+    				<w2:keyInfo>
+    					<w2:key id="cd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="clsCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="commCd" name="name3" dataType="text"></w2:key>
+    					<w2:key id="commNm" name="name4" dataType="text"></w2:key>
+    					<w2:key id="grpCd" name="name5" dataType="text"></w2:key>
+    					<w2:key id="cdEngNmAbbr" name="name7" dataType="text"></w2:key>
+    					<w2:key id="cdNm" name="name8" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkplan.stvwrkplan.RetrieveCommClssLupPopupCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_oGDS_view_cond","key":"IN_DS1"},{"id":"ds_workPlaceInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_workPlaceInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveSub" action="/ds.op.wrkplan.stvwrkplan.RetrieveCommClssLupPopupSubCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_oGDS_view_cond","key":"IN_DS1"},{"id":"ds_workPlaceInfoDetail","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_workPlaceInfoDetail","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveSub_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//히든 컴포넌트
+scwin.hid_con_cd = "";
+scwin.hid_cls_cd = "";
+
+
+scwin.onpageload = function() {
+    scwin.submitPre();
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("품명분류검색");
+}
+
+scwin.f_Retrieve = function() {
+	if (ed_commCd.getValue() == "" && ed_commNm.getValue() == "") {
+		scwin.hid_cls_cd = "1";
+	}
+
+	if (ed_commCd.getValue() != "") {
+		scwin.hid_cls_cd = "2";
+	}
+	if (ed_commNm.getValue() != "") {
+		scwin.hid_cls_cd = "3";
+	}
+
+	if (ed_commCd.getValue() != "" && ed_commCd.getValue() != "") {
+		scwin.hid_cls_cd = "4";
+	}
+
+    //조회조건
+    scwin.submitPre();
+
+	$c.sbm.execute(sbm_retrieveSub);
+};
+
+scwin.f_FieldClear = function() {
+	$c.gus.cfInitObjects([ed_commCd, ed_commNm]);
+};
+
+scwin.f_close = function() {
+	$c.win.closePopup();
+};
+
+//[>] 
+scwin.f_comm = function() {
+	scwin.hid_con_cd = ds_workPlaceInfo.getCellData(ds_workPlaceInfo.rowPosition, "cd");   //조회조건
+	scwin.hid_cls_cd = "1";
+
+    //조회조건
+    scwin.submitPre();
+
+	$c.sbm.execute(sbm_retrieveSub);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    totalRows1.setValue(ds_workPlaceInfo.getRowCount());
+    if(ds_workPlaceInfo.getRowCount() > 0){
+        //포커스
+        gr_workPlaceInfo.setFocusedCell(0, 0);
+    }
+};
+
+scwin.sbm_retrieveSub_submitdone = async function (e) {
+    //for=ds_workPlaceInfoDetail event=OnLoadCompleted(rowCnt)
+    totalRows2.setValue(ds_workPlaceInfoDetail.getRowCount());
+    if( ds_workPlaceInfoDetail.getRowCount() < 1 ){
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        return;              
+    }else{
+        //포커스
+        gr_workPlaceInfoDetail.setFocusedCell(0, 0);
+    }
+};
+
+scwin.gr_workPlaceInfo_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    var args = new Array(); 	// Return Value
+
+    args[0] = ds_workPlaceInfo.getCellData( rowIndex ,  "grpCd");	
+    args[1] = ds_workPlaceInfo.getCellData( rowIndex ,  "cd");	
+    args[2] = ds_workPlaceInfo.getCellData( rowIndex ,  "cdEngNmAbbr");
+    args[3] = ds_workPlaceInfo.getCellData( rowIndex ,  "cdNm");
+    
+    
+    $c.win.closePopup(args);
+    
+};
+
+scwin.gr_workPlaceInfoDetail_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    var args = new Array(); 	// Return Value
+
+    args[0] = ds_workPlaceInfoDetail.getCellData( rowIndex ,  "grpCd");	
+    args[1] = ds_workPlaceInfoDetail.getCellData( rowIndex ,  "cd");	
+    args[2] = ds_workPlaceInfoDetail.getCellData( rowIndex ,  "cdEngNmAbbr");
+    args[3] = ds_workPlaceInfoDetail.getCellData( rowIndex ,  "cdNm");
+    
+    $c.win.closePopup(args);
+};
+
+scwin.submitPre = function(){
+    //조회조건
+    dma_oGDS_view_cond.set("grpCd", "");
+    dma_oGDS_view_cond.set("cd", scwin.hid_con_cd);
+    dma_oGDS_view_cond.set("cdEngNmAbbr", "");
+    dma_oGDS_view_cond.set("cdNm", "");
+    dma_oGDS_view_cond.set("clsCd", scwin.hid_cls_cd);
+    dma_oGDS_view_cond.set("commCd", ed_commCd.getValue());
+    dma_oGDS_view_cond.set("commNm", ed_commNm.getValue());
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="품목코드" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_commCd" style="width: 100px;" ref="" objType="Data"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="품목명" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_commNm" style="width: 150px;" ref="" objType="Data"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+    					ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group id="" class="lybox col3 wfix">
+    				<xf:group class="col" id="" style="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group3" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_workPlaceInfo"
+    							id="gr_workPlaceInfo" style="" ev:oncelldblclick="scwin.gr_workPlaceInfo_oncelldblclick" readOnly="true" visibleRowNum="19">
+    							<w2:caption id="caption5" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" style="" value="분류코드" width="100">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column13" inputType="text" style="" value="품명분류명" width="200">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column11" inputType="text" style="" value="그룹코드" width="100">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column15" value="중분류코드" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="cd" inputType="text" style="" value="" width="100"></w2:column>
+    									<w2:column displayMode="label" id="cdNm" inputType="text" style="" textAlign="left" value=""
+    										width="200">
+    									</w2:column>
+    									<w2:column displayMode="label" id="grpCd" inputType="text" style="" value="" width="100" hidden="true">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="cdEngNmAbbr" value="" displayMode="label" hidden="true">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" id="totalRows1" label="0" style="" tagname="span" dataType="number"
+    										displayFormat="#,##0">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="" class="col vam" style="width: 22px;">
+    					<xf:group style="" id="" class="shattle ">
+    						<xf:trigger style="" id="btn_right" type="button" class="btn ico btn-right" ev:onclick="scwin.f_comm">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="col">
+    					<xf:group adaptiveThreshold="" style="" id="grp_group2" class="gvwbox">
+    						<w2:gridView checkAllType="false" dataList="data:ds_workPlaceInfoDetail" style="" autoFit="allColumn"
+    							id="gr_workPlaceInfoDetail" class="wq_gvw" ev:oncelldblclick="scwin.gr_workPlaceInfoDetail_oncelldblclick" readOnly="true" visibleRowNum="19">
+    							<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="100" inputType="text" style="" id="column1" value="품목코드" displayMode="label">
+    									</w2:column>
+    									<w2:column width="200" inputType="text" style="" id="column17" value="품목명" displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column15" value="분류코드" displayMode="label">
+    									</w2:column>
+    									<w2:column width="200" inputType="text" style="" id="column13" value="품명분류명" displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column11" value="그룹코드" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="100" inputType="text" style="" id="commCd" value="" displayMode="label">
+    									</w2:column>
+    									<w2:column width="200" inputType="text" style="" id="commNm" value="" displayMode="label"
+    										textAlign="left">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="cd" value="" displayMode="label" hidden="true"></w2:column>
+    									<w2:column width="200" inputType="text" style="" id="cdNm" value="" displayMode="label"
+    										textAlign="left" hidden="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="grpCd" value="" displayMode="label" hidden="true">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" style="" id="totalRows2" label="0" class="num" dataType="number"
+    										displayFormat="#,##0">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" userAuth="U" ev:onclick="scwin.f_close">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

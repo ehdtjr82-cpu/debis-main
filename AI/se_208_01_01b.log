@@ -1,0 +1,25 @@
+se_208_01_01b.log
+
+[2026-02-19 15:43:08.799] 변환 시작
+[2026-02-19 15:43:08.813] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 15:43:42.689] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 33766ms, total 33876ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_hhetaFrom (EMEDIT→xf:input), cnd_ed_hhetaTo (EMEDIT→xf:input)
+[2026-02-19 15:43:42.712] #1 검증: 자동수정 2건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:43:42.825] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=1, warnings=3
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: cnd_ed_hhetaFrom (EMEDIT→xf:input), cnd_ed_hhetaTo (EMEDIT→xf:input), cnd_lc_prttype (LUXECOMBO→w2:autoComplete)
+[2026-02-19 15:43:42.839] #2 재시도 (에러 1건)
+[2026-02-19 15:43:43.844] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 15:44:33.730] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 49692ms, total 49881ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_hhetaFrom (EMEDIT→xf:input), cnd_ed_hhetaTo (EMEDIT→xf:input)
+[2026-02-19 15:44:33.741] #1 검증: 최적 시도 #1 채택 (confidence: 0.97)
+[2026-02-19 15:44:33.742] 성공 (#2, 1m 24s, confidence:0.97)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_hhetaFrom (EMEDIT→xf:input), cnd_ed_hhetaTo (EMEDIT→xf:input)
+================================================================================

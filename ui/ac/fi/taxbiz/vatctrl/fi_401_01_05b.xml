@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="declarYr" name="신고년도" dataType="text"></w2:key>
+    					<w2:key id="vatQuartYyClsCd" name="부가세분기구분코드" dataType="text"></w2:key>
+    					<w2:key id="vatDeclarAcctDeptCd" name="부가세관리귀속부서" dataType="text"></w2:key>
+    					<w2:key id="vatDeclarAcctDeptNm" name="부가세신고귀속부서명" dataType="text"></w2:key>
+    					<w2:key id="crn" name="사업자등록번호" dataType="text"></w2:key>
+    					<w2:key id="crnNm" name="사업자등록번호명" dataType="text"></w2:key>
+    					<w2:key id="stYm" name="시작년월" dataType="text"></w2:key>
+    					<w2:key id="endYm" name="종료년월" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+       <script cache="false" scopeExternal="false" src="http://code.jquery.com/jquery-1.8.3.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+		<script cache="false" scopeExternal="false" src="/ui/ac/am/constants/ACConstants.js" scopeVariable="" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fi_401_01_05b
+// 이름     : 신용카드매출전표수취명세서
+// 경로     : 재무회계/세무/부가세조정/
+// 사용계정 : 내부
+// 파라미터 :
+//            IN  :
+//            OUT :
+//
+// 비고     : 
+//           레포트 화면
+//           ds_search 미사용으로 보임
+//           
+// 레포트   : fi_401_01_05.ozr
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            
+//==================================================================================================================
+
+// 로그인사용자 정보
+scwin.vLoginCoCd     =  "";  // 소속 자회사 
+scwin.vLoginCoClsCd  =  "";  // 회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd =  "";  // 사용자소속구분코드 
+scwin.privAdmin      =  "";  // 어드민권한
+scwin.userId         =  "";  // 사용자ID
+scwin.vCoCd          =  "";  // 회사코드
+scwin.vCoClsCd       =  "";  // 소속회사종류 : 회계_회사구분('CO035' : 0:동부 EXPRESS)
+
+scwin.vAdminYn       =  "";  // 어드민여부
+scwin.userEmpNo      =  "";  // 사용자번호
+
+scwin.ed_coCd_hidVal =  "";  // 히든값
+scwin.ed_vatDeclarAcctDeptCd_hidVal = "";
+
+scwin.txtCoClsCd     =  "";	 // 회사구분
+
+scwin.isSubCompany   = false;  // 자회사여부
+
+scwin.txt_stYm       =  "";
+scwin.txt_endYm      =  "";
+
+scwin.isStarted            = true;  // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+
+scwin.onpageload = function() {
+    console.log("====== onpageload ==================");
+
+    // 회원정보를 json 데이터로 모두 받음
+    let memJson = $c.data.getMemInfo();
+
+    // 로그인 정보 추출
+    let coCd    = $c.gus.cfIsNull( $c.data.getMemInfo("coCd") ) ? '' : $c.data.getMemInfo("coCd");
+    let coClsCd = $c.gus.cfIsNull( $c.data.getMemInfo("coClsCd") ) ? '' : $c.data.getMemInfo("coClsCd");
+    let userHomeClsCd = $c.data.getMemInfo("userHomeClsCd");  // 사용자소속구분코드
+    let userId     = $c.data.getMemInfo("userId");
+    let privAdmin  = $c.data.getMemInfo("privAdmin");
+    let empNo      = $c.data.getMemInfo("empNo");
+
+    scwin.vLoginCoCd     = coCd;
+    scwin.vLoginCoClsCd  = coClsCd;
+    scwin.vUserHomeClsCd = userHomeClsCd;
+
+    scwin.vCoCd          = coCd;      
+    scwin.vCoClsCd       = coClsCd;   
+    scwin.userId         = userId;
+    scwin.vAdminYn       = privAdmin;
+    scwin.userEmpNo      = empNo;
+
+    console.log("▶▶ vLoginCoCd : "+ scwin.vLoginCoCd +"   loginCoClsCd : "+ scwin.vLoginCoClsCd );
+    console.log("▶▶ vCoCd      : "+ scwin.vCoCd +"   vCoClsCd : "+ scwin.vCoClsCd );
+    console.log("▶▶ userId     : "+ scwin.userId +"   userEmpNo : "+ scwin.userEmpNo);
+    console.log("▶▶ vUserHomeClsCd : "+ scwin.vUserHomeClsCd +"   vAdminYn : "+ scwin.vAdminYn);
+//    console.log("▶▶ memJson : "+ JSON.stringify(memJson));
+
+    // 공통코드 : onPageLoad 에 위치
+    const codeOptions = [
+        { grpCd : "FI013", compID : "lc_vatQuartYyClsCd",opt : {"range" : "1,01"} }  // 부가세분기구분
+    ];
+    // console.log(" codeOptions : "+ JSON.stringify(codeOptions));
+    $c.data.setCommonCode(codeOptions);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    console.log("==-==-== onUdcCompleted");
+
+    // 2025-10-14 : 작성일자 포커스 위치 이동
+    $p.setTimeout(function() {
+
+        // f_Header();
+        scwin.f_Setting();
+        scwin.f_setCompanyInfo();
+
+    }, {"delay":50});
+};
+
+
+// @@ ====== 준비 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 조회조건 셋팅
+//-------------------------------------------------------------------------
+scwin.f_Setting = function(){
+	lc_vatQuartYyClsCd.setSelectedIndex(0);
+
+    //날짜셋팅
+    var thisYr = $c.date.getServerDateTime("yyyy"); // 오늘일자 가져오기
+
+	ica_declarYr.setValue(thisYr);
+	ed_vatDeclarAcctDeptCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function() {   
+    console.log("=== f_setCompanyInfo (자회사 회계 시스템 설정)");
+
+	// 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+	if( scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD )  {
+		scwin.vLoginCoCd    = ACConstants.CO_CD_DONGBU ;
+		scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU ;
+	}
+ 
+	ed_coCd.setValue( scwin.vLoginCoCd );
+
+    console.log("  ▲△ openCompanyPopup  [호출전]");
+	scwin.f_PopUpCompanyInfo('T');  // 속도 지연 문제
+    console.log("  △▲ openCompanyPopup  [호출후]");
+
+    // KYU_ORDER
+	// if('T' == scwin.vAdminYn  ||  !scwin.isSubCompany   ) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우 
+	// 	$c.gus.cfEnableObjects([ed_coCd,ed_coNm,btn_coCd ]);    
+	// }else {
+	// 	$c.gus.cfDisableObjects([ed_coCd,ed_coNm,btn_coCd  ]);   
+	// }
+};
+
+
+
+// @@ ====== 이벤트 ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 회사코드 focus out
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onblurCodeEvent = function (e) {
+// <!-- 회사코드 입력시  -->
+// language=JavaScript for=ed_coCd event=OnKillFocus()>
+	 ed_coNm.setValue("");
+	 scwin.f_PopUpCompanyInfo('T');
+};
+
+//-------------------------------------------------------------------------
+// 부가세신고부서 focus out
+//-------------------------------------------------------------------------
+scwin.udc_vatDeclarAcctDeptCd_onblurCodeEvent = function (e) {
+// <!-- 공통코드 -->
+// language=JavaScript for=ed_vatDeclarAcctDeptCd event=OnKillFocus()>
+	if (ed_vatDeclarAcctDeptCd.getValue().trim() == scwin.ed_vatDeclarAcctDeptCd_hidVal)
+        return;
+
+    ed_vatDeclarAcctDeptNm.setValue( "" );
+    ed_vatDeclarCrn.setValue( "" );
+    scwin.ed_vatDeclarAcctDeptCd_hidVal = "";
+
+	if(ed_vatDeclarAcctDeptCd.getValue().trim()!="") scwin.f_openPopUp('','T');
+};
+
+//-------------------------------------------------------------------------
+// 증빙일자 focus out
+//-------------------------------------------------------------------------
+scwin.ica_declarYr_onblur = function (e) {
+    console.log("----- ica_declarYr_onblur (증빙일자 focus out)");
+// <!-- 증빙일자가 변경될 경우 부가세귀속부서도 변경되도록 함.(부가세귀속부서이력관리에 따라 추가) -->
+// language=JavaScript for=ed_spplyYr event=OnKillFocus()>
+    if(ed_vatDeclarAcctDeptCd.getValue() == null || ed_vatDeclarAcctDeptCd.getValue() == ""){
+        scwin.ed_vatDeclarAcctDeptCd_hidVal = "";
+        ed_vatDeclarAcctDeptCd.setValue( "" );
+        ed_vatDeclarAcctDeptNm.setValue( "" );
+        ed_vatDeclarCrn.setValue( "" );
+    }else{
+        scwin.f_openPopUp('','T');
+    }
+};
+
+
+// @@ ====== 팝업 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 회사코드 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onclickEvent = function (e) {
+    scwin.f_PopUpCompanyInfo('F');
+};
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = function(pWinCloseTF )  {
+    // var rtnList = cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+	// 								,ed_coCd.text, txt_coNm.value
+	// 								,pWinCloseTF,null,null,null,null
+	// 								,null,null,null,null,null);
+    // KYU_TEST : 회사코드 코드 null일 때 팝업 안뜨게 처리 : 2026-01-19
+    let pNoDataCloseTF = pWinCloseTF;
+    udc_coCd.cfCommonPopUp(scwin.udc_coCd_callBackFunc
+                                ,ed_coCd.getValue(), ed_coNm.getValue()
+                                ,pWinCloseTF,null,null,null,null
+                                ,null,null,null,null,null,null,null,null,pNoDataCloseTF );
+};
+
+//-------------------------------------------------------------------------
+// 부가세신고부서 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_vatDeclarAcctDeptCd_onclickEvent = function (e) {
+    scwin.f_openPopUp('','F');
+};
+
+ //-------------------------------------------------------------------------
+// 팝업 @@
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(flag,check) {
+    console.log("=== f_openPopUp ( flag[ "+flag+" ]  check[ "+check+" ]   '':부가세신고부서");
+
+	// 부가세신고부서조회
+	var param= ",,,"+ed_coCd.getValue()+","+scwin.txtCoClsCd+","+ica_declarYr.getValue().substring(0,4);
+    console.log("  부가세신고부서 popup  param ["+ param +"]");
+
+	// rtnList = cfCommonPopUp('retrieveVatDeclarAcctDeptCd',ed_vatDeclarAcctDeptCd.text.trim(),txt_vatDeclarAcctDeptNm.value,check,null,null,null,null,param,null,null,null,null);
+    udc_vatDeclarAcctDeptCd.cfCommonPopUp(scwin.udc_vatDeclarAcctDeptCd_callBackFunc,ed_vatDeclarAcctDeptCd.getValue().trim(),ed_vatDeclarAcctDeptNm.getValue(),check /* 3 */,null,null,null,null,param,1000,520,null,null);
+};
+
+
+// @@ ====== 팝업 callBackFunc ================================================================= //
+
+//-------------------------------------------------------------------------
+// 회사코드조회 callBackFunc
+//-------------------------------------------------------------------------
+scwin.udc_coCd_callBackFunc = function(rtnList) {
+    console.log("▲ udc_coCd_callBackFunc (회사코드조회 팝업 callBackFunc)");
+    console.log("   rtnList ["+rtnList+"]");
+
+	// SET	 
+	if(rtnList != null ) { 
+		if (rtnList[0] == "N/A") {
+            
+            // KYU_NEW : 2026-01-30 아무값도 안왔을 때 처리
+            scwin.f_initObj();
+            return; 
+        }
+ 
+		if(scwin.ed_coCd_hidVal != rtnList[0] )  scwin.f_initObj();
+
+		ed_coCd.setValue( rtnList[0] );	// 코드
+		ed_coNm.setValue( rtnList[5] ); // 회사명 
+		scwin.ed_coCd_hidVal = rtnList[0];  // 히든값
+		scwin.txtCoClsCd     = rtnList[1];	// 회사구분    
+	
+	}else{
+		ed_coCd.setValue( "" );	// 코드
+		ed_coNm.setValue( "" ); // 회사명 
+		scwin.ed_coCd_hidVal = "";  // 히든값
+		scwin.txtCoClsCd     = "";	// 회사구분    
+	}
+
+    console.log("  scwin.txtCoClsCd ["+scwin.txtCoClsCd +"]");
+	
+	if(scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU )  {  	// 자회사 회계 시스템 
+		scwin.isSubCompany = true;
+	}else{
+		scwin.isSubCompany = false;
+	}
+
+    // KYU_ORDER 
+    if ( scwin.isStarted == true ) {  // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+	    if('T' == scwin.vAdminYn  ||  !scwin.isSubCompany   ) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우 
+		    $c.gus.cfEnableObjects([ed_coCd,ed_coNm,btn_coCd ]);    
+	    }else {
+		    $c.gus.cfDisableObjects([ed_coCd,ed_coNm,btn_coCd  ]);   
+	    }
+        scwin.isStarted            = false;  // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+    }
+};
+
+//-------------------------------------------------------------------------
+// 부가세신고가세신고부서 초기화
+//-------------------------------------------------------------------------
+scwin.f_initObj = function()
+{
+	$c.gus.cfInitObjects([ed_vatDeclarAcctDeptCd,ed_vatDeclarAcctDeptNm,ed_vatDeclarCrn]); //  부가세 신고 부서
+
+    // KYU_NEW
+    scwin.ed_vatDeclarAcctDeptCd_hidVal = "";  // 부가세신고부서 히든값
+};
+
+
+//-------------------------------------------------------------------------
+// 부가세관리부서조회 callBackFunc
+//-------------------------------------------------------------------------
+scwin.udc_vatDeclarAcctDeptCd_callBackFunc = function(rtnList) {
+    console.log("▲ udc_vatDeclarAcctDeptCd_callBackFunc (부가세관리부서조회 팝업 callBackFunc)");
+    console.log("   rtnList ["+rtnList+"]");
+
+	if (rtnList != null ) {
+  		if (rtnList[0] == "N/A") {
+            // KYU_NEW : 2026-01-30 아무값도 안왔을 때 처리
+            scwin.f_initObj();
+			return;
+		}
+  		ed_vatDeclarAcctDeptCd.setValue( rtnList[2] );  // 부가세부서코드
+	 	ed_vatDeclarAcctDeptNm.setValue( rtnList[3] );  // 부가세부서명
+	 	ed_vatDeclarCrn.setValue       ( rtnList[5] );  // 부가세사업자번호
+	 	scwin.ed_vatDeclarAcctDeptCd_hidVal = rtnList[2];  	//히든값
+
+	 }else{
+  		ed_vatDeclarAcctDeptCd.setValue( "" );     // 부가세부서코드
+	 	ed_vatDeclarAcctDeptNm.setValue( "" );     // 부가세부서명
+	 	ed_vatDeclarCrn.setValue       ( "" );     // 부가세사업자번호
+	 	scwin.ed_vatDeclarAcctDeptCd_hidVal = "";  //히든값
+    }
+};
+
+
+// @@ ====== 레포트 ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 날짜셋팅 : 부가세분기구분코드에 따라
+//-------------------------------------------------------------------------
+scwin.f_DateSetting = function(){
+    console.log("=== f_DateSetting (날자셋팅)");
+
+	var imsi_date = "";
+	if(lc_vatQuartYyClsCd.getValue() =="1"){
+		imsi_date = "0101";
+	}else if(lc_vatQuartYyClsCd.getValue() =="2"){
+		imsi_date = "0401";
+	}else if(lc_vatQuartYyClsCd.getValue() =="3"){
+		imsi_date = "0701";
+	}else if(lc_vatQuartYyClsCd.getValue() =="4"){
+		imsi_date = "1001";
+	}
+
+	imsi_date = ica_declarYr.getValue().trim() + imsi_date;
+	scwin.txt_stYm  = imsi_date;
+    scwin.txt_endYm = imsi_date.toDate().after(0,3,-1).format("YYYYMMDD");
+
+    console.log(" txt_stYm ["+scwin.txt_stYm+"]  txt_endYm ["+scwin.txt_endYm+"]");
+
+    ds_search.set("stYm", scwin.txt_stYm);
+    ds_search.set("endYm", scwin.txt_endYm);
+};
+
+//-------------------------------------------------------------------------
+// 신용카드매출전표수취명세서 발행
+//-------------------------------------------------------------------------
+scwin.f_OzReport = async function (e) {
+
+    let ret = await $c.gus.cfValidate([ed_coCd,ica_declarYr,lc_vatQuartYyClsCd]);
+
+	if ( !ret ) return false;
+
+    if ( ica_declarYr.getValue().length < 4 ) {
+        await $c.win.alert("기간은 4자리수만큼 입력하십시오.");
+        ica_declarYr.focus();
+        return false;
+    }
+
+	scwin.f_DateSetting();
+
+	// 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+	// 매출일경우
+	// var odiParam = new ODIParam("fi_401_01_05p") ;
+	// odiParam.add("sysPath", "dbl.ac.fi.taxbiz.vatctrl") ;
+
+	// odiParam.add("declarYr",ed_declarYr.text.trim());
+	// odiParam.add("vatQuartYyClsCd",ds_search.NameValue(1,"vatQuartYyClsCd"));
+	// odiParam.add("vatDeclarAcctDeptCd",ed_vatDeclarAcctDeptCd.text.trim());
+	// odiParam.add("vatDeclarAcctDeptNm",txt_vatDeclarAcctDeptNm.value.trim()) ;
+	// odiParam.add("stYm",txt_stYm.value.trim());
+	// odiParam.add("endYm",txt_endYm.value.trim());
+	// odiParam.add("coCd",ed_coCd.text);
+	// odiParam.add("coClsCd",txtCoClsCd.value);
+
+	//alert(odiParam.getParameterValues());
+
+	// 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+	// var formParam = new FormParam() ;
+
+	// OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+	// var viewerParam = new ViewerParam();
+
+	// viewerParam.add("viewer.zoom","100");
+	// viewerParam.add("viewer.useprogressbar","false");		//PROGRESSBAR 안보이게....
+	// viewerParam.add("print.mode","print"); // 인쇄 옵션창 표시 없이 바로 출력
+
+	// //                iframe     viewer        OZR 경로 및 파일명  ODI파라미터 뷰어파라미터       폼파라미터
+	// cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fi/taxbiz/vatctrl/fi_401_01_05p.ozr", odiParam, viewerParam, formParam);
+
+    let data = {
+        odiName: "fi_401_01_05p",
+        reportName: "/ac/fi/taxbiz/vatctrl/fi_401_01_05p.ozr",
+        odiParam : {
+             sysPath             : "dbl.ac.fi.taxbiz.vatctrl"
+			,declarYr            : ica_declarYr.getValue().trim()
+			,vatQuartYyClsCd     : ds_search.get("vatQuartYyClsCd")
+			,vatDeclarAcctDeptCd : ed_vatDeclarAcctDeptCd.getValue().trim()
+			,vatDeclarAcctDeptNm : ed_vatDeclarAcctDeptNm.getValue().trim()
+			,stYm                : scwin.txt_stYm.trim()
+			,endYm               : scwin.txt_endYm.trim()
+			,coCd                : ed_coCd.getValue()
+			,coClsCd             : scwin.txtCoClsCd
+        },
+        viewerParam : {
+
+             viewer         : 100    // 배율 설정
+            ,useprogressbar : true  // 프로그레스바 쓸지 말지
+            // ,mode           : "print"  // 인쇄 옵션창 표시 없이 바로 출력
+        },
+        formParam : {
+
+        }
+    }
+
+    console.log("  신용카드매출전표수취명세서 data ["+JSON.stringify(data)+"]");
+
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+};
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="회사코드 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="retrieveDongbuGroupCompanyInfopopup" selectID="retrieveDongbuGroupCompanyInfo" codeId="ed_coCd" popupTitle="" nameId="ed_coNm" style="" btnId="btn_coCd" id="udc_coCd" allowCharCode="0-9" maxlengthCode="3" mandatoryCode="true" objTypeCode="data" maxlengthName="50" objTypeName="data" ev:onblurCodeEvent="scwin.udc_coCd_onblurCodeEvent" ev:onclickEvent="scwin.udc_coCd_onclickEvent" validTitle="회사코드" skipOnBlurCodeValueEmpty="N">
+    									</w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="기간 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group" id="" style="">
+    										<xf:input class=" w100" id="ica_declarYr" placeholder="" style="" mandatory="true" ev:onblur="scwin.ica_declarYr_onblur" objType="data" ref="data:ds_search.declarYr" title="기간" allowChar="0-9" maxlength="4"></xf:input>
+    										<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=" w150"
+    											direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_vatQuartYyClsCd" style="" submenuSize="auto" objType="data" ref="data:ds_search.vatQuartYyClsCd" title="부가세분기구분코드">
+    										</xf:select1>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="td" id="" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="부가세신고부서 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" id="" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group" id="" style="">
+    										<w2:udc_comCode codeId="ed_vatDeclarAcctDeptCd" nameId="ed_vatDeclarAcctDeptNm" popupID="retrieveVatDeclarAcctDeptCdpopup" popupTitle="" selectID="retrieveVatDeclarAcctDeptCd" style="" btnId="btn_vatDeclarAcctDeptCd" id="udc_vatDeclarAcctDeptCd" maxlengthCode="5" allowCharCode="0-9" objTypeCode="data" maxlengthName="50" objTypeName="data" ev:onblurCodeEvent="scwin.udc_vatDeclarAcctDeptCd_onblurCodeEvent" mandatoryCode="true" refDataCollection="ds_search" code="vatDeclarAcctDeptCd" name="vatDeclarAcctDeptNm" ev:onclickEvent="scwin.udc_vatDeclarAcctDeptCd_onclickEvent" skipOnBlurCodeValueEmpty="N" validTitle="부가세신고부서"></w2:udc_comCode>
+    										<xf:input class=" w150" id="ed_vatDeclarCrn" style="" objType="data" allowChar="0-9"></xf:input>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_OzReport" userAuth="P">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    				<xf:group id="ozFrame" class="ozWrap"><w2:iframe src="/ui/cm/zz/ozreportComp.xml" style="" id="wfm_ozReport"></w2:iframe></xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

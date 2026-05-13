@@ -1,0 +1,34 @@
+op_202_02_28p.log
+
+[2026-02-20 12:39:47.356] 변환 시작
+[2026-02-20 12:39:47.692] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 12:45:40.310] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=3, warnings=7 | LLM 351429ms, total 352617ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] async 선언 누락 — scwin.f_setWorkPathStepDetail (uses $c.gus.cfAlertMsg), scwin.f_orderWrkStepDetail (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_setWorkPathStepDetail → $c.gus.cfAlertMsg, scwin.f_orderWrkStepDetail → $c.gus.cfAlertMsg
+    - [적정성] 분기 로직 대량 감소 — 소스 769건→출력 167건 (22%) — 로직 삭제 의심
+[2026-02-20 12:45:40.676] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U06: textbox display ID lay_ → tbx_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 12:45:41.797] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=2, warnings=7
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_cnd_odrKndCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 분기 로직 대량 감소 — 소스 769건→출력 167건 (22%) — 로직 삭제 의심
+[2026-02-20 12:45:41.801] #2 재시도 (에러 5건)
+[2026-02-20 12:45:42.814] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 12:52:49.984] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=0, warnings=8 | LLM 426339ms, total 427164ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-20 12:52:49.995] 실패 (2회 시도, 13m 2s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+  2. [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+================================================================================

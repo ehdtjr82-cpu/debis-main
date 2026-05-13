@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="stDt" name="stDt" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="endDt" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/jquery-1.8.3.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+		
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+scwin.currYyyyMM = WebSquare.date.getFormattedDate (new Date(), "yyyyMM");
+
+scwin.onpageload = function() {
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+};
+
+/**
+ * UDC 셋팅이 이후..
+ */
+scwin.onUdcCompleted = function() {
+    ica_stDt.setValue(scwin.currYyyyMM + "01");
+    ica_endDt.setValue(scwin.currYyyyMM + $c.date.getLastDateOfMonth( scwin.currYyyyMM ));
+};
+
+//-------------------------------------------------------------------------
+// 오즈 검색 후 결과를 화면 하단에 표시
+//-------------------------------------------------------------------------
+scwin.f_Search = async function() {
+    // if (!$c.gus.cfValidate([tbl_search])) return;
+    if (! await $c.gus.cfValidate([ica_stDt, ica_endDt])) 
+        return;
+
+    // // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // var odiParam;
+    // odiParam = new ODIParam("fm_201_01_10");
+
+    // odiParam.add("ST_DT", ica_stDt.getValue());
+    // odiParam.add("END_DT", ed_endDt.getValue());
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam() ;
+            
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // viewerParam.add("print.mode","silent"); // 인쇄 옵션창 표시 없이 바로 출력
+
+    // iframe     viewer        OZR 경로 및 파일명  ODI파라미터 뷰어파라미터       폼파라미터 
+    // cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fm/fundemploy/borrmgnt/fm_201_01_10.ozr", odiParam, viewerParam, formParam);
+
+    let data = {
+        reportName: "/ac/fm/fundemploy/borrmgnt/fm_201_01_10.ozr",
+        odiParam : {
+            // 발행 일시도 명시적으로 전달 (OZ Viewer 기본 값 방지)
+            ST_DT: ica_stDt.getValue(),
+            END_DT: ica_endDt.getValue(),
+        },
+        viewerParam : {
+            mode: "silent",
+        },
+        formParam : {
+        }
+    };
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기간 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar edFromId="ica_stDt" edToId="ica_endDt" id="udc_stDt" mandatoryFrom="true"
+    								mandatoryTo="true" refDataMap="" refEdDt="" refStDt="" style="">
+    							</w2:udc_fromToCalendar>
+    							<!-- <w2:udc_fromToCalendar refStDt="stDt" refDataMap="dma_search" style="" id="udc_stDt" refEdDt="endDt"
+    								edToId="ica_endDt" edFromId="ica_stDt" mandatoryFrom="ture" mandatoryTo="ture">
+    								</w2:udc_fromToCalendar> -->
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Search" style="" type="button"
+    					ev:onclick="scwin.f_Search">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style=""><xf:group class="ozWrap" id="ozFrame" style="">
+    			<w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style=""></w2:iframe>
+    		</xf:group></xf:group>
+    		
+    	</xf:group>
+    </body>
+</html>

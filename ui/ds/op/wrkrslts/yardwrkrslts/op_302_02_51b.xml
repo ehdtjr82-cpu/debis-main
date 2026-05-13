@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_SelectInventory" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="odrLineNo" name="Order Line No" dataType="text"></w2:column>
+    					<w2:column id="pPonum" name="포스코주문번호" dataType="text"></w2:column>
+    					<w2:column id="ebelp" name="ERP PO 행번" dataType="text"></w2:column>
+    					<w2:column id="productNo" name="제품번호" dataType="text"></w2:column>
+    					<w2:column id="pSpec" name="규격" dataType="text"></w2:column>
+    					<w2:column id="pThick" name="두께" dataType="text"></w2:column>
+    					<w2:column id="pMenge" name="개수" dataType="text"></w2:column>
+    					<w2:column id="names" name="고객사명" dataType="text"></w2:column>
+    					<w2:column id="remark1" name="비고1" dataType="text"></w2:column>
+    					<w2:column id="remark2" name="비고2" dataType="text"></w2:column>
+    					<w2:column id="zconfirm" name="Y : Confirmed , N : Not Confirmed" dataType="text"></w2:column>
+    					<w2:column id="remark" name="비고" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_Query">
+    				<w2:keyInfo>
+    					<w2:key id="recvDtFrom" name="수신일자From" dataType="text"></w2:key>
+    					<w2:key id="recvDtTo" name="수신일자To" dataType="text"></w2:key>
+    					<w2:key id="odrLineNo" name="Order Line No" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.yardwrkrslts.RetrievePoscoSelectInventoryListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_Query","key":"IN_DS1"},{"id":"ds_SelectInventory","key":"OUT_DS1"}]' target='data:json,{"id":"ds_SelectInventory","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.odrLineNoList = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+
+};
+
+//-------------------------------------------------------------------------
+// UDC Completed
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    $p.setTimeout(function () {
+        //소스
+        var dateStr = $c.date.getServerDateTime("yyyyMMdd"); //현재일자
+        ed_recvDtFrom.setValue(dateStr.substring(0, 6) + '01');
+        ed_recvDtTo.setValue(dateStr);
+        //$c.gus.cfDisableObjects([btn_send, btn_cancel]); 사용되지 않음
+
+        //테스트 데이터
+        // ds_Query.set("recvDtFrom", "20240801");
+        // ds_Query.set("recvDtTo", "20240831");
+
+    }, { "delay": 50 });
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    //필수입력항목 체크
+    if (!($c.gus.cfIsNull(ed_recvDtFrom.getValue()) || $c.gus.cfIsNull(ed_recvDtTo.getValue())) && ($c.gus.cfIsNull(ed_recvDtFrom.getValue()) || $c.gus.cfIsNull(ed_recvDtTo.getValue()))) {
+        $c.gus.cfAlertMsg("수신일자를 입력하십시오.");
+        ed_recvDtFrom.focus();
+        return;
+    }
+
+    if (!$c.gus.cfValidate(ed_recvDtFrom) || !$c.gus.cfValidate(ed_recvDtTo)) {
+        return;
+    }
+
+    if (!$c.gus.cfIsAfterDate(ed_recvDtFrom.getValue(), ed_recvDtTo.getValue())) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        ed_recvDtFrom.focus();
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------
+// 그리드 데이터 엑셀로 다운
+//-------------------------------------------
+scwin.f_runExcel = async function () {
+    var totCnt = ds_SelectInventory.getRowCount();
+    var sheetTitle = "포스코 PR선별재고";
+
+    if (totCnt != 0) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+        if (cfrm) {
+            const options = {
+                fileName: sheetTitle + ".xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+                , sheetName: sheetTitle //엑셀내 시트명 지정필요시
+            };
+
+            const infoArr = [];
+
+            $c.data.downloadGridViewExcel(gr_SelectInventory, options, infoArr);
+        }
+    } else {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+//-------------------------------------------------------------------------
+// GRID에서 선택된 오더요청처리 : 해당 오더요청처리 페이지로 이동
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tbl_srchCond);
+};
+
+//-------------------------------------------------------------------------
+// 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (ds_SelectInventory.getRowCount() == 0) {
+        $c.win.alert("조회된 데이터가 없습니다.");
+    }
+
+    tbx_totalRows.setValue(ds_SelectInventory.getRowCount()); // 소계 부분을 뺀 실제 데이터 갯수를 Count...
+    //$c.gus.cfEnableObjects([btn_send, btn_cancel]); 사용되지 않음
+};
+
+//-------------------------------------------------------------------------
+// 그리드 oncelldblclick
+//-------------------------------------------------------------------------
+scwin.gr_SelectInventory_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    if (columnId == "odrLineNo" && ds_SelectInventory.getCellData(rowIndex, "odrLineNo") != "") {
+        var odrLineNo = ds_SelectInventory.getCellData(rowIndex, "odrLineNo");
+        var strUrl = "/ui/ds/op/wrkrslts/yardwrkrslts/op_302_02_50b.xml"
+        var programId = "op_302_02_50b.jsp";
+        var paramObj = { odrLineNo: odrLineNo };
+
+        //$c.win.openMenu("입고등록", strUrl, programId, paramObj);
+        // odrLineNo 번호마다 각각 다른 탭화면 오픈
+        $c.win.openMenu("입고등록", strUrl, programId, paramObj, { menuCode: odrLineNo });
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_schInput" type="page" variableClone="" src="/cm/udc/schInput.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_srchCond" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="수신일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_recvDt" refDataMap="ds_Query" refEdDt="recvDtTo" refStDt="recvDtFrom" style="" edFromId="ed_recvDtFrom" edToId="ed_recvDtTo"></w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Order Line NO" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_schInput style="width:150px;" id="udc_odrLineNoList" refDataMap="ds_Query" iptNm="odrLineNo"></w2:udc_schInput>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="U">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label=" PR재고선별요청 내역" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_runExcel" gridID="gr_SelectInventory" gridUpYn="N"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_SelectInventory"
+    					id="gr_SelectInventory" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="true" ev:oncelldblclick="scwin.gr_SelectInventory_oncelldblclick">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="OrderLineNO" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="제품번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="강종" width="80"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="두께" width="80"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="중량(TON)" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="고객사" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="비고1" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="비고2" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" value="확정" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="반려사유" width="100"></w2:column>
+    							<w2:column width="150" inputType="text" id="column37" value="포스코주문번호" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" id="column31" value="포스코주문번호행번" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="odrLineNo" inputType="text" width="120" class="underline"></w2:column>
+    							<w2:column displayMode="label" id="productNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="pSpec" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="pThick" inputType="text" width="80" textAlign="right" dataType="float"></w2:column>
+    							<w2:column displayMode="label" id="pMenge" inputType="text" width="100" textAlign="right" dataType="number"></w2:column>
+    							<w2:column displayMode="label" id="names" inputType="text" width="150" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="remark1" inputType="text" width="150" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="remark2" inputType="text" width="150" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="zconfirm" inputType="text" width="70"></w2:column>
+    							<w2:column displayMode="label" id="remark" inputType="text" width="100" textAlign="left"></w2:column>
+    							<w2:column width="150" inputType="text" id="pPonum" displayMode="label" hiddenCol="true" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" id="ebelp" displayMode="label" hiddenCol="true" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>    					
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

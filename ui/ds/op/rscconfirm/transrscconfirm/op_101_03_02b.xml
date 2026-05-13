@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="oGDS_view_cond">
+					<w2:keyInfo>
+						<w2:key id="dptWrkPlNm" name="name1" dataType="text"></w2:key>
+						<w2:key id="dptWrkPlCd" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_railroadSchedule" saveRemovedData="true"
+					ev:onrowpositionchange="scwin.ds_railroadSchedule_onrowpositionchange">
+					<w2:columnInfo>
+						<w2:column id="dptStnWrkPlCd" name="출발역작업장코드" dataType="text"></w2:column>
+						<w2:column id="dptWrkPlNm" name="출발역작업장" dataType="text"></w2:column>
+						<w2:column id="arvStnWrkPlCd" name="도착역작업장코드" dataType="text"></w2:column>
+						<w2:column id="arvWrkPlNm" name="도착역작업장" dataType="text"></w2:column>
+						<w2:column id="runSeq" name="운행순번" dataType="text"></w2:column>
+						<w2:column id="dptHh" name="출발시간" dataType="text"></w2:column>
+						<w2:column id="arvHh" name="도착시간" dataType="text"></w2:column>
+						<w2:column id="dtc" name="거리" dataType="text"></w2:column>
+						<w2:column id="frt" name="임률" dataType="text"></w2:column>
+						<w2:column dataType="text" name="name10" id="sortColumn"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/ds.op.rscconfirm.transrscconfirm.RetrieveRailroadScheduleListCMD.do"
+				method="post" mediatype="application/json"
+				ref='data:json,[{"id":"oGDS_view_cond","key":"IN_DS1"},{"id":"ds_railroadSchedule","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_railroadSchedule","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_railroadSchedule" action="/ds.op.rscconfirm.transrscconfirm.SaveRailroadScheduleCMD.do"
+				method="post" mediatype="application/json" ref='data:json,{"id":"ds_railroadSchedule","key":"IN_DS1"}' target="" encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_railroadSchedule_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.focusedCol = 0;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+};
+
+scwin.onUdcCompleted = function () {
+    if (ds_railroadSchedule.getRowCount() == 0) {
+        btn_addRow.setDisabled(true);
+        btn_deleteRow.setDisabled(true);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_railroadScheduleExcel = function () {
+    let options = {
+        fileName: "철송스케줄등록" + ".xlsx",
+        sheetName: "철송스케줄등록"
+    }
+
+    $c.data.downloadGridViewExcel(gr_railroadSchedule, options);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+    if (ds_railroadSchedule.getModifiedIndex().length == 0) {
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return false;
+    }
+
+    let chk1 = await $c.gus.cfValidate([gr_railroadSchedule], null, true);
+
+    if (!chk1) return;
+
+    let chk2 = await scwin.f_checkDistance();
+
+    if (!chk2) return;
+
+    if (chk1 && chk2) {
+        let chk3 = await $c.win.confirm("저장하시겠습니까?");
+
+        if (chk3) {
+            $c.sbm.execute(sbm_railroadSchedule);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+//  check distance column id(dtc) value
+//-------------------------------------------------------------------------	
+scwin.f_checkDistance = async function () {
+    for (let i = 0; i < ds_railroadSchedule.getRowCount(); i++) {
+        let rowJson = ds_railroadSchedule.getRowJSON(i);
+
+        if (ds_railroadSchedule.getRowStatus(i) == "C" || ds_railroadSchedule.getRowStatus(i) == "U") {
+            if (rowJson.dtc == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_057, ["거리입력 값", " 0 "]);
+                gr_railroadSchedule.setFocusedCell(i, "dtc");
+
+                return false;
+            }
+        }
+    }
+
+    return true;
+};
+
+//-------------------------------------------------------------------------
+//  check for pre-defined distance data
+//  change to the distance data which departure & destination are selected pre-defined same data
+//-------------------------------------------------------------------------	
+scwin.f_changeDistance = function (pCode, pRowPos) {
+    let pCompareCd;
+    let pDistance;
+    let pNoChange = 0;
+
+    for (let i = 0; i < ds_railroadSchedule.getRowCount(); i++) {
+        let rowJson = ds_railroadSchedule.getRowJSON(i);
+
+        if (i == pRowPos) continue;
+
+        pCompareCd = rowJson.dptStnWrkPlCd + rowJson.arvStnWrkPlCd;
+        pDistance = rowJson.dtc;
+
+        if (pCode == pCompareCd) {
+            ds_railroadSchedule.setCellData(pRowPos, "dtc", pDistance);
+            return true;
+        }
+
+        pCompareCd = "";
+        pDistance = "";
+    }
+
+    if (pNoChange == 0) ds_railroadSchedule.setCellData(pRowPos, "dtc", 0);
+};
+
+//-------------------------------------------------------------------------
+//  check for pre-defined distance data
+//  change to the distance data which departure & destination are selected pre-defined same data
+//-------------------------------------------------------------------------	
+scwin.f_changeDistanceAll = function (row, colid) {
+    let rowJson = ds_railroadSchedule.getRowJSON(row);
+    let pCompareCd = "";
+    let pDistance = "";
+    let pCode = "";
+
+    pCode = rowJson.dptStnWrkPlCd + rowJson.arvStnWrkPlCd;
+    pDistance = rowJson.dtc;
+
+    for (let i = 0; i <= ds_railroadSchedule.getRowCount(); i++) {
+        let rJson = ds_railroadSchedule.getRowJSON(i);
+
+        if (i == row) continue;
+
+        pCompareCd = rJson.dptStnWrkPlCd + rJson.arvStnWrkPlCd;
+
+        if (pCode == pCompareCd) {
+            ds_railroadSchedule.setCellData(i, "dtc", pDistance);
+        }
+
+        pCompareCd = "";
+    }
+};
+
+//-------------------------------------------------------------------------
+//  eidt_Control FUNCTION : scwin.f_EditNone)() , scwin.f_EditTrue()
+//-------------------------------------------------------------------------	
+scwin.f_EditNone = function () {
+    gr_railroadSchedule.setColumnReadOnly("dptWrkPlNm", true);
+    gr_railroadSchedule.setColumnReadOnly("arvWrkPlNm", true);
+};
+
+scwin.f_EditTrue = function () {
+    gr_railroadSchedule.setColumnReadOnly("dptWrkPlNm", false);
+    gr_railroadSchedule.setColumnReadOnly("arvWrkPlNm", false);
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_addRow
+// function desc : Row 추가
+//-------------------------------------------------------------------------
+scwin.f_addRow = function () {
+    let row = ds_railroadSchedule.insertRow(ds_railroadSchedule.getRowCount());
+    gr_railroadSchedule.setFocusedCell(row, 0);
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_deleteRow
+// function desc : Row 삭제
+//-------------------------------------------------------------------------
+scwin.f_deleteRow = function () {
+    let focusedRow = gr_railroadSchedule.getFocusedRowIndex();
+
+    if (ds_railroadSchedule.getRowCount() > 0) {
+        if (ds_railroadSchedule.getRowStatus(focusedRow) == "C") {
+            ds_railroadSchedule.removeRow(focusedRow);
+        } else {
+            ds_railroadSchedule.deleteRow(focusedRow);
+        }
+    }
+};
+
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    switch (disGubun) {
+        case 1:
+            udc_dptWrkPl.cfCommonPopUp(scwin.udc_dptWrkPl_callBackFunc,
+                pCode,
+                pName,
+                pClose,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                pAllSearch,
+                null);
+            break;
+    }
+};
+
+scwin.f_openPopUp = function (gubun, pWinCloseTF) {
+    let pCurPos = gr_railroadSchedule.getFocusedRowIndex();
+    let pDummyCode = gubun + "StnWrkPlCd";
+    let pdummyName = gubun + "WrkPlNm";
+    let pCode = ds_railroadSchedule.getCellData(pCurPos, pDummyCode);
+    let pName = ds_railroadSchedule.getCellData(pCurPos, pdummyName);
+
+    if (pName == "") {
+        pCode = "";
+    }
+
+    udc_dptWrkPlNm.cfCommonPopUp(scwin.gridCallBack,						//pSelectID
+        pCode,							//pCode
+        pName,							//pName
+        pWinCloseTF,					//pWinCloseTF
+        "5",							//pDispCnt
+        null,							//pTitle
+        "150,170",						//pWidth
+        null,							//pHidden
+        null,							//pWhere
+        "440",							//pW
+        "500",							//pH
+        null,							//pTop
+        null);							//pLeft
+};
+
+scwin.gridCallBack = function (rtnList) {
+    let pCurPos = gr_railroadSchedule.getFocusedRowIndex();
+    let pCol = scwin.focusedCol;
+
+    ds_railroadSchedule.setCellData(pCurPos, pCol - 1, rtnList[0]);
+    ds_railroadSchedule.setCellData(pCurPos, pCol, rtnList[1]);
+
+    let dptStnWrkPlCd = ds_railroadSchedule.getCellData(pCurPos, "dptStnWrkPlCd");
+    let arvStnWrkPlCd = ds_railroadSchedule.getCellData(pCurPos, "arvStnWrkPlCd");
+
+    if (dptStnWrkPlCd != "" && arvStnWrkPlCd != "") {
+        scwin.f_changeDistance(dptStnWrkPlCd + arvStnWrkPlCd, pCurPos);
+    }
+};
+
+scwin.f_openPopUpBefore = function (row, nmColid, cdColid, olddata, gubun, pWinCloseTF) {
+    let nmVal = ds_railroadSchedule.getCellData(row, nmColid);
+
+    if (nmVal == "") {
+        ds_railroadSchedule.setCellData(row, cdColid, "");
+    } else {
+        /* if (nmVal != olddata) {
+            ds_railroadSchedule.setCellData(row, cdColid, "");
+            scwin.f_openPopUp(gubun, pWinCloseTF);
+        } */
+
+        ds_railroadSchedule.setCellData(row, cdColid, "");
+        scwin.f_openPopUp(gubun, pWinCloseTF);
+    }
+};
+
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    let pVal = $c.gus.cfGetValue(inObj);
+
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, "", "T", "T");
+    } else {
+        scwin.f_openCommonPopUp(disGubun, "", pVal, "T", "T");
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 초기화
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects([txt_dptWrkPlNm, ed_dptWrkPlCd]);
+};
+
+scwin.sbm_railroadSchedule_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    totalRows.setValue(ds_railroadSchedule.getRowCount());
+
+    if (ds_railroadSchedule.getRowCount() == 0) {
+        await $c.win.alert("조회된 데이터가 없습니다.");
+    } else {
+        for (let i = 0; i < ds_railroadSchedule.getRowCount(); i++) {
+            let rowJson = ds_railroadSchedule.getRowJSON(i);
+
+            ds_railroadSchedule.setCellData(i, "sortColumn", rowJson.dptWrkPlNm + rowJson.arvWrkPlNm + rowJson.dptHh);
+        }
+
+        ds_railroadSchedule.initRowStatus();
+        ds_railroadSchedule.sort("sortColumn", 0);
+    }
+
+    btn_addRow.setDisabled(false);
+    btn_deleteRow.setDisabled(false);
+};
+
+scwin.udc_dptWrkPl_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_dptWrkPlCd.getValue(), txt_dptWrkPlNm.getValue(), "F", "T");
+};
+
+scwin.udc_dptWrkPl_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_dptWrkPlCd, txt_dptWrkPlNm, 1, true);
+};
+
+scwin.udc_dptWrkPl_onblurNameEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(txt_dptWrkPlNm, ed_dptWrkPlCd, 1, false);
+};
+
+scwin.udc_dptWrkPl_callBackFunc = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_dptWrkPlCd, txt_dptWrkPlNm);
+};
+
+scwin.gr_railroadSchedule_ontextimageclick = function (rowIndex, columnIndex) {
+    let colId = gr_railroadSchedule.getColumnID(columnIndex);
+
+    if (colId == "dptWrkPlNm") {
+        scwin.f_openPopUp("dpt", "F");
+    } else if (colId == "arvWrkPlNm") {
+        scwin.f_openPopUp("arv", "F");
+    }
+};
+
+scwin.gr_railroadSchedule_onafteredit = function (rowIndex, columnIndex, value) {
+    scwin.focusedCol = gr_railroadSchedule.getFocusedColumnIndex();
+    let colId = gr_railroadSchedule.getColumnID(columnIndex);
+    let olddata = ds_railroadSchedule.getCellData(rowIndex, colId);
+
+    if (colId == "dptWrkPlNm") {
+        scwin.f_openPopUpBefore(rowIndex, "dptWrkPlNm", "dptStnWrkPlCd", olddata, "dpt", "T");
+    } else if (colId == "arvWrkPlNm") {
+        scwin.f_openPopUpBefore(rowIndex, "arvWrkPlNm", "arvStnWrkPlCd", olddata, "arv", "T");
+    }
+
+    if (colId == "dtc") {
+        scwin.f_changeDistanceAll(rowIndex, colId);
+    }
+};
+
+scwin.ds_railroadSchedule_onrowpositionchange = function (info) {
+    let row = info.newRowIndex;
+
+    if (ds_railroadSchedule.getRowStatus(row) == "C") { //신규
+        scwin.f_EditTrue();
+    } else {
+        scwin.f_EditNone();
+    }
+};
+
+scwin.f_cancel = function () {
+    let row = gr_railroadSchedule.getFocusedRowIndex();
+
+    if (ds_railroadSchedule.getRowStatus(row) == "C") {
+        ds_railroadSchedule.removeRow(row);
+    } else {
+        ds_railroadSchedule.undoRow(row);
+    }
+};
+
+scwin.customFormatter = function (data, formattedData, rowIndex, colIndex) {
+    let colID = this.getColumnID(colIndex);
+
+    if (colID == "dtc") {
+        if (data == "") {
+            return "0.0";
+        } else {
+            return formattedData;
+        }
+    }
+};]]></script>
+		<w2:require as="udc_schInput" type="page" variableClone="true" src="/cm/udc/schInput.xml"></w2:require>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+		<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:70px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="" id="" label="출발역 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:udc_comCode popupID="" selectID="retrieveTrainWorkPlace" codeId="ed_dptWrkPlCd" validTitle=""
+									nameId="txt_dptWrkPlNm" style="" allowCharCode="a-zA-Z0-9" UpperFlagCode="1" maxlengthCode="6" objTypeCode="data" id="udc_dptWrkPl"
+									refDataCollection="oGDS_view_cond" code="dptWrkPlCd" name="dptWrkPlNm" ev:onclickEvent="scwin.udc_dptWrkPl_onclickEvent"
+									ev:onblurCodeEvent="scwin.udc_dptWrkPl_onblurCodeEvent" ev:onblurNameEvent="scwin.udc_dptWrkPl_onblurNameEvent"
+									skipOnBlurNameValueEmpty="N"></w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_refresh" style="" type="button" ev:onclick="scwin.f_FieldClear">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="철송스케줄등록" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_railroadSchedule" gridUpYn="N" btnPlusYn="Y" btnUser="Y"
+							gridDownYn="Y" templateYn="N" gridDownFn="scwin.f_railroadScheduleExcel" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_railroadSchedule"
+						id="gr_railroadSchedule" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="17" visibleRowNumFix="true"
+						ev:ontextimageclick="scwin.gr_railroadSchedule_ontextimageclick" rowStatusVisible="true"
+						ev:onafteredit="scwin.gr_railroadSchedule_onafteredit" dataName="철송스케줄" validFeatures="ignoreStatus=no"
+						validExp="dptStnWrkPlCd:출발역작업장코드:yes:key,arvStnWrkPlCd:도착역작업장코드:yes:key,dptHh:출발시간:yes:key:date=HHmm,arvHh:도착시간:yes:date=HHmm,dtc:거리(㎞):yes">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header2" style="">
+							<w2:row id="row3" style="">
+								<w2:column displayMode="label" id="column30" inputType="text" style="" value="출발역작업장코드" width="150" hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="column38" inputType="text" style="" value="출발역작업장" width="130"></w2:column>
+								<w2:column displayMode="label" id="column36" inputType="text" style="" value="도착역작업장코드" width="150" hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="column34" inputType="text" style="" value="도착역작업장 " width="130"></w2:column>
+								<w2:column displayMode="label" id="column32" inputType="text" style="" value="운행순번" width="100" hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="column28" inputType="text" style="" value="출발시간" width="100"></w2:column>
+								<w2:column displayMode="label" id="column26" inputType="text" style="" value="도착시간" width="100"></w2:column>
+								<w2:column displayMode="label" id="column22" inputType="text" style="" value="거리(㎞)" width="100"></w2:column>
+								<w2:column displayMode="label" id="column24" inputType="text" style="" value="임률" width="70" hidden="true">
+								</w2:column>
+								<w2:column width="70" inputType="text" style="" id="column39" value="정렬" displayMode="label" hidden="true"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody2" style="">
+							<w2:row id="row4" style="">
+								<w2:column displayMode="label" id="dptStnWrkPlCd" inputType="text" style="" value="" width="150" readOnly="true"
+									hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="dptWrkPlNm" inputType="textImage" style="" value="" width="130" viewType="default"
+									editModeEvent="onclick" editModeEventIcon="onclick" readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="arvStnWrkPlCd" inputType="text" style="" value="" width="150" hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="arvWrkPlNm" inputType="textImage" style="" value="" width="130" viewType="default"
+									editModeEvent="onclick" editModeEventIcon="onclick" readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="runSeq" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+								<w2:column displayMode="label" id="dptHh" inputType="text" style="" value="" width="100" displayFormat="##:##"
+									maxLength="4">
+								</w2:column>
+								<w2:column displayMode="label" id="arvHh" inputType="text" style="" value="" width="100" displayFormat="##:##"
+									maxLength="4">
+								</w2:column>
+								<w2:column displayMode="label" id="dtc" inputType="text" style="" value="" width="100" textAlign="right" maxLength="5"
+									dataType="number" excelCellType="number" displayFormat="#,###.0" customFormatter="scwin.customFormatter">
+								</w2:column>
+								<w2:column displayMode="label" id="frt" inputType="text" style="" value="" width="70" hidden="true"></w2:column>
+								<w2:column width="70" inputType="" style="" id="sortColumn" value="" displayMode="label" hidden="true" hiddenCol="true"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="" style="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+								</w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group id="" class="right">
+							<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="N" btnRowDelYn="Y"
+								id="udc_bottomGrdBtn" gridID="gr_railroadSchedule" rowAddFunction="scwin.f_addRow" rowDelFunction="scwin.f_deleteRow"
+								cancelFunction="scwin.f_cancel" btnRowAddObj="btn_addRow" rowAddObjType="data" btnRowDelObj="btn_deleteRow" delObjType="data">
+							</w2:udc_bottomGrdBtn>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="right" id="" style="">
+						<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save">
+							<xf:label><![CDATA[저장]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<w2:udc_comCode popupID="" selectID="retrieveTrainWorkPlace" codeId="" validTitle="" nameId="" style="display: none;"
+				allowCharCode="a-zA-Z0-9" UpperFlagCode="1" maxlengthCode="6" objTypeCode="data" id="udc_dptWrkPlNm" class=""></w2:udc_comCode>
+		</xf:group>
+	</body>
+</html>

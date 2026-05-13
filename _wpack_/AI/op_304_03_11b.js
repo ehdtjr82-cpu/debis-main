@@ -1,0 +1,989 @@
+/*amd /AI/op_304_03_11b.xml 85271 fd34924b94da0f82b959c52ddabdaf377e9838e05c1db080c3eb0c3a98f66193 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_retrieve'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lobran',name:'점소',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStDt',name:'작업시작일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkEndDt',name:'작업종료일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cntrNo',name:'컨테이너번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkCls',name:'작업구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dcScKnd',name:'할증종류',dataType:'text'}},{T:1,N:'w2:key',A:{id:'alloccarPic',name:'배차담당',dataType:'text'}},{T:1,N:'w2:key',A:{id:'transWrkIndictNo',name:'작업지시번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptWrkPlCd',name:'출발지코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'arvWrkPlCd',name:'도착지코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bilgMchtCd',name:'청구화주코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'copCoCd',name:'협력업체코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'selConfirm',name:'담당자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dcScRegId',name:'할증등록자ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkClsCd',name:'작업구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dcScAmtRate',name:'할증비율',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cntrSizCd',name:'컨테이너사이즈',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lineCd',name:'라인코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dtGubun',name:'일자구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptStDt',name:'출발시작일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptEndDt',name:'출발종료일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptGubun',name:'출발구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reeferYn',name:'냉동여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cntrBox',name:'컨테이너박스',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lobranCd',name:'점소코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'odrKnd',name:'오더종류',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_emp',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'che',name:'선택',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transWrkIndictNo',name:'작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgClntNm',name:'청구거래처',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptWrkPlCdNm',name:'출발지',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvWrkPlCdNm',name:'도착지',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptDtm',name:'출발일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvDtm',name:'도착일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량No',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lineCd',name:'LINE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'CNTR/No',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSizCd',name:'Sz',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'Tp',dataType:'text'}},{T:1,N:'w2:column',A:{id:'copCoClntNm',name:'매입거래처',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellAmt',name:'매출액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellDcScNm',name:'할인할증사유',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcSellAmt',name:'할인할증금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dcScTotal',name:'매입액합계',dataType:'number'}},{T:1,N:'w2:column',A:{id:'wrkstpseq',name:'wrkstpseq',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsAmt',name:'매입액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dcScAmt',name:'할증금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dcScNm',name:'할증항목',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcScAmtRate',name:'할증률',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'실적일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confirmYn',name:'확인',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confirmDt',name:'확인일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnYn',name:'확정',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnDt',name:'확정일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transRsltsSeq',name:'transRsltsSeq',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcScCd',name:'dcScCd',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCls',name:'wrkCls',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcScRegNm',name:'등록자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'allocaNm',name:'배차등록자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkClsCd',name:'작업구간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsSeq',name:'매입순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptDistrictCd',name:'출발권역',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvDistrictCd',name:'도착권역',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commNm',name:'품명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkQty',name:'수량',dataType:'number'}},{T:1,N:'w2:column',A:{id:'wrkWt',name:'중량',dataType:'number'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_joblevel'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'lobranCd',name:'점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranNm',name:'점소명',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_dcScKnd'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cd',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'코드명',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_dcScKnd2'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cd',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'코드명',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.wrkrslts.transwrkrslts.RetrieveTransDiscountSurchargeResultsCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"dma_retrieve","key":"IN_DS1"},{"id":"ds_emp","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_emp","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'scwin.sbm_retrieve_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_saveEmp',action:'',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_emp","key":"IN_DS1"},{"id":"dma_retrieve","key":"IN_DS2"},{"id":"ds_emp","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_emp","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_saveEmp_submitdone','ev:submiterror':'scwin.sbm_saveEmp_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_deleteEmp',action:'',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_emp","key":"IN_DS1"},{"id":"dma_retrieve","key":"IN_DS2"},{"id":"ds_emp","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_emp","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_deleteEmp_submitdone','ev:submiterror':'scwin.sbm_deleteEmp_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_joblevel',action:'/ds.co.RetreiveLoBranCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_joblevel","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_joblevel","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_joblevel_submitdone','ev:submiterror':'scwin.sbm_joblevel_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_dcScKnd',action:'/ds.co.RetreiveDcScKndCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_dcScKnd","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_dcScKnd","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_dcScKnd_submitdone','ev:submiterror':'scwin.sbm_dcScKnd_submiterror'}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.userId = "";
+scwin.vCurDate = "";
+scwin.strDate = "";
+scwin.sLobranCd = "";
+scwin.cheCnt = "0";
+scwin.vehclNoCd = "";
+scwin.strTomorrow = "";
+scwin.chb_sell_cd = ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028"];
+scwin.chb_sell_nm = ["중량1톤초과", "중량2톤초과", "중량3톤초과", "중량4톤초과", "중량5톤초과", "냉동할증", "활대품10cm초과", "활대품20cm초과", "활대품30cm초과", "활대품40cm초과", "활대품50cm초과", "휴일할증", "플랙시백", "탱크할증", "험로할증", "덤프할증", "심야할증", "검색기", "밥테일1회왕복", "밥테일2회왕복", "위험물", "화약류", "방사성", "기타"];
+scwin.chb_sell_value = [10, 20, 30, 40, 50, 30, 10, 20, 30, 40, 50, 20, 20, 30, 20, 25, 20, 96000, 100, 200, 30, 100, 200, 0];
+scwin.DELETE_AUTH = "";
+scwin.CREATE_AUTH = "";
+scwin.UPDATE_AUTH = "";
+scwin.PRINT_AUTH = "";
+scwin.onpageload = async function () {
+  scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+  scwin.strDate = scwin.vCurDate;
+  scwin.strTomorrow = $c.date.addDate($p, scwin.vCurDate, 1);
+  scwin.userId = $c.ses.getUserId();
+  scwin.sLobranCd = $c.ses.getLobranCd();
+  scwin.DELETE_AUTH = $c.gus.cfGetAuth($p, "DELETE");
+  scwin.CREATE_AUTH = $c.gus.cfGetAuth($p, "CREATE");
+  scwin.UPDATE_AUTH = $c.gus.cfGetAuth($p, "UPDATE");
+  scwin.PRINT_AUTH = $c.gus.cfGetAuth($p, "PRINT");
+  acb_dtGubun.setValue("1");
+  co_lc_workGubun.setValue("B");
+  selConfirm.removeAll();
+  let selItems = [{
+    label: "전체",
+    value: ""
+  }, {
+    label: "등록",
+    value: "1"
+  }, {
+    label: "반려",
+    value: "4"
+  }, {
+    label: "확인",
+    value: "2"
+  }, {
+    label: "확정대상",
+    value: "5"
+  }, {
+    label: "확정",
+    value: "3"
+  }];
+  for (let si = 0; si < selItems.length; si++) {
+    selConfirm.addItem(selItems[si].label, selItems[si].value);
+  }
+  selConfirm.setSelectedIndex(0);
+  acb_wrkClsCd.removeAll();
+  let wrkClsItems = [{
+    label: "전체",
+    value: ""
+  }, {
+    label: "셔틀",
+    value: "S"
+  }, {
+    label: "부산로컬",
+    value: "L"
+  }, {
+    label: "부산로컬제외",
+    value: "J"
+  }];
+  for (let wi = 0; wi < wrkClsItems.length; wi++) {
+    acb_wrkClsCd.addItem(wrkClsItems[wi].label, wrkClsItems[wi].value);
+  }
+  acb_wrkClsCd.setSelectedIndex(0);
+  acb_pusanClsCd.removeAll();
+  let pusanItems = [{
+    label: "전체",
+    value: ""
+  }, {
+    label: "감만권역",
+    value: "01"
+  }, {
+    label: "부두권역",
+    value: "02"
+  }, {
+    label: "감천부두",
+    value: "03"
+  }, {
+    label: "신항권역",
+    value: "04"
+  }];
+  for (let pi = 0; pi < pusanItems.length; pi++) {
+    acb_pusanClsCd.addItem(pusanItems[pi].label, pusanItems[pi].value);
+  }
+  acb_pusanClsCd.setSelectedIndex(0);
+  acb_dptGubun.removeAll();
+  let dptItems = [{
+    label: "전체",
+    value: ""
+  }, {
+    label: "주간",
+    value: "01"
+  }, {
+    label: "야간",
+    value: "02"
+  }];
+  for (let di = 0; di < dptItems.length; di++) {
+    acb_dptGubun.addItem(dptItems[di].label, dptItems[di].value);
+  }
+  acb_dptGubun.setSelectedIndex(0);
+  acb_reeferYn.removeAll();
+  let reeferItems = [{
+    label: "전체",
+    value: ""
+  }, {
+    label: "Y(냉동)",
+    value: "1"
+  }, {
+    label: "N",
+    value: "0"
+  }];
+  for (let ri = 0; ri < reeferItems.length; ri++) {
+    acb_reeferYn.addItem(reeferItems[ri].label, reeferItems[ri].value);
+  }
+  acb_reeferYn.setSelectedIndex(0);
+  await $c.sbm.execute($p, sbm_joblevel);
+  await $c.sbm.execute($p, sbm_dcScKnd);
+  $c.gus.cfEnableBtnOnly($p, [btn_Del, btn_Dcsn]);
+};
+scwin.onUdcCompleted = async function () {
+  udc_wrkDt.setInitDate(scwin.strDate, scwin.strDate);
+  ica_allCopCoConfirmDt.setValue(scwin.vCurDate);
+  $c.gus.cfDisableObjects($p, [ica_dptStDt, ica_dptEndDt]);
+  if (scwin.DELETE_AUTH == "") {
+    $c.gus.cfDisableBtn($p, [btn_Del]);
+  }
+  if (scwin.CREATE_AUTH == "") {
+    $c.gus.cfDisableBtn($p, [btn_Add]);
+  }
+  if (scwin.PRINT_AUTH == "") {
+    $c.gus.cfDisableBtn($p, [btn_Dcsn, btn_DcsnChoice]);
+  }
+};
+scwin.sbm_joblevel_submitdone = async function (e) {
+  let sLoUpperLobranCd = scwin.sLobranCd;
+  let found = false;
+  for (let i = 0; i < ds_joblevel.getRowCount(); i++) {
+    if (ds_joblevel.getCellData(i, "lobranCd") == sLoUpperLobranCd) {
+      co_lc_logisticsBranch.setValue(sLoUpperLobranCd);
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    co_lc_logisticsBranch.setSelectedIndex(0);
+  }
+};
+scwin.sbm_joblevel_submiterror = async function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.sbm_dcScKnd_submitdone = async function (e) {
+  ds_dcScKnd.insertRow(0);
+  ds_dcScKnd.setCellData(0, "cd", "");
+  ds_dcScKnd.setCellData(0, "cdNm", "선택");
+  ds_dcScKnd.insertRow(1);
+  ds_dcScKnd.setCellData(1, "cd", "0001");
+  ds_dcScKnd.setCellData(1, "cdNm", "전체");
+
+  // TODO: dcScKnd combo binding with ds_dcScKnd
+  // TODO: $c.gus.cfCopyDataSet(ds_dcScKnd, ds_dcScKnd2)
+};
+scwin.sbm_dcScKnd_submiterror = async function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_HeaderCreate = async function () {
+  dma_retrieve.set("regId", scwin.userId);
+  dma_retrieve.set("lobran", co_lc_logisticsBranch.getValue());
+  dma_retrieve.set("wrkStDt", ica_wrkStDt.getValue());
+  dma_retrieve.set("wrkEndDt", ica_wrkEndDt.getValue());
+  dma_retrieve.set("cntrNo", ed_cntrNo.getValue());
+  dma_retrieve.set("vehclNo", vehclNo.getValue());
+  dma_retrieve.set("odrNo", ed_odrNo.getValue());
+  dma_retrieve.set("wrkCls", co_lc_workGubun.getValue());
+  dma_retrieve.set("dcScKnd", ""); // TODO: dcScKnd combo getValue
+  dma_retrieve.set("dptWrkPlCd", dptWrkPlCd.getValue());
+  dma_retrieve.set("arvWrkPlCd", arvWrkPlCd.getValue());
+  dma_retrieve.set("bilgMchtCd", bilgMchtCd.getValue());
+  dma_retrieve.set("copCoCd", copCoCd.getValue());
+  dma_retrieve.set("selConfirm", selConfirm.getValue());
+  dma_retrieve.set("dcScRegId", em_alloccarPicId.getValue());
+  dma_retrieve.set("wrkClsCd", "");
+  dma_retrieve.set("dcScAmtRate", ""); // TODO: ed_dcScAmtRate getValue
+  dma_retrieve.set("cntrSizCd", acb_cntrSizCd.getValue());
+  dma_retrieve.set("lineCd", ed_lineCd.getValue());
+  dma_retrieve.set("dtGubun", acb_dtGubun.getValue());
+  dma_retrieve.set("dptStDt", ica_dptStDt.getValue());
+  dma_retrieve.set("dptEndDt", ica_dptEndDt.getValue());
+  dma_retrieve.set("dptGubun", acb_dptGubun.getValue());
+  dma_retrieve.set("reeferYn", acb_reeferYn.getValue());
+  dma_retrieve.set("cntrBox", "");
+};
+scwin.f_Retrieve = async function () {
+  scwin.f_HeaderCreate();
+  $c.gus.cfEnableBtnOnly($p, [btn_Dcsn, btn_DcsnChoice]);
+  scwin.cheCnt = "0";
+  acb_wrkClsCd.setValue("");
+  acb_pusanClsCd.setValue("");
+  sbm_retrieve.action = "/ds.op.wrkrslts.transwrkrslts.RetrieveTransDiscountSurchargeResultsCMD.do";
+  await $c.sbm.execute($p, sbm_retrieve);
+};
+scwin.sbm_retrieve_submitdone = async function (e) {
+  if (ds_emp.getRowCount() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002, [""]);
+  }
+  $c.gus.cfShowTotalRows($p, spa_totalRow, ds_emp.getRowCount());
+  scwin.f_resetChk();
+};
+scwin.sbm_retrieve_submiterror = async function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_resetChk = async function () {
+  for (let i = 1; i <= 24; i++) {
+    let chbId = "chb_sell" + i;
+    let chbComp = $p.getComponentById(chbId);
+    if (chbComp) {
+      chbComp.setValue("");
+    }
+  }
+  chb_sell24_value.setValue("");
+};
+scwin.f_openPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch) {
+  if (disGubun == "1") {
+    udc_eq.ilCommonPopUp(scwin.callbackVehiclesNo, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "차량번호,차량코드,차량번호명");
+  } else if (disGubun == "2") {
+    udc_dptWrkPl.ilCommonPopUp(scwin.callbackDptWrkPl, pCode, pName, pClose, null, null, null, null, "", null, null, null, null, null, pAllSearch, "출발지,출발지코드,출발지명");
+  } else if (disGubun == "3") {
+    udc_arvWrkPl.ilCommonPopUp(scwin.callbackArvWrkPl, pCode, pName, pClose, null, null, null, null, "", null, null, null, null, null, pAllSearch, "도착지,도착지코드,도착지명");
+  } else if (disGubun == "4") {
+    udc_bilgMcht.ilCommonPopUp(scwin.callbackBilgMcht, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "청구화주,청구화주코드,청구화주명");
+  } else if (disGubun == "5") {
+    udc_copCo.ilCommonPopUp(scwin.callbackCopCo, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "협력업체,협력업체코드,협력업체명");
+  } else if (disGubun == "6") {
+    udc_alloccarPic.ilCommonPopUp(scwin.callbackAlloccarPic, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+  } else if (disGubun == "7") {
+    udc_line.ilCommonPopUp(scwin.callbackLine, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+  }
+};
+scwin.callbackVehiclesNo = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, eqCd, vehclNo);
+  if (rtnList && rtnList[2]) {
+    scwin.vehclNoCd = rtnList[2];
+  }
+};
+scwin.callbackDptWrkPl = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, dptWrkPlCd, dptWrkPlNm);
+};
+scwin.callbackArvWrkPl = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, arvWrkPlCd, arvWrkPlNm);
+};
+scwin.callbackBilgMcht = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, bilgMchtCd, bilgMcht);
+};
+scwin.callbackCopCo = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, copCoCd, copCoNm);
+};
+scwin.callbackAlloccarPic = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, em_alloccarPicId, txt_alloccarPicNm);
+};
+scwin.callbackLine = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_lineCd, txt_lineNm);
+};
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) {
+    return;
+  }
+  $c.gus.cfClearPairObj($p, pairObj);
+  let pVal = $c.gus.cfGetValue($p, inObj);
+  if (isCode == null || isCode == true) {
+    scwin.f_openPopUp(disGubun, pVal, "", "T", "T");
+  } else {
+    scwin.f_openPopUp(disGubun, "", pVal, "T", "T");
+  }
+};
+scwin.f_Register = async function () {
+  let k = 0;
+  if (!ds_emp.isUpdated()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_001, ["Data"]);
+    return;
+  }
+  if (scwin.CREATE_AUTH == "") {
+    await $c.gus.cfAlertMsg($p, "등록 권한이 없습니다.");
+    return;
+  }
+  let chkValidate = await $c.gus.cfValidate($p, [ica_allCopCoConfirmDt]);
+  if (!chkValidate) {
+    return;
+  }
+  for (let i = 0; i < ds_emp.getRowCount(); i++) {
+    if (ds_emp.getCellData(i, "che") == "1") {
+      k++;
+      if (ds_emp.getCellData(i, "dcScNm") == "") {
+        ds_emp.setRowPosition(i);
+        await $c.gus.cfAlertMsg($p, i + 1 + "번째 등록이 되지 않았습니다. \n 할인할증사유를 먼저 선택 해주세요");
+        gr_emp.setFocusedCell(i, "dcScNm");
+        return;
+      }
+      if (ica_allCopCoConfirmDt.getValue().trim() != "") {
+        ds_emp.setCellData(i, "regDtm", ica_allCopCoConfirmDt.getValue());
+        ds_emp.setCellData(i, "confirmDt", ica_allCopCoConfirmDt.getValue());
+      }
+    } else {
+      ds_emp.undoRow(i);
+    }
+  }
+  if (k == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_056, ["항목"]);
+    return;
+  }
+  let chkGrid = await $c.gus.cfValidate($p, [gr_emp]);
+  if (!chkGrid) {
+    return;
+  }
+  let chk = await $c.gus.cfConfirmMsg($p, MSG_CM_CRM_002);
+  if (chk) {
+    scwin.f_HeaderCreate();
+    sbm_saveEmp.action = "/ds.op.wrkrslts.transwrkrslts.RegistSurchargeInformationCMD.do?pageGubun=1";
+    await $c.sbm.execute($p, sbm_saveEmp);
+  }
+};
+scwin.f_Confirm = async function () {
+  if (!ds_emp.isUpdated()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_001, ["Data"]);
+    return;
+  }
+  let chkGrid = await $c.gus.cfValidate($p, [gr_emp]);
+  if (!chkGrid) {
+    return;
+  }
+  let chkDt = await $c.gus.cfValidate($p, [ica_allCopCoConfirmDt]);
+  if (!chkDt) {
+    return;
+  }
+  let j = 0;
+  for (let i = 0; i < ds_emp.getRowCount(); i++) {
+    if (ds_emp.getCellData(i, "che") == "1") {
+      j++;
+      if (ds_emp.getCellData(i, "regDtm") == "") {
+        ds_emp.setRowPosition(i);
+        await $c.gus.cfAlertMsg($p, i + 1 + "번째 등록이 되지 않았습니다. \n 등록을 먼저 해주세요");
+        gr_emp.setFocusedCell(i, "regDtm");
+        return;
+      } else if (ds_emp.getCellData(i, "dcScNm") == "") {
+        ds_emp.setRowPosition(i);
+        await $c.gus.cfAlertMsg($p, i + 1 + "번째 등록이 되지 않았습니다. \n 등록을 먼저 해주세요");
+        gr_emp.setFocusedCell(i, "dcScNm");
+        return;
+      } else {
+        if (ds_emp.getCellData(i, "regDtm") > ds_emp.getCellData(i, "confirmDt") && ds_emp.getCellData(i, "confirmYn") != "0") {
+          ds_emp.setRowPosition(i);
+          await $c.gus.cfAlertMsg($p, "확인일자는 등록일자보다 빠를수 없습니다.");
+          gr_emp.setFocusedCell(i, "confirmDt");
+          return;
+        }
+      }
+      if (ds_emp.getOriginalCellData(i, "dcsnYn") == "2") {
+        ds_emp.setRowPosition(i);
+        await $c.gus.cfAlertMsg($p, i + 1 + "번째는 이미 확정된 데이타입니다. \n 반려할 수 없습니다.");
+        gr_emp.setFocusedCell(i, "confirmYn");
+        return;
+      }
+      if (ica_allCopCoConfirmDt.getValue().trim() != "") {
+        ds_emp.setCellData(i, "regDtm", ica_allCopCoConfirmDt.getValue());
+      }
+    } else {
+      ds_emp.undoRow(i);
+    }
+  }
+  if (j == 0) {
+    await $c.win.alert($p, "선택된 항목이없습니다.");
+    return;
+  }
+  let chk = await $c.gus.cfConfirmMsg($p, MSG_CM_CRM_002);
+  if (chk) {
+    scwin.f_HeaderCreate();
+    sbm_saveEmp.action = "/ds.op.wrkrslts.transwrkrslts.RegistSurchargeConfirmationCMD.do?pageGubun=1";
+    await $c.sbm.execute($p, sbm_saveEmp);
+  }
+};
+scwin.f_Dcsn = async function () {
+  if (!ds_emp.isUpdated()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_001, ["Data"]);
+    return;
+  }
+  let chkGrid = await $c.gus.cfValidate($p, [gr_emp]);
+  if (!chkGrid) {
+    return;
+  }
+  let chkDt = await $c.gus.cfValidate($p, [ica_allCopCoConfirmDt]);
+  if (!chkDt) {
+    return;
+  }
+  let j = 0;
+  for (let i = 0; i < ds_emp.getRowCount(); i++) {
+    if (ds_emp.getCellData(i, "che") == "1") {
+      j++;
+      if (ds_emp.getCellData(i, "dcsnDt") != "" && ds_emp.getCellData(i, "regDtm") > ds_emp.getCellData(i, "dcsnDt")) {
+        ds_emp.setRowPosition(i);
+        await $c.gus.cfAlertMsg($p, "확정일자는 등록일자보다 빠를수 없습니다.");
+        gr_emp.setFocusedCell(i, "dcsnDt");
+        return;
+      }
+      if (ica_allCopCoConfirmDt.getValue().trim() != "") {
+        ds_emp.setCellData(i, "regDtm", ica_allCopCoConfirmDt.getValue());
+      }
+    } else {
+      ds_emp.undoRow(i);
+    }
+  }
+  if (j == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_056, ["Data"]);
+    return;
+  }
+  let chk = await $c.win.confirm($p, "확정하시겠습니까");
+  if (chk) {
+    scwin.f_HeaderCreate();
+    sbm_saveEmp.action = "/ds.op.wrkrslts.transwrkrslts.RegistSurchargeDecisionCMD.do?pageGubun=1";
+    await $c.sbm.execute($p, sbm_saveEmp);
+  }
+};
+scwin.sbm_saveEmp_submitdone = async function (e) {
+  if (scwin.UPDATE_AUTH == "") {} else {}
+  if (scwin.PRINT_AUTH == "") {
+    $c.gus.cfDisableBtn($p, [btn_Dcsn, btn_DcsnChoice]);
+  } else {
+    $c.gus.cfEnableBtnOnly($p, [btn_Dcsn, btn_DcsnChoice]);
+  }
+  await $c.gus.cfAlertMsg($p, MSG_CM_INF_001);
+};
+scwin.sbm_saveEmp_submiterror = async function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.sbm_deleteEmp_submitdone = async function (e) {
+  await $c.gus.cfAlertMsg($p, "성공적으로 삭제하였습니다.");
+  scwin.f_Retrieve();
+};
+scwin.sbm_deleteEmp_submiterror = async function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_Delete = async function () {
+  let icnt = 0;
+  if (!ds_emp.isUpdated()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_001, ["Data"]);
+    return;
+  }
+  if (scwin.DELETE_AUTH == "") {
+    await $c.gus.cfAlertMsg($p, "삭제 권한이 없습니다.");
+    return;
+  }
+  for (let i = 0; i < ds_emp.getRowCount(); i++) {
+    if (ds_emp.getCellData(i, "che") == "1") {
+      icnt++;
+      if (ds_emp.getCellData(i, "dcsnYn") == "2" && ds_emp.getCellData(i, "dcsnDt").trim() != "") {
+        await $c.gus.cfAlertMsg($p, "확정되었으므로 삭제할 수 없습니다.");
+        return;
+      }
+    }
+  }
+  if (icnt > 0) {
+    let chk = await $c.gus.cfConfirmMsg($p, "삭제하시겠습니까?");
+    if (chk) {
+      dma_retrieve.set("lobran", co_lc_logisticsBranch.getValue());
+      dma_retrieve.set("wrkStDt", ica_wrkStDt.getValue());
+      dma_retrieve.set("wrkEndDt", ica_wrkEndDt.getValue());
+      dma_retrieve.set("cntrNo", ed_cntrNo.getValue());
+      dma_retrieve.set("vehclNo", eqCd.getValue());
+      dma_retrieve.set("wrkCls", co_lc_workGubun.getValue());
+      dma_retrieve.set("odrKnd", ed_odrNo.getValue());
+      dma_retrieve.set("selConfirm", selConfirm.getValue());
+      dma_retrieve.set("dptWrkPlCd", dptWrkPlCd.getValue());
+      dma_retrieve.set("arvWrkPlCd", arvWrkPlCd.getValue());
+      dma_retrieve.set("bilgMchtCd", bilgMchtCd.getValue());
+      dma_retrieve.set("copCoCd", copCoCd.getValue());
+      dma_retrieve.set("dcScKnd", "");
+      dma_retrieve.set("dcScAmtRate", "");
+      sbm_deleteEmp.action = "/ds.op.wrkrslts.transwrkrslts.DeleteDiscountSurchargeCMD.do?pageGubun=1";
+      await $c.sbm.execute($p, sbm_deleteEmp);
+    }
+  } else {
+    await $c.gus.cfAlertMsg($p, "삭제할 자료가 없습니다.");
+    return;
+  }
+};
+scwin.f_Reset = async function () {
+  $c.gus.cfInitObjects($p, []);
+  co_lc_workGubun.setValue("B");
+  udc_wrkDt.setInitDate(scwin.strDate, scwin.strDate);
+  ed_cntrNo.setValue("");
+  ed_odrNo.setValue("");
+  eqCd.setValue("");
+  vehclNo.setValue("");
+  dptWrkPlCd.setValue("");
+  dptWrkPlNm.setValue("");
+  arvWrkPlCd.setValue("");
+  arvWrkPlNm.setValue("");
+  bilgMchtCd.setValue("");
+  bilgMcht.setValue("");
+  copCoCd.setValue("");
+  copCoNm.setValue("");
+  em_alloccarPicId.setValue("");
+  txt_alloccarPicNm.setValue("");
+  ed_lineCd.setValue("");
+  txt_lineNm.setValue("");
+  selConfirm.setSelectedIndex(0);
+  acb_dtGubun.setValue("1");
+  acb_dptGubun.setValue("");
+  acb_cntrSizCd.setSelectedIndex(0);
+  acb_reeferYn.setSelectedIndex(0);
+  acb_wrkClsCd.setValue("");
+  acb_pusanClsCd.setValue("");
+};
+scwin.f_toExcel1 = async function () {
+  $c.data.downloadGridViewExcel($p, gr_emp, {
+    fileName: "오더 정보.xlsx",
+    sheetName: "오더 정보"
+  });
+};
+scwin.f_Undo = async function () {
+  ds_emp.undoAll();
+};
+scwin.f_Batch = async function () {
+  let j = 0;
+  let flag = false;
+  let topValue = 0;
+  let topValueCd = "";
+  for (let i = 0; i < 24; i++) {
+    let chbComp = $p.getComponentById("chb_sell" + (i + 1));
+    if (chbComp && chbComp.getValue() != "") {
+      flag = true;
+      if (topValue < Number(scwin.chb_sell_value[i]) && i + 1 != 18 && i + 1 != 24) {
+        topValue = scwin.chb_sell_value[i];
+        topValueCd = scwin.chb_sell_cd[i];
+      }
+    }
+  }
+  if (!flag) {
+    await $c.gus.cfAlertMsg($p, "일괄적용 할증종류가 선택 되지 않았습니다. \n 확인을 먼저 해주세요");
+    return;
+  }
+  let totalRow = ds_emp.getRowCount();
+  for (let i = 0; i < totalRow; i++) {
+    if (ds_emp.getCellData(i, "che") == "1" && ds_emp.getRowStatus(i) != "C") {
+      for (let jj = 0; jj < 24; jj++) {
+        let chbComp = $p.getComponentById("chb_sell" + (jj + 1));
+        if (chbComp && chbComp.getValue() != "") {
+          let newRow = ds_emp.insertRow(ds_emp.getRowCount());
+          let colCount = ds_emp.getColumnCount();
+          for (let dsCol = 0; dsCol < colCount; dsCol++) {
+            let colId = ds_emp.getColumnID(dsCol);
+            ds_emp.setCellData(newRow, colId, ds_emp.getCellData(i, colId));
+          }
+          if ("2022" == scwin.chb_sell_cd[jj] || "2028" == scwin.chb_sell_cd[jj]) {
+            ds_emp.setCellData(newRow, "dcScNm", scwin.chb_sell_nm[jj]);
+            ds_emp.setCellData(newRow, "dcScCd", scwin.chb_sell_cd[jj]);
+            if ("2022" == scwin.chb_sell_cd[jj]) {
+              ds_emp.setCellData(newRow, "dcScAmt", scwin.chb_sell_value[jj]);
+            } else {
+              let sell24Val = chb_sell24_value.getValue();
+              ds_emp.setCellData(newRow, "dcScAmt", sell24Val);
+            }
+            ds_emp.setCellData(newRow, "dcScAmtRate", "");
+            ds_emp.setCellData(newRow, "regDtm", ica_allCopCoConfirmDt.getValue());
+            ds_emp.setCellData(newRow, "confirmDt", ica_allCopCoConfirmDt.getValue());
+            ds_emp.setCellData(newRow, "dcsnYn", "0");
+            ds_emp.setCellData(newRow, "dcsnDt", "");
+            ds_emp.setCellData(newRow, "dcScRegNm", "");
+          } else {
+            ds_emp.setCellData(newRow, "dcScNm", scwin.chb_sell_nm[jj]);
+            ds_emp.setCellData(newRow, "dcScCd", scwin.chb_sell_cd[jj]);
+            let pchsAmtVal = Number(ds_emp.getCellData(i, "pchsAmt"));
+            let sellVal = scwin.chb_sell_value[jj];
+            if (topValueCd == scwin.chb_sell_cd[jj]) {
+              ds_emp.setCellData(newRow, "dcScAmt", Math.round(pchsAmtVal * (sellVal / 100) / 100) * 100);
+              ds_emp.setCellData(newRow, "dcScAmtRate", sellVal);
+            } else {
+              ds_emp.setCellData(newRow, "dcScAmt", Math.round(pchsAmtVal * (sellVal / 200) / 100) * 100);
+              ds_emp.setCellData(newRow, "dcScAmtRate", sellVal / 2);
+            }
+            ds_emp.setCellData(newRow, "regDtm", ica_allCopCoConfirmDt.getValue());
+            ds_emp.setCellData(newRow, "confirmDt", ica_allCopCoConfirmDt.getValue());
+            ds_emp.setCellData(newRow, "dcsnYn", "0");
+            ds_emp.setCellData(newRow, "dcsnDt", "");
+            ds_emp.setCellData(newRow, "dcScRegNm", "");
+          }
+        }
+      }
+      ds_emp.setCellData(i, "che", "0");
+    }
+  }
+  ds_emp.sort("odrNo", "asc");
+  await $c.gus.cfAlertMsg($p, "일괄적용이 완료되었습니다.");
+};
+scwin.f_ConfirmChoice = async function () {
+  if (scwin.cheCnt == "1") {
+    ds_emp.undoAll();
+    if (scwin.PRINT_AUTH == "") {
+      $c.gus.cfDisableBtn($p, [btn_Dcsn, btn_DcsnChoice]);
+    } else {
+      $c.gus.cfEnableBtnOnly($p, [btn_Dcsn, btn_DcsnChoice]);
+    }
+    for (let i = 0; i < ds_emp.getRowCount(); i++) {
+      ds_emp.setCellData(i, "che", "0");
+      ds_emp.setCellData(i, "confirmYn", ds_emp.getOriginalCellData(i, "confirmYn"));
+      ds_emp.setCellData(i, "confirmDt", ds_emp.getOriginalCellData(i, "confirmDt"));
+    }
+    scwin.cheCnt = "0";
+  } else {
+    $c.gus.cfDisableBtn($p, [btn_Dcsn, btn_DcsnChoice]);
+    for (let i = 0; i < ds_emp.getRowCount(); i++) {
+      if (ds_emp.getOriginalCellData(i, "regDtm") != "" && ds_emp.getOriginalCellData(i, "dcsnYn") != "2") {
+        ds_emp.setCellData(i, "che", "1");
+        ds_emp.setCellData(i, "confirmYn", "2");
+        if (ica_allCopCoConfirmDt.getValue() == "") {
+          ds_emp.setCellData(i, "confirmDt", scwin.vCurDate);
+        } else {
+          ds_emp.setCellData(i, "confirmDt", ica_allCopCoConfirmDt.getValue());
+        }
+      }
+    }
+    scwin.cheCnt = "1";
+  }
+};
+scwin.f_CancelChoice = async function () {
+  for (let i = 0; i < ds_emp.getRowCount(); i++) {
+    if (ds_emp.getOriginalCellData(i, "regDtm") != "" && ds_emp.getOriginalCellData(i, "confirmYn") == "2" && ds_emp.getOriginalCellData(i, "dcsnYn") == "0") {
+      ds_emp.setCellData(i, "che", "1");
+      ds_emp.setCellData(i, "confirmYn", "0");
+      ds_emp.setCellData(i, "confirmDt", "");
+    }
+  }
+};
+scwin.f_CancelDcsn = async function () {
+  for (let i = 0; i < ds_emp.getRowCount(); i++) {
+    if ("1" == ds_emp.getCellData(i, "che") && ds_emp.getOriginalCellData(i, "regDtm") != "" && ds_emp.getOriginalCellData(i, "dcsnYn") == "2") {
+      ds_emp.setCellData(i, "che", "1");
+      ds_emp.setCellData(i, "dcsnYn", "0");
+      ds_emp.setCellData(i, "dcsnDt", "");
+      ds_emp.setCellData(i, "confirmYn", "2");
+      ds_emp.setCellData(i, "confirmDt", "");
+    }
+  }
+};
+scwin.f_DcsnChoice = async function () {
+  if (scwin.cheCnt == "1") {
+    ds_emp.undoAll();
+    for (let i = 0; i < ds_emp.getRowCount(); i++) {
+      ds_emp.setCellData(i, "che", "0");
+      ds_emp.setCellData(i, "dcsnYn", ds_emp.getOriginalCellData(i, "dcsnYn"));
+      ds_emp.setCellData(i, "dcsnDt", ds_emp.getOriginalCellData(i, "dcsnDt"));
+    }
+    scwin.cheCnt = "0";
+  } else {
+    for (let i = 0; i < ds_emp.getRowCount(); i++) {
+      if ("1" == ds_emp.getCellData(i, "che") && ds_emp.getOriginalCellData(i, "regDtm") != "" && ds_emp.getOriginalCellData(i, "dcsnYn") != "2") {
+        ds_emp.setCellData(i, "che", "1");
+        ds_emp.setCellData(i, "dcsnYn", "2");
+        if (ica_allCopCoConfirmDt.getValue() == "") {
+          ds_emp.setCellData(i, "dcsnDt", scwin.vCurDate);
+        } else {
+          ds_emp.setCellData(i, "dcsnDt", ica_allCopCoConfirmDt.getValue());
+        }
+      }
+    }
+    scwin.cheCnt = "1";
+  }
+};
+scwin.gr_emp_oncellclick = async function (rowIndex, columnIndex, columnId) {
+  let t = 0;
+  let p = 0;
+  let cur = 0;
+  if (rowIndex >= 0) {
+    if (columnId == "commNm") {
+      if (ds_emp.getCellData(rowIndex, "commNm") != "") {
+        let url = "/ui/ds/op/wrkrslts/transwrkrslts/op_304_03_01b.xml";
+        if (ds_emp.getRowCount() < 1) {
+          await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002, [""]);
+          return;
+        }
+        let param = {
+          transWrkIndictNo: ds_emp.getCellData(rowIndex, "transWrkIndictNo"),
+          lobranCd: co_lc_logisticsBranch.getValue(),
+          wrkStDt: ica_wrkStDt.getValue(),
+          wrkCls: "B"
+        };
+        $c.win.openMenu($p, "운송할인할증등록", url, "op_304_03_01b.xml", param);
+      } else if (ds_emp.getCellData(rowIndex, "commNm") == "") {
+        await $c.gus.cfAlertMsg($p, "품명이 있는 항목을 선택하세요");
+        return;
+      }
+    } else if (columnId == "cntrNo") {
+      if (ds_emp.getCellData(rowIndex, "cntrNo") != "") {
+        let url = "/ui/ds/op/wrkrslts/transwrkrslts/op_304_03_01b.xml";
+        if (ds_emp.getRowCount() < 1) {
+          await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002, [""]);
+          return;
+        }
+        let param = {
+          transWrkIndictNo: ds_emp.getCellData(rowIndex, "transWrkIndictNo"),
+          lobranCd: co_lc_logisticsBranch.getValue(),
+          wrkStDt: ica_wrkStDt.getValue(),
+          wrkCls: "C",
+          cntrNo: ds_emp.getCellData(rowIndex, "cntrNo")
+        };
+        $c.win.openMenu($p, "운송할인할증등록", url, "op_304_03_01b.xml", param);
+      } else if (ds_emp.getCellData(rowIndex, "commNm") == "") {
+        await $c.gus.cfAlertMsg($p, "품명이 있는 항목을 선택하세요");
+        return;
+      }
+    }
+    if (columnId == "dcScNm") {
+      if (scwin.CREATE_AUTH == "") {
+        await $c.gus.cfAlertMsg($p, "등록 권한이 없습니다.");
+        return;
+      }
+      for (let i = 0; i < ds_emp.getRowCount(); i++) {
+        if (ds_emp.getCellData(i, "transWrkIndictNo") == ds_emp.getCellData(rowIndex, "transWrkIndictNo") && ds_emp.getCellData(i, "transRsltsSeq") == ds_emp.getCellData(rowIndex, "transRsltsSeq")) {
+          t++;
+          p = i;
+        }
+      }
+      cur = p - t + 1;
+      if (cur != rowIndex) {
+        await $c.gus.cfAlertMsg($p, "추가된 항목이므로 더 이상 추가할 수 없습니다.");
+        return;
+      }
+    } else if (columnId == "dcsnYn") {
+      if (scwin.DELETE_AUTH == "") {
+        await $c.gus.cfAlertMsg($p, "확인 권한이 없습니다.");
+        return;
+      }
+    } else if (columnId == "odrNo") {
+      let hrefaddress = "/ui/ds/op/wrkrslts/transwrkrslts/op_304_01_04b.xml";
+      let param = {
+        odrNo: ds_emp.getCellData(rowIndex, "odrNo")
+      };
+      $c.win.openMenu($p, "오더완료처리", hrefaddress, "op_304_01_04b.xml", param);
+    }
+  }
+};
+scwin.gr_emp_onheaderclick = async function (columnId) {
+  if (columnId == "che") {
+    if (scwin.cheCnt == "1") {
+      ds_emp.undoAll();
+      scwin.cheCnt = "0";
+    } else {
+      for (let i = 0; i < ds_emp.getRowCount(); i++) {
+        if (ds_emp.getOriginalCellData(i, "regDtm") == "") {
+          ds_emp.setCellData(i, "che", "1");
+        }
+      }
+      scwin.cheCnt = "1";
+    }
+  }
+};
+scwin.gr_emp_oncloseup = async function (rowIndex, columnId) {
+  switch (columnId) {
+    case "confirmYn":
+      if (ds_emp.getCellData(rowIndex, "confirmYn") == "0") {
+        ds_emp.setCellData(rowIndex, "confirmDt", "");
+      } else {
+        ds_emp.setCellData(rowIndex, "confirmDt", scwin.vCurDate);
+      }
+      if (ds_emp.getOriginalCellData(rowIndex, columnId) != ds_emp.getCellData(rowIndex, columnId)) {
+        ds_emp.setCellData(rowIndex, "che", "1");
+      } else {
+        ds_emp.setCellData(rowIndex, "che", "0");
+      }
+      break;
+    case "dcsnYn":
+      if (ds_emp.getCellData(rowIndex, "dcsnYn") == "0") {
+        ds_emp.setCellData(rowIndex, "dcsnDt", "");
+      } else {
+        ds_emp.setCellData(rowIndex, "dcsnDt", scwin.vCurDate);
+      }
+      if (ds_emp.getOriginalCellData(rowIndex, columnId) != ds_emp.getCellData(rowIndex, columnId)) {
+        ds_emp.setCellData(rowIndex, "che", "1");
+      } else {
+        ds_emp.setCellData(rowIndex, "che", "0");
+      }
+      break;
+    default:
+      break;
+  }
+};
+scwin.gr_emp_ontextimageclick = async function (rowIndex, columnIndex, columnId) {
+  switch (columnId) {
+    case "regDtm":
+      $c.gus.cfOpenCalendar($p, gr_emp, rowIndex, columnId);
+      break;
+    case "confirmDt":
+      $c.gus.cfOpenCalendar($p, gr_emp, rowIndex, columnId);
+      break;
+    case "dcsnDt":
+      $c.gus.cfOpenCalendar($p, gr_emp, rowIndex, columnId);
+      break;
+    case "dcScNm":
+      let paramObject = {
+        ds_emp: ds_emp
+      };
+      let returnValue = await $c.win.openPopup($p, "/ui/ds/op/wrkrslts/transwrkrslts/op_304_03_03p.xml", {
+        width: 375,
+        height: 470,
+        modal: true,
+        data: paramObject
+      });
+      for (let i = 0; i < ds_emp.getRowCount(); i++) {
+        if (ds_emp.getCellData(i, "che") == "1") {
+          ds_emp.setCellData(i, "regDtm", scwin.vCurDate);
+        }
+      }
+      break;
+    default:
+      break;
+  }
+};
+scwin.acb_wrkClsCd_onchange = function (e) {
+  scwin.f_filterDs();
+  $c.gus.cfShowTotalRows($p, spa_totalRow, ds_emp.getRowCount());
+};
+scwin.acb_pusanClsCd_onchange = function (e) {
+  acb_wrkClsCd.setValue("");
+  scwin.f_filterDs();
+  $c.gus.cfShowTotalRows($p, spa_totalRow, ds_emp.getRowCount());
+};
+scwin.f_filterDs = async function () {
+  let temp = acb_wrkClsCd.getValue();
+  let pusanClsCd = acb_pusanClsCd.getValue();
+  if (temp != "" || pusanClsCd != "") {
+    let filterExpr = "";
+    if (temp != "") {
+      let mappedVal = "";
+      if (temp == "S") {
+        mappedVal = "셔틀";
+      } else if (temp == "L") {
+        mappedVal = "로컬";
+      } else if (temp == "J") {
+        mappedVal = "중장거리";
+      }
+      if (mappedVal != "") {
+        filterExpr = "wrkClsCd == '" + mappedVal + "'";
+      }
+    }
+    if (pusanClsCd != "") {
+      let districtCode = "";
+      if (pusanClsCd == "01") {
+        districtCode = "GMN";
+      } else if (pusanClsCd == "02") {
+        districtCode = "JRB";
+      } else if (pusanClsCd == "03") {
+        districtCode = "GCN";
+      } else if (pusanClsCd == "04") {
+        districtCode = "NEW_PORT";
+      }
+      if (districtCode != "") {
+        let pusanFilter = "(dptDistrictCd == '" + districtCode + "' || arvDistrictCd == '" + districtCode + "')";
+        if (filterExpr != "") {
+          filterExpr = filterExpr + " && " + pusanFilter;
+        } else {
+          filterExpr = pusanFilter;
+        }
+      }
+    }
+    if (filterExpr != "") {
+      ds_emp.setFilterExpression(filterExpr);
+      ds_emp.filter();
+    } else {
+      ds_emp.removeFilter();
+    }
+  } else {
+    ds_emp.removeFilter();
+  }
+};
+scwin.acb_dptGubun_onchange = async function (e) {
+  let val = acb_dptGubun.getValue();
+  if (val == "") {
+    ica_dptStDt.setValue("");
+    ica_dptEndDt.setValue("");
+  } else if (val == "01" || val == "02") {
+    ica_dptStDt.setValue(ica_wrkStDt.getValue());
+    ica_dptEndDt.setValue(ica_wrkEndDt.getValue());
+  }
+};
+scwin.ica_wrkStDt_onchange = async function (e) {
+  if (acb_dptGubun.getValue() != "") {
+    ica_dptStDt.setValue(ica_wrkStDt.getValue());
+    ica_dptEndDt.setValue(ica_wrkEndDt.getValue());
+  }
+};
+scwin.ica_wrkEndDt_onchange = async function (e) {
+  if (acb_dptGubun.getValue() != "") {
+    ica_dptStDt.setValue(ica_wrkStDt.getValue());
+    ica_dptEndDt.setValue(ica_wrkEndDt.getValue());
+  }
+};
+scwin.eqCd_onblur = async function (e) {
+  scwin.f_chkOpenCommonPopUp(eqCd, vehclNo, "1");
+};
+scwin.dptWrkPlCd_onblur = async function (e) {
+  scwin.f_chkOpenCommonPopUp(dptWrkPlCd, dptWrkPlNm, "2");
+};
+scwin.arvWrkPlCd_onblur = async function (e) {
+  scwin.f_chkOpenCommonPopUp(arvWrkPlCd, arvWrkPlNm, "3");
+};
+scwin.bilgMchtCd_onblur = async function (e) {
+  scwin.f_chkOpenCommonPopUp(bilgMchtCd, bilgMcht, "4");
+};
+scwin.copCoCd_onblur = async function (e) {
+  scwin.f_chkOpenCommonPopUp(copCoCd, copCoNm, "5");
+};
+scwin.btn_Retrieve_onclick = async function (e) {
+  scwin.f_Retrieve();
+};
+scwin.btn_Reset_onclick = async function (e) {
+  scwin.f_Reset();
+};
+scwin.btn_resetChk_onclick = async function (e) {
+  scwin.f_resetChk();
+};
+scwin.btn_com_onclick = async function (e) {
+  scwin.f_Batch();
+};
+scwin.btn_Undo_onclick = async function (e) {
+  scwin.f_Undo();
+};
+scwin.btn_Del_onclick = async function (e) {
+  scwin.f_Delete();
+};
+scwin.btn_Add_onclick = async function (e) {
+  scwin.f_Register();
+};
+scwin.btn_Dcsn_onclick = async function (e) {
+  scwin.f_Dcsn();
+};
+scwin.btn_DcsnChoice_onclick = async function (e) {
+  scwin.f_DcsnChoice();
+};
+scwin.btn_CancelDcsn_onclick = async function (e) {
+  scwin.f_CancelDcsn();
+};
+scwin.btn_UptChoice_onclick = async function (e) {
+  scwin.f_ConfirmChoice();
+};
+scwin.btn_CancelChoice_onclick = async function (e) {
+  scwin.f_CancelChoice();
+};
+scwin.btn_Upt_onclick = async function (e) {
+  scwin.f_Confirm();
+};
+scwin.btn_Init_onclick = async function (e) {
+  ds_emp.insertRow(ds_emp.getRowCount());
+};
+scwin.dataSetDebug = async function (dataSet, isDebug) {
+  if (isDebug == true) {
+    let str = "[[[[" + dataSet.id + "]]]]]\n";
+    for (let dsRow = 0; dsRow < dataSet.getRowCount(); dsRow++) {
+      let colCount = dataSet.getColumnCount();
+      for (let dsCol = 0; dsCol < colCount; dsCol++) {
+        let colId = dataSet.getColumnID(dsCol);
+        str += "[" + colId + "] " + dataSet.getCellData(dsRow, colId) + ", ";
+      }
+      str += "\n\n";
+    }
+    await $c.win.alert($p, str);
+  }
+};
+scwin.f_Save = async function () {
+  if (!ds_emp.isUpdated()) {
+    await $c.win.alert($p, "변경된 사항이 없습니다.");
+    return;
+  }
+  let chk = await $c.win.confirm($p, "저장하시겠습니까?");
+  if (chk) {
+    await $c.sbm.execute($p, sbm_saveEmp);
+  }
+};
+scwin.f_Create = async function () {
+  ds_emp.insertRow(ds_emp.getRowCount());
+};
+scwin.f_Update = async function () {
+  if (ds_emp.getRowCount() == 0) {
+    await $c.win.alert($p, "조회된 데이터가 없습니다.");
+    return;
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:90px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'점소 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'xf:select1',A:{submenuSize:'fixed',appearance:'minimal',disabledclass:'selectbox_disabled',chooseOption:'false',disabled:'false',style:'width: 150px; width: 2px;',allOption:'false',id:'co_lc_logisticsBranch',class:'',direction:'auto'}},{T:1,N:'w2:autoComplete',A:{submenuSize:'fixed',chooseOption:'false',style:'width: 100px;',allOption:'false',id:'acb_dtGubun',class:'',editType:'select',search:'start'}},{T:1,N:'w2:udc_fromToCalendar',A:{refStDt:'',refDataMap:'',style:'',id:'udc_wrkDt',refEdDt:'',edFromId:'ica_wrkStDt',edToId:'ica_wrkEndDt'}}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업구분 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'false',disabledclass:'selectbox_disabled',id:'co_lc_workGubun',style:'width: 150px; width: 2px;',submenuSize:'fixed'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'CNTR번호 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'ed_cntrNo',style:'width: 100px;',mandatory:'true'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'오더번호 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'ed_odrNo',style:'width: 200px;',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'차량번호 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{id:'udc_eq',codeId:'eqCd',nameId:'vehclNo',popupID:'',selectID:'',style:'',validTitle:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업장 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:udc_comCode',A:{id:'udc_dptWrkPl',codeId:'dptWrkPlCd',selectID:'',popupID:'',validTitle:'',nameId:'dptWrkPlNm',style:''}},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'-',class:''}},{T:1,N:'w2:udc_comCode',A:{id:'udc_arvWrkPl',codeId:'arvWrkPlCd',selectID:'',popupID:'',validTitle:'',nameId:'arvWrkPlNm',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'담당자 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'false',disabledclass:'selectbox_disabled',id:'selConfirm',style:'width: 100px; width: 2px;',submenuSize:'fixed'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'등록자 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{id:'udc_alloccarPic',popupID:'',selectID:'',codeId:'em_alloccarPicId',validTitle:'',nameId:'txt_alloccarPicNm',style:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'청구거래처 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{id:'udc_bilgMcht',codeId:'bilgMchtCd',nameId:'bilgMcht',popupID:'',selectID:'',style:'',validTitle:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'매입거래처 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{id:'udc_copCo',codeId:'copCoCd',nameId:'copCoNm',popupID:'',selectID:'',style:'',validTitle:''}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업구간 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'false',chooseOption:'false',class:'',id:'acb_wrkClsCd',style:'width: 100px;',submenuSize:'fixed',editType:'select',search:'start'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할증비율 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'SIZE/냉동 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:autoComplete',A:{submenuSize:'fixed',chooseOption:'false',style:'width: 100px;',allOption:'false',id:'acb_cntrSizCd',class:'',editType:'select',search:'start'}},{T:1,N:'w2:autoComplete',A:{submenuSize:'fixed',chooseOption:'false',style:'width: 100px;',allOption:'false',id:'acb_reeferYn',class:'',editType:'select',search:'start'}}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'LINE',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{id:'udc_line',codeId:'ed_lineCd',nameId:'txt_lineNm',popupID:'',selectID:'',style:'',validTitle:''}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'부산구간 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'false',chooseOption:'false',class:'',id:'acb_pusanClsCd',style:'width: 100px;',submenuSize:'fixed',editType:'select',search:'start'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'출발일시 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:autoComplete',A:{submenuSize:'fixed',chooseOption:'false',style:'width: 150px;',allOption:'false',id:'acb_dptGubun',class:'',editType:'select',search:'start'}},{T:1,N:'w2:udc_fromToCalendar',A:{refStDt:'',refDataMap:'',style:'',id:'udc_dptDt',refEdDt:'',edFromId:'ica_dptStDt',edToId:'ica_dptEndDt'}}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_Reset',style:'',type:'button','ev:onclick':'scwin.btn_Reset_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_Retrieve',style:'',type:'button','ev:onclick':'scwin.btn_Retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'할증처리 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_resetChk',style:'',type:'button','ev:onclick':'scwin.btn_resetChk_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'초기화'}]}]}]}]},{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac',style:'width:40px;'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{class:'w2tb_th tac',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할인종류',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_th tac',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할증',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac',style:'width:40px;'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{class:'w2tb_th tac',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할인종류',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할증',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac',style:'width:40px;'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할인종류',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할증',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac',style:'width:40px;'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할인종류',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할증',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell1',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td tac',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'중량1톤초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td tac',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'10%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell7',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td tac',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'활대품10cm초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'10%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell13',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'플랙시백',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'20%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell19',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'밥태일1회왕복',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'100%',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell2',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td tac',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'중량2톤초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td tac',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'20%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell8',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td tac',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'활대품20cm초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'20%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell14',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'TANK',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'30%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell20',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'밥태일2회왕복',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'200%',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell3',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'중량3톤초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'30%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell9',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'활대품30cm초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'30%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell15',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'험로',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'20%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell21',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'위험물',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'30%',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell4',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'중량4톤초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'40%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell10',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'활대품40cm초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'40%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell16',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'덤프',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'25%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell22',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'화약류',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'100%',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell5',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'중량5톤초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'50%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell11',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'활대품50cm초과',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'50%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell17',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'심야',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'20%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell23',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'방사성',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'200%',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell6',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'냉동',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'30%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell12',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'할인종류',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'20%',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell18',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'검색기',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'96,000원',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac',style:'width:50px;'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_sell24',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'기타',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td tac'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'chb_sell24_value',style:'',mandatory:'true'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'오더정보 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'일괄적용 일자',class:''}},{T:1,N:'w2:inputCalendar',A:{style:'',id:'ica_allCopCoConfirmDt',class:'',calendarValueType:'yearMonthDate'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'btn_com',type:'button',class:'btn','ev:onclick':'scwin.btn_com_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'일괄적용'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_Undo',type:'button',class:'btn','ev:onclick':'scwin.btn_Undo_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'일괄취소'}]}]}]},{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_emp',focusMode:'row',id:'gr_emp',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'10',visibleRowNumFix:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',style:'',id:'che',value:'',displayMode:'label',fixColumnWidth:'true',trueValue:'T',falseValue:'F',defaultValue:'F',emptyValue:'F',valueType:'other'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'odrNo',value:'오더번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'bilgClntNm',value:'청구거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dptWrkPlCdNm',value:'출발지',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'arvWrkPlCdNm',value:'도착지',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dptDtm',value:'출발일시',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'arvDtm',value:'도착일시',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'vehclNo',value:'차량No',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'lineCd',value:'LINE',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'cntrNo',value:'CNTR</br>/No',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrSizCd',value:'Sz',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrTypCd',value:'Tp',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'copCoClntNm',value:'매입거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'sellAmt',value:'매출액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'pchsAmt',value:'매입액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dcScAmt',value:'할증금액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dcScNm',value:'할증항목',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dcScAmtRate',value:'할증률(%)',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'regDtm',value:'실적일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcsnYn',value:'확정',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dcsnDt',value:'확정일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcScRegNm',value:'등록자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'allocaNm',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'wrkClsCd',value:'작업구간',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'pchsSeq',value:'매입순번',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',style:'',id:'che_body',value:'',displayMode:'label',fixColumnWidth:'true',trueValue:'T',falseValue:'F',defaultValue:'F',emptyValue:'F',valueType:'other'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'odrNo_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'bilgClntNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dptWrkPlCdNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'arvWrkPlCdNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dptDtm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'arvDtm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'vehclNo_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'lineCd_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrNo_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrSizCd_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrTypCd_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'copCoClntNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'sellAmt_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'pchsAmt_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcScAmt_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcScNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcScAmtRate_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'regDtm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcsnYn_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcsnDt_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'dcScRegNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'allocaNm_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'wrkClsCd_body',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'pchsSeq_body',value:'',displayMode:'label'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'text',style:'',id:'column45',value:'',displayMode:'label',fixColumnWidth:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column44',value:'합계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column43',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column42',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column41',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column40',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column39',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column38',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column93',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column90',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column87',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column84',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column81',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column78',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column75',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column72',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column69',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column66',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column63',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column60',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column57',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column48',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column51',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column54',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column96',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_DcsnChoice',style:'',type:'button','ev:onclick':'scwin.btn_DcsnChoice_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'확정선택'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_CancelDcsn',style:'',type:'button','ev:onclick':'scwin.btn_CancelDcsn_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'확정해제'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'btn_Del',type:'button',class:'btn','ev:onclick':'scwin.btn_Del_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'삭제'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_Add',type:'button',class:'btn','ev:onclick':'scwin.btn_Add_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'등록'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Dcsn',style:'',type:'button','ev:onclick':'scwin.btn_Dcsn_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼명'}]}]}]}]}]}]}]}]}]})

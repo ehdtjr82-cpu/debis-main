@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_bank" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bankCd" name="은행코드" dataType="text"></w2:column>
+    					<w2:column id="bankNm" name="은행명" dataType="text"></w2:column>
+    					<w2:column id="bankCdNm" name="은행코드명" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="사용구분" dataType="number"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ac.fm.stdinfomgnt.RetrieveBankCMD.do" method="post" mediatype="application/json"
+    			ref="" target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveBank" action="/ac.fm.stdinfomgnt.CUDBankCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"action":"modified","id":"ds_bank","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveBank_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>  
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.editYn ="N";//변경정보 처리후 재조회시 체크하기 위한 처리.
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+	if (scwin.editYn =="N"){ //저장처리후에는 체크하지 않기 위한 방어코드
+        if ( ds_bank.getModifiedIndex().length > 0 ) {
+            if (await $c.win.confirm(MSG_CM_CRM_005) ) {
+                $c.sbm.execute(sbm_retrieve);
+            }
+        }
+        else {
+            $c.sbm.execute(sbm_retrieve);
+        }
+    }else{
+        $c.sbm.execute(sbm_retrieve);        
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save =  async function (e) {
+    if(ds_bank.getModifiedIndex().length==0){
+         $c.win.alert($c.data.getMessage(MSG_CM_ERR_001,"은행코드등록"));
+         return false;
+    }
+    
+    let ret = await $c.gus.cfValidate([gr_bankList]);
+    
+    if (ret) {
+        scwin.editYn ="Y";
+        
+        let validArry = [
+        {id:"bankCd", name: "은행코드",key:true}
+        ];
+        let gridName = "은행코드등록";
+        if(!await $c.gus.cfValidateGrid(gr_bankList, null, null, validArry, gridName)){
+            return false;
+        }
+        
+        if(await $c.win.confirm(MSG_CM_CRM_001)) {
+            $c.sbm.execute(sbm_saveBank);
+        }
+    }else{
+        scwin.editYn ="N";
+    }
+};
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_AddRow = function () {
+    $c.data.insertRow($p.getComponentById("gr_bankList"));
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_UndoAll = function () {
+    $c.data.undoRow(ds_bank, "Y");
+};
+
+//-------------------------------------------------------------------------
+// 신규 은행코드 삭제시 수행 (DB에 저장된 은행코드는 삭제 할 수 없음)
+//-------------------------------------------------------------------------
+scwin.f_Delete = function() {
+    if (ds_bank.getRowStatus(ds_bank.getRowPosition() )!="C"){
+        $c.gus.cfAlertMsg("저장 되어 있는 은행코드는 삭제를 하실 수 없습니다.");
+		return;
+    }
+    ds_bank.removeRow(ds_bank.getRowPosition()); //C일때 다른경우는 deleteRow
+};
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    scwin.editYn ="N";
+
+    if(e.responseJSON.GAUCE) {
+        ds_bank.setJSON(e.responseJSON.GAUCE);
+
+        if (ds_bank.getRowCount()==0){
+            $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        }else{
+            $c.gus.cfGoPrevPosition(gr_bankList, 0); //첫번째 row 포지션이동
+        }
+    }
+    // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+    tbx_totalRows.setValue($c.gus.cfInsertComma(ds_bank.getRowCount()));
+        
+}; 
+
+//-------------------------------------------------------------------------
+// 저장결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_saveBank_submitdone = async function() {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+}; ]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="" style="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_bank" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="20" visibleRowNumFix="true" id="gr_bankList" resize="true" columnMove="true" dataDragSelect="true" dataDragSelectAutoScroll="true" sortable="true" editModeEvent="onclick" alidFeatures="ignoreStatus=no" rowStatusVisible="true" gridName="은행코드등록">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" width="150" value="은행코드" class="txt-red">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" width="300" value="은행명" class="txt-red">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" width="150" value="사용구분" class="txt-blue">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="bankCd" inputType="text" removeBorderStyle="false" width="150" allowChar="a-zA-Z0-9" mandatory="true" minLength="2" objType="data" maxLength="2">
+                                                </w2:column>
+                                                <w2:column blockSelect="false" displayMode="label" id="bankNm" inputType="text" removeBorderStyle="false" width="300" textAlign="left" mandatory="true" maxLength="30" objType="data">
+                                                </w2:column>
+                                                <w2:column blockSelect="false" displayMode="label" id="useYn" inputType="select" removeBorderStyle="false" width="150" value="0" textAlign="left" allOption="" chooseOption="" ref="" dataType="number">
+                                                    <w2:choices>
+                                                        <w2:item>
+                                                            <w2:label><![CDATA[사용]]></w2:label>
+                                                            <w2:value><![CDATA[1]]></w2:value>
+                                                        </w2:item>
+                                                        <w2:item>
+                                                            <w2:label><![CDATA[미사용]]></w2:label>
+                                                            <w2:value><![CDATA[0]]></w2:value>
+                                                        </w2:item>
+                                                    </w2:choices>
+                                                </w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:button class="btn sm" id="btn_addRow" label="행추가" style="" ev:onclick="scwin.f_AddRow" userAuth="C"></w2:button>
+    									<w2:button class="btn sm" id="btn_delete" label="행삭제" style="" ev:onclick="scwin.f_Delete" userAuth="D"></w2:button>
+    									<w2:button class="btn sm" id="btn_undoAll" label="취소" style="" ev:onclick="scwin.f_UndoAll"></w2:button>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					<xf:group class="btnbox" id="">
+    						<xf:group class="right" id="">
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

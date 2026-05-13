@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="이트란스 전송데이터 조회" meta_screenId="op_601_01_01b" meta_subsystem="물류 &gt; 작업실적 &gt; 입출고/반출입(자가)" meta_author="김원빈" meta_type="메인" meta_etc="$c.win.alert 크기조절 안됨">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+        <w2:historyInfo>
+			<w2:history meta_no="" meta_desc="최초개발" meta_date="2025/12/22" meta_user="김원빈"></w2:history>
+		</w2:historyInfo>
+		<w2:publicInfo method="scwin.f_HiddenDivAlert,scwin.f_OnLoad,scwin.f_selectTabMenu,scwin.globalVars" />
+		<script lazy="false" type="text/javascript"><![CDATA[/**
+ * @event 
+ * @name onpageload 
+ * @description 화면 초기화
+ */
+scwin.onpageload = function () {
+    scwin.globalVars();
+    scwin.f_OnLoad();
+};
+
+
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언
+ */
+scwin.globalVars = function () {
+
+    //세션정보
+    const loginDTO = $c.data.getMemInfo();
+
+    scwin.cntrNo = $c.data.getParameter('cntrNo') ?? '';
+    scwin.v_bookingNo = '';
+    scwin.v_blNo = '';
+    scwin.v_cntrNo = '';
+    scwin.v_idx = 0;
+    scwin.userId = loginDTO.userId;  //로그인아이디
+    scwin.userClsCd = loginDTO.userClsCd;
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 화면 시작시
+ */
+scwin.f_OnLoad = function () {
+
+    if (scwin.userClsCd == '05' || scwin.userId == 'csssso') {
+        scwin.v_idx = 1;
+    };
+
+    scwin.f_selectTabMenu(scwin.v_idx);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_selectTabMenu 
+ * @description Tab Menu 선택시 처리
+ */
+scwin.f_selectTabMenu = function (idx) {
+
+    const tabWinObj = tab_mxTab_page.getWindow(idx);
+
+    let tabSetArray = [
+        { obj: tabWinObj.ed_bookingNo, gVar: scwin.v_bookingNo },
+        { obj: tabWinObj.ed_blNo, gVar: scwin.v_blNo },
+        { obj: tabWinObj.ed_cntrNo, gVar: scwin.v_cntrNo },
+    ];
+
+    for (let i = 0; i < tabSetArray.length; i++) {
+        if (tabSetArray[i].obj === undefined) continue;
+        tabSetArray[i].gVar = tabSetArray[i].obj.getValue()
+    };
+
+    if ($c.gus.cfIsNull(idx)) idx = 0;
+
+    tabWinObj.scwin.blNo = scwin.v_blNo;
+    tabWinObj.scwin.bookingNo = scwin.v_bookingNo;
+    tabWinObj.scwin.cntrNo = scwin.v_cntrNo;
+
+    tab_mxTab_page.setSelectedTabIndex(idx);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_HiddenDivAlert 
+ * @description 경고 팝업
+ */
+scwin.f_HiddenDivAlert = function (errorTxt, lineCharge) {
+
+    const messageStr =
+        '<font color="black">' +
+        '<font size="3" color = "red"><b>예상되는 오류  </b></font><br>' +
+        '<font color="blue" size="2" ><b>' + lineCharge + '</b></font><br>' +
+        '* 부킹개수 초과로 인해 접수되지 않은경우 --> 부킹갯수 초과!<br>' +
+        '* 차량넘버 오류 --> 전송된 차량넘버 확인요망! ( 재 전송시 기존전송 삭제)<br>' +
+        '* 콤바인 전송오류 --> 기존전송 삭제 후 콤바인 전송시 EMPTY 1, EMPTY 2 로 전송요망!<br>' +
+        '* 모선항차 오류 -->기존전송 삭제 후  DPCY 월 항차 입력요망!' +
+        '</font><br>';
+
+    const data = { message: messageStr }
+    const options = {
+        popupName: $c.data.getMessage(MSG_CM_00046),
+        width: 500,
+        height: 400,
+        frameModal: "top",
+        type: "pageFramePopup",
+        className: "messagebox"
+    };
+    $c.win.openPopup('/cm/xml/messageBox.xml', options, data);
+    // $c.win.alert(messageStr, '', { width: '400px', height: '500px' })
+
+};
+
+
+
+//-----------------------------------------------------------------------------
+//   Component event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name tab_mxTab_page_onchange 
+ * @description 선택 된 tab이 변경된 경우에 발생한다.
+ */
+scwin.tab_mxTab_page_onchange = function (tabId, index, userTabId) {
+    scwin.f_selectTabMenu(index);
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="tabbox " id="">
+				<xf:group class="wq_tab" id="">
+					<w2:tabControl alwaysDraw="true" id="tab_mxTab_page" style="" ev:onchange="scwin.tab_mxTab_page_onchange">
+						<w2:tabs disabled="false" id="tabs3" label="COPARN" style=""></w2:tabs>
+						<w2:tabs disabled="false" id="tabs4" label="COPINO" style=""></w2:tabs>
+						<w2:content alwaysDraw="true" id="content0" style="" src="/ui/ds/op/plism/op_601_01_02b.xml"></w2:content>
+						<w2:content alwaysDraw="true" id="content1" style="" src="/ui/ds/op/plism/op_601_01_03b.xml"></w2:content>
+					</w2:tabControl>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

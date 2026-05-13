@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search">
+                <w2:keyInfo>
+                    <w2:key id="slipDtFrom" name="전표시작일자" dataType="text"></w2:key>
+                    <w2:key id="slipDtTo" name="전표종료일자" dataType="text"></w2:key>
+                    <w2:key id="acctDept" name="귀속부서" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_out" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+                    <w2:column id="slipDt" name="전표일자" dataType="text"></w2:column>
+                    <w2:column id="txnNo" name="거래번호" dataType="text"></w2:column>
+                    <w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="drawAcctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="dsum" name="금액" dataType="number"></w2:column>
+                    <w2:column id="csum" name="금액" dataType="number"></w2:column>
+                    <w2:column id="postDt" name="회계처리일자" dataType="text"></w2:column>
+                    <w2:column id="postYn" name="회계처리여부" dataType="text"></w2:column>
+                    <w2:column id="postAcctDeptCd" name="회계처리귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="postAcctDeptNm" name="회계처리귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="drawEmpNo" name="작성자사원번호" dataType="text"></w2:column>
+                    <w2:column id="drawEmpNm" name="작성자명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.op.wrkrslts.transwrkrslts.RetrieveFaultRateSlipCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_out","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.arrRtnVal = [];
+
+        scwin.vCurDate = "";
+        scwin.vQryStDt = "";
+        scwin.vQryEndDt = "";
+
+        scwin.onpageload = function() {
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";
+            scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDate(scwin.vCurDate);
+        };
+
+        scwin.onUdcCompleted = function() {
+            udc_slipDt.setInitDate(scwin.vQryStDt, scwin.vQryEndDt);
+        };
+
+        scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList = [];
+
+            switch (disGubun) {
+                case 1:
+                    udc_acctDept.ilCommonPopUp(scwin.callbackAcctDept,
+                        pCode,
+                        pName,
+                        pClose,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        'F',
+                        "귀속부서조회,귀속부서코드,귀속부서명");
+                    break;
+
+                default:
+                    break;
+            }
+        };
+
+        scwin.callbackAcctDept = function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_acctDept, txt_acctDeptNm);
+        };
+
+        scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+                return;
+            }
+
+            $c.gus.cfClearPairObj(pairObj);
+
+            let pVal = $c.gus.cfGetValue(inObj);
+
+            if (isCode == null || isCode == true) {
+                scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+            } else {
+                scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+            }
+        };
+
+        scwin.f_Retrieve = async function() {
+            let chk = await $c.gus.cfValidate([searchTable]);
+            if (!chk) {
+                return;
+            }
+
+            dma_search.set("slipDtFrom", ica_slipDtFrom.getValue());
+            dma_search.set("slipDtTo", ica_slipDtTo.getValue());
+            dma_search.set("acctDept", ed_acctDept.getValue());
+
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.f_OnUnload = function() {
+            let returnObject = {};
+            let rowPos = ds_out.getRowPosition();
+            returnObject.rowPosition = rowPos;
+            returnObject.slipNo = ds_out.getCellData(rowPos, "slipNo");
+            returnObject.slipDt = ds_out.getCellData(rowPos, "slipDt");
+            returnObject.acctDeptCd = ds_out.getCellData(rowPos, "acctDeptCd");
+            returnObject.drawAcctDeptNm = ds_out.getCellData(rowPos, "drawAcctDeptNm");
+
+            $c.win.closePopup(returnObject);
+        };
+
+        scwin.f_WinClose = function() {
+            $c.win.closePopup();
+        };
+
+        scwin.f_FieldClear = function() {
+            udc_slipDt.setInitDate(scwin.vQryStDt, scwin.vQryEndDt);
+            ed_acctDept.setValue("");
+            txt_acctDeptNm.setValue("");
+        };
+
+        scwin.gr_out_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+            scwin.f_OnUnload();
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            let rowcnt = ds_out.getRowCount();
+            spa_totalRow.setValue(rowcnt);
+
+            if (rowcnt == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            }
+        };
+
+        scwin.sbm_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.udc_acctDept_onblurCode = function() {
+            scwin.f_chkOpenCommonPopUp(ed_acctDept, txt_acctDeptNm, 1);
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.btn_fieldClear_onclick = function(e) {
+            scwin.f_FieldClear();
+        };
+
+        scwin.btn_close_onclick = function(e) {
+            scwin.f_WinClose();
+        };
+    ]]></script>
+
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="귀속부서" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_acctDept" codeId="ed_acctDept" nameId="txt_acctDeptNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="전표일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_slipDt" edFromId="ica_slipDtFrom" edToId="ica_slipDtTo" refDataMap="" refEdDt="" refStDt="" style=""></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_out" id="gr_out" style="" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="slipNo" inputType="text" value="전표번호" width="80"></w2:column>
+    							<w2:column displayMode="label" id="slipDt" inputType="text" value="전표일자" width="80"></w2:column>
+    							<w2:column displayMode="label" id="txnNo" inputType="text" value="거래번호" width="80"></w2:column>
+    							<w2:column displayMode="label" id="acctDeptCd" inputType="text" value="귀속부서코드" width="90" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="drawAcctDeptNm" inputType="text" value="귀속 부서명" width="90"></w2:column>
+    							<w2:column displayMode="label" id="dsum" inputType="text" value="금액" width="90"></w2:column>
+    							<w2:column displayMode="label" id="csum" inputType="text" value="금액" width="90"></w2:column>
+    							<w2:column displayMode="label" id="postDt" inputType="text" value="회계처리일자" width="80"></w2:column>
+    							<w2:column displayMode="label" id="postYn" inputType="text" value="회계처리여부" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="postAcctDeptCd" inputType="text" value="회계처리&lt;br/&gt;귀속부서코드" width="140" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="postAcctDeptNm" value="회계처리 귀속부서명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="drawEmpNo" value="작성자사원번호" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="80" inputType="text" id="drawEmpNm" value="작성자명" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="slipNo" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="slipDt" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="txnNo" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="acctDeptCd" inputType="text" width="90"></w2:column>
+    							<w2:column displayMode="label" id="drawAcctDeptNm" inputType="text" width="90"></w2:column>
+    							<w2:column displayMode="label" id="dsum" inputType="text" width="90" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column displayMode="label" id="csum" inputType="text" width="90" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column displayMode="label" id="postDt" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="postYn" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="postAcctDeptCd" inputType="text" width="140"></w2:column>
+    							<w2:column width="100" inputType="text" id="postAcctDeptNm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="drawEmpNo" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" id="drawEmpNm" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

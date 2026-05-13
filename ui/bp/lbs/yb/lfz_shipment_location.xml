@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_Contr" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="picNm" name="담당자명" dataType="text"></w2:column>
+    					<w2:column id="handphoneNo" name="휴대전화번호" dataType="text"></w2:column>
+    					<w2:column id="pdaNo" name="PDANO" dataType="text"></w2:column>
+    					<w2:column id="dtgNo" name="DTG번호" dataType="text"></w2:column>
+    					<w2:column id="dptDt" name="출발일자" dataType="text"></w2:column>
+    					<w2:column id="arvDt" name="도착일자" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_Contr2">
+    				<w2:keyInfo>
+    					<w2:key id="vehclNo" name="차량번호" dataType="text"></w2:key>
+    					<w2:key id="picNm" name="담당자명" dataType="text"></w2:key>
+    					<w2:key id="handphoneNo" name="휴대전화번호" dataType="text"></w2:key>
+    					<w2:key id="pdaNo" name="PDANO" dataType="text"></w2:key>
+    					<w2:key id="dtgNo" name="DTG번호" dataType="text"></w2:key>
+    					<w2:key id="dptDt" name="출발일자" dataType="text"></w2:key>
+    					<w2:key id="arvDt" name="도착일자" dataType="text"></w2:key>
+    					<w2:key id="qryCar" name="조회차량" dataType="text"></w2:key>
+    					<w2:key id="qryCntn" name="조회내용" dataType="text"></w2:key>
+    					<w2:key id="qryEdate" name="조회시작일" dataType="text"></w2:key>
+    					<w2:key id="qrySdate" name="조회종료일" dataType="text"></w2:key>
+    					<w2:key id="Gubun" name="구분" dataType="text"></w2:key>
+    					<w2:key id="stDt" name="시작일자" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="종료일자" dataType="text"></w2:key>
+    					<w2:key id="dayGijun" name="일기준" dataType="text"></w2:key>
+    					<w2:key id="exArvDt" name="예상도착일자" dataType="text"></w2:key>
+    					<w2:key id="exDptDt" name="예상출발일자" dataType="text"></w2:key>
+    					<w2:key id="dayChk" name="일체크" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_Trace" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="picNm" name="담당자명" dataType="text"></w2:column>
+    					<w2:column id="handphoneNo" name="휴대전화번호" dataType="text"></w2:column>
+    					<w2:column id="carTon" name="차톤" dataType="text"></w2:column>
+    					<w2:column id="vehclSts" name="차량상태" dataType="text"></w2:column>
+    					<w2:column id="addr" name="주소" dataType="text"></w2:column>
+    					<w2:column id="rcvDt" name="DTM(148):수신일시" dataType="text"></w2:column>
+    					<w2:column id="xpos" name="X좌표" dataType="text"></w2:column>
+    					<w2:column id="ypos" name="Y좌표" dataType="text"></w2:column>
+    					<w2:column id="spd" name="속도" dataType="text"></w2:column>
+    					<w2:column id="drct" name="방향" dataType="text"></w2:column>
+    					<w2:column id="lon" name="LON" dataType="text"></w2:column>
+    					<w2:column id="lat" name="LAT" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_Trace2" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="picNm" name="담당자명" dataType="text"></w2:column>
+    					<w2:column id="handphoneNo" name="휴대전화번호" dataType="text"></w2:column>
+    					<w2:column id="carTon" name="차톤" dataType="text"></w2:column>
+    					<w2:column id="vehclSts" name="차량상태" dataType="text"></w2:column>
+    					<w2:column id="addr" name="주소" dataType="text"></w2:column>
+    					<w2:column id="rcvDt" name="DTM(148):수신일시" dataType="text"></w2:column>
+    					<w2:column id="xpos" name="X좌표" dataType="text"></w2:column>
+    					<w2:column id="ypos" name="Y좌표" dataType="text"></w2:column>
+    					<w2:column id="spd" name="속도" dataType="text"></w2:column>
+    					<w2:column id="drct" name="방향" dataType="text"></w2:column>
+    					<w2:column id="lon" name="LON" dataType="text"></w2:column>
+    					<w2:column id="lat" name="LAT" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_Contr">
+    				<w2:keyInfo>
+    					<w2:key id="CAR_NO" name="차량번호" dataType="text"></w2:key>
+    					<w2:key id="ODR_NO" name="오더번호" dataType="text"></w2:key>
+    					<w2:key id="CLNT_NO" name="거래처번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_Retrieve" action="/ncall.bp.lbs.yb.yb.LfzTraceCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_Contr2","key":"IN_DS1"},{"id":"ds_Trace","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_Trace","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_Retrieve2" action="/ncall.bp.lbs.yb.yb.LfzTraceCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_Contr2","key":"IN_DS1"},{"id":"ds_Trace2","key":"OUT_DS1"}]' target='data:json,{"id":"ds_Trace2","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Retrieve2_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_RetrieveContr" action="/ncall.bp.lbs.yb.yb.RetrieveLfzVhclLocationCMD.do" method="post" mediatype="application/json" ref="data:json,dma_Contr"
+    			target='data:json,{"id":"ds_Contr","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_RetrieveContr_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.odrNo = "";
+scwin.mobileLoadChk = "";
+scwin.dayGijun = "";
+scwin.exArvDt = "";
+scwin.exDptDt = "";
+scwin.dayChk = "";
+scwin.clntNo = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {    
+    let params = $c.data.getParameter();
+
+    if (!$c.util.isEmpty(params["CAR_NO"])) {
+        scwin.carNo = params["CAR_NO"].replaceAll("'", "");
+    }
+
+    if (!$c.util.isEmpty(params["ODR_NO"])) {
+        scwin.odrNo = params["ODR_NO"];
+    }
+
+    if (!$c.util.isEmpty(params["MOBILE_LOAD_CHK"])) {
+        scwin.mobileLoadChk = params["MOBILE_LOAD_CHK"];
+    }
+
+    if (!$c.util.isEmpty(params["DAY_GIJUN"])) {
+        scwin.dayGijun = params["DAY_GIJUN"];
+    }
+
+    if (!$c.util.isEmpty(params["EX_ARV_DT"])) {
+        scwin.exArvDt = params["EX_ARV_DT"];
+    }
+
+    if (!$c.util.isEmpty(params["EX_DPT_DT"])) {
+        scwin.exDptDt = params["EX_DPT_DT"];
+    }
+
+    if (!$c.util.isEmpty(params["DAY_CHK"])) {
+        scwin.dayChk = params["DAY_CHK"];
+    }
+
+    if (!$c.util.isEmpty(params["SCH_CLNT_NO"])) {
+        scwin.clntNo = params["SCH_CLNT_NO"];
+    }
+
+    //테스트 데이터
+    // scwin.carNo = "경기81바5899";
+    // scwin.odrNo = "18726409";
+    // scwin.mobileLoadChk = "Y";
+    // scwin.dayGijun = "";
+    // scwin.exArvDt = "";
+    // scwin.exDptDt = "";
+    // scwin.dayChk = "";
+    // scwin.clntNo = "000001";
+
+    // 차량정보 조회
+    scwin.f_RetrieveVehicle();
+};
+
+//-------------------------------------------------------------------------
+// 차량정보 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveVehicle = function () {
+    dma_Contr.set("CAR_NO", scwin.carNo);
+    dma_Contr.set("ODR_NO", scwin.odrNo);
+    dma_Contr.set("CLNT_NO", scwin.clntNo);
+
+    $c.sbm.execute(sbm_RetrieveContr);
+};
+
+//-------------------------------------------------------------------------
+// 지도 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveTrace = function () {
+    dma_Contr2.set("qryCar", "lfz2");
+    dma_Contr2.set("qryCntn", ds_Contr.getCellData(0, 'vehclNo'));
+    dma_Contr2.set("pdaNo", ds_Contr.getCellData(0, 'pdaNo'));
+    dma_Contr2.set("dtgNo", ds_Contr.getCellData(0, 'dtgNo'));
+    dma_Contr2.set("qryEdate", ds_Contr.getCellData(0, 'dptDt'));
+    dma_Contr2.set("qrySdate", ds_Contr.getCellData(0, 'maxRptDt'));
+    dma_Contr2.set("Gubun", "chase");
+    dma_Contr2.set("stDt", ds_Contr.getCellData(0, 'dptDt'));   
+    dma_Contr2.set("endDt", ds_Contr.getCellData(0, 'arvDt'));
+    dma_Contr2.set("dayGijun", scwin.dayGijun);
+    dma_Contr2.set("exArvDt", scwin.exArvDt);
+    dma_Contr2.set("exDptDt", scwin.exDptDt);
+    dma_Contr2.set("dayChk", scwin.dayChk);
+
+    $c.sbm.execute(sbm_Retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 차량리스트 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveTrace2 = function () {
+    dma_Contr2.set("qryCar", "lfz2");
+    dma_Contr2.set("qryCntn", ds_Contr.getCellData(0, 'vehclNo'));
+    dma_Contr2.set("pdaNo", ds_Contr.getCellData(0, 'pdaNo'));
+    dma_Contr2.set("dtgNo", ds_Contr.getCellData(0, 'dtgNo'));
+    dma_Contr2.set("qryEdate", ds_Contr.getCellData(0, 'dptDt'));
+    dma_Contr2.set("Gubun", "list");
+    dma_Contr2.set("stDt", ds_Contr.getCellData(0, 'dptDt'));
+    dma_Contr2.set("endDt", ds_Contr.getCellData(0, 'arvDt'));
+    dma_Contr2.set("dayGijun", scwin.dayGijun);
+    dma_Contr2.set("exArvDt", scwin.exArvDt);
+    dma_Contr2.set("exDptDt", scwin.exDptDt);
+    dma_Contr2.set("dayChk", scwin.dayChk);
+
+    $c.sbm.execute(sbm_Retrieve2);
+};
+
+//-------------------------------------------------------------------------
+// 차량정보 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_RetrieveContr_submitdone = function (e) {
+    tbx_vehclNo.setValue(ds_Contr.getCellData(0, "vehclNo"));
+    tbx_picNm.setValue(ds_Contr.getCellData(0, "picNm"));
+    tbx_handphoneNo.setValue(ds_Contr.getCellData(0, "handphoneNo"));
+
+    if (ds_Contr.getCellData(0, 'pdaNo') == "" && ds_Contr.getCellData(0, 'dtgNo') == "") {
+        grp_message.show("");
+        tbx_message.setValue("관제장비 미장착 차량입니다.");
+    } else {
+        grp_message.hide();
+        tbx_message.setValue("");
+        scwin.f_RetrieveTrace();
+        scwin.f_RetrieveTrace2();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_Retrieve_submitdone = function (e) {
+    // 카카오맵
+    if (ds_Trace.getRowCount() == 0) {  
+        var position = new kakao.maps.LatLng("37.477785", "127.043958");
+        var mapContainer = grp_map.render; // 그룹 객체아이디(grp_map) 의 div 영역지정
+        var mapOption = {
+            center: position
+            , level: 3 // 지도의 확대 레벨
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        // 마커 이미지의 이미지 주소입니다
+        var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35);
+
+        // 마커 이미지를 생성합니다    
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: position, // 마커를 표시할 위치
+            title: "동원산업", // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image: markerImage // 마커 이미지 
+        });
+
+        if (scwin.mobileLoadChk == "N") {
+            $c.win.alert("모바일 출발 보고 내역이 없습니다.");
+        }
+
+        $c.win.alert("관제내역이 1건도 존재하지 않습니다.");
+
+    } else {
+        var lat = "";
+        var lon = "";
+        var lat1 = ds_Trace.getCellData(0, "lat");
+        var lon1 = ds_Trace.getCellData(0, "lon");
+
+        var position = new kakao.maps.LatLng(lat1, lon1);
+
+        var mapContainer = grp_map.render; // 그룹 객체아이디(grp_map) 의 div 영역지정
+        var mapOption = {
+            center: position
+            , level: 7 // 지도의 확대 레벨
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        var startSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다  
+            startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
+            startOption = {
+                offset: new kakao.maps.Point(15, 43) // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+            };
+
+        // 출발 마커 이미지를 생성합니다
+        var startImage = new kakao.maps.MarkerImage(startSrc, startSize, startOption);
+
+        // 출발 마커가 표시될 위치입니다 
+        var startPosition = new kakao.maps.LatLng(lat1, lon1);
+
+        // 출발 마커를 생성합니다
+        var startMarker = new kakao.maps.Marker({
+            map: map, // 출발 마커가 지도 위에 표시되도록 설정합니다
+            position: startPosition,
+            draggable: false, // 출발 마커가 드래그 가능하도록 설정합니다
+            image: startImage // 출발 마커이미지를 설정합니다
+        });
+
+        // 마커 이미지의 이미지 주소입니다
+        var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+        for (var i = 1; i < ds_Trace.getRowCount(); i++) {
+            lat = ds_Trace.getCellData(i, "lat");
+            lon = ds_Trace.getCellData(i, "lon");
+            addr = ds_Trace.getCellData(i, "addr") + " " + ds_Trace.getCellData(i, "rcvDt");
+
+            var positions = new Array();
+
+            var title = addr;
+            var latlng = new kakao.maps.LatLng(lat, lon);
+
+            positions[0] = title;
+            positions[1] = latlng;
+
+            // 마커 이미지의 이미지 크기 입니다
+            var imageSize = new kakao.maps.Size(24, 35);
+
+            // 마커 이미지를 생성합니다    
+            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: positions[1], // 마커를 표시할 위치
+                title: positions[0], // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                image: markerImage // 마커 이미지 
+            });
+
+        }
+
+        if (scwin.mobileLoadChk == "N") {
+            $c.win.alert("모바일 출발 보고 내역이 없습니다.");
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 위치추적 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_Retrieve2_submitdone = function (e) {
+    tbx_totalRows.setValue(ds_Trace2.getRowCount());
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id=""><xf:group id="grp_map" class="row-gap-8 flex-full"></xf:group><xf:group id="" class="lybox flex_no wfix">
+    				<xf:group id="" class="col" style="width: 30%;">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="차량정보" class="tit"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="" id="" class="tbbox">
+    						<xf:group tagname="table" style="" id="" class="w2tb">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group tagname="col" style="width:120px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group tagname="th" style="" class="w2tb_th">
+    									<w2:textbox ref="" style="" userData2="" id="" label="차량번호" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" style="" class="w2tb_td">
+    									<w2:textbox class="" id="tbx_vehclNo" label="" style=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="운전자명" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:textbox class="" id="tbx_picNm" label="" style=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="연락처" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="tbx_handphoneNo" label="" style=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="운송사" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="동원로엑스" style=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						<xf:group tagname="tr" id="grp_message">
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    									<w2:colspan>2</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox class="" id="tbx_message" label="text" style=""></w2:textbox>
+    							</xf:group></xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="" class="col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="위치추적" class="tit"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_Trace2" style="" autoFit="allColumn"
+    							id="gr_Location" visibleRowNum="3" class="wq_gvw" readOnly="true">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="120" inputType="text" id="column1" value="추적일시" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column16" value="차량상태" displayMode="label"></w2:column>
+    									<w2:column width="250" inputType="text" id="column15" value="위치" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column13" value="속도" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column18" value="방향" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column20" value="차량번호" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column22" value="운전자명" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column24" value="연락처" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column26" value="적재용량" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="120" inputType="text" id="rcvDt" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="vehclSts" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="250" inputType="text" id="addr" displayMode="label" textAlign="left"></w2:column>
+    									<w2:column width="120" inputType="text" id="spd" displayMode="label" textAlign="right"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="drct" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="vehclNo" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="picNm" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="handphoneNo" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="carTon" value="" displayMode="label" hidden="true"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="tbx_totalRows" label="0"
+    										class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

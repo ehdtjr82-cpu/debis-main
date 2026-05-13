@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_account" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="mgntAcctCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="name2" dataType="text"></w2:column>
+    					<w2:column id="upperMgntAcctCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="upperMgntAcctNm" name="name4" dataType="text"></w2:column>
+    					<w2:column id="acctEngNm" name="name5" dataType="text"></w2:column>
+    					<w2:column id="acctClsCd" name="name6" dataType="text"></w2:column>
+    					<w2:column id="drcrClsCd" name="name7" dataType="text"></w2:column>
+    					<w2:column id="acctLvl" name="name8" dataType="text"></w2:column>
+    					<w2:column id="mgntAcctClsCd" name="name9" dataType="text"></w2:column>
+    					<w2:column id="aggrClsCd" name="name10" dataType="text"></w2:column>
+    					<w2:column id="adptStDt" name="name11" dataType="text"></w2:column>
+    					<w2:column id="adptEndDt" name="name12" dataType="text"></w2:column>
+    					<w2:column id="stndPcostMgntYn" name="name13" dataType="text"></w2:column>
+    					<w2:column id="checkLevel" name="name14" dataType="text"></w2:column>
+    					<w2:column id="treeNm" name="name15" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="mgntAcctCd" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_saveAccount" action="/ac.co.stdinfomgnt.SaveManagementAccountCodeCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_account","key":"IN_DS1","action":"modified"}]' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveAccount_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_search" action="/ac.co.stdinfomgnt.RetrieveManagementAccountCodeCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_account","key":"OUT_DS1"}]'
+    			target='data:json,[{"id":"ds_account","key":"OUT_DS1"}]' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//전역변수
+scwin.tr_actionKind; //조회/수정 구별하기 위한 변수
+scwin.load_row = "";  //조회후 focus가게 할  row
+scwin.currentRowPosition = 0;
+
+scwin.onpageload = function() {
+    //공통코드
+    var codeOptions = [
+        { grpCd : "FI001", compID : "lc_acctClsCd" }, //계정구분
+        { grpCd : "FI002", compID : "lc_drcrClsCd" }, //차대구분
+        { grpCd : "FI035", compID : "lc_acctLvl" },  // 계정레벨
+        { grpCd : "CO013", compID : "lc_mgntAcctClsCd" }, //관리계정구분
+        { grpCd : "CO014", compID : "lc_aggrClsCd" }, //집계구분
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    $c.gus.cfDisableKeyData();
+    scwin.f_ToggleImgBtn(false);
+    $c.gus.cfDisableAllBtn();
+};
+
+scwin.ondataload = function () {
+    scwin.lc_init();
+};
+
+scwin.onUdcCompleted = function () {
+    ed_acctCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function (e) {
+    scwin.tr_actionKind = "SEARCH";
+    //ds_search.UseChangeInfo = false;
+    
+    dma_search.set("mgntAcctCd", ed_acctCd.getValue());
+
+    $c.sbm.execute(sbm_search);
+};
+
+scwin.sbm_search_submitdone = async function(e){
+    if(e.responseJSON.resultDataSet[0].Msg != 'FAIL'){
+        var rowCnt = ds_account.getRowCount();
+        if(rowCnt == 0){
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            ds_account.setJSON([]); 
+            return;
+        }
+
+		scwin.currentRowPosition = $c.num.parseInt(ds_account.getMatchedIndex("mgntAcctCd", scwin.load_row)) || 0;
+		var rowIndex = scwin.currentRowPosition == 0 ? 1 :scwin.currentRowPosition + 1
+
+ 		tv_treeView.findNodeByIndex(rowIndex, true);
+
+        scwin.tv_treeView_onviewchange();
+        scwin.f_ToggleImgBtn(false);
+    };
+}
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_AddItem = async function (e) {
+    scwin.tr_actionKind = "INSERT";
+
+    if (await scwin.f_IsUpdated()) return;
+
+    var checkLevel = "0";
+    var row = 0;
+    var upperMgntAcctCd = "";
+    var upperMgntAcctNm = "";
+    var acctLvl = "0";
+
+    checkLevel = $c.num.parseInt(tv_treeView.getSelectedElement().checkLevel) + 1;
+    row = tv_treeView.getSelectedIndex()-1;
+    upperMgntAcctCd = ds_account.getCellData(row,"mgntAcctCd");
+    upperMgntAcctNm = ds_account.getCellData(row,"acctNm");
+    acctLvl = $c.num.parseInt(ds_account.getCellData(row,"acctLvl")) + 1;
+
+    var rowJson = {
+        "checkLevel": checkLevel,
+        "treeNm": "ADD",
+        "upperMgntAcctCd": upperMgntAcctCd,
+        "upperMgntAcctNm" : upperMgntAcctNm,
+        "acctLvl": acctLvl,
+        "adptStDt": $c.date.getServerDateTime("yyyyMMdd"),
+        "adptEndDt": "99991231"
+    }
+
+    if((tv_treeView.getSelectedIndex() == ds_account.getRowCount()) || (ds_account.getRowCount() == 0)){
+        ds_account.setRowJSON(ds_account.getRowCount(), rowJson);
+    }else{
+        ds_account.setRowJSON(checkLevel, rowJson);
+    }
+
+    await scwin.dataDaySetting(rowJson.adptStDt, rowJson.adptEndDt,"input");
+
+    scwin.currentRowPosition = ds_account.getRowCount();
+
+    tv_treeView.findNodeByIndex(row+2, true);
+
+
+    $c.gus.cfEnableKeyData();
+    $c.gus.cfDisableBtn([ btn_update]);
+    $c.gus.cfEnableObjects([udc_upperMgntAcct,udc_fromToCalendar1]);
+    ed_mgntAcctCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 수정
+//-------------------------------------------------------------------------
+scwin.f_Update = async function (e) {
+	scwin.tr_actionKind = "UPDATE";
+	if (await scwin.f_IsUpdated()) return;
+
+	// disable 처리
+	$c.gus.cfDisableKey();
+	$c.gus.cfDisableBtn([btn_update]);
+	scwin.f_ToggleImgBtn(true);
+	scwin.f_ToggleAcctNm(!await scwin.f_IsGeneralAcct(ds_account.getRowJSON(ds_account.getRowPosition()).mgntAcctCd));
+
+	//focus 설정
+	ed_acctCd.focus();
+	scwin.currentRowPosition = ds_account.getRowPosition();
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_Cancel = function (e) {
+    $c.gus.cfDisableKeyData();
+    $c.gus.cfDisableBtn([btn_save]);
+    scwin.f_ToggleImgBtn(false);
+    scwin.currentRowPosition = 0;
+
+    //ds_account.undoRow(ds_account.getRowPosition());
+    if(ds_account.getRowStatus(ds_account.getRowPosition()) == "C"){
+        ds_account.removeRow(ds_account.getRowPosition());
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+    scwin.currentRowPosition = ds_account.getRowPosition();
+
+	//Mandatory 항목이 누락하지 않았는지 체크한다.
+	if (!await $c.gus.cfValidate([tb_acct]))
+		return;
+
+
+	//계정코드 Validation
+	if(scwin.f_IsGeneralAcct(ed_mgntAcctCd.getValue()) && scwin.f_IsInsertRow(ds_account,ds_account.getRowPosition())){
+		await $c.gus.cfAlertMsg("관리계정코드는 1-8로 시작할 수 없습니다.");
+		ed_mgntAcctCd.focus();
+		return;
+	}
+
+	//중복체크
+	for(var i=0;i<ds_account.getRowCount();i++) {
+		if( i != ds_account.getRowPosition() &&
+			ds_account.getRowJSON(i).mgntAcctCd == ed_mgntAcctCd.getValue().trim()){
+			await $c.gus.cfAlertMsg(MSG_CM_ERR_032, Array("계정코드"));
+			ed_mgntAcctCd.focus();
+			return;
+		}
+	}
+
+	if(ed_mgntAcctCd.getValue().trim() == ed_upperMgntAcctCd.getValue().trim()){
+		await $c.gus.cfAlertMsg("계정코드와 상위계정코드는 동일할수 없습니다.");
+		ed_upperMgntAcctCd.focus();
+		return;
+	}
+
+	//시작일자가 종료일자 이전인지 check
+	if (!await $c.gus.cfIsAfterDate(ed_adptStDt.getValue(), ed_adptEndDt.getValue())){
+		await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+		ed_adptStDt.focus();
+		return;
+	}
+
+    //데이터리스트에 셋팅
+    await scwin.dataDaySetting(ed_adptStDt.getValue(),ed_adptEndDt.getValue(),"datalist");
+
+	//변경한 데이터가 있는지 체크한다.
+	if(ds_account.getModifiedIndex().length < 1){
+		await $c.gus.cfAlertMsg(MSG_CM_ERR_001, Array("관리계정코드정보"));
+		return;
+	}
+
+	if(await $c.win.confirm(MSG_CM_CRM_001)){
+		scwin.load_row = ds_account.getRowJSON(ds_account.getRowPosition()).mgntAcctCd;
+
+		$c.sbm.execute(sbm_saveAccount);
+	}
+};
+
+scwin.sbm_saveAccount_submitdone = async function(e){ 
+	if(e.responseJSON.resultDataSet[0].Msg != 'FAIL'){
+		await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    	await scwin.f_Retrieve();
+
+		// disable 처리
+		$c.gus.cfDisableKeyData();
+		scwin.f_ToggleImgBtn(false)
+		$c.gus.cfDisableBtn([btn_save]);
+	};
+};
+
+//-------------------------------------------------------------------------
+// 데이터 변경 체크
+//-------------------------------------------------------------------------
+scwin.f_IsUpdated = async function(){
+	if (ds_account.getModifiedIndex().length < 1) return false;
+
+	await $c.gus.cfAlertMsg("저장되지 않은 데이타가 있습니다");
+
+	var row = scwin.f_GetChangedRow(ds_account);
+	tv_treeView.findNodeByIndex(row + 1, true);
+
+	return true;
+};
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUp = async function(paramArray,disGubun){
+	var codeObj = paramArray.pCode;
+	var nameObj = paramArray.pName;
+
+	switch (disGubun){ 
+		case '1':
+			await udc_acct.cfCommonPopUp(scwin.udc_acct_callbackFunc, codeObj, ""
+							   ,scwin.f_EventCheck(), paramArray.pDispCnt
+							   ,paramArray.pTitle, paramArray.pWidth
+							   ,paramArray.pHidden, paramArray.pWhere
+							   ,paramArray.pW, paramArray.pH
+							   ,paramArray.pTop, paramArray.pLeft
+							   ,paramArray.pExistTF, "T"
+							   ,paramArray.pWtitleSearch);
+			break;
+		case '2':
+			await udc_upperMgntAcct.cfCommonPopUp(scwin.udc_upperMgntAcct_callbackFunc, codeObj, ""
+							,scwin.f_EventCheck(), paramArray.pDispCnt
+							,paramArray.pTitle, paramArray.pWidth
+							,paramArray.pHidden, paramArray.pWhere
+							,paramArray.pW, paramArray.pH
+							,paramArray.pTop, paramArray.pLeft
+							,paramArray.pExistTF, "T"
+							,paramArray.pWtitleSearch)
+			break;
+		default:
+			break;
+	}
+};
+
+//계정코드 팝업 콜백
+scwin.udc_acct_callbackFunc = function(rtnList){
+	if (!$c.gus.cfIsNull(rtnList)) {
+		if (rtnList[0] != "N/A") {
+            ed_acctCd.setValue(rtnList[0]);
+			ed_acctCd.options.hidVal = rtnList[0];
+            c_acctNm.setValue(rtnList[1]);
+		}
+	} else {
+		ed_acctCd.setValue("");
+		ed_acctCd.options.hidVal = "";
+		c_acctNm.setValue("");
+	}
+};
+
+//상위계정코드 팝업 콜백
+scwin.udc_upperMgntAcct_callbackFunc = function(rtnList){
+	if (!$c.gus.cfIsNull(rtnList)) {
+		if (rtnList[0] != "N/A") {
+			ed_upperMgntAcctCd.setValue(rtnList[0]);
+			ed_upperMgntAcctCd.options.hidVal = rtnList[0];
+			ed_upperMgntAcctNm.setValue(rtnList[1]);
+		}
+	} else {
+		ed_upperMgntAcctCd.setValue("");
+		ed_upperMgntAcctCd.options.hidVal = "";
+		ed_upperMgntAcctNm.setValue("");
+	}
+};
+
+//-------------------------------------------------------------------------
+// 팝업 여부 검사
+//-------------------------------------------------------------------------
+scwin.f_IsPopUp = function(inObj, ...pairObjs){ 
+    var inValue = $c.gus.cfGetValue(inObj);
+    if (!inObj.options) inObj.options = {};
+    var hidValue = inObj.options.hidVal;
+
+    if ($c.gus.cfIsNull(inValue)) {
+        inObj.options.hidVal = "";
+        for (let i = 0; i < pairObjs.length; i++) {
+            pairObjs[i].setValue("");
+        }
+        return false;
+    }
+    if (inValue == hidValue) return false;
+
+    return true;
+}
+
+//-------------------------------------------------------------------------
+// 팝업 이벤트에 따라 팝업창의 자동닫기 여부를 반환
+//-------------------------------------------------------------------------
+scwin.f_EventCheck = function(){
+	if (window.event != null && window.event.srcElement.tagName.toUpperCase() == "IMG") {
+	    return 'F';
+	} else {
+	    return 'T';
+	}
+};
+
+//-------------------------------------------------------------------------
+// 조회 귀속부서코드팝업
+//-------------------------------------------------------------------------
+scwin.f_deptPopUp = async function(disGubun){
+	var paramArray = {};
+	switch (disGubun){
+		case '1':
+			paramArray.pCode = ed_acctCd.getValue();
+			paramArray.pName = c_acctNm.getValue();
+			break;
+		case '2':
+			paramArray.pCode = ed_upperMgntAcctCd.getValue();
+			paramArray.pName = ed_upperMgntAcctNm.getValue();
+			paramArray.pWhere = ",,,," + ds_account.getRowJSON(ds_account.getRowPosition()).mgntAcctCd;
+			break;
+		default:
+			break;
+	}
+	paramArray.pW = "410";
+
+	await scwin.f_PopUp(paramArray,disGubun);
+};
+
+//-------------------------------------------------------------------------
+// 이미지 버튼의 Enable/Disable
+//-------------------------------------------------------------------------
+scwin.f_ToggleImgBtn = function(mode){
+    if (mode) {
+        $c.gus.cfEnableObjects([udc_upperMgntAcct,udc_fromToCalendar1]);
+    } else {
+        $c.gus.cfDisableObjects([udc_upperMgntAcct,udc_fromToCalendar1]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 이미지 버튼의 Enable/Disable
+//-------------------------------------------------------------------------
+scwin.f_ToggleAcctNm = function(mode){
+    if (mode) {
+        $c.gus.cfEnableObjects([ed_acctNm]);
+    } else {
+        $c.gus.cfDisableObjects([ed_acctNm]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 재무회계 계정여부를 반환
+//-------------------------------------------------------------------------
+scwin.f_IsGeneralAcct = function(acctCd){
+    if ($c.gus.cfIsNull(acctCd)) return false;
+
+    var firstNm = acctCd.trim().substring(0,1);
+    var re = /[1-8]/;
+    return re.test(firstNm);
+};
+
+//-------------------------------------------------------------------------
+// 데이터셋의 Row가 업데이트 되었는 지 여부를 반환한다.
+//-------------------------------------------------------------------------
+scwin.f_IsUpdateRow = function(dataSet, row){
+    //return (dataSet.getRowStatus(row) == 3);
+    return (dataSet.getRowStatus(row-1) == "U");
+};
+
+//-------------------------------------------------------------------------
+// 데이터셋의 Row가 추가 되었는 지 여부를 반환한다.
+//-------------------------------------------------------------------------
+scwin.f_IsInsertRow = function(dataSet, row){
+    //return (dataSet.getRowStatus(row) == 1);
+    return (dataSet.getRowStatus(row) == "C");
+};
+
+//-------------------------------------------------------------------------
+// Insert 또는 Update 또는 Delete된 Row를 반환한다.
+//-------------------------------------------------------------------------
+scwin.f_GetChangedRow = function(dataSet){
+    for (var i=0; i < dataSet.getRowCount(); i++) {
+        if (scwin.f_IsInsertRow(dataSet, i) || scwin.f_IsUpdateRow(dataSet, i)) return i;
+    }
+
+    return dataSet.getRowPosition();
+};
+
+//-------------------------------------------------------------------------
+// 휴지통 처리
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function (e) {
+    $c.gus.cfInitObjects(tbl_search, null);
+};
+
+//-------------------------------------------------------------------------
+// 트리클릭시
+//-------------------------------------------------------------------------
+scwin.tv_treeView_onviewchange = function (info) { 
+    var clickjson = tv_treeView.getSelectedElement();
+	
+    if(ds_account.getRowCount() < 1 || $c.gus.cfIsNull(clickjson)) return;
+
+	var row = tv_treeView.getSelectedIndex()-1;
+   
+	$c.gus.cfSetHiddenValue(ed_upperMgntAcctCd, clickjson.upperMgntAcctCd)
+
+    var mgntAcctCd = clickjson.mgntAcctCd
+    
+    if(scwin.f_IsInsertRow(ds_account, row)){
+        $c.gus.cfEnableKeyData();
+        $c.gus.cfDisableBtn([btn_update]);
+        scwin.f_ToggleImgBtn(true);
+
+    }else if (scwin.f_IsUpdateRow(ds_account,row)) {
+   		$c.gus.cfDisableKey();
+   		$c.gus.cfDisableBtn([btn_update]);
+   		scwin.f_ToggleImgBtn(true);
+   		if (scwin.f_IsGeneralAcct(mgntAcctCd)) scwin.f_ToggleAcctNm(false);
+
+   	} else {
+   		$c.gus.cfDisableKeyData();
+   		$c.gus.cfDisableBtn([btn_save]);
+   		scwin.f_ToggleImgBtn(false);
+   	}
+
+    scwin.dataDaySetting(clickjson.adptStDt, clickjson.adptEndDt , "input");
+};
+
+//-------------------------------------------------------------------------
+// 계정구분 LuxeCombo validation
+//-------------------------------------------------------------------------
+scwin.lc_acctClsCd_onselected = async function () {
+    if(lc_acctClsCd.getSelectedIndex() == 0 || lc_acctClsCd.getSelectedIndex() == 1 || lc_acctClsCd.getSelectedIndex() == 2){
+		await $c.gus.cfAlertMsg("자산,부채,자본은 선택할 수 없습니다.");
+		lc_acctClsCd.focus();
+		lc_acctClsCd.setSelectedIndex(-1);
+		return;
+	}
+};
+
+//-------------------------------------------------------------------------
+// 조회계정코드  validation
+//-------------------------------------------------------------------------
+scwin.udc_acct_onblurCodeEvent = async  function (e) { 
+    if (await scwin.f_IsPopUp(ed_acctCd, c_acctNm))  scwin.f_deptPopUp('1');
+};
+
+//-------------------------------------------------------------------------
+// 상위계정코드  validation
+//-------------------------------------------------------------------------
+scwin.udc_upperMgntAcct_onblurCodeEvent = function (e) {
+    if (scwin.f_IsPopUp(ed_upperMgntAcctCd, ed_upperMgntAcctNm)) scwin.f_deptPopUp('2');
+};
+
+scwin.udc_acct_onclickEvent = function (e) {
+    scwin.f_deptPopUp('1');
+};
+
+scwin.udc_upperMgntAcct_onclickEvent = function (e) {
+    scwin.f_deptPopUp('2');
+};
+
+scwin.lc_init = function(){
+    lc_acctClsCd.setValue("");
+    lc_drcrClsCd.setValue("");
+    lc_acctLvl.setValue("");
+    lc_mgntAcctClsCd.setValue("");
+    lc_aggrClsCd.setValue("");
+};
+
+//-------------------------------------------------------------------------
+// 데이터리스트에 있는 날짜값을 input값에 셋팅, input에 있는 날짜값을 데이터 리스트에 셋팅
+//-------------------------------------------------------------------------
+scwin.dataDaySetting = function(startDay, endDay, obj){ 
+    if(obj == "input"){
+        ed_adptStDt.setValue(startDay);
+        ed_adptEndDt.setValue(endDay);
+
+    }else if(obj == "datalist"){
+        ds_account.setCellData(scwin.currentRowPosition, "adptStDt", startDay);
+        ds_account.setCellData(scwin.currentRowPosition, "adptEndDt", endDay);
+    }
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="계정코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="" style="" class="w300" codeId="ed_acctCd" allowCharCode="0-9" maxlengthCode="7" UpperFlagCode="1" nameId="c_acctNm" id="udc_acct" ev:onclickEvent="scwin.udc_acct_onclickEvent" selectID="retrieveMgntAcctCdInfo" ev:onblurCodeEvent="scwin.udc_acct_onblurCodeEvent"></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group id="" class="round-box">
+    					<xf:group id="" class="lybox wfix">
+    						<xf:group id="" class="col" style="width: 600px;">
+    							<xf:group style="" id="" class="title-wrap">
+    								<xf:group id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="" label="관리계정 Tree" class="tit"></w2:textbox>
+    								</xf:group>
+    								<xf:group id="" class="right">
+    									<xf:group id="" class="inner">
+    										<w2:button style="" id="btn_add" label="행추가" class="btn " objType="bCreate" userAuth="C" ev:onclick="scwin.f_AddItem"></w2:button>
+    										<w2:button style="" id="btn_delete" label="취소" class="btn " objType="bDelete" ev:onclick="scwin.f_Cancel"></w2:button>
+    									</xf:group>
+    									<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownYn="N" templateYn="N" btnUser="N"></w2:udc_topGrdBtn>
+
+
+    								</xf:group>
+
+    							</xf:group>
+    							<xf:group class="tvw-wrap round-box border" id="grd_section1" style="">
+    								<w2:treeview dataType="listed" id="tv_treeView" renderType="virtual" style="height: 100%"
+    									tooltipGroupClass="false" class="" showTreeDepth="5" ev:onviewchange="scwin.tv_treeView_onviewchange">
+    									<w2:itemset nodeset="data:ds_account">
+    										<w2:label ref="treeNm"></w2:label>
+    										<w2:value ref="mgntAcctCd"></w2:value>
+    										<w2:depth ref="checkLevel"></w2:depth>
+    										<w2:folder ref=""></w2:folder>
+    										<w2:checkbox ref=""></w2:checkbox>
+    										<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+    										<w2:image ref=""></w2:image>
+    										<w2:iconImage ref=""></w2:iconImage>
+    										<w2:selectedImage ref=""></w2:selectedImage>
+    										<w2:expandedImage ref=""></w2:expandedImage>
+    										<w2:leafImage ref=""></w2:leafImage>
+    									</w2:itemset>
+    								</w2:treeview>
+    							</xf:group>
+    						</xf:group>
+    					<xf:group id="" class="col">
+    							<xf:group style="" id="" class="title-wrap">
+    								<xf:group id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="" label="관리계정 상세내역" class="tit"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="tbbox">
+    								<xf:group   tagname="table" style="" id="tb_acct" class="w2tb tb">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:120px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr" style="">
+    										<xf:group tagname="th" style="" class="w2tb_th">
+    											<w2:textbox ref="" style="" userData2="" id="" label="계정코드" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" style="" class="w2tb_td">
+    											<xf:input style="" id="ed_mgntAcctCd" placeholder="" class="form-control w110" objType="key" mandatory="true" allowChar="0-9" validateOnInput="true" maxlength="7" validExp="계정코드:yes:format=0000000" ref="data:ds_account.mgntAcctCd" title="계정코드"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="계정명" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input style="" id="ed_acctNm" placeholder="" class="form-control col7" objType="data" maxlength="50" mandatory="true" maxByteLength="50" validExp="계정명:yes:maxByteLength=50" ref="data:ds_account.acctNm" title="계정명"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="계정 영문명" class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input style="" id="ed_acctEngNm" placeholder="" class="form-control col7" objType="data" maxlength="30" maxByteLength="30" validExp="영문계정명:no:maxByteLength=30" ref="data:ds_account.acctEngNm" ignoreChar="ㄱ-ㅎㅏ-ㅣ가-힣"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="상위계정코드" class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="sch-box col7" id="" style="display:none">
+
+
+    												<xf:input class="form-control num" id="ed_upperMgntAcctCd" placeholder=""
+    													style="" objType="data" allowChar="0-9">
+    												</xf:input>
+    												<xf:trigger class="btn ico sch" id="btn_upperMgntAcct" style="display:none"
+    													type="button" objType="data" tabIndex="-1">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger>
+    												<xf:input class="form-control" id="ed_upperMgntAcctNm" placeholder=""
+    													style="display:none" readOnly="true" tabIndex="-1">
+    												</xf:input>
+    											</xf:group>
+    											<w2:udc_comCode popupID="" selectID="retrieveMgntAcctCdInfo" codeId="ed_upperMgntAcctCd" validTitle="" nameId="ed_upperMgntAcctNm"
+    												style="" id="udc_upperMgntAcct" readOnlyName="true" objTypeCode="data" ev:onclickEvent="scwin.udc_upperMgntAcct_onclickEvent" btnId="btn_upperMgntAcct" ev:onblurCodeEvent="scwin.udc_upperMgntAcct_onblurCodeEvent" refDataCollection="ds_account" code="upperMgntAcctCd" name="upperMgntAcctNm">
+    											</w2:udc_comCode>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="계정구분" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 ref="data:ds_account.acctClsCd" submenuSize="auto" appearance="minimal"
+    												disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="" allOption="" id="lc_acctClsCd" renderType=""
+    												class="form-control w110" direction="auto" objType="data" mandatory="true" emptyItem="true" validExp="계정구분:yes" visibleRowNum="8" displayMode="value delim label" ev:onselected="scwin.lc_acctClsCd_onselected" title="계정구분">
+    												<xf:choices></xf:choices>
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="차대구분" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 ref="data:ds_account.drcrClsCd" submenuSize="auto" appearance="minimal"
+    												disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="" allOption="" id="lc_drcrClsCd" renderType=""
+    												class="form-control w110" direction="auto" objType="data" mandatory="true" emptyItem="true" validExp="차대구분:yes" displayMode="value delim label" title="차대구분">
+    												<xf:choices></xf:choices>
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="계정레벨" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 ref="data:ds_account.acctLvl" submenuSize="auto" appearance="minimal"
+    												disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="" allOption="" id="lc_acctLvl" renderType=""
+    												class="form-control w110" direction="auto" objType="data" mandatory="true" emptyItem="true" validExp="계정레벨:yes" displayMode="value delim label" title="계정레벨">
+    												<xf:choices></xf:choices>
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="관리계정구분" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 ref="data:ds_account.mgntAcctClsCd" submenuSize="auto" appearance="minimal"
+    												disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="" allOption="" id="lc_mgntAcctClsCd"
+    												renderType="" class="form-control w110" direction="auto" objType="data" mandatory="true" emptyItem="true" validExp="관리계정구분:yes" displayMode="value delim label" title="관리계정구분">
+    												<xf:choices></xf:choices>
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="집계구분" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 ref="data:ds_account.aggrClsCd" submenuSize="auto" appearance="minimal"
+    												disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="" allOption="" id="lc_aggrClsCd" renderType=""
+    												class="form-control w110" direction="auto" objType="data" mandatory="true" emptyItem="true" validExp="집계구분:yes" displayMode="value delim label" title="집계구분">
+    												<xf:choices></xf:choices>
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="표준원가관리여부" class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select ref="data:ds_account.stndPcostMgntYn" appearance="full" disabled="" style="" id="chb_stndPcostMgntYn"
+    												renderType="checkboxgroup" rows="" selectedindex="1" class="chk-grp" cols="" objType="data">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[1]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="적용기간" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_fromToCalendar1" refEdDt="" mandatory="true" objType="data" edFromId="ed_adptStDt" edToId="ed_adptEndDt" objTypeFrom="data" objTypeTo="data">
+    											</w2:udc_fromToCalendar>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group></xf:group>
+    					
+    				<xf:group style="" id="" class="btnbox">
+    						<xf:group style="" id="" class="right">
+    							<w2:button style="" id="btn_update" label="수정" class="btn" objType="bUpdate" userAuth="U" ev:onclick="scwin.f_Update"></w2:button>
+    							<w2:button style="" id="btn_save" label="저장" class="btn" objType="bSave" userAuth="C" ev:onclick="scwin.f_Save"></w2:button>
+    						</xf:group>
+    					</xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

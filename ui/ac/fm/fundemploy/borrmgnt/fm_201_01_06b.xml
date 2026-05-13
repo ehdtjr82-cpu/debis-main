@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+    ica_stdDt.focus();
+};
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:검색->관리부서 , 2:검색->거래처
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(select_code,txtCode,txtName,sFlag) {
+    var rtnList = null;
+    var sCmdName = "";
+    var name;
+    code = txtCode.getValue();
+
+    if ( txtName == null )
+    {
+        name = "";
+    }else{
+        name = txtName.getValue();
+    }
+
+    switch (select_code) {
+        // 차입번호 PopUp 호출
+        case '1' :
+            rtnList = udc_borrLedgNo.cfCommonPopUp(scwin.udc_borrLedgNo_callBackFunc,code,name,sFlag,null,null,null,null,null,null,null,null,null); // 차입번호
+            break;
+    }
+}
+
+scwin.udc_borrLedgNo_callBackFunc = function(rtnList){
+
+    if ( rtnList != null ) {
+        if (rtnList[0] == "N/A") return;
+        ed_borrLedgNo.setValue(rtnList[0]);	 // 코드
+        if ( !(ed_borrLedgNm.getValue() == null) )
+            ed_borrLedgNm.setValue(rtnList[1]);	 // 코드명
+        ed_borrLedgNo.options.hidVal = rtnList[0]; // 코드
+    }else{
+        ed_borrLedgNo.setValue("");	 // 코드
+        if ( !(ed_borrLedgNm.getValue() == null) )
+            ed_borrLedgNm.setValue("");	 // 코드명
+        ed_borrLedgNo.options.hidVal = ""; // 코드
+    }
+    
+}
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+//-------------------------------------------------------------------------
+scwin.f_CheckPopUp = function(orgObjCd, orgObjNm,select_code) {
+
+    if (orgObjCd.tagName.toUpperCase() == "INPUT" ) {
+        if (orgObjCd.getValue().trim() != "" ) {
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,'T')
+        } else {
+            if (!orgObjNm.getValue() == null)
+            {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+            orgObjCd.options.hidVal = "";
+        }
+    }
+    else if (orgObjCd.tagName.toUpperCase() == "OBJECT" ) {
+        
+        if (orgObjCd.getValue().trim() != "") {
+
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,'T');
+        } else {
+            if (!orgObjNm.getValue() == null)
+            {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+        }
+    }
+}
+
+//-------------------------------------------------------------------------
+// 오즈 검색 후 결과를 화면 하단에 표시
+//-------------------------------------------------------------------------
+
+scwin.f_Search = async function() {                  
+
+    if (!await $c.gus.cfValidate([ica_stdDt, ed_borrLedgNo])) 
+        return false
+
+    // // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // var odiParam;
+    // if(acb_prtClsCd.getValue()=='02')
+    //     odiParam = new ODIParam("fm_201_01_06") ;
+    // else if(acb_prtClsCd.getValue()=='03')
+    //     odiParam = new ODIParam("fm_201_01_06_01") ;
+    // else if(acb_prtClsCd.getValue()=='04')
+    //     odiParam = new ODIParam("fm_201_01_06_02") ;
+    // else if(acb_prtClsCd.getValue()=='01')
+    //     odiParam = new ODIParam("fm_201_01_06_03") ;
+
+
+    // //odiParam.add("sysPath", txt_sysPath.value) ;
+    // odiParam.add("stdDate", ica_stdDt.getValue()) ;                   
+    // odiParam.add("endYn", acb_endYn.getValue()) ;
+    // odiParam.add("borrLedgNo", ed_borrLedgNo.getValue()) ;
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam() ;
+    // //formParam.add("form1","폼1") ;
+        
+            
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // //viewerParam.add("viewer.showtree","false"); // 트리 표시
+    // //viewerParam.add("viewer.useprogressbar","true"); // 인쇄 진행 중 프로그레스바 표시
+    // //viewerParam.add("viewer.zoom","85");    // 확대 비율
+    // //viewerParam.add("viewer.largebundle","true"); //스크롤바
+    // viewerParam.add("print.mode","silent"); // 인쇄 옵션창 표시 없이 바로 출력
+
+    //                iframe     viewer        OZR 경로 및 파일명  ODI파라미터 뷰어파라미터       폼파라미터
+
+    var reportName;
+    if(acb_prtClsCd.getValue()=='02')
+        // cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fm/fundemploy/borrmgnt/fm_201_01_06.ozr", odiParam, viewerParam, formParam);
+        reportName = "/ac/fm/fundemploy/borrmgnt/fm_201_01_06.ozr";
+    else if(acb_prtClsCd.getValue()=='03')
+        // cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fm/fundemploy/borrmgnt/fm_201_01_06_01.ozr", odiParam, viewerParam, formParam);
+        reportName = "/ac/fm/fundemploy/borrmgnt/fm_201_01_06_01.ozr";
+    else if(acb_prtClsCd.getValue()=='04')
+        // cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fm/fundemploy/borrmgnt/fm_201_01_06_02.ozr", odiParam, viewerParam, formParam);
+        reportName = "/ac/fm/fundemploy/borrmgnt/fm_201_01_06_02.ozr";
+    else if(acb_prtClsCd.getValue()=='01')
+        // cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fm/fundemploy/borrmgnt/fm_201_01_06_03.ozr", odiParam, viewerParam, formParam);
+        reportName = "/ac/fm/fundemploy/borrmgnt/fm_201_01_06_03.ozr";
+    
+    let data = {
+        reportName: reportName,
+        odiParam : {
+            // 발행 일시도 명시적으로 전달 (OZ Viewer 기본 값 방지)
+            stdDate: ica_stdDt.getValue(), 
+            endYn: acb_endYn.getValue(), 
+            borrLedgNo: ed_borrLedgNo.getValue() 
+
+            // mode : "silent"
+            // isframe : false
+            // configmode : "html"
+            // printcommand : false
+            // showTree : true,
+            
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+
+        },
+        formParam: {
+        
+        }
+    }
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+    // wfm_ozReport.getWindow().scwin.reportSearch(data);
+
+} 
+
+scwin.udc_borrLedgNo_onclickEvent = function (e) {
+    scwin.f_openPopUp('1',ed_borrLedgNo,null,'F');
+};
+
+scwin.btn_search_onclick = function (e) {
+    scwin.f_Search();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_common_textbox" type="page" variableClone="" src="/cm/udc/common_textbox.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="기준일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_stdDt" style="" mandatory="true" title="기준일자" displayFormat="yyyy/MM/dd"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="발행구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="acb_prtClsCd" style="width: 150px;" submenuSize="fixed" ref="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[전체]]></xf:label>
+    										<xf:value><![CDATA[01]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[원장]]></xf:label>
+    										<xf:value><![CDATA[02]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[이자]]></xf:label>
+    										<xf:value><![CDATA[03]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[보증료]]></xf:label>
+    										<xf:value><![CDATA[04]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="완료여부 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="acb_endYn" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="전체" ref="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[예]]></xf:label>
+    										<xf:value><![CDATA[01]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[아니오]]></xf:label>
+    										<xf:value><![CDATA[02]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="차입번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<w2:udc_comCode allowCharCode="0-9" btnId="" code="" codeId="ed_borrLedgNo"
+                                        id="udc_borrLedgNo" maxlengthCode="5" maxlengthName="100"
+                                        name="" nameId="ed_borrLedgNm" objTypeCode="key" objTypeName="key" popupID="retrieveBorrLedgNoInfopopup"
+                                        selectID="retrieveBorrLedgNoInfo" style="" refDataCollection="" hideName="true" ev:onclickEvent="scwin.udc_borrLedgNo_onclickEvent" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N">
+                                    </w2:udc_comCode>
+                                    <!-- <w2:udc_common_textbox selectID="retrieveBorrLedgNoInfo" style="width:%; height:px; " nameId="ed_borrLedgNo" id="udc_borrLedgNo"></w2:udc_common_textbox> -->
+    								
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+                <xf:group id="ozFrame" class="ozWrap"><w2:iframe src="/ui/cm/zz/ozreportComp.xml" style="" id="wfm_ozReport"></w2:iframe></xf:group>
+    			<!-- <w2:textbox class="h-full" id="" label="OZ 뷰어" style=""></w2:textbox> -->
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

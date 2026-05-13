@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="staffNo" name="사번" dataType="text"></w2:key>
+    					<w2:key id="stDt" name="시작일자" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="종료일자" dataType="text"></w2:key>
+    					<w2:key id="rmk" name="비고" dataType="text"></w2:key>
+    					<w2:key id="regId" name="등록자ID" dataType="text"></w2:key>
+    					<w2:key id="modId" name="수정자ID" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true" ev:ondataload="scwin.ds_result_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="staffNo" name="사번" dataType="text"></w2:column>
+    					<w2:column id="staffNm" name="사원명" dataType="text"></w2:column>
+    					<w2:column id="stDt" name="시작일자" dataType="text"></w2:column>
+    					<w2:column id="endDt" name="종료일자" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+    					<w2:column id="seq" name="일련번호" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ds.op.RetrieveWagePeakCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.SaveWagePeakCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_result","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.empNo = "";
+scwin.empNm = "";
+
+scwin.onpageload = function() {
+    var params = $c.data.getParameter();
+	scwin.empNo = params.empNo;
+    scwin.empNm = params.empNm;
+    ///임시
+    /*
+    scwin.empNo = "080362";
+    scwin.empNm = "오창근";
+    */
+    ///
+    dma_search.set("staffNo", scwin.empNo);
+    
+	$c.sbm.execute(sbm_search);
+};
+
+scwin.f_lineAdd = function () {
+
+    ds_result.insertRow();	
+    gr_wagePeak.setFocusedCell(ds_result.getRowCount()-1, 0);
+    ds_result.setCellData(ds_result.getRowCount()-1, "staffNo", scwin.empNo);
+    ds_result.setCellData(ds_result.getRowCount()-1, "staffNm", scwin.empNm);
+}
+
+scwin.f_lineDelete = function () {
+    if(ds_result.getRowStatus(ds_result.getRowPosition()) == "C"){
+        ds_result.removeRow(ds_result.getRowPosition());
+    } else {
+        var row = ds_result.getRowPosition();
+        ds_result.deleteRow(ds_result.getRowPosition());
+        ds_result.setRowPosition(row);
+    }
+}
+
+scwin.f_wageCancle = function () {
+	if(ds_result.getRowStatus(ds_result.getRowPosition()) == "C") {
+        ds_result.removeRow(ds_result.getRowPosition());
+    } else {
+        ds_result.undoRow(ds_result.getRowPosition());
+    }
+}
+
+
+scwin.f_wageSave = async function () {
+    var sttDate = ds_result.getCellData(ds_result.getRowCount() -1, "stDt");
+    var endDate = ds_result.getCellData(ds_result.getRowCount() -1, "endDt");
+
+    if((sttDate.length != 8 || endDate.length != 8) || (sttDate > endDate)) {
+        $c.win.alert("일자를 정확히 입력하세요.");
+    } else {
+        var chk = await $c.win.confirm(MSG_CM_CRM_001);
+        if(chk){
+            $c.sbm.execute(sbm_save);
+        }
+    }
+}
+
+scwin.sbm_save_submitdone = function (e) {
+	$c.win.alert("저장되었습니다.");
+	$c.sbm.execute(sbm_search);
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_wageSave();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.ds_result_ondataload = function () {
+    spa_cnt.setValue(ds_result.getRowCount());
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_result" focusMode="row"
+    					id="gr_wagePeak" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNumFix="true" rowStatusVisible="true">
+    					<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false"
+    								width="100" value="사원번호">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false"
+    								width="100" value="사원명">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false"
+    								width="100" value="시작일자" class="col-type1">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false"
+    								width="100" value="종료일자" class="col-type1">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column21" inputType="text" style="" value="비고" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="staffNo" inputType="text" removeBorderStyle="false"
+    								width="100" mandatory="true" readOnly="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="staffNm" inputType="text" removeBorderStyle="false"
+    								width="100" readOnly="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="stDt" inputType="calendar" removeBorderStyle="false"
+    								width="100" mandatory="true" displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="endDt" inputType="calendar" removeBorderStyle="false"
+    								width="100" mandatory="true" displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column displayMode="label" id="rmk" inputType="text" style="" value="" width="100" textAlign="left">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="spa_cnt" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn style="" rowAddFunction="scwin.f_lineAdd" rowDelFunction="scwin.f_lineDelete" cancelFunction="scwin.f_wageCancle" btnCancelYn="Y" btnDelYn="N"></w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

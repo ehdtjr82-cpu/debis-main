@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="D_fi_100_02_02p" meta_author="배기원" meta_type="팝업" meta_screenName="회사조회">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="시스템코드" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="쿼리아이디" dataType="text"></w2:key>
+    					<w2:key dataType="text" name="회사코드" id="param1"></w2:key>
+    					<w2:key dataType="text" name="회사명" id="param2"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_company" saveRemovedData="false">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="회사코드" dataType="text"></w2:column>
+    					<w2:column id="col2" name="회사구분코드" dataType="text"></w2:column>
+    					<w2:column id="col3" name="상위회사코드" dataType="text"></w2:column>
+    					<w2:column id="col4" name="회사레벨" dataType="text"></w2:column>
+    					<w2:column id="col5" name="법인등록번호" dataType="text"></w2:column>
+    					<w2:column id="col6" name="법인등록명" dataType="text"></w2:column>
+    					<w2:column id="col7" name="대표자명" dataType="text"></w2:column>
+    					<w2:column id="col8" name="직위" dataType="text"></w2:column>
+    					<w2:column id="col9" name="업태명" dataType="text"></w2:column>
+    					<w2:column id="col10" name="종목명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_retrieve" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,dma_search' target='data:json,{"id":"ds_company", "key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript">/**
+ * 화 면 명 : 회사조회
+ * 메뉴경로 : 회계/재무회계/기준정보/회사등록
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/fi/stdinfomgnt/fi_100_02_02p.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-09-29
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항 :
+ * 수정이력 :
+ *    - 2025-09-29      배기원    최초작성
+ */
+scwin.arrRtnVal = [];
+scwin.params;
+// scwin.pWinCloseTF = &quot;&quot;;
+
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function() {
+    scwin.setInit();
+    scwin.f_FieldClear();
+    scwin.params = $c.data.getParameter();
+    scwin.initPop(scwin.params.arrParm);
+
+    // scwin.pWinCloseTF = scwin.params[&quot;pWinCloseTF&quot;];
+    // if (!$c.util.isEmpty(scwin.params[&quot;coCd&quot;])) {
+    //     dma_search.set(&quot;param1&quot;, scwin.params[&quot;coCd&quot;]);
+    // }
+    // if (!$c.util.isEmpty(scwin.params[&quot;coNm&quot;])) {
+    //     dma_search.set(&quot;param2&quot;, scwin.params[&quot;coNm&quot;]);
+    // }
+
+    scwin.f_Retrieve();
+};
+
+/**
+ * 공통으로 넘어오는 파라메터값 세팅
+ */
+scwin.initPop = function (obj) {
+    let	arrParent =	obj;
+     edCoCd.setValue(arrParent[1][0].trim());      // 넘머온 코드 Value SET
+     edCorRegNm.setValue(arrParent[1][1].trim());  // 넘머온 Name Value SET
+};
+
+/**
+ * 초기세팅(TOBE 그리드, 총건수)
+ */
+scwin.setInit = function() {
+    ds_company.removeAll();
+    totalRows.setValue(&quot;0&quot;);
+};
+
+/**
+ * 조회초기 필드 Clear
+ */
+scwin.f_FieldClear = function (e) {
+    //$c.gus.cfInitObjects($p, tbl_search, null);
+    dma_search.setEmptyValue();
+    dma_search.set(&quot;sysCd&quot;, &quot;CommonEBC&quot;);
+    dma_search.set(&quot;queryId&quot;, &quot;retrieveDongbuGroupCompanyInfo&quot;);
+    edCoCd.focus();
+};
+
+/**
+ * UDC값 초기화(scwin.onpageload 이후 세팅됨)
+ */
+ scwin.onUdcCompleted = function() {
+    //타이틀 추가
+    $c.data.setPopupTitle(&quot;회사조회&quot;);
+ };
+
+
+/**
+ * 조회 : 데이터를 조회한다.
+ */
+scwin.f_Retrieve = function (e) {
+    scwin.setInit();
+    dma_search.set(&quot;param1&quot;, edCoCd.getValue());
+    dma_search.set(&quot;param2&quot;, edCorRegNm.getValue());
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code &lt; 0) return;
+
+    let rowCnt = ds_company.getRowCount();
+    if(rowCnt == 1) {
+        scwin.f_rtnValue(0);   
+    }
+    totalRows.setValue(rowCnt)
+    if (rowCnt &gt; 0) {
+        gr_company.setFocusedCell(0, 0);
+    } else {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+        edCoCd.focus();
+    }
+};
+
+/**
+ * 조회영역 onkeydown
+ */
+scwin.search_onkeydown = function (e) {
+    if (e.keyCode == &quot;13&quot;) {
+        scwin.f_Retrieve();
+    }
+};
+
+/**
+ * 닫기
+ */
+scwin.f_WinClose = function (e) {
+    let rt = [&quot;N/A&quot;];
+    $c.win.closePopup(rt);
+};
+
+/**
+ * Grid에서 선택된 Row의 Value
+ */
+scwin.f_rtnValue = function (row) {
+    for (i = 0; i &lt; 10; i++) { scwin.arrRtnVal[i] = ds_company.getCellData(row, &quot;col&quot; + (i + 1)); }
+    var str_tmp = ds_company.getCellData(row, &quot;col10&quot;)
+    var strArr = str_tmp.advancedSplit(&quot;^&quot;, &quot;t&quot;);
+    for (i = 0; i &lt; strArr.length; i++) { scwin.arrRtnVal[9 + i] = strArr[i]; }
+
+    $c.win.closePopup(scwin.arrRtnVal);
+};
+
+/****************************************************************************************
+* 그리드, 데이타리스트 이벤트 영역
+*****************************************************************************************/
+/**
+ * 그리드 더블클릭
+ */
+scwin.gr_company_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.f_rtnValue(rowIndex);
+};</script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="회사코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="form-control w100" id="edCoCd" placeholder="" style="" maxlength="3" objType="key" ref="data:dma_search.param1" ev:onkeydown="scwin.search_onkeydown" allowChar="0-9" editFormat="###" editType="focus" title="회사코드">
+    									</xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="법인명" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="form-control w200" id="edCorRegNm" placeholder="" style="" maxlength="70" objType="Data" ref="data:dma_search.param2" ev:onkeydown="scwin.search_onkeydown" title="법인명">
+    									</xf:input>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[새로고침]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_company" focusMode="cell" id="gr_company" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNumFix="true" readOnly="true" ev:oncelldblclick="scwin.gr_company_oncelldblclick">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" width="100" value="회사코드">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" width="300" value="회사명">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="col1" inputType="text" removeBorderStyle="false" width="100" textAlign="center">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="col6" inputType="text" removeBorderStyle="false" width="300" textAlign="left">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" displayFormat="#,##0" dataType="number">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_WinClose">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

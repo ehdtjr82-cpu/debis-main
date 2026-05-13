@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_lobran" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+						<w2:column id="lobranNm" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_queryCondition">
+					<w2:keyInfo>
+						<w2:key id="gubun" name="name1" dataType="text"></w2:key>
+						<w2:key id="ctrtDtMm" name="name2" dataType="text"></w2:key>
+						<w2:key id="assgnLobranCd" name="name3" dataType="text"></w2:key>
+						<w2:key id="posnClsCd" name="name4" dataType="text"></w2:key>
+						<w2:key id="insrkndCd" name="name5" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_consignment" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="lobranNm" name="name1" dataType="text"></w2:column>
+						<w2:column id="vehclNo" name="name2" dataType="text"></w2:column>
+						<w2:column id="drcrNo" name="name3" dataType="text"></w2:column>
+						<w2:column id="posnClsCd" name="name4" dataType="text"></w2:column>
+						<w2:column id="eqKndNm" name="name5" dataType="text"></w2:column>
+						<w2:column id="insrStDt" name="name6" dataType="text"></w2:column>
+						<w2:column id="insrEndDt" name="name14" dataType="text"></w2:column>
+						<w2:column id="insrLimitAmt" name="name7" dataType="text"></w2:column>
+						<w2:column id="bilgAmt" name="name8" dataType="text"></w2:column>
+						<w2:column id="amt" name="name9" dataType="text"></w2:column>
+						<w2:column id="ramt" name="name10" dataType="text"></w2:column>
+						<w2:column id="retrvAmt" name="name11" dataType="text"></w2:column>
+						<w2:column id="rate" name="name12" dataType="text"></w2:column>
+						<w2:column id="assgnLobranCd" name="name13" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_lobran" action="/ds.co.RetreiveLoBranCMD.do" method="post" mediatype="application/json" ref=""
+				target='data:json,{"id":"ds_lobran","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_lobran_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_retrieve" action="/ds.fs.consignmgnt.consignmgntcadjm.RetrieveConsignmentEquipInsuranceCMD.do"
+				method="post" mediatype="application/json"
+				ref='data:json,[{"id":"dma_queryCondition","key":"IN_DS1"},{"id":"ds_consignment","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_consignment","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+/*년월 setting*/
+scwin.strYm = $c.date.getServerDateTime("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+
+scwin.memJson = $c.data.getMemInfo();
+scwin.loUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd"); //상위물류점소코드
+scwin.loUpperLobranNm = $c.data.getMemInfo("loUpperLobranNm"); //상위물류점소 
+
+if (scwin.loUpperLobranCd == null) scwin.loUpperLobranCd = "";
+
+//-------------------------------------------------------------------------
+// function name : f_OnLoad
+// function desc : 화면로딩시 
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.f_SetDefaultData();
+
+    // 달력 버튼 포커스 방지
+    setTimeout(function () {
+        document.querySelectorAll('.w2inputCalendar_div_img button').forEach(function (btn) {
+            btn.tabIndex = -1;
+        });
+    }, 0);
+
+    //보험종류 공통코드 적용
+    const codeOptions = [
+        { grpCd: "OP107", compID: "lux_insrkndCd" } // 소속지사
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_SetDefaultData
+// function desc : Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function () {
+
+    ed_ctrtDtMm.setValue(scwin.strYm); //기준월
+
+    //소속지사 
+    $c.sbm.execute(sbm_lobran);
+}
+
+//공통콤보 callback
+scwin.sbm_lobran_submitdone = function () {
+
+    // ds_lobran.insertRow(0);
+    // ds_lobran.setCellData(0,"lobranCd" ,"");
+    // ds_lobran.setCellData(0,"lobranNm" ,"전체");
+
+    lc_lobran.setValue(scwin.loUpperLobranCd);
+    lc_lobran.focus();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_InitObjects
+// function desc : 검색조건 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.btn_fieldClear_onclick = async function (e) {
+    await $c.gus.cfInitObjects(tb_condition);
+    scwin.f_SetDefaultData();
+
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onclick = async function (e) {
+    let chkValid = await $c.gus.cfValidate([ed_ctrtDtMm]);
+    if (!chkValid) return;
+
+    //dataMap setting
+    dma_queryCondition.set("gubun", rd_gubun.getValue()); // 조회구분
+    dma_queryCondition.set("ctrtDtMm", ed_ctrtDtMm.getValue()); // 기준년월
+    dma_queryCondition.set("assgnLobranCd", lc_lobran.getValue()); // 물류점소
+    dma_queryCondition.set("posnClsCd", lc_posnClsCd.getValue()); // 업체구분
+    dma_queryCondition.set("insrkndCd", lux_insrkndCd.getValue()); // 보험종류
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//조회callback처리
+scwin.sbm_retrieve_submitdone = function () {
+
+    let nRow = ds_consignment.getRowCount();
+
+    if (nRow == 0) {
+
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);  // 조회결과가 존재하지 않습니다.
+
+    } else {
+        total.setValue(nRow);
+    }
+};
+
+//-------------------------------------------------------------------------
+// GRID에서 선택된 오더 세부정보 확인 : 해당 오더유형별 페이지로 이동
+//-------------------------------------------------------------------------
+scwin.gr_consignment_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+
+    var paramJson = {
+        v_vehclNo: ds_consignment.getCellData(rowIndex, "vehclNo"),
+        v_assgnLobranCd: ds_consignment.getCellData(rowIndex, "assgnLobranCd"),
+        type: "retrieve"
+    };
+
+    $c.win.openMenu(
+        "보험장비등록",
+        "/ui/ds/op/rscconfirm/transrscconfirm/op_101_01_16b.xml",
+        "op_101_01_16b.xml",
+        paramJson,
+        {
+            openAction: "exist"
+        }
+    );
+
+};
+
+scwin.excelDw_gr_consignment = async function () {
+    if (await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?")) {
+        let grdObj = gr_consignment;
+        let options = {
+            fileName: "위수탁(지입) 장비보험료 현황.xlsx",
+            sheetName: "위수탁 장비보험내역",
+            useDataFormat: "true",
+            useStyle: "true"
+        };
+
+        let infoArr = {};
+        // AS-IS: 조회 결과 없어도 엑셀 다운로드
+        $c.data.downloadGridViewExcel(grdObj, options, infoArr);
+    }
+}
+
+scwin.setInsrDate = function (value, formattedValue, rowIdx, colIdx) {
+    // getCellData를 통해 실제 값을 가져옴
+    var start = ds_consignment.getCellData(rowIdx, "insrStDt");
+    var end = ds_consignment.getCellData(rowIdx, "insrEndDt");
+
+    // 두 값이 모두 없을 경우 빈 값 처리
+    if (!start && !end) return "";
+
+    // 시작값이 있을 때만 "~"를 붙여서 반환
+    return start ? start + " ~ " + end : end;
+}]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb" id="tb_condition" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<xf:select1 appearance="full" class="" cols="" id="rd_gubun" ref="" renderType="radiogroup" rows="" selectedIndex="0"
+									style="" objType="data">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[전체]]></xf:label>
+											<xf:value><![CDATA[]]>
+											</xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[월별]]></xf:label>
+											<xf:value><![CDATA[M]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="기준월 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_ctrtDtMm" style="" mandatory="true" objType="data"
+									displayFormat="yyyy/MM" title="기준월">
+								</w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="소속지사 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="lc_lobran" search="start" style="width: 200px;" submenuSize="auto"
+									ref="" allOption="" chooseOption="true" visibleColumn="15" chooseOptionLabel="[]전체">
+									<w2:choices>
+										<w2:itemset nodeset="data:ds_lobran">
+											<w2:label ref="lobranNm"></w2:label>
+											<w2:value ref="lobranCd"></w2:value>
+										</w2:itemset>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="차량구분 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="lc_posnClsCd" search="start" style="width:150px;" submenuSize="auto"
+									allOption="" chooseOption="true" ref="" chooseOptionLabel="[]전체">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[위수탁]]></w2:label>
+											<w2:value><![CDATA[W]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[지입차]]></w2:label>
+											<w2:value><![CDATA[G]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="보험종류" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="lux_insrkndCd" search="start" style="width:150px;"
+									submenuSize="auto" allOption="" chooseOption="true" chooseOptionLabel="[]종합보험전체" ref="">
+									<w2:choices></w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+						ev:onclick="scwin.btn_retrieve_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn gridUpYn="N" grp="grd_section1" templateYn="N" style="" gridID="gr_consignment" id="udc_topGrdBtn"
+							btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridDownFn="scwin.excelDw_gr_consignment">
+						</w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_consignment" id="gr_consignment"
+						style="" focusMode="cell" focusMove="true" visibleRowNum="18" readOnly="true" ev:oncelldblclick="scwin.gr_consignment_oncelldblclick"
+						visibleRowNumFix="true" fixedColumn="13" columnMove="false">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="text" value="소속&lt;br/&gt;지사" width="100"></w2:column>
+								<w2:column displayMode="label" id="column17" inputType="text" value="차량번호" width="100">
+								</w2:column>
+								<w2:column displayMode="label" id="column15" inputType="text" value="차대번호" width="150">
+								</w2:column>
+								<w2:column displayMode="label" id="column13" inputType="text" value="차량구분" width="100">
+								</w2:column>
+								<w2:column displayMode="label" id="column11" inputType="text" value="차종" width="70">
+								</w2:column>
+								<w2:column displayMode="label" id="column9" inputType="text" value="계약기간" width="150"></w2:column>
+								<w2:column displayMode="label" id="column3" inputType="text" value="총보험료" width="100" dataType="number"></w2:column>
+								<w2:column displayMode="label" id="column5" inputType="text" value="청구보험료" width="120" dataType="number"></w2:column>
+								<w2:column displayMode="label" id="column7" inputType="text" value="회수보험료" width="120"></w2:column>
+								<w2:column displayMode="label" id="column19" inputType="text" value="잔여청구보험료" width="120">
+								</w2:column>
+								<w2:column width="120" inputType="text" id="column39" value="미회수보험료" displayMode="label">
+								</w2:column>
+								<w2:column width="100" inputType="text" id="column37" value="회수율(%)" displayMode="label">
+								</w2:column>
+								<w2:column width="150" inputType="text" id="column35" value="배정물류점소코드" displayMode="label">
+								</w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="lobranNm" inputType="text" width="100" textAlign="left" colMerge="true"></w2:column>
+								<!-- 변경 후 -->
+								<w2:column displayMode="label" id="vehclNo" inputType="text" width="100" colMerge="true" class="underline"
+									style=";color:#0000FF;"></w2:column>
+								<w2:column displayMode="label" id="drcrNo" inputType="text" width="150" textAlign="left"></w2:column>
+								<w2:column displayMode="label" id="posnClsCd" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="eqKndNm" inputType="text" width="70" textAlign="left" colMerge="true"
+									style=";background-color:#FFFFFF;"></w2:column>
+								<w2:column displayMode="label" id="insrStDt" inputType="text" width="150" dataType="text"
+									customFormatter="scwin.setInsrDate"></w2:column>
+								<w2:column displayMode="label" id="insrLimitAmt" inputType="text" width="100" textAlign="right" displayFormat="#,##0"
+									dataType="number" excelCellType="number"></w2:column>
+								<w2:column displayMode="label" id="bilgAmt" inputType="text" width="120" textAlign="right" displayFormat="#,##0"
+									dataType="number" excelCellType="number"></w2:column>
+								<w2:column displayMode="label" id="amt" inputType="text" width="120" textAlign="right" displayFormat="#,##0"
+									dataType="number" excelCellType="number"></w2:column>
+								<w2:column displayMode="label" id="ramt" inputType="text" width="120" textAlign="right" displayFormat="#,##0"
+									dataType="number" excelCellType="number"></w2:column>
+								<w2:column width="120" inputType="text" id="retrvAmt" displayMode="label" textAlign="right" displayFormat="#,##0"
+									dataType="number" excelCellType="number"></w2:column>
+								<w2:column width="100" inputType="text" id="rate" displayMode="label" textAlign="right" displayFormat="#,##0.0"
+									dataType="float" excelCellType="number"></w2:column>
+								<w2:column width="150" inputType="text" id="assgnLobranCd" displayMode="label" hidden="true"></w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:subTotal targetColumnID="lobranNm" id="subTotal1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="lobranNm" inputType="expression" width="100" textAlign="left"></w2:column>
+								<w2:column displayMode="label" id="column20" inputType="text" width="100" value="소계"></w2:column>
+								<w2:column displayMode="label" id="column21" inputType="text" width="150" textAlign="left"></w2:column>
+								<w2:column displayMode="label" id="column22" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column23" inputType="text" width="70" textAlign="left"></w2:column>
+								<w2:column displayMode="label" id="column24" inputType="text" width="150"></w2:column>
+								<w2:column displayMode="label" id="column25" inputType="expression" width="100" textAlign="right" displayFormat="#,##0"
+									expression="SUM('insrLimitAmt')" dataType="number"></w2:column>
+								<w2:column displayMode="label" id="column26" inputType="expression" width="120" textAlign="right" displayFormat="#,##0"
+									expression="SUM('bilgAmt')" dataType="number"></w2:column>
+								<w2:column displayMode="label" id="column27" inputType="expression" width="120" textAlign="right" displayFormat="#,##0"
+									expression="SUM('amt')" dataType="number"></w2:column>
+								<w2:column displayMode="label" id="column28" inputType="expression" width="120" textAlign="right" displayFormat="#,##0"
+									expression="SUM('ramt')" dataType="number"></w2:column>
+								<w2:column width="120" inputType="expression" id="column29" displayMode="label" textAlign="right" displayFormat="#,##0"
+									expression="SUM('retrvAmt')" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" id="column30" displayMode="label" textAlign="right"
+									displayFormat="#,##0.0[floor]" expression="AVG('rate')" dataType="number"></w2:column>
+								<w2:column width="150" inputType="text" id="column31" displayMode="label" hidden="true"></w2:column>
+							</w2:row>
+						</w2:subTotal>
+						<w2:footer style="" id="footer1">
+							<w2:row style="" id="row3">
+								<w2:column width="100" inputType="text" style="" id="column53" value="" displayMode="label">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column52" value="" displayMode="label">
+								</w2:column>
+								<w2:column width="150" inputType="text" style="" id="column51" value="" displayMode="label">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column50" value="" displayMode="label">
+								</w2:column>
+								<w2:column width="70" inputType="text" style="" id="column49" value="" displayMode="label">
+								</w2:column>
+								<w2:column width="150" inputType="text" style="" id="column48" value="" displayMode="label">
+								</w2:column>
+								<w2:column width="100" inputType="expression" style="" id="column47" value="" displayMode="label" textAlign="right"
+									expression='SUM("insrLimitAmt")' displayFormat="#,##0" dataType="number">
+								</w2:column>
+								<w2:column width="120" inputType="expression" style="" id="column46" value="" displayMode="label" textAlign="right"
+									expression='SUM("bilgAmt")' displayFormat="#,##0" dataType="number">
+								</w2:column>
+								<w2:column width="120" inputType="expression" style="" id="column45" value="" displayMode="label" textAlign="right"
+									expression='SUM("amt")' displayFormat="#,##0" dataType="number">
+								</w2:column>
+								<w2:column width="120" inputType="expression" style="" id="column44" value="" displayMode="label" textAlign="right"
+									expression='SUM("ramt")' displayFormat="#,##0" dataType="number">
+								</w2:column>
+								<w2:column width="120" inputType="expression" style="" id="column43" value="" displayMode="label" textAlign="right"
+									expression='SUM("retrvAmt")' displayFormat="#,##0" dataType="number">
+								</w2:column>
+								<w2:column width="100" inputType="expression" style="" id="column42" value="" displayMode="label" textAlign="right"
+									expression='AVG("rate")' displayFormat="#,###.0[floor]" dataType="number">
+								</w2:column>
+								<w2:column width="150" inputType="text" style="" id="column41" value="" displayMode="label">
+								</w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" id="total" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

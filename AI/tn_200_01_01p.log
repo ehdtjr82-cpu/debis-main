@@ -1,0 +1,23 @@
+tn_200_01_01p.log
+
+[2026-02-19 15:54:36.890] 변환 시작
+[2026-02-19 15:54:36.898] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 15:54:54.602] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=4 | LLM 17682ms, total 17704ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_OnLoad → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:54:54.609] #1 검증: 자동수정 1건 적용
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:54:54.636] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=4
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_OnLoad → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:54:54.649] #2 재시도 (에러 1건)
+[2026-02-19 15:54:55.653] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 15:55:21.179] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=4 | LLM 25502ms, total 25525ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-19 15:55:21.182] #1 검증: 최적 시도 #1 채택 (confidence: 0.57)
+[2026-02-19 15:55:21.182] 실패 (2회 시도, 44.3s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_OnLoad → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+================================================================================

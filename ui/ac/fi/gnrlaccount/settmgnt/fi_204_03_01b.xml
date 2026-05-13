@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_month" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="seq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="wrkId" name="작업자ID" dataType="text"></w2:column>
+    					<w2:column id="closeStDtm" name="시작일시" dataType="text"></w2:column>
+    					<w2:column id="closeEndDtm" name="종료일시" dataType="text"></w2:column>
+    					<w2:column id="wrkDesc" name="작업설명" dataType="text"></w2:column>
+    					<w2:column id="errNo" name="오류번호" dataType="text"></w2:column>
+    					<w2:column id="wrkNm" name="작업자" dataType="text"></w2:column>
+    					<w2:column id="closeYm" name="마감년월" dataType="text"></w2:column>
+    					<w2:column id="closeDd" name="마감일" dataType="text"></w2:column>
+    					<w2:column id="wrkNo" name="작업번호" dataType="text"></w2:column>
+    					<w2:column id="mgntNo" name="관리번호" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="coCd" name="name6" dataType="text"></w2:key>
+    					<w2:key id="closeYm" name="결산년월" dataType="text"></w2:key>
+    					<w2:key id="closeDd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="wrkNo" name="name3" dataType="text"></w2:key>
+    					<w2:key id="mgntNo" name="name4" dataType="text"></w2:key>
+    					<w2:key id="closePrgsStsCd" name="name7" dataType="text"></w2:key><w2:key id="coClsCd" name="name8" dataType="text"></w2:key><w2:key id="monthAllCompanyClose" name="name5" dataType="text"></w2:key>
+
+    					
+    					
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_judge">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_company">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    					<w2:key id="param2" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_judge" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_company" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="회사코드" dataType="text"></w2:column>
+    					<w2:column id="col6" name="회사명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/cm.bc.comnmgnt.closemgnt.RetrieveCloseLogListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_month","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_month","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_judge" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_judge" target='data:json,{"id":"ds_judge","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_judge_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_company" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_company" target='data:json,{"id":"ds_company","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_month" action="/ac.fi.gnrlaccount.settmgnt.ProcessMonthSettlementOfAccountsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_search","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_month_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_monthAllCompany" action="/cm.bc.comnmgnt.closemgnt.RegistCloseControlInformationCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_search","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_monthAllCompany_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript"
+    		scopeVariable="ACConstants">
+    	</script>
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역 변수
+scwin.memJson = $c.data.getMemInfo(); // 로그인 정보를 가져온다.
+scwin.privAdmin = scwin.memJson.privAdmin; // ADMIN 권한 CHK : 'T' : ADMIN , 'F': ADMIN 아님
+
+scwin.gJudgeYn = "0";
+scwin.g_sLoginDept = scwin.memJson.acctDeptCd;
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd; // 소속 자회사
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd; // 회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd; // 사용자소속구분코드
+scwin.isSubCompany = false;
+
+scwin.txtCoClsCd = "";
+scwin.txtMonthAllCompanyClose = "";
+scwin.txtWrkNo = "";
+scwin.txtCloseDd = "";
+scwin.txtMgntNo = "";
+scwin.isStart = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	
+};
+
+/**
+ * UDC값
+ */
+scwin.onUdcCompleted = function() {
+    scwin.f_retrieveJudge(); // 권한 -거래처수금조건권한부서(TB_ZZ023)
+
+    dma_search.set("closeDd", "00");
+    dma_search.set("mgntNo", "0");
+    ica_closeYm.focus();
+
+    scwin.f_setCompanyInfo();
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function() {
+    // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를 '동부 EXPRESS'로 Default set
+    if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+        scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+        scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+    }
+
+    scwin.isStart = true;
+    ed_coCd.setValue(scwin.vLoginCoCd);
+    scwin.f_PopUpCompanyInfo('T');
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    let ret = await $c.gus.cfValidate([ed_coCd, ica_closeYm]);
+    if (!ret) return false;
+
+    dma_search.set("wrkNo", ACConstants.CLOSE_MONTH);
+    dma_search.set("coCd", ed_coCd.getValue());
+
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 월결산
+//-------------------------------------------------------------------------
+scwin.f_MonthProcess = async function() {
+    let ret = await $c.gus.cfValidate([ed_coCd, ica_closeYm]);
+    if (!ret) {
+        return false;
+    }
+
+    // 마감체크
+    let ret2 = await scwin.f_JobCloseYN(ACConstants.CLOSE_MONTH);
+    if (!ret2){
+        return false;
+    }
+
+    if (await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_010, "월결산"))) {
+        dma_search.set("coCd", ed_coCd.getValue()); // DataSet Bind 하지 말 것.(월 마감, 통합 마감 같이 사용.)
+        dma_search.set("coClsCd", scwin.txtCoClsCd); // DataSet Bind 하지 말 것.(월 마감, 통합 마감 같이 사용.)
+        $c.sbm.execute(sbm_month);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 월 - 통합마감
+//-------------------------------------------------------------------------
+scwin.f_MonthAllCompanyProcess = async function() {
+    let ret = await $c.gus.cfValidate([ed_coCd, ica_closeYm]);
+    if (!ret) {
+        return false;
+    }
+
+    scwin.txtWrkNo = ACConstants.CLOSE_MONTH_ALL_SETUP; // 월 결산 통합마감
+    scwin.txtMonthAllCompanyClose = "T"; //마감완료
+
+    // 마감체크
+    let ret2 = await scwin.f_JobMonthCloseYN(ACConstants.CLOSE_MONTH_ALL_SETUP)
+    if (!ret2)
+        return false;
+
+    if (await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_010, "월 통합마감"))) {
+        dma_search.set("coCd", ACConstants.CO_CD_DONGBU); // DataSet Bind 하지 말 것. (월 마감, 통합 마감 같이 사용.)
+        dma_search.set("coClsCd", ACConstants.CO_CLS_CD_DONGBU); // DataSet Bind 하지 말 것. (월 마감, 통합 마감 같이 사용.)
+        dma_search.set("closePrgsStsCd", ACConstants.WRK_NO_CLOSE_COMPLETE); //월 통합 마감 시에는 '마감완료(2)'로 Default set
+        dma_search.set("monthAllCompanyClose",scwin.txtMonthAllCompanyClose);
+        dma_search.set("wrkNo",scwin.txtWrkNo);
+        $c.sbm.execute(sbm_monthAllCompany);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 마감체크
+//-------------------------------------------------------------------------
+scwin.f_JobCloseYN = async function(wrkNo) {
+    // 월마감시 감가상각, 선급비용 마감 체크 (둘다 마감완료가 되어야한다.)
+    // 감가상각마감체크
+    let isCloseDepr = await udc_closeYn.cfJobCloseYN("CUR", ica_closeYm.getValue().trim(), "00", ACConstants.CLOSE_DEPRECIATION, "0", "", "", ed_coCd.getValue());
+
+    if (isCloseDepr == "1") {
+        await $c.win.alert("선행작업 감가상각마감이 미마감되어서 현재 작업을 진행할 수 없습니다.");
+        return false;
+    } else if (isCloseDepr == "0") {
+        await $c.win.alert("선행작업 감가상각마감이 마감작업중이어서 현재 작업을 진행할 수 없습니다.");
+        return false;
+    }
+
+    // 월마감체크
+    let isClose = await udc_closeYn.cfJobCloseYN("CUR", ica_closeYm.getValue().trim(), "00", wrkNo, "0", "ARR", "Y", ed_coCd.getValue());
+    // 선행마감 작업에 대한 검사
+    if (isClose[3] == "PRE") {
+        if (isClose[0] == "1") {
+            await $c.win.alert("선행작업 " + isClose[2] + "이 미마감되어서 현재 작업을 진행할 수 없습니다.");
+            return false;
+        } else if (isClose[0] == "0") {
+            await $c.win.alert("선행작업 " + isClose[2] + "이 마감작업중이어서 현재 작업을 진행할 수 없습니다.");
+            return false;
+        }
+    }
+
+    // 해당마감 작업에 대한 검사
+    if (isClose[3] == "CUR") {
+        if (isClose[0] == "0") {
+            await $c.win.alert(isClose[2] + "(이)가 마감중입니다.");
+            return false;
+        } else if (isClose[0] == "2") {
+            await $c.win.alert(isClose[2] + "(이)가 마감완료가 되었습니다");
+            return false;
+        }
+    }
+    return true;
+};
+
+//-------------------------------------------------------------------------
+// 월 통합 마감을 위한 선행 마감 및 해당 통합마감에 대한 체크
+//-------------------------------------------------------------------------
+scwin.f_JobMonthCloseYN = async function(wrkNo) {
+    let vCompanyCode = '';
+    let vCompanyName = '';
+
+    // 각 자회사별 월 마감이 여부 Check
+
+    // 자회사 리스트 정보 Get
+    await scwin.f_retrieveDongbuCompanyList();
+
+    for (let i = 0; i < ds_company.getRowCount(); i++) {
+        vCompanyCode = ds_company.getCellData(i, "col1"); // 회사 코드
+        vCompanyName = ds_company.getCellData(i, "col6"); // 회사명
+
+        let preWrkNo = ACConstants.CLOSE_MONTH; // 각 사별 월 마감 Check
+
+        let isCloseDepr = await udc_closeYn.cfJobCloseYN("CUR", ica_closeYm.getValue().trim(), "00", preWrkNo, "0", "", "", vCompanyCode);
+
+        if (isCloseDepr == "1") {
+            await $c.win.alert(vCompanyName + "(" + vCompanyCode + ") 의 선행작업 월마감 (" + preWrkNo + ")이 미마감되어서 현재 작업을 진행할 수 없습니다.");
+            return false;
+        } else if (isCloseDepr == "0") {
+            await $c.win.alert(vCompanyName + "(" + vCompanyCode + ") 의 선행작업 월마감 (" + preWrkNo + ")이 마감작업중이어서 현재 작업을 진행할 수 없습니다.");
+            return false;
+        }
+    }
+
+    // 월 통합 마감체크 - 동부 EXPRESS만 통합 마감 정보 가짐.
+    let isClose = await udc_closeYn.cfJobCloseYN("CUR", ica_closeYm.getValue().trim(), "00", wrkNo, "0", "ARR", "Y", ACConstants.CO_CD_DONGBU);
+
+    // 선행마감 작업에 대한 검사
+    if (isClose[3] == "PRE") {
+        if (isClose[0] == "1") {
+            await $c.win.alert("선행작업 " + isClose[2] + "이 미마감되어서 현재 작업을 진행할 수 없습니다.");
+            return false;
+        } else if (isClose[0] == "0") {
+            await $c.win.alert("선행작업 " + isClose[2] + "이 마감작업중이어서 현재 작업을 진행할 수 없습니다.");
+            return false;
+        }
+    }
+    // 해당마감 작업에 대한 검사
+    if (isClose[3] == "CUR") {
+        if (isClose[0] == "0") {
+            await $c.win.alert(isClose[2] + "(이)가 마감중입니다.");
+            return false;
+        } else if (isClose[0] == "2") {
+            await $c.win.alert(isClose[2] + "(이)가 마감완료가 되었습니다");
+            return false;
+        }
+    }
+    return true;
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.(그리드용)
+//-------------------------------------------------------------------------
+scwin.f_retrieveJudge = async function() {
+    //심사권한 조회
+    const params = {
+        sysCd: "CommonEBC",
+        queryId: "retrieveBorrowAcqKindInfo",
+        param1: "ZZ023"
+    };
+    dma_judge.setJSON(params);
+    $c.sbm.execute(sbm_judge);
+};
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = async function(pWinCloseTF) {
+    await udc_dongbuGroupCompanyInfo.cfCommonPopUp(scwin.udc_dongbuGroupCompanyInfo_callBackFunc,
+        ed_coCd.getValue(), ed_coNm.getValue(),
+        pWinCloseTF, null, null, null, null, null, null, null, null, null);
+};
+
+scwin.udc_dongbuGroupCompanyInfo_callBackFunc = function(rtnList) {
+    // SET
+    if (rtnList != null) {
+        if (rtnList[0] == "N/A") return;
+
+        ed_coCd.setValue(rtnList[0]); // 코드
+        ed_coNm.setValue(rtnList[5]); // 회사명
+        if (!ed_coCd.options) ed_coCd.options = {};
+        ed_coCd.options.hidVal = rtnList[0]; // 히든값
+        scwin.txtCoClsCd = rtnList[1]; // 회사구분
+
+    } else {
+        ed_coCd.setValue("");
+        ed_coNm.setValue("");
+        if (!ed_coCd.options) ed_coCd.options = {};
+        ed_coCd.options.hidVal = "";
+        scwin.txtCoClsCd = "";
+    }
+
+    if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) { // 자회사 회계 시스템
+        scwin.isSubCompany = true;
+    } else {
+        scwin.isSubCompany = false;
+    }
+
+    if(scwin.isStart == true) {
+        if ('T' == scwin.privAdmin || !scwin.isSubCompany || scwin.gJudgeYn == '1') { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+            $c.gus.cfEnableObjects([ed_coCd, ed_coNm, btn_company]);
+            if (scwin.gJudgeYn == '1') // 통합 마감 권한
+                $c.gus.cfEnableObjects([btn_allClose]);
+        } else {
+            $c.gus.cfDisableObjects([ed_coCd, ed_coNm, btn_company, btn_allClose]);
+        }
+    }
+
+    scwin.isStart = false;
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.(그리드용)
+//-------------------------------------------------------------------------
+scwin.f_retrieveDongbuCompanyList = async function() {
+    // 동부 자회사 List 조회
+    const params = {
+        sysCd: "CommonEBC",
+        queryId: "retrieveDongbuGroupCompanyInfo",
+        param1: "",
+        param2: ""
+    };
+
+    dma_company.setJSON(params); 
+    $c.sbm.execute(sbm_company);
+};
+
+scwin.sbm_search_submitdone = async function (e) {
+    let rowCnt = ds_month.getRowCount();
+    totalRows.setValue(rowCnt);
+    if (rowCnt == 0) {
+        await $c.win.alert(MSG_CM_WRN_002);
+    }
+};
+
+scwin.sbm_month_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        await $c.win.alert("성공적으로 처리되었습니다");
+    }
+};
+
+scwin.sbm_monthAllCompany_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        await $c.win.alert("성공적으로 처리되었습니다");
+    }
+};
+
+scwin.gr_prepay_oncelldblclick = async function (row, columnIndex, columnId) {
+    if (row >= 0) {
+        let data = {};
+        data.closeYm = ica_closeYm.getValue();
+        data.closeEndDtm = ds_month.getCellData(row, "closeEndDtm");
+
+        const options = {
+            id: "fi_204_03_01p",
+            popupName: "월결산 전표 리스트",
+            width: 825,
+            height: 560
+        };
+        $c.win.openPopup("/ui/ac/fi/gnrlaccount/settmgnt/fi_204_03_01p.xml", options, data);
+
+    } else {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_056, ["Row"]));
+    }
+};
+
+scwin.udc_dongbuGroupCompanyInfo_onblurCodeEvent = function (e) {
+    ed_coNm.setValue("");
+    if (ed_coCd.getValue() != ""){
+        scwin.f_PopUpCompanyInfo('T');
+    }
+    else{
+        ed_coNm.setValue("");
+    }
+};
+
+scwin.udc_dongbuGroupCompanyInfo_onclickEvent = function (e) {
+    scwin.f_PopUpCompanyInfo();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_evid_onclick = function (e) {
+    scwin.f_MonthProcess();
+};
+
+scwin.btn_allClose_onclick = function (e) {
+    scwin.f_MonthAllCompanyProcess();
+};
+
+scwin.sbm_judge_submitdone = function (e) {
+    for (let i = 0; i < ds_judge.getRowCount(); i++) {
+        if (scwin.g_sLoginDept == ds_judge.getCellData(i, "col1")) {
+            scwin.gJudgeYn = "1";
+        }
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_comChkRes" type="page" variableClone="" src="/cm/udc/comChkRes.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="회사코드 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode popupID="" selectID="retrieveDongbuGroupCompanyInfo" codeId="ed_coCd" validTitle="회사코드"
+    								nameId="ed_coNm" style="" objTypeCode="data" mandatoryCode="true" validExpCode="회사코드:yes" allowCharCode="0-9" maxlengthCode="3"
+    								UpperFlagCode="1" objTypeName="data" btnId="btn_company" id="udc_dongbuGroupCompanyInfo"
+    								ev:onblurCodeEvent="scwin.udc_dongbuGroupCompanyInfo_onblurCodeEvent"
+    								ev:onclickEvent="scwin.udc_dongbuGroupCompanyInfo_onclickEvent">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="결산연월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_closeYm" style="" objType="data"
+    								mandatory="true" ioFormat="yyyyMM" displayFormat="yyyy/MM" editType="focus" title="결산년월" ref="data:dma_search.closeYm">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_month" 
+    					id="gr_prepay" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true"
+    					columnMove="true"  readOnly="true" ev:oncelldblclick="scwin.gr_prepay_oncelldblclick"
+    					columnMoveWithFooter="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" style="" value="순번" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" style="" value="작업자ID " width="120"></w2:column>
+    							<w2:column displayMode="label" id="column36" inputType="text" style="" value="시작일시" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" style="" value="종료일시" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column32" inputType="text" style="" value="작업설명" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" style="" value="오류번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" style="" value="작업자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" style="" value="마감년월" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column24" inputType="text" style="" value="마감일" width="100"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column40" value="작업번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column42" value="작업번호" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="seq" inputType="text" style="" value="" width="70"></w2:column>
+    							<w2:column displayMode="label" id="wrkId" inputType="text" style="" value="" width="120"></w2:column>
+    							<w2:column displayMode="label" id="closeStDtm" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="closeEndDtm" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="wrkDesc" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="errNo" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="wrkNm" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="closeYm" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="closeDd" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="wrkNo" value="" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="mgntNo" value="" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style=""
+    								tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn white link" id="btn_evid" style="" type="button" userAuth="U"
+    						ev:onclick="scwin.btn_evid_onclick">
+    						<xf:label><![CDATA[월결산]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn white link" id="btn_allClose" style="" type="button" userAuth="U"
+    						ev:onclick="scwin.btn_allClose_onclick">
+    						<xf:label><![CDATA[통합마감]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			<w2:udc_comChkRes selectID="" codeId="" nameId="" style="width:%; height:px; ;visibility:hidden;" id="udc_closeYn"></w2:udc_comChkRes>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

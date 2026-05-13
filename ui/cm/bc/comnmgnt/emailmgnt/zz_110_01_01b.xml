@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="typeCode" name="lc_typeCode" dataType="text"></w2:key>
+    					<w2:key id="chargerEmpNo" name="ed_chargerEmpNo" dataType="text"></w2:key>
+    					<w2:key id="managerEmpNo" name="ed_managerEmpNo" dataType="text"></w2:key>
+    					<w2:key id="chargerAcctDeptCd" name="ed_chargerAcctDeptCd" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="typeCode" name="typeCode" dataType="text"></w2:column>
+    					<w2:column id="chargerEmpNo" name="chargerEmpNo" dataType="text"></w2:column>
+    					<w2:column id="chargerEmpNm" name="chargerEmpNm" dataType="text"></w2:column>
+    					<w2:column id="chargerEmail" name="chargerEmail" dataType="text"></w2:column>
+    					<w2:column id="chargerAcctDeptCd" name="chargerAcctDeptCd" dataType="text"></w2:column>
+    					<w2:column id="chargerAcctDeptNm" name="chargerAcctDeptNm" dataType="text"></w2:column>
+    					<w2:column id="chargerUseYn" name="chargerUseYn" dataType="text"></w2:column>
+    					<w2:column id="chargerEmpStsCd" name="chargerEmpStsCd" dataType="text"></w2:column>
+    					<w2:column id="preChargerEmpNo" name="preChargerEmpNo" dataType="text"></w2:column>
+    					<w2:column id="managerEmpNo" name="managerEmpNo" dataType="text"></w2:column>
+    					<w2:column id="managerEmpNm" name="managerEmpNm" dataType="text"></w2:column>
+    					<w2:column id="managerEmail" name="managerEmail" dataType="text"></w2:column>
+    					<w2:column id="managerAcctDeptCd" name="managerAcctDeptCd" dataType="text"></w2:column>
+    					<w2:column id="managerAcctDeptNm" name="managerAcctDeptNm" dataType="text"></w2:column>
+    					<w2:column id="managerUseYn" name="managerUseYn" dataType="text"></w2:column>
+    					<w2:column id="managerEmpStsCd" name="managerEmpStsCd" dataType="text"></w2:column>
+    					<w2:column id="preManagerEmpNo" name="preManagerEmpNo" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/cm.bc.comnmgnt.emailmgnt.RetrieveEmailMgntListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]' target='data:json,{"id":"ds_result","key":"OUT_DS1"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="scwin.sbm_search_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/cm.bc.comnmgnt.emailmgnt.SaveEmailMgntCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"action":"modified","id":"ds_result","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "ZZ110", compID : "lc_typeCode, gr_result: typeCode" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+    $c.gus.cfDisableKey();
+    $c.gus.cfDisableBtn([btn_save]);
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+
+//-------------------------------------------------------------------------
+// Header 초기화 
+//-------------------------------------------------------------------------
+
+// displayFormatter 처리
+scwin.UseYn = function (data) {
+    return $c.gus.decode(data, "1", "사용", "미사용");
+};
+
+scwin.EmpStsCd = function (data) {
+    return $c.gus.decode(data, "H2101", "재직", "H2103", "휴직", "H2104", "퇴직");
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    //alert("lc_chargerUseYn.BindColVal >>> " + lc_chargerUseYn.BindColVal);
+    // tr_search.Post();
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Save
+// function desc : 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function(){
+    console.log("===========scwin.f_Save==========");
+    //변경한 데이터가 있는지 체크한다. 	
+    if( ds_result.getModifiedIndex().length == 0 ){
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    }	
+
+	for(var i=0; i<ds_result.getTotalRow(); i++) {
+        j = i + 1;
+		var irow = ds_result.getRowJSON(i);
+        if( "" == irow.typeCode ) {
+            await $c.win.alert(j + "번째 행 입력 오류\n\n"
+                    + "저장 시 메일구분은 필수입력 입니다.");
+            return;
+        }
+        if( "" == irow.chargerEmpNo ) {
+            await $c.win.alert(j + "번째 행 입력 오류\n\n"
+                    + "저장 시 담당자 정보는 필수입력 입니다.");
+            return;
+        }
+        if( "" == irow.managerEmpNo ) {
+            await $c.win.alert(j + "번째 행 입력 오류\n\n"
+                    + "저장 시 관리자 정보는 필수입력 입니다.");
+            return;
+        }
+        
+        if( irow.managerEmpNo == irow.chargerEmpNo ){
+            await $c.win.alert( j + "번째 행 입력 오류\n\n"
+                    + "채권 담당자와 관리자는 같은 사람으로 등록 불가능 합니다.");
+            return;
+        }
+    } 
+    
+    let confirmResult = await $c.win.confirm(MSG_CM_CRM_001);
+    if (confirmResult) {
+        $c.sbm.execute(sbm_save);
+    }
+    
+};
+
+//-------------------------------------------------------------------------
+// 팝업1
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function(flag,check) {
+    var rtnList = new Array();
+    switch (flag)
+    {	
+        case '1':
+            var param ="";
+            var selectID ='retrieveEmpInfo2';
+            await udc_chargerEmpNoCond.cfCommonPopUp( scwin.udc_chargerEmpNoCond_callback 	// XML상의 SELECT ID
+                                                    , ed_chargerEmpNoCond.getValue(), ed_chargerEmpNmCond.getValue(), check,null,null,null,null,param,null,null,null,null); 
+            break;
+        
+        case '2':
+            var param ="";
+            var selectID ='retrieveEmpInfo2';
+            await udc_managerEmpNoCond.cfCommonPopUp( scwin.udc_managerEmpNoCond_callback 	// XML상의 SELECT ID	
+                                                    , ed_managerEmpNoCond.getValue(), ed_managerEmpNmCond.getValue(), check,null,null,null,null,param,null,null,null,null); 
+            break;
+        
+        case '3':
+            var param ="";
+            var selectID ='retrieveAcctDeptCdInfo';
+            await udc_chargerAcctDeptCdCond.cfCommonPopUp( scwin.udc_chargerAcctDeptCdCond_callback 	// XML상의 SELECT ID	
+                                                        , ed_chargerAcctDeptCdCond.getValue(), ed_chargerAcctDeptNmCond.getValue(), check,null,null,null,null,param,null,null,null,null); 
+            break;
+           
+        default:
+        break; 
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업2
+//-------------------------------------------------------------------------
+scwin.f_openUserPopUp1 = async function() {
+    // var rtnList = new Array();
+    // rtnList = udc_.cfCommonPopUp("retrieveEmpInfo2",'','',"T",null,null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,null,null);
+    udc_comCode_Grid1.setSelectId("retrieveEmpInfo2");
+    await udc_comCode_Grid1.cfCommonPopUp(
+        scwin.udc_comCode_Grid1_callBackFunc
+        ,'','',"T",null,null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,null,null);
+};
+
+scwin.udc_comCode_Grid1_callBackFunc = function(ret) {
+    let row = gr_result.getFocusedRowIndex();
+    if (ret != null && ret[0] != 'N/A') {
+        ds_result.setCellData(row, "chargerEmpNo", ret[0]);
+        ds_result.setCellData(row, "chargerEmpNm", ret[1]);
+        ds_result.setCellData(row, "chargerEmail", ret[4]);
+        ds_result.setCellData(row, "chargerUseYn", ret[5]);
+        ds_result.setCellData(row, "chargerEmpStsCd", ret[6]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업3
+//-------------------------------------------------------------------------
+scwin.f_openUserPopUp2 = async function() {
+    // var rtnList = new Array();
+    // rtnList = udc_.cfCommonPopUp("retrieveEmpInfo2",'','',"T",null,null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,null,null);
+    udc_comCode_Grid2.setSelectId("retrieveEmpInfo2");
+    await udc_comCode_Grid2.cfCommonPopUp(
+        scwin.udc_comCode_Grid2_callBackFunc
+        ,'','',"T",null,null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,null,null);
+};		
+
+scwin.udc_comCode_Grid2_callBackFunc = function(ret) {
+    let row = gr_result.getFocusedRowIndex();
+    if (ret != null && ret[0] != 'N/A') {
+        ds_result.setCellData(row, "managerEmpNo", ret[0]);
+        ds_result.setCellData(row, "managerEmpNm", ret[1]);
+        ds_result.setCellData(row, "managerEmail", ret[4]);
+        ds_result.setCellData(row, "managerUseYn", ret[5]);
+        ds_result.setCellData(row, "managerEmpStsCd", ret[6]);
+    }
+};
+
+//Pop-up UDC
+scwin.udc_chargerEmpNoCond_onblurCodeEvent = function (e) {
+    scwin.f_openPopUp('1','T');
+};
+
+scwin.udc_chargerEmpNoCond_onclickEvent = function (e) {
+    scwin.f_openPopUp('1','T');
+};
+
+scwin.udc_managerEmpNoCond_onblurCodeEvent = function (e) {
+    scwin.f_openPopUp('2','T');
+};
+
+scwin.udc_managerEmpNoCond_onclickEvent = function (e) {
+    scwin.f_openPopUp('2','T');
+};
+
+scwin.udc_chargerAcctDeptCdCond_onblurCodeEvent = function (e) {
+    scwin.f_openPopUp('3','T');
+};
+
+scwin.udc_chargerAcctDeptCdCond_onclickEvent = function (e) {
+    scwin.f_openPopUp('3','T');
+};
+           
+scwin.udc_chargerEmpNoCond_callback = function(rtnList) {
+    if (rtnList != null ) {
+    	if (rtnList[0] != "N/A") {
+    		ed_chargerEmpNoCond.setValue(rtnList[0]);
+			ed_chargerEmpNoCond.options.hidVal = rtnList[0];
+			ed_chargerEmpNmCond.setValue(rtnList[1]);
+		}
+    } else {
+		ed_chargerEmpNoCond.setValue("");
+		ed_chargerEmpNoCond.options.hidVal = "";
+		ed_chargerEmpNmCond.setValue("");
+    }
+};
+
+scwin.udc_managerEmpNoCond_callback = function(rtnList) {
+    if (rtnList != null ) {
+    	if (rtnList[0] != "N/A") {
+    		ed_managerEmpNoCond.setValue(rtnList[0]);
+			ed_managerEmpNoCond.options.hidVal = rtnList[0];
+			ed_managerEmpNmCond.setValue(rtnList[1]);
+		}
+    } else {
+		ed_managerEmpNoCond.setValue("");
+		ed_managerEmpNoCond.options.hidVal = "";
+		ed_managerEmpNmCond.setValue("");
+    }
+};
+
+scwin.udc_chargerAcctDeptCdCond_callback = function(rtnList) {
+    if (rtnList != null ) {
+    	if (rtnList[0] != "N/A") {
+    		ed_chargerAcctDeptCdCond.setValue(rtnList[0]);
+			ed_chargerAcctDeptCdCond.options.hidVal = rtnList[0];
+			ed_chargerAcctDeptNmCond.setValue(rtnList[1]);
+		}
+    } else {
+		ed_chargerAcctDeptCdCond.setValue("");
+		ed_chargerAcctDeptCdCond.options.hidVal = "";
+		ed_chargerAcctDeptNmCond.setValue("");
+    }
+};
+
+scwin.f_toExcel = function () {
+    let sheetTitle = "e메일전송관리";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    gr_result.setColumnVisible("chargerEmpNmPopup", false);
+    gr_result.setColumnVisible("managerEmpNmPopup", false);
+    $c.data.downloadGridViewExcel(gr_result, options);
+    gr_result.setColumnVisible("chargerEmpNmPopup", true);
+    gr_result.setColumnVisible("managerEmpNmPopup", true);
+};
+
+scwin.sbm_search_submitdone = function (e) {
+    var rowCnt = ds_result.getRowCount();
+    gr_result_spanTotal.setLabel(rowCnt);
+    $c.gus.cfEnableObjects([btn_save]);
+};
+
+scwin.sbm_search_submiterror = function (e) {
+
+};
+
+scwin.gr_result_ontextimageclick = function (rowIndex, columnIndex) {
+    switch (gr_result.getColumnID( columnIndex )) {
+        case "chargerEmpNmPopup" :
+            scwin.f_openUserPopUp1();
+			break;
+        case "managerEmpNmPopup" :
+            scwin.f_openUserPopUp2();
+			break;
+		}
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    ds_result.removeAll();
+	scwin.f_Retrieve();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="발송메일종류 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete allOption="false" chooseOption="true" class="" editType="select" id="lc_typeCode" mandatory="true"
+    								ref="data:dma_search.typeCode" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15" chooseOptionValue="$blank" chooseOptionLabel="전체">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="담당자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode allowCharCode="0-9" btnId="btn_chargerEmpNoCond" code="chargerEmpNo" codeId="ed_chargerEmpNoCond"
+    								editTypeName="focus" id="udc_chargerEmpNoCond" maxlengthCode="6" maxlengthName="30" name="chargerEmpNm"
+    								nameId="ed_chargerEmpNmCond" objTypeCode="data" objTypeName="data" onloadCallbackFunc="" popupGridHeadTitle="귀속코드,부서명" popupID=""
+    								popupTitle="귀속부서조회,귀속부서코드,귀속부서명" refDataCollection="dma_search" selectID="retrieveEmpInfo2" style=""
+    								validExpCode="담당자:no" ev:onblurCodeEvent="scwin.udc_chargerEmpNoCond_onblurCodeEvent" ev:onclickEvent="scwin.udc_chargerEmpNoCond_onclickEvent">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="담당자부서" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode allowCharCode="0-9" btnId="btn_chargerAcctDeptCdCond" code="chargerAcctDeptCd" codeId="ed_chargerAcctDeptCdCond"
+    								editTypeName="focus" id="udc_chargerAcctDeptCdCond" maxlengthCode="5" maxlengthName="30" name="chargerAcctDeptNm"
+    								nameId="ed_chargerAcctDeptNmCond" objTypeCode="data" objTypeName="data" onloadCallbackFunc="" popupGridHeadTitle="귀속코드,부서명" popupID=""
+    								popupTitle="귀속부서조회,귀속부서코드,귀속부서명" refDataCollection="dma_search" selectID="retrieveAcctDeptCdInfo" style=""
+    								validExpCode="담당부서:yes" ev:onblurCodeEvent="scwin.udc_chargerAcctDeptCdCond_onblurCodeEvent" ev:onclickEvent="scwin.udc_chargerAcctDeptCdCond_onclickEvent">
+    							</w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="관리자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_comCode allowCharCode="0-9" btnId="btn_managerEmpNoCond" code="managerEmpNo" codeId="ed_managerEmpNoCond"
+    								editTypeName="focus" id="udc_managerEmpNoCond" maxlengthCode="6" maxlengthName="30" name="managerEmpNm"
+    								nameId="ed_managerEmpNmCond" objTypeCode="data" objTypeName="data" onloadCallbackFunc="" popupGridHeadTitle="귀속코드,부서명" popupID=""
+    								popupTitle="귀속부서조회,귀속부서코드,귀속부서명" refDataCollection="dma_search" selectID="retrieveEmpInfo2" style=""
+    								validExpCode="관리자:no" ev:onblurCodeEvent="scwin.udc_managerEmpNoCond_onblurCodeEvent" ev:onclickEvent="scwin.udc_managerEmpNoCond_onclickEvent">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td"><w2:attributes></w2:attributes></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label=" e메일전송관리 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_toExcel" gridID="gr_result" btnUser="N"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_result" focusMode="row"
+    					id="gr_result" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="14" visibleRowNumFix="true"
+    					readOnly="true" ev:ontextimageclick="scwin.gr_result_ontextimageclick" rowStatusVisible="true" rowStatusWidth="30">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column width="100" inputType="text" style="" id="column38" value="메일구분" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column46" value="부서코드" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="170" inputType="text" style="" id="column44" value="부서명" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="550" inputType="text" style="" id="column42" value="담당자" displayMode="label" colSpan="7"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="550" inputType="text" style="" id="column36" value="관리자" displayMode="label" colSpan="7"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row5">
+    							<w2:column width="70" inputType="text" style="" id="column57" value="사번" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column56" value="사번" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column73" value="이름" displayMode="label"
+    								class="txt-red" colSpan="2" rowSpan="">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" style="" id="column68" value="e메일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column65" value="DEBIS&lt;/br&gt;사용여부"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column62" value="재직상태" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column55" value="사번" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column54" value='사번' displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column76" value="이름" displayMode="label"
+    								class="txt-red" colSpan="2" rowSpan="">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" style="" id="column52" value="e메일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column51" value="DEBIS&lt;/br&gt;사용여부"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column50" value="재직상태" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column width="100" inputType="select" style="" id="typeCode" value="" displayMode="label"
+    								readOnly="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="chargerAcctDeptCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="170" inputType="text" style="" id="chargerAcctDeptNm" value="" displayMode="label"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="preChargerEmpNo" value="" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="chargerEmpNo" value="" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" style="" id="chargerEmpNm" value="" displayMode="label"
+    								colMerge="true" textAlign="left">
+    							</w2:column>
+    							<w2:column width="25" inputType="textImage" style="" id="chargerEmpNmPopup" value="" displayMode="label"
+    								textAlign="left" readOnly="true" viewType="icon">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" style="" id="chargerEmail" value="" displayMode="label"
+    								textAlign="left" colMerge="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="tex" style="" id="chargerUseYn" value="" displayMode="label"
+    								displayFormatter="scwin.UseYn">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="chargerEmpStsCd" value="" displayMode="label"
+    								displayFormatter="scwin.EmpStsCd">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="preManagerEmpNo" value="" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="managerEmpNo" value="" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" style="" id="managerEmpNm" value="" displayMode="label"
+    								colMerge="true" textAlign="left">
+    							</w2:column>
+    							<w2:column width="25" inputType="textImage" style="" id="managerEmpNmPopup" value="" displayMode="label"
+    								textAlign="left" readOnly="true" viewType="icon">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" style="" id="managerEmail" value="" displayMode="label"
+    								textAlign="left" colMerge="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="managerUseYn" value="" displayMode="label"
+    								displayFormatter="scwin.UseYn">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="managerEmpStsCd" value="" displayMode="label"
+    								displayFormatter="scwin.EmpStsCd">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="gr_result_spanTotal" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group id="" class="left ">
+    					<w2:textbox style="" id="" label=" 초과채권의 경우: 담당자, 관리자의 DEBIS사용여부가 사용, 재직상태가 재직 인 경우에만 메일 발송. "
+    						class="txt-blue txt-dot">
+    					</w2:textbox>
+    				</xf:group>
+    				<xf:group id="" class="right">
+    					<xf:trigger style="" id="btn_save" type="button" class="btn" objType="bSave" userAuth="U" ev:onclick="scwin.f_Save">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+                <w2:udc_comCode popupID="" style="visibility:hidden;display: none;" id="udc_comCode_Grid1"></w2:udc_comCode>
+                <w2:udc_comCode popupID="" style="visibility:hidden;display: none;" id="udc_comCode_Grid2"></w2:udc_comCode>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

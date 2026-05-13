@@ -1,0 +1,32 @@
+sd_402_01_24b.log
+
+[2026-02-19 15:22:46.484] 변환 시작
+[2026-02-19 15:22:46.561] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:27:08.598] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=3, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=4, warnings=6 | LLM 261293ms, total 262037ms
+    - [XML] scwin.f_validate에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_validate
+    - [XML] scwin.f_validate이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_validate
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: gr_orgSellInfo (GRID→w2:gridView), gr_dcScInfo (GRID→w2:gridView), gr_commCd (GRID→w2:gridView), gr_condWt (GRID→w2:gridView)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] async 선언 누락 — scwin.f_validate (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_validate → $c.gus.cfAlertMsg
+[2026-02-19 15:27:08.891] #1 검증: 자동수정 4건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:27:09.584] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 6건: lc_selpchItemNm (LUXECOMBO→w2:autoComplete), lc_ctrtWrkPathNm (LUXECOMBO→w2:autoComplete), gr_orgSellInfo (GRID→w2:gridView), gr_dcScInfo (GRID→w2:gridView), gr_commCd (GRID→w2:gridView)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-19 15:27:09.598] #2 재시도 (에러 7건)
+[2026-02-19 15:27:10.606] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:31:33.407] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 262455ms, total 262801ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: gr_orgSellInfo (GRID→w2:gridView), gr_dcScInfo (GRID→w2:gridView), gr_commCd (GRID→w2:gridView), gr_condWt (GRID→w2:gridView)
+[2026-02-19 15:31:33.410] 성공 (#2, 8m 46s, confidence:0.95)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 4건: gr_orgSellInfo (GRID→w2:gridView), gr_dcScInfo (GRID→w2:gridView), gr_commCd (GRID→w2:gridView), gr_condWt (GRID→w2:gridView)
+================================================================================

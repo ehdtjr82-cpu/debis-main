@@ -1,0 +1,49 @@
+sd_404_01_02b.log
+
+[2026-02-20 15:41:40.251] 변환 시작
+[2026-02-20 15:41:40.986] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 15:48:55.197] #1 검증: XML: WebSquareXmlValidator: score=0.32, grade=C, verdict=REVIEW, errors=7, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=REVIEW, errors=3, warnings=3 | LLM 432219ms, total 434209ms
+    - [XML] submission 'sbm_cntrOutIntend_save'에 action 속성 누락 — sbm_cntrOutIntend_save
+    - [XML] scwin.f_certiLink에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_certiLink
+    - [XML] scwin.f_certiLink이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_certiLink
+    - [XML] scwin.f_Round에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_Round
+    - [XML] scwin.f_Round이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_Round
+    - [XML] scwin.ds_cntrBulkOutIntend_onloadcompleted에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.ds_cntrBulkOutIntend_onloadcompleted
+    - [XML] scwin.ds_cntrBulkOutIntend_onloadcompleted이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.ds_cntrBulkOutIntend_onloadcompleted
+    - [적정성] 컴포넌트 ID 유지 — 누락 9건: lc_outAdjmPatternCd (LUXECOMBO→w2:autoComplete), lc_fmlaPatternCd (LUXECOMBO→w2:autoComplete), ed_totAmt (EMEDIT→xf:input), ed_Wt20E (EMEDIT→xf:input), ed_Wt20F (EMEDIT→xf:input)
+    - [적정성] async 선언 누락 — scwin.f_certiLink (uses $c.gus.cfAlertMsg), scwin.f_Round (uses $c.gus.cfAlertMsg), scwin.ds_cntrBulkOutIntend_onloadcompleted (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_certiLink → $c.gus.cfAlertMsg, scwin.f_Round → $c.gus.cfAlertMsg, scwin.ds_cntrBulkOutIntend_onloadcompleted → $c.gus.cfAlertMsg
+[2026-02-20 15:48:55.929] #1 검증: 자동수정 13건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U15: udc_comCode id ed_ → udc_ + codeId
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U21: cf 공통함수 → $c.gus. 네임스페이스 추가
+    - [자동수정] U22: submission ref에 누락된 O(출력) 엔트리 추가
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] MISSING_ASYNC: scwin.ds_cntrBulkOutIntend_onloadcompleted이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.ds_cntrBulkOutIntend_onloadcompleted
+[2026-02-20 15:48:58.033] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.60, grade=B, verdict=REVIEW, errors=1, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=3
+    - [XML] submission 'sbm_cntrOutIntend_save'에 action 속성 누락 — sbm_cntrOutIntend_save
+    - [적정성] 컴포넌트 ID 유지 — 누락 9건: lc_outAdjmPatternCd (LUXECOMBO→w2:autoComplete), lc_fmlaPatternCd (LUXECOMBO→w2:autoComplete), ed_totAmt (EMEDIT→xf:input), ed_Wt20E (EMEDIT→xf:input), ed_Wt20F (EMEDIT→xf:input)
+[2026-02-20 15:48:58.039] #2 재시도 (에러 9건)
+[2026-02-20 15:48:59.041] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 15:56:23.620] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=REVIEW, errors=3, warnings=3 | LLM 442761ms, total 444575ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 9건: lc_outAdjmPatternCd (LUXECOMBO→w2:autoComplete), lc_fmlaPatternCd (LUXECOMBO→w2:autoComplete), ed_totAmt (EMEDIT→xf:input), ed_Wt20E (EMEDIT→xf:input), ed_Wt20F (EMEDIT→xf:input)
+    - [적정성] async 선언 누락 — scwin.f_Round (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_Round → $c.win.alert
+[2026-02-20 15:56:23.652] #1 검증: 최적 시도 #1 채택 (confidence: 0.81)
+[2026-02-20 15:56:23.670] 실패 (2회 시도, 14m 43s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] submission 'sbm_cntrOutIntend_save'에 action 속성 누락 — sbm_cntrOutIntend_save
+  2. [적정성] 컴포넌트 ID 유지 — 누락 9건: lc_outAdjmPatternCd (LUXECOMBO→w2:autoComplete), lc_fmlaPatternCd (LUXECOMBO→w2:autoComplete), ed_totAmt (EMEDIT→xf:input), ed_Wt20E (EMEDIT→xf:input), ed_Wt20F (EMEDIT→xf:input)
+================================================================================

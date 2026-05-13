@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="smp_tab" meta_screenId="smp_tab">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map"></w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+scwin.onpageload = function() {
+    // udc_fielUpload.setFixNum(10);
+
+};
+
+scwin.onpageunload = function() {
+    
+};
+
+scwin.onUdcCompleted = function() {//debugger;
+
+    let jsonDt = {
+        "FILE_STORED_PATH":"/smp/",
+        "STORED_FILE_NM":"test[1_10101_251211140836428].png",
+        "ORIGIN_FILE_NM":"test.png",
+        "FILE_SIZE":11139
+    };
+
+    let arr = [];
+    arr.push(jsonDt);
+
+    udc_fielUpload.setData(arr);
+}
+		
+
+scwin.udc_fielUpload_onFileUploadDone = function (isSuccess) {
+    debugger;
+};
+]]></script>
+		<w2:require as="udc_fileMultiUploadPreview" type="page" variableClone="" src="/cm/udc/fileMultiUploadPreview.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe style="" id="wfm_wframe1" src="/cm/xml/contentHeader.xml"></w2:wframe>
+
+			<xf:group style="" id="" class="round-box ">
+                <w2:udc_fileMultiUploadPreview filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" typeYn="N" explainYn="N" maxFileCount="5" style="" totalFileSize="2009715200" maxFileSize="52428800" id="udc_fielUpload" subDir="/smp/">
+                		</w2:udc_fileMultiUploadPreview>
+                <xf:group id="" style="" class="btnbox mt16">
+                	<xf:group style="" id="grp_group14">
+                	</xf:group>
+                </xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

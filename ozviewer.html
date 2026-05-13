@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OZ리포트 뷰어 EXE AGENT</title>
+<style>
+body { font-family: sans-serif; padding:0; margin:10px 10px 0 20px;}
+h2 {margin:10px 0;padding:0;}
+li {display:block;}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: left;
+    gap: 6px;
+    padding: 6px 12px;
+    background-color: #eeeeee;
+    border: 1px solid #999999;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.2s;
+    min-width:100px;
+}
+.btn:hover {
+    background-color: #f9fafb;
+    border-color: #38bdf8;
+}
+.btn svg {
+    width: 1.1em;
+    height: 1.1em;
+    stroke: #38bdf8;
+    flex-shrink: 0;
+}
+</style>
+<script src="https://newdevdebis.dongwon.com/oz90/exeviewer/ozwa.js" language="javascript"></script>
+<script language="JavaScript">
+var OZUtil = start_OZUtil;
+
+OZViewerLoaded = function(){}
+
+createOZViewer = function(){
+	var json = {"Category":[{"CategoryID": 1,"CategoryName":"음료","Description": "청량음료, 커피, 홍차, 맥주"},{"CategoryID":2,"CategoryName":"조미료","Description":"감미료, 향신료, 양념, 스프레드"}], "Product":[{"ProductID":75,"ProductName":"알파인 맥주","CategoryID":1,"QuantityPerUnit":"24 - 0.5 l bottles","UnitPrice":24000.0000,"UnitsInStock":125},{"ProductID":39,"ProductName":"OK 바닐라 셰이크","CategoryID":1,"QuantityPerUnit":"750 cc per bottle","UnitPrice":28000.0000,"UnitsInStock":69},{"ProductID":34,"ProductName":"태일 라이트 맥주","CategoryID":1,"QuantityPerUnit": "24 - 12 oz bottles","UnitPrice":34000.0000,"UnitsInStock":111},{"ProductID":65,"ProductName":"루이지애나 특산 후추","CategoryID":2,"QuantityPerUnit":"32 - 8 oz bottles","UnitPrice":21000.0000,"UnitsInStock":76},{"ProductID":61,"ProductName":"사계절 핫 소스","CategoryID":2,"QuantityPerUnit":"24 - 500 ml bottles","UnitPrice":28000.0000,"UnitsInStock":92},{"ProductID":6,"ProductName":"대양 특선 블루베리 잼","CategoryID":2,"QuantityPerUnit": "12 - 8 oz jars","UnitPrice":25000.0000,"UnitsInStock":120}]};
+	OZUtil.setParameter("connection.servlet",'https://newdevdebis.dongwon.com/oz90/server');
+	OZUtil.setParameter("connection.reportname", "jsonsample.ozr");
+	OZUtil.setParameter("connection.pcount","2");
+	OZUtil.setParameter("connection.args1","jsondata="+ JSON.stringify(json));
+	OZUtil.setParameter("connection.args2","viewerType=EXE Viewer");
+	OZUtil.setParameter("information.debug","true");
+	OZUtil.setParameter("global.language","vi_VN");
+	var options = {};
+	options['namespace'] = 'debis';
+	OZUtil.setOption(options);
+	OZUtil.createViewer('OZViewer', OZViewerLoaded);
+}
+
+installOZWebLauncher = function(){
+	if(confirm('설치가 필요 합니다. 프로그램 설치 후 다시 시도 하십시오.'))
+		downExe('https://newdevdebis.dongwon.com/oz90/exeviewer/OZWebAgent/OffLine_Install_Dialog_UI_SSL.exe');
+}
+
+OZCall = function(){
+	var protocolversion = 1005;
+	var ztParam = new Object();
+	ztParam.InstallBase = '<PROGRAMS>/Forcs';
+	ztParam.InstallNamespace = 'debis';
+	ztParam.DownloadServer ='https://newdevdebis.dongwon.com/oz90/exeviewer/viewer/';
+	ztParam.DownloadPort = '443';
+	ztParam.DownloadInstruction = 'ozrviewer.idf';
+	OZUtil.installViewer(protocolversion, ztParam, installOZWebLauncher, createOZViewer);
+}
+
+downExe = function(url){
+	document.getElementById('downfrm').src = url;
+}
+</script>
+</head>
+<body>
+<iframe id="downfrm" style="display:none;"></iframe>
+
+<h2>OZ VIEWER EXE-AGENT TEST</h2>
+<br/>
+<button class="btn" onclick="OZCall()">
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Upload--Streamline-Outlined-Material" height="24" width="24">
+	  <path fill="#22aadd" d="M11.25 16.175V6.9l-3 3 -1.075 -1.075L12 4l4.825 4.825 -1.075 1.075 -3 -3v9.275h-1.5ZM5.5 20c-0.4 0 -0.75 -0.15 -1.05 -0.45 -0.3 -0.3 -0.45 -0.65 -0.45 -1.05v-3.575h1.5V18.5h13v-3.575h1.5V18.5c0 0.4 -0.15 0.75 -0.45 1.05 -0.3 0.3 -0.65 0.45 -1.05 0.45H5.5Z" stroke-width="0.5"></path>
+	</svg>
+    <span>OZ뷰어</span>
+</button>
+
+</body>
+</html>

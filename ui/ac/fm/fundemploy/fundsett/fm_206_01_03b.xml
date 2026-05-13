@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="closeYm" name="closeYm" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_save" action="/ac.fm.fundemploy.fundsett.CreateUncollectedInterestCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_condition", "key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.currYyyyMM = WebSquare.date.getFormattedDate (new Date(), "yyyyMM");
+
+scwin.onpageload = function() {
+    scwin.f_Setting();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Header
+// function desc : 헤더생성
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// scwin.name : f_Setting(
+// function desc : 날짜셋팅
+//-------------------------------------------------------------------------
+scwin.f_Setting = function() {
+     ica_closeYm.setValue(scwin.currYyyyMM);
+     ica_closeYm.focus();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Save
+// function desc : 저장버튼 클릭
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    
+    let ret = await $c.gus.cfValidate([ica_closeYm]);
+    if (!ret) {
+        return false;
+    }
+
+    let confirmResult = await $c.win.confirm("미수금이자금액을 계산하시겠습니까?");
+    if (confirmResult) {
+        $c.sbm.execute(sbm_save);
+    }
+            
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    $c.win.alert("미수금이자금액계산을 완료하였습니다.");
+    ica_closeYm.focus();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="" style="">
+    					<xf:group class="row-gap-8" id="">
+    						<xf:group class="tbbox" id="" style="">
+    							<xf:group class="w2tb tb" id="" style="" tagname="table">
+    								<w2:attributes>
+    									<w2:summary></w2:summary>
+    								</w2:attributes>
+    								<xf:group tagname="colgroup">
+    									<xf:group style="width:120px;" tagname="col"></xf:group>
+    									<xf:group style="" tagname="col"></xf:group>
+    								</xf:group>
+    								<xf:group style="" tagname="tr">
+    									<xf:group class="w2tb_th" style="" tagname="th">
+    										<w2:textbox class="req" id="" label="기준월" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group class="w2tb_td" style="" tagname="td">
+    										<w2:inputCalendar calendarValueType="yearMonth" class=" cal" id="ica_closeYm" style="" objType="data" mandatory="true" validExp="기준월:yes:date=YYYYMM" delimiter="/" ref="data:dma_condition.closeYm">
+    										</w2:inputCalendar>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" id="btn_Save" style="" type="button" userAuth="U" ev:onclick="scwin.f_Save">
+    								<xf:label><![CDATA[생성]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

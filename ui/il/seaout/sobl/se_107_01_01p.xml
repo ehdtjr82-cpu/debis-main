@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="name1" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="name2" dataType="text"></w2:column>
+    					<w2:column id="bookingNo" name="name3" dataType="text"></w2:column>
+    					<w2:column id="lineCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="name5" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="name6" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="name7" dataType="text"></w2:column>
+    					<w2:column id="sealNo" name="name8" dataType="text"></w2:column>
+    					<w2:column id="cntrNrmIsoCd" name="name9" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="carrierBkNo" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_send" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="name1" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="name2" dataType="text"></w2:column>
+    					<w2:column id="bookingNo" name="name3" dataType="text"></w2:column>
+    					<w2:column id="lineCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="name5" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="name6" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="name7" dataType="text"></w2:column>
+    					<w2:column id="sealNo" name="name8" dataType="text"></w2:column>
+    					<w2:column id="cntrNrmIsoCd" name="name9" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/il.seaout.sobl.RetrieveSeaExportContainerListByCarrierBkNoCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.loUpperLobranCd = ""; // 물류상위점소코드
+
+
+scwin.onpageload = function() {
+	let memJson = $c.data.getMemInfo();
+    //let params = $c.data.getParameter();
+    var params = $p.getAllParameter().paramData.data;
+    console.log(params);
+
+    scwin.loUpperLobranCd = memJson.loUpperLobranCd;
+    var carrierBkNo = "";
+    if(params != null) {
+        carrierBkNo = params[0];
+    }
+    
+
+    dma_condition.set("carrierBkNo", carrierBkNo);
+
+    if(/*carrierBkNo != "" && */carrierBkNo != null){
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        $c.data.setPopupTitle("Container List Popup");
+    }, {"delay":50});
+};
+
+//-------------------------------------------------------------------------
+// Container List 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    let rtn = await $c.gus.cfValidate([ed_carrierBkNo]);
+    if(!rtn) return;
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 팝업 창 닫기 
+//-------------------------------------------------------------------------
+
+scwin.f_close = function (){ 	
+	scwin.closePopup();
+}	
+
+//---------------------------------------------------------
+// 조회 조건 지우기
+//---------------------------------------------------------
+scwin.f_FieldClear = function (){
+    dma_condition.set("carrierBkNo", "");
+}
+
+//-------------------------------------------------------------------------
+// 선택한 Container List 메인 화면에 적용
+//-------------------------------------------------------------------------
+
+scwin.f_adapt = function (){ 	
+
+    var j=0;
+    
+    for(var i=0; i<ds_master.getRowCount(); i++){				
+        if(ds_master.getCellData(i,'chk')== "1" ){
+            j = j+1;
+        }
+    }
+    
+    if(j==0){
+        alert("적용할 컨테이너를 선택해 주세요.");
+        return false;		
+    }		
+    
+    /*
+    for(var i=0; i<= ds_master.getRowCount(); i++){			
+        if(ds_master.getValue(i, "chk") == "1") {					
+            //scwin.f_CopyDataRow(ds_master, ds_send, i);  
+        }		
+    }
+    */
+
+    ds_send.removeAll();
+    ds_send.setJSON(ds_master.getMatchedJSON("chk", "1"));
+
+    var rtnValues = new Array();     
+    
+    for(var t=0; t < ds_send.getRowCount(); t++){
+    
+        rtnValues[t] = new Array();
+        rtnValues[t][0] = ds_send.getCellData(t,"odrNo");
+        rtnValues[t][1] = ds_send.getCellData(t,"bookingNo");
+        rtnValues[t][2] = ds_send.getCellData(t,"lineCd");
+        rtnValues[t][3] = ds_send.getCellData(t,"cntrNo");
+        rtnValues[t][4] = ds_send.getCellData(t,"cntrSizCd");
+        rtnValues[t][5] = ds_send.getCellData(t,"cntrTypCd");
+        rtnValues[t][6] = ds_send.getCellData(t,"sealNo");
+        rtnValues[t][7] = ds_send.getCellData(t,"cntrNrmIsoCd");		
+    
+    }	       
+
+    //console.log(rtnValues);
+    $c.win.closePopup(rtnValues);
+    
+}
+
+
+//-------------------------------------------------------------------------
+// 데이터셋 Row 복사
+//-------------------------------------------------------------------------
+/*
+scwin.f_CopyDataRow = function (sourceDataset, targetDataset, sourceRow, targetRow, sourceColumns, targetColumns, actionAfterRowAdded){
+
+	try {
+	
+		if (sourceDataset == null) throw "원본 데이터셋이 정의되지 않았습니다.";
+		if (targetDataset == null) throw "대상 데이터셋이 정의되지 않았습니다.";
+
+		if (sourceColumns == null) sourceColumns = f_GetColumnNames(sourceDataset);
+		if (targetColumns == null) targetColumns = sourceColumns;
+		if (sourceRow == null) sourceRow = sourceDataset.RowPosition;
+		if (targetRow == null) targetRow = f_AddDataRow(targetDataset);
+
+		for (var i=0; i < sourceColumns.length; i++) {
+			if (cfIsNull(sourceColumns[i]) || cfIsNull(targetColumns[i])) continue;
+				targetDataset.NameString(targetRow,targetColumns[i]) = sourceDataset.NameString(sourceRow,sourceColumns[i]);
+			if (actionAfterRowAdded != null) eval(actionAfterRowAdded);
+		}
+           
+		return targetRow;
+		
+	} catch (e) {
+		cfAlertMsg("[f_CopyDataRow]" + e);
+	}
+}
+
+//-------------------------------------------------------------------------
+// 데이터셋의 모든 컬럼명을 배열로 반환
+//-------------------------------------------------------------------------
+function f_GetColumnNames(dataSet) {
+	try {
+		if (dataSet == null) throw "데이터셋이 정의되지 않았습니다.";
+		if (dataSet.CountColumn == 0) return null;
+
+		var rtnArray = new Array(dataSet.CountColumn);
+
+		for (var i=0; i < dataSet.CountColumn; i++) {
+			rtnArray[i] = dataSet.ColumnID(i+1);
+		}
+
+		if (rtnArray.length == 0)
+			return null
+		else
+			return rtnArray
+	} catch (e) {
+		cfAlertMsg("[f_GetColumnNames] " + e.Description);
+	}
+}
+
+//-------------------------------------------------------------------------
+// 데이터셋의 행을 추가하고 RowPosition을 반환
+//-------------------------------------------------------------------------
+function f_AddDataRow(dataSet){
+
+  	dataSet.AddRow();
+  	return dataSet.RowPosition;
+  	
+}
+*/
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    var rowCnt = ds_master.getRowCount();
+    spa_cnt.setValue(rowCnt);
+
+    if(rowCnt == 0){
+        $c.win.alert(E_MSG_CM_ERR_003);
+    } else {
+        gr_master.setFocusedCell(0,0);
+    }
+};
+
+
+scwin.btn_init_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieveButton_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_adapt();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+//-------------------------------------------------------------------------
+// 대문자 입력
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+scwin.excelDown = async function () {
+
+    const options = {
+        fileName : "Booking별 컨테이너 내역.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName : "Booking별 컨테이너 내역",
+        startRowIndex : 0,
+        startColumnIndex : 0,
+    };
+
+    // 타이틀
+    const infoArr = [];
+
+    var chk = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+    if(chk){
+        $c.data.downloadGridViewExcel(gr_master, options, infoArr);
+    }
+
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe src="/cm/xml/contentHeader.xml" style="" id=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr" style="">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="Carrier Booking No" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td"><w2:attributes></w2:attributes><xf:input class="form-control w200" id="ed_carrierBkNo" placeholder="" style="" objType="data" mandatory="true" ref="data:dma_condition.carrierBkNo" displayFormat="####################" maxlength="20" title="Carrier Booking No" ev:onkeyup="scwin.onkeyup" allowChar="0-9,A-Z,a-z"></xf:input></xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onclick">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieveButton" style="" type="button" userAuth="R" ev:onclick="scwin.btn_retrieveButton_onclick">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="Booking별 컨테이너 내역" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownYn="Y" gridID="gr_master" id="udc_topGrd" gridDownUserAuth="X" gridDownFn="scwin.excelDown"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwfix" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_master" focusMode="row" id="gr_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10" visibleRowNumFix="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column width="50" inputType="checkbox" style="" id="column13" value="" displayMode="label" fixColumnWidth="true">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" value="ODR NO" width="200">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column15" value="BOOKING NO" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column17" value="LINE" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column19" value="CNTR NO" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column21" value="CNTR SIZE" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column23" value="CNTR TYPE" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column25" value="SEAL NO" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column27" value="ISO CD" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column width="50" inputType="checkbox" style="" id="chk" value="" displayMode="label" fixColumnWidth="true" checkAlways="true" falseValue="$blank" trueValue="1" valueType="other">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="odrNo" inputType="text" removeBorderStyle="false" width="100" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="bookingNo" value="" displayMode="label" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="lineCd" value="" displayMode="label" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="cntrNo" value="" displayMode="label" textAlign="center" readOnly="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="cntrSizCd" value="" displayMode="label" textAlign="center" readOnly="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="cntrTypCd" value="" displayMode="label" textAlign="center" readOnly="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="sealNo" value="" displayMode="label" textAlign="center" readOnly="true">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="cntrNrmIsoCd" value="" displayMode="label" textAlign="center" readOnly="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spa_cnt" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" userAuth="R" objType="ctrlBtn" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger><xf:trigger class="btn" id="btn_save" style="" type="button" userAuth="U" objType="ctrlBtn" ev:onclick="scwin.btn_save_onclick">
+    						<xf:label><![CDATA[적용]]></xf:label>
+    					</xf:trigger>
+    					
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+op_210_01_04b.log
+
+[2026-02-19 14:14:21.733] 변환 시작
+[2026-02-19 14:14:21.929] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:19:06.005] #1 검증: XML: WebSquareXmlValidator: score=0.57, grade=B, verdict=REVIEW, errors=2, warnings=9 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=8 | LLM 283667ms, total 284076ms
+    - [XML] 'ica_wrkDt'가 참조하는 데이터 'ds_condition2'가 dataCollection에 선언되지 않음 — ica_wrkDt
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_retrieveEqInfo, scwin.f_RetrievePierCd, scwin.f_ShiftRetrieve3 → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_wrkDt2 (EMEDIT→xf:input)
+[2026-02-19 14:19:06.249] #1 검증: 자동수정 4건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U22: submission ref에 누락된 O(출력) 엔트리 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:19:06.717] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.57, grade=B, verdict=REVIEW, errors=2, warnings=9 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=8
+    - [XML] 'ica_wrkDt'가 참조하는 데이터 'ds_condition2'가 dataCollection에 선언되지 않음 — ica_wrkDt
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_retrieveEqInfo, scwin.f_RetrievePierCd, scwin.f_ShiftRetrieve3 → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: lc_shift1 (LUXECOMBO→w2:autoComplete), ed_wrkDt2 (EMEDIT→xf:input), lc_shift2 (LUXECOMBO→w2:autoComplete)
+[2026-02-19 14:19:06.729] #2 재시도 (에러 3건)
+[2026-02-19 14:19:07.737] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:24:18.869] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=8 | LLM 310741ms, total 311132ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_wrkDt2 (EMEDIT→xf:input)
+[2026-02-19 14:24:18.874] #1 검증: 최적 시도 #1 채택 (confidence: 0.78)
+[2026-02-19 14:24:18.874] 실패 (2회 시도, 9m 57s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 'ica_wrkDt'가 참조하는 데이터 'ds_condition2'가 dataCollection에 선언되지 않음 — ica_wrkDt
+  2. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_retrieveEqInfo, scwin.f_RetrievePierCd, scwin.f_ShiftRetrieve3 → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  3. [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_wrkDt2 (EMEDIT→xf:input)
+================================================================================

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="소속" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:udc_comCode hideName="Y" popupID="" style=""></w2:udc_comCode>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="작업일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="inputCalendar1" style=""></w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="상세직종" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="acb_autoComplete1" search="start" style="width:200px;"
+									submenuSize="auto">
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="인원" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode hideName="Y" popupID="" style=""></w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="lybox wfix flex_no" id="" style="">
+					<xf:group class="col" id="" style="">
+						<xf:group style="" id="" class="title-wrap">
+							<xf:group id="" class="title">
+								<w2:textbox tagname="h3" style="" id="" label="사원" class="tit"></w2:textbox>
+							</xf:group>
+							<xf:group id="" class="right">
+								<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="" id="gridView3" style=""
+								visibleRowNum="10" visibleRowNumFix="true" autoFitMinWidth="1000">
+								<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label" id="column1" inputType="text" style="" value="선택" width="70"></w2:column>
+										<w2:column displayMode="label" id="column17" inputType="text" style="" value="사번" width="120"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" style="" value="성명" width="100"></w2:column>
+										<w2:column displayMode="label" id="column13" inputType="text" style="" value="소속" width="150"></w2:column>
+										<w2:column displayMode="label" id="column11" inputType="text" style="" value="직종" width="100"></w2:column>
+										<w2:column displayMode="label" id="column9" inputType="text" style="" value="상세&lt;br/&gt;직종" width="150">
+										</w2:column>
+										<w2:column displayMode="label" id="column3" inputType="text" style="" value="직급" width="100"></w2:column>
+										<w2:column displayMode="label" id="column5" inputType="text" style="" value="고정배치여부" width="120"></w2:column>
+										<w2:column displayMode="label" id="column7" inputType="text" style="" value="배치&lt;br/&gt;내역" width="150">
+										</w2:column>
+										<w2:column displayMode="label" id="column19" inputType="text" style="" value="실적&lt;br/&gt;여부" width="80">
+										</w2:column>
+										<w2:column width="130" inputType="text" style="" id="column21" value="전일최종작업일자" displayMode="label" hidden="true">
+										</w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label" id="column2" inputType="text" style="" value="" width="60"></w2:column>
+										<w2:column displayMode="label" id="column18" inputType="text" style="" value="" width="120"></w2:column>
+										<w2:column displayMode="label" id="column16" inputType="text" style="" value="" width="100"></w2:column>
+										<w2:column displayMode="label" id="column14" inputType="text" style="" value="" width="150"></w2:column>
+										<w2:column displayMode="label" id="column12" inputType="text" style="" value="" width="100"></w2:column>
+										<w2:column displayMode="label" id="column10" inputType="text" style="" value="" width="150"></w2:column>
+										<w2:column displayMode="label" id="column4" inputType="text" style="" value="" width="100"></w2:column>
+										<w2:column displayMode="label" id="column6" inputType="text" style="" value="" width="120"></w2:column>
+										<w2:column displayMode="label" id="column8" inputType="text" style="" value="" width="150"></w2:column>
+										<w2:column displayMode="label" id="column20" inputType="text" style="" value="" width="80"></w2:column>
+										<w2:column width="130" inputType="text" style="" id="column22" value="" displayMode="label"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="">
+									<xf:group class="grid-total" id="" style="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group id="" class="right">
+									<xf:trigger style="" id="trigger2" type="button" class="btn">
+										<xf:label><![CDATA[실적미등록인원선택]]></xf:label>
+									</xf:trigger>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group class="col" id="" style="width:600px;">
+						<xf:group class="title-wrap" id="" style="">
+							<xf:group class="title" id="">
+								<w2:textbox class="tit" id="" label="작업배치계획 " style="" tagname="h3"></w2:textbox>
+							</xf:group>
+							<xf:group class="right" id="">
+								<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="" id="gridView4" style=""
+								visibleRowNum="11" visibleRowNumFix="true">
+								<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label" id="column17" inputType="text" style="" value="작업지시번호" width="120"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" style="" value="본선/작업장" width="150"></w2:column>
+										<w2:column displayMode="label" id="column13" inputType="text" style="" value="SHIFT" width="100"></w2:column>
+										<w2:column displayMode="label" id="column11" inputType="text" style="" value="작업단계" width="80"></w2:column>
+										<w2:column displayMode="label" id="column9" inputType="text" style="" value="사번" width="100"></w2:column>
+										<w2:column displayMode="label" id="column3" inputType="text" style="" value="작업지시종류" width="100" hidden="true">
+										</w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label" id="column18" inputType="text" style="" value="" width="120"></w2:column>
+										<w2:column displayMode="label" id="column16" inputType="text" style="" value="" width="150"></w2:column>
+										<w2:column displayMode="label" id="column14" inputType="text" style="" value="" width="100"></w2:column>
+										<w2:column displayMode="label" id="column12" inputType="text" style="" value="" width="80"></w2:column>
+										<w2:column displayMode="label" id="column10" inputType="text" style="" value="" width="100"></w2:column>
+										<w2:column displayMode="label" id="column4" inputType="text" style="" value="" width="100"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="">
+									<xf:group class="grid-total" id="" style="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" class="row-gap-8">
+					<xf:group style="" id="" class="title-wrap">
+						<xf:group id="" class="title">
+							<w2:textbox tagname="h3" style="" id="" label="근무시간" class="tit"></w2:textbox>
+						</xf:group>
+						<xf:group id="" class="right">
+							<w2:udc_topGrdBtn grp="grd_section3" style=""></w2:udc_topGrdBtn>
+						</xf:group>
+					</xf:group>
+					<xf:group adaptiveThreshold="" style="" id="grd_section3" class="gvwbox">
+						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="" style="" autoFit="allColumn" id="gridView5"
+							visibleRowNum="5" class="wq_gvw" autoFitMinWidth="1200">
+							<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header1">
+								<w2:row style="" id="row1">
+									<w2:column width="120" inputType="text" style="" id="column1" value="근무구분" displayMode="label" colSpan="" rowSpan="2"
+										class="txt-red">
+									</w2:column>
+									<w2:column width="150" inputType="text" style="" id="column17" value="작업지시종류" displayMode="label" colSpan="" rowSpan="2"
+										hidden="true">
+									</w2:column>
+									<w2:column width="150" inputType="text" style="" id="column15" value="작업지시번호" displayMode="label" colSpan="" rowSpan="2"
+										class="txt-red">
+									</w2:column>
+									<w2:column width="180" inputType="text" style="" id="column13" value="본선/작업장" displayMode="label" colSpan="" rowSpan="2">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column11" value="SHIFT" displayMode="label" colSpan="" rowSpan="2">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column9" value="작업단계" displayMode="label" colSpan="" rowSpan="2"
+										class="txt-red">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column5" value="작업시작시간" displayMode="label" colSpan="2" rowSpan="">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column19" value="작업종료시간" displayMode="label" colSpan="2" rowSpan="">
+									</w2:column>
+									<w2:column width="200" inputType="text" style="" id="column25" value="업무내용" displayMode="label" colSpan="" rowSpan="2"
+										class="txt-red">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column21" value="사번" displayMode="label" colSpan="" rowSpan="2"
+										hidden="true">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column23" value="작업일자" displayMode="label" colSpan="" rowSpan="2"
+										hidden="true">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column49" value="근무순번" displayMode="label" colSpan="" rowSpan="2"
+										hidden="true">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column43" value="SHIFT&lt;br/&gt;수" displayMode="label" colSpan=""
+										rowSpan="2" hidden="true">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column46" value="긴급&lt;br/&gt;작업" displayMode="label" colSpan=""
+										rowSpan="2" class="txt-blue" hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column61" value="원당작업" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column52" value="우천작업" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column79" value="설천작업" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column73" value="Gang작업" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column67" value="오더요청" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column55" value="연장작업" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+									<w2:column width="140" inputType="text" style="" id="column91" value="명절작업" displayMode="label" colSpan="2" rowSpan=""
+										hidden="true">
+									</w2:column>
+								</w2:row>
+								<w2:row style="" id="row3">
+									<w2:column hidden="false" width="100" inputType="text" style="" id="column94" value="일자" displayMode="label"
+										class="txt-red">
+									</w2:column>
+									<w2:column hidden="false" width="100" inputType="text" style="" id="column95" value="시간" displayMode="label"
+										class="txt-red">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column33" value="일자" displayMode="label" class="txt-red"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column32" value="시간" displayMode="label" class="txt-red"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column62" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column59" value="시간" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column53" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column83" value="시간" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column80" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column77" value="시간" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column74" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column71" value="시간" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column68" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column65" value="시간" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column56" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column86" value="시간" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column92" value="여부" displayMode="label" class="txt-blue"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column89" value="시간" displayMode="label" class="txt-blue"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody1">
+								<w2:row style="" id="row2">
+									<w2:column width="120" inputType="text" style="" id="column2" value="" displayMode="label"></w2:column>
+									<w2:column width="150" inputType="text" style="" id="column18" value="" displayMode="label"></w2:column>
+									<w2:column width="150" inputType="text" style="" id="column16" value="" displayMode="label"></w2:column>
+									<w2:column width="180" inputType="text" style="" id="column14" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column12" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column10" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column6" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column8" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column20" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column28" value="" displayMode="label"></w2:column>
+									<w2:column width="200" inputType="text" style="" id="column26" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column22" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column24" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column51" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column45" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column48" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column63" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column60" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column84" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column81" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column78" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column75" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column72" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column69" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column66" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column57" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column87" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column93" value="" displayMode="label"></w2:column>
+									<w2:column width="100" inputType="text" style="" id="column90" value="" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+						<xf:group style="" id="" class="grid-bottom ">
+							<xf:group id="" class="left">
+								<xf:group style="" id="" class="grid-total">
+									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num"></w2:textbox>
+									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+								</xf:group>
+							</xf:group>
+							<xf:group style="" id="" class="right">
+								<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" btnDelYn="N"></w2:udc_bottomGrdBtn>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="">
+					<xf:group class="right" id="">
+						<xf:trigger class="btn" id="trigger1" label="저장" style="" type="button">
+							<xf:label>Clear</xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button">
+							<xf:label>저장</xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

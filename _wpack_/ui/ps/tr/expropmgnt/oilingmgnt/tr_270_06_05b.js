@@ -1,0 +1,468 @@
+/*amd /ui/ps/tr/expropmgnt/oilingmgnt/tr_270_06_05b.xml 37658 58aa6c486e5e23918b3c2bd462dd94d33d0e436245c6339a2951ebabeed1c46b */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_OilingContentsQry'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'stdYm',name:'기준년월',dataType:'text'}},{T:1,N:'w2:key',A:{id:'oilStatClsCd',name:'주유소구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'oilStatClntCd',name:'주유소거래처코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'귀속부서코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_MonthEachOilIn',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'slipYn',name:'check',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatClntNo',name:'보관주유소',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatNm',name:'보관주유소명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsNm',name:'소속구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptNm',name:'귀속부서명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outQty',name:'출고수량(L)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'payCmisAmt',name:'지급수수료(원)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'부가세(원)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'tttttt',name:'합계(원)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctCd',name:'계정코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stdYm',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsCd',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatClntNoCnt',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatClntNoRow',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vatAcctDeptCd',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'busanYN',name:'name33',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_MonthEachOilInSlip',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'stdYm',name:'기준년월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatClntNo',name:'주유소거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatNm',name:'주유소명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'귀속부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptNm',name:'귀속부서명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outQty',name:'출고수량',dataType:'number'}},{T:1,N:'w2:column',A:{id:'payCmisAmt',name:'수수료금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'부가세금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctCd',name:'계정코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsCd',name:'소속구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'busanYN',name:'귀속부서가 부산인 경우',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatClntNoCnt',name:'주유소별 Count',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilStatClntNoRow',name:'주유소별 SEQ',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vatAcctDeptCd',name:'부가세귀속부서',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsNm',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipYn',name:'name28',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_OilingContentsQry',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_OilingContentsQry","key":"IN_DS1"},{"id":"ds_MonthEachOilIn","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_MonthEachOilIn","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_saveMonthEachOilIn',action:'',method:'post',mediatype:'application/json',ref:'data:json,{"id":"ds_MonthEachOilIn","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_CreateMonthEachOilIn',action:'',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_MonthEachOilInSlip","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'scwin.sbm_CreateMonthEachOilIn_submit','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_CancelMonthEachOilIn',action:'',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_MonthEachOilInSlip","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){// 전역변수
+scwin.memJson = $c.data.getMemInfo($p);
+scwin.userId = scwin.memJson.userId;
+scwin.userNm = scwin.memJson.userNm;
+scwin.wrkDate = $c.date.getServerDateTime($p, "yyyyMM");
+scwin.vatAcctDeptCd = scwin.memJson.acctDeptCd;
+scwin.vatAcctDeptNm = scwin.memJson.acctDeptNm;
+scwin.onpageload = function () {
+  ed_stdYm.focus();
+};
+
+// UDC에 값 세팅 방법
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+scwin.onUdcCompleted = function () {
+  console.log("----------- onUdcCompleted");
+  ed_stdYm.setValue(scwin.wrkDate);
+  //조회 조건 초기화
+  $c.gus.cfInitObjects($p, [em_acctDeptCd, txt_acctDeptNm]);
+  $c.gus.cfDisableObjects($p, [em_acctDeptCd, txt_acctDeptNm]);
+  btn_Sav1.setDisabled(true);
+  btn_Sav2.setDisabled(true);
+  btn_Sav3.setDisabled(true);
+  ed_stdYm.focus();
+  em_acctDeptCd.setDisabled(false);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  if (ed_stdYm.getValue().trim().length != 6) {
+    $c.win.alert($p, "기준년월은 필수입력 입니다.");
+    ed_stdYm.focus();
+    return;
+  }
+  ds_OilingContentsQry.setEmptyValue();
+  ds_OilingContentsQry.set("stdYm", ed_stdYm.getValue());
+  ds_OilingContentsQry.set("oilStatClsCd", "02"); // 보관주유소
+  ds_OilingContentsQry.set("oilStatClntCd", lc_oilStatClntCd.getValue());
+  sbm_OilingContentsQry.action = "/ps.tr.expropmgnt.oilingmgnt.RetrieveStorageOilStationPaymentCommissionCMD.do";
+  await scwin.submitExcute(sbm_OilingContentsQry);
+};
+scwin.btn_Sav1 = function () {
+  scwin.f_Save("1");
+};
+scwin.btn_Sav2 = function () {
+  scwin.f_Save("2");
+};
+scwin.btn_Sav3 = function () {
+  scwin.f_Save("3");
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (cls) {
+  var clsstr = "";
+  var pathstr = "";
+  if (ds_MonthEachOilIn.getTotalRow() == 0) {
+    await $c.win.alert($p, "조회된 자료가 없습니다. 조회 후 선택하세요.");
+    return;
+  }
+  if (cls == 3) {
+    if (!ds_MonthEachOilIn.getModifiedIndex().length) {
+      await $c.win.alert($p, "변경된 자료가 없습니다.");
+      return;
+    }
+    let validVal = await $c.gus.cfValidate($p, [gr_MonthEachOilIn]);
+    if (!validVal) return;
+    pathstr = "/ps.tr.expropmgnt.oilingmgnt.UpdateStorageOilStationPaymentCommissionValueAddedTaxCMD.do";
+    let saveVal = await $c.win.confirm($p, "저장하시겠습니까?");
+    if (!saveVal) {
+      return;
+    }
+    sbm_saveMonthEachOilIn.action = pathstr;
+    await scwin.submitExcute(sbm_saveMonthEachOilIn);
+    await scwin.f_Retrieve();
+    return;
+  }
+  let stdYm = "";
+  let rtn = "";
+  // 전표생성시 유류재고 마감여부 확인 추가. 2009.04.10
+  stdYm = ed_stdYm.getValue();
+
+  //cfJobCloseYN(마감요청구분,마감년월,마감일,작업번호,관리번호,리턴구분);
+  // rtn = await udc_cfJobCloseYN.cfJobCloseYN("CUR", stdYm, "00", "TR50", "00", "", "N", em_acctDeptCd.getValue());
+  rtn = await udc_cfJobCloseYN.cfJobCloseYN("CUR", stdYm, "00", "TR50", "00", "", "N");
+  if (cls == 1) {
+    if (rtn == "1" || rtn == "DNF") {
+      await $c.win.alert($p, stdYm + "월 유류마감이 확정돼지 않았습니다. 구매팀 담당자에게 문의하세요.");
+      return;
+    }
+  }
+  if (cls == 1) {
+    clsstr = "지급수수료 전표생성";
+    pathstr = "/ps.tr.expropmgnt.oilingmgnt.CreateStorageOilStationPaymentCommissionSlipCMD.do";
+  } else if (cls == 2) {
+    clsstr = "지급수수료 전표취소";
+    pathstr = "/ps.tr.expropmgnt.oilingmgnt.CancelStorageOilStationPaymentCommissionSlipCreationCMD.do";
+  }
+  let checkVal = await scwin.f_ValidCheck(cls);
+  let messageVal = "";
+  if (checkVal) {
+    messageVal = await $c.win.confirm($p, "선택한 보관주유소에 대해 " + clsstr + " 하시겠습니까?");
+    if (!messageVal) {
+      return;
+    }
+  } else {
+    return;
+  }
+  if (cls == 1) {
+    sbm_CreateMonthEachOilIn.action = pathstr;
+    await scwin.submitExcute(sbm_CreateMonthEachOilIn);
+  } else if (cls == 2) {
+    sbm_CancelMonthEachOilIn.action = pathstr;
+    await scwin.submitExcute(sbm_CancelMonthEachOilIn);
+  }
+  await scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 그리드 선택사항 체크 (cls 1:생성,2:취소 )
+//-------------------------------------------------------------------------    
+scwin.f_ValidCheck = async function (cls) {
+  var slipYn = 0;
+  var slipTot = 0;
+  var slipNo = "";
+  scwin.vatAcctDeptCd = "";
+  ds_MonthEachOilInSlip.removeAll();
+  // 선택행 값 체크
+
+  for (var i = 0; i < ds_MonthEachOilIn.getTotalRow(); i++) {
+    slipYn = ds_MonthEachOilIn.getCellData(i, "slipYn");
+    if (slipYn == 1) {
+      if (cls == 1) {
+        scwin.vatAcctDeptCd = em_acctDeptCd.getValue().trim();
+        if (scwin.vatAcctDeptCd == "") {
+          $c.win.alert($p, "전표생성시 귀속부서는 필수 입력사항입니다.");
+          return;
+        }
+      }
+      slipNo = ds_MonthEachOilIn.getCellData(i, "slipNo");
+      if (slipNo.length > 0 && cls == 1) {
+        // 전표번호와 버튼명 체크1
+        $c.win.alert($p, i + 1 + "번째 행은 이미 전표생성하였습니다. 전표생성하지 않은 주유소만 생성하실 수 있습니다.");
+        return false;
+      }
+      if (slipNo.length == 0 && cls == 2) {
+        // 전표번호와 버튼명 체크2
+        $c.win.alert($p, i + 1 + "번째 행은 아직 전표생성하지 않았습니다. 전표생성한 주유소만 취소하실 수 있습니다.");
+        return false;
+      }
+      slipTot += 1;
+      ds_MonthEachOilInSlip.insertRow();
+      let lastRow = ds_MonthEachOilInSlip.getTotalRow() - 1;
+      let rowData = ds_MonthEachOilIn.getRowJSON(i);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "stdYm", rowData["stdYm"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "oilStatClntNo", rowData["oilStatClntNo"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "oilStatNm", rowData["oilStatNm"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "acctDeptCd", rowData["acctDeptCd"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "acctDeptNm", rowData["acctDeptNm"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "outQty", rowData["outQty"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "payCmisAmt", rowData["payCmisAmt"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "vatAmt", rowData["vatAmt"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "slipNo", rowData["slipNo"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "crn", rowData["crn"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "homeClsCd", rowData["homeClsCd"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "oilStatClntNoRow", rowData["oilStatClntNoRow"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "oilStatClntNoCnt", rowData["oilStatClntNoCnt"]);
+      ds_MonthEachOilInSlip.setCellData(lastRow, "acctCd", rowData["acctCd"]);
+      if (cls == 1) {
+        ds_MonthEachOilInSlip.setCellData(lastRow, "vatAcctDeptCd", em_acctDeptCd.getValue());
+      } else {
+        ds_MonthEachOilInSlip.setCellData(lastRow, "vatAcctDeptCd", "temp");
+      }
+      // ds_MonthEachOilInSlip.UseChangeInfo = 0;
+    }
+  }
+  if (slipTot == 0) {
+    // 선택한 행수 체크
+    $c.win.alert($p, "선택하신 자료가 없습니다. 주유소를 선택하십시요");
+    return false;
+  }
+  return true;
+};
+
+//---------------------------------------------------------------------------
+// 부가세 금액 체크(0 이상)
+//---------------------------------------------------------------------------        
+scwin.f_ChkVat = function (row, colid, olddata) {
+  var vatAmt = ds_MonthEachOilIn.getCelldata(row, colid);
+  if (vatAmt <= 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_ERR_013, ["부가세", 1]);
+    ds_MonthEachOilIn.setCellData(row, colid, olddata);
+    // gr_MonthEachOilIn.SetColumn("vatAmt");
+  }
+};
+
+//-------------------------------------------------------------------------
+// 부가세 수정가능 여부 처리
+//-------------------------------------------------------------------------
+scwin.f_control = async function (row, colid) {
+  var slipYn = "";
+  slipYn = ds_MonthEachOilIn.getCellData(row, "slipNo");
+  if (slipYn == null || slipYn == "") {
+    gr_MonthEachOilIn.setColumnReadOnly("vatAmt", false);
+  } else {
+    gr_MonthEachOilIn.setColumnReadOnly("vatAmt", true);
+  }
+};
+
+//-------------------------------------------------------------------------
+//  회계전표발행 
+//-------------------------------------------------------------------------
+scwin.f_OzReport = function () {
+  var param = "";
+  if (ds_MonthEachOilIn.getCellData(ds_MonthEachOilIn.rowPosition, "slipNo") != "") {
+    param = param + "," + ds_MonthEachOilIn.getCellData(ds_MonthEachOilIn.rowPosition, "slipNo");
+  } else {
+    $c.gus.cfAlertMsg($p, MSG_CM_ERR_056, Array("데이타"));
+    return;
+  }
+  var odiParam = new ODIParam("fi_201_04_02p");
+  odiParam.add("slipNo", param.substring(1));
+  // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+  var formParam = new FormParam();
+
+  // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+  var viewerParam = new ViewerParam();
+  viewerParam.add("viewer.zoom", "100");
+  viewerParam.add("viewer.useprogressbar", "true"); //PROGRESSBAR 안보이게....
+  $c.gus.cfOZPreview($p, "/ac/fi/gnrlaccount/slipmgnt/fi_201_04_02p.ozr", odiParam, viewerParam, formParam);
+};
+scwin.udc_dept_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp("1", em_acctDeptCd.getValue(), txt_acctDeptNm.getValue(), "F", "T");
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  // 선언부
+  var rtnList; // 공통POP-UP -> 요청화면 
+  // switch (disGubun) {
+  //     case 1: 
+  //귀속부서 팝업
+  rtnList = udc_dept.cfCommonPopUp(scwin.udc_dept_callBackFunc // XML상의 SELECT ID	
+  , pCode // 화면에서의 ??? Code Element의	Value
+  , pName // 화면에서의 ??? Name Element의	Value
+  , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+  , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+  , null // Title순서	
+  , null // 보여주는 각 컬럼들의 폭	
+  , null // 컬럼중에서 숨기는	컬럼 지정	
+  , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+  , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+  , null // POP-UP뛰을때 우도우의	사용자 정의	높이	
+  , null // 윈도우 위치 Y좌표	
+  , null // 윈도우 위치 X좌표
+  , null // 중복체크여부	("F")
+  , pAllSearch // 전체검색허용여부	("F")
+  , "귀속부서,귀속코드,부서명" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+  );
+
+  // //귀속부서코드		귀속부서명
+  // $c.gus.cfSetReturnValue(rtnList, em_acctDeptCd, txt_acctDeptNm);
+  // break;
+  // }
+};
+
+// 귀속부서 콜백 함수
+scwin.udc_dept_callBackFunc = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, em_acctDeptCd, txt_acctDeptNm);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) return;
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+  // inObj가 코드명 필드일 경우 팝업
+  else scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 휴지통 처리
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tb_retrieve, null);
+  ed_stdYm.focus();
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = function () {
+  var count = ds_MonthEachOilIn.getTotalRow();
+  if (!(count > 0)) return;
+
+  // gr_MonthEachOilIn.SetExcelTitle(0, "");
+  // gr_MonthEachOilIn.SetExcelTitle(1, "value:보관주유소 지급수수료;"
+  //     + "font-face:'돋움체';"
+  //     + "font-size:12pt;"
+  //     + "font-color:black;"
+  //     + "bgcolor:#ffffff;"
+  //     + "align:center;"
+  //     + "line-color:white;"
+  //     + "line-width:0pt;"
+  //     + "skiprow:1;");
+
+  scwin.f_setqrynm("기준년월", $c.gus.cfGetFormatStr($p, ed_stdYm.getValue(), "####/##"));
+  scwin.f_setqrynm("보관주유소", lc_oilStatClntCd.getValue("name", lc_oilStatClntCd.getValue()));
+
+  // $c.gus.cfGridToExcel(gr_MonthEachOilIn, "보관주유소 지급수수료", "보관주유소 지급수수료.xls", 4 + 8 + 16);
+  const grdObj = gr_MonthEachOilIn;
+  const infoArr = [];
+  const options = {
+    fileName: "보관주유소 지급수수료.xlsx",
+    //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+    sheetName: "보관주유소 지급수수료",
+    useDataFormat: true
+  };
+  $c.data.downloadGridViewExcel($p, grdObj, options, infoArr);
+};
+scwin.f_setqrynm = function (tname, str) {
+  // var vSearchOption = ";font-face:굴림체;font-size:10pt;font-color:black;bgcolor:#ffffff;align: left;line-color:red;line-width:0pt;";
+  // gr_MonthEachOilIn.SetExcelTitle(1, "value:" + tname + " [" + str + "]" + vSearchOption);
+};
+
+// 저장 TR
+scwin.sbm_saveMonthEachOilIn_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code == -1) return;
+  $c.win.alert($p, MSG_CM_INF_001); // 성공적으로 저장하였습니다.
+};
+scwin.sbm_CreateMonthEachOilIn_submit = function (e) {
+  debugger;
+  let rowPos = ds_MonthEachOilIn.getRowPosition();
+  let rowData = ds_MonthEachOilIn.getRowJSON(rowPos);
+  ds_MonthEachOilInSlip.setCellData(rowPos, "slipYn", "0");
+  ds_MonthEachOilInSlip.setCellData(rowPos, "vatAcctDeptCd", em_acctDeptCd.getValue());
+};
+
+// 전표생성 TR
+scwin.sbm_CreateMonthEachOilIn_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code == -1) return;
+  $c.gus.cfAlertMsg($p, MSG_CM_INF_012, ["보관주유소 지급수수료전표"]); // 성공적으로 생성하였습니다.
+};
+
+// 전표취소 TR
+scwin.sbm_CancelMonthEachOilIn_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code == -1) return;
+  $c.win.alert($p, "보관주유소 지급수수료전표를 취소하였습니다.");
+};
+
+// 조회...
+// for=ds_MonthEachOilIn event=OnLoadCompleted(rowCnt)
+scwin.sbm_OilingContentsQry_submitdone = async function (e) {
+  let rowCnt = gr_MonthEachOilIn.getTotalRow();
+  totalRows.setValue(rowCnt);
+
+  // gr_MonthEachOilIn.ColumnProp('slipYn','HeadCheck')= "false"; // to-do       	
+  gr_MonthEachOilIn.setColumnReadOnly("slipYn", false);
+  gr_MonthEachOilIn.setColumnDisabled('slipYn', false);
+  if (rowCnt == 0) {
+    btn_Sav1.setDisabled(true);
+    btn_Sav2.setDisabled(true);
+    btn_Sav3.setDisabled(true);
+    $c.gus.cfDisableObjects($p, [em_acctDeptCd, txt_acctDeptNm]);
+    $c.win.alert($p, MSG_CM_ERR_003); // 자료가 없습니다.
+    return;
+  }
+  $c.gus.cfEnableObjects($p, [em_acctDeptCd]);
+  btn_Sav1.setDisabled(false);
+  btn_Sav2.setDisabled(false);
+  btn_Sav3.setDisabled(false);
+  scwin.wrkDate = ed_stdYm.getValue();
+  gr_MonthEachOilIn.setColumnStyle("slipNo", "color", "blue");
+  gr_MonthEachOilIn.setColumnStyle("slipNo", "text-decoration", "underline");
+};
+
+// for=gr_MonthEachOilIn event=OnClick(row,colid)
+scwin.gr_MonthEachOilIn_oncellclick = async function (rowIndex, columnIndex, columnId) {
+  await scwin.f_control(rowIndex, columnId);
+  let rowData = ds_MonthEachOilIn.getRowJSON(rowIndex);
+  if (columnId == "slipNo" && rowData["slipNo"] != "") {
+    await $c.gus.cfShowSlipInfo($p, rowData["slipNo"]);
+  } else if (columnId == "slipYn") {
+    var chkYn = "";
+    var newChkYn = "";
+    var oilStatClntNo = ""; // 보관주유소
+    var homeClsNm = ""; // 소속구분
+    var acctDeptCd = ""; // 소속구분
+    chkYn = rowData["slipYn"];
+    oilStatClntNo = rowData["oilStatClntNo"];
+    homeClsNm = rowData["homeClsNm"];
+    acctDeptCd = rowData["acctDeptCd"];
+    if (chkYn == 1) {
+      newChkYn = 1;
+    } else {
+      newChkYn = 0;
+    }
+    ds_MonthEachOilIn.setCellData(rowIndex, "slipYn", newChkYn);
+  }
+};
+scwin.gr_MonthEachOilIn_onheaderclick = function (headerId) {
+  var cr = ds_MonthEachOilIn.getTotalRow();
+  if (cr > 0) {
+    if (Colid == "slipYn") {
+      for (var i = 0; i < cr; i++) {
+        ds_MonthEachOilIn.setCellData(i, "slipYn", bCheck);
+      }
+    }
+  }
+};
+scwin.udc_dept_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(em_acctDeptCd, txt_acctDeptNm, 1);
+};
+
+/**
+ * @method 
+ * @name submitdone 
+ * @description submit 정상
+ */
+scwin.submitdone = async function (e) {
+  let submitObj = $p.getComponentById(e.id);
+  switch (submitObj) {
+    case sbm_OilingContentsQry:
+      await scwin.sbm_OilingContentsQry_submitdone(e);
+      break;
+    case sbm_saveMonthEachOilIn:
+      await scwin.sbm_saveMonthEachOilIn_submitdone(e);
+      break;
+    case sbm_CreateMonthEachOilIn:
+      await scwin.sbm_CreateMonthEachOilIn_submitdone(e);
+      break;
+    case sbm_CancelMonthEachOilIn:
+      await scwin.sbm_CancelMonthEachOilIn_submitdone(e);
+      break;
+    default:
+      break;
+  }
+};
+
+/**
+ * @method 
+ * @name submitExcute 
+ * @description submit 처리
+ */
+scwin.submitExcute = async function (sbmObj) {
+  const e = await $c.sbm.execute($p, sbmObj);
+  if (e.responseJSON.resultDataSet[0].Msg == 'SUCC') {
+    if (e.responseJSON.resultDataSet[0].Code == -1) return;
+    await scwin.submitdone(e);
+  }
+  ;
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYearMon',type:'page',variableClone:'true',src:'/cm/udc/fromToYearMon.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendarTime',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendarTime.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYear',type:'page',variableClone:'true',src:'/cm/udc/fromToYear.xml'}},{T:1,N:'w2:require',A:{as:'udc_comChkRes',type:'page',variableClone:'',src:'/cm/udc/comChkRes.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'tb_retrieve',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'기준년월 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonth',class:'',id:'ed_stdYm',style:'',mandatory:'true',displayFormat:'yyyy/MM'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'보관주유소명 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_oilStatClntCd',style:'width: 200px;',submenuSize:'fixed',ref:'',visibleRowNum:'30',displayMode:'value delim label'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전체'}]},{T:1,N:'xf:value'}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'(주)동부메탈(생산물류)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'262126'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'(주)두원물류(자가)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'294926'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'(주)삼양주유소(보관)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'294371'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'(주)삼화고속주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'584809'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'(주)청광'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'570102'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'고대공단주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'558882'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'관동주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'583921'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'남산주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'583846'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'오십천주유소(이동)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'234845'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'동원부산컨테이너터미널(주)-보관'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'264756'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'동해사랑주유소(보관)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'560199'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'목재단지주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'579147'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'동도주유소(이동)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'580746'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'서해안종합물류(신길재)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'584679'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'송악공단주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'574908'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'왕정주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'571021'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'용정에너지(물류)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'586322'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'인천그린주유소(김승익)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'599741'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'인천하나점'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'556901'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'주식회사 천곡주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'584968'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'코멕스주유소(주)'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'249237'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'한국2주유소'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'203662'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'',style:'',type:'button','ev:onclick':'scwin.f_FieldClear'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_trigger1',style:'',type:'button','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',btnPlusYn:'Y',gridDownYn:'Y',gridUpYn:'N',templateYn:'N',gridDownFn:'scwin.f_Excel',gridID:'gr_MonthEachOilIn'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_MonthEachOilIn',focusMode:'row',id:'gr_MonthEachOilIn',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'15',visibleRowNumFix:'true','ev:oncellclick':'scwin.gr_MonthEachOilIn_oncellclick','ev:onheaderclick':'scwin.gr_MonthEachOilIn_onheaderclick',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'checkbox',style:'',value:'',width:'50',fixColumnWidth:'true',disabled:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',style:'',value:'보관주유소',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',style:'',value:'보관주유소명',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column34',inputType:'text',style:'',value:'소속구분',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column32',inputType:'text',style:'',value:'귀속부서명',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',style:'',value:'출고수량(L) ',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',style:'',value:'지급수수료(원)',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',style:'',value:'부가세(원)',width:'120',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',style:'',value:'합계(원)',width:'100'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column49',value:'전표번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column52',value:'계정코드',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'slipYn',inputType:'checkbox',style:'',value:'',width:'50',fixColumnWidth:'true',disabled:'false',valueType:'binary'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'oilStatClntNo',inputType:'text',style:'',value:'',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'oilStatNm',inputType:'text',style:'',value:'',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'homeClsNm',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'acctDeptNm',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'outQty',inputType:'text',style:';text-align:right;',value:'',width:'120',displayFormat:'#,###',dataType:'number',excelCellType:'number',textAlign:'right'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'payCmisAmt',inputType:'text',style:';text-align:right;',value:'',width:'130',displayFormat:'#,###',dataType:'number',excelCellType:'number',textAlign:'right'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vatAmt',inputType:'text',style:';text-align:right;',value:'',width:'120',displayFormat:'#,###',dataType:'number',excelCellType:'number',textAlign:'right'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'tttttt',inputType:'expression',style:';text-align:right;',value:'',width:'100',expression:'Number(display(\'payCmisAmt\'))+Number(display(\'vatAmt\'))',displayFormat:'#,###',dataType:'number',excelCellType:'number',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'slipNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'acctCd',value:'',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column48',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column47',value:'총합',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column46',value:'총합',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column45',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column44',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'expression',style:';text-align:right;',id:'column43',value:'',displayMode:'label',expression:'sum(\'outQty\');',displayFormat:'#,###',dataType:'number',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'130',inputType:'expression',style:';text-align:right;',id:'column42',value:'',displayMode:'label',expression:'sum(\'payCmisAmt\');',displayFormat:'#,###',dataType:'number',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'expression',style:';text-align:right;',id:'column41',value:'',displayMode:'label',expression:'sum(\'vatAmt\');',displayFormat:'#,###',dataType:'number',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:';text-align:right;',id:'column40',value:'',displayMode:'label',expression:'sum(\'tttttt\')',displayFormat:'#,###',dataType:'number',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column51',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column54',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'귀속부서 ',class:'req'}},{T:1,N:'w2:udc_comCode',A:{selectID:'retrieveAcctDeptCdInfo',codeId:'em_acctDeptCd',popupID:'',validTitle:'',nameId:'txt_acctDeptNm',style:'',id:'udc_dept','ev:onclickEvent':'scwin.udc_dept_onclickEvent','ev:onblurCodeEvent':'scwin.udc_dept_onblurCodeEvent',readOnlyCode:'false',maxlengthCode:'5',allowCharCode:'0-9'}}]},{T:1,N:'w2:udc_comChkRes',A:{selectID:'',codeId:'',nameId:'',style:'display: none;',id:'udc_cfJobCloseYN'}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_Sav1',style:'',type:'button','ev:onclick':'scwin.btn_Sav1'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전표생성'}]}]},{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_Sav2',style:'',type:'button','ev:onclick':'scwin.btn_Sav2'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전표취소'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Sav3',style:'',type:'button','ev:onclick':'scwin.btn_Sav3'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]}]}]}]}]}]}]}]})

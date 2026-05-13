@@ -1,0 +1,27 @@
+ed_108_01_01b.log
+
+[2026-02-18 22:35:53.892] 변환 시작
+[2026-02-18 22:35:53.919] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 22:37:55.605] #1 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=3 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=1, warnings=7 | LLM 121614ms, total 121686ms
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:37:55.651] #1 검증: 자동수정 5건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 22:37:55.734] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=3 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=7
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: lc_mfGb (LUXECOMBO→w2:autoComplete), lc_mfReason (LUXECOMBO→w2:autoComplete), lc_lmfGb (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:37:55.736] #2 재시도 (에러 1건)
+[2026-02-18 22:37:56.751] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 22:40:00.744] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=3 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=1, warnings=7 | LLM 123918ms, total 123993ms
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:40:00.746] #1 검증: 최적 시도 #1 채택 (confidence: 0.82)
+[2026-02-18 22:40:00.746] 성공 (#2, 4m 6s, confidence:0.82)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

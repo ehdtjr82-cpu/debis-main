@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+
+	scwin.onpageload = function() {
+		var info = ["btnCodes", "btnCount", "cscoId", "modiDttm", "modrId", "rgstDttm"];
+		$c.data.createDataList("dataList1", info);
+		
+		var gridHeader ='<w2:column blockSelect="false" id="hCol1" style="" inputType="text" width="70" value="1"></w2:column>'
+					+ '<w2:column blockSelect="false" id="hCol2" style="" inputType="text" width="70" value="2"></w2:column>'
+					+ '<w2:column blockSelect="false" id="hCol4" style="" inputType="text" width="70" value="3"></w2:column>'
+					+ '<w2:column blockSelect="false" id="hCol5" style="" inputType="text" width="70" value="최종수정일"></w2:column>'
+					+ '<w2:column blockSelect="false" id="hCol6" style="" inputType="text" width="70" value="최종수정자"></w2:column>'
+					+ '<w2:column blockSelect="false" id="hCol7" style="" inputType="text" width="70" value="등록일"></w2:column>';
+					
+        var gridBody = '<w2:column blockSelect="false" id="btnCodes" style="height:20px" inputType="text" width="70"></w2:column>'
+        			+ '<w2:column blockSelect="false" id="btnCount" style="height:20px" inputType="text" width="70"></w2:column>'
+        			+ '<w2:column blockSelect="false" id="cscoId" style="height:20px" inputType="text" width="70"></w2:column>'
+        			+ '<w2:column blockSelect="false" id="modiDttm" style="height:20px" inputType="text" width="70"></w2:column>'
+        			+ '<w2:column blockSelect="false" id="modrId" style="height:20px" inputType="text" width="70"></w2:column>'
+        			+ '<w2:column blockSelect="false" id="rgstDttm" style="height:20px" inputType="text" width="70"></w2:column>'
+        				
+		var gridStr = '<w2:gridView xmlns:w2="http://www.inswave.com/websquare" xmlns:ev="http://www.w3.org/2001/xml-events" dataList="dataList1" scrollByColumn="false" id="gridView1" style="width: 500px;height: 150px;" fixedColumnWithHidden="true" useShiftKey="false" autoFit="allColumn">'
+        	+ '<w2:header id="header1" style="">'
+        	+ '<w2:row id="row1" style="">'
+        	+ gridHeader
+        	+ '</w2:row>'
+        	+'</w2:header>'
+        	+'<w2:gBody id="gBody1" style="">'
+        	+'<w2:row id="row2" style="">'
+        	+ gridBody
+        	+'</w2:row>'
+        	+'</w2:gBody>'
+        	+'</w2:gridView>' ;
+        	
+        	grd_list.setGridStyle(WebSquare.xml.parse( gridStr , true ));
+        	
+
+	}]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<w2:gridView id="grd_list" ignoreToggleOnDisabled="false" useShiftKey="true" style="position: relative;width: 500px;height: 150px;"
+    		useFilterList="false" scrollByColumn="false" defaultCellHeight="20" showSortableUseFilter="false" scrollByColumnAdaptive="false"
+    		summaryAuto="false" summaryOnlyAuto="false" applyAllColumnStyle="false" dataList="data:dataList1" ignoreCellClick="false" dynamic="true">
+    		<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    		<w2:header style="" id="header1">
+    			<w2:row style="" id="row1">
+    				<w2:column width="70" inputType="text" style="" id="column1" value="" blockSelect="false" displayMode="label"></w2:column>
+    			</w2:row>
+    		</w2:header>
+    		<w2:gBody style="" id="gBody1">
+    			<w2:row style="" id="row2">
+    				<w2:column width="70" inputType="text" style="" id="column2" value="" blockSelect="false" displayMode="label"></w2:column>
+    			</w2:row>
+    		</w2:gBody>
+    	</w2:gridView>
+    </body>
+</html>

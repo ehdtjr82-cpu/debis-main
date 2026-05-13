@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_WrkIndictNoQueryCondition" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="wrkIndictClsCd" name="작업지시구분" dataType="text"></w2:column>
+    					<w2:column id="wrkDt" name="작업일자" dataType="text"></w2:column>
+    					<w2:column id="cvsslMgntNo" name="본선관리번호" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+    					<w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_WrkIndictNo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="wrkIndictClsNm" name="작업지시구분명" dataType="text"></w2:column>
+    					<w2:column id="cvsslNmYardNm" name="본선명장치장명" dataType="text"></w2:column>
+    					<w2:column id="cvsslMgntNo" name="본선관리번호" dataType="text"></w2:column>
+    					<w2:column id="wrkDt" name="작업일자" dataType="text"></w2:column>
+    					<w2:column id="shiftClsNm" name="SHIFT구분명" dataType="text"></w2:column>
+
+                        <w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+                        <w2:column id="wrkEndHh" name="name2" dataType="text"></w2:column>
+                        <w2:column id="cvsslNmYardCd" name="name3" dataType="text"></w2:column>
+                        <w2:column id="wrkStHh" name="name4" dataType="text"></w2:column>
+                        <w2:column id="pchsDeptCd" name="name5" dataType="text"></w2:column>
+                        <w2:column id="wrkIndictClsCd" name="name6" dataType="text"></w2:column>
+                        <w2:column id="pchsDeptNm" name="name7" dataType="text"></w2:column>
+                        <w2:column id="wrkEndDt" name="name8" dataType="text"></w2:column>
+                        <w2:column id="rowStatus" name="name9" dataType="text"></w2:column>
+                        <w2:column id="wrkStDt" name="name10" dataType="text"></w2:column>
+                        <w2:column id="shiftClsCd" name="name11" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lobran" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_hidden">
+    				<w2:keyInfo>
+    					<w2:key id="hd_wrkIndictNo" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchWrkIndictNo" action="/ds.op.wrkplan.stvwrkplan.RetrieveStevedoringWorkIndicationNumberCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_WrkIndictNoQueryCondition","key":"IN_DS1"},{"id":"ds_WrkIndictNo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_WrkIndictNo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_searchWrkIndictNo_submit" ev:submitdone="scwin.sbm_searchWrkIndictNo_submitdone"
+    			ev:submiterror="scwin.sbm_searchWrkIndictNo_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_lobran" action="/ds.co.RetreiveLoBranCMD.do" method="post" mediatype="application/json" ref="" target='' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : op_204_02_08p 
+// 이름     : 하역작업지시번호검색
+// 경로     : 물류/하역(인천)/실적/정규직실적확인
+// 작 성 자 : 조성빈
+// 작 업 일 : 2026-02-03
+// 사용계정 : 내부
+// 비고     : 
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+scwin.loUpperLobranCd;
+scwin.userClsCd;
+scwin.clntNo;
+scwin.clntNm;
+scwin.vCurDate;
+scwin.paramTitle;
+scwin.arrRtnVal;
+scwin.arrOptCnd;
+scwin.strQueryId;
+scwin.strOnCloseTF;
+scwin.strExistTF;
+scwin.strAllSearchTF;
+scwin.strWrkDtTF;
+scwin.strCurDate;
+scwin.strCvsslMgntNo;
+scwin.strWrkPlCd;
+scwin.strWrkIndictClsCd;
+
+scwin.onpageload = function() {
+	scwin.loUpperLobranCd   = $c.data.getMemInfo("loUpperLobranCd"); // 물류상위점소코드
+	scwin.userClsCd         = $c.data.getMemInfo("userClsCd"); // 사용자구분코드
+	scwin.clntNo            = $c.data.getMemInfo("clntNo"); // 거래처번호
+	scwin.clntNm            = $c.data.getMemInfo("clntNm"); // 거래처명
+	scwin.vCurDate          = $c.date.getServerDateTime("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+	scwin.paramTitle        = $c.data.getParameter("paramTitle");
+
+	if (scwin.loUpperLobranCd   == null) scwin.loUpperLobranCd = "";
+	if (scwin.userClsCd         == null) scwin.userClsCd = "";
+	if (scwin.clntNo            == null) scwin.clntNo = "";
+	if (scwin.clntNm            == null) scwin.clntNm = "";
+
+    scwin.arrRtnVal 		= new Array(); 	//Return Value
+    scwin.arrOptCnd 		= new Array("", "", "", "", "", "", "", "", "", ""); // Where절의 추가 조건
+    scwin.strQueryId 		= ""; 		 	//XML SELECT ID
+    scwin.strOnCloseTF 	    = "";     		// Result건수 1건일경우 AutoClose 여부
+    scwin.strExistTF 		= "";     		// 중복체크여부
+    scwin.strAllSearchTF 	= "";     		// 전체검색 허용여부
+    scwin.strWrkDtTF 		= "";			// 작업일자 disable 여부
+    scwin.strCurDate 		= "";			//오늘날짜
+    scwin.strCvsslMgntNo 	= "";			//본선관리번호
+    scwin.strWrkPlCd        = "";           //작업장코드
+    scwin.strWrkIndictClsCd = "";
+
+    const codeOptions = [ 
+        {
+            method: "getLuxeComboData", 
+            param1: "DsCommonEBC", 
+            param2: "retriveWrkIndictClsCdList",
+            // param3: ["CMP"],
+            compID: "acb_wrkIndictClsCd" 
+        }
+    ];
+    $c.data.setGauceUtil(codeOptions, scwin.setGauceComboCallBack);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+
+    }, {"delay":50});
+};
+
+scwin.setGauceComboCallBack = async function(){
+    acb_wrkIndictClsCd.addItem("전체", "", "", 0);
+    acb_wrkIndictClsCd.setSelectedIndex(0);
+    
+    //점소 조회
+    var rs = await $c.sbm.execute(sbm_lobran);
+    if (rs.responseJSON.resultDataSet[0].Msg == "SUCC"){
+        ds_lobran.setJSON(rs.responseJSON.GAUCE);
+        ds_lobran.sort("lobranCd", 0);
+    };
+
+	scwin.arrParent = $p.getAllParameter().paramData.data;
+	scwin.iDispCnt  = "";
+
+	// lblTitle.innerHTML = scwin.arrParent[0][0];
+    $c.data.setPopupTitle(scwin.arrParent[0][0]);
+	txt_cndTitleCd.setValue(scwin.arrParent[0][1]);
+    txt_cndTitleNm  
+	txt_cndTitleNm.setValue(scwin.arrParent[0][2]);
+	
+	scwin.strQueryId            = scwin.arrParent[0][3];
+	scwin.strOnCloseTF          = scwin.arrParent[0][4];
+	scwin.iDispCnt              = scwin.arrParent[0][5];
+	scwin.strExistTF            = scwin.arrParent[0][6];
+	scwin.strAllSearchTF        = scwin.arrParent[0][7];
+	scwin.strWrkDtTF	        = scwin.arrParent[0][8];
+	
+	scwin.strWrkIndictClsCd 	= scwin.arrParent[1][0];
+	scwin.strCurDate		    = scwin.arrParent[1][1];	// 오늘날짜
+
+	ds_hidden.set("hd_wrkIndictNo", scwin.arrParent[1][2]);
+	scwin.strCvsslMgntNo        = scwin.arrParent[1][3];
+	scwin.strWrkPlCd            = scwin.arrParent[1][4];
+	ica_wrkDt.setValue(scwin.arrParent[1][1]);
+
+    acb_lobran.setValue(scwin.loUpperLobranCd);
+	acb_wrkIndictClsCd.setValue(scwin.strWrkIndictClsCd);
+
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    acb_lobran.setValue(scwin.loUpperLobranCd);
+	acb_wrkIndictClsCd.setValue(scwin.strWrkIndictClsCd);
+	ica_wrkDt.setValue(scwin.strCurDate);
+
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+	if ("P" == acb_wrkIndictClsCd.getValue()) {
+	  	if (!await $c.gus.cfValidate([acb_wrkIndictClsCd])) { // 본선/작업장구분, 본선관리번호
+	  		return;
+		}
+	} else if ("Y" == acb_wrkIndictClsCd.getValue()) {
+	  	if (!await $c.gus.cfValidate([acb_wrkIndictClsCd, ica_wrkDt])) { // 본선/작업장구분, 작업일자
+	  		return;
+		}
+	} else {
+		// 검색조건 필수 입력 체크 - 작업지시구분,작업일자
+	  	if (!await $c.gus.cfValidate([ica_wrkDt])) {
+	  		return;
+		}
+	}
+  
+	ds_WrkIndictNoQueryCondition.removeAll();
+
+	var rowIndex = ds_WrkIndictNoQueryCondition.insertRow();
+    ds_WrkIndictNoQueryCondition.setRowPosition(rowIndex);
+
+	ds_WrkIndictNoQueryCondition.setCellData(ds_WrkIndictNoQueryCondition.getRowPosition(), "wrkIndictNo", ds_hidden.get("hd_wrkIndictNo"));    // 작업지시번호
+	ds_WrkIndictNoQueryCondition.setCellData(ds_WrkIndictNoQueryCondition.getRowPosition(), "wrkIndictClsCd", acb_wrkIndictClsCd.getValue());  	// 작업지시구분
+	ds_WrkIndictNoQueryCondition.setCellData(ds_WrkIndictNoQueryCondition.getRowPosition(), "wrkDt", ica_wrkDt.getValue());  					// 작업일자
+	ds_WrkIndictNoQueryCondition.setCellData(ds_WrkIndictNoQueryCondition.getRowPosition(), "cvsslMgntNo", scwin.strCvsslMgntNo);  				// 본선관리번호
+	ds_WrkIndictNoQueryCondition.setCellData(ds_WrkIndictNoQueryCondition.getRowPosition(), "lobranCd", acb_lobran.getValue());  			    // 점소코드
+	ds_WrkIndictNoQueryCondition.setCellData(ds_WrkIndictNoQueryCondition.getRowPosition(), "wrkPlCd", scwin.strWrkPlCd);  			            // 작업장코드
+    $c.sbm.execute(sbm_searchWrkIndictNo);
+}
+
+//-------------------------------------------------------------------------
+// Grid에서 선택된 Row의 Value
+//-------------------------------------------------------------------------
+scwin.f_rtnValue = function (row) {
+	scwin.arrRtnVal[0]  = ds_WrkIndictNo.getCellData(row, "wrkIndictNo");       //작업지시번호
+	scwin.arrRtnVal[1]  = ds_WrkIndictNo.getCellData(row, "wrkIndictClsCd");    //작업지시구분코드
+	scwin.arrRtnVal[2]  = ds_WrkIndictNo.getCellData(row, "wrkIndictClsNm");    //작업지시구분명
+	scwin.arrRtnVal[3]  = ds_WrkIndictNo.getCellData(row, "cvsslNmYardNm");     //본선명장치장명
+	scwin.arrRtnVal[4]  = ds_WrkIndictNo.getCellData(row, "wrkDt");             //작업일자
+	scwin.arrRtnVal[5]  = ds_WrkIndictNo.getCellData(row, "shiftClsCd");        //SHIFT구분코드
+	scwin.arrRtnVal[6]  = ds_WrkIndictNo.getCellData(row, "shiftClsNm");        //SHIFT구분명
+	scwin.arrRtnVal[7]  = ds_WrkIndictNo.getCellData(row, "cvsslMgntNo");       //본선관리번호
+	scwin.arrRtnVal[8]  = ds_WrkIndictNo.getCellData(row, "cvsslNmYardCd");     //선박코드장치장코드
+	scwin.arrRtnVal[9]  = ds_WrkIndictNo.getCellData(row, "pchsDeptCd");        //매입부서코드
+	scwin.arrRtnVal[10] = ds_WrkIndictNo.getCellData(row, "wrkStDt");           //작업시작일자
+	scwin.arrRtnVal[11] = ds_WrkIndictNo.getCellData(row, "wrkStHh");           //작업시작시간
+	scwin.arrRtnVal[12] = ds_WrkIndictNo.getCellData(row, "wrkEndDt");          //작업종료일자
+	scwin.arrRtnVal[13] = ds_WrkIndictNo.getCellData(row, "wrkEndHh");          //작업종료시간
+	scwin.arrRtnVal[14] = ds_WrkIndictNo.getCellData(row, "pchsDeptNm");        //매입부서명
+	scwin.arrRtnVal[15] = ds_WrkIndictNo.getCellData(row, "lobranCd");          //점소코드
+
+	var returnValue = scwin.arrRtnVal;
+    $c.win.closePopup(returnValue);
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve()
+};
+
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.sbm_searchWrkIndictNo_submit = function (e) {
+
+};
+
+scwin.sbm_searchWrkIndictNo_submitdone = async function (e) {
+    var rowCnt = ds_WrkIndictNo.getRowCount()
+    txt_totalRows.setValue(rowCnt);
+	
+	if (scwin.strExistTF == "T") {
+        var returnValue = rowCnt;
+        $c.win.closePopup(returnValue);
+		return ;
+	} else {
+		if (rowCnt == 1	&& scwin.strOnCloseTF == "T") {
+			scwin.f_rtnValue(0);
+			return;
+		}
+		if (rowCnt == 0	) {
+			await $c.gus.cfAlertMsg(MSG_CM_WRN_002);	// 조회결과가 존재하지 않습니다
+			return; 
+		}
+	}
+	ds_WrkIndictNo.setRowPosition(0);
+	gr_popup.focus();
+};
+
+scwin.sbm_searchWrkIndictNo_submiterror = function (e) {
+
+};
+
+scwin.gr_popup_oncelldblclick = function (row, columnIndex, columnId) {
+	scwin.f_rtnValue(row);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_lobran" search="start" style="width:200px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_lobran">
+    										<w2:label ref="lobranNm"></w2:label>
+    										<w2:value ref="lobranCd"></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="txt_cndTitleCd" label="작업지시구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_wrkIndictClsCd" search="start" style="width:200px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="txt_cndTitleNm" label="작업일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_wrkDt" style="" mandatory="true" title="작업일자" objType="data"></w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_WrkIndictNo"
+    					focusMode="row" id="gr_popup" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10" visibleRowNumFix="true" ev:oncelldblclick="scwin.gr_popup_oncelldblclick">
+    					<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false"
+    								width="120" value="작업지시번호">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false"
+    								width="120" value="작업지시구분명">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false"
+    								width="120" value="본선명장치장명">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false"
+    								width="120" value="본선관리번호">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column21" inputType="text" style="" value="작업일자" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" style="" value="SHIFT구분명" width="120">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="wrkIndictNo" inputType="text"
+    								removeBorderStyle="false" width="70" readOnly="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="wrkIndictClsNm" inputType="text"
+    								removeBorderStyle="false" width="70" textAlign="left" readOnly="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="cvsslNmYardNm" inputType="text"
+    								removeBorderStyle="false" width="70" textAlign="left" readOnly="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="cvsslMgntNo" inputType="text"
+    								removeBorderStyle="false" width="70" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="wrkDt" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="shiftClsNm" inputType="text" style="" value="" width="70"
+    								textAlign="left" readOnly="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="txt_totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" userAuth="U" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

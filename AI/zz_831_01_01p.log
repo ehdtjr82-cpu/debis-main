@@ -1,0 +1,28 @@
+zz_831_01_01p.log
+
+[2026-02-19 16:27:55.297] 변환 시작
+[2026-02-19 16:27:55.311] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 16:28:23.485] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=3 | LLM 28068ms, total 28174ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_createHeader → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_fileClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+[2026-02-19 16:28:23.509] #1 검증: 자동수정 2건 적용
+    - [자동수정] U21: cf 공통함수 → $c.gus. 네임스페이스 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 16:28:23.575] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=3
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_createHeader → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_fileClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+[2026-02-19 16:28:23.579] #2 재시도 (에러 3건)
+[2026-02-19 16:28:24.587] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 16:28:47.311] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=2, warnings=4 | LLM 22585ms, total 22724ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_fileClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+[2026-02-19 16:28:47.314] 성공 (#2, 52.0s, confidence:0.94)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_fileClsCd (LUXECOMBO→w2:autoComplete)
+  2. [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+================================================================================

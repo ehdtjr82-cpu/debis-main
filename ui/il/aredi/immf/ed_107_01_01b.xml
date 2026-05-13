@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="ds_Search">
+					<w2:keyInfo>
+						<w2:key id="send" name="전송상태 구분" dataType="text"></w2:key>
+						<w2:key id="ondtFrom" name="From  출항일" dataType="text"></w2:key>
+						<w2:key id="ondtTo" name="To 출항일" dataType="text"></w2:key>
+						<w2:key id="fltno" name="편명" dataType="text"></w2:key>
+						<w2:key id="mblno" name="Master B/L No" dataType="text"></w2:key>
+						<w2:key id="blno" name="Master B/L No" dataType="text"></w2:key>
+						<w2:key id="kcomcd" name="name7" dataType="text" defaultValue="DBEX"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_AirCargoManifast" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="chk" name="CHK" dataType="text"></w2:column>
+						<w2:column id="sendDt" name="Send" dataType="text"></w2:column>
+						<w2:column id="ediCd" name="EDI" dataType="text"></w2:column>
+						<w2:column id="ondt" name="Arrival Date" dataType="text"></w2:column>
+						<w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+						<w2:column id="mblno" name="Master No" dataType="text"></w2:column>
+						<w2:column id="blno" name="House No" dataType="text"></w2:column>
+						<w2:column id="mhno" name="CONSOL" dataType="text"></w2:column>
+						<w2:column id="owner" name="항공사2코드" dataType="text"></w2:column>
+						<w2:column id="fltno" name="FLT" dataType="text"></w2:column>
+						<w2:column id="cargoType" name="CG" dataType="text"></w2:column>
+						<w2:column id="mftpkg" name="PKG" dataType="text"></w2:column>
+						<w2:column id="mftwht" name="Gross" dataType="text"></w2:column>
+						<w2:column id="shnm1" name="Shipper1" dataType="text"></w2:column>
+						<w2:column id="shnm2" name="Shipper2" dataType="text"></w2:column>
+						<w2:column id="shnm3" name="Shipper3" dataType="text"></w2:column>
+						<w2:column id="shnm4" name="Shipper4" dataType="text"></w2:column>
+						<w2:column id="shnm5" name="Shipper5" dataType="text"></w2:column>
+						<w2:column id="shTel" name="ShipperT" dataType="text"></w2:column>
+						<w2:column id="cnnm1" name="Consignee1" dataType="text"></w2:column>
+						<w2:column id="cnnm2" name="Consignee2" dataType="text"></w2:column>
+						<w2:column id="cnnm3" name="Consignee3" dataType="text"></w2:column>
+						<w2:column id="cnnm4" name="Consignee4" dataType="text"></w2:column>
+						<w2:column id="cnnm5" name="Consignee5" dataType="text"></w2:column>
+						<w2:column id="cnTel" name="ConsigneeT" dataType="text"></w2:column>
+						<w2:column id="ngnm1" name="Goods" dataType="text"></w2:column>
+						<w2:column id="ngnm2" name="Goods2" dataType="text"></w2:column>
+						<w2:column id="ngnm3" name="Goods3" dataType="text"></w2:column>
+						<w2:column id="ngnm4" name="Goods4" dataType="text"></w2:column>
+						<w2:column id="ntnm1" name="Notify1" dataType="text"></w2:column>
+						<w2:column id="ntnm2" name="Notify2" dataType="text"></w2:column>
+						<w2:column id="ntnm3" name="Notify3" dataType="text"></w2:column>
+						<w2:column id="ntnm4" name="Notify4" dataType="text"></w2:column>
+						<w2:column id="ntnm5" name="Notify5" dataType="text"></w2:column>
+						<w2:column id="warecd" name="장치장코드" dataType="text"></w2:column>
+						<w2:column id="warenm" name="장치장명" dataType="text"></w2:column>
+						<w2:column id="mwarecd" name="하기장소코드" dataType="text"></w2:column>
+						<w2:column id="mwarenm" name="하기장소" dataType="text"></w2:column>
+						<w2:column id="mwareClsCd" name="하기물품코드" dataType="text"></w2:column>
+						<w2:column id="ucrNo" name="UCR" dataType="text"></w2:column>
+						<w2:column id="spcCd" name="Special" dataType="text"></w2:column>
+						<w2:column id="hsCd" name="HS" dataType="text"></w2:column>
+						<w2:column id="hsn" name="HSN" dataType="text"></w2:column>
+						<w2:column id="cnRgno" name="Consignee" dataType="text"></w2:column>
+						<w2:column id="userid" name="REGISTER" dataType="text"></w2:column>
+						<w2:column id="usernm" name="REGISTER" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/il.aredi.immf.RetrieveAirImportCargoManifestCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"ds_Search", "key":"IN_DS1"}, {"id":"ds_AirCargoManifast", "key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_AirCargoManifast","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_save" action="/il.aredi.immf.SaveAirImportCargoManifestCMD.do" method="post"
+				mediatype="application/json" ref='data:json,{"id":"ds_AirCargoManifast","key":"IN_DS1"}' target='data:json,{}' encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+
+//---------------------------------------------------------
+// 전역변수
+//---------------------------------------------------------   
+scwin.onpageload = function () {
+    today = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+    fromDay = WebSquare.date.dateTimeAdd(today, -7, "day");
+
+    scwin.curDate = $c.gus.cfIsNull($c.data.getParameter("curDate")) ? today : $c.data.getParameter("curDate");
+    scwin.preDate = $c.gus.cfIsNull($c.data.getParameter("preDate")) ? fromDay : $c.data.getParameter("preDate");
+    scwin.blno = $c.gus.cfIsNull($c.data.getParameter("blno")) ? "" : $c.data.getParameter("blno");
+};
+
+//---------------------------------------------------------
+// UDC
+//---------------------------------------------------------    
+scwin.onUdcCompleted = function () {
+    cnd_ed_ondtFrom.setValue(scwin.preDate);
+    cnd_ed_ondtTo.setValue(scwin.curDate);
+
+    if (scwin.blno != "") {
+        cnd_ed_blno.setValue(scwin.blno);
+        scwin.btn_search_onclick();
+    }
+}
+
+//---------------------------------------------------------
+// 사용자 함수
+//---------------------------------------------------------   
+
+//---------------------------------------------------------
+// 컴포넌트 이벤트
+//---------------------------------------------------------   
+
+scwin.btn_search_onclick = function (e) {
+    if (!$c.gus.cfValidate([cnd_ed_ondtFrom, cnd_ed_ondtTo])) {  //validExp 가 yes일때 check
+        return false;
+    }
+
+    if (cnd_ed_ondtFrom.getValue().trim() == '') {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["OnBoard Date From"]); //@는 필수입력항목입니다.
+        cnd_ed_ondtFrom.focus();
+        return false;
+    }
+    if (cnd_ed_ondtTo.getValue().trim() == '') {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["OnBoard Date To"]); //@는 필수입력항목입니다.
+        cnd_ed_ondtTo.focus();
+        return false;
+    }
+    if (!$c.gus.cfIsAfterDate(cnd_ed_ondtFrom.getValue().trim(), cnd_ed_ondtTo.getValue().trim(), false)) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        return;
+    }
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.btn_clean_onclick = function (e) {
+    ds_Search.setEmptyValue();
+};
+
+scwin.btn_send_onclick = async function (e) {
+    if (await scwin.f_ReqFieldChk()) {
+        var vChkCnt = 0;
+        for (var i = 0; i < ds_AirCargoManifast.getTotalRow(); i++) {
+            var vChkYn = ds_AirCargoManifast.getCellData(i, "chk");
+            if (vChkYn == 'T') {
+                vChkCnt++;
+                ds_AirCargoManifast.modifyRowStatus(i, "C");  // insert 상태 로 변경.
+                continue;
+            }
+            if (vChkYn == 'T' && ds_AirCargoManifast.getCellData(i, "sendDt") != "") {
+                vChkCnt++;
+                ds_AirCargoManifast.modifyRowStatus(i, "U");  // update 상태 로 변경. ( 20080624 재전송일 경우 insert상태로 변경함) 
+            }
+            if (vChkYn == 'F') {
+                ds_AirCargoManifast.modifyRowStatus(i, "R");  // select 상태 로 변경.
+            }
+
+
+        }
+        if (vChkCnt < 1) {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["Row"]); //선택된 @가 없습니다.
+            return;
+        }
+
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+scwin.f_ReqFieldChk = async function () {
+    let validArray = [
+        { id: "kcomcd", name: "Kcomcd", mandatory: true },
+        { id: "mblno", name: "Master No", mandatory: true },
+        { id: "mhno", name: "CONSOL NO", mandatory: true },
+        { id: "owner", name: "Owner", mandatory: true },
+        { id: "fltno", name: "Flight No", mandatory: true },
+        { id: "ondt", name: "Onboard", mandatory: true },
+        { id: "blno", name: "House No", mandatory: true },
+        { id: "cargoType", name: "Cargo Type", mandatory: true },
+        { id: "mftpkg", name: "Package", mandatory: true },
+        { id: "mftwht", name: "G/Weight", mandatory: true },
+        { id: "shnm1", name: "Shiper", mandatory: true },
+        { id: "shnm2", name: "Shiper Address", mandatory: true },
+        { id: "cnnm1", name: "Consignee", mandatory: true },
+        { id: "cnnm2", name: "Consignee Address", mandatory: true },
+        { id: "ngnm1", name: "Goods", mandatory: true }
+    ];
+
+    ret = await $c.gus.cfValidateGrid(gr_gridView1, null, null, validArray, "항공수입 적하목록 전송");
+    return ret;
+}
+
+scwin.btn_ktNet_onclick = function (e) {
+    sURL = "http://www.ctradeworld.com/ctwpass/userLoginChk.jsp?userid=FFDBEX0001&userpass=DBE123";
+    window.open(sURL);
+};
+
+scwin.btn_uLogis_onclick = function (e) {
+    sURL = "https://www.ulogishub.com/gate_url.jsp?sid=FFDBEX0001&password=DBE123";
+    window.open(sURL);
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code == '-1') {
+        return;
+    }
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.btn_search_onclick();
+}
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (ds_AirCargoManifast.getTotalRow() == 0) {
+        // $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        $c.win.alert("Data not found.");
+    } else {
+        ed_totalRow.setValue(ds_AirCargoManifast.getTotalRow());
+    }
+}]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Send Status" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="cnd_lc_send" search="start" style="width:150px;" submenuSize="auto"
+									allOption="" chooseOption="" ref="data:ds_Search.send">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[ALL]]></w2:label>
+											<w2:value><![CDATA[1]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[NotSend]]></w2:label>
+											<w2:value><![CDATA[2]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[Send]]></w2:label>
+											<w2:value><![CDATA[3]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="OnBoard Date" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_fromToCalendar refStDt="ondtFrom" refDataMap="ds_Search" style="" id="udc_ondt" refEdDt="ondtTo" edFromId="cnd_ed_ondtFrom"
+									edToId="cnd_ed_ondtTo">
+								</w2:udc_fromToCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Flight No " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="cnd_ed_fltno" style="width:150px;" ref="data:ds_Search.fltno"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Master B/L No " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="cnd_ed_blno" style="width:150px;" ref="data:ds_Search.blno"></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_clean" style="" type="button" ev:onclick="scwin.btn_clean_onclick">
+						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button"
+						ev:onclick="scwin.btn_search_onclick">
+						<xf:label><![CDATA[Search]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group1" style="">
+					<w2:gridView autoFit="none" checkAllType="false" class="wq_gvw" dataList="data:ds_AirCargoManifast" id="gr_gridView1"
+						style="" visibleRowNum="16" visibleRowNumFix="true" rowStatusVisible="false" readOnly="true">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="checkbox" style="" value="" width="50"
+									fixColumnWidth="true">
+								</w2:column>
+								<w2:column displayMode="label" id="column17" inputType="text" style="" value="Send Date" width="120">
+								</w2:column>
+								<w2:column displayMode="label" id="column15" inputType="text" style="" value="EDI" width="70"></w2:column>
+								<w2:column displayMode="label" id="column13" inputType="text" style="" value="Arrival Date" width="130"
+									class="col-type1">
+								</w2:column>
+								<w2:column displayMode="label" id="column11" inputType="text" style="" value="법인코드" width="100"></w2:column>
+								<w2:column displayMode="label" id="column9" inputType="text" style="" value="Master No" width="120"
+									class="col-type1">
+								</w2:column>
+								<w2:column displayMode="label" id="column3" inputType="text" style="" value="House No" width="120">
+								</w2:column>
+								<w2:column displayMode="label" id="column5" inputType="text" style="" value="CONSOL NO" width="150">
+								</w2:column>
+								<w2:column displayMode="label" id="column7" inputType="text" style="" value="항공사2코드 (Ex. KE,OZ)"
+									width="200">
+								</w2:column>
+								<w2:column displayMode="label" id="column19" inputType="text" style="" value="FLT No" width="120"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column31" value="CG Type" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="70" inputType="text" style="" id="column29" value="PKG" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="130" inputType="text" style="" id="column27" value="Gross WHT" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column21" value="Shipper" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column23" value="Shipper Address1" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column25" value="Shipper Address2" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column41" value="Shipper Address3" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column39" value="Shipper Address4" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column37" value="Shipper Telephone" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="220" inputType="text" style="" id="column33" value="Consignee" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column35" value="Consignee Address1"
+									displayMode="label" hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column53" value="Consignee Address2"
+									displayMode="label" hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column51" value="Consignee Address3"
+									displayMode="label" hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column49" value="Consignee Address4"
+									displayMode="label" hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column47" value="Consignee Telephone"
+									displayMode="label" hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column67" value="Goods" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column65" value="Goods2" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column63" value="Goods3" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column61" value="Goods4" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column59" value="Notify" displayMode="label"
+									class="col-type1">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column57" value="Notify Address1" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column55" value="Notify Address2" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column43" value="Notify Address3" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column45" value="Notify Address4" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column87" value="장치장코드" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column85" value="장치장명" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="column83" value="하기장소코드" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column81" value="하기장소" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column79" value="하기물품코드" displayMode="label">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column77" value="UCR No" displayMode="label">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="column75" value="Special Cargo Code"
+									displayMode="label" hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column73" value="HS Code" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column69" value="HSN" displayMode="label"></w2:column>
+								<w2:column width="210" inputType="text" style="" id="column71" value="Consignee 사업자등록번호" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="130" inputType="text" style="" id="column91" value="REGISTER ID" displayMode="label">
+								</w2:column>
+								<w2:column width="130" inputType="text" style="" id="column89" value="REGISTER NM" displayMode="label">
+								</w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50"
+									fixColumnWidth="true" valueType="other" falseValue="F" trueValue="T" readOnly="false">
+								</w2:column>
+								<w2:column displayMode="label" id="sendDt" inputType="text" style="" value="" width="120"
+									displayFormat="####/##/##/##:##">
+								</w2:column>
+								<w2:column displayMode="label" id="ediCd" inputType="select" style="" value="" width="70" allOption=""
+									chooseOption="" ref="">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[MCFS]]></w2:label>
+											<w2:value><![CDATA[K]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[ACPS]]></w2:label>
+											<w2:value><![CDATA[A]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:column>
+								<w2:column displayMode="label" id="ondt" inputType="text" style="" value="" width="130"
+									displayFormat="####/##/##">
+								</w2:column>
+								<w2:column displayMode="label" id="kcomcd" inputType="text" style="" value="" width="100"></w2:column>
+								<w2:column displayMode="label" id="mblno" inputType="text" style="" value="" width="120"></w2:column>
+								<w2:column displayMode="label" id="blno" inputType="text" style="" value="" width="120"></w2:column>
+								<w2:column displayMode="label" id="mhno" inputType="text" style="" value="" width="150"></w2:column>
+								<w2:column displayMode="label" id="owner" inputType="text" style="" value="" width="200"></w2:column>
+								<w2:column displayMode="label" id="fltno" inputType="text" style="" value="" width="120"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="cargoType" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="mftpkg" value="" displayMode="label" dataType="number"
+									displayFormat="#,###" textAlign="right">
+								</w2:column>
+								<w2:column width="130" inputType="text" style="" id="mftwht" value="" displayMode="label" dataType="number"
+									displayFormat="#,###" textAlign="right">
+								</w2:column>
+								<w2:column width="200" inputType="text" style="" id="shnm1" value="" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="shnm2" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="shnm3" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="shnm4" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="shnm5" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="shTel" value="" displayMode="label"></w2:column>
+								<w2:column width="220" inputType="text" style="" id="cnnm1" value="" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="cnnm2" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="cnnm3" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="cnnm4" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="cnnm5" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="cnTel" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="ngnm1" value="" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="ngnm2" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="ngnm3" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="ngnm4" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="ntnm1" value="" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="ntnm2" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="ntnm3" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="ntnm4" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="ntnm5" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="warecd" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="warenm" value="" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="mwarecd" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="mwarenm" value="" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="mwareClsCd" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="ucrNo" value="" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" style="" id="spcCd" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="hsCd" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="hsn" value="" displayMode="label"></w2:column>
+								<w2:column width="210" inputType="text" style="" id="cnRgno" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="userid" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="usernm" value="" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" id="ed_totalRow" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="left" id="" style="">
+						<xf:trigger class="btn link" id="btn_ktNet" style="" title="엑셀 UP" type="button" ev:onclick="scwin.btn_ktNet_onclick">
+							<xf:label><![CDATA[KT Net 접속]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn link" id="btn_uLogis" style="" title="엑셀 UP" type="button" ev:onclick="scwin.btn_uLogis_onclick">
+							<xf:label><![CDATA[uLogisHub 접속]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<xf:group class="right" id="" style="">
+						<xf:trigger class="btn " id="btn_send" style="" type="button" ev:onclick="scwin.btn_send_onclick">
+							<xf:label><![CDATA[EDI Send]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

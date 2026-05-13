@@ -1,0 +1,33 @@
+lo_200_01_01b.log
+
+[2026-02-19 03:39:11.046] 변환 시작
+[2026-02-19 03:39:11.063] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 03:41:33.684] #1 검증: XML: WebSquareXmlValidator: score=0.39, grade=C, verdict=REVIEW, errors=4, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 142439ms, total 142621ms
+    - [XML] submission 'sbm_retrieve'에 action 속성 누락 — sbm_retrieve
+    - [XML] submission 'sbm_retrieveBasetrf'에 action 속성 누락 — sbm_retrieveBasetrf
+    - [XML] submission 'sbm_newBasetrfList'에 action 속성 누락 — sbm_newBasetrfList
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_Addrow → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] submission action 속성 — action 누락: sbm_retrieve, sbm_retrieveBasetrf, sbm_newBasetrfList
+[2026-02-19 03:41:33.739] #1 검증: 자동수정 8건 적용
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U13: flex_gvw/content 래퍼 클래스 제거
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] U27: 과잉 닫기 태그 제거
+[2026-02-19 03:41:33.921] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.39, grade=C, verdict=REVIEW, errors=4, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=5
+    - [XML] submission 'sbm_retrieve'에 action 속성 누락 — sbm_retrieve
+    - [XML] submission 'sbm_retrieveBasetrf'에 action 속성 누락 — sbm_retrieveBasetrf
+    - [XML] submission 'sbm_newBasetrfList'에 action 속성 누락 — sbm_newBasetrfList
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_Addrow → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] submission action 속성 — action 누락: sbm_retrieve, sbm_retrieveBasetrf, sbm_newBasetrfList
+[2026-02-19 03:41:33.922] #2 재시도 (에러 5건)
+[2026-02-19 03:41:34.930] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:44:00.102] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.96, grade=A_PLUS, verdict=PASS, errors=0, warnings=5 | LLM 144995ms, total 145172ms
+[2026-02-19 03:44:00.104] 성공 (#2, 4m 49s, confidence:0.85)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

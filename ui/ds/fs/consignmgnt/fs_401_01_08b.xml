@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_costContents" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="yyMm" name="년월" dataType="text"></w2:column>
+    					<w2:column id="posnClsCd" name="업체;구분" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="clntPersNm" name="수탁자" dataType="text"></w2:column>
+    					<w2:column id="deposit" name="보증금" dataType="text"></w2:column>
+    					<w2:column id="deprCost" name="감가상각비" dataType="text"></w2:column>
+    					<w2:column id="substPayAmt" name="대급금액" dataType="text"></w2:column>
+    					<w2:column id="amt" name="관리비" dataType="text"></w2:column>
+    					<w2:column id="sellAmt" name="매출합계" dataType="text"></w2:column>
+    					<w2:column id="totAmt" name="합계" dataType="text"></w2:column>
+    					<w2:column id="eqCd" name="name13" dataType="text"></w2:column>
+    					<w2:column id="ctrtNo" name="name14" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_costContentsDetail" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="itemNm" name="비용항목명" dataType="text"></w2:column>
+    					<w2:column id="amt" name="단가" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_queryCondition">
+    				<w2:keyInfo>
+    					<w2:key id="ym" name="name1" dataType="text"></w2:key>
+    					<w2:key id="branCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="vehclNo" name="name3" dataType="text"></w2:key>
+    					<w2:key id="posnClsCd" name="name4" dataType="text"></w2:key>
+    					<w2:key id="ctrtNo" name="name5" dataType="text"></w2:key>
+    					<w2:key id="eqCd" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.fs.consignmgnt.consignmgntcadjm.RetrieveConsignmentCostContentsCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_queryCondition","key":"IN_DS1"},{"id":"ds_costContents","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_costContents","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve_detail" action="/ds.fs.consignmgnt.consignmgntcadjm.RetrieveConsignmentCostContentsDetailCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_queryCondition","key":"IN_DS1"},{"id":"ds_costContentsDetail","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_costContentsDetail","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="$blank" ev:submit="" ev:submitdone="scwin.sbm_retrieve_detail_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.strCurDate = $c.date.getServerDateTime($p, "yyyyMMdd");
+scwin.strCurMon = $c.date.addDate($p, scwin.strCurDate, -7).substring(0,6);
+scwin.onpageload = function() {
+
+};
+
+scwin.onUdcCompleted = function() {
+
+    ica_ed_ym.setValue(scwin.strCurMon);
+    ed_branCd.focus();
+    
+};    
+
+//업체구분(사용자함수)
+scwin.gubun = function(data) {
+
+    return $c.gus.decode(data,"G","지입","W","위수탁","기타");
+
+};
+
+//점소popup
+scwin.udc_comCode_bran_onclickEvent = function (e) {
+
+    udc_comCode_bran.cfCommonPopUp(scwin.udc_comCode_bran_callBackFunc,ed_branCd.getValue(), ed_branNm.getValue(),"F",null,null,null,null,null,null,null,null,null,null,"F",null,null);
+};
+
+//점소pop callback
+scwin.udc_comCode_bran_callBackFunc = function(ret) {
+
+    $c.gus.cfSetReturnValue(ret, ed_branCd, ed_branNm);
+};
+
+scwin.udc_comCode_bran_onblurCodeEvent = function (e) {
+
+    if(ed_branCd.getValue() === "") {
+        ed_branNm.setValue("");
+    } else {
+        udc_comCode_bran.cfCommonPopUp(scwin.udc_comCode_bran_callBackFunc,ed_branCd.getValue(), "","T",null,null,null,null,null,null,null,null,null,null,"F",null,null);
+    }
+};
+
+scwin.udc_comCode_bran_onviewchangeNameEvent = function (info) {
+
+    if(ed_branNm.getValue() === "") {
+        ed_branCd.setValue("");
+    } else {
+        udc_comCode_bran.cfCommonPopUp(scwin.udc_comCode_bran_callBackFunc,"", ed_branNm.getValue(),"T",null,null,null,null,null,null,null,null,null,null,"F",null,null);
+    }
+};
+
+//차량popup
+scwin.udc_comCode_vehcl_onclickEvent = function (e) {
+    udc_comCode_vehcl.cfCommonPopUp(scwin.udc_comCode_vehcl_callBackFunc,ed_vehclShortCd.getValue(), ed_vehclNo.getValue(),"F","2",null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,"F",null,null);
+};
+
+//차량pop callback
+scwin.udc_comCode_vehcl_callBackFunc = function(ret) {
+
+    $c.gus.cfSetReturnValue(ret, ed_vehclShortCd, ed_vehclNo);
+};
+
+scwin.udc_comCode_vehcl_onblurCodeEvent = function (e) {
+
+    if(ed_vehclShortCd.getValue() === "") {
+        ed_vehclNo.setValue("");
+    } else {
+        udc_comCode_vehcl.cfCommonPopUp(scwin.udc_comCode_vehcl_callBackFunc,ed_vehclShortCd.getValue(), "","T","2",null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,"F",null,null);
+    }
+};
+
+scwin.udc_comCode_vehcl_onviewchangeNameEvent = function (info) {
+
+    if(ed_vehclNo.getValue() === "") {
+        ed_vehclShortCd.setValue("");
+    } else {
+        udc_comCode_vehcl.cfCommonPopUp(scwin.udc_comCode_vehcl_callBackFunc,"", ed_vehclNo.getValue(),"T","2",null,null,"3,4,5,6,7,8,9,10",null,null,null,null,null,null,"F",null,null);
+    }
+};
+
+//main grid rowchange
+scwin.gr_costContents_onrowindexchange = function (rowIndex, oldRow) {
+
+    let nCnt = ds_costContents.getRowCount();
+
+    if(rowIndex < 0 || nCnt < 1) return;
+ 	
+    dma_queryCondition.set("ym",ds_costContents.getCellData(rowIndex,"yyMm"));
+    dma_queryCondition.set("ctrtNo",ds_costContents.getCellData(rowIndex,"ctrtNo"));
+    dma_queryCondition.set("eqCd",ds_costContents.getCellData(rowIndex,"eqCd"));
+
+    $c.sbm.execute(sbm_retrieve_detail); 	
+};
+
+
+scwin.sbm_retrieve_detail_submitdone = function() {
+
+    let tot_cnt = ds_costContentsDetail.getRowCount();
+    total2.setValue(tot_cnt);
+
+    if (tot_cnt > 0) {
+        gr_costContentsDetail.setFocusedCell(0, 0);
+    }
+};
+
+//조회
+scwin.btn_retrieve_onclick = async function (e) {
+
+    //validation check
+    if(!await $c.gus.cfValidate([ica_ed_ym, ed_branCd])){
+        return;
+    }		
+
+    dma_queryCondition.set("ym",ica_ed_ym.getValue());
+    dma_queryCondition.set("branCd",ed_branCd.getValue());
+    dma_queryCondition.set("vehclNo",ed_vehclNo.getValue());
+    dma_queryCondition.set("posnClsCd",acb_lc_posnClsCd.getValue());
+
+    ds_costContentsDetail.removeAll();
+    total.setValue(0);
+    total2.setValue(0);
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//조회callback
+scwin.sbm_retrieve_submitdone = function() {
+
+    let rowcnt = ds_costContents.getRowCount();
+    total.setValue(rowcnt);
+
+    if(rowcnt == 0){
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    } else {
+        gr_costContents.setFocusedCell(0, 0);
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="년월" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_ed_ym" pickerType="dynamic"
+    								style="" mandatory="true" displayFormat="yyyy/MM" title="기준월" maxYear="2099" validCheck="true" objType="data">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="점소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_branCd" nameId="ed_branNm" id="udc_comCode_bran" mandatoryCode="true" maxlengthCode="4" UpperFlagCode="1" selectID="retrieveLobranInfo" ev:onclickEvent="scwin.udc_comCode_bran_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCode_bran_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_comCode_bran_onviewchangeNameEvent" validTitle="점소" allowCharCode="a-zA-Z0-9"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="차량번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_vehclShortCd" nameId="ed_vehclNo" id="udc_comCode_vehcl" mandatoryCode="false" maxlengthCode="4" UpperFlagCode="1" selectID="retrieveVehiclesNo" ev:onclickEvent="scwin.udc_comCode_vehcl_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCode_vehcl_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_comCode_vehcl_onviewchangeNameEvent" allowCharCode="a-zA-Z0-9"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="업체구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_lc_posnClsCd" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[위수탁]]></w2:label>
+    										<w2:value><![CDATA[W]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[지입]]></w2:label>
+    										<w2:value><![CDATA[G]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox flex_no wfix">
+    				<xf:group id="" class="col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="위수탁(지입차)관리비 " class="tit"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_costContents" style="" autoFit="allColumn"
+    							id="gr_costContents" visibleRowNum="15" class="wq_gvw" focusMode="row" focusMove="true" readOnly="true" ev:onrowindexchange="scwin.gr_costContents_onrowindexchange">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="100" inputType="text" id="column1" value="업체구분" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column17" value="거래처" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column15" value="거래처명" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column13" value="차량번호" displayMode="label"></w2:column>
+    									<w2:column width="80" inputType="text" id="column11" value="수탁자" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column9" value="보증금" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column3" value="감가상각비" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column5" value="대급금액" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column7" value="관리비" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column19" value="매출합계" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column31" value="합계" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="100" inputType="text" id="posnClsCd" displayMode="label" textAlign="left" displayFormatter="scwin.gubun"></w2:column>
+    									<w2:column width="100" inputType="text" id="clntNo" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="clntNm" displayMode="label" textAlign="left"></w2:column>
+    									<w2:column width="100" inputType="text" id="vehclNo" displayMode="label"></w2:column>
+    									<w2:column width="80" inputType="text" id="clntPersNm" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="deposit" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    									<w2:column width="100" inputType="text" id="deprCost" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    									<w2:column width="100" inputType="text" id="substPayAmt" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    									<w2:column width="100" inputType="text" id="amt" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    									<w2:column width="100" inputType="text" id="sellAmt" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="totAmt" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer style="" id="footer1">
+    								<w2:row style="" id="row3">
+    									<w2:column width="100" inputType="text" id="column30" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column29" displayMode="label" value="합계"></w2:column>
+    									<w2:column width="120" inputType="text" id="column28" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column27" displayMode="label"></w2:column>
+    									<w2:column width="80" inputType="text" id="column26" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="expression" id="column25" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('deposit')"></w2:column>
+    									<w2:column width="100" inputType="expression" id="column24" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('deprCost')"></w2:column>
+    									<w2:column width="100" inputType="expression" id="column23" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('substPayAmt')"></w2:column>
+    									<w2:column width="100" inputType="expression" id="column22" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('amt')"></w2:column>
+    									<w2:column width="100" inputType="expression" id="column21" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('sellAmt')"></w2:column>
+    									<w2:column width="100" inputType="expression" style="" id="column33" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('totAmt')"></w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="total" label="0"
+    										class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="col" id="" style="width: 25%;">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="관리비 상세" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group3" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_costContentsDetail" id="gr_costContentsDetail" style=""
+    							visibleRowNum="15" visibleRowNumFix="true" readOnly="true" focusMode="row" focusMove="true">
+    							<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" value="차량번호" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column17" inputType="text" value="비용항목명" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column15" inputType="text" value="단가" width="100"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="vehclNo" inputType="text" width="100"></w2:column>
+    									<w2:column displayMode="label" id="itemNm" inputType="text" width="100" textAlign="left"></w2:column>
+    									<w2:column displayMode="label" id="amt" inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer id="footer1" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column displayMode="label" id="column30" inputType="text" width="100" value="합계"></w2:column>
+    									<w2:column displayMode="label" id="column29" inputType="text" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column28" inputType="expression" width="100" textAlign="right" dataType="number" displayFormat="#,##0" expression="SUM('amt')"></w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="total2" label="0" style=""
+    										tagname="span">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,2050 @@
+/*amd /ui/ds/fs/bilg/fs_202_04_06b.xml 150678 c522d4837a3e7b4ef89ec5cf4858998eb946dcccbf6518bb371c94247382e3a9 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_fmlapattern',saveRemovedData:'true','ev:ondataload':'scwin.ds_fmlapattern_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fmlaPatternCd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fmlaNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_formulasellitemlist',saveRemovedData:'true','ev:ondataload':'scwin.ds_formulasellitemlist_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'sellItemCd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellItemNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_dtlfmlapattern',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fmlaPatternCd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fmlaNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_orderselling_con'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'bilgLodeptCd',name:'청구물류부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bilgClntNo',name:'청구거래처번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'qryConDtFm',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'qryConDtTo',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'kcgCd',name:'화종코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'onWrkPlCd',name:'상차작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'offWrkPlCd',name:'하차작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'taxnClsCd',name:'과세구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'certiPatternCd',name:'거래명세서유형코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'receptClsCd',name:'수령구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'prebilgYn',name:'선청구대상여부',dataType:'number'}},{T:1,N:'w2:key',A:{id:'pgmId',name:'프로그램ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fmlaClsCd',name:'서식구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fmlaPatternCd',name:'서식유형코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'certiNo',name:'거래명세서번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'qryConKnd',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'qryConCd',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'chkAppend',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'odrKndCd',name:'오더종류',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sellCommNo',name:'매출품명번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'upperCommCd',name:'상위품명코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'transDst',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sellItemCd',name:'매출코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sellLodeptCd',name:'매출귀속',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sumDC',name:'name25',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_certidetail',saveRemovedData:'true','ev:ondataload':'scwin.ds_certidetail_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'seq',name:'일련번호',dataType:'text',length:'72'}},{T:1,N:'w2:column',A:{id:'certiNoSeq',name:'거래명세서번호순번',dataType:'number',length:'20'}},{T:1,N:'w2:column',A:{id:'choice',name:'',dataType:'text',length:'1'}},{T:1,N:'w2:column',A:{id:'adptExchRt',name:'실적적용환율',dataType:'number',length:'9'}},{T:1,N:'w2:column',A:{id:'exchRtAdptDt',name:'환율적용일자',dataType:'text',length:'255'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text',length:'13'}},{T:1,N:'w2:column',A:{id:'sellSeq',name:'매출순번',dataType:'number',length:'5'}},{T:1,N:'w2:column',A:{id:'odrNoSeq',name:'',dataType:'text',length:'54'}},{T:1,N:'w2:column',A:{id:'sellItemCd',name:'매출코드',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'dcScCd',name:'할인할증코드',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'impExpDomesticClsCd',name:'수입수출내수구분코드',dataType:'text',length:'1'}},{T:1,N:'w2:column',A:{id:'sellUpr',name:'매출단가',dataType:'number',length:'15'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'text',length:'3'}},{T:1,N:'w2:column',A:{id:'spplyAmtFcrc',name:'공급금액_외화',dataType:'number',length:'38'}},{T:1,N:'w2:column',A:{id:'spplyAmt',name:'계산서금액',dataType:'number',length:'13'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'부가세',dataType:'number',length:'13'}},{T:1,N:'w2:column',A:{id:'totAmt',name:'총금액',dataType:'number',length:'13'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',name:'청구거래처번호',dataType:'text',length:'6'}},{T:1,N:'w2:column',A:{id:'sellVol',name:'매출물량',dataType:'number',length:'18'}},{T:1,N:'w2:column',A:{id:'unitCd',name:'Unit 코드',dataType:'text',length:'3'}},{T:1,N:'w2:column',A:{id:'unitClsCd',name:'단위구분코드',dataType:'text',length:'2'}},{T:1,N:'w2:column',A:{id:'transCargoClsCd',name:'CNTR/BULK 구분',dataType:'text',length:'1'}},{T:1,N:'w2:column',A:{id:'sellGoodsPatternCd',name:'매출품목유형코드',dataType:'text',length:'2'}},{T:1,N:'w2:column',A:{id:'sellCommNo',name:'매출품명번호',dataType:'text',length:'20'}},{T:1,N:'w2:column',A:{id:'sellLodeptCd',name:'매출귀속',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'bizDomCd',name:'사업영역코드',dataType:'text',length:'3'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'작업시작일자',dataType:'text',length:'8'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'작업시작시간',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',name:'확정구분코드',dataType:'text',length:'1'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text',length:'12'}},{T:1,N:'w2:column',A:{id:'invoiceNo',name:'송장번호',dataType:'text',length:'20'}},{T:1,N:'w2:column',A:{id:'arrowDdCnt',name:'경과일수',dataType:'number',length:'5'}},{T:1,N:'w2:column',A:{id:'freeday',name:'FREEDAY',dataType:'number',length:'3'}},{T:1,N:'w2:column',A:{id:'jdgAmt',name:'감정금액',dataType:'number',length:'13'}},{T:1,N:'w2:column',A:{id:'cstmdtAmt',name:'관세금액',dataType:'number',length:'13'}},{T:1,N:'w2:column',A:{id:'strDeg',name:'보관차수',dataType:'number',length:'5'}},{T:1,N:'w2:column',A:{id:'scRt',name:'할증율',dataType:'number',length:'6'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'작업종료일자',dataType:'text',length:'8'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'작업종료시간',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'eqNrmCd',name:'장비규격코드',dataType:'text',length:'3'}},{T:1,N:'w2:column',A:{id:'onWrkPlCd',name:'상차작업장코드',dataType:'text',length:'7'}},{T:1,N:'w2:column',A:{id:'offWrkPlCd',name:'하차작업장코드',dataType:'text',length:'7'}},{T:1,N:'w2:column',A:{id:'transDstOn',name:'운송구간_상차',dataType:'text',length:'50'}},{T:1,N:'w2:column',A:{id:'transDstOff',name:'운송구간_하차',dataType:'text',length:'50'}},{T:1,N:'w2:column',A:{id:'transDst',name:'',dataType:'text',length:'101'}},{T:1,N:'w2:column',A:{id:'dptDistrictCd',name:'출발권역코드',dataType:'text',length:'7'}},{T:1,N:'w2:column',A:{id:'arvDistrictCd',name:'도착권역코드',dataType:'text',length:'7'}},{T:1,N:'w2:column',A:{id:'cntrSizCd',name:'컨테이너사이즈',dataType:'text',length:'2'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'컨테이너타입',dataType:'text',length:'2'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'FULL/EMPTY구분코드',dataType:'text',length:'1'}},{T:1,N:'w2:column',A:{id:'lineCd',name:'LINE코드',dataType:'text',length:'5'}},{T:1,N:'w2:column',A:{id:'vsslCd',name:'Vessel코드',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'portcnt',name:'항차',dataType:'text',length:'10'}},{T:1,N:'w2:column',A:{id:'vsslCdFrom',name:'선박코드_FROM',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'portcntFrom',name:'항차_FROM',dataType:'text',length:'10'}},{T:1,N:'w2:column',A:{id:'vsslCdTo',name:'선박코드_TO',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'portcntTo',name:'항차_TO',dataType:'text',length:'10'}},{T:1,N:'w2:column',A:{id:'mrn',name:'MRN',dataType:'text',length:'11'}},{T:1,N:'w2:column',A:{id:'msn',name:'MSN',dataType:'number',length:'4'}},{T:1,N:'w2:column',A:{id:'hsn',name:'화물관리번호-HSN',dataType:'number',length:'4'}},{T:1,N:'w2:column',A:{id:'retrvDt',name:'회수예정일',dataType:'text',length:'8'}},{T:1,N:'w2:column',A:{id:'shippingDt',name:'선적일자',dataType:'text',length:'8'}},{T:1,N:'w2:column',A:{id:'blNo',name:'B/L번호',dataType:'text',length:'20'}},{T:1,N:'w2:column',A:{id:'bilgLoofcCd',name:'청구물류지점코드',dataType:'text',length:'4'}},{T:1,N:'w2:column',A:{id:'certiInscrpSellItemNm',name:'거래명세서표기매출항목명',dataType:'text',length:'102'}},{T:1,N:'w2:column',A:{id:'commNm',name:'품명',dataType:'text',length:'100'}},{T:1,N:'w2:column',A:{id:'commNmX',name:'',dataType:'text',length:'255'}},{T:1,N:'w2:column',A:{id:'fmlaClsCd',name:'서식구분코드',dataType:'text',length:'2'}},{T:1,N:'w2:column',A:{id:'fmlaPatternCd',name:'서식유형코드',dataType:'text',length:'2'}},{T:1,N:'w2:column',A:{id:'arDepPortDt',name:'입출항일자',dataType:'text',length:'255'}},{T:1,N:'w2:column',A:{id:'tsArDepPortDt',name:'',dataType:'text',length:'255'}},{T:1,N:'w2:column',A:{id:'summary',name:'적요',dataType:'text',length:'150'}},{T:1,N:'w2:column',A:{id:'ediSndTrgtYn',name:'EDI전송대상여부',dataType:'number',length:'20'}},{T:1,N:'w2:column',A:{id:'ediSndClsCd',name:'EDI전송구분코드',dataType:'text',length:'255'}},{T:1,N:'w2:column',A:{id:'oldSpplyAmt',name:'',dataType:'number',length:'13'}},{T:1,N:'w2:column',A:{id:'sellYn',name:'매출여부',dataType:'number',length:'1'}},{T:1,N:'w2:column',A:{id:'fireInsrRateAmt',name:'화재보험료금액',dataType:'number',length:'20'}},{T:1,N:'w2:column',A:{id:'portCd',name:'항구코드',dataType:'text',length:'5'}},{T:1,N:'w2:column',A:{id:'commSeq',name:'품명순번',dataType:'number',length:'4'}},{T:1,N:'w2:column',A:{id:'exchSellAmt',name:'',dataType:'number',length:'20'}},{T:1,N:'w2:column',A:{id:'qty',name:'수량',dataType:'number',length:'15'}},{T:1,N:'w2:column',A:{id:'wt',name:'중량',dataType:'number',length:'18'}},{T:1,N:'w2:column',A:{id:'cbm',name:'CBM',dataType:'number',length:'18'}},{T:1,N:'w2:column',A:{id:'mchtOdrNo',name:'오더번호',dataType:'text',length:'20'}},{T:1,N:'w2:column',A:{id:'doorDtl',name:'DOOR상세',dataType:'text',length:'255'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_certicommon',saveRemovedData:'true','ev:ondataload':'scwin.ds_certicommon_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'certiNo',name:'거래명세서번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'certiPatternCd',name:'거래명세서유형코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pldgMgntNo',name:'상위거래명세서번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mainCertiNo',name:'주요거래명세서번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgLodeptCd',name:'청구물류부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',name:'청구거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgClntNm',name:'청구거래처명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgPicNo',name:'청구담당자번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgPicNm',name:'청구담당자명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'exchRtAdptDt',name:'확인일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'delYn',name:'삭제여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'certiCnt',name:'거래명세서건수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'pgmId',name:'확정구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'evidRglClsCd',name:'증빙정상구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'taxnClsCd',name:'과세구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'portcnt',name:'서식구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arDepPortDt',name:'서식유형코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'msn',name:'통화코드',dataType:'number'}},{T:1,N:'w2:column',A:{id:'adptExchRt',name:'실적적용환율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bilgExchRt',name:'BILL환율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'packCnt',name:'환율적용일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'adptExchRtInscrpYn',name:'적용환율표기여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'totWt',name:'계산서금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'totCbm',name:'공급금액_외화',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntWtCbm',name:'부가세',dataType:'number'}},{T:1,N:'w2:column',A:{id:'assgnBondZoneNm',name:'화재보험료금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'billCoverPatternSeq',name:'청구금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'impExpDomesticClsCd',name:'외화청구금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'transCargoClsCd',name:'청구금액_외화',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bilgInscrpAmtFcrc',name:'BILL표기금액_외화',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'원화확정구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prebilgYn',name:'선청구대상여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'confirmDt',name:'프로그램ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lineCd',name:'LINE코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCd',name:'Vessel코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spplyAmt',name:'항차',dataType:'number'}},{T:1,N:'w2:column',A:{id:'spplyAmtFcrc',name:'표기선박코드',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inscrpVsslEngNm',name:'표기선박영문명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'totAmt',name:'표기항차',dataType:'number'}},{T:1,N:'w2:column',A:{id:'upperCertiNo',name:'선박코드_FROM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fmlaClsCd',name:'항차_FROM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fmlaPatternCd',name:'선박코드_TO',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'항차_TO',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col45',name:'입출항일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mrn',name:'MRN',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',name:'MSN',dataType:'number'}},{T:1,N:'w2:column',A:{id:'hsn',name:'화물관리번호-HSN',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inscrpPortcnt',name:'BILLCOVER유형순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'billTitleNm',name:'BILLTITLE명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'subTitleNm1',name:'SUB_TITLE명1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'subTitleNm2',name:'SUB_TITLE명2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'subTitleNm3',name:'SUB_TITLE명3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'billAggrTitle',name:'BILL집계TITLE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'billAggrSeq',name:'BILL집계순번',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ediSndTrgtYn',name:'수입수출내수구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ediSndClsCd',name:'CNTR/BULK 구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSizCd',name:'컨테이너사이즈',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCdFrom',name:'컨테이너타입',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'FULL/EMPTY구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCdTo',name:'담보관리번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgIntendDt',name:'청구예정일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bankAcntNoInscrpYn',name:'계좌번호표기여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ediSndDt',name:'OFFSET번호1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'offsetNo2',name:'OFFSET번호2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ediSndReqDt',name:'EDI전송요청일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'offsetVatNo',name:'EDI전송대상여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'offsetNo1',name:'EDI전송구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'offsetUpperCertiNo',name:'EDI전송일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ediSndHh',name:'EDI전송시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'certiAutoCreatClsCd',name:'거래명세서자동생성구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'summary',name:'적요',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntBilgDocNo',name:'거래처청구서번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prtnGrpNo',name:'거래명세서 그룹번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chk',name:'#N/A',dataType:'text'}},{T:1,N:'w2:column',A:{id:'refkey',name:'#N/A',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col81',name:'총금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vatYn',name:'부가세여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'spplyAmtOri',name:'#N/A',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bilgLodeptNm',name:'name85',dataType:'text'}},{T:1,N:'w2:column',A:{id:'taxnClsNm',name:'name86',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'name87',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'name88',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellVatNo',name:'name89',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ediSndTrgYn',name:'name90',dataType:'text'}},{T:1,N:'w2:column',A:{id:'offsetVatno',name:'name91',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnClsCdNm',name:'name92',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fireInsrRateAmt',name:'name93',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inscrpFmlaPatternCd',name:'name94',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgAmt',name:'name95',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fcrcBilgAmt',name:'name96',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgAmtFcrc',name:'name97',dataType:'text'}},{T:1,N:'w2:column',A:{id:'certiInscrpSellItemNm',name:'name98',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_appendrow',saveRemovedData:'true','ev:ondataload':'scwin.ds_appendrow_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'seq',name:'일련번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'certiNoSeq',name:'거래명세서번호순번',dataType:'number'}},{T:1,N:'w2:column',A:{id:'choice',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'adptExchRt',name:'실적적용환율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exchRtAdptDt',name:'환율적용일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellSeq',name:'매출순번',dataType:'number'}},{T:1,N:'w2:column',A:{id:'odrNoSeq',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellItemCd',name:'매출코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcScCd',name:'할인할증코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impExpDomesticClsCd',name:'수입수출내수구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellUpr',name:'매출단가',dataType:'number'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spplyAmtFcrc',name:'공급금액_외화',dataType:'number'}},{T:1,N:'w2:column',A:{id:'spplyAmt',name:'계산서금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'부가세',dataType:'number'}},{T:1,N:'w2:column',A:{id:'totAmt',name:'총금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',name:'청구거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellVol',name:'매출물량',dataType:'number'}},{T:1,N:'w2:column',A:{id:'unitCd',name:'Unit 코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'unitClsCd',name:'단위구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCargoClsCd',name:'CNTR/BULK 구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellGoodsPatternCd',name:'매출품목유형코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellCommNo',name:'매출품명번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellLodeptCd',name:'매출귀속',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizDomCd',name:'사업영역코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'작업시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'작업시작시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',name:'확정구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'invoiceNo',name:'송장번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arrowDdCnt',name:'경과일수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'freeday',name:'FREEDAY',dataType:'number'}},{T:1,N:'w2:column',A:{id:'jdgAmt',name:'감정금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cstmdtAmt',name:'관세금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'strDeg',name:'보관차수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'scRt',name:'할증율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'작업종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'작업종료시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqNrmCd',name:'장비규격코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'onWrkPlCd',name:'상차작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'offWrkPlCd',name:'하차작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstOn',name:'운송구간_상차',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstOff',name:'운송구간_하차',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDst',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptDistrictCd',name:'출발권역코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvDistrictCd',name:'도착권역코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSizCd',name:'컨테이너사이즈',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'컨테이너타입',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'FULL/EMPTY구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lineCd',name:'LINE코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCd',name:'Vessel코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'portcnt',name:'항차',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCdFrom',name:'선박코드_FROM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'portcntFrom',name:'항차_FROM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCdTo',name:'선박코드_TO',dataType:'text'}},{T:1,N:'w2:column',A:{id:'portcntTo',name:'항차_TO',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mrn',name:'MRN',dataType:'text'}},{T:1,N:'w2:column',A:{id:'msn',name:'MSN',dataType:'number'}},{T:1,N:'w2:column',A:{id:'hsn',name:'화물관리번호-HSN',dataType:'number'}},{T:1,N:'w2:column',A:{id:'retrvDt',name:'회수예정일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shippingDt',name:'선적일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'B/L번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgLoofcCd',name:'청구물류지점코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'certiInscrpSellItemNm',name:'거래명세서표기매출항목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commNm',name:'품명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commNmX',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fmlaClsCd',name:'서식구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fmlaPatternCd',name:'서식유형코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arDepPortDt',name:'입출항일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tsArDepPortDt',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'summary',name:'적요',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ediSndTrgtYn',name:'EDI전송대상여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ediSndClsCd',name:'EDI전송구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oldSpplyAmt',name:'',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellYn',name:'매출여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fireInsrRateAmt',name:'화재보험료금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'portCd',name:'항구코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commSeq',name:'품명순번',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exchSellAmt',name:'',dataType:'number'}},{T:1,N:'w2:column',A:{id:'qty',name:'수량',dataType:'number'}},{T:1,N:'w2:column',A:{id:'wt',name:'중량',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cbm',name:'CBM',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mchtOdrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'doorDtl',name:'DOOR상세',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_fmlapattern'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text',defaultValue:'CertiFormulaEBC'}},{T:1,N:'w2:key',A:{id:'queryId',name:'',dataType:'text',defaultValue:'retrieveProgramEachCertiFormulaList'}},{T:1,N:'w2:key',A:{id:'bilgLodeptCd',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pgmId',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fmlaClsCd',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_formulasellitemlist_con'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'bilgLoofcCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fmlaPatternCd',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fmlaClsCd',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntNo',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_sellitemnamelist',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_certicommonsavepost',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'certiNo',name:'name1',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_appendrow_retrieve',action:'/ds.fs.bilg.bilg.RetrieveOrderDomesticSellingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_certicommon","key":"OUT_DS1"},{"id":"ds_appendrow","key":"OUT_DS2"},{"id":"dma_orderselling_con","key":"IN_DS1"}]',target:'data:json,[{"id":"ds_certicommon","key":"OUT_DS1"},{"id":"ds_appendrow","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_appendrow_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_orderselling_retrieve',action:'/ds.fs.bilg.bilg.RetrieveOrderDomesticSellingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_certicommon","key":"OUT_DS1"},{"id":"ds_certidetail","key":"OUT_DS2"},{"id":"dma_orderselling_con","key":"IN_DS1"}]',target:'data:json,[{"id":"ds_certicommon","key":"OUT_DS1"},{"id":"ds_certidetail","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_orderselling_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_fmlapattern',action:'/ds.fs.bilg.bilgcomncdmgnt.RetrieveProgramEachCertiFormulaCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_fmlapattern',target:'data:json,{"id":"ds_fmlapattern","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_certi_retrieve',action:'/ds.fs.bilg.bilg.RetrieveCertiCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_orderselling_con","key":"IN_DS1"},{"id":"ds_certicommon","key":"OUT_DS1"},{"id":"ds_certidetail","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_certicommon","key":"OUT_DS1"},{"id":"ds_certidetail","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_certi_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_formulasellitemlist_retrieve',action:'/ds.fs.bilg.bilgcomncdmgnt.RetrieveFormulaEachSellingItemListCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_formulasellitemlist_con","key":"IN_DS1"},{"id":"ds_formulasellitemlist","key":"OUT_DS1"},{"id":"ds_sellitemnamelist","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_formulasellitemlist","key":"OUT_DS1"},{"id":"ds_sellitemnamelist","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_Dtlfmlapattern',action:'/ds.fs.bilg.bilgcomncdmgnt.RetrieveProgramEachCertiFormulaCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_fmlapattern',target:'data:json,{"id":"ds_dtlfmlapattern","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_certi_saveReg',action:'/ds.fs.bilg.bilg.RegistCertiCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_certidetail","key":"IN_DS1"},{"id":"ds_certicommon","key":"IN_DS2"},{"id":"ds_certicommonsavepost","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_certicommonsavepost","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_certi_saveReg_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{abortTrigger:'',action:'/ds.fs.bilg.bilg.UpdateCertiCMD.do',customHandler:'',encoding:'UTF-8',errorHandler:'','ev:submit':'','ev:submitdone':'scwin.sbm_certi_SaveUpdate_submitdone','ev:submiterror':'',id:'sbm_certi_SaveUpdate',instance:'',mediatype:'application/json',method:'post',mode:'asynchronous',processMsg:'',ref:'data:json,[{"id":"ds_certidetail","key":"IN_DS1"},{"id":"ds_certicommon","key":"IN_DS2"},{"id":"ds_certicommonsavepost","key":"OUT_DS1"}]',replace:'',target:'data:json,{"id":"ds_certicommonsavepost","key":"OUT_DS1"}',style:''}},{T:1,N:'xf:submission',A:{id:'sbm_certi_save',action:'/ds.fs.bilg.bilg.DeleteCertiCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_certidetail","key":"IN_DS1"},{"id":"ds_certicommon","key":"IN_DS2"},{"id":"ds_certicommonsavepost","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_certicommonsavepost","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_certi_save_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//-------------------------------------------------------------------------
+// 화면 hidden 컴포넌트 전역 변수 선언
+//-------------------------------------------------------------------------
+scwin.bilgLodeptCd = "";
+scwin.certiNo = "";
+scwin.bilgClntNo = "";
+scwin.fmlaPatternCd = "";
+scwin.fmlaClsCd = "";
+scwin.printType = "";
+scwin.ed_lineCd = "";
+scwin.ed_qryConCd3 = "";
+scwin.ed_qryConNm3 = "";
+scwin.ed_sellCommNo = "";
+scwin.dtl_oldCertiNo = "";
+scwin.ed_spplyAmtFcrc = "";
+scwin.dtl_lineCd = "";
+scwin.dtl_size = "";
+scwin.dtl_crcCd = "";
+scwin.dtl_vsslCd = "";
+scwin.dtl_portcnt = "";
+scwin.ed_adptExchRt = "";
+scwin.dtl_billTitleNm = "";
+scwin.dtl_assgnBondZoneNm = "";
+scwin.dtl_blNo = "";
+scwin.ed_arDepPortDt = "";
+scwin.dtl_cntWtCbm = "";
+scwin.dtl_upperCertiNo = "";
+scwin.rd_selTsVsslCd = "";
+scwin.dtl_FmTsVsslCd = "";
+scwin.dtl_ToTsVsslCd = "";
+scwin.acb_gubun = "";
+scwin.ed_diffAmt = "";
+scwin.ed_ediSndDt = "";
+scwin.dtl_offsetUpperCertiNo = "";
+scwin.cbx_bondedTransDeclar = "";
+scwin.dcsnClsCd = "2";
+scwin.addflag = ""; // 신규입력/수정 구분자
+scwin.delflag = ""; // 삭제 구분자    
+scwin.appflag = ""; // 추가구분 구분자       
+scwin.certiPatternCd = "V"; // 거래명세서유형코드
+scwin.receptClsCd = "02"; // 수령구분코드  
+scwin.prebilgYn = 0; // 선청구여부    
+scwin.pgmId = "fs_202_04_06b.jsp"; // 프로그램ID           
+scwin.fmlaClsCd = "01"; // 서식구분코드            
+scwin.fmlaPatternCd = "01"; // 서식유형코드                  
+scwin.upperCertiNo = "0"; // 상위거래명세서번호                  
+scwin.pldgMgntNo = ""; // 담보증번호 
+scwin.returnParam = new Array();
+scwin.param = "";
+scwin.MSG_FS_WRN_011 = "청구부서를 먼저 선택해야 합니다.";
+scwin.MSG_FS_WRN_010 = "변경된 사항을 먼저 저장해야 합니다.";
+scwin.MSG_FS_WRN_002 = "거래명세서가 존재하지 않습니다.";
+scwin.MSG_FS_WRN_001 = "적용환율이 2개 이상이면 거래명세서 작성이 불가합니다.";
+scwin.MSG_FS_WRN_018 = "EDI전송된 건입니다. 삭제하시겠습니까?";
+scwin.MSG_FS_WRN_015 = "이미 확정된 거래명세서(CERTI)입니다.";
+scwin.MSG_FS_WRN_009 = "청구처 조건이 내용과 일치하지 않습니다.";
+scwin.MSG_FS_WRN_012 = "저장할 데이타가 존재하지 않습니다.";
+
+//-------------------------------------------------------------------------
+// 기본 날짜 세팅
+//-------------------------------------------------------------------------
+scwin.strCurDate = WebSquare.date.getCurrentServerDate(); // 서버를 기준으로 현재 날짜 반환
+scwin.strFrDate = scwin.strCurDate.substring(0, 6) + "01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  scwin.param = $c.data.getParameter($p);
+
+  //공통코드데이터 호출   
+  const codeOptions = [
+  // { grpCd: "SD113", compID: "acb_odrKndCd" }, // 셀렉트
+  {
+    grpCd: "SD070",
+    compID: "acb_taxnClsCd"
+  } // 셀렉트
+  ];
+  $c.data.setCommonCode($p, codeOptions);
+  const param = [{
+    compID: "acb_odrKndCd",
+    method: "getCodeList",
+    param1: "SD113",
+    param2: 2,
+    param3: "D",
+    // outputFields를 정의하면, 이게 자동으로 param4: [1, 3]으로 변환되어 서버로 전송됩니다.
+    outputFields: ["CD", "CD_NM"]
+  }];
+  $c.data.setDsCommonUtil($p, param);
+};
+
+//-------------------------------------------------------------------------
+// UDC 초기값 세팅
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  udc_fromToCal1.setInitDate(scwin.strFrDate, scwin.strCurDate);
+  cbx_previewCheck.setValue("1");
+  cbx_sumCheck.setValue("1");
+  ica_confirmDt.setValue(scwin.strCurDate);
+  ica_bilgIntendDt.setValue(scwin.strCurDate);
+  rd_prebilgYn.setValue("0");
+  acb_taxnClsCd.setValue("0");
+  div_qryConKnd2.hide();
+  acb_transDst.setSelectedIndex(1);
+  acb_qryConKnd2.setValue("품목");
+
+  //거래명세서현황조회에서 호출시
+  if (scwin.certiNo != "" && scwin.link == "true") {
+    scwin.f_CertiRetrieve();
+  }
+  //거래명세서일괄작성에서 호출시
+  if (scwin.flag != "") {
+    if (scwin.param.ds_parent != null) {
+      let ds_parent = scwin.param.ds_parent;
+      dataColumn = ["bilgLodeptCd", "bilgClntNo", "qryConDtFm", "qryConDtTo", "kcgCd", "onWrkPlCd", "offWrkPlCd", "taxnClsCd", "certiPatternCd", "receptClsCd", "prebilgYn", "pgmId", "fmlaClsCd", "fmlaPatternCd", "certiNo", "qryConKnd", "qryConCd", "chkAppend", "odrKndCd", "sellCommNo", "upperCommCd", "transDst", "sellItemCd", "sellLodeptCd"];
+      dma_orderselling_con.setArray({
+        "columnInfo": dataColumn,
+        "data": scwin.param.ds_parent
+      });
+      scwin.f_WholeRetrieve();
+    }
+  }
+  // 공통 나와야함
+  // ds_certidetail.UseFilter = "false"; 
+};
+
+//-------------------------------------------------------------------------
+// CERTI 조회
+//-------------------------------------------------------------------------
+scwin.f_CertiRetrieve = async function () {
+  // 링크조회시
+  if (scwin.certiNo != "" && scwin.link == "true") {
+    ed_certiNo.setValue(scwin.certiNo);
+    ed_bilgLodeptCd.setValue(scwin.bilgLodeptCd);
+    scwin.f_chkOpenCommonPopUp(ed_bilgLodeptCd, ed_bilgLodeptNm, 1);
+  }
+
+  //validation check        
+  if (!(await $c.gus.cfValidate($p, [ed_bilgLodeptCd, ed_certiNo, ica_confirmDt]))) {
+    return;
+  }
+  dma_orderselling_con.set("bilgLodeptCd", ed_bilgLodeptCd.getValue());
+  dma_orderselling_con.set("certiNo", ed_certiNo.getValue());
+  if (scwin.pgmId == "fs_202_04_01b.jsp" || scwin.pgmId == "fs_202_05_01b.jsp") {
+
+    // if(cbx_sumDc.){
+    //     dma_orderselling_con.getCellData(0, "sumDc") = "Y";
+    // }else{
+    //     dma_orderselling_con.getCellData(0, "sumDc") = "N";
+    // }
+  }
+  $c.sbm.execute($p, sbm_certi_retrieve);
+
+  // link = ""; 							// 링크구분자 초기화
+  // ds_certicommonsavepost.ClearData();
+};
+
+//-------------------------------------------------------------------------
+// 거래명세서일괄작성에서 호출시 조회
+//-------------------------------------------------------------------------
+scwin.f_WholeRetrieve = function () {
+  ed_bilgLodeptCd.setValue(dma_orderselling_con.get("bilgLodeptCd"));
+  ed_bilgClntNo.setValue(dma_orderselling_con.get("bilgClntNo"));
+  acb_qryConKnd.setValue(dma_orderselling_con.get("qryConKnd"));
+  if (dma_orderselling_con.get("qryConKnd") == "오더") {
+    div_qryConKnd1.setStyle("display", "none");
+    div_qryConKnd2.setStyle("display", "block");
+  } else {
+    div_qryConKnd1.setStyle("display", "block");
+    div_qryConKnd2.setStyle("display", "none");
+  }
+  ed_qryConCd.setValue(dma_orderselling_con.get("qryConCd"));
+  ed_qryConDtFm.setValue(dma_orderselling_con.get("qryConDtFm"));
+  ed_qryConDtTo.setValue(dma_orderselling_con.get("qryConDtTo"));
+  acb_odrKndCd.setValue(dma_orderselling_con.get("odrKndCd"));
+  acb_qryConKnd2.setValue(dma_orderselling_con.get("qryConKnd2"));
+  ed_qryConCd2.setValue(dma_orderselling_con.get("qryConCd2"));
+  acb_taxnClsCd.setValue(dma_orderselling_con.get("taxnClsCd"));
+  acb_fmlaPatternCd.setValue(dma_orderselling_con.get("fmlaPatternCd"));
+
+  // 공통 나와야함
+  // ds_certidetail.UseFilter= "false";
+  // gr_certidetail.ReDraw= "False";
+
+  scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  //validation check        
+  if (acb_qryConKnd.getValue() == "배차" || acb_qryConKnd.getValue() == "오더일자" || acb_qryConKnd.getValue() == "청구인식일" || acb_qryConKnd.getValue() == "실적일자") {
+    if (cbx_chkAppend.getValue() == "1") {
+      if (!(await $c.gus.cfValidate($p, [ed_bilgLodeptCd, ed_qryConDtFm, ed_qryConDtTo, acb_fmlaPatternCd]))) return;
+    } else {
+      if (!(await $c.gus.cfValidate($p, [ed_bilgLodeptCd, ed_bilgClntNo, ed_qryConDtFm, ed_qryConDtTo, acb_fmlaPatternCd]))) return;
+    }
+  } else {
+    if (cbx_chkAppend.getValue() == "1") {
+      if (!(await $c.gus.cfValidate($p, [ed_bilgLodeptCd, ed_qryConCd, acb_fmlaPatternCd]))) return;
+    } else {
+      if (!(await $c.gus.cfValidate($p, [ed_bilgLodeptCd, ed_bilgClntNo, ed_qryConCd, acb_fmlaPatternCd]))) return;
+    }
+  }
+
+  //추가구분일경우 청구처 일치여부 체크	  	
+  if (cbx_chkAppend.getValue() == "1") {
+    if (ds_certicommon.getTotalRow() > 0 && ed_bilgClntNo.getValue() != ed_dtl_bilgClntNo.getValue()) {
+      await $c.win.alert($p, scwin.MSG_FS_WRN_009);
+      return;
+    }
+    if (ds_certicommon.getCellData(0, "sellVatNo") != "") {
+      await $c.win.alert($p, scwin.MSG_FS_WRN_015);
+      return;
+    }
+  }
+
+  //조회시작일자가 더 클경우 체크
+  if (!(await $c.gus.cfIsAfterDate($p, ed_qryConDtFm.getValue(), ed_qryConDtTo.getValue()))) {
+    $c.win.alert($p, MSG_CM_ERR_039);
+    return;
+  }
+  dma_orderselling_con.set("bilgLodeptCd", ed_bilgLodeptCd.getValue());
+  if (cbx_chkAppend.getValue() == "1") {
+    if (ds_certidetail.getTotalRow() > 0) {
+      dma_orderselling_con.set("bilgClntNo", ed_dtl_bilgClntNo.getValue());
+    } else {
+      dma_orderselling_con.set("bilgClntNo", ed_bilgClntNo.getValue());
+    }
+  } else {
+    dma_orderselling_con.set("bilgClntNo", ed_bilgClntNo.getValue());
+  }
+  let prebilgYn = parseInt(rd_prebilgYn.getValue());
+  dma_orderselling_con.set("qryConCd", ed_qryConCd.getValue());
+  dma_orderselling_con.set("qryConDtFm", ed_qryConDtFm.getValue());
+  dma_orderselling_con.set("qryConDtTo", ed_qryConDtTo.getValue());
+  dma_orderselling_con.set("onWrkPlCd", ed_onWrkPlCd.getValue());
+  dma_orderselling_con.set("offWrkPlCd", ed_offWrkPlCd.getValue());
+  dma_orderselling_con.set("taxnClsCd", acb_taxnClsCd.getValue());
+  dma_orderselling_con.set("qryConKnd", acb_qryConKnd.getValue());
+  dma_orderselling_con.set("certiPatternCd", scwin.certiPatternCd);
+  dma_orderselling_con.set("receptClsCd", scwin.receptClsCd);
+  dma_orderselling_con.set("prebilgYn", prebilgYn);
+  dma_orderselling_con.set("pgmId", scwin.pgmId);
+  dma_orderselling_con.set("fmlaClsCd", scwin.fmlaClsCd);
+  dma_orderselling_con.set("fmlaPatternCd", acb_fmlaPatternCd.getValue());
+  dma_orderselling_con.set("sellLodeptCd", ed_sellLodeptCd.getValue());
+  if (acb_qryConKnd2.getValue() == "품명") {
+    dma_orderselling_con.set("sellCommNo", ed_qryConCd2.getValue());
+    dma_orderselling_con.set("upperCommCd", "");
+    dma_orderselling_con.set("kcgCd", "");
+  } else if (acb_qryConKnd2.getValue() == "품목") {
+    dma_orderselling_con.set("sellCommNo", "");
+    dma_orderselling_con.set("upperCommCd", ed_qryConCd2.getValue());
+    dma_orderselling_con.set("kcgCd", "");
+  } else if (acb_qryConKnd2.getValue() == "화종") {
+    dma_orderselling_con.set("sellCommNo", "");
+    dma_orderselling_con.set("upperCommCd", "");
+    dma_orderselling_con.set("kcgCd", ed_qryConCd2.getValue());
+  }
+  dma_orderselling_con.set("odrKndCd", acb_odrKndCd.getValue());
+  dma_orderselling_con.set("transDst", acb_transDst.getValue());
+  dma_orderselling_con.set("sellItemCd", acb_sellItemCd.getValue());
+  if (cbx_chkAppend.getValue() == "1") {
+    $c.sbm.execute($p, sbm_appendrow_retrieve);
+  } else {
+    $c.sbm.execute($p, sbm_orderselling_retrieve);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장 확인
+//-------------------------------------------------------------------------
+scwin.f_MySave = async function () {
+  if (ds_certidetail.getTotalRow() == 0) {
+    await $c.win.alert($p, $c.data.getMessage($p, MSG_CM_WRN_001, "DATA"));
+    return;
+  }
+
+  //추가구분시 입력,수정 구분
+  if (scwin.addflag != "MOD" && scwin.appflag == "TRUE") {
+    scwin.addflag = "REG";
+  } else if (scwin.addflag == "MOD" && scwin.appflag == "TRUE") {
+    scwin.addflag = "MOD";
+  }
+  //삭제구분
+  scwin.delflag = "";
+  if (scwin.addflag == "REG") {
+    if (!(await $c.gus.cfValidate($p, [ica_confirmDt, acb_dtl_fmlaPatternCd]))) return;
+  } else if (scwin.addflag == "" || scwin.addflag == "MOD") {
+    //validation check        
+    if (!(await $c.gus.cfValidate($p, [ed_certiNo, ica_confirmDt, acb_dtl_fmlaPatternCd]))) return;
+  }
+  ds_certicommon.setCellData(0, "fmlaClsCd", scwin.fmlaClsCd);
+  ds_certicommon.setCellData(0, "upperCertiNo", scwin.upperCertiNo);
+  ds_certicommon.setCellData(0, "pldgMgntNo", scwin.pldgMgntNo);
+  ds_certicommon.setCellData(0, "pgmId", scwin.pgmId);
+
+  // 공통코드에 있어서 안됨
+  scwin.f_Save();
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (separation) {
+  //날짜형식 체크
+  if (!(await $c.gus.cfValidate($p, [ica_confirmDt]))) {
+    return;
+  }
+
+  //거래명세서번호순번  Value 세팅
+  var j = 0;
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certidetail.setCellData(i, "certiNoSeq", j);
+      j = j + 1;
+    }
+  }
+  if (j == 0) {
+    $c.win.alert($p, scwin.MSG_FS_WRN_012);
+    return;
+  }
+  if (!(await $c.win.confirm($p, MSG_CM_CRM_001))) return;
+  ds_certicommon.setCellData(0, "confirmDt", ica_confirmDt.getValue()); // 확인일자
+  ds_certicommon.setCellData(0, "fmlaPatternCd", acb_dtl_fmlaPatternCd.getValue()); // 서식유형코드 
+  ds_certicommon.setCellData(0, "bankAcntNoInscrpYn", rd_bankAcntNoInscrpYn.getValue()); // 계좌번호표기여부 
+  ds_certicommon.setCellData(0, "summary", ed_dtl_summary.getValue()); // 적요 
+  ds_certicommon.setCellData(0, "spplyAmt", ed_spplyAmt.getValue()); // 공급금액 
+  ds_certicommon.setCellData(0, "fireInsrRateAmt", ed_fireInsrRateAmt.getValue()); // 화재보험금액
+  ds_certicommon.setCellData(0, "spplyAmtFcrc", scwin.ed_spplyAmtFcrc); // 공급금액_외화 
+  ds_certicommon.setCellData(0, "vatAmt", ed_vatAmt.getValue()); // 부가세금액
+  ds_certicommon.setCellData(0, "prebilgYn", rd_prebilgYn.getValue()); // 선청구여부					
+  ds_certicommon.setCellData(0, "certiNo", ed_certiNo.getValue()); // 거래명세서번호
+  ds_certicommon.setCellData(0, "oldCertiNo", scwin.dtl_oldCertiNo); // 거래명세서번호
+  ds_certicommon.setCellData(0, "vsslCd", ds_certidetail.setCellData(0, "vsslCd")); // 선박코드
+  ds_certicommon.setCellData(0, "portcnt", ds_certidetail.setCellData(0, "portcnt")); // 항차
+  ds_certicommon.setCellData(0, "arDepPortDt", scwin.ed_arDepPortDt); // 입출항일자
+  ds_certicommon.setCellData(0, "billTitleNm", scwin.dtl_billTitleNm); // BILLTITLE명 
+  ds_certicommon.setCellData(0, "dcsnClsCd", scwin.dcsnClsCd); // 확정구분코드	
+
+  //통화코드 Value 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (ds_certidetail.getCellData(i, "crcCd") == "KRW") {
+        ds_certicommon.setCellData(0, "crcCd", "KRW");
+      } else {
+        ds_certicommon.setCellData(0, "crcCd", ds_certidetail.getCellData(i, "crcCd"));
+        break;
+      }
+    }
+  }
+
+  //적용환율 Value 비교/ 세팅
+  var pre_i = 0;
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T" && ds_certidetail.getCellData(i, "crcCd") == "USD") {
+      if (i >= 1) {
+        if (ds_certidetail.getCellData(i, "adptExchRt") == ds_certidetail.getCellData(pre_i, "adptExchRt")) {
+          ds_certicommon.setCellData(0, "adptExchRt", ds_certidetail.getCellData(i, "adptExchRt"));
+          pre_i = i;
+        } else {
+          if (pre_i != 0) {
+            //ds_certidetail.NameValue(0, "adptExchRt")하고 비교해서 제외
+            ds_certicommon.setCellData(0, "adptExchRt", "0");
+            await $c.win.alert($p, scwin.MSG_FS_WRN_001);
+            return;
+          }
+        }
+      } else {
+        pre_i = i;
+        ds_certicommon.setCellData(0, "adptExchRt", ds_certidetail.setCellData(i, "adptExchRt"));
+      }
+    }
+  }
+
+  //환율적용일자 Value 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "crcCd") != "KRW") {
+      ds_certicommon.setCellData(0, "exchRtAdptDt", ds_certidetail.getCellData(i, "exchRtAdptDt"));
+      break;
+    }
+  }
+
+  //수출입구분코드 Value 세팅	
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (i >= 1) {
+      if (ds_certidetail.getCellData(i, "impExpDomesticClsCd") == ds_certidetail.getCellData(i - 1, "impExpDomesticClsCd")) {
+        ds_certicommon.setCellData(0, "impExpDomesticClsCd", ds_certidetail.getCellData(i, "impExpDomesticClsCd"));
+      } else {
+        ds_certicommon.setCellData(0, "impExpDomesticClsCd", "");
+        break;
+      }
+    } else {
+      ds_certicommon.setCellData(0, "impExpDomesticClsCd", ds_certidetail.getCellData(i, "impExpDomesticClsCd"));
+    }
+  }
+
+  //사업부문코드 Value 세팅	
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "sellGoodsPatternCd") == "01" || ds_certidetail.getCellData(i, "sellGoodsPatternCd") == "02") {
+      ds_certicommon.setCellData(0, "transCargoClsCd", ds_certidetail.getCellData(i, "transCargoClsCd"));
+      break;
+    }
+  }
+
+  //SIZE코드 Value 세팅			
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (i >= 1) {
+        if (ds_certidetail.getCellData(i, "cntrSizCd") == ds_certidetail.getCellData(i - 1, "cntrSizCd")) {
+          ds_certicommon.setCellData(0, "cntrSizCd", ds_certidetail.getCellData(i, "cntrSizCd"));
+        } else {
+          ds_certicommon.setCellData(0, "cntrSizCd", '');
+          break;
+        }
+      } else {
+        ds_certicommon.setCellData(0, "cntrSizCd", ds_certidetail.getCellData(i, "cntrSizCd"));
+      }
+    }
+  }
+
+  //TYPE코드 Value 세팅							
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (i >= 1) {
+        if (ds_certidetail.getCellData(i, "cntrTypCd") == ds_certidetail.getCellData(i - 1, "cntrTypCd")) {
+          ds_certicommon.setCellData(0, "cntrTypCd", ds_certidetail.getCellData(i, "cntrTypCd"));
+        } else {
+          ds_certicommon.setCellData(0, "cntrTypCd", "");
+          break;
+        }
+      } else {
+        ds_certicommon.setCellData(0, "cntrTypCd", ds_certidetail.getCellData(i, "cntrTypCd"));
+      }
+    }
+  }
+
+  // E/F코드 Value 세팅							
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (i >= 1) {
+        if (ds_certidetail.getCellData(i, "fullEmptyClsCd") == ds_certidetail.getCellData(i - 1, "fullEmptyClsCd")) {
+          ds_certicommon.setCellData(0, "fullEmptyClsCd", ds_certidetail.getCellData(i, "fullEmptyClsCd"));
+        } else {
+          ds_certicommon.setCellData(0, "fullEmptyClsCd", "");
+          break;
+        }
+      } else {
+        ds_certicommon.setCellData(0, "fullEmptyClsCd", ds_certidetail.getCellData(i, "fullEmptyClsCd"));
+      }
+    }
+  }
+
+  //MRN Value 세팅							
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (i >= 1) {
+        if (ds_certidetail.setCellData(i, "mrn") == ds_certidetail.getCellData(i - 1, "mrn")) {
+          ds_certicommon.setCellData(0, "mrn", ds_certidetail.getCellData(i, "mrn"));
+        } else {
+          ds_certicommon.setCellData(0, "mrn", "");
+          break;
+        }
+      } else {
+        ds_certicommon.setCellData(0, "mrn", ds_certidetail.getCellData(i, "mrn"));
+      }
+    }
+  }
+
+  //MSN Value 세팅							
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (i >= 1) {
+        if (ds_certidetail.getCellData(i, "msn") == ds_certidetail.getCellData(i - 1, "msn")) {
+          ds_certicommon.setCellData(0, "msn", ds_certidetail.getCellData(i, "msn"));
+        } else {
+          ds_certicommon.setCellData(0, "msn", 0);
+          break;
+        }
+      } else {
+        ds_certicommon.setCellData(0, "msn", ds_certidetail.getCellData(i, "msn"));
+      }
+    }
+  }
+
+  //HSN Value 세팅							
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (i >= 1) {
+        if (ds_certidetail.getCellData(i, "hsn") == ds_certidetail.getCellData(i - 1, "hsn")) {
+          ds_certicommon.setCellData(0, "hsn", ds_certidetail.getCellData(i, "hsn"));
+        } else {
+          ds_certicommon.setCellData(0, "hsn", 0);
+          break;
+        }
+      } else {
+        ds_certicommon.setCellData(0, "hsn", ds_certidetail.getCellData(i, "hsn"));
+      }
+    }
+  }
+
+  //모선코드 Value 세팅									
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certicommon.setCellData(0, "vsslCd", ds_certidetail.getCellData(i, "vsslCdFrom"));
+      break;
+    }
+  }
+
+  //항차코드 Value 세팅											
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certicommon.setCellData(0, "portcnt", ds_certidetail.getCellData(i, "portcntFrom"));
+      break;
+    }
+  }
+
+  //From모선코드 Value 세팅									
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certicommon.setCellData(0, "vsslCdFrom", ds_certidetail.getCellData(i, "vsslCdFrom"));
+      break;
+    }
+  }
+
+  //To모선코드 Value 세팅									
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certicommon.setCellData(0, "vsslCdTo", ds_certidetail.getCellData(i, "vsslCdto"));
+      break;
+    }
+  }
+
+  //From항차코드 Value 세팅											
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certicommon.setCellData(0, "portcntFrom", ds_certidetail.getCellData(i, "portcntFrom"));
+      break;
+    }
+  }
+
+  //To항차코드 Value 세팅											
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      ds_certicommon.setCellData(0, "portcntTo", ds_certidetail.getCellData(i, "portcntTo"));
+      break;
+    }
+  }
+
+  //표기선박코드 Value 세팅									
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (scwin.rd_selTsVsslCd == 'F') {
+        ds_certicommon.setCellData(0, "inscrpVsslCd", ds_certidetail.getCellData(i, "vsslCdFrom"));
+        break;
+      } else if (scwin.rd_selTsVsslCd == 'T') {
+        ds_certicommon.setCellData(0, "inscrpVsslCd", ds_certidetail.getCellData(i, "vsslCdTo"));
+        break;
+      }
+    }
+  }
+
+  //표기항차코드 Value 세팅									
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      if (scwin.rd_selTsVsslCd == 'F') {
+        ds_certicommon.setCellData(0, "inscrpPortcnt", ds_certidetail.getCellData(i, "portcntFrom"));
+        break;
+      } else if (scwin.rd_selTsVsslCd == 'T') {
+        ds_certicommon.setCellData(0, "inscrpPortcnt", ds_certidetail.getCellData(i, "portcntTo"));
+        break;
+      }
+    }
+  }
+
+  // ??
+  // 01 : 원화확정, 02 : 외화확정, 03 : 원화외화 확정 - 환종 확정은 계약요율의 근거가 됨(채권관리 시 필요)
+  if (ds_certicommon.getCellData(0, "taxnClsCd") == '01' || ds_certicommon.getCellData(0, "taxnClsCd") == '04') {
+    ds_certicommon.setCellData(0, "bilgAmt", Number(ed_spplyAmt.getValue()) + Number(ed_vatAmt.getValue()));
+    ds_certicommon.setCellData(0, "wcrcDcsnClsCd", '01'); // 원화확정구분코드
+    ds_certicommon.setCellData(0, "crcCd", 'KRW');
+  } else {
+    //원화확정구분코드 Value 세팅		 		
+    for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+      if (ds_certidetail.getCellData(i, "choice") == "T") {
+        if (i >= 1) {
+          if (ds_certidetail.getCellData(i, "crcCd") == ds_certidetail.getCellData(i - 1, "crcCd")) {
+            if (ds_certidetail.getCellData(i, "crcCd") == "KRW") {
+              ds_certicommon.setCellData(0, "wcrcDcsnClsCd", "01");
+            } else if (ds_certidetail.getCellData(i, "crcCd") == "USD") {
+              ds_certicommon.setCellData(0, "wcrcDcsnClsCd", '02');
+            }
+          } else {
+            ds_certicommon.setCellData(0, "wcrcDcsnClsCd", '03');
+            break;
+          }
+        } else {
+          if (ds_certidetail.getCellData(i, "crcCd", "KRW")) {
+            ds_certicommon.setCellData(0, "wcrcDcsnClsCd", '01');
+          } else {
+            ds_certicommon.setCellData(0, "wcrcDcsnClsCd", '02');
+          }
+        }
+      }
+    }
+
+    // 청구금액, 외화청구금액, 청구금액외화 Value 세팅		 		
+    var bilgAmt = 0;
+    var fcrcBilgAmt = 0;
+    var bilgAmtFcrc = 0;
+    for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+      if (ds_certidetail.getCellData(i, "choice") == "T") {
+        if (ds_certidetail.getCellData(i, "crcCd") == "KRW") {
+          bilgAmt = bilgAmt + Number(ds_certidetail.getCellData(i, "spplyAmt"));
+          ds_certicommon.setCellData(0, "bilgAmt", bilgAmt);
+        } else if (ds_certidetail.getCellData(i, "crcCd") == "USD") {
+          fcrcBilgAmt = fcrcBilgAmt + Number(ds_certidetail.getCellData(i, "spplyAmt"));
+          bilgAmtFcrc = bilgAmtFcrc + Number(ds_certidetail.getCellData(i, "spplyAmtFcrc"));
+          ds_certicommon.setCellData(0, "fcrcBilgAmt", fcrcBilgAmt);
+          ds_certicommon.setCellData(0, "bilgAmtFcrc", bilgAmtFcrc);
+        }
+      }
+    }
+  }
+
+  //EDI전송구분
+  if (rd_ediSndTrgtYn.getValue() == "1") {
+    //ds_certicommon.setCellData(0, "ediSndReqDt")  = "<%=strCurDate%>";
+    ds_certicommon.setCellData(0, "ediSndTrgtYn", "1");
+    ds_certicommon.setCellData(0, "ediSndClsCd", "0");
+    for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+      ds_certidetail.setCellData(i, "ediSndTrgtYn", "1");
+      ds_certidetail.setCellData(i, "ediSndClsCd", "0");
+    }
+  }
+
+  // ds_certidetail.UseChangeInfo = "false";
+  // ds_certicommon.UseChangeInfo = "false";		
+
+  if (separation == 'true') {
+    scwin.f_SaveCertiSeparation();
+  } else {
+    //신규 입력
+    if (scwin.addflag == "REG") {
+      $c.sbm.execute($p, sbm_certi_saveReg);
+      //수정
+    } else if (scwin.addflag == "" || scwin.addflag == "MOD") {
+      $c.sbm.execute($p, sbm_certi_SaveUpdate);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tbl_search, [ed_bilgLodeptCd, ed_bilgLodeptNm, ed_bilgClntNo, ed_bilgClntNm, acb_qryConKnd, ed_qryConDtFm, ed_qryConDtTo, ed_qryConCd, ed_qryConNm, acb_qryConKnd2, acb_transDst]);
+};
+
+//-------------------------------------------------------------------------
+// 거래명세서유형 세팅
+//-------------------------------------------------------------------------
+scwin.f_SetFmalPattern = function (Value) {
+  acb_fmlaPatternCd.setValue(Value);
+};
+
+//-------------------------------------------------------------------------
+// 품명선택
+//-------------------------------------------------------------------------
+scwin.f_chooseCommCD = async function () {
+  let arrParam = new Array();
+  let bilgClntNo = "";
+  if (cbx_chkAppend.getValue() == "1") {
+    if (ds_certidetail.getTotalRow() > 0) {
+      bilgClntNo = ed_dtl_bilgClntNo.getValue();
+    } else {
+      bilgClntNo = ed_bilgClntNo.getValue();
+    }
+  } else {
+    bilgClntNo = ed_bilgClntNo.getValue();
+  }
+  let pURL = "/ui/ds/fs/bilg/fs_202_04_06p2.xml" + "?bilgLodeptCd=" + ed_bilgLodeptCd.getValue() + "&certiNo=" + ed_certiNo.getValue() + "&bilgClntNo=" + bilgClntNo + "&qryConCd=" + ed_qryConCd.getValue() + "&qryConDtFm=" + ed_qryConDtFm.getValue() + "&qryConDtTo=" + ed_qryConDtTo.getValue() + "&onWrkPlCd=" + ed_onWrkPlCd.getValue() + "&offWrkPlCd=" + ed_offWrkPlCd.getValue() + "&taxnClsCd=" + acb_taxnClsCd.getValue() + "&qryConKnd=" + acb_qryConKnd.getValue() + "&certiPatternCd=" + scwin.certiPatternCd + "&receptClsCd=" + scwin.receptClsCd + "&prebilgYn=" + rd_prebilgYn.getValue() + "&pgmId=" + scwin.pgmId + "&fmlaClsCd=" + scwin.fmlaClsCd + "&fmlaPatternCd=" + acb_fmlaPatternCd.getValue() + "&sellLodeptCd=" + ed_sellLodeptCd.getValue();
+  if (acb_qryConKnd2.getValue() == "품명") {
+    +"&sellCommNo=" + ed_qryConCd2.getValue();
+  } else if (acb_qryConKnd2.getValue() == "품목") {
+    +"&upperCommCd=" + ed_qryConCd2.getValue();
+  } else if (acb_qryConKnd2.getValue() == "화종") {
+    +"&kcgCd=" + ed_qryConCd2.getValue();
+  }
+  +"&odrKndCd=" + acb_odrKndCd.getValue() + "&transDst=" + acb_transDst.getValue() + "&sellItemCd=" + acb_sellItemCd.getValue() + "&cbx_chkAppend=" + cbx_chkAppend.getValue();
+  let opts = {
+    id: "fs_202_04_06p2.jsp",
+    popupName: "Certi조회",
+    modal: true,
+    // 모달 여부
+    title: "Win pop",
+    width: 830,
+    height: 570
+  };
+  //상차요청번호 Pop up
+
+  let rtnList = await $c.win.openPopup($p, pURL, opts, arrParam);
+
+  // 공통 만들어져야함
+  // if ( !cfIsNull(returnParam) && returnParam[1] != "N/A") {
+  //     ds_certidetail.UseFilter = "true";
+  //     ds_certidetail.filter();
+  // }
+};
+
+//-------------------------------------------------------------------------
+// N건 선택
+//-------------------------------------------------------------------------
+scwin.f_multiChoice = function () {
+  let focusedCells = gr_certidetail.getAllFocusedIndex();
+  // 웹스퀘어에는 데이터셋 Mark 표시가 없음
+  for (i = 0; i < focusedCells.length; i++) {
+    ds_certidetail.setCellData(focusedCells[i].row, "choice", "T");
+  }
+  scwin.f_sumAmt();
+};
+
+//-------------------------------------------------------------------------
+// 금액 기준 선택
+//-------------------------------------------------------------------------
+scwin.f_multiChoiceByAmt = function () {
+  let amt = Number(ed_requreAmt.getValue());
+  let requireAmt = Number(amt);
+  let totalAmt = 0;
+  let lastRow = 0;
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    ds_certidetail.setCellData(i, "choice", "F");
+  }
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    totalAmt = Number(totalAmt) + Number(ds_certidetail.getCellData(i, "spplyAmt"));
+    if (Number(totalAmt) > Number(requireAmt)) {
+      lastRow = i - 1;
+      break;
+    } else {
+      lastRow = i;
+    }
+  }
+  for (i = 0; i <= lastRow; i++) {
+    ds_certidetail.setCellData(i, "choice", "T");
+  }
+  scwin.f_sumAmt();
+};
+
+//-------------------------------------------------------------------------
+// 대문자 변환
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+  this.setValue(e.target.getValue().toUpperCase());
+};
+
+//-------------------------------------------------------------------------
+// 조건 서식구분 콤보 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveFmalPattern = function () {
+  var p_bilgLodeptCd = ed_bilgLodeptCd.getValue();
+  var p_pgmId = scwin.pgmId;
+  var p_fmlaClsCd = scwin.fmlaClsCd;
+  dma_fmlapattern.set("bilgLodeptCd", p_bilgLodeptCd);
+  dma_fmlapattern.set("pgmId", p_pgmId);
+  dma_fmlapattern.set("fmlaClsCd", p_fmlaClsCd);
+  $c.sbm.execute($p, sbm_fmlapattern);
+};
+
+//-------------------------------------------------------------------------
+// 상세 서식구분 콤보 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveDtlFmalPattern = function () {
+  var p_bilgLodeptCd = ed_bilgLodeptCd.getValue();
+  var p_pgmId = scwin.pgmId;
+  var p_fmlaClsCd = scwin.fmlaClsCd;
+  dma_fmlapattern.set("bilgLodeptCd", p_bilgLodeptCd);
+  dma_fmlapattern.set("pgmId", p_pgmId);
+  dma_fmlapattern.set("fmlaClsCd", p_fmlaClsCd);
+  $c.sbm.execute($p, sbm_Dtlfmlapattern);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (청구부서)
+//-------------------------------------------------------------------------
+
+scwin.udc_bilgLodept_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_bilgLodeptCd.getValue(), ed_bilgLodeptNm.getValue(), "F", "F");
+};
+scwin.udc_bilgLodept_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_bilgLodeptCd, ed_bilgLodeptNm, 1);
+};
+scwin.udc_bilgLodept_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_bilgLodeptNm, ed_bilgLodeptCd, 1, false);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (청구부서 콜백)
+//-------------------------------------------------------------------------
+scwin.udc_bilgLodept_CallBack = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_bilgLodeptCd, ed_bilgLodeptNm); // 청구부서코드, 청구부서명				
+  if (rtnList != null && rtnList[0] != "N/A") {
+    //거래명세서 유형 가져오기
+    scwin.f_RetrieveFmalPattern();
+    //상세 거래명세서 유형 가져오기
+    scwin.f_RetrieveDtlFmalPattern();
+  }
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (청구처)
+//-------------------------------------------------------------------------
+scwin.udc_bilgClnt_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_bilgClntNo.getValue(), ed_bilgClntNm.getValue(), "F", "F");
+};
+scwin.udc_bilgClnt_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_bilgClntNo, ed_bilgClntNm, 2);
+};
+scwin.udc_bilgClnt_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_bilgClntNm, ed_bilgClntNo, 2, false);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (청구처 콜백)
+//-------------------------------------------------------------------------
+scwin.udc_bilgClnt_CallBack = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_bilgClntNo, ed_bilgClntNm); // 청구처코드, 청구처명
+  if (rtnList != undefined) {
+    if (rtnList[0] == "100002" || rtnList[0] == "100003") {
+      //특정거래명세유형 세팅
+      scwin.f_SetFmalPattern("B1");
+    } else if (rtnList[0] == "100001") {
+      scwin.f_SetFmalPattern("A4");
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (품명)
+//-------------------------------------------------------------------------
+scwin.udc_qryCon_onclickEvent = function (e) {
+  scwin.f_QryConPopUp(1);
+};
+scwin.udc_qryCon_onblurCodeEvent = function (e) {
+  if (acb_qryConKnd2.getValue() == "품명") {
+    scwin.f_chkOpenCommonPopUp(ed_qryConCd2, ed_qryConNm2, 11);
+  } else if (acb_qryConKnd2.getValue() == "품목") {
+    scwin.f_chkOpenCommonPopUp(ed_qryConCd2, ed_qryConNm2, 13);
+  } else if (acb_qryConKnd2.getValue() == "화종") {
+    scwin.f_chkOpenCommonPopUp(ed_qryConCd2, ed_qryConNm2, 12);
+  } else if (acb_qryConKnd2.getValue() == "BL") {
+    scwin.f_chkOpenCommonPopUp(ed_qryConCd2, ed_qryConNm3, 10);
+  } else if (acb_qryConKnd2.getValue() == "CNTR") {
+    scwin.f_chkOpenCommonPopUp(ed_qryConCd2, ed_qryConNm3, 17);
+  }
+};
+scwin.udc_qryCon_onviewchangeNameEvent = function (info) {
+  scwin.f_ChangPopUp(1);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (품명 콜백)
+//-------------------------------------------------------------------------
+scwin.udc_qryCon_CallBack = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_qryConCd2, ed_qryConNm2); // 품명코드, 품명명			
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (작업구역)
+//-------------------------------------------------------------------------
+scwin.udc_onWrkPl_onclickEvent = function (e) {
+  scwin.f_QryConPopUp(2);
+};
+scwin.udc_onWrkPl_onblurCodeEvent = function (e) {
+  if (acb_transDst.getValue() == "작업장") {
+    scwin.f_chkOpenCommonPopUp(ed_onWrkPlCd, ed_onWrkPlNm, 8);
+  } else if (acb_transDst.getValue() == "권역") {
+    scwin.f_chkOpenCommonPopUp(ed_onWrkPlCd, ed_onWrkPlNm, 15);
+  }
+};
+scwin.udc_onWrkPl_onviewchangeNameEvent = function (info) {
+  scwin.f_ChangPopUp(2);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (작업구역 콜백)
+//-------------------------------------------------------------------------
+scwin.udc_onWrkPl_CallBack = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_onWrkPlCd, ed_onWrkPlNm); // 작업장코드, 작업장명		
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (권역)
+//-------------------------------------------------------------------------
+scwin.udc_offWrkPl_onclickEvent = function (e) {
+  scwin.f_QryConPopUp(3);
+};
+scwin.udc_offWrkPl_onblurCodeEvent = function (e) {
+  if (acb_transDst.getValue() == "작업장") {
+    scwin.f_chkOpenCommonPopUp(ed_offWrkPlCd, ed_offWrkPlNm, 9);
+  } else if (acb_transDst.getValue() == "권역") {
+    scwin.f_chkOpenCommonPopUp(ed_offWrkPlCd, ed_offWrkPlNm, 16);
+  }
+};
+scwin.udc_offWrkPl_onviewchangeNameEvent = function (info) {
+  scwin.f_ChangPopUp(3);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (권역 콜백)
+//-------------------------------------------------------------------------
+scwin.udc_offWrkPl_CallBack = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_offWrkPlCd, ed_offWrkPlNm); // 작업장코드, 작업장명	
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (매출 부서)
+//-------------------------------------------------------------------------
+scwin.udc_sellLodept_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(19, ed_sellLodeptCd.getValue(), ed_sellLodeptNm.getValue(), "F", "F");
+};
+scwin.udc_sellLodept_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_sellLodeptCd, ed_sellLodeptNm, 19);
+};
+scwin.udc_sellLodept_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_sellLodeptNm, ed_sellLodeptCd, 19, false);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (매출부서 콜백)
+//-------------------------------------------------------------------------
+scwin.udc_sellLodept_CallBack = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_sellLodeptCd, ed_sellLodeptNm); // 매출부서코드, 매출부서명	
+};
+
+//-------------------------------------------------------------------------
+// 조회조건에 따른 팝업창 띄우기
+//-------------------------------------------------------------------------	
+scwin.f_QryConPopUp = function (flag) {
+  if (flag == "1") {
+    if (acb_qryConKnd2.getValue() == "품명") {
+      scwin.f_openCommonPopUp(11, ed_qryConCd2.getValue(), ed_qryConNm2.getValue(), "F", "F");
+    } else if (acb_qryConKnd2.getValue() == "품목") {
+      scwin.f_openCommonPopUp(13, ed_qryConCd2.getValue(), ed_qryConNm2.getValue(), "F", "F");
+    } else if (acb_qryConKnd2.getValue() == "화종") {
+      scwin.f_openCommonPopUp(12, ed_qryConCd2.getValue(), ed_qryConNm2.getValue(), "F", "F");
+    }
+  } else if (flag == "2") {
+    if (acb_transDst.getValue() == "권역") {
+      scwin.f_openCommonPopUp(15, ed_onWrkPlCd.getValue(), ed_onWrkPlNm.getValue(), "F", "F");
+    } else if (acb_transDst.getValue() == "작업장") {
+      scwin.f_openCommonPopUp(8, ed_onWrkPlCd.getValue(), ed_onWrkPlNm.getValue(), "F", "F");
+    }
+  } else if (flag == "3") {
+    if (acb_transDst.getValue() == "권역") {
+      scwin.f_openCommonPopUp(16, ed_offWrkPlCd.getValue(), ed_offWrkPlNm.getValue(), "F", "F");
+    } else if (acb_transDst.getValue() == "작업장") {
+      scwin.f_openCommonPopUp(9, ed_offWrkPlCd.getValue(), ed_offWrkPlNm.getValue(), "F", "F");
+    }
+  } else if (flag == "4") {
+    if (scwin.acb_gubun == "CLNT") {
+      scwin.f_openCommonPopUp(18, ed_lineCd.getValue(), ed_lineNm.getValue(), "F", "F");
+    } else if (acb_gubun.getValue() == "LINE") {
+      scwin.f_openCommonPopUp(6, ed_lineCd.getValue(), ed_lineNm.getValue(), "F", "F");
+    }
+  } else {
+    if (acb_qryConKnd.getValue() == "오더") {
+      scwin.f_OrderPopUp();
+    } else if (acb_qryConKnd.getValue() == "CNTR") {
+      // div_qryConKnd3.style.display = 'none';		
+      scwin.f_openCommonPopUp(14, ed_qryConCd.getValue(), ed_qryConNm.getValue(), 'F', 'F');
+    } else if (acb_qryConKnd.getValue() == "품명") {
+      // div_qryConKnd3.style.display = 'none';		
+      scwin.f_openCommonPopUp(4, ed_qryConCd.getValue(), ed_qryConNm.getValue(), 'F', 'F');
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회조건에 따른 팝업창 띄우기
+//-------------------------------------------------------------------------	
+scwin.f_ChangPopUp = function (flag) {
+  if (flag == "1") {
+    if (acb_qryConKnd2.getValue() == "품명") {
+      scwin.f_chkOpenCommonPopUp(ed_qryConNm2, ed_qryConCd2, 11, false);
+    } else if (acb_qryConKnd2.getValue() == "품목") {
+      scwin.f_chkOpenCommonPopUp(ed_qryConNm2, ed_qryConCd2, 13, false);
+    } else if (acb_qryConKnd2.getValue() == "화종") {
+      scwin.f_chkOpenCommonPopUp(ed_qryConNm2, ed_qryConCd2, 12, false);
+    } else if (acb_qryConKnd2.getValue() == "BL") {
+      scwin.f_chkOpenCommonPopUp(ed_qryConNm3, ed_qryConCd3, 10, false);
+    } else if (acb_qryConKnd2.getValue() == "CNTR") {
+      scwin.f_chkOpenCommonPopUp(ed_qryConNm3, ed_qryConCd3, 17, false);
+    }
+  } else if (flag == "2") {
+    if (acb_transDst.getValue() == "권역") {
+      scwin.f_chkOpenCommonPopUp(ed_onWrkPlNm, ed_onWrkPlCd, 15, false);
+    } else if (acb_transDst.getValue() == "작업장") {
+      scwin.f_chkOpenCommonPopUp(ed_onWrkPlNm, ed_onWrkPlCd, 8, false);
+    }
+  } else if (flag == "3") {
+    if (acb_transDst.getValue() == "권역") {
+      scwin.f_chkOpenCommonPopUp(ed_offWrkPlNm, ed_offWrkPlCd, 16, false);
+    } else if (acb_transDst.getValue() == "작업장") {
+      scwin.f_chkOpenCommonPopUp(ed_offWrkPlNm, ed_offWrkPlCd, 9, false);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) {
+    return;
+  }
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) {
+    scwin.f_openCommonPopUp(disGubun, pVal, "", "T", "T");
+  }
+  // inObj가 코드명 필드일 경우 팝업
+  else {
+    scwin.f_openCommonPopUp(disGubun, "", pVal, "T", "T");
+  }
+};
+
+//-------------------------------------------------------------------------
+// 팝업창 처리
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  // 선언부
+  var rtnList = new Array(); // 공통POP-UP -> 요청화면 
+  var clntNo = ed_bilgClntNo.getValue();
+  switch (disGubun) {
+    case 1:
+      //청구부서코드팝업			
+      udc_bilgLodept.cfCommonPopUp(scwin.udc_bilgLodept_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+    case 2:
+      //청구처코드팝업			
+      udc_bilgClnt.cfCommonPopUp(scwin.udc_bilgClnt_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+
+    /*         case 4:
+                // 품명코드 팝업			
+                rtnList = cfCommonPopUp("retrieveCommInfo",pCode.trim(),pName,pClose,null,null,null,null,",,4,,",null,null,null,null,null,pAllSearch,"품명,품명코드,품명");	  				  			
+                                        
+                cfSetReturnValue(rtnList, ed_qryConCd, ed_qryConNm);  // 품명코드, 품명명				
+                break;
+    
+            case 5:
+                // 화종코드 팝업			
+                rtnList = cfCommonPopUp("retrieveKcgInfo",pCode.trim(),pName,pClose,null,null,null,null,null,null,null,null,null,null,pAllSearch,null);	  				  			
+                                        
+                cfSetReturnValue(rtnList, ed_kcgCd, ed_kcgNm);  //화종코드, 화종명				
+                break;
+    
+            case 6:
+                // 라인코드 팝업			
+                rtnList = cfCommonPopUp("retrieveLineInfo",pCode.trim(),pName,pClose,null,null,null,null,null,null,null,null,null,null,pAllSearch,null);	  				  			
+                                        
+                cfSetReturnValue(rtnList, ed_lineCd, ed_lineNm);  // 라인코드, 라인명				
+                if ( rtnList != null && rtnList[0] != "N/A") {
+                    //매출항목 가져오기
+                    f_RetrieveFormulasellitem(ed_lineCd.text);	
+                }
+    
+                break;
+    
+            case 7:
+                // 선박코드 팝업			
+                rtnList = cfCommonPopUp("retrieveVsslCdInfo",pCode.trim(),pName,pClose,null,null,null,null,null,null,null,null,null,null,pAllSearch,null);	  				  			
+                                        
+                cfSetReturnValue(rtnList, ed_vsslCd, ed_vsslNm);  // 선박코드, 선박명				
+                break; */
+
+    case 8:
+      // 작업장코드 팝업		
+      udc_onWrkPl.setSelectId("retrieveWrkPlInfo");
+      udc_onWrkPl.cfCommonPopUp(scwin.udc_onWrkPl_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+    case 9:
+      // 작업장코드 팝업		
+      udc_offWrkPl.setSelectId("retrieveWrkPlInfo");
+      udc_offWrkPl.cfCommonPopUp(scwin.udc_offWrkPl_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+    case 10:
+      // B/L코드 팝업			
+      rtnList = cfCommonPopUp("retrieveBlNoList", pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+
+      //cfSetReturnValue(rtnList, ed_qryConCd3, ed_qryConNm3);  // B/L코드, B/L명				
+      if (rtnList != undefined) {
+        cfSetValue(ed_qryConCd3, rtnList[1]);
+        cfSetHiddenValue(ed_qryConCd3, rtnList[1]);
+      }
+      break;
+    case 11:
+      // 품명코드 팝업	
+      param = "2,4,,," + "";
+      parma1 = "";
+      param2 = ed_qryConCd2.getValue();
+      //pClose = "T";
+      pAllSearch = "F";
+      udc_qryCon2.setSelectId("retrieveCommInfo");
+      udc_qryCon2.cfCommonPopUp(scwin.udc_qryCon_CallBack, parma1, param2, "T", "3", "품목／품명코드,품목／품명,구분", "120,170,70", "4,5,6,7,8,9,10", param, "440", "500", null, null, null, null, "품목／품명,품목／품명코드,품목／품명");
+      break;
+    case 12:
+      // 화종코드 팝업	
+      udc_qryCon2.setSelectId("retrieveKcgInfo");
+      udc_qryCon2.cfCommonPopUp(scwin.udc_qryCon_CallBack, pCode.trim(), pName, pClose, null, null, null, null, "1", null, null, null, null, null, pAllSearch, null);
+      break;
+    case 13:
+      // 품목코드 팝업
+
+      param = "2,4,,," + "";
+      parma1 = "";
+      param2 = ed_qryConCd2.getValue();
+      //pClose = "T";
+      pAllSearch = "F";
+      udc_qryCon2.setSelectId("retrieveCommInfo");
+      udc_qryCon2.cfCommonPopUp(scwin.udc_qryCon_CallBack, parma1, param2, "T", "3", "품목／품명코드,품목／품명,구분", "120,170,70", "4,5,6,7,8,9,10", param, "440", "500", null, null, null, null, "품목／품명,품목／품명코드,품목／품명");
+      break;
+    case 14:
+      // CNTR-NO코드 팝업			
+      rtnList = cfCommonPopUp("retrieveConteinerNo", pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      cfSetReturnValue(rtnList, ed_qryConCd, ed_qryConNm); // CNTR-NO코드, CNTR-NO명
+      break;
+    case 15:
+      // 권역코드 팝업		
+      udc_onWrkPl.setSelectId("retrieveDistrictList");
+      udc_onWrkPl.cfCommonPopUp(scwin.udc_onWrkPl_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+    case 16:
+      // 권역코드 팝업
+      udc_offWrkPl.setSelectId("retrieveDistrictList");
+      udc_offWrkPl.cfCommonPopUp(scwin.udc_offWrkPl_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+    case 17:
+      // CNTR-NO코드 팝업			
+      rtnList = cfCommonPopUp("retrieveConteinerNo", pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      cfSetReturnValue(rtnList, ed_qryConCd3, ed_qryConNm3); // CNTR-NO코드, CNTR-NO명
+      break;
+    case 18:
+      //청구처코드팝업			
+      rtnList = cfCommonPopUp("retrieveClntInfo",
+      //pSelectID
+      pCode,
+      //pCode
+      pName,
+      //pName
+      pClose,
+      //pWinCloseTF
+      "9",
+      //pDispCnt
+      "거래처번호,거래처명,,사업자등록번호,요율연결여부,우편번호,주소,상세주소,거래처담당자,",
+      //pTitle
+      "100,100,0,120,100,0,100,100,100,0",
+      //pWidth
+      "3,10",
+      //pHidden
+      ",,CTRT",
+      //pWhere
+      "800",
+      //pW
+      "600",
+      //pH
+      null,
+      //pTop
+      null,
+      //pLeft
+      null,
+      //pExistTF - 중복체크여부	("F")
+      null,
+      //pAllSearchTF - 전체검색허용여부	("F")
+      "청구 거래처,거래처코드,거래처명",
+      //pWtitleSearch - POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      null //Data건수가 0건일때 Window를 뛰우지 않음 리턴:"N/A"
+      );
+      cfSetReturnValue(rtnList, ed_lineCd, ed_lineNm); // 청구처코드, 청구처명
+      if (rtnList != undefined) {
+        if (rtnList[0] == "100002" || rtnList[0] == "100003") {
+          //특정거래명세유형 세팅
+          f_SetFmalPattern("B1");
+        } else if (rtnList[0] == "100001") {
+          f_SetFmalPattern("A4");
+        }
+      }
+      break;
+    case 19:
+      //매출부서코드팝업			
+      udc_sellLodept.cfCommonPopUp(scwin.udc_sellLodept_CallBack, pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+      break;
+    case 20:
+      // 등록자
+      rtnList = cfCommonPopUp("retrieveUserInfo" // XML상의 SELECT ID	
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서	
+      , null // 보여주는 각 컬럼들의 폭	
+      , null // 컬럼중에서 숨기는	컬럼 지정	
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이	
+      , null // 윈도우 위치 Y좌표	
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , "등록자,사용자ID,사용자명" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      cfSetReturnValue(rtnList, ed_regId, ed_regNm);
+      break;
+    case 21:
+      // 수정자
+      rtnList = cfCommonPopUp("retrieveUserInfo" // XML상의 SELECT ID	
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서	
+      , null // 보여주는 각 컬럼들의 폭	
+      , null // 컬럼중에서 숨기는	컬럼 지정	
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이	
+      , null // 윈도우 위치 Y좌표	
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , "수정자,사용자ID,사용자명" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      cfSetReturnValue(rtnList, ed_modId, ed_modNm);
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 품명, 화종 select 변경시
+//-------------------------------------------------------------------------
+scwin.acb_qryConKnd2_onchange = function (info) {
+  ed_qryConCd2.setValue("");
+  ed_qryConNm2.setValue("");
+};
+
+//-------------------------------------------------------------------------
+// 추가 구분 클릭 후 조회 완료시
+//-------------------------------------------------------------------------
+scwin.sbm_orderselling_retrieve_submitdone = function (e) {
+  if (ds_certicommon.getTotalRow() > 0) {
+    scwin.addflag = "REG";
+    $c.gus.cfDisableKeyData($p);
+    ed_certiNo.setValue("");
+    scwin.f_sumAmt();
+  } else {
+    scwin.f_ClearCerti();
+    $c.gus.cfEnableKeyData($p);
+  }
+};
+
+//-------------------------------------------------------------------------
+//  조회 완료시
+//-------------------------------------------------------------------------
+scwin.sbm_certi_retrieve_submitdone = function (e) {
+  scwin.addflag = "MOD";
+  scwin.f_sumAmt();
+  $c.gus.cfDisableKeyData($p);
+};
+
+//-------------------------------------------------------------------------
+// 추가 구분 없이 조회 완료시
+//-------------------------------------------------------------------------
+scwin.sbm_appendrow_retrieve_submitdone = function (e) {
+  if (ds_certicommon.getTotalRow() > 0) {
+    scwin.addflag = "REG";
+    $c.gus.cfDisableKeyData($p);
+    scwin.f_sumAmt();
+  } else {
+    scwin.f_clearCerti();
+    $c.gus.cfEnableKeyData($p);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 금액 계산
+//-------------------------------------------------------------------------
+scwin.f_sumAmt = function () {
+  var spplyAmtFcrc = 0;
+  var spplyAmt = 0;
+  var totAmt = 0;
+  var fireInsrRateAmt = 0;
+  var totVol = 0;
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "choice") == "T") {
+      spplyAmtFcrc = spplyAmtFcrc + Number(ds_certidetail.getCellData(i, "spplyAmtFcrc"));
+      if (ds_certidetail.getCellData(i, "sellYn") == 0) {
+        fireInsrRateAmt = fireInsrRateAmt + Number(ds_certidetail.getCellData(i, "spplyAmt"));
+      } else {
+        spplyAmt = spplyAmt + Number(ds_certidetail.getCellData(i, "spplyAmt"));
+      }
+      totAmt = totAmt + Number(ds_certidetail.getCellData(i, "totAmt"));
+      totVol = totVol + Number(ds_certidetail.getCellData(i, "sellVol"));
+    }
+  }
+  spplyAmtFcrc = Math.round(spplyAmtFcrc * 100) / 100; // 소수점 셋째 자리에서 반올림처리 (53.69*120 결과가 6442.79999999로 나오는 경우에 반올림 처리 해 줄 수있도록 함 )
+  scwin.ed_spplyAmtFcrc = spplyAmtFcrc;
+  ed_spplyAmt.setValue(spplyAmt);
+  ed_totAmt2.setValue(spplyAmt);
+  ed_fireInsrRateAmt.setValue(fireInsrRateAmt);
+  ed_totAmt.setValue(totAmt);
+  ed_vatAmt.setValue(totAmt - spplyAmt - fireInsrRateAmt);
+  if (ds_certicommon.getCellData(0, "crcCd") == "USD") {
+    scwin.ed_diffAmt = spplyAmt - Math.floor(ds_certidetail.getCellData(0, "adptExchRt") * spplyAmtFcrc);
+  } else {
+    scwin.ed_diffAmt = 0;
+  }
+  if (ed_vatAmt.getValue() == 0) {
+    ed_vatAmtDiff.setValue("0");
+  } else {
+    ed_vatAmtDiff.setValue(totAmt - spplyAmt - fireInsrRateAmt - Math.floor(spplyAmt * 0.1));
+  }
+  ed_diffVolAmt.setValue(spplyAmt - Math.round(ds_certidetail.getCellData(0, "sellUpr") * totVol));
+};
+
+//-------------------------------------------------------------------------
+// 데이터 로드시 바인딩
+//-------------------------------------------------------------------------
+scwin.ds_certicommon_ondataload = function () {
+  if (ds_certicommon.getTotalRow() > 0) {
+    ed_dtl_bilgLodeptNm.setValue(ds_certicommon.getCellData(0, "bilgLodeptNm"));
+    ed_dtl_bilgClntNo.setValue(ds_certicommon.getCellData(0, "bilgClntNo"));
+    ed_dtl_bilgClntNm.setValue(ds_certicommon.getCellData(0, "bilgClntNm"));
+    ica_confirmDt.setValue($c.gus.cfIsNull($p, ds_certicommon.getCellData(0, "confirmDt")) ? scwin.strCurDate : ds_certicommon.getCellData(0, "confirmDt"));
+    ed_dtl_taxnClsNm.setValue(ds_certicommon.getCellData(0, "taxnClsNm"));
+    scwin.dtl_assgnBondZoneNm = ds_certicommon.getCellData(0, "assgnBondZoneNm");
+    scwin.dtl_blNo = ds_certicommon.getCellData(0, "blNo");
+    scwin.dtl_cntWtCbm = ds_certicommon.getCellData(0, "cntWtCbm");
+    ed_spplyAmt.setValue(ds_certicommon.getCellData(0, "spplyAmt"));
+    ed_vatAmt.setValue(ds_certicommon.getCellData(0, "vatAmt"));
+    ed_totAmt.setValue(ds_certicommon.getCellData(0, "totAmt"));
+    rd_bankAcntNoInscrpYn.setValue(ds_certicommon.getCellData(0, "bankAcntNoInscrpYn"));
+    scwin.dtl_lineCd = ds_certicommon.getCellData(0, "lineCd") + "/" + ds_certicommon.getCellData(0, "bilgClntNm");
+    scwin.dtl_billTitleNm = ds_certicommon.getCellData(0, "billTitleNm");
+    if (ed_certiNo.getValue() == "") {
+      acb_dtl_fmlaPatternCd.setValue(acb_fmlaPatternCd.getValue());
+    } else {
+      acb_dtl_fmlaPatternCd.setValue(ds_certicommon.getCellData(0, "fmlaPatternCd"));
+    }
+    ed_dtl_summary.setValue(ds_certicommon.getCellData(0, "summary"));
+    ed_dtl_sellVatNo.setValue(ds_certicommon.getCellData(0, "sellVatNo"));
+    scwin.dtl_upperCertiNo = ds_certicommon.getCellData(0, "upperCertiNo");
+    rd_ediSndTrgtYn.setValue(ds_certicommon.getCellData(0, "ediSndTrgtYn"));
+    ed_dtl_offsetVatNo.setValue(ds_certicommon.getCellData(0, "offsetVatNo"));
+    ed_dtl_dcsnClsCdNm.setValue(ds_certicommon.getCellData(0, "dcsnClsCdNm"));
+    ed_dtl_offsetNo1.setValue(ds_certicommon.getCellData(0, "offsetNo1"));
+    scwin.dtl_offsetUpperCertiNo = ds_certicommon.getCellData(0, "offsetUpperCertiNo");
+
+    //EDI전송여부 설정
+    if (ed_certiNo.getValue() == "") {
+      if (ds_certicommon.getCellData(0, "ediClntYn") == "Y") {
+        rd_ediSndTrgtYn.setDisabled(false);
+      } else {
+        rd_ediSndTrgtYn.setDisabled(true);
+      }
+    } else {
+      if (ds_certicommon.getCellData(0, "ediClntYn") == "Y") {
+        if (ds_certicommon.getCellData(0, "ediSndTrgtYn") == 1) {
+          rd_ediSndTrgtYn.setDisabled(true);
+        } else {
+          rd_ediSndTrgtYn.setDisabled(false);
+        }
+      } else {
+        rd_ediSndTrgtYn.setDisabled(true);
+      }
+    }
+    ed_fireInsrRateAmt.setValue(ds_certicommon.getCellData(0, "fireInsrRateAmt"));
+    ed_dtl_bilgClntNo.setValue(ds_certicommon.getCellData(0, "bilgClntNo"));
+    scwin.ed_ediSndDt = ds_certicommon.getCellData(0, "ediSndDt");
+    scwin.rd_selTsVsslCd = "F";
+  }
+};
+
+//-------------------------------------------------------------------------
+// 상세 데이터 로드시
+//-------------------------------------------------------------------------
+scwin.ds_certidetail_ondataload = function () {
+  // for(i = 0; i < ds_certidetail.getTotalRow(); i++) {
+
+  //     ds_certidetail.setCellData(i, "odrNo", (ds_certidetail.getCellData(i, "odrNo") + "-" + ds_certidetail.getCellData(i, "sellSeq")) )
+  //     ds_certidetail.modifyRowStatus(i, "R");
+  // }
+
+  let rowCnt = ds_certidetail.getTotalRow();
+  spa_totalRow.setValue(rowCnt);
+  if (rowCnt == 0) {
+    if (scwin.delflag != "DEL") {
+      $c.win.alert($p, MSG_CM_WRN_002);
+    }
+    $c.gus.cfDisableBtnOnly($p, [btn_MySave, btn_Delete]);
+  } else {
+    scwin.f_SetCertiCommon(ds_certidetail);
+  }
+  // gr_certidetail.ReDraw = "True";
+  gr_certidetail.setFocusedCell(0, 0);
+};
+scwin.gr_orderNo_custom = function (data, formattedData, rowIndex, colIndex) {
+  let odrNo = data;
+  let sellSeq = ds_certidetail.getCellData(rowIndex, "sellSeq");
+  return odrNo + "-" + sellSeq;
+};
+
+//-------------------------------------------------------------------------
+// 상세데이타 조회 후 공통화면 세팅
+//-------------------------------------------------------------------------
+scwin.f_SetCertiCommon = function (ds_certidetail) {
+  if (ed_dtl_sellVatNo.getValue() != "" || scwin.dtl_upperCertiNo != "" && scwin.dtl_upperCertiNo != '0') {
+    gr_certidetail.setReadOnly("grid", true);
+    $c.gus.cfDisableBtnOnly($p, [btn_MySave, btn_Delete]);
+  } else {
+    gr_certidetail.setReadOnly("grid", false);
+    $c.gus.cfEnableBtnOnly($p, [btn_MySave, btn_Delete]);
+  }
+  if (ds_certidetail.getCellData(0, "sellGoodsPatternCd") == "01") {
+    // column13 = commNm
+    gr_certidetail.setHeaderValue('column13', "CNTR-NO");
+    gr_certidetail.setColumnVisible('unitCd', false);
+  } else {
+    // column13 = commNm
+    gr_certidetail.setHeaderValue('column13', "품명명");
+    gr_certidetail.setColumnVisible('unitCd', true);
+  }
+
+  //세부 SIZE 값 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (i >= 1) {
+      if (ds_certidetail.getCellData(i, "cntrSizCd") == ds_certidetail.getCellData(i - 1, "cntrSizCd")) {
+        ds_certicommon.setCellData(0, "cntrSizCd", ds_certidetail.getCellData(i, "cntrSizCd"));
+      } else {
+        ds_certicommon.setCellData(0, "cntrSizCd", "");
+        break;
+      }
+    } else {
+      ds_certicommon.setCellData(0, "cntrSizCd", ds_certidetail.getCellData(i, "cntrSizCd"));
+    }
+  }
+
+  //세부 TYPE 값 세팅				
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (i >= 1) {
+      if (ds_certidetail.getCellData(i, "cntrTypCd") == ds_certidetail.getCellData(i - 1, "cntrTypCd")) {
+        ds_certicommon.setCellData(0, "cntrTypCd", ds_certidetail.getCellData(i, "cntrTypCd"));
+      } else {
+        ds_certicommon.setCellData(0, "cntrTypCd", "");
+        break;
+      }
+    } else {
+      ds_certicommon.setCellData(0, "cntrTypCd", ds_certidetail.getCellData(i, "cntrTypCd"));
+    }
+  }
+
+  //세부 E/F 값 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (i >= 1) {
+      if (ds_certidetail.getCellData(i, "fullEmptyClsCd") == ds_certidetail.getCellData(i - 1, "fullEmptyClsCd")) {
+        ds_certicommon.setCellData(0, "fullEmptyClsCd", ds_certidetail.getCellData(i, "fullEmptyClsCd"));
+      } else {
+        ds_certicommon.setCellData(0, "fullEmptyClsCd", "");
+        break;
+      }
+    } else {
+      ds_certicommon.setCellData(0, "fullEmptyClsCd", ds_certidetail.getCellData(i, "fullEmptyClsCd"));
+    }
+  }
+
+  //세부 환종 값 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (ds_certidetail.getCellData(i, "crcCd") == 'KRW') {
+      ds_certicommon.setCellData(0, "crcCd", "KRW");
+    } else {
+      ds_certicommon.setCellData(0, "crcCd", "USD");
+      break;
+    }
+  }
+
+  //세부 B/L-NO 값 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (i >= 1) {
+      if (ds_certidetail.getCellData(i, "blNo") == ds_certidetail.getCellData(i - 1, "blNo")) {
+        ds_certicommon.setCellData(0, "blNo", ds_certidetail.getCellData(i, "blNo"));
+      } else {
+        ds_certicommon.setCellData(0, "blNo", '');
+        break;
+      }
+    } else {
+      ds_certicommon.setCellData(0, "blNo", ds_certidetail.getCellData(i, "blNo"));
+    }
+  }
+
+  //세부 입출항일 값 세팅
+  for (i = 0; i < ds_certidetail.getTotalRow(); i++) {
+    if (i >= 1) {
+      if (ds_certidetail.getCellData(i, "arDepPortDt") == ds_certidetail.getCellData(i - 1, "arDepPortDt")) {
+        ds_certicommon.setCellData(0, "arDepPortDt", ds_certidetail.getCellData(i, "arDepPortDt"));
+      } else {
+        ds_certicommon.setCellData(0, "arDepPortDt", '');
+        break;
+      }
+    } else {
+      ds_certicommon.setCellData(0, "arDepPortDt", ds_certidetail.getCellData(i, "arDepPortDt"));
+    }
+  }
+  scwin.dtl_size = ds_certicommon.getCellData(0, "cntrSizCd") + "/" + ds_certicommon.getCellData(0, "cntrTypCd") + "/" + ds_certicommon.getCellData(0, "fullEmptyClsCd");
+  scwin.dtl_crcCd = ds_certicommon.getCellData(0, "crcCd");
+  scwin.ed_adptExchRt = ds_certidetail.getCellData(0, "adptExchRt");
+  scwin.dtl_vsslCd = ds_certidetail.getCellData(0, "vsslCd");
+  scwin.dtl_portcnt = ds_certidetail.getCellData(0, "portcnt");
+  scwin.dtl_blNo = ds_certicommon.getCellData(0, "blNo");
+  scwin.ed_arDepPortDt = ds_certicommon.getCellData(0, "arDepPortDt");
+  if (scwin.rd_selTsVsslCd == 'T') {
+    if (ed_certiNo.getValue() == "") {
+      scwin.dtl_vsslCd = ds_certidetail.getCellData(0, "vsslCdTo");
+      scwin.dtl_portcnt = ds_certidetail.getCellData(0, "portcntTo");
+    } else {
+      scwin.dtl_vsslCd = ds_certicommon.getCellData(0, "inscrpVsslCd");
+      scwin.dtl_portcnt = ds_certicommon.getCellData(0, "inscrpPortcnt");
+    }
+    scwin.dtl_FmTsVsslCd = ds_certidetail.getCellData(0, "vsslCdFrom") + '-' + ds_certidetail.getCellData(0, "portcntFrom");
+    scwin.dtl_ToTsVsslCd = ds_certidetail.getCellData(0, "vsslCdTo") + '-' + ds_certidetail.getCellData(0, "portcntTo");
+  } else {
+    if (ed_certiNo.getValue() == "") {
+      scwin.dtl_vsslCd = ds_certidetail.getCellData(0, "vsslCdFrom");
+      scwin.dtl_portcnt = ds_certidetail.getCellData(0, "portcntFrom");
+    } else {
+      scwin.dtl_vsslCd = ds_certicommon.getCellData(0, "inscrpVsslCd");
+      scwin.dtl_portcnt = ds_certicommon.getCellData(0, "inscrpPortcnt");
+    }
+    scwin.dtl_FmTsVsslCd = ds_certidetail.getCellData(0, "vsslCdFrom") + '-' + ds_certidetail.getCellData(0, "portcntFrom");
+    scwin.dtl_ToTsVsslCd = ds_certidetail.getCellData(0, "vsslCdTo") + '-' + ds_certidetail.getCellData(0, "portcntTo");
+  }
+};
+
+//-------------------------------------------------------------------------
+// certi 조회
+//-------------------------------------------------------------------------
+scwin.f_CertiNoPopUp = async function (e) {
+  let opts = {
+    id: "fs_204_02_51p.jsp",
+    popupName: "거래명세서 팝업",
+    modal: true,
+    // 모달 여부
+    title: "Win pop",
+    width: 1280,
+    height: 570
+  };
+  //상차요청번호 Pop up
+
+  var strPath = "/ui/ds/fs/bilg/fs_204_02_51p.xml";
+  var p_bilgLodeptCd = ed_bilgLodeptCd.getValue();
+  var p_bilgLodeptNm = ed_bilgLodeptNm.getValue();
+  var p_pgmId = scwin.pgmId;
+  var param = new Array(p_bilgLodeptCd, p_bilgLodeptNm, p_pgmId);
+  if (ed_bilgLodeptCd.getValue() == "") {
+    $c.win.alert($p, scwin.MSG_FS_WRN_011);
+    ed_bilgLodeptCd.focus();
+    return;
+  }
+
+  // $c.win.openPopup(url, opts, param, tp)
+  let rtnList = await $c.win.openPopup($p, strPath, opts, param);
+  if (rtnList != null) {
+    ed_certiNo.setValue(rtnList);
+    scwin.dtl_oldCertiNo = rtnList;
+    scwin.f_CertiRetrieve('true');
+  }
+};
+
+//-------------------------------------------------------------------------
+// 세금계산서 생성 f_SlipPopUp
+//-------------------------------------------------------------------------
+scwin.btn_slipPopUp_onClick = async function (e) {
+  if (ds_certidetail.getModifiedIndex().length != 0) {
+    await $c.win.alert($p, scwin.MSG_FS_WRN_010);
+    return;
+  }
+  if (scwin.addflag == "MOD") {
+    let opts = {
+      id: "fs_202_06_03p.jsp",
+      popupName: "세금계산서 생성",
+      modal: true,
+      // 모달 여부
+      title: "Win pop",
+      width: 850,
+      height: 900
+    };
+
+    // 1번 분기는 받는곳에서 정의도 안되어있어서 사용되는지는 확인필요
+    if (ds_certicommonsavepost.getTotalRow() > 0 && ed_dtl_sellVatNo.getValue() == '') {
+      param = {
+        "ds_certicommonsavepost": ds_certicommonsavepost,
+        "ds_certiCommon": "",
+        sellItemNm: ds_certicommon.getCellData(0, "certiInscrpSellItemNm")
+      };
+    } else {
+      param = {
+        "ds_certicommonsavepost": "",
+        "ds_certiCommon": ds_certicommon,
+        sellItemNm: ds_certidetail.getCellData(0, "certiInscrpSellItemNm")
+      };
+    }
+    var returnValue = await $c.win.openPopup($p, "/ui/ds/fs/bilg/fs_202_06_03p.xml", opts, param);
+    if (returnValue[0] != undefined) {
+      dtl_sellVatNo.value = returnValue[0];
+    }
+    if (returnValue[1] == "TRUE") {
+      scwin.f_CertiRetrieve();
+    }
+  } else {
+    await $c.win.alert($p, scwin.MSG_FS_WRN_002);
+    return;
+  }
+};
+
+//------------------------------------------------------------------------
+// 작업일자 Select 변경시
+//------------------------------------------------------------------------
+scwin.acb_qryConKnd_onchange = function (info) {
+  if (acb_qryConKnd.getValue() == "배차") {
+    div_qryConKnd1.setStyle("display", "block");
+    div_qryConKnd2.setStyle("display", "none");
+  } else if (acb_qryConKnd.getValue() == "청구인식일") {
+    div_qryConKnd1.setStyle("display", "block");
+    div_qryConKnd2.setStyle("display", "none");
+  } else if (acb_qryConKnd.getValue() == "오더일자") {
+    div_qryConKnd1.setStyle("display", "block");
+    div_qryConKnd2.setStyle("display", "none");
+  } else if (acb_qryConKnd.getValue() == "오더") {
+    div_qryConKnd2.show("block");
+    div_qryConKnd1.setStyle("display", "none");
+    div_qryConKnd2.setStyle("display", "block");
+  } else if (acb_qryConKnd.getValue() == "CNTR") {
+    div_qryConKnd1.setStyle("display", "none");
+    div_qryConKnd2.setStyle("display", "block");
+  }
+  ed_qryConCd.setValue("");
+};
+
+//------------------------------------------------------------------------
+// 캘린더 from 데이터 검증
+//------------------------------------------------------------------------
+scwin.udc_fromToCal1_onBlurFrom = function (e) {
+  let dateStr = ed_qryConDtFm.getValue();
+
+  // 종료일자 체크
+  if (ed_qryConDtFm.getValue() > ed_qryConDtTo.getValue() && ed_qryConDtTo.getValue().length == 8) {
+    $c.win.alert($p, "시작일자가 종료일자 이전이여야 합니다.");
+    ed_qryConDtFm.setValue("");
+    ed_qryConDtFm.focus();
+    return;
+  } else {
+    let minY = 1900;
+    let maxY = 2099;
+    let strY = dateStr.substring(0, 4);
+
+    // 형식 체크
+    if (!$c.date.isDate($p, dateStr) && dateStr.length == 8 || parseInt(strY) < minY || parseInt(strY) > maxY) {
+      $c.win.alert($p, "날짜 형식이 올바르지 않습니다.", function () {
+        ed_qryConDtFm.setValue("");
+        ed_qryConDtFm.focus();
+        return;
+      });
+    }
+  }
+  ;
+};
+
+//------------------------------------------------------------------------
+// 캘린더 to 데이터 검증
+//------------------------------------------------------------------------
+scwin.udc_fromToCal1_onBlurTo = function (e) {
+  let dateStr = ed_qryConDtTo.getValue();
+
+  // 종료일자 체크
+  if (ed_qryConDtFm.getValue() > ed_qryConDtTo.getValue() && ed_qryConDtTo.getValue().length == 8) {
+    $c.win.alert($p, "종료일자는 시작일자보다 이후여야 합니다.");
+    ed_qryConDtTo.setValue("");
+    ed_qryConDtTo.focus();
+    return;
+  } else {
+    let minY = 1900;
+    let maxY = 2099;
+    let strY = dateStr.substring(0, 4);
+
+    // 형식 체크
+    if (!$c.date.isDate($p, dateStr) && dateStr.length == 8 || parseInt(strY) < minY || parseInt(strY) > maxY) {
+      $c.win.alert($p, "날짜 형식이 올바르지 않습니다.", function () {
+        ed_qryConDtTo.setValue("");
+        ed_qryConDtTo.focus();
+        return;
+      });
+    }
+  }
+  ;
+};
+
+//------------------------------------------------------------------------
+// 매출항목 가져오기
+//------------------------------------------------------------------------
+scwin.ds_fmlapattern_ondataload = function () {
+  dma_formulasellitemlist_con.set("bilgLoofcCd", ed_bilgLodeptCd.getValue());
+  dma_formulasellitemlist_con.set("fmlaPatternCd", acb_fmlaPatternCd.getValue());
+  dma_formulasellitemlist_con.set("fmlaClsCd", scwin.fmlaClsCd);
+  dma_formulasellitemlist_con.set("clntNo", "0");
+  $c.sbm.execute($p, sbm_formulasellitemlist_retrieve);
+};
+
+//------------------------------------------------------------------------
+// 신규버튼 클릭 f_Create
+//------------------------------------------------------------------------
+scwin.btn_Create_onclick = function (e) {
+  scwin.addflag = "REG";
+  scwin.f_ClearCerti();
+  $c.gus.cfEnableKeyData($p);
+  ed_dtl_bilgLodeptNm.setDisabled(true);
+  ed_dtl_offsetNo1.setDisabled(true);
+  ed_dtl_sellVatNo.setDisabled(true);
+  ed_dtl_offsetVatNo.setDisabled(true);
+};
+
+//-------------------------------------------------------------------------
+// 거래명세서 공통정보 ,상세정보 Clear
+//------------------------------------------------------------------------- 
+scwin.f_ClearCerti = function () {
+  var skipArr = new Array(3);
+  skipArr[0] = ica_confirmDt.getValue();
+  skipArr[1] = scwin.ed_arDepPortDt;
+  skipArr[2] = ica_bilgIntendDt.getValue();
+
+  // asis엔 있는데 DOM에 직접 접근하는 함수라서 제외
+  // scwin.f_ClearData(ed_certiNo,ed_totAmt,skipArr);
+  ds_certicommon.removeAll();
+  ds_certidetail.removeAll();
+  // $c.gus.cfShowTotalRows(spa_totalRow, 0);  	
+  spa_totalRow.setValue("0");
+  // 바인딩 불가
+  ed_certiNo.setValue("");
+  ed_dtl_bilgLodeptNm.setValue("");
+  ed_dtl_bilgClntNo.setValue("");
+  ed_dtl_bilgClntNm.setValue("");
+  ed_dtl_taxnClsNm.setValue("");
+  ed_spplyAmt.setValue("");
+  ed_vatAmt.setValue("");
+  ed_totAmt.setValue("");
+  // rd_bankAcntNoInscrpYn.setValue("");
+  acb_dtl_fmlaPatternCd.setValue("");
+  ed_dtl_summary.setValue("");
+  ed_dtl_sellVatNo.setValue("");
+  // rd_ediSndTrgtYn.setValue("");
+  ed_dtl_offsetVatNo.setValue("");
+  ed_dtl_dcsnClsCdNm.setValue("");
+  ed_dtl_offsetNo1.setValue("");
+  ed_fireInsrRateAmt.setValue("");
+  ed_dtl_bilgClntNo.setValue("");
+  scwin.ed_ediSndDt = "";
+  scwin.rd_selTsVsslCd = "";
+  scwin.dtl_assgnBondZoneNm = "";
+  scwin.dtl_blNo = "";
+  scwin.dtl_cntWtCbm = "";
+  scwin.dtl_lineCd = "";
+  scwin.dtl_billTitleNm = "";
+  scwin.dtl_upperCertiNo = "";
+  scwin.dtl_offsetUpperCertiNo = "";
+};
+
+//-------------------------------------------------------------------------
+// 레포트 발행
+//------------------------------------------------------------------------- 
+scwin.btn_print_onclick = async function (e) {
+  if (scwin.addflag != "MOD") {
+    await $c.win.alert($p, scwin.MSG_FS_WRN_002);
+    return;
+  }
+  if (!(await $c.win.confirm($p, "인쇄하시겠습니까?"))) {
+    return;
+  }
+  if (ds_certicommon.getCellData(0, "inscrpFmlaPatternCd") == undefined) {
+    scwin.f_CertiRetrieve();
+  }
+  var ozMode = "";
+  if (cbx_printCheck.getValue() == "1" && cbx_previewCheck.getValue() == "1") {
+    // 인쇄옵션, 미리보기 둘다 체크된 경우
+    ozMode = "preview";
+  } else if (cbx_printCheck.getValue() == "1") {
+    // 인쇄옵션만 체크된 경우
+    ozMode = "print";
+  } else if (cbx_previewCheck.getValue() == "1") {
+    // 미리보기만 체크된 경우
+    ozMode = "preview";
+  }
+  let sumCheck = "";
+  if (cbx_sumCheck.getValue() == "1") {
+    sumCheck = "Y";
+  } else {
+    sumCheck = "N";
+  }
+  let wt = "";
+  if (cbx_wt.getValue() == "1") {
+    wt = "Y";
+  } else {
+    wt = "N";
+  }
+  var odi1 = "01";
+  var odi2 = ds_certicommon.getCellData(0, "inscrpFmlaPatternCd");
+  var data = {
+    odiName: "fs_202_06_10_" + odi1 + "_" + odi2,
+    reportName: "/ds/fs/fs_202_06_10_" + odi1 + "_" + odi2 + ".ozr",
+    odiParam: {
+      bilgLodeptCd: ds_certicommon.getCellData(0, "bilgLodeptCd"),
+      bilgClntNo: ed_dtl_bilgClntNo.getValue(),
+      qryConKnd: "02",
+      confirmDtFm: "",
+      confirmDtTo: "",
+      spplyDtFm: "",
+      spplyDtTo: "",
+      modId: "",
+      printFg: "",
+      certiAggregateFg: "",
+      dcsnClsCd: "",
+      certiNo: ed_certiNo.getValue(),
+      fmlaClsCd: ds_certicommon.getCellData(0, "fmlaClsCd"),
+      fmlaPatternCd: ds_certicommon.getCellData(0, "fmlaPatternCd"),
+      upperFmlaClsCd: "",
+      upperFmlaPatternCd: "",
+      sellVatNo: "",
+      spplyFg: acb_print.getValue(),
+      inscrpFmlaPatternCd: ds_certicommon.getCellData(0, "inscrpFmlaPatternCd"),
+      ozNo: "01",
+      sumGbn: sumCheck,
+      wtGbn: wt
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90,
+      // 배율 설정
+      mode: ozMode
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.openPopup = async function (data) {
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "오즈 리포트"
+  };
+  await $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+//-------------------------------------------------------------------------
+// 이메일 등록
+//------------------------------------------------------------------------- 
+scwin.btn_regstEmail_onclick = function (e) {
+  $c.win.openMenu($p, "전자세금계산서거래처관리 ", "/ui/ac/fi/stdinfomgnt/fi_100_01_03b.xml", "fi_100_01_03b.xml");
+};
+scwin.btn_QryConPopUp_onClick = function (e) {
+  scwin.f_QryConPopUp();
+};
+
+//-------------------------------------------------------------------------
+// 오더 조회 팝업창 
+//------------------------------------------------------------------------- 
+scwin.f_OrderPopUp = async function () {
+  let opts = {
+    id: "fs_204_02_55p.jsp",
+    popupName: "오더 조회",
+    modal: true,
+    // 모달 여부
+    title: "Win pop",
+    width: 1280,
+    height: 630
+  };
+  //상차요청번호 Pop up
+
+  let pURL = "/ui/ds/fs/bilg/fs_204_02_55p.xml";
+  let arrParam = "";
+  let returnValue = await $c.win.openPopup($p, pURL, opts, arrParam);
+  if (returnValue != undefined) {
+    ed_bilgLodeptCd.setValue(returnValue[0]);
+    ed_bilgClntNo.setValue(returnValue[1]);
+    scwin.ed_lineCd = returnValue[2];
+    ed_qryConCd.setValue(returnValue[3]);
+    scwin.f_chkOpenCommonPopUp(ed_bilgLodeptCd, ed_bilgLodeptNm, 1);
+    scwin.f_chkOpenCommonPopUp(ed_bilgClntNo, ed_bilgClntNm, 2);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 휴지통
+//------------------------------------------------------------------------- 
+scwin.btn_fieldClear_onclick = function (e) {
+  $c.gus.cfInitObjects($p, tbl_search, [ed_bilgLodeptCd, ed_bilgLodeptNm, ed_bilgClntNo, ed_bilgClntNm, acb_qryConKnd, ed_qryConDtFm, ed_qryConDtTo, ed_qryConCd, acb_qryConKnd2, acb_transDst]);
+  rd_prebilgYn.setValue("0");
+};
+
+//-------------------------------------------------------------------------
+// 저장 완료시
+//------------------------------------------------------------------------- 
+scwin.sbm_certi_saveReg_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    scwin.addflag = "MOD";
+    if (ds_certicommonsavepost.getTotalRow() > 0) {
+      ed_certiNo.setValue(ds_certicommonsavepost.getCellData(0, "certiNo"));
+    }
+    //cfEnableBtnOnly([bCreate2]);
+    if (scwin.delflag == "DEL") {
+      $c.win.alert($p, MSG_CM_INF_004);
+      scwin.btn_Create_onclick();
+      scwin.delflag = "";
+    } else {
+      $c.win.alert($p, MSG_CM_INF_001);
+      scwin.f_CertiRetrieve();
+    }
+  } catch (e) {
+    console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+  }
+};
+scwin.sbm_certi_SaveUpdate_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    scwin.addflag = "MOD";
+    if (ds_certicommonsavepost.getTotalRow() > 0) {
+      ed_certiNo.setValue(ds_certicommonsavepost.getCellData(0, "certiNo"));
+    }
+    if (scwin.delflag == "DEL") {
+      $c.win.alert($p, MSG_CM_INF_004);
+      scwin.btn_Create_onclick();
+      scwin.delflag = "";
+    } else {
+      $c.win.alert($p, MSG_CM_INF_001);
+      scwin.f_CertiRetrieve();
+    }
+  } catch (e) {
+    console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 삭제 f_Delete
+//------------------------------------------------------------------------- 
+scwin.btn_Delete_onclick = async function (e) {
+  if (ds_certidetail.getTotalRow() == 0) {
+    await $c.win.alert($p, $c.data.getMessage($p, MSG_CM_WRN_004, "DATA"));
+    return;
+  }
+  if (ed_certiNo.getValue() == "") {
+    await $c.win.alert($p, $c.data.getMessage($p, MSG_CM_WRN_004, "CERTI-NO"));
+    return;
+  }
+  if (scwin.pgmId == "fs_202_04_01b.jsp" && scwin.ed_ediSndDt != "") {
+    if (!(await $c.win.confirm($p, scwin.MSG_FS_WRN_018))) {
+      return;
+    } else {
+      ds_certicommon.setCellData(0, "certiNo", ed_certiNo.getValue());
+      scwin.delflag = "DEL";
+      $c.sbm.execute($p, sbm_certi_save);
+    }
+  } else {
+    if (!(await $c.win.confirm($p, MSG_CM_CRM_004))) {
+      return;
+    } else {
+      ds_certicommon.setCellData(0, "certiNo", ed_certiNo.getValue());
+      scwin.delflag = "DEL";
+      $c.sbm.execute($p, sbm_certi_save);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 삭제 성공시 
+//------------------------------------------------------------------------- 
+scwin.sbm_certi_save_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    scwin.addflag = "MOD";
+    if (ds_certicommonsavepost.getTotalRow() > 0) {
+      ed_certiNo.setValue(ds_certicommonsavepost.getCellData(0, "certiNo"));
+    }
+    if (scwin.delflag == "DEL") {
+      $c.win.alert($p, MSG_CM_INF_004);
+      scwin.btn_Create_onclick;
+      delflag = "";
+    } else {
+      $c.win.alert($p, MSG_CM_INF_001);
+      scwin.f_CertiRetrieve();
+    }
+  } catch (e) {
+    console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+  }
+};
+scwin.runExcel = async function () {
+  let options = {
+    fileName: "내수 거래명세서 작성.xlsx",
+    sheetName: "내수 거래명세서 작성"
+  };
+  let grdObj = gr_certidetail;
+  let infoArr = {};
+  if (await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?")) {
+    $c.data.downloadGridViewExcel($p, grdObj, options, infoArr);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 권역 작업장 변경시
+//------------------------------------------------------------------------- 
+scwin.acb_transDst_onchange = function (info) {
+  ed_onWrkPlCd.setValue("");
+  ed_offWrkPlCd.setValue("");
+  ed_onWrkPlNm.setValue("");
+  ed_offWrkPlNm.setValue("");
+};
+scwin.gr_certidetail_onheaderclick = function (headerId) {
+  let row = gr_certidetail.getFocusedRowIndex();
+  if (headerId == "chkHeader") {
+    scwin.f_sumAmt();
+  }
+};
+scwin.gr_certidetail_oncellclick = function (rowIndex, columnIndex, columnId) {
+  if (columnId == "choice" && rowIndex >= 0) {
+    scwin.f_sumAmt();
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'tbl_search',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'청구부서 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_bilgLodeptCd',nameId:'ed_bilgLodeptNm',id:'udc_bilgLodept',mandatoryCode:'true',maxlengthCode:'4',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',selectID:'retrieveOpDeptCdInfo',validTitle:'청구부서','ev:onclickEvent':'scwin.udc_bilgLodept_onclickEvent','ev:onblurCodeEvent':'scwin.udc_bilgLodept_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_bilgLodept_onviewchangeNameEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'청구처 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_bilgClntNo',nameId:'ed_bilgClntNm',id:'udc_bilgClnt',mandatoryCode:'true',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',maxlengthCode:'6',validExpCode:'청구처:yes',selectID:'retrieveClntInfo',validTitle:'청구처','ev:onclickEvent':'scwin.udc_bilgClnt_onclickEvent','ev:onblurCodeEvent':'scwin.udc_bilgClnt_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_bilgClnt_onviewchangeNameEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:' w150 req',editType:'select',id:'acb_qryConKnd',ref:'',search:'start',style:'',submenuSize:'auto',displayMode:'label','ev:oneditkeyup':'scwin.onkeyup','ev:onchange':'scwin.acb_qryConKnd_onchange'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'작업일자'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'배차'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'실적일자'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'실적일자'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'오더일자'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'오더일자'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'청구인식일'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'청구인식일'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'오더번호'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'오더'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{id:'div_qryConKnd1'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{refStDt:'',refDataMap:'',style:'',id:'udc_fromToCal1',refEdDt:'',edFromId:'ed_qryConDtFm',edToId:'ed_qryConDtTo',mandatoryFrom:'true',mandatoryTo:'true'}}]},{T:1,N:'xf:group',A:{id:'div_qryConKnd2',style:''},E:[{T:1,N:'xf:input',A:{class:'form-control w100',editType:'select','ev:onkeyup':'scwin.onkeyup',id:'ed_qryConCd',maxlength:'15',placeholder:'',style:'',mandatory:'true',allowChar:'a-zA-Z0-9'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch','ev:onclick':'scwin.btn_QryConPopUp_onClick',id:'btn_QryConPopUp',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'거래명세서유형',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:' ',editType:'select',id:'acb_fmlaPatternCd',search:'start',style:'width: 220px;',submenuSize:'auto',mandatory:'true',allOption:'',chooseOption:'',ref:'',visibleRowNum:'30'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_fmlapattern'},E:[{T:1,N:'w2:label',A:{ref:'fmlaNm'}},{T:1,N:'w2:value',A:{ref:'fmlaPatternCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'매출항목 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:' ',editType:'select',id:'acb_sellItemCd',search:'start',style:'width: 200px;',submenuSize:'auto',allOption:'',chooseOption:'true',ref:'',displayMode:'value delim label','ev:oneditkeyup':'scwin.onkeyup',chooseOptionLabel:'전체'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_formulasellitemlist'},E:[{T:1,N:'w2:label',A:{ref:'sellItemNm'}},{T:1,N:'w2:value',A:{ref:'sellItemCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'오더종류 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{class:' ',editType:'select',id:'acb_odrKndCd',search:'start',style:'width: 208px;',submenuSize:'auto',delimiter:'-',displayMode:'value delim label',visibleRowNum:'20',allOption:'',chooseOption:'true',chooseOptionLabel:'전체',ref:''},E:[{T:1,N:'w2:choices'}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:' w120',editType:'select',id:'acb_qryConKnd2',ref:'',search:'start',style:'',submenuSize:'auto',displayMode:'label','ev:oneditkeyup':'scwin.onkeyup','ev:onchange':'scwin.acb_qryConKnd2_onchange'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'품명코드'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'품명'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'품목코드'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'품목'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'화종코드'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'화종'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_qryConCd2',nameId:'ed_qryConNm2',id:'udc_qryCon2',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',maxlengthCode:'8',UpperFlagCode:'1',selectID:'retrieveCommInfo','ev:onclickEvent':'scwin.udc_qryCon_onclickEvent','ev:onblurCodeEvent':'scwin.udc_qryCon_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_qryCon_onviewchangeNameEvent'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:'',editType:'select',id:'acb_transDst',ref:'',search:'start',style:'width: 170px;',submenuSize:'auto',displayMode:'label','ev:onchange':'scwin.acb_transDst_onchange'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'작업구간-권역'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'권역'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'작업구간-작업장'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'작업장'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_onWrkPlCd',nameId:'ed_onWrkPlNm',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',maxlengthCode:'5',id:'udc_onWrkPl','ev:onclickEvent':'scwin.udc_onWrkPl_onclickEvent','ev:onblurCodeEvent':'scwin.udc_onWrkPl_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_onWrkPl_onviewchangeNameEvent'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'-',style:''}},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_offWrkPlCd',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',maxlengthCode:'5',nameId:'ed_offWrkPlNm',id:'udc_offWrkPl','ev:onclickEvent':'scwin.udc_offWrkPl_onclickEvent','ev:onblurCodeEvent':'scwin.udc_offWrkPl_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_offWrkPl_onviewchangeNameEvent'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'선청구여부 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'rdo-grp',cols:'',id:'rd_prebilgYn',ref:'',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'청구'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'0'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'선청구'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'부가세구분코드',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:' w110',editType:'select',id:'acb_taxnClsCd',ref:'',search:'start',style:'',submenuSize:'auto',displayMode:'value delim label','ev:oneditkeyup':'scwin.onkeyaup'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label'},{T:1,N:'w2:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'매출부서 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_sellLodeptCd',nameId:'ed_sellLodeptNm',id:'udc_sellLodept',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',maxlengthCode:'4',objTypeCode:'Data',UpperFlagCode:'1',selectID:'retrieveOpDeptCdInfo','ev:onclickEvent':'scwin.udc_sellLodept_onclickEvent','ev:onblurCodeEvent':'scwin.udc_sellLodept_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_sellLodept_onviewchangeNameEvent'}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'cbx_chkAppend',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'추가구분'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button',userAuth:'R','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'오더 통합매출 조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:150px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:150px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:150px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'거래명세서번호',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' col5',id:'ed_certiNo',placeholder:'',style:'',mandatory:'true',objType:'key',validExp:'거래명세서번호:yes',maxlength:'13',title:'거래명세서 번호'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch',id:'btn_certiNo',style:'',type:'button','ev:onclick':'scwin.f_CertiNoPopUp("V")'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_certriRetrieve',style:'',type:'button','ev:onclick':'scwin.f_CertiRetrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'청구부서',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_bilgLodeptNm',placeholder:'',style:'',readOnly:'true'}},{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_offsetNo1',placeholder:'',style:'',readOnly:'true'}}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작성일자',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal',id:'ica_confirmDt',style:'',mandatory:'true',editType:'select',title:'확인일자'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'청구처',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_bilgClntNo',placeholder:'',style:'',readOnly:'true'}},{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_bilgClntNm',placeholder:'',style:'',readOnly:'true'}}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'부가세구분/확정구분',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_taxnClsNm',placeholder:'',style:'',readOnly:'true'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'/',ref:'',style:'',userData2:''}},{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_dcsnClsCdNm',placeholder:'',style:'',readOnly:'true'}}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'세금계산서번호',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_sellVatNo',placeholder:'',style:'',readOnly:'true'}},{T:1,N:'xf:input',A:{class:' ',id:'ed_dtl_offsetVatNo',placeholder:'',style:'',readOnly:'true'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'거래명세서유형',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:' col7',editType:'select',id:'acb_dtl_fmlaPatternCd',search:'start',style:'width: 220px;',submenuSize:'auto',mandatory:'true',allOption:'',chooseOption:'',ref:'',title:'거래명세서유형'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_dtlfmlapattern'},E:[{T:1,N:'w2:label',A:{ref:'fmlaNm'}},{T:1,N:'w2:value',A:{ref:'fmlaPatternCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'EDI 전송여부',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'rdo-grp',cols:'',id:'rd_ediSndTrgtYn',ref:'',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Yes'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'No'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'0'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'계좌번호표기여부',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'rdo-grp',cols:'',id:'rd_bankAcntNoInscrpYn',ref:'',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Yes'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'No'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'0'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'적요',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' col7',id:'ed_dtl_summary',style:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'청구예정일자',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal',id:'ica_bilgIntendDt',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'공급가액/기타금액',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' tar',id:'ed_spplyAmt',placeholder:'',style:'',maxlength:'13',editType:'select',readOnly:'true',displayFormat:'#,##0',dataType:'number'}},{T:1,N:'xf:input',A:{class:' tar',id:'ed_fireInsrRateAmt',placeholder:'',style:'',readOnly:'true',maxlength:'13',editType:'select',displayFormat:'#,##0',dataType:'number'}}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'부가세합계/부가세차액',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' tar',id:'ed_vatAmt',placeholder:'',style:'',readOnly:'true',maxlength:'13',editType:'select',displayFormat:'#,##0',dataType:'number'}},{T:1,N:'xf:input',A:{class:' tar',id:'ed_vatAmtDiff',placeholder:'',style:'',maxlength:'13',editType:'select',readOnly:'true',displayFormat:'#,##0',dataType:'number'}}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'금액합계/물량금액 차액',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group col7',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:' tar',id:'ed_totAmt',placeholder:'',style:'',maxlength:'13',editType:'select',readOnly:'true',displayFormat:'#,##0',dataType:'number'}},{T:1,N:'xf:input',A:{class:' tar',id:'ed_diffVolAmt',placeholder:'',style:'',readOnly:'true',maxlength:'13',displayFormat:'#,##0',dataType:'number'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'btn_retDelHistory_multiChoice',type:'button',class:'btn','ev:onclick':'scwin.f_multiChoice'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'N건선택'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'(Ctrl , Shift 버튼을 사용하여 N건 선택)',class:''}}]},{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'xf:input',A:{style:';text-align:right;',id:'ed_requreAmt',placeholder:'',class:' w100',maxlength:'13',editType:'select',allowChar:'0-9',displayFormat:'#,##0',dataType:'number'}},{T:1,N:'xf:trigger',A:{style:'',id:'btn_reHistory',type:'button',class:'btn ',objType:'ctrlBtn',userAuth:'R','ev:onclick':'scwin.f_multiChoiceByAmt'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'금액기준선택'}]}]},{T:1,N:'xf:input',A:{style:'',id:'ed_totAmt2',placeholder:'',class:' w100',maxlength:'13',editType:'select',readOnly:'true',dataType:'number',displayFormat:'#,##0'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',gridID:'gr_certidetail',gridDownFn:'scwin.runExcel'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{checkAllType:'false',class:'wq_gvw',dataList:'data:ds_certidetail',id:'gr_certidetail',style:'',visibleRowNum:'4',visibleRowNumFix:'true',autoFit:'none',autoFitMinWidth:'1700','ev:onheaderclick':'scwin.gr_certidetail_onheaderclick','ev:oncellclick':'scwin.gr_certidetail_oncellclick',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'chkHeader',inputType:'checkbox',width:'50',fixColumnWidth:'true',sortable:'true',value:' '}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'매출항목',width:'120',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'품명코드',width:'100',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'품명명',width:'120',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'작업일자',width:'100',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',value:'작업구간',width:'100',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',value:'적용기준',width:'100',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',value:'할증율(%)',width:'100',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column7',inputType:'text',value:'물량',width:'120',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'단가',width:'70',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column49',value:'공급가액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column46',value:'부가세',displayMode:'label',class:'txt-blue',sortable:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column43',value:'금액',displayMode:'label',class:'txt-blue',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column40',value:'수량',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column31',value:'중량',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column34',value:'CBM',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column37',value:'송장번호',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column52',value:'ORDER-NO',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column55',value:'매출부서',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column58',value:'화주오더번호',displayMode:'label',sortable:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'choice',inputType:'checkbox',width:'50',fixColumnWidth:'true',trueValue:'T',valueType:'other',falseValue:'F'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'certiInscrpSellItemNm',inputType:'text',width:'120',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'sellCommNo',inputType:'text',width:'100',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'commNm',inputType:'text',width:'120',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStDt',inputType:'text',width:'100',readOnly:'true',displayFormat:'####/##/##'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'transDst',inputType:'text',width:'100',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'unitCd',inputType:'text',width:'100',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'scRt',inputType:'text',width:'100',textAlign:'right',readOnly:'true',dataType:'float',displayFormat:'#,##0.000',maxLength:'18.3'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'sellVol',inputType:'text',width:'120',textAlign:'right',readOnly:'true',dataType:'float',displayFormat:'#,##0.000',maxLength:'18.3'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'sellUpr',inputType:'text',width:'70',textAlign:'right',readOnly:'true',dataType:'float',displayFormat:'#,##0.00',maxLength:'18.2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'spplyAmt',displayMode:'label',textAlign:'right',readOnly:'true',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'vatAmt',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'totAmt',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'qty',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wt',displayMode:'label',textAlign:'right',dataType:'float',displayFormat:'#,##0.000',maxLength:'18.3'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'cbm',displayMode:'label',textAlign:'right',dataType:'float',displayFormat:'#,##0.000',maxLength:'18.3'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'invoiceNo',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'odrNo',displayMode:'label',readOnly:'true',customFormatter:'scwin.gr_orderNo_custom'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'sellLodeptCd',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'mchtOdrNo',displayMode:'label',readOnly:'true'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'text',id:'column30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column29',displayMode:'label',value:'합계'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column23',displayMode:'label',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'120',inputType:'expression',id:'column22',displayMode:'label',textAlign:'right',dataType:'float',expression:'sum("sellVol")',displayFormat:'#,##0.000',maxLength:'18.3'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column21',displayMode:'label',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column51',displayMode:'label',textAlign:'right',dataType:'number',expression:'sum("spplyAmt")',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'80',inputType:'expression',id:'column48',displayMode:'label',textAlign:'right',dataType:'number',expression:'sum("vatAmt")',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'120',inputType:'expression',id:'column45',displayMode:'label',textAlign:'right',expression:'sum("totAmt")',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column42',displayMode:'label',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column33',displayMode:'label',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column36',displayMode:'label',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column39',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column54',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column57',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column60',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',id:'spa_totalRow',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-10',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'inner',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_slipPopUp',style:'',type:'button','ev:onclick':'scwin.btn_slipPopUp_onClick',objType:'bCreate',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'세금계산서 생성'}]}]},{T:1,N:'w2:autoComplete',A:{class:' w150',editType:'select',id:'acb_print',search:'start',style:'',submenuSize:'auto',allOption:'',chooseOption:'',ref:'',displayMode:'label'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'공급받는자 보관용'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'receive'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'공급자 보관용'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'spply'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'col-gap-4',id:''},E:[{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'cbx_printCheck',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'인쇄옵션'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'cbx_previewCheck',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'미리보기'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'cbx_sumCheck',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'할인할증집계여부'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'cbx_wt',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'작업중량표기여부'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.btn_print_onclick',id:'btn_print',label:'저장',objType:'bUpdate',style:'',type:'button',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:3,text:'발행'}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Create',label:'저장',style:'',type:'button',objType:'bCreate',userAuth:'C','ev:onclick':'scwin.btn_Create_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'신규'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_MySave',label:'저장',style:'',type:'button',objType:'bSave',userAuth:'U','ev:onclick':'scwin.f_MySave'},E:[{T:1,N:'xf:label',E:[{T:3,text:'저장'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Delete',label:'저장',style:'',type:'button',objType:'bDelete',userAuth:'D','ev:onclick':'scwin.btn_Delete_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'삭제'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_regstEmail',style:'',type:'button','ev:onclick':'scwin.btn_regstEmail_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'E-mail등록'}]}]}]}]}]}]}]}]}]}]})

@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="kcomcd" name="법인코드" dataType="text"></w2:key>
+    					<w2:key id="srno" name="" dataType="text"></w2:key>
+    					<w2:key id="blno" name="B/L번호" dataType="text"></w2:key>
+    					<w2:key id="iogb" name="수출입구분" dataType="text"></w2:key>
+    					<w2:key id="ondtFrom" name="" dataType="text"></w2:key>
+    					<w2:key id="ondtTo" name="" dataType="text"></w2:key>
+    					<w2:key id="dscd" name="" dataType="text"></w2:key>
+    					<w2:key id="cino" name="Commercial Invoice 번호" dataType="text"></w2:key>
+    					<w2:key id="sacd" name="영업사원코드" dataType="text"></w2:key>
+    					<w2:key id="dsnm" name="목적지" dataType="text"></w2:key>
+    					<w2:key id="sanm" name="영업사원명" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_CustomerBookingInfo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+    					<w2:column id="srno" name="" dataType="text"></w2:column>
+    					<w2:column id="blno" name="B/L번호" dataType="text"></w2:column>
+    					<w2:column id="mhno" name="Consol No" dataType="text"></w2:column>
+    					<w2:column id="blgb" name="" dataType="text"></w2:column>
+    					<w2:column id="mblno" name="M B/L번호" dataType="text"></w2:column>
+    					<w2:column id="cino" name="Commercial Invoice 번호" dataType="text"></w2:column>
+    					<w2:column id="ondt" name="상차시간" dataType="text"></w2:column>
+    					<w2:column id="shcd" name="Shipper 코드" dataType="text"></w2:column>
+    					<w2:column id="shnm" name="Shipper 명" dataType="text"></w2:column>
+    					<w2:column id="ascd" name="" dataType="text"></w2:column>
+    					<w2:column id="asnm" name="" dataType="text"></w2:column>
+    					<w2:column id="ipcd" name="" dataType="text"></w2:column>
+    					<w2:column id="ipnm" name="" dataType="text"></w2:column>
+    					<w2:column id="iptl" name="" dataType="text"></w2:column>
+    					<w2:column id="ipfx" name="" dataType="text"></w2:column>
+    					<w2:column id="lcsp" name="" dataType="text"></w2:column>
+    					<w2:column id="bond" name="" dataType="number"></w2:column>
+    					<w2:column id="csnm" name="" dataType="text"></w2:column>
+    					<w2:column id="lngb" name="" dataType="text"></w2:column>
+    					<w2:column id="pncd" name="파트너" dataType="text"></w2:column>
+    					<w2:column id="pnnm" name="파트너명" dataType="text"></w2:column>
+    					<w2:column id="dscd" name="0" dataType="text"></w2:column>
+    					<w2:column id="dsnm" name="목적지" dataType="text"></w2:column>
+    					<w2:column id="pkgs" name="#N/A" dataType="number"></w2:column>
+    					<w2:column id="wght" name="#N/A" dataType="number"></w2:column>
+    					<w2:column id="fltno" name="선명" dataType="text"></w2:column>
+    					<w2:column id="itcd" name="품명코드" dataType="text"></w2:column>
+    					<w2:column id="itnm" name="품명명" dataType="text"></w2:column>
+    					<w2:column id="sacd" name="영업사원코드" dataType="text"></w2:column>
+    					<w2:column id="sanm" name="영업사원명" dataType="text"></w2:column>
+    					<w2:column id="whcd" name="센터코드" dataType="text"></w2:column>
+    					<w2:column id="whnm" name="센터명" dataType="text"></w2:column>
+    					<w2:column id="innerPkg" name="" dataType="number"></w2:column>
+    					<w2:column id="invCucd" name="" dataType="text"></w2:column>
+    					<w2:column id="invAmt" name="Invoice Amount" dataType="number"></w2:column>
+    					<w2:column id="remark" name="비고" dataType="text"></w2:column>
+    					<w2:column id="spType" name="" dataType="text"></w2:column>
+    					<w2:column id="cstl" name="" dataType="text"></w2:column>
+    					<w2:column id="cncd" name="CONSIGNEE 코드" dataType="text"></w2:column>
+    					<w2:column id="cnnm" name="CONSIGNEE 명" dataType="text"></w2:column>
+    					<w2:column id="ntcd" name="" dataType="text"></w2:column>
+    					<w2:column id="ntnm" name="" dataType="text"></w2:column>
+    					<w2:column id="pacd" name="" dataType="text"></w2:column>
+    					<w2:column id="partialgb" name="" dataType="text"></w2:column>
+    					<w2:column id="contractNo" name="거래처계약번호" dataType="text"></w2:column>
+    					<w2:column id="inpid" name="입력자ID" dataType="text"></w2:column>
+    					<w2:column id="updid" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="iogb" name="수출입구분" dataType="text"></w2:column>
+    					<w2:column id="upddt" name="" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/il.airout.aobk.RetrieveAirExpCustomerBookingSearchCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_CustomerBookingInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_CustomerBookingInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + new Date(scwin.vCurDate.substring(0, 4), scwin.vCurDate.substring(4, 6) , 0).getDate();  // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+//scwin.strPreDate = WebSquare.date.dateAdd(scwin.vCurDate, -2);
+scwin.strPreDate = $c.date.addMonth(scwin.vCurDate, -1);
+
+
+scwin.hid_kcomcd = "DBEX";
+scwin.iogb = "";
+
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    console.log(scwin.params);
+
+    if(scwin.params.iogb != "" && scwin.params.iogb != null) {
+        scwin.iogb = scwin.params.iogb; 
+    } else {
+        scwin.iogb = scwin.params.menuInfo.menuParam.iogb;
+    }
+    //scwin.iogb = scwin.params.menuInfo.menuParam.iogb;
+    console.log(scwin.iogb);
+};
+
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        scwin.f_DefaultValue();
+
+    }, {"delay":100});
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function ()  {
+    $c.gus.cfInitObjects(tb_retrieve,null);
+    cnd_lc_iogb.focus();
+}
+
+//-------------------------------------------------------------------------
+// function name : f_DefaultValue
+// function desc : 화면 open시 초기  데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_DefaultValue = function () {
+    cnd_lc_iogb.setValue(scwin.iogb);
+    if (cnd_lc_iogb.getValue() == "I") {	//Import
+        io_gb.setValue("Arrival Date:");
+    }else{
+        io_gb.setValue("Onboard Date:");
+    }
+    
+    cnd_ica_ondtFrom.setValue(scwin.strPreDate);
+    cnd_ica_ondtTo.setValue(scwin.vCurDate);
+}
+
+//-------------------------------------------------------------------------
+// 날짜설정
+//-------------------------------------------------------------------------
+scwin.f_SetDate = function (pSetType, pDayCnt) {
+    //유형 1:현재일, 2:이전일, 3:이후일
+
+    var vReturnDate = "";
+
+    if(pSetType=="1"){
+        //vReturnDate = new Date().format("YYYYMMDD");
+        vReturnDate = scwin.vCurDate;
+    }else if(pSetType=="2"){
+        //vReturnDate = new Date().before(0, 0, pDayCnt).format("YYYYMMDD");
+        vReturnDate = WebSquare.date.dateAdd(scwin.vCurDate, -1);
+    }else if(pSetType=="3"){
+        //vReturnDate = new Date().after(0, 0, pDayCnt).format("YYYYMMDD");
+        vReturnDate = WebSquare.date.dateAdd(scwin.vCurDate, 1);
+    }
+
+    return vReturnDate;
+}
+
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    dma_search.set("kcomcd",scwin.hid_kcomcd);	//대표거래처 코드
+
+    if(cnd_ica_ondtFrom.getValue().trim()== '' || cnd_ica_ondtTo.getValue().trim()==''){
+        $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, Array("ETD"));
+        cnd_ica_ondtFrom.focus();
+        return false; 
+    }	
+    var chk = $c.gus.cfIsAfterDate(cnd_ica_ondtFrom.getValue(), cnd_ica_ondtTo.getValue())	
+    if (!chk){
+        $c.gus.cfAlertMsg(E_MSG_CM_ERR_039);  // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        cnd_ica_ondtFrom.focus();
+        return false;
+    }	    
+    //tr_retrieve.post();
+    $c.sbm.execute(sbm_retrieve);
+}
+
+scwin.f_CustemerBookingDetail = function (){
+    //var condition = "?";
+    var row = ds_CustomerBookingInfo.getRowPosition();
+    var strExpertDetailUrl = "/ui/il/airout/aobk/ar_101_01_01b.xml";
+    var strImportDetailUrl = "/ui/il/airinb/aibk/ar_201_01_01b.xml";
+    
+    
+    if(row > -1){
+        //선택된 오더 정보 : 오더번호 / 화물구분
+        var v_kmcom = ds_CustomerBookingInfo.getCellData(row, "kcomcd");
+        var v_srno 	= ds_CustomerBookingInfo.getCellData(row, "srno");
+
+        var param = {
+            kcomcd : v_kmcom,
+            srno : v_srno
+        }
+        
+        //condition += "kcomcd=" + v_kmcom + "&srno=" + v_srno;
+        if(cnd_lc_iogb.getValue() == "O"){
+            //cfTabMenuUpdate(strExpertDetailUrl+condition,"Export Customer Booking");
+            $c.win.openMenu("Export Customer Booking", strExpertDetailUrl,"ar_101_01_01b.xml",param,{openAction : "exist"});
+        } else {
+            //cfTabMenuUpdate(strImportDetailUrl+condition,"Import Customer Booking");
+            $c.win.openMenu("Import Customer Booking", strImportDetailUrl,"ar_201_01_01b.xml",param,{openAction : "exist"});
+        }
+    } else {
+        $c.win.alert(E_MSG_CM_ERR_056);
+        //$c.win.alert("Nothing has been selected.");
+        return;
+    }
+}
+
+//-------------------------------------------------------------------------
+//ilpopupdefine 열기
+//-------------------------------------------------------------------------
+scwin.f_PopUp = function ( pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+
+    var rtnList = new Array();
+    var code = cnd_ed_dscd.getValue().trim();
+    var name = cnd_ed_dsnm.getValue();
+
+    cnd_ed_dscd.setValue("");
+    cnd_ed_dsnm.setValue("");
+
+    udc_dscd.ilCommonPopUp(scwin.callbackAirPortCode,
+                            code,  
+                            name, 
+                            pWinCloseTF,
+                            '2',
+                            'Port Code, Port Name', 
+                            '130,300', 
+                            "3,4,5,6,7,8,9,10", 
+                            null,
+                            '500', '500',
+                            null, null, null,
+                            pAllSearchTF,
+                            'Destination Search, Port Code, Port Name',
+                            pNoDataCloseTF);
+
+        //cfSetReturnValue(rtnList, cnd_ed_dscd, cnd_ta_dsnm);
+
+}
+
+//공통팝업 열기
+scwin.f_OpenCommonPopUp = function ( pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+    var rtnList			= new Array();
+
+    var code = cnd_ed_sacd.getValue().trim();
+    var name = cnd_ed_sanm.getValue();
+
+    cnd_ed_sacd.setValue("");
+    cnd_ed_sanm.setValue("");
+    console.log("code : "+ code);
+
+    udc_sacd.ilCommonPopUp(scwin.callbackEmpInfo
+                            ,code
+                            ,name
+                            ,pWinCloseTF
+                            ,'2'
+                            ,"Code, Name"
+                            ,'80,230'
+                            ,"3,4,5,6,7,8,9,10"
+                            ,null ,null ,null ,null ,null ,null
+                            ,pAllSearchTF
+                            ,"Salesman,Code,Name"
+                            ,pNoDataCloseTF
+                            ); 
+                                    
+                //cfSetReturnValue(rtnList, cnd_ed_sacd, cnd_ta_sanm);
+                
+}	
+
+scwin.callbackAirPortCode = function (rtnList) {
+    console.log(rtnList);
+    $c.gus.cfSetReturnValue(rtnList, cnd_ed_dscd, cnd_ed_dsnm);
+}
+
+scwin.callbackEmpInfo = function (rtnList) {
+    console.log(rtnList);
+    $c.gus.cfSetReturnValue(rtnList, cnd_ed_sacd, cnd_ed_sanm);
+}
+
+scwin.gr_CustomerBookingInfo_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.f_CustemerBookingDetail();	
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.udc_dscd_onclickEvent = function (e) {
+    scwin.f_PopUp('F','F','F');
+};
+
+scwin.udc_dscd_onblurCodeEvent = function (e) {
+	var strClntNo = cnd_ed_dscd.getValue().trim() ;
+
+	//if (cnd_ed_dscd.Modified ) {
+		if (strClntNo.length > 0) {	
+			cnd_ed_dsnm.setValue("");
+			scwin.f_PopUp("T","F","F");
+		} else {
+			cnd_ed_dsnm.setValue("");
+		}
+	//}
+};
+
+scwin.udc_dscd_onviewchangeNameEvent = function (info) {
+    scwin.f_PopUp('T','F','F');
+};
+
+scwin.udc_sacd_onclickEvent = function (e) {
+    scwin.f_OpenCommonPopUp('F','F','F');
+};
+
+scwin.udc_sacd_onblurCodeEvent = function (e) {
+	var strClntNo = cnd_ed_sacd.getValue().trim() ;
+
+	//if (cnd_ed_sacd.Modified ) {
+		if (strClntNo.length > 0) {	
+			cnd_ed_sanm.setValue("");
+			scwin.f_OpenCommonPopUp("T", "F","F");
+		} else {
+			cnd_ed_sanm.setValue("");
+		}
+	//}
+};
+
+scwin.udc_sacd_onviewchangeNameEvent = function (info) {
+    scwin.f_OpenCommonPopUp('T','F','F');
+};
+
+scwin.cnd_lc_iogb_onviewchange = function (info) {
+	if (cnd_lc_iogb.getValue() == "I") {
+		io_gb.setValue("Arrival Date:");
+	} else {
+        io_gb.setValue("Onboard Date:");
+	}
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+	if( ds_CustomerBookingInfo.getRowCount() == 0 ){
+		//$c.win.alert(E_MSG_CM_ERR_003);	//해당되는 자료가 존재하지 않습니다.
+        await $c.win.alert("No data found./Could not find any relevant data.");
+		cnd_ica_ondtFrom.focus();	
+	}else{
+		//processFlag = "Exist";
+	}
+    spa_cnt.setValue(ds_CustomerBookingInfo.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// 대문자 입력
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+scwin.excelDown = async function () {
+
+    const options = {
+        fileName : "프로그램목록.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName : "프로그램목록",
+        startRowIndex : 0,
+        startColumnIndex : 0,
+    };
+
+    // 타이틀
+    const infoArr = [];
+
+    var chk = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+    if(chk){
+        $c.data.downloadGridViewExcel(gr_CustomerBookingInfo, options, infoArr);
+    }
+}
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+        <w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_retrieve" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Export/Import " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="cnd_lc_iogb" search="start" style="width:150px;"
+    								submenuSize="auto" ev:onviewchange="scwin.cnd_lc_iogb_onviewchange" ref="data:dma_search.iogb" allOption="" chooseOption="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[Export]]></w2:label>
+    										<w2:value><![CDATA[O]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[Import]]></w2:label>
+    										<w2:value><![CDATA[I]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="io_gb" label="Arrival Date" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_fromToCalendar id="" refDataMap="dma_search" refEdDt="ondtTo" refStDt="ondtFrom" style="" edFromId="cnd_ica_ondtFrom" edToId="cnd_ica_ondtTo" titleFrom="ETD" titleTo="ETD"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="C/I No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="cnd_ed_cino" placeholder="" style="width:150px;" ref="data:dma_search.cino" maxlength="5" ev:onkeyup="scwin.onkeyup"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Destination" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_ilcomCode hideName="Y" popupID="" style="" codeId="cnd_ed_dscd" btnId="cnd_btn_dscd" id="udc_dscd" nameId="cnd_ed_dsnm" selectID="retrieveAirPortCode" ev:onclickEvent="scwin.udc_dscd_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_dscd_onviewchangeNameEvent" refDataCollection="dma_search" code="dscd" name="dsnm" UpperFlagCode="1" allowCharCode="0-9,A-Z,a-z" maxlengthCode="3" ev:onblurCodeEvent="scwin.udc_dscd_onblurCodeEvent"></w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Salesman" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_ilcomCode hideName="Y" popupID="" style="" codeId="cnd_ed_sacd" btnId="cnd_btn_sacd" id="udc_sacd" nameId="cnd_ed_sanm" selectID="retrieveEmpInfo" ev:onclickEvent="scwin.udc_sacd_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_sacd_onviewchangeNameEvent" refDataCollection="dma_search" code="sacd" name="sanm" maxlengthCode="6" allowCharCode="0-9,A-Z,a-z" UpperFlagCode="1" ev:onblurCodeEvent="scwin.udc_sacd_onblurCodeEvent"></w2:udc_ilcomCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="Customer Booking List" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_CustomerBookingInfo" gridDownFn="scwin.excelDown"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_CustomerBookingInfo"
+    					id="gr_CustomerBookingInfo" style="" visibleRowNum="16" visibleRowNumFix="true"
+    					ev:oncelldblclick="scwin.gr_CustomerBookingInfo_oncelldblclick" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="Onboard" width="90"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="S/R No" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="Master B/L No" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="House B/L No" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="Destination" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="FLT No" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="PKG" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="Weight" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" value="Shipper" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="Regist User" width="120"></w2:column>
+    							<w2:column width="120" inputType="text" id="column21" value="Regist Date" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="ondt" inputType="calendar" width="90"></w2:column>
+    							<w2:column displayMode="label" id="srno" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="mblno" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="blno" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="dsnm" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="fltno" inputType="text" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="pkgs" inputType="text" width="120" dataType="number" textAlign="right" displayFormat="#,##0"></w2:column>
+    							<w2:column displayMode="label" id="wght" inputType="text" width="120" dataType="float" maxLength=".1" textAlign="right" displayFormat="#,##0.0"></w2:column>
+    							<w2:column displayMode="label" id="shnm" inputType="text" width="120" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="updid" inputType="text" width="120"></w2:column>
+    							<w2:column width="120" inputType="calendar" id="upddt" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spa_cnt" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

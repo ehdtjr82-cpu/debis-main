@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="modDateFrom" name="modDateFrom" dataType="text"></w2:key>
+    					<w2:key id="modDateTo" name="modDateTo" dataType="text"></w2:key>
+    					<w2:key id="qryCond" name="qryCond" dataType="text"></w2:key>
+    					<w2:key id="qryCntn" name="qryCntn" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_pgmLog" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="createDtm" name="작업일시" dataType="text"></w2:column>
+    					<w2:column id="userId" name="사용자ID" dataType="text"></w2:column>
+    					<w2:column id="userNm" name="사용자명" dataType="text"></w2:column>
+    					<w2:column id="pgmNm" name="프로그램명" dataType="text"></w2:column>
+    					<w2:column id="pgmId" name="프로그램ID" dataType="text"></w2:column>
+    					<w2:column id="insYn" name="입력여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="modYn" name="수정여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="delYn" name="삭제여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="qryYn" name="조회여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="prtnYn" name="출력여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="xlsDwnldYn" name="엑셀다운여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="gubun" name="구분" dataType="text"></w2:column>
+    					<w2:column id="createId" name="작업자ID" dataType="text"></w2:column>
+    					<w2:column id="createNm" name="createNm" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrievePgmLogPage" action="/cm.bc.comnmgnt.logmgnt.RetrieveUserLogCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_search","key":"IN_DS1"},{"id":"ds_pgmLog","key":"OUT_DS1"}' target='data:json,{"id":"ds_pgmLog","key":"OUT_DS1"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_retrievePgmLogPage_submitdone" ev:submiterror="scwin.sbm_retrievePgmLogPage_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.memJson = $c.data.getMemInfo();
+scwin.currDateFrom = WebSquare.date.getFormattedDate (new Date(), "yyyyMM") + "01";
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+
+scwin.onpageload = function() {
+    // setLogQueryConditionHeader(); 
+	dma_search.set("modDateFrom", scwin.currDateFrom);
+	dma_search.set("modDateTo", scwin.currDate);
+    ed_qryCntn.focus();
+};
+
+// 조회
+scwin.f_Retrieve = async function() {
+
+    let ret = await $c.gus.cfValidate([ica_modDateFrom, ica_modDateTo]);
+    if (!ret) {
+        return false;
+    }
+
+    if (!$c.gus.cfIsAfterDate(ica_modDateFrom.getValue(), ica_modDateTo.getValue())) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039); 
+        ica_modDateFrom.focus();
+        return ;
+    }
+
+    if ( "" == ed_qryCntn.getValue() ) {
+        await $c.win.alert("검색조건은 필수 입력 항목입니다.");
+        ed_qryCntn.focus();
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrievePgmLogPage);
+
+};
+
+scwin.f_downExcelSheet = function() {
+    let sheetTitle = "사용자별권한 이력 목록";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_pgmLog, options);
+};
+
+scwin.sbm_retrievePgmLogPage_submitdone = function (e) {
+    var rowCnt = ds_pgmLog.getRowCount();
+    gr_pgmLog_spanTotal.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_pgmLog.setFocusedCell(0, 0);
+};
+
+scwin.sbm_retrievePgmLogPage_submiterror = function (e) {
+
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="수정일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar edFromId="ica_modDateFrom" edToId="ica_modDateTo" id="udc_modDate" mandatoryFrom="true"
+    								refDataMap="dma_search" refEdDt="modDateTo" refStDt="modDateFrom" style="" mandatoryTo="true">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="검색조건 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    						<xf:group id="" class="form-group">
+    							<w2:autoComplete allOption="" chooseOption="" class="" editType="select" id="lc_qrycond" mandatory="true"
+    								ref="data:dma_search.qryCond" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15" readOnly="false" disableEdit="true">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[사용자ID]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[사용자명]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[프로그램ID]]></w2:label>
+    										<w2:value><![CDATA[2]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[프로그램명]]></w2:label>
+    										<w2:value><![CDATA[3]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    							<xf:input style="width:150px;" id="ed_qryCntn" class="" ref="data:dma_search.qryCntn"></xf:input>
+    						</xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="사용자별권한 이력 목록 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="Y" gridUpYn="N" templateYn="N" id="udc_gr_pgmLog" gridID="gr_pgmLog" gridDownFn="scwin.f_downExcelSheet"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_pgmLog"
+    						focusMode="row" id="gr_pgmLog" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="17" visibleRowNumFix="true" readOnly="true">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" style="" value="수정일시" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" style="" value="사용자ID" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" style="" value="사용자명" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" style="" value="프로그램ID" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column32" inputType="text" style="" value="프로그램명" width="200"></w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" style="" value="C" width="60"></w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="text" style="" value="R" width="60"></w2:column>
+    								<w2:column displayMode="label" id="column22" inputType="text" style="" value="U" width="60"></w2:column>
+    								<w2:column displayMode="label" id="column24" inputType="text" style="" value="D" width="60"></w2:column>
+    								<w2:column width="60" inputType="text" style="" id="column48" value="P" displayMode="label"></w2:column>
+    								<w2:column width="60" inputType="text" style="" id="column46" value="X" displayMode="label"></w2:column>
+    								<w2:column width="60" inputType="text" style="" id="column44" value="구분" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column40" value="수정자ID" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column42" value="수정자명" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="createDtm" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column displayMode="label" id="userId" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="userNm" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="pgmId" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column displayMode="label" id="pgmNm" inputType="text" style="" value="" width="200" textAlign="left"></w2:column>
+    								<w2:column displayMode="label" id="insYn" inputType="checkbox" style="" value="" width="60"></w2:column>
+    								<w2:column displayMode="label" id="qryYn" inputType="checkbox" style="" value="" width="60"></w2:column>
+    								<w2:column displayMode="label" id="modYn" inputType="checkbox" style="" value="" width="60"></w2:column>
+    								<w2:column displayMode="label" id="delYn" inputType="checkbox" style="" value="" width="60"></w2:column>
+    								<w2:column width="60" inputType="checkbox" style="" id="prtnYn" value="" displayMode="label"></w2:column>
+    								<w2:column width="60" inputType="checkbox" style="" id="xlsDwnldYn" value="" displayMode="label"></w2:column>
+    								<w2:column width="60" inputType="text" style="" id="gubun" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="createId" value="" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="createNm" value="" displayMode="label" hidden="true"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="gr_pgmLog_spanTotal" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

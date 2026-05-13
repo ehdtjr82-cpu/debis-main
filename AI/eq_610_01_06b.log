@@ -1,0 +1,23 @@
+eq_610_01_06b.log
+
+[2026-02-18 23:20:28.557] 변환 시작
+[2026-02-18 23:20:28.597] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-18 23:22:38.991] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 130145ms, total 130394ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_setqrynm → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-18 23:22:39.061] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 23:22:39.322] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_setqrynm → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_dcsnSts (LUXECOMBO→w2:autoComplete)
+[2026-02-18 23:22:39.326] #2 재시도 (에러 1건)
+[2026-02-18 23:22:40.333] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-18 23:24:52.358] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 131915ms, total 132024ms
+[2026-02-18 23:24:52.359] 성공 (#2, 4m 23s, confidence:0.97)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

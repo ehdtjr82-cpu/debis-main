@@ -1,0 +1,32 @@
+tn_201_02_10b.log
+
+[2026-02-19 15:55:48.371] 변환 시작
+[2026-02-19 15:55:48.454] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:58:58.672] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=C, verdict=REVIEW, errors=4, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=2, warnings=5 | LLM 189618ms, total 190218ms
+    - [XML] scwin.f_GetColumnNames에서 $c.win.alert를 await 없이 호출 — script:scwin.f_GetColumnNames
+    - [XML] scwin.f_GetColumnNames이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.f_GetColumnNames
+    - [XML] scwin.dataSetDebug에서 $c.win.alert를 await 없이 호출 — script:scwin.dataSetDebug
+    - [XML] scwin.dataSetDebug이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.dataSetDebug
+    - [적정성] async 선언 누락 — scwin.f_GetColumnNames (uses $c.win.alert), scwin.dataSetDebug (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_GetColumnNames → $c.win.alert, scwin.dataSetDebug → $c.win.alert
+[2026-02-19 15:58:58.920] #1 검증: 자동수정 3건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:58:59.446] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: lc_sellClntClsCd (LUXECOMBO→w2:autoComplete), lc_ctrtDistrictCd (LUXECOMBO→w2:autoComplete), lc_selpchItemCd (LUXECOMBO→w2:autoComplete)
+[2026-02-19 15:58:59.450] #2 재시도 (에러 6건)
+[2026-02-19 15:59:00.452] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 16:02:21.492] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=2, warnings=5 | LLM 200549ms, total 201040ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] async 선언 누락 — scwin.f_GetColumnNames (uses $c.win.alert), scwin.dataSetDebug (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_GetColumnNames → $c.win.alert, scwin.dataSetDebug → $c.win.alert
+[2026-02-19 16:02:21.496] #1 검증: 최적 시도 #1 채택 (confidence: 0.95)
+[2026-02-19 16:02:21.496] 성공 (#2, 6m 33s, confidence:0.95)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 3건: lc_sellClntClsCd (LUXECOMBO→w2:autoComplete), lc_ctrtDistrictCd (LUXECOMBO→w2:autoComplete), lc_selpchItemCd (LUXECOMBO→w2:autoComplete)
+================================================================================

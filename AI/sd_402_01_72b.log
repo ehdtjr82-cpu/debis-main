@@ -1,0 +1,36 @@
+sd_402_01_72b.log
+
+[2026-02-20 13:39:03.707] 변환 시작
+[2026-02-20 13:39:03.814] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 13:45:06.729] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=REVIEW, errors=3, warnings=6 | LLM 362562ms, total 362915ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] async 선언 누락 — scwin.f_setWorkPathStepDetail (uses $c.gus.cfAlertMsg), scwin.f_orderWrkStepDetail (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_setWorkPathStepDetail → $c.gus.cfAlertMsg, scwin.f_orderWrkStepDetail → $c.gus.cfAlertMsg
+    - [적정성] 분기 로직 대량 감소 — 소스 799건→출력 157건 (20%) — 로직 삭제 의심
+[2026-02-20 13:45:06.864] #1 검증: 자동수정 6건 적용
+    - [자동수정] U06: textbox display ID lay_ → tbx_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 13:45:07.338] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=6
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 분기 로직 대량 감소 — 소스 799건→출력 157건 (20%) — 로직 삭제 의심
+[2026-02-20 13:45:07.340] #2 재시도 (에러 5건)
+[2026-02-20 13:45:08.345] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 13:52:22.793] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=0, warnings=7 | LLM 433994ms, total 434447ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-20 13:52:22.796] #1 검증: 최적 시도 #1 채택 (confidence: 0.56)
+[2026-02-20 13:52:22.796] 실패 (2회 시도, 13m 19s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+  2. [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+  3. [적정성] 분기 로직 대량 감소 — 소스 799건→출력 157건 (20%) — 로직 삭제 의심
+================================================================================

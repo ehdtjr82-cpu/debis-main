@@ -1,0 +1,23 @@
+op_204_03_12b.log
+
+[2026-02-19 13:59:55.385] 변환 시작
+[2026-02-19 13:59:55.411] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:01:04.233] #1 검증: XML: WebSquareXmlValidator: score=0.56, grade=B, verdict=REVIEW, errors=1, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 68470ms, total 68821ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_FromDate (EMEDIT→xf:input)
+[2026-02-19 14:01:04.311] #1 검증: 자동수정 1건 적용
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:01:04.705] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.56, grade=B, verdict=REVIEW, errors=1, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_FromDate (EMEDIT→xf:input)
+[2026-02-19 14:01:04.708] #2 재시도 (에러 2건)
+[2026-02-19 14:01:05.716] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:02:15.039] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 69214ms, total 69323ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_FromDate (EMEDIT→xf:input)
+[2026-02-19 14:02:15.041] 성공 (#2, 2m 19s, confidence:0.83)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_FromDate (EMEDIT→xf:input)
+================================================================================

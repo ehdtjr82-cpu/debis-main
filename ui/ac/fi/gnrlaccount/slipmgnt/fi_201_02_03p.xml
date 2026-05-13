@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_procAmt" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="setlSlipNo" name="전표번호" dataType="text"></w2:column>
+        				<w2:column id="slipDt" name="작성일자" dataType="text"></w2:column>
+        				<w2:column id="slipAcctDeptNm" name="작성부서" dataType="text"></w2:column>
+        				<w2:column id="drawEmpNm" name="작성자" dataType="text"></w2:column>
+        				<w2:column id="setlDt" name="정리일자" dataType="text"></w2:column>
+        				<w2:column id="setlAmt" name="정리금액" dataType="number"></w2:column>
+        				<w2:column id="setlAmtFcrc" name="정리금액(외화)" dataType="number"></w2:column>
+        				<w2:column id="slipNo" name="name8" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieve"
+        		action="" method="post"
+        		mediatype="application/json" ref='data:json,{"id":"ds_procAmt","key":"OUT_DS1"}' target='data:json,{"id":"ds_procAmt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 기정리금액조회
+ * 메뉴경로 : 회계/재무회계/일반회계/전표관리/가지급금입금
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ac/fi/gnrlaccount/slipmgnt/fi_201_02_03p.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-10-14
+ * 수정이력  :
+ *    - 2025-10-14      정승혜    최초작성
+ *    - 2025-11-25      정승혜    준수사항 적용
+ *    - 2025-12-29      정승혜    기타수정
+ *    - 2026-01-19      정승혜    submitdone 조건수정
+ * 메모 : 
+ * cfShowSlipInfo -> fi_201_04_02p
+ * 부모페이지 fi_201_02_02b
+ * 조회조건 - 완료여부:전체, 신청자:없음, 신청전표회계처리:전체, 정리예정일:20110101~20111231 조회후 
+ * '기정리금액(회계처리)' 또는 '기정리외화금액(회계처리)' 클릭시 팝업생성됨
+ * USD,전체 00387 전체 20160501~20161201 -> 기정리금액(외화) 소수점 데이터
+ * 
+ */
+
+	//-------------------------------------------------------------------------
+	// 화면로딩시
+	//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    scwin.slipNo = scwin.params["slipNo"];
+    scwin.f_Retrieve();
+};
+
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("기정리금액조회");
+};
+
+	//-------------------------------------------------------------------------
+	// 조회 : 데이터를 조회한다.
+	//-------------------------------------------------------------------------
+scwin.f_Retrieve = function (e) {
+    let condition = "?";
+    condition += "slipNo=" + scwin.slipNo;
+    sbm_retrieve.action = "/ac.fi.gnrlaccount.slipmgnt.RetrieveSuspensePayableSettlementAmountCMD.do" + condition; 
+    $c.sbm.execute(sbm_retrieve);
+};
+
+// 전표번호 팝업(클릭시)
+scwin.f_Retrieve2 = async function (rowIndex, columnIndex, columnId) {
+    if ( columnId == "setlSlipNo" ) {
+        let slipNo = ds_procAmt.getCellData(rowIndex, "setlSlipNo");
+        if ( slipNo !=  "" ) {
+            let rtnList = await $c.gus.cfShowSlipInfo( slipNo );
+        } 
+    }
+};
+
+// 닫기버튼
+scwin.f_winClose = function (e) {
+    $c.win.closePopup();
+};
+
+// 서브미션
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    ds_procAmt.setJSON(e.responseJSON.GAUCE);
+    totalRows.setValue(ds_procAmt.getRowCount());
+    if(ds_procAmt.getRowCount() > 0){
+        let sort_options = {};
+        sort_options.sortIndex = "slipDt slipNo";
+        sort_options.sortOrder = "1 1";  // 1: 오름차순
+        ds_procAmt.multisort(sort_options);
+
+        gr_procAmt.focus();
+    }else{
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    							<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_procAmt" focusMode="row" id="gr_procAmt" scrollByColumn="false" scrollByColumnAdaptive="false" style="" ev:oncellclick="scwin.f_Retrieve2" readOnly="true">
+    								<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header2" style="">
+    									<w2:row id="row3" style="">
+    										<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" value="전표번호" width="100">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" value="작성일자" width="100">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" value="작성부서" width="100">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false" value="작성자" width="100">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="column8" inputType="text" removeBorderStyle="false" value="정리일자" width="100">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="column7" inputType="text" removeBorderStyle="false" value="정리금액" width="100">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="column6" inputType="text" removeBorderStyle="false" value="정리금액(외화)" width="100">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody2" style="">
+    									<w2:row id="row4" style="">
+    										<w2:column class="tac underline" blockSelect="false" displayMode="label" id="setlSlipNo" inputType="text" removeBorderStyle="false" width="70" style="color:blue;">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="slipDt" inputType="text" removeBorderStyle="false" width="70" displayFormat="####/##/##" readOnly="true">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="slipAcctDeptNm" inputType="text" removeBorderStyle="false" width="70" readOnly="true" textAlign="left">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="drawEmpNm" inputType="text" removeBorderStyle="false" width="70" readOnly="true">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="setlDt" inputType="text" removeBorderStyle="false" width="70" displayFormat="####/##/##" readOnly="true">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="setlAmt" inputType="text" removeBorderStyle="false" width="70" textAlign="right" displayFormat="#,###" dataType="number" readOnly="true">
+    										</w2:column>
+    										<w2:column blockSelect="false" displayMode="label" id="setlAmtFcrc" inputType="text" removeBorderStyle="false" width="70" textAlign="right" dataType="number" displayFormat="#,###.##" readOnly="true">
+    										</w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    								<w2:footer style="" id="footer1">
+    									<w2:row style="" id="row5">
+    										<w2:column width="100" inputType="text" style="" id="column19" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column18" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column17" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column16" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column15" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column14" value="" displayMode="label" textAlign="right" expression="sum('setlAmt')" displayFormat="#,###" dataType="number">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column13" value="" displayMode="label" textAlign="right" expression="sum('setlAmtFcrc')" displayFormat="#,###" dataType="number">
+    										</w2:column>
+    									</w2:row>
+    								</w2:footer>
+    							</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="" style="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<w2:button class="btn" id="" label="닫기" style="" ev:onclick="scwin.f_winClose"></w2:button>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

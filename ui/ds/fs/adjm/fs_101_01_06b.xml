@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_queryCond">
+    				<w2:keyInfo>
+    					<w2:key id="wrkDtSt" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_opAmt" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="adptYm" name="적용년월" dataType="text"></w2:column>
+    					<w2:column id="selpchItemCd" name="매입항목" dataType="text"></w2:column>
+    					<w2:column id="opAmt" name="운영원가" dataType="number"></w2:column>
+    					<w2:column id="vat" name="부가세" dataType="number"></w2:column>
+    					<w2:column id="regId" name="regId" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.fs.adjm.adjmbdcalc.RetrieveSupplyAmtListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_queryCond","key":"IN_DS1"},{"id":"dma_queryCond","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_opAmt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitDone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.fs.adjm.adjmbdcalc.SaveSupplyAmtListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_opAmt","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitDone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.strCurDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.strYear = scwin.strCurDate.substring(0, 4);  
+scwin.strEx = scwin.strCurDate.substring(4);  
+scwin.strMonth = scwin.strEx.substring(0,2);  
+
+scwin.login = $c.data.getMemInfo("userId");
+
+//-------------------------------------------------------------------------
+// 화면 로드시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    //공통코드 호출
+    const codeOptions = [
+            { grpCd : "FS402", compID : "gr_opAmtList:selpchItemCd" } // 셀렉트
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+
+    ica_adptYm.setValue(scwin.strYear + scwin.strMonth);
+
+    // dma_queryCond.set("wrkDtSt", ica_adptYm.getValue());
+
+    $c.sbm.execute(sbm_retrieve);
+    
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onClick = function (e) {
+    dma_queryCond.set("wrkDtSt", ica_adptYm.getValue());
+
+    $c.sbm.execute(sbm_retrieve);
+
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.btn_Create_onClick = function (e) {
+    for(i = 0 ; i < ds_opAmt.getTotalRow(); i++){
+        if(ds_opAmt.getCellData(i, "adptYm").trim() == null || (ds_opAmt.getCellData(i, "adptYm") == "")){
+            $c.win.alert($c.data.getMessage(MSG_CM_WRN_003,"적용년월")); 
+            return false;
+        }
+        if(ds_opAmt.getCellData(i, "selpchItemCd").trim() == null || ds_opAmt.getCellData(i, "selpchItemCd").trim() == "" ){
+            $c.win.alert($c.data.getMessage(MSG_CM_WRN_003, "매입항목"));  
+            return false;
+        }
+        ds_opAmt.setCellData(i, "regId", scwin.login);
+    }
+    
+    $c.sbm.execute(sbm_save);
+
+};
+
+scwin.sbm_save_submitDone = function (e) {
+    $c.win.alert(MSG_CM_INF_001);
+
+    $c.sbm.execute(sbm_retrieve);
+
+};
+
+scwin.sbm_retrieve_submitDone = function (e) {
+    let totalrow = ds_opAmt.getTotalRow();
+
+    spa_totalRow.setValue(totalrow);
+};
+
+
+scwin.rowDelFunction = function() {
+
+    let row = gr_opAmtList.getFocusedRowIndex();
+    if(ds_opAmt.getRowStatus(row) == "C") {
+        ds_opAmt.removeRow(row);
+    }else {
+        ds_opAmt.modifyRowStatus(row, "D");    
+    }
+
+
+}
+
+
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드
+//-------------------------------------------------------------------------
+scwin.runExcel = async function() {
+        let options = {
+        fileName : "운영원가 내역.xlsx",
+        sheetName : "운영원가 내역"
+    }
+
+    let grdObj = gr_opAmtList;
+
+    let infoArr = {};
+
+    if(ds_opAmt.getTotalRow() == 0) {
+        $c.win.alert(MSG_CM_WRN_002);
+    } else {
+        if(await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?")) {
+            $c.data.downloadGridViewExcel(grdObj, options, infoArr)
+        }
+    }
+
+
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="적용년월" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_adptYm" style="" objType="Data" mandatory="true" validExp="배차일자시작:yes:length=8" editType="select">
+    									</w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onClick">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label=" 운영원가 내역 " style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" id="udc_topGrdBtn" gridID="gr_opAmtList" gridDownYn="Y" gridDownFn="scwin.runExcel"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grp_group1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_opAmt" id="gr_opAmtList" style="" visibleRowNum="5" visibleRowNumFix="true" resize="true" columnMove="true" rowStatusVisible="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="적용년월" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="매입항목" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="운영원가" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="부가세" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="regId" width="70" hidden="true" hiddenCol="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="adptYm" inputType="text" style="" value="" width="100" displayFormat="####/##" maxLength="6"></w2:column>
+    											<w2:column displayMode="label" id="selpchItemCd" inputType="select" style="" value="" width="100" viewType="icon">
+    											</w2:column>
+    											<w2:column displayMode="label" id="opAmt" inputType="text" style="" value="" width="100" displayFormat="#,##0" dataType="number" defaultValue="0" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="vat" inputType="text" style="" value="" width="100" displayFormat="#,##0" dataType="number" defaultValue="0" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="regId" inputType="text" style="" value="" width="70" hidden="true" hiddenCol="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row3">
+    											<w2:column width="100" inputType="text" style="" id="column30" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column29" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column28" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column27" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column26" value="" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spa_totalRow" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:udc_bottomGrdBtn style="" id="udcGrdBottomBtn1" gridID="gr_opAmtList" addFunction="scwin.f_add" rowAddUserAuth="C" rowDelUserAuth="D" btnDelYn="N" btnRowDelYn="Y" rowDelFunction="scwin.rowDelFunction"></w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" id="btn_Create" style="" type="button" userAuth="C" objType="ctrlBtn" ev:onclick="scwin.btn_Create_onClick">
+    								<xf:label><![CDATA[저장]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

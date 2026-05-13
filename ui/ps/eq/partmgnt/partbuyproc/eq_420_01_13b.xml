@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="homeClsCd" name="소속" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="작업장" dataType="text"></w2:key>
+    					<w2:key id="inDtFrom" name="입고일자" dataType="text"></w2:key>
+    					<w2:key id="inDtTo" name="입고일자" dataType="text"></w2:key>
+    					<w2:key id="inClsCd" name="입고구분" dataType="text"></w2:key>
+    					<w2:key id="acctCd" name="계정" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_eq420" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="partCd" name="부품코드" dataType="text"></w2:column>
+    					<w2:column id="partNm" name="부품명" dataType="text"></w2:column>
+    					<w2:column id="unit" name="단위" dataType="text"></w2:column>
+    					<w2:column id="eqModelNm" name="장비모델명" dataType="text"></w2:column>
+    					<w2:column id="inputOutput" name="입/출고" dataType="text"></w2:column>
+    					<w2:column id="inspectionNo" name="검수번호" dataType="text"></w2:column>
+    					<w2:column id="inAcctCd" name="계정코드" dataType="text"></w2:column>
+    					<w2:column id="inAcctNm" name="계정" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="inDt" name="입고일자" dataType="text"></w2:column>
+    					<w2:column id="inUpr" name="입고단가" dataType="text"></w2:column>
+    					<w2:column id="inQty" name="입고수량" dataType="text"></w2:column>
+    					<w2:column id="inAmt" name="입고금액" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_combo" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="sysCd" name="sysCd"></w2:key>
+    					<w2:key dataType="text" id="queryId" name="queryId"></w2:key>
+    					<w2:key dataType="text" id="param1" name="param1"></w2:key>
+    					<w2:key dataType="text" id="param2" name="param2"></w2:key>
+    					<w2:key dataType="text" id="param3" name="param3"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_combo3" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="code"></w2:column>
+    					<w2:column dataType="text" id="name" name="name"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_combo2" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="code"></w2:column>
+    					<w2:column dataType="text" id="name" name="name"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ps.eq.partmgnt.partbuyproc.RetrievePartsAccountEachInPresentConditionCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,{"id":"dma_search","key":"IN_DS1"},{"id":"ds_eq420","key":"OUT_DS1"}'
+    			target='data:json,{"id":"ds_eq420","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+            
+    		<xf:submission id="sbm_searchCombo3" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json" ref='data:json,dma_combo' target='data:json,{"id":"ds_combo3","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.memJson = $c.data.getMemInfo();
+scwin.vEqHomeClsCd = scwin.memJson.eqHomeClsCd;  //정비소속구분코드
+scwin.currDateFrom = WebSquare.date.getFormattedDate (new Date(), "yyyyMM") + "01";
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "EQ017", compID : "lc_inClsCd" },
+        { grpCd : "EQ029", compID : "lc_acctCd",opt :{"range" : "1,1"} }, 
+    ];
+    $c.data.setCommonCode(codeOptions);
+   	dma_search.set("inDtFrom", scwin.currDateFrom);
+	dma_search.set("inDtTo", scwin.currDate);
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+    if( "" == scwin.vEqHomeClsCd ) {
+    } else {
+        lc_homeClsCd.setValue(scwin.vEqHomeClsCd);
+    }
+    scwin.f_searchCombo3(lc_homeClsCd.getValue());
+	lc_homeClsCd.focus();
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+};
+
+scwin.f_searchCombo3 = function(param1) {
+	dma_combo.set("sysCd", "PsCommonEBC");
+	dma_combo.set("queryId", "retriveWrkplList");
+	dma_combo.set("param1", param1);
+	$c.sbm.execute(sbm_searchCombo3);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+	// 필수입력항목 체크	  
+    let ret = await $c.gus.cfValidate([lc_homeClsCd, lc_fixWrkPlCd, ica_inDtFrom, ica_inDtTo]);
+    if (!ret) {
+        return false;
+    }
+
+	// if( ! await $c.gus.cfIsAfterDate(ica_inDtFrom.getValue(), ica_inDtTo.getValue()) ) {
+	// 	$c.win.alert(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+	// 	ica_inDtFrom.focus();
+	// 	return;
+	// }
+
+	$c.sbm.execute(sbm_search);
+};
+
+scwin.sbm_search_submitdone = function (e) {
+    var rowCnt = ds_eq420.getRowCount();
+    spanTotal.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    } else {
+        gr_eq420.setFocusedCell(0, 0);
+    }
+};
+
+//------------------------------------------------------------------------
+// 리포트 출력 버튼
+//------------------------------------------------------------------------  
+///var PGM_ID ="eq_420_01_13b.jsp";
+scwin.f_OzReport = async function () {
+	//필수입력항목 체크	  
+    let ret = await $c.gus.cfValidate([lc_homeClsCd, lc_fixWrkPlCd, ica_inDtFrom, ica_inDtTo]);
+    if (!ret) {
+        return false;
+    }
+
+    if( !$c.gus.cfIsAfterDate(ica_inDtFrom.getValue(), ica_inDtTo.getValue()) ) {        
+		await $c.win.alert(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+		ica_inDtFrom.focus();
+        return false;
+    }
+
+    var data = {
+        reportName: "/ps/eq/partmgnt/partbuyproc/eq_420_01_13.ozr",
+        odiParam : {
+                     homeClsCd: lc_homeClsCd.getValue()
+                    ,homeClsNm: lc_homeClsCd.getText(true)
+                    ,wrkPlCd: lc_fixWrkPlCd.getValue()
+                    ,wrkPlNm: lc_fixWrkPlCd.getText(true)
+                    ,inDtFrom: ica_inDtFrom.getValue()
+                    ,inDtTo: ica_inDtTo.getValue()
+                    ,inClsCd: lc_inClsCd.getValue()
+                    ,inClsNm: lc_inClsCd.getText(true)
+                    ,acctCd: lc_acctCd.getValue()
+                    ,acctNm: lc_acctCd.getText(true)
+        },
+        viewerParam : {
+            useprogressbar : false, // 프로그레스바 쓸지 말지
+            printcommand : true,
+            zoom : 90, // 배율 설정
+        },
+        formParam: {
+        }
+    };
+    scwin.openPopup(data);    
+};
+
+scwin.openPopup = async function(data){
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+scwin.f_Excel = function () {
+    let sheetTitle = "부품 계정별 입고현황";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_eq420, options);
+};
+
+scwin.lc_homeClsCd_onchange = function (info) {
+    var vhomeClsCd = info.newValue;
+    scwin.f_searchCombo3( vhomeClsCd );
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox " id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb tb" id="table1" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="소속" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control w150" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="" submenuSize="auto" ref="data:dma_search.homeClsCd" mandatory="true" ev:onchange="scwin.lc_homeClsCd_onchange">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[물류]]></xf:label>
+    												<xf:value><![CDATA[LO]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[고속]]></xf:label>
+    												<xf:value><![CDATA[TR]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="작업장" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control w150" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_fixWrkPlCd" style="" submenuSize="auto" ref="data:dma_search.wrkPlCd" mandatory="true">
+    										<xf:choices>
+    											<xf:itemset nodeset="data:ds_combo3">
+    												<xf:label ref="name"></xf:label>
+    												<xf:value ref="code"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="입고일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar refStDt="inDtFrom" refDataMap="dma_search" style="" id="udc_fromToCalendar1" refEdDt="inDtTo" edFromId="ica_inDtFrom" edToId="ica_inDtTo" mandatoryFrom="true" mandatoryTo="true">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="입고구분" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="form-control w150" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_inClsCd" style="" submenuSize="auto" ref="data:dma_search.inClsCd" chooseOptionLabel="전체">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group tagname="th" id="" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="계정" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" id="" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="form-control w150" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_acctCd" style="" submenuSize="auto" ref="data:dma_search.acctCd" chooseOptionLabel="전체">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group></xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="부품계정별입고 현황" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_gr_eq420" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_Excel" gridID="gr_eq420"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_eq420" id="gr_eq420" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="true" fixedColumn="4" fixedColumnNoMove="true" autoFit="none">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="부품코드" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="부품명" width="200">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="단위" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="장비모델명" width="220">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="입/&lt;/br&gt;출고" width="60">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" style="" value="검수번호" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" style="" value="계정코드" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" style="" value="계정" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column7" inputType="text" style="" value="거래처" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" style="" value="거래처명" width="220">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column43" value="입고일자" displayMode="label">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" style="" id="column40" value="입고단가" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column37" value="입고수량" displayMode="label">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" style="" id="column34" value="입고금액" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="partCd" inputType="text" style="" value="" width="100" textAlign="left" colMerge="true" fixColumnWidth="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="partNm" inputType="text" style="" value="" width="200" textAlign="left" colMerge="true" fixColumnWidth="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="unit" inputType="text" style="" value="" width="70" textAlign="center" fixColumnWidth="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="eqModelNm" inputType="text" style="" value="" width="220" textAlign="left" fixColumnWidth="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inputOutput" inputType="text" style="" value="" width="60" textAlign="center">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inspectionNo" inputType="text" style="" value="" width="100" textAlign="center">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inAcctCd" inputType="text" style="" value="" width="80" textAlign="center" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inAcctNm" inputType="text" style="" value="" width="80" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="clntNo" inputType="text" style="" value="" width="80" textAlign="center">
+    											</w2:column>
+    											<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="220" textAlign="left">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="inDt" value="" displayMode="label" textAlign="center" dataType="date" displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" style="" id="inUpr" value="" displayMode="label" textAlign="right" displayFormat="#,###,###,###" dataType="number">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="inQty" value="" displayMode="label" displayFormat="#,###,###,###" dataType="number" textAlign="right">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" style="" id="inAmt" value="" displayMode="label" textAlign="right" displayFormat="#,###,###,###" dataType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row3">
+    											<w2:column width="100" inputType="text" style="" id="column30" value="합계" displayMode="label">
+    											</w2:column>
+    											<w2:column width="200" inputType="text" style="" id="column29" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column28" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="220" inputType="text" style="" id="column27" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" style="" id="column26" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column25" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column24" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column23" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column22" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="220" inputType="text" style="" id="column21" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column45" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="140" inputType="expression" style="" id="column42" value="" displayMode="label" displayFormat="#,###,###,###" dataType="number" textAlign="right" expression="sum('inUpr')">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column39" value="" displayMode="label" displayFormat="#,###,###,###" dataType="number" textAlign="right" expression="sum('inQty')">
+    											</w2:column>
+    											<w2:column width="140" inputType="expression" style="" id="column36" value="" displayMode="label" textAlign="right" displayFormat="#,###,###,###" dataType="number" expression="sum('inAmt')">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="spanTotal" label="0" style="" tagname="span"
+    												displayFormat="#,###">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group id="" class="right"><w2:textbox style="" id="" label="[단위 : 원]" class=""></w2:textbox></xf:group></xf:group></xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" id="btn_print" style="" type="button" userAuth="P" ev:onclick="scwin.f_OzReport">
+    								<xf:label><![CDATA[출력]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

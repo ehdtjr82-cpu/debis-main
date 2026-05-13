@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_oWhouseWagesCreationConditionDTO">
+					<w2:keyInfo>
+						<w2:key id="branCd" name="점소코드" dataType="text"></w2:key>
+						<w2:key id="wrkPlCd" name="작업장" dataType="text"></w2:key>
+						<w2:key id="wrkStYmDd" name="작업시작년월일" dataType="text"></w2:key>
+						<w2:key id="wrkEndYmDd" name="작업종료년월일" dataType="text"></w2:key>
+						<w2:key id="nypayCreatYn" name="소급분 미확정원가 생성 여부" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_wageRetroactTerm" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="name1" dataType="text"></w2:column>
+						<w2:column id="name" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_oWhouseWagesCreationConsequenceDTO" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="conseCntn" name="결과내용" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_wageRetroactTerm"
+				action="/cm.zz.RetrieveComboCMD.do?sysCd=WagesCreationPierPierInsideEBC&amp;queryId=retriveWageRetroactTerm" method="post"
+				mediatype="application/json" ref="" target='data:json,{"id":"ds_wageRetroactTerm","key":"GAUCE"}' encoding="UTF-8" instance=""
+				replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_wagesCreationPierPierInside" action="/ds.op.wrkrslts.wagewrkrslts.CreateOtherWarehouseWagesCMD.do"
+				method="post" mediatype="application/json"
+				ref='data:json,[{"id":"dma_oWhouseWagesCreationConditionDTO","key":"IN_DS1"},{"id":"ds_oWhouseWagesCreationConsequenceDTO","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_oWhouseWagesCreationConsequenceDTO","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_submit_Done" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 전역변수
+//-------------------------------------------------------------------------
+scwin.vCurDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDateOfMonth(scwin.vCurDate); // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+scwin.loginDTO = $c.data.getMemInfo();
+scwin.loUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd");
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+
+    
+    scwin.f_SetDefaultData();
+    $c.sbm.execute(sbm_wageRetroactTerm);
+    
+
+
+};
+
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function() {
+    udc_wrkYmDd.setInitDate(scwin.vQryStDt, scwin.vQryEndDt);
+
+    if(scwin.f_IsWageRetroactTerm() == true) { // 노임소급기간
+        cbx_nypayCreatYn.setValue("1");
+    } else {
+        cbx_nypayCreatYn.setValue("0");
+    }
+
+    acb_branCd.setValue(scwin.loUpperLobranCd);
+}
+
+//-------------------------------------------------------------------------
+// 타창고 노임 생성 f_RegistWagesCreationPierPierInside
+//-------------------------------------------------------------------------
+scwin.btn_Save_onClick = async function (e) {
+
+    if (! await $c.gus.cfValidate([acb_branCd, ica_wrkStYmDd, ica_wrkEndYmDd])) {
+        return;
+    }
+
+    if (cbx_nypayCreatYn.getValue() == "1") {
+        dma_oWhouseWagesCreationConditionDTO.set("nypayCreatYn", "1");
+    } else {
+        dma_oWhouseWagesCreationConditionDTO.set("nypayCreatYn", "0");
+    }
+
+    dma_oWhouseWagesCreationConditionDTO.set("branCd", acb_branCd.getValue());
+    dma_oWhouseWagesCreationConditionDTO.set("wrkPlCd", ed_wrkPlCd.getValue());
+    dma_oWhouseWagesCreationConditionDTO.set("wrkStYmDd", ica_wrkStYmDd.getValue());
+    dma_oWhouseWagesCreationConditionDTO.set("wrkEndYmDd", ica_wrkEndYmDd.getValue());
+
+
+    if (await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_009, "노임(타창고)"))) {  // @을(를) 생성하시겠습니까?
+        btn_Save.setDisabled(true)
+        // cfShowDSWaitMsg(tr_wagesCreationPierPierInside, 290, 200);
+    
+        $c.sbm.execute(sbm_wagesCreationPierPierInside);
+    }
+
+};
+
+
+
+
+//-------------------------------------------------------------------------
+// 노임소급기간 포함 여부 
+//-------------------------------------------------------------------------
+scwin.f_IsWageRetroactTerm = function() {
+    // 노임소급기간(OP280)
+    let curDate = scwin.vCurDate.substring(4, 6);
+    let fromMonth = ds_wageRetroactTerm.getCellData(0, "code");
+    let toMonth = ds_wageRetroactTerm.getCellData(1, "name");
+
+    if (Number(fromMonth) <= Number(curDate) && Number(toMonth) >= Number(curDate)) {
+        return true;
+    } else {
+        return false;
+    }   
+
+
+}
+
+//-------------------------------------------------------------------------
+// 소급분 미확정원가 생성 여부 체크시
+//-------------------------------------------------------------------------
+scwin.f_IsNypayCreatYn = async function (info) {
+    if (scwin.f_IsWageRetroactTerm() == true && cbx_nypayCreatYn.getValue() == "0") {
+        if (await $c.win.confirm("미확정원가를 생성해야 되는 월입니다.\n그래도 생성여부를 해제하시겠습니까?")) {
+            cbx_nypayCreatYn.setValue("0");
+        } else {
+            cbx_nypayCreatYn.setValue("1");
+        }
+}   
+
+};
+
+
+
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (작업장)
+//-------------------------------------------------------------------------
+scwin.udc_wrkPl_onClick = async function (e) {
+    let lodeptCd = acb_branCd.getValue();
+    let paramList = ","+lodeptCd+"";
+
+    udc_wrkPl.cfCommonPopUp(scwin.udc_wrkPl_callBackFunc
+    , ed_wrkPlCd.getValue()
+    ,ed_wrkPlNm.getValue()
+    ,"F"
+    ,null
+    ,null
+    ,null
+    ,null
+    ,',' + acb_branCd.getValue() + ''
+    ,null
+    ,null
+    ,null
+    ,null
+    ,null
+    ,null
+    );
+
+};
+
+scwin.udc_wrkPl_onblurCode = async function (e) {
+    let lodeptCd = acb_branCd.getValue();
+    let paramList = ","+lodeptCd+"";
+    if(ed_wrkPlCd.getValue() != "") {
+        udc_wrkPl.cfCommonPopUp(scwin.udc_wrkPl_callBackFunc
+        , ed_wrkPlCd.getValue()
+         ,""
+         ,"T"
+        ,null
+        ,null
+        ,null
+        ,null
+        ,',' + acb_branCd.getValue() + ''
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        );
+    }else {
+        return;
+    }
+};
+
+scwin.udc_wrkPl_onChangeName = async function (info) {
+    let lodeptCd = acb_branCd.getValue();
+    let paramList = ","+lodeptCd+"";
+    if(ed_wrkPlNm.getValue() != "") {
+        udc_wrkPl.cfCommonPopUp(scwin.udc_wrkPl_callBackFunc
+        , ""
+        ,ed_wrkPlNm.getValue()
+        ,"T"
+        ,null
+        ,null
+        ,null
+        ,null
+        ,',' + acb_branCd.getValue() + ''
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        );
+    } else {
+        return;
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 콜백 (작업장)
+//-------------------------------------------------------------------------
+scwin.udc_wrkPl_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_wrkPlCd, ed_wrkPlNm);
+};
+
+
+//-------------------------------------------------------------------------
+// 검색영역 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.btn_init_onClick = function (e) {
+    $c.gus.cfInitObjects(tb_mainData);
+    scwin.f_SetDefaultData();
+};
+
+//-------------------------------------------------------------------------
+// 저장 성공
+//-------------------------------------------------------------------------
+scwin.sbm_submit_Done = function (e) {
+    let conseCntn = ds_oWhouseWagesCreationConsequenceDTO.getCellData(0, "conseCntn");  // 결과내용
+    $c.win.alert(conseCntn);
+    btn_Save.setDisabled(false); 
+
+
+};
+]]></script>
+		<w2:require as="udc_schInput" type="page" variableClone="true" src="/cm/udc/schInput.xml"></w2:require>
+		<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+		<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="right" id="">
+						<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onClick">
+							<xf:label><![CDATA[초기화]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="btn_Save" style="" type="button" objType="ctrlBtn" ev:onclick="scwin.btn_Save_onClick">
+							<xf:label><![CDATA[생성]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="tb_mainData" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:180px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="width:180px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="점소 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="acb_branCd" search="start" style="" submenuSize="fixed"
+									mandatory="true" objType="Data" allOption="" chooseOption="" ref="">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[부산지사]]></w2:label>
+											<w2:value><![CDATA[6AA]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[인천지사]]></w2:label>
+											<w2:value><![CDATA[4AA]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[울산지사]]></w2:label>
+											<w2:value><![CDATA[6BB]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[충남지사]]></w2:label>
+											<w2:value><![CDATA[3AA]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[전남지사]]></w2:label>
+											<w2:value><![CDATA[5AA]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="작업장 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode popupID="" style="" codeId="ed_wrkPlCd" nameId="ed_wrkPlNm" id="udc_wrkPl" allowCharCode="a-zA-Z0-9" maxlengthCode="5" UpperFlagCode="1" validExpCode="작업장:yes" objTypeName="data" objTypeCode="Data" selectID="retrieveWrkPlInfo" ev:onclickEvent="scwin.udc_wrkPl_onClick" ev:onblurCodeEvent="scwin.udc_wrkPl_onblurCode" ev:onviewchangeNameEvent="scwin.udc_wrkPl_onChangeName"></w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="작업월일 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:udc_fromToCalendar id="udc_wrkYmDd" refDataMap="" refEdDt="" refStDt="" style="" edFromId="ica_wrkStYmDd" edToId="ica_wrkEndYmDd" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="Data" objTypeTo="data" objTypeBtn="data" titleFrom="작업시작년월일" titleTo="작업시작년월일"></w2:udc_fromToCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="소급분 미확정원가 생성 여부 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select appearance="full" class="" cols="" id="cbx_nypayCreatYn" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+									style="" ev:onviewchange="scwin.f_IsNypayCreatYn">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[]]>
+											</xf:label>
+											<xf:value><![CDATA[]]>
+											</xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_condition">
+                <w2:keyInfo>
+                    <w2:key id="lobranCd" name="물류점소코드" dataType="text"></w2:key>
+                    <w2:key id="wrkStDt" name="작업시작일자" dataType="text"></w2:key>
+                    <w2:key id="wrkEndDt" name="작업종료일자" dataType="text"></w2:key>
+                    <w2:key id="staffNo" name="사원번호" dataType="text"></w2:key>
+                    <w2:key id="dailygb" name="일별구분" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="ds_condition2">
+                <w2:keyInfo>
+                    <w2:key id="wrkDt" name="작업일자" dataType="text"></w2:key>
+                    <w2:key id="staffNo" name="사원번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_eqMan" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="staffNo" name="사원번호" dataType="text"></w2:column>
+                    <w2:column id="staffNm" name="사원명" dataType="text"></w2:column>
+                    <w2:column id="workDt" name="작업일자" dataType="text"></w2:column>
+                    <w2:column id="stHh" name="시작시간" dataType="text"></w2:column>
+                    <w2:column id="endHh" name="종료시간" dataType="text"></w2:column>
+                    <w2:column id="fromStHh" name="시작" dataType="text"></w2:column>
+                    <w2:column id="fromEndHh" name="종료" dataType="text"></w2:column>
+                    <w2:column id="toStHh" name="시작2" dataType="text"></w2:column>
+                    <w2:column id="toEndHh" name="종료2" dataType="text"></w2:column>
+                    <w2:column id="vaca1" name="휴무" dataType="text"></w2:column>
+                    <w2:column id="vaca2" name="주휴일" dataType="text"></w2:column>
+                    <w2:column id="vaca3" name="철휴" dataType="text"></w2:column>
+                    <w2:column id="vaca4" name="년차" dataType="text"></w2:column>
+                    <w2:column id="vaca5" name="경조" dataType="text"></w2:column>
+                    <w2:column id="vaca6" name="교육" dataType="text"></w2:column>
+                    <w2:column id="vaca7" name="공휴" dataType="text"></w2:column>
+                    <w2:column id="vaca8" name="하계" dataType="text"></w2:column>
+                    <w2:column id="vaca9" name="특휴" dataType="text"></w2:column>
+                    <w2:column id="earlyYn" name="조출" dataType="text"></w2:column>
+                    <w2:column id="extn" name="연장" dataType="text"></w2:column>
+                    <w2:column id="night" name="야간" dataType="text"></w2:column>
+                    <w2:column id="holiNight" name="휴일야간" dataType="text"></w2:column>
+                    <w2:column id="holiExtn" name="휴일연장" dataType="text"></w2:column>
+                    <w2:column id="cont" name="연근" dataType="text"></w2:column>
+                    <w2:column id="workcnt" name="식대발생" dataType="text"></w2:column>
+                    <w2:column id="vacawrkcnt" name="휴일수당" dataType="text"></w2:column>
+                    <w2:column id="overtime40" name="40초과연장시간" dataType="text"></w2:column>
+                    <w2:column id="workTime" name="근무시간" dataType="text"></w2:column>
+                    <w2:column id="totalTime" name="총근무시간" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_stvMan" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="staffNo" name="사원번호" dataType="text"></w2:column>
+                    <w2:column id="staffNm" name="사원명" dataType="text"></w2:column>
+                    <w2:column id="workDt" name="작업일자" dataType="text"></w2:column>
+                    <w2:column id="stHh" name="시작시간" dataType="text"></w2:column>
+                    <w2:column id="endHh" name="종료시간" dataType="text"></w2:column>
+                    <w2:column id="fromStHh" name="시작" dataType="text"></w2:column>
+                    <w2:column id="fromEndHh" name="종료" dataType="text"></w2:column>
+                    <w2:column id="toStHh" name="시작2" dataType="text"></w2:column>
+                    <w2:column id="toEndHh" name="종료2" dataType="text"></w2:column>
+                    <w2:column id="vaca1" name="휴무" dataType="text"></w2:column>
+                    <w2:column id="vaca2" name="주휴일" dataType="text"></w2:column>
+                    <w2:column id="vaca3" name="철휴" dataType="text"></w2:column>
+                    <w2:column id="vaca4" name="년차" dataType="text"></w2:column>
+                    <w2:column id="vaca5" name="경조" dataType="text"></w2:column>
+                    <w2:column id="vaca6" name="교육" dataType="text"></w2:column>
+                    <w2:column id="vaca7" name="공휴" dataType="text"></w2:column>
+                    <w2:column id="vaca8" name="하계" dataType="text"></w2:column>
+                    <w2:column id="vaca9" name="특휴" dataType="text"></w2:column>
+                    <w2:column id="earlyYn" name="조출" dataType="text"></w2:column>
+                    <w2:column id="extn" name="연장" dataType="text"></w2:column>
+                    <w2:column id="night" name="야간" dataType="text"></w2:column>
+                    <w2:column id="holiNight" name="휴일야간" dataType="text"></w2:column>
+                    <w2:column id="holiExtn" name="휴일연장" dataType="text"></w2:column>
+                    <w2:column id="cont" name="연근" dataType="text"></w2:column>
+                    <w2:column id="workcnt" name="식대발생" dataType="text"></w2:column>
+                    <w2:column id="vacawrkcnt" name="휴일수당" dataType="text"></w2:column>
+                    <w2:column id="overtime40" name="40초과연장시간" dataType="text"></w2:column>
+                    <w2:column id="workTime" name="근무시간" dataType="text"></w2:column>
+                    <w2:column id="totalTime" name="총근무시간" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_payDetail" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="staffNo" name="사원번호" dataType="text"></w2:column>
+                    <w2:column id="staffNm" name="사원명" dataType="text"></w2:column>
+                    <w2:column id="workDt" name="작업일자" dataType="text"></w2:column>
+                    <w2:column id="shiftClsCd" name="SHIFT" dataType="text"></w2:column>
+                    <w2:column id="workStHh" name="시작" dataType="text"></w2:column>
+                    <w2:column id="workEndHh" name="종료" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="작업내역" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.op.stvwrk.RetrieveRegularPayReportCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_eqMan","key":"OUT_DS1"},{"id":"ds_stvMan","key":"OUT_DS2"}]'
+            target='data:json,[{"id":"ds_eqMan","key":"OUT_DS1"},{"id":"ds_stvMan","key":"OUT_DS2"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveDetail"
+            action="/ds.op.stvwrk.RetrieveRegularPayDetailReportCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_condition2","key":"IN_DS1"},{"id":"ds_payDetail","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_payDetail","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveDetail_submitdone"
+            ev:submiterror="scwin.sbm_retrieveDetail_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+scwin.v_workClsCd = "";
+scwin.bOnPopUp = false;
+scwin.lobranCd = "";
+scwin.vCurDate = "";
+scwin.vwrkStDt = "";
+scwin.vwrkEndDt = "";
+scwin.txt_staffNm = "";
+
+scwin.onpageload = function() {
+    scwin.lobranCd = $c.ses.getLobranCd();
+    scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+    scwin.vwrkStDt = scwin.vCurDate.substring(0, 6) + "01";
+    scwin.vwrkEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDate(scwin.vCurDate);
+    scwin.f_SetDefaultData();
+};
+
+scwin.onUdcCompleted = function() {
+    udc_wrkDt.setInitDate(scwin.vwrkStDt, scwin.vwrkEndDt);
+};
+
+scwin.f_SetDefaultData = function() {
+    chb_dailygb.setValue("");
+    lc_lobranCd.setValue(scwin.lobranCd);
+    lc_lobranCd.setFocus();
+};
+
+scwin.btn_fieldClear_onclick = function(e) {
+    scwin.f_InitObjects();
+};
+
+scwin.f_InitObjects = function() {
+    $c.gus.cfInitObjects(lc_lobranCd, udc_wrkDt, udc_staff, chb_dailygb);
+    scwin.f_SetDefaultData();
+    udc_wrkDt.setInitDate(scwin.vwrkStDt, scwin.vwrkEndDt);
+};
+
+scwin.btn_retrieve_onclick = function(e) {
+    scwin.f_Retrieve();
+};
+
+scwin.f_Retrieve = async function() {
+    if (!(await $c.gus.cfValidate([lc_lobranCd, udc_wrkDt]))) {
+        return;
+    }
+
+    let dailygbVal = chb_dailygb.getValue();
+    let isDailyChecked = (dailygbVal != "" && dailygbVal != null);
+
+    if (!isDailyChecked) {
+        gr_eqMan.setColumnVisible("workDt", false);
+        gr_stvMan.setColumnVisible("workDt", false);
+        gr_eqMan.setColumnVisible("fromStHh", false);
+        gr_stvMan.setColumnVisible("fromStHh", false);
+        gr_eqMan.setColumnVisible("fromEndHh", false);
+        gr_stvMan.setColumnVisible("fromEndHh", false);
+        gr_eqMan.setColumnVisible("toStHh", false);
+        gr_stvMan.setColumnVisible("toStHh", false);
+        gr_eqMan.setColumnVisible("toEndHh", false);
+        gr_stvMan.setColumnVisible("toEndHh", false);
+    } else {
+        gr_eqMan.setColumnVisible("workDt", true);
+        gr_stvMan.setColumnVisible("workDt", true);
+        gr_eqMan.setColumnVisible("fromStHh", true);
+        gr_stvMan.setColumnVisible("fromStHh", true);
+        gr_eqMan.setColumnVisible("fromEndHh", true);
+        gr_stvMan.setColumnVisible("fromEndHh", true);
+        gr_eqMan.setColumnVisible("toStHh", true);
+        gr_stvMan.setColumnVisible("toStHh", true);
+        gr_eqMan.setColumnVisible("toEndHh", true);
+        gr_stvMan.setColumnVisible("toEndHh", true);
+    }
+
+    ds_condition.set("staffNo", ed_staffNo.getValue().trim());
+
+    await $c.sbm.execute(sbm_retrieve);
+
+    scwin.f_detail(0);
+};
+
+scwin.sbm_retrieve_submitdone = async function(e) {
+    let eqRowCnt = ds_eqMan.getRowCount();
+    let stvRowCnt = ds_stvMan.getRowCount();
+
+    if (eqRowCnt == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    } else {
+        let dailygbVal = chb_dailygb.getValue();
+        let isDailyChecked = (dailygbVal != "" && dailygbVal != null);
+        if (isDailyChecked) {
+            scwin.f_detail(0);
+        }
+    }
+
+    if (stvRowCnt == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    } else {
+        let dailygbVal = chb_dailygb.getValue();
+        let isDailyChecked = (dailygbVal != "" && dailygbVal != null);
+        if (isDailyChecked) {
+            scwin.f_detail2(0);
+        }
+    }
+};
+
+scwin.sbm_retrieve_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.sbm_retrieveDetail_submitdone = async function(e) {
+    let rowCnt = ds_payDetail.getRowCount();
+};
+
+scwin.sbm_retrieveDetail_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.f_detail = async function(row) {
+    if (ds_eqMan.getRowCount() > 0) {
+        ds_condition2.set("wrkDt", ds_eqMan.getCellData(row, "workDt"));
+        ds_condition2.set("staffNo", ds_eqMan.getCellData(row, "staffNo"));
+        await $c.sbm.execute(sbm_retrieveDetail);
+    }
+};
+
+scwin.f_detail2 = async function(row) {
+    if (ds_stvMan.getRowCount() > 0) {
+        ds_condition2.set("wrkDt", ds_stvMan.getCellData(row, "workDt"));
+        ds_condition2.set("staffNo", ds_stvMan.getCellData(row, "staffNo"));
+        await $c.sbm.execute(sbm_retrieveDetail);
+    }
+};
+
+scwin.gr_eqMan_oncellclick = function(rowIndex, columnIndex, columnId) {
+    if (rowIndex >= 0) {
+        let dailygbVal = chb_dailygb.getValue();
+        let isDailyChecked = (dailygbVal != "" && dailygbVal != null);
+        if (isDailyChecked) {
+            scwin.f_detail(rowIndex);
+        }
+    }
+};
+
+scwin.gr_stvMan_oncellclick = function(rowIndex, columnIndex, columnId) {
+    if (rowIndex >= 0) {
+        let dailygbVal = chb_dailygb.getValue();
+        let isDailyChecked = (dailygbVal != "" && dailygbVal != null);
+        if (isDailyChecked) {
+            scwin.f_detail2(rowIndex);
+        }
+    }
+};
+
+scwin.ed_staffNo_onblur = function(e) {
+    if (ed_staffNo.getValue() == "") {
+        scwin.txt_staffNm = "";
+    } else {
+        scwin.f_openCommonPopUp(1, ed_staffNo.getValue(), scwin.txt_staffNm, "F", "F");
+    }
+};
+
+scwin.f_openCommonPopUp = async function(disGubun, pCode, pName, pClose, pAllSearch) {
+    let rtnList;
+
+    switch (disGubun) {
+        case 1:
+            let arrParam = {};
+            arrParam["staffNo"] = pCode;
+            arrParam["staffNm"] = pName;
+            arrParam["lobranCd"] = lc_lobranCd.getValue();
+            arrParam["lobranNm"] = lc_lobranCd.getText();
+            arrParam["workPlaceCd"] = "";
+            arrParam["jobClsCd"] = "";
+            arrParam["dtlJobClsCd"] = "";
+            arrParam["positionCd"] = "";
+            arrParam["workDt"] = "";
+            arrParam["assignYn"] = "";
+            arrParam["winCloseTF"] = "T";
+            arrParam["dtlJobFlag"] = "1";
+            arrParam["wrkStDt"] = ica_wrkStDt.getValue();
+            arrParam["wrkEndDt"] = ica_wrkEndDt.getValue();
+
+            rtnList = await $c.win.openPopup("/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", {
+                width: 530,
+                height: 450,
+                modal: true,
+                data: arrParam
+            });
+
+            if (rtnList != null) {
+                ed_staffNo.setValue(rtnList[2]);
+                scwin.txt_staffNm = rtnList[3];
+            } else {
+                ed_staffNo.setValue("");
+                scwin.txt_staffNm = "";
+            }
+            break;
+    }
+};
+
+scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+        return;
+    }
+    $c.gus.cfClearPairObj(pairObj);
+    let pVal = $c.gus.cfGetValue(inObj);
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, "", "T", "T");
+    } else {
+        scwin.f_openCommonPopUp(disGubun, "", pVal, "T", "T");
+    }
+};
+
+scwin.f_gridToExcel = function(argGrid, argTitle) {
+    $c.data.downloadGridViewExcel(argGrid, {
+        fileName: argTitle + ".xlsx",
+        sheetName: argTitle
+    });
+};
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="lc_lobranCd" search="start" style="width:230px;"
+    								submenuSize="auto" ref="data:ds_condition.lobranCd">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_wrkDt" refDataMap="" edFromId="ica_wrkStDt" edToId="ica_wrkEndDt" style=""></w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="인원" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_staff" codeId="ed_staffNo" nameId="txt_staffNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="일별" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="chb_dailygb" ref="data:ds_condition.dailygb" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tabbox" id="" style="">
+    				<w2:tabControl alwaysDraw="false" class="wq_tab" id="tac_tabControl1" style="">
+    					<w2:tabs disabled="false" id="tabs1" label="장비" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs2" label="하역직" style=""></w2:tabs>
+    					<w2:content alwaysDraw="false" id="content1" style="">
+    						<xf:group class="row-gap-8" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="급여집계(장비)" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_eqMan" id="gr_eqMan"
+    									style="" visibleRowNum="8" visibleRowNumFix="true" readOnly="false">
+    									<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="staffNo" inputType="text" value="사원번호" width="100"></w2:column>
+    											<w2:column displayMode="label" id="staffNm" inputType="text" value="사원명" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="workDt" inputType="text" value="작업일자" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="fromStHh" inputType="text" value="시작" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="fromEndHh" inputType="text" value="종료" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="toStHh" inputType="text" value="시작" width="70"></w2:column>
+    											<w2:column displayMode="label" id="toEndHh" inputType="text" value="종료" width="70"></w2:column>
+    											<w2:column displayMode="label" id="vaca1" inputType="text" value="휴무" width="70" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="vaca2" inputType="text" value="주휴일" width="80" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="vaca3" inputType="text" value="철휴" width="70" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="vaca4" value="년차" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="vaca5" value="경조" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="vaca6" value="교육" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="vaca7" value="공휴" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="vaca8" value="하계" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="vaca9" value="특휴" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="earlyYn" value="조출" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="extn" value="연장" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="night" value="야간" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="holiNight" value="휴일야간" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="holiExtn" value="휴일연장" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="cont" value="연근" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="workcnt" value="식대발생" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="vacawrkcnt" value="휴일수당" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="overtime40" value="40초과&lt;br/&gt;연장시간"
+    												displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="workTime" value="근무시간" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="totalTime" value="총 근무시간" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="staffNo" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="staffNm" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="workDt" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="fromStHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="fromEndHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="toStHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="toEndHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="vaca1" inputType="select" width="70" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column displayMode="label" id="vaca2" inputType="select" width="80" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column displayMode="label" id="vaca3" inputType="select" width="70" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="vaca4" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="vaca5" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="vaca6" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="vaca7" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="vaca8" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="vaca9" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="earlyYn" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="extn" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="night" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="holiNight" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="holiExtn" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="70" inputType="select" id="cont" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="workcnt" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="vacawrkcnt" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="overtime40" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="workTime" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="select" id="totalTime" displayMode="label" textAlign="right" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row3">
+    											<w2:column width="100" inputType="text" id="column30" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column27" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column26" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column25" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column24" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column23" displayMode="label" textAlign="right" expression="sum('vaca1')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="80" inputType="expression" id="column22" displayMode="label" textAlign="right" expression="sum('vaca2')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column21" displayMode="label" textAlign="right" expression="sum('vaca3')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column90" displayMode="label" textAlign="right" expression="sum('vaca4')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column87" displayMode="label" textAlign="right" expression="sum('vaca5')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column84" displayMode="label" textAlign="right" expression="sum('vaca6')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column81" displayMode="label" textAlign="right" expression="sum('vaca7')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column78" displayMode="label" textAlign="right" expression="sum('vaca8')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column75" displayMode="label" textAlign="right" expression="sum('vaca9')" dataType="number" displayFormat="#,###"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column72" displayMode="label" textAlign="right" expression="sum('earlyYn')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column69" displayMode="label" textAlign="right" expression="sum('extn')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column66" displayMode="label" textAlign="right" expression="sum('night')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column63" displayMode="label" textAlign="right" expression="sum('holiNight')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column60" displayMode="label" textAlign="right" expression="sum('holiExtn')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column57" displayMode="label" textAlign="right" expression="sum('cont')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column54" displayMode="label" textAlign="right" expression="sum('workcnt')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column51" displayMode="label" textAlign="right" expression="sum('vacawrkcnt')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column48" displayMode="label" textAlign="right" expression="sum('overtime40')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column45" displayMode="label" textAlign="right" expression="sum('workTime')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    											<w2:column width="100" inputType="expression" id="column42" displayMode="label" textAlign="right" expression="sum('totalTime')" dataType="float" displayFormat="#,##0.0"></w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    					<w2:content alwaysDraw="false" id="content2" style="">
+    						<xf:group class="row-gap-8" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="급여집계(하역직)" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_stvMan" id="gr_stvMan" style="" visibleRowNum="8" visibleRowNumFix="true" readOnly="false">
+    									<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="staffNo" inputType="text" value="사원번호" width="100"></w2:column>
+    											<w2:column displayMode="label" id="staffNm" inputType="text" value="사원명" width="100"></w2:column>
+    											<w2:column displayMode="label" id="workDt" inputType="text" value="작업일자" width="100"></w2:column>
+    											<w2:column displayMode="label" id="fromStHh" inputType="text" value="시작" width="70"></w2:column>
+    											<w2:column displayMode="label" id="fromEndHh" inputType="text" value="종료" width="70"></w2:column>
+    											<w2:column displayMode="label" id="toStHh" inputType="text" value="시작" width="70"></w2:column>
+    											<w2:column displayMode="label" id="toEndHh" inputType="text" value="종료" width="70"></w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca1" inputType="text" value="휴무" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca2" inputType="text" value="주휴일" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca3" inputType="text" value="철휴" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca4" inputType="text" value="년차" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca5" inputType="text" value="경조" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca6" inputType="text" value="교육" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca7" inputType="text" value="공휴" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca8" inputType="text" value="하계" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="true" id="vaca9" inputType="text" value="특휴" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="earlyYn" inputType="text" value="조출" width="70"></w2:column>
+    											<w2:column displayMode="label" id="extn" inputType="text" value="연장" width="70"></w2:column>
+    											<w2:column displayMode="label" id="night" inputType="text" value="야간" width="70"></w2:column>
+    											<w2:column displayMode="label" id="holiNight" inputType="text" value="휴일야간" width="100"></w2:column>
+    											<w2:column displayMode="label" id="holiExtn" inputType="text" value="휴일연장" width="100"></w2:column>
+    											<w2:column displayMode="label" id="cont" inputType="text" value="연근" width="70"></w2:column>
+    											<w2:column displayMode="label" id="workcnt" inputType="text" value="식대발생" width="100" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="vacawrkcnt" inputType="text" value="휴일수당" width="100" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="overtime40" inputType="text" value="40초과&lt;br/&gt;연장시간" width="100" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="workTime" inputType="text" value="근무시간" width="100"></w2:column>
+    											<w2:column displayMode="label" id="totalTime" inputType="text" value="총 근무시간" width="100"></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="staffNo" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="staffNm" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="workDt" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="fromStHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="fromEndHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="toStHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="toEndHh" inputType="text" width="70" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="vaca1" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column displayMode="label" id="vaca2" inputType="select" textAlign="right" width="80" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column displayMode="label" id="vaca3" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vaca4" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vaca5" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vaca6" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vaca7" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vaca8" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vaca9" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="number" displayFormat="#,###">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="earlyYn" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="extn" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="night" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="holiNight" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="holiExtn" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="cont" inputType="select" textAlign="right" width="70" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="workcnt" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="vacawrkcnt" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="overtime40" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="workTime" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column displayMode="label" id="totalTime" inputType="select" textAlign="right" width="100" readOnly="true" allOption="" chooseOption="" ref="" dataType="float" maxLength="0.1" displayFormat="#,##0.0">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer id="footer1" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column displayMode="label" id="column30" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column29" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column28" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column27" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column26" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column25" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column24" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column23" inputType="expression" textAlign="right" width="70" expression="sum('vaca1')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column22" inputType="expression" textAlign="right" width="80" expression="sum('vaca2')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="expression" textAlign="right" width="70" expression="sum('vaca3')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column90" inputType="expression" textAlign="right" width="70" expression="sum('vaca4')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column87" inputType="expression" textAlign="right" width="70" expression="sum('vaca5')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column84" inputType="expression" textAlign="right" width="70" expression="sum('vaca6')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column81" inputType="expression" textAlign="right" width="70" expression="sum('vaca7')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column78" inputType="expression" textAlign="right" width="70" expression="sum('vaca8')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column75" inputType="expression" textAlign="right" width="70" expression="sum('vaca9')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column72" inputType="expression" textAlign="right" width="70" expression="sum('earlyYn')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column69" inputType="expression" textAlign="right" width="70" expression="sum('extn')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column66" inputType="expression" textAlign="right" width="70" expression="sum('night')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column63" inputType="expression" textAlign="right" width="100" expression="sum('holiNight')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column60" inputType="expression" textAlign="right" width="100" expression="sum('holiExtn')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column57" inputType="expression" textAlign="right" width="70" expression="sum('cont')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column54" inputType="expression" textAlign="right" width="100" expression="sum('workcnt')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column51" inputType="expression" textAlign="right" width="100" expression="sum('vacawrkcnt')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column48" inputType="expression" textAlign="right" width="100" expression="sum('overtime40')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column45" inputType="expression" textAlign="right" width="100" expression="sum('workTime')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column42" inputType="expression" textAlign="right" width="100" expression="sum('totalTime')" dataType="float" displayFormat="#,##0.0">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView><xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    								
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    				</w2:tabControl>
+    			</xf:group>
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="작업내역" class="tit"></w2:textbox>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section3" style=""></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" style="" id="grd_section3" class="gvwbox">
+    					<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_payDetail" style="" autoFit="allColumn" id="gr_payDetail"
+    						visibleRowNum="4" class="wq_gvw" readOnly="false">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="100" inputType="text" id="staffNo" value="사원번호" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="staffNm" value="사원명" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="workDt" value="작업일자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="shiftClsCd" value="SHIFT" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="workStHh" value="시작" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="workEndHh" value="종료" displayMode="label"></w2:column>
+    								<w2:column width="250" inputType="text" id="rmk" value="작업내역" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="100" inputType="text" id="staffNo" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="staffNm" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="workDt" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="shiftClsCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="workStHh" displayMode="label" readOnly="true" displayFormat="##:##"></w2:column>
+    								<w2:column width="100" inputType="text" id="workEndHh" displayMode="label" readOnly="true" displayFormat="##:##"></w2:column>
+    								<w2:column width="250" inputType="text" id="rmk" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

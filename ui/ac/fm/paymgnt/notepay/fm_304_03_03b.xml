@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="draftCheckClsCd" name="어음수표구분코드" dataType="text"></w2:key>
+    					<w2:key id="scClsCd" name="실물어음,전자어음만 조회" dataType="text"></w2:key>
+    					<w2:key id="dueStDt" name="만기일 시작" dataType="text"></w2:key>
+    					<w2:key id="dueEndDt" name="만기일 종료" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_draft" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="draftCheckClsCd" name="어음구분" dataType="text"></w2:column>
+    					<w2:column id="dueDt" name="만기일자" dataType="text"></w2:column>
+    					<w2:column id="draftCheckNo" name="어음번호" dataType="text"></w2:column>
+    					<w2:column id="prtDt" name="발행일자" dataType="text"></w2:column>
+    					<w2:column id="draftCheckAmt" name="발행금액" dataType="number"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="issueBankNm" name="지급은행" dataType="text"></w2:column>
+    					<w2:column id="bfDraftStsCd" name="name8" dataType="text"></w2:column>
+    					<w2:column id="draftStsCd" name="name9" dataType="text"></w2:column>
+    					<w2:column id="issueBankCd" name="name10" dataType="text"></w2:column>
+    					<w2:column id="disuseDt" name="name11" dataType="text"></w2:column>
+    					<w2:column id="dueSlipNo" name="name12" dataType="text"></w2:column>
+    					<w2:column id="draftCheckDesc" name="name13" dataType="text"></w2:column>
+    					<w2:column id="refDraftCheckNo" name="name14" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="name15" dataType="text"></w2:column>
+    					<w2:column id="modId" name="name16" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="name17" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ac.fm.paymgnt.notepay.RetrieveDraftCheckContentsCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_draft","key":"OUT_DS1"},{"id":"dma_search","key":"IN_DS1"}]'
+    			target='data:json,{"id":"ds_draft","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveDraft" action="/ac.fm.paymgnt.notepay.UpdateDraftExpirationDayCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_draft","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveDraft_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.strCurDate =  WebSquare.date.getCurrentServerDate()
+scwin.strFromDate = scwin.strCurDate.substring(0, 6) + "01"; 
+scwin.strToDate = scwin.strCurDate
+
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    const codeOptions = [
+        { grpCd : "FM012", compID : "gr_draft:draftCheckClsCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+scwin.onUdcCompleted = function() {
+
+   	ed_stDt.setValue(scwin.strFromDate)
+	ed_endDt.setValue(scwin.strToDate)
+}
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tbl_search);
+}
+
+//-------------------------------------------------------------------------
+// 조회(전표현황내역)
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {  
+    if (! await $c.gus.cfValidate([ed_stDt, ed_endDt])) {
+        return;
+    }
+
+    if (ed_stDt.getValue().trim() > ed_endDt.getValue().trim()) {
+        await $c.win.alert(MSG_CM_ERR_039); 
+        ed_stDt.focus();
+        return;
+    }
+
+    dma_search.set("scClsCd", "3")
+
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+if(ds_draft.getModifiedIndex().length > 0==false){
+    await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["자료"]);
+}else{
+    if (! await $c.gus.cfValidate([gr_draft])) {
+        return;
+    }
+        if(await $c.win.confirm(MSG_CM_CRM_001)){
+        $c.sbm.execute(sbm_saveDraft);
+    }  	       
+    } 
+}
+
+// -----------------------------------------------------------------------------
+// script
+// -----------------------------------------------------------------------------
+
+
+scwin.sbm_search_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    totalRows.setValue(ds_draft.getRowCount());
+    let rowCnt = ds_draft.getRowCount()
+	if( rowCnt == 0 ){
+	   if($c.gus.cfCheckCreateFlag() == true){
+	    	$c.gus.cfTurnCreateFlag(false);
+	   }else{
+			await $c.win.alert(MSG_CM_WRN_002);		
+			ed_stDt.focus();
+	   }
+	} 
+};
+
+scwin.sbm_saveDraft_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert(MSG_CM_INF_001);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="어음구분" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control w150" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_draft_check_cls_cd" style="" submenuSize="auto" ref="data:dma_search.draftCheckClsCd">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[전체]]></xf:label>
+    												<xf:value><![CDATA[]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[실물어음]]></xf:label>
+    												<xf:value><![CDATA[01]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[전자어음]]></xf:label>
+    												<xf:value><![CDATA[02]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="만기일" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar refStDt="dueStDt" refDataMap="dma_search" style="" id="udc_fromToCalendar1" refEdDt="dueEndDt" edFromId="ed_stDt" edToId="ed_endDt" objTypeTo="data" objTypeBtn="data">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="init_table" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn btnPlusYn="N" gridDownYn="N" gridUpYn="N" grp="grd_section1" style="" gridID="gr_draft"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_draft" id="gr_draft" style=""
+    					visibleRowNumFix="true" columnMove="true" dataDragSelectAutoScroll="true" editModeEvent="onclick" visibleRowNum="15">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="어음구분" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="만기일자" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="어음번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" style="" value="발행일자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" style="" value="발행금액" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" style="" value="거래처명" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" style="" value="지급은행" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="draftCheckClsCd" inputType="select" style="" value="" width="100"
+    								textAlign="center" readOnly="true" allOption="" chooseOption="" ref="">
+    								<w2:choices></w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="dueDt" inputType="calendar" style="" value="" width="100"
+    								textAlign="center" displayFormat="yyyy/MM/dd" mandatory="true" class="ipt-readonly" embeddedInput="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="draftCheckNo" inputType="text" style="" value="" width="100"
+    								textAlign="center" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="prtDt" inputType="text" style="" value="" width="100"
+    								editFormat="####/##/##" textAlign="center" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="draftCheckAmt" inputType="text" style="" value="" width="100"
+    								textAlign="right" readOnly="true" displayFormat="#,##0" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="100" textAlign="right"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="issueBankNm" inputType="text" style="" value="" width="100"
+    								textAlign="left" readOnly="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" userAuth="C" objType="bSave"
+    						ev:onclick="scwin.f_Save">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

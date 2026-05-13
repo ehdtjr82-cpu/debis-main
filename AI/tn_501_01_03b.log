@@ -1,0 +1,37 @@
+tn_501_01_03b.log
+
+[2026-02-20 15:05:53.643] 변환 시작
+[2026-02-20 15:05:53.838] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 15:12:45.966] #1 검증: XML: WebSquareXmlValidator: score=0.43, grade=C, verdict=REVIEW, errors=5, warnings=8 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=3, warnings=8 | LLM 410155ms, total 412128ms
+    - [XML] submission 'sbm_retrieve2'에 action 속성 누락 — sbm_retrieve2
+    - [XML] scwin.dataSetDebug에서 $c.win.alert를 await 없이 호출 — script:scwin.dataSetDebug
+    - [XML] scwin.dataSetDebug이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.dataSetDebug
+    - [XML] scwin.f_retrieveVehclInGrid에서 $c.win.alert를 await 없이 호출 — script:scwin.f_retrieveVehclInGrid
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_filterCustom, scwin.f_districtSearch, scwin.f_grdHeiht → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 10건: em_dptIntendDd (EMEDIT→xf:input), em_dptIntendDd2 (EMEDIT→xf:input), em_reqId (EMEDIT→xf:input), lc_cntrSizCd (LUXECOMBO→w2:autoComplete), em_clntNo (EMEDIT→xf:input)
+    - [적정성] async 선언 누락 — scwin.dataSetDebug (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.dataSetDebug → $c.win.alert, scwin.f_retrieveVehclInGrid → $c.win.alert
+[2026-02-20 15:12:46.582] #1 검증: 자동수정 3건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 15:12:48.240] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.56, grade=B, verdict=REVIEW, errors=2, warnings=8 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=8
+    - [XML] submission 'sbm_retrieve2'에 action 속성 누락 — sbm_retrieve2
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_filterCustom, scwin.f_districtSearch, scwin.f_grdHeiht → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 15건: lc_lobranCd (LUXECOMBO→w2:autoComplete), em_dptIntendDd (EMEDIT→xf:input), em_dptIntendDd2 (EMEDIT→xf:input), lc_noClsCd (LUXECOMBO→w2:autoComplete), lc_impExpDomesticClsCd (LUXECOMBO→w2:autoComplete)
+[2026-02-20 15:12:48.245] #2 재시도 (에러 8건)
+[2026-02-20 15:12:49.255] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 15:20:05.487] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=8 | LLM 434953ms, total 436232ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 10건: em_dptIntendDd (EMEDIT→xf:input), em_dptIntendDd2 (EMEDIT→xf:input), em_reqId (EMEDIT→xf:input), lc_cntrSizCd (LUXECOMBO→w2:autoComplete), em_clntNo (EMEDIT→xf:input)
+[2026-02-20 15:20:05.493] #1 검증: 최적 시도 #1 채택 (confidence: 0.76)
+[2026-02-20 15:20:05.493] 실패 (2회 시도, 14m 11s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] submission 'sbm_retrieve2'에 action 속성 누락 — sbm_retrieve2
+  2. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_filterCustom, scwin.f_districtSearch, scwin.f_grdHeiht → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  3. [적정성] 컴포넌트 ID 유지 — 누락 15건: lc_lobranCd (LUXECOMBO→w2:autoComplete), em_dptIntendDd (EMEDIT→xf:input), em_dptIntendDd2 (EMEDIT→xf:input), lc_noClsCd (LUXECOMBO→w2:autoComplete), lc_impExpDomesticClsCd (LUXECOMBO→w2:autoComplete)
+================================================================================

@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="closeYm" name="" dataType="text"></w2:key>
+    					<w2:key id="ver" name="" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="" dataType="text"></w2:key>
+    					<w2:key id="acctDeptLvl" name="" dataType="number"></w2:key>
+    					<w2:key id="bookClsCd" name="" dataType="text"></w2:key>
+    					<w2:key id="bizDomCd" name="" dataType="text"></w2:key>
+    					<w2:key id="distYn" name="배부포함여부" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_unit" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="fltrCd1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="name2" dataType="text"></w2:column>
+    					<w2:column id="cd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="cdDesc" name="name4" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="mgntAcctCdNm" name="계정" dataType="text"></w2:column>
+    					<w2:column id="bfyyAvgAmt" name="전기-평균" dataType="text"></w2:column>
+    					<w2:column id="prePreYearRsltsAmt" name="전기-전전월" dataType="text"></w2:column>
+    					<w2:column id="preYearRsltsAmt" name="전기-전월" dataType="text"></w2:column>
+    					<w2:column id="bfyyThisAmt" name="전기-당월" dataType="text"></w2:column>
+    					<w2:column id="preYearAccumRsltsAmt" name="전기-전기누적" dataType="text"></w2:column>
+    					<w2:column id="prePreRsltsAmt" name="당기-전전월" dataType="text"></w2:column>
+    					<w2:column id="preRsltsAmt" name="당기-전월" dataType="text"></w2:column>
+    					<w2:column id="thisRsltsAmt" name="당기-당월" dataType="text"></w2:column>
+    					<w2:column id="threeMonthsSum" name="당기-3개월누적" dataType="text"></w2:column>
+    					<w2:column id="thisAccumRsltsAmt" name="당기-당기누적" dataType="text"></w2:column>
+    					<w2:column id="prePreDiffer" name="증감액-전전월" dataType="text"></w2:column>
+    					<w2:column id="preDiffer" name="증감액-전월" dataType="text"></w2:column>
+    					<w2:column id="bfyyThisDiffer" name="증감액-당월" dataType="text"></w2:column>
+    					<w2:column id="preAccumDiffer" name="증감액-누적" dataType="text"></w2:column>
+    					<w2:column id="perThisPreRsltsAmt" name="증감액-비율" dataType="text"></w2:column>
+    					<w2:column id="mgntAcctCd" name="name17" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_version" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name5" dataType="text"></w2:column>
+    					<w2:column id="col6" name="name6" dataType="text"></w2:column>
+    					<w2:column id="col7" name="name7" dataType="text"></w2:column>
+    					<w2:column id="col8" name="name8" dataType="text"></w2:column>
+    					<w2:column id="col9" name="name9" dataType="text"></w2:column>
+    					<w2:column id="col10" name="name10" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id='ds_master_temp' repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="mgntAcctCdNm" name="계정"></w2:column>
+    					<w2:column dataType="text" id="bfyyAvgAmt" name="전기-평균"></w2:column>
+    					<w2:column dataType="text" id="prePreYearRsltsAmt" name="전기-전전월"></w2:column>
+    					<w2:column dataType="text" id="preYearRsltsAmt" name="전기-전월"></w2:column>
+    					<w2:column dataType="text" id="bfyyThisAmt" name="전기-당월"></w2:column>
+    					<w2:column dataType="text" id="preYearAccumRsltsAmt" name="전기-전기누적"></w2:column>
+    					<w2:column dataType="text" id="prePreRsltsAmt" name="당기-전전월"></w2:column>
+    					<w2:column dataType="text" id="preRsltsAmt" name="당기-전월"></w2:column>
+    					<w2:column dataType="text" id="thisRsltsAmt" name="당기-당월"></w2:column>
+    					<w2:column dataType="text" id="threeMonthsSum" name="당기-3개월누적"></w2:column>
+    					<w2:column dataType="text" id="thisAccumRsltsAmt" name="당기-당기누적"></w2:column>
+    					<w2:column dataType="text" id="prePreDiffer" name="증감액-전전월"></w2:column>
+    					<w2:column dataType="text" id="preDiffer" name="증감액-전월"></w2:column>
+    					<w2:column dataType="text" id="bfyyThisDiffer" name="증감액-당월"></w2:column>
+    					<w2:column dataType="text" id="preAccumDiffer" name="증감액-누적"></w2:column>
+    					<w2:column dataType="text" id="perThisPreRsltsAmt" name="증감액-비율"></w2:column>
+    					<w2:column dataType="text" id="mgntAcctCd" name="name17"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ac.fi.gnrlaccount.settmgnt.RetrieveFiBranchProfitAndLossCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_ds_version" action="" method="post" mediatype="application/json" ref=""
+    			target='data:json,{"id":"ds_version","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_ds_version_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_ds_unit" action="" method="post" mediatype="application/json" ref=""
+    			target='data:json,{"id":"ds_unit","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_ds_unit_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/cm/fw/constants/DGlobalValue.js" type="text/javascript" scopeVariable="DGlobalValue"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 지사별손익(재무기준) 
+ * 메뉴경로 : 회계/재무회계/일반회계/결산관리/
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ac/fi/gnrlaccount/settmgnt/fi_204_03_17b.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-12-12
+ * 수정이력  :
+ *    - 2025-12-12      정승혜    최초작성
+ *    - 2026-02-07      정승혜    기타수정
+ * 메모 :
+ * 양수 - Infinity   =  1
+ * 음수 - Infinity   = -1
+ * Infinity - 양수   =  1
+ * Infinity - 음수   =  1
+ * -Infinity - -Infinity = -1(NaN)
+ * 조회조건 : 
+ * 
+ */
+
+//전역변수
+scwin.sDate                     = WebSquare.date.getCurrentServerDate();
+scwin.closeMm                   = scwin.sDate.substring(0, 6);
+
+//그리드 원본데이터
+scwin.originData = {};
+
+scwin.unitAmtFlag         =   1;  // 단위변경 금액 (0 으로 주면 NaN 발생)
+
+scwin.onpageload = function() {
+	
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+
+};
+
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+scwin.onUdcCompleted = function () {
+    scwin.f_HeaderCreate();
+    scwin.f_FieldClear();
+    scwin.f_GetUnit();
+}
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tbl_search,[ica_srchCloseYm ]); //오브젝트초기화
+    scwin.f_SetSrchDefault();
+};
+
+//-------------------------------------------------------------------------
+// 조회 기본값 설정
+//-------------------------------------------------------------------------
+scwin.f_SetSrchDefault = function () {
+    $c.gus.cfInitHidVal(tbl_search);
+    ica_srchCloseYm .setValue(scwin.closeMm);
+    scwin.f_GetVersion(); 		
+    ed_srchAcctDeptCd.setValue('00000');
+    ed_srchAcctDeptNm.setValue('전사');
+    dma_search.set("distYn", "1")
+    dma_search.set("bookClsCd", "604");
+};
+
+	//-------------------------------------------------------------------------
+	// 조회 데이터셋 헤더를 생성
+	//-------------------------------------------------------------------------
+scwin.f_HeaderCreate = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    // dma_search.setUseChangeInfo(false);
+    
+    dma_search.set("bizDomCd", ed_BizDomCd.getValue());
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUp = async function(paramArray) {
+    let codeObj = paramArray.pCode;
+    let nameObj = paramArray.pName;
+
+    udc_dept.cfCommonPopUp(scwin.udc_dept_callBackFunc, codeObj.getValue(), ""
+                        ,paramArray.check, paramArray.pDispCnt
+                        ,paramArray.pTitle, paramArray.pWidth
+                        ,paramArray.pHidden, paramArray.pWhere
+                        ,paramArray.pW, paramArray.pH
+                        ,paramArray.pTop, paramArray.pLeft
+                        ,paramArray.pExistTF, paramArray.pAllSearchTF
+                        ,paramArray.pWtitleSearch)
+
+};
+
+scwin.udc_dept_callBackFunc = function(rtnList) {
+    if (rtnList != null && rtnList[0] != "N/A") {
+            ed_srchAcctDeptCd.setValue(rtnList[0]);
+            ed_srchAcctDeptCd.options.hidVal = rtnList[0];
+            ed_srchAcctDeptNm.setValue(rtnList[1]);
+            dma_search.set("acctDeptLvl", rtnList[6]);
+    } else {
+            ed_srchAcctDeptCd.setValue("");
+            ed_srchAcctDeptCd.options.hidVal = "";
+            ed_srchAcctDeptNm.setValue("");
+            dma_search.set("acctDeptLvl", 0);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUp1 = async function(paramArray) {
+    let codeObj = paramArray.pCode;
+    let nameObj = paramArray.pName;
+
+    udc_bizDomCdInfo.cfCommonPopUp(scwin.udc_bizDomCdInfo_callBackFunc, codeObj.getValue(), ""
+                        ,paramArray.check, paramArray.pDispCnt
+                        ,paramArray.pTitle, paramArray.pWidth
+                        ,paramArray.pHidden, paramArray.pWhere
+                        ,paramArray.pW, paramArray.pH
+                        ,paramArray.pTop, paramArray.pLeft
+                        ,paramArray.pExistTF, paramArray.pAllSearchTF
+                        ,paramArray.pWtitleSearch)
+
+};
+
+scwin.udc_bizDomCdInfo_callBackFunc = function(rtnList) {
+    if (rtnList != null && rtnList[0] != "N/A") {
+        ed_BizDomCd.setValue(rtnList[0]);
+        ed_BizDomCd.options.hidVal = rtnList[0];
+        ed_BizDomNm.setValue(rtnList[1]);
+    } else {
+        ed_BizDomCd.setValue("");
+        ed_BizDomCd.options.hidVal = "";
+        ed_BizDomNm.setValue("");
+    }
+    if (rtnList != null ) {
+        
+    } else {
+        
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업 여부 검사
+//-------------------------------------------------------------------------
+scwin.f_IsPopUp = function(inObj, pairObj) {
+    let inValue = inObj.getValue();
+    let pairValue = pairObj.getValue();
+    let hidInValue = inObj.options.hidVal;
+    if(inValue == ""){
+        pairObj.setValue("");
+    }
+    if (inValue == "" && pairValue == "") {
+        inObj.options.hidVal = "";
+    }
+    if (inValue == hidInValue) return false;
+
+    return true;
+};
+
+	//-------------------------------------------------------------------------
+	// 팝업 이벤트에 따라 팝업창의 자동닫기 여부를 반환
+	//-------------------------------------------------------------------------
+scwin.f_EventCheck = function() {
+    //udc
+};
+
+//-------------------------------------------------------------------------
+// 부서코드팝업
+//-------------------------------------------------------------------------
+scwin.f_deptPopUp = function (check) {
+    let paramArray = {};
+    //<--<수정_070105_신종민> 귀속변경에 따른 병행처리 수정
+    if ( ica_srchCloseYm .getValue().substring(0,4).trim() == '2006' ){
+        udc_dept.setSelectId("retrieveAcctDeptCdInfoBef")
+    }else{
+        udc_dept.setSelectId("retrieveAcctDeptCdInfo")
+    };			
+    //->
+    paramArray.pCode = ed_srchAcctDeptCd;
+    paramArray.pName = ed_srchAcctDeptNm;
+    paramArray.pW = "410";
+    paramArray.check = check;
+
+    scwin.f_PopUp(paramArray);
+};
+
+//-------------------------------------------------------------------------
+// 사업영역코드팝업
+//-------------------------------------------------------------------------
+scwin.f_BizDomPopUp = function (check) {
+    let paramArray = new Object();
+    udc_bizDomCdInfo.setSelectId("retrieveBizDomCdInfo"); 
+    //paramArray.pSelectID = 'retrieveBizDomCdInfo'		
+    paramArray.pCode = ed_BizDomCd;
+    paramArray.pName = ed_BizDomNm;
+    paramArray.pW = "410";
+    paramArray.check = check;
+
+    scwin.f_PopUp1(paramArray);
+};
+
+//-------------------------------------------------------------------------
+// 버전정보를 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetVersion = function () {
+    sbm_ds_version.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC" +
+                                            "&queryId=retrieveVersionInfo" +
+                                            "&param1=" + ica_srchCloseYm.getValue().trim();
+    $c.sbm.execute(sbm_ds_version);
+};
+
+//-------------------------------------------------------------------------
+// 최종 Ver을 설정
+//-------------------------------------------------------------------------
+scwin.f_SetFinalVer = function () {
+    if (ds_version.getRowCount() < 1) return;
+
+    let index = 0;
+    for (i = 0; i < ds_version.getRowCount(); i++) {
+        if (ds_version.getCellData(i, "col3") == 1) {
+            index = i;
+            break;
+        }
+    }
+
+    dma_search.set("ver", index);
+};
+
+//-------------------------------------------------------------------------
+// 금액단위를 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetUnit = function () {
+    sbm_ds_unit.action = "/cm.zz.RetrieveCodeCMD.do?grpCd=CO012&cd=&cdNm=";
+    $c.sbm.execute(sbm_ds_unit);
+};
+
+//-------------------------------------------------------------------------
+// Default Unit 을 설정
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultUnit = function () {
+    if (ds_unit.getRowCount() < 1) return;
+
+    let index = 0;
+    for (i = 0; i < ds_unit.getRowCount(); i++) {
+        if (ds_unit.getCellData(i, "fltrCd1") == 1) {
+            index = i;
+            break;
+        }
+    }
+    lc_unit.setSelectedIndex(index);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 컬럼의 금액단위를 설정한다.
+//-------------------------------------------------------------------------
+scwin.f_SetGridUnit = function () {
+    const data = JSON.parse(JSON.stringify(scwin.originData))
+    let unitAmt = lc_unit.getValue();
+
+    if ( lc_unit.getValue() == "01" ) {  // 원
+        scwin.unitAmtFlag = 1;
+	} else if ( lc_unit.getValue() == "02" ) {  // 천원
+        scwin.unitAmtFlag = 1000;
+	} else if ( lc_unit.getValue() == "03" ) {  // 백만원
+        scwin.unitAmtFlag = 1000000;
+	} else if ( lc_unit.getValue() == "04" ) {  // 억
+        scwin.unitAmtFlag = 100000000;
+	}
+
+    for (let i = 0; i < data.length; i++) {
+        const row = data[i];
+
+        const simpleCols = ["bfyyAvgAmt", "prePreYearRsltsAmt", "preYearRsltsAmt", "bfyyThisAmt", "preYearAccumRsltsAmt", 
+                            "prePreRsltsAmt", "preRsltsAmt", "thisRsltsAmt", "threeMonthsSum", "thisAccumRsltsAmt", "prePreDiffer",
+                            "preDiffer", "bfyyThisDiffer", "preAccumDiffer"];
+        for (const col of simpleCols) {
+            if (row.hasOwnProperty(col)) {
+                //row[col] = Math.round((parseFloat(row[col]) || 0) / unitAmt);
+
+                row[col] = scwin.roundAwayFromZero((parseFloat(row[col]) || 0) / unitAmt);
+            }
+        }
+
+    };
+
+    ds_master.setJSON(data);
+    scwin.f_Rate()
+};
+
+	//-------------------------------------------------------------------------
+	// 엑셀 Download
+	//-------------------------------------------------------------------------
+    // 엑셀다운 2+8+16
+scwin.f_Export = async function(){
+    if (ds_master.getRowCount() <= 0){
+        await $c.win.alert(MSG_CM_WRN_002);
+        return;
+    }
+
+    if (await $c.win.confirm("Excel로 다운로드 하시겠습니까?")) {
+        let fileName = '지사별 손익_' + ed_srchAcctDeptCd.getValue() + "_" + ica_srchCloseYm.getValue() + "_ver_"
+        let sheetTitle = ed_srchAcctDeptCd.getValue() + "(" + ica_srchCloseYm.getValue() + ")";
+        let sheetTitle2 = '단위_' + lc_unit.getText();
+
+        const infoArr = [
+            {
+            rowIndex : 0, 
+            colIndex : 0, 
+            rowSpan : 1,
+            colSpan : 16, 
+            text : sheetTitle , 
+            textAlign : "center",
+            fontSize : 18
+            },
+            {
+            rowIndex : 3, 
+            colIndex : 0, 
+            rowSpan : 1,
+            colSpan : 16, 
+            text : sheetTitle2 , 
+            textAlign : "right",
+            fontSize : 12
+            }
+        ];
+        const options = {
+            fileName : fileName + ".xlsx", 
+            sheetName : sheetTitle,
+            startRowIndex : 4,
+            startColumnIndex : 0,
+            type : 1,
+            
+        };
+
+        await $c.data.downloadGridViewExcel(gr_master, options, infoArr);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 금액을 재설정한다.
+//-------------------------------------------------------------------------
+scwin.f_Rate = function () {	
+
+    // 사용변수 선언
+    let sellAmt       = 0;
+    let sellAmt1      = 0;
+    let sellAmt2      = 0;
+    let sellAmt3      = 0;
+    let sellAmt4      = 0;
+    let sellAmt5      = 0;
+    let sellAmt6      = 0;
+    let sellAmt7      = 0;	
+    let sellAmt8      = 0;
+    let sellAmt9      = 0;	
+    let sellAmt10     = 0;
+    let sellAmt11     = 0;
+    let sellAmt12     = 0;	
+    let sellAmt13     = 0;
+    let sellAmt14     = 0;
+    let sellAmt15     = 0;	
+    
+    let sellCostSum   = 0;
+    let sellCost1     = 0;
+    let sellCost2     = 0;
+    let sellCost3     = 0;
+    let sellCost4     = 0;
+    let sellCost5     = 0;
+    let sellCost6     = 0;
+    let sellCost7     = 0;
+    let sellCost8     = 0;
+    let sellCost9     = 0;
+    let sellCost10    = 0;
+    let sellCost11    = 0;
+    let sellCost12    = 0;
+    let sellCost13    = 0;
+    let sellCost14    = 0;
+    let sellCost15    = 0;
+
+    let salesCostSum  = 0;
+    let salesCost1    = 0;
+    let salesCost2    = 0;
+    let salesCost3    = 0;
+    let salesCost4    = 0;
+    let salesCost5    = 0;
+    let salesCost6    = 0;
+    let salesCost7    = 0;
+    let salesCost8    = 0;
+    let salesCost9    = 0;
+    let salesCost10   = 0;
+    let salesCost11   = 0;
+    let salesCost12   = 0;
+    let salesCost13   = 0;
+    let salesCost14   = 0;
+    let salesCost15   = 0;
+    
+    let mwoundSum     = 0;
+    let mwound1       = 0;
+    let mwound2       = 0;
+    let mwound3       = 0;
+    let mwound4       = 0;
+    let mwound5       = 0;
+    let mwound6       = 0;
+    let mwound7       = 0;
+    let mwound8       = 0;
+    let mwound9       = 0;
+    let mwound10      = 0;
+    let mwound11      = 0;
+    let mwound12      = 0;
+    let mwound13      = 0;
+    let mwound14      = 0;
+    let mwound15      = 0;
+    
+    
+    // 매출액, 매출원가, 영업이익, 경상이익을 구한다.
+    for (i = 0; i < ds_master.getRowCount(); i++) {
+        // 매출액
+        if ( ds_master.getCellData(i, "mgntAcctCd") == "4100000") {
+            sellAmt1 = parseInt(ds_master.getCellData(i, "bfyyAvgAmt"));
+            sellAmt2 = parseInt(ds_master.getCellData(i, "bfyyThisAmt"));
+            
+            sellAmt3 = parseInt(ds_master.getCellData(i, "prePreRsltsAmt"));
+            sellAmt4 = parseInt(ds_master.getCellData(i, "preRsltsAmt"));
+            sellAmt5 = parseInt(ds_master.getCellData(i, "thisRsltsAmt"));
+            
+            sellAmt6 = parseInt(ds_master.getCellData(i, "bfyyThisDiffer"));
+            sellAmt7 = parseInt(ds_master.getCellData(i, "thisPreDiffer"));
+            sellAmt8 = parseInt(ds_master.getCellData(i, "threeMonthsSum"));
+            
+            sellAmt9 = parseInt(ds_master.getCellData(i, "prePreYearRsltsAmt"));
+            sellAmt10 = parseInt(ds_master.getCellData(i, "preYearRsltsAmt"));
+            sellAmt11 = parseInt(ds_master.getCellData(i, "preDiffer"));
+            sellAmt12 = parseInt(ds_master.getCellData(i, "prePreDiffer"));
+            
+            sellAmt13 = parseInt(ds_master.getCellData(i, "preYearAccumRsltsAmt"));
+            sellAmt14 = parseInt(ds_master.getCellData(i, "thisAccumRsltsAmt"));
+            sellAmt15 = parseInt(ds_master.getCellData(i, "preAccumDiffer"));
+
+        }
+        
+        // 매출원가		
+        if ( ds_master.getCellData(i, "mgntAcctCd") == "4200000" ) {
+            sellCost1 = parseInt(ds_master.getCellData(i, "bfyyAvgAmt"));
+            sellCost2 = parseInt(ds_master.getCellData(i, "bfyyThisAmt"));
+            
+            sellCost3 = parseInt(ds_master.getCellData(i, "prePreRsltsAmt"));
+            sellCost4 = parseInt(ds_master.getCellData(i, "preRsltsAmt"));
+            sellCost5 = parseInt(ds_master.getCellData(i, "thisRsltsAmt"));
+            
+            sellCost6 = parseInt(ds_master.getCellData(i, "bfyyThisDiffer"));
+            sellCost7 = parseInt(ds_master.getCellData(i, "thisPreDiffer"));
+            sellCost8 = parseInt(ds_master.getCellData(i, "threeMonthsSum"));
+            
+            sellCost9 = parseInt(ds_master.getCellData(i, "prePreYearRsltsAmt"));
+            sellCost10 = parseInt(ds_master.getCellData(i, "preYearRsltsAmt"));
+            sellCost11 = parseInt(ds_master.getCellData(i, "preDiffer"));
+            sellCost12 = parseInt(ds_master.getCellData(i, "prePreDiffer"));
+            
+            sellCost13 = parseInt(ds_master.getCellData(i, "preYearAccumRsltsAmt"));
+            sellCost14 = parseInt(ds_master.getCellData(i, "thisAccumRsltsAmt"));
+            sellCost15 = parseInt(ds_master.getCellData(i, "preAccumDiffer"));
+        }
+        
+        // 영업이익
+        if ( ds_master.getCellData(i, "mgntAcctCd") == "5900000" ) {
+            salesCost1 = parseInt(ds_master.getCellData(i, "bfyyAvgAmt"));
+            salesCost2 = parseInt(ds_master.getCellData(i, "bfyyThisAmt"));
+            
+            salesCost3 = parseInt(ds_master.getCellData(i, "prePreRsltsAmt"));
+            salesCost4 = parseInt(ds_master.getCellData(i, "preRsltsAmt"));
+            salesCost5 = parseInt(ds_master.getCellData(i, "thisRsltsAmt"));
+            
+            salesCost6 = parseInt(ds_master.getCellData(i, "bfyyThisDiffer"));
+            salesCost7 = parseInt(ds_master.getCellData(i, "thisPreDiffer")); 
+            salesCost8 = parseInt(ds_master.getCellData(i, "threeMonthsSum")); 
+            
+            salesCost9 = parseInt(ds_master.getCellData(i, "prePreYearRsltsAmt"));
+            salesCost10 = parseInt(ds_master.getCellData(i, "preYearRsltsAmt")); 
+            salesCost11 = parseInt(ds_master.getCellData(i, "preDiffer"));
+            salesCost12 = parseInt(ds_master.getCellData(i, "prePreDiffer")); 
+            
+            salesCost13 = parseInt(ds_master.getCellData(i, "preYearAccumRsltsAmt"));
+            salesCost14 = parseInt(ds_master.getCellData(i, "thisAccumRsltsAmt"));
+            salesCost15 = parseInt(ds_master.getCellData(i, "preAccumDiffer"));
+        }
+        
+        // 경상이익
+        if ( ds_master.getCellData(i, "mgntAcctCd") == "6700000" ) {
+            mwound1 = parseInt(ds_master.getCellData(i, "bfyyAvgAmt"));
+            mwound2 = parseInt(ds_master.getCellData(i, "bfyyThisAmt"));
+            
+            mwound3 = parseInt(ds_master.getCellData(i, "prePreRsltsAmt"));
+            mwound4 = parseInt(ds_master.getCellData(i, "preRsltsAmt"));
+            mwound5 = parseInt(ds_master.getCellData(i, "thisRsltsAmt"));
+            
+            mwound6 = parseInt(ds_master.getCellData(i, "bfyyThisDiffer"));
+            mwound7 = parseInt(ds_master.getCellData(i, "thisPreDiffer"));  
+            mwound8 = parseInt(ds_master.getCellData(i, "threeMonthsSum")); 
+            
+            mwound9 = parseInt(ds_master.getCellData(i, "prePreYearRsltsAmt"));
+            mwound10 = parseInt(ds_master.getCellData(i, "preYearRsltsAmt")); 
+            mwound11 = parseInt(ds_master.getCellData(i, "preDiffer"));
+            mwound12 = parseInt(ds_master.getCellData(i, "prePreDiffer")); 
+            
+            mwound13 = parseInt(ds_master.getCellData(i, "preYearAccumRsltsAmt"));
+            mwound14 = parseInt(ds_master.getCellData(i, "thisAccumRsltsAmt"));
+            mwound15 = parseInt(ds_master.getCellData(i, "preAccumDiffer"));
+        }  
+    }
+
+    // 매출원가율, 영업이익율, 경상이익율을 구한다.
+    for (i = 0; i < ds_master.getRowCount(); i++) {
+
+        // 매출원가율
+        if (ds_master.getCellData(i, "mgntAcctCd") == "9300001") {
+            ds_master.setCellData(i, "bfyyAvgAmt", Math.round((sellAmt1 === 0 ? 0 : (sellCost1 / sellAmt1) * 100)));
+            ds_master.setCellData(i, "bfyyThisAmt", Math.round((sellAmt2 === 0 ? 0 : (sellCost2 / sellAmt2) * 100)));
+
+            //당기-전전월
+            ds_master.setCellData(i, "prePreRsltsAmt", Math.round((sellAmt3 === 0 ? 0 : (sellCost3 / sellAmt3) * 100)));
+            if(parseInt(sellAmt3) === 0){
+                if(sellCost3 > 0){
+                    ds_master.setCellData(i, "prePreRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreRsltsAmt", -1);
+                }
+            }
+
+            //당기-전월
+            ds_master.setCellData(i, "preRsltsAmt", Math.round((sellAmt4 === 0 ? 0 : (sellCost4 / sellAmt4) * 100)));
+            if(parseInt(sellAmt4) === 0){
+                if(sellCost4 > 0){
+                    ds_master.setCellData(i, "preRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preRsltsAmt", -1);
+                }
+            }
+
+            //당기-당월
+            ds_master.setCellData(i, "thisRsltsAmt", Math.round((sellAmt5 === 0 ? 0 : (sellCost5 / sellAmt5) * 100)));
+            if(parseInt(sellAmt5) === 0){
+                if(sellCost5 > 0){
+                    ds_master.setCellData(i, "thisRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "thisRsltsAmt", -1);
+                }
+            }
+
+            //당기-3개월누적
+            ds_master.setCellData(i, "threeMonthsSum", Math.round((sellAmt8 === 0 ? 0 : (sellCost8 / sellAmt8) * 100)));
+            if(parseInt(sellAmt8) === 0){
+                if(sellCost8 > 0){
+                    ds_master.setCellData(i, "threeMonthsSum", 1);
+                }else{
+                    ds_master.setCellData(i, "threeMonthsSum", -1);
+                }
+            }
+
+            ds_master.setCellData(i, "prePreYearRsltsAmt", Math.round((sellAmt9 === 0 ? 0 : (sellCost9 / sellAmt9) * 100)));
+            ds_master.setCellData(i, "preYearRsltsAmt", Math.round((sellAmt10 === 0 ? 0 : (sellCost10 / sellAmt10) * 100)));
+
+            ds_master.setCellData(i, "preYearAccumRsltsAmt", Math.round((sellAmt13 === 0 ? 0 : (sellCost13 / sellAmt13) * 100)));
+
+            //당기-당기누적
+            ds_master.setCellData(i, "thisAccumRsltsAmt", Math.round((sellAmt14 === 0 ? 0 : (sellCost14 / sellAmt14) * 100)));
+            if(parseInt(sellAmt14) === 0){
+                if(sellCost14 > 0){
+                    ds_master.setCellData(i, "thisAccumRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "thisAccumRsltsAmt", -1);
+                }
+            }
+
+            //증감액-전전월
+            ds_master.setCellData(i, "prePreDiffer", ds_master_temp.getCellData(i, "prePreRsltsAmt") - ds_master_temp.getCellData(i, "prePreYearRsltsAmt"));
+            if(parseInt(sellAmt3) === 0){
+                if(sellCost3 > 0){
+                    ds_master.setCellData(i, "prePreDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreDiffer", -1);
+                }
+            }
+
+            //증감액-전월
+            ds_master.setCellData(i, "preDiffer", ds_master_temp.getCellData(i, "preRsltsAmt") - ds_master_temp.getCellData(i, "preYearRsltsAmt"));
+            if(parseInt(sellAmt4) === 0){
+                if(sellCost4 > 0){
+                    ds_master.setCellData(i, "preDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "preDiffer", -1);
+                }
+            }
+
+            //증감액-당월
+            ds_master.setCellData(i, "bfyyThisDiffer", ds_master_temp.getCellData(i, "thisRsltsAmt") - ds_master_temp.getCellData(i, "bfyyThisAmt"));
+            if(parseInt(sellAmt5) === 0){
+                if(sellCost5 > 0){
+                    ds_master.setCellData(i, "bfyyThisDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyThisDiffer", -1);
+                }
+            }
+
+            ds_master.setCellData(i, "preAccumDiffer", ds_master_temp.getCellData(i, "thisAccumRsltsAmt") - ds_master_temp.getCellData(i, "preYearAccumRsltsAmt"));
+            if(parseInt(sellAmt14) === 0){
+                if(sellCost4 > 0){
+                    ds_master.setCellData(i, "preAccumDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "preAccumDiffer", -1);
+                }
+            }
+        }
+
+        // 영업이익율
+        if (ds_master.getCellData(i, "mgntAcctCd") == "9300002") {
+            //전기-평균
+            ds_master.setCellData(i, "bfyyAvgAmt", Math.round((sellAmt1 === 0 ? 0 : (salesCost1 / sellAmt1) * 100)));
+            if(parseInt(sellAmt1) === 0){
+                if(salesCost1 > 0){
+                    ds_master.setCellData(i, "bfyyAvgAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyAvgAmt", -1);
+                }
+            }
+
+            //전기-당월
+            ds_master.setCellData(i, "bfyyThisAmt", Math.round((sellAmt2 === 0 ? 0 : (salesCost2 / sellAmt2) * 100)));
+            if(parseInt(sellAmt2) === 0){
+                if(salesCost2 > 0){
+                    ds_master.setCellData(i, "bfyyThisAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyThisAmt", -1);
+                }
+            }
+
+            //당기-전전월
+            ds_master.setCellData(i, "prePreRsltsAmt", Math.round((sellAmt3 === 0 ? 0 : (salesCost3 / sellAmt3) * 100)));
+            if(parseInt(sellAmt3) === 0){
+                if(salesCost3 > 0){
+                    ds_master.setCellData(i, "prePreRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreRsltsAmt", -1);
+                }
+            }
+
+            //당기-전월
+            ds_master.setCellData(i, "preRsltsAmt", Math.round((sellAmt4 === 0 ? 0 : (salesCost4 / sellAmt4) * 100)));
+            if(parseInt(sellAmt4) === 0){
+                if(salesCost4 > 0){
+                    ds_master.setCellData(i, "preRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preRsltsAmt", -1);
+                }
+            }
+
+            //당기-당월
+            ds_master.setCellData(i, "thisRsltsAmt", Math.round((sellAmt5 === 0 ? 0 : (salesCost5 / sellAmt5) * 100)));
+            if(parseInt(sellAmt5) === 0){
+                if(salesCost5 > 0){
+                    ds_master.setCellData(i, "thisRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "thisRsltsAmt", -1);
+                }
+            }
+
+            //당기-3개월누적
+            ds_master.setCellData(i, "threeMonthsSum", Math.round((sellAmt8 === 0 ? 0 : (salesCost8 / sellAmt8) * 100)));
+            if(parseInt(sellAmt8) === 0){
+                if(salesCost8 > 0){
+                    ds_master.setCellData(i, "threeMonthsSum", 1);
+                }else{
+                    ds_master.setCellData(i, "threeMonthsSum", -1);
+                }
+            }
+
+            //전기-전전월
+            ds_master.setCellData(i, "prePreYearRsltsAmt", Math.round((sellAmt9 === 0 ? 0 : (salesCost9 / sellAmt9) * 100)));
+            if(parseInt(sellAmt9) === 0){
+                if(salesCost9 > 0){
+                    ds_master.setCellData(i, "prePreYearRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreYearRsltsAmt", -1);
+                }
+            }
+
+            //전기-전월
+            ds_master.setCellData(i, "preYearRsltsAmt", Math.round((sellAmt10 === 0 ? 0 : (salesCost10 / sellAmt10) * 100)));
+            if(parseInt(sellAmt10) === 0){
+                if(salesCost10 > 0){
+                    ds_master.setCellData(i, "preYearRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preYearRsltsAmt", -1);
+                }
+            }
+
+            //전기-전기누적
+            ds_master.setCellData(i, "preYearAccumRsltsAmt", Math.round((sellAmt13 === 0 ? 0 : (salesCost13 / sellAmt13) * 100)));
+            if(parseInt(sellAmt13) === 0){
+                if(salesCost13 > 0){
+                    ds_master.setCellData(i, "preYearAccumRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preYearAccumRsltsAmt", -1);
+                }
+            }
+
+            //당기-당기누적
+            ds_master.setCellData(i, "thisAccumRsltsAmt", Math.round((sellAmt14 === 0 ? 0 : (salesCost14 / sellAmt14) * 100)));
+            if(parseInt(sellAmt14) === 0){
+                if(salesCost14 > 0){
+                    ds_master.setCellData(i, "thisAccumRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "thisAccumRsltsAmt", -1);
+                }
+            }
+
+            //증감액-전전월
+            ds_master.setCellData(i, "prePreDiffer", ds_master_temp.getCellData(i, "prePreRsltsAmt") - ds_master_temp.getCellData(i, "prePreYearRsltsAmt"));
+            if(parseInt(sellAmt3) === 0){
+                if(salesCost3 > 0){
+                    ds_master.setCellData(i, "prePreDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreDiffer", -1);
+                }
+            }
+
+            //증감액-전월
+            ds_master.setCellData(i, "preDiffer", ds_master_temp.getCellData(i, "preRsltsAmt") - ds_master_temp.getCellData(i, "preYearRsltsAmt"));
+            if(parseInt(sellAmt4) === 0 || parseInt(sellAmt10) === 0){
+                ds_master.setCellData(i, "preDiffer", -1);
+            }else{
+                ds_master.setCellData(i, "preDiffer", 1);
+            }
+
+            //증감액-당월
+            ds_master.setCellData(i, "bfyyThisDiffer", ds_master_temp.getCellData(i, "thisRsltsAmt") - ds_master_temp.getCellData(i, "bfyyThisAmt"));
+            if(parseInt(sellAmt2) === 0 ){
+                if(parseInt(sellAmt5) > 0){
+                    ds_master.setCellData(i, "bfyyThisDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyThisDiffer", -1);
+                }
+            }
+            if(parseInt(sellAmt5) === 0 ){
+                if(parseInt(sellAmt2) > 0){
+                    ds_master.setCellData(i, "bfyyThisDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyThisDiffer", -1);
+                }
+            }
+            if(parseInt(sellAmt2) === 0 && parseInt(sellAmt5) === 0){
+                ds_master.setCellData(i, "bfyyThisDiffer", -1);
+            }
+
+            //증감액-누적
+            ds_master.setCellData(i, "preAccumDiffer", ds_master_temp.getCellData(i, "thisAccumRsltsAmt") - ds_master_temp.getCellData(i, "preYearAccumRsltsAmt"));
+            if(parseInt(sellAmt14) === 0 || parseInt(sellAmt13) === 0){
+                ds_master.setCellData(i, "preAccumDiffer", -1);
+            }else{
+                ds_master.setCellData(i, "preAccumDiffer", 1);
+            }
+        }
+
+        // 경상이익율
+        if (ds_master.getCellData(i, "mgntAcctCd") == "9300003") {
+            ds_master.setCellData(i, "bfyyAvgAmt", Math.round((parseInt(sellAmt1) === 0 ? 0 : (mwound1 / sellAmt1) * 100)));
+            
+            //전기-당월
+            ds_master.setCellData(i, "bfyyThisAmt", Math.round((parseInt(sellAmt2) === 0 ? 0 : (mwound2 / sellAmt2) * 100)));
+            if(parseInt(sellAmt2) === 0){
+                if(mwound2 > 0){
+                    ds_master.setCellData(i, "bfyyThisAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyThisAmt", -1);
+                }
+            }
+
+            //당기-전전월
+            ds_master.setCellData(i, "prePreRsltsAmt", Math.round((parseInt(sellAmt3) === 0 ? 0 : (mwound3 / sellAmt3) * 100)));
+            if(parseInt(sellAmt3) === 0){
+                if(mwound3 > 0){
+                    ds_master.setCellData(i, "prePreRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreRsltsAmt", -1);
+                }
+            }
+
+            //당기-전월
+            ds_master.setCellData(i, "preRsltsAmt", Math.round((parseInt(sellAmt4) === 0 ? 0 : (mwound4 / sellAmt4) * 100 )));
+            if(parseInt(sellAmt4) === 0){
+                if(mwound4 > 0){
+                    ds_master.setCellData(i, "preRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preRsltsAmt", -1);
+                }
+            }
+
+            //당기-당월
+            ds_master.setCellData(i, "thisRsltsAmt", Math.round((parseInt(sellAmt5) === 0 ? 0 : (mwound5 / sellAmt5) * 100 )));
+            if(parseInt(sellAmt5) === 0){
+                if(mwound5 > 0){
+                    ds_master.setCellData(i, "thisRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "thisRsltsAmt", -1);
+                }
+            }
+
+            //당기-3개월누적
+            ds_master.setCellData(i, "threeMonthsSum", Math.round((parseInt(sellAmt8) === 0 ? 0 : (mwound8 / sellAmt8) * 100)));
+            if(parseInt(sellAmt8) === 0){
+                if(mwound8 > 0){
+                    ds_master.setCellData(i, "threeMonthsSum", 1);
+                }else{
+                    ds_master.setCellData(i, "threeMonthsSum", -1);
+                }
+            }
+
+            //전기-전전월
+            ds_master.setCellData(i, "prePreYearRsltsAmt", Math.round((parseInt(sellAmt9) === 0 ? 0 : (mwound9 / sellAmt9) * 100)));
+            if(parseInt(sellAmt9) === 0){
+                if(mwound9 > 0){
+                    ds_master.setCellData(i, "prePreYearRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreYearRsltsAmt", -1);
+                }
+            }
+
+            //전기-전월
+            ds_master.setCellData(i, "preYearRsltsAmt", Math.round((parseInt(sellAmt10) === 0 ? 0 : (mwound10 / sellAmt10) * 100)));
+            if(parseInt(sellAmt10) === 0){
+                if(mwound10 > 0){
+                    ds_master.setCellData(i, "preYearRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preYearRsltsAmt", -1);
+                }
+            }
+
+            //전기-전기누적
+            ds_master.setCellData(i, "preYearAccumRsltsAmt", Math.round((parseInt(sellAmt13) === 0 ? 0 : (mwound13 / sellAmt13) * 100)));
+            if(parseInt(sellAmt13) === 0){
+                if(mwound13 > 0){
+                    ds_master.setCellData(i, "preYearAccumRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "preYearAccumRsltsAmt", -1);
+                }
+            }
+
+            //당기-당기누적
+            ds_master.setCellData(i, "thisAccumRsltsAmt", Math.round((parseInt(sellAmt14) === 0 ? 0 : (mwound14 / sellAmt14) * 100)));
+            if(parseInt(sellAmt14) === 0){
+                if(mwound14 > 0){
+                    ds_master.setCellData(i, "thisAccumRsltsAmt", 1);
+                }else{
+                    ds_master.setCellData(i, "thisAccumRsltsAmt", -1);
+                }
+            }
+
+            //증감액-전전월
+            ds_master.setCellData(i, "prePreDiffer", ds_master_temp.getCellData(i, "prePreRsltsAmt") - ds_master_temp.getCellData(i, "prePreYearRsltsAmt"));
+            if(parseInt(sellAmt3) === 0){
+                if(mwound3 > 0){
+                    ds_master.setCellData(i, "prePreDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "prePreDiffer", -1);
+                }
+            }
+
+            //증감액-전월
+            ds_master.setCellData(i, "preDiffer", ds_master_temp.getCellData(i, "preRsltsAmt") - ds_master_temp.getCellData(i, "preYearRsltsAmt"));
+            if(parseInt(sellAmt4) === 0){
+                if(mwound4 > 0){
+                    ds_master.setCellData(i, "preDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "preDiffer", -1);
+                }
+            }
+
+            //증감액-당월
+            ds_master.setCellData(i, "bfyyThisDiffer", ds_master_temp.getCellData(i, "thisRsltsAmt") - ds_master_temp.getCellData(i, "bfyyThisAmt"));
+            if(parseInt(sellAmt5) === 0){
+                if(mwound5 > 0){
+                    ds_master.setCellData(i, "bfyyThisDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "bfyyThisDiffer", -1);
+                }
+            }
+
+            //증감액-누적
+            ds_master.setCellData(i, "preAccumDiffer", ds_master_temp.getCellData(i, "thisAccumRsltsAmt") - ds_master_temp.getCellData(i, "preYearAccumRsltsAmt"));
+            if(parseInt(sellAmt14) === 0){
+                if(mwound14 > 0){
+                    ds_master.setCellData(i, "preAccumDiffer", 1);
+                }else{
+                    ds_master.setCellData(i, "preAccumDiffer", -1);
+                }
+            }
+        }
+    }
+    gr_master.setFocusedCell(0,0,false)
+};
+
+//-------------------------------------------------------------------------
+// script
+//-------------------------------------------------------------------------
+scwin.sbm_search_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    ds_master_temp.setJSON(ds_master.getAllJSON());
+
+    let rowCnt = ds_master.getRowCount();
+    totalRows.setValue(ds_master.getRowCount());
+    if (rowCnt == 0) { 
+        await $c.win.alert(MSG_CM_WRN_002);
+    }else{
+        scwin.originData  = ds_master.getAllJSON();
+        scwin.f_SetGridUnit();
+    }
+};
+
+scwin.sbm_ds_unit_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    scwin.f_SetDefaultUnit();
+};
+
+scwin.sbm_ds_version_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    scwin.f_SetFinalVer();
+};
+
+
+scwin.ica_srchCloseYm_onblur = function (e) {
+    scwin.f_GetVersion();
+};
+
+scwin.lc_unit_onviewchange = function (info) {
+    scwin.f_SetGridUnit();
+};
+
+scwin.udc_dept_onblurCodeEvent = function (e) {
+
+    if (ed_srchAcctDeptCd.getValue() != ""){
+	    //if (scwin.f_IsPopUp(ed_srchAcctDeptCd, ed_srchAcctDeptNm) == false) return;
+	    scwin.f_deptPopUp("T");
+    }else{
+        ed_srchAcctDeptNm.setValue("");
+        ed_srchAcctDeptCd.options.hidVal = "";
+    }
+};
+
+scwin.udc_bizDomCdInfo_onblurCodeEvent = function (e) {
+	//if (scwin.f_IsPopUp(ed_BizDomCd, ed_BizDomNm) == false) return;
+    if (ed_BizDomCd.getValue() != ""){
+	    scwin.f_BizDomPopUp("T");
+    }
+    else{
+        ed_BizDomNm.setValue("");
+    }
+};
+
+scwin.udc_dept_onclickEvent = function (e) {
+    scwin.f_deptPopUp("F");
+};
+
+scwin.udc_bizDomCdInfo_onclickEvent = function (e) {
+    scwin.f_BizDomPopUp("F");
+};
+
+scwin.roundAwayFromZero = function(x) {
+  if (!Number.isFinite(x)) return 0;
+  return x >= 0 ? Math.round(x) : -Math.round(-x);
+}
+
+// 금액변경 함수 추가
+scwin.f_changeUnitAmt = function(val) {
+    if ( val == 0 ) return "-0";  // 0 이면 -0 표현
+
+    let ret = Math.round( parseInt(val) / scwin.unitAmtFlag);
+
+    // 음수 처리 :
+    //   60 만 / 원     양수 60만, 음수 -60만
+    //   60 만 / 1000   양수 600 , 음수 -600
+    //   60 만 / 백만   양수 1, 음수 -1
+    //   60 만 / 1억    양수 0, 음수 -0  (엑셀 양수 0, 음수 0)
+
+    // 음수의 round 가 0 이면 -0 으로 표현
+    if ( val < 0 ) {
+         if ( ret == 0 ) return "-0";
+    }
+
+    return $c.num.formatNumber(ret);
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="결산년월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_srchCloseYm" style="" objType="data" mandatory="true" ref="data:dma_search.closeYm" displayFormat="yyyy/MM" ev:onblur="scwin.ica_srchCloseYm_onblur"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="부서 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode popupID="" selectID="" codeId="ed_srchAcctDeptCd" validTitle="" nameId="ed_srchAcctDeptNm" style="" objTypeCode="data" allowCharCode="0-9" maxlengthCode="5" objTypeName="data" maxlengthName="30" code="acctDeptCd" refDataCollection="dma_search" id="udc_dept" ev:onblurCodeEvent="scwin.udc_dept_onblurCodeEvent" ev:onclickEvent="scwin.udc_dept_onclickEvent" skipOnBlurCodeValueEmpty="N" mandatoryCode="true" mandatoryName="true"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="사업영역 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode codeId="ed_BizDomCd" nameId="ed_BizDomNm" popupID="" selectID="" style="" validTitle="" allowCharCode="0-9" maxlengthCode="3" objTypeCode="data" maxlengthName="30" objTypeName="data" refDataCollection="dma_search" code="bizDomCd" id="udc_bizDomCdInfo" ev:onblurCodeEvent="scwin.udc_bizDomCdInfo_onblurCodeEvent" ev:onclickEvent="scwin.udc_bizDomCdInfo_onclickEvent" skipOnBlurCodeValueEmpty="N"></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="right" id="">
+    						<xf:group id="" class="inner"><w2:textbox style="" id="" label="단위" class="req"></w2:textbox>
+    							<xf:select1 submenuSize="fixed" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption=""
+    								disabled="false" style="width: 100px;" allOption="" id="lc_unit" class="" direction="auto" ref="" displayMode="label"
+    								ev:onviewchange="scwin.lc_unit_onviewchange" mandatory="true">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:ds_unit">
+    										<xf:label ref="cdNm"></xf:label>
+    										<xf:value ref="cdDesc"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1></xf:group><w2:udc_topGrdBtn grp="grd_section1" style="" userAuth="X" gridUpYn="N" gridDownFn="scwin.f_Export" gridID="gr_master" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    					</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id='grd_section1' style="">
+    				<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_master" id="gr_master"
+    					scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="true"
+    					columnMove="true" dataDragSelect="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" style="" value="계정" width="150" colSpan=""
+    								rowSpan="2" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" style="" value="전기" width="410" colSpan="5"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="460" inputType="text" style="" id="column49" value="당기" displayMode="label" colSpan="5"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" style="" value="증감액" width="380" colSpan="5"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row5">
+    							<w2:column width="150" inputType="text" style="" id="column47" value="평균" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column46" value="전전월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column59" value="전월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column56" value="당월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column53" value="전기누적" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column50" value="전전월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column45" value="전월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column44" value="당월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column43" value="3개월누적" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column42" value="당기누적" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column41" value="전전월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column40" value="전월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column68" value="당월" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column62" value="누적" displayMode="label" sortable="false"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column65" value="비율" displayMode="label" sortable="false"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="mgntAcctCdNm" inputType="text" style="" value="" width="150"
+    								class="ws-pre" textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="bfyyAvgAmt" inputType="text" style="" value="" width="150"
+    								textAlign="right" hidden="true" displayFormat="#,##0" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="prePreYearRsltsAmt" inputType="text" style="" value="" width="150"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="preYearRsltsAmt" value="" displayMode="label"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="bfyyThisAmt" value="" displayMode="label"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="preYearAccumRsltsAmt" value="" displayMode="label"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="prePreRsltsAmt" value="" displayMode="label"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="preRsltsAmt" inputType="text" style="" value="" width="150"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="thisRsltsAmt" inputType="text" style="" value="" width="150"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="threeMonthsSum" inputType="text" style="" value="" width="150"
+    								textAlign="right" hidden="true" excelCellType="number" dataType="number" displayFormat="#,##0">
+    							</w2:column>
+    							<w2:column displayMode="label" id="thisAccumRsltsAmt" inputType="text" style="" value="" width="150"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="prePreDiffer" inputType="text" style="" value="" width="150"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="preDiffer" inputType="text" style="" value="" width="150"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="bfyyThisDiffer" value="" displayMode="label"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="preAccumDiffer" value="" displayMode="label"
+    								textAlign="right" displayFormat="#,##0" displayFormatter="scwin.f_changeUnitAmt" dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" style="" id="perThisPreRsltsAmt" value="" displayMode="label"
+    								textAlign="right" hidden="true" dataType="number" excelCellType="number" displayFormat="#,##0.0000">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,2368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_condition">
+                <w2:keyInfo>
+                    <w2:key id="eqCd" name="중기코드" dataType="text"></w2:key>
+                    <w2:key id="wrkDt" name="작업일자" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_heavyEquipWorkIndication" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="chk" name="선택" dataType="text"></w2:column>
+                    <w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+                    <w2:column id="wrkIndictClsNm" name="구분" dataType="text"></w2:column>
+                    <w2:column id="cvsslNmWrkPlNm" name="본선/장치장" dataType="text"></w2:column>
+                    <w2:column id="impExpClsNm" name="수출입구분" dataType="text"></w2:column>
+                    <w2:column id="rsltsCreatYn" name="실적여부" dataType="text"></w2:column>
+                    <w2:column id="shiftClsNm" name="SHIFT구분명" dataType="text"></w2:column>
+                    <w2:column id="wrkStpNm" name="작업단계" dataType="text"></w2:column>
+                    <w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="점소명" dataType="text"></w2:column>
+                    <w2:column id="impExpClsCd" name="수출입구분코드" dataType="text"></w2:column>
+                    <w2:column id="pchsDeptCd" name="매입부서코드" dataType="text"></w2:column>
+                    <w2:column id="pchsDeptNm" name="매입부서명" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="매입거래처번호" dataType="text"></w2:column>
+                    <w2:column id="copClntNo" name="협력업체번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_heavyEquipBasisInformation" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="hveqKndNm" name="중기종류명" dataType="text"></w2:column>
+                    <w2:column id="hveqNrmNm" name="규격명" dataType="text"></w2:column>
+                    <w2:column id="hveqHomeNm" name="소속명" dataType="text"></w2:column>
+                    <w2:column id="hveqKndCd" name="중기종류코드" dataType="text"></w2:column>
+                    <w2:column id="hveqNrmCd" name="중기규격코드" dataType="text"></w2:column>
+                    <w2:column id="posnClsCd" name="소속구분코드" dataType="text"></w2:column>
+                    <w2:column id="logisHveqRepCopCoNo" name="물류중기대표협력업체번호" dataType="text"></w2:column>
+                    <w2:column id="logisHveqRepCopCoNm" name="물류중기대표협력업체명" dataType="text"></w2:column>
+                    <w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+                    <w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+                    <w2:column id="drvEmpNo1" name="기사사번1" dataType="text"></w2:column>
+                    <w2:column id="drvEmpNm1" name="기사명1" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_heavyEquipWorkResults" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="wrkIndictClsCd" name="하역구분" dataType="text"></w2:column>
+                    <w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+                    <w2:column id="cvsslNmWrkPlNm" name="본선/장치장" dataType="text"></w2:column>
+                    <w2:column id="impExpClsCd" name="수출입구분" dataType="text"></w2:column>
+                    <w2:column id="shiftClsNm" name="Shift구분" dataType="text"></w2:column>
+                    <w2:column id="noop" name="작업시간" dataType="text"></w2:column>
+                    <w2:column id="eqCd" name="중기코드" dataType="text"></w2:column>
+                    <w2:column id="wrkIndictClsNm" name="작업지시구분명" dataType="text"></w2:column>
+                    <w2:column id="berthCdWrkPlCd" name="선박코드장치장코드" dataType="text"></w2:column>
+                    <w2:column id="shiftClsCd" name="SHIFT구분코드" dataType="text"></w2:column>
+                    <w2:column id="cvsslMgntNo" name="본선관리번호" dataType="text"></w2:column>
+                    <w2:column id="wrkDt" name="작업일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="totInputHhCnt" name="총투입시간수" dataType="text"></w2:column>
+                    <w2:column id="totInputMintCnt" name="총투입분수" dataType="text"></w2:column>
+                    <w2:column id="mealYn" name="식사여부" dataType="text"></w2:column>
+                    <w2:column id="realOprtHhCnt" name="실가동시간수" dataType="text"></w2:column>
+                    <w2:column id="realOprtMintCnt" name="실가동분수" dataType="text"></w2:column>
+                    <w2:column id="pchsAdptHhCnt" name="매입적용시간수" dataType="text"></w2:column>
+                    <w2:column id="tformWrkImpleKndCd" name="변형작업도구종류코드" dataType="text"></w2:column>
+                    <w2:column id="tformEqPchsPcost" name="변형장비매입원가" dataType="text"></w2:column>
+                    <w2:column id="wrkWt" name="작업중량" dataType="text"></w2:column>
+                    <w2:column id="pchsAdjmStdCd" name="매입정산기준코드" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="매입거래처번호" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="매입거래처명" dataType="text"></w2:column>
+                    <w2:column id="copCoClntNo" name="협력업체거래처번호" dataType="text"></w2:column>
+                    <w2:column id="copCoClntNm" name="협력업체거래처명" dataType="text"></w2:column>
+                    <w2:column id="pchsPcost" name="매입원가" dataType="text"></w2:column>
+                    <w2:column id="ctrlPchsPcost" name="조정매입원가" dataType="text"></w2:column>
+                    <w2:column id="ctrlPchsPcostRsn" name="조정매입원가사유" dataType="text"></w2:column>
+                    <w2:column id="prtgCost" name="운반비" dataType="text"></w2:column>
+                    <w2:column id="drvStaffNo1" name="기사인원번호1" dataType="text"></w2:column>
+                    <w2:column id="drvStaffNm1" name="기사인원명1" dataType="text"></w2:column>
+                    <w2:column id="drvStaffNo2" name="기사인원번호2" dataType="text"></w2:column>
+                    <w2:column id="drvStaffNm2" name="기사인원명2" dataType="text"></w2:column>
+                    <w2:column id="drvStaffNo3" name="기사인원번호3" dataType="text"></w2:column>
+                    <w2:column id="drvStaffNm3" name="기사인원명3" dataType="text"></w2:column>
+                    <w2:column id="upr" name="단가" dataType="text"></w2:column>
+                    <w2:column id="pchsDeptCd" name="매입부서코드" dataType="text"></w2:column>
+                    <w2:column id="pchsDeptNm" name="매입부서명" dataType="text"></w2:column>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="nesEqNrmCd" name="필요장비규격코드" dataType="text"></w2:column>
+                    <w2:column id="wrkIndictClsCd2" name="작업지시구분코드2" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_heavyEquipNonOperationHour" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+                    <w2:column id="eqCd" name="중기코드" dataType="text"></w2:column>
+                    <w2:column id="impExpClsCd" name="수출입구분코드" dataType="text"></w2:column>
+                    <w2:column id="nonoprtHhCnt" name="비가동시간수" dataType="text"></w2:column>
+                    <w2:column id="nonoprtMintCnt" name="비가동분수" dataType="text"></w2:column>
+                    <w2:column id="nonoprtRsnCd" name="비가동사유코드" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_oilingResults" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="eqCd" name="중기코드" dataType="text"></w2:column>
+                    <w2:column id="wrkDt" name="작업일자" dataType="text"></w2:column>
+                    <w2:column id="oilStatCd" name="주유소코드" dataType="text"></w2:column>
+                    <w2:column id="oilingVol" name="주유량" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_wrkStpCd" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+                    <w2:column id="wrkStpNm" name="작업단계명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_nesEqNrmCd" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="code" name="코드" dataType="text"></w2:column>
+                    <w2:column id="name" name="명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataMap baseNode="map" id="dma_searchPchsPcost">
+                <w2:keyInfo>
+                    <w2:key id="lobranCd" name="물류점소코드" dataType="text"></w2:key>
+                    <w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+                    <w2:key id="eqKndCd" name="장비종류코드" dataType="text"></w2:key>
+                    <w2:key id="eqNrmCd" name="장비규격코드" dataType="text"></w2:key>
+                    <w2:key id="wrkUnitCd" name="작업단위코드" dataType="text"></w2:key>
+                    <w2:key id="stDt" name="시작일자" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_searchPchsPcost1" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="dummy" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_pchsPcost" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="pchsPcost" name="매입원가" dataType="text"></w2:column>
+                    <w2:column id="upr" name="단가" dataType="text"></w2:column>
+                    <w2:column id="uprKnd" name="단가종류" dataType="text"></w2:column>
+                    <w2:column id="ctrtEndYn" name="계약만료여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_tocWrkPl" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="tocWrkPlYn" name="TOC작업장여부" dataType="text"></w2:column>
+                    <w2:column id="tocClntNo" name="TOC거래처번호" dataType="text"></w2:column>
+                    <w2:column id="tocClntNm" name="TOC거래처명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_searchHeavyEquipWorkResults"
+            action="/ds.op.wrkrslts.stvwrkrslts.RetrieveShiftingVehclWorkResultsCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_heavyEquipBasisInformation","key":"OUT_DS1"},{"id":"ds_heavyEquipWorkIndication","key":"OUT_DS2"},{"id":"ds_heavyEquipWorkResults","key":"OUT_DS3"},{"id":"ds_heavyEquipNonOperationHour","key":"OUT_DS4"},{"id":"ds_oilingResults","key":"OUT_DS5"}]'
+            target='data:json,[{"id":"ds_heavyEquipBasisInformation","key":"OUT_DS1"},{"id":"ds_heavyEquipWorkIndication","key":"OUT_DS2"},{"id":"ds_heavyEquipWorkResults","key":"OUT_DS3"},{"id":"ds_heavyEquipNonOperationHour","key":"OUT_DS4"},{"id":"ds_oilingResults","key":"OUT_DS5"}]'
+            ev:submitdone="scwin.sbm_searchHeavyEquipWorkResults_submitdone"
+            ev:submiterror="scwin.sbm_searchHeavyEquipWorkResults_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_searchPchsPcost"
+            action="/ds.op.wrkrslts.stvwrkrslts.CaculateShiftingVehclPurchasePrimeCostCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_searchPchsPcost","key":"IN_DS1"},{"id":"ds_searchPchsPcost1","key":"IN_DS2"},{"id":"ds_pchsPcost","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_pchsPcost","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_searchPchsPcost_submitdone"
+            ev:submiterror="scwin.sbm_searchPchsPcost_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_CreateHeavyEquipResultsData"
+            action="/ds.op.wrkrslts.stvwrkrslts.CreateShiftingVehclResultsDataCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_heavyEquipWorkIndication","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_CreateHeavyEquipResultsData_submitdone"
+            ev:submiterror="scwin.sbm_CreateHeavyEquipResultsData_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/ds.op.wrkrslts.stvwrkrslts.SaveShiftingVehclWorkResultsCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_heavyEquipWorkIndication","key":"IN_DS1"},{"id":"ds_heavyEquipWorkResults","key":"IN_DS2"},{"id":"ds_oilingResults","key":"IN_DS3"},{"id":"ds_heavyEquipBasisInformation","key":"IN_DS4"},{"id":"ds_heavyEquipNonOperationHour","key":"IN_DS5"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_wrkStpCd"
+            action=""
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[]'
+            target='data:json,[{"id":"ds_wrkStpCd","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_wrkStpCd_submitdone">
+        </xf:submission>
+
+        <xf:submission id="sbm_nesEqNrmCd"
+            action=""
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[]'
+            target='data:json,[{"id":"ds_nesEqNrmCd","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_nesEqNrmCd_submitdone">
+        </xf:submission>
+
+        <xf:submission id="sbm_tocWrkPl"
+            action=""
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[]'
+            target='data:json,[{"id":"ds_tocWrkPl","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_tocWrkPl_submitdone">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+scwin.btnFlag = "";
+scwin.rowFlag = "";
+scwin.pos_groupCode = 0;
+scwin.hd_eqCd = "";
+scwin.txt_upr = "";
+scwin.txt_check = "";
+scwin.loUpperLobranCd = "";
+scwin.userClsCd = "";
+
+scwin.onpageload = function() {
+    scwin.loUpperLobranCd = $c.ses.getLoUpperLobranCd();
+    scwin.userClsCd = $c.ses.getUserClsCd();
+    scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+    ed_wrkDt.setValue(scwin.vCurDate);
+    ed_wrkDt.setFocus();
+    scwin.f_switchObjMode(1);
+};
+
+scwin.onUdcCompleted = function() {
+};
+
+scwin.f_qeryList = async function() {
+    if (!(await $c.gus.cfValidate([ed_eqCd, ed_wrkDt]))) {
+        return;
+    }
+    dma_condition.set("eqCd", scwin.hd_eqCd);
+    dma_condition.set("wrkDt", ed_wrkDt.getValue());
+    await $c.sbm.execute(sbm_searchHeavyEquipWorkResults);
+};
+
+scwin.f_save = async function(argFlag) {
+    let row = 0;
+    let isSupplyOil = false;
+    let isSupplyOilOnly = false;
+
+    switch (argFlag) {
+        case 1:
+            let v_checkYn = false;
+            for (let i = 0; i < ds_heavyEquipWorkIndication.getRowCount(); i++) {
+                if (ds_heavyEquipWorkIndication.getCellData(i, "chk") == 1) {
+                    ds_heavyEquipWorkIndication.setCellData(i, "pchsClntNo", ds_heavyEquipBasisInformation.getCellData(0, "logisHveqRepCopCoNo"));
+                    ds_heavyEquipWorkIndication.setCellData(i, "copClntNo", ds_heavyEquipBasisInformation.getCellData(0, "clntNo"));
+                    v_checkYn = true;
+                    break;
+                }
+            }
+
+            if (v_checkYn) {
+                row = ds_heavyEquipWorkIndication.getRowPosition();
+                await $c.sbm.execute(sbm_CreateHeavyEquipResultsData);
+                await scwin.f_qeryList();
+                ds_heavyEquipWorkIndication.setRowPosition(row);
+            } else {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["작업지시"]);
+                return;
+            }
+            break;
+        case 2:
+            if (ds_heavyEquipWorkResults.getRowCount() == 0) return;
+            if (!ds_heavyEquipWorkResults.isUpdated()
+             && (!ds_oilingResults.isUpdated() || (ds_oilingResults.getCellData(0, "oilStatCd") == "" && ds_oilingResults.getRowStatus(0) == "C"))
+             && !ds_heavyEquipBasisInformation.isUpdated()
+             && !ds_heavyEquipNonOperationHour.isUpdated()) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["중기실적"]);
+                return;
+            }
+
+            if (ds_oilingResults.getRowStatus(0) == "C" && (ds_oilingResults.getCellData(0, "oilStatCd") != "" || ds_oilingResults.getCellData(0, "oilingVol") > 0))
+                isSupplyOil = true;
+
+            for (let i = 0; i < ds_heavyEquipWorkResults.getRowCount(); i++) {
+                if (ds_heavyEquipWorkResults.getRowStatus(i) != "R") {
+
+                    if (ds_heavyEquipWorkResults.getRowStatus(i) == "C") {
+                        for (let j = 0; j < ds_heavyEquipWorkResults.getRowCount(); j++) {
+                            if (ds_heavyEquipWorkResults.getCellData(i, "wrkIndictNo") == ds_heavyEquipWorkResults.getCellData(j, "wrkIndictNo")
+                             && ds_heavyEquipWorkResults.getCellData(i, "eqCd") == ds_heavyEquipWorkResults.getCellData(j, "eqCd")
+                             && ds_heavyEquipWorkResults.getCellData(i, "impExpClsCd") == ds_heavyEquipWorkResults.getCellData(j, "impExpClsCd")
+                             && i != j) {
+                                await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터는 중복 데이터이므로 입력하실 수 없습니다.");
+                                ds_heavyEquipWorkResults.setRowPosition(i);
+                                return;
+                            }
+                        }
+                    }
+
+                    if (ds_heavyEquipWorkResults.getCellData(i, "wrkIndictNo").trim() == "") {
+                        await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 작업지시번호는 필수입력항목 입니다.");
+                        ds_heavyEquipWorkResults.setRowPosition(i);
+                        ed_wrkIndictNo.setFocus();
+                        return;
+                    }
+
+                    if (ds_heavyEquipWorkResults.getCellData(i, "wrkIndictClsCd") == "P") {
+                        if (ds_heavyEquipWorkResults.getCellData(i, "impExpClsCd") == "Y") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 수출입구분은 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            lc_impExpClsCd.setFocus();
+                            return;
+                        }
+                    }
+
+                    if (ds_heavyEquipWorkResults.getCellData(i, "wrkStpCd").trim() == "") {
+                        await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 작업단계는 필수입력항목 입니다.");
+                        ds_heavyEquipWorkResults.setRowPosition(i);
+                        lc_wrkStpCd.setFocus();
+                        return;
+                    }
+
+                    if (ds_heavyEquipWorkResults.getRowStatus(i) != "U") {
+                        if (ds_heavyEquipWorkResults.getCellData(i, "wrkStDt").trim() == "") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 작업시작일자는 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            ica_wrkStDt.setFocus();
+                            return;
+                        }
+                        if (ds_heavyEquipWorkResults.getCellData(i, "wrkStHh").trim() == "") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 작업시작시간는 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            ed_wrkStHh.setFocus();
+                            return;
+                        }
+                        if (ds_heavyEquipWorkResults.getCellData(i, "wrkEndDt").trim() == "") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 작업종료일자는 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            ica_wrkEndDt.setFocus();
+                            return;
+                        }
+                        if (ds_heavyEquipWorkResults.getCellData(i, "wrkEndHh").trim() == "") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 작업종료시간는 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            ed_wrkEndHh.setFocus();
+                            return;
+                        }
+
+                        if (!(await scwin.f_validateWrkTime(i))) return false;
+
+                        for (let j = 0; j < ds_heavyEquipWorkResults.getRowCount(); j++) {
+                            if (ds_heavyEquipWorkResults.getRowStatus(j) != "U" && j != i) {
+                                if (!((ds_heavyEquipWorkResults.getCellData(j, "wrkStDt").trim() > ds_heavyEquipWorkResults.getCellData(i, "wrkEndDt").trim()
+                                    || (ds_heavyEquipWorkResults.getCellData(j, "wrkStDt").trim() == ds_heavyEquipWorkResults.getCellData(i, "wrkEndDt").trim()
+                                     && ds_heavyEquipWorkResults.getCellData(j, "wrkStHh").trim() >= ds_heavyEquipWorkResults.getCellData(i, "wrkEndHh").trim()))
+                                   || (ds_heavyEquipWorkResults.getCellData(j, "wrkEndDt").trim() < ds_heavyEquipWorkResults.getCellData(i, "wrkStDt").trim()
+                                    || (ds_heavyEquipWorkResults.getCellData(j, "wrkEndDt").trim() == ds_heavyEquipWorkResults.getCellData(i, "wrkStDt").trim()
+                                     && ds_heavyEquipWorkResults.getCellData(j, "wrkEndHh").trim() <= ds_heavyEquipWorkResults.getCellData(i, "wrkStHh").trim())))) {
+                                    await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적의 작업시간이 " + (j + 1) + "번째 작업실적의 작업시간과 중복됩니다.");
+                                    ds_heavyEquipWorkResults.setRowPosition(i);
+                                    ica_wrkStDt.setFocus();
+                                    return;
+                                }
+                            }
+                        }
+
+                        if (isSupplyOil && ds_oilingResults.getCellData(0, "oilStatCd") == "") {
+                            await $c.gus.cfAlertMsg("주유 실적 등록시  주유소는  필수입력항목 입니다.");
+                            return;
+                        } else if (isSupplyOil && ds_oilingResults.getCellData(0, "oilingVol") == 0) {
+                            await $c.gus.cfAlertMsg("주유 실적 등록시  주유량은 0보다 커야 합니다.");
+                            return;
+                        }
+
+                        if (isSupplyOil &&
+                            ds_heavyEquipWorkResults.getCellData(i, "pchsPcost") == 0 &&
+                            ds_heavyEquipWorkResults.getCellData(i, "ctrlPchsPcost") == 0 &&
+                            ds_heavyEquipWorkResults.getCellData(i, "tformEqPchsPcost") == 0) {
+                            isSupplyOilOnly = true;
+                        } else {
+                            isSupplyOilOnly = false;
+                        }
+
+                        if (ds_heavyEquipBasisInformation.getCellData(0, "posnClsCd") != 'J') {
+                            if (!isSupplyOilOnly && ds_heavyEquipWorkResults.getCellData(i, "pchsClntNo") == "") {
+                                await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 매입거래처는 필수입력항목 입니다.");
+                                ds_heavyEquipWorkResults.setRowPosition(i);
+                                ed_pchsClntNo.setFocus();
+                                return;
+                            }
+
+                            if (!isSupplyOilOnly && ds_heavyEquipWorkResults.getCellData(i, "copCoClntNo") == "") {
+                                await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 협력업체는 필수입력항목 입니다.");
+                                ds_heavyEquipWorkResults.setRowPosition(i);
+                                ed_copCoClntNo.setFocus();
+                                return;
+                            }
+                        }
+
+                        if (ds_heavyEquipWorkResults.getCellData(i, "pchsDeptCd") == "") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 매입부서는 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            ed_pchsDeptCd.setFocus();
+                            return;
+                        }
+
+                        if (!isSupplyOilOnly && ds_heavyEquipWorkResults.getCellData(i, "pchsPcost") == 0) {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 매입원가는 필수입력항목 입니다.");
+                            ds_heavyEquipWorkResults.setRowPosition(i);
+                            but_CalcPchsPcost.setFocus();
+                            return;
+                        }
+
+                        if (!isSupplyOilOnly
+                            && ds_heavyEquipWorkResults.getCellData(i, "ctrlPchsPcost") != 0
+                            && ds_heavyEquipWorkResults.getCellData(i, "ctrlPchsPcostRsn") == "") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 작업실적  데이터의 조정사유는 필수입력항목 입니다.");
+                            lc_ctrlPchsPcostRsn.setFocus();
+                            return;
+                        }
+                    }
+                }
+            }
+
+            for (let i = 0; i < ds_heavyEquipNonOperationHour.getRowCount(); i++) {
+                if (ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtHhCnt") == 0
+                 && ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtMintCnt") == 0) {
+                    await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["비가동시간"]);
+                    ds_heavyEquipNonOperationHour.setRowPosition(i);
+                    gr_heavyEquipNonOperationHour.setFocusedCell(i, "nonoprtHhCnt");
+                    return;
+                }
+                if (ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtRsnCd") == "") {
+                    await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["비가동사유"]);
+                    ds_heavyEquipNonOperationHour.setRowPosition(i);
+                    gr_heavyEquipNonOperationHour.setFocusedCell(i, "nonoprtRsnCd");
+                    return;
+                }
+            }
+
+            let chk = await $c.win.confirm("저장하시겠습니까?");
+            if (chk) {
+                scwin.pos_groupCode = ds_heavyEquipWorkResults.getRowPosition();
+                row = ds_heavyEquipWorkIndication.getRowPosition();
+                ds_heavyEquipBasisInformation.setRowStatus(ds_heavyEquipBasisInformation.getRowPosition(), "C");
+                ds_heavyEquipWorkIndication.setRowStatus(ds_heavyEquipWorkIndication.getRowPosition(), "C");
+
+                await $c.sbm.execute(sbm_save);
+                ds_heavyEquipWorkResults.setRowPosition(scwin.pos_groupCode);
+                ds_heavyEquipWorkIndication.setRowPosition(row);
+            }
+            break;
+    }
+};
+
+scwin.f_OnWrkIndictClsCdChanged = function() {
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    if (curRow < 0) return;
+    if (ds_heavyEquipWorkResults.getCellData(curRow, "wrkIndictClsCd") == "P") {
+        sbm_wrkStpCd.action = "/ds.lo.comninfomgnt.RetrieveWorkStepListCMD.do?upperWrkStpCd=01&lvl=3&wrkPlanTrgtYn=1";
+        $c.gus.cfEnableBtnOnly([lc_impExpClsCd]);
+        lc_impExpClsCd.mandatory = "true";
+    } else {
+        ds_heavyEquipWorkResults.setCellData(curRow, "impExpClsCd", "Y");
+        sbm_wrkStpCd.action = "/ds.lo.comninfomgnt.RetrieveWorkStepListCMD.do?upperWrkStpCd=03&lvl=3&wrkPlanTrgtYn=1";
+        $c.gus.cfDisableObjects([lc_impExpClsCd]);
+        lc_impExpClsCd.mandatory = "false";
+    }
+    $c.gus.cfRefreshMandSign();
+    $c.sbm.execute(sbm_wrkStpCd);
+
+    sbm_nesEqNrmCd.action = "/cm.zz.RetrieveComboCMD.do?sysCd=DsCommonEBC&queryId=retriveNesEqNrmList&param1=" + ds_heavyEquipBasisInformation.getCellData(0, "hveqKndCd");
+    $c.sbm.execute(sbm_nesEqNrmCd);
+};
+
+scwin.f_validateWrkTime = async function(i) {
+    let wrkStDt = ds_heavyEquipWorkResults.getCellData(i, "wrkStDt").trim();
+    let wrkStHh = ds_heavyEquipWorkResults.getCellData(i, "wrkStHh").trim();
+    let wrkEndDt = ds_heavyEquipWorkResults.getCellData(i, "wrkEndDt").trim();
+    let wrkEndHh = ds_heavyEquipWorkResults.getCellData(i, "wrkEndHh").trim();
+    let shiftClsCd = ds_heavyEquipWorkResults.getCellData(i, "shiftClsCd");
+    let curWrkDt = ed_wrkDt.getValue();
+    let nextDay = $c.date.addDate(curWrkDt, 1);
+
+    if (shiftClsCd == 'D') {
+        if (wrkStDt.length > 0 && wrkStDt != curWrkDt) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_030 + "작업일자와 같은날만 가능합니다", ["주간의 작업시작일자"]);
+            ica_wrkStDt.setFocus();
+            return false;
+        }
+    } else {
+        if (wrkStDt.length > 0 && (wrkStDt < curWrkDt || wrkStDt > nextDay)) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_030 + "작업일자 하루이후까지만 가능합니다", ["야간/심야의 작업시작일자"]);
+            ica_wrkStDt.setFocus();
+            return false;
+        }
+        if (wrkEndDt == nextDay) {
+            if (wrkEndHh > '0800') {
+                await $c.gus.cfAlertMsg("야간/심야의 작업종료시간은 08시 이전이어야 합니다.");
+                ed_wrkEndHh.setFocus();
+                return false;
+            }
+        }
+    }
+
+    if (wrkStDt.length == 0 || wrkEndDt.length == 0) return true;
+
+    if (wrkStDt.length != 8 || wrkEndDt.length != 8 || !$c.gus.cfIsAfterDate(wrkStDt, wrkEndDt, false)) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+        ica_wrkStDt.setFocus();
+        return false;
+    }
+
+    if (wrkStHh.length == 0) return true;
+    if (wrkStHh.length != 4) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_055, ["시간형식"]);
+        ed_wrkStHh.setFocus();
+        return false;
+    }
+
+    if (wrkEndDt.length > 0 && (wrkEndDt < curWrkDt || wrkEndDt > nextDay)) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_030 + "작업일자 하루이후까지만 가능합니다", ["종료일자"]);
+        ica_wrkEndDt.setFocus();
+        return false;
+    }
+    if (wrkStDt.length == 0 || wrkEndDt.length == 0) return true;
+
+    if (wrkStDt.length != 8 || wrkEndDt.length != 8 || !$c.gus.cfIsAfterDate(wrkStDt, wrkEndDt, false)) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+        ica_wrkEndDt.setFocus();
+        return false;
+    }
+    if (wrkEndHh.length == 0) return true;
+    if (wrkEndHh.length != 4) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_055, ["시간형식"]);
+        ed_wrkEndHh.setFocus();
+        return false;
+    }
+
+    if (wrkStHh.substr(0, 2) > "23") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_021, ["작업시간"]);
+        ed_wrkStHh.setFocus();
+        return false;
+    }
+    if (wrkStHh.substr(2, 2) > "59") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_022, ["작업시간"]);
+        ed_wrkStHh.setFocus();
+        return false;
+    }
+
+    if (wrkEndHh.substr(0, 2) > "24") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_022, ["작업시간"]);
+        ed_wrkEndHh.setFocus();
+        return false;
+    }
+    if (wrkEndHh.substr(0, 2) == "00" && wrkEndHh.substr(2, 2) == "00") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_022, ["작업시간"]);
+        ed_wrkEndHh.setFocus();
+        return false;
+    }
+    if (wrkEndHh.substr(0, 2) == "24" && wrkEndHh.substr(2, 2) > "00") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_022, ["작업시간"]);
+        ed_wrkEndHh.setFocus();
+        return false;
+    }
+    if (wrkEndHh.substr(2, 2) > "59") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_022, ["작업시간"]);
+        ed_wrkEndHh.setFocus();
+        return false;
+    }
+
+    if (wrkStDt == wrkEndDt) {
+        if (wrkStHh >= wrkEndHh) {
+            await $c.gus.cfAlertMsg("시작시간을 종료시간보다 작게 입력하여 주십시오.");
+            ed_wrkStHh.setFocus();
+            return false;
+        }
+    }
+    return true;
+};
+
+scwin.f_CalcWrkTime = function() {
+    let stDt = ica_wrkStDt.getValue().trim();
+    let stHh = ed_wrkStHh.getValue().trim();
+    let endDt = ica_wrkEndDt.getValue().trim();
+    let endHh = ed_wrkEndHh.getValue().trim();
+
+    if (stDt.length != 8) return;
+    if (stHh.length != 4) return;
+    if (endDt.length != 8) return;
+    if (endHh.length != 4) return;
+
+    if (!$c.gus.cfIsAfterDate(stDt, endDt, false)) {
+        return;
+    } else if (stDt == endDt && stHh > endHh) {
+        return;
+    }
+
+    let v_daysBetween = $c.date.diffDate(stDt, endDt);
+
+    let v_diff = 0;
+    let v_diffHh = 0;
+    let v_diffMm = 0;
+    let v_StHh = 0;
+    let v_StMm = 0;
+    let v_EndHh = 0;
+    let v_EndMm = 0;
+
+    if (parseInt(stHh.substr(0, 2)) < 10) {
+        v_StHh = parseInt(stHh.substr(1, 1));
+        v_StMm = parseInt(stHh.substr(2, 2));
+    } else {
+        v_StHh = parseInt(stHh.substr(0, 2));
+        v_StMm = parseInt(stHh.substr(2, 2));
+    }
+
+    if (parseInt(endHh.substr(0, 2)) < 10) {
+        v_EndHh = parseInt(endHh.substr(1, 1));
+        v_EndMm = parseInt(endHh.substr(2, 2));
+    } else {
+        v_EndHh = parseInt(endHh.substr(0, 2));
+        v_EndMm = parseInt(endHh.substr(2, 2));
+    }
+
+    if (parseInt(v_daysBetween) > 0) {
+        v_daysBetween = parseInt(v_daysBetween) - 1;
+        v_diff = parseInt(v_daysBetween) * 24 * 60
+                + (24 * 60 - parseInt(v_StHh) * 60 + parseInt(v_StMm))
+                + (parseInt(v_EndHh) * 60 + parseInt(v_EndMm));
+    } else {
+        v_diff = (parseInt(v_EndHh) * 60 + parseInt(v_EndMm))
+                - (parseInt(v_StHh) * 60 + parseInt(v_StMm));
+    }
+    v_diffHh = parseInt(parseInt(v_diff) / 60);
+    v_diffMm = parseInt(parseInt(v_diff) % 60);
+
+    ed_totInputHhCnt.setValue(v_diffHh);
+    ed_totInputMintCnt.setValue(v_diffMm);
+
+    scwin.f_CalcNonOperationHour();
+};
+
+scwin.f_AddRow = async function(gubun) {
+    if (gubun == null || gubun == "" || gubun == 0) {
+        if (ds_heavyEquipBasisInformation.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_008, ["장비"]);
+            return;
+        }
+
+        ds_heavyEquipWorkResults.insertRow();
+
+        let curRow = ds_heavyEquipWorkResults.getRowPosition();
+        ds_heavyEquipWorkResults.setCellData(curRow, "eqCd", scwin.hd_eqCd);
+        ds_heavyEquipWorkResults.setCellData(curRow, "pchsAdjmStdCd", 'H');
+        ds_heavyEquipWorkResults.setCellData(curRow, "pchsClntNo", ds_heavyEquipBasisInformation.getCellData(0, "logisHveqRepCopCoNo"));
+        ds_heavyEquipWorkResults.setCellData(curRow, "pchsClntNm", ds_heavyEquipBasisInformation.getCellData(0, "logisHveqRepCopCoNm"));
+        ds_heavyEquipWorkResults.setCellData(curRow, "copCoClntNo", ds_heavyEquipBasisInformation.getCellData(0, "clntNo"));
+        ds_heavyEquipWorkResults.setCellData(curRow, "copCoClntNm", ds_heavyEquipBasisInformation.getCellData(0, "clntNm"));
+        ds_heavyEquipWorkResults.setCellData(curRow, "drvStaffNo1", ds_heavyEquipBasisInformation.getCellData(0, "drvEmpNo1"));
+        ds_heavyEquipWorkResults.setCellData(curRow, "drvStaffNm1", ds_heavyEquipBasisInformation.getCellData(0, "drvEmpNm1"));
+
+        scwin.f_switchObjMode(8);
+    } else {
+        let curRow = ds_heavyEquipWorkResults.getRowPosition();
+        if (ds_heavyEquipWorkResults.getRowStatus(curRow) == "D") {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_041, ["삭제된 중기실적", "비가동데이터를 입력"]);
+            return;
+        }
+        if (ds_heavyEquipWorkResults.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_008, ["장비실적"]);
+            return;
+        }
+
+        let v_wrkIndictNo = ds_heavyEquipWorkResults.getCellData(curRow, "wrkIndictNo");
+        let v_eqCd = ds_heavyEquipWorkResults.getCellData(curRow, "eqCd");
+        let v_impExpClsCd = ds_heavyEquipWorkResults.getCellData(curRow, "impExpClsCd");
+
+        if (v_wrkIndictNo == "" || v_eqCd == "" || v_impExpClsCd == "") {
+            await $c.gus.cfAlertMsg("작업실적관련 기초데이터를 먼저 입력하십시오.");
+            return;
+        }
+        ds_heavyEquipNonOperationHour.insertRow();
+        let nRow = ds_heavyEquipNonOperationHour.getRowPosition();
+        ds_heavyEquipNonOperationHour.setCellData(nRow, "wrkIndictNo", v_wrkIndictNo);
+        ds_heavyEquipNonOperationHour.setCellData(nRow, "eqCd", v_eqCd);
+        ds_heavyEquipNonOperationHour.setCellData(nRow, "impExpClsCd", v_impExpClsCd);
+    }
+};
+
+scwin.f_DeleteRow = async function(gubun) {
+    if (gubun == null || gubun == "" || gubun == 0) {
+        let curRow = ds_heavyEquipWorkResults.getRowPosition();
+        let v_wrkIndictNo = ds_heavyEquipWorkResults.getCellData(curRow, "wrkIndictNo");
+        let v_eqCd = ds_heavyEquipWorkResults.getCellData(curRow, "eqCd");
+        let v_impExpClsCd = ds_heavyEquipWorkResults.getCellData(curRow, "impExpClsCd");
+
+        for (let i = 0; i < ds_heavyEquipNonOperationHour.getRowCount(); i++) {
+            if (ds_heavyEquipNonOperationHour.getCellData(i, "wrkIndictNo") == v_wrkIndictNo
+                && ds_heavyEquipNonOperationHour.getCellData(i, "eqCd") == v_eqCd
+                && ds_heavyEquipNonOperationHour.getCellData(i, "impExpClsCd") == v_impExpClsCd) {
+                ds_heavyEquipNonOperationHour.removeRow(i);
+                i--;
+            }
+        }
+
+        ds_heavyEquipWorkResults.removeRow(curRow);
+        scwin.f_switchObjMode(7);
+        if (ds_heavyEquipWorkResults.getRowPosition() == 0 && ds_oilingResults.getRowCount() == 1)
+            ds_oilingResults.removeRow(0);
+
+    } else {
+        let curRow = ds_heavyEquipWorkResults.getRowPosition();
+        if (ds_heavyEquipWorkResults.getRowStatus(curRow) == "D") {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_041, ["삭제된 중기실적", "비가동데이터를 입력"]);
+            return;
+        }
+        let selIdx = ds_heavyEquipNonOperationHour.getRowPosition();
+        if (selIdx >= 0) {
+            ds_heavyEquipNonOperationHour.removeRow(selIdx);
+        }
+        scwin.f_CalcNonOperationHour();
+    }
+};
+
+scwin.f_CancelRow = async function(gubun) {
+    if (gubun == null || gubun == "" || gubun == 0) {
+        ds_heavyEquipWorkResults.undoAll();
+        scwin.f_switchObjMode(7);
+        scwin.f_OnWrkIndictClsCdChanged();
+        if (ds_heavyEquipWorkResults.getRowPosition() == 0 && ds_oilingResults.getRowCount() == 1)
+            ds_oilingResults.undoAll();
+    } else {
+        let curRow = ds_heavyEquipWorkResults.getRowPosition();
+        if (ds_heavyEquipWorkResults.getRowStatus(curRow) == "D") {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_041, ["삭제된 중기실적", "비가동데이터를 입력"]);
+            return;
+        }
+        ds_heavyEquipNonOperationHour.undoAll();
+        scwin.f_CalcNonOperationHour();
+    }
+};
+
+scwin.f_CalcPchsPcost = async function() {
+    if (!(await $c.gus.cfValidate([ed_eqCd, ed_wrkDt]))) return;
+
+    let pchsAdjmStdCdVal = lc_pchsAdjmStdCd.getValue();
+    if ("H" == pchsAdjmStdCdVal) {
+        if (!(await $c.gus.cfValidate([ed_pchsAdptHhCnt]))) return;
+        if (ed_pchsAdptHhCnt.getValue() < 1) {
+            await $c.gus.cfAlertMsg("하불임 적용시간을 입력하시오.");
+            return;
+        }
+    } else if ("T" == pchsAdjmStdCdVal) {
+        if (!(await $c.gus.cfValidate([ed_wrkWt]))) return;
+        if (ed_wrkWt.getValue() < 1) {
+            await $c.gus.cfAlertMsg("작업톤수를 입력하시오.");
+            return;
+        }
+    } else if ("" == pchsAdjmStdCdVal) {
+        await $c.gus.cfAlertMsg("하불임계산기준을 입력하시오.");
+        return;
+    }
+
+    if (ds_heavyEquipBasisInformation.getRowCount() == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_008, ["중기정보"]);
+        return;
+    }
+
+    let v_eqNrmCd = ds_heavyEquipBasisInformation.getCellData(0, "hveqNrmCd");
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    let v_clntNo = ds_heavyEquipWorkResults.getCellData(curRow, "copCoClntNo");
+    if (ds_heavyEquipBasisInformation.getCellData(0, "posnClsCd") == 'J') {
+        v_clntNo = " ";
+    } else {
+        if (!(await $c.gus.cfValidate([ed_copCoClntNo]))) {
+            return;
+        }
+    }
+
+    dma_searchPchsPcost.set("lobranCd", ds_heavyEquipBasisInformation.getCellData(0, "lobranCd"));
+    dma_searchPchsPcost.set("clntNo", v_clntNo);
+    dma_searchPchsPcost.set("eqKndCd", ds_heavyEquipBasisInformation.getCellData(0, "hveqKndCd"));
+
+    let nesVal = lc_nesEqNrmCd.getValue();
+    if (nesVal != "") {
+        dma_searchPchsPcost.set("eqNrmCd", nesVal);
+    } else {
+        dma_searchPchsPcost.set("eqNrmCd", v_eqNrmCd);
+    }
+    dma_searchPchsPcost.set("wrkUnitCd", pchsAdjmStdCdVal);
+    dma_searchPchsPcost.set("stDt", ed_wrkDt.getValue());
+
+    ds_searchPchsPcost1.removeAll();
+    // TODO: cfCopyDataSetHeader + ExportData/ImportData 로직은 수동 확인 필요
+    let rowData = {};
+    let colInfos = ds_heavyEquipWorkResults.getColumnIDs();
+    for (let ci = 0; ci < colInfos.length; ci++) {
+        rowData[colInfos[ci]] = ds_heavyEquipWorkResults.getCellData(curRow, colInfos[ci]);
+    }
+    ds_searchPchsPcost1.insertRow();
+    for (let ci = 0; ci < colInfos.length; ci++) {
+        try {
+            ds_searchPchsPcost1.setCellData(0, colInfos[ci], rowData[colInfos[ci]]);
+        } catch(e) {}
+    }
+
+    await $c.sbm.execute(sbm_searchPchsPcost);
+};
+
+scwin.f_openCommonPopUp = async function(disGubun, pWinCloseTF) {
+    let sWinCloseTF = (pWinCloseTF == null) ? "T" : pWinCloseTF;
+    let rtnList = [];
+    let pSelectID = "";
+    let pCode = "";
+    let pName = "";
+    let pWtitleSearch = "";
+    let arrParam = [];
+    let pLobranCd = "";
+    let pLobranNm = "";
+    if (ds_heavyEquipWorkIndication.getRowCount() > 0) {
+        let indRow = ds_heavyEquipWorkIndication.getRowPosition();
+        pLobranCd = ds_heavyEquipWorkIndication.getCellData(indRow, "lobranCd");
+        pLobranNm = ds_heavyEquipWorkIndication.getCellData(indRow, "lobranNm");
+    }
+    switch (disGubun) {
+        case 1:
+            pCode = ed_eqCd.getValue().replace(/\s*$/, '');
+            pName = txt_eqNm.getValue();
+            let pDate = ed_wrkDt.getValue();
+
+            arrParam[0] = "";
+            arrParam[1] = "";
+            arrParam[2] = "";
+            arrParam[3] = pDate;
+            arrParam[4] = pCode;
+            arrParam[5] = "";
+            arrParam[6] = sWinCloseTF;
+            arrParam[7] = 'T';
+
+            rtnList = await $c.win.openPopup("/ui/ds/op/rscconfirm/transrscconfirm/op_101_01_12p_01.xml", {
+                width: 600, height: 430, modal: true, data: arrParam
+            });
+
+            if (rtnList != null && rtnList[0] != "N/A" && rtnList[0] != "undefind" && rtnList.length > 0) {
+                scwin.hd_eqCd = rtnList[12];
+                ed_eqCd.setValue(rtnList[0]);
+
+                if (rtnList[1] == "undefind" || (rtnList[1] != null && rtnList[1].trim() == null) || (rtnList[1] != null && rtnList[1].trim() == "")) {
+                    txt_eqNm.setValue(rtnList[2]);
+                } else {
+                    txt_eqNm.setValue(rtnList[1]);
+                }
+            } else {
+                scwin.hd_eqCd = "";
+                ed_eqCd.setValue("");
+                txt_eqNm.setValue("");
+            }
+            break;
+
+        case 2:
+            pSelectID = "retrieveClntNoInfo";
+            pCode = ed_pchsClntNo.getValue().replace(/\s*$/, '');
+            pName = txt_pchsClntNm.getValue();
+            pWtitleSearch = "매입거래처,매입거래처번호,매입거래처";
+            rtnList = $c.gus.cfCommonPopUp(pSelectID, pCode, pName, sWinCloseTF, null, null, null, null, "01,02,09", null, null, null, null, null, null, pWtitleSearch);
+            $c.gus.cfSetReturnValue(rtnList, ed_pchsClntNo, txt_pchsClntNm);
+            break;
+
+        case 3:
+            pSelectID = "retrieveClntNoInfo";
+            pCode = ed_copCoClntNo.getValue().replace(/\s*$/, '');
+            pName = txt_copCoClntNm.getValue();
+            pWtitleSearch = "협력업체,협력업체번호,협력업체";
+            rtnList = $c.gus.cfCommonPopUp(pSelectID, pCode, pName, sWinCloseTF, null, null, null, null, "01,02", null, null, null, null, null, null, pWtitleSearch);
+
+            if (rtnList == null) {
+                rtnList = [];
+                let listLength = 2;
+                for (let k = 0; k < listLength; k++) {
+                    rtnList[k] = "";
+                }
+            } else if (rtnList[0] == "N/A") {
+                $c.gus.cfSetValue(ed_copCoClntNo, $c.gus.cfGetHiddenValue(ed_copCoClntNo));
+                $c.gus.cfSetValue(txt_copCoClntNm, $c.gus.cfGetHiddenValue(txt_copCoClntNm));
+                return;
+            }
+
+            $c.gus.cfSetValue(ed_copCoClntNo, rtnList[0]);
+            $c.gus.cfSetHiddenValue(ed_copCoClntNo, rtnList[0]);
+            $c.gus.cfSetValue(txt_copCoClntNm, rtnList[1]);
+            $c.gus.cfSetHiddenValue(txt_copCoClntNm, rtnList[1]);
+
+            ed_pchsPcost.setValue(0);
+            break;
+
+        case 4:
+            pCode = ed_drvStaffNo1.getValue().replace(/\s*$/, '');
+            pName = txt_drvStaffNm1.getValue();
+
+            arrParam[0] = pCode;
+            arrParam[1] = pName;
+            arrParam[2] = pLobranCd;
+            arrParam[3] = pLobranNm;
+            arrParam[4] = "";
+            arrParam[5] = ',E';
+            arrParam[6] = '01,D';
+            arrParam[7] = '';
+            arrParam[8] = ed_wrkDt.getValue();
+            arrParam[9] = 'Y';
+            arrParam[10] = 'T';
+            arrParam[11] = "1";
+
+            rtnList = await $c.win.openPopup("/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", {
+                width: 530, height: 450, modal: true, data: arrParam
+            });
+
+            if (rtnList == null) {
+                ed_drvStaffNo1.setValue("");
+                txt_drvStaffNm1.setValue("");
+            } else if (rtnList[0] == "N/A" || rtnList[0] == undefined) {
+                ed_drvStaffNo1.setValue(pCode);
+                txt_drvStaffNm1.setValue(pName);
+            } else {
+                ed_drvStaffNo1.setValue(rtnList[2]);
+                txt_drvStaffNm1.setValue(rtnList[3]);
+            }
+            break;
+
+        case 5:
+            pCode = ed_drvStaffNo2.getValue().replace(/\s*$/, '');
+            pName = txt_drvStaffNm2.getValue();
+
+            arrParam[0] = pCode;
+            arrParam[1] = pName;
+            arrParam[2] = pLobranCd;
+            arrParam[3] = pLobranNm;
+            arrParam[4] = "";
+            arrParam[5] = ',E';
+            arrParam[6] = '01,D';
+            arrParam[7] = '';
+            arrParam[8] = ed_wrkDt.getValue();
+            arrParam[9] = 'Y';
+            arrParam[10] = 'T';
+            arrParam[11] = "1";
+
+            rtnList = await $c.win.openPopup("/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", {
+                width: 530, height: 450, modal: true, data: arrParam
+            });
+
+            if (rtnList == null) {
+                ed_drvStaffNo2.setValue("");
+                txt_drvStaffNm2.setValue("");
+            } else if (rtnList[0] == "N/A" || rtnList[0] == undefined) {
+                ed_drvStaffNo2.setValue(pCode);
+                txt_drvStaffNm2.setValue(pName);
+            } else {
+                ed_drvStaffNo2.setValue(rtnList[2]);
+                txt_drvStaffNm2.setValue(rtnList[3]);
+            }
+            break;
+
+        case 6:
+            pCode = ed_drvStaffNo3.getValue().replace(/\s*$/, '');
+            pName = txt_drvStaffNm3.getValue();
+
+            arrParam[0] = pCode;
+            arrParam[1] = pName;
+            arrParam[2] = pLobranCd;
+            arrParam[3] = pLobranNm;
+            arrParam[4] = "";
+            arrParam[5] = ',E';
+            arrParam[6] = '01,D';
+            arrParam[7] = '';
+            arrParam[8] = ed_wrkDt.getValue();
+            arrParam[9] = 'Y';
+            arrParam[10] = 'T';
+            arrParam[11] = "1";
+
+            rtnList = await $c.win.openPopup("/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", {
+                width: 530, height: 450, modal: true, data: arrParam
+            });
+
+            if (rtnList == null) {
+                ed_drvStaffNo3.setValue("");
+                txt_drvStaffNm3.setValue("");
+            } else if (rtnList[0] == "N/A" || rtnList[0] == undefined) {
+                ed_drvStaffNo3.setValue(pCode);
+                txt_drvStaffNm3.setValue(pName);
+            } else {
+                ed_drvStaffNo3.setValue(rtnList[2]);
+                txt_drvStaffNm3.setValue(rtnList[3]);
+            }
+            break;
+
+        case 7:
+            pCode = "";
+            pName = ed_wrkDt.getValue();
+            let pWrkIndictNo = "";
+            let pCvsslMgntNo = "";
+            let pLobranCd2 = "";
+            let pWrkPlCd = "";
+            rtnList = await scwin.f_CommonPopUp('retrieveWrkIndictNoList', pCode, pName, sWinCloseTF, 5, null, null, null, null, "700", null, null, null, null, null, null, "T", pWrkIndictNo, pCvsslMgntNo, pLobranCd2, pWrkPlCd);
+
+            if (rtnList != null && rtnList[0] != "N/A") {
+                let curRow = ds_heavyEquipWorkResults.getRowPosition();
+                for (let i = 0; i < ds_heavyEquipWorkResults.getRowCount(); i++) {
+                    if (ds_heavyEquipWorkResults.getCellData(i, "wrkIndictNo") == rtnList[0]
+                     && i != curRow) {
+                        await $c.gus.cfAlertMsg("동일한 작업지시번호는 입력할 수 없습니다.");
+                        return;
+                    }
+                }
+
+                ed_wrkIndictNo.setValue(rtnList[0]);
+                ds_heavyEquipWorkResults.setCellData(curRow, "wrkIndictClsCd", rtnList[1]);
+                ds_heavyEquipWorkResults.setCellData(curRow, "wrkIndictClsNm", rtnList[2]);
+                // TODO: div_cvsslNmWrkPlNm.innerText → textbox setValue
+                ds_heavyEquipWorkResults.setCellData(curRow, "cvsslNmWrkPlNm", rtnList[3]);
+                ds_heavyEquipWorkResults.setCellData(curRow, "berthCdWrkPlCd", rtnList[8]);
+                ds_heavyEquipWorkResults.setCellData(curRow, "shiftClsCd", rtnList[5]);
+                // TODO: div_shiftClsNm.innerText → textbox setValue
+                ds_heavyEquipWorkResults.setCellData(curRow, "shiftClsNm", rtnList[6]);
+                ds_heavyEquipWorkResults.setCellData(curRow, "cvsslMgntNo", rtnList[7]);
+                ds_heavyEquipWorkResults.setCellData(curRow, "pchsDeptCd", "4A6");
+                ds_heavyEquipWorkResults.setCellData(curRow, "pchsDeptNm", "인천북항");
+                ds_heavyEquipWorkResults.setCellData(curRow, "wrkDt", rtnList[4]);
+                ica_wrkStDt.setValue(rtnList[10]);
+                ed_wrkStHh.setValue(rtnList[11]);
+                ica_wrkEndDt.setValue(rtnList[12]);
+                ed_wrkEndHh.setValue(rtnList[13]);
+                scwin.f_CalcWrkTime();
+
+                scwin.f_OnWrkIndictClsCdChanged();
+
+                if (ds_heavyEquipBasisInformation.getRowCount() > 0) {
+                    if (ds_heavyEquipBasisInformation.getCellData(0, "posnClsCd") == 'J') {
+                        ds_heavyEquipWorkResults.setCellData(curRow, "pchsClntNo", "");
+                        ds_heavyEquipWorkResults.setCellData(curRow, "pchsClntNm", "");
+                        ds_heavyEquipWorkResults.setCellData(curRow, "copCoClntNo", "");
+                        ds_heavyEquipWorkResults.setCellData(curRow, "copCoClntNm", "");
+                    } else {
+                        sbm_tocWrkPl.action = "/ds.op.wrkrslts.stvwrkrslts.RetrieveTocWorkPlaceCMD.do?workIndicationNumber=" + ed_wrkIndictNo.getValue();
+                        await $c.sbm.execute(sbm_tocWrkPl);
+                    }
+                }
+            } else {
+                let curRow = ds_heavyEquipWorkResults.getRowPosition();
+                ed_wrkIndictNo.setValue("");
+                ds_heavyEquipWorkResults.setCellData(curRow, "wrkIndictClsCd", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "wrkIndictClsNm", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "cvsslNmWrkPlNm", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "berthCdWrkPlCd", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "shiftClsCd", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "shiftClsNm", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "cvsslMgntNo", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "pchsDeptCd", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "pchsDeptNm", "");
+                ds_heavyEquipWorkResults.setCellData(curRow, "wrkDt", "");
+                ica_wrkStDt.setValue("");
+                ed_wrkStHh.setValue("");
+                ica_wrkEndDt.setValue("");
+                ed_wrkEndHh.setValue("");
+                scwin.f_CalcWrkTime();
+            }
+            break;
+
+        case 8:
+            pSelectID = "retrieveLogisDeptInfo";
+            pWtitleSearch = "매입부서,매입부서코드,매입부서";
+            pCode = ed_pchsDeptCd.getValue().replace(/\s*$/, '');
+            pName = txt_pchsDeptNm.getValue();
+
+            rtnList = $c.gus.cfCommonPopUp(pSelectID, pCode, pName, pWinCloseTF, null, null, null, null, ',,,,,,1,,' + scwin.loUpperLobranCd, null, null, null, null, null, null, pWtitleSearch);
+
+            $c.gus.cfSetReturnValue(rtnList, ed_pchsDeptCd, txt_pchsDeptNm);
+            break;
+    }
+};
+
+scwin.f_CommonPopUp = async function(pSelectID, pCode, pName, pWinCloseTF, pDispCnt, pTitle, pWidth, pHidden, pWhere, pW, pH, pTop, pLeft, pExistTF, pAllSearchTF, pWtitleSearch, pWrkDtTF, pWrkIndictNo, pCvsslMgntNo, pLobranCd, pWrkPlCd) {
+    let sW = (pW == null) ? "550px; " : pW + "px; ";
+    let sH = (pH == null) ? "460px; " : pH + "px; ";
+
+    let rtnList = [];
+    let iDispCnt = null;
+
+    if (pSelectID == null || pSelectID == "") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["SELECT ID"]);
+        return;
+    }
+
+    if (pCode.substr(0, 1) == '%' || pName.substr(0, 1) == '%') {
+        await $c.gus.cfAlertMsg("검색어 첫번째문자로 @ 는 올 수 없습니다", ["%"]);
+        return;
+    }
+
+    iDispCnt = (pDispCnt == null) ? "0" : pDispCnt;
+    if (parseInt(iDispCnt) > 10) {
+        await $c.gus.cfAlertMsg("Display개수는(MAX=@)개 까지 가능 합니다.", ["10"]);
+        return;
+    }
+
+    switch (pSelectID) {
+        case 'retrieveWrkIndictNoList':
+            rtnList = await scwin.retrieveWrkIndictNoList(pSelectID, pCode, pName, pWinCloseTF, pDispCnt, pTitle, pWidth, pHidden, pWhere, null, pExistTF, pAllSearchTF, pWtitleSearch, pWrkDtTF, pWrkIndictNo, pCvsslMgntNo, pLobranCd, pWrkPlCd);
+            break;
+        default:
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_047);
+            break;
+    }
+    return rtnList;
+};
+
+scwin.f_registrationPopUp = async function() {
+    let args = [];
+    if (dma_condition.get("eqCd") != scwin.hd_eqCd
+     || dma_condition.get("wrkDt") != ed_wrkDt.getValue()
+     || ds_heavyEquipWorkResults.getRowCount() == 0) {
+        await $c.gus.cfAlertMsg("일괄등록할 실적이 없습니다.");
+        return;
+    }
+
+    if (ed_pchsPcost.getValue() == 0) {
+        await $c.gus.cfAlertMsg("기본실적의 매입원가가 없습니다..");
+        return;
+    }
+
+    if (!(await $c.gus.cfValidate([ed_pchsDeptCd]))) {
+        await $c.gus.cfAlertMsg("기본실적의 매입부서가 없습니다..");
+        return;
+    }
+
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    let indRow = ds_heavyEquipWorkIndication.getRowPosition();
+    args[0] = dma_condition.get("eqCd");
+    args[1] = dma_condition.get("wrkDt");
+    args[2] = ds_heavyEquipWorkResults.getCellData(curRow, "wrkIndictNo");
+    args[3] = ds_heavyEquipWorkResults.getCellData(curRow, "impExpClsCd");
+    args[4] = ds_heavyEquipWorkResults.getCellData(curRow, "pchsAdjmStdCd");
+    args[5] = ds_heavyEquipWorkIndication.getCellData(indRow, "lobranCd");
+    args[6] = ds_heavyEquipWorkIndication.getCellData(indRow, "lobranNm");
+
+    await $c.win.openPopup("/ui/ds/op/wrkrslts/stvwrkrslts/op_306_01_25p.xml", {
+        width: 900, height: 600, modal: true, data: args
+    });
+
+    await scwin.f_qeryList();
+};
+
+scwin.retrieveWrkIndictNoList = async function(pSelectID, pCode, pName, pWinCloseTF, pDispCnt, pTitle, pWidth, pHidden, pWhere, sFeatures, pExistTF, pAllSearchTF, pWtitleSearch, pWrkDtTF, pWrkIndictNo, pCvsslMgntNo, pWrkIndictClsCd, pLobranCd, pWrkPlCd) {
+    let iDispCnt = (pDispCnt == null) ? "2" : pDispCnt;
+    let bWinCloseTF = (pWinCloseTF == null) ? "F" : pWinCloseTF;
+    let bExistTF = (pExistTF == null) ? "F" : pExistTF;
+    let bAllSearchTF = (pAllSearchTF == null) ? "T" : pAllSearchTF;
+    let bWrkDtTF = (pWrkDtTF == null) ? "F" : pWrkDtTF;
+    let rtnList = [];
+    let arrParm = [];
+
+    arrParm[0] = ["하역작업지시번호 검색", "작업지시구분", "작업일자", pSelectID, bWinCloseTF, iDispCnt, bExistTF, bAllSearchTF, bWrkDtTF];
+
+    if (pWtitleSearch != null) {
+        let strArr = pWtitleSearch.split(",");
+        if (strArr != null) {
+            arrParm[0][0] = strArr[0];
+            arrParm[0][1] = strArr[1];
+            arrParm[0][2] = strArr[2];
+        }
+    }
+
+    arrParm[1] = [pCode, pName, pWrkIndictNo, pCvsslMgntNo, pLobranCd, pWrkPlCd];
+
+    let sURL = "/ui/ds/op/wrkplan/stvwrkplan/op_204_02_08p.xml";
+
+    let popupWidth = 550;
+    let popupHeight = 460;
+
+    rtnList = await $c.win.openPopup(sURL, {
+        width: popupWidth, height: popupHeight, modal: true, data: arrParm
+    });
+
+    return rtnList;
+};
+
+scwin.f_CalcNonOperationHour = function() {
+    if (ds_heavyEquipWorkResults.getRowCount() == 0) return;
+
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    let v_wrkIndictNo = ds_heavyEquipWorkResults.getCellData(curRow, "wrkIndictNo");
+    let v_eqCd = ds_heavyEquipWorkResults.getCellData(curRow, "eqCd");
+    let v_impExpClsCd = ds_heavyEquipWorkResults.getCellData(curRow, "impExpClsCd");
+    let v_totInputHhCnt = 0;
+    let v_totInputMintCnt = 0;
+    let v_NonOperationHh = 0;
+    let v_NonOperationMm = 0;
+    let v_diff = 0;
+    let v_diffHh = 0;
+    let v_diffMm = 0;
+
+    if (ed_totInputHhCnt.getValue().trim().length != 0) v_totInputHhCnt = ed_totInputHhCnt.getValue();
+    if (ed_totInputMintCnt.getValue().trim().length != 0) v_totInputMintCnt = ed_totInputMintCnt.getValue();
+
+    if (ds_heavyEquipNonOperationHour.getRowCount() != 0) {
+        for (let i = 0; i < ds_heavyEquipNonOperationHour.getRowCount(); i++) {
+            if (ds_heavyEquipNonOperationHour.getCellData(i, "wrkIndictNo") == v_wrkIndictNo
+             && ds_heavyEquipNonOperationHour.getCellData(i, "eqCd") == v_eqCd
+             && ds_heavyEquipNonOperationHour.getCellData(i, "impExpClsCd") == v_impExpClsCd
+             && ds_heavyEquipNonOperationHour.getRowStatus(i) != "D") {
+                if (ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtHhCnt") != "")
+                    v_NonOperationHh += parseInt(ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtHhCnt"));
+                if (ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtMintCnt") != "")
+                    v_NonOperationMm += parseInt(ds_heavyEquipNonOperationHour.getCellData(i, "nonoprtMintCnt"));
+            }
+        }
+        v_diff = (parseInt(v_totInputHhCnt) * 60 + parseInt(v_totInputMintCnt)) - (parseInt(v_NonOperationHh) * 60 + parseInt(v_NonOperationMm));
+    } else {
+        v_diff = (parseInt(v_totInputHhCnt) * 60 + parseInt(v_totInputMintCnt));
+    }
+
+    if (cb_mealYn.getValue() != "" && cb_mealYn.getValue() != null) {
+        v_diff = parseInt(v_diff) - 60;
+    }
+
+    v_diffHh = parseInt(parseInt(v_diff) / 60);
+    v_diffMm = parseInt(parseInt(v_diff) % 60);
+
+    ed_realOprtHhCnt.setValue(v_diffHh);
+    ed_realOprtMintCnt.setValue(v_diffMm);
+};
+
+scwin.f_chkOpenCommonPopupText = function(inObj, codeObj, disGubun) {
+    if (inObj.getValue().trim() == "" || inObj.getReadOnly()) return;
+    codeObj.setValue("");
+    scwin.f_openCommonPopUp(disGubun);
+};
+
+scwin.f_chkOpenCommonPopupEmedit = function(inObj, chkObjVal, txtObj, disGubun) {
+    let objValue = inObj.getValue().replace(/^\s*/, '');
+    if (txtObj != null) {
+        txtObj.setValue("");
+    }
+
+    if (objValue == "" || objValue == null) {
+        inObj.setValue("");
+        if (chkObjVal != null) chkObjVal = "";
+        return;
+    }
+
+    if (inObj.getReadOnly() || inObj.getDisabled()) return;
+
+    scwin.f_openCommonPopUp(disGubun);
+};
+
+scwin.f_switchObjMode = function(gubun) {
+    switch (gubun) {
+        case 1:
+            $c.gus.cfDisableKeyData();
+            $c.gus.cfDisableBtn([btn_InitDataCreate, btn_Save]);
+            $c.gus.cfDisableObjects([btn_wrkIndictNo, ed_prtgCost, ed_pchsDeptCd, ed_pchsPcost]);
+            break;
+
+        case 2:
+            break;
+
+        case 3:
+            break;
+
+        case 4:
+            scwin.f_switchObjMode(1);
+            $c.gus.cfEnableKeyData();
+            $c.gus.cfDisableKey();
+            $c.gus.cfEnableBtnOnly([btn_InitDataCreate, btn_Save]);
+            $c.gus.cfEnableObjects([ed_prtgCost, ed_pchsDeptCd]);
+
+            let curRow4 = ds_heavyEquipWorkResults.getRowPosition();
+            if (curRow4 >= 0 && ds_heavyEquipWorkResults.getRowStatus(curRow4) == "C") {
+                $c.gus.cfEnableObjects([btn_wrkIndictNo, lc_impExpClsCd]);
+            }
+
+            if (ds_heavyEquipBasisInformation.getRowCount() > 0) {
+                let pchsAdjmVal = lc_pchsAdjmStdCd.getValue();
+                if (ds_heavyEquipBasisInformation.getCellData(0, "posnClsCd") == 'J') {
+                    $c.gus.cfEnableBtnOnly([but_CalcPchsPcost]);
+                    ed_pchsPcost.mandatory = "true";
+                    lc_pchsAdjmStdCd.mandatory = "true";
+                    ed_copCoClntNo.mandatory = "false";
+                    ed_pchsClntNo.mandatory = "false";
+                    if ("H" == pchsAdjmVal) {
+                        ed_pchsAdptHhCnt.mandatory = "true";
+                        ed_wrkWt.mandatory = "false";
+                    } else if ("T" == pchsAdjmVal) {
+                        ed_pchsAdptHhCnt.mandatory = "false";
+                        ed_wrkWt.mandatory = "true";
+                    } else {
+                        ed_pchsAdptHhCnt.mandatory = "false";
+                        ed_wrkWt.mandatory = "false";
+                    }
+                } else {
+                    $c.gus.cfEnableBtnOnly([but_CalcPchsPcost]);
+                    ed_pchsPcost.mandatory = "true";
+                    lc_pchsAdjmStdCd.mandatory = "true";
+                    ed_copCoClntNo.mandatory = "true";
+                    ed_pchsClntNo.mandatory = "true";
+                    if ("H" == pchsAdjmVal) {
+                        ed_pchsAdptHhCnt.mandatory = "true";
+                        ed_wrkWt.mandatory = "false";
+                    } else if ("T" == pchsAdjmVal) {
+                        ed_pchsAdptHhCnt.mandatory = "false";
+                        ed_wrkWt.mandatory = "true";
+                    } else {
+                        ed_pchsAdptHhCnt.mandatory = "false";
+                        ed_wrkWt.mandatory = "false";
+                    }
+                }
+                $c.gus.cfDisableObjects([ed_pchsPcost]);
+                $c.gus.cfRefreshMandSign();
+            }
+            if (ed_ctrlPchsPcost.getValue() > 0) {
+                lc_ctrlPchsPcostRsn.mandatory = "true";
+            } else {
+                lc_ctrlPchsPcostRsn.mandatory = "false";
+            }
+            $c.gus.cfRefreshMandSign();
+            break;
+
+        case 5:
+            if (ds_heavyEquipBasisInformation.getRowCount() > 0) {
+                $c.gus.cfEnableBtnOnly([btn_InitDataCreate, btn_Save]);
+            }
+            if (ds_heavyEquipWorkResults.getRowCount() > 0) {
+                $c.gus.cfEnableBtnOnly([btn_Save]);
+                scwin.f_switchObjMode(4);
+            }
+            $c.gus.cfDisableObjects([ed_pchsPcost]);
+            break;
+
+        case 6:
+            break;
+
+        case 7:
+            if (ds_heavyEquipWorkResults.getRowCount() == 0) {
+                scwin.f_switchObjMode(1);
+            } else {
+                scwin.f_switchObjMode(4);
+            }
+            break;
+
+        case 8:
+            $c.gus.cfEnableKeyData();
+            $c.gus.cfEnableObjects([btn_wrkIndictNo, ed_prtgCost, ed_pchsDeptCd]);
+            $c.gus.cfDisableObjects([ed_pchsPcost]);
+            scwin.f_OnWrkIndictClsCdChanged();
+            break;
+        default:
+            break;
+    }
+    if (scwin.userClsCd != "01") {
+        $c.gus.cfDisableObjects([ed_copCoClntNo, txt_copCoClntNm]);
+    }
+};
+
+scwin.f_onFocusCall = function() {
+    let pchsAdjmVal = lc_pchsAdjmStdCd.getValue();
+    if (pchsAdjmVal == "H") {
+        scwin.txt_check = ed_pchsAdptHhCnt.getValue();
+    } else if (pchsAdjmVal == "T") {
+        scwin.txt_check = ed_wrkWt.getValue();
+    }
+};
+
+scwin.f_outFocusCall = function() {
+    let pchsAdjmVal = lc_pchsAdjmStdCd.getValue();
+    if (pchsAdjmVal == "H") {
+        if (scwin.txt_check != ed_pchsAdptHhCnt.getValue()) {
+            ed_pchsPcost.setValue(0);
+            scwin.txt_check = "";
+        }
+    } else if (pchsAdjmVal == "T") {
+        if (scwin.txt_check != ed_wrkWt.getValue()) {
+            ed_pchsPcost.setValue(0);
+            scwin.txt_check = "";
+        }
+    }
+};
+
+scwin.f_pchsAdjmStdCdOnFocusCall = function() {
+    scwin.txt_check = lc_pchsAdjmStdCd.getValue();
+};
+
+scwin.f_pchsAdjmStdCdOutFocusCall = function() {
+    if (lc_pchsAdjmStdCd.getValue() != scwin.txt_check) {
+        ed_pchsPcost.setValue(0);
+        scwin.txt_check = "";
+    }
+
+    let pchsAdjmVal = lc_pchsAdjmStdCd.getValue();
+    if ("H" == pchsAdjmVal) {
+        ed_pchsAdptHhCnt.mandatory = "true";
+        ed_wrkWt.mandatory = "false";
+    } else if ("T" == pchsAdjmVal) {
+        ed_pchsAdptHhCnt.mandatory = "false";
+        ed_wrkWt.mandatory = "true";
+    }
+
+    $c.gus.cfRefreshMandSign();
+};
+
+scwin.f_cfInitObjectsCall = function() {
+    $c.gus.cfInitObjects(tb_search);
+    ed_wrkDt.setValue(scwin.vCurDate);
+    ed_wrkDt.setFocus();
+};
+
+scwin.btn_retrieve_onclick = function(e) {
+    scwin.f_qeryList();
+};
+
+scwin.btn_fieldClear_onclick = function(e) {
+    scwin.f_cfInitObjectsCall();
+};
+
+scwin.btn_InitDataCreate_onclick = function(e) {
+    scwin.f_save(1);
+};
+
+scwin.btn_Save_onclick = function(e) {
+    scwin.f_save(2);
+};
+
+scwin.btn_wrkIndictNo_onclick = function(e) {
+    scwin.f_openCommonPopUp(7, 'F');
+};
+
+scwin.but_CalcPchsPcost_onclick = function(e) {
+    scwin.f_CalcPchsPcost();
+};
+
+scwin.sbm_searchHeavyEquipWorkResults_submitdone = function(e) {
+};
+
+scwin.sbm_searchHeavyEquipWorkResults_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.sbm_CreateHeavyEquipResultsData_submitdone = async function(e) {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_012, ["실적 기초데이터"]);
+    await $c.sbm.execute(sbm_searchHeavyEquipWorkResults);
+};
+
+scwin.sbm_CreateHeavyEquipResultsData_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.sbm_searchPchsPcost_submitdone = async function(e) {
+    let rowCnt = ds_pchsPcost.getRowCount();
+    if (rowCnt == 0) {
+        await $c.gus.cfAlertMsg("해당 요율을 조회하는데 실패하였습니다.");
+        ed_pchsPcost.setValue(0);
+        scwin.txt_upr = 0;
+    } else {
+        if (ds_pchsPcost.getCellData(0, "uprKnd") == 0) {
+            await $c.gus.cfAlertMsg("해당 요율이 없습니다.");
+            ed_pchsPcost.setValue(0);
+            scwin.txt_upr = 0;
+            return;
+        }
+        if (ds_pchsPcost.getCellData(0, "uprKnd") == 3 && ds_pchsPcost.getCellData(0, "ctrtEndYn") == 1) {
+            await $c.gus.cfAlertMsg("계약기간이 만료된 계약요율입니다.");
+        }
+        ed_pchsPcost.setValue(ds_pchsPcost.getCellData(0, "pchsPcost"));
+        scwin.txt_upr = ds_pchsPcost.getCellData(0, "upr");
+    }
+};
+
+scwin.sbm_searchPchsPcost_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.sbm_save_submitdone = async function(e) {
+    scwin.rowFlag = "";
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    await scwin.f_qeryList();
+};
+
+scwin.sbm_save_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.sbm_wrkStpCd_submitdone = function(e) {
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    if (ds_heavyEquipWorkResults.getRowCount() == 0 || ds_heavyEquipWorkResults.getCellData(curRow, "wrkStpCd") == "") {
+        lc_wrkStpCd.setValue("");
+        return;
+    }
+    lc_wrkStpCd.setValue(ds_heavyEquipWorkResults.getCellData(curRow, "wrkStpCd"));
+};
+
+scwin.sbm_nesEqNrmCd_submitdone = function(e) {
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    if (ds_heavyEquipWorkResults.getRowCount() == 0) {
+        lc_nesEqNrmCd.setValue("");
+        return;
+    }
+
+    if (ds_nesEqNrmCd.getRowCount() > 0) {
+        ds_nesEqNrmCd.insertRow(0);
+        ds_nesEqNrmCd.setCellData(0, "code", "");
+        ds_nesEqNrmCd.setCellData(0, "name", "");
+    }
+
+    lc_nesEqNrmCd.setValue(ds_heavyEquipWorkResults.getCellData(curRow, "nesEqNrmCd"));
+};
+
+scwin.sbm_tocWrkPl_submitdone = function(e) {
+    // TODO: TOC 작업장 조회 결과 처리
+};
+
+scwin.ds_heavyEquipBasisInformation_onloadcompleted = function(e) {
+    let rowCnt = ds_heavyEquipBasisInformation.getRowCount();
+    if (rowCnt == 0) return;
+
+    // TODO: div_hveqKndNm, div_hveqNrmNm, div_hveqHomeNm textbox setValue
+    scwin.f_switchObjMode(5);
+};
+
+scwin.ds_heavyEquipWorkResults_onloadcompleted = async function(e) {
+    let rowCnt = ds_heavyEquipWorkResults.getRowCount();
+
+    $c.gus.cfGoPrevPosition(ds_heavyEquipWorkResults, scwin.pos_groupCode);
+
+    if (rowCnt == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        scwin.f_switchObjMode(1);
+        scwin.f_switchObjMode(5);
+        return;
+    }
+
+    scwin.f_switchObjMode(4);
+};
+
+scwin.ds_heavyEquipWorkResults_onrowpositionchange = function(e) {
+    if (ds_heavyEquipBasisInformation.getRowCount() == 0) return;
+
+    scwin.f_OnWrkIndictClsCdChanged();
+
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    if (curRow >= 0 && ds_heavyEquipWorkResults.getRowStatus(curRow) == "C") {
+        scwin.f_switchObjMode(8);
+    } else {
+        scwin.f_switchObjMode(4);
+    }
+};
+
+scwin.ds_oilingResults_onloadcompleted = function(e) {
+    if (ds_oilingResults.getRowCount() == 0) {
+        ds_oilingResults.insertRow();
+        ds_oilingResults.setCellData(0, "eqCd", scwin.hd_eqCd);
+        ds_oilingResults.setCellData(0, "wrkDt", ed_wrkDt.getValue());
+    }
+};
+
+scwin.gr_heavyEquipWorkIndication_oncellclick = async function(rowIndex, columnIndex, columnId) {
+    if (rowIndex >= 0 && columnId == "chk") {
+        if (ds_heavyEquipWorkIndication.getCellData(rowIndex, "rsltsCreatYn") == 1) {
+            ds_heavyEquipWorkIndication.setCellData(rowIndex, "chk", 0);
+            await $c.gus.cfAlertMsg("이미 중기실적이 등록된건이므로 \n실적 기초 데이터를 생성할 수 없습니다.");
+            return;
+        }
+    }
+};
+
+scwin.lc_wrkStpCd_onchange = function(e) {
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    if (curRow >= 0) {
+        ds_heavyEquipWorkResults.setCellData(curRow, "wrkStpCd", lc_wrkStpCd.getValue());
+    }
+};
+
+scwin.lc_nesEqNrmCd_onchange = function(e) {
+    let curRow = ds_heavyEquipWorkResults.getRowPosition();
+    if (curRow >= 0) {
+        ds_heavyEquipWorkResults.setCellData(curRow, "nesEqNrmCd", lc_nesEqNrmCd.getValue());
+        ds_heavyEquipWorkResults.setCellData(curRow, "pchsPcost", 0);
+    }
+};
+
+scwin.ed_eqCd_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_eqCd, scwin.hd_eqCd, txt_eqNm, 1);
+};
+
+scwin.ed_wrkIndictNo_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_wrkIndictNo, null, null, 7);
+};
+
+scwin.ed_pchsClntNo_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_pchsClntNo, null, txt_pchsClntNm, 2);
+};
+
+scwin.ed_copCoClntNo_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_copCoClntNo, null, txt_copCoClntNm, 3);
+};
+
+scwin.ed_pchsDeptCd_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_pchsDeptCd, null, txt_pchsDeptNm, 8);
+};
+
+scwin.ed_ctrlPchsPcost_onblur = function(e) {
+    if (ed_ctrlPchsPcost.getValue() > 0) {
+        lc_ctrlPchsPcostRsn.mandatory = "true";
+    } else {
+        lc_ctrlPchsPcostRsn.mandatory = "false";
+    }
+    $c.gus.cfRefreshMandSign();
+};
+
+scwin.ed_drvStaffNo1_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_drvStaffNo1, null, txt_drvStaffNm1, 4);
+};
+
+scwin.ed_drvStaffNo2_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_drvStaffNo2, null, txt_drvStaffNm2, 5);
+};
+
+scwin.ed_drvStaffNo3_onblur = function(e) {
+    scwin.f_chkOpenCommonPopupEmedit(ed_drvStaffNo3, null, txt_drvStaffNm3, 6);
+};
+
+scwin.ica_wrkStDt_onchange = function(e) {
+    scwin.f_CalcWrkTime();
+};
+
+scwin.ed_wrkStHh_onkeyup = function(e) {
+    scwin.f_CalcWrkTime();
+};
+
+scwin.ica_wrkEndDt_onchange = function(e) {
+    scwin.f_CalcWrkTime();
+};
+
+scwin.ed_wrkEndHh_onkeyup = function(e) {
+    scwin.f_CalcWrkTime();
+};
+
+scwin.ed_pchsAdptHhCnt_onfocus = function(e) {
+    scwin.f_onFocusCall();
+};
+
+scwin.ed_pchsAdptHhCnt_onblur = function(e) {
+    scwin.f_outFocusCall();
+};
+
+scwin.ed_wrkWt_onfocus = function(e) {
+    scwin.f_onFocusCall();
+};
+
+scwin.ed_wrkWt_onblur = function(e) {
+    scwin.f_outFocusCall();
+};
+
+scwin.lc_pchsAdjmStdCd_ondropdown = function(e) {
+    scwin.f_pchsAdjmStdCdOnFocusCall();
+};
+
+scwin.lc_pchsAdjmStdCd_onchange = function(e) {
+    scwin.f_pchsAdjmStdCdOutFocusCall();
+};
+
+scwin.cb_mealYn_onviewchange = function(e) {
+    scwin.f_CalcNonOperationHour();
+};
+
+scwin.gr_heavyEquipNonOperationHour_oneditend = async function(rowIndex, columnId, oldValue, newValue) {
+    if (columnId != "nonoprtHhCnt" && columnId != "nonoprtMintCnt") return true;
+    if (columnId == "nonoprtMintCnt") {
+        if (ds_heavyEquipNonOperationHour.getCellData(rowIndex, columnId) >= 60) {
+            ds_heavyEquipNonOperationHour.setCellData(rowIndex, columnId, 0);
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_022, ["비가동시간"]);
+            return;
+        }
+    }
+    if (ds_heavyEquipNonOperationHour.getCellData(rowIndex, "nonoprtHhCnt") > ed_totInputHhCnt.getValue()
+     || (ds_heavyEquipNonOperationHour.getCellData(rowIndex, "nonoprtHhCnt") == ed_totInputHhCnt.getValue()
+      && ds_heavyEquipNonOperationHour.getCellData(rowIndex, "nonoprtMintCnt") > ed_totInputMintCnt.getValue())) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_048, ["비가동시간", "총 투입시간"]);
+        ds_heavyEquipNonOperationHour.setCellData(rowIndex, "nonoprtHhCnt", 0);
+        ds_heavyEquipNonOperationHour.setCellData(rowIndex, "nonoprtMintCnt", 0);
+        return;
+    }
+
+    scwin.f_CalcNonOperationHour();
+    return true;
+};
+    ]]></script>
+
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_wrkDt" pickerType="dynamic"
+    								style="" mandatory="true">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="중기" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode id="udc_eq" codeId="ed_eqCd" nameId="txt_eqNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="중기종류" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="규격" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="소속" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="lybox flex_no">
+    				<xf:group id="" class="col">
+    					<xf:group id="" class="row-gap-8">
+    						<xf:group style="" id="" class="title-wrap">
+    							<xf:group id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label="작업지시사항" class="tit"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" style="" id="" class="gvwbox">
+    							<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_heavyEquipWorkIndication" style="" autoFit="allColumn"
+    								id="gr_heavyEquipWorkIndication" visibleRowNum="5" class="wq_gvw" readOnly="false">
+    								<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header1">
+    									<w2:row style="" id="row1">
+    										<w2:column width="50" inputType="text" id="chk" value="선택" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" id="wrkIndictNo" value="작업지시번호" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="wrkIndictClsNm" value="구분" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" id="cvsslNmWrkPlNm" value="본선/장치장" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="impExpClsNm" value="수출입&lt;br/&gt;구분" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="rsltsCreatYn" value="실적&lt;br/&gt;여부" displayMode="label"></w2:column>
+    										<w2:column width="80" inputType="text" id="shiftClsNm" value="SHIFT&lt;br/&gt;구분명" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="wrkStpNm" value="작업&lt;br/&gt;단계" displayMode="label"></w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody1">
+    									<w2:row style="" id="row2">
+    										<w2:column width="50" inputType="checkbox" id="chk" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    										<w2:column width="120" inputType="text" id="wrkIndictNo" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="wrkIndictClsNm" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="120" inputType="text" id="cvsslNmWrkPlNm" displayMode="label" textAlign="left" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="impExpClsNm" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="select" id="rsltsCreatYn" displayMode="label" readOnly="true" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[Yes]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[No]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    										<w2:column width="80" inputType="text" id="shiftClsNm" displayMode="label" textAlign="center" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="wrkStpNm" displayMode="label" readOnly="true"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    											class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="" id="" class="btnbox">
+    						<xf:group id="" class="right">
+    							<xf:trigger style="" id="btn_InitDataCreate" ev:onclick="scwin.btn_InitDataCreate_onclick" label="저장" type="button" class="btn white">
+    								<xf:label>실적 데이터 기초생성</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="" id="" class="row-gap-8">
+    						<xf:group style="" id="" class="title-wrap">
+    							<xf:group id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label="작업실적" class="tit"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" style="" id="" class="gvwbox">
+    							<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_heavyEquipWorkResults" style="" autoFit="allColumn"
+    								id="gr_heavyEquipWorkResults" visibleRowNum="5" class="wq_gvw">
+    								<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header1">
+    									<w2:row style="" id="row1">
+    										<w2:column width="70" inputType="text" id="wrkIndictClsCd" value="하역&lt;br/&gt;구분" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" id="wrkIndictNo" value="작업지시번호" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" id="cvsslNmWrkPlNm" value="본선/장치장" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="impExpClsCd" value="수출입&lt;br/&gt;구분" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="shiftClsNm" value="Shift&lt;br/&gt;구분" displayMode="label"></w2:column>
+    										<w2:column width="140" inputType="text" id="noop" value="작업시간" displayMode="label"></w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody1">
+    									<w2:row style="" id="row2">
+    										<w2:column width="70" inputType="select" id="wrkIndictClsCd" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[본선]]></w2:label>
+        <w2:value><![CDATA[P]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[작업장]]></w2:label>
+        <w2:value><![CDATA[Y]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[타창고]]></w2:label>
+        <w2:value><![CDATA[T]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    										<w2:column width="120" inputType="text" id="wrkIndictNo" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" id="cvsslNmWrkPlNm" displayMode="label" textAlign="left"></w2:column>
+    										<w2:column width="70" inputType="select" id="impExpClsCd" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[수입]]></w2:label>
+        <w2:value><![CDATA[I]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[수출]]></w2:label>
+        <w2:value><![CDATA[O]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[Y]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    										<w2:column width="70" inputType="text" id="shiftClsNm" displayMode="label"></w2:column>
+    										<w2:column width="140" inputType="select" id="noop" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[]]></w2:label>
+        <w2:value><![CDATA[]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[4) & "/" & Mid(wrkStDt]]></w2:label>
+        <w2:value><![CDATA[(Left(wrkStDt]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[2) & "/" & Right(wrkStDt]]></w2:label>
+        <w2:value><![CDATA[5]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[2) & ":" & Right(wrkStHh]]></w2:label>
+        <w2:value><![CDATA[2) & space(1) & Left(wrkStHh]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[4) & "/" & Mid(wrkEndDt]]></w2:label>
+        <w2:value><![CDATA[2) & "~" & Left(wrkEndDt]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[2) & "/" & Right(wrkEndDt]]></w2:label>
+        <w2:value><![CDATA[5]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[2) & ":" & Right(wrkEndHh]]></w2:label>
+        <w2:value><![CDATA[2) & space(1) & Left(wrkEndHh]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    											class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group style="" id="" class="right">
+    									<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="" class="col" style="">
+    					<xf:group style="" id="" class="tbbox mt32">
+    						<xf:group tagname="table" style="" id="" class="w2tb">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group tagname="col" style="width:120px;"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group tagname="col" style="width:120px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group tagname="th" style="" class="w2tb_th">
+    									<w2:textbox ref="" style="" userData2="" id="" label="작업지시번호" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" style="" class="w2tb_td">
+    									<xf:group class="form-group" id="" style="">
+    										<xf:input class="" id="ed_wrkIndictNo" placeholder="" style="width: 150px;" ref="data:ds_heavyEquipWorkResults.wrkIndictNo" mandatory="true"></xf:input>
+    										<xf:trigger class="btn ico sch" id="btn_wrkIndictNo" style="" type="button">
+    											<xf:label><![CDATA[버튼]]></xf:label>
+    										</xf:trigger>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="Shift 구분" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="본선/장치장" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="수출입구분" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="lc_impExpClsCd" search="start"
+    										style="width:150px;" submenuSize="auto" ref="data:ds_heavyEquipWorkResults.impExpClsCd" mandatory="true">
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="작업단계" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="lc_wrkStpCd" search="start"
+    										style="width:150px;" submenuSize="auto" mandatory="true">
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="작업시간" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:group class="form-group" id="" style="">
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_wrkStDt"
+    											pickerType="dynamic" style="" ref="data:ds_heavyEquipWorkResults.wrkStDt">
+    										</w2:inputCalendar>
+    										<xf:input class="tac" dataType="time" id="ed_wrkStHh" style="width: 50px;" ref="data:ds_heavyEquipWorkResults.wrkStHh" mandatory="true"></xf:input>
+    										<w2:textbox class="" id="" label="~" ref="" style="" userData2=""></w2:textbox>
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_wrkEndDt"
+    											pickerType="dynamic" style="" ref="data:ds_heavyEquipWorkResults.wrkEndDt">
+    										</w2:inputCalendar>
+    										<xf:input class="tac" dataType="time" id="ed_wrkEndHh" style="width: 50px;" ref="data:ds_heavyEquipWorkResults.wrkEndHh" mandatory="true"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="총 투입시간" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group" id="" style="">
+    										<xf:input class="" id="ed_totInputHhCnt" placeholder="" style="width:50px;" ref="data:ds_heavyEquipWorkResults.totInputHhCnt"></xf:input><w2:textbox class="" id="" label="H" ref="" style="" userData2=""></w2:textbox>
+    										<xf:input class="" id="ed_totInputMintCnt" placeholder="" style="width:50px;" ref="data:ds_heavyEquipWorkResults.totInputMintCnt"></xf:input>
+    										
+    										<w2:textbox class="" id="" label="M" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox ref="" style="" userData2="" id="" label="식사여부" class="req"></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select appearance="full" class="" cols="" id="cb_mealYn" ref="data:ds_heavyEquipWorkResults.mealYn" renderType="checkboxgroup"
+    										rows="" selectedindex="-1" style="">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[]]></xf:label>
+    												<xf:value><![CDATA[]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th"><w2:textbox class="" id="" label="실가동시간" ref="" style="" userData2=""></w2:textbox></xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:group class="form-group" id="" style="">
+    										<xf:input class="" id="ed_realOprtHhCnt" placeholder="" style="width:50px;" ref="data:ds_heavyEquipWorkResults.realOprtHhCnt" mandatory="true"></xf:input>
+    										<w2:textbox class="" id="" label="H" ref="" style="" userData2=""></w2:textbox>
+    										<xf:input class="" id="ed_realOprtMintCnt" placeholder="" style="width:50px;" ref="data:ds_heavyEquipWorkResults.realOprtMintCnt" mandatory="true"></xf:input>
+    										<w2:textbox class="" id="" label="M" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="필요규격" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="lc_nesEqNrmCd" search="start"
+    										style="width:150px;" submenuSize="auto" mandatory="true">
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="하불임계산기준" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="lc_pchsAdjmStdCd" search="start"
+    										style="width:150px;" submenuSize="auto" ref="data:ds_heavyEquipWorkResults.pchsAdjmStdCd">
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="적용시간" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_pchsAdptHhCnt" placeholder="" style="width:50px;" ref="data:ds_heavyEquipWorkResults.pchsAdptHhCnt"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="작업톤수" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="tar" id="ed_wrkWt" placeholder="" style="" ref="data:ds_heavyEquipWorkResults.wrkWt" mandatory="true"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="매입거래처" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>7</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_comCode id="udc_pchsClnt" codeId="ed_pchsClntNo" nameId="txt_pchsClntNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="협력업체" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>7</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_comCode id="udc_copCoClnt" codeId="ed_copCoClntNo" nameId="txt_copCoClntNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="매입원가" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    								<xf:group id="" class="form-group"><xf:input style="width:150px;" id="ed_pchsPcost" placeholder="" class="tar" ref="data:ds_heavyEquipWorkResults.pchsPcost" mandatory="true"></xf:input><xf:trigger style="" id="but_CalcPchsPcost" type="button" class="btn">
+    										<xf:label><![CDATA[계산]]></xf:label>
+    									</xf:trigger></xf:group></xf:group>
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="조정매입원가" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="tar" id="ed_ctrlPchsPcost" placeholder="" style="width:150px;" ref="data:ds_heavyEquipWorkResults.ctrlPchsPcost" mandatory="true"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="운반비" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="tar" id="ed_prtgCost" placeholder="" style="width:150px;" ref="data:ds_heavyEquipWorkResults.prtgCost" mandatory="true"></xf:input>
+    								</xf:group>
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="조정사유" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="lc_ctrlPchsPcostRsn" search="start"
+    										style="width:150px;" submenuSize="auto" ref="data:ds_heavyEquipWorkResults.ctrlPchsPcostRsn">
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="매입부서" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>7</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_comCode id="udc_pchsDept" codeId="ed_pchsDeptCd" nameId="txt_pchsDeptNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="기사1" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_comCode id="udc_drvStaffNo1" codeId="ed_drvStaffNo1" nameId="txt_drvStaffNm1" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="기사2" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_comCode id="udc_drvStaffNo2" codeId="ed_drvStaffNo2" nameId="txt_drvStaffNm2" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="기사3" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td br0">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_comCode id="udc_drvStaffNo3" codeId="ed_drvStaffNo3" nameId="txt_drvStaffNm3" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td bl0">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    										<w2:colspan>4</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_Save" ev:onclick="scwin.btn_Save_onclick" label="저장" style="" type="button">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + new Date(scwin.vCurDate.substring(0, 4), scwin.vCurDate.substring(4, 6) , 0).getDate();  // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+scwin.strPreDate = WebSquare.date.dateAdd(scwin.vCurDate, -2);
+
+scwin.hd_kcomcd = "DBEX";
+
+scwin.onpageload = function() {
+	let memJson = $c.data.getMemInfo();
+    console.log(memJson);
+    scwin.userId = memJson.userId;
+    scwin.loginClntNo = memJson.clntNo;
+    scwin.loginClntNm = memJson.clntNm;
+    scwin.userClsCd = memJson.userClsCd;
+};
+
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        cnd_ed_bkEtdFrom.setValue(scwin.strPreDate);
+        cnd_ed_bkEtdTo.setValue(scwin.vCurDate);
+        cnd_rd_bkbltype.setValue("");	
+
+        if(cnd_lc_iogb.getValue() == "O") {
+            scwin.f_EtdDisplay();
+        } else {
+            scwin.f_EtaDisplay();
+        }
+        
+        cnd_lc_iogb.focus();  
+
+    }, {"delay":100});
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_PopUp = function (disGubun, chgGubun) {
+
+    var rtnList = new Array();
+    switch (disGubun){
+        case "Customer":  // Customer
+            udc_custCd.ilCommonPopUp(scwin.callbackEngClntInfo,    		// XML상의 SELECT ID	                                                   							
+                                    cnd_ed_custCd.getValue().trim(),        // 화면에서의 ??? Code Element의	Value                                  
+                                    cnd_ed_custNm.getValue(),             // 화면에서의 ??? Name Element의	Value                                  
+                                    chgGubun,                       // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)         
+                                    '10',                            // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                    'Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN',  // Title순서	                                                           
+                                    '140,300,100,100,100,100,100,,,100',                      // 보여주는 각 컬럼들의 폭	                                               
+                                    '8,9',                          // 컬럼중에서 숨기는	컬럼 지정	                                       
+                                    null,                           // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+                                    '500',                          // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+                                    '500',                          // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+                                    null,                           // 윈도우 위치 Y좌표	                                                   
+                                    null,                           // 윈도우 위치 X좌표                                                       
+                                    null,                           // 중복체크여부	("F")                                                      
+                                    "F",                            // 전체검색허용여부	("F")                                                  
+                                    'Customer search,Customer Code,Customer Name');   
+            //if(typeof(rtnList) != "undefined"){
+                //cfSetReturnValue(rtnList, cnd_ed_custCd,cnd_ed_custNm);				
+            //}					
+            break;
+    }
+}
+
+//---------------------------------------------------------
+// 공통팝업 열기
+//---------------------------------------------------------   
+scwin.f_OpenCommonPopUp = function (gubun1, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+    var rtnList			= new Array();
+
+    switch (gubun1) {		
+        case "Port" : 
+            udc_disCd.ilCommonPopUp(scwin.callbackPortInfo
+                                    ,cnd_ed_disCd.getValue().trim()
+                                    ,cnd_ed_disNm.getValue()
+                                    ,pWinCloseTF
+                                    ,'6'
+                                    ,'Code, Name,,,, UNCODE'
+                                    ,'80,160,,,,80'
+                                    ,"3,4,5,7,8,9,10"
+                                    ,null ,null ,null ,null ,null ,null
+                                    ,pAllSearchTF
+                                    ,"Port,Code,Name"
+                                    ,pNoDataCloseTF
+                                    ); 
+                //if(typeof(rtnList) != "undefined"){			      	
+                    //cfSetReturnValue(rtnList, cnd_ed_disCd, cnd_txt_disNm);
+                //}
+            break;									
+  	}	
+}
+
+//-------------------------------------------------------------------------
+// print
+//-------------------------------------------------------------------------		
+scwin.f_Print = function (){
+
+    if(cnd_ed_bkEtdFrom.getValue() == ""){
+        //$c.win.alert("Date From은(는) 필수입력항목입니다."); //@는 필수입력항목입니다.			
+        $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Date From"]);
+        cnd_ed_bkEtdFrom.focus();
+        return false;
+    }
+    
+    if(cnd_ed_bkEtdTo.getValue() == ""){
+        //$c.win.alert("Date To은(는) 필수입력항목입니다."); //@는 필수입력항목입니다.			
+        $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Date To"]);
+        cnd_ed_bkEtdTo.focus();
+        return false;
+    }	
+        
+    // alert('reoprt view');
+    
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam) 
+    /*
+    var odiParam = new ODIParam("se_104_01_01");
+        odiParam.add("KCOMCD", hd_kcomcd.value);
+        odiParam.add("IOGB", cnd_lc_iogb.BindColVal);			
+        odiParam.add("TYPE", cnd_rd_bkbltype.CodeValue);			
+        odiParam.add("FROM_DATE", cnd_ed_bkEtdFrom.Text);
+        odiParam.add("TO_DATE", cnd_ed_bkEtdTo.Text);
+        odiParam.add("PORT", cnd_ed_disCd.Text);
+        odiParam.add("PORTNM", cnd_txt_disNm.value);			
+        odiParam.add("CUSTOMER", cnd_ed_custCd.Text);	
+        odiParam.add("CUSTOMERNM", cnd_txt_custNm.value);						
+                                            
+    
+    // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    var formParam = new FormParam();
+            
+    // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    var viewerParam = new ViewerParam();
+    viewerParam.add("viewer.useprogressbar","false");
+
+    cfOZPreview("/il/seaout/se_104_01_01.ozr", odiParam, viewerParam, formParam );	 
+    */
+
+    var ozMode = "";
+
+    var data = {
+        odiName: "se_104_01_01",
+        reportName: "/il/seaout/se_104_01_01.ozr",
+        odiParam: {
+            KCOMCD : scwin.hd_kcomcd,
+            IOGB : cnd_lc_iogb.getValue(),
+            TYPE : cnd_rd_bkbltype.getValue(),
+            FROM_DATE : cnd_ed_bkEtdFrom.getValue(),
+            TO_DATE : cnd_ed_bkEtdTo.getValue(),
+            PORT : cnd_ed_disCd.getValue(),
+            PORTNM : cnd_ed_disNm.getValue(),
+            CUSTOMER : cnd_ed_custCd.getValue(),
+            CUSTOMERNM : cnd_ed_custNm.getValue()
+        },
+        viewerParam: {
+            useprogressbar: false, // 프로그레스바 쓸지 말지
+            zoom: 90, // 배율 설정
+            mode: ozMode
+        },
+        formParam: {
+
+        }
+    };
+
+    console.log(data.odiParam);
+
+    scwin.openPopup(data);
+}
+
+//-------------------------------------------------------------------------
+// 오즈 리포트 팝업
+//------------------------------------------------------------------------- 
+scwin.openPopup = async function (data) {
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+  
+
+scwin.callbackEngClntInfo = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, cnd_ed_custCd,cnd_ed_custNm);				
+}
+
+scwin.callbackPortInfo = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, cnd_ed_disCd, cnd_ed_disNm);
+}
+
+//-------------------------------------------------------------------------
+// f_EtdDisplay
+//-------------------------------------------------------------------------		
+scwin.f_EtdDisplay = function () {
+    /*
+    lay_gubun1.style.display = "block";
+    lay_gubun2.style.display = "none";		
+    */
+    lay_gubun1.setValue("ETD");
+}		
+	
+//-------------------------------------------------------------------------
+// f_EtaDisplay
+//-------------------------------------------------------------------------		
+scwin.f_EtaDisplay = function () {
+    /*
+    lay_gubun1.style.display = "none";
+    lay_gubun2.style.display = "block";		
+    */
+    lay_gubun1.setValue("ETA");
+}	
+
+scwin.btn_Print_onclick = function (e) {
+    scwin.f_Print();
+};
+
+scwin.cnd_lc_iogb_onviewchange = function (info) {
+    console.log(info);
+    var value = info.newValue;
+    if(value == "O") {
+        scwin.f_EtdDisplay();
+    } else {
+        scwin.f_EtaDisplay();
+    }
+};
+
+scwin.udc_disCd_onclickEvent = function (e) {
+    scwin.f_OpenCommonPopUp('Port','F','F','F');
+};
+
+scwin.udc_disCd_onviewchangeCodeEvent = function (info) {
+	var strClntNo = "";
+	strClntNo = cnd_ed_disCd.getValue().trim() ;
+
+	//if (cnd_ed_custCd.Modified ) {
+		if (strClntNo.length > 0) {	
+			cnd_ed_disNm.setValue("");		    
+			scwin.f_OpenCommonPopUp("Port", "T", "F","F");
+		} else {
+			cnd_ed_disNm.setValue("");
+		}
+	//}
+};
+
+scwin.udc_disCd_onblurCodeEvent = function (e) {
+	var strClntNo = "";
+	strClntNo = cnd_ed_disCd.getValue().trim() ;
+
+	//if (cnd_ed_custCd.Modified ) {
+		if (strClntNo.length > 0) {	
+			cnd_ed_disNm.setValue("");		    
+			scwin.f_OpenCommonPopUp("Port", "T", "F","F");
+		} else {
+			cnd_ed_disNm.setValue("");
+		}
+	//}
+};
+
+scwin.udc_disCd_onviewchangeNameEvent = function (info) {
+    scwin.f_OpenCommonPopUp('Port','F','F','F');
+};
+
+scwin.udc_custCd_onclickEvent = function (e) {
+    scwin.f_PopUp('Customer', 'F');
+};
+
+scwin.udc_custCd_onblurCodeEvent = function (e) {
+	var strClntNo = "";
+	strClntNo = cnd_ed_custCd.getValue().trim() ;
+
+	//if (cnd_ed_custCd.Modified ) {
+		if (strClntNo.length > 0) {	
+			cnd_ed_custNm.setValue("");
+			scwin.f_PopUp('Customer','T');
+		} else {
+			cnd_ed_custNm.setValue("");
+		}
+	//}
+};
+
+scwin.udc_custCd_onviewchangeNameEvent = function (info) {
+    scwin.f_PopUp('Customer', 'F');
+};
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+        <w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="IN/OUT" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="cnd_lc_iogb" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="" ev:onviewchange="scwin.cnd_lc_iogb_onviewchange" disableEdit="true">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[Export]]></w2:label>
+    										<w2:value><![CDATA[O]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[Import]]></w2:label>
+    										<w2:value><![CDATA[I]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Type" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 appearance="full" class="" cols="" id="cnd_rd_bkbltype" ref="" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Container]]></xf:label>
+    										<xf:value><![CDATA[C]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Bulk]]></xf:label>
+    										<xf:value><![CDATA[B]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[All]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="lay_gubun1" label="ETD" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="" refDataMap="" refEdDt="" refStDt="" style="" edFromId="cnd_ed_bkEtdFrom" edToId="cnd_ed_bkEtdTo" mandatoryFrom="true" mandatoryTo="true" validChkYn="Y"></w2:udc_fromToCalendar>
+    						</xf:group></xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="PORT" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_ilcomCode hideName="Y" popupID="" style="" codeId="cnd_ed_disCd" btnId="cnd_btn_disCd" id="udc_disCd" nameId="cnd_ed_disNm" selectID="retrievePortInfo" ev:onclickEvent="scwin.udc_disCd_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_disCd_onviewchangeNameEvent" allowCharCode="A-Z,a-z" maxlengthCode="5" UpperFlagCode="1" ev:onblurCodeEvent="scwin.udc_disCd_onblurCodeEvent"></w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Customer" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_ilcomCode hideName="Y" popupID="" style="" codeId="cnd_ed_custCd" btnId="cnd_btn_custCd" id="udc_custCd" nameId="cnd_ed_custNm" selectID="retrieveEngClntInfo" ev:onclickEvent="scwin.udc_custCd_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_custCd_onviewchangeNameEvent" allowCharCode="0-9" maxlengthCode="6" ev:onblurCodeEvent="scwin.udc_custCd_onblurCodeEvent"></w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td"><w2:attributes></w2:attributes></xf:group><xf:group tagname="td" id="" class="w2tb_td"><w2:attributes></w2:attributes></xf:group></xf:group></xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_Print" label="저장" style="" type="button" ev:onclick="scwin.btn_Print_onclick" userAuth="P" objType="bDelete">
+    						<xf:label>Print</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

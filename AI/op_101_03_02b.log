@@ -1,0 +1,29 @@
+op_101_03_02b.log
+
+[2026-02-19 03:48:47.231] 변환 시작
+[2026-02-19 03:48:47.250] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 03:49:51.887] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=3, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=3, warnings=7 | LLM 64600ms, total 64637ms
+    - [XML] scwin.f_checkDistance에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_checkDistance
+    - [XML] scwin.f_checkDistance이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_checkDistance
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.gr_railroadSchedule_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] DATASET 전환 — 누락 1건: oGDS_view_cond
+    - [적정성] async 선언 누락 — scwin.f_checkDistance (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_checkDistance → $c.gus.cfAlertMsg
+[2026-02-19 03:49:51.915] #1 검증: 자동수정 1건 적용
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 03:49:51.954] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=1, warnings=7
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.gr_railroadSchedule_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] DATASET 전환 — 누락 1건: oGDS_view_cond
+[2026-02-19 03:49:51.956] #2 재시도 (에러 6건)
+[2026-02-19 03:49:52.968] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:49:52.971] #2 검증: LLM call failed: Exception: No buffer space available (maximum connections reached?): connect (1ms)
+[2026-02-19 03:49:54.976] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:51:00.285] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=0, warnings=7 | LLM 65269ms, total 65309ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.gr_railroadSchedule_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 03:51:00.287] 실패 (2회 시도, 2m 13s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.gr_railroadSchedule_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+================================================================================

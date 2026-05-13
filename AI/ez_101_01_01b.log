@@ -1,0 +1,27 @@
+ez_101_01_01b.log
+
+[2026-02-18 23:48:54.998] 변환 시작
+[2026-02-18 23:48:55.022] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 23:50:53.312] #1 검증: XML: WebSquareXmlValidator: score=0.50, grade=B, verdict=REVIEW, errors=2, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=3, warnings=4 | LLM 118209ms, total 118290ms
+    - [XML] scwin.ShowUser에서 $c.win.openPopup를 await 없이 호출 — script:scwin.ShowUser
+    - [XML] scwin.ShowUser이 async가 아닌데 $c.win.openPopup 사용 → async function 필요 — script:scwin.ShowUser
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 2건: prefDistrict1: LUXECOMBO→w2:column (기대: w2:autoComplete), prefDistrict2: LUXECOMBO→w2:column (기대: w2:autoComplete)
+    - [적정성] async 선언 누락 — scwin.ShowUser (uses $c.win.openPopup)
+    - [적정성] await 누락 — scwin.ShowUser → $c.win.openPopup
+[2026-02-18 23:50:53.380] #1 검증: 자동수정 2건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 23:50:53.458] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=4
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 2건: prefDistrict1: LUXECOMBO→w2:column (기대: w2:autoComplete), prefDistrict2: LUXECOMBO→w2:column (기대: w2:autoComplete)
+[2026-02-18 23:51:01.846] #2 재시도 (에러 5건)
+[2026-02-18 23:51:02.854] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 23:53:02.138] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=4 | LLM 119203ms, total 119283ms
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 2건: prefDistrict1: LUXECOMBO→w2:column (기대: w2:autoComplete), prefDistrict2: LUXECOMBO→w2:column (기대: w2:autoComplete)
+[2026-02-18 23:53:02.140] #1 검증: 최적 시도 #1 채택 (confidence: 0.83)
+[2026-02-18 23:53:02.141] 성공 (#2, 4m 7s, confidence:0.83)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 타입 매핑 — 불일치 2건: prefDistrict1: LUXECOMBO→w2:column (기대: w2:autoComplete), prefDistrict2: LUXECOMBO→w2:column (기대: w2:autoComplete)
+================================================================================

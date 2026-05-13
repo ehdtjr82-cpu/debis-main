@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="oGDS_login">
+    				<w2:keyInfo>
+    					<w2:key id="userId" name="name1" dataType="text"></w2:key>
+    					<w2:key id="passwd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="passwdCheckCnt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="isPostponePasswdChg" name="name7" dataType="text"></w2:key>
+    					<w2:key id="blockReason" name="name8" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="oGDS_result_list">
+    				<w2:keyInfo>
+    					<w2:key id="userId" name="name1" dataType="text"></w2:key>
+    					<w2:key id="userNm" name="name2" dataType="text"></w2:key>
+    					<w2:key id="passwd" name="name3" dataType="text"></w2:key>
+    					<w2:key id="newPasswd" name="name4" dataType="text"></w2:key>
+    					<w2:key id="decPasswd" name="name5" dataType="text"></w2:key>
+    					<w2:key id="email" name="name6" dataType="text"></w2:key>
+    					<w2:key id="zip" name="name7" dataType="text"></w2:key>
+    					<w2:key id="addr1" name="name8" dataType="text"></w2:key>
+    					<w2:key id="addr2" name="name9" dataType="text"></w2:key>
+    					<w2:key id="userMpNo" name="name10" dataType="text"></w2:key>
+    					<w2:key id="basisMenuClsCd" name="name11" dataType="text"></w2:key>
+    					<w2:key id="userBasisPgmId" name="name12" dataType="text"></w2:key>
+    					<w2:key id="passwdChgCycCd" name="name13" dataType="text"></w2:key>
+    					<w2:key id="msgConfirmCycCd" name="name14" dataType="text"></w2:key>
+    					<w2:key id="oldPasswd" name="name30" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="oGDS_login_result">
+    				<w2:keyInfo>
+    					<w2:key id="userId" name="name1" dataType="text"></w2:key>
+    					<w2:key id="passwd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="passwdCheckCnt" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="OUT_GDS1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="userId" name="name1" dataType="text"></w2:column>
+    					<w2:column id="userNm" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_saveEmp" action="/cm.bc.comnmgnt.usermgnt.cmd.UpdateUserPasswordCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"oGDS_result_list","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_saveEmp_submit" ev:submitdone="scwin.sbm_saveEmp_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_login" action="/login.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"oGDS_login","key":"IN_GDS1"},"OUT_GDS1"]' target='' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_login_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+const KEY_REMEMBER = "rememberId";
+const KEY_LOGIN_ID = "savedLoginId";
+const LOCK_THRESHOLD = 3;
+const LOGIN_POPUP_WATCH_KEY = "loginPendingPopupWatch";
+const LOGIN_POPUP_OPEN_KEY = "loginLegacyPopupOpen";
+
+var MSG_LO_ERR_001 = "현재비밀번호를 입력하세요.";
+var MSG_LO_ERR_002 = "새비밀번호를 입력하세요.";
+var MSG_LO_ERR_003 = "새비밀번호확인을 입력하세요.";
+var MSG_LO_ERR_004 = "현재비밀번호와 새비밀번호 값이 같습니다. 다른값을 입력하세요.";
+var MSG_LO_ERR_005 = "새비밀번호와 새비밀번호확인 값이 다릅니다. 같은값을 입력하세요.";
+var MSG_LO_ERR_006 = "입력하신 비밀번호가 다릅니다. 정확히 입력하세요.";
+
+
+scwin.onpageload = function () {
+
+    // scwin.FROM_LOGIN = $p.getParameter("rowObj").FROM_LOGIN
+    // scwin.userId = $p.getParameter("rowObj").userId || "";
+    // scwin.decPwd = $p.getParameter("rowObj").passwd || "";
+
+    // if (scwin.FROM_LOGIN) {
+    //     scwin.userId = $p.getParameter("rowObj").userId || scwin.userId;
+    //     scwin.decPwd = $p.getParameter("rowObj").decPwd || scwin.decPwd;
+    // }
+
+    // $c.gus.cfDisableKeyData();
+    // txt_userId.setValue(scwin.userId);
+    // txt_userNm.setValue(scwin.userNm);
+
+    scwin.popupRow = $p.getParameter("rowObj") || {};
+    scwin.userId = scwin.popupRow.userId || "";
+    scwin.decPwd = scwin.popupRow.passWd || "";
+    scwin.userNm = scwin.popupRow.userNm || "";
+    scwin.FROM_LOGIN = scwin.popupRow.FROM_LOGIN || "";
+    scwin.loginPopupLookupInProgress = false;
+
+    scwin.vAuthNoYn = "N";
+    scwin.toDay = WebSquare.date.getCurrentServerDate();
+    scwin.day = WebSquare.date.dateAdd(scwin.toDay, 1);
+
+    if (scwin.userId !== "") {
+        txt_userId.setValue(scwin.userId);
+        txt_userId.setDisabled(true);
+    }
+
+    if (scwin.userNm !== "") {
+        txt_userNm.setValue(scwin.userNm);
+    }
+
+    if (scwin.FROM_LOGIN && scwin.userId !== "" && scwin.decPwd !== "") {
+        scwin.f_retrieveLoginPopupUserInfo();
+    }
+
+
+};
+
+scwin.f_retrieveLoginPopupUserInfo = function () {
+    scwin.loginPopupLookupInProgress = true;
+    oGDS_login.set("userId", scwin.userId);
+    oGDS_login.set("passwd", scwin.decPwd);
+    oGDS_login.set("passwdCheckCnt", 1);
+    oGDS_login.set("isPostponePasswdChg", 1);
+    oGDS_login.set("blockReason", "");
+    sbm_login.action = "/cm.bc.comnmgnt.usermgnt.cmd.RetrieveLoginPopupUserInfoCMD.do";
+    $c.sbm.execute(sbm_login);
+};
+
+scwin.resetFailureCount = function () {
+    scwin.failedPasswordCount = 0;
+};
+
+scwin.clearPendingLoginPopup = function () {
+    scwin.pendingLoginPopupType = "";
+    scwin.pendingLoginPopupAlertSeen = false;
+    scwin.pendingLoginPopupAlertClosed = false;
+    scwin.pendingLoginPopupReady = true;
+    $c.util.clearInterval(LOGIN_POPUP_WATCH_KEY);
+    $c.util.clearTimeout(LOGIN_POPUP_OPEN_KEY);
+};
+
+scwin.applyLoginStorage = function (userInfo) {
+    [
+        "coClsCd",
+        "privAdmin",
+        "coCd",
+        "userHomeClsCd",
+        "userClsCd",
+        "userId",
+        "userNm",
+        "empNo",
+        "email",
+        "lobranCd"
+    ].forEach(function (key) {
+        if (typeof userInfo[key] !== "undefined" && userInfo[key] !== null) {
+            WebSquare.localStorage.setItem(key, userInfo[key]);
+        }
+    });
+
+    let sysCd = userInfo.userClsCd;
+    if (sysCd === "01") {
+        sysCd = userInfo.userHomeClsCd;
+        if (userInfo.coCd === "017") {
+            sysCd = "LA";
+        }
+        if (!sysCd) {
+            sysCd = "CM";
+        }
+    }
+
+    if (sysCd) {
+        WebSquare.localStorage.setItem("sysCd", sysCd);
+    }
+};
+
+
+scwin.sbm_login_submitdone = async function (e) {
+
+    // data:json,{"id":"oGDS_login_result","key":"OUT_GDS1"}
+    const response = e.responseJSON;
+
+    if (scwin.loginPopupLookupInProgress) {
+        scwin.loginPopupLookupInProgress = false;
+        const userInfo = response && response.OUT_GDS1 && response.OUT_GDS1.length > 0 ? response.OUT_GDS1[0] : null;
+        sbm_login.action = "/login.do";
+        scwin.userNm = userInfo && userInfo.userNm ? userInfo.userNm : "";
+        txt_userId.setValue(scwin.userId);
+        txt_userId.setDisabled(true);
+        txt_userNm.setValue(scwin.userNm);
+        txt_userNm.setDisabled(true);
+        return;
+    }
+
+    scwin.loginAttemptInProgress = false;
+
+    const result = response && response.resultDataSet ? response.resultDataSet[0] : null;
+
+    if (!result) {
+        location.href = "/error.html";
+        return;
+    }
+
+    if (result.Msg === "SUCC" && response.OUT_GDS1 && response.OUT_GDS1.length > 0) {
+        
+        const userInfo = response.OUT_GDS1[0];
+
+        scwin.resetFailureCount();
+        scwin.clearPendingLoginPopup();
+        scwin.applyLoginStorage(userInfo);
+
+        // 1. 부모 창의 주소를 변경
+        // location.href = "/websquare/websquare.html?w2xPath=/ui/main/index.xml";
+        window.opener.location.href = "/websquare/websquare.html?w2xPath=/ui/main/index.xml";
+
+        // 2. 현재 팝업 창을 닫음
+        window.close();
+        return;
+    }
+
+    location.href = "/error.html";
+};
+
+//-------------------------------------------------------------------------
+// 저장 : 
+//-------------------------------------------------------------------------
+scwin.f_Update = async function () {
+    let ret = await scwin.f_ReqFieldChk()
+    if (ret) {
+        let confirmVal = $c.win.confirm(MSG_CM_CRM_001);
+        if (confirmVal) {
+            $c.sbm.execute(sbm_saveEmp); // tr_saveEmp.Post();
+        }
+    }
+}
+
+scwin.f_Next = function () {
+
+    oGDS_login.set("userId", txt_userId.getValue());
+    oGDS_login.set("passwd", scwin.decPwd);
+    oGDS_login.set("passwdCheckCnt", 1);
+    oGDS_login.set("isPostponePasswdChg", 1);
+
+    var rtnList = new Array();
+
+    rtnList[0] = oGDS_login.get("userId")
+    rtnList[1] = oGDS_login.get("passwd")
+    rtnList[2] = oGDS_login.get("passwdCheckCnt")
+    rtnList[3] = oGDS_login.get("isPostponePasswdChg")
+
+    $c.sbm.execute(sbm_login); //     tr_login.Post();
+}
+
+scwin.f_ReqFieldChk = async function () {
+    //필수입력항목 체크
+    // var passwd = "<%=userDto.getDecPasswd()%>";
+
+    var passwd = scwin.decPwd;
+    var newPasswd = txt_newPasswd.getValue().trim();
+    var confirmPasswd = txt_confirmPasswd.getValue().trim();
+
+    if (newPasswd == "") {
+        $c.win.alert(MSG_LO_ERR_002);
+        return false;
+    }
+
+    if (confirmPasswd == "") {
+        $c.win.alert(MSG_LO_ERR_003);
+        return false;
+    }
+
+    if (newPasswd != confirmPasswd) {
+        $c.win.alert(MSG_LO_ERR_005);
+        return false;
+    }
+
+    let checkVal = scwin.f_passwordCheck(txt_userId.getValue(), newPasswd)
+
+    if (!checkVal) {
+        txt_newPasswd.focus();
+        return false;
+    }
+
+    if (passwd == newPasswd) {
+        $c.win.alert(MSG_LO_ERR_004);
+        return false;
+    }
+    return true;
+}
+
+scwin.f_passwordCheck = function (vUserId, vPassword) {
+    var iLen = vPassword.length;
+    var engCnt = $c.gus.cfisEnglishCnt(vPassword);
+    var numCnt = $c.gus.cfisNumberCnt(vPassword);
+
+    if ($c.gus.cfnumChainChk(vPassword)) {
+        $c.win.alert("비밀번호는 연속 또는 동일한  숫자 3자리 이상 사용할 수 없습니다.");
+        return false;
+    }
+
+    if (iLen < 10) {
+        $c.win.alert("비밀번호는 10자리 이상이어야 합니다.");
+        return false;
+    }
+
+    if (engCnt == 0 || numCnt == 0) {
+        $c.win.alert("비밀번호는 영어+숫자 조합이어야 합니다.");
+        return false;
+    }
+
+    if (vUserId == vPassword) {
+        $c.win.alert("사용자ID를 비밀번호로 사용할  수  없습니다.");
+        return false;
+    }
+    return true;
+}
+
+scwin.jsLogin = async function () {
+
+    oGDS_login.set("userId", txt_userId.getValue());
+    oGDS_login.set("passwd", txt_newPasswd.getValue());
+    oGDS_login.set("passwdCheckCnt", 1);
+
+    $c.sbm.execute(sbm_login); //     tr_login.Post();
+}
+
+scwin.sbm_saveEmp_submit = function (e) {
+    oGDS_result_list.set("userId", txt_userId.getValue());
+    oGDS_result_list.set("userNm", txt_userNm.getValue());
+    oGDS_result_list.set("newPasswd", txt_newPasswd.getValue());
+};
+
+scwin.sbm_saveEmp_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code == -1) return;
+    await $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    await scwin.jsLogin();
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    <xf:group id="" class="sub_contents"><xf:group style="" id="" class="round-box">
+    		<xf:group style="" id="" class="title-wrap">
+    			<xf:group id="" class="title">
+    				<w2:textbox tagname="h3" style="" id="" label="비밀번호변경" class="tit"></w2:textbox>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" id="" class="tbbox">
+    			<xf:group tagname="table" style="" id="" class="w2tb">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="caption"></xf:group>
+    				<xf:group tagname="colgroup">
+    					<xf:group tagname="col" style="width:120px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="th" style="" class="w2tb_th"><w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes><w2:textbox style="" id="" label="사용자ID" class=""></w2:textbox></xf:group>
+    					<xf:group tagname="td" style="" class="w2tb_td">
+    						<xf:input style="width:150px;" id="txt_userId" placeholder="" class="" maxlength="50" objType="data"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    			<xf:group tagname="tr">
+    				<xf:group tagname="th" class="w2tb_th">
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<w2:textbox style="" id="" label="사용자명" class=""></w2:textbox>
+    				</xf:group>
+    				<xf:group tagname="td" class="w2tb_td">
+    					<w2:attributes></w2:attributes>
+    					<xf:input style="width:150px;" id="txt_userNm" placeholder="" class="" maxlength="50" objType="data"></xf:input>
+    				</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox style="" id="" label="새비밀번호" class="req"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input style="width:200px;" id="txt_newPasswd" placeholder="" class="" maxlength="12" type="password"></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox style="" id="" label="새비밀번호 확인" class="req"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input style="width:200px;" id="txt_confirmPasswd" placeholder="" class="" maxlength="12" type="password"></xf:input>
+	</xf:group></xf:group></xf:group>
+    		</xf:group><xf:group id="" class="btnbox">
+    			<xf:group id="" class="right">
+    				<xf:trigger style="" id="btn_edit" label="저장" type="button" class="btn " ev:onclick="scwin.f_Next">
+    					<xf:label>다음에</xf:label>
+    				</xf:trigger>
+    				<xf:trigger style="" id="btn_save" label="저장" type="button" class="btn" ev:onclick="scwin.f_Update">
+    					<xf:label>수정</xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		
+    	</xf:group></xf:group></body>
+</html>

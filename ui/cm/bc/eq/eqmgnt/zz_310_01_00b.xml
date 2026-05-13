@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.parms                     = $c.data.getParameter()
+
+scwin.login                     = $c.data.getMemInfo();
+scwin.vUserHomeClsCd            = scwin.login.userHomeClsCd;
+scwin.vSysAdminYn               = scwin.login.sysAdminYn;
+
+//param
+scwin.vVehclNo                  = scwin.parms.vehclNo == null ? "" : scwin.parms.vehclNo;
+scwin.vVehclNoHomeClsCd         = scwin.parms.vehclNoHomeClsCd == null ? "" : scwin.parms.vehclNoHomeClsCd;
+scwin.vehclShortCd              = scwin.parms.vehclShortCd == null ? "" : scwin.parms.vehclShortCd;
+scwin.vEqCd                     = scwin.parms.eqCd == null ? "" : scwin.parms.eqCd;
+scwin.legal                    = scwin.parms.legal == null ? "" : scwin.parms.legal;
+
+scwin.curDate                   = WebSquare.date.getCurrentServerDate();
+
+
+// 부모페이지에서 자식페이지에 파라미터를 보내지 않고, 부모페이지의 전역변수를 공유합니다.
+// scwin.parentFrame.전역변수명으로 받으시면 됩니다. (최준용)
+
+scwin.onpageload = function() {
+    if(scwin.vVehclNo.trim()!="" && scwin.vVehclNoHomeClsCd.trim()!=""){
+        /* if(scwin.vVehclNoHomeClsCd=="RV"){
+            tabControl1.setSelectedTabIndex(4);
+            // scwin.f_ViewTab(4,'');
+        }else */ 
+        if(scwin.vVehclNoHomeClsCd=="LO"){
+            tabControl1.setSelectedTabIndex(0);
+            // scwin.f_ViewTab(0,'');
+
+        }else if(scwin.vVehclNoHomeClsCd=="TR"){
+            tabControl1.setSelectedTabIndex(0);
+            // scwin.f_ViewTab(0,'');
+        }
+    }else{
+        if(scwin.vSysAdminYn=="1"){
+            tabControl1.setSelectedTabIndex(0);
+            // scwin.f_ViewTab(0,'');
+        }else if(scwin.legal=="T"){
+            tabControl1.setSelectedTabIndex(0);
+            // scwin.f_ViewTab(0,'');
+        }else if(scwin.vUserHomeClsCd=="EQ" && scwin.vSysAdminYn=="0"){
+            tabControl1.setSelectedTabIndex(0);
+            // scwin.f_ViewTab(0,'');
+        }else if(scwin.vUserHomeClsCd=="DS" && scwin.vSysAdminYn=="0"){
+            tabControl1.setSelectedTabIndex(1);
+            // scwin.f_ViewTab(1,'');
+        // }else if(scwin.vUserHomeClsCd=="TR" && scwin.vSysAdminYn=="0"){
+        //     tabControl1.setSelectedTabIndex(3);
+            // scwin.f_ViewTab(3,'');
+        }/* else if(scwin.vUserHomeClsCd=="RC" && scwin.vSysAdminYn=="0"){
+            tabControl1.setSelectedTabIndex(4);
+            // scwin.f_ViewTab(4,'');
+        } */
+    }
+};
+
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="tabbox " id="" style="">
+    			<w2:tabControl alwaysDraw="false" class="wq_tab" id="tabControl1" style="">
+    				<w2:tabs disabled="false" id="tabs1" label="정비" style=""></w2:tabs>
+    				<w2:tabs disabled="false" id="tabs2" label="물류(자차/위수탁/지입)" style=""></w2:tabs>
+    				<w2:tabs disabled="false" style="" id="tabs3" label="물류(중기)"></w2:tabs>
+    				<w2:content alwaysDraw="false" id="content1" style="" src="/ui/cm/bc/eq/eqmgnt/zz_310_01_01b.xml"></w2:content>
+    				<w2:content alwaysDraw="false" id="content2" src="/ui/cm/bc/eq/eqmgnt/zz_310_01_02b.xml" style=""></w2:content>
+    				<w2:content alwaysDraw="false" style="" id="content3" src="/ui/cm/bc/eq/eqmgnt/zz_310_01_03b.xml"></w2:content>
+    			</w2:tabControl>
+    		</xf:group>
+    		
+    		
+    		
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_stockQuery">
+                <w2:keyInfo>
+                    <w2:key id="branch" name="지점" dataType="text"></w2:key>
+                    <w2:key id="yard" name="장치장" dataType="text"></w2:key>
+                    <w2:key id="mcht" name="화주" dataType="text"></w2:key>
+                    <w2:key id="kcg" name="화종" dataType="text"></w2:key>
+                    <w2:key id="comm" name="품명" dataType="text"></w2:key>
+                    <w2:key id="term1From" name="기간1FROM" dataType="text"></w2:key>
+                    <w2:key id="term1To" name="기간1To" dataType="text"></w2:key>
+                    <w2:key id="term2From" name="기간2From" dataType="text"></w2:key>
+                    <w2:key id="term2To" name="기간2To" dataType="text"></w2:key>
+                    <w2:key id="term3From" name="기간3From" dataType="text"></w2:key>
+                    <w2:key id="term3To" name="기간3To" dataType="text"></w2:key>
+                    <w2:key id="term4From" name="기간4From" dataType="text"></w2:key>
+                    <w2:key id="term4To" name="기간4To" dataType="text"></w2:key>
+                    <w2:key id="termTotalF" name="termTotalF" dataType="text"></w2:key>
+                    <w2:key id="termTotalT" name="termTotalT" dataType="text"></w2:key>
+                    <w2:key id="cls" name="일반체화구분" dataType="text"></w2:key>
+                    <w2:key id="accfCargoStd" name="체화기준" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_stockPresent" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="wrkPlNm" name="장치장" dataType="text"></w2:column>
+                    <w2:column id="stockClntNm" name="화주" dataType="text"></w2:column>
+                    <w2:column id="kcgNm" name="화종" dataType="text"></w2:column>
+                    <w2:column id="commNm" name="품명" dataType="text"></w2:column>
+                    <w2:column id="stockQty1" name="수량1" dataType="text"></w2:column>
+                    <w2:column id="stockWt1" name="중량1" dataType="text"></w2:column>
+                    <w2:column id="stockCbm1" name="CBM1" dataType="text"></w2:column>
+                    <w2:column id="stockQty2" name="수량2" dataType="text"></w2:column>
+                    <w2:column id="stockWt2" name="중량2" dataType="text"></w2:column>
+                    <w2:column id="stockCbm2" name="CBM2" dataType="text"></w2:column>
+                    <w2:column id="stockQty3" name="수량3" dataType="text"></w2:column>
+                    <w2:column id="stockWt3" name="중량3" dataType="text"></w2:column>
+                    <w2:column id="stockCbm3" name="CBM3" dataType="text"></w2:column>
+                    <w2:column id="stockQty4" name="수량4" dataType="text"></w2:column>
+                    <w2:column id="stockWt4" name="중량4" dataType="text"></w2:column>
+                    <w2:column id="stockCbm4" name="CBM4" dataType="text"></w2:column>
+                    <w2:column id="stockQtyTotal" name="수량합계" dataType="text"></w2:column>
+                    <w2:column id="stockWtTotal" name="중량합계" dataType="text"></w2:column>
+                    <w2:column id="stockCbmTotal" name="CBM합계" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_lobranCd">
+                <w2:columnInfo>
+                    <w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="점소명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.op.wrkrslts.stockrslts.RetrievePossessionTermEachBulkStockPresentConditionCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_stockQuery","key":"IN_DS1"},{"id":"ds_stockPresent","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_stockPresent","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_lobranCd"
+            action="/ds.co.RetreiveLoBranCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_lobranCd","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_lobranCd","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_lobranCd_submitdone"
+            ev:submiterror="scwin.sbm_lobranCd_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+    scwin.cur_unitState = "02";
+    scwin.loUpperLobranCd = "";
+
+    scwin.onpageload = function() {
+        scwin.loUpperLobranCd = $c.ses.getLoUpperLobranCd();
+        if (scwin.loUpperLobranCd == null) {
+            scwin.loUpperLobranCd = "";
+        }
+
+        $c.sbm.execute(sbm_lobranCd);
+
+        lc_branch.setFocus();
+
+        scwin.f_UnitChage(1);
+    };
+
+    scwin.onUdcCompleted = function() {
+        scwin.f_setDefaultData();
+    };
+
+    scwin.f_Retrieve = async function() {
+        if (!(await $c.gus.cfValidate([tb_mainData]))) return;
+        await scwin.f_validateDate();
+    };
+
+    scwin.f_setDefaultData = function() {
+        ed_term1From.setValue("1");
+        ed_term1To.setValue("5");
+        ed_term2From.setValue("6");
+        ed_term2To.setValue("10");
+        ed_term3From.setValue("11");
+        ed_term3To.setValue("30");
+        ed_term4From.setValue("30");
+
+        lc_con_accfCargoStd.setSelectedIndex(0);
+        rd_cls.setValue("1");
+
+        scwin.f_clsCondRdoShowHide();
+    };
+
+    scwin.f_InitObjects = function() {
+        $c.gus.cfInitObjects(tb_mainData);
+        scwin.f_setDefaultData();
+        scwin.f_columnShowHide();
+    };
+
+    scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+        switch (disGubun) {
+            case 1:
+                udc_yard.ilCommonPopUp(scwin.callbackYard,
+                    pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null,
+                    pAllSearch, "장치장,장치장코드,장치장명");
+                break;
+            case 2:
+                udc_stockClnt.ilCommonPopUp(scwin.callbackStockClnt,
+                    pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null,
+                    pAllSearch, "화주,화주코드,화주명");
+                break;
+            case 3:
+                udc_kcg.ilCommonPopUp(scwin.callbackKcg,
+                    pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null,
+                    pAllSearch, null);
+                break;
+            case 4:
+                udc_comm.ilCommonPopUp(scwin.callbackComm,
+                    pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null,
+                    pAllSearch, null);
+                break;
+            default:
+                break;
+        }
+    };
+
+    scwin.callbackYard = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_yardCd, txt_yardNm);
+    };
+
+    scwin.callbackStockClnt = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_stockClntCd, txt_stockClntNm);
+    };
+
+    scwin.callbackKcg = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_kcgCd, txt_kcgNm);
+    };
+
+    scwin.callbackComm = function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_commCd, txt_commNm);
+    };
+
+    scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+        if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+            return;
+
+        $c.gus.cfClearPairObj(pairObj);
+
+        let pVal = $c.gus.cfGetValue(inObj);
+
+        if (isCode == null || isCode == true)
+            scwin.f_openCommonPopUp(disGubun, pVal, "", "T", "T");
+        else
+            scwin.f_openCommonPopUp(disGubun, "", pVal, "T", "T");
+    };
+
+    scwin.f_openPopUp = function(disGubun, chgGubun) {
+        switch (disGubun) {
+            case 2:
+                udc_yard.ilCommonPopUp(scwin.callbackPopUpYard,
+                    ed_yardCd.getValue(), txt_yardNm.getValue(), chgGubun, "5", null, "150,170", null, null, "440", "500", null, null);
+                break;
+            case 3:
+                udc_stockClnt.ilCommonPopUp(scwin.callbackPopUpStockClnt,
+                    ed_stockClntCd.getValue(), txt_stockClntNm.getValue(), chgGubun, "5", null, "150,170", null, null, "440", "500", null, null);
+                break;
+            case 4:
+                udc_kcg.ilCommonPopUp(scwin.callbackPopUpKcg,
+                    ed_kcgCd.getValue(), txt_kcgNm.getValue(), chgGubun, "5", null, "150,170", null, null, "440", "500", null, null);
+                break;
+            case 5:
+                udc_comm.ilCommonPopUp(scwin.callbackPopUpComm,
+                    ed_commCd.getValue(), txt_commNm.getValue(), chgGubun, "5", null, "150,170", null, "3,4", "440", "500", null, null);
+                break;
+            default:
+                break;
+        }
+    };
+
+    scwin.callbackPopUpYard = function(rtnList) {
+        if (rtnList != null) {
+            $c.gus.cfSetReturnValue(rtnList, ed_yardCd, txt_yardNm);
+        }
+    };
+
+    scwin.callbackPopUpStockClnt = function(rtnList) {
+        if (rtnList != null) {
+            $c.gus.cfSetReturnValue(rtnList, ed_stockClntCd, txt_stockClntNm);
+        }
+    };
+
+    scwin.callbackPopUpKcg = function(rtnList) {
+        if (rtnList != null) {
+            $c.gus.cfSetReturnValue(rtnList, ed_kcgCd, txt_kcgNm);
+        }
+    };
+
+    scwin.callbackPopUpComm = function(rtnList) {
+        if (rtnList != null) {
+            $c.gus.cfSetReturnValue(rtnList, ed_commCd, txt_commNm);
+        }
+    };
+
+    scwin.f_validateDate = async function() {
+        let chFlag = [false, false, false, false];
+
+        if (ed_term1From.getValue() != "" && ed_term1To.getValue() != "") {
+            if (Number(ed_term1From.getValue()) > Number(ed_term1To.getValue())) {
+                await $c.win.alert("보유기간 1: 시작일자가 종료일자 이전이어야 합니다.");
+                ed_term1From.setFocus();
+                return;
+            }
+            chFlag[0] = true;
+        }
+
+        if (ed_term2From.getValue() != "" && ed_term2To.getValue() != "") {
+            if (Number(ed_term2From.getValue().trim()) > Number(ed_term2To.getValue().trim())) {
+                await $c.win.alert("보유기간 2: 시작일자가 종료일자 이전이어야 합니다.");
+                ed_term2From.setFocus();
+                return;
+            }
+            chFlag[1] = true;
+        }
+
+        if (ed_term3From.getValue() != "" && ed_term3To.getValue() != "") {
+            if (Number(ed_term3From.getValue().trim()) > Number(ed_term3To.getValue().trim())) {
+                await $c.win.alert("보유기간 3: 시작일자가 종료일자 이전이어야 합니다.");
+                ed_term3From.setFocus();
+                return;
+            }
+            chFlag[2] = true;
+        }
+
+        if (ed_term4From.getValue() != "")
+            chFlag[3] = true;
+
+        if (chFlag[0]) {
+            if (chFlag[1]) {
+                if (Number(ed_term1To.getValue().trim()) >= Number(ed_term2From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 1과 2의 검색 기간이  중복되었습니다.\n계속 하시겠습니까?"))) return;
+                } else if (Number(ed_term1To.getValue().trim()) + 1 != Number(ed_term2From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 1과 2의 검색 기간이 연속되어 있지 않습니다.\n계속 하시겠습니까?"))) return;
+                }
+            } else if (chFlag[2]) {
+                if (Number(ed_term1To.getValue().trim()) >= Number(ed_term3From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 1과 3의 검색 기간이  중복되었습니다.\n계속 하시겠습니까?"))) return;
+                } else if (Number(ed_term1To.getValue().trim()) + 1 != Number(ed_term3From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 1과 3의 검색 기간이 연속되어 있지 않습니다.\n계속 하시겠습니까?"))) return;
+                }
+            } else if (chFlag[3]) {
+                if (Number(ed_term1To.getValue().trim()) > Number(ed_term4From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 1과 4의 검색 기간이  중복되었습니다.\n계속 하시겠습니까?"))) return;
+                } else if (Number(ed_term1To.getValue().trim()) + 1 != Number(ed_term4From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 1과 4의 검색 기간이 연속되어 있지 않습니다.\n계속 하시겠습니까?"))) return;
+                }
+            }
+        }
+        if (chFlag[1]) {
+            if (chFlag[2]) {
+                if (Number(ed_term2To.getValue().trim()) >= Number(ed_term3From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 2와 3의 검색 기간이  중복되었습니다.\n계속 하시겠습니까?"))) return;
+                } else if (Number(ed_term2To.getValue().trim()) + 1 != Number(ed_term3From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 2와 3의 검색 기간이 연속되어 있지 않습니다.\n계속 하시겠습니까?"))) return;
+                }
+            } else if (chFlag[3]) {
+                if (Number(ed_term2To.getValue().trim()) > Number(ed_term4From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 2와 4의 검색 기간이  중복되었습니다.\n계속 하시겠습니까?"))) return;
+                } else if (Number(ed_term2To.getValue().trim()) + 1 != Number(ed_term4From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 2와 4의 검색 기간이 연속되어 있지 않습니다.\n계속 하시겠습니까?"))) return;
+                }
+            }
+        }
+        if (chFlag[2]) {
+            if (chFlag[3]) {
+                if (Number(ed_term3To.getValue().trim()) > Number(ed_term4From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 3과 4의 검색 기간이  중복되었습니다.\n계속 하시겠습니까?"))) return;
+                } else if (Number(ed_term3To.getValue().trim()) != Number(ed_term4From.getValue().trim())) {
+                    if (!(await $c.win.confirm("보유기간 3과 4의 검색 기간이 연속되어 있지 않습니다.\n계속 하시겠습니까?"))) return;
+                }
+            }
+        }
+
+        await $c.sbm.execute(sbm_retrieve);
+    };
+
+    scwin.f_columnShowHide = function() {
+        if (ed_term1From.getValue() != "" && ed_term1To.getValue() != "") {
+            gr_stockPresent.setColumnVisible("stockQty1", true);
+            gr_stockPresent.setColumnVisible("stockWt1", true);
+            gr_stockPresent.setColumnVisible("stockCbm1", true);
+        } else {
+            gr_stockPresent.setColumnVisible("stockQty1", false);
+            gr_stockPresent.setColumnVisible("stockWt1", false);
+            gr_stockPresent.setColumnVisible("stockCbm1", false);
+        }
+
+        if (ed_term2From.getValue() != "" && ed_term2To.getValue() != "") {
+            gr_stockPresent.setColumnVisible("stockQty2", true);
+            gr_stockPresent.setColumnVisible("stockWt2", true);
+            gr_stockPresent.setColumnVisible("stockCbm2", true);
+        } else {
+            gr_stockPresent.setColumnVisible("stockQty2", false);
+            gr_stockPresent.setColumnVisible("stockWt2", false);
+            gr_stockPresent.setColumnVisible("stockCbm2", false);
+        }
+
+        if (ed_term3From.getValue() != "" && ed_term3To.getValue() != "") {
+            gr_stockPresent.setColumnVisible("stockQty3", true);
+            gr_stockPresent.setColumnVisible("stockWt3", true);
+            gr_stockPresent.setColumnVisible("stockCbm3", true);
+        } else {
+            gr_stockPresent.setColumnVisible("stockQty3", false);
+            gr_stockPresent.setColumnVisible("stockWt3", false);
+            gr_stockPresent.setColumnVisible("stockCbm3", false);
+        }
+
+        if (ed_term4From.getValue() != "") {
+            gr_stockPresent.setColumnVisible("stockQty4", true);
+            gr_stockPresent.setColumnVisible("stockWt4", true);
+            gr_stockPresent.setColumnVisible("stockCbm4", true);
+        } else {
+            gr_stockPresent.setColumnVisible("stockQty4", false);
+            gr_stockPresent.setColumnVisible("stockWt4", false);
+            gr_stockPresent.setColumnVisible("stockCbm4", false);
+        }
+    };
+
+    scwin.f_toExcel1 = function() {
+        $c.data.downloadGridViewExcel(gr_stockPresent, {"fileName": "보유기간별 벌크 재고현황.xlsx", "sheetName": "보유기간별 벌크 재고현황"});
+    };
+
+    scwin.f_clsCondRdoShowHide = function() {
+        if (rd_cls.getValue() == "1")
+            lc_con_accfCargoStd.setDisabled(true);
+        else if (rd_cls.getValue() == "2")
+            lc_con_accfCargoStd.setDisabled(false);
+    };
+
+    scwin.f_UnitChage = function(flag) {
+        let total_cnt = ds_stockPresent.getRowCount();
+        let change_unitState = co_lc_unitCd.getValue();
+
+        if (change_unitState == "01") {
+            gr_stockPresent.setColumnProp("stockWt1", "header", "중량<br/>(Ton)");
+            gr_stockPresent.setColumnProp("stockWt2", "header", "중량<br/>(Ton)");
+            gr_stockPresent.setColumnProp("stockWt3", "header", "중량<br/>(Ton)");
+            gr_stockPresent.setColumnProp("stockWt4", "header", "중량<br/>(Ton)");
+            gr_stockPresent.setColumnProp("stockWtTotal", "header", "중량<br/>(Ton)");
+        } else {
+            gr_stockPresent.setColumnProp("stockWt1", "header", "중량<br/>(Kg)");
+            gr_stockPresent.setColumnProp("stockWt2", "header", "중량<br/>(Kg)");
+            gr_stockPresent.setColumnProp("stockWt3", "header", "중량<br/>(Kg)");
+            gr_stockPresent.setColumnProp("stockWt4", "header", "중량<br/>(Kg)");
+            gr_stockPresent.setColumnProp("stockWtTotal", "header", "중량<br/>(Kg)");
+        }
+
+        if (flag == 1) {
+            if (change_unitState == "01") {
+                for (let i = 0; i < total_cnt; i++) {
+                    ds_stockPresent.setCellData(i, "stockWt1", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt1") == null ? 0 : ds_stockPresent.getCellData(i, "stockWt1"), "KG", "TON"));
+                    ds_stockPresent.setCellData(i, "stockWt2", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt2") == null ? 0 : ds_stockPresent.getCellData(i, "stockWt2"), "KG", "TON"));
+                    ds_stockPresent.setCellData(i, "stockWt3", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt3") == null ? 0 : ds_stockPresent.getCellData(i, "stockWt3"), "KG", "TON"));
+                    ds_stockPresent.setCellData(i, "stockWt4", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt4") == null ? 0 : ds_stockPresent.getCellData(i, "stockWt4"), "KG", "TON"));
+                    ds_stockPresent.setCellData(i, "stockWtTotal", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWtTotal") == null ? 0 : ds_stockPresent.getCellData(i, "stockWtTotal"), "KG", "TON"));
+                }
+            }
+            scwin.cur_unitState = change_unitState;
+        } else {
+            if (scwin.cur_unitState != change_unitState) {
+                for (let i = 0; i < total_cnt; i++) {
+                    if (change_unitState == "01") {
+                        ds_stockPresent.setCellData(i, "stockWt1", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt1"), "KG", "TON"));
+                        ds_stockPresent.setCellData(i, "stockWt2", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt2"), "KG", "TON"));
+                        ds_stockPresent.setCellData(i, "stockWt3", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt3"), "KG", "TON"));
+                        ds_stockPresent.setCellData(i, "stockWt4", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt4"), "KG", "TON"));
+                        ds_stockPresent.setCellData(i, "stockWtTotal", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWtTotal"), "KG", "TON"));
+                    } else {
+                        ds_stockPresent.setCellData(i, "stockWt1", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt1"), "TON", "KG"));
+                        ds_stockPresent.setCellData(i, "stockWt2", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt2"), "TON", "KG"));
+                        ds_stockPresent.setCellData(i, "stockWt3", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt3"), "TON", "KG"));
+                        ds_stockPresent.setCellData(i, "stockWt4", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWt4"), "TON", "KG"));
+                        ds_stockPresent.setCellData(i, "stockWtTotal", $c.gus.cfConvert2Weight(ds_stockPresent.getCellData(i, "stockWtTotal"), "TON", "KG"));
+                    }
+                }
+                scwin.cur_unitState = change_unitState;
+            }
+        }
+    };
+
+    scwin.sbm_retrieve_submitdone = async function(e) {
+        scwin.f_columnShowHide();
+
+        let i = 0;
+        while (ds_stockPresent.getRowCount() > i) {
+            if (Number(String(ds_stockPresent.getCellData(i, "stockQtyTotal")).trim()) == 0 &&
+                Number(String(ds_stockPresent.getCellData(i, "stockWtTotal")).trim()) == 0 &&
+                Number(String(ds_stockPresent.getCellData(i, "stockCbmTotal")).trim()) == 0) {
+                ds_stockPresent.removeRow(i);
+            } else {
+                i++;
+            }
+        }
+
+        if (ds_stockPresent.getRowCount() == 0) {
+            await $c.win.alert("조회된 데이터가 없습니다.");
+        }
+
+        spa_totalRow.setValue(ds_stockPresent.getRowCount());
+        scwin.f_UnitChage(1);
+    };
+
+    scwin.sbm_retrieve_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_lobranCd_submitdone = function(e) {
+        let idx = -1;
+        for (let i = 0; i < ds_lobranCd.getRowCount(); i++) {
+            if (ds_lobranCd.getCellData(i, "lobranCd") == scwin.loUpperLobranCd) {
+                idx = i;
+                break;
+            }
+        }
+        if (idx > 0) {
+            lc_branch.setSelectedIndex(idx);
+        } else {
+            lc_branch.setSelectedIndex(0);
+        }
+    };
+
+    scwin.sbm_lobranCd_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.co_lc_unitCd_onchange = function(e) {
+        scwin.f_UnitChage(2);
+    };
+
+    scwin.gr_stockPresent_oncellclick = function(rowIndex, columnIndex, columnId) {
+        if (rowIndex == -1) {
+            switch (columnId) {
+                case "wrkPlNm":
+                    ds_stockPresent.sort("wrkPlNm", "asc");
+                    break;
+                case "stockClntNm":
+                    ds_stockPresent.sort("stockClntNm", "asc");
+                    break;
+                case "kcgNm":
+                    ds_stockPresent.sort("kcgNm", "asc");
+                    break;
+                case "commNm":
+                    ds_stockPresent.sort("commNm", "asc");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    scwin.ed_yardCd_onblur = function(e) {
+        scwin.f_chkOpenCommonPopUp(ed_yardCd, txt_yardNm, 1, true);
+    };
+
+    scwin.ed_stockClntCd_onblur = function(e) {
+        scwin.f_chkOpenCommonPopUp(ed_stockClntCd, txt_stockClntNm, 2, true);
+    };
+
+    scwin.ed_kcgCd_onblur = function(e) {
+        scwin.f_chkOpenCommonPopUp(ed_kcgCd, txt_kcgNm, 3, true);
+    };
+
+    scwin.ed_commCd_onblur = function(e) {
+        scwin.f_chkOpenCommonPopUp(ed_commCd, txt_commNm, 4, true);
+    };
+
+    scwin.rd_cls_onviewchange = function(e) {
+        scwin.f_clsCondRdoShowHide();
+    };
+
+    scwin.btn_retrieve_onclick = function(e) {
+        scwin.f_Retrieve();
+    };
+
+    scwin.btn_refresh_onclick = function(e) {
+        scwin.f_InitObjects();
+    };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="점소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="lc_branch" search="start" style="width: 150px;"
+    								submenuSize="fixed" ref="data:ds_stockQuery.branch" mandatory="true">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="장치장 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode id="udc_yard" codeId="ed_yardCd" nameId="txt_yardNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th"><w2:attributes></w2:attributes><w2:textbox class="" id="" label="화주 " style=""></w2:textbox></xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_stockClnt" codeId="ed_stockClntCd" nameId="txt_stockClntNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr" style="">
+    						<xf:group class="w2tb_th " tagname="th"><w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes><w2:textbox class="" id="" label="화종 " style=""></w2:textbox></xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_kcg" popupID="" selectID="" codeId="ed_kcgCd" validTitle="" nameId="txt_kcgNm" style=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th"><w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes><w2:textbox class="" id="" label="품명 " style=""></w2:textbox></xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_comm" codeId="ed_commCd" nameId="txt_commNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<xf:select1 appearance="full" class="" cols="" id="rd_cls" ref="data:ds_stockQuery.cls" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[일반]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[체화]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_con_accfCargoStd" search="start" style="width: 150px;"
+    								submenuSize="fixed" ref="data:ds_stockQuery.accfCargoStd">
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr" id="">
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    							<w2:colspan>6</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+    						<xf:group class="tbbox" id="" style="">
+    							<xf:group class="w2tb" id="" style="" tagname="table">
+    								<w2:attributes>
+    									<w2:summary></w2:summary>
+    								</w2:attributes>
+    								<xf:group tagname="colgroup">
+    									<xf:group style="" tagname="col"></xf:group>
+    									<xf:group tagname="col"></xf:group>
+    									<xf:group style="" tagname="col"></xf:group>
+    									<xf:group tagname="col"></xf:group>
+    									<xf:group style="" tagname="col"></xf:group>
+    									<xf:group tagname="col"></xf:group>
+    									<xf:group tagname="col" style=""></xf:group>
+    									<xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    								</xf:group>
+    								<xf:group style="" tagname="tr">
+    									<xf:group class="w2tb_th" style="" tagname="th"><w2:textbox class="" id="" label="보유기간1 " ref="" style="" userData2=""></w2:textbox></xf:group>
+    									<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:group id="" class="form-group"><xf:input style="width: 40px;" id="ed_term1From" class="" ref="data:ds_stockQuery.term1From"></xf:input><w2:textbox ref="" style="" userData2="" id="" label="~" class=""></w2:textbox><xf:input style="width: 40px;" id="ed_term1To" class="" ref="data:ds_stockQuery.term1To"></xf:input><w2:textbox ref="" style="" userData2="" id="" label="일" class=""></w2:textbox></xf:group></xf:group>
+    									<xf:group class="w2tb_th" tagname="th"><w2:attributes></w2:attributes><w2:textbox class="" id="" label="보유기간2" ref="" style="" userData2=""></w2:textbox></xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group class="form-group" id="" style="">
+    											<xf:input class="" id="ed_term2From" style="width: 40px;" ref="data:ds_stockQuery.term2From"></xf:input>
+    											<w2:textbox class="" id="" label="~" ref="" style="" userData2=""></w2:textbox>
+    											<xf:input class="" id="ed_term2To" style="width: 40px;" ref="data:ds_stockQuery.term2To"></xf:input>
+    											<w2:textbox class="" id="" label="일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group class="w2tb_th" tagname="th"><w2:attributes></w2:attributes><w2:textbox class="" id="" label="보유기간3" ref="" style="" userData2=""></w2:textbox></xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group class="form-group" id="" style="">
+    											<xf:input class="" id="ed_term3From" style="width: 40px;" ref="data:ds_stockQuery.term3From"></xf:input>
+    											<w2:textbox class="" id="" label="~" ref="" style="" userData2=""></w2:textbox>
+    											<xf:input class="" id="ed_term3To" style="width: 40px;" ref="data:ds_stockQuery.term3To"></xf:input>
+    											<w2:textbox class="" id="" label="일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group class="w2tb_th" tagname="th"><w2:attributes></w2:attributes><w2:textbox class="" id="" label="보유기간4 " ref="" style="" userData2=""></w2:textbox></xf:group>
+    									<xf:group class="w2tb_td" tagname="td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group class="form-group" id="" style="">
+    											<xf:input class="" id="ed_term4From" style="width: 40px;" ref="data:ds_stockQuery.term4From"></xf:input>
+    											<w2:textbox class="" id="" label="~" ref="" style="" userData2=""></w2:textbox>
+    											<xf:input class="" id="ed_input9" style="width: 40px;"></xf:input>
+    											<w2:textbox class="" id="" label="일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th"><w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes><w2:textbox class="" id="" label="작업단위 " ref="" style="" userData2=""></w2:textbox></xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<w2:autoComplete class="" editType="select" id="co_lc_unitCd" search="start"
+    											style="width: 150px;" submenuSize="fixed">
+    										</w2:autoComplete>
+    									</xf:group></xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group></xf:group></xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="보유기간별 벌크 재고현황 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" btnUser="N" gridUpYn="N"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_stockPresent"
+    						focusMode="row" id="gr_stockPresent" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="wrkPlNm" inputType="text" style="" value="장치장" width="100"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column displayMode="label" id="stockClntNm" inputType="text" style="" value="화주" width="70" colSpan=""
+    									rowSpan="2">
+    								</w2:column>
+    								<w2:column displayMode="label" id="kcgNm" inputType="text" style="" value="화종" width="70" colSpan=""
+    									rowSpan="2">
+    								</w2:column>
+    								<w2:column displayMode="label" id="commNm" inputType="text" style="" value="품명" width="70" colSpan=""
+    									rowSpan="2">
+    								</w2:column>
+    								<w2:column width="210" inputType="text" style="" id="stockQty1" value="1 ~ 5 일" displayMode="label"
+    									colSpan="3" rowSpan="">
+    								</w2:column>
+    								<w2:column width="210" inputType="text" style="" id="stockWt1" value="6 ~ 10 일" displayMode="label"
+    									colSpan="3" rowSpan="">
+    								</w2:column>
+    								<w2:column width="210" inputType="text" style="" id="stockCbm1" value="11 ~ 30 일" displayMode="label"
+    									colSpan="3" rowSpan="">
+    								</w2:column>
+    								<w2:column displayMode="label" id="stockQty2" inputType="text" style="" value="30일 초과" width="210"
+    									colSpan="3" rowSpan="">
+    								</w2:column>
+    								<w2:column displayMode="label" id="stockWt2" inputType="text" style="" value="TOTAL" width="210" colSpan="3"
+    									rowSpan="">
+    								</w2:column>
+    							</w2:row>
+    							<w2:row style="" id="row5">
+    								<w2:column width="70" inputType="text" style="" id="wrkPlNm" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockClntNm" value="중량&lt;br/&gt;(Ton)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="kcgNm" value="CBM" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="commNm" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty1" value="중량&lt;br/&gt;(Ton)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt1" value="CBM" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockCbm1" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty2" value="중량&lt;br/&gt;(Ton)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt2" value="CBM" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockCbm2" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty3" value="중량&lt;br/&gt;(Ton)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt3" value="CBM" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockCbm3" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty4" value="중량&lt;br/&gt;(Ton)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt4" value="CBM" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="wrkPlNm" inputType="text" style="" value="" width="100" colMerge="true"></w2:column>
+    								<w2:column displayMode="label" id="stockClntNm" inputType="text" style="" value="" width="70" colMerge="true"></w2:column>
+    								<w2:column displayMode="label" id="kcgNm" inputType="text" style="" value="" width="70" colMerge="true"></w2:column>
+    								<w2:column displayMode="label" id="commNm" inputType="text" style="" value="" width="70" colMerge="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty1" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt1" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockCbm1" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty2" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt2" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockCbm2" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockQty3" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWt3" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column displayMode="label" id="stockCbm3" inputType="text" style="" value="" width="70" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column displayMode="label" id="stockQty4" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column displayMode="label" id="stockWt4" inputType="text" style="" value="" width="70" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column displayMode="label" id="stockCbm4" inputType="text" style="" value="" width="70" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column displayMode="label" id="stockQtyTotal" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockWtTotal" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stockCbmTotal" value="" displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer style="" id="footer1">
+    							<w2:row style="" id="row6">
+    								<w2:column width="100" inputType="text" style="" id="column89" value="합계" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column88" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column87" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column86" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column85" value="0" displayMode="label" textAlign="right" expression="sum('stockQty1')" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column84" value="0.000" displayMode="label" textAlign="right" expression="sum('stockWt1')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column83" value="0.000" displayMode="label" textAlign="right" expression="sum('stockCbm1')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column82" value="0" displayMode="label" textAlign="right" expression="sum('stockQty2')" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column81" value="0.000" displayMode="label" textAlign="right" expression="sum('stockWt2')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column80" value="0.000" displayMode="label" textAlign="right" expression="sum('stockCbm2')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column79" value="0" displayMode="label" textAlign="right" expression="sum('stockQty3')" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column78" value="0.000" displayMode="label" textAlign="right" expression="sum('stockWt3')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column77" value="0.000" displayMode="label" textAlign="right" expression="sum('stockCbm3')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column76" value="0" displayMode="label" textAlign="right" expression="sum('stockQty4')" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column75" value="0.000" displayMode="label" textAlign="right" expression="sum('stockWt4')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column74" value="0.000" displayMode="label" textAlign="right" expression="sum('stockCbm4')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column73" value="0" displayMode="label" textAlign="right" expression="sum('stockQtyTotal')" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column93" value="0.000" displayMode="label" textAlign="right" expression="sum('stockWtTotal')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="column97" value="0.000" displayMode="label" textAlign="right" expression="sum('stockCbmTotal')" dataType="float" displayFormat="#,##0.000"></w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

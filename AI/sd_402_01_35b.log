@@ -1,0 +1,37 @@
+sd_402_01_35b.log
+
+[2026-02-20 13:15:54.601] 변환 시작
+[2026-02-20 13:15:54.877] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 13:22:32.157] #1 검증: XML: WebSquareXmlValidator: score=0.35, grade=C, verdict=REVIEW, errors=4, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=4, warnings=7 | LLM 395960ms, total 397280ms
+    - [XML] scwin.f_tplCommCdChk에서 $c.win.alert를 await 없이 호출 — script:scwin.f_tplCommCdChk
+    - [XML] scwin.f_tplCommCdChk이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.f_tplCommCdChk
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [XML] .jsp URL 참조 발견 (1건) → .xml로 변환 필요
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] async 선언 누락 — scwin.f_tplCommCdChk (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_tplCommCdChk → $c.win.alert
+    - [적정성] .jsp URL 변환 — .jsp URL 1건 잔재
+[2026-02-20 13:22:32.603] #1 검증: 자동수정 5건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] JSP_URL: .jsp URL 참조 발견 (1건) → .xml로 변환 필요
+[2026-02-20 13:22:34.144] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.56, grade=B, verdict=REVIEW, errors=1, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=7
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 8건: lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_ctrtNo (LUXECOMBO→w2:autoComplete), lc_reqClntNm (LUXECOMBO→w2:autoComplete), lc_bilgClntNm (LUXECOMBO→w2:autoComplete)
+[2026-02-20 13:22:34.147] #2 재시도 (에러 7건)
+[2026-02-20 13:22:35.154] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 13:29:39.875] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=7 | LLM 423089ms, total 424720ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete)
+[2026-02-20 13:29:39.891] #1 검증: 최적 시도 #1 채택 (confidence: 0.77)
+[2026-02-20 13:29:39.893] 실패 (2회 시도, 13m 45s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 ID 유지 — 누락 8건: lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_ctrtNo (LUXECOMBO→w2:autoComplete), lc_reqClntNm (LUXECOMBO→w2:autoComplete), lc_bilgClntNm (LUXECOMBO→w2:autoComplete)
+================================================================================

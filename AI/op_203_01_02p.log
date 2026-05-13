@@ -1,0 +1,25 @@
+op_203_01_02p.log
+
+[2026-02-19 13:50:34.686] 변환 시작
+[2026-02-19 13:50:34.704] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 13:51:49.119] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 74043ms, total 74413ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_ofcCd (EMEDIT→xf:input)
+[2026-02-19 13:51:49.192] #1 검증: 자동수정 2건 적용
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 13:51:49.421] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=6
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_ofcCd (EMEDIT→xf:input)
+[2026-02-19 13:51:49.435] #2 재시도 (에러 1건)
+[2026-02-19 13:51:50.436] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 13:53:12.218] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 81612ms, total 81782ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_ofcCd (EMEDIT→xf:input)
+[2026-02-19 13:53:12.223] #1 검증: 최적 시도 #1 채택 (confidence: 0.95)
+[2026-02-19 13:53:12.225] 성공 (#2, 2m 37s, confidence:0.95)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_ofcCd (EMEDIT→xf:input)
+================================================================================

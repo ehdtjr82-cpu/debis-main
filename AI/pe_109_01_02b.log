@@ -1,0 +1,34 @@
+pe_109_01_02b.log
+
+[2026-02-20 13:08:17.685] 변환 시작
+[2026-02-20 13:08:17.894] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 13:11:44.349] #1 검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=2, warnings=9 | LLM 205453ms, total 206455ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_initSetTab, scwin.f_gridFormatBiz, scwin.f_gridFormatOper, scwin.f_BltypeDisable, scwin.f_BltypeEnable → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 13건: cnd_ed_resultDtFrom (EMEDIT→xf:input), cnd_ed_resultDtTo (EMEDIT→xf:input), cnd_ed_custCd (EMEDIT→xf:input), cnd_ed_linerCd (EMEDIT→xf:input), cnd_ed_picCd (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-20 13:11:44.593] #1 검증: 자동수정 5건 적용
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U21: cf 공통함수 → $c.gus. 네임스페이스 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 13:11:45.658] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=2, warnings=9
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_initSetTab, scwin.f_gridFormatBiz, scwin.f_gridFormatOper, scwin.f_BltypeDisable, scwin.f_BltypeEnable → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 19건: cnd_lc_seaAir (LUXECOMBO→w2:autoComplete), cnd_lc_iogb (LUXECOMBO→w2:autoComplete), cnd_lc_gbDate (LUXECOMBO→w2:autoComplete), cnd_ed_resultDtFrom (EMEDIT→xf:input), cnd_ed_resultDtTo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-20 13:11:51.227] #2 재시도 (에러 3건)
+[2026-02-20 13:11:52.234] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 13:15:54.594] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=8 | LLM 241468ms, total 242364ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 13건: cnd_ed_resultDtFrom (EMEDIT→xf:input), cnd_ed_resultDtTo (EMEDIT→xf:input), cnd_ed_custCd (EMEDIT→xf:input), cnd_ed_linerCd (EMEDIT→xf:input), cnd_ed_picCd (EMEDIT→xf:input)
+[2026-02-20 13:15:54.599] #1 검증: 최적 시도 #1 채택 (confidence: 0.75)
+[2026-02-20 13:15:54.599] 실패 (2회 시도, 7m 36s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_initSetTab, scwin.f_gridFormatBiz, scwin.f_gridFormatOper, scwin.f_BltypeDisable, scwin.f_BltypeEnable → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 ID 유지 — 누락 13건: cnd_ed_resultDtFrom (EMEDIT→xf:input), cnd_ed_resultDtTo (EMEDIT→xf:input), cnd_ed_custCd (EMEDIT→xf:input), cnd_ed_linerCd (EMEDIT→xf:input), cnd_ed_picCd (EMEDIT→xf:input)
+  3. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

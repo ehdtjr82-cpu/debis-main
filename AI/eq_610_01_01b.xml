@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_oilStatInfoTreeCon">
+                <w2:keyInfo>
+                    <w2:key id="useYn" name="사용여부" dataType="number"></w2:key>
+                    <w2:key id="qryConKnd" name="조회조건종류" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="dma_oilStatInfoCon">
+                <w2:keyInfo>
+                    <w2:key id="oilOilStatNo" name="주유소번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="dma_oilStatInfoBySave">
+                <w2:keyInfo>
+                    <w2:key id="oilOilStatNo" name="주유소번호" dataType="text"></w2:key>
+                    <w2:key id="oilStatNm" name="주유소명" dataType="text"></w2:key>
+                    <w2:key id="upperOilStrPlcNo" name="상위주유소번호" dataType="text"></w2:key>
+                    <w2:key id="upperOilStrPlcNm" name="상위주유소명" dataType="text"></w2:key>
+                    <w2:key id="oilStatLvlClsCd" name="주유소레벨구분코드" dataType="text"></w2:key>
+                    <w2:key id="homeClsCd" name="소속구분코드" dataType="text"></w2:key>
+                    <w2:key id="oilSelfClsCd" name="유류자가구분코드" dataType="text"></w2:key>
+                    <w2:key id="spotsaleYn" name="직매여부" dataType="number"></w2:key>
+                    <w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+                    <w2:key id="clntNm" name="거래처명" dataType="text"></w2:key>
+                    <w2:key id="repClntNo" name="대표거래처번호" dataType="text"></w2:key>
+                    <w2:key id="repClntNm" name="대표거래처명" dataType="text"></w2:key>
+                    <w2:key id="bilgAcctDeptCd" name="정산귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="bilgAcctDeptNm" name="정산귀속부서명" dataType="text"></w2:key>
+                    <w2:key id="stockAcctDeptCd" name="재고귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="stockAcctDeptNm" name="재고귀속부서명" dataType="text"></w2:key>
+                    <w2:key id="opnOfcDt" name="개소일자" dataType="text"></w2:key>
+                    <w2:key id="closOfcDt" name="폐소일자" dataType="text"></w2:key>
+                    <w2:key id="picNm" name="담당자성명" dataType="text"></w2:key>
+                    <w2:key id="telNo" name="전화번호" dataType="text"></w2:key>
+                    <w2:key id="useYn" name="사용여부" dataType="number"></w2:key>
+                    <w2:key id="oilTskClsCd" name="유류업무구분코드" dataType="text"></w2:key>
+                    <w2:key id="rmk" name="비고" dataType="text"></w2:key>
+                    <w2:key id="dsaleYn" name="직판여부" dataType="number"></w2:key>
+                    <w2:key id="pcostAcctDeptCd" name="원가귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="pcostAcctDeptNm" name="원가귀속부서명" dataType="text"></w2:key>
+                    <w2:key id="clntClsCd" name="거래처구분코드" dataType="text"></w2:key>
+                    <w2:key id="frchNo" name="가맹점번호" dataType="text"></w2:key>
+                    <w2:key id="frchNoSh" name="가맹점번호신한" dataType="text"></w2:key>
+                    <w2:key id="bilgKndCd" name="청구종류코드" dataType="text"></w2:key>
+                    <w2:key id="lvl" name="레벨" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_oilStatInfoTree">
+                <w2:columnInfo>
+                    <w2:column id="oilOilStatNo" name="주유소번호" dataType="text"></w2:column>
+                    <w2:column id="oilStatNm" name="주유소명" dataType="text"></w2:column>
+                    <w2:column id="upperOilStrPlcNo" name="상위주유소번호" dataType="text"></w2:column>
+                    <w2:column id="upperOilStrPlcNm" name="상위주유소명" dataType="text"></w2:column>
+                    <w2:column id="oilStatLvlClsCd" name="주유소레벨구분코드" dataType="text"></w2:column>
+                    <w2:column id="homeClsCd" name="소속구분코드" dataType="text"></w2:column>
+                    <w2:column id="oilSelfClsCd" name="유류자가구분코드" dataType="text"></w2:column>
+                    <w2:column id="spotsaleYn" name="직매여부" dataType="text"></w2:column>
+                    <w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+                    <w2:column id="repClntNo" name="대표거래처번호" dataType="text"></w2:column>
+                    <w2:column id="repClntNm" name="대표거래처명" dataType="text"></w2:column>
+                    <w2:column id="bilgAcctDeptCd" name="정산귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="bilgAcctDeptNm" name="정산귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="stockAcctDeptCd" name="재고귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="stockAcctDeptNm" name="재고귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="opnOfcDt" name="개소일자" dataType="text"></w2:column>
+                    <w2:column id="closOfcDt" name="폐소일자" dataType="text"></w2:column>
+                    <w2:column id="picNm" name="담당자성명" dataType="text"></w2:column>
+                    <w2:column id="telNo" name="전화번호" dataType="text"></w2:column>
+                    <w2:column id="useYn" name="사용여부" dataType="text"></w2:column>
+                    <w2:column id="oilTskClsCd" name="유류업무구분코드" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="비고" dataType="text"></w2:column>
+                    <w2:column id="dsaleYn" name="직판여부" dataType="text"></w2:column>
+                    <w2:column id="pcostAcctDeptCd" name="원가귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="pcostAcctDeptNm" name="원가귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="clntClsCd" name="거래처구분코드" dataType="text"></w2:column>
+                    <w2:column id="frchNo" name="가맹점번호" dataType="text"></w2:column>
+                    <w2:column id="frchNoSh" name="가맹점번호신한" dataType="text"></w2:column>
+                    <w2:column id="bilgKndCd" name="청구종류코드" dataType="text"></w2:column>
+                    <w2:column id="lvl" name="레벨" dataType="text"></w2:column>
+                    <w2:column id="enable" name="활성화" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_chkOilStatNoDup">
+                <w2:columnInfo>
+                    <w2:column id="oilOilStatNo" name="주유소번호" dataType="text"></w2:column>
+                    <w2:column id="oilStatNm" name="주유소명" dataType="text"></w2:column>
+                    <w2:column id="upperOilStrPlcNo" name="상위주유소번호" dataType="text"></w2:column>
+                    <w2:column id="upperOilStrPlcNm" name="상위주유소명" dataType="text"></w2:column>
+                    <w2:column id="oilStatLvlClsCd" name="주유소레벨구분코드" dataType="text"></w2:column>
+                    <w2:column id="homeClsCd" name="소속구분코드" dataType="text"></w2:column>
+                    <w2:column id="oilSelfClsCd" name="유류자가구분코드" dataType="text"></w2:column>
+                    <w2:column id="spotsaleYn" name="직매여부" dataType="text"></w2:column>
+                    <w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+                    <w2:column id="lvl" name="레벨" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_oilPch" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="cardTrmnlNo" name="단말기번호" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="비고" dataType="text"></w2:column>
+                    <w2:column id="delYn" name="삭제" dataType="text"></w2:column>
+                    <w2:column id="oilOilStatNo" name="주유소번호" dataType="text"></w2:column>
+                    <w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieveOilStatInfoList"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.RetrieveOilStationInfoListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_oilStatInfoTreeCon","key":"IN_DS1"},{"id":"ds_oilStatInfoTree","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_oilStatInfoTree","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveOilStatInfoList_submitdone"
+            ev:submiterror="scwin.sbm_retrieveOilStatInfoList_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveOilStatInfoListByDupChk"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.RetrieveOilStationInfoListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_oilStatInfoTreeCon","key":"IN_DS1"},{"id":"ds_chkOilStatNoDup","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_chkOilStatNoDup","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveOilStatInfoListByDupChk_submitdone"
+            ev:submiterror="scwin.sbm_retrieveOilStatInfoListByDupChk_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveOilStatContentsList"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.RetrieveOilStationContentsListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_oilStatInfoCon","key":"IN_DS1"},{"id":"ds_oilPch","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_oilPch","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveOilStatContentsList_submitdone"
+            ev:submiterror="scwin.sbm_retrieveOilStatContentsList_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_updateOilStatInfo"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.UpdateOilStationInformationListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_oilStatInfoBySave","key":"IN_DS1"},{"id":"ds_oilPch","key":"IN_DS2"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_updateOilStatInfo_submitdone"
+            ev:submiterror="scwin.sbm_updateOilStatInfo_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_createOilStatInfo"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.CreateOilStationInformationListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_oilStatInfoBySave","key":"IN_DS1"},{"id":"ds_oilPch","key":"IN_DS2"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_createOilStatInfo_submitdone"
+            ev:submiterror="scwin.sbm_createOilStatInfo_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.isRetrieveTree = false;
+        scwin.EXPEND_FG = 0;
+        scwin.preRow = 0;
+        scwin.viewMode = "S";
+        scwin.createRow = 0;
+        scwin.saveBranchCd = "";
+        scwin.dupChkOilStatNo = "";
+        scwin.isDupchk = false;
+        scwin.savePatternCd = "";
+        scwin.oilOilStatNo = "";
+        scwin.strCurDate = "";
+        scwin.hid_tvIndex = "1";
+        scwin.txt_frchNo = "X";
+        scwin.saveOilStatCd = "";
+
+        scwin.onpageload = function() {
+            scwin.oilOilStatNo = $c.data.getParameter() != null && $c.data.getParameter()["oilStatNo"] != null ? $c.data.getParameter()["oilStatNo"] : "";
+            scwin.strCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+
+            lc_useYn.setValue("9");
+            scwin.f_retrieveOilStatInfoTree();
+            scwin.f_ContentsDisable();
+
+            if (scwin.oilOilStatNo != "") {
+                ed_oilStatNo.setValue(scwin.oilOilStatNo);
+                scwin.f_Retrieve();
+            }
+        };
+
+        scwin.f_retrieveOilStatInfoTree = async function() {
+            scwin.isRetrieveTree = false;
+
+            dma_oilStatInfoTreeCon.set("useYn", lc_useYn.getValue());
+            dma_oilStatInfoTreeCon.set("qryConKnd", "ALL");
+
+            ds_oilStatInfoTree.removeAll();
+            await $c.sbm.execute(sbm_retrieveOilStatInfoList);
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (!(await $c.gus.cfValidate([ed_oilStatNo]))) {
+                return;
+            }
+            let oilStatNo = ed_oilStatNo.getValue();
+            let foundRow = scwin.f_NameValueRow(ds_oilStatInfoTree, "oilOilStatNo", oilStatNo);
+            if (foundRow >= 0) {
+                if (ds_oilStatInfoTree.getRowPosition() == foundRow) {
+                    if (scwin.viewMode == "U" || scwin.viewMode == "C") {
+                        let chk = await $c.win.confirm("현재 작업중 입니다. 취소 하시겠습니까?");
+                        if (!chk) {
+                            return;
+                        }
+                    }
+
+                    if (scwin.viewMode == "C" && ds_oilStatInfoTree.getRowStatus(scwin.createRow) == "C") {
+                        ds_oilStatInfoTree.removeRow(scwin.createRow);
+                    }
+
+                    let curPos = ds_oilStatInfoTree.getRowPosition();
+                    // TODO: sub_title.innerText equivalent
+                    scwin.f_getOilStatInfo(curPos);
+                    scwin.f_RetrieveOilStatInfo(curPos);
+                } else {
+                    scwin.preRow = -1;
+                    ds_oilStatInfoTree.setRowPosition(foundRow);
+                }
+                $c.gus.cfDisableBtn([b_Cancel2, b_Save2]);
+                $c.gus.cfEnableObjects([b_Create2, b_Update2]);
+            }
+        };
+
+        scwin.f_RetrieveOilStatInfo = async function(row) {
+            dma_oilStatInfoCon.set("oilOilStatNo", ds_oilStatInfoTree.getCellData(row, "oilOilStatNo"));
+            await $c.sbm.execute(sbm_retrieveOilStatContentsList);
+        };
+
+        scwin.f_Clear = async function() {
+            let curPos = ds_oilStatInfoTree.getRowPosition();
+            let oilStatNo = ds_oilStatInfoTree.getCellData(curPos, "oilOilStatNo");
+            let oilStatNm = ds_oilStatInfoTree.getCellData(curPos, "oilStatNm");
+            let curLevel = parseInt(ds_oilStatInfoTree.getCellData(curPos, "lvl"), 10);
+
+            if (curLevel > 2) {
+                await $c.gus.cfAlertMsg("지점 밑으로는 추가 할 수 없습니다.");
+                return false;
+            }
+            let chk = await $c.win.confirm(oilStatNm + "의 하위 점소를 새로 등록 하시겠습니까?");
+            if (!chk) {
+                return;
+            }
+
+            let totalRow = ds_oilStatInfoTree.getRowCount();
+            if ((curPos == totalRow - 1) || (curPos == 0)) {
+                ds_oilStatInfoTree.insertRow(totalRow);
+                let newIdx = ds_oilStatInfoTree.getRowCount() - 1;
+                ds_oilStatInfoTree.setCellData(newIdx, "lvl", curLevel + 1);
+                ds_oilStatInfoTree.setCellData(newIdx, "oilStatNm", curLevel == 0 ? "신규지사" : "신규지점");
+                ds_oilStatInfoTree.setCellData(newIdx, "upperOilStrPlcNo", oilStatNo);
+                tv_oilStatInfoTree.setNodePosition(newIdx);
+            } else {
+                ds_oilStatInfoTree.insertRow(curPos + 1);
+                let newPos = curPos + 1;
+                ds_oilStatInfoTree.setCellData(newPos, "lvl", curLevel + 1);
+                ds_oilStatInfoTree.setCellData(newPos, "oilStatNm", curLevel == 0 ? "신규지사" : "신규지점");
+                ds_oilStatInfoTree.setCellData(newPos, "upperOilStrPlcNo", oilStatNo);
+            }
+
+            scwin.createRow = ds_oilStatInfoTree.getRowPosition();
+
+            scwin.viewMode = "C";
+            $c.gus.cfInitObjects(tbl_content);
+            chb_useYn.setValue("1");
+            ed_opnOfcDt.setValue(scwin.strCurDate);
+            ed_upperOilStrPlcNo.setValue(oilStatNo);
+            txt_upperOilStrPlcNm.setValue(oilStatNm);
+            scwin.f_ContentsEnable();
+            txt_oilStatNo.setFocus();
+
+            ds_oilPch.removeAll();
+
+            ed_oilStatNo.setValue("");
+            txt_oilStatNm.setValue("");
+
+            if (curLevel == 0) {
+                scwin.savePatternCd = "S";
+            } else if (curLevel == 1) {
+                scwin.savePatternCd = "J";
+            } else if (curLevel == 2) {
+                scwin.savePatternCd = "O";
+            } else {
+                await $c.gus.cfAlertMsg("주유소 구분 코드  에러입니다.");
+                return false;
+            }
+            lc_oilStatLvlClsCd.setValue(scwin.savePatternCd);
+            lc_bilgKndCd.setValue("M");
+            $c.gus.cfDisableBtn([b_Create2, b_Update2]);
+            $c.gus.cfEnableObjects([b_Cancel2, b_Save2]);
+        };
+
+        scwin.f_Update = async function() {
+            let curPos = ds_oilStatInfoTree.getRowPosition();
+            if (ds_oilStatInfoTree.getCellData(curPos, "oilOilStatNo") == "AAA") {
+                await $c.gus.cfAlertMsg("전체는 수정 할 수 없습니다.");
+                return;
+            }
+            scwin.viewMode = "U";
+            scwin.f_ContentsEnable();
+            $c.gus.cfDisableBtn([b_Create2, b_Update2]);
+            $c.gus.cfEnableObjects([b_Cancel2, b_Save2]);
+        };
+
+        scwin.f_Cancel = async function() {
+            let row = ds_oilStatInfoTree.getRowPosition();
+            if (scwin.viewMode == "U") {
+                if (scwin.isRetrieveTree) {
+                    let chk = await $c.win.confirm("현재 작업중 입니다. 취소 하시겠습니까?");
+                    if (!chk) {
+                        return;
+                    }
+                    scwin.f_getOilStatInfo(row);
+                    scwin.f_RetrieveOilStatInfo(row);
+                    scwin.viewMode = "S";
+                }
+                scwin.f_ContentsDisable();
+            } else if (scwin.viewMode == "C") {
+                scwin.preRow = -1;
+                ds_oilStatInfoTree.setRowPosition(0);
+            }
+            $c.gus.cfDisableBtn([b_Cancel2, b_Save2]);
+            $c.gus.cfEnableObjects([b_Create2, b_Update2]);
+        };
+
+        scwin.f_chkOilStatNoDup = async function() {
+            if (!(await $c.gus.cfValidate([txt_oilStatNo]))) {
+                return;
+            }
+            scwin.isDupchk = false;
+            scwin.dupChkOilStatNo = txt_oilStatNo.getValue();
+            await $c.sbm.execute(sbm_retrieveOilStatInfoListByDupChk);
+        };
+
+        scwin.f_Save = async function() {
+            if (!(await $c.gus.cfValidate([txt_oilStatNo, txt_oilStatNm, ed_upperOilStrPlcNo, lc_oilStatLvlClsCd, lc_homeClsCd, lc_oilSelfClsCd, chb_spotsaleYn, ed_clntNo, ed_bilgAcctDeptCd,
+                ed_stockAcctDeptCd, ed_opnOfcDt, txt_picNm, txt_telNo, chb_useYn, lc_oilTskClsCd, txt_telNo, lc_clntClsCd, txt_frchNoSh, ed_repClntNo]))) {
+                return;
+            }
+
+            scwin.saveOilStatCd = txt_oilStatNo.getValue();
+
+            if (!scwin.f_setOilStatInfo()) {
+                return;
+            }
+
+            let oilStatNo = dma_oilStatInfoBySave.get("oilOilStatNo");
+
+            for (let i = 0; i < ds_oilPch.getRowCount(); i++) {
+                if (ds_oilPch.getRowStatus(i) == "C") {
+                    ds_oilPch.setCellData(i, "oilOilStatNo", oilStatNo);
+                }
+            }
+
+            if (scwin.viewMode == "U") {
+                await $c.sbm.execute(sbm_updateOilStatInfo);
+            } else if (scwin.viewMode == "C") {
+                if (!scwin.isDupchk || txt_oilStatNo.getValue() != scwin.dupChkOilStatNo) {
+                    await $c.gus.cfAlertMsg("중복체크를 하셔야 합니다.");
+                    return;
+                }
+                await $c.sbm.execute(sbm_createOilStatInfo);
+            }
+        };
+
+        scwin.f_ContentsDisable = function() {
+            $c.gus.cfEnableObj(txt_oilStatNo, false);
+            $c.gus.cfEnableObj(txt_oilStatNm, false);
+            $c.gus.cfEnableObj(btn_oilStatNoDup, false);
+            $c.gus.cfEnableObj(ed_upperOilStrPlcNo, false);
+            $c.gus.cfEnableObj(txt_upperOilStrPlcNm, false);
+            // TODO: btn_upperOilStrPlcNo is part of udc_upperOilStrPlc
+            $c.gus.cfEnableObj(lc_oilStatLvlClsCd, false);
+            $c.gus.cfEnableObj(lc_homeClsCd, false);
+            $c.gus.cfEnableObj(lc_oilSelfClsCd, false);
+            $c.gus.cfEnableObj(chb_spotsaleYn, false);
+            $c.gus.cfEnableObj(ed_clntNo, false);
+            $c.gus.cfEnableObj(txt_clntNm, false);
+            // TODO: btn_clntNo is part of udc_clnt
+            $c.gus.cfEnableObj(ed_repClntNo, false);
+            $c.gus.cfEnableObj(txt_repClntNm, false);
+            // TODO: btn_repClntNo is part of udc_repClnt
+            $c.gus.cfEnableObj(ed_bilgAcctDeptCd, false);
+            $c.gus.cfEnableObj(txt_bilgAcctDeptNm, false);
+            // TODO: btn_bilgAcctDeptCd is part of udc_bilgAcctDept
+            $c.gus.cfEnableObj(ed_stockAcctDeptCd, false);
+            $c.gus.cfEnableObj(txt_stockAcctDeptNm, false);
+            // TODO: btn_stockAcctDeptCd is part of udc_stockAcctDept
+            $c.gus.cfEnableObj(ed_opnOfcDt, false);
+            $c.gus.cfEnableObj(ed_closOfcDt, false);
+            $c.gus.cfEnableObj(txt_picNm, false);
+            $c.gus.cfEnableObj(txt_telNo, false);
+            $c.gus.cfEnableObj(chb_useYn, false);
+            $c.gus.cfEnableObj(lc_oilTskClsCd, false);
+            $c.gus.cfEnableObj(txt_rmk, false);
+            $c.gus.cfEnableObj(chb_dsaleYn, false);
+            $c.gus.cfEnableObj(lc_clntClsCd, false);
+            $c.gus.cfEnableObj(txt_frchNoSh, false);
+            $c.gus.cfEnableObj(lc_bilgKndCd, false);
+
+            // TODO: btn_addRow1, btn_deleteRow1, btn_cancelRow1 are part of udc_bottomGrdBtn
+
+            gr_oilPch.setReadOnly("grid", true);
+        };
+
+        scwin.f_ContentsEnable = function() {
+            if (scwin.viewMode == "C") {
+                $c.gus.cfEnableObj(txt_oilStatNo, true);
+                $c.gus.cfEnableObj(btn_oilStatNoDup, true);
+            }
+            if (scwin.viewMode == "U") {
+                $c.gus.cfEnableObj(ed_upperOilStrPlcNo, true);
+                $c.gus.cfEnableObj(txt_upperOilStrPlcNm, true);
+                // TODO: btn_upperOilStrPlcNo is part of udc_upperOilStrPlc
+                $c.gus.cfEnableObj(lc_oilStatLvlClsCd, true);
+            }
+            $c.gus.cfEnableObj(txt_oilStatNm, true);
+            $c.gus.cfEnableObj(lc_homeClsCd, true);
+            $c.gus.cfEnableObj(lc_oilSelfClsCd, true);
+            $c.gus.cfEnableObj(chb_spotsaleYn, true);
+            $c.gus.cfEnableObj(ed_clntNo, true);
+            $c.gus.cfEnableObj(txt_clntNm, true);
+            // TODO: btn_clntNo is part of udc_clnt
+            $c.gus.cfEnableObj(ed_repClntNo, true);
+            $c.gus.cfEnableObj(txt_repClntNm, true);
+            // TODO: btn_repClntNo is part of udc_repClnt
+            $c.gus.cfEnableObj(ed_bilgAcctDeptCd, true);
+            $c.gus.cfEnableObj(txt_bilgAcctDeptNm, true);
+            // TODO: btn_bilgAcctDeptCd is part of udc_bilgAcctDept
+            $c.gus.cfEnableObj(ed_stockAcctDeptCd, true);
+            $c.gus.cfEnableObj(txt_stockAcctDeptNm, true);
+            // TODO: btn_stockAcctDeptCd is part of udc_stockAcctDept
+            $c.gus.cfEnableObj(ed_opnOfcDt, true);
+            $c.gus.cfEnableObj(ed_closOfcDt, true);
+            $c.gus.cfEnableObj(txt_picNm, true);
+            $c.gus.cfEnableObj(txt_telNo, true);
+            $c.gus.cfEnableObj(chb_useYn, true);
+            $c.gus.cfEnableObj(lc_oilTskClsCd, true);
+            $c.gus.cfEnableObj(txt_rmk, true);
+            $c.gus.cfEnableObj(chb_dsaleYn, true);
+            $c.gus.cfEnableObj(lc_clntClsCd, true);
+            $c.gus.cfEnableObj(txt_frchNoSh, true);
+            $c.gus.cfEnableObj(lc_bilgKndCd, true);
+
+            // TODO: btn_addRow1, btn_deleteRow1, btn_cancelRow1 are part of udc_bottomGrdBtn
+
+            gr_oilPch.setReadOnly("grid", false);
+        };
+
+        scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList = [];
+
+            switch (disGubun) {
+                case 1:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveAcctDeptCdInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_bilgAcctDeptCd, txt_bilgAcctDeptNm);
+                    break;
+
+                case 2:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveAcctDeptCdInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_stockAcctDeptCd, txt_stockAcctDeptNm);
+                    break;
+
+                case 3:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveClntList', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_clntNo, txt_clntNm);
+                    break;
+
+                case 4:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveFmsOilStationInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_oilStatNo, txt_oilStaNm);
+                    break;
+
+                case 5:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveFmsOilStationInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_upperOilStrPlcNo, txt_upperOilStrPlcNm);
+                    break;
+
+                case 6:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveAcctDeptCdInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_pcostAcctDeptCd, txt_pcostAcctDeptNm);
+                    break;
+
+                case 7:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveClntList', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_repClntNo, txt_repClntNm);
+                    break;
+
+                default:
+                    break;
+            }
+        };
+
+        scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+                return;
+            }
+
+            $c.gus.cfClearPairObj(pairObj);
+
+            let pVal = $c.gus.cfGetValue(inObj);
+
+            if (isCode == null || isCode == true) {
+                scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+            } else {
+                scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+            }
+        };
+
+        scwin.f_getOilStatInfo = function(row) {
+            scwin.f_ContentsDisable();
+            txt_oilStatNo.setValue(ds_oilStatInfoTree.getCellData(row, "oilOilStatNo"));
+            txt_oilStatNm.setValue(ds_oilStatInfoTree.getCellData(row, "oilStatNm"));
+            ed_oilStatNo.setValue(ds_oilStatInfoTree.getCellData(row, "oilOilStatNo"));
+            txt_oilStatNm.setValue(ds_oilStatInfoTree.getCellData(row, "oilStatNm"));
+            ed_upperOilStrPlcNo.setValue(ds_oilStatInfoTree.getCellData(row, "upperOilStrPlcNo"));
+            txt_upperOilStrPlcNm.setValue(ds_oilStatInfoTree.getCellData(row, "upperOilStrPlcNm"));
+            lc_oilStatLvlClsCd.setValue(ds_oilStatInfoTree.getCellData(row, "oilStatLvlClsCd"));
+            lc_homeClsCd.setValue(ds_oilStatInfoTree.getCellData(row, "homeClsCd"));
+            lc_oilSelfClsCd.setValue(ds_oilStatInfoTree.getCellData(row, "oilSelfClsCd"));
+            chb_spotsaleYn.setValue(ds_oilStatInfoTree.getCellData(row, "spotsaleYn") == "1" ? "1" : "0");
+            ed_clntNo.setValue(ds_oilStatInfoTree.getCellData(row, "clntNo"));
+            txt_clntNm.setValue(ds_oilStatInfoTree.getCellData(row, "clntNm"));
+            ed_repClntNo.setValue(ds_oilStatInfoTree.getCellData(row, "repClntNo"));
+            txt_repClntNm.setValue(ds_oilStatInfoTree.getCellData(row, "repClntNm"));
+            ed_bilgAcctDeptCd.setValue(ds_oilStatInfoTree.getCellData(row, "bilgAcctDeptCd"));
+            txt_bilgAcctDeptNm.setValue(ds_oilStatInfoTree.getCellData(row, "bilgAcctDeptNm"));
+            ed_stockAcctDeptCd.setValue(ds_oilStatInfoTree.getCellData(row, "stockAcctDeptCd"));
+            txt_stockAcctDeptNm.setValue(ds_oilStatInfoTree.getCellData(row, "stockAcctDeptNm"));
+            ed_opnOfcDt.setValue(ds_oilStatInfoTree.getCellData(row, "opnOfcDt"));
+            ed_closOfcDt.setValue(ds_oilStatInfoTree.getCellData(row, "closOfcDt"));
+            txt_picNm.setValue(ds_oilStatInfoTree.getCellData(row, "picNm"));
+            txt_telNo.setValue(ds_oilStatInfoTree.getCellData(row, "telNo"));
+            chb_useYn.setValue(ds_oilStatInfoTree.getCellData(row, "useYn") == "1" ? "1" : "0");
+            lc_oilTskClsCd.setValue(ds_oilStatInfoTree.getCellData(row, "oilTskClsCd"));
+            txt_rmk.setValue(ds_oilStatInfoTree.getCellData(row, "rmk"));
+            chb_dsaleYn.setValue(ds_oilStatInfoTree.getCellData(row, "dsaleYn"));
+            lc_clntClsCd.setValue(ds_oilStatInfoTree.getCellData(row, "clntClsCd"));
+            scwin.txt_frchNo = ds_oilStatInfoTree.getCellData(row, "frchNo");
+            txt_frchNoSh.setValue(ds_oilStatInfoTree.getCellData(row, "frchNoSh"));
+            lc_bilgKndCd.setValue(ds_oilStatInfoTree.getCellData(row, "bilgKndCd"));
+        };
+
+        scwin.f_setOilStatInfo = async function() {
+            let curPos = ds_oilStatInfoTree.getRowPosition();
+            let upperOilStrPlcNo = ed_upperOilStrPlcNo.getValue();
+            let upperRow = scwin.f_NameValueRow(ds_oilStatInfoTree, "oilOilStatNo", upperOilStrPlcNo);
+            let upperLevel = 0;
+            if (upperRow >= 0) {
+                upperLevel = parseInt(ds_oilStatInfoTree.getCellData(upperRow, "lvl"), 10);
+            }
+            if (upperLevel == 0) {
+                scwin.savePatternCd = "S";
+            } else if (upperLevel == 1) {
+                scwin.savePatternCd = "J";
+            } else if (upperLevel == 2) {
+                scwin.savePatternCd = "O";
+            } else {
+                await $c.gus.cfAlertMsg("지점 구분 코드 에러입니다.");
+                return false;
+            }
+
+            dma_oilStatInfoBySave.set("oilOilStatNo", txt_oilStatNo.getValue());
+            dma_oilStatInfoBySave.set("oilStatNm", txt_oilStatNm.getValue());
+            dma_oilStatInfoBySave.set("upperOilStrPlcNo", ed_upperOilStrPlcNo.getValue());
+            dma_oilStatInfoBySave.set("upperOilStrPlcNm", txt_upperOilStrPlcNm.getValue());
+            dma_oilStatInfoBySave.set("oilStatLvlClsCd", scwin.savePatternCd);
+            dma_oilStatInfoBySave.set("homeClsCd", lc_homeClsCd.getValue());
+            dma_oilStatInfoBySave.set("oilSelfClsCd", lc_oilSelfClsCd.getValue());
+            dma_oilStatInfoBySave.set("spotsaleYn", chb_spotsaleYn.getValue() == "1" ? 1 : 0);
+            dma_oilStatInfoBySave.set("clntNo", ed_clntNo.getValue());
+            dma_oilStatInfoBySave.set("clntNm", txt_clntNm.getValue());
+            dma_oilStatInfoBySave.set("repClntNo", ed_repClntNo.getValue());
+            dma_oilStatInfoBySave.set("repClntNm", txt_repClntNm.getValue());
+            dma_oilStatInfoBySave.set("bilgAcctDeptCd", ed_bilgAcctDeptCd.getValue());
+            dma_oilStatInfoBySave.set("bilgAcctDeptNm", txt_bilgAcctDeptNm.getValue());
+            dma_oilStatInfoBySave.set("stockAcctDeptCd", ed_stockAcctDeptCd.getValue());
+            dma_oilStatInfoBySave.set("stockAcctDeptNm", txt_stockAcctDeptNm.getValue());
+            dma_oilStatInfoBySave.set("opnOfcDt", ed_opnOfcDt.getValue());
+            dma_oilStatInfoBySave.set("closOfcDt", ed_closOfcDt.getValue());
+            dma_oilStatInfoBySave.set("picNm", txt_picNm.getValue());
+            dma_oilStatInfoBySave.set("telNo", txt_telNo.getValue());
+            dma_oilStatInfoBySave.set("useYn", chb_useYn.getValue() == "1" ? 1 : 0);
+            dma_oilStatInfoBySave.set("oilTskClsCd", lc_oilTskClsCd.getValue());
+            dma_oilStatInfoBySave.set("rmk", txt_rmk.getValue());
+            dma_oilStatInfoBySave.set("dsaleYn", chb_dsaleYn.getValue() == "1" ? 1 : 0);
+            dma_oilStatInfoBySave.set("pcostAcctDeptCd", "00276");
+            dma_oilStatInfoBySave.set("pcostAcctDeptNm", "FMS운영");
+            dma_oilStatInfoBySave.set("clntClsCd", lc_clntClsCd.getValue());
+            dma_oilStatInfoBySave.set("frchNo", scwin.txt_frchNo);
+            dma_oilStatInfoBySave.set("frchNoSh", txt_frchNoSh.getValue());
+            dma_oilStatInfoBySave.set("bilgKndCd", lc_bilgKndCd.getValue());
+
+            dma_oilStatInfoBySave.set("frchNo", "0");
+
+            return true;
+        };
+
+        scwin.f_Expend = function() {
+            if (scwin.EXPEND_FG == 1) {
+                tv_oilStatInfoTree.expandLevel(0);
+                scwin.EXPEND_FG = 0;
+                btn_Expend.setValue("확장");
+            } else {
+                tv_oilStatInfoTree.expandLevel(3);
+                scwin.EXPEND_FG = 1;
+                btn_Expend.setValue("접기");
+            }
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects(tbl_search);
+        };
+
+        scwin.f_AddRow = function(dataSet) {
+            $c.data.insertRow(dataSet);
+        };
+
+        scwin.f_DeleteRow = function(dataSet) {
+            let rowPos = dataSet.getRowPosition();
+            if (rowPos >= 0) {
+                dataSet.removeRow(rowPos);
+            }
+        };
+
+        scwin.f_NameValueRow = function(ds, colId, value) {
+            for (let i = 0; i < ds.getRowCount(); i++) {
+                if (ds.getCellData(i, colId) == value) {
+                    return i;
+                }
+            }
+            return -1;
+        };
+
+        scwin.sbm_retrieveOilStatInfoList_submitdone = function(e) {
+        };
+
+        scwin.sbm_retrieveOilStatInfoList_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_retrieveOilStatInfoListByDupChk_submitdone = async function(e) {
+            let foundRow = scwin.f_NameValueRow(ds_oilStatInfoTree, "oilOilStatNo", scwin.dupChkOilStatNo);
+            if (foundRow >= 0) {
+                await $c.gus.cfAlertMsg(scwin.dupChkOilStatNo + "는 이미 등록된 점소코드 입니다.");
+                scwin.isDupchk = false;
+                $c.gus.cfCopyDataSet(ds_chkOilStatNoDup, ds_oilStatInfoTree);
+            } else {
+                scwin.isDupchk = true;
+                await $c.gus.cfAlertMsg(scwin.dupChkOilStatNo + "는 등록 가능 합니다.");
+            }
+        };
+
+        scwin.sbm_retrieveOilStatInfoListByDupChk_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_retrieveOilStatContentsList_submitdone = function(e) {
+        };
+
+        scwin.sbm_retrieveOilStatContentsList_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_updateOilStatInfo_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_retrieveOilStatInfoTree();
+        };
+
+        scwin.sbm_updateOilStatInfo_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_createOilStatInfo_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_retrieveOilStatInfoTree();
+        };
+
+        scwin.sbm_createOilStatInfo_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.ds_oilStatInfoTree_onloadcompleted = function(e) {
+            let rowCnt = ds_oilStatInfoTree.getRowCount();
+            if (rowCnt > 0) {
+                tv_oilStatInfoTree.setFocus();
+                tv_oilStatInfoTree.setNodePosition(parseInt(scwin.hid_tvIndex, 10) - 1);
+                tv_oilStatInfoTree.expandNode(parseInt(scwin.hid_tvIndex, 10) - 1);
+                scwin.isRetrieveTree = true;
+            }
+        };
+
+        scwin.ds_oilStatInfoTree_onrowpositionchange = async function(info) {
+            let row = ds_oilStatInfoTree.getRowPosition();
+            if (row >= 0 && scwin.isRetrieveTree) {
+                if (ds_oilStatInfoTree.getCellData(row, "oilOilStatNo") == "AAA") {
+                    scwin.f_ContentsDisable();
+                    ds_oilPch.removeAll();
+                    $c.gus.cfInitObjects(tbl_content);
+                } else {
+                    scwin.f_getOilStatInfo(row);
+                    scwin.f_RetrieveOilStatInfo(row);
+                }
+                if (scwin.viewMode == "C" && ds_oilStatInfoTree.getRowStatus(scwin.createRow) == "C") {
+                    ds_oilStatInfoTree.removeRow(scwin.createRow);
+                }
+                $c.gus.cfDisableBtn([b_Cancel2, b_Save2]);
+                $c.gus.cfEnableObjects([b_Create2, b_Update2]);
+                scwin.viewMode = "S";
+            }
+        };
+
+        scwin.ds_oilStatInfoTree_canrowpositionchange = async function(info) {
+            let Row = info.row;
+            if (scwin.preRow == Row) {
+                scwin.preRow = -1;
+                return false;
+            }
+
+            if (scwin.viewMode == "U" || scwin.viewMode == "C") {
+                let chk = await $c.win.confirm("현재 작업중 입니다. 취소 하시겠습니까?");
+                if (!chk) {
+                    scwin.preRow = Row;
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        };
+
+        scwin.ds_oilPch_onloadcompleted = function(e) {
+            let rowcnt = ds_oilPch.getRowCount();
+            $c.gus.cfShowTotalRows(totalRows1, rowcnt);
+        };
+
+        scwin.gr_oilPch_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+            let rtnList = [];
+            if (columnId == "clntNo") {
+                let ClntNo = ds_oilPch.getCellData(rowIndex, "clntNo");
+                let ClntNm = ds_oilPch.getCellData(rowIndex, "clntNm");
+
+                rtnList = $c.gus.cfCommonPopUp('retrieveClntList', ClntNo.trim(), ClntNm, "F", null, null, null, null, null, null, null, null, null, null, "F", null);
+
+                ds_oilPch.setCellData(rowIndex, "clntNo", rtnList[0]);
+                ds_oilPch.setCellData(rowIndex, "clntNm", rtnList[1]);
+            }
+        };
+
+        scwin.ed_oilStatNo_onblur = function(e) {
+            $c.gus.RcfOilStatPop(ed_oilStatNo, txt_oilStaNm, 'CD', '전체', '전체');
+        };
+
+        scwin.ed_stockAcctDeptCd_onblur = function(e) {
+            scwin.f_chkOpenCommonPopUp(ed_stockAcctDeptCd, txt_stockAcctDeptNm, 2);
+        };
+
+        scwin.ed_bilgAcctDeptCd_onblur = function(e) {
+            scwin.f_chkOpenCommonPopUp(ed_bilgAcctDeptCd, txt_bilgAcctDeptNm, 1);
+        };
+
+        scwin.ed_upperOilStrPlcNo_onblur = function(e) {
+            $c.gus.RcfOilStatPop(ed_upperOilStrPlcNo, txt_upperOilStrPlcNm, 'CD', '전체', '전체');
+        };
+
+        scwin.ed_clntNo_onblur = function(e) {
+            scwin.f_chkOpenCommonPopUp(ed_clntNo, txt_clntNm, 3);
+        };
+
+        scwin.ed_repClntNo_onblur = function(e) {
+            scwin.f_chkOpenCommonPopUp(ed_repClntNo, txt_repClntNm, 7);
+        };
+
+        scwin.lc_useYn_onchange = function(e) {
+            scwin.f_retrieveOilStatInfoTree();
+        };
+
+        scwin.btn_trigger1_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.b_Create2_onclick = function(e) {
+            scwin.f_Clear();
+        };
+
+        scwin.b_Update2_onclick = function(e) {
+            scwin.f_Update();
+        };
+
+        scwin.b_Cancel2_onclick = function(e) {
+            scwin.f_Cancel();
+        };
+
+        scwin.b_Save2_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.btn_Expend_onclick = function(e) {
+            scwin.f_Expend();
+        };
+
+        scwin.btn_oilStatNoDup_onclick = function(e) {
+            scwin.f_chkOilStatNoDup();
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="사용여부 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_useYn" style="width: 150px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="주유소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode id="udc_oilStat" popupID="" selectID="" codeId="ed_oilStatNo" validTitle="" nameId="txt_oilStaNm" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="lybox wfix flex_no" id="" style="">
+    				<xf:group class="col" id="" style="width: 500px;">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="주유소지점 Tree " style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    						<xf:group class="right" id="">
+    							<xf:trigger class="btn" id="btn_Expend" style="" type="button">
+    								<xf:label><![CDATA[확장]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="tvw-wrap" id="">
+    						<w2:treeview dataType="listed" id="tv_oilStatInfoTree" renderType="virtual" style="" tooltipGroupClass="false"
+    							class="h-full">
+    						</w2:treeview>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="col" id="">
+    					<xf:group class="row-gap-8" id="">
+    						<xf:group id="" class="row-gap-8">
+    							<xf:group style="" id="" class="title-wrap">
+    								<xf:group id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="" label="전체 " class="tit"></w2:textbox>
+    								</xf:group>
+
+    							</xf:group>
+    							<xf:group style="" id="" class="tbbox">
+    								<xf:group tagname="table" style="" id="" class="w2tb">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:120px;"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group tagname="col" style="width:130px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr" style="">
+    										<xf:group tagname="th" style="" class="w2tb_th">
+    											<w2:textbox ref="" style="" userData2="" id="" label="주유소번호" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" style="" class="w2tb_td">
+    											<xf:group id="" class="form-group">
+    												<xf:input style="width: 80px;" id="txt_oilStatNo" class=""></xf:input>
+    												<xf:trigger style="" id="btn_oilStatNoDup" type="button" class="btn">
+    													<xf:label><![CDATA[중복]]></xf:label>
+    												</xf:trigger>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="주유소명" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="txt_oilStatNm" style="width: 150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="상위주유소" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:udc_comCode id="udc_upperOilStrPlc" popupID="" selectID="" codeId="ed_upperOilStrPlcNo" validTitle="" nameId="txt_upperOilStrPlcNm" style="">
+    											</w2:udc_comCode>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="주유소레벨" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=""
+    												direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_oilStatLvlClsCd" style="width: 150px;"
+    												submenuSize="fixed" mandatory="true">
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="소속구분" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=""
+    												direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="width: 150px;"
+    												submenuSize="fixed" mandatory="true">
+    											</xf:select1>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox ref="" style="" userData2="" id="" label="유류자가구분" class="req"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=""
+    												direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_oilSelfClsCd" style="width: 150px;"
+    												submenuSize="fixed" mandatory="true">
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="직판여부" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select appearance="full" class="" cols="" id="chb_dsaleYn" ref=""
+    												renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="거래처" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:udc_comCode id="udc_clnt" codeId="ed_clntNo" nameId="txt_clntNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="정산귀속부서" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:udc_comCode id="udc_bilgAcctDept" codeId="ed_bilgAcctDeptCd" nameId="txt_bilgAcctDeptNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="재고귀속부서" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:udc_comCode id="udc_stockAcctDept" codeId="ed_stockAcctDeptCd" nameId="txt_stockAcctDeptNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="유류업무구분" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=""
+    												direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_oilTskClsCd" style="width: 150px;"
+    												submenuSize="fixed" mandatory="true">
+    											</xf:select1>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="비고" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="txt_rmk" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="개소일자" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_opnOfcDt"
+    												style="" mandatory="true">
+    											</w2:inputCalendar>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="폐소일자" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_closOfcDt"
+    												style="">
+    											</w2:inputCalendar>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="담당자성명" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="txt_picNm" style="width: 150px;"></xf:input>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="전화번호" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="txt_telNo" style="width: 150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr" style="">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="사용여부" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select appearance="full" class="" cols="" id="chb_useYn" ref=""
+    												renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="직매여부" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select appearance="full" class="" cols="" id="chb_spotsaleYn" ref=""
+    												renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="거래처구분" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=""
+    												direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_clntClsCd" style="width: 150px;"
+    												submenuSize="fixed">
+    											</xf:select1>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="가맹점번호(신한카드)" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="txt_frchNoSh" style="width: 150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="판매단가할증거래처" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<w2:udc_comCode id="udc_repClnt" codeId="ed_repClntNo" nameId="txt_repClntNm" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="청구종류" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=""
+    												direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_bilgKndCd" style="width: 150px;"
+    												submenuSize="fixed" mandatory="true">
+    											</xf:select1>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="row-gap-8" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="신용카드 단말기 번호 " style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group id="" class="right">
+    									<w2:udc_topGrdBtn gridDownYn="Y" gridUpYn="Y" grp="grd_section1" templateYn="N" style="" gridID=""
+    										btnUser="Y" btnPlusYn="Y">
+    									</w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_oilPch" id="gr_oilPch"
+    									style="" visibleRowNum="5" visibleRowNumFix="true" readOnly="false">
+    									<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="cardTrmnlNo" inputType="text" style="" value="단말기번호"
+    												width="120" class="txt-red">
+    											</w2:column>
+    											<w2:column displayMode="label" id="rmk" inputType="text" style="" value="비고" width="70"
+    												class="txt-blue">
+    											</w2:column>
+    											<w2:column displayMode="label" id="delYn" inputType="text" style="" value="삭제"
+    												width="70" hidden="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="cardTrmnlNo" inputType="text" style="" value=""
+    												width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="rmk" inputType="text" style="" value=""
+    												width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="delYn" inputType="text" style="" value=""
+    												width="70" readOnly="true">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[삭제]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[정상]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="" style="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group class="right" id="" style="">
+
+    										<w2:udc_bottomGrdBtn EngYn="N" btnCancelYn="N" btnRowAddYn="Y" btnDelYn="Y" btnRowDelYn="Y"
+    											style="">
+    										</w2:udc_bottomGrdBtn>
+    									</xf:group>
+
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    			<xf:group id="" class="right">
+    				<xf:trigger style="" id="b_Create2" type="button" class="btn">
+    					<xf:label><![CDATA[신규]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger style="" id="b_Update2" type="button" class="btn">
+    					<xf:label><![CDATA[수정]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="b_Cancel2" style="" type="button">
+    					<xf:label><![CDATA[취소]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="b_Save2" style="" type="button">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger>
+    			</xf:group></xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,479 @@
+/*amd /ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_05b.xml 43065 22be6c9193fba7c75036f1032d97f28fb7378dc4eaa1f6c6c83f70e06f410021 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_lobran',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'lobranCd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_WelfareSalaryPaymentAmount',saveRemovedData:'true','ev:ondataload':'scwin.ds_WelfareSalaryPaymentAmount_ondataload','ev:submiterror':'scwin.ds_WelfareSalaryPaymentAmount_submiterror'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'선택',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranNm',name:'사업부서',dataType:'text'}},{T:1,N:'w2:column',A:{id:'staffNm',name:'인원명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'foodCnt',name:'식대_건수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'foodAmt',name:'식대_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trffcCostCnt',name:'교통비_건수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trffcCostAmt',name:'교통비_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overtimeCnt',name:'특근비_건수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overtimeAmt',name:'특근비_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bfeeAmt',name:'목욕비_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'etc1Amt',name:'기타1_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'etc2Amt',name:'기타2_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumAmt',name:'합계_금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tocYn',name:'TOC여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'purchaseYn',name:'매입등록',dataType:'text'}},{T:1,N:'w2:column',A:{id:'staffNo',name:'name16',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_condition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'lobranCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'qryStDt',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'qryEndDt',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dtlOccptypeCd',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_condition2'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'lobranCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkDt',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'gubun',name:'name3',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_lobran',action:'/ds.co.RetreiveLoBranCMD.do',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_lobran","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_lobran_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_WelfareSalaryPaymentAmount',action:'/ds.op.rscconfirm.manpwrrscconfirm.RetrieveWelfareSalaryPaymentAmountCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition","key":"IN_DS1" },{"id":"ds_WelfareSalaryPaymentAmount","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_WelfareSalaryPaymentAmount","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'scwin.sbmWelfare_submitdone',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_saveWelfareSalaryPrimeCost',action:'/ds.fs.adjm.adjmbdcalc.RegistWelfareSalaryPrimeCostCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_WelfareSalaryPaymentAmount","key":"IN_DS2", "action":"modified"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitDone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_deleteWelfareSalaryPrimeCost',action:'/ds.fs.adjm.adjmbdcalc.DeleteWelfareSalaryPrimeCostCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition","key":"IN_DS1"},{"action":"modified","id":"ds_WelfareSalaryPaymentAmount","key":"IN_DS2", "action":"modified"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_delete_submitDone',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_createBathFee',action:'/ds.op.rscconfirm.manpwrrscconfirm.SaveWelfareBathFeeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_condition2","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_createBathFee_submitDone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//-------------------------------------------------------------------------
+// 고객사 요청사항
+//-------------------------------------------------------------------------
+// 1. 점소와 사업부서 기본값 세팅 X
+
+//-------------------------------------------------------------------------
+// 전역변수
+//-------------------------------------------------------------------------
+scwin.strCurDate = WebSquare.date.getCurrentServerDate(); // 서버를 기준으로 현재 날짜 반환
+scwin.strFrDate = scwin.strCurDate.substring(0, 6) + "01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.loUpperLobranCd = $c.data.getMemInfo($p, "loUpperLobranCd");
+scwin.loUpperLobranNm = $c.data.getMemInfo($p, "loUpperLobranNm");
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  $c.sbm.execute($p, sbm_lobran);
+
+  // scwin.udcOnCompleted();
+};
+
+//-------------------------------------------------------------------------
+// UDC 기본값 세팅
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  udc_data.setInitDate(scwin.strFrDate, scwin.strCurDate);
+  ica_wrkDt.setValue(scwin.strFrDate);
+  //README : T-1211 개선사항으로 사업부서가 빈 값, 점소도 빈 값 처리.
+  // let lobran = scwin.loUpperLobranCd;
+  // acb_lobran.setValue(lobran);
+  // ed_lobranCd.setValue(scwin.loUpperLobranCd);
+  // ed_lobranNm.setValue(scwin.loUpperLobranNm);
+
+  // scwin.udc_lobran_onblurCode();
+
+  //udc에 validExp 설정이 없어서 임의로 밀어넣음.
+  ica_FromDate.options.validExp = "조회기간 시작일:yes:date=YYYYMMDD";
+  ica_ToDate.options.validExp = "조회기간 완료일:yes:date=YYYYMMDD";
+};
+
+//-------------------------------------------------------------------------
+// 복리후생비지급액조회 / f_qeryList
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onClick = async function (e) {
+  if (!(await $c.gus.cfValidate($p, [ed_lobranCd, ica_FromDate, ica_ToDate], null, true))) {
+    // 점소,  조회기간
+    return;
+  }
+  if (!(await $c.date.diffDateMsg($p, ica_FromDate.getValue(), ica_ToDate.getValue()))) {
+    ica_FromDate.focus();
+    return;
+  }
+  dma_condition.set("lobranCd", ed_lobranCd.getValue()); // 사업부서
+  dma_condition.set("qryStDt", ica_FromDate.getValue()); // 조회기간 시작일
+  dma_condition.set("qryEndDt", ica_ToDate.getValue()); // 조회기간 완료일
+  dma_condition.set("dtlOccptypeCd", ed_dtlOccptypeCd.getValue());
+  sbm_WelfareSalaryPaymentAmount.userData1 = "noError";
+  $c.sbm.execute($p, sbm_WelfareSalaryPaymentAmount);
+};
+
+//-------------------------------------------------------------------------
+// 복리후생비 지급액 데이터 로드 완료시
+//-------------------------------------------------------------------------
+scwin.ds_WelfareSalaryPaymentAmount_ondataload = async function () {
+  if (ds_WelfareSalaryPaymentAmount.getTotalRow() == 0) {
+    await $c.win.alert($p, "[복리후생비지급액조회] " + MSG_CM_ERR_003);
+  }
+  spa_totalRows.setValue(ds_WelfareSalaryPaymentAmount.getTotalRow());
+
+  // sort 순서 바뀌면 모양 바뀜
+  let options = {
+    sortIndex: "lobranNm staffNm ",
+    sortOrer: "1 1"
+  };
+  ds_WelfareSalaryPaymentAmount.multisort(options);
+
+  // ds_WelfareSalaryPaymentAmount.sort("staffNm", 0);
+  // ds_WelfareSalaryPaymentAmount.sort("lobranNm", 0);
+
+  gr_WelfareSalaryPaymentAmount.setFocusedCell(0, 0);
+};
+scwin.tocYnFormatter = function (data) {
+  return $c.gus.decode($p, data, "1", "Y", "0", "N", "");
+};
+
+//-------------------------------------------------------------------------
+// 복리후생비 원가 등록 / f_RegistWelfareSalaryPrimeCost
+//-------------------------------------------------------------------------
+scwin.btn_save_onClick = async function (e) {
+  // ds_WelfareSalaryPaymentAmount.setCellData(0, "purchaseYn", "N");
+  // 점소, 조회기간	
+  let valCheck = await $c.gus.cfValidate($p, [ed_lobranCd, ica_FromDate, ica_ToDate], null, true);
+  if (!valCheck) {
+    return;
+  }
+  if (ds_WelfareSalaryPaymentAmount.getTotalRow() == 0) {
+    await $c.win.alert($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다.
+    return;
+  }
+
+  // Data 변경 여부 조회
+  if (ds_WelfareSalaryPaymentAmount.getModifiedIndex().length == 0) {
+    await $c.win.alert($p, $c.data.getMessage($p, MSG_CM_ERR_056, "목록")); // 선택된 @이(가) 없습니다.
+    return;
+  }
+
+  // 매입등록이 N인 경우만 선택 가능
+  for (i = 0; i < ds_WelfareSalaryPaymentAmount.getTotalRow(); i++) {
+    if (ds_WelfareSalaryPaymentAmount.getCellData(i, "chk") == "T") {
+      if (ds_WelfareSalaryPaymentAmount.getCellData(i, "purchaseYn") == "Y") {
+        await $c.win.alert($p, "매입등록이 N인 경우만 선택 가능합니다.");
+        return;
+      }
+    }
+  }
+  let saveCheck = await $c.win.confirm($p, MSG_CM_CRM_001);
+  if (saveCheck) {
+    // 저장하시겠습니까?
+
+    dma_condition.set("lobranCd", ed_lobranCd.getValue()); // 사업부서
+    dma_condition.set("qryStDt", ica_FromDate.getValue()); // 조회기간 시작일
+    dma_condition.set("qryEndDt", ica_ToDate.getValue()); // 조회기간 완료일
+    dma_condition.set("dtlOccptypeCd", ed_dtlOccptypeCd.getValue());
+    $c.sbm.execute($p, sbm_saveWelfareSalaryPrimeCost);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 복리후생비원가 삭제 / f_DeleteWelfareSalaryPrimeCost
+//-------------------------------------------------------------------------
+scwin.btn_Delete_onClick = async function (e) {
+  // ds_WelfareSalaryPaymentAmount.modifyAllStatus("R");
+
+  // 점소, 조회기간	
+  if (!(await $c.gus.cfValidate($p, [ed_lobranCd, ica_FromDate, ica_ToDate], null, true))) {
+    return;
+  }
+  if (ds_WelfareSalaryPaymentAmount.getTotalRow() == 0) {
+    await $c.win.alert($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다.
+    return;
+  }
+
+  // Data 변경 여부 조회
+  if (ds_WelfareSalaryPaymentAmount.getModifiedIndex().length == 0) {
+    await $c.win.alert($p, $c.data.getMessage($p, MSG_CM_ERR_056, "목록")); // 선택된 @이(가) 없습니다.
+    return;
+  }
+
+  // 매입등록이 Y인 경우만 선택 가능
+  for (i = 0; i < ds_WelfareSalaryPaymentAmount.getTotalRow(); i++) {
+    if (ds_WelfareSalaryPaymentAmount.getCellData(i, "chk") == "T") {
+      if (ds_WelfareSalaryPaymentAmount.getCellData(i, "purchaseYn") == "N") {
+        await $c.win.alert($p, "매입등록이 Y인 경우만 선택 가능합니다.");
+        return;
+      } else {
+        ds_WelfareSalaryPaymentAmount.modifyRowStatus(i, "D");
+      }
+    }
+  }
+  let delCheck = await $c.win.confirm($p, MSG_CM_CRM_004);
+  if (delCheck) {
+    // 삭제하시겠습니까?
+
+    dma_condition.set("lobranCd", ed_lobranCd.getValue()); // 사업부서
+    dma_condition.set("qryStDt", ica_FromDate.getValue()); // 조회기간 시작일
+    dma_condition.set("qryEndDt", ica_ToDate.getValue()); // 조회기간 완료일
+    dma_condition.set("dtlOccptypeCd", ed_dtlOccptypeCd.getValue());
+    $c.sbm.execute($p, sbm_deleteWelfareSalaryPrimeCost);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 목욕비 생성
+//-------------------------------------------------------------------------
+scwin.btn_BathFeeSave_onClick = async function (e) {
+  // 점소, 조회기간	
+  if (!(await $c.gus.cfValidate($p, [ed_lobranCd, ica_wrkDt], null, true))) {
+    return;
+  }
+  if (await $c.win.confirm($p, MSG_CM_CRM_001)) {
+    // 저장하시겠습니까?
+
+    dma_condition2.set("lobranCd", ed_lobranCd.getValue()); // 사업부서
+    dma_condition2.set("wrkDt", ica_wrkDt.getValue()); // 조회기간 시작일
+    dma_condition2.set("gubun", "C"); // 조회기간 완료일
+
+    $c.sbm.execute($p, sbm_createBathFee);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 목욕비 삭제
+//-------------------------------------------------------------------------
+scwin.btn_BathFeeDelete_onClick = async function (e) {
+  // 점소, 조회기간	
+  if (!(await $c.gus.cfValidate($p, [ed_lobranCd, ica_wrkDt], null, true))) {
+    return;
+  }
+  if (await $c.win.confirm($p, MSG_CM_CRM_001)) {
+    // 저장하시겠습니까?
+
+    dma_condition2.set("lobranCd", ed_lobranCd.getValue()); // 사업부서
+    dma_condition2.set("wrkDt", ica_wrkDt.getValue()); // 조회기간 시작일
+    dma_condition2.set("gubun", "D"); // 조회기간 완료일
+
+    $c.sbm.execute($p, sbm_createBathFee);
+  }
+};
+
+//-------------------------------------------------------------------------
+// OzReport 출력 / f_OzReport
+//-------------------------------------------------------------------------
+scwin.btn_ozReport_onClick = async function (e) {
+  // let ozMode = "print";
+
+  if ($c.date.diffDate($p, ica_FromDate.getValue(), ica_ToDate.getValue()) > 15) {
+    await $c.win.alert($p, "조회 기간이 16일을 넘을수 없습니다.");
+    ica_FromDate.focus();
+    return;
+  }
+  var data = {
+    odiName: "op_103_01_05b",
+    reportName: "ds/op/rscconfirm/manpwrrscconfirm/op_103_01_05b.ozr",
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    odiParam: {
+      fromDate: ica_FromDate.getValue(),
+      todate: ica_ToDate.getValue(),
+      lobranNm: ds_WelfareSalaryPaymentAmount.getCellData(ds_WelfareSalaryPaymentAmount.getRowPosition(), "lobranNm"),
+      dtlOccptypeCd: ed_dtlOccptypeCd.getValue()
+    },
+    // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    viewerParam: {
+      useprogressbar: false
+      // , // 프로그레스바 쓸지 말지
+      // mode : ozMode
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+
+//-------------------------------------------------------------------------
+// OzReport 출력 / f_OzReport
+//-------------------------------------------------------------------------
+scwin.openPopup = async function (data) {
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "오즈 리포트"
+  };
+  await $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) return;
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+  // inObj가 코드명 필드일 경우 팝업
+  else scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  switch (disGubun) {
+    case 1:
+      let lobranCd = acb_lobran.getValue();
+      udc_lobran.cfCommonPopUp(scwin.udc_lobran_callBackFunc, pCode, pName, pClose, null, null, null, null, lobranCd, null, null, null, null, null, null, null); //부서
+      break;
+    case 2:
+      //상세직종
+
+      param = '01,02';
+      udc_dtlOccptype.cfCommonPopUp(scwin.udc_dtlOccptype_callBackFunc, pCode, pName, pClose, null, null, null, null, param, null, null, null, null); //직급
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (사업부서)
+//-------------------------------------------------------------------------
+scwin.udc_lobran_onClick = async function (e) {
+  scwin.f_openCommonPopUp(1, ed_lobranCd.getValue(), ed_lobranNm.getValue(), 'F', 'F');
+};
+scwin.udc_lobran_onblurCode = async function (e) {
+  scwin.f_openCommonPopUp(1, ed_lobranCd.getValue(), '', 'T', 'T');
+};
+scwin.udc_lobran_onChangeName = async function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_lobranNm, ed_lobranCd, 1, false);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 콜백(사업부서)
+//-------------------------------------------------------------------------
+scwin.udc_lobran_callBackFunc = function (ret) {
+  if (ret[0] == "N/A") {
+    ed_lobranCd.setValue($c.gus.cfGetHiddenValue($p, ed_lobranCd));
+    ed_lobranNm.setValue($c.gus.cfGetHiddenValue($p, ed_lobranNm));
+  } else {
+    $c.gus.cfSetReturnValue($p, ret, ed_lobranCd, ed_lobranNm);
+  }
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (상세직종)
+//-------------------------------------------------------------------------
+scwin.udc_dtlOccptype_onClick = async function (e) {
+  scwin.f_openCommonPopUp(2, ed_dtlOccptypeCd.getValue(), ed_dtlOccptypeNm.getValue(), 'F', 'F');
+};
+scwin.udc_dtlOccptype_onblurCode = async function (e) {
+  scwin.f_openCommonPopUp(2, ed_dtlOccptypeCd.getValue(), '', 'T', 'T');
+};
+scwin.udc_dtlOccptype_onChangeName = async function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_dtlOccptypeNm, ed_dtlOccptypeCd, 2, false);
+};
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 콜백(상세직종)
+//-------------------------------------------------------------------------
+scwin.udc_dtlOccptype_callBackFunc = function (ret) {
+  if (ret[0] == "N/A") {
+    ed_dtlOccptypeCd.setValue($c.gus.cfGetHiddenValue($p, ed_dtlOccptypeCd));
+    ed_dtlOccptypeNm.setValue($c.gus.cfGetHiddenValue($p, ed_dtlOccptypeNm));
+  } else {
+    $c.gus.cfSetReturnValue($p, ret, ed_dtlOccptypeCd, ed_dtlOccptypeNm);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.btn_fieldClear_onClick = function (e) {
+  $c.gus.cfInitObjects($p, tbl_condition, null);
+  //README : T-1211 개선사항으로 사업부서가 빈 값, 점소도 빈 값 처리.
+  //ed_lobranCd.setValue(scwin.loUpperLobranCd);
+  //ed_lobranNm.setValue(scwin.loUpperLobranNm);
+  udc_data.setInitDate(scwin.strFrDate, scwin.strCurDate);
+  acb_lobran.focus();
+};
+
+//-------------------------------------------------------------------------
+// 등록 저장 완료시
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitDone = async function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    scwin.btn_retrieve_onClick();
+    await $c.win.alert($p, MSG_CM_INF_001);
+  } catch (e) {
+    console.log("sbm_save_submitDone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 삭제 저장 완료시
+//-------------------------------------------------------------------------
+scwin.sbm_delete_submitDone = async function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+      ds_WelfareSalaryPaymentAmount.modifyAllStatus("R");
+      return; //onFail
+    }
+    scwin.btn_retrieve_onClick();
+    await $c.win.alert($p, MSG_CM_INF_001);
+  } catch (e) {
+    console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 셀 클릭시
+//-------------------------------------------------------------------------
+scwin.grid_onClick = async function (rowIndex, columnIndex, columnId) {
+  if (columnId == "chk") {
+    if (rowIndex >= 0) {
+      if (ds_WelfareSalaryPaymentAmount.getCellData(rowIndex, "sumAmt") == 0) {
+        ds_WelfareSalaryPaymentAmount.setCellData(rowIndex, "chk", "F");
+        await $c.win.alert($p, "합계금액이 0 이면 선택할 수 없습니다.");
+        return;
+      }
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 셀 더블 클릭시
+//-------------------------------------------------------------------------
+scwin.grid_onDblClick = function (rowIndex, columnIndex, columnId) {
+  if (rowIndex < 0) {
+    return;
+  }
+  if (columnId == "staffNm") {
+    let url = "/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_04b.xml"; //복리후생비등록;
+    let menuNm = "복리후생비등록";
+    if (ds_WelfareSalaryPaymentAmount.getCellData(rowIndex, "staffNo") == "") return;
+    let params = {
+      staffNo: ds_WelfareSalaryPaymentAmount.getCellData(rowIndex, "staffNo"),
+      inqStDt: ica_FromDate.getValue(),
+      inqEndDt: ica_ToDate.getValue()
+    };
+    let option = {
+      id: "taxPop",
+      type: "",
+      menuName: "복리후생비등록",
+      width: 1100,
+      height: 650
+    };
+    $c.win.openMenu($p, menuNm, url, "op_103_01_04b.xml", params, option);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 복리후생비 원가 등록 저장 
+//-------------------------------------------------------------------------
+scwin.sbm_createBathFee_submitDone = async function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    await $c.win.alert($p, MSG_CM_INF_001);
+    scwin.btn_retrieve_onClick();
+  } catch (e) {
+    console.log("sbm_createBathFee_submitDone : " + e);
+  }
+};
+scwin.acb_lobran_onviewchange = function (info) {
+  ed_lobranCd.setValue(acb_lobran.getValue());
+  ed_lobranNm.setValue(ds_lobran.getCellData(acb_lobran.getSelectedIndex(), "lobranNm"));
+};
+scwin.sbmWelfare_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) {
+    await $c.win.alert($p, "조회실패!");
+    dma_condition.setJSON({});
+    ds_WelfareSalaryPaymentAmount.removeAll();
+  }
+};
+scwin.sbm_lobran_submitdone = function (e) {
+  //  acb_lobran.setValue(scwin.loUpperLobranCd);
+  acb_lobran.setValue("");
+};
+scwin.udc_data_onBlurFrom = function (e) {
+  ica_wrkDt.setValue(ica_FromDate.getValue().substring(0, 6));
+};
+scwin.subTotal_TOC = function (data, formattedData, rowIndex, colIndex) {
+  if (data == "1") {
+    return "Y";
+  } else if (data == "0") {
+    return "N";
+  }
+};
+scwin.runExcel = function () {
+  let options = {
+    fileName: "복리후생비지급액조회.xlsx",
+    sheetName: "복리후생비지급액조회"
+    //colMerge : true
+  };
+  let grdObj = gr_WelfareSalaryPaymentAmount;
+  let infoArr = {};
+  $c.data.downloadGridViewExcel($p, grdObj, options, infoArr);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'tbl_condition',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'점소',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_lobran',search:'start',style:'width:150px;',submenuSize:'auto',ref:'',allOption:'',chooseOption:'','ev:onviewchange':'scwin.acb_lobran_onviewchange',chooseOptionLabel:'',visibleRowNum:'10',emptyIndex:'-1',emptyItem:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_lobran'},E:[{T:1,N:'w2:label',A:{ref:'lobranNm'}},{T:1,N:'w2:value',A:{ref:'lobranCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'사업부서 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_lobranCd',nameId:'ed_lobranNm',id:'udc_lobran',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',maxlengthCode:'4',objTypeCode:'data',validExpCode:'사업부서:yes',objTypeName:'Data',selectID:'retrieveOpDeptCdInfo','ev:onclickEvent':'scwin.udc_lobran_onClick','ev:onblurCodeEvent':'scwin.udc_lobran_onblurCode','ev:onviewchangeNameEvent':'scwin.udc_lobran_onChangeName',validTitle:'사업부서',mandatoryCode:'true',keepNameSwitch:'Y',skipOnBlurCodeValueEmpty:'N',skipOnBlurNameValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'조회기간 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_data',refDataMap:'',refEdDt:'',refStDt:'',style:'',edFromId:'ica_FromDate',edToId:'ica_ToDate',mandatoryFrom:'true',mandatoryTo:'true','ev:onBlurFrom':'scwin.udc_data_onBlurFrom'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'상세직종 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_dtlOccptypeCd',nameId:'ed_dtlOccptypeNm',selectID:'retrieveDtlOccptype2',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',editTypeCode:'select',objTypeCode:'data',maxlengthCode:'2',objTypeName:'key',id:'udc_dtlOccptype','ev:onclickEvent':'scwin.udc_dtlOccptype_onClick','ev:onblurCodeEvent':'scwin.udc_dtlOccptype_onblurCode','ev:onviewchangeNameEvent':'scwin.udc_dtlOccptype_onChangeName',skipOnBlurCodeValueEmpty:'N',keepNameSwitch:'Y'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onClick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onClick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'복리후생비 지급액조회',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',gridID:'gr_WelfareSalaryPaymentAmount',gridDownFn:'scwin.runExcel'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox gvwfix',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_WelfareSalaryPaymentAmount',id:'gr_WelfareSalaryPaymentAmount',style:'',visibleRowNum:'15',visibleRowNumFix:'true','ev:oncellclick':'scwin.grid_onClick','ev:oncelldblclick':'scwin.grid_onDblClick'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'checkbox',style:'',value:'',width:'50',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',style:'',value:'사업부서',width:'120',colSpan:'',rowSpan:'2',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',style:'',value:'인원명',width:'80',colSpan:'',rowSpan:'2',sortable:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',style:'',value:'식대',width:'140',colSpan:'2',rowSpan:'',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',style:'',value:'교통비',width:'140',colSpan:'2',rowSpan:'',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',style:'',value:'특근비',width:'140',colSpan:'2',rowSpan:'',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',style:'',value:'목욕비',width:'100',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column55',value:'기타1',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column52',value:'기타2',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column49',value:'합계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column46',value:'TOC여부',displayMode:'label',colSpan:'',rowSpan:'2',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column43',value:'매입등록',displayMode:'label',colSpan:'',rowSpan:'2',sortable:'true'}}]},{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column73',value:'건수',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column72',value:'금액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column71',value:'건수',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column70',value:'금액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column69',value:'건수',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column68',value:'금액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column67',value:'금액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column66',value:'금액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column65',value:'금액',displayMode:'label',sortable:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column64',value:'금액',displayMode:'label',sortable:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'chk',inputType:'checkbox',style:'',value:'',width:'50',trueValue:'T',falseValue:'F',valueType:'other'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'lobranNm',inputType:'text',style:'',value:'',width:'120',textAlign:'center',readOnly:'true',colMerge:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'staffNm',inputType:'text',style:'color: blue;',value:'',width:'80',textAlign:'center',class:'underline',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'foodCnt',inputType:'text',style:'',value:'',width:'70',textAlign:'right',dataType:'number',readOnly:'true',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'foodAmt',inputType:'text',style:'',value:'',width:'100',textAlign:'right',readOnly:'true',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'trffcCostCnt',inputType:'text',style:'',value:'',width:'70',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'trffcCostAmt',inputType:'text',style:'',value:'',width:'100',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'overtimeCnt',inputType:'text',style:'',value:'',width:'70',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'overtimeAmt',inputType:'text',style:'',value:'',width:'100',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'bfeeAmt',inputType:'text',style:'',value:'',width:'100',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'etc1Amt',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'etc2Amt',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'sumAmt',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',readOnly:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'tocYn',value:'',displayMode:'label',readOnly:'true',displayFormatter:'scwin.tocYnFormatter'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'purchaseYn',value:'',displayMode:'label',readOnly:'true'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'lobranNm',style:'',id:'subTotal1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'text',style:'',id:'column95',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column94',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column93',value:'소계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column92',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("foodCnt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column91',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("foodAmt")'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column90',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("trffcCostCnt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column89',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("trffcCostAmt")'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column88',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("overtimeCnt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column87',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("overtimeAmt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column86',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("bfeeAmt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column85',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("etc1Amt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column84',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("etc2Amt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column83',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("sumAmt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column82',value:'',displayMode:'label',displayFormatter:'scwin.tocYnFormatter',expression:'max("tocYn")',customFormatter:'scwin.subTotal_TOC'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column81',value:'',displayMode:'label'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'text',style:'',id:'column30',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column29',value:'합계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column28',value:'',displayMode:'label',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column27',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("foodCnt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column26',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("foodAmt")'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column25',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("trffcCostCnt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column24',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("trffcCostAmt")'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column23',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("overtimeCnt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column22',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("overtimeAmt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column21',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("bfeeAmt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column57',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("etc1Amt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column54',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("etc2Amt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column51',value:'',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("sumAmt")'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column48',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column45',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'spa_totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'xf:group',A:{id:'',class:'req'},E:[{T:1,N:'w2:inputCalendar',A:{pickerType:'dynamic',editType:'select',style:'',id:'ica_wrkDt',class:'',mandatory:'true',calendarValueType:'yearMonth',delimiter:'/',title:'목욕비생성월'}}]},{T:1,N:'xf:trigger',A:{userAuth:'U','ev:onclick':'scwin.btn_ozReport_onClick',style:'',id:'btn_ozReport',label:'저장',type:'button',class:'btn '},E:[{T:1,N:'xf:label',E:[{T:3,text:'발행'}]}]},{T:1,N:'xf:trigger',A:{userAuth:'U','ev:onclick':'scwin.btn_save_onClick',style:'',id:'btn_save',label:'저장',type:'button',class:'btn white'},E:[{T:1,N:'xf:label',E:[{T:3,text:'매입생성 및 승인'}]}]},{T:1,N:'xf:trigger',A:{userAuth:'U','ev:onclick':'scwin.btn_Delete_onClick',style:'',id:'btn_Delete',label:'저장',type:'button',class:'btn white'},E:[{T:1,N:'xf:label',E:[{T:3,text:'매입삭제'}]}]},{T:1,N:'xf:trigger',A:{userAuth:'U','ev:onclick':'scwin.btn_BathFeeSave_onClick',style:'',id:'btn_BathFeeSave',label:'저장',type:'button',class:'btn white'},E:[{T:1,N:'xf:label',E:[{T:3,text:'목욕비 생성'}]}]},{T:1,N:'xf:trigger',A:{userAuth:'U','ev:onclick':'scwin.btn_BathFeeDelete_onClick',style:'',id:'btn_BathFeeDelete',label:'저장',type:'button',class:'btn white'},E:[{T:1,N:'xf:label',E:[{T:3,text:'목욕비 삭제'}]}]}]}]}]}]}]}]}]}]})

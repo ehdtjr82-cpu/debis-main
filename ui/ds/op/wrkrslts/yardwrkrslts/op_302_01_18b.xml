@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieve" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="sndClsCdChk" name="name1" dataType="text"></w2:column>
+						<w2:column id="odrNo" name="name2" dataType="text"></w2:column>
+						<w2:column id="crryinoutClsCd" name="name3" dataType="text"></w2:column>
+						<w2:column id="crryinoutDeclarNo" name="name4" dataType="text"></w2:column>
+						<w2:column id="mrn" name="name5" dataType="text"></w2:column>
+						<w2:column id="msn" name="name6" dataType="text"></w2:column>
+						<w2:column id="hsn" name="name7" dataType="text"></w2:column>
+						<w2:column id="cargoMgntNo" name="name8" dataType="text"></w2:column>
+						<w2:column id="divsCrryinoutDeg" name="name9" dataType="text"></w2:column>
+						<w2:column id="bilgClntNo" name="name10" dataType="text"></w2:column>
+						<w2:column id="arrvlportDt" name="name11" dataType="text"></w2:column>
+						<w2:column id="vsslCd" name="name12" dataType="text"></w2:column>
+						<w2:column id="crryinoutPatternCd" name="name13" dataType="text"></w2:column>
+						<w2:column id="blNo" name="name14" dataType="text"></w2:column>
+						<w2:column id="crryinoutCnt" name="name15" dataType="text"></w2:column>
+						<w2:column id="crryinoutWt" name="name16" dataType="text"></w2:column>
+						<w2:column id="sndDt" name="name17" dataType="text"></w2:column>
+						<w2:column id="sndClsCd" name="name18" dataType="text"></w2:column>
+						<w2:column id="crryinoutDtm" name="name19" dataType="text"></w2:column>
+						<w2:column dataType="text" name="name20" id="appCls"></w2:column>
+						<w2:column dataType="text" name="name21" id="cntrNo"></w2:column>
+						<w2:column dataType="text" name="name22" id="crryinoutUppercd"></w2:column>
+						<w2:column dataType="text" name="name23" id="flag"></w2:column>
+						<w2:column dataType="text" name="name24" id="ioNo"></w2:column>
+						<w2:column dataType="text" name="name25" id="mainMainAfCont"></w2:column>
+						<w2:column dataType="text" name="name26" id="mainMainAppDeg"></w2:column>
+						<w2:column dataType="text" name="name27" id="mainMainBfCont"></w2:column>
+						<w2:column dataType="text" name="name28" id="mainMainItem"></w2:column>
+						<w2:column dataType="text" name="name29" id="rowStatus"></w2:column>
+						<w2:column dataType="text" name="name30" id="sndHh"></w2:column>
+						<w2:column dataType="text" name="name31" id="wrkPlCd"></w2:column>
+						<w2:column dataType="text" name="name32" id="wrkPlClsCd"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_condition">
+					<w2:keyInfo>
+						<w2:key id="wrkPlCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="mrn" name="name2" dataType="text"></w2:key>
+						<w2:key id="msn" name="name3" dataType="text"></w2:key>
+						<w2:key id="hsn" name="name4" dataType="text"></w2:key>
+						<w2:key id="crryinDt" name="name5" dataType="text"></w2:key>
+						<w2:key id="odrNo" name="name6" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.yardwrkrslts.RetrieveImportCargoCarryInAndCarryOutSendCMD.do"
+				method="post" mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_retrieve","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_retrieve","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_save" action="/ds.op.wrkrslts.yardwrkrslts.SaveImportCargoCarryInAndCarryOutSendCMD.do"
+				method="post" mediatype="application/json" ref='data:json,{"id":"ds_retrieve","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+				replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.vCrryinDt = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.vCrryinDt = $c.date.getServerDateTime("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+};
+
+scwin.onUdcCompleted = function () {
+    ed_crryinDt.setValue(scwin.vCrryinDt);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//------------------------------------------------------------------------- 
+scwin.f_Retrieve = async function () {
+    if (ed_wrkPlCd.getValue() == "") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["작업장 코드"]);
+        ed_wrkPlCd.focus();
+        return;
+    }
+
+    let chk1 = await $c.gus.cfValidate([ed_crryinDt], null, true);
+
+    if (!chk1) {
+        return;
+    }
+
+    // 오더번호가 입력된 경우 오더번호 형식 확인
+    if (ed_odrNo.getValue().length > 0) {
+        let chk2 = await $c.gus.cfValidate([ed_odrNo], null, true);
+
+        if (!chk2) return false;
+    }
+
+    dma_condition.set("msn", ed_msn.getValue() == "" ? -1 : ed_msn.getValue());
+    dma_condition.set("hsn", ed_hsn.getValue() == "" ? -1 : ed_hsn.getValue());
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+// 저장
+scwin.f_Snd = async function () {
+    let msg = await $c.win.confirm("전송하시겠습니까?")
+
+    if (msg) {
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 작업장 POP UP
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    // 작업장 팝업
+    udc_comCodeWrkPl.cfCommonPopUp(function (rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_wrkPlCd, txt_wrkPlNm);
+    }
+        , pCode
+        , pName
+        , "T"
+        , null
+        , null
+        , null
+        , null
+        , null
+        , null
+        , null
+        , null
+        , null
+        , null
+        , pAllSearch
+        , "작업장,작업장코드,작업장명"
+    );
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 초기화
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects([ed_wrkPlCd, txt_wrkPlNm, ed_mrn, ed_msn, ed_hsn, ed_odrNo]);
+
+    ed_crryinDt.setValue(scwin.vCrryinDt);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    let pVal = $c.gus.cfGetValue(inObj);
+
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, "", "T", "T");
+    } else {
+        scwin.f_openCommonPopUp(disGubun, "", pVal, "T", "T");
+    }
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        return;
+    }
+
+    totalRows.setValue(ds_retrieve.getRowCount());
+
+    if (ds_retrieve.getRowCount() == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    }
+
+    for (let i = 0; i < ds_retrieve.getRowCount(); i++) {
+        let rowJson = ds_retrieve.getRowJSON(i);
+        let full = rowJson.sndDt;  // 원본: yyyyMMddHHmmss
+
+        if (rowJson.sndClsCd != "Y") {
+            gr_workImplement.setCellColor(i, "sndClsCd", "red");
+        }
+
+        if (full && full.length >= 8) {
+            let dateOnly = full.substring(0, 8);  // 앞 8자리만 추출 (yyyyMMdd)
+            ds_retrieve.setCellData(i, "sndDt", dateOnly);  // 그대로 덮어쓰기 or 새로운 컬럼 넣기
+        }
+    }
+
+    ds_retrieve.initRowStatus();
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        return;
+    }
+
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+scwin.udc_comCodeWrkPl_onblurCodeEvent = function (e) {
+    txt_wrkPlNm.setDisabled(true);
+
+    scwin.f_chkOpenCommonPopUp(ed_wrkPlCd, txt_wrkPlNm, 1);
+};
+
+scwin.udc_comCodeWrkPl_onblurNameEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(txt_wrkPlNm, ed_wrkPlCd, 1, false);
+};
+
+scwin.udc_comCodeWrkPl_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, "", "", 'T', 'T');
+};
+
+// 오더번호 대문자
+scwin.ed_odrNo_onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+scwin.displayFm = function (data) {
+    return $c.gus.decode(data, "Y", "전송", "미전송");
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="작업장" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode codeId="ed_wrkPlCd" nameId="txt_wrkPlNm" popupID="" popupTitle="" selectID="retrieveWrkPlInfo"
+									style="" id="udc_comCodeWrkPl" mandatoryCode="true" objTypeName="key" refDataCollection="dma_condition" code="wrkPlCd"
+									UpperFlagCode="1" maxlengthCode="6" ev:onblurCodeEvent="scwin.udc_comCodeWrkPl_onblurCodeEvent"
+									ev:onblurNameEvent="scwin.udc_comCodeWrkPl_onblurNameEvent" ev:onclickEvent="scwin.udc_comCodeWrkPl_onclickEvent"
+									allowCharCode="a-zA-Z0-9" validExpCode="작업장 코드:yes:" skipOnBlurNameValueEmpty="N" skipOnBlurCodeValueEmpty="N"></w2:udc_comCode>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="반출입일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_crryinDt" style=""
+									ref="data:dma_condition.crryinDt" mandatory="true" validExp="반출일자:yes:length=8"></w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="화물관리번호" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:group class="form-group" id="" style="">
+									<xf:input class=" w150" id="ed_mrn" style="" objType="Data" maxlength="11" ref="data:dma_condition.mrn"
+										allowChar="a-zA-Z0-9"></xf:input>
+									<w2:textbox class="" id="" label="-" style=""></w2:textbox>
+									<xf:input class=" w50" id="ed_msn" style="" objType="Data" maxlength="4" ref="" allowChar="0-9"></xf:input>
+									<w2:textbox class="" id="" label="-" style=""></w2:textbox>
+									<xf:input class=" w50" id="ed_hsn" style="" objType="Data" maxlength="4" ref="" allowChar="0-9"></xf:input>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="th" id="" class="w2tb_th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="오더번호 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:input class=" w150" id="ed_odrNo" style="" objType="data" mandatory="true" maxlength="13"
+									ev:onkeyup="scwin.ed_odrNo_onkeyup" ref="data:dma_condition.odrNo" allowChar="a-zA-Z0-9" title="오더번호" validExp="오더번호:yes:length=13"></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_refresh" style="" type="button" ev:onclick="scwin.f_FieldClear">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="수입화물 반출입 전송현황" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="group2" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_retrieve" id="gr_workImplement"
+						style="" visibleRowNum="16" visibleRowNumFix="true" readOnly="true" columnMove="true">
+						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column width="70" inputType="text" style="" id="column21" value="선택" displayMode="label" fixColumnWidth="true">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column57" value="오더번호" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column55" value="입출고구분" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="column53" value="반출입신고번호" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="column51" value="화물관리번호" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="column49" value="화물관리번호" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="column47" value="화물관리번호" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="column45" value="화물관리번호" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="column43" value="차수" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column41" value="화주명" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column39" value="입항일" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column37" value="모선명" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column35" value="반입유형" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column33" value="B/L번호" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column31" value="출고갯수" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column29" value="출고중량" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column27" value="전송일자" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column23" value="전송구분" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="column25" value="반출입일자" displayMode="label" hidden="true"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column width="70" inputType="checkbox" style="" id="sndClsCdChk" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="odrNo" value="" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutClsCd" value="" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutDeclarNo" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="mrn" value="" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="msn" value="" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="hsn" value="" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="cargoMgntNo" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="divsCrryinoutDeg" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="bilgClntNo" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="arrvlportDt" value="" displayMode="label" displayFormat="####/##/##"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="vsslCd" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutPatternCd" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="blNo" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutCnt" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutWt" value="" displayMode="label" dataType="number"
+									displayFormat="#,##0.##0"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="sndDt" value="" displayMode="label" displayFormat="####/##/##"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="sndClsCd" value="" displayMode="label"
+									displayFormatter="scwin.displayFm"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutDtm" value="" displayMode="label" hidden="true"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="" style="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="right" id="" style="">
+						<xf:trigger class="btn white" id="btn_save" style="" type="button" ev:onclick="scwin.f_Snd">
+							<xf:label><![CDATA[EDI 전송]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

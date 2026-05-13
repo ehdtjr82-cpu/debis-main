@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_carryingVesselBasisInfo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="물류점소코드" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="물류점소명" dataType="text"></w2:column>
+    					<w2:column id="vsslNm" name="모선명" dataType="text"></w2:column>
+    					<w2:column id="lineNm" name="라인명" dataType="text"></w2:column>
+    					<w2:column id="shpCoNm" name="선사" dataType="text"></w2:column>
+    					<w2:column id="impPortcnt" name="" dataType="text"></w2:column>
+    					<w2:column id="expPortcnt" name="" dataType="text"></w2:column>
+    					<w2:column id="impRepKcg" name="" dataType="text"></w2:column>
+    					<w2:column id="expRepKcg" name="" dataType="text"></w2:column>
+    					<w2:column id="wrkPlNm" name="작업장명" dataType="text"></w2:column>
+    					<w2:column id="arrvlportDtm" name="입항일시" dataType="text"></w2:column>
+    					<w2:column id="deprtportDtm" name="출항일시" dataType="text"></w2:column>
+    					<w2:column id="stvChrgCls" name="" dataType="text"></w2:column>
+    					<w2:column id="cfmanNm" name="" dataType="text"></w2:column>
+    					<w2:column id="cvsslFmanCnt" name="본선포맨수" dataType="number"></w2:column>
+    					<w2:column id="groundFmanCnt" name="육상포맨수" dataType="number"></w2:column>
+    					<w2:column id="cvsslMgntNo" name="본선관리번호" dataType="text"></w2:column>
+    					<w2:column id="vsslCd" name="Vessel코드" dataType="text"></w2:column>
+    					<w2:column id="stvStDt" name="하역시작일자" dataType="text"></w2:column>
+    					<w2:column id="cvsslWrkCompleteYn" name="본선작업완료여부" dataType="number"></w2:column>
+    					<w2:column id="berthCd" name="선석코드" dataType="text"></w2:column>
+    					<w2:column id="upperLobranCd" name="상위물류점소코드" dataType="text"></w2:column>
+    					<w2:column id="pierOpClntNo" name="부두운영거래처번호" dataType="text"></w2:column>
+    					<w2:column id="cnt" name="건수" dataType="number"></w2:column>
+    					<w2:column id="stvCnt" name="" dataType="number"></w2:column>
+    					<w2:column id="portCd" name="항구코드" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="lineCd" name="LINE코드" dataType="text"></w2:column>
+    					<w2:column id="lineClntNo" name="LINE거래처번호" dataType="text"></w2:column>
+    					<w2:column id="pierCd" name="부두코드" dataType="text"></w2:column>
+    					<w2:column id="pchsDeptCd" name="매입부서코드" dataType="text"></w2:column>
+    					<w2:column id="dchrDropRgn" name="양적하지" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_holdEachWorkPlanList" saveRemovedData="true" ev:ondataload="scwin.ds_holdEachWorkPlanList_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="holdNo" name="HOLD번호" dataType="text"></w2:column>
+    					<w2:column id="impExpClsCd" name="수입수출구분코드" dataType="text"></w2:column>
+    					<w2:column id="impExpClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="commNm" name="품명" dataType="text"></w2:column>
+    					<w2:column id="qty" name="수량" dataType="number"></w2:column>
+    					<w2:column id="wt" name="중량" dataType="number"></w2:column>
+    					<w2:column id="cbm" name="CBM" dataType="number"></w2:column>
+    					<w2:column id="wrkShiftCnt" name="작업SHIFT수" dataType="number"></w2:column>
+    					<w2:column id="invsslEqInputDtl" name="" dataType="text"></w2:column>
+    					<w2:column id="alngvsslEqInputDtl" name="" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_profitAndLossInfo" saveRemovedData="true" ev:ondataload="scwin.ds_profitAndLossInfo_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="expectSell" name="" dataType="number"></w2:column>
+    					<w2:column id="wage" name="노임" dataType="number"></w2:column>
+    					<w2:column id="welsal" name="복리후생비" dataType="number"></w2:column>
+    					<w2:column id="hveqLoanRate" name="" dataType="number"></w2:column>
+    					<w2:column id="payCmis" name="지급수수료" dataType="number"></w2:column>
+    					<w2:column id="etcPcost" name="기타원가" dataType="number"></w2:column>
+    					<w2:column id="pcostSum" name="" dataType="number"></w2:column>
+    					<w2:column id="expectPrflos" name="" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="carryingVesselManagementNumber" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchCarryingVesselWorkPlanDetail"
+    			action="/ds.op.wrkplan.stvwrkplan.RetrieveCarryingVesselWorkPlanDetailCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,["dma_search",{"id":"ds_carryingVesselBasisInfo","key":"OUT_DS1"},{"id":"ds_holdEachWorkPlanList","key":"OUT_DS2"},{"id":"ds_profitAndLossInfo","key":"OUT_DS3"}]'
+    			target='data:json,[{"id":"ds_carryingVesselBasisInfo","key":"OUT_DS1"},{"id":"ds_holdEachWorkPlanList","key":"OUT_DS2"},{"id":"ds_profitAndLossInfo","key":"OUT_DS3"}]'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_submitDone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 파라미터 or 전역변수
+//-------------------------------------------------------------------------
+scwin.param = "";
+scwin.carryingVesselManagementNumber = "";
+
+// 테이블 내에 Row 동적 변경을 위한 전역 변수
+scwin.tr_impPortcnt = ""
+scwin.tr_expPortcnt = ""
+
+//-------------------------------------------------------------------------
+// 페이지 로드시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+
+    scwin.param = $c.data.getParameter();
+    scwin.carryingVesselManagementNumber = scwin.param.carryingVesselManagementNumber == null ? "" : scwin.param.carryingVesselManagementNumber;
+
+
+    // 테이블 Row 동적 변경을 위한 컴포넌트값 세팅
+    scwin.tr_impPortcnt = $p.getComponentById("tr_impPortcnt");
+    scwin.tr_expPortcnt = $p.getComponentById("tr_expPortcnt");
+
+    // 화면 로드시 1개는 필수로 보이기 때문에 빈 Row 하나 보여주기 위함
+    // scwin.tr_impPortcnt.setStyle("display", "none");
+    scwin.tr_expPortcnt.setStyle("display", "none");
+
+
+    ed_cvsslMgntNo.setValue(scwin.carryingVesselManagementNumber);
+    scwin.f_RetrieveCvsslMgntNo(scwin.carryingVesselManagementNumber);
+    scwin.f_SetDefaultData();
+    tb_search.setStyle("display", "table");
+
+
+};
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function() {
+	ed_cvsslMgntNo.focus();
+}
+
+
+//-------------------------------------------------------------------------
+// 본선작업계획상세조회 DataSet 호출
+//------------------------------------------------------------------------- 
+scwin.f_RetrieveCvsslMgntNo = function(carryingVesselManagementNumber) {
+	dma_search.set("carryingVesselManagementNumber", carryingVesselManagementNumber);
+
+    $c.sbm.execute(sbm_searchCarryingVesselWorkPlanDetail);
+} 
+ 
+
+//-------------------------------------------------------------------------
+// 본선관리번호 조회 팝업 클릭
+//-------------------------------------------------------------------------
+scwin.btn_PopUp_onClick = async function (e) {
+    let url = "/ui/ds/op/wrkplan/stvwrkplan/op_204_01_07p.xml";
+    
+    let options = {
+        id: "taxPop", 
+        type: "",
+        popupName: "본선관리번호검색팝업",
+        width:  1100,                   
+        height: 650
+    };
+    
+    let args = [];
+
+    args[0] = ed_cvsslMgntNo.getValue()
+
+
+
+    let rtnList = await $c.win.openPopup(url, options, args);
+
+    if(rtnList != null) {
+        ed_cvsslMgntNo.setValue(rtnList[0]);
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onClick = function (e) {
+	// 검색조건 필수 입력 체크
+  	if (!$c.gus.cfValidate([ed_cvsslMgntNo])) {
+  		return;
+	}	
+	scwin.f_RetrieveCvsslMgntNo(ed_cvsslMgntNo.getValue());		
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 초기화
+//-------------------------------------------------------------------------
+scwin.btn_fieldClear_onClick = function (e) {
+    $c.gus.cfInitObjects(tb_search);
+    ed_cvsslMgntNo.focus();
+};
+
+
+//-------------------------------------------------------------------------
+// 대문자 변환
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+
+
+
+//-------------------------------------------------------------------------
+// 본선작업계획상세조회 테이블 생성
+//------------------------------------------------------------------------- 
+scwin.f_DivHoldEachWorkPlanList = function() {
+    // 1.본선기본정보조회
+    let vsslNm        = ""; //선박명
+    let lineNm        = ""; //LINE명
+    let shpCoNm       = ""; //선사명
+    let impPortcnt    = ""; //수입항차
+    let expPortcnt    = ""; //수출항차
+    let impRepKcg     = ""; //수입대표화종
+    let expRepKcg     = ""; //수출대표화종
+    let wrkPlNm       = ""; //작업장명
+    let arrvlportDtm  = ""; //입항일시
+    let deprtportDtm  = ""; //출항일시
+    let stvChrgCls    = ""; //하역담당구분
+    let cfmanNm       = ""; //CHIEF포맨명
+    let cvsslFmanCnt  = ""; //본선포맨수
+    let groundFmanCnt = ""; //육상포맨수
+
+    // ds_carryingVesselBasisInfo 분기처리
+    let totalrow = ds_carryingVesselBasisInfo.getTotalRow();
+
+    if(totalrow > 0) {
+        ed_vsslNm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "vsslNm"));
+        ed_lineNm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "lineNm"));
+        ed_shpCoNm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "shpCoNm"));			
+        ed_impPortcnt.setValue(ds_carryingVesselBasisInfo.getCellData(0, "impPortcnt"));
+        ed_expPortcnt.setValue(ds_carryingVesselBasisInfo.getCellData(0, "expPortcnt"));			
+        ed_impRepKcg.setValue(ds_carryingVesselBasisInfo.getCellData(0, "impRepKcg"));
+        ed_expRepKcg.setValue(ds_carryingVesselBasisInfo.getCellData(0, "expRepKcg"));		
+        ed_wrkPlNm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "wrkPlNm"));
+        if (ds_carryingVesselBasisInfo.getCellData(0, "arrvlportDtm") != "") {
+            ed_arrvlportDtm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "arrvlportDtm"));
+        }
+        if (ds_carryingVesselBasisInfo.getCellData(0, "deprtportDtm") != "") {
+            ed_deprtportDtm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "deprtportDtm"));
+        }
+        ed_cfmanNm.setValue(ds_carryingVesselBasisInfo.getCellData(0, "cfmanNm"));
+        ed_cvsslFmanCnt.setValue(ds_carryingVesselBasisInfo.getCellData(0, "cvsslFmanCnt"));	
+        ed_groundFmanCnt.setValue(ds_carryingVesselBasisInfo.getCellData(0, "groundFmanCnt"));		
+    }
+
+
+    if(totalrow == 0) {
+        scwin.tr_impPortcnt.setStyle("display", "table-row");
+        scwin.tr_expPortcnt.setStyle("display", "none");
+    } else {
+        if(ds_carryingVesselBasisInfo.getCellData(0, "impportcnt") != "") {
+            scwin.tr_impPortcnt.setStyle("display", "table-row");
+            scwin.tr_expPortcnt.setStyle("display", "none");
+            ed_impPortcnt.setValue(ds_carryingVesselBasisInfo.getCellData(0, "impPortcnt"));
+            ed_impRepKcg.setValue( ds_carryingVesselBasisInfo.getCellData(0, "impRepKcg"));
+            ed_iocheck.setValue("수입");
+        }
+
+        if(ds_carryingVesselBasisInfo.getCellData(0, "expPortcnt") != "") {
+            scwin.tr_expPortcnt.setStyle("display", "table-row");
+            scwin.tr_impPortcnt.setStyle("display", "none");
+            
+            ed_expRepKcg.setValue(ds_carryingVesselBasisInfo.getCellData(0, "expRepKcg"));
+            ed_expPortcnt.setValue( ds_carryingVesselBasisInfo.getCellData(0, "expPortcnt"));
+            ed_iocheck2.setValue("수출");
+        }
+
+
+        if(ds_carryingVesselBasisInfo.getCellData(0, "impPortcnt") != "" && ds_carryingVesselBasisInfo.getCellData(0, "expPortcnt") != "") {
+            scwin.tr_impPortcnt.setStyle("display", "table-row"); 
+            scwin.tr_expPortcnt.setStyle("display", "table-row");
+        }
+    }
+
+
+
+
+    //ds_profitAndLossInfo 분기처리
+    if (ds_profitAndLossInfo.getTotalRow() == 0) {	
+        
+        } else { 
+            ed_expectSell.setValue(ds_profitAndLossInfo.getCellData(0, "expectSell"));
+            
+            let wage = ds_profitAndLossInfo.getCellData(0, "wage");
+            ed_wage.setValue(wage);
+            if (wage != 0) {
+                ed_wagePcostRt.setValue((wage / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+            } else {
+                ed_wagePcostRt.setValue("");
+            }
+            
+            let welsal = ds_profitAndLossInfo.getCellData(0, "welsal");
+            ed_welsal.setValue(welsal);
+            if (welsal != 0) {
+                ed_welsalPcostRt.setValue((welsal / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+            } else {
+                ed_welsalPcostRt.setValue("");
+            }
+            
+            let hveqLoanRate = ds_profitAndLossInfo.getCellData(0, "hveqLoanRate");
+            ed_hveqLoanRate.setValue(hveqLoanRate);
+            if (hveqLoanRate != 0) {
+                ed_hveqLoanRatePcostRt.setValue((hveqLoanRate / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+            } else {
+                ed_hveqLoanRatePcostRt.setValue("");
+            }
+            
+            let payCmis = ds_profitAndLossInfo.getCellData(0, "payCmis");			                                    
+            ed_payCmis.setValue(payCmis);
+            if (payCmis != 0) {
+                ed_payCmisPcostRt.setValue((payCmis / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+            } else {
+                ed_payCmisPcostRt.setValue("");
+            }
+
+            let etcPcost = ds_profitAndLossInfo.getCellData(0, "etcPcost");			                                    
+            ed_etcPcost.setValue(etcPcost);
+            if (etcPcost != 0) {
+                ed_etcPcostPcostRt.setValue((etcPcost / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+            } else {
+                ed_etcPcostPcostRt.setValue("");
+            }
+                                                
+            ed_pcostSum.setValue(ds_profitAndLossInfo.getCellData(0, "pcostSum"));
+            let cost = "";
+
+            if (ds_profitAndLossInfo.getCellData(0, "expectSell") == 0) {
+                cost = 0;
+            } else {
+                cost = Number(ds_profitAndLossInfo.getCellData(0, "pcostSum") / ds_profitAndLossInfo.getCellData(0, "expectSell") * 100);
+            }
+            ed_cost.setValue(cost.toFixed(1)+"%"); 
+            ed_expectPrflos.setValue((ds_profitAndLossInfo.getCellData(0, "expectSell") - ds_profitAndLossInfo.getCellData(0, "pcostSum")));
+        }		
+
+
+
+
+	// 3.본선예상손익조회 clear
+	ed_expectSell.setValue("");
+	ed_wage.setValue("");
+	ed_wagePcostRt.setValue("");
+	ed_welsal.setValue("");
+	ed_welsalPcostRt.setValue("");
+	ed_hveqLoanRate.setValue("");
+	ed_hveqLoanRatePcostRt.setValue("");	
+	ed_payCmis.setValue("");
+	ed_payCmisPcostRt.setValue("");
+	ed_etcPcost.setValue("");
+	ed_etcPcostPcostRt.setValue("");
+	ed_pcostSum.setValue("");
+	ed_cost.setValue("");
+	ed_expectPrflos.setValue("");
+
+
+}
+
+
+
+//-------------------------------------------------------------------------
+// 조회 성공시
+//-------------------------------------------------------------------------
+scwin.ds_holdEachWorkPlanList_ondataload = function () {
+
+    let rowCnt = ds_holdEachWorkPlanList.getTotalRow();
+    scwin.f_DivHoldEachWorkPlanList();
+
+    if(rowCnt == 0 && ed_cvsslMgntNo.getValue() != "") {
+        $c.win.alert(MSG_CM_ERR_003);
+    }
+
+    spa_totalRow.setValue(rowCnt);
+
+    for(i = 0; i < rowCnt; i++) {
+        ds_carryingVesselBasisInfo.getCellData(i, "columnInfo")
+    }
+
+};
+
+//-------------------------------------------------------------------------
+// 조회 성공시
+//-------------------------------------------------------------------------
+scwin.ds_profitAndLossInfo_ondataload = function () {
+    let rowCnt = ds_profitAndLossInfo.getTotalRow();
+
+    if(rowCnt == 0) {
+        return;
+    }
+
+    ed_expectSell.setValue(ds_profitAndLossInfo.getCellData(0, "expectSell"));
+            
+    let wage = ds_profitAndLossInfo.getCellData(0, "wage");
+    ed_wage.setValue(wage);
+    if (wage != 0) {
+        ed_wagePcostRt.setValue((wage / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+    } else {
+        ed_wagePcostRt.setValue("0%");
+    }
+    
+    let welsal = ds_profitAndLossInfo.getCellData(0, "welsal");
+    ed_welsal.setValue(welsal);
+    if (welsal != 0) {
+        ed_welsalPcostRt.setValue((welsal / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+    } else {
+        ed_welsalPcostRt.setValue("0%");
+    }
+    
+    let hveqLoanRate = ds_profitAndLossInfo.getCellData(0, "hveqLoanRate");
+    ed_hveqLoanRate.setValue(hveqLoanRate);
+    if (hveqLoanRate != 0) {
+        ed_hveqLoanRatePcostRt.setValue((hveqLoanRate / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+    } else {
+        ed_hveqLoanRatePcostRt.setValue("0%");
+    }
+    
+    let payCmis = ds_profitAndLossInfo.getCellData(0, "payCmis");			                                    
+    ed_payCmis.setValue(payCmis);
+    if (payCmis != 0) {
+        ed_payCmisPcostRt.setValue((payCmis / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+    } else {
+        ed_payCmisPcostRt.setValue("0%");
+    }
+
+    let etcPcost = ds_profitAndLossInfo.getCellData(0, "etcPcost");			                                    
+    ed_etcPcost.setValue(etcPcost);
+    if (etcPcost != 0) {
+        ed_etcPcostPcostRt.setValue((etcPcost / ds_profitAndLossInfo.getCellData(0, "pcostSum") * 100).toFixed(1) + "%");
+    } else {
+        ed_etcPcostPcostRt.setValue("0%");
+    }
+                                        
+    ed_pcostSum.setValue(ds_profitAndLossInfo.getCellData(0, "pcostSum"));
+    let cost = "";
+
+    if (ds_profitAndLossInfo.getCellData(0, "expectSell") == 0) {
+        cost = 0;
+    } else {
+        cost = Number(ds_profitAndLossInfo.getCellData(0, "pcostSum") / ds_profitAndLossInfo.getCellData(0, "expectSell") * 100);
+    }
+
+    if(cost != 0) {
+        ed_cost.setValue(cost.toFixed(1)+"%"); 
+    }
+
+    if(ds_profitAndLossInfo.getCellData(0, "expectSell") - ds_profitAndLossInfo.getCellData(0, "pcostSum") != 0) {
+        ed_expectPrflos.setValue((ds_profitAndLossInfo.getCellData(0, "expectSell") - ds_profitAndLossInfo.getCellData(0, "pcostSum")));
+    }
+
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="본선관리번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input class="" id="ed_cvsslMgntNo" placeholder="" style="width: 100px;" objType="Data" mandatory="true" maxlength="8" ev:onkeyup="scwin.onkeyup" allowChar="a-zA-Z0-9" ev:onviewchange="scwin.btn_PopUp_onClick2" title="본선관리번호"></xf:input>
+    								<xf:trigger class="btn ico sch" id="btn_PopUp" style="" type="button" ev:onclick="scwin.btn_PopUp_onClick">
+    									<xf:label><![CDATA[버튼]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onClick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onClick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr" id="tr_vsslNm">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:textbox class="" id="ed_vsslNm" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="LINE" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_lineNm" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="선사" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_shpCoNm" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" id="tr_impPortcnt">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox class="" id="ed_impPortcnt" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="대표화종" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_impRepKcg" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="수출입구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_iocheck" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="" id="tr_expPortcnt">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox class="" id="ed_expPortcnt" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="대표화종" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_expRepKcg" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="수출입구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_iocheck2" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" id="tr_wrkPlNm">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="작업장" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_wrkPlNm" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="입항(예정)일시" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_arrvlportDtm" label="" ref="" style="" userData2="" displayFormat="####/##/## ##:##"></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="출항(예정)일시" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_deprtportDtm" label="" ref="" style="" userData2="" displayFormat="####/##/## ##:##"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" id="tr_cfmanNm">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Chief 포맨" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_cfmanNm" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="본선포맨" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_cvsslFmanCnt" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="육상포맨" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="ed_groundFmanCnt" label="" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownYn="N" gridID="gr_holdEachWorkPlanList"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    					<w2:gridView checkAllType="false" dataList="data:ds_holdEachWorkPlanList" style="" autoFit="allColumn" id="gr_holdEachWorkPlanList"
+    						visibleRowNum="5" class="wq_gvw" readOnly="true" columnMove="false" visibleRowNumFix="false">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="70" inputType="text" style="" id="column1" value="Hold" displayMode="label" colSpan=""
+    									rowSpan="2">
+    								</w2:column>
+    								<w2:column width="350" inputType="text" style="" id="column17" value="작업물량" displayMode="label"
+    									colSpan="5" rowSpan="" sortable="false">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column3" value="Shift&lt;br/&gt;수"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="210" inputType="text" style="" id="column5" value="투입 중기(Hrs.)" displayMode="label"
+    									colSpan="2" rowSpan="" sortable="false">
+    								</w2:column>
+    							</w2:row>
+    							<w2:row style="" id="row3">
+    								<w2:column width="100" inputType="text" style="" id="column29" value="수출입구분" displayMode="label"></w2:column>
+    								<w2:column width="170" inputType="text" style="" id="column28" value="품목" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column27" value="수량" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" style="" id="column26" value="중량(톤)" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column25" value="CBM" displayMode="label"></w2:column>
+    								<w2:column width="190" inputType="text" style="" id="column23" value="선내" displayMode="label"></w2:column>
+    								<w2:column width="190" inputType="text" style="" id="column22" value="선측" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="70" inputType="text" style="" id="holdNo" value="" displayMode="label" colMerge="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="impExpClsNm" value="" displayMode="label" colMerge="true" upperColumn="holdNo"></w2:column>
+    								<w2:column width="170" inputType="text" style="" id="commNm" value="" displayMode="label"
+    									textAlign="left">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="qty" value="" displayMode="label"
+    									textAlign="right" dataType="float">
+    								</w2:column>
+    								<w2:column width="80" inputType="text" style="" id="wt" value="" displayMode="label"
+    									textAlign="right" dataType="float" displayFormat="#,###.000">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cbm" value="" displayMode="label"
+    									textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,###.000">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="wrkShiftCnt" value="" displayMode="label" colMerge="true" upperColumn="holdNo"></w2:column>
+    								<w2:column width="190" inputType="text" style="" id="invsslEqInputDtl" value="" displayMode="label"
+    									textAlign="left" colMerge="true" upperColumn="holdNo" escape="false">
+    								</w2:column>
+    								<w2:column width="190" inputType="text" style="" id="alngvsslEqInputDtl" value="" displayMode="label"
+    									textAlign="left" colMerge="true" upperColumn="holdNo" escape="false">
+    								</w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer style="" id="footer1">
+    							<w2:row style="" id="row4">
+    								<w2:column width="70" inputType="text" style="" id="column39" value="합계" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column38" value="" displayMode="label"></w2:column>
+    								<w2:column width="170" inputType="text" style="" id="column37" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="sumQty" value="" displayMode="label" expression='sum("qty")' dataType="float" textAlign="right" displayFormat="#,##0"></w2:column>
+    								<w2:column width="80" inputType="expression" style="" id="sumWt" value="" displayMode="label" expression='sum("wt")' dataType="float" displayFormat="#,##0.000" textAlign="right"></w2:column>
+    								<w2:column width="70" inputType="expression" style="" id="sumCbm" value="" displayMode="label" expression='sum("cbm")' dataType="float" displayFormat="#,##0.000" textAlign="right"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column33" value="" displayMode="label"></w2:column>
+    								<w2:column width="190" inputType="text" style="" id="column32" value="" displayMode="label"></w2:column>
+    								<w2:column width="190" inputType="text" style="" id="column31" value="" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="spa_totalRow" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb" id="" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+    								<w2:textbox class="" id="" label="예상매출" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    									<w2:colspan>7</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="예상원가" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+    								<w2:textbox class="" id="" label="예상손익" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group></xf:group><xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th tac" style="" tagname="th">
+    								<w2:textbox class="" id="" label="노임" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th tac" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="복리후생비" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th tac" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="중기임차료" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="지급수수료" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="기타변동비" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="합계" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th tac">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="원가율" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group></xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="ed_expectSell" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox class="" id="ed_wage" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_welsal" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_hveqLoanRate" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_payCmis" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_etcPcost" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_pcostSum" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_cost" label="" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_expectPrflos" label="" ref="" style="" userData2="" displayFormat="#,###" dataType="number"></w2:textbox>
+    							</xf:group></xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    							</xf:group>
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_wagePcostRt" label="" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_welsalPcostRt" label="" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td tar" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_hveqLoanRatePcostRt" label="" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_payCmisPcostRt" label="" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="ed_etcPcostPcostRt" label="" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td tar">
+    								<w2:attributes></w2:attributes>
+    							</xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

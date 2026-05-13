@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="dma_orderSearch">
+        			<w2:keyInfo>
+        				<w2:key id="odrNo" name="오더번호" dataType="text" length="13"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_order" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="odrNo" name="오더번호" dataType="text" length="13"></w2:column>
+        				<w2:column id="ctrtNo" name="계약번호" dataType="text" length="11"></w2:column>
+        				<w2:column id="ctrtClntNo" name="계약거래처번호" dataType="text" length="6"></w2:column>
+        				<w2:column id="reqClntNo" name="거래처" dataType="text" length="6"></w2:column>
+        				<w2:column id="bilgClntNo" name="청구거래처번호" dataType="text" length="6"></w2:column>
+        				<w2:column id="realMchtClntNo" name="실화주" dataType="text" length="6"></w2:column>
+        				<w2:column id="repClntNo" name="대표거래처" dataType="text" length="6"></w2:column>
+        				<w2:column id="dmndNo" name="납품처번호" dataType="text" length="15"></w2:column>
+        				<w2:column id="bilgLodeptCd" name="청구물류부서코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="sellLodeptCd" name="매출귀속" dataType="text" length="4"></w2:column>
+        				<w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text" length="7"></w2:column>
+        				<w2:column id="arvWrkPlCd" name="도착지코드" dataType="text" length="7"></w2:column>
+        				<w2:column id="dptDtl" name="출발상세" dataType="text" length="100"></w2:column>
+        				<w2:column id="arvDtl" name="도착상세" dataType="text" length="100"></w2:column>
+        				<w2:column id="wrkStDt" name="작업시작일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="wrkStHh" name="작업시작시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="wrkEndDt" name="작업종료일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="wrkEndHh" name="작업종료시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="sellYn" name="매출여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="crcCd" name="통화코드" dataType="text" length="3"></w2:column>
+        				<w2:column id="adptExchRt" name="실적적용환율" dataType="text" length="9"></w2:column>
+        				<w2:column id="adptExchRtDt" name="적용환율일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="cntrDsgYn" name="컨테이너지정여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="odrKndCd" name="오더종류" dataType="text" length="2"></w2:column>
+        				<w2:column id="transCargoClsCd" name="CNTR/BULK 구분" dataType="text" length="1"></w2:column>
+        				<w2:column id="impExpDomesticClsCd" name="수입수출내수구분코드" dataType="text" length="1"></w2:column>
+        				<w2:column id="selfClsCd" name="SELF_구분코드" dataType="text" length="2"></w2:column>
+        				<w2:column id="transCondCd" name="운송조건" dataType="text" length="1"></w2:column>
+        				<w2:column id="cntrWtCondCd" name="컨테이너중량조건코드" dataType="text" length="1"></w2:column>
+        				<w2:column id="chClsCd" name="CH구분코드" dataType="text" length="1"></w2:column>
+        				<w2:column id="wrkPatternCd" name="작업유형코드" dataType="text" length="5"></w2:column>
+        				<w2:column id="coshippingYn" name="합적여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="lineCd" name="LINE코드" dataType="text" length="5"></w2:column>
+        				<w2:column id="shpCoClntNo" name="선사거래처번호" dataType="text" length="6"></w2:column>
+        				<w2:column id="destPortCd" name="목적항구코드" dataType="text" length="5"></w2:column>
+        				<w2:column id="bondTransExpireDt" name="보세운송만료일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="mcomAssgnClsCd" name="당사배정구분코드" dataType="text" length="2"></w2:column>
+        				<w2:column id="clntMgntNo" name="거래처관리번호" dataType="text" length="30"></w2:column>
+        				<w2:column id="onPicNm" name="담당자명" dataType="text" length="40"></w2:column>
+        				<w2:column id="onPicTelNo" name="상차담당자전화번호" dataType="text" length="20"></w2:column>
+        				<w2:column id="offPicNm" name="담당자명" dataType="text" length="40"></w2:column>
+        				<w2:column id="offPicTelNo" name="하차담당자전화번호" dataType="text" length="40"></w2:column>
+        				<w2:column id="odrPicNm" name="오더담당자명" dataType="text" length="40"></w2:column>
+        				<w2:column id="odrPicTelNo" name="오더담당자전화번호" dataType="text" length="20"></w2:column>
+        				<w2:column id="salesPicNm" name="영업담당자명" dataType="text" length="50"></w2:column>
+        				<w2:column id="salesPicTelNo" name="영업담당자전화번호" dataType="text" length="40"></w2:column>
+        				<w2:column id="transCoNm" name="운송사명" dataType="text" length="50"></w2:column>
+        				<w2:column id="transCoTelNo" name="운송업체전화번호" dataType="text" length="20"></w2:column>
+        				<w2:column id="cvsslMgntNo" name="본선관리번호" dataType="text" length="8"></w2:column>
+        				<w2:column id="tsCvsslMgntNo" name="TS본선관리번호" dataType="text" length="8"></w2:column>
+        				<w2:column id="vsslCd" name="Vessel코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="portcnt" name="항차" dataType="text" length="10"></w2:column>
+        				<w2:column id="portCd" name="항구코드" dataType="text" length="5"></w2:column>
+        				<w2:column id="tsVsslCd" name="TS선박코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="tsPortcnt" name="TS항차" dataType="text" length="10"></w2:column>
+        				<w2:column id="tsPortCd" name="TS항구코드" dataType="text" length="5"></w2:column>
+        				<w2:column id="taxnClsCd" name="과세구분" dataType="text" length="2"></w2:column>
+        				<w2:column id="tplCoClsCd" name="3자물류업체구분코드" dataType="text" length="2"></w2:column>
+        				<w2:column id="odrClsCd" name="오더구분코드" dataType="text" length="1"></w2:column>
+        				<w2:column id="smsSndYn" name="SMS전송여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="sndDt" name="발송일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="sndHh" name="전송시간" dataType="text" length="6"></w2:column>
+        				<w2:column id="odrDcsnYn" name="오더확정여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="odrDcsnDt" name="오더확정일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="odrDcsnHh" name="오더확정시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="odrCompleteYn" name="오더완료여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="odrCompleteDt" name="오더완료일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="odrCompleteHh" name="오더완료시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="odrCnclYn" name="오더취소여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="odrCnclDt" name="오더취소일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="odrCnclHh" name="오더취소시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="odrCnclItemCd" name="오더취소항목코드" dataType="text" length="3"></w2:column>
+        				<w2:column id="odrCnclRsn" name="오더취소사유" dataType="text" length="100"></w2:column>
+        				<w2:column id="odrDelYn" name="오더삭제여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="odrDelDt" name="오더삭제일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="odrDelHh" name="오더삭제시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="rmk" name="비고" dataType="text" length="500"></w2:column>
+        				<w2:column id="upperOdrNo" name="상위오더번호" dataType="text" length="13"></w2:column>
+        				<w2:column id="regBranCd" name="등록점소코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="odrDt" name="발주일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="pchsCreatYn" name="매입생성여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="bilgOdrKndCd" name="청구오더종류코드" dataType="text" length="2"></w2:column>
+        				<w2:column id="closeDt" name="마감일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="closeHh" name="마감시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="alloccarPicId" name="배차담당자ID" dataType="text" length="8"></w2:column>
+        				<w2:column id="autoOdrYn" name="자동오더여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="dptOprCd" name="출발OPERATOR코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="arvOprCd" name="도착OPERATOR코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="dptTmlVsslPortcnt" name="출발터미널모선항차" dataType="text" length="10"></w2:column>
+        				<w2:column id="arvTmlVsslPortcnt" name="도착터미널모선항차" dataType="text" length="10"></w2:column>
+        				<w2:column id="oprBlNo" name="0" dataType="text" length="20"></w2:column>
+        				<w2:column id="oprDoNo" name="0" dataType="text" length="35"></w2:column>
+        				<w2:column id="oprImpexpClsCd" name="0" dataType="text" length="1"></w2:column>
+        				<w2:column id="regId" name="등록자ID" dataType="text" length="8"></w2:column>
+        				<w2:column id="regDtm" name="등록일시" dataType="text" length="14"></w2:column>
+        				<w2:column id="modId" name="수정자ID" dataType="text" length="8"></w2:column>
+        				<w2:column id="modDtm" name="수정일시" dataType="text" length="14"></w2:column>
+        				<w2:column id="odrKndNm" name="#N/A" dataType="text" length="17"></w2:column>
+        				<w2:column id="ctrtClntNm" name="계약거래처명" dataType="text" length="70"></w2:column>
+        				<w2:column id="reqClntNm" name="요청거래처명" dataType="text" length="70"></w2:column>
+        				<w2:column id="bilgClntNm" name="청구거래처명" dataType="text" length="70"></w2:column>
+        				<w2:column id="realMchtClntNm" name="실화주거래처명" dataType="text" length="70"></w2:column>
+        				<w2:column id="dmndNm" name="납품처명" dataType="text" length="50"></w2:column>
+        				<w2:column id="bilgLodeptNm" name="부서명" dataType="text" length="50"></w2:column>
+        				<w2:column id="sellLodeptNm" name="상대부서명" dataType="text" length="50"></w2:column>
+        				<w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text" length="50"></w2:column>
+        				<w2:column id="arvWrkPlNm" name="도착지" dataType="text" length="50"></w2:column>
+        				<w2:column id="lineNm" name="라인명" dataType="text" length="50"></w2:column>
+        				<w2:column id="shpCoClntNm" name="#N/A" dataType="text" length="70"></w2:column>
+        				<w2:column id="destPortNm" name="목적항명" dataType="text" length="50"></w2:column>
+        				<w2:column id="vsslNm" name="모선명" dataType="text" length="50"></w2:column>
+        				<w2:column id="portNm" name="목적지" dataType="text" length="50"></w2:column>
+        				<w2:column id="tsVsslNm" name="#N/A" dataType="text" length="50"></w2:column>
+        				<w2:column id="tsPortNm" name="환적항구명" dataType="text" length="50"></w2:column>
+        				<w2:column id="dptWrkLobranCd" name="출발작업점소" dataType="text" length="4"></w2:column>
+        				<w2:column id="dptWrkLobranNm" name="#N/A" dataType="text" length="50"></w2:column>
+        				<w2:column id="arvWrkLobranCd" name="도착작업점소" dataType="text" length="4"></w2:column>
+        				<w2:column id="arvWrkLobranNm" name="#N/A" dataType="text" length="50"></w2:column>
+        				<w2:column id="internalSellLodeptCd" name="내부매출물류부서코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="internalSellLodeptNm" name="#N/A" dataType="text" length="50"></w2:column>
+        				<w2:column id="odrWrkPathCnt" name="#N/A" dataType="text" length="38"></w2:column>
+        				<w2:column id="odrRequestCnt" name="#N/A" dataType="text" length="38"></w2:column>
+        				<w2:column id="totSellAmt" name="총매출금액" dataType="text" length="38"></w2:column>
+        				<w2:column id="totPchsAmt" name="총매입금액" dataType="text" length="38"></w2:column>
+        				<w2:column id="totStdAmt" name="#N/A" dataType="text" length="38"></w2:column>
+        				<w2:column id="totPchsPrflosAmt" name="#N/A" dataType="text" length="38"></w2:column>
+        				<w2:column id="totStdPrflosAmt" name="#N/A" dataType="text" length="38"></w2:column>
+        				<w2:column id="alloccarPicNm" name="배차담당자명" dataType="text" length="50"></w2:column>
+        				<w2:column id="odrCtrlClsCd" name="오더조정구분코드" dataType="text" length="1"></w2:column>
+        				<w2:column id="trfAdptCd" name="요율적용코드" dataType="text" length="2"></w2:column>
+        				<w2:column id="clntMgntNonm" name="#N/A" dataType="text" length="50"></w2:column>
+        				<w2:column id="mgntNoclsCd" name="관리번호구분코드" dataType="text" length="6"></w2:column>
+        				<w2:column id="demDt" name="체선일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="dispPchsClsCd" name="매각매입구분" dataType="text" length="1"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_orderCommodity" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="odrNo" name="오더번호" dataType="text" length="13"></w2:column>
+        				<w2:column id="commSeq" name="품명순번" dataType="text" length="4"></w2:column>
+        				<w2:column id="commCd" name="품명코드" dataType="text" length="8"></w2:column>
+        				<w2:column id="commNm" name="품명" dataType="text" length="100"></w2:column>
+        				<w2:column id="commStsCd" name="품명상태코드" dataType="text" length="2"></w2:column>
+        				<w2:column id="cntrSizCd" name="컨테이너사이즈" dataType="text" length="2"></w2:column>
+        				<w2:column id="cntrTypCd" name="컨테이너타입" dataType="text" length="2"></w2:column>
+        				<w2:column id="fullEmptyClsCd" name="FULL/EMPTY구분코드" dataType="text" length="1"></w2:column>
+        				<w2:column id="qtyUnitCd" name="0" dataType="text" length="3"></w2:column>
+        				<w2:column id="unitCd" name="Unit 코드" dataType="text" length="3"></w2:column>
+        				<w2:column id="qty" name="수량" dataType="text" length="15"></w2:column>
+        				<w2:column id="grossWt" name="총중량" dataType="text" length="18"></w2:column>
+        				<w2:column id="netWt" name="NET중량" dataType="text" length="18"></w2:column>
+        				<w2:column id="cbm" name="CBM" dataType="text" length="18"></w2:column>
+        				<w2:column id="len" name="길이" dataType="text" length="10"></w2:column>
+        				<w2:column id="temper" name="온도" dataType="text" length="5"></w2:column>
+        				<w2:column id="dryYn" name="DRY여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="wrkStDt" name="작업시작일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="wrkStHh" name="작업시작시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="wrkEndDt" name="작업종료일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="wrkEndHh" name="작업종료시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="dptWrkPlCd" name="출발작업장코드" dataType="text" length="7"></w2:column>
+        				<w2:column id="arvWrkPlCd" name="도착지코드" dataType="text" length="7"></w2:column>
+        				<w2:column id="cstmrMgntNo" name="고객관리번호" dataType="text" length="30"></w2:column>
+        				<w2:column id="paletYn" name="팔레트여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="blNo" name="B/L번호" dataType="text" length="20"></w2:column>
+        				<w2:column id="mgntSeq" name="관리순번" dataType="text" length="15"></w2:column>
+        				<w2:column id="coCd" name="회사코드" dataType="text" length="5"></w2:column>
+        				<w2:column id="bizLongCd" name="사업장코드" dataType="text" length="12"></w2:column>
+        				<w2:column id="cnclYn" name="취소여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="rmk" name="비고" dataType="text" length="500"></w2:column>
+        				<w2:column id="completeYn" name="완료여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="completeDt" name="완료일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="completeHh" name="완료시간" dataType="text" length="4"></w2:column>
+        				<w2:column id="regId" name="등록자ID" dataType="text" length="8"></w2:column>
+        				<w2:column id="regDtm" name="등록일시" dataType="text" length="14"></w2:column>
+        				<w2:column id="modId" name="수정자ID" dataType="text" length="8"></w2:column>
+        				<w2:column id="modDtm" name="수정일시" dataType="text" length="14"></w2:column>
+        				<w2:column id="odrWrkPathYn" name="#N/A" dataType="text" length="38"></w2:column>
+        				<w2:column id="wrkRsltsNo" name="#N/A" dataType="text" length="14"></w2:column>
+        				<w2:column id="coshippingPsblYn" name="합적가능여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="tplArvNmCmpy" name="3자물류도착지상호" dataType="text" length="50"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_ctrtNo" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="ctrtNo" name="계약번호" dataType="text" length="11"></w2:column>
+        				<w2:column id="clntPicNm" name="거래처담당자명" dataType="text" length="20"></w2:column>
+        				<w2:column id="ctrtStDt" name="계약시작일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="ctrtEndDt" name="계약종료일자" dataType="text" length="8"></w2:column>
+        				<w2:column id="taxnClsCd" name="과세구분" dataType="text" length="2"></w2:column>
+        				<w2:column id="rmk" name="비고" dataType="text" length="500"></w2:column>
+        				<w2:column id="mgntTrgtClntYn" name="관리대상거래처여부" dataType="text" length="1"></w2:column>
+        				<w2:column id="empNo" name="사원번호" dataType="text" length="6"></w2:column>
+        				<w2:column id="empNm" name="사원명" dataType="text" length="20"></w2:column>
+        				<w2:column id="allocRt" name="배분율" dataType="text" length="20"></w2:column>
+        				<w2:column id="ctrtDistrictCd" name="계약권역코드" dataType="text" length="7"></w2:column>
+        				<w2:column id="crcCd" name="통화코드" dataType="text" length="3"></w2:column>
+        				<w2:column id="regBranCd" name="등록점소코드" dataType="text" length="4"></w2:column>
+        				<w2:column id="regBranNm" name="등록점소명" dataType="text" length="50"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_ctrtTariff" saveRemovedData="true">
+        			<w2:columnInfo></w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieve" action="" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_orderSearch","key":"IN_DS1"},{"id":"ds_order","key":"OUT_DS1"},{"id":"ds_orderCommodity","key":"OUT_DS2"},{"id":"ds_ctrtNo","key":"OUT_DS3"},{"id":"ds_ctrtTariff","key":"OUT_DS4"}]' target='data:json,[{"id":"ds_order","key":"OUT_DS1"},{"id":"ds_orderCommodity","key":"OUT_DS2"},{"id":"ds_ctrtNo","key":"OUT_DS3"},{"id":"ds_ctrtTariff","key":"OUT_DS4"}]' encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        	<xf:submission abortTrigger="" action="/ds.sd.odrmgnt.odrreg.UpdateOrderBasisInformationCMD.do" customHandler="" encoding="UTF-8" errorHandler="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+        		ev:submiterror="" id="sbm_save" instance="" mediatype="application/json" method="post" mode="asynchronous" processMsg="" ref='data:json,{"id":"ds_order","key":"IN_DS1"}'
+        		replace="" target="" style="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    console.log("scwin.onpageload");
+    scwin.params = $p.getAllParameter().paramData.data;
+    scwin.memInfo = $c.data.getMemInfo();
+    scwin.odrNo = scwin.params[0];
+    scwin.bCgubunCd = $c.gus.cfIsNull(scwin.params[1])? "" : scwin.params[1];
+    
+    ed_odrNo.setValue(scwin.odrNo);
+    $c.gus.cfEnableKeyData();
+	$c.gus.cfDisableKey();
+	$c.gus.cfDisableBtnOnly([btn_save]); 
+
+    scwin.f_retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function() {
+    console.log("scwin.f_retrieve");
+    let chkVal = await $c.gus.cfValidate(ed_odrNo);
+    if(chkVal) {
+  	  	var strAtcion = "";
+        
+  	  	if (scwin.bCgubunCd == "B" ) strAtcion = "/ds.sd.odrmgnt.odrreg.RetrieveBulkOrderCMD.do";
+  	  	if (scwin.bCgubunCd == "C" ) strAtcion = "/ds.sd.odrmgnt.odrreg.RetrieveContainerOrderCommodityCMD.do";
+
+        $c.sbm.setAction(sbm_retrieve, strAtcion)
+        $c.sbm.execute(sbm_retrieve);
+    }
+}
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_save = async function() {
+    let chkVal = await $c.gus.cfValidate(txt_rmk_new, null, true);
+    if(!chkVal) return;
+
+    let conf = await $c.win.confirm("오더 특이사항 정보를 저장하시겠습니까?");
+   	if(conf) {
+    	ds_order.setCellData(0, "rmk", txt_rmk_new.getValue());
+    	txt_rmk_new.setValue("");
+
+        $c.sbm.execute(sbm_save);
+   	}
+}
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+//조회 완료
+scwin.sbm_retrieve_submitdone = function (e) {
+    console.log("scwin.sbm_retrieve_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) {
+        $c.gus.cfDisableKeyData();
+	    $c.gus.cfDisableBtnOnly([btn_save]);
+        return; 
+    }
+
+    if(ds_order.getTotalRow() > 0) {
+        txt_rmk.setValue(ds_order.getCellData(0, "rmk"))
+        $c.gus.cfEnableBtnOnly([btn_save]);
+    }
+};
+
+//저장 완료
+scwin.sbm_save_submitdone = function (e) {
+    console.log("scwin.sbm_save_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_retrieve();
+};
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+//저장 버튼
+scwin.btn_save_onclick = function (e) {
+    scwin.f_save();
+};
+
+//닫기 버튼
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="오더번호" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_odrNo" style="width: 150px;" objType="key" validExp="오더번호:yes:length=13" maxlength="13" allowChar="0-9A-Z" ref="data:dma_orderSearch.odrNo" data-length="13" maxByteLength="13"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="">
+    					<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="height:270" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:attributes><w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes><w2:textbox class="" id="" label="특이사항" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<xf:textarea class="" id="txt_rmk" style="height:100%" objType="data" ref="" readOnly="true"></xf:textarea>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:textarea class="" id="txt_rmk_new" style="height:100%" objType="data" validExp="특이사항:yes" maxByteLength="500" mandatory="true"></xf:textarea>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger><xf:trigger class="btn" id="btn_save" style="" type="button" objType="ctrlBtn" userAuth="U" ev:onclick="scwin.btn_save_onclick">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    					
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

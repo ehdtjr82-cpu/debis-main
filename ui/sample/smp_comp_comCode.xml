@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="comp 관련" meta_screenId="comp" meta_author="palsu kim">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_dataList4" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="코드"></w2:column>
+    					<w2:column dataType="text" id="name" name="코드명"></w2:column>
+    					<w2:column dataType="text" id="chk" name="체크"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<code><![CDATA[1]]></code>
+    						<name><![CDATA[aaa]]></name>
+    					</w2:row>
+    					<w2:row>
+    						<code><![CDATA[2]]></code>
+    						<name><![CDATA[bbb]]></name>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList5" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="number" defaultValue=""></w2:column>
+    					<w2:column id="col3" name="name3" dataType="number"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<col3><![CDATA[1]]></col3>
+    						<col2><![CDATA[2]]></col2>
+    						<col1><![CDATA[항목]]></col1>
+    					</w2:row>
+    					<w2:row>
+    						<col3><![CDATA[1]]></col3>
+    						<col2><![CDATA[2]]></col2>
+    						<col1><![CDATA[항목]]></col1>
+    					</w2:row>
+    					<w2:row>
+    						<col3><![CDATA[1]]></col3>
+    						<col1><![CDATA[항목3]]></col1>
+    						<col2><![CDATA[2]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col3><![CDATA[3]]></col3>
+    						<col1><![CDATA[항목3]]></col1>
+    						<col2><![CDATA[3]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col3><![CDATA[3]]></col3>
+    						<col1><![CDATA[항목3]]></col1>
+    						<col2><![CDATA[3]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col1><![CDATA[항목4]]></col1>
+    						<col2><![CDATA[3]]></col2>
+    						<col3><![CDATA[3]]></col3>
+    					</w2:row>
+    					<w2:row>
+    						<col1><![CDATA[항목4]]></col1>
+    						<col3><![CDATA[3]]></col3>
+    						<col2><![CDATA[3]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col1><![CDATA[항목4]]></col1>
+    						<col3><![CDATA[1]]></col3>
+    						<col2><![CDATA[4]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col1><![CDATA[항목5]]></col1>
+    						<col3><![CDATA[1]]></col3>
+    						<col2><![CDATA[5]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col1><![CDATA[항목5]]></col1>
+    						<col3><![CDATA[1]]></col3>
+    						<col2><![CDATA[5]]></col2>
+    					</w2:row>
+    					<w2:row>
+    						<col3><![CDATA[1]]></col3>
+    						<col1><![CDATA[항목5]]></col1>
+    						<col2><![CDATA[5]]></col2>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript" scopeVariable="ACConstants"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    //$c.sbm.execute(sbm_ntis1);
+};
+
+ scwin.onUdcCompleted = function() {
+    ed_mgntClntNo.setValue("271");
+    ed_mgntClntNm.setValue("부산통관 업가");
+ };
+
+///공통 코드 이벤트
+scwin.udc_comCode1_onblurCodeEvent = function (e) {
+    let param = ",04";
+    let check = 'F';
+    udc_comCode1.cfCommonPopUp(scwin.udc_comCode1_callBackFunc,ed_mgntClntNo.getValue(),ed_mgntClntNm.getValue(),check,null,null,null,null,param,null,null,null,null,null,null,null,null); // 통장명
+};
+
+scwin.udc_comCode1_onblurNameEvent = function (e) {
+    let param = ",04";
+    let check = 'F';
+    udc_comCode1.cfCommonPopUp(scwin.udc_comCode1_callBackFunc,ed_mgntClntNo.getValue(),ed_mgntClntNm.getValue(),check,null,null,null,null,param,null,null,null,null,null,null,null,null); // 통장명
+};
+
+
+scwin.udc_comCode1_onclickEvent = function (e) {
+//  *      1) pCallback : 팝업 콜백 리턴결과 Array 형태로 SQL Select 순서로 Return됨.
+//  *      2)  pCode     : 화면에서의 ??? Code Element의 Value           null    "1234"
+//  *      3)  pName     : 화면에서의 ??? Name Element의 Value           null    "동부"
+//  *      4)  pWinCloseTF   : 결과가 1건 일때  원도우를 AutoClose 여부  (T:Close,F:Opened)  null(F)   "T","F"
+//  *      5)  pDispCnt    : 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10     null(2)   "5"
+//  *      6)  pTitle      : Title명's                         null    "100,200"
+//  *      7)  pWidth      : 보여주는 각 컬럼들의 폭                     null    "100,200"
+//  *      8)  pHidden     : 컬럼중에서 숨기는 컬럼 지정                   null    "7,8,9,10"
+//  *      9)  pWhere      : SQL절의 WHERE절에 원하는 조건을 선택함 MAX:12개까지 가능     null    "SHIP"
+//  *      10)  pW        : POP-UP뛰을때 원도우의 사용자 정의 폭              null    "500"
+//  *      11) pH        : POP-UP뛰을때 우도우의 사용자 정의 높이              null    "600"
+//  *      12) pTop      : 윈도우 위치 Y좌표                       null    "10"
+//  *      13) pLeft     : 윈도우 위치 X좌표                       null    "10"
+//  *      14) pExistTF    : 중복체크여부                          null    "F"
+//  *      15) pAllSearchTF  : 전체검색허용여부                        null    "F"
+//  *      16) pWtitleSearch : POP-UP Window Title 검색어1,2(각화면에서 변경할경우)        null    "Win타이틀,검색어1,검색어2"
+//  *      17) pNoDataCloseTF  : Data건수가 0건일때 Window를 뛰우지 않음 리턴:"N/A"          null    "F"
+
+
+    let param = ",04";
+    let check = 'F';
+    udc_comCode1.cfCommonPopUp(scwin.udc_comCode1_callBackFunc,ed_mgntClntNo.getValue(),ed_mgntClntNm.getValue(),check,null,null,null,null,param,null,null,null,null,null,null,null,null); // 통장명
+};
+
+scwin.udc_comCode1_callBackFunc = function(ret) {
+    console.log(ret); 
+
+    ed_mgntClntNo.setValue(ret[0]);
+    ed_mgntClntNm.setValue(ret[2]);
+    ed_input9.setValue(ret[4]);
+    ed_input10.setValue(ret[9]);
+};
+
+scwin.btn_trigger23_onclick = function (e) {
+    ed_mgntClntNo.setValue("43ABC");
+    ed_mgntClntNm.setValue("공통코드");
+};
+
+scwin.udc_comCode2_onblurCodeEvent = function (e) {
+    udc_comCode2.cfCommonPopUp(scwin.udc_comCode2_callBackFunc,ed_dtlOccptypeCd.getValue(), ed_dtlOccptypeNm.getValue(),null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+};
+scwin.udc_comCode2_onclickEvent = async function (e) {
+    udc_comCode2.cfCommonPopUp(scwin.udc_comCode2_callBackFunc,ed_dtlOccptypeCd.getValue(), ed_dtlOccptypeNm.getValue(),null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+};
+
+scwin.udc_comCode2_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_dtlOccptypeCd, ed_dtlOccptypeNm);
+    console.log(ret); 
+};
+
+scwin.udc_comCode3_onclickEvent = async function (e) {
+    udc_comCode3.cfCommonPopUp(scwin.udc_comCode3_callBackFunc,ed_compCode.getValue(), ed_compName.getValue(),null,null,null,null,null,null,null,null,null,null,null,"F",null,null);
+};
+
+scwin.udc_comCode3_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_compCode, ed_compName, [ed_input11, ed_input12, ed_input13, ed_input14]);
+    console.log(ret);
+};
+
+scwin.btn_trigger24_onclick = function (e) {
+    ed_dtlOccptypeCd.setValue("4232");
+    ed_dtlOccptypeNm.setValue("공통코드");
+};
+]]></script>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_schInput" type="page" variableClone="" src="/cm/udc/schInput.xml"></w2:require>
+    	<w2:require as="udc_common_textbox" type="page" variableClone="" src="/cm/udc/common_textbox.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="" class="" style="overflow:hidden">
+    		<xf:group id="" class="flex_gvw">
+    			<xf:group style="" id="" class="content">
+    				<xf:group id="" class="round-box">
+    					<xf:group tagname="table" style="" id="tbl_table1" class="w2tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="caption"></xf:group>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:50.00%"></xf:group>
+    							<xf:group tagname="col" style=""></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>2</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox style="width:100%;background-color: fffff0;font-weight:bold;" id=""
+    									label="코드, 데이터&lt;br/&gt;검색 조건&lt;br/&gt;udc에는 컴포넌트가 없고 코드 데이터 동적으로 생성됨&lt;br/&gt;udc에서 제공하는 속성 확인&lt;br/&gt;udc 속성에서 selectID, codeId, nameId, codeId, popupGridHeadTitle, popupGridHiddenColumn, popupTitle 반드시 넣어야함&lt;br/&gt;&lt;br/&gt;공통 코드는 에서 로직을 수행하고 공통 팝업에서 표현 됨&lt;br/&gt;popupdefine.js 의 selectID를 검색하여 그리드를 표현 하는 코드를 찾아서 값을 넣어야 함&lt;br/&gt;&lt;br/&gt;popupGridHiddenColumn 은 sHidden을 참고&lt;br/&gt;popupGridHeadTitle 은 sTitle 을 참고"
+    									escape="false">
+    								</w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<w2:udc_comCode objTypeCode="key" refDataCollection="ds_dataList4" code="code" popupID="popupMgntClntNo"
+    									ev:onclickBtnEvent="scwin.udc_edu_onclickBtnEvent" btnId="btn_img1" ev:onclickEvent="scwin.udc_comCode1_onclickEvent"
+    									codeId="ed_mgntClntNo" selectID="retrieveBankBookCdInfo" name="name" objTypeName="key" nameId="ed_mgntClntNm" style="" id="udc_comCode1"
+    									ev:onblurCodeEvent="scwin.udc_comCode1_onblurCodeEvent" class="" objType="data"
+    									ev:onblurNameEvent="scwin.udc_comCode1_onblurNameEvent">
+    								</w2:udc_comCode>
+    								<xf:input style="width: 144px;height: 21px;" id="ed_input9"></xf:input>
+    								<xf:input style="width: 144px;height: 21px;" id="ed_input10"></xf:input>
+    								<xf:trigger ev:onclick="scwin.btn_trigger23_onclick" style="width: 80px;height: 23px;"
+    									id="btn_trigger23" type="button">
+    									<xf:label><![CDATA[입력값 추가]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td"></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<w2:udc_comCode maxlengthCode="5" refDataCollection="ds_dataList4" code="code"
+    									popupID="retrieveBizDomCdInfopopup" btnId="btn_img2" ev:onclickEvent="scwin.udc_comCode2_onclickEvent" allowCharCode="0-9"
+    									codeId="ed_dtlOccptypeCd" selectID="retrieveBizDomCdInfo" name="name"
+    									nameId="ed_dtlOccptypeNm" style="" id="udc_comCode2" ev:onblurCodeEvent="scwin.udc_comCode2_onblurCodeEvent">
+    								</w2:udc_comCode>
+    								<xf:trigger ev:onclick="scwin.btn_trigger24_onclick" style="width: 80px;height: 23px;"
+    									id="btn_trigger24" type="button">
+    									<xf:label><![CDATA[입력값 추가]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td"></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:udc_comCode refDataCollection="ds_dataList4" popupID="popupCompanyPop" code="code"
+    									onloadCallbackFunc="" btnId="btn_img3" ev:onclickEvent="scwin.udc_comCode3_onclickEvent" selectID="retrieveEqListInfo"
+    									codeId="ed_compCode" name="name" nameId="ed_compName" style="" id="udc_comCode3">
+    								</w2:udc_comCode>
+    								<xf:input style="width:144px; height:21px; " id="ed_input11"></xf:input>
+    								<xf:input id="ed_input12" style="width:144px; height:21px; "></xf:input>
+    								<xf:input id="ed_input13" style="width:144px; height:21px; "></xf:input>
+    								<xf:input id="ed_input14" style="width:144px; height:21px; "></xf:input>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>2</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox escape="false" id=""
+    									label="배차관리쪽 UDC 추가&lt;br/&gt;&lt;br/&gt;배차관리&gt;배차관리&lt;br/&gt;/bp/common/common_textbox.jsp&lt;br/&gt;기준으로 UDC를 생성 함&lt;br/&gt;&lt;br/&gt;업무화면에 사용하려면 개발할때 문의 해주세요."
+    									style="width:100%;background-color: fffff0;font-weight:bold;">
+    								</w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:udc_common_textbox selectID="Consignor" style="" id="udc_comText1"
+    									columnIdList="consNm,picNm,telNo,orgFareRate" gridHeadTitle="거래처명,담당자명,전화번호,원청수수료" nameId="consNm">
+    								</w2:udc_common_textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:udc_common_textbox selectID="Pos" style="" id="udc_comText2" columnIdList="allAddr"
+    									gridHeadTitle="주소" nameId="allAddr">
+    								</w2:udc_common_textbox>
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:udc_common_textbox selectID="Client2" style="" id="udc_comText3" columnIdList="clntNm,picNm,catBusi"
+    									gridHeadTitle="거래처명,담당자명,담당자전화" nameId="clntNm">
+    								</w2:udc_common_textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" class=""></xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group class="round-box" id="" style="">
+    		<w2:gridView autoFit="allColumn" checkAllType="false" dataList="data:dlt_dataList5" defaultCellHeight="20" id="grd_gridView4"
+    			style="height:150px;" class="wq_gvw" visibleRowNum="20">
+    			<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    			<w2:header style="" id="header1">
+    				<w2:row style="" id="row1">
+    					<w2:column width="70" inputType="text" style="" id="column3" value="name1" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column2" value="name2" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column1" value="name3" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column7" value="" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody style="" id="gBody1">
+    				<w2:row style="" id="row2">
+    					<w2:column width="70" inputType="text" style="" id="col1" value="" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="col2" value="" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="col3" value="" displayMode="label" colMerge="true"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column8" value="" displayMode="label" colMerge="true"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    			<w2:footer style="" id="footer1">
+    				<w2:row style="" id="row3">
+    					<w2:column width="70" inputType="text" style="" id="column6" value="" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="expression" style="" id="column5" value="" displayMode="label"
+    						expression="sum('col2')">
+    					</w2:column>
+    					<w2:column width="70" inputType="expression" style="" id="column4" value="" displayMode="label"
+    						expression="sum('col3')">
+    					</w2:column>
+    					<w2:column width="70" inputType="expression" style="" id="column9" value="" displayMode="label"
+    						expression="sum('col2')-sum('col3')">
+    					</w2:column>
+    				</w2:row>
+    			</w2:footer>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

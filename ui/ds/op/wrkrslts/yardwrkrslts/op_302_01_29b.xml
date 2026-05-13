@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ContainerBulkInfo" saveRemovedData="true"
+    				ev:onrowpositionchange="scwin.ds_ContainerBulkInfo_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="crryinoutClsCd" name="반출입구분코드" dataType="text"></w2:column>
+    					<w2:column id="crryinoutClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+    					<w2:column id="msn" name="MSN" dataType="text"></w2:column>
+    					<w2:column id="hsn" name="화물관리번호-HSN" dataType="text"></w2:column>
+    					<w2:column id="divsCrryinoutDeg" name="분할반출입차수" dataType="number"></w2:column>
+    					<w2:column id="divsCrryinoutClsCd" name="분할반출입구분코드" dataType="text"></w2:column>
+    					<w2:column id="divsCrryinoutClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="crryinoutDtm" name="반출입일시" dataType="text"></w2:column>
+    					<w2:column id="crryinoutPatternCd" name="반출입유형코드" dataType="text"></w2:column>
+    					<w2:column id="crryinoutPatternNm" name="" dataType="text"></w2:column>
+    					<w2:column id="crryinoutAccdPatternCd" name="" dataType="text"></w2:column>
+    					<w2:column id="crryinoutAccdPatternNm" name="" dataType="text"></w2:column>
+    					<w2:column id="crryinoutBasisNo" name="반출입근거번호" dataType="text"></w2:column>
+    					<w2:column id="crryinoutCnt" name="반출입개수" dataType="number"></w2:column>
+    					<w2:column id="crryinoutWt" name="반출입중량" dataType="number"></w2:column>
+    					<w2:column id="crryinAccdWt" name="반입사고중량" dataType="number"></w2:column>
+    					<w2:column id="crryinAccdCnt" name="반입사고개수" dataType="number"></w2:column>
+    					<w2:column id="sndDtm" name="EAI전송일시" dataType="text"></w2:column>
+    					<w2:column id="sndClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="regNm" name="등록자명" dataType="text"></w2:column>
+    					<w2:column id="crryoutTermExtdClsCd" name="반출기간연장구분코드" dataType="text"></w2:column>
+    					<w2:column id="crryoutTermExtdClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="termExtdBasisNo" name="기간연장근거번호" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="crryinoutDeclarNo" name="반출입신고번호" dataType="text"></w2:column>
+    					<w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="wrkClsCd" name="근무구분코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_CDMainInfo" saveRemovedData="true"
+    				ev:onrowpositionchange="scwin.ds_CDMainInfo_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="crryinoutClsCd" name="반출입구분코드" dataType="text"></w2:column>
+    					<w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+    					<w2:column id="msn" name="MSN" dataType="text"></w2:column>
+    					<w2:column id="hsn" name="화물관리번호-HSN" dataType="text"></w2:column>
+    					<w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="divsCrryinoutDeg" name="분할반출입차수" dataType="number"></w2:column>
+    					<w2:column id="mainMainAppDeg" name="신청차수" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="mainMainClsMark" name="구분부호" dataType="text"></w2:column>
+    					<w2:column id="declarDt" name="신고일자" dataType="text"></w2:column>
+    					<w2:column id="mainMainRsn" name="정정사유" dataType="text"></w2:column>
+    					<w2:column id="sndClsCd" name="발송구분" dataType="text"></w2:column>
+    					<w2:column id="sndClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="sndDtm" name="EAI전송일시" dataType="text"></w2:column>
+    					<w2:column id="regNm" name="등록자명" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="wrkClsCd" name="근무구분코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_CDMainRegularityTaxInfo" saveRemovedData="true"
+    				ev:onrowpositionchange="scwin.ds_CDMainRegularityTaxInfo_onrowpositionchange"
+    				ev:oncelldatachange="scwin.ds_CDMainRegularityTaxInfo_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="crryinoutClsCd" name="반출입구분코드" dataType="text"></w2:column>
+    					<w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+    					<w2:column id="msn" name="MSN" dataType="text"></w2:column>
+    					<w2:column id="hsn" name="화물관리번호-HSN" dataType="text"></w2:column>
+    					<w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="divsCrryinoutDeg" name="분할반출입차수" dataType="number"></w2:column>
+    					<w2:column id="mainMainAppDeg" name="정정신청차수" dataType="number"></w2:column>
+    					<w2:column id="seq" name="일련번호" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="mainMainItem" name="정정항목" dataType="text"></w2:column>
+    					<w2:column id="mainMainBfCont" name="정정전내역" dataType="text"></w2:column>
+    					<w2:column id="mainMainAfCont" name="정정후내역" dataType="text"></w2:column>
+    					<w2:column id="addBl" name="추가BL" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="wrkClsCd" name="근무구분코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="wrkClsCd" name="작업구분코드" dataType="text"></w2:key>
+    					<w2:key id="crryinoutClsCd" name="반출입구분코드" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+    					<w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+    					<w2:key id="mrn" name="MRN" dataType="text"></w2:key>
+    					<w2:key id="msn" name="MSN" dataType="text"></w2:key>
+    					<w2:key id="hsn" name="HSN" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_condition2">
+    				<w2:keyInfo>
+    					<w2:key id="wrkClsCd" name="작업구분코드" dataType="text"></w2:key>
+    					<w2:key id="crryinoutClsCd" name="반출입구분코드" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+    					<w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+    					<w2:key id="mrn" name="MRN" dataType="text"></w2:key>
+    					<w2:key id="msn" name="MSN" dataType="text"></w2:key>
+    					<w2:key id="hsn" name="HSN" dataType="text"></w2:key>
+    					<w2:key id="divsCrryinoutDeg" name="분할반출입차수" dataType="number"></w2:key>
+    					<w2:key id="mainMainAppDeg" name="정정신청차수" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_condition1">
+    				<w2:keyInfo>
+    					<w2:key id="wrkClsCd" name="작업구분코드" dataType="text"></w2:key>
+    					<w2:key id="crryinoutClsCd" name="반출입구분코드" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+    					<w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+    					<w2:key id="mrn" name="MRN" dataType="text"></w2:key>
+    					<w2:key id="msn" name="MSN" dataType="text"></w2:key>
+    					<w2:key id="hsn" name="HSN" dataType="text"></w2:key>
+    					<w2:key id="divsCrryinoutDeg" name="분할반출입차수" dataType="number"></w2:key>
+    					<w2:key id="mainMainAppDeg" name="정정신청차수" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.yardwrkrslts.RetrieveContainerBulkInformationCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_ContainerBulkInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_ContainerBulkInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve1" action="/ds.op.wrkrslts.yardwrkrslts.RetrieveCustomDeclarationMainMainInformationCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition1","key":"IN_DS1"},{"id":"ds_CDMainInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_CDMainInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve1_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve2"
+    			action="/ds.op.wrkrslts.yardwrkrslts.RetrieveCustomDeclarationMainRegularityTaxInformationCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition2","key":"IN_DS1"},{"id":"ds_CDMainRegularityTaxInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_CDMainRegularityTaxInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve2_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.wrkrslts.yardwrkrslts.SaveCustomDeclarationMainMainInformationCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"ds_CDMainInfo","key":"IN_DS1"},{"id":"ds_CDMainRegularityTaxInfo","key":"IN_DS2"}]' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save1" action="/ds.op.wrkrslts.yardwrkrslts.UpdateCustomDeclarationMainMainInformationCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,{"id":"ds_CDMainInfo","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save1_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.rowM = 0; //반출입정정 신고정보 RowPosition
+scwin.rowR = 0; //Row변경시 이전 Row
+
+scwin.onpageload = function() {
+	const codeOptions = [
+        { grpCd : "OP197", compID : "acb_crryinoutClsCd,gr_ContainerBulkInfo:crryinoutClsCd" }, //반출입구분
+        { grpCd : "OP135", compID : "gr_ContainerBulkInfo:divsCrryinoutClsCd" }, // 그리드 분할반출입구분
+        { grpCd : "OP133", compID : "gr_ContainerBulkInfo:crryinoutPatternCd" }, // 그리드 반출입유형
+        { grpCd : "OP132", compID : "gr_ContainerBulkInfo:crryinoutAccdPatternCd" }, // 그리드 반출입사고유형
+
+        { grpCd : "OP138", compID : "gr_CDMainInfo:mainMainClsMark" }, // 그리드 구분번호
+
+    ];
+
+    $c.data.setCommonCode(codeOptions);
+
+    $c.gus.cfDisableObjects([udc_bottomGrdBtnCDMainInfo,udc_bottomGrdBtnCDMainRegularityTaxInfo,btn_transfer,btn_save]);
+
+    acb_wrkClsCd.focus();
+
+    scwin.f_gridFormatChange("B");
+
+    //임시
+    // ed_mrn.setValue("12L37KA1938");
+    // ed_msn.setValue("1");
+    // ed_hsn.setValue("500");
+
+};
+
+//-------------------------------------------------------------------------
+// Grid Format 변경
+//------------------------------------------------------------------------- 
+scwin.f_gridFormatChange = function(argGubun) {
+   
+    if (argGubun == "C") { // 컨테이너
+        ed_cntrNo.setMandatory(true);
+        ed_cntrNo.setDisabled(false);
+        cb_title.setValue("컨테이너 세관신고 현황");
+
+        gr_ContainerBulkInfo.setColumnReadOnly("분할반출입구분", true);
+
+        gr_ContainerBulkInfo.getCellInfo("crryinoutPatternCd").options.selectedData = false;
+        gr_ContainerBulkInfo.getCellInfo("crryinoutAccdPatternCd").options.selectedData = false;
+        gr_ContainerBulkInfo.getCellInfo("crryinoutPatternCd").options.displayMode = "value delim label";
+        gr_ContainerBulkInfo.getCellInfo("crryinoutAccdPatternCd").options.displayMode = "value delim label";
+       
+        gr_CDMainInfo.setColumnVisible("mrn", false);
+        gr_CDMainInfo.setColumnVisible("msn", false);
+        gr_CDMainInfo.setColumnVisible("hsn", false);
+        gr_CDMainInfo.setColumnVisible("cntrNo", true);
+
+        gr_CDMainRegularityTaxInfo.setColumnVisible("addBl", true);
+
+        cntrLableReq.show();
+        cntrLable.hide();
+
+    } else if (argGubun == "B") { // 벌크
+ 
+        ed_cntrNo.setMandatory("false");
+        ed_cntrNo.setValue("");
+        ed_cntrNo.setDisabled(true)
+        $c.gus.cfDisableObjects([ed_cntrNo]);
+        cb_title.setValue("벌크 세관신고 현황");
+        gr_ContainerBulkInfo.getCellInfo("crryinoutPatternCd").options.selectedData = true;
+        gr_ContainerBulkInfo.getCellInfo("crryinoutAccdPatternCd").options.selectedData = true;
+        gr_ContainerBulkInfo.getCellInfo("crryinoutPatternCd").options.displayMode = "label";
+        gr_ContainerBulkInfo.getCellInfo("crryinoutAccdPatternCd").options.displayMode = "label";
+        gr_CDMainInfo.setColumnVisible("mrn", true);
+        gr_CDMainInfo.setColumnVisible("msn", true);
+        gr_CDMainInfo.setColumnVisible("hsn", true);
+        gr_CDMainInfo.setColumnVisible("cntrNo", false);
+
+        gr_CDMainRegularityTaxInfo.setColumnVisible("addBl", false);
+
+        cntrLableReq.hide();
+        cntrLable.show();
+
+    } else {
+        $c.gus.cfAlertMsg("작업구분을 선택하십시오.");
+    }
+    ///$c.gus.cfRefreshMandSign();
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tbl_condition, null);
+    acb_wrkClsCd.setSelectedIndex(0);
+    acb_wrkClsCd.focus();
+};
+
+
+//-------------------------------------------------------------------------
+// 조회
+//------------------------------------------------------------------------- 
+scwin.f_Retrieve = async function() {
+
+    if (acb_wrkClsCd.getValue() == 'B') {
+        if (! await $c.gus.cfValidate([ed_mrn])) {	// MRN
+            return;
+        }
+    } else if (acb_wrkClsCd.getValue() == 'C') {
+        if (ed_cntrNo.getValue() == "" && ed_mrn.getValue() == "") {	// 컨테이너번호, MRN
+            $c.gus.cfAlertMsg("컨테이너번호나 화물관리번호(MRN)중 한가지 조건은 입력하십시오.");
+            return;
+        }
+    }
+    
+     $c.sbm.execute(sbm_retrieve);
+
+};
+
+
+
+scwin.f_Retrieve1 = function (row) {
+
+    dma_condition1.set("wrkClsCd", ds_ContainerBulkInfo.getCellData(row, "wrkClsCd"));
+    dma_condition1.set("crryinoutClsCd", ds_ContainerBulkInfo.getCellData(row, "crryinoutClsCd"));
+    dma_condition1.set("wrkPlCd", ds_ContainerBulkInfo.getCellData(row, "wrkPlCd"));
+    dma_condition1.set("cntrNo", ds_ContainerBulkInfo.getCellData(row, "cntrNo"));
+    dma_condition1.set("mrn", ds_ContainerBulkInfo.getCellData(row, "mrn"));
+    dma_condition1.set("msn", ds_ContainerBulkInfo.getCellData(row, "msn"));
+    dma_condition1.set("hsn", ds_ContainerBulkInfo.getCellData(row, "hsn"));
+    dma_condition1.set("divsCrryinoutDeg", ds_ContainerBulkInfo.getCellData(row, "divsCrryinoutDeg"));
+   
+    $c.sbm.execute(sbm_retrieve1);
+};
+
+
+scwin.f_Retrieve2 = function (row) {
+
+    var rowIndex = row;
+    if(row == "" || row == undefined){
+        rowIndex = "0";
+    } 
+    if (ds_CDMainInfo.getRowCount() > 0) {
+        dma_condition2.set("wrkClsCd", ds_CDMainInfo.getCellData(rowIndex, "wrkClsCd"));
+        dma_condition2.set("crryinoutClsCd", ds_CDMainInfo.getCellData(rowIndex, "crryinoutClsCd"));
+        dma_condition2.set("wrkPlCd", ds_CDMainInfo.getCellData(rowIndex, "wrkPlCd"));
+        dma_condition2.set("cntrNo", ds_CDMainInfo.getCellData(rowIndex, "cntrNo"));
+        dma_condition2.set("mrn", ds_CDMainInfo.getCellData(rowIndex, "mrn"));
+        dma_condition2.set("msn", ds_CDMainInfo.getCellData(rowIndex, "msn"));
+        dma_condition2.set("hsn", ds_CDMainInfo.getCellData(rowIndex, "hsn"));
+        dma_condition2.set("divsCrryinoutDeg", ds_CDMainInfo.getCellData(rowIndex, "divsCrryinoutDeg"));
+        dma_condition2.set("mainMainAppDeg", ds_CDMainInfo.getCellData(rowIndex, "mainMainAppDeg"));
+
+    } else {
+        dma_condition2.set("wrkClsCd", "");
+        dma_condition2.set("crryinoutClsCd","");
+        dma_condition2.set("wrkPlCd", "");
+        dma_condition2.set("cntrNo", "");
+        dma_condition2.set("mrn", "");
+        dma_condition2.set("msn", "");
+        dma_condition2.set("hsn", "");
+        dma_condition2.set("divsCrryinoutDeg", "");
+        dma_condition2.set("mainMainAppDeg", "");
+        
+        dma_condition2.set("wrkClsCd", ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "wrkClsCd"));
+    }
+ 
+    $c.sbm.execute(sbm_retrieve2);
+};
+
+
+//저장
+scwin.f_Save = async function() {
+   
+  scwin.rowM = ds_CDMainInfo.getRowPosition(); //저장당시 RowPosition으로 되돌리기 위함
+  if (ds_CDMainInfo.getRowStatus(scwin.rowM) == "D") { //저장당시 RowPosition의 상태가 삭제면 RowPosition = 1로 변경
+    scwin.rowM = 1;
+  }
+
+  if (ds_CDMainInfo.getModifiedIndex().length == 0 && ds_CDMainRegularityTaxInfo.getModifiedIndex().length == 0) {
+    $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["반출입정정 신고정보 및 신고정보상세"]); // "@은(는) 변경된 사항이 없습니다."
+    return;
+  }
+
+  let ret = await $c.gus.cfValidate([gr_CDMainInfo]);
+
+  if (ds_CDMainInfo.getModifiedIndex().length != 0) {
+    if (!ret) {
+      return;
+    }
+  }
+
+  if (ds_CDMainRegularityTaxInfo.getModifiedIndex().length != 0) {
+    var itemG = 0; //반입개수
+    var itemK = 0; //사고유형부호
+    var itemL = 0; //사고개수
+    var itemH = 0; //반입중량
+    var itemM = 0; //사고중량
+
+    for (var i = 0; i < ds_CDMainRegularityTaxInfo.getRowCount(); i++) {
+      if (ds_CDMainRegularityTaxInfo.getRowStatus(i) != "D") {
+        if (ds_CDMainRegularityTaxInfo.getCellData(i, "wrkClsCd") == 'C') {
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == '0'
+            && ds_CDMainRegularityTaxInfo.getCellData(i, "addBl") == "") {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["B/L정보"]); // "@은(는) 필수 입력 항목입니다."
+            ds_CDMainRegularityTaxInfo.setRowPosition(i);
+            ds_CDMainRegularityTaxInfo.setFocusedCell(i, "addBl", true);
+            ds_CDMainRegularityTaxInfo.focus();            
+            return;
+          }
+        } else {
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == "") {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["정정항목"]); // "@은(는) 필수 입력 항목입니다."
+            ds_CDMainRegularityTaxInfo.setRowPosition(i);
+            gr_CDMainInfo.setFocusedCell(i, "mainMainItem", true);
+            gr_CDMainInfo.focus();                  
+            return;
+          }
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") != "R") {
+            if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainBfCont") == "") {
+              $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["정정전내역"]); // "@은(는) 필수 입력 항목입니다."
+              ds_CDMainRegularityTaxInfo.setRowPosition(i);
+
+              ds_CDMainRegularityTaxInfo.setFocusedCell(i, "mainMainBfCont", true);
+              ds_CDMainRegularityTaxInfo.focus();     
+              return;
+            }
+          }
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainAfCont") == "") {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["정정후내역"]); // "@은(는) 필수 입력 항목입니다."
+            ds_CDMainRegularityTaxInfo.setRowPosition(i);
+              ds_CDMainRegularityTaxInfo.setFocusedCell(i, "mainMainAfCont", true);
+              ds_CDMainRegularityTaxInfo.focus();     
+            return;
+          }
+        }
+
+        if (ds_CDMainRegularityTaxInfo.getCellData(i, "wrkClsCd") == 'B'
+          && ds_CDMainRegularityTaxInfo.getCellData(i, "crryinoutClsCd") == 'I') {
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == 'G') {
+            itemG = 1;
+          }
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == 'K') {
+            itemK = 1;
+          }
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == 'L') {
+            itemL = 1;
+          }
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == 'H') {
+            itemH = 1;
+          }
+
+          if (ds_CDMainRegularityTaxInfo.getCellData(i, "mainMainItem") == 'M') {
+            itemM = 1;
+          }
+        }
+      }
+    }
+
+    if (itemG == 1 && itemK == 0
+      || itemL == 1 && itemK == 0) {
+      $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수는 한쌍으로 등록되어야 합니다.\n사고유형부호를 입력하십시오.");
+      return;
+    }
+
+    if (itemG == 1 && itemL == 0) {
+      $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수는 한쌍으로 등록되어야 합니다.\n사고개수를 입력하십시오.");
+      return;
+    }
+
+    if (itemL == 1 && itemG == 0) {
+      $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수는 한쌍으로 등록되어야 합니다.\n반입개수를 입력하십시오.");
+      return;
+    }
+
+    if (itemH == 1 && itemK == 0
+      || itemM == 1 && itemK == 0) {
+      $c.gus.cfAlertMsg("정정항목중 반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n사고유형부호를 입력하십시오.");
+      return;
+    }
+
+    if (itemH == 1 && itemM == 0) {
+      $c.gus.cfAlertMsg("정정항목중 반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n사고중량을 입력하십시오.");
+      return;
+    }
+
+    if (itemM == 1 && itemH == 0) {
+      $c.gus.cfAlertMsg("정정항목중 반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n반입중량을 입력하십시오.");
+      return;
+    }
+
+    if (itemK == 1 && (itemG == 0 && itemH == 0)) {
+      if (itemL == 1) {
+        $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수는 한쌍으로 등록되어야 합니다.\n반입개수를 입력하십시오.");
+        return;
+
+      } else if (itemL == 1) {
+        $c.gus.cfAlertMsg("정정항목중 반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n반입중량을 입력하십시오.");
+        return;
+
+      } else {
+        $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수,\n반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n반입개수 또는 반입중량을 입력하십시오.");
+        return;
+
+      }
+    }
+
+    if (itemK == 1 && (itemL == 0 && itemH == 0)) {
+      if (itemG == 1) {
+        $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수는 한쌍으로 등록되어야 합니다.\n사고개수를 입력하십시오.");
+        return;
+
+      } else if (itemH == 1) {
+        $c.gus.cfAlertMsg("정정항목중 반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n사고중량을 입력하십시오.");
+        return;
+
+      } else {
+        $c.gus.cfAlertMsg("정정항목중 반입개수/사고유형부호/사고개수,\n반입중량/사고유형부호/사고중량은 한쌍으로 등록되어야 합니다.\n사고개수 또는 사고중량을 입력하십시오.");
+        return;
+
+      }
+    }
+  }
+
+  if (await $c.win.confirm(MSG_CM_CRM_001)) {
+    $c.sbm.execute(sbm_save);
+  }
+};
+
+
+//전송
+scwin.f_Sand = async function() {
+   
+  if (ds_CDMainInfo.getModifiedIndex().length) {
+    $c.gus.cfAlertMsg(MSG_CM_ERR_042, ["반출입정정 신고정보", "전송"]); //"@은(는) 변경된 사항이 있습니다. \n변경사항을 저장 후 @을(를) 수행하십시오."
+    return;
+  }
+
+  var j = 0;
+  for (var i = 0; i <= ds_CDMainInfo.getRowCount(); i++) {
+    if (ds_CDMainInfo.getCellData(i, "sndClsCd") == "3") {
+      ds_CDMainInfo.setCellData(i, "sndClsCd", 0);
+      j++;
+    }
+  }
+  if (j == 0) {
+    await $c.gus.cfAlertMsg("전송할 건이 없습니다.");
+    return;
+  }
+
+  if (await $c.win.confirm("전송하시겠습니까?")) {
+    $c.sbm.execute(sbm_save1);
+  }
+};
+
+
+//행추가
+scwin.f_Addrow1 = function(argGubun) {
+
+    var row = ds_ContainerBulkInfo.getRowPosition();
+    if (ds_ContainerBulkInfo.getCellData(row, "sndClsNm") != "접수") {
+      $c.gus.cfAlertMsg("해당 세관신고정보의 전송구분이 접수인 상태만 행추가를 할 수 있습니다.");
+      return;
+    }
+
+    ds_CDMainInfo.insertRow();
+    var row1 = ds_CDMainInfo.getRowPosition();
+
+    ds_CDMainInfo.setCellData(row1, "wrkClsCd", ds_ContainerBulkInfo.getCellData(row, "wrkClsCd"));
+    ds_CDMainInfo.setCellData(row1, "crryinoutClsCd", ds_ContainerBulkInfo.getCellData(row, "crryinoutClsCd"));
+    ds_CDMainInfo.setCellData(row1, "wrkPlCd", ds_ContainerBulkInfo.getCellData(row, "wrkPlCd"));
+    ds_CDMainInfo.setCellData(row1, "cntrNo", ds_ContainerBulkInfo.getCellData(row, "cntrNo"));
+    ds_CDMainInfo.setCellData(row1, "mrn", ds_ContainerBulkInfo.getCellData(row, "mrn"));
+    ds_CDMainInfo.setCellData(row1, "msn", ds_ContainerBulkInfo.getCellData(row, "msn"));
+    ds_CDMainInfo.setCellData(row1, "hsn", ds_ContainerBulkInfo.getCellData(row, "hsn"));
+    ds_CDMainInfo.setCellData(row1, "divsCrryinoutDeg", ds_ContainerBulkInfo.getCellData(row, "divsCrryinoutDeg"));
+    ds_CDMainInfo.setCellData(row1, "sndClsCd", "3");
+
+    gr_CDMainInfo.setFocusedCell(row1, "mainMainClsMark", true);
+    gr_CDMainInfo.focus();
+
+};
+
+scwin.f_cancel = function(){
+
+   if(ds_CDMainInfo.getRowStatus(ds_CDMainInfo.getRowPosition())=="C"){  				
+        ds_CDMainInfo.removeRow(ds_CDMainInfo.getRowPosition())	;	
+    } else {
+        ds_CDMainInfo.undoRow(ds_CDMainInfo.getRowPosition());
+    };
+  
+}
+scwin.f_cancel2 = function(){
+   
+      if(ds_CDMainRegularityTaxInfo.getRowStatus(ds_CDMainRegularityTaxInfo.getRowPosition())=="C"){  				
+        ds_CDMainRegularityTaxInfo.removeRow(ds_CDMainRegularityTaxInfo.getRowPosition())	;	
+    } else {
+        ds_CDMainRegularityTaxInfo.undoRow(ds_CDMainRegularityTaxInfo.getRowPosition());
+    };
+    
+}
+
+// //행추가
+// scwin.f_Addrow2 = function() {
+//     debugger;
+  
+//     if (ds_CDMainInfo.getRowCount() == 0) {
+//       $c.gus.cfAlertMsg("반출입정정 신고정보가 없습니다.");
+//       return;
+//     }
+
+//     var row1 = ds_CDMainInfo.getRowPosition();
+//     if (ds_CDMainInfo.getRowStatus(rows1) == "R") {
+//       $c.gus.cfAlertMsg("해당 반출입정정 신고정보는 입력 상태입니다.\n먼저 저장하십시오.");
+//       return;
+//     }
+
+//     if (ds_CDMainInfo.getRowStatus(rows1) == "D") {
+//       $c.gus.cfAlertMsg("해당 반출입정정 신고정보는 삭제 상태입니다.");
+//       return;
+//     }
+
+//     if (ds_CDMainInfo.getCellData(row1, "sndClsCd") != 3) {
+//       $c.gus.cfAlertMsg("해당 반출입정정 신고정보의 전송구분이 미전송인 상태만 행추가를 할 수 있습니다.");
+//       return;
+//     }
+
+//     ds_CDMainRegularityTaxInfo.insertRow();
+//     var row2 = ds_CDMainRegularityTaxInfo.getRowPosition();
+
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "wrkClsCd", ds_CDMainInfo.getCellData(row1, "wrkClsCd"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "crryinoutClsCd", ds_CDMainInfo.getCellData(row1, "crryinoutClsCd"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "wrkPlCd", ds_CDMainInfo.getCellData(row1, "wrkPlCd"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "cntrNo", ds_CDMainInfo.getCellData(row1, "cntrNo"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "mrn", ds_CDMainInfo.getCellData(row1, "mrn"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "msn", ds_CDMainInfo.getCellData(row1, "msn"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "hsn", ds_CDMainInfo.getCellData(row1, "hsn"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "divsCrryinoutDeg", ds_CDMainInfo.getCellData(row1, "divsCrryinoutDeg"));
+//     ds_CDMainRegularityTaxInfo.setCellData(row2, "mainMainAppDeg", ds_CDMainInfo.getCellData(row1, "mainMainAppDeg"));
+
+//     if (ds_CDMainInfo.getCellData(row1, "mainMainClsMark") == "0") {
+//       if (row2 > 1) {
+//         ds_CDMainRegularityTaxInfo.deleteRow(row2);
+//         $c.gus.cfAlertMsg("정정항목은 B/L정보만 선택할 수 있습니다.");
+//       }
+//       ds_CDMainRegularityTaxInfo.setCellData(0, "mainMainItem", "0");
+//     }
+
+//     gr_CDMainInfo.setFocusedCell(row1, "mainMainClsMark", true);
+//     gr_CDMainInfo.focus();
+// };
+
+//행삭제
+scwin.f_Delete1 = function(argGubun) {
+  
+  var row = ds_ContainerBulkInfo.getRowPosition();
+  var row1 = ds_CDMainInfo.getRowPosition();
+  if (ds_CDMainInfo.getCellData(row1, "sndClsCd") != 3) {
+    $c.gus.cfAlertMsg("해당 반출입정정 신고정보의 전송구분이 미전송인 상태만 행삭제를 할 수 있습니다.");
+    return;
+  }
+
+  if (ds_ContainerBulkInfo.getCellData(row, "sndClsNm") != "접수") {
+    $c.gus.cfAlertMsg("해당 세관신고정보의 전송구분이 접수인 상태만 행삭제를 할 수 있습니다.");
+    return;
+  }
+  if(ds_CDMainInfo.getRowStatus(row1) == "C" ){
+    ds_CDMainInfo.removeRow(row1);
+   
+  } else {
+    ds_CDMainInfo.deleteRow(row1);
+    ds_CDMainRegularityTaxInfo.removeAll();
+
+  }
+
+};
+
+
+//행삭제
+scwin.f_Delete2 = function(argGubun) {
+  
+  var row1 = ds_CDMainInfo.getRowPosition();
+  var row2 = ds_CDMainRegularityTaxInfo.getRowPosition();
+
+  if (ds_CDMainInfo.getCellData(row1, "sndClsCd") != 3) {
+    $c.gus.cfAlertMsg("해당 반출입정정 신고정보의 전송구분이 미전송인 상태만 행삭제를 할 수 있습니다.");
+    return;
+  }
+
+  if(ds_CDMainRegularityTaxInfo.getRowStatus(row2) == "C" ){
+    ds_CDMainRegularityTaxInfo.removeRow(row2);
+   
+  } else {
+    ds_CDMainRegularityTaxInfo.deleteRow(row2);
+  }
+
+};
+
+// 오류 상세내역 조회 팝업
+scwin.f_errorPopUp = function(row) {
+    var declarAdmitClsCd = '';
+
+    //  문서종류 코드 상세 셋팅 - 20180817
+    if (ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "wrkClsCd") == 'C'
+        && ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "crryinoutClsCd") == 'I') {
+        declarAdmitClsCd = '5LF';
+    } else if (ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "wrkClsCd") == 'C'
+        && ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "crryinoutClsCd") == 'O') {
+        declarAdmitClsCd = '5LL';
+    } else if (ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "wrkClsCd") == 'B'
+        && ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "crryinoutClsCd") == 'I') {
+        declarAdmitClsCd = '5LC';
+    } else if (ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "wrkClsCd") == 'B'
+        && ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "crryinoutClsCd") == 'O') {
+        declarAdmitClsCd = '5LD';
+    }
+    var declarNo = ds_ContainerBulkInfo.getCellData(ds_ContainerBulkInfo.getRowPosition(), "crryinoutDeclarNo");
+    var deg = ds_CDMainInfo.getCellData(row, "mainMainAppDeg");
+
+
+    let win_url = "/ui/ds/sd/odrmgnt/odrprewrk/sd_401_05_04p.xml";
+
+    let data = {
+        deg : deg,
+        docCd : declarAdmitClsCd,
+        declarNo : declarNo
+    };
+
+    let opts = {
+        id : "sd_401_05_04p",	
+        popupName : "sd_401_05_04p",
+        modal : true,
+        type : "browserPopup",
+        width : 860,
+        height : 580,
+        title : ""
+    };
+
+    $c.win.openPopup(win_url, opts, data);
+};
+
+
+///////////////////////////////////////////// S U B M I S S I O N    E V E N T /////////////////////////////////////////
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+   
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        //$c.gus.cfShowError(sbm_retrieve);
+        return;
+    }
+
+  	if(ds_ContainerBulkInfo.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        $c.gus.cfDisableObjects([udc_bottomGrdBtnCDMainInfo,udc_bottomGrdBtnCDMainRegularityTaxInfo,btn_transfer,btn_save]);
+
+  	} else {
+        udc_bottomGrdBtnCDMainInfo.setDisabled(false);
+        udc_bottomGrdBtnCDMainRegularityTaxInfo.setDisabled(false);
+        udc_bottomGrdBtnCDMainInfo.setDisabled(false);
+        btn_transfer.setDisabled(false);
+        btn_save.setDisabled(false);
+          scwin.commonFc();
+            scwin.f_Retrieve1(0);
+        }
+    gr_ContainerBulkInfo.setFocusedCell(0, 0);    
+
+    totalRows1.setValue(ds_ContainerBulkInfo.getRowCount())
+    ds_ContainerBulkInfo.setRowPosition(0);
+};
+
+scwin.commonFc =  function(){
+     if (ds_ContainerBulkInfo.getCellData(0, "wrkClsCd") == 'C'
+        && ds_ContainerBulkInfo.getCellData(0, "crryinoutClsCd") == 'I') {
+            const codeOptions = [{ grpCd : "OP143", compID : "gr_CDMainRegularityTaxInfo:mainMainItem" }];
+            $c.data.setCommonCode(codeOptions);
+
+        } else if (ds_ContainerBulkInfo.getCellData(0, "wrkClsCd") == 'C'
+                && ds_ContainerBulkInfo.getCellData(0, "crryinoutClsCd") == 'O') {
+            const codeOptions = [{ grpCd : "OP144", compID : "gr_CDMainRegularityTaxInfo:mainMainItem" }];
+             $c.data.setCommonCode(codeOptions);
+
+        } else if (ds_ContainerBulkInfo.getCellData(0, "wrkClsCd") == 'B'
+                && ds_ContainerBulkInfo.getCellData(0, "crryinoutClsCd") == 'I') {
+            const codeOptions = [{ grpCd : "OP141", compID : "gr_CDMainRegularityTaxInfo:mainMainItem" }];
+             $c.data.setCommonCode(codeOptions);
+
+
+        } else if (ds_ContainerBulkInfo.getCellData(0, "wrkClsCd") == 'B'
+                && ds_ContainerBulkInfo.getCellData(0, "crryinoutClsCd") == 'O') {
+            const codeOptions = [{ grpCd : "OP142", compID : "gr_CDMainRegularityTaxInfo:mainMainItem" }];
+             $c.data.setCommonCode(codeOptions);
+
+        }
+         $c.sbm.execute( $c.util.getComponent("_sbm_searchCode"));
+}
+
+
+scwin.sbm_retrieve1_submitdone = function (e) {
+    
+
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        //$c.gus.cfShowError(sbm_retrieve);
+        return;
+    }
+
+	scwin.rowR = ds_CDMainInfo.getRowPosition();
+    totalRows2.setValue(ds_CDMainInfo.getRowCount());  
+    gr_CDMainInfo.setFocusedCell(0, "cntrNo");
+
+	scwin.f_Retrieve2(scwin.rowR);
+
+};
+
+scwin.sbm_retrieve2_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+       // $c.gus.cfShowError(sbm_retrieve);
+        return;
+    }
+    gr_CDMainRegularityTaxInfo.setFocusedCell(0, 0);
+    totalRows3.setValue(ds_CDMainRegularityTaxInfo.getRowCount());
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        $c.gus.cfShowError(sbm_retrieve);
+        return;
+    }
+	$c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+	scwin.f_Retrieve1(ds_ContainerBulkInfo.getRowPosition());
+    ds_CDMainInfo.setRowPosition(scwin.rowM);
+    scwin.f_Retrieve2(scwin.rowM);    
+};
+
+scwin.sbm_save1_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        $c.gus.cfShowError(sbm_retrieve);
+        return;
+    }
+ 	$c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    scwin.f_Retrieve(ds_ContainerBulkInfo.getRowPosition());
+    ds_CDMainInfo.setRowPosition(scwin.rowM);
+    scwin.f_Retrieve2(scwin.rowM);   
+};
+
+
+///////////////////////////////////////////// D A T A S E T    E V E N T /////////////////////////////////////////
+
+scwin.ds_ContainerBulkInfo_onrowpositionchange = function (info) {
+	if (info.newRowIndex == 0) return;
+	scwin.rowR = info.newRowIndex;
+};
+
+scwin.ds_CDMainInfo_onrowpositionchange = function (info) {
+	if (info.newRowIndex == 0) return;
+	scwin.rowR = info.newRowIndex;
+};
+
+scwin.ds_CDMainRegularityTaxInfo_onrowpositionchange = function (info) {
+	if (info.newRowIndex == 0) return;
+
+	if (ds_CDMainRegularityTaxInfo.getCellData(info.newRowIndex, "mainMainItem") == '0') {
+        gr_CDMainRegularityTaxInfo.setColumnReadOnly("addBl", false);
+        gr_CDMainRegularityTaxInfo.setHeaderColor("addBlH", "red");
+
+	} else {
+        gr_CDMainRegularityTaxInfo.setColumnReadOnly("addBl", true);
+        gr_CDMainRegularityTaxInfo.setHeaderColor("addBlH", "black");    
+	}
+
+};
+
+
+
+scwin.ds_CDMainRegularityTaxInfo_oncelldatachange = function (info) {
+	if (info.colID == "mainMainItem") {
+		if (ds_CDMainRegularityTaxInfo.getCellData(info.rowIndex, info.colID) == '0') {
+			gr_CDMainRegularityTaxInfo.setColumnReadOnly("addBl", false);
+            gr_CDMainRegularityTaxInfo.setHeaderColor("addBlH", "red");    
+            gr_CDMainRegularityTaxInfo.setHeaderColor("mainMainBfContH", "black");    
+            gr_CDMainRegularityTaxInfo.setHeaderColor("mainMainAfContH", "black");    
+
+		} else {
+			gr_CDMainRegularityTaxInfo.setColumnReadOnly("addBl", true);
+            gr_CDMainRegularityTaxInfo.setHeaderColor("addBlH", "black");    
+            gr_CDMainRegularityTaxInfo.setHeaderColor("mainMainBfContH", "red");    
+            gr_CDMainRegularityTaxInfo.setHeaderColor("mainMainAfContH", "red");  
+		}
+	}
+};
+
+///////////////////////////////////////////// C O M P O N E N T    E V E N T /////////////////////////////////////////
+
+scwin.gr_ContainerBulkInfo_oncellclick = async function (rowIndex, columnIndex, columnId) {
+
+
+	//if (rowIndex == scwin.rowR) return;
+
+	if (ds_CDMainInfo.getModifiedIndex().length != 0 || ds_CDMainRegularityTaxInfo.getModifiedIndex().length != 0) {
+		if (!await $c.win.confirm("변경한 신고정보내역이 취소됩니다. 계속 진행하시겠습니까?")) {
+			ds_ContainerBulkInfo.setRowPosition(scwin.rowR);
+			return;
+		}
+	}
+  // ds_CDMainRegularityTaxInfo.removeAll();
+	scwin.f_Retrieve1(rowIndex);
+
+	scwin.rowR = rowIndex;
+
+};
+
+
+scwin.gr_CDMainInfo_oncellclick = async function (rowIndex, columnIndex, columnId) {
+
+	// 오류내역 팝업 띄우기
+	if (columnId == "sndClsNm") {
+		if (!$c.gus.cfIsNull(ds_CDMainInfo.getCellData(rowIndex, "sndClsNm"))) {
+			scwin.f_errorPopUp(rowIndex);
+		}
+	}
+	
+	if (rowIndex == scwin.rowM) { 
+		return;
+	}
+
+	if (ds_CDMainRegularityTaxInfo.getModifiedIndex().length != 0) {
+		if (!await $c.win.confirm("변경한 신고정보상세내역이 취소됩니다. 계속 진행하시겠습니까?")) {
+			ds_CDMainInfo.setRowPosition(scwin.rowR);
+			return;
+		}
+	};
+    scwin.rowM = rowIndex;
+
+    scwin.f_Retrieve2(scwin.rowM);
+};
+
+ scwin.callbackOp = function(){
+   
+    scwin.f_Retrieve2(scwin.rowM );
+ }
+
+//컨테이너번호 대문자
+scwin.ed_cntrNo_onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+//화물번호 대문자 
+scwin.ed_mrn_onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+
+
+//작업장 UDC
+scwin.udc_comCodeWrkPl_onclickEvent = function (e) {
+
+    scwin.f_openPopUp('1', ed_wrkPlCd.getValue(), ed_wrkPlNm.getValue(), 'T','F')
+
+};
+
+scwin.f_openPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+
+    
+    udc_comCodeWrkPl.cfCommonPopUp(
+                                scwin.udc_comCodeWrkPl_callBackFunc,
+                                ed_wrkPlCd.getValue(),
+                                ed_wrkPlNm.getValue(),
+                                "T" //pClose
+                                ,null					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+								,null					// Title순서	
+								,null					// 보여주는 각 컬럼들의 폭	
+								,null					// 컬럼중에서 숨기는	컬럼 지정	
+								,null			    	// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+								,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+								,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+								,null					// 윈도우 위치 Y좌표	
+								,null					// 윈도우 위치 X좌표
+								,null					// 중복체크여부	("F")
+								,"T"					// 전체검색허용여부	("F")
+								,"작업장,작업장코드,작업장명"				// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                            );
+
+};
+
+scwin.f_chkOpenCommonPopUp = async function(inObj, pairObj, disGubun, isCode) {
+// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!await $c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    await $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    var pVal = await $c.gus.cfGetValue(inObj);
+            
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+        scwin.f_openPopUp(disGubun, pVal, '', 'T', 'F');
+    // inObj가 코드명 필드일 경우 팝업
+    else
+        scwin.f_openPopUp(disGubun, '', pVal, 'T', 'F');
+}
+
+scwin.udc_comCodeWrkPl_callBackFunc = function(ret) {
+    // console.log(ret); 
+    $c.gus.cfSetReturnValue(ret, ed_wrkPlCd, ed_wrkPlNm);
+};
+
+
+scwin.udc_comCodeWrkPl_onblurCodeEvent = function (e) {
+   if(ed_wrkPlCd.getValue() === "") {
+        ed_wrkPlNm.setValue("");
+    } else {
+        scwin.f_chkOpenCommonPopUp(ed_wrkPlCd, ed_wrkPlNm, '', false)
+    }
+};
+
+
+//행추가
+scwin.f_Addrow1 = function(argGubun) {
+  
+    var row = ds_ContainerBulkInfo.getRowPosition();
+    if (ds_ContainerBulkInfo.getCellData(row, "sndClsNm") != "접수") {
+      $c.gus.cfAlertMsg("해당 세관신고정보의 전송구분이 접수인 상태만 행추가를 할 수 있습니다.");
+      return;
+    }
+
+    ds_CDMainInfo.insertRow();
+    var row1 = ds_CDMainInfo.getRowCount()-1;
+
+    ds_CDMainInfo.setCellData(row1, "wrkClsCd", ds_ContainerBulkInfo.getCellData(row, "wrkClsCd"));
+    ds_CDMainInfo.setCellData(row1, "crryinoutClsCd", ds_ContainerBulkInfo.getCellData(row, "crryinoutClsCd"));
+    ds_CDMainInfo.setCellData(row1, "wrkPlCd", ds_ContainerBulkInfo.getCellData(row, "wrkPlCd"));
+    ds_CDMainInfo.setCellData(row1, "cntrNo", ds_ContainerBulkInfo.getCellData(row, "cntrNo"));
+    ds_CDMainInfo.setCellData(row1, "mrn", ds_ContainerBulkInfo.getCellData(row, "mrn"));
+    ds_CDMainInfo.setCellData(row1, "msn", ds_ContainerBulkInfo.getCellData(row, "msn"));
+    ds_CDMainInfo.setCellData(row1, "hsn", ds_ContainerBulkInfo.getCellData(row, "hsn"));
+    ds_CDMainInfo.setCellData(row1, "divsCrryinoutDeg", ds_ContainerBulkInfo.getCellData(row, "divsCrryinoutDeg"));
+    ds_CDMainInfo.setCellData(row1, "sndClsCd", "3");
+
+    gr_CDMainInfo.setFocusedCell(row1, "mainMainClsMark", true);
+    gr_CDMainInfo.focus();
+};
+
+
+//행추가
+scwin.f_Addrow2 = function(argGubun) {
+
+    if (ds_CDMainInfo.getRowCount() == 0) {
+      $c.gus.cfAlertMsg("반출입정정 신고정보가 없습니다.");
+      return;
+    }
+
+    var row1 = ds_CDMainInfo.getRowPosition();
+    if (ds_CDMainInfo.getRowStatus(row1) == "C") {
+      $c.gus.cfAlertMsg("해당 반출입정정 신고정보는 입력 상태입니다.\n먼저 저장하십시오.");
+      return;
+    }
+
+    if (ds_CDMainInfo.getRowStatus(row1) == "D") {
+      $c.gus.cfAlertMsg("해당 반출입정정 신고정보는 삭제 상태입니다.");
+      return;
+    }
+
+    if (ds_CDMainInfo.getCellData(row1, "sndClsCd") != 3) {
+      $c.gus.cfAlertMsg("해당 반출입정정 신고정보의 전송구분이 미전송인 상태만 행추가를 할 수 있습니다.");
+      return;
+    }
+
+    ds_CDMainRegularityTaxInfo.insertRow();
+    var row2 = ds_CDMainRegularityTaxInfo.getRowCount()-1;
+
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "wrkClsCd", ds_CDMainInfo.getCellData(row1, "wrkClsCd"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "crryinoutClsCd", ds_CDMainInfo.getCellData(row1, "crryinoutClsCd"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "wrkPlCd", ds_CDMainInfo.getCellData(row1, "wrkPlCd"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "cntrNo", ds_CDMainInfo.getCellData(row1, "cntrNo"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "mrn", ds_CDMainInfo.getCellData(row1, "mrn"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "msn", ds_CDMainInfo.getCellData(row1, "msn"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "hsn", ds_CDMainInfo.getCellData(row1, "hsn"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "divsCrryinoutDeg", ds_CDMainInfo.getCellData(row1, "divsCrryinoutDeg"));
+    ds_CDMainRegularityTaxInfo.setCellData(row2, "mainMainAppDeg", ds_CDMainInfo.getCellData(row1, "mainMainAppDeg"));
+
+    if (ds_CDMainInfo.getCellData(row1, "mainMainClsMark") == "0") {
+      if (row2 > 1) {
+        ds_CDMainRegularityTaxInfo.deleteRow(row2);
+        $c.gus.cfAlertMsg("정정항목은 B/L정보만 선택할 수 있습니다.");
+      }
+      ds_CDMainRegularityTaxInfo.setCellData(row2, "mainMainItem");
+    }
+     gr_CDMainRegularityTaxInfo.setFocusedCell(row2, 0);
+    gr_CDMainInfo.setFocusedCell(row1, "hsn", true);
+    gr_CDMainInfo.focus();
+};
+
+//작업구분
+scwin.acb_wrkClsCd_onchange = function (info) {
+    scwin.f_gridFormatChange(acb_wrkClsCd.getValue());
+
+    ds_CDMainInfo.removeAll();
+    ds_CDMainRegularityTaxInfo.removeAll();
+    ds_ContainerBulkInfo.removeAll();
+
+};
+
+scwin.udc_comCodeWrkPl_onviewchangeNameEvent = function (info) {
+    if(ed_wrkPlNm.getValue() === "") {
+            ed_wrkPlCd.setValue("");
+        }  else {
+        scwin.f_chkOpenCommonPopUp(ed_wrkPlNm, ed_wrkPlCd, '', false)
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="tbl_condition" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="작업구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_wrkClsCd" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="data:dma_condition.wrkClsCd" ev:onchange="scwin.acb_wrkClsCd_onchange">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[B/L]]></w2:label>
+    										<w2:value><![CDATA[B]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[컨테이너]]></w2:label>
+    										<w2:value><![CDATA[C]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="반출입구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_crryinoutClsCd" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="data:dma_condition.crryinoutClsCd">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="작업장" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_comCodeWrkPl" objTypeName="Data" mandatoryCode="true" UpperFlagCode="1" codeId="ed_wrkPlCd" nameId="ed_wrkPlNm" ev:onblurCodeEvent="scwin.udc_comCodeWrkPl_onblurCodeEvent" btnId="btn_wrkPlCd" selectID="retrieveWrkPlCarryInfo" refDataCollection="dma_condition" code="wrkPlCd" ev:onclickEvent="scwin.udc_comCodeWrkPl_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_comCodeWrkPl_onviewchangeNameEvent" maxlengthCode="6" allowCharCode="a-z0-9A-Z"></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="cntrLable" label="컨테이너번호 " style=""></w2:textbox>
+                                <w2:textbox class="req" id="cntrLableReq" label="컨테이너번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="ed_cntrNo" placeholder="" style="width:150px;" mandatory="true" maxlength="11" allowChar="a-zA-Z0-9" ev:onkeyup="scwin.ed_cntrNo_onkeyup" ref="data:dma_condition.cntrNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="화물관리번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+
+
+    							<xf:group id="" class="form-group">
+    								<xf:input style="width:150px;" id="ed_mrn" placeholder="" class="" allowChar="a-zA-Z0-9"
+    									mandatory="true" maxlength="11" ev:onkeyup="scwin.ed_mrn_onkeyup" ref="data:dma_condition.mrn" title="화물관리번호(MRN)">
+    								</xf:input>
+    								<w2:textbox ref="" style="" userData2="" id="" label="-" class=""></w2:textbox>
+    								<xf:input style="width:70px;" id="ed_msn" placeholder="" class="" allowChar="0-9" maxlength="4"
+    									ref="data:dma_condition.msn">
+    								</xf:input>
+    								<w2:textbox ref="" style="" userData2="" id="" label="-" class=""></w2:textbox>
+    								<xf:input style="width:70px;" id="ed_hsn" placeholder="" class="" allowChar="0-9" maxlength="4"
+    									ref="data:dma_condition.hsn">
+    								</xf:input>
+    							</xf:group>
+    							<xf:input allowChar="0-9" class="" id="ibx_input1" maxlength="4" placeholder="" ref=""
+    								style="width:70px; display:none;">
+    							</xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="cb_title" label="컨테이너 세관신고 현황" class="tit"></w2:textbox>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_toGrdBtnContainerBulkInfo" gridDownYn="N" gridUpYn="N" gridID="gr_ContainerBulkInfo"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    					<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_ContainerBulkInfo" style=""
+    						id="gr_ContainerBulkInfo" visibleRowNum="4" class="wq_gvw" readOnly="true" ev:oncellclick="scwin.gr_ContainerBulkInfo_oncellclick"
+    						rowStatusVisible="true" focusMode="cell">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="70" inputType="text" style="" id="column1" value="반출입&lt;br/&gt;구분"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="210" inputType="text" style="" id="column17" value="화물관리번호" displayMode="label"
+    									colSpan="3" rowSpan="" sortable="false">
+    								</w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column11" value="분할&lt;br/&gt;차수"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+
+    								<w2:column width="150" inputType="text" style="" id="column9" value="분할반출입구분" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="211" inputType="text" style="" id="column3" value="반출입신고번호" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="217" inputType="text" style="" id="column5" value="반출입일시" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="132" inputType="text" style="" id="column7" value="반출입유형" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="200" inputType="text" style="" id="column19" value="반출입사고유형" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column79" value="반출입&lt;br/&gt;근거번호"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="80" inputType="text" style="" id="column75" value="반출입&lt;br/&gt;개수"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="111" inputType="text" style="" id="column71" value="반출입&lt;br/&gt;중량"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column67" value="반입사고&lt;br/&gt;중량"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column63" value="반입사고&lt;br/&gt;개수"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="160" inputType="text" style="" id="column51" value="전송일시" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="80" inputType="text" style="" id="column55" value="등록자" displayMode="label" colSpan=""
+    									rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column59" value="반출기간&lt;br/&gt;연장구분"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column83" value="기간연장&lt;br/&gt;근거번호"
+    									displayMode="label" colSpan="" rowSpan="2">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column87" value="전송구분" displayMode="label"
+    									colSpan="" rowSpan="2">
+    								</w2:column>
+    							</w2:row>
+    							<w2:row style="" id="row4">
+    								<w2:column width="100" inputType="text" style="" id="column39" value="MRN" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column38" value="MSN" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column37" value="HSN" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="70" inputType="autoComplete" style="" id="crryinoutClsCd" value=""
+    									displayMode="label">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="mrn" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="msn" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hsn" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="divsCrryinoutDeg" value="" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="autoComplete" style="" id="divsCrryinoutClsCd" value=""
+    									displayMode="label" textAlign="left">
+    								</w2:column>
+    								<w2:column width="211" inputType="text" style="" id="crryinoutDeclarNo" value="" displayMode="label"></w2:column>
+    								<w2:column width="217" inputType="text" style="" id="crryinoutDtm" value="" displayMode="label"
+    									displayFormat="####/##/## ##:##:##">
+    								</w2:column>
+    								<w2:column width="132" inputType="select" style="" id="crryinoutPatternCd" value=""
+    									displayMode="value delim label" textAlign="left" readOnly="true" emptyItem="true" selectedData="false">
+    								</w2:column>
+    								<w2:column width="200" inputType="select" style="" id="crryinoutAccdPatternCd" value=""
+    									displayMode="value delim label" textAlign="left" readOnly="true" emptyItem="true" selectedData="false">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="crryinoutBasisNo" value="" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" style="" id="crryinoutCnt" value="" displayMode="label"
+    									textAlign="right" displayFormat="#,###" dataType="number">
+    								</w2:column>
+    								<w2:column width="111" inputType="text" style="" id="crryinoutWt" value="" displayMode="label"
+    									textAlign="right" displayFormat="#,###.000" dataType="number">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="" id="crryinAccdWt" value="" displayMode="label"
+    									textAlign="right" displayFormat="#,###.000" dataType="number">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="crryinAccdCnt" value="" displayMode="label"
+    									textAlign="right" displayFormat="#,###" dataType="number">
+    								</w2:column>
+    								<w2:column width="160" inputType="text" style="" id="sndDtm" value="" displayMode="label"
+    									displayFormat="####/##/## ##:##:##">
+    								</w2:column>
+    								<w2:column width="80" inputType="text" style="" id="regNm" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="crryoutTermExtdClsNm" value="" displayMode="label"
+    									textAlign="left">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="termExtdBasisNo" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="sndClsNm" value="" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer style="" id="footer1">
+    							<w2:row style="" id="row3">
+    								<w2:column width="70" inputType="text" style="" id="column30" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column29" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column28" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column27" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column26" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column94" value="" displayMode="label"></w2:column>
+    								<w2:column width="211" inputType="text" style="" id="column25" value="" displayMode="label"></w2:column>
+    								<w2:column width="217" inputType="text" style="" id="column24" value="" displayMode="label"></w2:column>
+    								<w2:column width="132" inputType="text" style="" id="column23" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column22" value="" displayMode="label"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="column21" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column82" value="" displayMode="label"></w2:column>
+    								<w2:column width="111" inputType="text" style="" id="column78" value="" displayMode="label"
+    									textAlign="right">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column74" value="" displayMode="label"
+    									textAlign="right">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column70" value="" displayMode="label"
+    									textAlign="right">
+    								</w2:column>
+    								<w2:column width="160" inputType="text" style="" id="column66" value="" displayMode="label"
+    									textAlign="right">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" style="" id="column58" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column62" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column86" value="" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="totalRows1" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+
+    					
+    				</xf:group>
+    			</xf:group>
+    			
+    			<xf:group id="" class="lybox flex_no wfix">
+    				<xf:group id="" class="col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="반출입정정 신고정보" class="tit"></w2:textbox>
+    						</xf:group>
+    						<xf:group id="" class="right">
+    							<w2:udc_topGrdBtn grp="grd_section2" style="" id="udc_toGrdBtnCDMainInfo" gridUpYn="N" gridDownYn="N" gridID="gr_CDMainInfo" btnUser="N"></w2:udc_topGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" style="" id="grd_section2" class="gvwbox">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_CDMainInfo"
+    							id="gr_CDMainInfo" style="" visibleRowNum="3" visibleRowNumFix="true" ev:oncellclick="scwin.gr_CDMainInfo_oncellclick" focusMode="cell" rowStatusVisible="true" gridName="반출입정정 신고정보">
+    							<w2:caption id="caption5" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column width="120" inputType="text" style="" id="column41" value="컨테이너번호" displayMode="label"
+    										colSpan="" rowSpan="2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="" inputType="text" style="" value="화물관리번호" width="210"
+    										colSpan="3" rowSpan="" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column13" inputType="text" style="" value="차수" width="70"
+    										colSpan="" rowSpan="2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column11" inputType="text" style="" value="구분부호" width="100"
+    										colSpan="" rowSpan="2" class="txt-red">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column9" inputType="text" style="" value="신고일자" width="100"
+    										colSpan="" rowSpan="2" class="txt-red">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column3" inputType="text" style="" value="정정사유" width="100"
+    										colSpan="" rowSpan="2" class="txt-red">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column5" inputType="text" style="" value="전송일시" width="120"
+    										colSpan="" rowSpan="2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column7" inputType="text" style="" value="등록자" width="80"
+    										colSpan="" rowSpan="2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column19" inputType="text" style="" value="전송구분" width="100"
+    										colSpan="" rowSpan="2">
+    									</w2:column>
+    								</w2:row>
+    								<w2:row style="" id="row4">
+    									<w2:column width="100" inputType="text" style="" id="column40" value="MRN" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column39" value="MSN" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column38" value="HSN" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column width="120" inputType="text" style="" id="cntrNo" value="" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="mrn" inputType="text" style="" value="" width="100" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="msn" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="hsn" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="mainMainAppDeg" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="mainMainClsMark" inputType="autoComplete" style="" value="" width="100"
+    										emptyItem="true" mandatory="true">
+    									</w2:column>
+    									<w2:column displayMode="label" id="declarDt" inputType="calendar" style="" value="" width="100"
+    										displayFormat="yyyy/MM/dd" allowChar="0-9" maxByteLength="8" mandatory="true" dataType="date">
+    									</w2:column>
+    									<w2:column displayMode="label" id="mainMainRsn" inputType="text" style="" value="" width="100"
+    										textAlign="left" mandatory="true">
+    									</w2:column>
+    									<w2:column displayMode="label" id="sndDtm" inputType="text" style="" value="" width="120"
+    										displayFormat="####/##/##/##:##:##" readOnly="true">
+    									</w2:column>
+    									<w2:column displayMode="label" id="regNm" inputType="text" style="" value="" width="80" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="sndClsNm" inputType="text" style="" value="" width="100" readOnly="true"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer id="footer1" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column width="120" inputType="text" style="" id="column44" value="" displayMode="label"></w2:column>
+    									<w2:column displayMode="label" id="column30" inputType="text" style="" value="" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column29" inputType="text" style="" value="" width="70"></w2:column>
+    									<w2:column displayMode="label" id="column28" inputType="text" style="" value="" width="70"></w2:column>
+    									<w2:column displayMode="label" id="column27" inputType="text" style="" value="" width="70"></w2:column>
+    									<w2:column displayMode="label" id="column26" inputType="text" style="" value="" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column25" inputType="text" style="" value="" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column24" inputType="text" style="" value="" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column23" inputType="text" style="" value="" width="120"></w2:column>
+    									<w2:column displayMode="label" id="column22" inputType="text" style="" value="" width="80"></w2:column>
+    									<w2:column displayMode="label" id="column21" inputType="text" style="" value="" width="100"></w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="totalRows2" label="0"
+    										class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:udc_bottomGrdBtn style="" rowAddObjType="data" cancelUserAuth="" btnCancelYn="Y" btnDelYn="N" delObjType="data" rowAddUserAuth="C" delUserAuth="D" id="udc_bottomGrdBtnCDMainInfo" rowAddFunction="scwin.f_Addrow1" rowDelFunction="scwin.f_Delete1" cancelFunction="scwin.f_cancel"></w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="col" id="" style="width: 40%;">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="신고정보상세" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    						<xf:group class="right" id="">
+    							<w2:udc_topGrdBtn grp="grd_section3" style="" id="udc_toGrdBtnCDMainRegularityTaxInfo" gridDownYn="N" gridUpYn="N" gridID="gr_CDMainRegularityTaxInfo"></w2:udc_topGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section3" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_CDMainRegularityTaxInfo" id="gr_CDMainRegularityTaxInfo" style=""
+    							visibleRowNum="4" visibleRowNumFix="true" rowStatusVisible="true" focusMode="cell">
+    							<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" value="순번" width="70" fixColumnWidth="true"></w2:column>
+    									<w2:column displayMode="label" id="column17" inputType="text" value="정정항목" width="120" class="txt-red"></w2:column>
+    									<w2:column displayMode="label" id="mainMainBfContH" inputType="text" value="정정전내역" width="100" class="txt-red"></w2:column>
+    									<w2:column displayMode="label" id="mainMainAfContH" inputType="text" value="정정후내역" width="100" class="txt-red"></w2:column>
+    									<w2:column displayMode="label" id="addBlH" inputType="text" value="BL정보" width="120"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="seq" inputType="text" width="70" fixColumnWidth="true" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="mainMainItem" inputType="autoComplete" width="120" textAlign="left" emptyItem="true" mandatory="true"></w2:column>
+    									<w2:column displayMode="label" id="mainMainBfCont" inputType="text" width="100" textAlign="left" mandatory="true"></w2:column>
+    									<w2:column displayMode="label" id="mainMainAfCont" inputType="text" width="100" textAlign="left" mandatory="true"></w2:column>
+    									<w2:column displayMode="label" id="addBl" inputType="text" width="120" textAlign="left"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer style="" id="footer1">
+    								<w2:row style="" id="row3">
+    									<w2:column width="70" inputType="text" id="column30" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column29" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column27" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column26" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView><xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows3" label="0" style=""
+    										tagname="span">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="right" id="" style="">
+    								<w2:udc_bottomGrdBtn style="" id="udc_bottomGrdBtnCDMainRegularityTaxInfo" btnCancelYn="Y" btnDelYn="N" cancelObjType="data" delObjType="data" rowAddObjType="data" delUserAuth="D" rowAddUserAuth="C" rowAddFunction="scwin.f_Addrow2" rowDelFunction="scwin.f_Delete2" gridID="gr_CDMainRegularityTaxInfo" cancelFunction="scwin.f_cancel2"></w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						
+    					</xf:group>
+    				</xf:group>
+    			</xf:group><xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btn_transfer" label="저장" style="" type="button" ev:onclick="scwin.f_Sand" userAuth="U">
+    						<xf:label>전송</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

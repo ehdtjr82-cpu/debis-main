@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="EMC D/C 반출입 관리 현황" meta_screenId="op_405_01_05b" meta_author="정진경" meta_type="메인">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="lineCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="doIssueDdStDt" name="name2" dataType="text"></w2:key>
+    					<w2:key id="doIssueDdEndDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="doNo" name="name4" dataType="text"></w2:key>
+    					<w2:key id="mrn" name="name5" dataType="text"></w2:key>
+    					<w2:key id="cntrNo" name="name6" dataType="text"></w2:key>
+    					<w2:key id="dchrPort" name="name7" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_list" saveRemovedData="true" ev:onrowpositionchange="scwin.ds_list_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="gateResult" name="name1" dataType="text"></w2:column>
+    					<w2:column id="refNo" name="name2" dataType="text"></w2:column>
+    					<w2:column id="elecDocCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="docCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="docNo" name="name5" dataType="text"></w2:column>
+    					<w2:column id="seq" name="name6" dataType="text"></w2:column>
+    					<w2:column id="docKnd" name="name7" dataType="text"></w2:column>
+    					<w2:column id="repRmk" name="name8" dataType="text"></w2:column>
+    					<w2:column id="rmkDesc" name="name9" dataType="text"></w2:column>
+    					<w2:column id="refItm" name="name10" dataType="text"></w2:column>
+    					<w2:column id="doNo" name="name11" dataType="text"></w2:column>
+    					<w2:column id="blNo" name="name12" dataType="text"></w2:column>
+    					<w2:column id="copinoDtm" name="name13" dataType="text"></w2:column>
+    					<w2:column id="emcTransCoId" name="name14" dataType="text"></w2:column>
+    					<w2:column id="gateOutDtm" name="name15" dataType="text"></w2:column>
+    					<w2:column id="gateSts" name="name16" dataType="text"></w2:column>
+    					<w2:column id="gateInDtm" name="name17" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="name18" dataType="text"></w2:column>
+    					<w2:column id="socCls" name="name19" dataType="text"></w2:column>
+    					<w2:column id="doOutbrShpCo" name="name20" dataType="text"></w2:column>
+    					<w2:column id="mrn" name="name21" dataType="text"></w2:column>
+    					<w2:column id="msn" name="name22" dataType="text"></w2:column>
+    					<w2:column id="hsn" name="name23" dataType="text"></w2:column>
+    					<w2:column id="vsslPortcnt" name="name24" dataType="text"></w2:column>
+    					<w2:column id="vsslTmlPortcnt" name="name25" dataType="text"></w2:column>
+    					<w2:column id="tmlCd" name="name26" dataType="text"></w2:column>
+    					<w2:column id="shpCoNm" name="name27" dataType="text"></w2:column>
+    					<w2:column id="callsignCd" name="name28" dataType="text"></w2:column>
+    					<w2:column id="vsslNm" name="name29" dataType="text"></w2:column>
+    					<w2:column id="selfYn" name="name30" dataType="text"></w2:column>
+    					<w2:column id="transCoId" name="name31" dataType="text"></w2:column>
+    					<w2:column id="transCoNm" name="name32" dataType="text"></w2:column>
+    					<w2:column id="portClsCd" name="name33" dataType="text"></w2:column>
+    					<w2:column id="portCd" name="name34" dataType="text"></w2:column>
+    					<w2:column id="portNm" name="name35" dataType="text"></w2:column>
+    					<w2:column id="dsmbrkPlcCd" name="name36" dataType="text"></w2:column>
+    					<w2:column id="assgnPlcCd" name="name37" dataType="text"></w2:column>
+    					<w2:column id="doIssueDd" name="name38" dataType="text"></w2:column>
+    					<w2:column id="crryoutCloseDd" name="name39" dataType="text"></w2:column>
+    					<w2:column id="vsslArrvlportDtm" name="name40" dataType="text"></w2:column>
+    					<w2:column id="pickUpDt" name="name41" dataType="text"></w2:column>
+    					<w2:column id="cntMchtCoCd" name="name42" dataType="text"></w2:column>
+    					<w2:column id="cntMchtNm" name="name43" dataType="text"></w2:column>
+    					<w2:column id="cntMchtNm2" name="name44" dataType="text"></w2:column>
+    					<w2:column id="cntMchtAddr1" name="name45" dataType="text"></w2:column>
+    					<w2:column id="cntMchtAddr2" name="name46" dataType="text"></w2:column>
+    					<w2:column id="cntMchtAddr3" name="name47" dataType="text"></w2:column>
+    					<w2:column id="faxno" name="name48" dataType="text"></w2:column>
+    					<w2:column id="cntMchtPic" name="name49" dataType="text"></w2:column>
+    					<w2:column id="sendMchtCoCd" name="name50" dataType="text"></w2:column>
+    					<w2:column id="sendMchtNm1" name="name51" dataType="text"></w2:column>
+    					<w2:column id="sendMchtNm2" name="name52" dataType="text"></w2:column>
+    					<w2:column id="sendMchtAddr" name="name53" dataType="text"></w2:column>
+    					<w2:column id="sendMchtAddr2" name="name54" dataType="text"></w2:column>
+    					<w2:column id="sendMchtAddr3" name="name55" dataType="text"></w2:column>
+    					<w2:column id="ntcPlCoCd" name="name56" dataType="text"></w2:column>
+    					<w2:column id="ntcPlNm1" name="name57" dataType="text"></w2:column>
+    					<w2:column id="ntcPlNm2" name="name58" dataType="text"></w2:column>
+    					<w2:column id="ntcPlAddr1" name="name59" dataType="text"></w2:column>
+    					<w2:column id="ntcPlAddr2" name="name60" dataType="text"></w2:column>
+    					<w2:column id="ntcPlAddr3" name="name61" dataType="text"></w2:column>
+    					<w2:column id="admitId" name="name62" dataType="text"></w2:column>
+    					<w2:column id="admitPicTel" name="name63" dataType="text"></w2:column>
+    					<w2:column id="admitPicNm" name="name64" dataType="text"></w2:column>
+    					<w2:column id="blPackCnt" name="name65" dataType="text"></w2:column>
+    					<w2:column id="packMark" name="name66" dataType="text"></w2:column>
+    					<w2:column id="blTotWt" name="name67" dataType="text"></w2:column>
+    					<w2:column id="blCbm" name="name68" dataType="text"></w2:column>
+    					<w2:column id="cntrNrm" name="name69" dataType="text"></w2:column>
+    					<w2:column id="cntrRef" name="name70" dataType="text"></w2:column>
+    					<w2:column id="rtrnTrYn" name="name71" dataType="text"></w2:column>
+    					<w2:column id="cntrWt" name="name72" dataType="text"></w2:column>
+    					<w2:column id="len" name="name73" dataType="text"></w2:column>
+    					<w2:column id="width" name="name74" dataType="text"></w2:column>
+    					<w2:column id="hei" name="name75" dataType="text"></w2:column>
+    					<w2:column id="temper" name="name76" dataType="text"></w2:column>
+    					<w2:column id="temperUnit" name="name77" dataType="text"></w2:column>
+    					<w2:column id="sealNo1" name="name78" dataType="text"></w2:column>
+    					<w2:column id="sealNo2" name="name79" dataType="text"></w2:column>
+    					<w2:column id="sealNo3" name="name80" dataType="text"></w2:column>
+    					<w2:column id="transCntSht" name="name81" dataType="text"></w2:column>
+    					<w2:column id="cntrCrryoutCloseDt" name="name82" dataType="text"></w2:column>
+    					<w2:column id="cntrRtrnDt" name="name83" dataType="text"></w2:column>
+    					<w2:column id="cntrRtrnDdCnt" name="name84" dataType="text"></w2:column>
+    					<w2:column id="depotCd" name="name85" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcNm1" name="name86" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcNm2" name="name87" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcAddr1" name="name88" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcAddr2" name="name89" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcAddr3" name="name90" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcTel" name="name91" dataType="text"></w2:column>
+    					<w2:column id="rtrnPlcCntctPl" name="name92" dataType="text"></w2:column>
+    					<w2:column id="rcvDtm" name="name93" dataType="text"></w2:column>
+    					<w2:column id="procCls" name="name94" dataType="text"></w2:column>
+    					<w2:column id="odrSetoffProcDtm" name="name95" dataType="text"></w2:column>
+    					<w2:column id="replyCls" name="name96" dataType="text"></w2:column>
+    					<w2:column id="replyDtm" name="name97" dataType="text"></w2:column>
+    					<w2:column id="arvPort" name="name98" dataType="text"></w2:column>
+    					<w2:column id="dropPort" name="name99" dataType="text"></w2:column>
+    					<w2:column id="dchrPort" name="name100" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="name101" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="name102" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_list">
+    				<w2:keyInfo>
+    					<w2:key id="cntrCrryoutCloseDt" name="name1" dataType="text"></w2:key>
+    					<w2:key id="cntrRtrnDt" name="name2" dataType="text"></w2:key>
+    					<w2:key id="doNo" name="name3" dataType="text"></w2:key>
+    					<w2:key id="selfYn" name="name4" dataType="text"></w2:key>
+    					<w2:key id="transCoId" name="name5" dataType="text"></w2:key>
+    					<w2:key id="cntrNo" name="name6" dataType="text"></w2:key>
+    					<w2:key id="blNo" name="name7" dataType="text"></w2:key>
+    					<w2:key id="doIssueDd" name="name8" dataType="text"></w2:key>
+    					<w2:key id="doOutbrShpCo" name="name9" dataType="text"></w2:key>
+    					<w2:key id="callsignCd" name="name10" dataType="text"></w2:key>
+    					<w2:key id="vsslNm" name="name11" dataType="text"></w2:key>
+    					<w2:key id="vsslPortcnt" name="name12" dataType="text"></w2:key>
+    					<w2:key id="vsslArrvlportDtm" name="name13" dataType="text"></w2:key>
+    					<w2:key id="cntrNrm" name="name14" dataType="text"></w2:key>
+    					<w2:key id="mrn" name="name15" dataType="text"></w2:key>
+    					<w2:key id="msn" name="name16" dataType="text"></w2:key>
+    					<w2:key id="dsmbrkPlcCd" name="name17" dataType="text"></w2:key>
+    					<w2:key id="dropPort" name="name18" dataType="text"></w2:key>
+    					<w2:key id="dchrPort" name="name19" dataType="text"></w2:key>
+    					<w2:key id="sendMchtNm1" name="name20" dataType="text"></w2:key>
+    					<w2:key id="cntMchtNm" name="name21" dataType="text"></w2:key>
+    					<w2:key id="rmkDesc" name="name22" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.cywrkrslts.RetrieveEmcCntrGateInOutCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_list","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_list","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_update" action="/ds.op.wrkrslts.cywrkrslts.UpdateEmcDoCntrCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_list","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_update_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_insert" action="/ds.op.wrkrslts.cywrkrslts.SaveEmcDoCntrCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_list","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_insert_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.tr_actionKind; //조회/수정 구분
+scwin.updBtnYn = false; // 수정 버튼 클릭 시 row 값 비교를 위한
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	
+    const nowDate = new Date();
+    const nowYyyy = nowDate.getFullYear();
+    const nowMm = String(nowDate.getMonth() + 1).padStart(2, '0');
+    const nowDd = String(nowDate.getDate()).padStart(2, '0');
+
+    scwin.nowYYYYMMDD = nowYyyy + nowMm + nowDd;
+
+    acb_lc_lineCd.setSelectedIndex(0);
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시 UDC 호출
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $c.gus.cfDisableObjects(tb_retrieveData);
+	$c.gus.cfDisableBtnOnly([btn_update, btn_cancel, btn_save]);
+    udc_doIssueDdDt.setInitDate(scwin.nowYYYYMMDD, scwin.nowYYYYMMDD);
+};
+
+//-------------------------------------------------------------------------
+// 초기화
+//-------------------------------------------------------------------------
+scwin.btn_fieldClear_onclick = function (e) {
+    $c.gus.cfInitObjects(tb_queryList, null);
+
+    udc_doIssueDdDt.setInitDate(scwin.nowYYYYMMDD, scwin.nowYYYYMMDD);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onclick = async function (e) {
+    scwin.updBtnYn = false;
+    ds_list.undoAll();
+    let ret1 = await $c.gus.cfValidate(doIssueDdStDt.getValue());
+    let ret2 = await $c.gus.cfValidate(doIssueDdEndDt.getValue());
+    if( ret1 || ret2 ){
+        return;
+    }
+
+    let afterDate = $c.gus.cfIsAfterDate(doIssueDdStDt.getValue(), doIssueDdEndDt.getValue());
+    if( !afterDate ) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        doIssueDdStDt.focus();
+        return;
+    }
+
+    let ret3 = await $c.gus.cfValidate([tb_queryList]);
+    if( !ret3 ) {
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 ) {
+        totalRows.setValue(ds_list.getRowCount()); // 총 조회건수 표시
+        scwin.cancelDisable();
+        //조회결과가 0인경우
+        if( ds_list.getRowCount() == 0 ) {
+            $c.gus.cfDisableBtnOnly([btn_update, btn_save, btn_cancel]);
+            $c.gus.cfAlertMsg(MSG_CM_ERR_003); //조회결과가 존재하지 않습니다.
+            return false;
+        } else {
+            gr_list.setFocusedCell(0, 0);
+            $c.gus.cfEnableBtnOnly([btn_update]);
+            $c.gus.cfDisableBtnOnly([btn_cancel, btn_save]);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 수정
+//-------------------------------------------------------------------------
+scwin.btn_update_onclick = function (e) {
+    scwin.tr_actionKind = "UPDATE";
+    scwin.updBtnYn = true;
+    $c.gus.cfEnableObjects([ica_ed_cntrCrryoutCloseDt, ica_ed_cntrRtrnDt, ed_transCoId, acb_lc_selfYn]); //cal_crryoutCloseDd, cal_cntrCrryoutCloseDt - 달력 버튼
+
+    //버튼제어
+    $c.gus.cfEnableBtnOnly([btn_cancel, btn_save]);
+    // $c.gus.cfDisableBtnOnly([btn_update]); //btn_create
+};
+
+scwin.sbm_update_submitdone = function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 ) {
+        $c.gus.cfAlertMsg(MSG_CM_INF_001); // 성공적으로 저장하였습니다
+        $c.gus.cfDisableObjects(tb_retrieveData);
+        scwin.btn_retrieve_onclick();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.btn_cancel_onclick = function (e) {
+    var row = ds_list.getRowPosition();
+    ds_list.undoAll();
+    scwin.cancelDisable();
+    //조회된 결과값여부에 따라 버튼 처리
+    if( ds_list.getRowCount() > 0 && ds_list.getRowPosition() >= 0 ) {
+        $c.gus.cfEnableBtnOnly([btn_update]);
+        $c.gus.cfDisableBtnOnly([btn_save, btn_cancel]);
+    } else {
+        $c.gus.cfDisableBtnOnly([btn_update, btn_save, btn_cancel]);
+    }
+    gr_list.setFocusedCell(row, 0);
+};
+
+scwin.cancelDisable = function (e) {
+    //폼잠금여부
+    $c.gus.cfDisableObjects([
+        ed_blNo, ed_doNo2, ica_ed_doIssueDd, acb_lc_selfYn //, cal_doIssueDd
+        , ed_transCoId, ica_ed_cntrCrryoutCloseDt //, cal_crryoutCloseDd, cal_cntrCrryoutCloseDt
+        , ica_ed_cntrRtrnDt, acb_lc_doOutbrShpCo, ed_txt_callsignCd, ed_txt_vsslNm, ed_txt_vsslPortcnt
+        , ica_ed_vsslArrvlportDtm, ed_cntrNo2, ed_txt_cntrNrm, ed_txt_mrn //, cal_vsslArrvlportDtm
+        , ed_txt_msn, ed_txt_dsmbrkPlcCd, ed_txt_dropPort, ed_txt_dchrPort
+        , ed_txt_sendMchtNm1, ed_txt_cntMchtNm, ed_txt_rmkDesc
+    ]);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.btn_save_onclick = async function (e) {
+    //Mandatory 항목이 누락하지 않았는지 체크한다.
+    let validate = await $c.gus.cfValidate([tb_retrieveData]);
+    console.log("### btn_save_onclick : "+validate);
+    if ( !validate ) {
+        return;
+    }
+
+    let row = ds_list.getRowPosition();
+    let confirm = await $c.win.confirm("저장하시겠습니까?")
+    if( confirm ) {
+        //수정 + 저장
+        dma_list.set("cntrCrryoutCloseDt" 	, ds_list.getCellData(row, "cntrCrryoutCloseDt"));
+        dma_list.set("cntrRtrnDt" 			, ds_list.getCellData(row, "cntrRtrnDt"));
+        dma_list.set("doNo" 				, ds_list.getCellData(row, "doNo"));
+        dma_list.set("cntrNo" 				, ds_list.getCellData(row, "cntrNo"));
+        dma_list.set("selfYn" 				, ds_list.getCellData(row, "selfYn"));
+        dma_list.set("transCoId" 			, ds_list.getCellData(row, "transCoId"));
+        //저장
+        dma_list.set("blNo"				    , ds_list.getCellData(row, "blNo"));
+        dma_list.set("doIssueDd"			, ds_list.getCellData(row, "doIssueDd"));
+        dma_list.set("callsignCd"			, ed_txt_callsignCd.getValue().toUpperCase());
+        dma_list.set("doOutbrShpCo"		    , acb_lc_doOutbrShpCo.getValue());
+        dma_list.set("vsslNm"				, ed_txt_vsslNm.getValue().toUpperCase());
+        dma_list.set("vsslPortcnt"		    , ed_txt_vsslPortcnt.getValue().toUpperCase());
+        dma_list.set("vsslArrvlportDtm"	    , ica_ed_vsslArrvlportDtm.getValue());
+        dma_list.set("cntrNrm"			    , ed_txt_cntrNrm.getValue().toUpperCase());
+        dma_list.set("mrn"				    , ed_txt_mrn.getValue().toUpperCase());
+        dma_list.set("msn"				    , ed_txt_msn.getValue());
+        dma_list.set("dsmbrkPlcCd"		    , ds_list.getCellData(row, "dsmbrkPlcCd").toUpperCase());
+        dma_list.set("dropPort"			    , ed_txt_dropPort.getValue().toUpperCase());
+        dma_list.set("dchrPort"			    , ed_txt_dchrPort.getValue().toUpperCase());
+        dma_list.set("sendMchtNm1"		    , ed_txt_sendMchtNm1.getValue().toUpperCase());
+        dma_list.set("cntMchtNm"			, ed_txt_cntMchtNm.getValue().toUpperCase());
+        dma_list.set("rmkDesc"			    , ed_txt_rmkDesc.getValue());
+
+        if (scwin.tr_actionKind == "INSERT") {
+            $c.sbm.execute(sbm_insert);  //TODO : [신규] - btn_create 버튼 ASIS 에서는 주석처리 되어있음.
+        }
+        else if (scwin.tr_actionKind == "UPDATE") {
+            $c.sbm.execute(sbm_update);
+        }
+    }
+};
+
+scwin.sbm_insert_submitdone = function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 )
+    {
+        $c.gus.cfAlertMsg(MSG_CM_INF_001); // 성공적으로 저장하였습니다
+        $c.gus.cfDisableObjects(tb_retrieveData);
+        scwin.btn_retrieve_onclick();
+    }
+};
+
+scwin.ds_list_onrowpositionchange = function (info) {
+    let row = info.newRowIndex;
+    let vCountRow = ds_list.getRowCount();
+    let vRowPosition = ds_list.getRowPosition();
+    let vRowStatus = ds_list.getRowStatusValue(vRowPosition); //rowIndex에 해당하는 행의 상태 코드를 숫자로 반환 (초기상태:0, 갱신:1, 삽입:2, 삭제:3, 삽입 후 삭제:4)
+    let vChgCount = 0;
+    let vChgRow = 0;
+
+    for(let i=0; i < vCountRow;i++){
+        let vCurRowStatus = ds_list.getRowStatus(i);
+        
+        if(vCurRowStatus == "C" || vCurRowStatus=="U"){
+            vChgCount++;
+            vChgRow = i;
+            break; //신규 신규 만들면 우리는 처리상 이걸 한번 더 탄다. 그러면  row != vChgRow 안걸림
+        }
+    }
+
+    // 신규등록시 로우가 변경되었을 경우
+    if(vChgCount > 0 && row != vChgRow){
+        $c.win.alert("신규등록이나 수정사항을 저장하신 후에  이동해주시기 바랍니다.");
+        ds_list.setRowPosition(vChgRow);
+        gr_list.setFocusedCell(vChgRow, 0);
+
+        for(let i=vCountRow-1; i >-1; i--){
+            let vCurRowStatus = ds_list.getRowStatus(i);
+            if( vCurRowStatus=="U"){
+                if(i != vChgRow ){
+                     ds_list.undoRow(i);
+                }
+            } else if ( vCurRowStatus == "C") {
+                if(i != vChgRow ){
+                     ds_list.removeRow(i);
+                }
+            }
+        }
+        return false;
+    }
+    //수정시 로우가 변경되었을 경우
+    if( vRowStatus == 0 ) {
+        $c.gus.cfDisableObjects(tb_retrieveData);
+        $c.gus.cfDisableBtnOnly([btn_cancel, btn_save]);
+        //$c.gus.cfEnableBtnOnly([btn_update]);
+    } else if ( vRowStatus == 1 ) {
+        // $c.gus.cfDisableBtnOnly([btn_update]); //btn_create
+        //$c.gus.cfEnableBtnOnly([btn_cancel, btn_save]);
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe src="/cm/xml/contentHeader.xml" style="" id=""></w2:wframe>
+    		<xf:group style="" id="" class="shbox">
+    			<xf:group style="" id="" class="shbox-inner">
+    				<xf:group tagname="table" style="" id="tb_queryList" class="w2tb tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="" id="" class="">
+    						<xf:group tagname="th" style="" class="w2tb_th ">
+    							<w2:textbox style="" id="" label="라인 " class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width: 100px;" id="acb_lc_lineCd"
+    								class="" allOption="" chooseOption="" ref="data:dma_condition.lineCd">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[ALL]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[EMC]]></w2:label>
+    										<w2:value><![CDATA[EMC]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[HML]]></w2:label>
+    										<w2:value><![CDATA[HML]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[ITS]]></w2:label>
+    										<w2:value><![CDATA[ITS]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[EGH]]></w2:label>
+    										<w2:value><![CDATA[EGH]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[EMS]]></w2:label>
+    										<w2:value><![CDATA[EMS]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[EMA]]></w2:label>
+    										<w2:value><![CDATA[EMA]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							<w2:textbox style="" id="" label="DO발급일 " class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" style="" id="" class="w2tb_td">
+    							<w2:udc_fromToCalendar refStDt="doIssueDdStDt" refDataMap="dma_condition" style="" id="udc_doIssueDdDt" refEdDt="doIssueDdEndDt" edFromId="doIssueDdStDt" edToId="doIssueDdEndDt" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="Data" objTypeTo="Data"></w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox style="" id="" label="DO_NO " class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input style="width: 120px;" id="ed_doNo" placeholder="" class="" ref="data:dma_condition.doNo" allowChar="a-zA-Z0-9" ev:onkeyup="scwin.ed_doNo_onkeyup" validateOnInput="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="MRN " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mrn" placeholder="" ref="data:dma_condition.mrn" style="width: 120px;" allowChar="a-zA-Z0-9" ev:onkeyup="scwin.ed_mrn_onkeyup" validateOnInput="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="컨테이너 번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_cntrNo" placeholder="" ref="data:dma_condition.cntrNo" style="width: 120px;" allowChar="a-zA-Z0-9" ev:onkeyup="scwin.ed_cntrNo_onkeyup" validateOnInput="true"></xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="양륙항 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete allOption="" chooseOption="" class="" editType="select" id="acb_lc_dchrPort"
+    								ref="data:dma_condition.dchrPort" search="start" style="width: 120px;" submenuSize="auto">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[KRKAN]]></w2:label>
+    										<w2:value><![CDATA[KRKAN]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[KRPUS]]></w2:label>
+    										<w2:value><![CDATA[KRPUS]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" id="" class="btn-shbox">
+    				<xf:trigger style="" id="btn_fieldClear" type="button" class="btn ico refresh" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger disabled="" style="" id="btn_retrieve" type="button" class="btn sch" escape="false" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" id="" class="round-box">
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="컨테이너 진행현황 " class="tit"></w2:textbox>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" grdDownOpts='{"fileName" : "EMC 반출입 관리 현황.xls.xlsx", "sheetName" : "EMC 반출입 관리 현황" }' id="udc_topGrd" gridID="gr_list" gridUpYn="N" btnPlusYn="Y" btnUser="Y" gridDownYn="Y"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="grid-wrap ">
+    					<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView checkAllType="false" dataList="data:ds_list" style="" autoFit="lastColumn" id="gr_list" class="wq_gvw" visibleRowNum="8" visibleRowNumFix="true" readOnly="true" rowStatusVisible="true" rowStatusWidth="30">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="150" inputType="text" id="column1" value="반출여부" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column17" value="자가여부" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column15" value="발급일" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column13" value="D/O" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column11" value="BL/NO" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column9" value="반출기한" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column3" value="컨테이너" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column5" value="SIZ/TP" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column7" value="운송사" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column19" value="POD" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column33" value="COPINO" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="column31" value="컬럼헤더명" displayMode="label"></w2:column>
+                                        <w2:column width="200" inputType="text" id="column29" value="Gate Out" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column27" value="상태" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column21" value="반납기한" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column23" value="Gate In" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column25" value="하선지" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="150" inputType="text" id="gateResult" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="selfYn" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="doIssueDd" displayMode="label" displayFormat="####/##/##"></w2:column>
+    									<w2:column width="150" inputType="text" id="doNo" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="blNo" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="cntrCrryoutCloseDt" displayMode="label" displayFormat="####/##/##"></w2:column>
+    									<w2:column width="150" inputType="text" id="cntrNo" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="cntrNrm" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="transCoId" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="arvPort" displayMode="label"></w2:column>
+    									<w2:column width="150" inputType="text" id="copinoDtm" displayMode="label" displayFormat="####/##/##"></w2:column>
+    									<w2:column width="150" inputType="text" id="emcTransCoId" displayMode="label" hidden="true"></w2:column>
+                                        <w2:column width="200" inputType="text" id="gateOutDtm" displayMode="label" displayFormat="####/##/## ##:##"></w2:column>
+    									<w2:column width="100" inputType="text" id="gateSts" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="cntrRtrnDt" displayMode="label" displayFormat="####/##/##"></w2:column>
+    									<w2:column width="100" inputType="text" id="gateInDtm" displayMode="label" displayFormat="####/##/## ##:##"></w2:column>
+    									<w2:column width="100" inputType="text" id="dsmbrkPlcCd" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    					</xf:group>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="totalRows" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="row-gap-8 flex_no">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="D/O 정보 " class="tit"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="tbbox">
+    					<xf:group tagname="table" style="" id="tb_retrieveData" class="w2tb tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col" style=""></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr" style="">
+    							<xf:group tagname="th" style="" class="w2tb_th">
+    								<w2:textbox ref="" style="" userData2="" id="" label="BL/NO" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<xf:input style="" id="ed_blNo" placeholder="" class=" w150" ref="data:ds_list.blNo"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="DO NO" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_doNo2" placeholder="" class=" w150" ref="data:ds_list.doNo" mandatory="true"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="DO 발급일" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:inputCalendar style="" id="ica_ed_doIssueDd" class=" cal" calendarValueType="yearMonthDate" ref="data:ds_list.doIssueDd" mandatory="true">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="자가운송여부" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_lc_selfYn"
+    									class=" w150" allOption="" chooseOption="" ref="data:ds_list.selfYn" mandatory="true">
+    									<w2:choices>
+    										<w2:item>
+    											<w2:label><![CDATA[Y]]></w2:label>
+    											<w2:value><![CDATA[Y]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[N]]></w2:label>
+    											<w2:value><![CDATA[N]]></w2:value>
+    										</w2:item>
+    									</w2:choices>
+    								</w2:autoComplete>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="운송사" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<xf:input style="" id="ed_transCoId" placeholder="" class=" w150" ref="data:ds_list.transCoId" mandatory="true"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="반출기한" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:inputCalendar style="" id="ica_ed_cntrCrryoutCloseDt" class=" cal" calendarValueType="yearMonthDate" ref="data:ds_list.cntrCrryoutCloseDt">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="반납기한" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:inputCalendar style="" id="ica_ed_cntrRtrnDt" class=" cal" calendarValueType="yearMonthDate" ref="data:ds_list.cntrRtrnDt">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="라인" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_lc_doOutbrShpCo"
+    									class=" w150" allOption="" chooseOption="" ref="data:ds_list.doOutbrShpCo" mandatory="true">
+    									<w2:choices>
+                                            <w2:item>
+                                                <w2:label><![CDATA[EMC]]></w2:label>
+                                                <w2:value><![CDATA[EMC]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[HML]]></w2:label>
+                                                <w2:value><![CDATA[HML]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[ITS]]></w2:label>
+                                                <w2:value><![CDATA[ITS]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[EGH]]></w2:label>
+                                                <w2:value><![CDATA[EGH]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[EMS]]></w2:label>
+                                                <w2:value><![CDATA[EMS]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[EMA]]></w2:label>
+                                                <w2:value><![CDATA[EMA]]></w2:value>
+                                            </w2:item>
+                                        </w2:choices>
+    								</w2:autoComplete>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="CALLSIGN" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_callsignCd" placeholder="" class=" w150" ref="data:ds_list.callsignCd"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="VESSL NM" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_vsslNm" placeholder="" class=" w150" ref="data:ds_list.vsslNm"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="VOYAGE" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_vsslPortcnt" placeholder="" class=" w150" ref="data:ds_list.vsslPortcnt"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="모선입항일시" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:inputCalendar style="" id="ica_ed_vsslArrvlportDtm" class=" cal" calendarValueType="yearMonthDate" ref="data:ds_list.vsslArrvlportDtm">
+    								</w2:inputCalendar>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="컨테이너 NO" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_cntrNo2" placeholder="" class=" w150" ref="data:ds_list.cntrNo" mandatory="true"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="규격" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_cntrNrm" placeholder="" class=" w150" ref="data:ds_list.cntrNrm"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="MRN" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_mrn" placeholder="" class=" w150" ref="data:ds_list.mrn"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="MSN" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_msn" placeholder="" class=" w150" ref="data:ds_list.msn"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="하선장소" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_dsmbrkPlcCd" placeholder="" class=" w150" ref="data:ds_list.dsmbrkPlcCd"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="적재항" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_dropPort" placeholder="" class=" w150" ref="data:ds_list.dropPort"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="양륙항" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_dchrPort" placeholder="" class=" w150" ref="data:ds_list.dchrPort"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="CONSIGNEE" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_sendMchtNm1" placeholder="" class=" w150" ref="data:ds_list.sendMchtNm1"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="SHIPPER" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_cntMchtNm" placeholder="" class=" w150" ref="data:ds_list.cntMchtNm"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="특이사항" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input style="" id="ed_txt_rmkDesc" placeholder="" class=" w150" ref="data:ds_list.rmkDesc"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="btnbox">
+    				<xf:group id="" class="right">
+    					<xf:trigger style="" id="btn_update" type="button" class="btn" ev:onclick="scwin.btn_update_onclick">
+    						<xf:label><![CDATA[수정]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger style="" id="btn_cancel" type="button" class="btn" ev:onclick="scwin.btn_cancel_onclick">
+    						<xf:label><![CDATA[취소]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger style="" id="btn_save" type="button" class="btn" ev:onclick="scwin.btn_save_onclick">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

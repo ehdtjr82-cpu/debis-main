@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_version">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_staffPlan" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="branchCd" name="상위부서코드" dataType="text"></w2:column>
+    					<w2:column id="branchNm" name="구분명" dataType="text"></w2:column>
+    					<w2:column id="branchCd2" name="부서코드" dataType="text"></w2:column>
+    					<w2:column id="branchNm2" name="부서명" dataType="text"></w2:column>
+    					<w2:column id="occpgrdPlan01" name="관리직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdPlan02" name="일반직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdPlan03" name="운영직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdPlan04" name="사무직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdPlan05" name="현장직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdDcsn01" name="관리직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdDcsn02" name="일반직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdDcsn03" name="운영직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdDcsn04" name="사무직" dataType="number"></w2:column>
+    					<w2:column id="occpgrdDcsn05" name="현장직" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_searchStaffPlan">
+    				<w2:keyInfo>
+    					<w2:key id="planYm" name="name1" dataType="text" defaultValue=""></w2:key>
+    					<w2:key id="ver" name="name2" dataType="text" defaultValue=""></w2:key>
+    					<w2:key id="clsCd" name="name3" dataType="text" defaultValue=""></w2:key>
+    					<w2:key id="coCd" name="name4" dataType="text" defaultValue=""></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_version" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchStaffPlan" action="/ac.co.bizplan.RetrieveStaffPlanControlCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_searchStaffPlan","key":"IN_DS1"},{"id":"ds_staffPlan","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_staffPlan","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchStaffPlan_submitdone" ev:submiterror="scwin.sbm_searchStaffPlan_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveVer" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json" ref="data:json,dma_version" target='data:json,{"id":"ds_version","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveVer_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript" scopeVariable="ACConstants"></script>
+    	<script cache="false" scopeExternal="false" src="/ui/cm/fw/constants/DGlobalValue.js" scopeVariable="" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 전역 변수
+//-------------------------------------------------------------------------
+scwin.memJson = $c.data.getMemInfo();
+scwin.privAdmin = scwin.memJson.privAdmin;
+
+scwin.G_acctDeptCd = "";
+scwin.G_acctDeptNm = "";
+scwin.G_empNo = "";
+scwin.G_empNm = "";
+
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd;           // 소속 자회사  	
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd;  //회계_회사구분('CO035' : 0:동부 EXPRESS)	
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd;                                         // 사용자소속구분코드 
+scwin.isSubCompany = false;
+
+scwin.fromDate = ""; // 작업날짜
+scwin.txtCoClsCd = "";  // 회사구분 히든 값
+scwin.isStart = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    $c.gus.cfDisableKey();
+};
+
+/**
+ * UDC값
+ */
+scwin.onUdcCompleted = function () {
+    $c.gus.cfDisableObjects([ed_coCd, ed_coNm, btn_company]);
+    ica_FromDate.setValue($c.date.getServerDateTime("yyyy"));
+    scwin.fromDate = ica_FromDate;
+    scwin.f_LoadVer();
+    acb_clsCd.setSelectedIndex(0);
+    scwin.f_setCompanyInfo();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    let ret = await $c.gus.cfValidate([ed_coCd, ica_FromDate, acb_version, acb_clsCd]);
+    if (!ret) {
+        return false;
+    }
+
+    $c.sbm.execute(sbm_searchStaffPlan);
+}
+
+//-------------------------------------------------------------------------
+// Ver정보를 가져온다.
+//-------------------------------------------------------------------------
+scwin.f_LoadVer = function () {
+
+    // 작업구분코드 및 날짜 세팅함수 호출
+    scwin.f_setWrkNoFromDate();
+
+    const params = {
+        sysCd: "CommonEBC",
+        queryId: "retrieveVersionInfo",
+        param1: scwin.fromDate,
+    };
+
+    //데이터셋에 정보설정
+    dma_version.setJSON(params);
+
+    $c.sbm.execute(sbm_retrieveVer);
+}
+
+
+//-------------------------------------------------------------------------
+// 최종 Ver을 설정
+//-------------------------------------------------------------------------
+scwin.f_SetFinalVer = function () {
+    if (ds_version.getRowCount() < 1) return;
+
+    let index = 0;
+
+    for (let i = 0; i < ds_version.getRowCount(); i++) {
+        if (ds_version.getCellData(i, "col3") == DGlobalValue.TRUE) {
+            index = i;
+            break;
+        }
+    }
+
+    acb_version.setSelectedIndex(index);
+}
+
+
+//-------------------------------------------------------------------------
+// 조회 및 마감확인시 작업코드 날짜 세팅하는 함수
+//-------------------------------------------------------------------------
+scwin.f_setWrkNoFromDate = function () {
+    scwin.fromDate = ica_FromDate.getValue().trim() + "00";
+}
+
+/**
+ * 엑셀 다운로드
+ */
+scwin.f_runExcel = async function () {
+    let totCnt = ds_staffPlan.getRowCount();
+    let sheetTitle = "인원계획조정내역";
+
+    if (totCnt != 0) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (cfrm) {
+            const options = {
+                fileName: sheetTitle + ".xlsx",
+                sheetName: sheetTitle
+            };
+            $c.data.downloadGridViewExcel(gr_staffPlan, options);
+        }
+    } else {
+        await $c.win.alert(MSG_CM_WRN_002);
+    }
+};
+
+//-------------------------------------------							
+// 그리드 높이 늘리고 줄이기							
+//-------------------------------------------
+scwin.f_grdHeiht = function (gridNm, size) {
+    let strHeight = gridNm.getHeight();
+    let intHeight = parseInt(strHeight.replace("px", ""));
+    intHeight = intHeight + size;
+    if (intHeight > 0) {
+        gridNm.setHeight(intHeight + "px");
+    }
+}
+
+scwin.f_setCompanyInfo = async function () {
+    // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+    if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+        scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+        scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+    }
+    scwin.isStart = true;
+
+    ed_coCd.setValue(scwin.vLoginCoCd);
+    scwin.f_PopUpCompanyInfo('T')
+}
+
+//회사 입력 팝업
+scwin.f_PopUpCompanyInfo = async function (pWinCloseTF) {
+    udc_dongbuGroupCompanyInfo.cfCommonPopUp(scwin.udc_dongbuGroupCompanyInfo_callBackFunc
+								,ed_coCd.getValue(), ""
+								,pWinCloseTF,null,null,null,null
+								,null,null,null,null,null);
+};
+
+scwin.udc_dongbuGroupCompanyInfo_callBackFunc = function(rtnList) {
+    if (rtnList != null) {
+        ed_coCd.setValue(rtnList[0]);
+        ed_coNm.setValue(rtnList[5]);
+        scwin.txtCoClsCd = rtnList[1];
+    } else {
+        ed_coCd.setValue("");
+        ed_coNm.setValue("");
+        scwin.txtCoClsCd = "";
+    }
+
+    if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {  	// 자회사 회계 시스템 
+        scwin.isSubCompany = true;
+    } else {
+        scwin.isSubCompany = false;
+    }
+
+    if(scwin.isStart == true) {
+        if ('T' == scwin.privAdmin || !scwin.isSubCompany) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우 
+            $c.gus.cfEnableObjects([ed_coCd, ed_coNm, btn_company]);
+        } else {
+            $c.gus.cfDisableObjects([ed_coCd, ed_coNm, btn_company]);
+        }
+    }
+    scwin.isStart = false;
+};
+
+
+scwin.sbm_searchStaffPlan_submitdone = async function (e) {
+    totalRows.setValue(ds_staffPlan.getRowCount());
+    if (ds_staffPlan.getRowCount() == 0) {
+        await $c.win.alert(MSG_CM_ERR_003);
+    }
+};
+
+scwin.sbm_retrieveVer_submitdone = function (e) {
+    scwin.f_SetFinalVer();
+};
+
+scwin.udc_dongbuGroupCompanyInfo_onclickEvent = async function (e) {
+    scwin.f_PopUpCompanyInfo('F');
+};
+
+scwin.udc_dongbuGroupCompanyInfo_onblurCodeEvent = function (e) {
+    if (ed_coCd.getValue() != ""){
+        scwin.f_PopUpCompanyInfo('T');
+    }
+    else{
+        ed_coNm.setValue("");
+    }
+};
+
+scwin.ica_FromDate_onblur = function (e) {
+    scwin.f_LoadVer();
+};
+
+scwin.btn_reset_onclick = function (e) {
+    $c.gus.cfInitObjects(table2,[ica_FromDate,acb_version,acb_clsCd, ed_coCd, ed_coNm]);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="table1" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:75px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:75px;" tagname="col"></xf:group>
+    								<xf:group style="width: 15%;" tagname="col"></xf:group>
+    								<xf:group style="width:50px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width: 45px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="table2" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="회사코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="btn_PopUp1" style="" codeId="ed_coCd" mandatoryCode="true" validExpCode="회사코드:yes" allowCharCode="0-9" maxlengthCode="3" UpperFlagCode="1" nameId="ed_coNm" btnId="btn_company" id="udc_dongbuGroupCompanyInfo" selectID="retrieveDongbuGroupCompanyInfo" code="coCd" name="coNm" ev:onclickEvent="scwin.udc_dongbuGroupCompanyInfo_onclickEvent" popupGridHeadTitle="회사코드,,,,,회사명" popupTitle="회사조회,회사코드,법인명" refDataCollection="dma_searchStaffPlan" popupGridHiddenColumn="2,3,4,5,7,8,9,10" ev:onblurCodeEvent="scwin.udc_dongbuGroupCompanyInfo_onblurCodeEvent" validTitle="회사코드"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="예산년도 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:inputCalendar calendarValueType="year" class="" id="ica_FromDate" style="" mandatory="true" objType="data" displayFormat="yyyy" validateOnInput="true" editType="select" placeholder=" " ref="data:dma_searchStaffPlan.planYm" title="예산년도" ev:onblur="scwin.ica_FromDate_onblur"></w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="버전 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="acb_version" search="start" style="width: 130px;" submenuSize="auto" mandatory="true" disabled="false" allowChar="0-9" ref="data:dma_searchStaffPlan.ver" allOption="" chooseOption="" displayMode="value delim label" title="버전">
+    										<w2:choices>
+    											<w2:itemset nodeset="data:ds_version">
+    												<w2:label ref="col4"></w2:label>
+    												<w2:value ref="col1"></w2:value>
+    											</w2:itemset>
+    										</w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="구분 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="acb_clsCd" search="start" style="width: 100px;" submenuSize="auto" allOption="" chooseOption="" ref="data:dma_searchStaffPlan.clsCd" disabled="false" displayMode="value delim label">
+    										<w2:choices>
+    											<w2:item>
+    												<w2:label><![CDATA[전사]]></w2:label>
+    												<w2:value><![CDATA[0]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[사업부별]]></w2:label>
+    												<w2:value><![CDATA[1]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[지점별]]></w2:label>
+    												<w2:value><![CDATA[2]]></w2:value>
+    											</w2:item>
+    										</w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_reset" style="" type="button" ev:onclick="scwin.btn_reset_onclick">
+    							<xf:label><![CDATA[새로고침]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="인원계획내역 " style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownUserAuth="X" gridID="gr_staffPlan" id="udc_topGrd" gridDownFn="scwin.f_runExcel" btnUser="Y"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw"
+    									dataList="data:ds_staffPlan" id="gr_staffPlan" scrollByColumn="false" scrollByColumnAdaptive="false" style=""
+    									visibleRowNum="15" visibleRowNumFix="true" dataName="인원계획조정조회" userAttr2="ignoreStatus=no" columnMove="true" columnMoveWithFooter="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    												removeBorderStyle="false" width="280" value="구분" colSpan="4" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="text" value="계획" width="350"
+    												colSpan="5" sortable="false">
+    											</w2:column>
+    											<w2:column width="350" inputType="text" id="column57" value="확정" displayMode="label"
+    												colSpan="5" sortable="false">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row6">
+    											<w2:column width="100" inputType="text" id="branchCd" value="상위부서코드" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="branchNm" value="구분명" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="branchNm2" value="부서명" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="branchCd2" value="부서코드" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdPlan01" value="관리직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdPlan02" value="일반직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdPlan03" value="운영직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdPlan04" value="사무직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdPlan05" value="현장직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn01" value="관리직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn02" value="일반직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn03" value="운영직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn04" value="사무직" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn05" value="현장직" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="branchCd" inputType="text"
+    												removeBorderStyle="false" width="100" hiddenCol="true" hidden="true">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="branchNm" inputType="text"
+    												removeBorderStyle="false" width="70" colMerge="true">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="branchNm2" inputType="text"
+    												removeBorderStyle="false" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="branchCd2" inputType="text"
+    												removeBorderStyle="false" width="100" hiddenCol="true" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="occpgrdPlan01" inputType="text" width="70"
+    												textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="occpgrdPlan02" inputType="text" width="70"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="occpgrdPlan03" inputType="text" width="70"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="occpgrdPlan04" inputType="text" width="70"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="occpgrdPlan05" inputType="text" width="70"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn01" displayMode="label"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn02" displayMode="label"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn03" displayMode="label"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn04" displayMode="label"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="occpgrdDcsn05" displayMode="label"
+    												textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:subTotal targetColumnID="branchNm" style="" id="subTotal1">
+    										<w2:row style="" id="row7">
+    											<w2:column width="100" inputType="text" id="column74" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column73" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="column72" displayMode="label" value="소계"></w2:column>
+    											<w2:column width="100" inputType="text" id="column71" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column70" displayMode="label"
+    												expression='SUM("occpgrdPlan01")' textAlign="right" dataType="number" displayFormat="#,##0">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column69" displayMode="label"
+    												expression='SUM("occpgrdPlan02")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column68" displayMode="label"
+    												expression='SUM("occpgrdPlan03")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column67" displayMode="label"
+    												expression='SUM("occpgrdPlan04")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column66" displayMode="label"
+    												expression='SUM("occpgrdPlan05")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column65" displayMode="label"
+    												expression='SUM("occpgrdDcsn01")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column64" displayMode="label"
+    												expression='SUM("occpgrdDcsn02")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column63" displayMode="label"
+    												expression='SUM("occpgrdDcsn03")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column62" displayMode="label"
+    												expression='SUM("occpgrdDcsn04")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column61" displayMode="label"
+    												expression='SUM("occpgrdDcsn05")' textAlign="right" displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:subTotal>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row5">
+    											<w2:column width="100" inputType="text" id="column31" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column30" displayMode="label" value="합계"></w2:column>
+    											<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="expression" id="column27" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdPlan01")' dataType="number" displayFormat="#,##0">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column26" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdPlan02")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column25" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdPlan03")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column24" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdPlan04")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column23" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdPlan05")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column60" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdDcsn01")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column56" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdDcsn02")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column52" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdDcsn03")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column44" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdDcsn04")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" id="column48" displayMode="label"
+    												textAlign="right" expression='SUM("occpgrdDcsn05")' displayFormat="#,##0" dataType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,1377 @@
+/*amd /ui/ac/fi/gnrlaccount/slipmgnt/fi_201_07_01b.xml 99233 a4d81a58ee1d56c78892932ce01e682b5746690aed13be32fa3acf4c7954a5d8 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_search2'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'coCd',name:'회사코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_getMaxCloseYm',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'closeYm',name:'마감년월',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'slipDtSt',name:'전표작성일자From',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipAcctDeptCdSt',name:'전표작성부서코드From',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipDtEnd',name:'전표작성일자To',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawEmpNo',name:'작성자사원번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postYn',name:'회계처리여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipAcctDeptCdEnd',name:'전표작성부서코드To',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipKndCd',name:'전표종류코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipKndNm',name:'전표종류명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postEmpNo',name:'회계처리자사원번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postDtSt',name:'회계일자From',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postDtEnd',name:'회계일자To',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coCd',name:'회사코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coClsCd',name:'회사구분코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_slip',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'slipKndCd',name:'전표종류코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'slipKndNm',name:'전표종류명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'modPsblYn',name:'수정가능여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'autoSlipYn',name:'자동전표여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'slipDt',name:'작성일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'reverseSlipNo',name:'역분개전표번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'txnNo',name:'거래번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'drawAcctDeptNm',name:'작성귀속부서명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'dsum',name:'차변합계',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'csum',name:'대변합계',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'postDt',name:'회계처리일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'postYn',name:'회계처리여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'postAcctDeptCd',name:'회계처리귀속부서코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'postAcctDeptNm',name:'회계처리귀속부서명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'prtCnt',name:'발행건수',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'drawEmpNo',name:'작성자사원번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'drawEmpNm',name:'작성자사원명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'checkYn',name:'체크여부',dataType:'text',defaultValue:'',ignoreStatus:'false'}},{T:1,N:'w2:column',A:{id:'postNo',name:'회계처리번호',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'delYn',name:'삭제여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'hpostDt',name:'H회계일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'apprvReqNo',name:'결재요청번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'drawAcctDeptCd',name:'작성귀속부서코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'elecStmtTrgtYn',name:'전자결재대상여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'apprvEmpNm',name:'허가사원명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'coCd',name:'회사코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'coClsCd',name:'회사구분코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'elecApprvInfoYn',name:'전자결재자정보여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'evidenceCnt',name:'증빙건수',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'fixedAsetApprvYn',name:'자산이력승인여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'cancelYn',name:'취소여부',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'regDt',name:'등록일시',dataType:'text',defaultValue:''}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_slip_process',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'checkYn',name:'체크여부',dataType:'text',defaultValue:'',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'slipKndCd',name:'전표종류코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'slipKndNm',name:'전표종류명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'modPsblYn',name:'수정가능여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'autoSlipYn',name:'자동전표여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'slipDt',name:'작성일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'reverseSlipNo',name:'역분개전표번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'txnNo',name:'거래번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'drawAcctDeptNm',name:'작성귀속부서명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'dsum',name:'차변합계',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'csum',name:'대변합계',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'postDt',name:'회계처리일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'postYn',name:'회계처리여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'postAcctDeptCd',name:'회계처리귀속부서코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'postAcctDeptNm',name:'회계처리귀속부서명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'prtCnt',name:'발행건수',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'drawEmpNo',name:'작성자사원번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'drawEmpNm',name:'작성자사원명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'postNo',name:'회계처리번호',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'delYn',name:'삭제여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'hpostDt',name:'H회계일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'apprvReqNo',name:'결재요청번호',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'drawAcctDeptCd',name:'작성귀속부서코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'elecStmtTrgtYn',name:'전자결재대상여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'apprvEmpNm',name:'허가사원명',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'coCd',name:'회사코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'coClsCd',name:'회사구분코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'elecApprvInfoYn',name:'전자결재자정보여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'evidenceCnt',name:'증빙건수',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'fixedAsetApprvYn',name:'자산이력승인여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'cancelYn',name:'취소여부',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'regDt',name:'등록일시',dataType:'text',defaultValue:''}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_commonCode'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'sysCd',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'queryId',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'param1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'param2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'param3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param4',name:'param4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param5',name:'param5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param6',name:'param6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param7',name:'param7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param8',name:'param8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param9',name:'param9',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param10',name:'param10',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_getVatNo',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'COL1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'COL2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'COL3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'COL4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'COL5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'COL6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'COL7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'COL8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'COL9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'COL10',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_getResposeMessage',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'COL1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'COL2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'COL3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'COL4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'COL5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'COL6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'COL7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'COL8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'COL9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'COL10',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_slipREsponseCheck'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipKndCd',name:'전표종류코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipKndNm',name:'전표종류명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipDt',name:'작성일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipAcctDeptCd',name:'전표귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipAcctDeptNm',name:'전표귀속부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawEmpNo',name:'작성자사원번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawAcctDeptCd',name:'작성귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipCreatDt',name:'전표생성일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'autoSlipYn',name:'자동전표여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'txnNo',name:'거래번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postYn',name:'회계처리여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postDt',name:'회계처리일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postAcctDeptCd',name:'회계처리귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postNo',name:'회계처리번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postEmpNo',name:'회계처리자사원번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postActDt',name:'회계처리실행일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'prtCnt',name:'발행건수',dataType:'text'}},{T:1,N:'w2:key',A:{id:'delYn',name:'삭제여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'checkYn',name:'체크여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'modPsblYn',name:'수정가능여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawAcctDeptNm',name:'작성귀속부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dsum',name:'차변합계',dataType:'text'}},{T:1,N:'w2:key',A:{id:'csum',name:'대변합계',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postAcctDeptNm',name:'회계처리귀속부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawEmpNm',name:'작성자사원명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:key',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'modDtm',name:'수정일시',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reverseSlipNo',name:'역분개전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'ctrlSlipYn',name:'조정전표여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reversePsblYn',name:'역분개가능여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reverseAutoSlipYn',name:'역분개자동전표여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNoCheck',name:'체크용전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postProcess',name:'회계처리프로세스',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hpostDt',name:'H회계일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'elecApprvTrgtYn',name:'전자결재대상여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'apprvReqNo',name:'결재요청번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postReqDt',name:'회계처리요청일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'elecStmtTrgtYn',name:'전자결재대상여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipSeq',name:'전표순번',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctCd',name:'계정코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctNm',name:'계정명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'회계부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptNm',name:'회계부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'summary',name:'적요',dataType:'text'}},{T:1,N:'w2:key',A:{id:'modDtm2',name:'수정일시2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'apprvEmpNm',name:'허가사원명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'finalCloseYm',name:'최종마감년월',dataType:'text'}},{T:1,N:'w2:key',A:{id:'spplyDt',name:'공급일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'elecApprvInfoYn',name:'전자결재자정보여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveSlipResponseCheck',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'sellPchsGbn',name:'매출매입구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spplyDt',name:'공급일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vatNo',name:'부가세번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'DEBIS전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'classcode',name:'구분(05:신규,06:정정,07:삭제)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'responsetype',name:'응답여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'taxbilltypecode',name:'계산서종류',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_getMaxCloseYm',action:'/cm.bc.comnmgnt.closemgnt.RetrieveMaxCloseYmCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search2","key":"IN_DS1"},{"id":"ds_getMaxCloseYm","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_getMaxCloseYm","key":"OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_getMaxCloseYm_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_search',action:'/ac.fi.gnrlaccount.slipmgnt.RetrieveSlipListCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_slip","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_slip","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'처리중...','ev:submit':'','ev:submitdone':'scwin.sbm_search_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_post',action:'/ac.fi.gnrlaccount.slipmgnt.CancelSlipPostingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_slip","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'처리중...','ev:submit':'','ev:submitdone':'scwin.sbm_post_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_getVatNo',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_commonCode',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_getVatNo_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_getResponseMessage',action:'/ac.fi.gnrlaccount.slipmgnt.RetrieveSlipResponseCheckCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_commonCode',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'false',src:'/ui/ac/am/constants/ACConstants.js',scopeVariable:'',type:'text/javascript'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//==================================================================================================================
+// id       : fi_201_07_01b
+// 이름     : 전표회계처리/취소처리
+// 경로     : 재무회계/일반회계/전표관리/
+// 사용계정 : 내부
+// 파라미터 :
+//            IN  :
+//            OUT :
+//
+// 비고     : 
+//           
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            
+//==================================================================================================================
+
+// 로그인사용자 정보
+scwin.vLoginCoCd = ""; // 소속 자회사 
+scwin.vLoginCoClsCd = ""; // 회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd = ""; // 사용자소속구분코드 
+scwin.privAdmin = ""; // 어드민권한
+scwin.userId = ""; // 사용자ID
+scwin.vCoCd = ""; // 회사코드
+scwin.vCoClsCd = ""; // 소속회사종류 : 회계_회사구분('CO035' : 0:동부 EXPRESS)
+
+scwin.vAdminYn = ""; // 어드민여부
+scwin.userEmpNo = ""; // 사용자번호
+
+scwin.isSubCompany = false; // 자회사여부
+
+scwin.acctDeptCd = ""; // 회계부서코드
+scwin.acctDeptNm = ""; // 회계부서명
+
+scwin.txtCoClsCd = ""; // 회사구분
+scwin.ed_coCd_hidVal = ""; // 회사 히든값
+scwin.ed_slipAcctDeptCdSt_hidVal = ""; // 작성부서From (1)
+scwin.ed_drawEmpNo_hidVal = ""; // 작성자 (3)
+scwin.ed_slipKndCd_hidVal = ""; // 전표종류 (4)
+scwin.ed_postEmpNo_hidVal = ""; // 회계처리자 (5)
+
+scwin.postOrCancel = "1"; // 회계처리취소여부 (1: 회계처리, 2: 회계처리취소)
+
+scwin.isStarted = true; // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+
+scwin.onpageload = function () {
+  console.log("====== onpageload ================== v1.01");
+
+  // 회원정보를 json 데이터로 모두 받음
+  let memJson = $c.data.getMemInfo($p);
+
+  // 로그인 정보 추출
+  let coCd = $c.gus.cfIsNull($p, $c.data.getMemInfo($p, "coCd")) ? '' : $c.data.getMemInfo($p, "coCd");
+  let coClsCd = $c.gus.cfIsNull($p, $c.data.getMemInfo($p, "coClsCd")) ? '' : $c.data.getMemInfo($p, "coClsCd");
+  let userHomeClsCd = $c.data.getMemInfo($p, "userHomeClsCd"); // 사용자소속구분코드
+  let userId = $c.data.getMemInfo($p, "userId");
+  let privAdmin = $c.data.getMemInfo($p, "privAdmin");
+  let empNo = $c.data.getMemInfo($p, "empNo");
+  scwin.vLoginCoCd = coCd;
+  scwin.vLoginCoClsCd = coClsCd;
+  scwin.vUserHomeClsCd = userHomeClsCd;
+  scwin.vCoCd = coCd;
+  scwin.vCoClsCd = coClsCd;
+  scwin.userId = userId;
+  scwin.vAdminYn = privAdmin;
+  scwin.userEmpNo = empNo;
+  console.log("▶▶ vLoginCoCd : " + scwin.vLoginCoCd + "   loginCoClsCd : " + scwin.vLoginCoClsCd);
+  console.log("▶▶ vCoCd      : " + scwin.vCoCd + "   vCoClsCd : " + scwin.vCoClsCd);
+  console.log("▶▶ userId     : " + scwin.userId + "   userEmpNo : " + scwin.userEmpNo);
+  console.log("▶▶ vUserHomeClsCd : " + scwin.vUserHomeClsCd + "   vAdminYn : " + scwin.vAdminYn);
+  //    console.log("▶▶ memJson : "+ JSON.stringify(memJson));
+
+  // 회계부서코드/명
+  let acctDeptCd = $c.data.getMemInfo($p, "acctDeptCd");
+  let acctDeptNm = $c.data.getMemInfo($p, "acctDeptNm");
+  scwin.acctDeptCd = acctDeptCd;
+  scwin.acctDeptNm = acctDeptNm;
+  console.log("▶▶ acctDeptCd : " + scwin.acctDeptCd + "   acctDeptNm : " + scwin.acctDeptNm);
+
+  // 공통코드 : onPageLoad 에 위치
+  const codeOptions = [{
+    grpCd: "FI008",
+    compID: "lc_postYn"
+  } // 가결구분
+  // ,{ grpCd : "FI039", compID : "lc_persClsCd,gr_salary:persClsCd"    }  // 직원구분
+  //  { grpCd : "FI038", compID : "lc_salPayClsCd"  }  // 급여구분
+  // ,{ grpCd : "FI039", compID : "lc_persClsCd"    }  // 직원구분
+  // ,{ grpCd : "FI038", compID : "gr_salary:salPayClsCd"  }  // 급여구분
+  // ,{ grpCd : "FI039", compID : "gr_salary:persClsCd"    }  // 직원구분
+  ];
+  console.log(" codeOptions : " + JSON.stringify(codeOptions));
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+// 공통코드 가져올 때
+scwin.ondataload = function () {
+  console.log("  -- -- 회계처리여부 전체 (-1) 추가  --------------------------");
+  // 회계처리여부(가결구분)은  전체가 -1.
+  dlt_commonCodeFI008.insertRow(0);
+  dlt_commonCodeFI008.setCellData(0, "cd", "-1");
+  dlt_commonCodeFI008.setCellData(0, "cdNm", "전체");
+
+  // 인덱스 대신 value 로 초기값 지정
+  // lc_postYn.index=1;  // 가결
+  lc_postYn.setValue(0);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  console.log("==-==-== onUdcCompleted");
+  $p.setTimeout(function () {
+    // f_Header();
+    ds_search2.set("coCd", scwin.vCoCd);
+    scwin.f_setCompanyInfo();
+    scwin.f_Setting();
+    scwin.getMaxCloseYm(); //마감년월 가져오기
+
+    if (!$c.gus.cfIsNull($p, ed_slipAcctDeptCdSt.getValue()))
+      // 작성부서From  조회
+      scwin.f_openPopUp('1', 'T');
+  }, {
+    "delay": 50
+  });
+};
+
+// @@ ====== 준비 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 재조회 (초기화)
+//-------------------------------------------------------------------------
+scwin.f_SearchClear = function (e) {
+  $c.gus.cfInitObjects($p, searchTable);
+  scwin.f_Setting();
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 셋팅
+//-------------------------------------------------------------------------
+scwin.f_Setting = function () {
+  // lc_postYn.setSelectedIndex(1);  // 가결
+  lc_postYn.setValue(0);
+  scwin.f_PostYn();
+  var thisYm = $c.date.getServerDateTime($p, "yyyyMM");
+  ed_slipDtSt.setValue(thisYm + "01");
+  ed_slipDtEnd.setValue($c.date.getServerDateTime($p, "yyyyMMdd"));
+
+  // ed_slipAcctDeptCdSt.text = "<%=login.getAcctDeptCd()%>"
+  // txt_slipAcctDeptNmSt.value = "<%=login.getAcctDeptNm()%>";
+
+  ed_slipAcctDeptCdSt.setValue(scwin.acctDeptCd);
+  ed_slipAcctDeptNmSt.setValue(scwin.acctDeptNm);
+
+  // ed_slipAcctDeptCdEnd.style.display = "none";
+  udc_slipAcctDeptCdEnd.hide();
+  ed_slipDtSt.focus();
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function () {
+  console.log("=== f_setCompanyInfo (자회사 회계 시스템 설정)");
+
+  // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+  if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+    scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+    scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+  }
+  ed_coCd.setValue(scwin.vLoginCoCd);
+  scwin.f_PopUpCompanyInfo('T'); // 속도 지연 문제
+
+  // KYU_ORDER : 회사팝업 콜백으로 이동 (팝업 리턴 시간차)
+
+  // if('T' == '<%=privAdmin%>'  ||  !isSubCompany   ) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+  // 	cfEnableObjects([ed_coCd,txt_coNm,img_company ]);
+  // }else {
+  // 	cfDisableObjects([ed_coCd,txt_coNm,img_company  ]);
+  // }
+};
+
+//-------------------------------------------------------------------------
+// 전월 마감여부 
+//-------------------------------------------------------------------------
+scwin.getMaxCloseYm = function () {
+  console.log("=== getMaxCloseYm (전월 마감여부)");
+
+  //	tr_getMaxCloseYm.Post();
+
+  var dcJSON = ds_search2.getJSON();
+  // console.log("  *** ds_search2 : "+ JSON.stringify(dcJSON));
+
+  $c.sbm.execute($p, sbm_getMaxCloseYm);
+};
+
+//-------------------------------------------------------------------------
+// 전월 마감여부 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_getMaxCloseYm_submitdone = function (e) {
+  console.log("▷ sbm_getMaxCloseYm_submitdone (전월 마감여부)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // <!-- 미마감 월  확인후 작성일자 셋팅 -->
+  // language="javascript"  for=ds_getMaxCloseYm event=OnLoadCompleted(rowcnt)>
+
+  var thisYm = $c.date.getServerDateTime($p, "yyyyMMdd"); // 오늘일자 가져오기
+
+  //최소 미마감월이 당월이 아닐때
+  if (ds_getMaxCloseYm.getCellData(0, "closeYm") != thisYm.substr(0, 6)) {
+    var closeYm = ds_getMaxCloseYm.getCellData(0, "closeYm");
+
+    // var firstDay = closeYm.substr(0,4)+"/"+closeYm.substr(4,2)+"/"+"01";  // 1일
+    var firstDay = closeYm.substring(0, 6) + "01";
+    // var lastDay =  closeYm.substr(0,4)+"/"+closeYm.substr(4,2)+"/" + new Date(closeYm.substr(0,4),closeYm.substr(4,2),0).getDate(); // 마지막날
+    var lastDay = closeYm.substring(0, 4) + closeYm.substring(4, 6) + new Date(closeYm.substring(0, 4), closeYm.substring(4, 6), 0).getDate(); // 마지막날
+    ed_slipDtEnd.setValue(lastDay); //작성일자 셋팅
+    ed_slipDtSt.setValue(firstDay);
+  } else {
+    var closeYm = ds_getMaxCloseYm.getCellData(0, "closeYm");
+
+    // var firstDay = thisYm.substr(0,4)+"/"+thisYm.substr(4,2)+"/"+"01";  //당월 1일
+    var firstDay = closeYm.substring(0, 6) + "01";
+    // var lastDay = thisYm.substr(0,4)+"/"+thisYm.substr(4,2)+"/"+ new Date(thisYm.substr(0,4),thisYm.substr(4,2),0).getDate(); //당월 마지막날
+    var lastDay = closeYm.substring(0, 4) + closeYm.substring(4, 6) + new Date(closeYm.substring(0, 4), closeYm.substring(4, 6), 0).getDate(); // 마지막날
+    ed_slipDtEnd.setValue(lastDay); //작성일자 셋팅
+    ed_slipDtSt.setValue(firstDay);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 숫자차이체크
+//-------------------------------------------------------------------------
+scwin.f_BetweenCheck = function (str1, str2) {
+  if (str1 == "" && str2 != "" || str1 != "" && str2 == "") {
+    return false;
+  }
+  if (parseInt(str2) - parseInt(str1) < 0) {
+    return false;
+  }
+  return true;
+};
+
+// @@ ====== 조회 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 조회(전표내역)
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  console.log("====== f_Retrieve ==================");
+
+  // KYU_ISSUE : 팝업의 기능이 없는 UDC 삭제하고 전역변수로 대체 (문의중)
+  ed_slipAcctDeptCdEnd.setValue(ed_slipAcctDeptCdSt.getValue().trim());
+
+  // if (!cfValidate([ed_coCd, ed_slipDtSt,ed_slipDtEnd,ed_slipAcctDeptCdSt,ed_slipAcctDeptCdEnd,ed_drawEmpNo,ed_postDtSt,ed_postDtEnd,ed_slipNo]))
+  // let rtn1 = await $c.gus.cfValidate([ed_coCd, ed_slipDtSt,ed_slipDtEnd,ed_slipAcctDeptCdSt,ed_slipAcctDeptCdEnd,ed_drawEmpNo,ed_postDtSt,ed_postDtEnd,ed_slipNo]);
+  let rtn1 = await $c.gus.cfValidate($p, [ed_coCd, ed_slipDtSt, ed_slipDtEnd, ed_slipAcctDeptCdSt, ed_slipAcctDeptCdEnd, ed_drawEmpNo, ed_slipNo]);
+  if (!rtn1) return false;
+  if (!scwin.f_BetweenCheck(ed_slipAcctDeptCdSt.getValue().trim(), ed_slipAcctDeptCdEnd.getValue().trim())) {
+    await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_057, "작성부서To", "작성부서From"));
+    ed_slipAcctDeptCdSt.focus();
+    return false;
+  }
+  if (!$c.gus.cfIsAfterDate($p, ed_slipDtSt.getValue().trim(), ed_slipDtEnd.getValue().trim())) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+    ed_slipDtSt.focus();
+    return false;
+  }
+  if (!$c.gus.cfIsAfterDate($p, ed_postDtSt.getValue().trim(), ed_postDtEnd.getValue().trim())) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+    ed_postDtSt.focus();
+    return false;
+  }
+
+  // ds_search.UseChangeInfo = false;
+  // tr_search.Action="/ac.fi.gnrlaccount.slipmgnt.RetrieveSlipListCMD.do";
+  // tr_search.post();
+
+  // <C> Col=coClsCd               	Ctrl=txtCoClsCd                 Param=value       </C>
+  ds_search.set("coClsCd", scwin.txtCoClsCd);
+  var dcJSON = ds_search.getJSON();
+  console.log("  *** ds_search : " + JSON.stringify(dcJSON));
+  $c.sbm.execute($p, sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 조회(인사급상여전표기표) submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_search_submitdone = async function (e) {
+  console.log("▷▷ sbm_search_submitdone");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // language=JavaScript for=ds_slip event=OnLoadCompleted(rowCnt)>
+  //   cfHideDSWaitMsg(gr_txt);
+  //   cfShowTotalRows(totalRows, rowCnt);
+  var rowCnt = ds_slip.getTotalRow();
+  ed_totalRows.setValue(rowCnt);
+  if (rowCnt == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+  }
+
+  // gr_txt.ColumnProp('checkYn','HeadCheck')="false";
+  gr_txt.setHeaderValue("checkYn", false); // 헤더 체크 풀기
+};
+
+// @@ ====== 그리드 / DS ======================================================================= //
+
+//-------------------------------------------------------------------------
+// 회계차수 null 처리
+//-------------------------------------------------------------------------
+scwin.postNoExp = function (data) {
+  return $c.gus.decode($p, data, "0", "", data);
+};
+
+//-------------------------------------------------------------------------
+// 전자결제자정보여부 처리
+//-------------------------------------------------------------------------
+scwin.elecApprvInfoYnExp = function (data) {
+  return $c.gus.decode($p, data, "1", "체크", "미체크");
+};
+
+//-------------------------------------------------------------------------
+// 전표내역팝업 로딩
+//-------------------------------------------------------------------------
+scwin.gr_txt_oncellclick = function (rowIndex, columnIndex, columnId) {
+  var Row = rowIndex;
+  var Colid = columnId;
+  // <!-- 전표번호클릭시  -->
+  // language="javascript"  for=gr_txt event=OnClick(Row,Colid)>
+  if (Colid == "slipNo" && Row >= 0) {
+    $c.gus.cfShowSlipInfo($p, ds_slip.getCellData(Row, "slipNo"));
+  }
+};
+
+// @@ ====== 팝업 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 회사코드 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onclickEvent = function (e) {
+  scwin.f_PopUpCompanyInfo('F');
+};
+
+//-------------------------------------------------------------------------
+// 작성부서From 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_slipAcctDeptCdSt_onclickEvent = function (e) {
+  scwin.f_openPopUp('1', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 작성자 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_drawEmpNo_onclickEvent = function (e) {
+  scwin.f_openPopUp('3', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 전표종류 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_slipKndCd_onclickEvent = function (e) {
+  scwin.f_openPopUp('4', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 회계처리자 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_postEmpNo_onclickEvent = function (e) {
+  scwin.f_openPopUp('5', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = function (pWinCloseTF) {
+  // var rtnList = cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+  // 							,ed_coCd.text, txt_coNm.value
+  // 							,pWinCloseTF,null,null,null,null
+  // 							,null,null,null,null,null); 
+  // udc_coCd.cfCommonPopUp(scwin.udc_coCd_callBackFunc
+  // 							,ed_coCd.getValue(), ed_coNm.getValue()
+  // 							,pWinCloseTF,null,null,null,null
+  // 							,null,null,null,null,null);
+
+  // KYU_TEST : 회사코드 코드 null일 때 팝업 안뜨게 처리 : 2026-01-19
+  let pNoDataCloseTF = pWinCloseTF;
+  udc_coCd.cfCommonPopUp(scwin.udc_coCd_callBackFunc, ed_coCd.getValue(), ed_coNm.getValue(), pWinCloseTF, null, null, null, null, null, null, null, null, null, null, null, null, pNoDataCloseTF);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 @@
+//    1:작성부서From,2:작성부서To(미사용),3:작성자,4:전표종류,5:회계처리자
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function (flag, check) {
+  console.log("=== f_openPopUp ( flag[ " + flag + " ]  check[ " + check + " ]  1:작성부서)");
+  // var rtnList = new Array();
+  switch (flag) {
+    case '1':
+      // 작성부서From
+      var param = "," + ed_coCd.getValue() + "," + scwin.txtCoClsCd + ",0";
+      console.log("  작성부서From popup  param [" + param + "]");
+
+      // rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo6',ed_slipAcctDeptCdSt.text.trim(),txt_slipAcctDeptNmSt.value,check,null,null,null,null,param,null,null,null,null);
+      udc_slipAcctDeptCdSt.cfCommonPopUp(scwin.udc_slipAcctDeptCdSt_callBackFunc, ed_slipAcctDeptCdSt.getValue().trim(), ed_slipAcctDeptNmSt.getValue(), check, null, null, null, null, param, null, null, null, null);
+      // f_resultPopEd(ed_slipAcctDeptCdSt,txt_slipAcctDeptNmSt,rtnList);
+      break;
+    case '2':
+      // 작성부서To (미사용)
+      // var param = ","+ed_coCd.text+","+txtCoClsCd.value+",0";
+
+      // rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo6',ed_slipAcctDeptCdEnd.text.trim(),txt_slipAcctDeptNmEnd.value,check,null,null,null,null,param,null,null,null,null);
+      // f_resultPopEd(ed_slipAcctDeptCdEnd,txt_slipAcctDeptNmEnd,rtnList);
+      break;
+    case '3':
+      // 작성자
+      var param = '';
+      if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+        // 자회사 회계 시스템
+        param = ed_coCd.getValue() + "," + scwin.txtCoClsCd;
+      }
+      console.log("  작성자 popup  param [" + param + "]");
+
+      // rtnList = cfCommonPopUp('retrieveAcEmpInfo',ed_drawEmpNo.text.trim(),txt_drawEmpNm.value,check,null,null,null,null,param,null,null,null,null);
+      udc_drawEmpNo.cfCommonPopUp(scwin.udc_drawEmpNo_callBackFunc, ed_drawEmpNo.getValue().trim(), ed_drawEmpNm.getValue(), check, null, null, null, null, param, null, null, null, null, null, "F");
+      // f_resultPopEd(ed_drawEmpNo,txt_drawEmpNm,rtnList);
+      break;
+    case '4':
+      // 전표종류
+      // rtnList = cfCommonPopUp('retrieveSlipKndCd',ed_slipKndCd.text.trim(),txt_slipKndNm.value,check,null,null,null,null,"0",null,null,null,null);
+      udc_slipKndCd.cfCommonPopUp(scwin.udc_slipKndCd_callBackFunc, ed_slipKndCd.getValue().trim(), ed_slipKndNm.getValue(), check, null, null, null, null, "0", null, null, null, null);
+      // f_resultPopEd(ed_slipKndCd,txt_slipKndNm,rtnList);
+      break;
+    case '5':
+      // 회계처리자
+      var param = '';
+      if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+        // 자회사 회계 시스템
+        param = ed_coCd.getValue() + "," + scwin.txtCoClsCd;
+      }
+      console.log("  회계처리자 popup  param [" + param + "]");
+
+      // rtnList = cfCommonPopUp('retrieveAcEmpInfo',ed_postEmpNo.text.trim(),txt_postEmpNm.value,check,null,null,null,null,param,null,null,null,null);
+      udc_postEmpNo.cfCommonPopUp(scwin.udc_postEmpNo_callBakcFunc, ed_postEmpNo.getValue().trim(), ed_postEmpNm.getValue(), check, null, null, null, null, param, null, null, null, null);
+      // f_resultPopEd(ed_postEmpNo,txt_postEmpNm,rtnList);
+      break;
+    default:
+      break;
+  }
+};
+
+// @@ ====== 팝업 callBackFunc ================================================================= //
+//   1:작성부서From,2:작성부서To(미사용),3:작성자,4:전표종류,5:회계처리자
+
+//-------------------------------------------------------------------------
+// 회사코드 callBackFunc
+//-------------------------------------------------------------------------
+scwin.udc_coCd_callBackFunc = async function (rtnList) {
+  console.log("▲ udc_coCd_callBackFunc (회사코드 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") return;
+
+    // ed_coCd.text = rtnList[0];  // 코드
+    // txt_coNm.value = rtnList[5]; // 회사명
+    // ed_coCd.hidVal = rtnList[0];  // 히든값
+    // txtCoClsCd.value =rtnList[1];   // 회사구분
+
+    ed_coCd.setValue(rtnList[0]); // 코드
+    ed_coNm.setValue(rtnList[5]); // 회사명
+    scwin.ed_coCd_hidVal = rtnList[0]; // 히든값
+    scwin.txtCoClsCd = rtnList[1]; // 회사구분
+  } else {
+    // ed_coCd.text   = "";
+    // txt_coNm.value = "";
+    // ed_coCd.hidVal = "";
+    // txtCoClsCd.value ="";
+
+    ed_coCd.setValue(""); // 코드
+    ed_coNm.setValue(""); // 회사명
+    scwin.ed_coCd_hidVal = ""; // 히든값
+    scwin.txtCoClsCd = ""; // 회사구분
+  }
+
+  // KYU_TEST
+  // if ( scwin.isStarted  == true )   // 최초 이벤트 여부
+  // {
+  if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+    // 자회사 회계 시스템  0
+    scwin.isSubCompany = true;
+  } else {
+    scwin.isSubCompany = false;
+  }
+  // }
+
+  if (scwin.isStarted == true)
+    // 최초 이벤트 여부 (자회사 여부를 최초 한번만 실행-팝업 리턴 시간차)
+    {
+      console.log("  ==-==-== 자회사 여부에 따른 회사코드팝업 활성/비활성 처리 (최초 1회)");
+
+      // KYU_ORDER : 회사팝업 콜백으로 이동 (팝업 리턴 시간차)
+      if ('T' == scwin.vAdminYn || !scwin.isSubCompany) {
+        // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+        $c.gus.cfEnableObjects($p, [ed_coCd, ed_coNm, btn_coCd]);
+      } else {
+        $c.gus.cfDisableObjects($p, [ed_coCd, ed_coNm, btn_coCd]);
+      }
+      scwin.isStarted = false; // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+    }
+};
+
+//-------------------------------------------------------------------------
+// 작성부서From callBackFunc (1)
+//-------------------------------------------------------------------------
+scwin.udc_slipAcctDeptCdSt_callBackFunc = function (rtnList) {
+  console.log("▲ udc_slipAcctDeptCdSt_callBackFunc (작성부서From 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET	 
+  scwin.f_resultPopEd(ed_slipAcctDeptCdSt, ed_slipAcctDeptNmSt, rtnList, '1');
+};
+
+//-------------------------------------------------------------------------
+// 작성자 callBackFunc (3)
+//-------------------------------------------------------------------------
+scwin.udc_drawEmpNo_callBackFunc = function (rtnList) {
+  console.log("▲ udc_drawEmpNo_callBackFunc (작성자 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET	 
+  scwin.f_resultPopEd(ed_drawEmpNo, ed_drawEmpNm, rtnList, '3');
+};
+
+//-------------------------------------------------------------------------
+// 전표종류 callBackFunc (4)
+//-------------------------------------------------------------------------
+scwin.udc_slipKndCd_callBackFunc = function (rtnList) {
+  console.log("▲ udc_slipKndCd_callBackFunc (전표종류 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET	 
+  scwin.f_resultPopEd(ed_slipKndCd, ed_slipKndNm, rtnList, '4');
+};
+
+//-------------------------------------------------------------------------
+// 회계처리자 callBackFunc (4)
+//-------------------------------------------------------------------------
+scwin.udc_postEmpNo_callBakcFunc = function (rtnList) {
+  console.log("▲ udc_postEmpNo_callBakcFunc (회계처리자 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET	 
+  scwin.f_resultPopEd(ed_postEmpNo, ed_postEmpNm, rtnList, '5');
+};
+
+//-------------------------------------------------------------------------
+// 팝업결과
+//  flag : 신규 추가. 어떤 팝업을 호출했는지 구분
+//  1:작성부서From,2:작성부서To(미사용),3:작성자,4:전표종류,5:회계처리자
+//-------------------------------------------------------------------------
+scwin.f_resultPopEd = function (strCd, strNm, rtnList, flag) {
+  console.log("=== f_resultPopEd (팝업결과)   flag [" + flag + "]  1:작성부서From,2:작성부서To(미사용),3:작성자,4:전표종류,5:회계처리자)");
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      // 히든값 분기처리
+      switch (flag) {
+        case '1':
+          scwin.ed_slipAcctDeptCdSt_hidVal = "";
+          break;
+        // 작성부서From
+        case '3':
+          scwin.ed_drawEmpNo_hidVal = "";
+          break;
+        // 작성자
+        case '4':
+          scwin.ed_slipKndCd_hidVal = "";
+          break;
+        // 전표종류
+        case '5':
+          scwin.ed_postEmpNo_hidVal = "";
+          break;
+        // 회계처리자
+        default:
+          break;
+      }
+      return;
+    }
+    // strCd.Text = rtnList[0];	// 코드
+    // strNm.value = rtnList[1];	// 명
+    // strCd.hidVal = rtnList[0];  // 히든값
+
+    strCd.setValue(rtnList[0]); // 코드
+    strNm.setValue(rtnList[1]); // 명
+
+    // 히든값 분기처리
+    switch (flag) {
+      case '1':
+        scwin.ed_slipAcctDeptCdSt_hidVal = rtnList[0];
+        break;
+      // 작성부서From
+      case '3':
+        scwin.ed_drawEmpNo_hidVal = rtnList[0];
+        break;
+      // 작성자
+      case '4':
+        scwin.ed_slipKndCd_hidVal = rtnList[0];
+        break;
+      // 전표종류
+      case '5':
+        scwin.ed_postEmpNo_hidVal = rtnList[0];
+        break;
+      // 회계처리자
+      default:
+        break;
+    }
+  } else {
+    // strCd.Text = "";
+    // strNm.value = "";
+    // strCd.hidVal = "";
+    strCd.setValue("");
+    strNm.setValue("");
+
+    // 히든값 분기처리
+    switch (flag) {
+      case '1':
+        scwin.ed_slipAcctDeptCdSt_hidVal = "";
+        break;
+      // 작성부서From
+      case '3':
+        scwin.ed_drawEmpNo_hidVal = "";
+        break;
+      // 작성자
+      case '4':
+        scwin.ed_slipKndCd_hidVal = "";
+        break;
+      // 전표종류
+      case '5':
+        scwin.ed_postEmpNo_hidVal = "";
+        break;
+      // 회계처리자
+      default:
+        break;
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 팝업체크 - 코드값 변경시 자동검색
+//   flag : 팝업 플래그
+//-------------------------------------------------------------------------
+//  1:작성부서From,2:작성부서To(미사용),3:작성자,4:전표종류,5:회계처리자
+scwin.f_checkPopEd = function (strCd, strNm, flag) {
+  console.log("===== f_checkPopEd (팝업체크 - 코드값 변경시 자동검색  srtCd[" + strCd + "] strNm[" + strNm.getValue() + "] flag[" + flag + "]");
+
+  // if (strCd.text.trim() == strCd.hidVal)
+  // 	return;
+
+  if (flag == '1' && strCd.getValue().trim() == scwin.ed_slipAcctDeptCdSt_hidVal ||
+  // 작성부서From
+  flag == '3' && strCd.getValue().trim() == scwin.ed_drawEmpNo_hidVal ||
+  // 작성자
+  flag == '4' && strCd.getValue().trim() == scwin.ed_slipKndCd_hidVal ||
+  // 전표종류
+  flag == '5' && strCd.getValue().trim() == scwin.ed_postEmpNo_hidVal // 회계처리자
+  ) {
+    // KYU_TEST : 히든 비교시 코드가 null 이 아니어야 함. (코드 null 일 때 명 null 처리)
+    if (strCd.getValue() != "") return;
+  }
+
+  // strNm.value="";
+  strNm.setValue("");
+
+  // strCd.hidVal="";
+  switch (flag) {
+    case '1':
+      scwin.ed_slipAcctDeptCdSt_hidVal = "";
+      break;
+    // 작성부서From
+    case '3':
+      scwin.ed_drawEmpNo_hidVal = "";
+      break;
+    // 작성자
+    case '4':
+      scwin.ed_slipKndCd_hidVal = "";
+      break;
+    // 전표종류
+    case '5':
+      scwin.ed_postEmpNo_hidVal = "";
+      break;
+    // 회계처리자
+    default:
+      break;
+  }
+  if (strCd.getValue().trim() != "") scwin.f_openPopUp(flag, 'T');
+};
+
+// @@ ====== 이벤트 ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 회사코드 focus out
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onblurCodeEvent = function (e) {
+  // <!-- 회사코드 입력시  -->
+  // language=JavaScript for=ed_coCd event=OnKillFocus()> 
+  ed_coNm.setValue("");
+  scwin.f_PopUpCompanyInfo('T');
+};
+
+//-------------------------------------------------------------------------
+// 작성부서From  focus out
+//-------------------------------------------------------------------------
+scwin.udc_slipAcctDeptCdSt_onblurCodeEvent = function (e) {
+  // <!-- 공통코드 -->
+  // language=JavaScript for=ed_slipAcctDeptCdSt event=OnKillFocus()>
+  scwin.f_checkPopEd(ed_slipAcctDeptCdSt, ed_slipAcctDeptNmSt, '1');
+};
+
+//-------------------------------------------------------------------------
+// 작성자 focus out
+//-------------------------------------------------------------------------
+scwin.udc_drawEmpNo_onblurCodeEvent = function (e) {
+  // language=JavaScript for=ed_drawEmpNo event=OnKillFocus()>
+  scwin.f_checkPopEd(ed_drawEmpNo, ed_drawEmpNm, '3');
+};
+
+//-------------------------------------------------------------------------
+// 전표종류 focus out
+//-------------------------------------------------------------------------
+scwin.udc_slipKndCd_onblurCodeEvent = function (e) {
+  // language=JavaScript for=ed_slipKndCd event=OnKillFocus()>
+  ed_slipKndCd.setValue(ed_slipKndCd.getValue().trim().toUpperCase());
+  scwin.f_checkPopEd(ed_slipKndCd, ed_slipKndNm, '4');
+};
+
+//-------------------------------------------------------------------------
+// 회계처리자 focus out
+//-------------------------------------------------------------------------
+scwin.udc_postEmpNo_onblurCodeEvent = function (e) {
+  // language=JavaScript for=ed_postEmpNo event=OnKillFocus()>
+  scwin.f_checkPopEd(ed_postEmpNo, ed_postEmpNm, '5');
+};
+
+//-------------------------------------------------------------------------
+// 가결구분 변경시
+//-------------------------------------------------------------------------
+scwin.selectbox1_onchange = function (info) {
+  // <!-- 가결구분변경시 -->
+  // language=JavaScript for=lc_postYn event=OnSelChange()>
+  scwin.f_PostYn();
+};
+
+//-------------------------------------------------------------------------
+// 가결구분 변경시
+//-------------------------------------------------------------------------
+scwin.f_PostYn = function () {
+  if (lc_postYn.getValue() == "-1") {
+    // 전체
+    console.log("  --- 전체 선택");
+    // btPostCancel.style.display = "none";
+    // btPost.style.display = "none";
+    // btPrnt.style.display = "none";
+
+    btn_btPostCancel.hide();
+    btn_btPost.hide();
+    grp_print.hide();
+    var thisYm = $c.date.getServerDateTime($p, "yyyyMM");
+    ed_postDtSt.setValue(thisYm + "01");
+    ed_postDtEnd.setValue($c.date.getServerDateTime($p, "yyyyMMdd"));
+  } else if (lc_postYn.getValue() == "0") {
+    // 가결
+    // btPostCancel.style.display = "none";
+    // btPost.style.display = "inline";
+    // btPrnt.style.display = "none";
+
+    btn_btPostCancel.hide();
+    btn_btPost.show("");
+    grp_print.hide();
+    ed_postDtSt.setValue("");
+    ed_postDtEnd.setValue("");
+  } else if (lc_postYn.getValue() == "1") {
+    // 결제
+    console.log("  --- 결제 선택");
+
+    // btPostCancel.style.display = "inline";
+    // btPost.style.display = "none";
+    // btPrnt.style.display = "inline";
+
+    btn_btPostCancel.show("");
+    btn_btPost.hide();
+    grp_print.show("");
+    cbx_printCheck.checkAll(true); // 인쇄옵션 체크인
+    cbx_previewCheck.checkAll(false); // 미리보기 체크아웃
+
+    ica_postDt.setValue(""); // 회계일자
+
+    var thisYm = $c.date.getServerDateTime($p, "yyyyMM");
+    ed_postDtSt.setValue(thisYm + "01");
+    ed_postDtEnd.setValue($c.date.getServerDateTime($p, "yyyyMMdd"));
+  }
+};
+
+// @@ ====== 저장-준비 ========================================================================= //
+// @@ ====== 저장 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 회계처리
+//-------------------------------------------------------------------------
+scwin.f_Post = async function (e) {
+  console.log("=== f_Post (회계처리) ==================================================");
+
+  // if (!cfValidate([ed_postDt]))
+  let rtn1 = await $c.gus.cfValidate($p, ica_postDt);
+  if (!rtn1) return false;
+
+  // KYU_NEW : 2026-02-05 - mandatory 안잡히는 일자 점검 - 하부 회계일자
+  if (ica_postDt.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_002, "회계일자"));
+    ica_postDt.focus();
+    return false;
+  }
+
+  // if(ds_slip.isUpdated==false){
+  if (ds_slip.getModifiedIndex().length == 0) {
+    await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_056, ["데이타"]));
+    return;
+  }
+  for (i = 0; i < ds_slip.getTotalRow(); i++) {
+    // 회계처리가 처리되고 전표종류가 자동회계처리일경우 체크
+    // if(ds_slip.RowStatus(i)==3 && ds_slip.NameValue(i,"postYn")=="1"){
+    // 가우스 :     0: Normal, 1: Insert, 2: Delete, 3: Update, 4: Logical
+    // 웹스퀘어 :   R:초기상태, U:갱신, C:삽입, D:삭제, V:삽입 후 삭제
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "postYn") == "1") {
+      await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는 이미 회계처리를 했습니다.");
+      return;
+    }
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "autoSlipYn") == "1") {
+      await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는 자동회계처리 전표입니다.");
+      return;
+    }
+
+    // 동부NTS(회사코드 001) 전표입력을 위한 전자결재 체크 해제
+    if (scwin.vCoCd != "001") {
+      if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "elecStmtTrgtYn") == "1") {
+        await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는 전자결재대상 전표입니다.");
+        return;
+      }
+    }
+
+    // 경비전표나 대체전표일경우 회계처리월 체크
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "slipKndCd") != ACConstants.SLIPKNDCD_ACTUAL_SLIP) {
+      if (ds_slip.getCellData(i, "slipKndCd") == ACConstants.SLIPKNDCD_EXPENSE || ds_slip.getCellData(i, "slipKndCd") == ACConstants.SLIPKNDCD_RESENT) {
+        if (ds_slip.getCellData(i, "slipDt").substring(0, 6) != ica_postDt.getValue().trim().substring(0, 6)) {
+          await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는 회계처리월과 작성월이 틀립니다.\n경비전표나 대체전표는 같은월이여야 합니다.");
+          return;
+        }
+      } else {
+        if (!scwin.f_BetweenCheck(ds_slip.getCellData(i, "slipDt").substring(0, 6), ica_postDt.getValue().trim().substring(0, 6))) {
+          await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는 회계처리월이 작성월보다 작습니다.\n회계처리월은 작성월보다 크거나 같은월이어야 합니다.");
+          return false;
+        }
+      }
+    }
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "elecApprvInfoYn") == 0) {
+      await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는  전자결재자정보여부 전표입니다. \n전자결재자 정보여부가 미체크되어 있으면 처리할 수 없습니다.");
+      return;
+    }
+  } // for end
+
+  // if(cfConfirmMsg("선택하신 전표를 회계처리하시겠습니까?")==true){
+  let rtn2 = await $c.win.confirm($p, "선택하신 전표를 회계처리하시겠습니까?");
+  if (rtn2) {
+    for (i = 0; i < ds_slip.getTotalRow(); i++) {
+      if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "checkYn") == "T") {
+        ds_slip.setCellData(i, "postDt", ica_postDt.getValue().trim());
+      }
+    }
+
+    // tr_post.Action = "/ac.fi.gnrlaccount.slipmgnt.ProcessSlipAccountCMD.do";
+    // tr_post.Post();
+
+    // 전표생성용 데이타리스트 ds_master_slip 생성 : chk=F 지워서 T만 남김
+    // ds_slip_process.setJSON([]);
+    // var dcJSON = ds_slip.getAllJSON();  // JSON 배열로 담기
+    // ds_slip_process.setJSON(dcJSON, true);  // append
+    // var dc     = ds_slip_process.getAllArray();
+    // var delChk = ds_slip.getMatchedIndex("checkYn", "F", true);  // 체크 안된 건의 INDEX
+    // ds_slip_process.removeRows(delChk);                 // 체크된 건만 남김
+    // var dc = ds_slip_process.getAllArray();
+    // console.log(" 회계 *** ds_slip_process ("+ds_slip_process.getTotalRow()+") : " + JSON.stringify(dc));
+
+    var dc = ds_slip.getAllArray();
+    // console.log(" 취소 *** ds_slip ("+ds_slip.getTotalRow()+") : " + JSON.stringify(dc));
+    console.log(" 취소 *** ds_slip (" + ds_slip.getTotalRow() + ")");
+    scwin.postOrCancel = "1"; // 회계처리취소여부 (1: 회계처리, 2: 회계처리취소)
+
+    sbm_post.action = "/ac.fi.gnrlaccount.slipmgnt.ProcessSlipAccountCMD.do";
+    $c.sbm.execute($p, sbm_post);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 회계처리 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_post_submitdone = async function (e) {
+  console.log("▷ sbm_post_submitdone (회계처리 submitdone)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) {
+    if (scwin.postOrCancel == "1") {
+      // 회계처리취소여부 (1: 회계처리, 2: 회계처리취소)
+      console.log("---- ▶▶▶ 회계처리 실패");
+    } else {
+      console.log("---- ▶▶▶ 회계처리취소 실패");
+    }
+    // language=JavaScript for=tr_post event=OnFail()>
+    // cfShowError(tr_post);
+    $c.gus.cfEnableKeyData($p);
+    // $c.gus.cfDisableBtn([ btn_bUpdate]);  KYU_TEST : 오타
+    return;
+  }
+  // 성공일 때
+  else {
+    if (scwin.postOrCancel == "1") {
+      // 회계처리취소여부 (1: 회계처리, 2: 회계처리취소)
+      console.log("  ▷▷▷ 회계처리 성공");
+    } else {
+      console.log("  ▷▷▷ 회계처리취소 성공");
+    }
+    // <!-- 회계처리 DataSet -->
+    // language=JavaScript for=tr_post event=OnSuccess()>
+    await $c.gus.cfAlertMsg($p, "성공적으로 처리하였습니다"); // 성공적으로등록하였습니다
+    ds_slip.setJSON([]);
+    scwin.f_Retrieve();
+    // gr_txt.ColumnProp('checkYn','HeadCheck')="false";
+    gr_txt.setHeaderValue("checkYn", false); // 헤더 체크 풀기
+  }
+};
+
+//-------------------------------------------------------------------------
+// 회계취소처리 @@
+//-------------------------------------------------------------------------
+scwin.f_PostCancel = async function (e) {
+  console.log("=== f_PostCancel (회계취소처리) ==================================================");
+  console.log(" ds_slip.getModifiedJSON().length [" + ds_slip.getModifiedJSON().length + "]");
+
+  // if(ds_slip.isUpdated==false){
+  if (ds_slip.getModifiedJSON().length == 0) {
+    await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_056, "데이타"));
+    return;
+  }
+  // debugger;
+  // 회계처리가 처리되고 전표종류가 수정불가일경우 체크
+  for (i = 0; i < ds_slip.getTotalRow(); i++) {
+    // if(ds_slip.RowStatus(i)==3 && ds_slip.NameValue(i,"postYn")=="0"){
+    // 가우스 :     0: Normal, 1: Insert, 2: Delete, 3: Update, 4: Logical
+    // 웹스퀘어 :   R:초기상태, U:갱신, C:삽입, D:삭제, V:삽입 후 삭제
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "postYn") == "0") {
+      await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_041, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]", "취소처리를 "));
+      // ds_slip.Undo(i);
+      $c.data.undoRow($p, ds_slip, "Y");
+      return;
+    }
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "elecApprvInfoYn") == 0) {
+      await $c.gus.cfAlertMsg($p, "전표번호[" + ds_slip.getCellData(i, "slipNo") + "]는  이 화면에서 회계처리 할 수 없습니다. \n전자결재자 정보여부가 미체크되어 있으면 처리할 수 없습니다.");
+      // ds_slip.Undo(i);
+      $c.data.undoRow($p, ds_slip, "Y");
+      return;
+    }
+    if (ds_slip.getRowStatus(i) == "U" && ds_slip.getCellData(i, "reverseSlipNo") != '') {
+      await $c.gus.cfAlertMsg($p, "전표번호 : [" + ds_slip.getCellData(i, "slipNo") + "]\n\n" + "선태한 전표는 전표번호 " + ds_slip.getCellData(i, "reverseSlipNo") + "의 역전표 입니다.\n역전표로 생성된 전표는 회계처리 취소 불가 입니다.");
+      // ds_slip.Undo(i);
+      $c.data.undoRow($p, ds_slip, "Y");
+      return;
+    }
+  }
+  var j = 0; // 메시지용 순번 : 번째라고 할 때에는 i+1 기준으로 명기해야 함
+  for (i = 0; i < ds_slip.getTotalRow(); i++) {
+    var j = i + 1;
+    if (ds_slip.getCellData(i, "checkYn") == "T") {
+      if (ds_slip.getCellData(i, "slipKndCd") == 'A05' // A05 : 대체전표
+      || ds_slip.getCellData(i, "slipKndCd") == 'A13' // A13 : 대체전표(외부패키지)
+      || ds_slip.getCellData(i, "slipKndCd") == 'K02' // K02 : 자회사매출전표
+      || ds_slip.getCellData(i, "slipKndCd") == 'B03' // B03 : 자산매각
+      || ds_slip.getCellData(i, "slipKndCd") == 'B12' // B12 : 재고자산 매각
+      //|| (ds_slip.NameValue(i,"slipKndCd") == 'K02')		// A20 : 매출전표(임대차)
+      ) {
+        // KYU_NEW : 2025-12-30 await 서브미션 : 정의할 때 Submit-done 함수 삭제
+
+        // 초기화
+        ds_commonCode.setJSON();
+        ds_retrieveSlipResponseCheck.setJSON([]);
+
+        // ds_retrieveSlipResponseCheck.SyncLoad = true;
+        var checkSlipNo = ds_slip.getCellData(i, "slipNo");
+        ds_commonCode.set("slipNo", checkSlipNo);
+
+        // ds_retrieveSlipResponseCheck.DataID = "/ac.fi.gnrlaccount.slipmgnt.RetrieveSlipResponseCheckCMD.do?slipNo="+checkSlipNo+"";
+        // ds_retrieveSlipResponseCheck.Reset();
+        let e = await $c.sbm.execute($p, sbm_getResponseMessage);
+
+        // await 방식이라 내부에서 직접 처리
+        // KT-NET 응답 메시지 체크 submitdone
+
+        if (e.responseJSON.resultDataSet[0].Code != 0) return;
+        if (e.responseJSON.GAUCE) {
+          ds_retrieveSlipResponseCheck.setJSON(e.responseJSON.GAUCE);
+        }
+        var dc = ds_retrieveSlipResponseCheck.getAllArray();
+        console.log(" [" + i + "]  *** ds_retrieveSlipResponseCheck (" + ds_retrieveSlipResponseCheck.getTotalRow() + ") : " + JSON.stringify(dc));
+        var checkClassCode = ds_retrieveSlipResponseCheck.getCellData(0, "classcode");
+        var responseType = ds_retrieveSlipResponseCheck.getCellData(0, "responsetype");
+        var taxbillTypeCode = ds_retrieveSlipResponseCheck.getCellData(0, "taxbilltypecode");
+
+        // 현재 수정세금계산서 발급시 환입/계약의 해제 사유로 발송할 때에 재경팀에서 매출삭제 품의 확인 후 날릴 수 있도록 재경팀만 권한 부여
+        // 전자세금계산서 전송상태
+        // A : KTNET접수
+        // D : 거부-화주
+        // E : KTNET오류 0
+        // F : 국세청최종접수
+        // L : 승인-화주
+        // N : 이메일전송실패
+        // R : 이메일고객확인
+        // T : 국세청1차접수
+        // X : 국세청오류 0
+
+        if (checkClassCode != null) {
+          if (checkClassCode == '05')
+            // CLASSCODE - 05:신규발급
+            {
+              if (taxbillTypeCode == '01')
+                // 세금계산서
+                {
+                  if (responseType == 'A')
+                    // A : KTNET접수
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : KT-NET 접수\n\n" + "계산서 이력이 KT-NET 접수일 경우 회계처리 취소 불가능 합니다.\n" + "전자세금계산서-삭제 화면에서 삭제전송 후 회계처리취소 가능 합니다.");
+                      return;
+                    } else if (responseType == 'D')
+                    // D : 거부-화주
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : 거부-화주\n\n" + "계산서 이력이 거부-화주일 경우 회계처리 취소 불가능 합니다.\n" + "전자세금계산서-삭제 화면에서 삭제전송 후 회계처리취소 가능 합니다.");
+                      return;
+                    } else if (responseType == 'F')
+                    // F : 국세청최종접수
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : 국세청 최종접수\n\n" + "계산서 이력이 국세청 최종접수일 경우 회계처리 취소 불가능 합니다.\n" + "전자세금계산서-삭제 화면에서 수정세금계산서를 보낸 후\n" + "수정세금계산서가 국세청최종접수 되어야 합니다.\n\n" + "수정세금계산서는 재경팀만 발급할 수 있습니다.\n" + "재경팀에 문의하시기 바랍니다.");
+                      return;
+                    } else if (responseType == 'L')
+                    // L : 승인-화주
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : 승인-화주\n\n" + "계산서 이력이 승인-화주 상태일 경우 회계처리 취소 불가능 합니다.\n" + "국세청 응답 이력을 기다려야 합니다.");
+                      return;
+                    } else if (responseType == 'N')
+                    // N : 이메일전송실패
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : 이메일전송실패\n\n" + "이력이 이메일전송실패 상태일 경우 회계처리 취소 불가능 합니다.\n" + "전자세금계산서-삭제 화면에서 삭제전송 후 회계처리취소 가능 합니다.");
+                      return;
+                    } else if (responseType == 'R')
+                    // R : 이메일고객확인
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : 이메일고객확인\n\n" + "이력이 이메일고객확인 상태일 경우 회계처리 취소 불가능 합니다.\n" + "화주 응답 이력을 기다려야 합니다.");
+                      return;
+                    } else if (responseType == 'T')
+                    // T : 국세청1차접수
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급\n" + "계산서 이력 : 국세청1차접수\n\n" + "이력이 국세청1차접수 상태일 경우 회계처리 취소 불가능 합니다.\n" + "국세청 응답 이력을 기다려야 합니다.");
+                      return;
+                    }
+                } // end of if
+              else if (taxbillTypeCode == '02')
+                // 수정세금계산서
+                {
+                  if (responseType == 'A')
+                    // A : KTNET접수
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : KT-NET 접수\n\n" + "계산서 이력이 KT-NET 접수일 경우 회계처리 취소 불가능 합니다.\n" + "수정세금계산서 최종접수 후 전표삭제 하셔야 합니다.");
+                      return;
+                    } else if (responseType == 'D')
+                    // D : 거부-화주
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 거부-화주\n\n" + "계산서 이력이 거부-화주일 경우 회계처리 취소 불가능 합니다.\n" + "CNI에 회계처리 취소 관련 문의 하시기 바랍니다.");
+                      return;
+                    } else if (responseType == 'F')
+                    // F : 국세청최종접수
+                    {
+                      alert("선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 국세청 최종접수\n\n" + "계산서 이력이 국세청 최종접수일 경우 회계처리 취소 불가능 합니다.\n" + "전표삭제를 진행 해야 합니다.");
+                      return;
+                    } else if (responseType == 'L')
+                    // L : 승인-화주
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 승인-화주\n\n" + "계산서 이력이 승인-화주 상태일 경우 회계처리 취소 불가능 합니다.\n" + "국세청 응답 이력을 기다려야 합니다.");
+                      return;
+                    } else if (responseType == 'N')
+                    // N : 이메일전송실패
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 이메일전송실패\n\n" + "이력이 이메일전송실패 상태일 경우 회계처리 취소 불가능 합니다.\n" + "CNI에 회계처리 취소 관련 문의 하시기 바랍니다.");
+                      return;
+                    } else if (responseType == 'R')
+                    // R : 이메일고객확인
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 이메일고객확인\n\n" + "이력이 이메일고객확인 상태일 경우 회계처리 취소 불가능 합니다.\n" + "화주 응답 이력을 기다려야 합니다.");
+                      return;
+                    } else if (responseType == 'T')
+                    // T : 국세청1차접수
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 국세청1차접수\n\n" + "이력이 국세청1차접수 상태일 경우 회계처리 취소 불가능 합니다.\n" + "국세청 응답 이력을 기다려야 합니다.");
+                      return;
+                    } else if (responseType == 'E')
+                    // E : KT-NET오류
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : KT-NET오류\n\n" + "이력이 KT-NET오류 상태일 경우 회계처리 취소 불가능 합니다.\n" + "CNI에 회계처리 취소 관련 문의 하시기 바랍니다.");
+                      return;
+                    } else if (responseType == 'X')
+                    // X : 국세청오류
+                    {
+                      await $c.win.alert($p, "선택한 " + j + "번째 행 전표번호(" + ds_slip.getCellData(i, "slipNo") + ") 전자세금계산서 이력 정보\n\n" + "계산서 신고구분 : 신규발급 (수정세금계산서)\n" + "계산서 이력 : 국세청오류\n\n" + "이력이 국세청오류 상태일 경우 회계처리 취소 불가능 합니다.\n" + "CNI에 회계처리 취소 관련 문의 하시기 바랍니다.");
+                      return;
+                    }
+                }
+            }
+        }
+      }
+    } // end of if
+  } // end of for
+
+  // if(cfConfirmMsg("선택하신 전표를 취소처리하시겠습니까?")==true){
+  let rtn = await $c.win.confirm($p, "선택하신 전표를 취소처리하시겠습니까?");
+  if (rtn) {
+    // tr_post.Action = "/ac.fi.gnrlaccount.slipmgnt.CancelSlipPostingCMD.do";
+    // tr_post.Post();
+
+    // 전표생성용 데이타리스트 ds_master_slip 생성 : chk=F 지워서 T만 남김
+    // ds_slip_process.setJSON([]);
+    // var dcJSON = ds_slip.getAllJSON();  // JSON 배열로 담기
+    // ds_slip_process.setJSON(dcJSON, true);  // append
+    // var dc     = ds_slip_process.getAllArray();
+    // var delChk = ds_slip.getMatchedIndex("checkYn", "F", true);  // 체크 안된 건의 INDEX
+    // ds_slip_process.removeRows(delChk);                 // 체크된 건만 남김
+    // var dc = ds_slip_process.getAllArray();
+    // console.log(" 취소 *** ds_slip_process ("+ds_slip_process.getTotalRow()+") : " + JSON.stringify(dc));
+
+    var dc = ds_slip.getAllArray();
+    console.log(" 취소 *** ds_slip (" + ds_slip.getTotalRow() + ")");
+    // console.log(" 취소 *** ds_slip ("+ds_slip.getTotalRow()+") : " + JSON.stringify(dc));
+
+    scwin.postOrCancel = "2"; // 회계처리취소여부 (1: 회계처리, 2: 회계처리취소)
+    sbm_post.action = "/ac.fi.gnrlaccount.slipmgnt.CancelSlipPostingCMD.do";
+    $c.sbm.execute($p, sbm_post);
+  }
+};
+
+// @@ ====== 파일   ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 엑셀 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function () {
+  // var objGridName = eval("gr_txt");
+  // if (ds_slip.CountRow != 0) {
+  // 	if (cfConfirmMsg("Excel로 다운로드 하시겠습니까?")) {
+  // 		cfGridToExcel(objGridName, "전표회계처리","전표회계처리조회.xls",8+16);
+  // 	}
+  // }
+  // else {
+  // 	cfAlertMsg(MSG_CM_WRN_002);
+  // }
+
+  if (ds_slip.getTotalRow() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var sheetTitle = "전표회계처리";
+  var fileName = "전표회계처리조회";
+  let cfrm = await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?");
+  if (cfrm) {
+    let options = {
+      fileName: fileName + ".xlsx",
+      sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel($p, gr_txt, options);
+  }
+};
+
+// @@ ====== 레포트 ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 회계처리현황 발행
+//-------------------------------------------------------------------------
+scwin.f_OzReport = function (e) {
+  // var odiParam = new ODIParam("fi_201_07_02p");
+  // odiParam.add("sysPath", "dbl.ac.fi.gnrlaccount.slipmgnt");
+  // odiParam.add("slipDtSt", ed_slipDtSt.text.trim());
+  // odiParam.add("slipAcctDeptCdSt", ed_slipAcctDeptCdSt.text.trim());
+  // odiParam.add("slipDtEnd", ed_slipDtEnd.text.trim());
+  // odiParam.add("drawEmpNo", ed_drawEmpNo.text.trim());
+  // odiParam.add("postYn", lc_postYn.BindColVal.trim());
+  // odiParam.add("slipAcctDeptCdEnd", ed_slipAcctDeptCdEnd.text.trim());
+  // odiParam.add("slipKndCd", ed_slipKndCd.text.trim());
+  // odiParam.add("slipKndNm", txt_slipKndNm.value.trim());
+  // odiParam.add("postEmpNo", ed_postEmpNo.text.trim());
+  // odiParam.add("postDtSt", ed_postDtSt.text.trim());
+  // odiParam.add("postDtEnd", ed_postDtEnd.text.trim());
+  // odiParam.add("coCd", ed_coCd.text.trim());
+  // odiParam.add("coClsCd", txtCoClsCd.value);
+
+  // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+  // var formParam = new FormParam();
+
+  // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+  // var viewerParam = new ViewerParam();
+
+  // cfOZReport("chb_printCheck", "chb_previewCheck", "/ac/fi/gnrlaccount/slipmgnt/fi_201_07_02p.ozr", odiParam, viewerParam, formParam);
+
+  let data = {
+    reportName: "/ac/fi/gnrlaccount/slipmgnt/fi_201_07_02p.ozr",
+    odiParam: {
+      //  sysPath             : "dbl.ac.fi.gnrlaccount.slipmgnt"
+      slipDtSt: ed_slipDtSt.getValue().trim(),
+      slipAcctDeptCdSt: ed_slipAcctDeptCdSt.getValue().trim(),
+      slipDtEnd: ed_slipDtEnd.getValue().trim(),
+      drawEmpNo: ed_drawEmpNo.getValue().trim(),
+      postYn: lc_postYn.getValue().trim(),
+      slipAcctDeptCdEnd: ed_slipAcctDeptCdEnd.getValue().trim(),
+      slipKndCd: ed_slipKndCd.getValue().trim(),
+      slipKndNm: ed_slipKndNm.getValue().trim(),
+      postEmpNo: ed_postEmpNo.getValue().trim(),
+      postDtSt: ed_postDtSt.getValue().trim(),
+      postDtEnd: ed_postDtEnd.getValue().trim(),
+      coCd: ed_coCd.getValue().trim(),
+      coClsCd: scwin.txtCoClsCd
+    },
+    viewerParam: {
+      viewer: 100 // 배율 설정
+      ,
+      useprogressbar: false // 프로그레스바 쓸지 말지
+      // ,mode           : "print"  // 인쇄 옵션창 표시 없이 바로 출력
+    },
+    formParam: {}
+  };
+  console.log("  회계처리현황 data [" + JSON.stringify(data) + "]");
+  scwin.openPopup(data);
+};
+
+//-------------------------------------------------------------------------
+//  openPopup 팝업 오픈
+//-------------------------------------------------------------------------
+scwin.openPopup = async function (data) {
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "오즈 리포트"
+  };
+  await $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+// @@ ====== 연계 ============================================================================== //
+
+// <!-- 부가세번호 체크 -->
+// <object id="ds_getVatNo" classid="<%=DGauceCLSID.DATASET%>">
+//     <param name=SyncLoad       value=true>
+// </object>
+
+// <!-- KT-NET 응답 메시지 체크 -->
+// <object id="ds_getResposeMessage" classid="<%=DGauceCLSID.DATASET%>">
+//     <param name=SyncLoad       value=true>
+// </object>
+
+// <!-- 조회조건 DataSet -->
+// <object id="ds_retrieveSlipResponseCheck" classid="<%=DGauceCLSID.DATASET%>">
+// </object>
+
+//-------------------------------------------------------------------------
+// 부가세번호 체크
+//-------------------------------------------------------------------------
+scwin.getVatNo = function (slipNo) {
+  console.log("=== getVatNo (부가세번호 체크");
+  ds_commonCode.removeAll();
+
+  // SELECT 절
+  var param1 = "VAT_NO AS COL1 ,''  AS COL2 ,'' AS COL3 ,'' AS COL4 ,'' AS COL5 ,'' AS COL6 ,'' AS COL7 ,'' AS COL8 ,'' AS COL9 ,'' AS COL10 ";
+
+  // 대상테이블
+  var param2 = "(SELECT SELL_VAT_NO AS VAT_NO " + "   FROM TB_FI301 " + "  WHERE SLIP_NO = '" + slipNo + "'" + "	   AND DEL_YN = 0 " + "  UNION ALL " + " SELECT PCHS_EVID_NO AS VAT_NO " + "   FROM TB_FI304 " + "  WHERE SLIP_NO = '" + slipNo + "'" + "	   AND DEL_YN = 0) ";
+
+  // 조건절
+  var param3 = " AND 1=1 ";
+
+  // 정렬
+  var param4 = " COL1 ";
+
+  // ds_getVatNo.DataId =
+  // 	"/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC&queryId=dinymicQueryTest" + "&param1=" + param1
+  // 	                                                                             + "&param2=" + param2
+  // 	                                                                             + "&param3=" + param3
+  // 	                                                                             + "&param4=" + param4;
+  // ds_getVatNo.Reset();
+
+  const strParam = {
+    sysCd: "CommonEBC" // 시스템코드
+    ,
+    queryId: "dinymicQueryTest" // 쿼리ID
+    ,
+    param1: param1 // SELECT
+    ,
+    param2: param2 // 대상테이블
+    ,
+    param3: param3 // 조건절
+    ,
+    param4: param4 // CD
+  };
+
+  //데이터셋에 정보설정
+  ds_commonCode.setJSON(strParam);
+  $c.sbm.execute($p, sbm_getVatNo);
+};
+
+//-------------------------------------------------------------------------
+// 부가세번호 체크 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_getVatNo_submitdone = function (e) {
+  console.log("▷ sbm_getVatNo_submitdone (부가세번호 체크 submitdone)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+  if (e.responseJSON.GAUCE) {
+    ds_getVatNo.setJSON(e.responseJSON.GAUCE);
+  }
+};
+
+//-------------------------------------------------------------------------
+// KT-NET 응답 메시지 체크
+//-------------------------------------------------------------------------
+scwin.getResposeMessage = function (vatNo) {
+  console.log("=== getResposeMessage (KT-NET 응답 메시지 체크");
+  ds_commonCode.removeAll();
+
+  // SELECT 절
+  var param1 = " DISTINCT A.RESPONSETYPE 		AS COL1 " + ",( SELECT CD_NM " + "		FROM TB_ZZ002 " + "	   WHERE GRP_CD = 'FI065' " + " 	 AND CD = A.RESPONSETYPE) 	AS COL2 " + ",A.SENDDATE 						AS COL3 " + ",A.REGISTDATE 					AS COL4 " + ",A.MESSAGEINFORMATION1 			AS COL5 " + ",A.MESSAGEINFORMATION2 			AS COL6 " + ",A.FUNCTIONCODE 					AS COL7 " + ",B.DOCUMENTIDENTIFIER 			AS COL8 " + ",'' 				AS COL9 " + ",'' 				AS COL10 ";
+
+  // 대상테이블
+  var param2 = "GENRES_M A, TAXBIL_ISS_M B ";
+
+  // 조건절
+  var param3 = " AND A.DOCUMENTIDENTIFIER = B.DOCUMENTIDENTIFIER " + " AND B.ORG_VAT_NO = '" + vatNo + "'";
+
+  // 정렬
+  var param4 = " COL3 DESC ";
+
+  // ds_getResposeMessage.DataId =
+  // 	"/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC&queryId=dinymicQueryTest" + "&param1=" + param1
+  // 	                                                                             + "&param2=" + param2
+  // 	                                                                             + "&param3=" + param3
+  // 	                                                                             + "&param4=" + param4;
+  // ds_getResposeMessage.Reset();
+
+  const strParam = {
+    sysCd: "CommonEBC" // 시스템코드
+    ,
+    queryId: "dinymicQueryTest" // 쿼리ID
+    ,
+    param1: param1 // SELECT
+    ,
+    param2: param2 // 대상테이블
+    ,
+    param3: param3 // 조건절
+    ,
+    param4: param4 // CD
+  };
+
+  //데이터셋에 정보설정
+  ds_commonCode.setJSON(strParam);
+  $c.sbm.execute($p, sbm_getResposeMessage);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'searchTable',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'가결구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_postYn',style:'width: 100px;',submenuSize:'fixed','ev:onchange':'scwin.selectbox1_onchange',title:'가결구분',ref:'data:ds_search.postYn'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작성일자',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_slipDt',refDataMap:'ds_search',refEdDt:'slipDtEnd',refStDt:'slipDtSt',style:'',edFromId:'ed_slipDtSt',edToId:'ed_slipDtEnd',mandatoryFrom:'true',mandatoryTo:'true',objTypeBtn:'data',objTypeFrom:'data',objTypeTo:'data'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'회사코드',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_coCd',nameId:'ed_coNm',popupID:'retrieveDongbuGroupCompanyInfopopup',selectID:'retrieveDongbuGroupCompanyInfo',style:'',validTitle:'회사코드',btnId:'btn_coCd',id:'udc_coCd',allowCharCode:'0-9',mandatoryCode:'true',maxlengthCode:'3',objTypeCode:'data',objTypeName:'data',maxlengthName:'50','ev:onclickEvent':'scwin.udc_coCd_onclickEvent','ev:onblurCodeEvent':'scwin.udc_coCd_onblurCodeEvent',refDataCollection:'ds_search',code:'coCd',skipOnBlurCodeValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작성부서',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{allowCharCode:'0-9',btnId:'btn_slipAcctDeptCdSt',code:'slipAcctDeptCdSt',codeId:'ed_slipAcctDeptCdSt','ev:onblurCodeEvent':'scwin.udc_slipAcctDeptCdSt_onblurCodeEvent','ev:onclickEvent':'scwin.udc_slipAcctDeptCdSt_onclickEvent',id:'udc_slipAcctDeptCdSt',maxlengthCode:'5',maxlengthName:'50',nameId:'ed_slipAcctDeptNmSt',objTypeCode:'data',objTypeName:'data',popupID:'retrieveAcctDeptCdInfo6popup',refDataCollection:'ds_search',selectID:'retrieveAcctDeptCdInfo6',style:'',validTitle:'작성부서From',skipOnBlurCodeValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작성자',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{allowCharCode:'0-9',btnId:'btn_drawEmpNo',code:'drawEmpNo',codeId:'ed_drawEmpNo','ev:onblurCodeEvent':'scwin.udc_drawEmpNo_onblurCodeEvent','ev:onclickEvent':'scwin.udc_drawEmpNo_onclickEvent',id:'udc_drawEmpNo',maxlengthCode:'6',maxlengthName:'50',nameId:'ed_drawEmpNm',objTypeCode:'data',objTypeName:'data',popupID:'retrieveAcEmpInfopopup',refDataCollection:'ds_search',selectID:'retrieveAcEmpInfo',style:'',validTitle:'작성자',skipOnBlurCodeValueEmpty:'N'}}]}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'전표번호',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'ed_slipNo',style:'width: 100px;',objType:'data',ref:'data:ds_search.slipNo',allowChar:'0-9',maxlength:'10'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'회계일자',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_fromToCalendar',A:{edFromId:'ed_postDtSt',edToId:'ed_postDtEnd',id:'udc_postDt',objTypeBtn:'data',objTypeFrom:'data',objTypeTo:'data',refDataMap:'ds_search',refEdDt:'postDtEnd',refStDt:'postDtSt',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'회계처리자',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{allowCharCode:'0-9',btnId:'btn_postEmpNo',code:'postEmpNo',codeId:'ed_postEmpNo','ev:onblurCodeEvent':'scwin.udc_postEmpNo_onblurCodeEvent','ev:onclickEvent':'scwin.udc_postEmpNo_onclickEvent',id:'udc_postEmpNo',maxlengthCode:'6',maxlengthName:'50',nameId:'ed_postEmpNm',objTypeCode:'data',objTypeName:'data',popupID:'retrieveAcEmpInfopopup',refDataCollection:'ds_search',selectID:'retrieveAcEmpInfo',style:'',validTitle:'',skipOnBlurCodeValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'전표종류',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{btnId:'btn_slipKndCd',code:'slipKndCd',codeId:'ed_slipKndCd','ev:onblurCodeEvent':'scwin.udc_slipKndCd_onblurCodeEvent','ev:onclickEvent':'scwin.udc_slipKndCd_onclickEvent',id:'udc_slipKndCd',maxlengthCode:'3',maxlengthName:'50',nameId:'ed_slipKndNm',objTypeCode:'data',objTypeName:'data',popupID:'retrieveSlipKndCdpopup',refDataCollection:'ds_search',selectID:'retrieveSlipKndCd',style:'',validTitle:'전표종류',UpperFlagCode:'1',allowCharCode:'A-Za-z0-9',afterAllowCharCode:'0-9',allowCharCodeLength:'1',beforeAllowCharCode:'A-Za-z',skipOnBlurCodeValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.f_SearchClear'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button',userAuth:'R','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:120px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'회계일자',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ica_postDt',pickerType:'dynamic',style:'',displayFormat:'yyyy/MM/dd',title:'회계일자',objType:'data',mandatory:'true'}}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'전표내역',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',btnPlusYn:'Y',btnUser:'Y',gridDownYn:'Y',gridUpYn:'N',templateYn:'N',gridID:'gr_txt',gridDownFn:'scwin.f_Excel',gridDownUserAuth:'X',id:'udc_gridMain'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section1',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{scrollByColumnAdaptive:'false',focusMode:'cell',visibleRowNumFix:'true',dataList:'data:ds_slip',scrollByColumn:'false',style:'',autoFit:'none',id:'gr_txt',visibleRowNum:'13',class:'wq_gvw',checkReadOnlyOnPasteEnable:'',fixedColumn:'3','ev:oncellclick':'scwin.gr_txt_oncellclick',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption1',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',style:'',id:'column30',value:'',displayMode:'label',fixColumnWidth:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column38',value:'작성일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column36',value:'전표번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column34',value:'역전표 번호',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',style:'',id:'column32',value:'작성부서',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column28',value:'전표종류코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'column26',value:'전표종류',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column22',value:'차변금액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column24',value:'대변금액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column61',value:'회계일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'column58',value:'회계부서',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column49',value:'회계차수',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column70',value:'작성자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'column67',value:'전자결재자 정보여부',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',style:'',id:'checkYn',value:'',displayMode:'label',fixColumnWidth:'true',valueType:'other',falseValue:'F',trueValue:'T',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'slipDt',value:'',displayMode:'label',displayFormat:'yyyy/MM/dd',readOnly:'true',dataType:'date'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:';color:blue;',id:'slipNo',value:'',displayMode:'label',class:'underline',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:';color:blue;',id:'reverseSlipNo',value:'',displayMode:'label',class:'underline',readOnly:'true',hiddenCol:'true',hidden:'true'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',style:'',id:'drawAcctDeptNm',value:'',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'slipKndCd',value:'',displayMode:'label',readOnly:'true',hiddenCol:'true',hidden:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'slipKndNm',value:'',displayMode:'label',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'dsum',value:'',displayMode:'label',readOnly:'true',dataType:'number',displayFormat:'#,##0',class:'tar'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'csum',value:'',displayMode:'label',readOnly:'true',dataType:'number',displayFormat:'#,##0',class:'tar'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'hpostDt',value:'',displayMode:'label',readOnly:'true',dataType:'date',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'postAcctDeptNm',value:'',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'postNo',value:'',displayMode:'label',readOnly:'true',displayFormatter:'scwin.postNoExp'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'drawEmpNm',value:'',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'elecApprvInfoYn',value:'',displayMode:'label',readOnly:'true',displayFormatter:'scwin.elecApprvInfoYnExp'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',dataType:'number',displayFormat:'#,##0',style:'',id:'ed_totalRows',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'회계처리/취소처리는 전자결재자정보여부가 체크되어있는 전표만 가능합니다.<br/> 전표종류등록화면의 전자결재자정보여부를 확인하세요.',class:'txt-dot txt-red',escape:'false'}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'grp_print',class:'form-group'},E:[{T:1,N:'xf:select',A:{ref:'',appearance:'full',style:'',id:'cbx_printCheck',renderType:'checkboxgroup',rows:'',selectedindex:'-1',class:'',cols:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'인쇄옵션'}]},{T:1,N:'xf:value'}]}]}]},{T:1,N:'xf:select',A:{ref:'',appearance:'full',style:'',id:'cbx_previewCheck',renderType:'checkboxgroup',rows:'',selectedindex:'-1',class:'',cols:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'미리보기'}]},{T:1,N:'xf:value'}]}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_btPrnt',type:'button',class:'btn white',userAuth:'P','ev:onclick':'scwin.f_OzReport'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'회계처리현황'}]}]}]},{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_btPost',style:'',type:'button',userAuth:'U','ev:onclick':'scwin.f_Post'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'회계처리'}]}]},{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_btPostCancel',style:'',type:'button',userAuth:'U','ev:onclick':'scwin.f_PostCancel'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'취소처리'}]}]}]}]},{T:1,N:'w2:udc_comCode',A:{hideName:'Y',popupID:'retrieveAcctDeptCdInfo6popup2',style:'',selectID:'retrieveAcctDeptCdInfo6',btnId:'btn_slipAcctDeptCdEnd',codeId:'ed_slipAcctDeptCdEnd',id:'udc_slipAcctDeptCdEnd',nameId:'ed_slipAcctDeptNmEnd',validTitle:'작성부서To',allowCharCode:'0-9',maxlengthCode:'5',objTypeCode:'data',refDataCollection:'ds_search',code:'slipAcctDeptCdEnd'}}]}]}]}]}]})

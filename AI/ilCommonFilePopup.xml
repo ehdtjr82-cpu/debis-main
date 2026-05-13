@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search1">
+                <w2:keyInfo>
+                    <w2:key id="apprReqNo" name="요청번호" dataType="text"></w2:key>
+                    <w2:key id="slipNo" name="전표번호" dataType="text"></w2:key>
+                    <w2:key id="deptCd" name="부귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="regId" name="등록자" dataType="text"></w2:key>
+                    <w2:key id="slipKndCd" name="전표종류" dataType="text"></w2:key>
+                    <w2:key id="startDt" name="작성시작일자" dataType="text"></w2:key>
+                    <w2:key id="endDt" name="작성종료일" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="dma_search2">
+                <w2:keyInfo>
+                    <w2:key id="apprReqNo" name="요청번호" dataType="text"></w2:key>
+                    <w2:key id="slipNo" name="전표번호" dataType="text"></w2:key>
+                    <w2:key id="deptCd" name="부귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="regId" name="등록자" dataType="text"></w2:key>
+                    <w2:key id="slipKndCd" name="전표종류" dataType="text"></w2:key>
+                    <w2:key id="startDt" name="작성시작일자" dataType="text"></w2:key>
+                    <w2:key id="endDt" name="작성종료일" dataType="text"></w2:key>
+                    <w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_evid1" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="selPchCls" name="매출매입구분" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="summary" name="요약" dataType="text"></w2:column>
+                    <w2:column id="bilgLodeptCd" name="청구부서코드" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="청구거래처번호" dataType="text"></w2:column>
+                    <w2:column id="prtnGrpNo" name="파트너그룹번호" dataType="text"></w2:column>
+                    <w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="비고" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_evid2" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="etaxId" name="전자세금ID" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_admin" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_bizdiv" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                    <w2:column id="COL2" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_checkRegistID" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                    <w2:column id="COL2" name="" dataType="text"></w2:column>
+                    <w2:column id="COL3" name="" dataType="text"></w2:column>
+                    <w2:column id="COL4" name="" dataType="text"></w2:column>
+                    <w2:column id="COL5" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_fixedAsetCount" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_change" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_empNo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                    <w2:column id="COL2" name="" dataType="text"></w2:column>
+                    <w2:column id="COL3" name="" dataType="text"></w2:column>
+                    <w2:column id="COL4" name="" dataType="text"></w2:column>
+                    <w2:column id="COL5" name="" dataType="text"></w2:column>
+                    <w2:column id="COL6" name="" dataType="text"></w2:column>
+                    <w2:column id="COL7" name="" dataType="text"></w2:column>
+                    <w2:column id="COL8" name="" dataType="text"></w2:column>
+                    <w2:column id="COL9" name="" dataType="text"></w2:column>
+                    <w2:column id="COL10" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_search1"
+            action="/ac.fi.taxbiz.evidmgnt.RetrievePurchaseSalesCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search1","key":"IN_DS1"},{"id":"ds_evid1","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_evid1","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_search1_submitdone"
+            ev:submiterror="scwin.sbm_search1_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_search2"
+            action="/ac.fi.taxbiz.evidmgnt.RetrieveEseroEvidManagementCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search2","key":"IN_DS1"},{"id":"ds_evid2","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_evid2","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_search2_submitdone"
+            ev:submiterror="scwin.sbm_search2_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_empNo"
+            action="/cm.zz.RetrieveCommonPopupCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_empNo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_empNo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_empNo_submitdone"
+            ev:submiterror="scwin.sbm_empNo_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_checkRegistID"
+            action="/cm.zz.RetrieveCommonPopupCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_checkRegistID","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_checkRegistID","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_checkRegistID_submitdone"
+            ev:submiterror="scwin.sbm_checkRegistID_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_fixedAsetCount"
+            action="/cm.zz.RetrieveCommonPopupCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_fixedAsetCount","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_fixedAsetCount","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_fixedAsetCount_submitdone"
+            ev:submiterror="scwin.sbm_fixedAsetCount_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_bizdiv"
+            action="/cm.zz.RetrieveCommonPopupCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_bizdiv","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_bizdiv","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_bizdiv_submitdone"
+            ev:submiterror="scwin.sbm_bizdiv_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.g_sLoginDept = "";
+        scwin.empNo_Yn = "";
+        scwin.vEmpNo = "";
+        scwin.empNo = "";
+        scwin.houseNo = "";
+        scwin.privAdmin = "";
+        scwin.txtCoClsCd = "";
+        scwin.RETRIEVE_AUTH = "R";
+
+        scwin.onpageload = function() {
+            scwin.g_sLoginDept = $c.ses.getAcctDeptCd();
+            scwin.vEmpNo = $c.ses.getEmpNo();
+            scwin.empNo = $c.ses.getUserId();
+            scwin.privAdmin = $c.ses.getPrivAdmin();
+
+            scwin.params = $c.data.getParameter();
+            if (scwin.params != null && scwin.params["houseNo"] != null) {
+                scwin.houseNo = scwin.params["houseNo"];
+            } else {
+                scwin.houseNo = "";
+            }
+
+            scwin.f_OnLoad();
+        };
+
+        scwin.f_OnLoad = async function() {
+            scwin.f_empNo();
+
+            if (!$c.gus.cfIsNull(scwin.params) && scwin.params["houseNo"] != null && scwin.params["houseNo"] != "") {
+                ed_hhblno.setValue(scwin.params["houseNo"]);
+            }
+
+            if (scwin.houseNo != "") {
+                ed_hhblno.setValue(scwin.houseNo);
+            }
+        };
+
+        scwin.f_empNo = async function() {
+            let grp_cd = "FI624";
+            let pCode = scwin.empNo;
+
+            let param1 = " CD      as COL1 "
+                + ",CD_NM 	as COL2 "
+                + ",'' 		as COL3 "
+                + ",'' 		as COL4 "
+                + ",'' 		as COL5 "
+                + ",'' 		as COL6 "
+                + ",''      as COL7 "
+                + ",''      as COL8 "
+                + ",''      as COL9 "
+                + ",''      as COL10";
+
+            let param2 = " TB_ZZ002 ";
+
+            let param3 = " AND GRP_CD = '" + grp_cd + "'"
+                + " AND USE_YN = '1' "
+                + " AND CD_NM = '" + pCode + "' ";
+
+            let param4 = "CD";
+
+            // TODO: ds_empNo 동적 쿼리 조회 — 원본은 DataId + Reset() 방식, WebSquare에서는 submission 파라미터 방식으로 전환 필요
+            await $c.sbm.execute(sbm_empNo);
+        };
+
+        scwin.f_setCompanyInfo = function() {
+        };
+
+        scwin.f_PopUpCompanyInfo = function(pWinCloseTF) {
+        };
+
+        scwin.f_changeCheck = function() {
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (ed_hhblno.getValue() == "") {
+                await $c.win.alert("House No는 반드시 입력이 되어야 합니다.");
+                ed_hhblno.setFocus();
+                return;
+            }
+            scwin.f_setFileUpDownFrame(ed_hhblno.getValue());
+        };
+
+        scwin.f_Retrieve1 = async function() {
+            await $c.sbm.execute(sbm_search1);
+        };
+
+        scwin.f_Retrieve2 = async function() {
+            await $c.sbm.execute(sbm_search2);
+        };
+
+        scwin.f_userToExcel1 = async function(gr_evid1, gridName) {
+            let objGrd = $p.getComponentById(gr_evid1);
+            let objDs = $p.getComponentById(objGrd.getDataListId());
+
+            if (objDs.getRowCount() <= 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_009, Array("데이타"));
+                return false;
+            }
+
+            $c.data.downloadGridViewExcel(gr_evid1, {"fileName": gridName + ".xlsx", "sheetName": gridName});
+        };
+
+        scwin.getSlipNoRegistID = async function(slipNo) {
+            let param1 = " A.SLIP_NO   as COL1 "
+                + ",A.REG_ID    as COL2 "
+                + ",A.SLIP_DT   as COL3 "
+                + ",B.USER_NM   as COL4 "
+                + ",A.DRAW_ACCT_DEPT_CD  as COL5 "
+                + ",'' 			as COL6 "
+                + ",'' 			as COL7 "
+                + ",'' 			as COL8 "
+                + ",'' 			as COL9 "
+                + ",'' 			as COL10 ";
+
+            let param2 = " TB_FI101 A, TB_ZZ315 B";
+
+            let param3 = " AND A.REG_ID = B.USER_ID "
+                + " AND A.SLIP_NO = '" + slipNo + "'";
+
+            let param4 = " A.SLIP_NO ";
+
+            // TODO: ds_checkRegistID 동적 쿼리 조회 — 원본은 DataId + Reset() 방식, WebSquare에서는 submission 파라미터 방식으로 전환 필요
+            await $c.sbm.execute(sbm_checkRegistID);
+        };
+
+        scwin.getFixedAsetCount = async function(slipNo) {
+            let param1 = " SUM( CASE WHEN FROM_CLS_CD = '20' "
+                + "			  THEN 1 "
+                + "  		  ELSE 0 "
+                + "		 END ) AS COL1 "
+                + ",''    		as COL2 "
+                + ",''   		as COL3 "
+                + ",''   		as COL4 "
+                + ",''  		as COL5 "
+                + ",'' 			as COL6 "
+                + ",'' 			as COL7 "
+                + ",'' 			as COL8 "
+                + ",'' 			as COL9 "
+                + ",'' 			as COL10 ";
+
+            let param2 = " TB_ZZ527 ";
+
+            let param3 = " AND SLIP_NO = '" + slipNo + "'";
+
+            let param4 = " COL1 ";
+
+            // TODO: ds_fixedAsetCount 동적 쿼리 조회 — 원본은 DataId + Reset() 방식, WebSquare에서는 submission 파라미터 방식으로 전환 필요
+            await $c.sbm.execute(sbm_fixedAsetCount);
+        };
+
+        scwin.getAcctDeptCd = async function(slipDt, drawAcctDeptCd) {
+            let param1 = " ACCT_DEPT_CD   as COL1 "
+                + ",ACCT_DEPT_CD   as COL2 "
+                + ",''   		as COL3 "
+                + ",''   		as COL4 "
+                + ",''  		as COL5 "
+                + ",'' 			as COL6 "
+                + ",'' 			as COL7 "
+                + ",'' 			as COL8 "
+                + ",'' 			as COL9 "
+                + ",'' 			as COL10 ";
+
+            let param2 = "(SELECT * FROM TB_CO011 WHERE ACCT_YEAR = SUBSTR('" + slipDt + "',1,4))"
+                + "  START  WITH ACCT_DEPT_CD = ( "
+                + "                                 SELECT UPPER_ACCT_DEPT_CD "
+                + "                                   FROM TB_CO011 "
+                + "                                  WHERE ACCT_YEAR = SUBSTR('" + slipDt + "',1,4)"
+                + "                                    AND ACCT_DEPT_CD = '" + drawAcctDeptCd + "'"
+                + "							 ) "
+                + "  CONNECT BY PRIOR ACCT_DEPT_CD = UPPER_ACCT_DEPT_CD ";
+
+            // TODO: ds_bizdiv 동적 쿼리 조회 — 원본은 DataId + Reset() 방식, WebSquare에서는 submission 파라미터 방식으로 전환 필요
+            await $c.sbm.execute(sbm_bizdiv);
+        };
+
+        scwin.f_userToExcel2 = async function(gr_evid2, gridName) {
+            let objGrd = $p.getComponentById(gr_evid2);
+            let objDs = $p.getComponentById(objGrd.getDataListId());
+
+            if (objDs.getRowCount() <= 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_009, Array("데이타"));
+                return false;
+            }
+            $c.data.downloadGridViewExcel(gr_evid2, {"fileName": gridName + ".xlsx", "sheetName": gridName});
+        };
+
+        scwin.f_print_certi = function() {
+            // TODO: OZ Report 연동 — 원본은 cfOZReport 기반 리포트 출력, WebSquare 리포트 연동으로 전환 필요
+        };
+
+        scwin.f_forwardingPrint = function(selPchClsCd) {
+            let rowPosition = ds_evid1.getRowPosition();
+
+            if (selPchClsCd == "INVOICE") {
+                if (ds_evid1.getCellData(rowPosition, "odrNo").substr(1, 1) == "A") {
+                    // TODO: OZ Report 연동 — ac_101_01_01_air.ozr
+                    let odiParam = {};
+                    odiParam["KCOMCD"] = "DBEX";
+                    odiParam["PRTN_GRP_NO"] = ds_evid1.getCellData(rowPosition, "prtnGrpNo");
+                    odiParam["SEAAIR"] = "A";
+                    if (ds_evid1.getCellData(rowPosition, "odrNo").substr(2, 1) == "I") {
+                        odiParam["IOGB"] = "I";
+                    } else {
+                        odiParam["IOGB"] = "O";
+                    }
+                    odiParam["BILG_CLNT_NO"] = ds_evid1.getCellData(rowPosition, "bilgClntNo");
+                    odiParam["USER_ID"] = scwin.empNo;
+                    odiParam["TYPE"] = "5";
+                    odiParam["RMK"] = "Y";
+                    odiParam["ENG"] = "1";
+                    odiParam["PIC"] = "2";
+                    // TODO: cfOZReport 호출 전환
+                } else {
+                    // TODO: OZ Report 연동 — ac_101_01_01_sea.ozr
+                    let odiParam = {};
+                    odiParam["KCOMCD"] = "DBEX";
+                    odiParam["PRTN_GRP_NO"] = ds_evid1.getCellData(rowPosition, "prtnGrpNo");
+                    odiParam["SEAAIR"] = "S";
+                    if (ds_evid1.getCellData(rowPosition, "odrNo").substr(2, 1) == "I") {
+                        odiParam["IOGB"] = "I";
+                    } else {
+                        odiParam["IOGB"] = "O";
+                    }
+                    odiParam["BILG_CLNT_NO"] = ds_evid1.getCellData(rowPosition, "bilgClntNo");
+                    odiParam["USER_ID"] = scwin.empNo;
+                    odiParam["TYPE"] = "5";
+                    odiParam["RMK"] = "Y";
+                    odiParam["ENG"] = "1";
+                    odiParam["PIC"] = "2";
+                    // TODO: cfOZReport 호출 전환
+                }
+            } else if (selPchClsCd == "PARTNER") {
+                let emp_no = scwin.vEmpNo;
+
+                let odiParam = {};
+                odiParam["KCOMCD"] = "DBEX";
+                odiParam["PRTN_GRP_NO"] = ds_evid1.getCellData(rowPosition, "prtnGrpNo");
+                if (ds_evid1.getCellData(rowPosition, "odrNo").substr(1, 1) == "A") {
+                    odiParam["SEAAIR"] = "A";
+                } else {
+                    odiParam["SEAAIR"] = "S";
+                }
+                if (ds_evid1.getCellData(rowPosition, "odrNo").substr(2, 1) == "I") {
+                    odiParam["IOGB"] = "I";
+                } else {
+                    odiParam["IOGB"] = "O";
+                }
+                odiParam["BILG_CLNT_NO"] = ds_evid1.getCellData(rowPosition, "bilgClntNo");
+                odiParam["USER_ID"] = scwin.empNo;
+                odiParam["TYPE"] = "0";
+                odiParam["EMP_NO"] = emp_no;
+                odiParam["PIC"] = "2";
+                // TODO: cfOZReport 호출 전환
+            }
+        };
+
+        scwin.f_print_bill = function() {
+            let etaxId2 = ds_evid2.getCellData(ds_evid2.getRowPosition(), "etaxId");
+
+            let odiParam = {};
+            odiParam["etaxId"] = etaxId2;
+
+            // TODO: OZ Report 연동 — fi_401_10_01p.ozr, cfOZReport 호출 전환
+        };
+
+        scwin.f_eSeroConnect = async function() {
+            let valueObject = {};
+            // TODO: ed_slipNo 컴포넌트가 body에 없으므로 원본 로직 참조 필요
+            // valueObject.slipNo = ed_slipNo.getValue();
+
+            let rtnValue = await $c.win.openPopup("/ui/ac/fi/taxbiz/evidmgnt/fi_403_01_01b.xml", {
+                width: 1030,
+                height: 680,
+                modal: true,
+                data: valueObject
+            });
+
+            if (rtnValue == "Y") {
+                scwin.f_Retrieve();
+            }
+        };
+
+        scwin.f_setFileUpDownFrame = function(houseNo) {
+            let url = "/ui/il/common/xml/ilCommonFilePopup_02.xml"
+                + "?houseNo=" + houseNo;
+            fileUpDownFrame.setSrc(url);
+        };
+
+        scwin.f_winClose = function() {
+            $c.win.closePopup("Y");
+        };
+
+        scwin.onCloseWindow = function() {
+            $c.win.closePopup("Y");
+        };
+
+        scwin.f_OpenCommonPopUp = function(gubun, pCode, pName, pClose, pAllSearch, row) {
+            let rtnList = new Array();
+            let pSelectID = "";
+            let pWtitleSearch = null;
+            // TODO: ed_coCd 컴포넌트가 body에 없으므로 원본 로직 참조 필요
+            let param = ",,,0";
+
+            if (gubun == 4) {
+                pSelectID = "retrieveAcctDeptCdInfo6";
+                pWtitleSearch = null;
+            }
+
+            rtnList = $c.gus.cfCommonPopUp(pSelectID, pCode, pName, pClose, null, null, null, null, param, null, null, null, null, null, pAllSearch, pWtitleSearch);
+
+            if (gubun == 4) {
+                // TODO: ed_deptCd, txt_deptNm 컴포넌트가 body에 없으므로 원본 로직 참조 필요
+                // $c.gus.cfSetReturnValue(rtnList, ed_deptCd, txt_deptNm);
+            }
+        };
+
+        scwin.f_ChkOpenCommonPopUp = function(gubun, inObj, pairObj, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+
+            $c.gus.cfClearPairObj(pairObj);
+
+            let pVal = $c.gus.cfGetValue(inObj);
+
+            if (isCode == null || isCode == true) {
+                scwin.f_OpenCommonPopUp(gubun, pVal, "", "T", "T");
+            } else {
+                scwin.f_OpenCommonPopUp(gubun, "", pVal, "T", "T");
+            }
+        };
+
+        scwin.f_SearchPopUp = function(flag, check, isCdYn) {
+            let rtnList = new Array();
+            switch (flag) {
+                case "2":
+                    // TODO: ed_regId, txt_empNm, coCd 컴포넌트가 body에 없으므로 원본 로직 참조 필요
+                    let param = "" + scwin.txtCoClsCd;
+
+                    // rtnList = $c.gus.cfCommonPopUp("retrieveAcEmpInfo", ed_regId.getValue().trim(), txt_empNm.getValue(), check, null, null, null, null, param, null, null, null, null);
+                    // scwin.f_resultPopEd(ed_regId, txt_empNm, rtnList);
+                    break;
+            }
+        };
+
+        scwin.f_resultPopEd = function(strCd, strNm, rtnList) {
+            if (rtnList != null) {
+                if (rtnList[0] == "N/A") {
+                    return;
+                }
+                strCd.setValue(rtnList[0]);
+                strNm.setValue(rtnList[1]);
+            } else {
+                strCd.setValue("");
+                strNm.setValue("");
+            }
+        };
+
+        scwin.f_userToExcel = async function(gr_evid, gridName) {
+            let objGrd = $p.getComponentById(gr_evid);
+            let objDs = $p.getComponentById(objGrd.getDataListId());
+
+            if (objDs.getRowCount() <= 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_009, Array("데이타"));
+                return false;
+            }
+            $c.data.downloadGridViewExcel(gr_evid, {"fileName": gridName + ".xlsx", "sheetName": gridName});
+        };
+
+        scwin.f_checkPopEd2 = function(strCd, strNm, flag) {
+            strNm.setValue("");
+
+            if (strCd.getValue().trim() != "") {
+                scwin.f_SearchPopUp(flag, "T");
+            }
+        };
+
+        scwin.button_data_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.btn_trigger2_onclick = function(e) {
+            scwin.f_winClose();
+        };
+
+        scwin.sbm_search1_submitdone = function(e) {
+        };
+
+        scwin.sbm_search2_submitdone = function(e) {
+        };
+
+        scwin.sbm_search1_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_search2_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_empNo_submitdone = function(e) {
+            let houseNo = ed_hhblno.getValue();
+            scwin.f_setFileUpDownFrame(houseNo);
+        };
+
+        scwin.sbm_empNo_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_checkRegistID_submitdone = function(e) {
+        };
+
+        scwin.sbm_checkRegistID_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_fixedAsetCount_submitdone = function(e) {
+        };
+
+        scwin.sbm_fixedAsetCount_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_bizdiv_submitdone = function(e) {
+        };
+
+        scwin.sbm_bizdiv_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+    ]]></script>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="pop_contents" meta_componentContainer="true" style="">
+    		<w2:wframe id="wfm_contentHeader" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="grp_shbox" style="">
+    			<xf:group class="shbox-inner" id="grp_shboxInner" style="">
+    				<xf:group class="w2tb" id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="grp_tr1" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="txt_hhblnoLabel" label="House No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_hhblno" placeholder="" style="width: 200px;" mandatory="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="grp_btnShbox" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_refresh" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="button_data" style="" type="button">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="grp_roundBox" style="">
+    			<w2:wframe id="fileUpDownFrame" style="" src="ilCommonFilePopup_02.xml"></w2:wframe>
+    			<w2:textbox class="info-txt txt-red" id="bSearch" label="파일명, 파일경로에 특수문자를 입력하실 수 없습니다.(특수문자 종류:'!,+&amp;^%$#@~;)" style="" tagname="p">
+    				</w2:textbox>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="grp_popBtnbox" style="">
+    			<xf:trigger class="btn" id="btn_trigger2" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lo400" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="selpchItemCd" name="항구코드" dataType="text"></w2:column>
+    					<w2:column id="selpchItemNm" name="항구명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lo412" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="anucScItemCd" name="고시할증항목코드" dataType="text"></w2:column><w2:column id="selpchItemCd" name="항구코드" dataType="text"></w2:column>
+    					<w2:column id="selpchItemNm" name="항구명" dataType="text"></w2:column>
+    					<w2:column id="anucTrfClsCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="anucTrfClsNm" name="name4" dataType="text"></w2:column>
+    					<w2:column id="chk" name="name5" dataType="text"></w2:column>
+    					
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lo413" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="anucScItemCd" name="고시할증항목코드" dataType="text"></w2:column>
+    					<w2:column id="commCd" name="품목코드" dataType="text"></w2:column>
+    					<w2:column id="hidCommNm" name="히든품목" dataType="text"></w2:column>
+    					<w2:column id="commNm" name="품목" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_sellitem" saveRemovedData="true">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="anucScItemCd" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.lo.comntrfmgnt.RetrieveSurchargeItemEachAdoptionInformationCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,
+[{"id":"ds_search","key":"GAUCE"},{"id":"ds_lo412","key":"OUT_DS1"},{"id":"ds_lo413","key":"OUT_DS2"}]' target='data:json,[{"id":"ds_lo412","key":"OUT_DS1"},{"id":"ds_lo413","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="scwin.sbm_retrieve_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.lo.comntrfmgnt.SaveSurchargeItemEachAdoptionInformationCMD.do" method="post" mediatype="application/json" ref='data:json,[{"action":"modified","id":"ds_lo412","key":"IN_DS1"},{"action":"modified","id":"ds_lo413","key":"IN_DS2"}]' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="scwin.sbm_save_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_lo400" action="/ds.lo.comntrfmgnt.RetrieveSurchargeItemListCMD.do" method="post" mediatype="application/json" ref="" target='data:json,{"id":"ds_lo400","key":"GAUCE"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_lo400_submitdone"
+    			ev:submiterror="scwin.sbm_lo400_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//물류/공통(통합)/매출요율/하역/할증항목별 적용대상관리
+
+scwin.onpageload = function() {
+	scwin.f_OnLoad();
+};
+
+scwin.MSG_LO_WRN_001 = "적용일자를 입력한 후 신규 고시요율을 생성하십시오.";
+scwin.MSG_LO_ERR_001 = "변경된 사항이 없습니다.";
+ 	
+scwin.arrSelpchItemCd = new Array("0001","0064","0065", "0043", "0044", "0045", "0046", "0062", "0052");
+scwin.curPos = 0;
+scwin.lo412Pos = 0;
+scwin.lo413Pos = 0;
+
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_OnLoad
+// scwin.desc : 화면로딩시 
+//-------------------------------------------------------------------------   
+scwin.f_OnLoad = function () {
+	scwin.f_defaultValue();
+	scwin.f_Retrieve();
+	
+    $c.gus.cfDisableObjects([udc_addRow, btn_save]);
+	$c.gus.cfEnableObjects([btn_edit]);
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_defaultValue
+// scwin.desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function () {
+	var i;
+	$c.gus.cfDisableKey();
+};	
+
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_Retrieve
+// scwin.desc : 조회
+//-------------------------------------------------------------------------
+
+scwin.f_Retrieve = function () {
+    $c.sbm.execute(sbm_lo400);
+
+	$c.gus.cfDisableObjects([udc_addRow, btn_save]);
+	$c.gus.cfEnableObjects([btn_edit]);
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_validChk
+// scwin.desc : 필수 조회 조건 check
+//-------------------------------------------------------------------------
+scwin.f_validChk = function () {
+
+	return true;
+};
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_Edit
+// scwin.desc : 수정버튼 클릭시
+//-------------------------------------------------------------------------
+scwin.f_Edit = function (){
+    //gr_lo412.setReadOnly("grid", false);
+
+    gr_lo412.setReadOnly("column","chk", false);
+    gr_lo413.setReadOnly("grid", false);
+
+	$c.gus.cfEnableObjects([udc_addRow, btn_save]);
+	$c.gus.cfDisableObjects([btn_edit]);
+
+	//gr_lo412.Editable = true;
+	//gr_lo413.Editable = true;
+	
+    //$c.gus.cfEnableObjects([udc_addRow, btn_save]);
+	//$c.gus.cfDisableObjects([btn_edit]);
+};
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_Create
+// scwin.desc : 저장
+//-------------------------------------------------------------------------
+
+scwin.f_Create = async function () {     
+	
+	if (await scwin.f_ReqFieldChk()) {
+    	if ( await $c.win.confirm(MSG_CM_CRM_001)) {
+    		//tr_save.Post();
+            $c.sbm.execute(sbm_save);
+    	}
+    }
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : scwin.f_ReqFieldChk
+// scwin.desc : 필수 입력항목 체크
+//-------------------------------------------------------------------------
+scwin.f_ReqFieldChk = async function () {
+	if(ds_lo412.getModifiedJSON().length == 0 && ds_lo413.getModifiedJSON().length == 0 ){
+		await $c.gus.cfAlertMsg(scwin.MSG_LO_ERR_001);
+		return false;
+    }
+    
+    let validArry = [
+        {id:"commCd", name: "제외품목",key:true,mandatory:true}
+    ];
+
+    let gridName = "적용제외품목목록";
+    if(!await $c.gus.cfValidateGrid(gr_lo413, null, null, validArry, gridName)){
+        return false;
+    }
+    return true;
+    
+/*
+	if (await $c.gus.cfValidate([gr_lo413])) {
+  		return true;
+	} else {
+  		return false;
+	}
+*/
+};
+
+scwin.f_addrow = function () {
+	var row = ds_lo413.insertRow();
+	ds_lo413.setCellData(row,"anucScItemCd",ds_lo400.getCellData(ds_lo400.getRowPosition(),"selpchItemCd"));
+	gr_lo413.setReadOnly("grid", false);
+    gr_lo413.setFocusedCell(row, "commNm", false);
+};
+
+scwin.f_undo = function () {
+    ds_lo413.undoRow(ds_lo413.getRowPosition());
+    gr_lo413.setReadOnly("grid", true);
+};
+
+
+scwin.sbm_lo400_submitdone = async function (e) {
+    try{
+        
+        if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+        var rowcnt = ds_lo400.getRowCount();
+        tbx_totalRows1.setValue(rowcnt);
+        if (rowcnt == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            return;
+        }
+        
+        //gr_lo400.setFocusedCell(0, "selpchItemNm", false);
+        gr_lo400.setFocusedCell(scwin.curPos, "selpchItemNm", false);
+        scwin.curPos = 0;
+
+        $c.gus.cfDisableObjects([udc_addRow, btn_save]);
+	    $c.gus.cfEnableObjects([btn_edit]);
+    } catch (e) {
+       console.log("sbm_lo400_submitdone : " + e);
+    }
+};
+
+scwin.sbm_lo400_submiterror = function (e) {
+
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+// console.log("sbm_retrieve_submitdone ~~~");
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+        var rowcnt = ds_lo412.getRowCount();
+        tbx_totalRows2.setValue(rowcnt);
+
+        rowcnt = ds_lo413.getRowCount();
+        tbx_totalRows3.setValue(rowcnt);
+
+        // gr_lo412.setFocusedCell(0, "anucTrfClsNm", false);
+        // gr_lo413.setFocusedCell(0, "commNm", false);
+        gr_lo412.setFocusedCell(scwin.lo412Pos, "selpchItemNm", false);
+        gr_lo413.setFocusedCell(scwin.lo413Pos, "commNm", false);
+        scwin.lo412Pos = 0;
+        scwin.lo413Pos = 0;
+        gr_lo400.setFocusedCell(ds_lo400.getRowPosition(), "selpchItemNm", false);
+    } catch (e) {
+       console.log("sbm_retrieve_submitdone : " + e);
+    }
+};
+
+scwin.sbm_retrieve_submiterror = function (e) {
+	$c.gus.cfDisableObjects([udc_addRow, btn_save]);
+	$c.gus.cfEnableObjects([btn_edit]);
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+
+    if(e.responseJSON.resultDataSet[0].Code == "-1") return;
+
+	await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다 
+
+    scwin.curPos = ds_lo400.getRowPosition();
+    scwin.lo412Pos = ds_lo412.getRowPosition();
+
+    scwin.f_Retrieve();
+	$c.gus.cfDisableObjects([udc_addRow, btn_save]);
+	$c.gus.cfEnableObjects([btn_edit]);
+	
+    //gr_lo412.setReadOnly("grid", true);
+    gr_lo412.setReadOnly("column","chk", true);
+    gr_lo413.setReadOnly("grid", true);
+
+	//gr_lo412.Editable = false;
+	//gr_lo413.Editable = false;
+};
+
+scwin.sbm_save_submiterror = function (e) {
+
+};
+
+scwin.btn_search_onclick = function (e) {
+    scwin.curPos = 0;
+    scwin.lo412Pos = 0;
+    scwin.f_Retrieve();
+};
+
+scwin.btn_edit_onclick = function (e) {
+    scwin.f_Edit();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Create();
+};
+
+scwin.gr_lo400_onrowindexchange = function (rowIndex, oldRow) {
+    ds_search.set("anucScItemCd", ds_lo400.getCellData(rowIndex, "selpchItemCd"));
+    $c.sbm.execute(sbm_retrieve);
+
+    $c.gus.cfDisableObjects([udc_addRow, btn_save]);
+	$c.gus.cfEnableObjects([btn_edit]);
+
+    gr_lo412.setReadOnly("column","chk", true);
+    gr_lo413.setReadOnly("grid", true);
+};
+
+scwin.gr_lo413_ontextimageclick = function (rowIndex, columnIndex) {
+	var rtnList = new Array();
+	//rtnList = udc_comCodeGrid.cfCommonPopUp('retrieveCommInfo',	
+    //var colId = gr_lo413.getColumnID("columnIndex");
+
+    udc_comCodeGrid.setSelectId('retrieveCommInfo');
+	rtnList = udc_comCodeGrid.cfCommonPopUp(scwin.udc_comCodeGridCallback,	
+							ds_lo413.getCellData(rowIndex,"commCd"),	
+							ds_lo413.getCellData(rowIndex,"commNm"),
+							"T",		
+							'5',		
+							"품목코드,품목",	
+							'150,170',	
+							null,		
+							"2,3",   
+							'440',	
+							'500',	
+							null,		
+							null,
+							null,
+							null,
+							"품목,품목코드,품목");
+};
+
+scwin.gr_lo413_oncellindexchange = function (rowIndex, columnIndex, oldRow, oldColumnIndex) {
+	if(ds_lo413.getCellData(rowIndex,"hidCommNm") == ds_lo413.getCellData(rowIndex,"commNm") ) {
+		return;
+	} else {
+		
+		ds_lo413.setCellData(rowIndex, "commCd", "");	//품목코드
+		ds_lo413.setCellData(rowIndex, "hidCommNm", "");	//품목
+		
+		var rtnList = new Array();
+		//rtnList = cfCommonPopUp('retrieveCommInfo',	
+        
+	    udc_comCodeGrid.setSelectId('retrieveCommInfo');
+		rtnList = udc_comCodeGrid.cfCommonPopUp(scwin.udc_comCodeGridCallback,	
+								ds_lo413.getCellData(rowIndex,"commCd"),	
+								ds_lo413.getCellData(rowIndex,"commNm"),	
+								"T",		
+								'5',		
+								"품목",	
+								'150,170',	
+								null,		
+								"2,3",   
+								'440',	
+								'500',	
+								null,		
+								null);
+	}
+};
+
+scwin.gr_lo413_onviewchange = function (info) {
+//console.log('scwin.gr_lo413_onviewchange~~');
+//console.log(info);
+
+    var rowIndex = info.rowIndex;
+
+	if(ds_lo413.getCellData(rowIndex,"hidCommNm") == ds_lo413.getCellData(rowIndex,"commNm") ) {
+		return;
+	} else {
+		
+		ds_lo413.setCellData(rowIndex, "commCd", "");	//품목코드
+		ds_lo413.setCellData(rowIndex, "hidCommNm", "");	//품목
+		
+		var rtnList = new Array();
+	    udc_comCodeGrid.setSelectId('retrieveCommInfo');
+		rtnList = udc_comCodeGrid.cfCommonPopUp(scwin.udc_comCodeGridCallback,	
+								ds_lo413.getCellData(rowIndex,"commCd"),	
+								ds_lo413.getCellData(rowIndex,"commNm"),	
+								"T",		
+								'5',		
+								"품목",	
+								'150,170',	
+								null,		
+								"2,3",   
+								'440',	
+								'500',	
+								null,		
+								null);
+	}
+};
+
+scwin.udc_comCodeGridCallback = function (rtnList) {
+    var row = ds_lo413.getRowPosition();
+    if ( rtnList != null && rtnList != "N/A") {
+        ds_lo413.setCellData(row,"commCd",rtnList[0]);	//품목코드
+        ds_lo413.setCellData(row,"hidCommNm",rtnList[1]);	//품목
+        ds_lo413.setCellData(row,"commNm",rtnList[1]);	//품목
+    }else {
+        ds_lo413.setCellData(row,"commCd","");	//품목코드
+        ds_lo413.setCellData(row,"hidCommNm","");	//품목
+        ds_lo413.setCellData(row,"commNm","");	//품목
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:90px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="lybox col3 wfix flex_no" id="">
+    						<xf:group class="col" id="" style="width: 400px;">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="할증항목목록" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_lo400" gridUpYn="N" grdDownOpts='{"sheetName" : "할증항목목록","fileName":"할증항목목록.xlsx","type":"2+4+8+16","hiddenVisible":"true"}' gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    									<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw"
+    										dataList="data:ds_lo400" focusMode="row" id="gr_lo400" scrollByColumn="false" scrollByColumnAdaptive="false" style=""
+    										visibleRowNum="16" visibleRowNumFix="true" ev:onrowindexchange="scwin.gr_lo400_onrowindexchange" readOnly="true">
+    										<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    										<w2:header id="header2" style="">
+    											<w2:row id="row3" style="">
+    												<w2:column width="70" inputType="text" style="" id="column13" value="할증항목코드"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    													removeBorderStyle="false" value="할증항목" width="100">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody id="gBody2" style="">
+    											<w2:row id="row4" style="">
+    												<w2:column width="70" inputType="text" style="" id="selpchItemCd" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column blockSelect="false" displayMode="label" id="selpchItemNm" inputType="text"
+    													removeBorderStyle="false" textAlign="left" width="100">
+    												</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="tbx_totalRows1" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    						<xf:group class="col" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="매출입항목목록" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section2" style="" gridID="gr_lo412" gridUpYn="N" grdDownOpts='{"sheetName" : "매출입항목목록","fileName":"매출입항목목록.xlsx","type":"2+4+8+16"}' gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    									<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw"
+    										dataList="data:ds_lo412" focusMode="row" id="gr_lo412" scrollByColumn="false" scrollByColumnAdaptive="false" style=""
+    										visibleRowNum="16" visibleRowNumFix="true" readOnly="true" columnMove="false">
+    										<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    										<w2:header id="header2" style="">
+    											<w2:row id="row3" style="">
+    												<w2:column width="70" inputType="text" style="" id="column22" value="요율구분코드 "
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column class="" displayMode="label" id="column21" inputType="text" style=""
+    													value="요율구분명" width="100">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="column26" value="고시할증항목코드"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="column24" value="매출입항목코드"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column class="" displayMode="label" id="column19" inputType="text" style=""
+    													value="매출입항목명" width="150">
+    												</w2:column>
+    												<w2:column class="col-type2" displayMode="label" id="column17" inputType="text" style=""
+    													value="포함" width="70">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody id="gBody2" style="">
+    											<w2:row id="row4" style="">
+    												<w2:column width="70" inputType="text" style="" id="anucTrfClsCd" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column displayMode="label" id="anucTrfClsNm" inputType="text" style=""
+    													textAlign="left" value="" width="100" colMerge="true" readOnly="true">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="anucScItemCd" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="selpchItemCd" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column displayMode="label" id="selpchItemNm" inputType="text" style=""
+    													textAlign="left" value="" width="150">
+    												</w2:column>
+    												<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value=""
+    													width="70">
+    												</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="tbx_totalRows2" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    						<xf:group class="col" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="적용제외품목목록" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section3" style="" gridUpYn="N" gridID="gr_lo413" gridDownUserAuth="X" grdDownOpts='{"sheetName" : "적용제외품목목록","fileName":"적용제외품목목록.xlsx","type":"2+4+8+16","hiddenVisible":"true"}'></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section3" style="">
+    									<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw"
+    										dataList="data:ds_lo413" focusMode="row" id="gr_lo413" scrollByColumn="false" scrollByColumnAdaptive="false" style=""
+    										visibleRowNum="16" visibleRowNumFix="true" ev:ontextimageclick="scwin.gr_lo413_ontextimageclick" readOnly="true"
+    										rowStatusVisible="true" ev:onviewchange="scwin.gr_lo413_onviewchange">
+    										<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    										<w2:header id="header2" style="">
+    											<w2:row id="row3" style="">
+    												<w2:column width="70" inputType="text" style="" id="column16" value="고시할증항목코드"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="column14" value="품목코드 "
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="column12" value="히든품목"
+    													displayMode="label">
+    												</w2:column>
+    												<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text"
+    													removeBorderStyle="false" value="제외품목" width="100" class="col-type1">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody id="gBody2" style="">
+    											<w2:row id="row4" style="">
+    												<w2:column width="70" inputType="text" style="" id="anucScItemCd" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="commCd" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column width="70" inputType="text" style="" id="hidCommNm" value=""
+    													displayMode="label" readOnly="true" hidden="true">
+    												</w2:column>
+    												<w2:column blockSelect="false" displayMode="label" id="commNm" inputType="textImage"
+    													removeBorderStyle="false" width="100" textAlign="left">
+    												</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="tbx_totalRows3" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group class="right" id="" style="">
+    										<w2:udc_bottomGrdBtn style="" btnDelYn="N" btnCancelYn="Y" gridID="gr_lo413" rowAddUserAuth="C" rowDelUserAuth="D" rowAddFunction="scwin.f_addrow" id="udc_addRow"></w2:udc_bottomGrdBtn>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btnbox" id="">
+    						<xf:group class="right" id="">
+    							<xf:group class="inner" id="">
+    								<xf:trigger class="btn" id="btn_edit" label="저장" style="" type="button" ev:onclick="scwin.btn_edit_onclick" userAuth="U">
+    									<xf:label>수정</xf:label>
+    								</xf:trigger>
+    								<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    									<xf:label>저장</xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+        <w2:udc_comCode btnId="" codeId="" id="udc_comCodeGrid" nameId="" popupID="" selectID="" style="display:none"></w2:udc_comCode>
+    </body>
+</html>

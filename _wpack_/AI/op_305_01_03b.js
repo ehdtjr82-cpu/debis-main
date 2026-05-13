@@ -1,0 +1,144 @@
+/*amd /AI/op_305_01_03b.xml 29622 b79bc7fa6d7db97d6480d7fe491525e6881093473fa93112d01ff42b1676a4a4 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'oGDS_view_cond'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'dptWrkPlCd',name:'출발역작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'arvWrkPlCd',name:'도착역작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptDtHh',name:'출발시간From',dataType:'text'}},{T:1,N:'w2:key',A:{id:'arvDtHh',name:'출발시간To',dataType:'text'}},{T:1,N:'w2:key',A:{id:'transWrkIndictNo',name:'작업지시번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'frtCarClsCd',name:'화차요율구분',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_railroadResults',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'dptWrkPlNm',name:'출발역',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvWrkPlNm',name:'도착역',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lineCd',name:'Line',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'Cntr No.',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSizCd',name:'Size',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'Type',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'E/F',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sealNo',name:'Seal No.',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptDtHh',name:'출발일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvDtHh',name:'도착일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'화주명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ordArvWrkPlNm',name:'하차지',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvDtl',name:'도착상세',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslNm',name:'선박명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'portcnt',name:'항차',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chRailroadFare',name:'청화차',dataType:'number'}},{T:1,N:'w2:column',A:{id:'saRailroadFare',name:'사유화차',dataType:'number'}},{T:1,N:'w2:column',A:{id:'btRailroadFare',name:'BT',dataType:'number'}},{T:1,N:'w2:column',A:{id:'transNm',name:'운송명의',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frtcarNo',name:'화차번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptDt',name:'출발일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCnt',name:'작업량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCd',name:'선박코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transWrkIndictNo',name:'운송작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSeq',name:'컨테이너순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrWrkPathSeq',name:'오더작업경로순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrWrkStpSeq',name:'오더작업단계순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptWrkPlCd',name:'출발작업장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvWrkPlCd',name:'도착작업장',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_railroadTotCnt'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'sa',name:'사유건',dataType:'number'}},{T:1,N:'w2:column',A:{id:'saTeu',name:'사유TEU',dataType:'number'}},{T:1,N:'w2:column',A:{id:'saCnt40',name:'사유40',dataType:'number'}},{T:1,N:'w2:column',A:{id:'saCnt20',name:'사유20',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ch',name:'공사건',dataType:'number'}},{T:1,N:'w2:column',A:{id:'chTeu',name:'공사TEU',dataType:'number'}},{T:1,N:'w2:column',A:{id:'chCnt40',name:'공사40',dataType:'number'}},{T:1,N:'w2:column',A:{id:'chCnt20',name:'공사20',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bt',name:'BT건',dataType:'number'}},{T:1,N:'w2:column',A:{id:'btTeu',name:'BT TEU',dataType:'number'}},{T:1,N:'w2:column',A:{id:'btCnt40',name:'BT40',dataType:'number'}},{T:1,N:'w2:column',A:{id:'btCnt20',name:'BT20',dataType:'number'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_searchEDI'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'qryClsCd',name:'조회구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'transWrkIndictNo',name:'운송작업지시번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cntrSeq',name:'컨테이너순번',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPathSeq',name:'작업경로순번',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStpSeq',name:'작업단계순번',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'crryoutDt',name:'반출일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'crryinDt',name:'반입일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cntrNo',name:'컨테이너번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptWrkPlCd',name:'출발작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'arvWrkPlCd',name:'도착작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sndFlag',name:'전송플래그',dataType:'text'}},{T:1,N:'w2:key',A:{id:'delFlag',name:'삭제플래그',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.wrkrslts.railroadwrkrslts.RetrieveStationEachRailroadResultsCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"oGDS_view_cond","key":"IN_DS1"},{"id":"ds_railroadResults","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_railroadResults","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'scwin.sbm_retrieve_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve2',action:'/ds.op.wrkrslts.railroadwrkrslts.RetrieveStationEachRailroadTotalCountCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"oGDS_view_cond","key":"IN_DS1"},{"id":"ds_railroadTotCnt","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_railroadTotCnt","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_retrieve2_submitdone','ev:submiterror':'scwin.sbm_retrieve2_submiterror'}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.vCurDate = "";
+scwin.onpageload = async function () {
+  scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+};
+scwin.onUdcCompleted = async function () {
+  scwin.f_defaultValue();
+  txt_dptWrkPlNm.setFocus();
+};
+scwin.f_defaultValue = async function () {
+  udc_DtHh.setInitDate(scwin.vCurDate, scwin.vCurDate);
+  rd_frtCarClsCd.setValue("");
+};
+scwin.btn_retrieve_onclick = async function (e) {
+  scwin.f_Retrieve();
+};
+scwin.f_Retrieve = async function () {
+  if (!$c.gus.cfIsAfterDate($p, ica_dptDtHh.getValue(), ica_arvDtHh.getValue())) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_048, new Array("작업일자 From", "작업일자 To"));
+    ica_dptDtHh.setFocus();
+    return false;
+  }
+  if (!(await scwin.f_reqFieldChk())) return false;
+  let strAction = "/ds.op.wrkrslts.railroadwrkrslts.RetrieveStationEachRailroadResultsCMD.do";
+  sbm_retrieve.action = strAction;
+  await $c.sbm.execute($p, sbm_retrieve);
+};
+scwin.f_retrieve2 = async function () {
+  await $c.sbm.execute($p, sbm_retrieve2);
+};
+scwin.f_railroadResultsExcel = async function () {
+  $c.data.downloadGridViewExcel($p, gr_railroadResults, {
+    "fileName": "역별처리현황.xlsx",
+    "sheetName": "역별처리현황"
+  });
+};
+scwin.f_railroadTotalCountExcel = async function () {
+  $c.data.downloadGridViewExcel($p, gr_railroadTotCnt, {
+    "fileName": "역별처리현황.xlsx",
+    "sheetName": "역별처리현황"
+  });
+};
+scwin.f_reqFieldChk = async function () {
+  if (ica_dptDtHh.getValue().trim() == "") {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_002, new Array("작업일자 From"));
+    return false;
+  }
+  if (ica_arvDtHh.getValue().trim() == "") {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_002, new Array("작업일자 To"));
+    return false;
+  }
+  let chk = await $c.gus.cfValidate($p, [ica_dptDtHh, ica_arvDtHh]);
+  if (!chk) {
+    return false;
+  }
+  return true;
+};
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) return;
+  $c.gus.cfClearPairObj($p, pairObj);
+  let pVal = $c.gus.cfGetValue($p, inObj);
+  if (isCode == null || isCode == true) scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');else scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch) {
+  let rtnList;
+  switch (disGubun) {
+    case 1:
+      udc_dptWrkPl.ilCommonPopUp(scwin.callbackDptWrkPl, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "출발역조회,출발역명코드,출발역명");
+      break;
+    case 2:
+      udc_arvWrkPl.ilCommonPopUp(scwin.callbackArvWrkPl, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "도착역명조회,도착역명코드,도착역명");
+      break;
+  }
+};
+scwin.callbackDptWrkPl = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, txt_dptWrkPlCd, txt_dptWrkPlNm);
+};
+scwin.callbackArvWrkPl = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, txt_arvWrkPlCd, txt_arvWrkPlNm);
+};
+scwin.f_crryInOutEDI = async function (bAlertFlag, bSaveFlag, bTransferFlag, row, bDeleteFlag) {
+  if (ds_railroadResults.getRowCount() == 0) {
+    return;
+  }
+  if ($c.gus.cfIsNull($p, ds_railroadResults.getCellData(row, "dptWrkPlCd")) || $c.gus.cfIsNull($p, ds_railroadResults.getCellData(row, "arvWrkPlCd"))) {
+    await $c.gus.cfAlertMsg($p, "컨테이너정보를 선택하십시오.");
+    return;
+  }
+  let rtnList = new Array();
+  let arrParam = new Array();
+  arrParam[0] = new Array("", ds_railroadResults.getCellData(row, "transWrkIndictNo"), ds_railroadResults.getCellData(row, "odrNo"), ds_railroadResults.getCellData(row, "cntrSeq"), ds_railroadResults.getCellData(row, "odrWrkPathSeq"), ds_railroadResults.getCellData(row, "odrWrkStpSeq"), "", "", "", ds_railroadResults.getCellData(row, "wrkStDt"), ds_railroadResults.getCellData(row, "wrkEndDt"), ds_railroadResults.getCellData(row, "cntrNo"), ds_railroadResults.getCellData(row, "dptWrkPlCd"), ds_railroadResults.getCellData(row, "arvWrkPlCd"), ds_railroadResults.getCellData(row, "dptWrkPlNm"), ds_railroadResults.getCellData(row, "arvWrkPlNm"), "CO", "CO");
+  let pURL = "/ui/ds/op/wrkplan/transwrkplan/op_202_02_21p.xml";
+  let obj = {
+    paramTitle: "반출입예정정보EDI등록",
+    crryoutEdiType: "CO",
+    crryinEdiType: "CO",
+    arrParam: arrParam
+  };
+  rtnList = await $c.win.openPopup($p, pURL, {
+    width: 820,
+    height: 660,
+    modal: true,
+    data: obj
+  });
+  return true;
+};
+scwin.btn_fieldClear_onclick = async function (e) {
+  scwin.f_FieldClear();
+};
+scwin.f_FieldClear = async function () {
+  $c.gus.cfInitObjects($p, [txt_dptWrkPlCd, txt_arvWrkPlCd, txt_dptWrkPlNm, txt_arvWrkPlNm, txt_transWrkIndictNo]);
+  scwin.f_defaultValue();
+};
+scwin.btn_carryingInOutEDI_onclick = async function (e) {
+  scwin.f_crryInOutEDI(true, false, false, ds_railroadResults.getRowPosition(), false);
+};
+scwin.sbm_retrieve_submitdone = async function (e) {
+  if (ds_railroadResults.getRowCount() == 0) {
+    await $c.win.alert($p, "조회된 데이터가 없습니다.");
+  } else {
+    await scwin.f_retrieve2();
+  }
+  // TODO: subsum RealCount 로직 — GAUCE SubsumExpr/RealCount는 WebSquare에서 직접 지원하지 않음
+  spa_totalRow.setValue(ds_railroadResults.getTotalRow());
+};
+scwin.sbm_retrieve_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.sbm_retrieve2_submitdone = function (e) {
+  spa_totalRow2.setValue(ds_railroadTotCnt.getTotalRow());
+};
+scwin.sbm_retrieve2_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.gr_railroadResults_oncellclick = function (rowIndex, columnIndex, columnId) {
+  // TODO: GAUCE SubsumExpr/SortExpr 동적 변경은 WebSquare에서 직접 지원하지 않음
+  if (rowIndex >= 0) return;
+  if (columnId == "dptDtHh") {
+    ds_railroadResults.sort("dptDt", "asc");
+  } else {
+    ds_railroadResults.sort("dptWrkPlNm", "asc");
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업일자',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_DtHh',edFromId:'ica_dptDtHh',edToId:'ica_arvDtHh',refDataMap:'',refEdDt:'',refStDt:'',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'출발역',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{id:'udc_dptWrkPl',codeId:'txt_dptWrkPlCd',nameId:'txt_dptWrkPlNm',hideName:'Y',popupID:'',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'도착역',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{id:'udc_arvWrkPl',codeId:'txt_arvWrkPlCd',nameId:'txt_arvWrkPlNm',hideName:'Y',popupID:'',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업지시번호 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'txt_transWrkIndictNo',placeholder:'',style:'width:150px;',ref:'data:oGDS_view_cond.transWrkIndictNo'}}]}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'화차구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'7'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:select1',A:{appearance:'full',class:'',cols:'',id:'rd_frtCarClsCd',ref:'data:oGDS_view_cond.frtCarClsCd',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전체'}]},{T:1,N:'xf:value'}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'사유'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'0'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'청화차'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'BT'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'2'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve','ev:onclick':'scwin.btn_retrieve_onclick',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'역별처리현황 ',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section1',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{visibleRowNumFix:'true',checkAllType:'false',dataList:'ds_railroadResults',style:'',id:'gr_railroadResults',visibleRowNum:'10',class:'wq_gvw'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption1',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'dptWrkPlNm',value:'출발역',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arvWrkPlNm',value:'도착역',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'lineCd',value:'Line',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'cntrNo',value:'Cntr No.',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'cntrSizCd',value:'Size',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'cntrTypCd',value:'Type',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'fullEmptyClsCd',value:'E/F',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'sealNo',value:'Seal No.',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'dptDtHh',value:'출발일시',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arvDtHh',value:'도착일시',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'odrNo',value:'오더번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'clntNm',value:'화주명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'ordArvWrkPlNm',value:'하차지',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arvDtl',value:'도착상세',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'vsslNm',value:'선박명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'portcnt',value:'항차',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'chRailroadFare',value:'청화차',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'saRailroadFare',value:'사유화차',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'btRailroadFare',value:'BT',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'transNm',value:'운송명의',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'frtcarNo',value:'화차번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'dptDt',value:'출발일',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkCnt',value:'작업량',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'vsslCd',value:'선박코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'transWrkIndictNo',value:'운송작업지시번호',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'cntrSeq',value:'컨테이너순번',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'odrWrkPathSeq',value:'오더작업경로순번',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'odrWrkStpSeq',value:'오더작업단계순번',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStDt',value:'시작일자',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'wrkEndDt',value:'종료일자',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dptWrkPlCd',value:'출발작업장',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'arvWrkPlCd',value:'도착작업장',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row2'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'dptWrkPlNm',displayMode:'label',colMerge:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arvWrkPlNm',displayMode:'label',colMerge:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'lineCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'cntrNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'cntrSizCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'cntrTypCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'fullEmptyClsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'sealNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'dptDtHh',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arvDtHh',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'odrNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'clntNm',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'ordArvWrkPlNm',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arvDtl',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'vsslNm',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'portcnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'chRailroadFare',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'saRailroadFare',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'btRailroadFare',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'transNm',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'frtcarNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'dptDt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'vsslCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'transWrkIndictNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'cntrSeq',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'odrWrkPathSeq',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'odrWrkStpSeq',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStDt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'wrkEndDt',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'dptWrkPlCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'arvWrkPlCd',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',dataType:'number',displayFormat:'#,##0',style:'',id:'',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_carryingInOutEDI','ev:onclick':'scwin.btn_carryingInOutEDI_onclick',label:'저장',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:3,text:'반출입예정정보 EDI등록'}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section2',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section2',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{visibleRowNumFix:'true',checkAllType:'false',dataList:'ds_railroadTotCnt',style:'',autoFit:'allColumn',id:'gr_railroadTotCnt',visibleRowNum:'1',class:'wq_gvw'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption2',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{width:'280',inputType:'text',id:'sa',value:'사유',displayMode:'label',colSpan:'4'}},{T:1,N:'w2:column',A:{width:'280',inputType:'text',id:'saTeu',value:'공사',displayMode:'label',colSpan:'4'}},{T:1,N:'w2:column',A:{width:'280',inputType:'text',id:'saCnt40',value:'BT',displayMode:'label',colSpan:'4',hidden:'true'}}]},{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'sa',displayMode:'label',value:'건'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'saTeu',displayMode:'label',value:'TEU'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'saCnt40',displayMode:'label',value:'40',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'saCnt20',displayMode:'label',value:'20',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'ch',displayMode:'label',value:'건'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'chTeu',displayMode:'label',value:'TEU'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'chCnt40',displayMode:'label',value:'40',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'chCnt20',displayMode:'label',value:'20',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'bt',displayMode:'label',value:'건'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'btTeu',displayMode:'label',value:'TEU'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'btCnt40',value:'40',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'btCnt20',value:'20',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row2'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'sa',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'saTeu',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'saCnt40',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'saCnt20',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'ch',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'chTeu',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'chCnt40',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'chCnt20',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'bt',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'btTeu',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'btCnt40',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'btCnt20',displayMode:'label',textAlign:'center',dataType:'number',displayFormat:'#,###'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',dataType:'number',displayFormat:'#,##0',style:'',id:'',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]}]}]}]}]}]}]}]}]})

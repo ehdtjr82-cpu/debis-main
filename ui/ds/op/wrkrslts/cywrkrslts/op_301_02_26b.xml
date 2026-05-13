@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="op_301_02_26b" meta_screenName="LINE별기본반납지" meta_subsystem="물류 &gt; 작업실적 &gt; 입출고/반출입(자가)" meta_author="김원빈" meta_type="메인" meta_etc="f_openCommPopUpGrid 함수 &gt; cfCommonPopUp &gt; value존재 시 팝업 안 열리는 증상, 숨기는 컴포넌트 안 정하면 다 드러나는 현상">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_ds_srchCond">
+    				<w2:keyInfo>
+    					<w2:key id="lineCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="districtCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="cntrSizCd" name="name3" dataType="text"></w2:key>
+    					<w2:key id="cntrTypCd" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_results" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lineCd" name="line코드" dataType="text"></w2:column>
+    					<w2:column id="lineNm" name="line명" dataType="text"></w2:column>
+    					<w2:column id="onOffDockClsCd" name="ON OFF" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="districtCd" name="권역" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="size" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="type" dataType="text"></w2:column>
+    					<w2:column id="rtrnWrkPlCd" name="code" dataType="text"></w2:column>
+    					<w2:column id="rtrnWrkPlNm" name="반납지" dataType="text"></w2:column>
+    					<w2:column id="onOffClsCd" name="name9" dataType="text"></w2:column>
+    					<w2:column id="districtNm" name="name16" dataType="text"></w2:column>
+    					<w2:column id="orgRtrnWrkPlCd" name="name19" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_line">
+    				<w2:keyInfo>
+    					<w2:key id="ed_lineCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="txt_lineNm" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.cywrkrslts.RetrieveReturnPlaceByLineCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_ds_srchCond","key":"IN_DS1"},{"id":"ds_results","key":"OUT_DS1"}]' target='data:json,{"id":"ds_results","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_retrieve_submit" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.wrkrslts.cywrkrslts.SaveReturnPlaceByLineCMD.do" method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_results","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<w2:historyInfo>
+    		<w2:history meta_no="" meta_desc="최초개발\n" meta_date="2025/12/12" meta_user="김원빈"></w2:history>
+    	</w2:historyInfo>
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * @event 
+ * @name onpageload 
+ * @description 화면 초기화
+ */
+scwin.onpageload = function () {
+    scwin.globalVars();
+    scwin.f_OnLoad();
+};
+
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언
+ */
+scwin.globalVars = function () {
+    scwin.popupCallBackObj = {}; // 팝업 callback 파라미터
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 화면로딩시
+ */
+scwin.f_OnLoad = function () {
+    scwin.f_Retrieve();
+};
+
+
+
+/**
+ * @method 
+ * @name f_Retrieve 
+ * @description 조회
+ */
+scwin.f_Retrieve = async function () {
+    await scwin.submitExcute(sbm_retrieve);
+};
+
+
+
+/**
+ * @method 
+ * @name f_Save 
+ * @description 저장
+ */
+scwin.f_Save = async function () {
+
+    if (ds_results.getModifiedIndex().length == 0) {
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    };
+
+    const validGrid = await $c.gus.cfValidate([gr_results]);
+    if (!validGrid) return;
+
+    const retConfirm = await $c.win.confirm("저장하시겠습니까?");
+    if (!retConfirm) return;
+
+    await scwin.submitExcute(sbm_save);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_openPopUp 
+ * @description 조회 팝업
+ * @param {String} disGubun
+ * @param {String} pCode
+ * @param {String} pName
+ * @param {String} pClose
+ * @param {String} pAllSearch
+ */
+scwin.f_openPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+
+    // 초기화
+    scwin.popupCallBackObj = {};
+    let udcObj;
+
+    switch (disGubun) {
+        case 3:
+            udcObj = udc_line;
+            scwin.popupCallBackObj.codeObj = ed_lineCd;
+            scwin.popupCallBackObj.nameObj = txt_lineNm;
+            break;
+
+        default:
+            break;
+    };
+
+
+    udcObj.cfCommonPopUp(
+        scwin.f_openPopUpCallback,
+        pCode,
+        pName,
+        pClose,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        pAllSearch,
+        null
+    );
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_openPopUpCallback 
+ * @description 조회 팝업 callback
+ * @param {String[]} rtnList
+ */
+scwin.f_openPopUpCallback = function (rtnList) {
+
+    let codeObj = scwin.popupCallBackObj.codeObj;
+    let nameObj = scwin.popupCallBackObj.nameObj;
+
+    // 초기화
+    scwin.popupCallBackObj = {};
+
+    $c.gus.cfSetReturnValue(rtnList, codeObj, nameObj, null);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_chkOpenCommonPopUp 
+ * @description 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+ * @param {object} inObj
+ * @param {object} pairObj
+ * @param {String} disGubun
+ * @param {String} isCode
+ */
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 
+    // 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    var pVal = $c.gus.cfGetValue(inObj);
+
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+        scwin.f_openPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+    else
+        scwin.f_openPopUp(disGubun, '', pVal, 'T', 'T');
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_ResultsExcel 
+ * @description 엑셀파일로 저장
+ */
+scwin.f_ResultsExcel = function () {
+    let sheetTitle = "LINE별기본반납지";
+    const options = { fileName: sheetTitle + ".xlsx", sheetName: sheetTitle };
+    $c.data.downloadGridViewExcel(gr_results, options);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_openCommPopUpGrid 
+ * @description Grid Popup : 송화주
+ */
+scwin.f_openCommPopUpGrid = function (disGubun, row, pClose, value) {
+
+    // 초기화
+    scwin.popupCallBackObj = {};
+    scwin.popupCallBackObj.row = row;
+    
+    // 선언부
+    let pCode = "";
+    let pName = "";
+    let pWtitleSearch = "";
+
+    switch (disGubun) {
+        case 1: //거래처
+            // 송화주(거래처) 팝업
+            pCode = value;
+            udc_line.setSelectId("retrieveLineInfo");
+            pWtitleSearch = "LINE,LINE코드,LINE명";
+            scwin.popupCallBackObj.code = "lineCd"
+            scwin.popupCallBackObj.name = "lineNm"
+            break;
+
+        case 2: //거래처
+            // 송화주(거래처) 팝업
+            pName = value;
+            udc_line.setSelectId("retrieveWrkPlInfo");
+            pWtitleSearch = "작업장,작업장코드,작업장명"
+            scwin.popupCallBackObj.code = "rtrnWrkPlCd"
+            scwin.popupCallBackObj.name = "rtrnWrkPlNm"
+            break;
+    };
+
+    udc_line.cfCommonPopUp(
+        scwin.popUpGridCallBack
+        , pCode                           // 화면에서의 ??? Code Element의  Value
+        , pName                           // 화면에서의 ??? Name Element의  Value
+        , pClose	                      // 결과가 1건 일때  원도우를  AutoClose 여부  (T:Close,F:Opened)
+        , null                            // 검색 결과  컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null                            // Title순서
+        , null                            // 보여주는 각 컬럼들의 폭
+        , null                            // 컬럼중에서 숨기는  컬럼 지정
+        , null                            // SQL절의 WHERE절에  원하는 조건을 선택함 MAX:8개까지 가능
+        , null                            // POP-UP뛰을때 원도우의  사용자 정의 폭
+        , null                            // POP-UP뛰을때 우도우의  사용자 정의 높이
+        , null                            // 윈도우 위치 Y좌표
+        , null                            // 윈도우 위치 X좌표
+        , null                            // 중복체크여부 ("F")
+        , "F"                      // 전체검색허용여부 ("F")
+        , pWtitleSearch    // POP-UP Window Title 검색어1,2   ("Win타이틀,첫번검색Nm,두번?검색Nm")
+    );
+
+    udc_line.setSelectId("retrieveLineInfo");
+
+};
+
+
+
+/**
+ * @method 
+ * @name popUpGridCallBack 
+ * @description Grid Popup callback
+ * @param {String[]} rtnList
+ */
+scwin.popUpGridCallBack = function (rtnList) {
+
+    let row = scwin.popupCallBackObj.row;
+    let codeStr = scwin.popupCallBackObj.code;
+    let nameStr = scwin.popupCallBackObj.name;
+
+    // 초기화
+    scwin.popupCallBackObj = {};
+
+    $c.gus.cfSetGridReturnValue(rtnList, ds_results, row, codeStr, nameStr);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_copyRow 
+ * @description 행 복사
+ */
+scwin.f_copyRow = function () {
+
+    let row = ds_results.getRowPosition();
+    if (row < 0) {
+        $c.win.alert("복사할 행을 지정해 주십시오.");
+        return false;
+    };
+
+    let insertIdx = ds_results.insertRow();
+    ds_results.setRowJSON(insertIdx, ds_results.getRowJSON(row), true);
+    gr_results.setFocusedCell(insertIdx, 0);
+
+};
+
+
+
+/**
+ * @method 
+ * @name submitExcute 
+ * @description submit 처리
+ */
+scwin.submitExcute = async function (sbmObj) {
+
+    const e = await $c.sbm.execute(sbmObj);
+
+    if (e.responseJSON.resultDataSet[0].Msg == 'SUCC') {
+        await scwin.submitdone(e);
+    };
+
+};
+
+
+
+//-----------------------------------------------------------------------------
+//   Submission event  
+//-----------------------------------------------------------------------------
+
+
+/**
+ * @method 
+ * @name submitdone 
+ * @description submit 정상
+ */
+scwin.submitdone = async function (e) {
+
+    let submitObj = $p.getComponentById(e.id);
+
+    switch (submitObj) {
+        case sbm_retrieve:
+            if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+            if (ds_results.getRowCount() == 0) {
+                $c.win.alert("조회된 데이터가 없습니다.");
+                return;
+            };
+
+            let options = {
+                sortIndex: "lineCd districtCd cntrSizCd cntrTypCd",
+                sortOrder: "1 1 1 1"
+            };
+            ds_results.multisort(options);
+
+            let allData = ds_results.getAllJSON()
+            ds_results.setJSON(allData);
+
+            gr_results.setFocusedCell(0, 0);
+            break;
+
+
+        case sbm_save:
+            if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+            await $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+            scwin.f_Retrieve();
+            break;
+        default:
+            break;
+    }
+
+};
+
+
+
+
+/**
+ * @event 
+ * @name sbm_retrieve_submit 
+ * @description 조회) Submission 요청 전 선처리. return false시 submission 수행 안함.
+ */
+scwin.sbm_retrieve_submit = function (e) {
+
+    let jsonData = {
+        "lineCd": dma_line.get("ed_lineCd"),
+        "districtCd": acb_lc_districtCd.getValue(),
+        "cntrSizCd": acb_lc_cntrSizCd.getValue(),
+        "cntrTypCd": acb_lc_cntrTypCd.getValue(),
+    };
+
+    dma_ds_srchCond.setJSON(jsonData);
+
+};
+
+
+
+//-----------------------------------------------------------------------------
+//   Component event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name gr_results_ontextimageclick 
+ * @description 그리드 셀의 검색버튼 클릭 시 발생하는 이벤트(OnPopup)
+ */
+scwin.gr_results_ontextimageclick = function (rowIndex, columnIndex, value) {
+
+    let colId = gr_results.getColumnID(columnIndex);
+    let disGubun;
+
+    switch (colId) {
+        case "lineCd": disGubun = 1; break;
+        case "rtrnWrkPlNm": disGubun = 2; break;
+    };
+
+    if (gr_results._dataList.getCellData(rowIndex, colId) == value) return;
+
+    scwin.f_openCommPopUpGrid(disGubun, rowIndex, 'F', value);
+
+};
+
+
+
+/**
+ * @event 
+ * @name gr_results_oneditend 
+ * @description 그리드 셀의 편집이 끝난 경우 발생하며, onafteredit보다 먼저 발생(OnExit)
+ * @param {String} rowIndex
+ * @param {String} columnIndex
+ * @param {String} value
+ */
+scwin.gr_results_oneditend = function (rowIndex, columnIndex, value) {
+
+    let colID = this.getColumnID(columnIndex);
+
+    if (['lineCd', 'rtrnWrkPlNm'].includes(colID)) {
+        scwin.gr_results_ontextimageclick(rowIndex, columnIndex, value);
+    }
+
+};
+
+
+
+/**
+ * @event 
+ * @name udc_line_onclickEvent 
+ * @description Line 마우스로 클릭하거나 컴포넌트에 포커스가 있는 상태에서 스페이스 키를 누를 경우 발생. 
+ */
+scwin.udc_line_onclickEvent = function (e) {
+    scwin.f_openPopUp(3, ed_lineCd.getValue(), txt_lineNm.getValue(), 'F', 'T');
+};
+
+
+
+
+/**
+ * @event 
+ * @name udc_line_onblurCodeEvent 
+ * @description Line code 포커스를 잃었을 때 발생한다.
+ */
+scwin.udc_line_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_lineCd, txt_lineNm, 3, true);
+};
+
+
+
+/**
+ * @event 
+ * @name udc_line_onblurCodeEvent 
+ * @description Line code 포커스를 잃었을 때 발생한다.
+ */
+scwin.udc_line_onblurNameEvent = function (e) {
+    scwin.f_openPopUp(3, dma_line.get("ed_lineCd"), dma_line.get("txt_lineNm"), 'F', 'T')
+};
+
+
+
+/**
+ * @event 
+ * @name btn_rtrvBtn_onclick 
+ * @description 조회 버튼 클릭할 경우 발생
+ */
+scwin.btn_rtrvBtn_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_save_onclick 
+ * @description 저장 버튼 클릭할 경우 발생
+ */
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_trigger1_onclick 
+ * @description 행복사 버튼 클릭할 경우 발생
+ */
+scwin.btn_trigger1_onclick = function (e) {
+    scwin.f_copyRow();
+};
+
+
+
+/**
+ * @method 
+ * @name comboFormat 
+ * @description 그리드 select 포맷
+ */
+scwin.comboFormat = function (data, formattedData, rowIndex, colIndex) {
+    return formattedData;
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Line" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_line" selectID="retrieveLineInfo" codeId="ed_lineCd" ev:onblurCodeEvent="scwin.udc_line_onblurCodeEvent" UpperFlagCode="1" maxlengthCode="4" ev:onblurNameEvent="scwin.udc_line_onblurNameEvent" nameId="txt_lineNm" btnId="btn_line" code="ed_lineCd" name="txt_lineNm" refDataCollection="dma_line" ev:onclickEvent="scwin.udc_line_onclickEvent" allowCharCode="a-zA-Z0-9"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="권역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_lc_districtCd" search="start" style="width:100px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="" displayMode="label">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[경인권]]></w2:label>
+    										<w2:value><![CDATA[KIB]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[부산권]]></w2:label>
+    										<w2:value><![CDATA[PUB]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="SIZE" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_lc_cntrSizCd" search="start" style="width:100px;"
+    								submenuSize="auto" displayMode="label" allOption="" chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[20]]></w2:label>
+    										<w2:value><![CDATA[20]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[40]]></w2:label>
+    										<w2:value><![CDATA[40]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="TYPE" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_lc_cntrTypCd" search="start" style="width:100px;"
+    								submenuSize="auto" displayMode="label" allOption="" chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[DC]]></w2:label>
+    										<w2:value><![CDATA[DC]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[HC]]></w2:label>
+    										<w2:value><![CDATA[HC]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[RF]]></w2:label>
+    										<w2:value><![CDATA[RF]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[Special]]></w2:label>
+    										<w2:value><![CDATA[SP]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[SOC]]></w2:label>
+    										<w2:value><![CDATA[SO]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_rtrvBtn" style="" type="button" ev:onclick="scwin.btn_rtrvBtn_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="LINE별 기본반납지" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_grdTopBtn" gridID="gr_results" gridDownFn="f_ResultsExcel" gridUpYn="N" templateYn="N" btnPlusYn="Y" btnUser="Y" gridDownYn="Y"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_results" id="gr_results" style=""
+    					visibleRowNum="16" visibleRowNumFix="true" columnMove="true" sortable="false" focusMode="row" ev:oneditend="scwin.gr_results_oneditend" rowStatusVisible="true" rowStatusWidth="15">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="LINE" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="LINE" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="ON/OFF" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="권역" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="SIZE" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="TYPE" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="CODE" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="반납지" width="150"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="lineCd" inputType="textImage" width="70"></w2:column>
+    							<w2:column displayMode="label" id="lineNm" inputType="text" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="onOffDockClsCd" inputType="select" width="70" allOption=""
+    								chooseOption="" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[NONE]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[ON]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[OFF]]></w2:label>
+    										<w2:value><![CDATA[2]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="districtCd" inputType="select" width="70" allOption="" chooseOption=""
+    								ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[부산권]]></w2:label>
+    										<w2:value><![CDATA[PUB]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[경인권]]></w2:label>
+    										<w2:value><![CDATA[KIB]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="cntrSizCd" inputType="select" width="70" allOption="" chooseOption=""
+    								ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[20]]></w2:label>
+    										<w2:value><![CDATA[20]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[40]]></w2:label>
+    										<w2:value><![CDATA[40]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="cntrTypCd" inputType="select" width="70" allOption="" chooseOption=""
+    								ref="" displayFormatter="scwin.comboFormat" customFormatter="scwin.comboFormat">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[DC]]></w2:label>
+    										<w2:value><![CDATA[DC]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[HC]]></w2:label>
+    										<w2:value><![CDATA[HC]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[RF]]></w2:label>
+    										<w2:value><![CDATA[RF]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[Special]]></w2:label>
+    										<w2:value><![CDATA[SP]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[SOC]]></w2:label>
+    										<w2:value><![CDATA[SO]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="rtrnWrkPlCd" inputType="text" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="rtrnWrkPlNm" inputType="textImage" width="150" textAlign="left"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="display:none;" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="display:none;" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="display:none;" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<xf:trigger class="btn" id="btn_trigger1" style="" type="button" ev:onclick="scwin.btn_trigger1_onclick">
+    							<xf:label><![CDATA[행복사]]></xf:label>
+    						</xf:trigger>
+    						<w2:udc_bottomGrdBtn style="" id="udc_bttomGrdBtn" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="Y" btnRowDelYn="Y" EngYn="N" gridID="gr_results"></w2:udc_bottomGrdBtn>
+
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			
+    			<xf:group class="btnbox" id=""><xf:group id="" class="left"><w2:textbox style="" id="" label="에버라인(EVER, EMS, ITS, HTML)은 ON/OFF 항목의 'OFF'구분으로 신항권(공통코드:OP411) 터미널 반납지 셋팅합니다!" class="info-ico"></w2:textbox></xf:group><xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

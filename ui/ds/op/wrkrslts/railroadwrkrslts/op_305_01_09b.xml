@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_Retrieve">
+    				<w2:keyInfo>
+    					<w2:key id="dptDtFrom" name="name1" dataType="text"></w2:key>
+    					<w2:key id="dptDtTo" name="name2" dataType="text"></w2:key>
+    					<w2:key id="bilgClntNo" name="name3" dataType="text"></w2:key>
+    					<w2:key id="transNmCd" name="name4" dataType="text"></w2:key>
+    					<w2:key id="dptWrkPlCd" name="name5" dataType="text"></w2:key>
+    					<w2:key id="arvWrkPlCd" name="name6" dataType="text"></w2:key>
+    					<w2:key id="adminfrtcarYn" name="name7" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_RailroadCostList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cntrNo" name="컨테이너" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="sealNo" name="봉인번호" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="dptDt" name="출발일자" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="dptStn" name="출발역" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="arvStn" name="도착역" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="adminfrtcarYn" name="화차구분" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="trnNo" name="열차번호" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="frtcarNo" name="화차번호" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="transNmClntCd" name="운송명의" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="transNmCd" name="운송명의" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="lineCd" name="LINE" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="cntrTypShowCd" name="규격" dataType="" defaultValue="" encYN="" ignoreStatus=""></w2:column>
+    					<w2:column id="cntrTypCd" name="Type" dataType="" defaultValue="" encYN="" ignoreStatus=""></w2:column>
+    					<w2:column id="fullEmptyClsCd" name="E/F" dataType="" defaultValue="" encYN="" ignoreStatus=""></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="mchtNm" name="화주명" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="bilgClntNo" name="청구처" dataType="" defaultValue="" encYN="" ignoreStatus="" importFormatter="" length=""></w2:column>
+    					<w2:column id="sellTrans" name="운송료(매출)" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsSum" name="매입합계" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsTrans" name="하불임" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="pchsTransR" name="철송임" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="pchsOprR" name="철송조작료" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsTestR" name="철송검수비" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsKoreoR" name="고려차량" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsJeOnoffR" name="자가영업상차료" dataType=""></w2:column>
+    					<w2:column id="costRate" name="원가율" dataType="" defaultValue="" encYN=""></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_RailroadCostSumList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="teu" name="구분" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="teuCount" name="갯수" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="sellTrans" name="운송료(매출)" dataType=""></w2:column>
+    					<w2:column id="pchsTrans" name="하불임" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="pchsTransR" name="철송임" dataType="" defaultValue="" encYN=""></w2:column>
+    					<w2:column id="pchsOprR" name="철송조작료" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsTestR" name="철송검수비" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pchsKoreoR" name="(주)고려차량" dataType=""></w2:column>
+    					<w2:column id="pchsJeOnoffR" name="자가영업 상차료" dataType="text"></w2:column>
+    					<w2:column id="pchsSum" name="매입합계" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="costRate" name="원가율" dataType="" defaultValue="" encYN=""></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_RailroadCostClntList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bilgClntNo" name="청구처" dataType="text"></w2:column>
+    					<w2:column id="mchtNm" name="화주명" dataType="text"></w2:column>
+    					<w2:column id="count20" name="20" dataType="text"></w2:column>
+    					<w2:column id="count40" name="40" dataType="text"></w2:column>
+    					<w2:column id="teuCount" name="TEU" dataType="text"></w2:column>
+    					<w2:column id="sellTrans" name="운송료(매출)" dataType="text"></w2:column>
+    					<w2:column id="pchsSum" name="매입합계" dataType="text"></w2:column>
+    					<w2:column id="costRate" name="원가율" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_RetrieveSummary" action="/ds.op.wrkrslts.railroadwrkrslts.RetrieveRailroadCostSummaryListCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_Retrieve","key":"IN_DS1"},{"id":"ds_RailroadCostSumList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_RailroadCostSumList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_RetrieveSummary_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_Retrieve" action="/ds.op.wrkrslts.railroadwrkrslts.RetrieveRailroadCostListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_Retrieve","key":"IN_DS1"},{"id":"ds_RailroadCostList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_RailroadCostList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_RetrieveClnt" action="/ds.op.wrkrslts.railroadwrkrslts.RetrieveRailroadCostSummaryClntListCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_Retrieve","key":"IN_DS1"},{"id":"ds_RailroadCostClntList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_RailroadCostClntList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_RetrieveClnt_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.dateStr   = $c.date.getServerDateTime("yyyyMMdd");
+scwin.selectCol = "";
+
+/** ***********************************************************************
+ *  화면에서 기본 로딩시 발생하는 함수 START
+ ************************************************************************ */
+//-------------------------------------------------------------------------
+// 화면 로딩시 호출 되는 함수
+//------------------------------------------------------------------------- 
+scwin.onpageload = function() {
+	const codeOptions = [
+        { grpCd : "OP147", compID : "lc_transNmCd" }, //반출입구분
+    ];
+
+    $c.data.setCommonCode(codeOptions);	
+    tab.setSelectedTabIndex(0);
+};
+//-------------------------------------------------------------------------
+// 화면 에 UDC 컴포넌트가 모두 로딩 완료시 호출 되는 함수
+//------------------------------------------------------------------------- 
+scwin.onUdcCompleted = function() {
+//    udc_topGrdBtnClnt.hide();
+    scwin.f_FieldClear();
+};
+
+//-------------------------------------------------------------------------
+// 휴지통 처리
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+	$c.gus.cfInitObjects(tbl_search);
+	//현재날짜 셋팅
+	ed_dptDtFrom .setValue(scwin.dateStr);
+	ed_dptDtTo   .setValue(scwin.dateStr);
+    ed_dptWrkPlCd.setValue("");
+    ed_dptStnNm  .setValue("");
+    ed_arvWrkPlCd.setValue("");
+    ed_arvStnNm  .setValue("");
+    ed_bilgClntNo.setValue("");
+    ed_bilgClntNm.setValue("");
+};
+
+/** ***********************************************************************
+ *  화면에서 기본 로딩시 발생하는 함수 END
+ ************************************************************************ */
+scwin.f_selectTabMenu = function(idx = 0) {
+	switch (idx) {
+		case 0:	// 컨테이너별
+//        	udc_topGrdBtnClnt.hide();
+//        	udc_topGrdBtnCnt.show();
+            ds_RailroadCostList.removeAll();
+			$c.sbm.execute(sbm_Retrieve);
+			break;
+		case 1:	// 거래처별
+//			udc_topGrdBtnClnt.show();
+//			udc_topGrdBtnCnt.hide();
+            ds_RailroadCostClntList.removeAll();
+			$c.sbm.execute(sbm_RetrieveClnt);
+			break;
+		default:
+			break;
+	}
+};
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+	//출발일자 validate 체크
+    let ret = await $c.gus.cfValidate([ed_dptDtFrom, ed_dptDtTo]); 
+    if ( !ret ) {
+        return false;
+    }
+
+	if (!$c.gus.cfIsAfterDate(ed_dptDtFrom.getValue(), ed_dptDtTo.getValue())) {
+		$c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+		ed_dptDtFrom.focus();
+		return;
+	}
+	$c.sbm.execute(sbm_RetrieveSummary);
+};
+
+//-------------------------------------------
+// 그리드 데이터 엑셀로 다운 START
+//-------------------------------------------
+scwin.f_runExcel = async function(varGrNm) {
+	const totCnt = ds_RailroadCostSumList.getRowCount();
+
+	if (totCnt != 0) {
+		cfrm = confirm("EXCEL로 다운로드 받으시겠습니까?");
+		if (cfrm) {
+            const options = {
+                fileName : "철송원가율요약.xlsx"
+                ,sheetName : "철송원가율요약"
+            };            
+            await $c.data.downloadGridViewExcel(gr_RailroadCostSumList, options);    
+		}
+		
+	} else {
+		$c.gus.cfAlertMsg(MSG_CM_WRN_002);
+	}
+
+};
+
+scwin.f_runExcelCost = async function() {
+    if ( ds_RailroadCostList.getRowCount() <= 0) {
+        $c.win.alert(MSG_CM_WRN_002);
+        return false;
+    }
+    const options = {
+        fileName : "컨테이너별.xlsx"
+        ,sheetName : "컨테이너별"
+    };
+    
+    await $c.data.downloadGridViewExcel(gr_RailroadCostList, options);    
+}
+
+scwin.f_runExcelCostClnt =async function() {
+    if ( ds_RailroadCostClntList.getRowCount() <= 0) {
+        $c.win.alert(MSG_CM_WRN_002);
+        return false;
+    }
+    const options = {
+        fileName : "거래처별.xlsx"
+        ,sheetName : "거래처별"
+    };
+    await $c.data.downloadGridViewExcel(gr_RailroadCostClntList, options);   
+}
+
+//-------------------------------------------
+// 그리드 데이터 엑셀로 다운 START
+//-------------------------------------------
+
+
+//요약
+scwin.sbm_RetrieveSummary_submitdone = async function (e) {
+    var rowcount = ds_RailroadCostSumList.getRowCount();
+    for(i = 0; i < rowcount; i++) {
+        let val = ds_RailroadCostSumList.getCellData(i, "costRate");   // 기존 값 읽기
+        let newVal = Math.round(val * 100 * 10) / 10;                  // *100 하고 소수1자리 반올림
+        ds_RailroadCostSumList.setCellData(i, "costRate", newVal);     // 저장
+    }
+    totalRows1.setValue(rowcount);
+    scwin.f_selectTabMenu(0);
+    await tab.setActiveTab(0);
+};
+
+//컨테이너별
+scwin.sbm_Retrieve_submitdone = function (e) {
+    if( ds_RailroadCostList.getRowCount() < 1 ){
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        return;              
+    }
+    totalRows2.setValue(ds_RailroadCostList.getRowCount());
+    var rowcount = ds_RailroadCostList.getRowCount();
+    for(i = 0; i < rowcount; i++) {
+        let val = ds_RailroadCostList.getCellData(i, "costRate");   // 기존 값 읽기
+        let newVal = Math.round(val * 100 * 10) / 10;                  // *100 하고 소수1자리 반올림
+        ds_RailroadCostList.setCellData(i, "costRate", newVal);     // 저장
+    }    
+};
+
+//거래처별
+scwin.sbm_RetrieveClnt_submitdone = function (e) {
+    totalRows3.setValue(ds_RailroadCostClntList.getRowCount());
+
+    var rowcount = ds_RailroadCostClntList.getRowCount();
+    for(i = 0; i < rowcount; i++) {
+        let val = ds_RailroadCostClntList.getCellData(i, "costRate");   // 기존 값 읽기
+        let newVal = Math.round(val * 100 * 10) / 10;                  // *100 하고 소수1자리 반올림
+        ds_RailroadCostClntList.setCellData(i, "costRate", newVal);     // 저장
+    }    
+
+};
+
+scwin.gr_RailroadCostSumList_oncellclick = function (rowIndex, columnIndex, columnId) {
+    scwin.selectCol = columnId;
+};
+
+
+//-------------------------------------------------------------------------
+// 출발역 UDC 이벤트 호출 되는 함수 START
+//------------------------------------------------------------------------- 
+scwin.udc_comCodeDpt_onclickEvent = function (e) {
+    const code = ed_dptWrkPlCd.getValue();
+    const name = ed_dptStnNm.getValue();
+    udc_comCodeDpt.cfCommonPopUp( scwin.udc_comCodeDpt_callBackFunc, code, name, "T", null, null, null, null, null, null, null, null, null, null, null, "역명조회,작업장코드,작업장명");
+};
+
+scwin.udc_comCodeDpt_onblurCodeEvent = function (e) {
+    if ( ed_dptWrkPlCd.originalValue != ed_dptWrkPlCd.getValue() ) {
+        const code = ed_dptWrkPlCd.getValue();
+        const name = ed_dptStnNm.getValue();
+        ed_dptStnNm.setValue("");
+        if ( code != "") {
+            udc_comCodeDpt.cfCommonPopUp(scwin.udc_comCodeDpt_callBackFunc, code, name,"T", null, null, null, null, null, null, null, null, null, null, null, "역명조회,작업장코드,작업장명");
+        }
+    }    
+};
+
+scwin.udc_comCodeDpt_onblurNameEvent = function (info) {
+    if ( ed_dptStnNm.originalValue != ed_dptStnNm.getValue() ) {
+        const code = ed_dptWrkPlCd.getValue();
+        const name = ed_dptStnNm.getValue();
+        ed_dptWrkPlCd.setValue("");
+        if ( name != "") {
+            udc_comCodeDpt.cfCommonPopUp(scwin.udc_comCodeDpt_callBackFunc, code, name,"T", null, null, null, null, null, null, null, null, null, null, null, "역명조회,작업장코드,작업장명");
+        }
+    }    
+};
+
+scwin.udc_comCodeDpt_callBackFunc = function (ret) {
+    $c.gus.cfSetReturnValue(ret, ed_dptWrkPlCd, ed_dptStnNm);
+};
+//-------------------------------------------------------------------------
+// 출발역 UDC 이벤트 호출 되는 함수 END
+//------------------------------------------------------------------------- 
+
+//-------------------------------------------------------------------------
+// 도착역 UDC 이벤트 호출 되는 함수 START
+//------------------------------------------------------------------------- 
+
+scwin.udc_comCodeArv_onclickEvent = function (e) {
+    const code = ed_arvWrkPlCd.getValue();
+    const name = ed_arvStnNm.getValue();
+    udc_comCodeArv.cfCommonPopUp( scwin.udc_comCodeArv_callBackFunc, code, name, "T", null, null, null, null, null, null, null, null, null, null, null, "역명조회,작업장코드,작업장명");
+};
+
+
+scwin.udc_comCodeArv_onblurCodeEvent = function (e) {
+    if ( ed_arvWrkPlCd.originalValue != ed_arvWrkPlCd.getValue() ) {
+        const code = ed_arvWrkPlCd.getValue();
+        const name = ed_arvStnNm.getValue();
+        ed_arvStnNm.setValue("");
+        if ( code != "") {
+            udc_comCodeArv.cfCommonPopUp(scwin.udc_comCodeArv_callBackFunc, code, name,"T", null, null, null, null, null, null, null, null, null, null, null, "역명조회,작업장코드,작업장명");
+        }
+    } 
+};
+
+scwin.udc_comCodeArv_onblurNameEvent = function (info) {
+    if ( ed_arvStnNm.originalValue != ed_arvStnNm.getValue() ) {
+        const code = ed_arvWrkPlCd.getValue();
+        const name = ed_arvStnNm.getValue();
+        ed_arvWrkPlCd.setValue("");
+        if ( name != "") {
+            udc_comCodeArv.cfCommonPopUp(scwin.udc_comCodeArv_callBackFunc, code, name,"T", null, null, null, null, null, null, null, null, null, null, null, "역명조회,작업장코드,작업장명");
+        }
+    }  
+};
+
+scwin.udc_comCodeArv_callBackFunc = function (ret) {
+    $c.gus.cfSetReturnValue(ret, ed_arvWrkPlCd, ed_arvStnNm);
+};
+
+
+//-------------------------------------------------------------------------
+// 도착역 UDC 이벤트 호출 되는 함수 END
+//------------------------------------------------------------------------- 
+
+//-------------------------------------------------------------------------
+// 청구처 UDC 이벤트 호출 되는 함수 START
+//------------------------------------------------------------------------- 
+scwin.udc_comCodeBilgClnt_onclickEvent = function (e) {
+    const code = ed_bilgClntNo.getValue();
+    const name = ed_bilgClntNm.getValue();
+    udc_comCodeBilgClnt["cfCommonPopUp"]( scwin.udc_comCodeBilgClnt_callBackFunc, code, name, "T", null, null, null, null, null, null, null, null, null, null, null, "거래처,거래처코드,거래처명");
+};
+
+
+
+scwin.udc_comCodeBilgClnt_onblurCodeEvent = function (e) {
+    if ( ed_bilgClntNo.originalValue != ed_bilgClntNo.getValue() ) {
+        const code = ed_bilgClntNo.getValue();
+        const name = ed_bilgClntNm.getValue();
+        ed_bilgClntNm.setValue("");
+        if ( code != "") {
+            udc_comCodeBilgClnt.cfCommonPopUp(scwin.udc_comCodeBilgClnt_callBackFunc, code, name,"T", null, null, null, null, null, null, null, null, null, null, null, "거래처,거래처코드,거래처명");
+        }
+    } 
+};
+
+scwin.udc_comCodeBilgClnt_onblurNameEvent = function (info) {
+    if ( ed_bilgClntNm.originalValue != ed_bilgClntNm.getValue() ) {
+        const code = ed_bilgClntNo.getValue();
+        const name = ed_bilgClntNm.getValue();
+        ed_bilgClntNo.setValue("");
+        if ( name != "") {
+            udc_comCodeBilgClnt.cfCommonPopUp(scwin.udc_comCodeBilgClnt_callBackFunc, code, name,"T", null, null, null, null, null, null, null, null, null, null, null, "거래처,거래처코드,거래처명");
+        }
+    }  
+};
+
+scwin.udc_comCodeBilgClnt_callBackFunc = function (ret) {
+    $c.gus.cfSetReturnValue(ret, ed_bilgClntNo, ed_bilgClntNm);
+};
+
+
+scwin.udc_comCodeCallFunction = function(udcObject,strCallFunction, callbackFunction, ...params )  {
+    //if ( typeof 
+
+}
+//-------------------------------------------------------------------------
+// 청구처 UDC 이벤트 호출 되는 함수 END
+//------------------------------------------------------------------------- 
+
+
+//-------------------------------------------------------------------------
+// 철송원가율 TAB 클릭 이벤트
+//------------------------------------------------------------------------- 
+scwin.tab_ontabclick = function (tabId, index) {
+    scwin.f_selectTabMenu(index);
+};
+
+scwin.f_display_costRate = function(e) {
+    console.log(e);
+}
+
+scwin.f_excelFormat = function(v){
+    console.log(v);
+}
+
+scwin.f_subTitleExpression = function(sum_pchsSum,sum_sellTrans) {
+    return sum_sellTrans == 0 ? 0 : Math.round( ( sum_pchsSum / sum_sellTrans ) * 100 * 10 ) / 10 ;
+}
+// Math.round( (SUM('pchsSum') / SUM('sellTrans')) * 100 * 10 ) / 10
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="출발일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_fromToCalendarDpDt" refDataMap="dma_Retrieve" refEdDt="dptDtTo" refStDt="dptDtFrom" style="" edFromId="ed_dptDtFrom" edToId="ed_dptDtTo" mandatoryTo="true" mandatoryFrom="true" titleFrom="출발일자 조회 시작일자" titleTo="출발일자 조회 종료일자"></w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="출발역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_dptWrkPlCd" objTypeCode="Key" maxlengthCode="6" UpperFlagCode="1" nameId="ed_dptStnNm" objTypeName="data" id="udc_comCodeDpt" refDataCollection="dma_Retrieve" code="dptWrkPlCd" ev:onclickEvent="scwin.udc_comCodeDpt_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCodeDpt_onblurCodeEvent" selectID="retrieveTrainWorkPlace" ev:onblurNameEvent="scwin.udc_comCodeDpt_onblurNameEvent" allowCharCode="0-9a-zA-Z" skipOnBlurNameValueEmpty="N" skipOnBlurCodeValueEmpty="N"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="도착역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_arvWrkPlCd" id="udc_comCodeArv" nameId="ed_arvStnNm" objTypeCode="Key" objTypeName="data" maxlengthCode="6" refDataCollection="dma_Retrieve" code="arvWrkPlCd" ev:onclickEvent="scwin.udc_comCodeArv_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCodeArv_onblurCodeEvent" selectID="retrieveTrainWorkPlace" ev:onblurNameEvent="scwin.udc_comCodeArv_onblurNameEvent" UpperFlagCode="1" allowCharCode="0-9a-zA-Z" skipOnBlurNameValueEmpty="N" skipOnBlurCodeValueEmpty="N"></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="청구처" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_bilgClntNo" nameId="ed_bilgClntNm" id="udc_comCodeBilgClnt" objTypeCode="data" objTypeName="data" maxlengthCode="6" refDataCollection="dma_Retrieve" code="bilgClntNo" ev:onclickEvent="scwin.udc_comCodeBilgClnt_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCodeBilgClnt_onblurCodeEvent" selectID="retrieveClntInfo" allowCharCode="0-9a-zA-Z" UpperFlagCode="1" ev:onblurNameEvent="scwin.udc_comCodeBilgClnt_onblurNameEvent" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="운송명의" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_transNmCd" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="전체"
+    								ref="data:dma_Retrieve.transNmCd">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="화차구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="acb_adminfrtcarYn" style="width:150px;" submenuSize="auto" ref="data:dma_Retrieve.adminfrtcarYn">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[전체]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[사유]]></xf:label>
+    										<xf:value><![CDATA[0]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[공사]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[저수요]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[전용]]></xf:label>
+    										<xf:value><![CDATA[3]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="요약" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownUserAuth="X" gridDownFn="scwin.f_runExcel" gridID="gr_RailroadCostSumList" id="udc_topGrdBtnRailroadCostSumList" btnPlusYn="N"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_RailroadCostSumList" id="gr_RailroadCostSumList" style=""
+    					visibleRowNum="3" visibleRowNumFix="true" readOnly="true" ev:oncellclick="scwin.gr_RailroadCostSumList_oncellclick">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1"  inputType="text" value="구분"            width="60"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="갯수"            width="60"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="운송료(매출)"    width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="하불임"          width="100"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="철송임"          width="100"></w2:column>
+    							<w2:column displayMode="label" id="column9"  inputType="text" value="철송조작료"      width="100"></w2:column>
+    							<w2:column displayMode="label" id="column3"  inputType="text" value="철송검수비"      width="100"></w2:column>
+    							<w2:column displayMode="label" id="column23" inputType="text" value="(주)고려차량"    width="100"></w2:column>
+    							<w2:column displayMode="label" id="column21" inputType="text" value="자가영업 상차료" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column5"  inputType="text" value="매입합계"        width="100"></w2:column>
+    							<w2:column displayMode="label" id="column7"  inputType="text" value="원가율"          width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="teu"          inputType="text" width="60"></w2:column>
+    							<w2:column displayMode="label" id="teuCount"     inputType="text" width="60"  textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="sellTrans"    inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsTrans"    inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsTransR"   inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsOprR"     inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsTestR"    inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsKoreoR"   inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsJeOnoffR" inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="pchsSum"      inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0"   excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="costRate"     inputType="text" width="100" textAlign="right" dataType="number" displayFormat="#,##0.#" excelCellType="number" excelFormat="#,##0.0"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows1" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="철송원가율" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    		<xf:group style="" id="" class="tabbox">
+    				<w2:tabControl style="" id="tab" class="wq_tab" ev:ontabclick="scwin.tab_ontabclick">
+    					<w2:tabs disabled="false" style="" id="tabs12" label="컨테이너별" userAuth="R"></w2:tabs>
+    					<w2:tabs disabled="false" style="" id="tabs13" label="거래처별" userAuth="R"></w2:tabs>
+    					<w2:content alwaysDraw="true" style="height: auto;" id="content12">
+                            <xf:group class="title-wrap" id="" style="">
+                                <xf:group class="right" id="">
+                                    <w2:udc_topGrdBtn grp="grd_section3" style="" gridDownUserAuth="X" id="udc_topGrdBtnCnt"  gridUpYn="N" gridID="gr_RailroadCostList" gridDownFn="scwin.f_runExcelCost"></w2:udc_topGrdBtn>
+                                </xf:group>
+                            </xf:group>
+                            <xf:group adaptiveThreshold="" class="gvwbox" id="grd_section3" style="">
+    								<w2:gridView class="wq_gvw" dataList="data:ds_RailroadCostList" id="gr_RailroadCostList" readOnly="true" rowNumHeaderValue="No" rowNumWidth="50" style="" visibleRowNum="7" visibleRowNumFix="true">
+    									<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column width="114"  displayMode="label" inputType="text" id="column1"   value="컨테이너" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column17"  value="봉인번호" ></w2:column>
+    											<w2:column width="108"  displayMode="label" inputType="text" id="column15"  value="출발일자" ></w2:column>
+    											<w2:column width="96"   displayMode="label" inputType="text" id="column13"  value="출발역"   ></w2:column>
+    											<w2:column width="96"   displayMode="label" inputType="text" id="column11"  value="도착역"   ></w2:column>
+    											<w2:column width="96"   displayMode="label" inputType="text" id="column104" value=""         hidden="true"></w2:column>
+    											<w2:column width="78"   displayMode="label" inputType="text" id="column33"  value="화차구분" ></w2:column>
+    											<w2:column width="78"   displayMode="label" inputType="text" id="column31"  value="열차번호" ></w2:column>
+    											<w2:column width="78"   displayMode="label" inputType="text" id="column29"  value="화차번호" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column27"  value="운송명의" ></w2:column>
+    											<w2:column width="72"   displayMode="label" inputType="text" id="column25"  value="운송명의1" hidden="true"></w2:column>
+    											<w2:column width="72"   displayMode="label" inputType="text" id="column23"  value="LINE"     ></w2:column>
+    											<w2:column width="60"   displayMode="label" inputType="text" id="column21"  value="규격"     ></w2:column>
+    											<w2:column width="60"   displayMode="label" inputType="text" id="column9"   value="Type"     ></w2:column>
+    											<w2:column width="50"   displayMode="label" inputType="text" id="column3"   value="E/F"      ></w2:column>
+    											<w2:column width="114"  displayMode="label" inputType="text" id="column5"   value="오더번호" ></w2:column>
+    											<w2:column width="144"  displayMode="label" inputType="text" id="column7"   value="화주명"   ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column19"  value="청구처"   ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column51"  value="운송료&lt;br/&gt;(매출)" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column49"  value="매입합계" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column47"  value="하불임"   ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column45"  value="철송임"   ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column43"  value="철송&lt;br/&gt;조작료" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column41"  value="철송&lt;br/&gt;검수비" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column35"  value="고려차량" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column37"  value="자가영업&lt;br/&gt;상차료" ></w2:column>
+    											<w2:column width="84"   displayMode="label" inputType="text" id="column39"  value="원가율"  ></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column width="114" displayMode="label" id="cntrNo"         inputType="text"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="sealNo"         inputType="text"         textAlign="left"></w2:column>
+    											<w2:column width="108" displayMode="label" id="dptDt"          inputType="text"         displayFormat="####/##/##"></w2:column>
+    											<w2:column width="96"  displayMode="label" id="dptStn"         inputType="text"         textAlign="left"></w2:column>
+    											<w2:column width="96"  displayMode="label" id="arvStn"         inputType="text"         textAlign="left"></w2:column>
+    											<w2:column width="96"  displayMode="label" id="totSum"         inputType="expression"   hidden="true" expression="'99'"  hiddenCol="true"></w2:column>       
+    											<w2:column width="78"  displayMode="label" id="adminfrtcarYn"  inputType="text"         textAlign="center"></w2:column>
+    											<w2:column width="78"  displayMode="label" id="trnNo"          inputType="text"         textAlign="center"></w2:column>
+    											<w2:column width="78"  displayMode="label" id="frtcarNo"       inputType="text"         textAlign="center"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="transNmClntCd"  inputType="text"         textAlign="center"></w2:column>
+    											<w2:column width="72"  displayMode="label" id="transNmCd"      inputType="text"         hidden="true" hiddenCol="true"></w2:column>
+    											<w2:column width="72"  displayMode="label" id="lineCd"         inputType="text"         textAlign="center"></w2:column>
+    											<w2:column width="60"  displayMode="label" id="cntrTypShowCd"  inputType="text"         ></w2:column>
+    											<w2:column width="60"  displayMode="label" id="cntrTypCd"      inputType="text"         ></w2:column>
+    											<w2:column width="50"  displayMode="label" id="fullEmptyClsCd" inputType="text"         ></w2:column>
+    											<w2:column width="114" displayMode="label" id="odrNo"          inputType="text"         ></w2:column>
+    											<w2:column width="144" displayMode="label" id="mchtNm"         inputType="text"         textAlign="left"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="bilgClntNo"     inputType="text"         ></w2:column>
+    											<w2:column width="84"  displayMode="label" id="sellTrans"      inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsSum"        inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsTrans"      inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsTransR"     inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsOprR"       inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsTestR"      inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsKoreoR"     inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="pchsJeOnoffR"   inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    											<w2:column width="84"  displayMode="label" id="costRate"       inputType="text"         textAlign="right" dataType="number" displayFormat="#,##0.#" excelCellType="number" excelFormat="#,##0.0" ></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:subTotal targetColumnID="trnNo" style="" id="subTotal1">
+    										<w2:row style="" id="row3">
+    											<w2:column width="114" inputType="expression" style="" id="column77"    value="" displayMode="label" expression="&quot;총&quot; + COUNT('cntrNo') + &quot;건&quot;"></w2:column>
+    											<w2:column width="84"  inputType="text"       style="" id="column76"    value="" displayMode="label"></w2:column>
+    											<w2:column width="108" inputType="text"       style="" id="column75"    value="" displayMode="label"></w2:column>
+    											<w2:column width="96"  inputType="text"       style="" id="column74"    value="" displayMode="label"></w2:column>
+    											<w2:column width="96"  inputType="text"       style="" id="column73"    value="" displayMode="label"></w2:column>
+    											<w2:column width="96"  inputType="text"       style="" id="column99"    value="" displayMode="label"></w2:column>
+    											<w2:column width="78"  inputType="text"       style="" id="column72"    value="" displayMode="label" ></w2:column>
+    											<w2:column width="78"  inputType="expression" style="" id="column71"    value="" displayMode="label" expression="targetColValue()" ></w2:column>
+    											<w2:column width="78"  inputType="text"       style="" id="column70"    value="" displayMode="label"></w2:column>
+    											<w2:column width="84"  inputType="text"       style="" id="column69"    value="" displayMode="label"></w2:column>
+    											<w2:column width="72"  inputType="text"       style="" id="column68"    value="" displayMode="label"></w2:column>
+    											<w2:column width="72"  inputType="text"       style="" id="column67"    value="" displayMode="label"></w2:column>
+    											<w2:column width="60"  inputType="text"       style="" id="column66"    value="" displayMode="label"></w2:column>
+    											<w2:column width="60"  inputType="text"       style="" id="column65"    value="" displayMode="label"></w2:column>
+    											<w2:column width="50"  inputType="text"       style="" id="column64"    value="" displayMode="label"></w2:column>
+    											<w2:column width="114" inputType="text"       style="" id="column63"    value="" displayMode="label"></w2:column>
+    											<w2:column width="144" inputType="text"       style="" id="column62"    value="" displayMode="label"></w2:column>
+    											<w2:column width="84"  inputType="text"       style="" id="column61"    value="" displayMode="label"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column60"    value="" displayMode="label" textAlign="right" expression="SUM('sellTrans'   )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column59"    value="" displayMode="label" textAlign="right" expression="SUM('pchsSum'     )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column58"    value="" displayMode="label" textAlign="right" expression="SUM('pchsTrans'   )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column57"    value="" displayMode="label" textAlign="right" expression="SUM('pchsTransR'  )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column56"    value="" displayMode="label" textAlign="right" expression="SUM('pchsOprR'    )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column55"    value="" displayMode="label" textAlign="right" expression="SUM('pchsTestR'   )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column54"    value="" displayMode="label" textAlign="right" expression="SUM('pchsKoreoR'  )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column53"    value="" displayMode="label" textAlign="right" expression="SUM('pchsJeOnoffR')" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="subCostRate" value="" displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0.#"  expression="scwin.f_subTitleExpression(SUM('pchsSum'),SUM('sellTrans'))" excelCellType="number" excelFormat="#,##0.0" >
+    											</w2:column>
+    										</w2:row>
+    									</w2:subTotal>
+    									<w2:subTotal targetColumnID="totSum" style="" id="subTotal2">
+    										<w2:row style="" id="row4">
+    											<w2:column width="114" inputType="expression" style="" id="column77"    value=""     displayMode="label" expression="&quot;총&quot; + COUNT('cntrNo') + &quot;건&quot;"></w2:column>
+    											<w2:column width="84"  inputType="text"       style="" id="column76"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="108" inputType="text"       style="" id="column75"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="96"  inputType="text"       style="" id="column74"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="96"  inputType="text"       style="" id="column73"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="96"  inputType="text"       style="" id="column99"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="78"  inputType="text"       style="" id="column72"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="78"  inputType="text"       style="" id="column71"    value="합계" displayMode="label"></w2:column>
+    											<w2:column width="78"  inputType="text"       style="" id="column70"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="84"  inputType="text"       style="" id="column69"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="72"  inputType="text"       style="" id="column68"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="72"  inputType="text"       style="" id="column67"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="60"  inputType="text"       style="" id="column66"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="60"  inputType="text"       style="" id="column65"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="50"  inputType="text"       style="" id="column64"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="114" inputType="text"       style="" id="column63"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="144" inputType="text"       style="" id="column62"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="84"  inputType="text"       style="" id="column61"    value=""     displayMode="label"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column60"    value=""     displayMode="label" textAlign="right" expression="SUM('sellTrans'   )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column59"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsSum'     )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column58"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsTrans'   )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column57"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsTransR'  )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column56"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsOprR'    )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column55"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsTestR'   )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column54"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsKoreoR'  )" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="column53"    value=""     displayMode="label" textAlign="right" expression="SUM('pchsJeOnoffR')" displayFormat="#,###" dataType="number" excelCellType="number"></w2:column>
+    											<w2:column width="84"  inputType="expression" style="" id="subCostRate" value=""     displayMode="label" textAlign="right" dataType="number" displayFormat="#,##0.#"  expression="SUM('sellTrans') == 0 ? 0 : Math.round( (SUM('pchsSum') / SUM('sellTrans')) * 100 * 10 ) / 10" excelCellType="number" excelFormat="#,##0.0">
+    											</w2:column>
+    										</w2:row>
+    									</w2:subTotal>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="" style="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows2" label="0" style="" tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    						</xf:group>
+    					</w2:content>
+    					<w2:content alwaysDraw="true" style="" id="content13">
+                            <xf:group class="title-wrap" id="" style="">
+                                <xf:group class="right" id="">
+                                    <w2:udc_topGrdBtn grp="grp_group5"   style="" gridDownUserAuth="X" id="udc_topGrdBtnClnt" gridUpYn="N" gridID="gr_RailroadCostClntList" gridDownFn="scwin.f_runExcelCostClnt"></w2:udc_topGrdBtn>
+                                </xf:group>                            
+                            </xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group5" style="">
+    								<w2:gridView autoFit="allColumn" class="wq_gvw" dataList="data:ds_RailroadCostClntList" id="gr_RailroadCostClntList" readOnly="true" rowNumHeaderValue="No"
+    									rowNumWidth="50"  visibleRowNum="8" visibleRowNumFix="true">
+    									<w2:caption id="caption5" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1"  inputType="text" value="청구처"        width="80" ></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="화주명"        width="120"></w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="20"            width="60" ></w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="40"            width="60" ></w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="TEU"           width="60" ></w2:column>
+    											<w2:column displayMode="label" id="column9"  inputType="text" value="운송료 (매출)" width="80" ></w2:column>
+    											<w2:column displayMode="label" id="column3"  inputType="text" value="매입합계"      width="100"></w2:column>
+    											<w2:column displayMode="label" id="column5"  inputType="text" value="원가율"        width="100"></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="bilgClntNo" inputType="text"   width="80"></w2:column>
+    											<w2:column displayMode="label" id="mchtNm"     inputType="text"   width="120" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="count20"    inputType="text"   width="60"  textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+    											<w2:column displayMode="label" id="count40"    inputType="text"   width="60"  textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+    											<w2:column displayMode="label" id="teuCount"   inputType="text"   width="60"  textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+    											<w2:column displayMode="label" id="sellTrans"  inputType="text"   width="80"  textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+    											<w2:column displayMode="label" id="pchsSum"    inputType="text"   width="100" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+    											<w2:column displayMode="label" id="costRate"   inputType="number" width="100" textAlign="right" dataType="number" displayFormat="#,###.#" excelCellType="number" excelFormat="#,##0.0"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="" style="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows3" label="0" style="" tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    					</w2:content>
+    				</w2:tabControl>
+    			</xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

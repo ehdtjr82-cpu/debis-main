@@ -1,0 +1,34 @@
+ja_fs_202_03_02b.log
+
+[2026-02-19 03:15:30.204] 변환 시작
+[2026-02-19 03:15:30.234] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 03:19:54.978] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=5 | LLM 264569ms, total 264744ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_pchsTaxnClsCd (LUXECOMBO→w2:autoComplete), lc_print (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 2건: ds_excelUp, fileUploadGDS
+[2026-02-19 03:19:55.047] #1 검증: 자동수정 8건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U22: submission ref에 누락된 O(출력) 엔트리 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 03:19:55.228] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=5
+    - [적정성] 컴포넌트 ID 유지 — 누락 7건: lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_fmlaClsCd (LUXECOMBO→w2:autoComplete), lc_fmlaPatternCd (LUXECOMBO→w2:autoComplete), lc_crcCd (LUXECOMBO→w2:autoComplete), lc_sellTaxnClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 2건: ds_excelUp, fileUploadGDS
+[2026-02-19 03:19:55.230] #2 재시도 (에러 2건)
+[2026-02-19 03:19:56.233] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:24:52.572] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 296193ms, total 296339ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_pchsTaxnClsCd (LUXECOMBO→w2:autoComplete), lc_print (LUXECOMBO→w2:autoComplete)
+[2026-02-19 03:24:52.575] #1 검증: 최적 시도 #1 채택 (confidence: 0.94)
+[2026-02-19 03:24:52.575] 성공 (#2, 9m 22s, confidence:0.94)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_pchsTaxnClsCd (LUXECOMBO→w2:autoComplete), lc_print (LUXECOMBO→w2:autoComplete)
+  2. [적정성] DATASET 전환 — 누락 2건: ds_excelUp, fileUploadGDS
+================================================================================

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="ds_searchPurchaseEvidence">
+        			<w2:keyInfo>
+        				<w2:key id="slipNo" name="전표번호" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_purchaseEvidence" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+        				<w2:column id="adjmDept" name="정산부서" dataType="text"></w2:column>
+        				<w2:column id="adjmDeptNm" name="정산부서명" dataType="text"></w2:column>
+        				<w2:column id="slipDt" name="전표일자" dataType="text"></w2:column>
+        				<w2:column id="evidKndClsCd" name="증빙종류코드" dataType="text"></w2:column>
+        				<w2:column id="evidKndClsNm" name="증빙종류명" dataType="text"></w2:column>
+        				<w2:column id="summary" name="적요" dataType="text"></w2:column>
+        				<w2:column id="pchsVatNo" name="세금계산서번호" dataType="text"></w2:column>
+        				<w2:column id="nmCmpy" name="상호" dataType="text"></w2:column>
+        				<w2:column id="busiNo" name="사업자번호" dataType="text"></w2:column>
+        				<w2:column id="spplyDt" name="공급일자" dataType="text"></w2:column>
+        				<w2:column id="spplyAmt" name="공급금액" dataType="text"></w2:column>
+        				<w2:column id="vat" name="부가세" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_purchaseCertiList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+        				<w2:column id="selpchItemCd" name="매입항목코드" dataType="text"></w2:column>
+        				<w2:column id="selpchItemNm" name="매입항목명" dataType="text"></w2:column>
+
+
+        				<w2:column id="pchsDeptCd" name="매입부서" dataType="text"></w2:column>
+        				<w2:column id="spplyAmt" name="공급금액" dataType="text"></w2:column>
+        				<w2:column id="vat" name="부가세" dataType="text"></w2:column>
+        				<w2:column id="sumAmt" name="합계" dataType="text"></w2:column><w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+        				<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+        				
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_searchPurchaseEvidence" action="/ds.fs.adjm.pchsadjmdcsn.RetrievePurchaseEvidenceCMD.do"
+        		method="post" mediatype="application/json"
+        		ref='data:json,[{"id":"ds_searchPurchaseEvidence","key":"IN_DS1"},{"id":"ds_purchaseEvidence","key":"OUT_DS1"},{"id":"ds_purchaseCertiList","key":"OUT_DS2"}]'
+        		target='data:json,[{"id":"ds_purchaseEvidence","key":"OUT_DS1"},{"id":"ds_purchaseCertiList","key":"OUT_DS2"}]' encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.sbm_searchPurchaseEvidence_submitdone" ev:submiterror=""
+        		abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.params;
+
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    if (typeof(scwin.params) != "undefined" && scwin.params != null) {
+        scwin.f_SetDataHeader();
+    }
+};
+
+	//-------------------------------------------------------------------------
+	// 화면로딩시
+	//-------------------------------------------------------------------------
+	scwin.f_OnLoad = function() {
+		
+    //if (typeof(valueObject) != "undefined" && valueObject != null) {
+		//	f_SetDataHeader();
+		//}
+	};
+
+	//-------------------------------------------------------------------------
+	// DataSet의 Header 정보 생성
+	//-------------------------------------------------------------------------
+	scwin.f_SetDataHeader = function() {
+/*
+ 		// 매입증빙 DataSet Header 초기화
+	    var GAUCE_DATASET_HEADER = "slipNo:STRING(10)";             // 전표번호
+
+		ds_searchPurchaseEvidence.SetDataHeader(GAUCE_DATASET_HEADER);
+		ds_searchPurchaseEvidence.AddRow();
+*/
+		ds_searchPurchaseEvidence.set("slipNo", scwin.params.slipNo);
+        // ds_searchPurchaseEvidence.set("slipNo", "1006962323");
+
+        $c.sbm.execute(sbm_searchPurchaseEvidence);
+		//tr_searchPurchaseEvidence.post();		
+	};
+
+scwin.sbm_searchPurchaseEvidence_submitdone = function (e) {
+    debugger;
+    var rowcnt = ds_purchaseEvidence.getRowCount();
+    ds_purchaseEvidence.setRowPosition(0);
+    var nVat = 0;
+    var nSpplyAmt = 0;
+    if (rowcnt > 0) {
+        tbx_slipNo.setValue(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "slipNo"));  // 전표번호
+        tbx_adjmDept.setValue(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "adjmDeptNm"));  // 정산부서명
+        tbx_slipDt.setValue($c.gus.cfGetFormatStr(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "slipDt"), "####/##/##"));  // 전표일자
+        tbx_evidKndClsNm.setValue(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "evidKndClsNm"));  // 증빙종류
+        tbx_summary.setValue(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "summary"));  // 적요
+        tbx_pchsVatNo.setValue(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "pchsVatNo"));  // 세금계산서번호
+        tbx_nmCmpy.setValue(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "nmCmpy"));  // 상호
+        tbx_busiNo.setValue($c.gus.cfGetFormatStr(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "busiNo"), "###-##-#####"));  // 사업자번호
+        tbx_spplyDt.setValue($c.gus.cfGetFormatStr(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "spplyDt"), "####/##/##"));  // 공급일자
+        tbx_spplyAmt.setValue($c.gus.cfInsertComma(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "spplyAmt")));  // 공급금액
+        tbx_vat.setValue($c.gus.cfInsertComma(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "vat")));  // 부가세
+
+        if(!$c.gus.cfIsNull(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "spplyAmt"))){
+            nSpplyAmt = parseInt(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "spplyAmt"));
+        }
+        if(!$c.gus.cfIsNull(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "vat"))){
+            nVat = parseInt(ds_purchaseEvidence.getCellData(ds_purchaseEvidence.getRowPosition(), "vat"));
+        }
+        tbx_sumAmt.setValue($c.gus.cfInsertComma(nSpplyAmt + nVat));  // 금액합계
+	}
+    tbx_totalRows.setValue(ds_purchaseCertiList.getRowCount());
+};
+
+scwin.btn_Close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="row-gap-8 flex_no" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="매입 확정 정보" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb " id="" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group style="width: 120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th" style="" tagname="th">
+    								<w2:textbox class="" id="" label="전표번호" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td txt-blue" style="" tagname="td">
+    								<w2:textbox class="" id="tbx_slipNo" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="정산부서" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_adjmDept" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="전표일자" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox class="" id="tbx_slipDt" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="증빙종류" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_evidKndClsNm" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="적요" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>3</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox class="" id="tbx_summary" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="매입 증빙 정보" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb " id="" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group style="width: 120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th" style="" tagname="th">
+    								<w2:textbox class="" id="" label="세금계산서번호" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td txt-blue" style="" tagname="td">
+    								<w2:textbox class="" id="tbx_pchsVatNo" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="상호" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_nmCmpy" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="사업자번호" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox class="" id="tbx_busiNo" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="공급일자" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_spplyDt" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="공급가액" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_spplyAmt" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="부가세" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_vat" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="금액합계" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="tbx_sumAmt" label="text" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_purchaseCertiList" id="gr_purchaseCertiList" style="
+    					overflow:scroll;"
+    						visibleRowNumFix="" readOnly="true" scrollXNative="true" visibleRowNum="3">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column displayMode="label" id="column1" inputType="text" style="" value="거래명세서번호" width="120">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column17" inputType="text" style="" value="매입항목" width="100">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column15" inputType="text" style="" value="매입부서" width="100">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column13" inputType="text" style="" value="비고" width="140">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column11" inputType="text" style="" value="공급가액" width="100">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column9" inputType="text" style="" value="부가세" width="100">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column3" inputType="text" style="" value="합계금액" width="100">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column5" inputType="text" style="" value="전표번호" width="100">
+    								</w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column displayMode="label" id="certiNo" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column displayMode="label" id="selpchItemNm" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="pchsDeptCd" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="rmk" inputType="text" style="" textAlign="left" value=""
+    									width="140">
+    								</w2:column>
+    								<w2:column displayMode="label" id="spplyAmt" inputType="text" style="" textAlign="right" value=""
+    									width="100" dataType="number" displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column displayMode="label" id="vat" inputType="text" style="" textAlign="right" value=""
+    									width="100" dataType="number" displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column displayMode="label" id="sumAmt" inputType="text" style="" textAlign="right" value=""
+    									width="100" dataType="number" displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column displayMode="label" id="slipNo" inputType="text" style="" value="" width="100"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer id="footer1" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" style="" value="합계" width="120">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column29" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column27" inputType="text" style="" value="" width="140"></w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="expression" style="" textAlign="right" value=""
+    									width="100" dataType="number" expression="sum('spplyAmt')" displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column25" inputType="expression" style="" textAlign="right" value=""
+    									width="100" dataType="number" expression="sum('vat')" displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column24" inputType="expression" style="" textAlign="right" value=""
+    									width="100" dataType="number" expression="sum('sumAmt')" displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column23" inputType="text" style="" value="" width="100"></w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span">
+    								</w2:textbox><w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_Close" style="" type="button" ev:onclick="scwin.btn_Close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

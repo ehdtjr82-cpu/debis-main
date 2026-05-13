@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_search" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="wrkPlCd" name="name1" dataType="text"></w2:column>
+        				<w2:column id="stats" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="wrkPlCd" name="name1" dataType="text"></w2:column>
+        				<w2:column id="conSts" name="name2" dataType="text"></w2:column>
+        				<w2:column id="waitTime" name="name3" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieve" action="/ncall.tn.op.transwrkindict.cntr.RetrieveCyCongestionCMD.do" method="post"
+        		mediatype="application/json" ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+// 배차관리 > CY자동화 > R/S 장비 실적 관리 > CY 상하차 정보조회
+
+
+scwin.g_selected_input_box = "searchVehclNo";
+
+scwin.onpageload = function() {
+	
+};
+
+
+
+//-------------------------------------------------------------------------
+// Dataset DEBUG
+//-------------------------------------------------------------------------
+scwin.f_close = function() {
+	$c.win.closePopup(searchVehclNo.getValue());
+}
+
+scwin.f_DelClick = function() {
+
+	scwin.f_twinkleBtn("del");
+	
+    if(scwin.g_selected_input_box == 'searchVehclNo'){   
+
+		var value = searchVehclNo.getValue();
+		
+		if(value.length != 0){
+			value = value.substring(0, value.length-1);                
+		}     
+		searchVehclNo.setValue(value);
+	}          
+}
+scwin.f_Click = function() {
+   
+   var code = this.getUserData('userData1');
+   scwin.f_twinkleBtn(code, 80);
+   
+   if(scwin.g_selected_input_box == 'searchVehclNo'){
+		if(searchVehclNo.getValue().length == 4){   //사번은 6자리
+		   return;
+		}
+		var value = searchVehclNo.getValue();
+			
+		value = value + '' + code;
+
+		searchVehclNo.setValue(value);
+	}                     
+}
+
+scwin.f_twinkleBtn = function(code, time){
+
+    time = time || 100;
+
+	scwin.f_Btn1(code);
+	setTimeout(function() {
+        scwin.f_Btn2(code);
+    }, time);
+}
+
+scwin.f_Btn1 = function(code) {
+
+    var btnObj = null;
+    if (code == 'del') {
+        btnObj = btn_delete;
+    } else {
+        btnObj = $p.getComponentById("btn_" + code);
+    }
+    
+    btnObj.addClass('on');
+}
+
+scwin.f_Btn2 = function(code) {
+    var btnObj = null;
+    if (code == 'del') {
+        btnObj = btn_delete;
+    } else {
+        btnObj = $p.getComponentById("btn_" + code);
+    }
+    btnObj.removeClass('on');
+}   
+
+
+//-----------------------------------------------------------------------------------
+// TRAN EVENT
+//-----------------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function (e) {
+
+    if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+    if (ds_result.getRowCount() > 0){
+
+        var stats 	 = ds_result.getCellData(0, "conSts");
+        var waitTime = ds_result.getCellData(0, "waitTime");
+        
+        parentScope.scwin.f_displayCongestion(stats, waitTime);
+    }
+}
+]]></script>
+    	<style type="text/css"><![CDATA[
+]]></style>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="calculatorbox" id="" style="">
+    		<xf:group class="cal_title" id="">
+    			<xf:input id="searchVehclNo" style=""></xf:input>
+    		</xf:group>
+    		<xf:group class="cal_content" id="">
+    			<xf:trigger id="btn_1" style="" type="button" userData1="1" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[1]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_2" style="" type="button" userData1="2" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[2]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_3" style="" type="button" userData1="3" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[3]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_4" style="" type="button" userData1="4" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[4]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_5" style="" type="button" userData1="5" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[5]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_6" style="" type="button" userData1="6" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[6]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_7" style="" type="button" userData1="7" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[7]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_8" style="" type="button" userData1="8" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[8]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_9" style="" type="button" userData1="9" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[9]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_close" style="" type="button" ev:onclick="scwin.f_close">
+    				<xf:label><![CDATA[R]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_0" style="" type="button" userData1="0" class="" ev:onclick="scwin.f_Click">
+    				<xf:label><![CDATA[0]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger id="btn_delete" style="" type="button" ev:onclick="scwin.f_DelClick">
+    				<xf:label><![CDATA[←]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

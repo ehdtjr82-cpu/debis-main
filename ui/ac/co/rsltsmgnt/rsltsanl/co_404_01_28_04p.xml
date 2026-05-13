@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="closeYm" name="기준년월" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="귀속부서" dataType="text"></w2:key>
+    					<w2:key id="mgntAcctCd" name="계정" dataType="text"></w2:key>
+    					<w2:key id="bizDomCd" name="사업영역" dataType="text"></w2:key>
+    					<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_detail" saveRemovedData="true" ev:ondataload="scwin.ds_detail_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="mgntAcctCd" name="계정코드" dataType="text"></w2:column>
+    					<w2:column id="mgntAcctCdNm" name="계정명" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="귀속부서" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCdNm" name="귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="corRegNo" name="법인번호" dataType="text"></w2:column>
+    					<w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+    					<w2:column id="busiNm" name="사업자명" dataType="text"></w2:column>
+    					<w2:column id="bfyyThisAmt" name="전기실적" dataType="number"></w2:column>
+    					<w2:column id="thisRsltsAmt" name="당월실적" dataType="number"></w2:column>
+    					<w2:column id="thisDiffer" name="증감" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_detail" action="/ac.co.rsltsmgnt.rsltsanl.RetrieveBizDomPlanDetail2CMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_detail","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_detail","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// PGM명 : 사업영역별계획대비실적상세5 (co_404_01_28_04p) - 법인별 전기대비증감
+// 작성자 : 송정희
+// 최초작성일자 : 2026-11-26
+//-------------------------------------------------------------------------
+
+scwin.p_closeYm = "";
+scwin.p_acctDeptCd = "";
+scwin.p_acctDeptNm = "";
+scwin.p_mgntAcctCd = "";
+scwin.p_mgntAcctNm = "";
+scwin.p_coCd = "";
+scwin.p_coNm = "";
+scwin.p_bizDomCd = "";
+scwin.p_bizDomNm = "";
+scwin.ret_detail_2 = false;
+
+scwin.onpageload = function() {
+	scwin.params = $c.data.getParameter();
+    scwin.p_closeYm = scwin.params.closeYm;
+    scwin.p_acctDeptCd = scwin.params.acctDeptCd;
+    scwin.p_acctDeptNm = scwin.params.acctDeptNm;
+    scwin.p_mgntAcctCd = scwin.params.mgntAcctCd;
+    scwin.p_mgntAcctNm = scwin.params.mgntAcctNm;
+    scwin.p_coCd = scwin.params.coCd;
+    scwin.p_coNm = scwin.params.coNm;
+    scwin.p_bizDomCd = scwin.params.bizDomCd;
+    scwin.p_bizDomNm = scwin.params.bizDomNm;
+
+    dma_search.set("closeYm", scwin.p_closeYm);
+    dma_search.set("coCd", scwin.p_coCd);
+    dma_search.set("acctDeptCd", scwin.p_acctDeptCd);
+    dma_search.set("mgntAcctCd", scwin.p_mgntAcctCd);
+
+    ed_closeYm.setValue(scwin.p_closeYm);
+    ed_coCd.setValue(scwin.p_coCd);
+    ed_coNm.setValue(scwin.p_coNm);
+    ed_acctDeptCd.setValue(scwin.p_acctDeptCd);   
+    ed_acctDeptNm.setValue(scwin.p_acctDeptNm);   
+    ed_mgntAcctCd.setValue(scwin.p_mgntAcctCd);   
+    ed_mgntAcctNm.setValue(scwin.p_mgntAcctNm); 
+
+	$c.gus.cfDisableObjects([ed_closeYm, ed_coCd, ed_coNm, ed_acctDeptCd, ed_acctDeptNm, ed_mgntAcctCd, ed_mgntAcctNm]);
+	scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {  
+    $c.sbm.execute(sbm_detail);
+} 
+
+scwin.btn_close_onclick = async function (e) {
+   scwin.ret_detail_2 = await  $c.win.closePopup(["N/A"]);
+   console.log("scwin.ret_detail_2 - " + scwin.ret_detail_2 );
+
+ //  if (scwin.ret_detail_2 == false) { return; }   
+};
+
+scwin.ds_detail_ondataload = function () {
+    var rowCnt = ds_detail.getTotalRow();
+    totalRows.setValue(rowCnt);   
+	if( rowCnt == 0 ){
+	    if( $c.gus.cfCheckCreateFlag() == true){
+	    	$c.gus.cfTurnCreateFlag(false);
+	    }else{
+	     		$c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        }
+       return;
+	} 
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {
+   if(ds_detail.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        return;
+    }
+      
+    let gridColCount = 0;
+    for(let i = 0; i < gr_detail.getTotalCol(); i++){
+        if(gr_detail.getColumnVisible(i)==true){
+            gridColCount++;
+        }
+    }
+
+    let str = $c.gus.cfGetFormatStr(ed_closeYm.getValue(), "####-##");
+    let str1 = ed_acctDeptCd.getValue(); 
+    let str2 = ed_mgntAcctCd.getValue(); 
+    
+    let startRowIndex = 0;
+    let infoArr = [{
+        rowIndex : 0,             
+        colIndex : 0,            
+        colSpan : gridColCount,   
+        rowSpan : 1,
+        text : "법인별 전기대비증감상세",
+        textAlign : "center",    
+        fontSize : 12,
+        drawBorder : false,       
+        color : "black",          
+        backgroundColor : "#ffffff" 
+    },{
+        rowIndex : 2,             
+        colIndex : 0,           
+        colSpan : gridColCount,  
+        rowSpan : 1,
+        text : "년월 ["+ str +"]",
+        textAlign : "left",    
+        fontSize : 10,
+        drawBorder : false,       
+        color : "black",       
+        backgroundColor : "#ffffff" 
+    },{
+        rowIndex : 3,            
+        colIndex : 0,            
+        colSpan : gridColCount,   
+        rowSpan : 1,
+        text : "소속 ["+ str1 +"], 계정 ["+ str2 +"] " ,
+        textAlign : "left",     
+        fontSize : 10,
+        drawBorder : false,        
+        color : "black",         
+        backgroundColor : "#ffffff" 
+    }]
+
+    const options = {
+        fileName: "법인별 전기대비증감상세.xlsx",
+        //sheetName: "년월" + str + "_소속" + str1+ "_계정" + str2 ,
+        sheetName: "법인별 전기대비증감상세",
+        startRowIndex : 4,        
+        startColumnIndex : 0,
+        type : 1
+    };
+    await $c.data.downloadGridViewExcel(gr_detail, options, infoArr);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="회사코드" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input id="ed_coCd" style="width: 80px;"></xf:input>
+    								<xf:input id="ed_coNm" style=""></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="부서 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input id="ed_acctDeptCd" style="width: 80px;"></xf:input>
+    								<xf:input id="ed_acctDeptNm" initValue="텍스트" style=""></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="년월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_closeYm" style=""></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="계정 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input id="ed_mgntAcctCd" style="width: 80px;"></xf:input>
+    								<xf:input id="ed_mgntAcctNm" initValue="텍스트" style=""></xf:input>
+    							</xf:group>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="" style="">
+    					<w2:textbox class="tit" id="" label=" 전기대비증감 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_detail" gridDownUserAuth="X" gridUpYn="N" class="" gridDownFn="scwin.f_Excel"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox  gvwfix" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_detail" focusMode="row"
+    					id="gr_detail" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true">
+    					<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column width="100" inputType="text" style="" id="column33" value="계정코드" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column39" value="계정명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column37" value="귀속부서" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column35" value="귀속부서명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column31" value="법인번호" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column29" value="사업자번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column27" value="사업자명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column25" value="전기실적" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column23" value="당월실적" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column21" value="증감" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column width="100" inputType="text" style="" id="mgntAcctCd" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="mgntAcctCdNm" value="" displayMode="label" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="acctDeptCd" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="acctDeptCdNm" value="" displayMode="label" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="corRegNo" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="crn" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="busiNm" value="" displayMode="label" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column textAlign="right" width="100" displayFormat="#,##0" inputType="text" style="" id="bfyyThisAmt"
+    								value="" displayMode="label" readOnly="true">
+    							</w2:column>
+    							<w2:column textAlign="right" width="100" displayFormat="#,##0" inputType="text" style="" id="thisRsltsAmt"
+    								value="" displayMode="label" readOnly="true">
+    							</w2:column>
+    							<w2:column textAlign="right" width="70" displayFormat="#,##0" inputType="text" style="" id="thisDiffer"
+    								value="" displayMode="label" readOnly="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="100" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column53" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column52" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column51" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column50" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column49" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column48" value="" displayMode="label"></w2:column>
+    							<w2:column expression="sum('bfyyThisAmt')" width="100" displayFormat="#,##0" inputType="expression" style=""
+    								id="column47" value="" displayMode="label" textAlign="right">
+    							</w2:column>
+    							<w2:column expression="sum('thisRsltsAmt')" width="100" displayFormat="#,##0" inputType="expression"
+    								style="" id="column46" value="" displayMode="label" textAlign="right">
+    							</w2:column>
+    							<w2:column expression="sum('thisDiffer')" width="70" displayFormat="#,##0" inputType="expression" style=""
+    								id="column45" value="" displayMode="label" textAlign="right">
+    							</w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

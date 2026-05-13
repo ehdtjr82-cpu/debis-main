@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_bankcd" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="code" name="코드" dataType="text"></w2:column>
+                    <w2:column id="name" name="명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_bankcd1" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="code" name="코드" dataType="text"></w2:column>
+                    <w2:column id="name" name="명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_electricBank" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="cdDesc" name="코드설명" dataType="text"></w2:column>
+                    <w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_bankcd"
+            action="/ac.fm.stdinfomgnt.RetrieveBankCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_bankcd","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_bankcd","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_bankcd_submitdone"
+            ev:submiterror="scwin.sbm_bankcd_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_electricBank"
+            action="/cm.zz.RetrieveCodeCMD.do?grpCd=FM063"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_electricBank","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_electricBank","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_electricBank_submitdone"
+            ev:submiterror="scwin.sbm_electricBank_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+
+    scwin.ELECTRONICDRAFT = "02";
+
+    scwin.tmp_01 = "";
+    scwin.tmp_02 = "";
+    scwin.tmp_03 = "";
+    scwin.tmp_04 = "";
+
+    scwin.onpageload = function() {
+        let codeOptions = [
+            { grpCd: "FM048", compID: "lc_draft_check_cls_cd" }
+        ];
+        $c.data.setCommonCode(codeOptions);
+
+        scwin.f_bankcd_Retrieve();
+    };
+
+    scwin.onUdcCompleted = function() {
+        let sCurrDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+        ica_startprtDt.setValue(sCurrDate.substring(0, 6) + "01");
+        ica_endprtDt.setValue(sCurrDate);
+
+        lc_draft_check_cls_cd.setValue("01");
+
+        let setlChoices = [
+            { label: "전체", value: "00" },
+            { label: "정리", value: "01" },
+            { label: "미정리", value: "02" }
+        ];
+        lc_setlCls.removeAll();
+        for (let i = 0; i < setlChoices.length; i++) {
+            lc_setlCls.addItem(setlChoices[i].label, setlChoices[i].value);
+        }
+        lc_setlCls.setValue("00");
+
+        let srcClsChoices = [
+            { label: "전체", value: "00" },
+            { label: "만기", value: "01" },
+            { label: "할인", value: "02" }
+        ];
+        lc_srcCls.removeAll();
+        for (let i = 0; i < srcClsChoices.length; i++) {
+            lc_srcCls.addItem(srcClsChoices[i].label, srcClsChoices[i].value);
+        }
+        lc_srcCls.setValue("00");
+
+        scwin.f_retrieveElectricBank();
+        $c.gus.cfDisableObjects([lc_srcCls]);
+
+        scwin.f_loadAcctCodes();
+    };
+
+    scwin.f_loadAcctCodes = function() {
+        // TODO: FM048 코드의 cdDesc 값을 서버에서 조회하여 tmp_01~04에 세팅 필요
+        // 원본 JSP에서는 서버사이드 CodeDTOCache로 직접 가져왔으나, 클라이언트에서는 별도 submission 필요
+        scwin.tmp_01 = "";
+        scwin.tmp_02 = "";
+        scwin.tmp_03 = "";
+        scwin.tmp_04 = "";
+    };
+
+    scwin.f_bankcd_Retrieve = async function() {
+        await $c.sbm.execute(sbm_bankcd);
+    };
+
+    scwin.sbm_bankcd_submitdone = function(e) {
+        $c.gus.cfCopyDataSet(ds_bankcd, ds_bankcd1);
+    };
+
+    scwin.sbm_bankcd_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.f_retrieveElectricBank = async function() {
+        await $c.sbm.execute(sbm_electricBank);
+    };
+
+    scwin.sbm_electricBank_submitdone = function(e) {
+        ds_electricBank.insertRow(0);
+        ds_electricBank.setCellData(0, "cdDesc", "");
+        ds_electricBank.setCellData(0, "cdNm", "전체");
+
+        lc_bankCd.removeAll();
+        for (let i = 0; i < ds_electricBank.getRowCount(); i++) {
+            lc_bankCd.addItem(ds_electricBank.getCellData(i, "cdNm"), ds_electricBank.getCellData(i, "cdDesc"));
+        }
+        lc_bankCd.setSelectedIndex(0);
+    };
+
+    scwin.sbm_electricBank_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.f_OzReport = function() {
+        let odiParam = new ODIParam("fm_304_03_01");
+        odiParam.add("sysPath", "dbl.ac.fm.paymgnt.notepay");
+        odiParam.add("startprtDt", ica_startprtDt.getValue().trim());
+        odiParam.add("endprtDt", ica_endprtDt.getValue().trim());
+        odiParam.add("draftCheckClsCd", lc_draft_check_cls_cd.getValue());
+        odiParam.add("bankCd", lc_bankCd.getValue());
+
+        let temp_val = "";
+        if (lc_draft_check_cls_cd.getValue() == "01") { temp_val = scwin.tmp_01; }
+        if (lc_draft_check_cls_cd.getValue() == "02") { temp_val = scwin.tmp_02; }
+        if (lc_draft_check_cls_cd.getValue() == "03") { temp_val = scwin.tmp_03; }
+        if (lc_draft_check_cls_cd.getValue() == "04") { temp_val = scwin.tmp_04; }
+
+        odiParam.add("setlCls", lc_setlCls.getValue());
+        odiParam.add("srcCls", lc_srcCls.getValue());
+        odiParam.add("acctCd", temp_val);
+
+        let formParam = new FormParam();
+
+        let viewerParam = new ViewerParam();
+        viewerParam.add("viewer.zoom", "100");
+        viewerParam.add("viewer.useprogressbar", "false");
+
+        $c.gus.cfOZEmbedPreview("ozFrame", "myozviewer", "ac/fm/paymgnt/notepay/fm_304_03_01.ozr", odiParam, viewerParam, formParam);
+    };
+
+    scwin.f_openPopUp = function(select_code, txtCode, txtName, sPopupCls) {
+        let rtnList = null;
+        let sCmdName = "";
+
+        let code = txtCode.getValue();
+        let name = "";
+        if (txtName != null) {
+            name = txtName.getValue();
+        }
+
+        switch (select_code) {
+            case '1':
+                sCmdName = "retrieveBankInfo";
+                rtnList = $c.gus.cfCommonPopUp(sCmdName, code, name, sPopupCls, null, null, null, null, null, null, null, null, null);
+                break;
+            case '2':
+                sCmdName = "retrieveBorrLedgNoInfo";
+                rtnList = $c.gus.cfCommonPopUp(sCmdName, code, name, sPopupCls, null, null, null, null, null, null, null, null, null);
+                break;
+        }
+
+        if (rtnList != null) {
+            txtCode.setValue(rtnList[0]);
+            if (txtName != null) {
+                txtName.setValue(rtnList[1]);
+            }
+        }
+    };
+
+    scwin.f_CheckPopUp = function(orgObjCd, orgObjNm, select_code) {
+        if (orgObjCd.getValue().trim() != "") {
+            scwin.f_openPopUp(select_code, orgObjCd, orgObjNm, 'T');
+        } else {
+            if (orgObjNm != null) {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+        }
+    };
+
+    scwin.btn_trigger1_onclick = function(e) {
+        scwin.f_OzReport();
+    };
+
+    scwin.lc_setlCls_onchange = function(e) {
+        if (lc_setlCls.getValue() == "01" && (lc_draft_check_cls_cd.getValue() == "03" || lc_draft_check_cls_cd.getValue() == "04")) {
+            $c.gus.cfEnableObjects([lc_srcCls]);
+        } else {
+            $c.gus.cfDisableObjects([lc_srcCls]);
+        }
+    };
+
+    scwin.lc_draft_check_cls_cd_onchange = function(e) {
+        if (lc_setlCls.getValue() == "01" && (lc_draft_check_cls_cd.getValue() == "03" || lc_draft_check_cls_cd.getValue() == "04")) {
+            $c.gus.cfEnableObjects([lc_srcCls]);
+        } else {
+            $c.gus.cfDisableObjects([lc_srcCls]);
+        }
+
+        if (lc_draft_check_cls_cd.getValue() == scwin.ELECTRONICDRAFT) {
+            lc_bankCd.setDisabled(false);
+        } else {
+            lc_bankCd.setSelectedIndex(0);
+            lc_bankCd.setDisabled(true);
+        }
+    };
+
+    ]]></script>
+
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="계정" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_draft_check_cls_cd" style="width: 150px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="수취은행 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_bankCd" style="width: 150px;" submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="만기일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_prtDt"
+    								refEdDt="" edFromId="ica_startprtDt" edToId="ica_endprtDt">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						<xf:group id="" class="form-group"><xf:select1 submenuSize="fixed" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption="false" disabled="false" style="width: 150px;" allOption="false" id="lc_setlCls" class="" direction="auto">
+    							</xf:select1><xf:select1 submenuSize="fixed" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption="false" disabled="false" style="width: 150px;" allOption="false" id="lc_srcCls" class="" direction="auto">
+    							</xf:select1></xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="ozWrap" id="ozFrame" style="">
+    				<w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style=""></w2:iframe>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

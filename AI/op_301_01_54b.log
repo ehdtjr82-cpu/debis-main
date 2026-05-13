@@ -1,0 +1,37 @@
+op_301_01_54b.log
+
+[2026-02-19 14:24:18.875] 변환 시작
+[2026-02-19 14:24:18.937] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 14:26:18.388] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.85, grade=B, verdict=REVIEW, errors=2, warnings=7 | LLM 119184ms, total 119450ms
+    - [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:897,col:131
+    - [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+[2026-02-19 14:26:18.493] #1 검증: 자동수정 3건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:26:18.816] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.83, grade=B, verdict=REVIEW, errors=3, warnings=7
+    - [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:897,col:131
+    - [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_expimpClsCd (LUXECOMBO→w2:autoComplete), lc_sellCreateYn (LUXECOMBO→w2:autoComplete)
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+[2026-02-19 14:26:18.819] #2 재시도 (에러 4건)
+[2026-02-19 14:26:19.831] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 14:28:23.768] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.85, grade=B, verdict=REVIEW, errors=2, warnings=7 | LLM 123592ms, total 123937ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+[2026-02-19 14:28:23.771] #1 검증: 최적 시도 #1 채택 (confidence: 0.51)
+[2026-02-19 14:28:23.772] 실패 (2회 시도, 4m 4s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:897,col:131
+  2. [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+  3. [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+  4. [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+================================================================================

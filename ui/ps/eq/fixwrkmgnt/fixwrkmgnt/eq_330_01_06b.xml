@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_fix_work_list" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="circulPartCd" name="부품코드" dataType="text"></w2:column>
+    					<w2:column id="circulPartNm" name="부품명" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="장비번호" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="탈착일자" dataType="text"></w2:column>
+    					<w2:column id="fixWrkPfmYn" name="정비여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_fix_work_re">
+    				<w2:keyInfo>
+    					<w2:key id="fixWrkPlCd" name="정비작업장" dataType="text"></w2:key>
+    					<w2:key id="wrkStartDt" name="탈착시작일" dataType="text"></w2:key>
+    					<w2:key id="wrkEndDt" name="탈착종료일" dataType="text"></w2:key>
+    					<w2:key id="wrkPfmYn" name="정비완료여부" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_lc_wrkPlCd">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lux_wrkPlCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="name1" dataType="text"></w2:column>
+    					<w2:column id="name" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_lc_wrkPlcd" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json" ref="data:json,dma_lc_wrkPlCd"
+    			target='data:json,{"id":"ds_lux_wrkPlCd","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_lc_wrkPlcd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve" action="/ps.eq.fixwrkmgnt.fixwrkmgnt.RetrieveRepairCircularPartsDetachListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_fix_work_re","key":"IN_DS1"},{"id":"ds_fix_work_list","key":"OUT_DS1"}]' target='data:json,{"id":"ds_fix_work_list","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역 변수
+scwin.memJson = $c.data.getMemInfo();
+scwin.strCurDate = $c.date.getServerDateTime("yyyyMMdd"); 
+
+scwin.onpageload = function() {
+	const codeOptions = [
+        { grpCd: "ZZ205", compID: "lc_homeClsCd",opt :{"range" : "1,EQ"} },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    scwin.getWrkPlcd();
+};
+
+scwin.ondataload = function() {
+    lc_homeClsCd.setSelectedIndex(-1);
+    lc_homeClsCd.setValue(scwin.memJson.eqHomeClsCd);
+}
+
+/**
+ * UDC값
+ */
+scwin.onUdcCompleted = function() {
+    ica_wrkStDt.setValue(scwin.strCurDate);
+    ica_wrkEndDt.setValue(scwin.strCurDate);
+};
+
+scwin.getWrkPlcd = function() {
+    const params = {
+        sysCd: "PsCommonEBC", 
+        queryId: "retriveWrkplList",
+        param1: lc_homeClsCd.getValue(),
+    };
+
+    //데이터셋에 정보설정
+    dma_lc_wrkPlCd.setJSON(params);
+
+    $c.sbm.execute(sbm_lc_wrkPlcd);
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    let ret = await $c.gus.cfValidate([tb_wrk]);
+    if (!ret) return;
+
+    let diff = $c.date.diffDate(ica_wrkStDt.getValue(), ica_wrkEndDt.getValue());
+    if (diff > 30) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_041, ["조회기간"],["한달이상"]));
+        ica_wrkStDt.focus();
+        return;
+    }
+
+    if (!$c.gus.cfIsAfterDate(ica_wrkStDt.getValue(), ica_wrkEndDt.getValue()) < 0) {
+        await $c.win.alert(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        ica_wrkStDt.focus();
+        return;
+    }
+
+    await $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tb_wrk, null);
+    lc_homeClsCd.setSelectedIndex(0);
+    lc_wrkPlCd.setValue(scwin.memJson.fixWrkPlCd); // 정비작업장코드
+}
+
+//-------------------------------------------							
+// 그리드 데이터 엑셀로 다운							
+//-------------------------------------------
+scwin.f_runExcel = async function () {
+    let totCnt = ds_fix_work_list.getRowCount();
+    let sheetTitle = "수리순환품탈착목록현황";
+
+    if (totCnt != 0) {
+        $c.data.downloadGridViewExcel(gr_work_pl, {fileName: sheetTitle + ".xlsx", sheetName: sheetTitle});
+    } else {
+        await $c.win.alert(MSG_CM_WRN_002);
+    }
+}
+
+scwin.btn_clear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    totalRows.setValue(ds_fix_work_list.getRowCount());
+
+    if( ds_fix_work_list.CountRow > 0 ) {
+        $c.gus.cfDisableBtn();
+    }
+}
+
+scwin.sbm_lc_wrkPlcd_submitdone = function (e) {
+    lc_wrkPlCd.setValue(scwin.memJson.fixWrkPlCd);
+
+    if (lc_wrkPlCd.getSelectedIndex() == -1) {
+        lc_wrkPlCd.setSelectedIndex(0);
+    }
+};
+
+scwin.lc_homeClsCd_onchange = function (info) {
+    scwin.getWrkPlcd();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_wrk" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="탈착일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar refStDt="wrkStartDt" refDataMap="dma_fix_work_re" style="" id="udc_fromToCalendar1"
+    								refEdDt="wrkEndDt" edFromId="ica_wrkStDt" mandatoryFrom="true" edToId="ica_wrkEndDt" mandatoryTo="true">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="사업부문 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="width: 150px;" submenuSize="fixed" displayMode="value delim label"
+    								ref="" chooseOptionLabel='$blank' title="사업부문" emptyItem="true" ev:onchange="scwin.lc_homeClsCd_onchange">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="정비작업장" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_wrkPlCd" style="width: 150px;" submenuSize="fixed" displayMode="value delim label"
+    								ref="data:dma_fix_work_re.fixWrkPlCd" title="정비작업장" visibleRowNum="25">
+    								<xf:choices>
+    									<xf:itemset nodeset="data:ds_lux_wrkPlCd">
+    										<xf:label ref="name"></xf:label>
+    										<xf:value ref="code"></xf:value>
+    									</xf:itemset>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="정비완료여부 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_wrkPfmYn" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="전체"
+    								ref="data:dma_fix_work_re.wrkPfmYn" displayMode="value delim label" title="정비완료여부">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Y]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[N]]></xf:label>
+    										<xf:value><![CDATA[0]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="수리순환품탈착목록 현황 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" btnUser="Y" gridUpYn="N" gridDownFn="scwin.f_runExcel" gridID="gr_work_pl"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_fix_work_list"  id="gr_work_pl" style="" visibleRowNum="17" visibleRowNumFix="true"  readOnly="true" columnMove="true">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column width="100" inputType="text" style="" id="column33" value="부품코드" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column31" value="부품명" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column29" value="장비번호" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column27" value="탈착일자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column25" value="정비여부" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column width="100" inputType="text" style="" id="circulPartCd" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="circulPartNm" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="vehclNo" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="wrkEndDt" value="" displayMode="label" displayFormat="####/##/##">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="fixWrkPfmYn" value="" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

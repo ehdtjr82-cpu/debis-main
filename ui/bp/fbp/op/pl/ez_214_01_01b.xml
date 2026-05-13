@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="type1" name="타입1" dataType="text"></w2:key>
+    					<w2:key id="type2" name="타입2" dataType="text"></w2:key>
+    					<w2:key id="onplace" name="상차지권역" dataType="text"></w2:key>
+    					<w2:key id="offplace" name="하차지권역" dataType="text"></w2:key>
+    					<w2:key id="tons" name="톤수1" dataType="text"></w2:key>
+    					<w2:key id="tone" name="톤수 2" dataType="text"></w2:key>
+    					<w2:key id="dates" name="조회기간1" dataType="text"></w2:key>
+    					<w2:key id="datee" name="조회기간2" dataType="text"></w2:key>
+    					<w2:key id="userId" name="사용자ID" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+                <w2:dataMap baseNode="map" id="dma_search2">
+    				<w2:keyInfo>
+    					<w2:key id="onplace" name="상차지권역" dataType="text"></w2:key>
+    					<w2:key id="offplace" name="하차지권역" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_searchCnt">
+    				<w2:keyInfo>
+    					<w2:key id="dates" name="조회기간1" dataType="text"></w2:key>
+    					<w2:key id="datee" name="조회기간2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_openfl" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="regDd" name="등록일자" dataType="text"></w2:column>
+    					<w2:column id="regCnt" name="등록건수" dataType="text"></w2:column>
+    					<w2:column id="ofcNm" name="영업소명" dataType="text"></w2:column>
+    					<w2:column id="allocTyp" name="배차타입구분" dataType="text"></w2:column>
+    					<w2:column id="dispPhoneNo" name="문의전화" dataType="text"></w2:column>
+    					<w2:column id="allocateYn" name="배차여부" dataType="text"></w2:column>
+    					<w2:column id="goods" name="품목" dataType="text"></w2:column>
+    					<w2:column id="picNm" name="담당자명" dataType="text"></w2:column>
+    					<w2:column id="ton" name="톤" dataType="text"></w2:column>
+    					<w2:column id="onPosNm" name="상차지명" dataType="text"></w2:column>
+    					<w2:column id="onDt" name="상차시간" dataType="text"></w2:column>
+    					<w2:column id="offPosNm" name="하차지명" dataType="text"></w2:column>
+    					<w2:column id="offDt" name="하차시간" dataType="text"></w2:column>
+    					<w2:column id="expDt" name="수출일자" dataType="text"></w2:column>
+    					<w2:column id="dmOrdNo" name="동부에서 의뢰한 화물의 오더번호" dataType="text"></w2:column>
+    					<w2:column id="ez214Idx" name="공개화물인덱스" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_openflCnt" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cnt1" name="건수1" dataType="text"></w2:column>
+    					<w2:column id="cnt2" name="건수2" dataType="text"></w2:column>
+    					<w2:column id="cnt3" name="건수3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_Retrieve" action="/ncall.bp.fbp.op.pl.RetrieveFlPoolCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_search" target='data:json,{"id":"ds_openfl","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_Retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_RetrieveCnt" action="/ncall.bp.fbp.op.pl.RetrieveFlPoolCntCMD.do" method="post"
+    			mediatype="application/json" ref="data:json,dma_searchCnt" target='data:json,{"id":"ds_openflCnt","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_RetrieveCnt_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// 1. TOBE : ez_215_01_01p.jsp 삭제되어서 운송신청 버튼 삭제 함
+
+scwin.UserID = $c.data.getMemInfo("userId"); //사용자ID
+scwin.vToDate = $c.date.getServerDateTime("yyyyMMdd"); //현재일자
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+
+};
+
+//-------------------------------------------------------------------------
+// UDC Completed
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    $p.setTimeout(function () {
+        ed_dates1.setValue(scwin.vToDate);
+        ed_dates2.setValue(scwin.vToDate);
+
+        //테스트 데이터
+        // ed_dates1.setValue("20260301");
+        // ed_dates2.setValue("20260311");
+
+        scwin.SearchData('1');
+
+    }, { "delay": 100 });
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.SearchData = function (type) {
+    if (ed_dates1.getValue() > ed_dates2.getValue()) {
+        $c.win.alert("조회 기간 설정이 잘못되었습니다.");
+        return;
+    }
+
+    // 화물수조회
+    scwin.SearchDataCnt();
+
+    ds_openfl.setJSON([]);
+
+    dma_search.set("type1", type);
+    dma_search.set("type2", "");
+
+    // 상차지권역
+    if (dma_search2.get("onplace") == "1") { // udc_commonCombo에 없는값을 SET 할수 없기때문에 dataMap을 하나더 생성함
+        dma_search.set("onplace", "0");
+    }
+
+    // 하차지권역
+    if (dma_search2.get("offplace") == "1") {
+        dma_search.set("offplace", "0");
+    }
+
+    // 화물톤수
+    if (ed_tons1.getValue() != "" && ed_tons2.getValue() != "") {
+        dma_search.set("tons", parseInt(ed_tons1.getValue() * 1000));
+        dma_search.set("tone", parseInt(ed_tons2.getValue() * 1000));
+    }
+
+    dma_search.set("userId", scwin.UserID);
+
+    //테스트 데이터
+    dma_search.set("userId", "pjk1030"); // 사용자 아이디
+
+    $c.sbm.execute(sbm_Retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 화물수조회
+//-------------------------------------------------------------------------
+scwin.SearchDataCnt = function () {
+    ds_openflCnt.setJSON([]);
+    dma_searchCnt.set("dates", ed_dates1.getValue().substring(0, 6) + "01");
+    dma_searchCnt.set("datee", ed_dates2.getValue().substring(0, 6) + "31");
+
+    $c.sbm.execute(sbm_RetrieveCnt);
+};
+
+//-------------------------------------------------------------------------
+// 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_Retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    tbx_totalRows.setValue(ds_openfl.getRowCount());
+
+    // 미배차일때 폰트 색상을 blue로 SET
+    var allocateYn = "";
+    for (var row = 0; row < ds_openfl.getRowCount(); row++) {
+        allocateYn = ds_openfl.getCellData(row, "allocateYn")
+
+        for (var col = 0; col < ds_openfl.getTotalCol(); col++) {
+            if (allocateYn == "미배차") {
+                gr_fl.setCellStyle(row, col, "color", "blue");
+            } else {
+                gr_fl.setCellStyle(row, col, "color", "black");
+            }
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 화물수조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_RetrieveCnt_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    var cnt1 = 0;
+    var cnt2 = 0;
+    var cnt3 = 0;
+
+    if (ds_openflCnt.getRowCount() > 0) {
+        cnt1 = ds_openflCnt.getCellData(0, "cnt1");
+        cnt2 = ds_openflCnt.getCellData(0, "cnt2");
+        cnt3 = ds_openflCnt.getCellData(0, "cnt3");
+    }
+
+    tbx_yearMonth.setValue(ed_dates1.getValue().substring(0, 4) + "년 " + ed_dates1.getValue().substring(4, 6) + "월");
+
+    var allOpen = "";
+    if (ed_dates1.getValue().substring(0, 6) == ed_dates2.getValue().substring(0, 6)) {
+        allOpen = "전체 공개 화물 수 : "
+    } else {
+        allOpen = "부터  ";
+        allOpen += ed_dates2.getValue().substring(0, 4) + "년" + ed_dates2.getValue().substring(4, 6) + "월";
+        allOpen += "까지  ";
+        allOpen += "전체 공개 화물 수 : "
+    }
+
+    tbx_allOpen.setValue(allOpen);      // 전체 공개 화물 수 타이틀
+    tbx_allOpenCnt.setValue(cnt1);      // 전체 공개 화물 수
+    tbx_unAlloccarCnt.setValue(cnt2);   // 미배정 화물 수
+    tbx_alloccarCnt.setValue(cnt3);     // 배정 화물 수
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_commonCombo" type="page" variableClone="true" src="/cm/udc/commonCombo.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="상차지권역" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_commonCombo code="onplace" cond="onOffDistrict" id="udc_prefDistrict1" refDataCollection="dma_search2"
+    								style="width:250px;">
+    							</w2:udc_commonCombo>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="화물톤수" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input class="" id="ed_tons1" placeholder="" style="width:70px;" maxlength="4"></xf:input>
+    								<w2:textbox class="" id="" label="~" ref="" style="" userData2=""></w2:textbox><xf:input class="" id="ed_tons2" placeholder="" style="width:70px;" maxlength="4"></xf:input>
+    								
+    								<w2:textbox class="" id="" label="톤(ton)" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="하차지권역" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_commonCombo code="offplace" cond="onOffDistrict" id="udc_prefDistrict2" refDataCollection="dma_search2"
+    								style="width:250px;">
+    							</w2:udc_commonCombo>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="등록기간" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_dates" refDataMap="dma_search" refEdDt="datee" refStDt="dates" style="" objTypeTo="Data" objTypeFrom="Data" edFromId="ed_dates1" edToId="ed_dates2"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="화물검색" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    						<xf:group id="" class="form-group"><xf:trigger style="" id="btn_retrieve" type="button" class="btn" ev:onclick="scwin.SearchData('1')">
+    								<xf:label><![CDATA[전체 공개화물]]></xf:label>
+    							</xf:trigger><xf:trigger style="" id="btn_retrieveUnAlloccar" type="button" class="btn" ev:onclick="scwin.SearchData('2')">
+    								<xf:label><![CDATA[미배차 공개화물]]></xf:label>
+    							</xf:trigger><xf:trigger style="" id="btn_retrieveAlloccar" type="button" class="btn" ev:onclick="scwin.SearchData('3')">
+    								<xf:label><![CDATA[배차된 공개화물]]></xf:label>
+    							</xf:trigger></xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="right">
+    						<w2:textbox ref="" style="" userData2="" id="tbx_yearMonth" label="" class=""></w2:textbox><xf:group id="" class="inner"><w2:textbox ref="" style="" userData2="" id="tbx_allOpen" label="전체 공개 화물 수 :" class=""></w2:textbox><w2:textbox ref="" style="" userData2="" id="tbx_allOpenCnt" label="0" class="" dataType="number" displayFormat="#,##0"></w2:textbox></xf:group><xf:group id="" class="inner"><w2:textbox ref="" style="" userData2="" id="tbx_unAlloccar" label="미배정 화물 수 :" class=""></w2:textbox><w2:textbox ref="" style="" userData2="" id="tbx_unAlloccarCnt" label="0" class="" dataType="number" displayFormat="#,##0"></w2:textbox></xf:group><xf:group id="" class="inner"><w2:textbox ref="" style="" userData2="" id="tbx_alloccar" label="배정 화물 수 :" class=""></w2:textbox><w2:textbox ref="" style="" userData2="" id="tbx_alloccarCnt" label="0" class="" dataType="number" displayFormat="#,##0"></w2:textbox></xf:group><w2:udc_topGrdBtn grp="gr_fl" style="" templateYn="N" gridUpYn="N" gridID="gr_fl" grdDownOpts='{"fileName":"공개화물목록.xlsx","sheetName":"공개화물목록"}'></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    					<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_openfl" style="" autoFit="allColumn"
+    						id="gr_fl" visibleRowNum="15" class="wq_gvw" readOnly="true">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="70" inputType="text" id="column1" value="상태" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="140" inputType="text" id="column17" value="소속점" displayMode="label"></w2:column>
+    								<w2:column width="140" inputType="text" id="column15" value="상차지" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="140" inputType="text" id="column13" value="하차지" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="60" inputType="text" id="column11" value="신청" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column9" value="상차일시" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column3" value="하차일시" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column5" value="마감일시" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" id="column7" value="톤수&lt;br/&gt;(T)" displayMode="label">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" id="column19" value="담당자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column29" value="문의전화" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column27" value="화물종류" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column21" value="동부오더No" displayMode="label"></w2:column>
+    								<w2:column width="160" inputType="text" id="column23" value="품목" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column25" value="담당자" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="column31" value="등록일" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="70" inputType="text" id="allocateYn" displayMode="label"></w2:column>
+    								<w2:column width="140" inputType="text" id="ofcNm" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="140" inputType="text" id="offPosNm" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="140" inputType="text" id="onPosNm" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="60" inputType="text" id="regCnt" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="onDt" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="offDt" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="expDt" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" id="ton" displayMode="label" textAlign="right" dataType="number"
+    									displayFormat="#,##0">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" id="picNm" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="dispPhoneNo " displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" id="allocTyp" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="dmOrdNo" displayMode="label"></w2:column>
+    								<w2:column width="160" inputType="text" id="goods" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="120" inputType="expression" id="picNm2" displayMode="label"
+    									expression="display('picNm')">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" id="regDd" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="tbx_totalRows" label="0"
+    									class="num">
+    								</w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

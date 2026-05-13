@@ -1,0 +1,597 @@
+/*amd /ui/ac/co/rsltsmgnt/rsltsaggr/co_403_02_01b.xml 37414 40a39d344ceef6c4e06d4eee3062ceaee5c56a7727fdd7643f3832b877f43a2a */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',A:{},E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'coCd',name:'회사코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coNm',name:'회사명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coClsCd',name:'회사구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'planRsltsClsCd',name:'계획/실적',dataType:'text'}},{T:1,N:'w2:key',A:{id:'closeYm',name:'마감년월',dataType:'text'}},{T:1,N:'w2:key',A:{id:'closeDd',name:'마감일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntNo',name:'관리번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkNo',name:'작업번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'ver',name:'버전',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'부서',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptNm',name:'부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sysCd',name:'시스템코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'쿼리ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'공통1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'공통2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'공통3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param4',name:'공통4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'grpCd',name:'그룹코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'aggrClsCd',name:'집계코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_rsltsAggrTarget',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'coCd',name:'회사코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'seq',name:'순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkId',name:'작업자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkNm',name:'작업자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'closeYm',name:'마감년월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'closeDd',name:'마감일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'closeStDtm',name:'시작일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'closeEndDtm',name:'종료일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'errNo',name:'오류번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkDesc',name:'작업설명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkNo',name:'작업번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntNo',name:'관리번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_version',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'COL1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'COL2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'COL3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'COL4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'COL5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'COL6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'COL7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'COL8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'COL9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'COL10',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_tempCount',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'COL1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'COL2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'COL3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'COL4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'COL5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'COL6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'COL7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'COL8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'COL9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'COL10',dataType:'text'}}]}]}]},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/cm.bc.comnmgnt.closemgnt.RetrieveCloseLogListCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_search',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ac.co.rsltsmgnt.rsltsaggr.ExecuteBatchCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_search","key":"IN_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveCommonPopup',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_search',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'$blank','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/ac/am/constants/ACConstants.js',type:'text/javascript',scopeVariable:'ACConstants'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/**
+ * 화 면 명 : 실적집계
+ * 메뉴경로 : 회계/관리회계/실적관리/실적집계/자산비용관리/
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/co/rsltsmgnt/rsltsaggr/co_403_02_01b.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-12-09
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항
+ *    1. login정보 확인 필요 
+ *     ☞  $c.data.getMemInfo() 처리
+ *    2. [해결]<%@ page import="dbl.ac.am.constants.ACConstants" %> 상수가져오는건 공통에서 글로벌 상수로 변경할 듯. 
+ *    3. 상수값 가져오는거 어떻게 할지? DGlobalValue.java 이런거 있을때마다 개발자가 DGlobalValue.js로 변경해서 올려야 하나?
+ *    4. ☏ $c.gus.cfJobCloseYN 공통함수 없음
+ *    ☞ 2025-12-22 공통개발됨(udc_comChkRes)
+ * 테스트데이터 :
+ *    1. 조회조건 : 회사코드[000], 마감년월[2025/01], 버전[002], 집계[관리마감]
+ * 수정이력 :
+ *    - 2025-12-09      배기원    최초작성
+ */
+//hidden 값
+scwin.txtCoClsCd = "";
+scwin.wrkNo = "";
+scwin.memJson;
+scwin.vLoginCoCd; //소속자회사
+scwin.vLoginCoClsCd; //회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd; //사용자소속구분코드
+scwin.isSubCompany;
+scwin.privAdmin;
+scwin.isClose = ""; //마감체크(tobe 추가)
+
+//상수값(임시)
+scwin.DGlobalValue = {
+  "ALL": -1,
+  "TRUE": 1,
+  "FALSE": 0
+};
+scwin.initJson = {}; //초기세팅값(TOBE)
+scwin.closeYm = "";
+scwin.first = 0;
+
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function () {
+  scwin.memJson = $c.data.getMemInfo($p);
+  scwin.vLoginCoCd = $c.gus.cfIsNull($p, scwin.memJson["coCd"]) ? "" : scwin.memJson["coCd"]; //소속자회사
+  scwin.vLoginCoClsCd = $c.gus.cfIsNull($p, scwin.memJson["coClsCd"]) ? "" : scwin.memJson["coClsCd"]; //회계_회사구분('CO035' : 0:동부 EXPRESS)
+  scwin.vUserHomeClsCd = $c.gus.cfIsNull($p, scwin.memJson["userHomeClsCd"]) ? "" : scwin.memJson["userHomeClsCd"]; //사용자소속구분코드
+  scwin.isSubCompany = false;
+  scwin.privAdmin = $c.gus.cfIsNull($p, scwin.memJson["privAdmin"]) ? "" : scwin.memJson["privAdmin"]; //관리자권한
+  scwin.first = 0;
+  const codeOptions = [{
+    grpCd: "CO010",
+    compID: "lc_aggrClsCd"
+  } //결산집계종류
+  ];
+  $c.data.setCommonCode($p, codeOptions, scwin.callBackCommonCode);
+};
+
+/**
+ * $c.data.setCommonCode 함수의 콜백함수
+ */
+scwin.callBackCommonCode = function () {
+  dlt_commonCodeCO010.setColumnFilter({
+    type: 'row',
+    colIndex: 'fltrCd1',
+    key: "001",
+    condition: 'and'
+  });
+  dlt_commonCodeCO010.reform();
+  scwin.initJson = dma_search.getJSON();
+};
+
+/**
+ * 초기세팅(TOBE 그리드, 총건수)
+ */
+scwin.setInit = function () {
+  gr_rsltsAggrTarget.setNoResultMessageVisible(false);
+  ds_rsltsAggrTarget.removeAll();
+  totalRows.setValue("0");
+};
+
+/**
+ * UDC값 초기화(scwin.onpageload 이후 세팅됨)
+ */
+scwin.onUdcCompleted = function () {
+  scwin.setInit();
+  scwin.f_Header();
+  scwin.f_SetSrchDefault();
+  scwin.f_setCompanyInfo();
+  rd_planRsltsClsCd.setValue("2");
+  lc_aggrClsCd.setSelectedIndex(0);
+  $c.gus.cfEnableObj($p, rd_planRsltsClsCd, false);
+};
+
+/**
+ * 조회필드 CLEAR
+ */
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tbl_search, [ed_coCd, ed_coNm]);
+  scwin.f_Reset();
+  //dma_search.setJSON(scwin.initJson);
+  scwin.f_SetSrchDefault();
+};
+
+/**
+ * 조회 기본값 설정
+ */
+scwin.f_SetSrchDefault = function () {
+  scwin.closeYm = $c.date.getServerDateTime($p).substring(0, 6);
+  ica_fromDate.setValue(scwin.closeYm);
+  rd_planRsltsClsCd.setValue("2");
+  lc_aggrClsCd.setSelectedIndex(0);
+  scwin.f_LoadVer();
+  ica_fromDate.focus();
+};
+
+/**
+ * 조회 데이터셋 헤더 생성
+ * TOBE 사용안함
+ */
+scwin.f_Header = function () {
+  // var GAUCE_DATASET_HEADER = "closeYm:STRING(6)" // 배부년월
+  //     + ",aggrClsCd:STRING(2)" // 집계구분코드
+  //     + ",planRsltsClsCd:STRING(1)" // 결산구분
+  //     + ",wrkNo:STRING(4)" // 마감구분코드
+  //     + ",ver:STRING(3)" // 버전
+  //     + ",coCd:STRING(3)"; // 회사코드
+  // ds_searchRsltsAggr.SetDataHeader(GAUCE_DATASET_HEADER);
+  // ds_searchRsltsAggr.insertRow();
+};
+
+/**
+ * 초기화 관련 변수 정의 함수
+ */
+scwin.f_Initial = function () {
+  $c.gus.cfDisableKey($p);
+  $c.gus.cfDisableObjects($p, [rd_planRsltsClsCd]);
+  $c.gus.cfEnableObjects($p, [ed_coCd, ed_coNm]);
+};
+
+/**
+ * 저장 완료후 화면 Reset시 사용하는 함수 
+ */
+scwin.f_Reset = function () {
+  scwin.f_Initial();
+};
+
+/**
+* 조회버튼
+*/
+scwin.f_Retrieve = async function () {
+  // var condition = "?closeYm" + ica_fromDate.getValue().trim() + "&closeDd=00&mgntNo=0";
+  // 관리마감
+  if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_01) {
+    scwin.wrkNo = ACConstants.CLOSE_STAFF_RESULTS;
+    // 미확정집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_02) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C14;
+    // 회계마감집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_03) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULT_AGGREGATION_C11;
+    // 자산비용집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_04) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C16;
+    // 관리손익집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_05) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C17;
+    // 특성별실적집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_06) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C21;
+    // 회의보고집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_07) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C19;
+    // BSC성과관리 실적자료 인터페이스
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_08) {
+    scwin.wrkNo = ACConstants.CLOSE_BSC_RESULTS_INTERFACE;
+  } else {
+    $c.win.alert($p, "잘못된 조회 조건을 선택하셨습니다. 조회 조건을 확인하시기 바랍니다.");
+    return;
+  }
+
+  // condition += "&wrkNo=" + wrkNo;
+  // condition + = "&coCd" + ed_coCd.getValue();
+  let ret = await $c.gus.cfValidate($p, [ed_coCd, ica_fromDate, lc_version, lc_aggrClsCd]);
+  if (!ret) {
+    return false;
+  }
+  if (ica_fromDate.getValue().length != 6) {
+    await $c.win.alert($p, "적용년월은(는) 6자리수만큼 입력하십시오.");
+    ica_fromDate.focus();
+    return;
+  }
+  ret = await $c.date.isDate($p, ica_fromDate.getValue() + "01");
+  if (!ret) {
+    await $c.win.alert($p, "올바른 적용년월을(를) 입력하십시오.");
+    ica_fromDate.focus();
+    return;
+  }
+
+  // ds_rsltsAggrTarget.DataID = "/cm.bc.comnmgnt.closemgnt.RetrieveCloseLogListCMD.do" + condition;
+  // ds_rsltsAggrTarget.undoAll();
+  scwin.setInit();
+  dma_search.set("closeDd", "00");
+  dma_search.set("mgntNo", "0");
+  dma_search.set("wrkNo", scwin.wrkNo);
+  $c.sbm.execute($p, sbm_retrieve);
+};
+scwin.sbm_retrieve_submitdone = function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  gr_rsltsAggrTarget.setNoResultMessageVisible(true);
+  ds_rsltsAggrTarget.setJSON(e.responseJSON.GAUCE);
+  let rowCnt = ds_rsltsAggrTarget.getRowCount();
+  totalRows.setValue(rowCnt);
+  if (rowCnt > 0) {
+    gr_rsltsAggrTarget.setFocusedCell(0, 0);
+  }
+};
+scwin.sbm_retrieve_submiterror = function (e) {
+  $c.gus.cfAlertMsg($p, e.responseJSON.resultDataSet[1].Msg);
+};
+
+/**
+ * 마감체크
+ */
+scwin.f_JobCloseYN = async function () {
+  //cfJobCloseYN(마감요청구분,마감년월,마감일,작업번호,관리번호,리턴구분);
+  /**
+   * @param  : pReqKind  : 마감요청구분("PRE":선행마감체크, "CUR":작업마감체크)
+   *           pCloseYM  : 마감년월(YYYYMM, MM이 '00'이 들어가는 경우는 년,월 마감일경우)
+   *           pCloseDD  : 마감일 | 마감주기 (Y)년마감   : 00
+   *                                     (H)반기마감 : 1:전기, 2:후기
+   *                                     (Q)분기마감 : 1,2,3,4
+   *                                     (M)월마감   : 00
+   *                                     (W)주마감   : 1,2,3,4,5
+   *                                     (D)일마감   : 해당일(01~31)
+   *           pWorkNo   : 작업번호
+   *           pMgntNo   : 관리번호(Default : "0")
+   *           pRtnKind  : DAY:마감일리턴, ARR:결과를배열로, null:마감여부 결과리턴
+   *           pDualChkYN: 작업마감체크기(CUR) 선행마감까지 체크를 할것인가 여부 Y:체크함
+   *           pCoCd     : 회사코드
+   *
+   * @return : 0     : 마감중
+   *           1     : 미마감
+   *           2     : 마감완료
+   *           DNF   : Data Not Found
+   *           null  : 파라메터 오류
+   *           마감일 : 리턴구분이 "DAY" 일경우(YYYYMMDD)
+   *           ArrayObj : 리턴구분이 "ARR" 일경우 (리턴코드,작업번호,작업명,CUR or PRE)
+   *           리턴구분이 DAY,ARR이 아닌경우 선행마감이 안된경우 (P0:마감중,P1:미마감 리턴함)
+   */
+  await udc_cfJobCloseYN.cfJobCloseYN("CUR", ica_fromDate.getValue().trim(), "00", scwin.wrkNo, "0", "ARR", "", ed_coCd.getValue()).then(function (arrRtn) {
+    scwin.isClose = arrRtn;
+    //             console.log("부모창 isClose : " + scwin.isClose);
+    //             console.log("부모창 isClose[0] : " + scwin.isClose[0]);
+    //             console.log("부모창 isClose[2] : " + scwin.isClose[2]);
+    //             console.log("부모창 isClose[3] : " + scwin.isClose[3]);
+  });
+
+  // 선행마감 작업에 대한 검사
+  if (scwin.isClose[3] == "PRE") {
+    if (scwin.isClose[3] == "1") {
+      await $c.gus.cfAlertMsg($p, "선행작업 " + scwin.isClose[2] + "이 미마감되어서 현재 작업을 진행할 수 없습니다.");
+      return false;
+    } else if (scwin.isClose[0] == "0") {
+      await $c.gus.cfAlertMsg($p, "선행작업 " + scwin.isClose[2] + "이 마감작업중이어서 현재 작업을 진행할 수 없습니다.");
+      return false;
+    }
+  }
+
+  // 해당마감 작업에 대한 검사
+  if (scwin.isClose[3] == "CUR") {
+    if (scwin.isClose[0] == "0") {
+      await $c.gus.cfAlertMsg($p, scwin.isClose[2] + "(이)가 마감중입니다.");
+      return false;
+    } else if (scwin.isClose[0] == "2") {
+      await $c.gus.cfAlertMsg($p, scwin.isClose[2] + "(이)가 마감완료가 되었습니다.");
+      return false;
+    } else {
+      return true;
+    }
+  }
+  return false;
+};
+
+/**
+ * 마감작업코드 세팅
+ */
+scwin.f_setWrkNoFromDate = function () {
+  // 관리마감
+  if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_01) {
+    scwin.wrkNo = ACConstants.CLOSE_STAFF_RESULTS;
+    // 미확정집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_02) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C14;
+    // 회계마감집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_03) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULT_AGGREGATION_C11;
+    // 자산비용집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_04) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C16;
+    // 관리손익집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_05) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C17;
+    // 특성별실적집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_06) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C21;
+    // 회의보고집계
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_07) {
+    scwin.wrkNo = ACConstants.CLOSE_RESULTS_AGGREGATION_C19;
+    // BSC성과관리시스템 실적 자료 인터페이스
+  } else if (lc_aggrClsCd.getValue() == ACConstants.RESULTS_AGGREGATION_08) {
+    scwin.wrkNo = ACConstants.CLOSE_BSC_RESULTS_INTERFACE;
+  }
+};
+
+/**
+ * 저장버튼
+ */
+scwin.f_Save = async function () {
+  let ret;
+  if (lc_version.getValue() != "001" && lc_aggrClsCd.getValue() == "02") {
+    await $c.win.alert($p, "미확정집계는 버전 001로만 실행 가능 합니다.");
+    return;
+  }
+  var msg = "실적집계 Batch Job을 실행하시겠습니까?"; // 확인여부 Msg
+  scwin.f_setWrkNoFromDate(); // 전역변수 Setting
+
+  // 관리마감만 마감여부를 확인한다.
+  if (lc_aggrClsCd.getValue() == "01") {
+    // 마감여부 확인
+    ret = await scwin.f_JobCloseYN();
+    if (!ret) {
+      return;
+    }
+    msg = "관리마감을 마감하시겠습니까?";
+  } else {
+    // 집계에 대해서 실행한 적이 있는지 여부 확인
+    await scwin.f_aggrCount();
+    if (Number(ds_tempCount.getCellData(0, "col1")) > 0) {
+      msg = "실적집계를 실행한적이 있습니다.<BR>재집계를 하시겠습니까?";
+    }
+  }
+  ret = await $c.gus.cfValidate($p, [ica_fromDate, lc_version, lc_aggrClsCd, ed_coCd]);
+  if (!ret) {
+    return false;
+  }
+  dma_search.set("wrkNo", scwin.wrkNo);
+  if (await $c.win.confirm($p, msg)) {
+    sbm_save.userData1 = "noError";
+    $c.sbm.execute($p, sbm_save);
+  }
+};
+scwin.sbm_save_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) {
+    await $c.gus.cfAlertMsg($p, e.responseJSON.resultDataSet[1].Msg);
+    return;
+  }
+  if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+    await $c.gus.cfAlertMsg($p, MSG_CM_INF_001);
+    $c.sbm.execute($p, sbm_retrieve);
+  }
+};
+scwin.sbm_save_submiterror = function (e) {
+  $c.gus.cfAlertMsg($p, e.responseJSON.resultDataSet[1].Msg);
+};
+
+/**
+ * 집계하고자 하는 내역이 실행한적이 있는지 여부 확인
+ */
+scwin.f_aggrCount = async function () {
+  var ebcId = "";
+  var queryId = "";
+  var param1 = lc_version.getValue();
+  var param2 = ica_fromDate.getValue().trim();
+  var param3 = ed_coCd.getValue().trim();
+
+  // 미확정집계
+  if (scwin.wrkNo == ACConstants.CLOSE_RESULTS_AGGREGATION_C14) {
+    ebcId = "UnsettledEBC";
+    queryId = "retrieveUnsettledCount"; //TB_CO303.xml
+    // 회계마감집계
+  } else if (scwin.wrkNo == ACConstants.CLOSE_RESULT_AGGREGATION_C11) {
+    ebcId = "ManagementProfitAndLossEBC";
+    queryId = "retrieveAccountCount"; //TB_CO322.xml
+    // 자산비용집계
+  } else if (scwin.wrkNo == ACConstants.CLOSE_RESULTS_AGGREGATION_C16) {
+    // 계획선택일경우
+    if (rd_planRsltsClsCd.getValue() == "1") {
+      param2 = ica_fromDate.getValue().trim().substring(0, 4) + "00";
+    }
+    ebcId = "AssetsCostEBC";
+    queryId = "retrieveAssestCount"; //TB_CO319.xml
+    // 관리손익집계
+  } else if (scwin.wrkNo == ACConstants.CLOSE_RESULTS_AGGREGATION_C17) {
+    ebcId = "ManagementProfitAndLossEBC";
+    queryId = "retrieveManagementProfitAndLossCount"; //TB_CO322.xml
+    // 특성별실적집계
+  } else if (scwin.wrkNo == ACConstants.CLOSE_RESULTS_AGGREGATION_C21) {
+    ebcId = "CharacterEachManagementProfitAndLossEBC";
+    queryId = "retrieveCharacterEachCount"; //TB_CO321.xml
+    // 회의보고집계(관리손익집계와 동일한 테이블이므로 동일한거 사용함)
+  } else if (scwin.wrkNo == ACConstants.CLOSE_RESULTS_AGGREGATION_C19) {
+    ebcId = "ManagementProfitAndLossEBC";
+    queryId = "retrieveManagementProfitAndLossCount"; //TB_CO322.xml
+    // BSC 성과관리 시스템 실적 자료 인터페이스
+  } else if (scwin.wrkNo == ACConstants.CLOSE_BSC_RESULTS_INTERFACE) {
+    ebcId = "ManagementProfitAndLossEBC";
+    queryId = "retrieveBscResultInterfaceCount"; //TB_CO322.xml
+  }
+
+  // ds_tempCount.DataId = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=" + ebcId +
+  //     "&queryId=" + queryId +
+  //     "&param1=" + param1 +
+  //     "&param2=" + param2 +
+  //     "&param3=" + param3;
+  // ds_tempCount.undoAll();
+
+  dma_search.set("sysCd", ebcId);
+  dma_search.set("queryId", queryId);
+  dma_search.set("param1", param1);
+  dma_search.set("param2", param2);
+  dma_search.set("param3", param3);
+  ds_tempCount.removeAll();
+  let ret = await $c.sbm.execute($p, sbm_retrieveCommonPopup);
+  ds_tempCount.setJSON(ret.responseJSON.GAUCE);
+  ds_tempCount.reform();
+};
+
+/**
+ * Ver정보를 가져온다.
+ */
+scwin.f_LoadVer = async function () {
+  //작업구분코드 및 날짜 세팅함수 호출
+  scwin.f_setWrkNoFromDate();
+  dma_search.set("sysCd", "CommonEBC");
+  dma_search.set("queryId", "retrieveVersionInfo");
+  dma_search.set("param1", ica_fromDate.getValue());
+  ds_version.removeAll();
+  let ret = await $c.sbm.execute($p, sbm_retrieveCommonPopup);
+  ds_version.setJSON(ret.responseJSON.GAUCE);
+  ds_version.reform();
+  await scwin.f_SetFinalVer();
+};
+
+/**
+ * 최종 Ver을 설정
+ */
+scwin.f_SetFinalVer = function () {
+  if (ds_version.getRowCount() < 1) return;
+  let index = 0;
+  for (let i = 0; i < ds_version.getRowCount(); i++) {
+    if (ds_version.getCellData(i, "col3") == scwin.DGlobalValue.TRUE) {
+      index = i;
+      break;
+    }
+  }
+  lc_version.setSelectedIndex(index);
+};
+
+/**
+ * 적용년월 포커스 잃었을 시
+ */
+scwin.ica_fromDate_onblur = function (e) {
+  if (!$c.gus.cfIsNull($p, ica_fromDate.getValue())) {
+    scwin.f_LoadVer();
+  } else {
+    ds_version.removeAll();
+  }
+};
+
+/**
+ * 그리드 데이터 엑셀로 다운
+ * TOBE 사용안함(UDC 속성값 사용, udc_topGrdBtn)
+ */
+// scwin.f_runExcel = function (varGrNm) {
+//     totCnt = ds_rsltsAggrTarget.getRowCount();
+//     sheetTitle = "실적집계현황";
+
+//     if (totCnt != 0) {
+//         cfrm = confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+//         if (cfrm) {
+//             $c.data.downloadGridViewExcel(varGrNm, sheetTitle, sheetTitle + ".xls", 4 + 8 + 16);
+//         }
+//     } else {
+//         $c.win.alert(MSG_CM_WRN_002);
+//     }
+// };
+
+/**
+ * 그리드 높이 늘리기
+ * TOBE 사용안함(UDC +-버튼사용, udc_topGrdBtn)
+ */
+// scwin.f_grdHeiht = function (gridNm, size) {
+//     var strHeight = gridNm.style.height;
+//     var intHeight = parseInt(strHeight.replace("px", ""));
+//     intHeight = intHeight + size;
+//     if (intHeight > 0) {
+//         gridNm.style.height = intHeight + "px";
+//     }
+// };
+
+/**
+ * 자회사 회계 시스템 추가에 따른 설정 
+ */
+scwin.f_setCompanyInfo = function () {
+  // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를 '동부 EXPRESS'로 Default set
+  if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+    scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+    scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+  }
+  ed_coCd.setValue(scwin.vLoginCoCd);
+  scwin.f_PopUpCompanyInfo('T');
+};
+
+/**
+ * 회사입력팝업
+ */
+scwin.f_PopUpCompanyInfo = function (pWinCloseTF) {
+  //asis 소스
+  // var rtnList = cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+  //     , ed_coCd.text, ed_coNm.value
+  //     , pWinCloseTF, null, null, null, null
+  //     , null, null, null, null, null);
+  // // SET
+  // if (rtnList != null) {
+  //     if (rtnList[0] == "N/A") return;
+  //     ed_coCd.setValue = rtnList[0]; // 코드
+  //     ed_coNm.value = rtnList[5]; // 회사명
+  //     scwin.txtCoClsCd = rtnList[1]; // 회사구분
+  // } else {
+  //     ed_coCd.setValue = "";
+  //     ed_coNm.value = "";
+  //     scwin.txtCoClsCd = "";
+  // }
+  udc_comCode.cfCommonPopUp(scwin.udc_comCode_callBackFunc, ed_coCd.getValue(), ed_coNm.getValue(), pWinCloseTF, null, null, null, null, null, null, null, null, null, null, null, null, null);
+};
+
+/**
+ * 회사코드 팝업 callBack
+ */
+scwin.udc_comCode_callBackFunc = function (ret) {
+  if (ret[0] != "N/A" && !$c.gus.cfIsNull($p, ret)) {
+    ed_coCd.setValue(ret[0]); // 코드
+    ed_coNm.setValue(ret[5]); // 회사명
+    ed_coCd.hidVal = ret[0]; // 히든값
+    scwin.txtCoClsCd = ret[1]; // 회사구분
+  } else {
+    ed_coCd.setValue(""); // 코드
+    ed_coNm.setValue(""); // 회사명
+    ed_coCd.hidVal = ""; // 히든값
+    scwin.txtCoClsCd = ""; // 회사구분
+  }
+
+  //TODO : 처음 로딩 시 한번만 처리(웹스퀘어 UDC 싱크....)
+  if (scwin.first == 0) {
+    // 자회사 회계 시스템
+    if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+      scwin.isSubCompany = true;
+    } else {
+      scwin.isSubCompany = false;
+    }
+    // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+    if ('T' == scwin.privAdmin || !scwin.isSubCompany) {
+      $c.gus.cfEnableObjects($p, [ed_coCd, ed_coNm, btn_company]);
+    } else {
+      $c.gus.cfDisableObjects($p, [ed_coCd, ed_coNm, btn_company]);
+    }
+  }
+  scwin.first++;
+};
+
+/*##############################################################
+ * UDC 이벤트
+ *##############################################################*/
+/**
+ * 회사코드(조회) 팝업 호출
+ */
+scwin.udc_comCode_onclickEvent = function (e) {
+  if (ed_coCd.hidVal != ed_coCd.getValue()) {
+    ed_coNm.setValue("");
+  }
+  scwin.f_PopUpCompanyInfo('F');
+};
+scwin.udc_comCode_onviewchangeCodeEvent = function (info) {
+  ed_coNm.setValue("");
+  if (!$c.gus.cfIsNull($p, ed_coCd.getValue())) {
+    scwin.f_PopUpCompanyInfo('T');
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comChkRes',type:'page',variableClone:'true',src:'/cm/udc/comChkRes.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'tbl_search',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:90px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'회사코드 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{allowCharCode:'0-9',btnId:'btn_company',code:'coCd',codeId:'ed_coCd',editTypeCode:'focus','ev:onclickEvent':'scwin.udc_comCode_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_comCode_onviewchangeCodeEvent',id:'udc_comCode',mandatoryCode:'true',maxlengthCode:'3',maxlengthName:'30',name:'coNm',nameId:'ed_coNm',objTypeCode:'data',objTypeName:'key',popupID:'popupCocd',refDataCollection:'dma_search',selectID:'retrieveDongbuGroupCompanyInfo',style:'',validExpCode:'회사코드',validTitle:'회사코드',codeWidth:'50'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'결산구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{appearance:'full',class:'rdo-grp',cols:'',id:'rd_planRsltsClsCd',ref:'data:dma_search.planRsltsClsCd',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:'',title:'계획/실젝',objType:'data'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'계획'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'실적'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'2'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'적용년월',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonth',class:' cal w80',displayFormat:'yyyy/MM',id:'ica_fromDate',mandatory:'true',objType:'data',ref:'data:dma_search.closeYm',style:'',title:'적용년월','ev:onblur':'scwin.ica_fromDate_onblur',nextTabID:'lc_version'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'버전',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:'form-control w150',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',displayMode:'value delim label',id:'lc_version',mandatory:'true',ref:'data:dma_search.ver',style:'',submenuSize:'auto',tabIndex:'-1',title:'버전',validExp:'버전:yes'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_version'},E:[{T:1,N:'xf:label',A:{ref:'col4'}},{T:1,N:'xf:value',A:{ref:'col1'}}]}]}]},{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'집계',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'form-control w150',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_aggrClsCd',style:'',submenuSize:'fixed',mandatory:'true',title:'집계',visibleRowNum:'10',ref:'data:dma_search.aggrClsCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh','ev:onclick':'scwin.f_FieldClear',id:'btn_fieldClear',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'','ev:onclick':'scwin.f_Retrieve',id:'btn_search',style:'',type:'button',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'row-gap-8',id:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'실적집계현황',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grdDownOpts:'{"fileName":"실적집계현황.xlsx", "sheetName":"실적집계현황", "type":"1", "hiddenVisible":false}',gridID:'gr_rsltsAggrTarget',gridUpYn:'N',grp:'grd_section1',id:'udc_excel',style:'',templateYn:'N',gridDownUserAuth:'X'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_rsltsAggrTarget',focusMode:'cell',id:'gr_rsltsAggrTarget',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'15',visibleRowNumFix:'true',readOnly:'true',gridName:'실적집계현황'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column55',value:'순번',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'text',style:'',value:'작업자ID',width:'120',class:''}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',style:'',value:'시작일시',width:'160',class:''}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',style:'',value:'종료일시',width:'160',class:''}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column34',inputType:'text',style:'',value:'작업설명',width:'400',class:''}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column32',inputType:'text',style:'',value:'오류번호',width:'180',class:''}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',style:'',value:'작업자',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',style:'',value:'마감년월',width:'100',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',style:'',value:'마감일',width:'100',class:'',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',style:'',value:'작업번호',width:'150',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'column49',value:'관리번호',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'seq',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkId',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'closeStDtm',inputType:'text',style:'',value:'',width:'160'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'closeEndDtm',inputType:'text',style:'',value:'',width:'160'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkDesc',inputType:'text',style:'',value:'',width:'400',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'errNo',inputType:'text',style:'',value:'',width:'180'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkNm',inputType:'text',style:'',value:'',width:'150',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'closeYm',inputType:'text',style:'',value:'',width:'100',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'closeDd',inputType:'text',style:'',value:'',width:'100',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkNo',inputType:'text',style:'',value:'',width:'150',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'mgntNo',value:'',displayMode:'label',hidden:'true',hiddenCol:'true'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',displayFormatter:'#,###',id:'totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_comChkRes',A:{style:'width:%; height:px; ;visibility:hidden;',id:'udc_cfJobCloseYN'}},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Save',id:'btn_save',objType:'bSave',style:'',type:'button',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'실행'}]}]}]}]}]}]}]}]}]})

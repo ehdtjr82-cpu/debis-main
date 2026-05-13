@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_fixWork">
+    				<w2:keyInfo>
+    					<w2:key id="ymFrom" name="기간" dataType="text"></w2:key>
+    					<w2:key id="ymTo" name="기간" dataType="text"></w2:key>
+    					<w2:key id="eqHomeClsCd" name="사업부문" dataType="text"></w2:key>
+    					<w2:key id="fixWrkPlCd" name="정비작업장" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="귀속부서" dataType="text"></w2:key>
+    					<w2:key id="acctDeptNm" name="귀속부서명" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_fixWork" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="fixWrkNo" name="정비번호" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+    					<w2:column id="fixWrkUnitNo" name="작업단위" dataType="text"></w2:column>
+    					<w2:column id="fixWrkUnitNm" name="작업명" dataType="text"></w2:column>
+    					<w2:column id="qty" name="수량" dataType="text"></w2:column>
+    					<w2:column id="upr" name="단가" dataType="text"></w2:column>
+    					<w2:column id="amt" name="공임" dataType="text"></w2:column>
+    					<w2:column id="wages" name="금액" dataType="text"></w2:column>
+    					<w2:column id="amtWagesSum" name="총금액" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_combo" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="sysCd" name="sysCd"></w2:key>
+    					<w2:key dataType="text" id="queryId" name="queryId"></w2:key>
+    					<w2:key dataType="text" id="param1" name="param1"></w2:key>
+    					<w2:key dataType="text" id="param2" name="param2"></w2:key>
+    					<w2:key dataType="text" id="param3" name="param3"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_homeClsCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="code" dataType="text"></w2:column>
+    					<w2:column id="name" name="name" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<code><![CDATA[LO]]></code>
+    						<name><![CDATA[물류]]></name>
+    					</w2:row>
+    					<w2:row>
+    						<code><![CDATA[TR]]></code>
+    						<name><![CDATA[고속]]></name>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_wrkPlCd" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="code"></w2:column>
+    					<w2:column dataType="text" id="name" name="name"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ps.eq.adjmmgnt.fixrslts.RetrieveOutordWorkContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_fixWork","key":"IN_DS1"},{"id":"ds_fixWork","key":"OUT_DS1"}'
+    			target='data:json,{"id":"ds_fixWork","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchCombo" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json" ref='data:json,dma_combo' target='data:json,{"id":"ds_wrkPlCd","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.memJson = $c.data.getMemInfo();
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd; // 사용자소속구분코드
+scwin.currDateFrom = WebSquare.date.getFormattedDate (new Date(), "yyyyMM") + "01";
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+
+scwin.onpageload = function() {
+    console.log("=================scwin.onpageload ========");
+    dma_fixWork.set("ymFrom", scwin.currDateFrom);
+	dma_fixWork.set("ymTo", scwin.currDate);
+
+    const codeOptions = [ 
+        { grpCd : "ZZ205", compID : "lc_homeClsCd",opt :{"range" : "1,EQ"} }
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+    ica_ymFrom.focus();
+};
+
+
+// UDC 셋팅이 이후..
+// scwin.onUdcCompleted = function() {
+//     ica_ymFrom.focus();
+// };
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    console.log("=================scwin.f_Retrieve ========");
+    let ret = await $c.gus.cfValidate([ica_ymFrom, ica_ymTo, lc_homeClsCd, lc_wrkPlCd]);
+    if (!ret) {
+        return false;
+    }
+	gr_fixWork.setSubtotalVisible(true);
+	$c.sbm.execute(sbm_search);
+};
+
+scwin.sbm_search_submitdone = function (e) {
+    var rowCnt = ds_fixWork.getRowCount();
+	spanTotal.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_fixWork.setFocusedCell(0, 0);
+};
+
+scwin.lc_homeClsCd_onchange = function (info) {
+	//cm.zz.RetrieveComboCMD.do?sysCd=PsCommonEBC&queryId=retriveWrkplList&param1="+lux_homeClsCd.BindColVal;
+	//info.newValue
+	dma_combo.set("sysCd", "PsCommonEBC");
+	dma_combo.set("queryId", "retriveWrkplList");
+	dma_combo.set("param1", info.newValue);
+	$c.sbm.execute(sbm_searchCombo);
+};
+
+//-------------------------------------------------------------------------
+// List 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel = async function () {
+    let fileName = "외주작업 내역조회";
+    let options = 
+    {
+        fileName : fileName+".xlsx",
+        sheetName : fileName,
+        useSubTotal: "true", 
+        useSubTotalData : "true",
+        startRowIndex : 5,
+        startColumnIndex : 0,
+        type :1
+    };
+
+    var infoArr = 
+    [{
+        rowIndex : 0, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 11, 
+        text : fileName , 
+        textAlign : "center",
+        fontSize : 12,
+        drawBorder:false
+    },
+    {
+        rowIndex : 2, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 11, 
+        text : `조회일자 [${$c.date.formatDate(ica_ymFrom.getValue(), "date")} ~ ${$c.date.formatDate(ica_ymTo.getValue(), "date")}]` , 
+        textAlign : "left",
+        fontSize : 12,
+        drawBorder:false
+    },
+    {
+        rowIndex : 3, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 11, 
+        text : `사업부문 [${lc_homeClsCd.getText(true)}]` , 
+        textAlign : "left",
+        fontSize : 12,
+        drawBorder:false
+    },
+    {
+        rowIndex : 4, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 11, 
+        text : `대표정비작업장 [${lc_wrkPlCd.getText(true)}]` , 
+        textAlign : "left",
+        fontSize : 12,
+        drawBorder:false
+    }
+    ];
+    await $c.data.downloadGridViewExcel(gr_fixWork, options, infoArr);    
+};
+
+scwin.f_setqrynm = function ( tname, str) {
+    var vSearchOption = ";font-face:굴림체;font-size:10pt;font-color:black;bgcolor:#ffffff;align: left;line-color:red;line-width:0pt;";
+    gr_work_pl.SetExcelTitle(1, "value:" + tname + " [" + str + "]" + vSearchOption );
+};
+
+scwin.udc_acctDeptCdCond_onblurCodeEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_acctDeptCdCond.getValue(), ed_acctDeptNmCond.getValue(),'F','T');
+};
+
+scwin.udc_acctDeptCdCond_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_acctDeptCdCond.getValue(), ed_acctDeptNmCond.getValue(),'F','T');
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function(disGubun, pCode, pName, pClose, pAllSearch) {
+  	// 선언부
+	var rtnList;  // 공통POP-UP -> 요청화면 
+    switch (disGubun)
+    {
+        // case 1:
+        //     var pWhere = " ,"+lux_wrkPlCd.BindColVal+"";
+        // 	// 정비사 팝업			
+        // 	rtnList = cfCommonPopUp('retrieveFixEmpInfo'	// XML상의 SELECT ID	
+        // 							,em_fixEmpNo.Text.trim()// 화면에서의 Code Element의	Value
+        // 							,txt_fixEmpNm.value		// 화면에서의 Name Element의	Value
+        // 							,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+        // 							,null					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+        // 							,null					// Title순서	
+        // 							,null					// 보여주는 각 컬럼들의 폭	
+        // 							,null					// 컬럼중에서 숨기는	컬럼 지정	
+        // 							,pWhere					// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+        // 							,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+        // 							,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+        // 							,null					// 윈도우 위치 Y좌표	
+        // 							,null					// 윈도우 위치 X좌표
+        // 							,null					// 중복체크여부	("F")
+        // 							,pAllSearch				// 전체검색허용여부	("F")
+        // 							,"정비사원,사원코드,사원명"	// POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+        // 							);
+                                    
+        // 							  //사원코드  		사원명
+        // 	// cfSetReturnValue(rtnList, em_fixEmpNo,   txt_fixEmpNm);
+        // 	break;				
+        case 2:			
+            var pWhere = "";
+            // 귀속부서 팝업	
+            await udc_acctDeptCdCond.cfCommonPopUp(
+                                     scwin.udc_acctDeptCdCond_callback 	// XML상의 SELECT ID	
+                                    ,pCode      // 화면에서의 Code Element의	Value
+                                    ,pName		    // 화면에서의 Name Element의	Value
+                                    ,pClose					  // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)                                    
+                                    ,null					  // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                    ,null					  // Title순서	
+                                    ,null					  // 보여주는 각 컬럼들의 폭	
+                                    ,null					  // 컬럼중에서 숨기는	컬럼 지정	
+                                    ,pWhere					  // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                                    ,null					  // POP-UP뛰을때 원도우의	사용자 정의	폭
+                                    ,null					  // POP-UP뛰을때 우도우의	사용자 정의	높이	
+                                    ,null					  // 윈도우 위치 Y좌표	
+                                    ,null					  // 윈도우 위치 X좌표
+                                    ,null					  // 중복체크여부	("F")
+                                    ,"T"				  // 전체검색허용여부	("F")
+                                    ,"귀속부서,부서코드,부서명"	  // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+                                    );
+            break; 		
+    }	
+};
+
+scwin.udc_acctDeptCdCond_callback = function(rtnList) {
+    if (rtnList != null ) {
+    	if (rtnList[0] != "N/A") {
+    		ed_acctDeptCdCond.setValue(rtnList[0]);
+			ed_acctDeptCdCond.options.hidVal = rtnList[0];
+			ed_acctDeptNmCond.setValue(rtnList[1]);
+		}
+    } else {
+		ed_acctDeptCdCond.setValue("");
+		ed_acctDeptCdCond.options.hidVal = "";
+		ed_acctDeptNmCond.setValue("");
+    }
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+
+scwin.f_Detail = function () {
+    //팝업화면에게 KEY 정보를 넘겨준다.
+    var argObject = new Object();
+    argObject.homeClsCd  = lux_homeClsCd.BindColVal;
+    argObject.fixWrkPlCd = lux_wrkPlCd.BindColVal;	// 정비작업장코드
+    argObject.fixWrkNo   = ds_fix_work_list.NameValue(row, "fixWrkNo");		// 정비작업번호
+
+    var result = window.showModalDialog("/ps/eq/fixwrkmgnt/fixwrkmgnt/eq_330_01_04b.jsp", argObject, "dialogWidth:1020px; dialogHeight:674px; status:no; scroll:yes");
+
+    if( result == "REFRESH" ) {
+        // 다시 조회함
+        f_Retrieve();
+    }
+};
+
+scwin.gr_fixWork_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    switch (columnId) {
+        case "fixWrkNo" :
+            //$c.win.alert("작업중(eq_330_01_04b 미개발)..........."+gr_fixWork.getCellData(rowIndex, "fixWrkNo"));
+            let data = {
+                  homeClsCd: lc_homeClsCd.getValue()
+                , fixWrkPlCd: lc_wrkPlCd.getValue()
+                , fixWrkNo: gr_fixWork.getCellData(rowIndex, "fixWrkNo")
+            };
+            let popupResult;
+            let url = "/ui/ps/eq/fixwrkmgnt/fixwrkmgnt/eq_330_01_04b.xml";
+
+            const options = {
+                id: "smpPop",
+                type: "popup",
+                modal: true,
+                popupName: "정비작업",
+                width: 1020,
+                height: 674
+            };
+            popupResult = await $c.win.openPopup(url, options, data);
+            if (popupResult != null) {
+            }
+		    break;
+		}        
+};
+
+scwin.subtotalTargetColumnView = function(tci) {
+    return tci;
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+        return;
+    }
+    
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+    
+    // 검색어 세팅
+    let pVal = $c.gus.cfGetValue(inObj);
+    
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode === null || isCode === true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    }
+    // inObj가 코드명 필드일 경우 팝업
+    else {
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    }
+};
+
+scwin.udc_acctDeptCdCond_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_acctDeptNmCond, ed_acctDeptCdCond, 2, false);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb " id="table1" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="기간" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar id="udc_ym" refDataMap="dma_fixWork" refEdDt="ymTo" refStDt="ymFrom" style="" edFromId="ica_ymFrom" edToId="ica_ymTo" mandatoryFrom="true" mandatoryTo="true">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="사업부문 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto"
+    										disabled="false" disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="width:150px;" submenuSize="auto"
+    										ref="data:dma_fixWork.eqHomeClsCd" chooseOptionLabel="$blank" ev:onchange="scwin.lc_homeClsCd_onchange" mandatory="true"
+    										validExp="사업부문:yes:" title="사업부문" displayMode="value delim label">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="대표정비작업장 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_wrkPlCd" style="width:150px;" submenuSize="auto" ref="data:dma_fixWork.fixWrkPlCd" mandatory="true" validExp="정비작업장:yes:" title="대표정비작업장" visibleRowNum="15" displayMode="value delim label">
+    										<xf:choices>
+    											<xf:itemset nodeset="data:ds_wrkPlCd">
+    												<xf:label ref="name"></xf:label>
+    												<xf:value ref="code"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="귀속부서" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode codeId="ed_acctDeptCdCond" nameId="ed_acctDeptNmCond" onloadCallbackFunc="" popupID="" popupTitle="귀속부서조회,귀속부서코드,귀속부서명" selectID="retrieveAcctDeptCdInfo" style="" id="udc_acctDeptCdCond" refDataCollection="dma_fixWork" code="acctDeptCd" name="acctDeptNm" popupGridHeadTitle="귀속코드,부서명" objTypeName="data" validExpCode="귀속부서코드:yes" objTypeCode="data" maxlengthCode="5" allowCharCode="0-9" maxlengthName="30" editTypeName="focus" btnId="btn_acctDeptCdCond" ev:onblurCodeEvent="scwin.udc_acctDeptCdCond_onblurCodeEvent" ev:onclickEvent="scwin.udc_acctDeptCdCond_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_acctDeptCdCond_onviewchangeNameEvent">
+    									</w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_fixWork" id="udc_gr_fixWork" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_toExcel" gridDownYn="Y"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_fixWork" focusMode="row" id="gr_fixWork" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="16" readOnly="true" rowNumVisible="false" ev:oncellclick="scwin.gr_fixWork_oncellclick" visibleRowNumFix="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" value="업체명" width="160">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" value="정비번호" width="80">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" value="차량번호" width="90">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false" value="귀속부서" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="text" value="작업시작일자" width="80"></w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="작업종료일자" width="80"></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="작업단위" width="80"></w2:column>
+    											<w2:column displayMode="label" id="column44" inputType="text" style="" value="작업명" width="150">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column41" inputType="text" style="" value="수량" width="60">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column38" inputType="text" style="" value="단가" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column32" inputType="text" style="" value="공임" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column35" inputType="text" style="" value="부가세" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column47" inputType="text" style="" value="총금액" width="100">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="clntNm" inputType="text" removeBorderStyle="false" width="160" textAlign="left" colMerge="true">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="fixWrkNo" inputType="text" removeBorderStyle="false" textAlign="center" width="80" class="underline" style="color:blue;">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="vehclNo" inputType="text" removeBorderStyle="false" width="90">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="acctDeptNm" inputType="text" removeBorderStyle="false" textAlign="left" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wrkStDt" inputType="text" textAlign="center" width="80" dataType="date" displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wrkEndDt" inputType="text" textAlign="center" width="80" dataType="date" displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column displayMode="label" id="fixWrkUnitNo" inputType="text" textAlign="center" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="fixWrkUnitNm" inputType="text" style="" value="" width="150" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="qty" inputType="text" style="" value="" width="60" dataType="number" textAlign="right" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="upr" inputType="text" style="" value="" width="120" dataType="number" textAlign="right" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="amt" inputType="text" style="" value="" width="120" textAlign="right" dataType="number" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wages" inputType="" style="" value="" width="100" textAlign="right" dataType="number" displayFormat="#,###,###,###" hidden="true" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="amtWagesSum" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,###,###,###" hidden="true" excelCellType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:subTotal targetColumnID="clntNm" style="" id="subTotal">
+    										<w2:row style="" id="row9">
+    											<w2:column width="160" inputType="expression" style="" id="column101" value="소계" displayMode="label" expression="scwin.subtotalTargetColumnView(targetColValue())" textAlign="left">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column100" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" style="" id="column99" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column98" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column97" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column96" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column95" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="column94" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="expression" style="" id="column93" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('qty')" textAlign="right" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column92" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('upr')" textAlign="right" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column91" value="" displayMode="label" expression="sum('amt')" dataType="number" displayFormat="#,###,###,###" textAlign="right" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column90" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('wages')" textAlign="right" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column89" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('amtWagesSum')" textAlign="right" excelCellType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:subTotal>
+    									<w2:footer id="footer1" style="">
+    										<w2:row id="row5" style="">
+    											<w2:column displayMode="label" id="column31" inputType="text" value="합계" width="160"></w2:column>
+    											<w2:column displayMode="label" id="column30" inputType="text" width="80"></w2:column>
+    											<w2:column displayMode="label" id="column29" inputType="text" width="90"></w2:column>
+    											<w2:column displayMode="label" id="column28" inputType="text" width="80"></w2:column>
+    											<w2:column displayMode="label" id="column27" inputType="text" textAlign="right" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column26" inputType="text" textAlign="right" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column25" inputType="text" textAlign="right" width="80">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column46" inputType="text" style="" value="" width="150">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column43" inputType="expression" style="" value="" width="60" textAlign="right" displayFormat="#,###,###,###" expression="sum('qty')" excelCellType="number" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column40" inputType="expression" style="" value="" width="120" textAlign="right" displayFormat="#,###,###,###" expression="sum('upr')" excelCellType="number" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column34" inputType="expression" style="" value="" width="120" dataType="number" expression="sum('amt')" textAlign="right" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column37" inputType="expression" style="" value="" width="100" displayFormat="#,###,###,###" expression="sum('wages')" textAlign="right" excelCellType="number" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column49" inputType="expression" style="" value="" width="100" displayFormat="#,###,###,###" expression="sum('amtWagesSum')" textAlign="right" excelCellType="number" dataType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spanTotal" label="0" style="" tagname="span" displayFormat="#,###"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

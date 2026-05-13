@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_linelist_con">
+                <w2:keyInfo>
+                    <w2:key id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:key>
+                    <w2:key id="bilgComnCdKnd" name="청구공통코드종류" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+            <w2:dataMap baseNode="map" id="dma_billcover_con">
+                <w2:keyInfo>
+                    <w2:key id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:key>
+                    <w2:key id="lineCd" name="라인코드" dataType="text"></w2:key>
+                    <w2:key id="bilgComnCdKnd" name="청구공통코드종류" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_linelist" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="LINE" dataType="text"></w2:column>
+                    <w2:column id="lineNm" name="LINE명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_billcover" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="라인코드" dataType="text"></w2:column>
+                    <w2:column id="billCoverPatternNm" name="유형명" dataType="text"></w2:column>
+                    <w2:column id="billCoverFmlaClsCd" name="BILL COVER양식구분코드" dataType="text"></w2:column>
+                    <w2:column id="messersLabel" name="귀하라벨" dataType="text"></w2:column>
+                    <w2:column id="vsslNmLabel" name="선명라벨" dataType="text"></w2:column>
+                    <w2:column id="vsslInscrpYn" name="선명기재여부" dataType="text"></w2:column>
+                    <w2:column id="tsFvLabel" name="T/S F/V라벨" dataType="text"></w2:column>
+                    <w2:column id="tsFvInscrpYn" name="T/S F/V기재여부" dataType="text"></w2:column>
+                    <w2:column id="arDepPortDtLabel" name="입출항일라벨" dataType="text"></w2:column>
+                    <w2:column id="arDepPortDtInscrpYn" name="입출항일기재여부" dataType="text"></w2:column>
+                    <w2:column id="portcntLabel" name="항차라벨" dataType="text"></w2:column>
+                    <w2:column id="portcntInscrpYn" name="항차기재여부" dataType="text"></w2:column>
+                    <w2:column id="titleSortClsCd" name="TITLE정렬구분코드" dataType="text"></w2:column>
+                    <w2:column id="tsTransDstInscrpYn" name="T/S운송구간기재여부" dataType="text"></w2:column>
+                    <w2:column id="bankAcntInfoInscrpYn" name="은행계좌정보기재여부" dataType="text"></w2:column>
+                    <w2:column id="exchRtInscrpYn" name="환율기재여부" dataType="text"></w2:column>
+                    <w2:column id="signInscrpYn" name="서명기재여부" dataType="text"></w2:column>
+                    <w2:column id="billAmtInscrpTitle1" name="BILL금액기재TITLE1" dataType="text"></w2:column>
+                    <w2:column id="billAmtInscrpTitle2" name="BILL금액기재TITLE2" dataType="text"></w2:column>
+                    <w2:column id="bilgComnCdKnd" name="청구공통코드종류" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_linelist_retrieve"
+            action="/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillingComnCdLineListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_linelist_con","key":"IN_DS1"},{"id":"ds_linelist","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_linelist","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_linelist_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_linelist_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_billcover_retrieve"
+            action="/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillCoverListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_billcover_con","key":"IN_DS1"},{"id":"ds_billcover","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_billcover","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_billcover_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_billcover_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_billcover_save"
+            action="/ds.fs.bilg.bilgcomncdmgnt.RegistBillCoverCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_billcover","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_billcover_save_submitdone"
+            ev:submiterror="scwin.sbm_billcover_save_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+    scwin.MSG_FS_WRN_004 = "저장되지 않은 건입니다.";
+    scwin.MSG_FS_WRN_005 = "공통코드는 삭제할 수 없습니다.";
+
+    scwin.addflag = "";
+    scwin.delflag = "";
+    scwin.billcover = "BILLCOVER";
+    scwin.condition = "";
+
+    scwin.tabCompIds = [
+        {
+            txt_billCoverPatternNm: "txt_billCoverPatternNm",
+            rd_billCoverFmlaClsCd: "rd_billCoverFmlaClsCd",
+            txt_messersLabel: "txt_messersLabel",
+            txt_vsslNmLabel: "txt_vsslNmLabel",
+            chb_vsslInscrpYn: "chb_vsslInscrpYn",
+            txt_tsFvLabel: "txt_tsFvLabel",
+            chb_tsFvInscrpYn: "chb_tsFvInscrpYn",
+            txt_arDepPortDtLabel: "txt_arDepPortDtLabel",
+            chb_arDepPortDtInscrpYn: "chb_arDepPortDtInscrpYn",
+            txt_portcntLabel: "txt_portcntLabel",
+            chb_portcntInscrpYn: "chb_portcntInscrpYn",
+            rd_titleSortClsCd: "rd_titleSortClsCd",
+            chb_tsTransDstInscrpYn: "chb_tsTransDstInscrpYn",
+            chb_bankAcntInfoInscrpYn: "chb_bankAcntInfoInscrpYn",
+            chb_exchRtInscrpYn: "chb_exchRtInscrpYn",
+            chb_signInscrpYn: "chb_signInscrpYn",
+            txt_billAmtInscrpTitle1: "txt_billAmtInscrpTitle1",
+            txt_billAmtInscrpTitle2: "txt_billAmtInscrpTitle2"
+        },
+        {
+            txt_billCoverPatternNm: "txt_billCoverPatternNm_2",
+            rd_billCoverFmlaClsCd: "rd_billCoverFmlaClsCd_2",
+            txt_messersLabel: "txt_messersLabel_2",
+            txt_vsslNmLabel: "txt_vsslNmLabel_2",
+            chb_vsslInscrpYn: "chb_vsslInscrpYn_2",
+            txt_tsFvLabel: "txt_tsFvLabel_2",
+            chb_tsFvInscrpYn: "chb_tsFvInscrpYn_2",
+            txt_arDepPortDtLabel: "txt_arDepPortDtLabel_2",
+            chb_arDepPortDtInscrpYn: "chb_arDepPortDtInscrpYn_2",
+            txt_portcntLabel: "txt_portcntLabel_2",
+            chb_portcntInscrpYn: "chb_portcntInscrpYn_2",
+            rd_titleSortClsCd: "rd_titleSortClsCd_2",
+            chb_tsTransDstInscrpYn: "chb_tsTransDstInscrpYn_2",
+            chb_bankAcntInfoInscrpYn: "chb_bankAcntInfoInscrpYn_2",
+            chb_exchRtInscrpYn: "chb_exchRtInscrpYn_2",
+            chb_signInscrpYn: "chb_signInscrpYn_2",
+            txt_billAmtInscrpTitle1: "txt_billAmtInscrpTitle1_2",
+            txt_billAmtInscrpTitle2: "txt_billAmtInscrpTitle2_2"
+        },
+        {
+            txt_billCoverPatternNm: "txt_billCoverPatternNm_3",
+            rd_billCoverFmlaClsCd: "rd_billCoverFmlaClsCd_3",
+            txt_messersLabel: "txt_messersLabel_3",
+            txt_vsslNmLabel: "txt_vsslNmLabel_3",
+            chb_vsslInscrpYn: "chb_vsslInscrpYn_3",
+            txt_tsFvLabel: "txt_tsFvLabel_3",
+            chb_tsFvInscrpYn: "chb_tsFvInscrpYn_3",
+            txt_arDepPortDtLabel: "txt_arDepPortDtLabel_3",
+            chb_arDepPortDtInscrpYn: "chb_arDepPortDtInscrpYn_3",
+            txt_portcntLabel: "txt_portcntLabel_3",
+            chb_portcntInscrpYn: "chb_portcntInscrpYn_3",
+            rd_titleSortClsCd: "rd_titleSortClsCd_3",
+            chb_tsTransDstInscrpYn: "chb_tsTransDstInscrpYn_3",
+            chb_bankAcntInfoInscrpYn: "chb_bankAcntInfoInscrpYn_3",
+            chb_exchRtInscrpYn: "chb_exchRtInscrpYn_3",
+            chb_signInscrpYn: "chb_signInscrpYn_3",
+            txt_billAmtInscrpTitle1: "txt_billAmtInscrpTitle1_3",
+            txt_billAmtInscrpTitle2: "txt_billAmtInscrpTitle2_3"
+        }
+    ];
+
+    scwin._getComp = function(tabIdx, fieldKey) {
+        let compId = scwin.tabCompIds[tabIdx][fieldKey];
+        return $p.getComponentById(compId);
+    };
+
+    scwin.onpageload = function() {
+        ed_bilgLoofcCd.setFocus();
+
+        for (let i = 0; i < 3; i++) {
+            scwin._getComp(i, "rd_billCoverFmlaClsCd").setValue("T1");
+            scwin._getComp(i, "rd_titleSortClsCd").setValue("C");
+        }
+
+        $c.gus.cfDisableAllBtn();
+        $c.gus.cfDisableObjects([btn_addRow, btn_cancelRow]);
+        scwin.f_ViewTab(0);
+    };
+
+    scwin.onUdcCompleted = function() {
+        $c.gus.cfDisableObjects([ed_bilgLoofcCd, txt_bilgLoofcNm]);
+    };
+
+    scwin.f_GetDataSet = async function(condition, row) {
+        if (condition == "LINE_CON") {
+            dma_linelist_con.set("bilgLoofcCd", ed_bilgLoofcCd.getValue());
+            dma_linelist_con.set("bilgComnCdKnd", scwin.billcover);
+
+            sbm_linelist_retrieve.action = "/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillingComnCdLineListCMD.do";
+            await $c.sbm.execute(sbm_linelist_retrieve);
+
+        } else if (condition == "BILGCOMNCD_CON") {
+            dma_billcover_con.set("bilgLoofcCd", ds_linelist.getCellData(0, "bilgLoofcCd"));
+            dma_billcover_con.set("lineCd", ds_linelist.getCellData(row - 1, "lineCd"));
+            dma_billcover_con.set("bilgComnCdKnd", scwin.billcover);
+
+            if (row == "1") {
+                sbm_billcover_retrieve.action = "/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillCoverListCMD.do";
+            } else {
+                sbm_billcover_retrieve.action = "/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillCoverListCMD.do";
+            }
+            await $c.sbm.execute(sbm_billcover_retrieve);
+        }
+    };
+
+    scwin.f_Retrieve = async function() {
+        let chk = await $c.gus.cfValidate([ed_bilgLoofcCd]);
+        if (!chk) return;
+
+        await scwin.f_GetDataSet("LINE_CON");
+    };
+
+    scwin.f_Save = async function() {
+        let chk = await $c.gus.cfValidate([gr_line, txt_billCoverPatternNm, txt_messersLabel, txt_vsslNmLabel, txt_tsFvLabel, txt_arDepPortDtLabel, txt_portcntLabel]);
+        if (!chk) return;
+
+        let confirmResult = await $c.gus.cfConfirmMsg(MSG_CM_CRM_001);
+        if (!confirmResult) return;
+
+        let activeTab = tac_tabControl1.getSelectedTabIndex();
+
+        for (let j = 0; j < ds_billcover.getRowCount(); j++) {
+            ds_billcover.setCellData(j, "bilgLoofcCd", ds_linelist.getCellData(0, "bilgLoofcCd"));
+            ds_billcover.setCellData(j, "lineCd", ds_linelist.getCellData(ds_linelist.getRowPosition(), "lineCd"));
+            ds_billcover.setCellData(j, "billCoverPatternNm", scwin._getComp(j, "txt_billCoverPatternNm").getValue());
+            ds_billcover.setCellData(j, "billCoverFmlaClsCd", scwin._getComp(j, "rd_billCoverFmlaClsCd").getValue());
+            ds_billcover.setCellData(j, "messersLabel", scwin._getComp(j, "txt_messersLabel").getValue());
+            ds_billcover.setCellData(j, "vsslNmLabel", scwin._getComp(j, "txt_vsslNmLabel").getValue());
+            ds_billcover.setCellData(j, "vsslInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_vsslInscrpYn")));
+            ds_billcover.setCellData(j, "tsFvLabel", scwin._getComp(j, "txt_tsFvLabel").getValue());
+            ds_billcover.setCellData(j, "tsFvInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_tsFvInscrpYn")));
+            ds_billcover.setCellData(j, "arDepPortDtLabel", scwin._getComp(j, "txt_arDepPortDtLabel").getValue());
+            ds_billcover.setCellData(j, "arDepPortDtInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_arDepPortDtInscrpYn")));
+            ds_billcover.setCellData(j, "portcntLabel", scwin._getComp(j, "txt_portcntLabel").getValue());
+            ds_billcover.setCellData(j, "portcntInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_portcntInscrpYn")));
+            ds_billcover.setCellData(j, "titleSortClsCd", scwin._getComp(j, "rd_titleSortClsCd").getValue());
+            ds_billcover.setCellData(j, "tsTransDstInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_tsTransDstInscrpYn")));
+            ds_billcover.setCellData(j, "bankAcntInfoInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_bankAcntInfoInscrpYn")));
+            ds_billcover.setCellData(j, "exchRtInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_exchRtInscrpYn")));
+            ds_billcover.setCellData(j, "signInscrpYn", scwin.f_GetChkValue(scwin._getComp(j, "chb_signInscrpYn")));
+            ds_billcover.setCellData(j, "billAmtInscrpTitle1", scwin._getComp(j, "txt_billAmtInscrpTitle1").getValue());
+            ds_billcover.setCellData(j, "billAmtInscrpTitle2", scwin._getComp(j, "txt_billAmtInscrpTitle2").getValue());
+        }
+
+        scwin.delflag = "";
+
+        if (scwin.addflag == "REG") {
+            sbm_billcover_save.action = "/ds.fs.bilg.bilgcomncdmgnt.RegistBillCoverCMD.do";
+        } else if (scwin.addflag == "" || scwin.addflag == "MOD") {
+            sbm_billcover_save.action = "/ds.fs.bilg.bilgcomncdmgnt.UpdateBillCoverCMD.do";
+        }
+        await $c.sbm.execute(sbm_billcover_save);
+    };
+
+    scwin.f_AddRow = async function() {
+        ds_linelist.insertRow();
+        scwin.f_Popup();
+
+        await scwin.f_GetDataSet("BILGCOMNCD_CON", "1");
+
+        if (ds_linelist.getRowStatus(ds_linelist.getRowPosition()) == "C") {
+            scwin.addflag = "REG";
+        }
+    };
+
+    scwin.f_Delete = async function() {
+        if (ds_linelist.getRowStatus(ds_linelist.getRowPosition()) == "C") {
+            await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_004);
+            return;
+        } else {
+            if (ds_linelist.getCellData(ds_linelist.getRowPosition(), "lineCd") == "0000") {
+                await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_005);
+                return;
+            }
+
+            let confirmResult = await $c.gus.cfConfirmMsg(MSG_CM_CRM_004);
+            if (confirmResult == true) {
+                ds_linelist.removeRow(ds_linelist.getRowPosition());
+                ds_billcover.removeRow(ds_billcover.getRowPosition());
+
+                scwin.delflag = "DEL";
+
+                sbm_billcover_save.action = "/ds.fs.bilg.bilgcomncdmgnt.DeleteBillCoverCMD.do";
+                await $c.sbm.execute(sbm_billcover_save);
+                await scwin.f_Retrieve();
+            }
+        }
+    };
+
+    scwin.f_Editable = function(edit) {
+        if (edit == "true") {
+            gr_line.setColumnProp("lineCd", "readOnly", false);
+            gr_line.setColumnProp("lineNm", "readOnly", true);
+        } else {
+            gr_line.setColumnProp("lineCd", "readOnly", true);
+            gr_line.setColumnProp("lineNm", "readOnly", true);
+        }
+    };
+
+    scwin.f_ViewTab = async function(idx) {
+        let chk = await $c.gus.cfValidate([gr_line, txt_billCoverPatternNm, txt_messersLabel, txt_vsslNmLabel, txt_tsFvLabel, txt_arDepPortDtLabel, txt_portcntLabel]);
+        if (!chk) return;
+
+        tac_tabControl1.setSelectedTabIndex(idx);
+    };
+
+    scwin.f_GetChkValue = function(chkComp) {
+        let val = chkComp.getValue();
+        if (val != null && val != "" && val.length > 0) {
+            return "1";
+        } else {
+            return "0";
+        }
+    };
+
+    scwin.f_SetChkValue = function(dsId, row, id) {
+        if (dsId.getCellData(row, id) == "1") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    scwin.f_Cancel = function() {
+        ds_linelist.undoRow(ds_linelist.getRowPosition());
+        scwin.addflag = "MOD";
+    };
+
+    scwin.f_Popup = function() {
+        let rtnList = [];
+        let pCode = "";
+        let pName = "";
+
+        rtnList = $c.gus.cfCommonPopUp('retrieveLineInfo'
+            , pCode
+            , pName
+            , 'F'
+            , null
+            , null
+            , null
+            , null
+            , null
+            , null
+            , null
+            , null
+            , null
+            , null
+            , 'F'
+            , null
+        );
+
+        if (rtnList != null && rtnList[0] != "N/A") {
+            ds_linelist.setCellData(ds_linelist.getRowPosition(), "lineCd", rtnList[0]);
+            ds_linelist.setCellData(ds_linelist.getRowPosition(), "lineNm", rtnList[1]);
+        }
+    };
+
+    scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+        let rtnList = [];
+
+        switch (disGubun) {
+            case 1:
+                rtnList = $c.gus.cfCommonPopUp('retrieveOpDeptCdInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                $c.gus.cfSetReturnValue(rtnList, ed_bilgLoofcCd, txt_bilgLoofcNm);
+                break;
+            default:
+                break;
+        }
+    };
+
+    scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+        if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+            return;
+
+        $c.gus.cfClearPairObj(pairObj);
+
+        let pVal = $c.gus.cfGetValue(inObj);
+
+        if (isCode == null || isCode == true)
+            scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+        else
+            scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    };
+
+    scwin.btn_retrieve_onclick = function(e) {
+        scwin.f_Retrieve();
+    };
+
+    scwin.btn_save_onclick = function(e) {
+        scwin.f_Save();
+    };
+
+    scwin.btn_del_onclick = function(e) {
+        scwin.f_Delete();
+    };
+
+    scwin.btn_addRow_onclick = function(e) {
+        scwin.f_AddRow();
+    };
+
+    scwin.btn_cancelRow_onclick = function(e) {
+        scwin.f_Cancel();
+    };
+
+    scwin.sbm_linelist_retrieve_submitdone = async function(e) {
+        let rowcnt = ds_linelist.getRowCount();
+        // TODO: $c.gus.cfShowTotalRows(totalRows, rowcnt) — totalRows 컴포넌트 매핑 필요
+
+        if (rowcnt == 0) {
+            $c.gus.cfInitObjects(tbl_search);
+            $c.gus.cfDisableAllBtn();
+            $c.gus.cfDisableObjects([btn_addRow, btn_cancelRow]);
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        } else {
+            $c.gus.cfEnableAllBtn();
+            $c.gus.cfEnableObjects([btn_addRow, btn_cancelRow]);
+
+            await scwin.f_GetDataSet("BILGCOMNCD_CON", "1");
+            scwin.f_Editable("false");
+        }
+    };
+
+    scwin.sbm_linelist_retrieve_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_billcover_retrieve_submitdone = function(e) {
+        for (let i = 0; i < ds_billcover.getRowCount(); i++) {
+            scwin._getComp(i, "txt_billCoverPatternNm").setValue(ds_billcover.getCellData(i, "billCoverPatternNm"));
+            scwin._getComp(i, "rd_billCoverFmlaClsCd").setValue(ds_billcover.getCellData(i, "billCoverFmlaClsCd"));
+            scwin._getComp(i, "txt_messersLabel").setValue(ds_billcover.getCellData(i, "messersLabel"));
+            scwin._getComp(i, "txt_vsslNmLabel").setValue(ds_billcover.getCellData(i, "vsslNmLabel"));
+            scwin._getComp(i, "txt_tsFvLabel").setValue(ds_billcover.getCellData(i, "tsFvLabel"));
+            scwin._getComp(i, "txt_arDepPortDtLabel").setValue(ds_billcover.getCellData(i, "arDepPortDtLabel"));
+            scwin._getComp(i, "txt_portcntLabel").setValue(ds_billcover.getCellData(i, "portcntLabel"));
+            scwin._getComp(i, "rd_titleSortClsCd").setValue(ds_billcover.getCellData(i, "titleSortClsCd"));
+
+            if (scwin.f_SetChkValue(ds_billcover, i, "vsslInscrpYn")) {
+                scwin._getComp(i, "chb_vsslInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_vsslInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "tsFvInscrpYn")) {
+                scwin._getComp(i, "chb_tsFvInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_tsFvInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "arDepPortDtInscrpYn")) {
+                scwin._getComp(i, "chb_arDepPortDtInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_arDepPortDtInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "portcntInscrpYn")) {
+                scwin._getComp(i, "chb_portcntInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_portcntInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "tsTransDstInscrpYn")) {
+                scwin._getComp(i, "chb_tsTransDstInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_tsTransDstInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "bankAcntInfoInscrpYn")) {
+                scwin._getComp(i, "chb_bankAcntInfoInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_bankAcntInfoInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "exchRtInscrpYn")) {
+                scwin._getComp(i, "chb_exchRtInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_exchRtInscrpYn").setValue("");
+            }
+            if (scwin.f_SetChkValue(ds_billcover, i, "signInscrpYn")) {
+                scwin._getComp(i, "chb_signInscrpYn").setValue("1");
+            } else {
+                scwin._getComp(i, "chb_signInscrpYn").setValue("");
+            }
+
+            scwin._getComp(i, "txt_billAmtInscrpTitle1").setValue(ds_billcover.getCellData(i, "billAmtInscrpTitle1"));
+            scwin._getComp(i, "txt_billAmtInscrpTitle2").setValue(ds_billcover.getCellData(i, "billAmtInscrpTitle2"));
+        }
+    };
+
+    scwin.sbm_billcover_retrieve_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_billcover_save_submitdone = async function(e) {
+        scwin.addflag = "MOD";
+        if (scwin.delflag == "DEL") {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_004);
+        } else {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        }
+    };
+
+    scwin.sbm_billcover_save_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.ds_linelist_onrowpositionchange = async function(rowIndex, oldRowIndex) {
+        if (rowIndex >= 0) {
+            if (ds_linelist.getRowStatus(rowIndex) != "C") {
+                await scwin.f_GetDataSet("BILGCOMNCD_CON", rowIndex + 1);
+                scwin.addflag = "MOD";
+                scwin.f_Editable("false");
+            } else {
+                scwin.f_Editable("true");
+                scwin.addflag = "REG";
+            }
+        }
+    };
+
+    scwin.ds_linelist_onbeforerowpositionchange = async function(rowIndex, oldRowIndex) {
+        if (ds_linelist.getRowStatus(oldRowIndex) == "C") {
+            let confirmResult = await $c.win.confirm("저장하지 않은 데이타를 취소하시겠습니까?");
+            if (confirmResult == true) {
+                ds_linelist.undoRow(oldRowIndex);
+            } else {
+                return false;
+            }
+        }
+    };
+
+    scwin.gr_line_ontextimageclick = function(rowIndex, columnIndex) {
+        scwin.f_Popup();
+    };
+
+    scwin.ed_bilgLoofcCd_onblur = function(e) {
+        scwin.f_chkOpenCommonPopUp(ed_bilgLoofcCd, txt_bilgLoofcNm, 1);
+    };
+
+    scwin.udc_bilgLoofc_onblurCode = function(e) {
+        scwin.f_chkOpenCommonPopUp(ed_bilgLoofcCd, txt_bilgLoofcNm, 1);
+    };
+
+    scwin.udc_bilgLoofc_onClick = function(e) {
+        scwin.f_openCommonPopUp(1, ed_bilgLoofcCd.getValue(), txt_bilgLoofcNm.getValue(), 'F', 'F');
+    };
+    ]]></script>
+
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="청구지점" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode id="udc_bilgLoofc" codeId="ed_bilgLoofcCd" nameId="txt_bilgLoofcNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox wfix flex_no">
+    				<xf:group style="width: 40%;" id="" class="col">
+    					<xf:group adaptiveThreshold="" style="" id="" class="gvwbox gvwflex">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_linelist" style="" autoFit="allColumn"
+    							id="gr_line" visibleRowNum="15" class="wq_gvw" readOnly="false">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="120" inputType="text" id="bilgLoofcCd" value="청구지점코드" displayMode="label" hidden="true"></w2:column>
+    									<w2:column width="100" inputType="text" id="lineCd" value="LINE" displayMode="label" class="txt-red"></w2:column>
+    									<w2:column width="170" inputType="text" id="lineNm" value="LINE명" displayMode="label" class="txt-red"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="120" inputType="text" id="bilgLoofcCd" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="lineCd" displayMode="label"></w2:column>
+    									<w2:column width="170" inputType="text" id="lineNm" displayMode="label" textAlign="left"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    										class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			<xf:group id="" class="col"><xf:group style="" id="" class="tabbox">
+    					<w2:tabControl alwaysDraw="false" style="" id="tac_tabControl1" class="wq_tab">
+    						<w2:tabs disabled="false" style="" id="tabs1" label="A TYPE"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs2" label="B TYPE"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs3" label="C TYPE"></w2:tabs>
+    						<w2:content alwaysDraw="false" style="" id="content1">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="" id="" label="BILL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="DATE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label=" BILL-NO" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="유형명 " ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    										<xf:group id="" class="form-group"><xf:input style="width:150px;" id="txt_billCoverPatternNm" placeholder="" class=""></xf:input><xf:select1 ref="" appearance="full" style="" id="rd_billCoverFmlaClsCd" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[Normal]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    													<xf:item>
+    														<xf:label><![CDATA[Table(1)]]></xf:label>
+    														<xf:value><![CDATA[T1]]></xf:value>
+    													</xf:item>
+    													<xf:item>
+    														<xf:label><![CDATA[Table(2)]]></xf:label>
+    														<xf:value><![CDATA[T2]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select1></xf:group></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="귀하" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="txt_messersLabel" placeholder="" style="width:150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="req" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes>
+    											<w2:colspan>5</w2:colspan>
+    											<w2:rowspan>1</w2:rowspan>
+    										</w2:attributes>
+    									<xf:group id="" class="form-group"><xf:input style="width:150px;" id="txt_vsslNmLabel" placeholder="" class=""></xf:input><xf:select ref="" appearance="full" style="" id="chb_vsslInscrpYn" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+    											<xf:choices>
+    												<xf:item>
+    													<xf:label><![CDATA[출력여부]]></xf:label>
+    													<xf:value><![CDATA[]]></xf:value>
+    												</xf:item>
+    											</xf:choices>
+    										</xf:select></xf:group></xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="T/S F/V" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>5</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="txt_tsFvLabel" placeholder="" style="width:150px;"></xf:input>
+			<xf:select appearance="full" class="" cols="" id="chb_tsFvInscrpYn" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+				style="">
+				<xf:choices>
+					<xf:item>
+						<xf:label><![CDATA[출력여부]]></xf:label>
+						<xf:value><![CDATA[]]></xf:value>
+					</xf:item>
+				</xf:choices>
+			</xf:select>
+		</xf:group>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="입출항일" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>5</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="txt_arDepPortDtLabel" placeholder="" style="width:150px;"></xf:input>
+			<xf:select appearance="full" class="" cols="" id="chb_arDepPortDtInscrpYn" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+				style="">
+				<xf:choices>
+					<xf:item>
+						<xf:label><![CDATA[출력여부]]></xf:label>
+						<xf:value><![CDATA[]]></xf:value>
+					</xf:item>
+				</xf:choices>
+			</xf:select>
+		</xf:group>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="req" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>5</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="txt_portcntLabel" placeholder="" style="width:150px;"></xf:input>
+			<xf:select appearance="full" class="" cols="" id="chb_portcntInscrpYn" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+				style="">
+				<xf:choices>
+					<xf:item>
+						<xf:label><![CDATA[출력여부]]></xf:label>
+						<xf:value><![CDATA[]]></xf:value>
+					</xf:item>
+				</xf:choices>
+			</xf:select>
+		</xf:group>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th pa16">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>6</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="row-gap-10 tac"><w2:textbox ref="" style="" userData2="" id="" label="We herby request the payment for the following service rendered to you" class=""></w2:textbox><xf:group id="" class="form-group tac"><w2:textbox ref="" style="" userData2="" id="" label="TITLE" class=""></w2:textbox><xf:select1 ref="" appearance="full" style="" id="rd_titleSortClsCd" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[왼쪽정렬]]></xf:label>
+					<xf:value><![CDATA[L]]></xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label><![CDATA[중앙정렬]]></xf:label>
+					<xf:value><![CDATA[C]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select1></xf:group><xf:select ref="" appearance="full" style="" id="chb_tsTransDstInscrpYn" renderType="checkboxgroup" rows="" selectedindex="-1" class="tac" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[(P#C ~ P#2) T/S 운송구간 출력여부 ]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select><xf:group id="" class="col-gap-14 tac"><xf:group id="" class="form-group"><w2:textbox ref="" style="" userData2="" id="" label="TITLE1" class=""></w2:textbox><xf:input style="width:150px;" id="txt_billAmtInscrpTitle1" placeholder="" class=""></xf:input></xf:group><xf:group id="" class="form-group"><w2:textbox ref="" style="" userData2="" id="" label="TITLE2" class=""></w2:textbox><xf:input style="width:150px;" id="txt_billAmtInscrpTitle2" placeholder="" class=""></xf:input></xf:group></xf:group><w2:textbox ref="" style="" userData2="" id="" label="BILL 내역" class=""></w2:textbox></xf:group></xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th pa16">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>6</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="col-gap-14 tac"><xf:select ref="" appearance="full" style="" id="chb_bankAcntInfoInscrpYn" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[ACCOUNT INFO]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select><xf:select ref="" appearance="full" style="" id="chb_exchRtInscrpYn" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[환율]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select></xf:group></xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th pa16">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>6</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="row-gap-10 tac"><xf:group id="" class="row-gap-2"><w2:textbox ref="" style="" userData2="" id="" label='"We certify that above is true and correct"' class=""></w2:textbox><w2:textbox ref="" style="" userData2="" id="" label="DONGBU CORPORATION" class=""></w2:textbox></xf:group><xf:select ref="" appearance="full" style="" id="chb_signInscrpYn" renderType="checkboxgroup" rows="" selectedindex="-1" class="tac" cols="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[SIGN]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select></xf:group></xf:group></xf:group></xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content2">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="" id="" label="BILL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="DATE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label=" BILL-NO" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="유형명 " ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="txt_billCoverPatternNm_2" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select1 appearance="full" class="" cols="" id="rd_billCoverFmlaClsCd_2" ref=""
+    													renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[Normal]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(1)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(2)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select1>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="귀하" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="txt_messersLabel_2" placeholder="" style="width:150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="txt_vsslNmLabel_2" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_vsslInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="T/S F/V" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="txt_tsFvLabel_2" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_tsFvInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="입출항일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="txt_arDepPortDtLabel_2" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_arDepPortDtInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="txt_portcntLabel_2" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_portcntInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<w2:textbox class="" id=""
+    													label="We herby request the payment for the following service rendered to you" ref="" style="" userData2="">
+    												</w2:textbox>
+    												<xf:group class="form-group tac" id="">
+    													<w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    													<xf:select1 appearance="full" class="" cols="" id="rd_titleSortClsCd_2" ref=""
+    														renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    														<xf:choices>
+    															<xf:item>
+    																<xf:label><![CDATA[왼쪽정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    															<xf:item>
+    																<xf:label><![CDATA[중앙정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    														</xf:choices>
+    													</xf:select1>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="chb_tsTransDstInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[(P#C ~ P#2) T/S 운송구간 출력여부 ]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:group class="col-gap-14 tac" id="">
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE1" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="txt_billAmtInscrpTitle1_2" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE2" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="txt_billAmtInscrpTitle2_2" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    												</xf:group>
+    												<w2:textbox class="" id="" label="BILL 내역" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="col-gap-14 tac" id="">
+    												<xf:select appearance="full" class="" cols="" id="chb_bankAcntInfoInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[ACCOUNT INFO]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:select appearance="full" class="" cols="" id="chb_exchRtInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[환율]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<xf:group class="row-gap-2" id="">
+    													<w2:textbox class="" id="" label='"We certify that above is true and correct"'
+    														ref="" style="" userData2="">
+    													</w2:textbox>
+    													<w2:textbox class="" id="" label="DONGBU CORPORATION" ref="" style=""
+    														userData2="">
+    													</w2:textbox>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="chb_signInscrpYn_2" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[SIGN]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content3">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="" id="" label="BILL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="DATE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label=" BILL-NO" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="text" style=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="유형명 " ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="txt_billCoverPatternNm_3" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select1 appearance="full" class="" cols="" id="rd_billCoverFmlaClsCd_3" ref=""
+    													renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[Normal]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(1)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[Table(2)]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select1>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="귀하" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="txt_messersLabel_3" placeholder="" style="width:150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="선명" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="">
+    												<xf:input class="" id="txt_vsslNmLabel_3" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_vsslInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="T/S F/V" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="txt_tsFvLabel_3" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_tsFvInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="입출항일" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="txt_arDepPortDtLabel_3" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_arDepPortDtInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>5</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="txt_portcntLabel_3" placeholder="" style="width:150px;"></xf:input>
+    												<xf:select appearance="full" class="" cols="" id="chb_portcntInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[출력여부]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<w2:textbox class="" id=""
+    													label="We herby request the payment for the following service rendered to you" ref="" style="" userData2="">
+    												</w2:textbox>
+    												<xf:group class="form-group tac" id="">
+    													<w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    													<xf:select1 appearance="full" class="" cols="" id="rd_titleSortClsCd_3" ref=""
+    														renderType="radiogroup" rows="" selectedIndex="-1" style="">
+    														<xf:choices>
+    															<xf:item>
+    																<xf:label><![CDATA[왼쪽정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    															<xf:item>
+    																<xf:label><![CDATA[중앙정렬]]></xf:label>
+    																<xf:value><![CDATA[]]></xf:value>
+    															</xf:item>
+    														</xf:choices>
+    													</xf:select1>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="chb_tsTransDstInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[(P#C ~ P#2) T/S 운송구간 출력여부 ]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:group class="col-gap-14 tac" id="">
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE1" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="txt_billAmtInscrpTitle1_3" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    													<xf:group class="form-group" id="">
+    														<w2:textbox class="" id="" label="TITLE2" ref="" style="" userData2=""></w2:textbox>
+    														<xf:input class="" id="txt_billAmtInscrpTitle2_3" placeholder="" style="width:150px;"></xf:input>
+    													</xf:group>
+    												</xf:group>
+    												<w2:textbox class="" id="" label="BILL 내역" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="col-gap-14 tac" id="">
+    												<xf:select appearance="full" class="" cols="" id="chb_bankAcntInfoInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[ACCOUNT INFO]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    												<xf:select appearance="full" class="" cols="" id="chb_exchRtInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[환율]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th pa16" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>6</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="row-gap-10 tac" id="">
+    												<xf:group class="row-gap-2" id="">
+    													<w2:textbox class="" id="" label='"We certify that above is true and correct"'
+    														ref="" style="" userData2="">
+    													</w2:textbox>
+    													<w2:textbox class="" id="" label="DONGBU CORPORATION" ref="" style=""
+    														userData2="">
+    													</w2:textbox>
+    												</xf:group>
+    												<xf:select appearance="full" class="tac" cols="" id="chb_signInscrpYn_3" ref=""
+    													renderType="checkboxgroup" rows="" selectedindex="-1" style="">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[SIGN]]></xf:label>
+    															<xf:value><![CDATA[]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    					</w2:tabControl>
+    				</xf:group></xf:group></xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger><xf:trigger class="btn " id="btn_del" label="저장" style="" type="button">
+    						<xf:label>삭제</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

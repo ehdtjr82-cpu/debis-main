@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="운송공통 팝업" meta_screenId="comText" meta_desc="공통텍스트 형태의 UDC">
+        <w2:type palette="support">COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="ds_dataMap">
+        			<w2:keyInfo>
+        				<w2:key id="cond" name="name1" dataType="text"></w2:key>
+        				<w2:key id="cond1" name="name2" dataType="text"></w2:key>
+        				<w2:key id="ez112Idx" name="name3" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_dataList" saveRemovedData="true">
+        			<w2:columnInfo></w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="GAUCE" saveRemovedData="true">
+        			<w2:columnInfo>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:aliasDataList scope="" id="aliasDataList"></w2:aliasDataList>
+        		<w2:aliasDataMap scope="" id="aliasDataMap"></w2:aliasDataMap></w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_ntis_search" action="/cm/xml/popup_Data.json" method="post" mediatype="application/json"
+        		ref='data:json,[{"id":"ds_dataMap","key":"IN_DS1"},{"id":"GAUCE","key":"OUT_DS1"}]' target='data:json,{"id":"GAUCE","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method="scwin.init,scwin.focus,scwin.setValue,scwin.getValue"/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * @component
+ * @componentName udc_common_textbox
+ * @pluginName 
+ * @company
+ * @developer
+ * @category /cm/udc
+ * @notSupportBrowser 
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description
+ * @width %
+ * @height px
+ * @license
+ * @imagePath
+ * @homepage
+ */
+
+/**
+ * @property
+ * @name id
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 컴포넌트 아이디 (전역 객체로 할당)
+ *  각 컴포넌트 아이디를 통해 스크립트에서 해당 컴포넌트에 접근 가능
+ */
+
+/**
+ * @property
+ * @name class
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description HTML의 클래스 속성과 동일한 기능을 제공
+ *  CSS 파일이나 스타일 블럭에 정의한 여러 개의 클래스를 공백으로 구분하여 적용 가능
+ */
+
+/**
+ * @property
+ * @name style
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description HTML의 클래스 속성과 동일한 기능을 제공
+ *  CSS 파일이나 스타일 블럭에 정의한 여러 개의 클래스를 공백으로 구분하여 적용 가능
+ */
+
+/**
+ * @property
+ * @name code
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description bindColumn ID
+ */
+
+/**
+ * @property
+ * @name name
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description bindColumn ID
+ */
+
+/**
+ * @property
+ * @name refDataCollection
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 데이터컬렉션의 DataMap, DataList의 아이디
+ */
+
+/**
+ * @property
+ * @name selectID
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description 쿼리 SELECT_ID
+ */
+
+/**
+ * @property
+ * @name gridHeadTitle
+ * @category 04.Action
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드뷰 해더 텍스트
+ * 콤마로 구분
+ * 
+ * 사용예)
+ * 해더1,해더2,해더3
+ */
+
+/**
+ * @property
+ * @name columnIdList
+ * @category 04.Action
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description 그리드 컬럼 리스트
+ * 콤마로 구분
+ * 
+ * 사용 예)
+ * 컬럼1,컬럼2,컬럼3
+ */
+
+/**
+ * @property
+ * @name nameId
+ * @category 04.Action
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description 보여지는 inputBox 컬럼 ID
+ */
+
+
+/**
+ * @property
+ * @name compList
+ * @category 04.Action
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description 리턴받는 컴포넌트 외의 컴포넌트 ID 리스트
+ */
+
+/**
+ * @property
+ * @name nextId
+ * @category 04.Action
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description nextId로 사용된값
+ */
+
+/**
+ * @property
+ * @name widthList
+ * @category 04.Action
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드 컬럼 넓이 리스트
+ * 콤마로 구분
+ * 
+ * 사용 예)
+ * 110,80,120
+ */
+
+scwin.options;
+scwin.alertEnterIgnoreUntil = 0;
+scwin.clearSearchResult = function () {
+    scwin.disFlag = true;
+    grp_group.setStyle("display", "none");
+    ds_dataList.removeAll();
+    GAUCE.removeAll();
+};
+
+scwin.focusInputAfterAlert = function (message) {
+    return Promise.resolve($c.win.alert(message)).then(function () {
+        scwin.alertEnterIgnoreUntil = Date.now() + 300;
+        ed_input.focus();
+    });
+};
+
+scwin.focusSearchResultGrid = function () {
+    if (!ds_dataList || ds_dataList.getRowCount() === 0) {
+        return false;
+    }
+
+    ds_dataList.setRowPosition(0);
+    gr_gridViewList.focus();
+    if (typeof gr_gridViewList.setFocusedCell === "function") {
+        gr_gridViewList.setFocusedCell(0, 0, false);
+    }
+    return true;
+};
+
+scwin.handleOutsideMouseDown = function() {
+    if(!scwin.disFlag) {
+        scwin.clearSearchResult();
+    }
+};
+
+scwin.bindOutsideMouseDown = function(frameObj) {
+    if (!frameObj || typeof frameObj.bind !== "function") {
+        return;
+    }
+
+    frameObj.bind("onmousedown", function () {
+        scwin.handleOutsideMouseDown();
+    });
+};
+
+scwin.onpageload = function() {
+    scwin.options = $p.getOptions();
+    console.log(scwin.options);
+    scwin.dataBind(scwin.options);
+
+	scwin.disFlag = true;
+    grp_group.setStyle("display" , "none");
+    let comp = $c.data.createDataList("GAUCE", scwin.options.columnIdList.split(","));
+    if(comp) {
+        scwin.setColumnID(scwin.options.gridHeadTitle.split(","), scwin.options.columnIdList.split(","), $c.util.isEmpty(scwin.options.widthList) ? "" : scwin.options.widthList.split(","));
+    }
+
+    scwin.bindOutsideMouseDown($p.getFrame());
+
+    if ($p.parent() && $p.parent().$p && typeof $p.parent().$p.getFrame === "function") {
+        scwin.bindOutsideMouseDown($p.parent().$p.getFrame());
+    }
+
+    // 팝업에서 호출한 경우
+    if ($p.parent().$p.isPopup()) {
+
+        window.addEventListener("mousedown", function(e) {
+            scwin.handleOutsideMouseDown();
+        });
+    }
+
+};
+
+scwin.dataBind = function(options) {
+    let pW = $p.parent();
+    let refDataCollection = options.refDataCollection;
+    
+    if(!refDataCollection) return;
+    if(!pW[refDataCollection]) {
+        $c.win.alert("Data, Datalist가 화면에 없습니다.");
+        return;
+    }
+
+    let alias, aliasId;
+    switch(pW[refDataCollection].options.pluginName)
+    {
+        case "dataMap":
+            alias = aliasDataMap;
+            aliasId = aliasDataMap.org_id + ".";
+            break;
+        case "dataList":
+            alias = aliasDataList;
+            aliasId = aliasDataList.org_id + ".";
+            break;
+    }
+    
+    alias.setScope("../" + refDataCollection);
+    ed_input_hidden.setRef("data:" + aliasId + options.code);
+    ed_input.setRef("data:" + aliasId + options.name);
+};
+
+scwin.getRefDataCollectionComponent = function () {
+    let pW = $p.parent();
+    let refDataCollection = scwin.options.refDataCollection;
+
+    if (!refDataCollection || !pW[refDataCollection]) {
+        return null;
+    }
+
+    return pW[refDataCollection];
+};
+
+scwin.getRefDataCollectionValue = function (columnId) {
+    const refComp = scwin.getRefDataCollectionComponent();
+    if (!refComp || !columnId) {
+        return "";
+    }
+
+    switch (refComp.options.pluginName) {
+        case "dataMap":
+            return refComp.get(columnId);
+
+        case "dataList":
+            const rowIndex = typeof refComp.getRowPosition === "function"
+                ? refComp.getRowPosition()
+                : refComp.rowPosition;
+
+            if (rowIndex === undefined || rowIndex === null || rowIndex < 0) {
+                return "";
+            }
+
+            return refComp.getCellData(rowIndex, columnId);
+    }
+
+    return "";
+};
+
+scwin.setColumnID = function(headTitle, columnId, width) {
+    let column = {};
+    let columnArr = [];
+    let gridHeader = "", gridBody = "", gridWidth = 0;
+    //json의 첫번째 데이터에서 컬럼의 id와 개수 정보 확보
+    for(let k in headTitle) {
+        //dataList를 동적으로 만들기 위한 컬럼 정보
+        column = {};
+        column["id"] = k;
+        column["dataType"] = "text";
+        columnArr.push(column);
+
+        // gridView의 컬럼 정보 정의
+        let columnWidth = width.length == headTitle.length ? width[k] : 70;
+        console.log("[common_textbox > scwin.setColumnID] columnWidth: ", columnWidth);
+
+        gridWidth += Number(columnWidth);
+        gridHeader +='<w2:column blockSelect="false" displayMode="label" id="'+'h'+k+'" inputType="text" removeBorderStyle="false" value="'+headTitle[k]+'" width="'+columnWidth+'"></w2:column>';
+        gridBody += '<w2:column blockSelect="false" displayMode="label" id="'+columnId[k]+'" inputType="text" removeBorderStyle="false" width="'+columnWidth+'" textAlign="left"></w2:column>';
+    }
+
+    console.log("[common_textbox > scwin.setColumnID] gridWidth: ", gridWidth);
+
+    let autoFit = "allColumn";
+    let autoFitMinWidth = "";
+    
+    // 팝업에서 호출한 경우
+    if ($p.parent().$p.isPopup()) {
+        gridWidth = gridWidth > 340 ? "340" : gridWidth; 
+        autoFit = gridWidth == 340 ? "none" : autoFit;
+        autoFitMinWidth = gridWidth == 340 ? "350" : "";
+    }
+
+    //gridView 정보 정의 
+    let gridStr = '<w2:gridView xmlns:w2="http://www.inswave.com/websquare" xmlns:ev="http://www.w3.org/2001/xml-events" '
+    + 'class="wq_gvw" dataList="data:ds_dataList" autoFit="'+ autoFit +'" autoFitMinWidth="' + autoFitMinWidth + '" checkReadOnlyOnPasteEnable="" focusMode="row" id="gr_gridViewList" scrollByColumn="false" scrollByColumnAdaptive="false" style="width: '+gridWidth+'px;height: 150px;position:relative;" visibleRowNum="6" visibleRowNumFix="true" readOnly="true" columnMove="true" ev:oncelldblclick="scwin.gr_gridViewList_oncelldblclick" ev:onblankclick="scwin.gr_gridViewList_onblankclick" ev:onkeydown="scwin.gr_gridViewList_onkeydown">'
+    + '<w2:header id="header2" style="">'
+    + '<w2:row id="row3" style="">'
+    + gridHeader
+    + '</w2:row>'
+    +'</w2:header>'
+    +'<w2:gBody id="gBody2" style="">'
+    +'<w2:row id="row4" style="">'
+    + gridBody
+    +'</w2:row>'
+    +'</w2:gBody>'
+    +'</w2:gridView>';
+
+    gr_gridViewList.setGridStyle(WebSquare.xml.parse( gridStr , true ));
+};
+
+
+
+scwin.btn_trigger_onclick = function (e) {
+    if(scwin.disFlag) {
+        scwin.f_sbm_textbox();
+    } else {
+        scwin.disFlag = true;
+        grp_group.setStyle("display" , "none");
+    }
+};
+
+scwin.f_sbm_textbox = function() {
+    let selectId = scwin.options.selectID;
+    let condition = "?";
+    let getSubmission = $p.getSubmission("sbm_ntis_search");
+    if(selectId == "Addr" || selectId == "Pos") {
+        if(ed_input.getValue() == "") {
+            scwin.focusInputAfterAlert("검색어를 입력해주세요.");
+            return false;
+        } else {
+            //condition += "cond="+ ed_input.getValue();
+            ds_dataMap.set("cond", ed_input.getValue());
+            getSubmission.action = "/ncall.bp.common.textbox.Retrieve"+ selectId +"CMD.do"
+        }
+        
+    } else if(selectId == "RefClnt") {
+        //condition += "cond1=REF";
+        ds_dataMap.set("cond1", "REF");
+        getSubmission.action = "/ncall.bp.common.textbox.RetrieveConsignorCMD.do"
+    } else if(selectId == "Client2") {
+        //condition += "cond=c";
+        ds_dataMap.set("cond", "c");
+        getSubmission.action = "/ncall.bp.common.textbox.RetrieveClientCMD.do"
+            
+    } else {
+        //condition += "cond="+ ed_input.getValue();
+        ds_dataMap.set("cond", ed_input.getValue());
+        if(selectId == "onPos" || selectId == "offPos") {
+            const ez112Idx = scwin.getRefDataCollectionValue("ez112Idx");
+            if (!$c.util.isEmpty(ez112Idx)) {
+                ds_dataMap.set("ez112Idx", ez112Idx);
+            }
+        }
+        getSubmission.action = "/ncall.bp.common.textbox.Retrieve"+ selectId +"CMD.do"
+    }
+    scwin.clearSearchResult();
+    // $c.sbm.execute(getSubmission, "ntis");
+    $c.sbm.execute(getSubmission);
+    
+};
+
+scwin.getUniqueDataListId = function (baseId) {
+
+    var parentFrame = scwin.pFrame || $p.getParentWindow();
+
+    var idx = 0;
+    var newId = baseId;
+
+    while (parentFrame.$p.getComponentById(newId)) {
+        idx++;
+        newId = baseId + "_" + idx;
+    }
+
+    return newId;
+};
+
+scwin.setParentDataListByJson = function (baseId, jsonData) {
+
+    var parentFrame = scwin.pFrame || $p.getParentWindow();
+
+    if (!jsonData || jsonData.length === 0) {
+        return;
+    }
+
+    var dataListId = scwin.getUniqueDataListId(baseId);
+
+    var firstRow = jsonData[0];
+
+    var option = {
+        id: dataListId,
+        type: "dataList",
+        option: {
+            baseNode: "list",
+            repeatNode: "map"
+        },
+        columnInfo: []
+    };
+
+    for (var key in firstRow) {
+        option.columnInfo.push({ id: key });
+    }
+
+    parentFrame.$p.data.create(option);
+
+    var parentDl = parentFrame.$p.getComponentById(dataListId);
+    parentDl.setJSON(jsonData);
+
+    return dataListId;
+};
+
+scwin.selectSearchResultRow = function (rowIndex) {
+    if (rowIndex === undefined || rowIndex === null || rowIndex < 0 || ds_dataList.getRowCount() === 0) {
+        return false;
+    }
+
+    var rowData = ds_dataList.getAllJSON()[rowIndex];
+
+    scwin.setParentDataListByJson("dlt_parentSelected", [rowData]);
+
+    ed_input.setValue(ds_dataList.getCellData(rowIndex, scwin.options.nameId));
+    scwin.goEvent_();
+    scwin.disFlag = true;
+    grp_group.setStyle("display", "none");
+    ds_dataList.removeAll();
+    return true;
+};
+
+scwin.gr_gridViewList_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.selectSearchResultRow(rowIndex);
+};
+
+scwin.gr_gridViewList_onblankclick = function () {
+    scwin.clearSearchResult();
+};
+
+scwin.gr_gridViewList_onkeydown = function (e) {
+    if (e.keyCode == 13) {
+        return scwin.selectSearchResultRow(ds_dataList.rowPosition);
+    }
+};
+
+scwin.goEvent_ = function() {
+    let compList = $c.util.isEmpty(scwin.options.compList) ? "" : scwin.options.compList.split(",");
+    
+    let selectId = scwin.options.selectID;
+    let rowpoi = ds_dataList.rowPosition;
+    let nextId = scwin.options.nextId;
+    let pF = $p.parent();
+
+    let vall_Seq, vall, data1, data2, data3, data4, data5, data6, data7;
+
+	if(selectId == "Car") {
+		vall_Seq = ds_dataList.getCellAllData(rowpoi, 'ez110Idx');
+		/*
+        data1 = ds_dataList.getCellAllData(rowpoi, 'ofcNm'); //소속
+		data2 = ds_dataList.getCellAllData(rowpoi, 'mpNo'); //휴대폰전화
+		data3 = ds_dataList.getCellAllData(rowpoi, 'picNm'); //기사명
+		data4 = ds_dataList.getCellAllData(rowpoi, 'typeCdNm'); //차종
+		data5 = ds_dataList.getCellAllData(rowpoi, 'tonCdNm'); //톤수 
+		data6 = ds_dataList.getCellAllData(rowpoi, 'drcrNo'); //차대번호   
+        */
+        if (compList[0] !== undefined) pF[compList[0]].setValue(ds_dataList.getCellAllData(rowpoi, 'ofcNm')); //소속
+        if (compList[1] !== undefined) pF[compList[1]].setValue(ds_dataList.getCellAllData(rowpoi, 'mpNo')); //휴대폰전화
+        if (compList[2] !== undefined) pF[compList[2]].setValue(ds_dataList.getCellAllData(rowpoi, 'picNm')); //기사명
+        if (compList[3] !== undefined) pF[compList[3]].setValue(ds_dataList.getCellAllData(rowpoi, 'typeCdNm')); //차종
+        if (compList[4] !== undefined) pF[compList[4]].setValue(ds_dataList.getCellAllData(rowpoi, 'tonCdNm')); //톤수 
+        if (compList[5] !== undefined) pF[compList[5]].setValue(ds_dataList.getCellAllData(rowpoi, 'drcrNo')); //차대번호 
+	} else if(selectId == "Consignor") {
+		vall_Seq = "";
+        if(compList) {
+            //담당자명,담당자전화번호,원청수수료,거래처번호, 담당자번호
+            pF[compList[0]].setValue(ds_dataList.getCellAllData(rowpoi, 'picNm'));      //4
+            pF[compList[1]].setValue(ds_dataList.getCellAllData(rowpoi, 'telNo'));      //5
+            pF[compList[2]].setValue(ds_dataList.getCellAllData(rowpoi, 'orgFareRate'));//6
+            pF[compList[3]].setValue(ds_dataList.getCellAllData(rowpoi, 'clntIdx'));    //7
+            pF[compList[4]].setValue(ds_dataList.getCellAllData(rowpoi, 'ez108Idx'));   //8
+            pF[compList[5]].setValue(ds_dataList.getCellAllData(rowpoi, 'consNm'));     //9
+            pF[compList[6]].setValue(ds_dataList.getCellAllData(rowpoi, 'picNm'));      //10
+            pF[compList[7]].setValue(ds_dataList.getCellAllData(rowpoi, 'faxNo'));      //11
+            pF[compList[8]].setValue(ds_dataList.getCellAllData(rowpoi, 'clntIdx'));    //12
+
+            // document.getElementById('<%=commTxt[4]%>').value= ds_dataList.getCellAllData(rowpoi, 'picNm');
+            // document.getElementById('<%=commTxt[5]%>').value= ds_dataList.getCellAllData(rowpoi, 'telNo');
+            // document.getElementById('<%=commTxt[6]%>').value= ds_dataList.getCellAllData(rowpoi, 'orgFareRate');
+            // document.getElementById('<%=commTxt[7]%>').value= ds_dataList.getCellAllData(rowpoi, 'clntIdx');
+            // document.getElementById('<%=commTxt[8]%>').value= ds_dataList.getCellAllData(rowpoi, 'ez108Idx');
+            // document.getElementById('<%=commTxt[9]%>').value= ds_dataList.getCellAllData(rowpoi, 'consNm');
+            // document.getElementById('<%=commTxt[10]%>').value= ds_dataList.getCellAllData(rowpoi, 'picNm');
+            // document.getElementById('<%=commTxt[11]%>').value= ds_dataList.getCellAllData(rowpoi, 'faxNo');
+            // document.getElementById('<%=commTxt[12]%>').value= ds_dataList.getCellAllData(rowpoi, 'clntIdx');
+        }
+	} else if(selectId == "RefClnt") {
+		vall_Seq = "";
+		
+	} else if(selectId ==  "Client") {
+		vall_Seq = ds_dataList.getCellAllData(rowpoi, 'ez112Idx');
+		data1 = ds_dataList.getCellAllData(rowpoi, 'picNm'); //소속
+		data2 = ds_dataList.getCellAllData(rowpoi, 'telNo'); //전화번호
+		data3 = ds_dataList.getCellAllData(rowpoi, 'faxNo'); //팩스번호
+		
+	} else if(selectId == "Client2") {
+		vall_Seq = ds_dataList.getCellAllData(rowpoi, 'ez112Idx');
+        if(compList) {
+            if(compList[6] == "cargo") { //운송의뢰 예외처리   //10
+                ds_cargo.setCellAllData(ds_cargo.rowPosition, "strAmtDefr", vall_Seq);
+            }
+        }
+		data1 = "";
+		data2 = "";
+		data3 = "";		
+	
+	} else if(selectId == "Addr") {
+        vall_Seq = "";
+        data1 = ds_dataList.getCellAllData(rowpoi, 'zip');
+
+        if (compList[0]) {
+            let targetComp = pF.$p.getComponentById(compList[0]);
+            if (targetComp) {
+                targetComp.setValue(data1);
+            }
+        }
+
+        ed_input.focus();
+	
+	} else if(selectId == "Pos") {
+		vall_Seq = "";
+		data1 = ds_dataList.getCellAllData(rowpoi, 'allAddr');
+		data2 = ds_dataList.getCellAllData(rowpoi, 'areaCd');
+		data3 = ds_dataList.getCellAllData(rowpoi, 'zip');
+
+	} else if(selectId == "onPos" || selectId == "offPos") {
+		vall_Seq = "";
+		data1 = ds_dataList.getCellAllData(rowpoi, 'onPos');
+		data2 = ds_dataList.getCellAllData(rowpoi, 'offPos');
+		data3 = ds_dataList.getCellAllData(rowpoi, 'zip');
+
+		// 용차사 정보 조회 - 2008.06.04 김욱 추가
+	} else if(selectId == "RentClntInfo") {
+		vall_Seq = ds_dataList.getCellAllData(rowpoi, 'ez112Idx'); 
+		data1 = ds_dataList.getCellAllData(rowpoi, 'ofcNm'); //소속
+		data2 = ds_dataList.getCellAllData(rowpoi, 'clntNm'); //거래처명
+		data3 = ds_dataList.getCellAllData(rowpoi, 'clntInTel'); //전화번호
+		data4 = ds_dataList.getCellAllData(rowpoi, 'clntInTel'); //전화번호
+		data5 = ds_dataList.getCellAllData(rowpoi, 'clntInTel'); //전화번호
+	
+		// 거래처 사업자정보  - 2008.05.27 김욱 추가
+	} else if(selectId == "ContTaxInvc") {
+		vall_Seq = ds_dataList.getCellAllData(rowpoi, 'ez112Idx');	
+		data1 = ds_dataList.getCellAllData(rowpoi, 'crnNo'); //사업자번호
+		data2 = ds_dataList.getCellAllData(rowpoi, 'clntNm'); //거래처명
+		data3 = ds_dataList.getCellAllData(rowpoi,'cmpyKor'); //사업자 한글상호
+		data4 = ds_dataList.getCellAllData(rowpoi, 'catBusi'); //업태
+		data5 = ds_dataList.getCellAllData(rowpoi, 'bizCond'); //업종
+		data6 = ds_dataList.getCellAllData(rowpoi, 'repstNm'); //대표자명
+		data7 = ds_dataList.getCellAllData(rowpoi, 'dtlAddr'); //사업장 주소
+	
+		// 샤시정보 - 2008.05.30 김욱 추가
+	} else if (selectId == "Chassis") {
+		vall_Seq = ds_dataList.getCellAllData(rowpoi, 'ez124Idx');	
+		//vall_Seq = ds_dataList.getCellAllData(rowpoi, 'eqCd');
+		//data1 = ds_dataList.getCellAllData(rowpoi, 'eqKndCd');
+		data1 = ds_dataList.getCellAllData(rowpoi, 'vehclNo'); //샤시차량번호
+		data2 = ds_dataList.getCellAllData(rowpoi, 'drcrNo'); //샤시차대번호
+		data3 = ds_dataList.getCellAllData(rowpoi, 'swipWt'); //적재중량
+		data4 = ds_dataList.getCellAllData(rowpoi, 'len'); //차길이
+		data5 = ds_dataList.getCellAllData(rowpoi, 'wid'); //차폭	
+		data6 = ds_dataList.getCellAllData(rowpoi, 'eqCd'); //샤시 장비코드
+        data7 = ds_dataList.getCellAllData(rowpoi, 'eqKndCd'); //샤시종류코드
+	}
+
+	if(selectId == "Addr" || selectId == "Pos") {
+		vall = ds_dataList.getCellAllData(rowpoi, 'allAddr');
+	} else {
+		vall = ds_dataList.getCellAllData(rowpoi, selectId);
+	}
+
+    if ((vall_Seq === undefined || vall_Seq === null || vall_Seq === "") && selectId == "Pos" && !$c.util.isEmpty(scwin.options.name)) {
+        vall_Seq = data2;
+    }
+
+    if (vall_Seq === undefined || vall_Seq === null || vall_Seq === "") {
+        vall_Seq = vall;
+    }
+
+    ed_input.setValue(vall);
+    ed_input_hidden.setValue(vall_Seq);
+	
+	if((!selectId == "Consignor") && (!selectId == "RefClnt")) {
+        if(compList) {
+            if(!pF[compList[0]] == "") { out.print("document.getElementById('"+commTxt[4]+"').value=data1;"); } //4
+            if(!pF[compList[1]] == "") { out.print("document.getElementById('"+commTxt[5]+"').value=data2;"); } //5
+            if(!pF[compList[2]] == "") { out.print("document.getElementById('"+commTxt[6]+"').value=data3;"); } //6
+            if(!pF[compList[3]] == "") { out.print("document.getElementById('"+commTxt[7]+"').value=data4;"); } //7
+            if(!pF[compList[4]] == "") { out.print("document.getElementById('"+commTxt[8]+"').value=data5;"); } //8
+        
+        // 거래처 사업자정보 - 2008.05.27 김욱
+            if(selectId == "ConTaxInvc") {
+                if(!pF[compList[5]] == "") { out.print("document.getElementById('"+commTxt[9]+"').value=data6;"); }	//9
+                if(!pF[compList[6]] == "") { out.print("document.getElementById('"+commTxt[10]+"').value=data7;"); } //10
+            }
+        
+            if(selectId == "Chassis") {
+                out.print("document.getElementById('"+commTxt[4]+"').value=data6;");    //4
+                out.print("document.getElementById('"+commTxt[5]+"').value=data7;");    //5
+            }
+        }
+	}
+	if(!(nextId == "")) {
+		//pF[nextId].focus();
+	}
+ };
+
+scwin.sbm_search_submitdone = function (e) {
+    const resultList = e.responseJSON && e.responseJSON.GAUCE ? e.responseJSON.GAUCE : [];
+
+    if (!resultList || resultList.length === 0) {
+        scwin.clearSearchResult();
+        scwin.focusInputAfterAlert("조회된 데이터가 없습니다.");
+        return;
+    }
+
+    scwin.disFlag = false;
+    ds_dataList.removeAll();
+
+    let colList = [];
+    for (let k in resultList[0]) {
+        colList.push(k);
+    }
+
+    let comp = $c.data.createDataList("ds_dataList", colList);
+    comp.setJSON(resultList);
+    scwin.setColumnID(scwin.options.gridHeadTitle.split(","), scwin.options.columnIdList.split(","), $c.util.isEmpty(scwin.options.widthList) ? "" : scwin.options.widthList.split(","));
+    grp_group.setStyle("display" , "flex");
+    setTimeout(function () {
+        scwin.focusSearchResultGrid();
+    }, 0);
+};
+
+scwin.ed_input_onfocus = function (e) {
+    scwin.clearSearchResult();
+};
+
+scwin.ed_input_onkeydown = function (e) {
+    if(e.keyCode == 13 || e.keyCode == 9) {
+        if (Date.now() < scwin.alertEnterIgnoreUntil) {
+            scwin.alertEnterIgnoreUntil = 0;
+            return false;
+        }
+        btn_trigger.click();
+    }
+};
+
+/**
+ * @method 초기화
+ * @name init
+ * @description desc
+ * @param
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.init = function () {
+    ed_input.setValue("");
+    ds_dataMap.setEmptyValue();
+}
+
+/**
+ * @method 포커스
+ * @name focus
+ * @description desc
+ * @param
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.focus = function () {
+    ed_input.focus();
+}
+
+/**
+ * @method UDC 값 셋팅
+ * @name setValue
+ * @description desc
+ * @param {string} value desc
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.setValue = function (value) {
+    ed_input.setValue(value);
+}
+
+/**
+ * @method UDC 값 가져오기
+ * @name getValue
+ * @description desc
+ * @param
+ * @return ed_input.getValue()
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.getValue = function () {
+    return ed_input.getValue();
+}]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group style="" id="grp_group2" class="cal-wrap">
+    		<xf:group style="height: 22px;" id="grp_group1" class="sch-box">
+    			<xf:input class="form-control num" ev:onblur="scwin.emit_onblurCodeEvent" id="ed_input_hidden" placeholder="" ref="" style="display: none;width: 0px;"></xf:input><xf:input class="form-control" ev:onblur="scwin.emit_onblurCodeEvent" id="ed_input" placeholder="" ref="" style=""
+    				ev:onfocus="scwin.ed_input_onfocus" ev:onkeydown="scwin.ed_input_onkeydown">
+    			</xf:input>
+    			<xf:trigger class="btn ico sch" id="btn_trigger" style="" type="button" ev:onclick="scwin.btn_trigger_onclick">
+    				<xf:label><![CDATA[버튼]]></xf:label>
+    			</xf:trigger>
+    			
+    		</xf:group>
+    		<xf:group style="z-index:2000;border: 1px solid;" id="grp_group" class="gr_cal calender-wrap pop_ty1">
+    		<xf:group adaptiveThreshold="" class="cal-grp" id="" style="">
+    			<w2:gridView checkAllType="false" dataList="data:ds_dataList" defaultCellHeight="20" id="gr_gridViewList" style="display:none;width:400px;height:150px;position:relative;" autoFit="allColumn" ev:oncelldblclick="scwin.gr_gridViewList_oncelldblclick" ev:onblankclick="scwin.gr_gridViewList_onblankclick" ev:onkeydown="scwin.gr_gridViewList_onkeydown" columnMove="true" autoFitMinWidth="0">
+    				<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    				<w2:header id="header1" style="">
+    					<w2:row id="row1" style="">
+    						<w2:column displayMode="label" id="column4" inputType="text" style="" value="column1" width="70"></w2:column>
+    						<w2:column displayMode="label" id="column3" inputType="text" style="" value="column2" width="70"></w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody1" style="">
+    					<w2:row id="row2" style="">
+    						<w2:column displayMode="label" id="column8" inputType="text" style="" value="" width="70"></w2:column>
+    						<w2:column displayMode="label" id="column7" inputType="text" style="" value="" width="70"></w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    	</xf:group></xf:group>
+    	
+    	
+    </body>
+</html>

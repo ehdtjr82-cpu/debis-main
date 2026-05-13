@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_search">
+                <w2:keyInfo>
+                    <w2:key id="oilBizClsCd" name="유류사업구분코드" dataType="text"></w2:key>
+                    <w2:key id="selpchClsCd" name="매출입구분코드" dataType="text"></w2:key>
+                    <w2:key id="oilUprrglClsCd" name="유류단가유형코드" dataType="text"></w2:key>
+                    <w2:key id="stdDt" name="기준일자" dataType="text"></w2:key>
+                    <w2:key id="oilTskClsCd" name="유류사업구분코드" dataType="text"></w2:key>
+                    <w2:key id="endDt" name="종료일자" dataType="text"></w2:key>
+                    <w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+                    <w2:key id="dcsnSts" name="확정상태" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_oilUnitPrice" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="selYn" name="선택" dataType="text"></w2:column>
+                    <w2:column id="oilTskClsCd" name="유류업무구분" dataType="text"></w2:column>
+                    <w2:column id="oilBizClsCd" name="유류사업구분코드" dataType="text"></w2:column>
+                    <w2:column id="selpchClsCd" name="매출입구분코드" dataType="text"></w2:column>
+                    <w2:column id="clntNo" name="거래처코드" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="거래처이름" dataType="text"></w2:column>
+                    <w2:column id="oilUprrglClsCd" name="유류단가정상구분코드" dataType="text"></w2:column>
+                    <w2:column id="oilkndCd" name="유종코드" dataType="text"></w2:column>
+                    <w2:column id="stdDt" name="기준일자" dataType="text"></w2:column>
+                    <w2:column id="endDt" name="종료일자" dataType="text"></w2:column>
+                    <w2:column id="uprGasoline" name="휘발유단가" dataType="text"></w2:column>
+                    <w2:column id="uprLight" name="경유단가" dataType="text"></w2:column>
+                    <w2:column id="uprLpg" name="LPG단가" dataType="text"></w2:column>
+                    <w2:column id="bilgAcctDeptCd" name="청구귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="bilgAcctDeptNm" name="청구귀속부서이름" dataType="text"></w2:column>
+                    <w2:column id="sellAcctDeptCd" name="매출귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="sellAcctDeptNm" name="매출귀속부서이름" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="text"></w2:column>
+                    <w2:column id="fixEndDt" name="거래종료일자" dataType="text"></w2:column>
+                    <w2:column id="confYn" name="확정여부" dataType="text"></w2:column>
+                    <w2:column id="apprvStsCd" name="결재상태코드" dataType="text"></w2:column>
+                    <w2:column id="oilSellClsCd" name="유류판매구분코드" dataType="text"></w2:column>
+                    <w2:column id="sellClntNo" name="매출거래처번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.RetrieveFmsOilUnitPriceCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_oilUnitPrice","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_oilUnitPrice","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_saveOilPrice"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.RegistFmsOilUnitPriceCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_oilUnitPrice","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_saveOilPrice_submitdone"
+            ev:submiterror="scwin.sbm_saveOilPrice_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_confirmOilPrice"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.ConfirmFmsOilUnitPriceCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_oilUnitPrice","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_confirmOilPrice_submitdone"
+            ev:submiterror="scwin.sbm_confirmOilPrice_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_fixEndDt"
+            action="/ps.eq.fmsmgnt.fmsoilmgnt.UpdateFixEndDtCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_oilUnitPrice","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_fixEndDt_submitdone"
+            ev:submiterror="scwin.sbm_fixEndDt_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.deptCd = "00276";
+        scwin.vCurDate = "";
+        scwin.empNo = "";
+        scwin.epId = "";
+        scwin.userId = "";
+
+        scwin.onpageload = async function() {
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            scwin.empNo = $c.ses.getEmpNo();
+            scwin.epId = $c.ses.getEpId();
+            scwin.userId = $c.ses.getUserId();
+
+            ds_search.set("oilTskClsCd", "F");
+            ds_search.set("oilBizClsCd", "01");
+            ds_search.set("selpchClsCd", "01");
+            ds_search.set("oilUprrglClsCd", "03");
+
+            let codeOptions = [
+                { grpCd: "TL103", compID: "gr_oilUnitPrice:oilTskClsCd" },
+                { grpCd: "TL100", compID: "gr_oilUnitPrice:oilBizClsCd" },
+                { grpCd: "TL101", compID: "gr_oilUnitPrice:selpchClsCd" },
+                { grpCd: "TL102", compID: "gr_oilUnitPrice:oilUprrglClsCd" },
+                { grpCd: "ZZ021", compID: "gr_oilUnitPrice:apprvStsCd" }
+            ];
+            $c.data.setCommonCode(codeOptions);
+
+            acb_dcsnSts.removeAll();
+            acb_dcsnSts.addItem({label: "전체", value: ""});
+            acb_dcsnSts.addItem({label: "미확정", value: "0"});
+            acb_dcsnSts.addItem({label: "확정", value: "1"});
+            acb_dcsnSts.setSelectedIndex(0);
+
+            btn_confirmC.setVisible(false);
+            btn_confirmD.setVisible(false);
+        };
+
+        scwin.onUdcCompleted = async function() {
+            let stdDt = scwin.vCurDate.substring(0, 6) + "01";
+            udc_Dt.setInitDate(stdDt, scwin.vCurDate);
+            scwin.f_Retrieve();
+            ica_stdDt.setFocus();
+        };
+
+        scwin.btn_retrieve_onclick = async function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.btn_save_onclick = async function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.btn_confirmC_onclick = async function(e) {
+            scwin.f_Confirm("1");
+        };
+
+        scwin.btn_confirmD_onclick = async function(e) {
+            scwin.f_Confirm("0");
+        };
+
+        scwin.btn_elecApprv_onclick = async function(e) {
+            scwin.f_RequestElectronicApprove();
+        };
+
+        scwin.btn_fixEndDt_onclick = async function(e) {
+            scwin.f_fixEndDt();
+        };
+
+        scwin.f_CheckAdptDt = async function() {
+            let chk = await $c.gus.cfValidate([ica_stdDt, ica_endDt]);
+            if (!chk) {
+                return false;
+            }
+            if (!$c.gus.cfIsAfterDate(ica_stdDt.getValue(), ica_endDt.getValue(), false)) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+                ica_stdDt.setFocus();
+                return false;
+            }
+            return true;
+        };
+
+        scwin.f_Retrieve = async function() {
+            let vChkVal = await scwin.f_CheckAdptDt();
+            if (!vChkVal) {
+                return false;
+            }
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            $c.gus.cfShowTotalRows(spa_totalRow, ds_oilUnitPrice.getRowCount());
+            if (ds_oilUnitPrice.getRowCount() == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            }
+        };
+
+        scwin.sbm_retrieve_submiterror = async function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_Save = async function() {
+            if (ds_oilUnitPrice.getUpdatedIndex().length == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["유류자가운송할인단가 그리드"]);
+                return;
+            }
+            let chkValid = await $c.gus.cfValidate([gr_oilUnitPrice]);
+            if (!chkValid) return;
+            let chk = await $c.gus.cfConfirmMsg(MSG_CM_CRM_001);
+            if (chk) {
+                await $c.sbm.execute(sbm_saveOilPrice);
+            }
+        };
+
+        scwin.sbm_saveOilPrice_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        };
+
+        scwin.sbm_saveOilPrice_submiterror = async function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_Check = async function() {
+            let chk = await $c.gus.cfValidateGrid(gr_oilUnitPrice);
+            if (!chk) {
+                return false;
+            }
+            return true;
+        };
+
+        scwin.f_AddRow = async function() {
+            let chkResult = await scwin.f_Check();
+            if (!chkResult) {
+                return;
+            }
+            let newIdx = $c.data.insertRow(ds_oilUnitPrice);
+            let curDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+
+            ds_oilUnitPrice.setCellData(newIdx, "stdDt", curDate);
+            ds_oilUnitPrice.setCellData(newIdx, "endDt", "99999999");
+            ds_oilUnitPrice.setCellData(newIdx, "oilTskClsCd", "F");
+            ds_oilUnitPrice.setCellData(newIdx, "oilBizClsCd", "01");
+            ds_oilUnitPrice.setCellData(newIdx, "selpchClsCd", "01");
+            ds_oilUnitPrice.setCellData(newIdx, "oilUprrglClsCd", "03");
+            if (newIdx > 0) {
+                ds_oilUnitPrice.setCellData(newIdx, "oilkndCd", ds_oilUnitPrice.getCellData(newIdx - 1, "oilkndCd"));
+            }
+            ds_oilUnitPrice.setCellData(newIdx, "bilgAcctDeptCd", scwin.deptCd);
+            ds_oilUnitPrice.setCellData(newIdx, "sellAcctDeptCd", scwin.deptCd);
+            ds_oilUnitPrice.setCellData(newIdx, "qty", "1");
+
+            spa_totalRow.setValue(ds_oilUnitPrice.getTotalRow());
+        };
+
+        scwin.f_DelRow = async function() {
+            if (ds_oilUnitPrice.getRowCount() == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+
+            let chkCnt = 0;
+            for (let i = 0; i < ds_oilUnitPrice.getRowCount(); i++) {
+                if (ds_oilUnitPrice.getCellData(i, "selYn") == "T") {
+                    let tempStdCd = ds_oilUnitPrice.getCellData(i, "apprvStsCd");
+                    if (tempStdCd == "02" || tempStdCd == "04" || tempStdCd == "05") {
+                        await $c.gus.cfAlertMsg((i + 1) + "번째 항목은 삭제 할 수 없습니다.\n결재상태를 확인해 주시기바랍니다.");
+                        ds_oilUnitPrice.setRowPosition(i);
+                        gr_oilUnitPrice.setFocusedCell(i, "apprvStsCd");
+                        return;
+                    }
+                    chkCnt++;
+                }
+            }
+
+            if (chkCnt == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["목록"]);
+                return;
+            }
+
+            ds_oilUnitPrice.removeRow(ds_oilUnitPrice.getRowPosition());
+            spa_totalRow.setValue(ds_oilUnitPrice.getTotalRow());
+        };
+
+        scwin.f_openCommonPopUp = async function(disGubun, pCode, pName, pClose, pAllSearch) {
+            switch (disGubun) {
+                case 1:
+                    udc_clnt.ilCommonPopUp(scwin.callbackClnt, pCode, pName, "T", null, null, null, null, null, null, null, null, null);
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        scwin.callbackClnt = async function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_clntNo, txt_clntNm);
+        };
+
+        scwin.ed_clntNo_onblur = async function(e) {
+            scwin.f_openCommonPopUp(1, ed_clntNo.getValue(), txt_clntNm.getValue(), "F", "F");
+        };
+
+        scwin.f_checkflag = function() {
+            for (let idx = 0; idx < ds_oilUnitPrice.getRowCount(); idx++) {
+                if (ds_oilUnitPrice.getCellData(idx, "selYn") == "T") {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        scwin.f_Confirm = async function(confirmYn) {
+            let message = "";
+
+            if (confirmYn == "1") {
+                message = "확정";
+            } else if (confirmYn == "0") {
+                message = "확정취소";
+            } else {
+                return;
+            }
+
+            if (!scwin.f_checkflag()) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["항목"]);
+                return;
+            }
+
+            for (let idx = 0; idx < ds_oilUnitPrice.getRowCount(); idx++) {
+                if (ds_oilUnitPrice.getCellData(idx, "selYn") == "T") {
+                    if (confirmYn == "1" && ds_oilUnitPrice.getCellData(idx, "confYn") == "1") {
+                        await $c.gus.cfAlertMsg((idx + 1) + "번째 항목은 이미 확정된 항목 입니다.");
+                        ds_oilUnitPrice.setRowPosition(idx);
+                        gr_oilUnitPrice.setFocusedCell(idx, "stdDt");
+                        return;
+                    } else if (confirmYn == "0" && ds_oilUnitPrice.getCellData(idx, "confYn") == "0") {
+                        await $c.gus.cfAlertMsg((idx + 1) + "번째 항목은 아직 확정 되지 않은 항목 입니다.");
+                        ds_oilUnitPrice.setRowPosition(idx);
+                        gr_oilUnitPrice.setFocusedCell(idx, "stdDt");
+                        return;
+                    }
+                }
+            }
+
+            let chk = await $c.gus.cfConfirmMsg(MSG_CM_CRM_010, [message]);
+            if (chk) {
+                for (let idx = 0; idx < ds_oilUnitPrice.getRowCount(); idx++) {
+                    if (ds_oilUnitPrice.getCellData(idx, "selYn") == "T") {
+                        ds_oilUnitPrice.setCellData(idx, "confYn", confirmYn);
+                    }
+                }
+                await $c.sbm.execute(sbm_confirmOilPrice);
+            }
+        };
+
+        scwin.sbm_confirmOilPrice_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_confirmOilPrice_submiterror = async function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_RequestElectronicApprove = async function() {
+            let toDay = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+
+            let vReqApprvDocKndCd = "021";
+            let vReqUserId = scwin.userId;
+            let vEpUsrId = scwin.epId;
+
+            let fineInfo = scwin.f_getFineItemList();
+
+            if (fineInfo.itemSize == 0) {
+                await $c.gus.cfAlertMsg("전자결재 대상을 선택해주십시오.");
+                return false;
+            }
+
+            for (let i = 0; i < ds_oilUnitPrice.getRowCount(); i++) {
+                if (ds_oilUnitPrice.getCellData(i, "selYn") == "T") {
+                    let tempStdCd = ds_oilUnitPrice.getCellData(i, "apprvStsCd");
+                    if (tempStdCd == "02" || tempStdCd == "04" || tempStdCd == "05") {
+                        await $c.gus.cfAlertMsg((i + 1) + "번째 항목은 전자결재를 진행 할 수 없습니다.\n결재상태를 확인해 주시기바랍니다.");
+                        ds_oilUnitPrice.setRowPosition(i);
+                        gr_oilUnitPrice.setFocusedCell(i, "apprvStsCd");
+                        return;
+                    }
+                }
+            }
+
+            let chk = await $c.win.confirm("전자결재 요청하시겠습니까?");
+            if (!chk) {
+                return;
+            }
+
+            let vReqApprvTitle = "FMS 유류자가운송할인단가  승인요청_" + toDay;
+
+            let styleTb = 'class=tb';
+            let vApprvDtlInfo = '\x3Chead>';
+            vApprvDtlInfo += '<style type=text/css>';
+            vApprvDtlInfo += '	.tb { ';
+            vApprvDtlInfo += '		border-top:solid 1px #000000;';
+            vApprvDtlInfo += '		border-right:solid 1px #000000;';
+            vApprvDtlInfo += '		border-left:solid 1px #000000; ';
+            vApprvDtlInfo += '		border-bottom:solid 1px #000000;';
+            vApprvDtlInfo += '	}';
+            vApprvDtlInfo += '</style>';
+            vApprvDtlInfo += '\x3C/head>';
+            vApprvDtlInfo += '\x3Cbody align=center>';
+            vApprvDtlInfo += '<table width=850 cellspacing=0 cellpadding=0 border=1 ' + styleTb + '>';
+            vApprvDtlInfo += '	<tr>';
+            vApprvDtlInfo += '		<td height=35 align=center ' + styleTb + '>제 목</td>';
+            vApprvDtlInfo += '		<td ' + styleTb + '><b>FMS 유류자가운송할인단가  승인요청 -  (' + toDay + ')</b></td>';
+            vApprvDtlInfo += '	</tr>';
+            vApprvDtlInfo += '	<tr>';
+            vApprvDtlInfo += '		<td colspan=2 ' + styleTb + '>';
+            vApprvDtlInfo += '			<table width=850 border=0>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td colspan=2 height=10 align=center>&nbsp;</td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td colspan=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아래와 같이 FMS 유류자가운송할인단가 를 확정하고자 하오니 승인하여 주시기 바랍니다.</td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td colspan=2 height=10 align=center>&nbsp;</td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td colspan=2 align=center><font face=굴림><b>- 아&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;래 -</b></font></td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td colspan=2 height=10 align=center>&nbsp;</td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td><font face=굴림><b>1. FMS 유류자가운송할인단가  내역</b></font></td>';
+            vApprvDtlInfo += '					<td align=right>(단위:리터/원, VAT포함)</td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td colspan=2 align=right>';
+            vApprvDtlInfo += '						<table cellspacing=0 border=1 ' + styleTb + '>';
+            vApprvDtlInfo += '							<col width=150 align=left></col>';
+            vApprvDtlInfo += '							<col width=100 align=left></col>';
+            vApprvDtlInfo += '							<col width=300 align=right></col>';
+            vApprvDtlInfo += '							<col width=150 align=right></col>';
+            vApprvDtlInfo += '							<col width=150 align=right></col>';
+            vApprvDtlInfo += '							<col width=150 align=right></col>';
+            vApprvDtlInfo += '							<tr>';
+            vApprvDtlInfo += '								<td ' + styleTb + ' height=30 align=center><font size=2 face=굴림><b>기준일자</b></font></td>';
+            vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>거래처코드</b></font></td>';
+            vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>거래처</b></font></td>';
+            vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>경유단가</b></font></td>';
+            vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>휘발유단가</b></font></td>';
+            vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>종료일자</b></font></td>';
+            vApprvDtlInfo += '							</tr>';
+
+            let oilCount = 0;
+
+            for (let i = 0; i < ds_oilUnitPrice.getRowCount(); i++) {
+                if (ds_oilUnitPrice.getCellData(i, "selYn") == "T") {
+                    let stdDt1 = ds_oilUnitPrice.getCellData(i, "stdDt");
+                    let endDt1 = ds_oilUnitPrice.getCellData(i, "endDt");
+                    vApprvDtlInfo += '							<tr>';
+                    vApprvDtlInfo += '								<td ' + styleTb + ' height=30 align=center><font size=2 face=굴림>' + stdDt1.substring(0, 4) + '/' + stdDt1.substring(4, 6) + '/' + stdDt1.substring(6, 8) + '</font></td>';
+                    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + ds_oilUnitPrice.getCellData(i, "clntNo") + '</font></td>';
+                    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + ds_oilUnitPrice.getCellData(i, "clntNm") + '</font></td>';
+                    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + $c.gus.cfInsertComma(Number(ds_oilUnitPrice.getCellData(i, "uprLight"))) + '</font></td>';
+                    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + $c.gus.cfInsertComma(Number(ds_oilUnitPrice.getCellData(i, "uprGasoline"))) + '</font></td>';
+                    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + endDt1.substring(0, 4) + '/' + endDt1.substring(4, 6) + '/' + endDt1.substring(6, 8) + '</font></td>';
+                    vApprvDtlInfo += '							</tr>';
+                    oilCount++;
+                }
+            }
+            vApprvDtlInfo += '						</table>';
+            vApprvDtlInfo += '					</td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '				<tr>';
+            vApprvDtlInfo += '					<td align=right colspan=2><font face=굴림><b>이상 ' + oilCount + '건</b></font></td>';
+            vApprvDtlInfo += '				</tr>';
+            vApprvDtlInfo += '			</table>';
+            vApprvDtlInfo += '		</td>';
+            vApprvDtlInfo += '	</tr>';
+            vApprvDtlInfo += '</table>';
+            vApprvDtlInfo += '\x3C/body>';
+
+            let approveData = {
+                apprvDocKndCd: vReqApprvDocKndCd,
+                reqUserId: vReqUserId,
+                epUserId: vEpUsrId,
+                apprvTitle: vReqApprvTitle,
+                apprvDtlInfo: vApprvDtlInfo,
+                OilunitPriceList: fineInfo.itemList,
+                bmodifylines: "Y",
+                bmodifybody: "Y",
+                bmodifyattach: "Y"
+            };
+
+            // TODO: frmReqApprove.submit() → WebSquare 전자결재 연동 방식으로 대체 필요
+            $c.gus.cfRequestApprove(approveData);
+        };
+
+        scwin.f_getSSOInfo = function() {
+            let EXIST_YN = 0;
+            let epUserId = "";
+
+            try {
+                EXIST_YN = SSOCheck.IsExist("GROUP");
+            } catch (exception) {
+                EXIST_YN = 0;
+            }
+
+            if (EXIST_YN == 1) {
+                epUserId = SSOCheck.GetUID("GROUP");
+            }
+            return epUserId;
+        };
+
+        scwin.f_getFineItemList = function() {
+            let oResult = {};
+            oResult.itemList = "";
+            oResult.itemSize = 0;
+            oResult.itemTotal = 0;
+
+            for (let i = 0; i < ds_oilUnitPrice.getRowCount(); i++) {
+                if (ds_oilUnitPrice.getCellData(i, "selYn") == "T") {
+                    if (oResult.itemList == "") {
+                        oResult.itemList += ds_oilUnitPrice.getCellData(i, "stdDt") + ":" + ds_oilUnitPrice.getCellData(i, "selpchClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilSellClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilTskClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilBizClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilUprrglClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "qty") + ":" + ds_oilUnitPrice.getCellData(i, "sellClntNo") + ":" + ds_oilUnitPrice.getCellData(i, "clntNo");
+                    } else {
+                        oResult.itemList += "," + ds_oilUnitPrice.getCellData(i, "stdDt") + ":" + ds_oilUnitPrice.getCellData(i, "selpchClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilSellClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilTskClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilBizClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "oilUprrglClsCd") + ":" + ds_oilUnitPrice.getCellData(i, "qty") + ":" + ds_oilUnitPrice.getCellData(i, "sellClntNo") + ":" + ds_oilUnitPrice.getCellData(i, "clntNo");
+                    }
+                    oResult.itemSize += 1;
+                    oResult.itemTotal += 1;
+                }
+            }
+            return oResult;
+        };
+
+        scwin.f_fixEndDt = async function() {
+            let chkValid = await $c.gus.cfValidate([ica_fixEndDt]);
+            if (!chkValid) return;
+
+            if (!scwin.f_checkflag()) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["항목"]);
+                return;
+            }
+
+            let cnt = 0;
+            let chk = await $c.win.confirm("거래를 종료하시겠습니까?");
+            if (chk) {
+                for (let i = 0; i < ds_oilUnitPrice.getRowCount(); i++) {
+                    if (ds_oilUnitPrice.getCellData(i, "selYn") == "T") {
+                        if (ds_oilUnitPrice.getCellData(i, "endDt") != "99999999") {
+                            await $c.gus.cfAlertMsg((i + 1) + "번째 항목은 종료일자가 9999/99/99이 아닙니다.거래종료를 할수 없습니다.");
+                            return;
+                        } else if (!$c.gus.cfIsAfterDate(ds_oilUnitPrice.getCellData(i, "stdDt"), ica_fixEndDt.getValue(), false)) {
+                            await $c.gus.cfAlertMsg("종료일자는 기준일자보다 이후이어야 합니다.");
+                            ica_fixEndDt.setFocus();
+                            return;
+                        }
+                        ds_oilUnitPrice.setCellData(i, "fixEndDt", ica_fixEndDt.getValue());
+                        cnt++;
+                    }
+                }
+                if (cnt > 0) {
+                    await $c.sbm.execute(sbm_fixEndDt);
+                }
+            }
+        };
+
+        scwin.sbm_fixEndDt_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_fixEndDt_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_Excel = function() {
+            let count = ds_oilUnitPrice.getRowCount();
+            if (!(count > 0)) return;
+
+            $c.data.downloadGridViewExcel(gr_oilUnitPrice, {
+                fileName: "유류자가운송할인단가.xlsx",
+                sheetName: "유류자가운송할인단가"
+            });
+        };
+
+        scwin.f_setqrynm = function(tname, str) {
+            let vSearchOption = ";font-face:굴림체;font-size:10pt;font-color:black;bgcolor:#ffffff;align: left;line-color:red;line-width:0pt;";
+            gr_oilUnitPrice.SetExcelTitle(1, "value:" + tname + " [" + str + "]" + vSearchOption);
+        };
+
+        scwin.gr_oilUnitPrice_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+            if (columnId == "clntNo") {
+                let data = ds_oilUnitPrice.getCellData(rowIndex, "clntNo");
+                udc_clnt.ilCommonPopUp(function(rtnList) {
+                    if (rtnList != null && rtnList[0] != "N/A") {
+                        ds_oilUnitPrice.setCellData(rowIndex, "clntNo", rtnList[0]);
+                        ds_oilUnitPrice.setCellData(rowIndex, "clntNm", rtnList[1]);
+                    }
+                }, data, "", "T", null, null, null, null, null, null, null, null, null);
+            }
+        };
+
+        scwin.gr_oilUnitPrice_oneditend = function(rowIndex, columnIndex, columnId, oldValue, newValue) {
+            if (columnId == "clntNo") {
+                udc_clnt.ilCommonPopUp(function(rtnList) {
+                    if (rtnList != null && rtnList[0] != "N/A") {
+                        ds_oilUnitPrice.setCellData(rowIndex, "clntNo", rtnList[0]);
+                        ds_oilUnitPrice.setCellData(rowIndex, "clntNm", rtnList[1]);
+                    }
+                }, ds_oilUnitPrice.getCellData(rowIndex, "clntNo"), "", "T", null, null, null, null, null, null, null, null, null);
+            }
+        };
+
+        scwin.gr_oilUnitPrice_onrowindexchange = function(rowIndex, oldRowIndex) {
+            if (rowIndex < 0) return;
+
+            let rowStatus = ds_oilUnitPrice.getRowStatus(rowIndex);
+            if (rowStatus == "R" || rowStatus == "D") {
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "stdDt", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "clntNo", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLight", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprGasoline", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLpg", true);
+            } else if (rowStatus == "C") {
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "stdDt", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "clntNo", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLight", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprGasoline", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLpg", false);
+            }
+
+            let tempStdCd = ds_oilUnitPrice.getCellData(rowIndex, "apprvStsCd");
+            if (tempStdCd == "02" || tempStdCd == "04" || tempStdCd == "05") {
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "stdDt", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "clntNo", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLight", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprGasoline", true);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLpg", true);
+            } else {
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "stdDt", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "clntNo", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLight", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprGasoline", false);
+                gr_oilUnitPrice.setCellReadOnly(rowIndex, "uprLpg", false);
+            }
+        };
+
+        scwin.decode_confYn = function(data) {
+            return $c.gus.decode(data,
+                "1", "확정",
+                "0", "미확정", "미확정"
+            );
+        };
+
+        scwin.f_grdHeight = function(size) {
+            let strHeight = gr_oilUnitPrice.getStyle("height");
+            let intHeight = parseInt(strHeight.replace("px", ""));
+            intHeight = intHeight + size;
+            if (intHeight > 0) {
+                gr_oilUnitPrice.setStyle("height", intHeight + "px");
+            }
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기준일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_Dt"
+    								refEdDt="" edFromId="ica_stdDt" edToId="ica_endDt">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="거래처 &amp;nbsp;" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode popupID="" selectID="" codeId="ed_clntNo" validTitle="" nameId="txt_clntNm" style="" id="udc_clnt"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="확정상태 &amp;nbsp;" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_dcsnSts" style="width: 100px;" submenuSize="fixed" ref="data:ds_search.dcsnSts">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" ev:onclick="scwin.btn_retrieve_onclick" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label=" 유류자가운송할인단가 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_oilUnitPrice" focusMode="row"
+    					id="gr_oilUnitPrice" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="selYn" inputType="checkbox" style="" value="" width="70"
+    								fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="stdDt" inputType="text" style="" value="기준일자" width="100" class="txt-red"></w2:column>
+    							<w2:column displayMode="label" id="oilTskClsCd" inputType="text" style="" value="유류업무&lt;/br&gt;구분"
+    								width="100" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="oilBizClsCd" inputType="text" style="" value="유류사업&lt;/br&gt;구분"
+    								width="100" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="selpchClsCd" inputType="text" style="" value="매출입&lt;/br&gt;구분"
+    								width="100" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="oilUprrglClsCd" inputType="text" style="" value="유류단가&lt;/br&gt;정상구분"
+    								width="100" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="clntNo" inputType="text" style="" value="거래처&lt;/br&gt;코드"
+    								width="100" class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="거래처" width="100"></w2:column>
+    							<w2:column displayMode="label" id="uprLight" inputType="text" style="" value="경유&lt;/br&gt;단가" width="70" class="txt-blue"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="uprGasoline" value="휘발유&lt;/br&gt;단가"
+    								displayMode="label" class="txt-blue">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="uprLpg" value="등유&lt;/br&gt;단가	"
+    								displayMode="label" class="txt-blue">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="bilgAcctDeptCd" value="청구귀속&lt;/br&gt;부서코드"
+    								displayMode="label" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="bilgAcctDeptNm" value="청구&lt;/br&gt;귀속부서 "
+    								displayMode="label" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="sellAcctDeptCd" value="매출귀속&lt;/br&gt;부서코드"
+    								displayMode="label" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="sellAcctDeptNm" value="매출&lt;/br&gt;귀속부서 "
+    								displayMode="label" hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="endDt" value="종료일자" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="confYn" value="상태" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="apprvStsCd" value="결재&lt;/br&gt;상태 " displayMode="label" class="txt-red"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="selYn" inputType="checkbox" style="" value="" width="70"
+    								fixColumnWidth="true" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false" dataType="number" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column displayMode="label" id="stdDt" inputType="calendar" style="" value="" width="100" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column displayMode="label" id="oilTskClsCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="oilBizClsCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="selpchClsCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="oilUprrglClsCd" inputType="select" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="clntNo" inputType="textImage" style="" value="" width="100" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="100"></w2:column>
+    							<w2:column displayMode="label" id="uprLight" inputType="text" style="" value="" width="70" displayFormat="###,###,###.##"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="uprGasoline" value="" displayMode="label" displayFormat="###,###,###.##"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="uprLpg" value="" displayMode="label" displayFormat="###,###,###.##"></w2:column>
+    							<w2:column width="100" inputType="textImage" style="" id="bilgAcctDeptCd" value="" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="bilgAcctDeptNm" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="textImage" style="" id="sellAcctDeptCd" value="" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="sellAcctDeptNm" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="endDt" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="confYn" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="apprvStsCd" value="" displayMode="label" readOnly="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="70" inputType="text" style="" id="column48" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column47" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column46" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column45" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column44" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column43" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column42" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column41" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column40" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column69" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column66" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column63" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column60" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column57" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column51" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column72" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column75" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group id="" class="right"><w2:udc_bottomGrdBtn btnCancelYn="N" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="Y" btnRowDelYn="Y">
+    					</w2:udc_bottomGrdBtn></xf:group></xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="left" id="" style="">
+    					<xf:trigger class="btn" id="btn_elecApprv" ev:onclick="scwin.btn_elecApprv_onclick" style="" type="button">
+    						<xf:label><![CDATA[전자결재]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="right" id="" style="">
+    					<xf:group id="" class="inner"><w2:textbox style="" id="" label="적용일자 " class="req"></w2:textbox><w2:inputCalendar style="" id="ed_fixEndDt" class="" calendarValueType="yearMonthDate" mandatory="true"></w2:inputCalendar></xf:group><xf:trigger class="btn white" id="btn_fixEndDt" ev:onclick="scwin.btn_fixEndDt_onclick" style="" type="button">
+    						<xf:label><![CDATA[거래종료]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_save" ev:onclick="scwin.btn_save_onclick" style="" type="button">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

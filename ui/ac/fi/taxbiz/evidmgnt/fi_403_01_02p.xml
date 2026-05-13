@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fi_403_01_02p
+// 이름     : 증빙파일등록팝업
+// 경로     : 재무회계/세무/증빙관리 / 증빙등록조회
+// 사용계정 : 내부
+// 파라미터 :
+//            IN  :
+//            OUT :
+//
+// 비고     : 증빙등록조회(fi_403_01_02b) 과 통합화면
+//           
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            [호출당함]
+//            회계/재무회계/세무/증빙관리/증빙등록조회(fi_403_01_02b.jsp)에서 호출 (호출이 아니라 화면으로 끌어들임)
+//            
+//==================================================================================================================
+
+// 로그인사용자 정보
+scwin.vLoginCoCd     =  "";  // 소속 자회사 
+scwin.vLoginCoClsCd  =  "";  // 회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd =  "";  // 사용자소속구분코드 
+scwin.privAdmin      =  "";  // 어드민권한
+scwin.userId         =  "";  // 사용자ID
+
+//var coCd = "000";
+//var coClsCd = "0";
+scwin.vCoCd          =  "";  // 회사코드
+scwin.vCoClsCd       =  "";  // 소속회사종류 : 회계_회사구분('CO035' : 0:동부 EXPRESS)
+
+scwin.vAdminYn       =  "";  // 어드민여부
+scwin.userEmpNo      =  "";  // 사용자번호
+
+scwin.isSubCompany   = false;  // 자회사여부
+
+scwin.onpageload = function() {
+
+    console.log("====== onpageload ==================");
+
+    // 회원정보를 json 데이터로 모두 받음
+    let memJson = $c.data.getMemInfo();
+
+    // 로그인 정보 추출
+    let coCd    = $c.gus.cfIsNull( $c.data.getMemInfo("coCd") ) ? '' : $c.data.getMemInfo("coCd");
+    let coClsCd = $c.gus.cfIsNull( $c.data.getMemInfo("coClsCd") ) ? '' : $c.data.getMemInfo("coClsCd");
+    let userHomeClsCd = $c.data.getMemInfo("userHomeClsCd");  // 사용자소속구분코드
+    let userId     = $c.data.getMemInfo("userId");
+    let privAdmin  = $c.data.getMemInfo("privAdmin");
+    let empNo      = $c.data.getMemInfo("empNo");
+
+    scwin.vLoginCoCd     = coCd;
+    scwin.vLoginCoClsCd  = coClsCd;
+    scwin.vUserHomeClsCd = userHomeClsCd;
+
+    scwin.vCoCd          = coCd;      
+    scwin.vCoClsCd       = coClsCd;   
+    scwin.userId         = userId;
+    scwin.vAdminYn       = privAdmin;
+    scwin.userEmpNo      = empNo;
+
+    console.log("▶▶ vLoginCoCd : "+ scwin.vLoginCoCd +"   loginCoClsCd : "+ scwin.vLoginCoClsCd );
+    console.log("▶▶ vCoCd      : "+ scwin.vCoCd +"   vCoClsCd : "+ scwin.vCoClsCd );
+    console.log("▶▶ userId     : "+ scwin.userId +"   userEmpNo : "+ scwin.userEmpNo);
+    console.log("▶▶ vUserHomeClsCd : "+ scwin.vUserHomeClsCd +"   vAdminYn : "+ scwin.vAdminYn);
+//    console.log("▶▶ memJson : "+ JSON.stringify(memJson));
+
+    // 회계부서코드/명
+    let acctDeptCd = $c.data.getMemInfo("acctDeptCd");
+    let acctDeptNm = $c.data.getMemInfo("acctDeptNm");
+
+    scwin.acctDeptCd = acctDeptCd;
+    scwin.acctDeptNm = acctDeptNm;
+
+    console.log("▶▶ acctDeptCd : "+ scwin.acctDeptCd +"   acctDeptNm : "+ scwin.acctDeptNm);
+
+};
+]]></script>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="file-wrap  no-title" id="">
+    				<w2:udc_fileMultiUpload fileGrpSeq="" filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" maxFileSize="536870912" style="" totalFileSize="2009715200" id="udc_fielUpload">
+    				</w2:udc_fileMultiUpload>
+    			</xf:group>
+    </body>
+</html>

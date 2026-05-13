@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="crcCd" name="통화코드" dataType="text"></w2:key>
+    					<w2:key id="stdDt" name="기준일자" dataType="text"></w2:key>
+    					<w2:key id="stdExchRt" name="기준환율" dataType="number" defaultValue=""></w2:key>
+    					<w2:key id="pchsExchRt" name="매입환율" dataType="number" defaultValue=""></w2:key>
+    					<w2:key id="sellovExchRt" name="매도환율" dataType="number" defaultValue=""></w2:key>
+    					<w2:key id="regId" name="등록자ID" dataType="text"></w2:key>
+    					<w2:key id="regDtm" name="등록일시" dataType="date"></w2:key>
+    					<w2:key id="modId" name="수정자ID" dataType="text"></w2:key>
+    					<w2:key id="modDtm" name="수정일시" dataType="date"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_exchangeRt" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+    					<w2:column id="stdDt" name="기준일자" dataType="text"></w2:column>
+    					<w2:column id="stdExchRt" name="기준환율" dataType="number" defaultValue="0.00"></w2:column>
+    					<w2:column id="pchsExchRt" name="TTB" dataType="number" defaultValue="0.00"></w2:column>
+    					<w2:column id="sellovExchRt" name="TTS" dataType="number" defaultValue="0.00"></w2:column>
+    					<w2:column id="regId" name="등록자id" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정id" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_crc" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="crcCd" name="value" dataType="text"></w2:column>
+    					<w2:column id="crcNm" name="label" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchExchangeRt" action="/ac.fm.stdinfomgnt.RetrieveExchangeRateListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_exchangeRt","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_exchangeRt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchExchangeRt_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveExchangeRt" action="/ac.fm.stdinfomgnt.SaveExchangeRateCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_exchangeRt","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveExchangeRt_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역변수
+scwin.vCurDate = WebSquare.date.getCurrentServerDate();
+
+
+
+scwin.onpageload = function() {
+    // 통화코드 공통 확인필요.
+    const codeOptions = [
+        { grpCd : "ZZ006", compID : "acb_crcCd,gr_exchangeRt:crcCd",opt :{"range" : "1,10"} }, 
+    ];
+
+    $c.data.setCommonCode(codeOptions);
+
+    ed_stdDt.setValue(scwin.vCurDate)
+    $c.gus.cfDisableKey()
+};  
+
+scwin.ondataload = function() {
+    data = dlt_commonCodeZZ006.getAllJSON()
+    data.sort(function (a, b) {
+        return Number(a.sortSeq) - Number(b.sortSeq);
+    });
+    dlt_commonCodeZZ006.setJSON(data, false);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    if (! await $c.gus.cfValidate([ed_stdDt])) {
+        return;
+    }
+    $c.sbm.execute(sbm_searchExchangeRt);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+    const changedData = ds_exchangeRt.getModifiedData();
+    let validArray = [
+        {id:"crcCd", name: "통화코드", mandatory: true, key:true},
+        {id:"stdDt", name:"기준일자", mandatory: true, key:true},
+    ]
+
+    if (!(changedData.length > 0)) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["환율관리"]);
+        return;
+    }else{
+        ret = await $c.gus.cfValidateGrid(gr_exchangeRt, null, null, validArray, "환율관리");
+        if (ret){
+            if( await $c.win.confirm(MSG_CM_CRM_001)){
+                $c.sbm.execute(sbm_saveExchangeRt);
+            }
+        }
+    }
+
+};
+
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+
+scwin.f_AddRow = function() {
+    let rowIndex = ds_exchangeRt.getRowCount()
+    ds_exchangeRt.insertRow(rowIndex);
+    ds_exchangeRt.setCellData(rowIndex, "crcCd", acb_crcCd.getValue());
+    ds_exchangeRt.setCellData(rowIndex, "stdDt", scwin.vCurDate);
+    gr_exchangeRt.setFocusedCell(rowIndex, 0)
+};
+
+//-------------------------------------------------------------------------
+// 행 취소
+//-------------------------------------------------------------------------
+scwin.f_UndoAll = function() {
+    $c.data.undoAll(ds_exchangeRt);
+};
+// 버그투성 수정필요
+
+//-------------------------------------------------------------------------
+// 행 삭제
+//-------------------------------------------------------------------------
+scwin.f_DeleteRow = function() {
+    var rowIndex = ds_exchangeRt.getRowPosition();
+    if(ds_exchangeRt.getRowStatus(rowIndex) == "C"){
+        ds_exchangeRt.removeRow(rowIndex);
+    }
+    if (rowIndex >= 0) {
+        // ds_exchangeRt.removeRow(rowIndex);
+        ds_exchangeRt.deleteRow(rowIndex);
+    }
+
+};
+
+
+//-----------------------------------------------------------------------------
+//script
+//------------------------------------------------------------------------------
+
+scwin.sbm_searchExchangeRt_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    rows = ds_exchangeRt.getRowCount()
+    totalRows.setValue(rows);
+    if(rows === 0) {
+		await $c.win.alert(MSG_CM_ERR_003);
+    }
+};
+
+
+scwin.sbm_saveExchangeRt_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+scwin.customFm = function (data, formattedData, rowIndex, colIndex) {
+    if (formattedData == null || formattedData === "") return "";
+
+    var num = Number(formattedData.replace(/,/g, ""));
+    if (isNaN(num)) return formattedData;
+
+    num = Math.floor(num * 100) / 100;
+
+    return num.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="통화코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:autoComplete class="" editType="select" id="acb_crcCd" search="start" style="width: 120px"
+    										submenuSize="fixed" ref="data:dma_condition.crcCd" visibleRowNum="20">
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="기준일자 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_stdDt" style="" displayFormat="yyyy/MM/dd" ref="data:dma_condition.stdDt" validateOnInput="true" mandatory="true" title="기준일자"></w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    		<xf:group class="round-box" id="" style=""><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_exchangeRt"
+    					focusMode="cell" id="gr_exchangeRt" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNumFix="true"
+    					validExp="crcCd:통화코드:yes::key,stdDt:기준일자:yes:date=YYYYMMDD:key" rowStatusVisible="true" rowStatusWidth="10" visibleRowNum="15">
+    					<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false"
+    								width="100" value="통화코드">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false"
+    								width="100" value="기준일자">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false"
+    								width="100" value="기준환율">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false"
+    								width="100" value="TTB">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column21" inputType="text" value="TTS" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="crcCd" inputType="select" removeBorderStyle="false"
+    								width="70" objType="key" readOnly="true" mandatory="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="stdDt" inputType="calendar" removeBorderStyle="false"
+    								width="70" displayFormat="yyyy/MM/dd" objType="key" readOnly="true" mandatory="true" minLength="8">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="stdExchRt" inputType="text" removeBorderStyle="false"
+    								width="70" displayFormat="#,##0.00##" readOnly="false" dataType="float" textAlign="right" maxLength="5.4" customFormatter="scwin.customFm" excelCellType="number">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="pchsExchRt" inputType="text"
+    								removeBorderStyle="false" width="70" dataType="float" displayFormat="#,##0.00##" textAlign="right" maxLength="5.4" customFormatter="scwin.customFm" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="sellovExchRt" inputType="text" width="70" dataType="float"
+    								displayFormat="#,##0.00##" textAlign="right" maxLength="5.4" customFormatter="scwin.customFm" excelCellType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:button class="btn sm" id="add" label="행추가" style="" ev:onclick="scwin.f_AddRow" userAuth="U"></w2:button>
+    						<w2:button class="btn sm" id="delete" label="행삭제" style="" ev:onclick="scwin.f_DeleteRow" userAuth="U"></w2:button>
+    						<w2:button class="btn sm" id="cancel" label="취소" style="" ev:onclick="scwin.f_UndoAll" userAuth="U"></w2:button>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" userAuth="U" ev:onclick="scwin.f_Save">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

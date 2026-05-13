@@ -1,0 +1,8 @@
+/*amd /ui/ac/fm/paymgnt/paymgnt/fm_301_09_00b.xml 1596 0415e61dd3fe9bb37be2ab4bcc50a9c1c7f52f5032eec85c853c928c1b22c984 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.onpageload = function () {
+  scwin.popTitleCh();
+};
+scwin.popTitleCh = function () {
+  $c.data.setPopupTitle($p, "이체자료생성/결과조회");
+};
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{style:'',id:'',class:'tabbox'},E:[{T:1,N:'xf:group',A:{id:'',class:'tab-flex wq_tab'},E:[{T:1,N:'w2:tabControl',A:{alwaysDraw:'false',style:'',id:'',class:''},E:[{T:1,N:'w2:tabs',A:{disabled:'false',style:'',id:'tabs1',label:'지급이체자료 생성/조회'}},{T:1,N:'w2:tabs',A:{disabled:'false',style:'',id:'tabs2',label:'이체자료 생성/조회'}},{T:1,N:'w2:content',A:{alwaysDraw:'false',style:'',id:'content1',src:'/ui/ac/fm/paymgnt/paymgnt/fm_301_09_01b.xml'}},{T:1,N:'w2:content',A:{alwaysDraw:'false',style:'',id:'content2',src:'/ui/ac/fm/paymgnt/paymgnt/fm_301_09_03b.xml'}}]}]}]}]}]}]}]})

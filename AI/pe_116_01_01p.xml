@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search">
+                <w2:keyInfo>
+                    <w2:key id="hblno" name="House BL No" dataType="text"></w2:key>
+                    <w2:key id="modId" name="수정자ID" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="filepath" name="파일경로" dataType="text"></w2:column>
+                    <w2:column id="fileSize" name="파일크기" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileDeleteGDS" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="hblno" name="House BL No" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_delete"
+            action="/il.pfm.pefm.DeleteAttachedFileCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"fileDeleteGDS","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_delete_submitdone"
+            ev:submiterror="scwin.sbm_delete_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.g_filePath = "";
+        scwin.g_fileName = "";
+        scwin.g_accdNo = "temp";
+        scwin.g_fileSiz = "";
+        scwin.houseNo = "";
+        scwin.userId = "";
+
+        scwin.CREATE_AUTH = "C";
+        scwin.RETRIEVE_AUTH = "R";
+        scwin.UPDATE_AUTH = "U";
+        scwin.DELETE_AUTH = "D";
+        scwin.PRINT_AUTH = "P";
+        scwin.EXCEL_AUTH = "X";
+        scwin.TITLE_NAME = "국제물류 수입서류 첨부파일";
+        scwin.PGM_ID = "pe_116_01_01p.xml";
+        scwin.CALLER_URL = "/ui/il/pfm/pefm/pe_116_01_01p.xml";
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            if (scwin.params != null) {
+                if (scwin.params.attachFilePath != null && scwin.params.attachFilePath != undefined) {
+                    scwin.g_filePath = scwin.params.attachFilePath;
+                }
+                if (scwin.params.attachFileNm != null && scwin.params.attachFileNm != undefined) {
+                    scwin.g_fileName = scwin.params.attachFileNm;
+                }
+                if (scwin.params.accdNo != null && scwin.params.accdNo != undefined) {
+                    scwin.g_accdNo = scwin.params.accdNo;
+                }
+                if (scwin.params.houseNo != null && scwin.params.houseNo != undefined) {
+                    scwin.houseNo = scwin.params.houseNo;
+                }
+            }
+
+            scwin.userId = $c.ses.getUserId();
+
+            scwin.f_OnLoad();
+        };
+
+        scwin.f_OnLoad = function() {
+            if (scwin.params != null) {
+            }
+        };
+
+        scwin.f_Close = function() {
+            let rtnList = new Array();
+            if (fileUploadGDS.getRowCount() > 0) {
+                scwin.g_filePath = fileUploadGDS.getCellData(0, "filepath");
+                scwin.g_fileSiz = fileUploadGDS.getCellData(0, "fileSize");
+            }
+            rtnList[0] = scwin.g_filePath;
+            rtnList[1] = scwin.g_fileName;
+
+            $c.win.closePopup(rtnList);
+        };
+
+        scwin.fileSubmit = function() {
+            $c.gus.cfUploadFile(fileUploadGDS, "scwin.uploadComplete");
+        };
+
+        scwin.fileDelete = async function() {
+            let chk = await $c.win.confirm("선택하신 파일을 정말로 삭제하시겠습니까?");
+            if (chk) {
+                fileDeleteGDS.removeAll();
+                fileDeleteGDS.insertRow(0);
+                fileDeleteGDS.setCellData(0, "hblno", scwin.houseNo);
+                fileDeleteGDS.setCellData(0, "modId", scwin.userId);
+
+                await $c.sbm.execute(sbm_delete);
+            }
+        };
+
+        scwin.uploadComplete = async function() {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_002);
+
+            if (fileUploadGDS.getRowCount() > 0) {
+                scwin.g_filePath = fileUploadGDS.getCellData(0, "filepath");
+            }
+
+            scwin.f_Close();
+        };
+
+        scwin.f_ZoomIn = async function() {
+            let strParam = $c.gus.cfGetFileURL("", scwin.g_filePath);
+            await $c.win.openPopup("/ui/il/pfm/pefm/zoom.xml", {
+                width: 840,
+                height: 660,
+                modal: true,
+                data: { param: strParam }
+            });
+        };
+
+        scwin.sbm_delete_submitdone = async function(e) {
+            await $c.win.alert("성공적으로 삭제하였습니다.");
+            scwin.f_Close();
+        };
+
+        scwin.sbm_delete_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.btn_trigger3_onclick = function(e) {
+            scwin.fileDelete();
+        };
+
+        scwin.btn_trigger1_onclick = function(e) {
+            scwin.f_Close();
+        };
+
+        scwin.btn_save_onclick = function(e) {
+            scwin.fileSubmit();
+        };
+    ]]></script>
+
+    <w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<xf:group class="pgtbox" id="" style="">
+    					<xf:group class="pg-tit" id="">
+    						<xf:group class="tit" id="">
+    							<w2:textbox class="pgt_tit" id="tbx_textbox1" label="화면타이틀" style="" tagname=""></w2:textbox>
+    						</xf:group>
+    						<xf:trigger class="btn ico help" id="" style="" type="button">
+    							<xf:label></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="">
+    					<xf:group id="" class="lybox">
+    						<xf:group id="" class="file-wrap col">
+    							<xf:group style="" id="" class="title-wrap">
+    								<xf:group id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="" label="파일첨부(예정)" class="tit"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="">
+    							</w2:udc_fileMultiUpload>
+    						</xf:group>
+    						<xf:group class="file-wrap col" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="파일첨부(완료)" style="" tagname="h3"></w2:textbox>
+    								</xf:group><xf:group id="" class="right"><xf:trigger style="" id="btn_trigger3" type="button" class="btn file-del">
+    										<xf:label><![CDATA[파일 삭제]]></xf:label>
+    									</xf:trigger></xf:group>
+    							</xf:group>
+    							<w2:udc_fileMultiUpload fileGrpSeq="" filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" maxFileSize="536870912" style="" totalFileSize="2009715200">
+    							</w2:udc_fileMultiUpload>
+    						</xf:group>
+    					</xf:group>
+    					
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_trigger1" style="" type="button">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger><xf:trigger class="btn" id="btn_save" style="" type="button">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    					
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

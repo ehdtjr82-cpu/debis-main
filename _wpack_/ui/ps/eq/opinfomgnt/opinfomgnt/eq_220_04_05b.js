@@ -1,0 +1,957 @@
+/*amd /ui/ps/eq/opinfomgnt/opinfomgnt/eq_220_04_05b.xml 64600 a3dd6982413f02046c9df2da0d466394f548ffded9e25af397b8383bf552c8cf */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_fix_work_list',saveRemovedData:'true','ev:onrowpositionchange':'scwin.ds_fix_work_list_onrowpositionchange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fixWrkStndNo',name:'정비작업표준번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixKndCd',name:'정비종류코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqModelCd',name:'장비모델코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqModelNm',name:'장비모델명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cycClsCd',name:'주기구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pfmCyc',name:'수행주기',dataType:'number'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_work_stnd_re'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'fixWrkStndNo',name:'작업표준코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fixWrkStndNm',name:'작업표준명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_work_stnd',saveRemovedData:'true','ev:onrowpositionchange':'scwin.ds_work_stnd_onrowpositionchange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fixWrkStndNo',name:'작업표준코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkStndNm',name:'표준명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cycFixYn',name:'주기정비여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'useYn',name:'사용여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'catCd',name:'계통코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_work_unit_list',saveRemovedData:'true','ev:onrowpositionchange':'scwin.ds_work_unit_list_onrowpositionchange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fixWrkStndNo',name:'정비작업표준번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkUnitNo',name:'작업단위코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkUnitNm',name:'작업명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkPlCd',name:'정비작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkNo',name:'정비작업번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stndWrkHhCnt',name:'표준작업시간',dataType:'number'}},{T:1,N:'w2:column',A:{id:'wrkHhCnt',name:'작업시간수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bilgWages',name:'청구공임',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayNgtClsCd',name:'주간야간구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'offDayClsCd',name:'휴일구분코드',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_retrieveDtailCondition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'fixWorkStandardNumber',name:'작업표준코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_work_unit_re'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'fixWrkUnitNo',name:'정비작업단위번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'useYn',name:'사용여부',dataType:'number'}},{T:1,N:'w2:key',A:{id:'wrkNm',name:'작업명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'catCd',name:'계통코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_work_unit'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fixWrkUnitNo',name:'정비작업단위번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'homeClsCd',name:'소속구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkUnitNm',name:'정비작업단위명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'catCd',name:'계통코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stndWrkHhCnt',name:'표준작업시간수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'useYn',name:'사용여부',dataType:'number'}}]}]}]},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_work_stnd_re","key":"IN_DS1"},{"id":"ds_work_stnd","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_work_stnd","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_detail',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_retrieveDtailCondition","key":"IN_DS1"},{"id":"ds_work_unit_list","key":"OUT_DS1"},{"id":"ds_fix_work_list","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_work_unit_list","key":"OUT_DS1"},{"id":"ds_fix_work_list","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_detail_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"action":"modified","id":"ds_work_stnd","key":"IN_DS1"},{"action":"modified","id":"ds_work_unit_list","key":"IN_DS2"},{"action":"modified","id":"ds_fix_work_list","key":"IN_DS3"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_delete',action:'',method:'get',mediatype:'application/json',ref:'data:json,[{"action":"modified","id":"ds_work_stnd","key":"IN_DS1"},{"action":"modified","id":"ds_work_unit_list","key":"IN_DS2"},{"action":"modified","id":"ds_fix_work_list","key":"IN_DS3"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_delete_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_fixWrkUnitNo',action:'/ps.eq.opinfomgnt.opinfomgnt.RetrieveFixWorkUnitListCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_work_unit_re","key":"IN_DS1"},{"id":"ds_work_unit","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_work_unit","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/*-------------------------------------------------------------------------------------
+* 각 그리드 Enable, Editable TOBE 처리 정의
+
+- 2,3 번 그리드의 경우 ASIS GAUCE의 특성이 달라 아래처럼 임의 정의함
+gr_work_unit_list.Editable (작업단위 목록) 
+- 수정 : 전체 수정불가능
+- 신규/추가 : fixKndCd(정비작업종류) 수정가능
+
+gr_fix_work_pl.Editable (추가작업종류 목록) 
+- 수정 : 정비작업종류, 구분, 주기 수정가능
+- 신규/추가 :  정비작업종류, 모델코드, 구분, 주기 수정가능
+
+* 취소일때 모두 수정불가능 ;
+-------------------------------------------------------------------------------------*/
+
+//세션 정보를 가지고 온다.
+scwin.memJson = $c.data.getMemInfo($p);
+
+//그리드 변경전 데이터를 담는 정보
+scwin.oriFixWrkUnitNo = ""; //작업단위 목록 그리드 업단위코드
+scwin.oriEqModelCd = ""; //주기작업종류 목록 그리드 모델코드
+scwin.isFocusOut = false;
+scwin.tr_save_action = "/ps.eq.opinfomgnt.opinfomgnt.UpdateFixWorkStandardCMD.do";
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  //공통코드 적용
+  const codeOptions = [{
+    grpCd: "ZZ205",
+    compID: "lc_homeClsCd,lc_d_homeClsCd",
+    opt: {
+      "range": "1,EQ"
+    }
+  }, {
+    grpCd: "EQ010",
+    compID: ""
+  }, {
+    grpCd: "EQ009",
+    compID: ""
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {};
+//-------------------------------------------------------------------------
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+//-------------------------------------------------------------------------
+scwin.ondataload = function () {
+  try {
+    lc_homeClsCd.setSelectedIndex(0);
+    lc_d_homeClsCd.setSelectedIndex(0);
+    lc_homeClsCd.setValue(scwin.memJson.eqHomeClsCd); // 정비소속구분코드
+    $c.gus.cfDisableBtn($p, [btn_insert, btn_update, btn_cancel, btn_save, btn_delete]); //cfDisableBtn([bCreate,bUpdate,bCancel,bSave, bDelete]);
+
+    btn_1_1.setDisabled(true);
+    btn_1_2.setDisabled(true);
+    btn_1_3.setDisabled(true);
+    btn_2_1.setDisabled(true);
+    btn_2_2.setDisabled(true);
+    btn_2_3.setDisabled(true);
+    //$c.gus.cfDisableObjects([btn_1_1, btn_1_2, btn_1_3, btn_2_1, btn_2_2, btn_2_3]);    
+    gr_work_stnd.setDisabled(false);
+    ed_fixWrkStndNo.focus();
+    lc_d_homeClsCd.setValue(scwin.memJson.eqHomeClsCd); // 정비소속구분코드
+
+    //그리드 코드명 = [코드] 코드명 으로 보여주기 위해 임의 작업 추가
+    let cdNmDesc = "";
+    for (let i = 0; i < dlt_commonCodeEQ010.getRowCount(); i++) {
+      cdNmDesc = "[" + dlt_commonCodeEQ010.getCellData(i, "cd") + "]" + dlt_commonCodeEQ010.getCellData(i, "cdNm");
+      dlt_commonCodeEQ010.setCellData(i, "cdNm", cdNmDesc);
+    }
+    gr_fix_work_pl.setColumnNodeSet("fixKndCd", "data:dlt_commonCodeEQ010", "cdNm", "cd"); //정비작업종류
+
+    for (let i = 0; i < dlt_commonCodeEQ009.getRowCount(); i++) {
+      cdNmDesc = "[" + dlt_commonCodeEQ009.getCellData(i, "cd") + "]" + dlt_commonCodeEQ009.getCellData(i, "cdNm");
+      dlt_commonCodeEQ009.setCellData(i, "cdNm", cdNmDesc);
+    }
+    gr_fix_work_pl.setColumnNodeSet("cycClsCd", "data:dlt_commonCodeEQ009", "cdNm", "cd"); //구분
+  } catch (e) {
+    console.log("ondataload : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+  sbm_retrieve.action = "/ps.eq.opinfomgnt.opinfomgnt.RetrieveFixWorkStandardListCMD.do";
+  ds_work_stnd.removeAll();
+  $c.sbm.execute($p, sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+
+    // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+    tbx_totalRows.setValue(ds_work_stnd.getRowCount());
+    $c.gus.cfGoPrevPosition($p, gr_work_stnd, 0); //첫번째 포커스 이동
+
+    $c.gus.cfDisableKeyData($p);
+    $c.gus.cfEnableAllBtn($p);
+    $c.gus.cfDisableObjects($p, [btn_save, btn_cancel]);
+    btn_1_1.setDisabled(true);
+    btn_1_2.setDisabled(true);
+    btn_1_3.setDisabled(true);
+    btn_2_1.setDisabled(true);
+    btn_2_2.setDisabled(true);
+    btn_2_3.setDisabled(true);
+
+    //$c.gus.cfDisableObjects([btn_1_1, btn_1_2, btn_1_3,btn_2_1, btn_2_2, btn_2_3]);    
+    gr_work_stnd.setDisabled(false);
+    if (ds_work_stnd.getRowCount() > 0) {
+      ds_work_stnd.setRowPosition(0);
+      $c.gus.cfGoPrevPosition($p, gr_work_stnd, 0); //첫번째 포커스 이동
+      scwin.f_Retrieve_detail(ds_work_stnd.getCellData(0, "fixWrkStndNo"), ds_work_stnd.getCellData(0, "homeClsCd"));
+    }
+  } catch (e) {
+    console.log("sbm_retrieve_submitdone " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 상세 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve_detail = function (fixWorkStandardNumber, homeClsCd) {
+  sbm_retrieve_detail.action = "/ps.eq.opinfomgnt.opinfomgnt.RetrieveFixWorkStandardDetailCMD.do";
+  ds_work_unit_list.removeAll();
+  ds_fix_work_list.removeAll();
+  ds_retrieveDtailCondition.set("fixWorkStandardNumber", fixWorkStandardNumber);
+  ds_retrieveDtailCondition.set("homeClsCd", homeClsCd);
+  $c.sbm.execute($p, sbm_retrieve_detail);
+};
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_detail_submitdone = function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+
+    // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+    tbx_totalRows2.setValue(ds_work_unit_list.getRowCount());
+    $c.gus.cfGoPrevPosition($p, gr_work_unit_list, 0); //첫번째 포커스 이동
+    ds_work_unit_list.setRowPosition(0);
+    tbx_totalRows3.setValue(ds_fix_work_list.getRowCount());
+    $c.gus.cfGoPrevPosition($p, gr_fix_work_pl, 0); //첫번째 포커스 이동
+
+    btn_1_1.setDisabled(true);
+    btn_1_2.setDisabled(true);
+    btn_1_3.setDisabled(true);
+    btn_2_1.setDisabled(true);
+    btn_2_2.setDisabled(true);
+    btn_2_3.setDisabled(true);
+  } catch (e) {
+    console.log("sbm_retrieve_detail_submitdone " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 주기작업 여부에 따라서 주기작업종류가 editable
+//-------------------------------------------------------------------------
+scwin.f_fix_work_editable = function () {
+  try {
+    if (cbx_cycFixYn.getValue() == "1" && btn_update.getDisabled()) {
+      //gr_fix_work_pl.setReadOnly("grid", false);//gr_fix_work_pl.Editable  = "true";
+      //$c.gus.cfEnableObjects([btn_2_1, btn_2_2, btn_2_3]);
+      btn_2_1.setDisabled(false);
+      btn_2_2.setDisabled(false);
+      btn_2_3.setDisabled(false);
+    } else {
+      //gr_fix_work_pl.setReadOnly("grid", true);//gr_fix_work_pl.Editable  = "false";
+      btn_2_1.setDisabled(true);
+      btn_2_2.setDisabled(true);
+      btn_2_3.setDisabled(true);
+      //$c.gus.cfDisableObjects([btn_2_1, btn_2_2, btn_2_3]);
+    }
+  } catch (e) {
+    console.log("sbm_retrieve_detail_submitdone " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 주기작업여부 체크박스 선택
+//-------------------------------------------------------------------------
+scwin.cbx_cycFixYn_onviewchange = function (info) {
+  try {
+    scwin.f_fix_work_editable();
+    if (cbx_cycFixYn.getValue() == "1") {
+      for (let i = ds_fix_work_list.getRowCount(); i >= 0; i--) {
+        //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+        if (ds_fix_work_list.getRowStatus(i) == "C") {
+          ds_fix_work_list.removeRow(i);
+        } else {
+          ds_fix_work_list.deleteRow(i); //ds_fix_work_list.DeleteRow(i);
+          gr_fix_work_pl.setFocusedCell(0, "fixKndCd");
+        }
+      }
+    }
+  } catch (e) {
+    console.log("sbm_retrieve_detail_submitdone " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 신규
+//-------------------------------------------------------------------------
+scwin.f_Create = function () {
+  try {
+    scwin.tr_save_action = "/ps.eq.opinfomgnt.opinfomgnt.RegistFixWorkStandardCMD.do";
+    let row = "";
+    if (ds_work_stnd.getRowCount() == 0) {
+      row = ds_work_stnd.insertRow();
+      ds_work_stnd.setCellData(row, "homeClsCd", lc_homeClsCd.getValue());
+      ds_work_stnd.setCellData(row, "fixWrkStndNo", "");
+      ds_work_stnd.setCellData(row, "fixWrkStndNm", "");
+    } else {
+      row = ds_work_stnd.insertRow();
+    }
+    $c.gus.cfEnableKeyData($p);
+    $c.gus.cfEnableAllBtn($p);
+    //$c.gus.cfEnableObjects([btn_insert, btn_update, btn_cancel, btn_save, btn_delete]);//$c.gus.cfEnableAllBtn(); 
+    $c.gus.cfDisableBtn($p, [btn_insert, btn_update, btn_delete]);
+
+    //work unit 초기화
+    ds_work_stnd.setCellData(row, "homeClsCd", lc_homeClsCd.getValue());
+    ds_work_stnd.setCellData(row, "catCd", "01"); //ds_work_stnd.NameValue(ds_work_stnd.RowPosition, "catCd") = "01"; RowPosition = row
+    ds_work_stnd.setCellData(row, "useYn", 1);
+    ds_work_stnd.setRowPosition(row);
+    $c.gus.cfGoPrevPosition($p, gr_work_stnd, row); // 포커스 이동
+
+    scwin.f_Retrieve_detail("0", "");
+    lc_d_homeClsCd.setValue(lc_homeClsCd.getValue()); // 정비소속구분코드
+    lc_d_homeClsCd.setDisabled(true); //lux_d_homeClsCd.Enable = false;
+
+    gr_work_stnd.setDisabled(true);
+
+    //$c.gus.cfEnableObjects([btn_1_1, btn_1_2, btn_1_3]);
+    btn_1_1.setDisabled(false);
+    btn_1_2.setDisabled(false);
+    btn_1_3.setDisabled(false);
+    ed_d_fixWrkStndNo.focus();
+  } catch (e) {
+    console.log("f_Create " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 수정
+//-------------------------------------------------------------------------
+scwin.f_Update = function () {
+  try {
+    sbm_save.action = "/ps.eq.opinfomgnt.opinfomgnt.UpdateFixWorkStandardCMD.do";
+    $c.gus.cfDisableKey($p);
+    btn_1_1.setDisabled(false);
+    btn_1_2.setDisabled(false);
+    btn_1_3.setDisabled(false);
+    //$c.gus.cfEnableObjects([btn_1_1, btn_1_2, btn_1_3]);
+
+    lc_d_homeClsCd.setDisabled(true);
+    gr_work_stnd.setDisabled(true);
+    gr_fix_work_pl.setColumnReadOnly("fixKndCd", false); //수정가능
+    gr_fix_work_pl.setColumnReadOnly("cycClsCd", false); //수정가능
+    gr_fix_work_pl.setColumnReadOnly("pfmCyc", false); //수정가능
+
+    $c.gus.cfEnableAllBtn($p);
+    $c.gus.cfDisableBtn($p, [btn_update, btn_insert]);
+    scwin.f_fix_work_editable();
+  } catch (e) {
+    console.log("f_Update " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_Cancel = function () {
+  try {
+    let i = 0;
+    $c.gus.cfEnableObjects($p, [btn_insert, btn_update, btn_delete]); //ASIS 정의가 없는데 버튼이 다시 활성화되어 추가함.
+    if (ds_work_stnd.getRowCount() > 0) {
+      $c.gus.cfDisableBtn($p, [btn_cancel, btn_save]);
+    } else {
+      $c.gus.cfDisableBtn($p, [btn_update, btn_cancel, btn_save, btn_delete]);
+    }
+    $c.gus.cfDisableKeyData($p);
+    btn_1_1.setDisabled(true);
+    btn_1_2.setDisabled(true);
+    btn_1_3.setDisabled(true);
+    btn_2_1.setDisabled(true);
+    btn_2_2.setDisabled(true);
+    btn_2_3.setDisabled(true);
+    //$c.gus.cfDisableObjects([btn_1_1, btn_1_2, btn_1_3,btn_2_1, btn_2_2, btn_2_3]);    
+
+    //ds_work_stnd.undoAll();
+    for (i = ds_work_stnd.getRowCount(); i >= 0; i--) {
+      //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+      if (ds_work_stnd.getRowStatus(i) == "C") {
+        ds_work_stnd.removeRow(i);
+      } else {
+        ds_work_stnd.undoRow(i);
+      }
+    }
+
+    //ds_work_unit_list.UndoAll();
+    for (i = ds_work_unit_list.getRowCount(); i >= 0; i--) {
+      //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+      if (ds_work_unit_list.getRowStatus(i) == "C") {
+        ds_work_unit_list.removeRow(i);
+      } else {
+        ds_work_unit_list.undoRow(i);
+      }
+    }
+
+    //ds_fix_work_list.UndoAll();
+    for (i = ds_fix_work_list.getRowCount(); i >= 0; i--) {
+      //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+      if (ds_fix_work_list.getRowStatus(i) == "C") {
+        ds_fix_work_list.removeRow(i);
+      } else {
+        ds_fix_work_list.undoRow(i);
+      }
+    }
+    lc_d_homeClsCd.setDisabled(true);
+    gr_work_stnd.setDisabled(false);
+    gr_fix_work_pl.setColumnReadOnly("fixKndCd", true); //수정불가능
+    gr_fix_work_pl.setColumnReadOnly("cycClsCd", true); //수정불가능
+    gr_fix_work_pl.setColumnReadOnly("pfmCyc", true); //수정불가능
+  } catch (e) {
+    console.log("f_Cancel " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = async function () {
+  try {
+    if (await $c.win.confirm($p, "삭제하시겠습니까?")) {
+      sbm_delete.action = "/ps.eq.opinfomgnt.opinfomgnt.DeleteFixWorkStandardCMD.do?fixWorkStandardNumber=" + ed_d_fixWrkStndNo.getValue() + "&homeClsCd=" + lc_d_homeClsCd.getValue();
+      $c.sbm.execute($p, sbm_delete);
+    }
+  } catch (e) {
+    console.log("f_Delete " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 삭제콜백
+//------------------------------------------------------------------------
+scwin.sbm_delete_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+  $c.gus.cfDisableKey($p);
+  $c.gus.cfEnableAllBtn($p);
+  $c.gus.cfDisableBtn($p, [btn_save, btn_cancel]);
+  gr_work_stnd.setDisabled(false);
+  gr_work_unit_list.setColumnReadOnly("fixWrkUnitNo", false); //수정불가능
+  gr_fix_work_pl.setColumnReadOnly("fixKndCd", true); //수정불가능
+  gr_fix_work_pl.setColumnReadOnly("cycClsCd", true); //수정불가능
+  gr_fix_work_pl.setColumnReadOnly("pfmCyc", true); //수정불가능
+
+  await $c.gus.cfAlertMsg($p, MSG_CM_INF_004); // 성공적으로 삭제하였습니다
+  scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+  try {
+    //if (!await $c.gus.cfValidate([ed_d_fixWrkStndNo,ed_txt_d_wrkStndNm], null, true)) return false;
+    let ret = await $c.gus.cfValidate($p, [ed_d_fixWrkStndNo, ed_txt_d_wrkStndNm]);
+    if (!ret) {
+      return false;
+    }
+    let i = 0;
+    for (i = 0; i < ds_work_unit_list.getRowCount(); i++) {
+      ds_work_unit_list.setCellData(i, "homeClsCd", lc_d_homeClsCd.getValue());
+    }
+    for (i = 0; i < ds_fix_work_list.getRowCount(); i++) {
+      ds_fix_work_list.setCellData(i, "homeClsCd", lc_d_homeClsCd.getValue());
+      //gr_work_unit_list.focus();
+    }
+    if (ds_work_unit_list.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_002, ["작업단위"]));
+    } else {
+      //변경한 데이터가 있는지 체크한다. 
+      if (ds_work_stnd.getModifiedIndex().length == 0 && ds_work_unit_list.getModifiedIndex().length == 0 && ds_fix_work_list.getModifiedIndex().length == 0) {
+        $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_001, ["작업표준"]));
+      } else {
+        let ret1 = await $c.gus.cfValidate($p, [gr_work_unit_list], null, true);
+        if (!ret1) {
+          return;
+        }
+        let ret2 = await $c.gus.cfValidate($p, [gr_fix_work_pl], null, true);
+        if (!ret2) {
+          return;
+        }
+        if (ret1 && ret2) {
+          if (await $c.win.confirm($p, "저장하시겠습니까?")) {
+            sbm_save.action = scwin.tr_save_action;
+            $c.sbm.execute($p, sbm_save);
+          }
+        }
+      }
+    }
+  } catch (e) {
+    console.log("f_Save " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장콜백
+//------------------------------------------------------------------------
+scwin.sbm_save_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+  $c.gus.cfDisableKey($p);
+  $c.gus.cfEnableAllBtn($p);
+  $c.gus.cfDisableBtn($p, [btn_cancel, btn_save]);
+  btn_1_1.setDisabled(true);
+  btn_1_2.setDisabled(true);
+  btn_1_3.setDisabled(true);
+  btn_2_1.setDisabled(true);
+  btn_2_2.setDisabled(true);
+  btn_2_3.setDisabled(true);
+
+  //$c.gus.cfDisableObjects([btn_1_1, btn_1_2, btn_1_3,btn_2_1, btn_2_2, btn_2_3]);    
+
+  lc_d_homeClsCd.setDisabled(true); //lux_d_homeClsCd.Enable = false;
+  gr_work_stnd.setDisabled(false);
+  gr_work_unit_list.setColumnReadOnly("fixWrkUnitNo", false); //수정불가능
+  gr_fix_work_pl.setColumnReadOnly("fixKndCd", true); //수정불가능
+  gr_fix_work_pl.setColumnReadOnly("cycClsCd", true); //수정불가능
+  gr_fix_work_pl.setColumnReadOnly("pfmCyc", true); //수정불가능
+
+  await $c.gus.cfAlertMsg($p, MSG_CM_INF_001); // 성공적으로 저장하였습니다
+  scwin.f_Retrieve(); //TOBE 저장만 처리하면 다른행을 클릭할수 없어서 조회를 다시 추가함.
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드추가 - 코드 적용
+//-------------------------------------------------------------------------
+scwin.f_AddPartRow = async function () {
+  try {
+    if (!(await $c.gus.cfValidate($p, [ed_d_fixWrkStndNo, ed_txt_d_wrkStndNm], null, true))) return false;
+    let addRow = ds_work_unit_list.insertRow();
+    ds_work_unit_list.setCellData(addRow, "fixWrkStndNo", ed_d_fixWrkStndNo.getValue());
+    ds_work_unit_list.setCellData(addRow, "homeClsCd", lc_homeClsCd.getValue());
+    ds_work_unit_list.setRowPosition(addRow);
+    gr_work_unit_list.setReadOnly("cell", addRow, "fixWrkUnitNo", false); //작업단위코드
+    $c.gus.cfGoPrevPosition($p, gr_work_unit_list, addRow);
+  } catch (e) {
+    console.log("f_AddPartRow " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드 행삭제
+//-------------------------------------------------------------------------
+scwin.f_DelClass = async function () {
+  try {
+    let curRow = ds_work_unit_list.getRowPosition();
+    if (ds_work_unit_list.getRowStatus(ds_work_unit_list.getRowPosition()) == "C") {
+      ds_work_unit_list.removeRow(ds_work_unit_list.getRowPosition());
+    } else {
+      ds_work_unit_list.deleteRow(ds_work_unit_list.getRowPosition());
+      gr_work_unit_list.setFocusedCell(curRow, "fixWrkUnitNo");
+    }
+  } catch (e) {
+    console.log("f_DelClass " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드 취소
+//-------------------------------------------------------------------------
+scwin.f_CancelClass = async function () {
+  try {
+    if (ds_work_unit_list.getRowStatus(ds_work_unit_list.getRowPosition()) == "C") {
+      ds_work_unit_list.removeRow(ds_work_unit_list.getRowPosition());
+    } else {
+      ds_work_unit_list.undoRow(ds_work_unit_list.getRowPosition());
+      $c.gus.cfGoPrevPosition($p, gr_work_unit_list, ds_work_unit_list.getRowPosition());
+    }
+  } catch (e) {
+    console.log("f_CancelClass " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 그리드추가 - 코드 적용
+//-------------------------------------------------------------------------
+scwin.f_AddComPartRow = async function () {
+  try {
+    if (!(await $c.gus.cfValidate($p, [ed_d_fixWrkStndNo, ed_txt_d_wrkStndNm], null, true))) return false;
+    let addRow = ds_fix_work_list.insertRow();
+    ds_fix_work_list.setCellData(addRow, "fixWrkStndNo", ed_d_fixWrkStndNo.getValue());
+    ds_fix_work_list.setCellData(addRow, "homeClsCd", lc_homeClsCd.getValue());
+    ds_fix_work_list.setCellData(addRow, "pfmCyc", 0);
+    gr_fix_work_pl.setFocusedCell(addRow, "fixKndCd");
+    gr_fix_work_pl.setReadOnly("cell", addRow, "fixKndCd", false); //정비작업종류
+    gr_fix_work_pl.setReadOnly("cell", addRow, "eqModelCd", false); //모델코드
+    gr_fix_work_pl.setReadOnly("cell", addRow, "cycClsCd", false); //구분
+    gr_fix_work_pl.setReadOnly("cell", addRow, "pfmCyc", false); //주기
+  } catch (e) {
+    console.log("f_AddComPartRow " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 그리드 행삭제
+//-------------------------------------------------------------------------
+scwin.f_DelClass2 = async function () {
+  try {
+    let curRow = ds_fix_work_list.getRowPosition();
+    if (ds_fix_work_list.getRowStatus(ds_fix_work_list.getRowPosition()) == "C") {
+      ds_fix_work_list.removeRow(ds_fix_work_list.getRowPosition());
+    } else {
+      ds_fix_work_list.deleteRow(ds_fix_work_list.getRowPosition());
+      gr_fix_work_pl.setFocusedCell(curRow, "fixKndCd");
+    }
+  } catch (e) {
+    console.log("f_DelClass2 " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 그리드 취소
+//-------------------------------------------------------------------------
+scwin.f_CancelClass2 = async function () {
+  try {
+    if (ds_fix_work_list.getRowStatus(ds_fix_work_list.getRowPosition()) == "C") {
+      ds_fix_work_list.removeRow(ds_fix_work_list.getRowPosition());
+    } else {
+      ds_fix_work_list.undoRow(ds_fix_work_list.getRowPosition());
+      $c.gus.cfGoPrevPosition($p, gr_fix_work_pl, ds_fix_work_list.getRowPosition());
+    }
+  } catch (e) {
+    console.log("f_CancelClass2 " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function (value) {
+  $c.gus.cfInitObjects($p, tb_est, null);
+};
+
+//-------------------------------------------------------------------------
+// 작업단위 목록 그리드 작업단위코드 변경전 데이터 정의 olddata
+//-------------------------------------------------------------------------
+scwin.gr_work_unit_list_onbeforeedit = function (rowIndex, columnIndex, value) {
+  try {
+    let colid = gr_work_unit_list.getColumnID(columnIndex);
+    if (colid == "fixWrkUnitNo") {
+      scwin.oriFixWrkUnitNo = value;
+    }
+  } catch (e) {
+    console.log("gr_work_unit_list_onbeforeedit " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드  : 코드 입력후 Focus 이동시 OnExit
+//-------------------------------------------------------------------------
+scwin.gr_work_unit_list_onafteredit = async function (rowIndex, columnIndex, value, info) {
+  try {
+    let Colid = gr_work_unit_list.getColumnID(columnIndex);
+    //돋보기 클릭하는 컬럼인경우
+    if (Colid == "fixWrkUnitNo") {
+      // if (info.type === 'mousedown') { //입력에는 keydown, 이미지클릭시 mousedown 돋보기 클릭만 처리하기 위한 방어코드
+      //     return false; // onafteredit 로직 중단
+      // }
+      scwin.isFocusOut = true;
+    }
+    switch (Colid) {
+      case "fixWrkUnitNo":
+        if (ds_work_unit_list.getCellData(rowIndex, Colid) != "" && ds_work_unit_list.getCellData(rowIndex, Colid) != scwin.oriFixWrkUnitNo) {
+          ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", "");
+          ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", "");
+          ds_work_unit.removeAll();
+          dma_work_unit_re.set("homeClsCd", lc_d_homeClsCd.getValue());
+          dma_work_unit_re.set("fixWrkUnitNo", ds_work_unit_list.getCellData(rowIndex, Colid));
+          dma_work_unit_re.set("useYn", 1);
+          await $c.sbm.execute($p, sbm_fixWrkUnitNo);
+          if (ds_work_unit.getRowCount() == 1) {
+            ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNo", ds_work_unit.getCellData(0, "fixWrkUnitNo")); //작업단위코드
+            ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", ds_work_unit.getCellData(0, "fixWrkUnitNm")); //단위명
+            ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", ds_work_unit.getCellData(0, "stndWrkHhCnt")); //표준작업시간
+
+            return;
+          }
+
+          //팝업화면에게 KEY 정보를 넘겨준다.
+          let data = {
+            paramTitle: "작업단위조회팝업",
+            homeClsCd: lc_d_homeClsCd.getValue(),
+            fixWrkUnitNo: ds_work_unit_list.getCellData(rowIndex, "fixWrkUnitNo"),
+            popCheck: "N"
+          };
+          var opts = {
+            id: "eq_220_04_03b",
+            popupName: "작업단위조회팝업",
+            modal: true,
+            type: "browserPopup" //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+            ,
+
+            title: "작업단위조회팝업" //Layer pop
+            ,
+
+            width: 640,
+            height: 600
+          };
+          let ret = await $c.win.openPopup($p, "/ui/ps/eq/opinfomgnt/opinfomgnt/eq_220_04_03b.xml", opts, data);
+          if (ret != null) {
+            let firstList = ret[0];
+            ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNo", firstList[0]); //작업단위코드
+            ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", firstList[1]); //단위명
+            ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", firstList[2]); //표준작업시간
+          } else {
+            ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNo", ""); //작업단위코드
+            ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", ""); //단위명
+            ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", ""); //표준작업시간
+          }
+        } else if (ds_work_unit_list.getCellData(rowIndex, Colid) == "") {
+          ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", "");
+          ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", "");
+        }
+        scwin.isFocusOut = false;
+        break;
+    }
+  } catch (e) {
+    console.log("gr_work_unit_list_onafteredit " + e);
+  }
+};
+
+// //-------------------------------------------------------------------------
+// // 첫번째 그리드 부품 gr_work_unit_list_onafteredit 콜백
+// //-------------------------------------------------------------------------
+// scwin.grid_fixWrkUnitNo_callBackFunc = function (rtn) {
+//     try{
+//         let row = ds_work_unit_list.getRowPosition();
+//         let rtnList = new Array();
+//         rtnList = rtn[0];
+
+//         if ( rtnList != null) {
+//             ds_work_unit_list.setCellData(row,"fixWrkUnitNo", rtnList[0]);	//작업단위코드
+//             ds_work_unit_list.setCellData(row,"fixWrkUnitNm", rtnList[1]);	//단위명
+//             ds_work_unit_list.setCellData(row,"stndWrkHhCnt", rtnList[2]); //표준작업시간
+//         }
+//     } catch (e) {
+//        console.log("grid_fixWrkUnitNo_callBackFunc " + e);
+//     }
+// };
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드 부품 popup
+//-------------------------------------------------------------------------
+scwin.gr_work_unit_list_ontextimageclick = async function (rowIndex, columnIndex) {
+  try {
+    if (scwin.isFocusOut) {
+      scwin.isFocusOut = false;
+      return;
+    } else {
+      let colid = gr_work_unit_list.getColumnID(columnIndex);
+      ds_work_unit.removeAll();
+      dma_work_unit_re.set("homeClsCd", lc_d_homeClsCd.getValue());
+      dma_work_unit_re.set("fixWrkUnitNo", ds_work_unit_list.getCellData(rowIndex, "fixWrkUnitNo"));
+      dma_work_unit_re.set("useYn", 1);
+      await $c.sbm.execute($p, sbm_fixWrkUnitNo);
+      if (ds_work_unit.getRowCount() == 1) {
+        ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNo", ds_work_unit.getCellData(0, "fixWrkUnitNo")); //작업단위코드
+        ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", ds_work_unit.getCellData(0, "fixWrkUnitNm")); //단위명
+        ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", ds_work_unit.getCellData(0, "stndWrkHhCnt")); //표준작업시간
+
+        return;
+      }
+
+      //팝업화면에게 KEY 정보를 넘겨준다.
+      let data = {
+        paramTitle: "작업단위조회팝업",
+        homeClsCd: lc_d_homeClsCd.getValue(),
+        fixWrkUnitNo: ds_work_unit_list.getCellData(rowIndex, "fixWrkUnitNo"),
+        popCheck: "Y"
+      };
+      var opts = {
+        id: "eq_220_04_03b",
+        popupName: "작업단위조회팝업",
+        modal: true,
+        type: "browserPopup" //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+        ,
+
+        title: "작업단위조회팝업" //Layer pop
+        ,
+
+        width: 640,
+        height: 600
+      };
+      let ret = await $c.win.openPopup($p, "/ui/ps/eq/opinfomgnt/opinfomgnt/eq_220_04_03b.xml", opts, data);
+      let firstList = ret != null ? ret[0] : null;
+      if (firstList != null) {
+        ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNo", firstList[0]); //작업단위코드
+        ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", firstList[1]); //단위명
+        ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", firstList[2]); //표준작업시간
+      } else {
+        ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNo", ""); //작업단위코드
+        ds_work_unit_list.setCellData(rowIndex, "fixWrkUnitNm", ""); //단위명
+        ds_work_unit_list.setCellData(rowIndex, "stndWrkHhCnt", ""); //표준작업시간
+      }
+      //$c.win.openPopup("/pub/ps/eq/opinfomgnt/opinfomgnt/eq_220_04_03b.xml", opts, data);
+    }
+  } catch (e) {
+    console.log("gr_work_unit_list_ontextimageclick " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드 부품 popup 콜백
+//-------------------------------------------------------------------------
+scwin.grid_fixWrkUnitNo_callBackFunc2 = function (rtn) {
+  try {
+    let row = ds_work_unit_list.getRowPosition();
+    let rtnList = new Array();
+    rtnList = rtn[0];
+    if (rtnList != null) {
+      ds_work_unit_list.setCellData(row, "fixWrkUnitNo", rtnList[0]); //작업단위코드
+      ds_work_unit_list.setCellData(row, "fixWrkUnitNm", rtnList[1]); //단위명
+      ds_work_unit_list.setCellData(row, "stndWrkHhCnt", rtnList[2]); //표준작업시간
+    } else {
+      ds_work_unit_list.setCellData(row, "fixWrkUnitNo", ""); //작업단위코드
+      ds_work_unit_list.setCellData(row, "fixWrkUnitNm", ""); //단위명
+      ds_work_unit_list.setCellData(row, "stndWrkHhCnt", ""); //표준작업시간	
+    }
+  } catch (e) {
+    console.log("grid_fixWrkUnitNo_callBackFunc " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 주기작업종류 목록 그리드 모델코드 변경전 데이터 정의 olddata
+//-------------------------------------------------------------------------
+scwin.gr_fix_work_pl_onbeforeedit = function (rowIndex, columnIndex, value) {
+  try {
+    let colid = gr_fix_work_pl.getColumnID(columnIndex);
+    if (colid == "eqModelCd") {
+      scwin.oriEqModelCd = value;
+    }
+  } catch (e) {
+    console.log("gr_fix_work_pl_onbeforeedit " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 모델 Grid PopUp : 코드 입력후 Focus 이동시 
+//-------------------------------------------------------------------------
+scwin.gr_fix_work_pl_onafteredit = function (rowIndex, columnIndex, value, info) {
+  try {
+    let Colid = gr_fix_work_pl.getColumnID(columnIndex);
+    scwin.isFocusOut = true;
+    //돋보기 클릭하는 컬럼인경우
+    if (Colid == "eqModelCd") {
+      if (ds_fix_work_list.getCellData(rowIndex, Colid) != "" && ds_fix_work_list.getCellData(rowIndex, Colid) != scwin.oriEqModelCd) {
+        ds_fix_work_list.setCellData(rowIndex, "eqModelNm", "");
+        scwin.f_openCommPopUpGrid(rowIndex, 'T');
+      } else if (ds_fix_work_list.getCellData(rowIndex, Colid) == "") {
+        ds_fix_work_list.setCellData(rowIndex, "eqModelCd", "");
+        ds_fix_work_list.setCellData(rowIndex, "eqModelNm", "");
+        scwin.isFocusOut = false;
+      }
+    }
+  } catch (e) {
+    console.log("gr_fix_work_pl_onafteredit " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 모델 Grid PopUp : 코드 입력후 Focus 이동시
+//-------------------------------------------------------------------------
+scwin.gr_fix_work_pl_ontextimageclick = function (rowIndex, columnIndex) {
+  $p.setTimeout(() => {
+    if (scwin.isFocusOut) {
+      scwin.isFocusOut = false;
+      return;
+    } else {
+      try {
+        let Colid = gr_fix_work_pl.getColumnID(columnIndex);
+        switch (Colid) {
+          case "eqModelCd":
+            scwin.f_openCommPopUpGrid(rowIndex, 'F');
+            break;
+        }
+      } catch (e) {
+        console.log("gr_fix_work_pl_ontextimageclick " + e);
+      }
+    }
+  }, 100);
+};
+
+//-------------------------------------------------------------------------
+// ds_fix_work_list_onrowpositionchange
+//-------------------------------------------------------------------------
+scwin.ds_fix_work_list_onrowpositionchange = function (info) {
+  try {
+    $c.gus.cfPrepareHidVal($p, ds_fix_work_list, info.newRowIndex, ["eqModelCd", "eqModelNm"]);
+    let RowStatus = ds_fix_work_list.getRowStatus(ds_fix_work_list.getRowPosition());
+    if (RowStatus == "C") {
+      gr_fix_work_pl.setReadOnly("cell", ds_fix_work_list.getRowPosition(), "fixKndCd", false); //Edit true
+      gr_fix_work_pl.setReadOnly("cell", ds_fix_work_list.getRowPosition(), "eqModelCd", false); //Edit true
+      gr_fix_work_pl.setReadOnly("cell", ds_fix_work_list.getRowPosition(), "eqModelNm", true); //Edit none
+    } else if (RowStatus == "R") {
+      //R일때 처리용 이벤트가 중복되는 현상으로 추가함
+      //gr_fix_work_pl.setReadOnly("cell",ds_fix_work_list.getRowPosition(),"fixKndCd",true); //Edit true
+      //gr_fix_work_pl.setReadOnly("cell",ds_fix_work_list.getRowPosition(),"eqModelCd",true); //Edit true
+      //''''gr_fix_work_pl.setReadOnly("cell",ds_fix_work_list.getRowPosition(),"eqModelNm",true); //Edit none
+    } else {
+      gr_fix_work_pl.setReadOnly("cell", ds_fix_work_list.getRowPosition(), "fixKndCd", false); //Edit true
+      gr_fix_work_pl.setReadOnly("cell", ds_fix_work_list.getRowPosition(), "eqModelCd", true); //Edit none
+      gr_fix_work_pl.setReadOnly("cell", ds_fix_work_list.getRowPosition(), "eqModelNm", true); //Edit none
+    }
+  } catch (e) {
+    console.log("ds_fix_work_list_onrowpositionchange " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 작업표준 GRID2 EDIT 속성제어
+//-------------------------------------------------------------------------
+scwin.ds_work_unit_list_onrowpositionchange = function (info) {
+  let RowStatus = ds_work_unit_list.getRowStatus(ds_work_unit_list.getRowPosition());
+  if (RowStatus == "C") {
+    gr_work_unit_list.setReadOnly("cell", ds_work_unit_list.getRowPosition(), "fixWrkUnitNo", false); //Edit true
+    gr_work_unit_list.setReadOnly("cell", ds_work_unit_list.getRowPosition(), "fixWrkUnitNm", true); //Edit none
+  } else {
+    gr_work_unit_list.setReadOnly("cell", ds_work_unit_list.getRowPosition(), "fixWrkUnitNo", true); //Edit none
+    gr_work_unit_list.setReadOnly("cell", ds_work_unit_list.getRowPosition(), "fixWrkUnitNm", true); //Edit none
+  }
+};
+
+//-------------------------------------------------------------------------
+// 품명 조회 Popup 처리 : 그리드에서 입력된 코드정보로 품명을 조회
+//-------------------------------------------------------------------------
+scwin.f_openCommPopUpGrid = function (row, pClose) {
+  try {
+    let pCode = "";
+    let pName = "";
+    let homeCls = lc_d_homeClsCd.getValue();
+    let eqCls;
+    if (homeCls == "LO") {
+      // 물류
+      eqCls = "LV";
+    } else {
+      // 고속
+      eqCls = "TV";
+    }
+
+    // 품명 코드팝업		
+    pCode = ds_fix_work_list.getCellData(row, "eqModelCd"); // 품명코드
+    ds_fix_work_list.setCellData(row, "eqModelCd", "");
+    udc_comCodeGrid.setSelectId('retrieveEqModelListInfo');
+    udc_comCodeGrid.cfCommonPopUp(scwin.grd_eqModelCd_callBackFunc // 콜백 함수
+    , pCode // 화면에서의  Code Element의 Value
+    , pName // 화면에서의  Name Element의 Value
+    , pClose // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+    , null // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+    , null // Title순서
+    , null // 보여주는 각 컬럼들의 폭
+    , null // 컬럼중에서 숨기는 컬럼 지정
+    , eqCls // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+    , null // POP-UP뛰을때 원도우의 사용자 정의 폭
+    , null // POP-UP뛰을때 윈도우의 사용자 정의 높이
+    , null // 윈도우 위치 Y좌표
+    , null // 윈도우 위치 X좌표
+    , null // 중복체크여부	("F")
+    , null // 전체검색허용여부	("F")
+    , "모델정보,모델코드,모델명" // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+    );
+  } catch (e) {
+    console.log("f_openCommPopUpGrid : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 품명 콜백
+//-------------------------------------------------------------------------
+scwin.grd_eqModelCd_callBackFunc = function (ret) {
+  $c.gus.cfSetGridReturnValue($p, ret, ds_fix_work_list, ds_fix_work_list.getRowPosition(), "eqModelCd", "eqModelNm");
+};
+
+//-------------------------------------------------------------------------
+// 엑셀다운로드
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel = function () {
+  const options = {
+    fileName: "작업표준목록.xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+    ,
+
+    sheetName: "작업표준목록" //엑셀내 시트명 지정필요시
+    ,
+
+    bodyWordwrap: true // 줄바꿈
+  };
+  const infoArr = [];
+  $c.data.downloadGridViewExcel($p, gr_work_stnd, options, infoArr);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀다운로드
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel2 = function () {
+  const options = {
+    fileName: "작업단위목록.xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+    ,
+
+    sheetName: "작업단위목록" //엑셀내 시트명 지정필요시
+    ,
+
+    bodyWordwrap: true // 줄바꿈
+  };
+  const infoArr = [];
+  $c.data.downloadGridViewExcel($p, gr_work_unit_list, options, infoArr);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀다운로드
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel3 = function () {
+  const options = {
+    fileName: "주기작업종류목록.xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+    ,
+
+    sheetName: "주기작업종류목록" //엑셀내 시트명 지정필요시
+    ,
+
+    bodyWordwrap: true // 줄바꿈
+  };
+  const infoArr = [];
+  $c.data.downloadGridViewExcel($p, gr_fix_work_pl, options, infoArr);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 1 세부 조회
+//-------------------------------------------------------------------------
+scwin.ds_work_stnd_onrowpositionchange = function (info) {
+  let newIdx = info.newRowIndex; // 이동할 인덱스
+
+  scwin.f_Retrieve_detail(ds_work_stnd.getCellData(newIdx, "fixWrkStndNo"), ds_work_stnd.getCellData(newIdx, "homeClsCd"));
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'tb_est',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'사업부문',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_homeClsCd',style:'width: 150px;',submenuSize:'fixed',mandatory:'true',title:'작업부문',ref:'data:ds_work_stnd_re.homeClsCd','ev:onchange':'scwin.lc_homeClsCd_onchange',chooseOptionLabel:'$blank',emptyItem:'true'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업표준코드 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group',id:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_fixWrkStndNo',style:'width: 100px;',maxlength:'6',allowChar:'0-9',ref:'data:ds_work_stnd_re.fixWrkStndNo'}},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_wrkStndNm',style:'width: 100px;',ref:'data:ds_work_stnd_re.fixWrkStndNm'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_Clear',style:'',type:'button','ev:onclick':'scwin.f_FieldClear'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_Retrieve',style:'',type:'button',userAuth:'R','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'lybox wfix flex_no',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'col',id:'',style:'width: 500px;'},E:[{T:1,N:'xf:group',A:{class:'row-gap-8',id:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:' 작업표준 목록 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridDownFn:'scwin.f_GridToExcel',gridUpYn:'N',gridID:'gr_work_stnd'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_work_stnd',id:'gr_work_stnd',style:'',visibleRowNum:'17',visibleRowNumFix:'true',resize:'true',columnMove:'true',readOnly:'true',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',style:'',value:'작업표준코드',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',style:'',value:'표준명',width:'100'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'fixWrkStndNo',inputType:'text',width:'130',textAlign:'center'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'fixWrkStndNm',inputType:'text',width:'100',textAlign:'left'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'tbx_totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:''},E:[{T:1,N:'xf:group',A:{class:'tbbox mt32',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업표준코드',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_d_fixWrkStndNo',style:'width: 150px;',maxlength:'6',allowChar:'0-9',objType:'key',mandatory:'true',validExp:'작업표준코드:yes:',ref:'data:ds_work_stnd.fixWrkStndNo',title:'작업표준코'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업표준명',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'ed_txt_d_wrkStndNm',style:'',maxlength:'10',mandatory:'true',objType:'data',validExp:'표준명:yes:',ref:'data:ds_work_stnd.fixWrkStndNm',title:'작업표준명'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'주기작업여부',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'cbx_cycFixYn',renderType:'checkboxgroup',ref:'data:ds_work_stnd.cycFixYn',rows:'',selectedindex:'-1',style:'',objType:'data',falseValue:'0','ev:onviewchange':'scwin.cbx_cycFixYn_onviewchange',title:'추가작업여부'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'사업부문',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'5'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',ref:'data:ds_work_stnd.homeClsCd',disabled:'true',disabledClass:'w2selectbox_disabled',id:'lc_d_homeClsCd',style:'width: 150px;',submenuSize:'fixed',objType:'data',validExp:'사업부문:yes:',mandatory:'true',emptyItem:'true',title:'사업부문'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'작업단위 목록 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grp_group2',style:'',gridDownFn:'scwin.f_GridToExcel2',gridUpYn:'N',gridID:'gr_work_unit_list'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grp_group2',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_work_unit_list',id:'gr_work_unit_list',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'5',visibleRowNumFix:'true',gridName:'작업단위리스트',dataName:'작업단위리스트',validFeatures:'ignoreStatus=no',validExp:'fixWrkUnitNo:작업단위코드:yes::key','ev:onbeforeedit':'scwin.gr_work_unit_list_onbeforeedit','ev:onafteredit':'scwin.gr_work_unit_list_onafteredit','ev:ontextimageclick':'scwin.gr_work_unit_list_ontextimageclick',rowStatusVisible:'true',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column12',inputType:'text',removeBorderStyle:'false',value:'작업단위코드',width:'130',class:'txt-red'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column11',inputType:'text',removeBorderStyle:'false',value:'작업명',width:'100'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column10',inputType:'text',removeBorderStyle:'false',value:'표준작업시간',width:'120'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'fixWrkUnitNo',inputType:'textImage',removeBorderStyle:'false',width:'130',textAlign:'center',maxByteLength:'6',maxLength:'6'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'fixWrkUnitNm',inputType:'text',removeBorderStyle:'false',width:'100',textAlign:'left'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'stndWrkHhCnt',inputType:'text',removeBorderStyle:'false',width:'120',textAlign:'right'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'tbx_totalRows2',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{btnRowAddObj:'btn_1_1',btnRowDelObj:'btn_1_2',btnCancelObj:'btn_1_3',btnCancelYn:'Y',style:'',btnRowAddYn:'Y',EngYn:'N',btnDelYn:'N',btnRowDelYn:'Y',rowAddUserAuth:'C',rowDelUserAuth:'D',rowAddFunction:'scwin.f_AddPartRow',rowDelFunction:'scwin.f_DelClass',id:'udc_addDel',gridID:'gr_work_unit_list'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'주기작업종류 목록 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grp_group3',style:'',gridDownFn:'scwin.f_GridToExcel3',gridID:'gr_fix_work_pl',gridUpYn:'N'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grp_group3',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_fix_work_list',id:'gr_fix_work_pl',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'5',visibleRowNumFix:'true','ev:onbeforeedit':'scwin.gr_fix_work_pl_onbeforeedit','ev:onafteredit':'scwin.gr_fix_work_pl_onafteredit','ev:ontextimageclick':'scwin.gr_fix_work_pl_ontextimageclick',rowStatusVisible:'true',readOnly:'true',columnMove:'false',validExp:'fixKndCd:정비작업종류:yes::key,eqModelCd:모델:yes::key,cycClsCd:구분:yes',dataName:'주기작업종류',gridName:'주기작업종류'},E:[{T:1,N:'w2:caption',A:{id:'caption3',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column12',inputType:'text',removeBorderStyle:'false',value:'정비작업종류',width:'130',class:'txt-red'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column11',inputType:'text',removeBorderStyle:'false',value:'모델코드',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column10',inputType:'text',removeBorderStyle:'false',value:'모델명',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column9',inputType:'text',removeBorderStyle:'false',value:'구분',width:'70',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column21',inputType:'text',style:'',value:'주기',width:'70',class:'txt-red'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'fixKndCd',inputType:'select',removeBorderStyle:'false',width:'130',textAlign:'left',chooseOption:'',chooseOptionLabel:'$blank',allOption:'',ref:'',emptyItem:'true'},E:[{T:1,N:'w2:choices'}]},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'eqModelCd',inputType:'textImage',removeBorderStyle:'false',width:'100',textAlign:'center',maxLength:'7'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'eqModelNm',inputType:'text',removeBorderStyle:'false',width:'100',textAlign:'left'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'cycClsCd',inputType:'select',removeBorderStyle:'false',textAlign:'right',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'pfmCyc',inputType:'text',textAlign:'right',width:'70',allowChar:'0-9',maxLength:'7',displayFormat:'#,##0'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'tbx_totalRows3',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{btnDelYn:'N',style:'',btnCancelYn:'Y',id:'udc_addDel2',rowAddFunction:'scwin.f_AddComPartRow',rowDelFunction:'scwin.f_DelClass2',rowAddUserAuth:'C',btnCancelObj:'btn_2_3',btnRowDelObj:'btn_2_2',btnRowAddObj:'btn_2_1',gridID:'gr_fix_work_pl',rowDelUserAuth:'D'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_insert',style:'',type:'button','ev:onclick':'scwin.f_Create',objType:'bCreate',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'신규'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',disabled:'false',id:'btn_update',style:'',type:'button','ev:onclick':'scwin.f_Update',objType:'bUpdate',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'수정'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_cancel',style:'',type:'button','ev:onclick':'scwin.f_Cancel',objType:'ctrlBtn'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'취소'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_save',style:'',type:'button','ev:onclick':'scwin.f_Save',objType:'bSave',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_delete',style:'',type:'button','ev:onclick':'scwin.f_Delete',objType:'bDelete',userAuth:'D'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'삭제'}]}]}]}]}]}]},{T:1,N:'w2:udc_comCode',A:{btnId:'',codeId:'',id:'udc_comCodeGrid',nameId:'',popupID:'',selectID:'',style:'display:none'}}]}]}]})

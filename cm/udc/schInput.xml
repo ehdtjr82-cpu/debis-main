@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="schInput" meta_screenId="schInput" meta_desc="검색용 input 박스">
+        <w2:type palette="support">COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:aliasDataMap scope="" id="aliasDataMap" userData1=""></w2:aliasDataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method="scwin.setData"/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * @component
+ * @componentName udc_schInput
+ * @pluginName 
+ * @company
+ * @developer
+ * @category /cm/udc
+ * @notSupportBrowser 
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description
+ * @width
+ * @height 22px
+ * @license
+ * @imagePath
+ * @homepage
+ */
+
+/**
+ * @property
+ * @name id
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name class
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name style
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name refDataMap
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 데이터맵 아이디
+ */
+
+/**
+ * @property
+ * @name iptNm
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 바인딩 input 명
+ */
+
+/**
+ * @property
+ * @name iptMandatory
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description input 필수값 여부
+ */
+
+/**
+ * @property
+ * @name iptObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description input objType 속성
+ */
+
+scwin.onpageload = function() {
+	var opts = $p.getOptions();
+	var refDataMap = opts.refDataMap;
+		
+    if(opts.iptMandatory) {
+        ed_schInp.setMandatory(opts.iptMandatory);
+    }
+    if(opts.iptObjType) {
+        ed_schInp.options.objType = opts.iptObjType;
+    }
+
+    if ( !refDataMap ) return;
+    aliasDataMap.setScope("../"+refDataMap);
+    ed_schInp.setRef("data:aliasDataMap."+opts.iptNm);
+};
+
+scwin.ed_schInp_ondblclick = function (e) {
+    let schData = this.getValue().replace(/,/g, "\n");
+    txt_schArea.setValue(schData);
+
+    txt_schArea.show("");    
+    setTimeout(function() {
+        txt_schArea.focus();
+    }, 100);
+
+};
+
+scwin.txt_schArea_onblur = function (e) {
+    let schData = this.getValue().replace(/\n/g, ",");
+    ed_schInp.setValue(schData);
+    txt_schArea.hide();  
+};
+
+/**
+ * @method
+ * @name setData
+ * @description 데이터 셋팅
+ * @param {string} param1 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setData = function (param1) {
+    ed_schInp.setValue(param1);
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group style="" id="" class="sch-input">
+            <xf:input style="" id="ed_schInp" readOnly="true" ev:ondblclick="scwin.ed_schInp_ondblclick" class="form-control"></xf:input>
+            <xf:textarea id="txt_schArea" style="display:none;" ev:onblur="scwin.txt_schArea_onblur" class="form-control"></xf:textarea>
+        </xf:group>
+    </body>
+</html>

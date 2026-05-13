@@ -1,0 +1,2543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_vehclInsuranceMgnt"
+    				ev:oncelldatachange="scwin.ds_vehclInsuranceMgnt_oncelldatachange" ev:onrowpositionchange="scwin.ds_vehclInsuranceMgnt_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="mgntNo" name="차량보험관리번호" dataType="text"></w2:column>
+    					<w2:column id="wrkClsCd" name="작업구분" dataType="text"></w2:column>
+    					<w2:column id="indDistrWrkClsCd" name="산재작업구분" dataType="text"></w2:column>
+    					<w2:column id="deptCd" name="지사코드" dataType="text"></w2:column>
+    					<w2:column id="deptNm" name="지사명" dataType="text"></w2:column>
+    					<w2:column id="possessCd" name="소유구분" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="drcrNo" name="차대번호" dataType="text"></w2:column>
+    					<w2:column id="indDistrDrvNm" name="운전자명" dataType="text"></w2:column>
+    					<w2:column id="indDistrBirthDt" name="생년월일" dataType="text"></w2:column>
+    					<w2:column id="applyDt" name="신청일자" dataType="text"></w2:column>
+    					<w2:column id="vehclTypeCd" name="차량형식" dataType="text"></w2:column>
+    					<w2:column id="maxPayloadCd" name="최대적재량" dataType="text"></w2:column>
+    					<w2:column id="releaseYear" name="차량년식" dataType="text"></w2:column>
+    					<w2:column id="apprvStsCd" name="전자결재상태" dataType="text"></w2:column>
+    					<w2:column id="col16" name="차량보험관리번호" dataType="text"></w2:column>
+    					<w2:column id="wrkSeq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="apprvReqNo" name="결재요청번호" dataType="text"></w2:column>
+    					<w2:column id="col19" name="소속지사" dataType="text"></w2:column>
+    					<w2:column id="cancelCd" name="소속지사" dataType="text"></w2:column>
+    					<w2:column id="carInsuranceShortStdDt" name="(자동차보험)단기 시작일" dataType="text"></w2:column>
+    					<w2:column id="carInsuranceShortEndDt" name="(자동차보험)단기 종료일" dataType="text"></w2:column>
+    					<w2:column id="carInsuranceYearStdDt" name="(자동차보험)1년 시작일" dataType="text"></w2:column>
+    					<w2:column id="carInsuranceYearEndDt" name="(자동차보험)1년 종료일" dataType="text"></w2:column>
+    					<w2:column id="objectLimitCd" name="(자동차보험)대물한도" dataType="text"></w2:column>
+    					<w2:column id="driverAge" name="(자동차보험)운전자연령" dataType="text"></w2:column>
+    					<w2:column id="selfVehclYn" name="(자동차보험)자차여부" dataType="text"></w2:column>
+    					<w2:column id="selfVehclStdDt" name="(자동차보험)자차 시작일" dataType="text"></w2:column>
+    					<w2:column id="selfVehclEndDt" name="(자동차보험)자차 종료일" dataType="text"></w2:column>
+    					<w2:column id="sfdmgVehclYn" name="(자동차보험)자손여부" dataType="text"></w2:column>
+    					<w2:column id="sfdmgVehclStdDt" name="(자동차보험)자손 시작일" dataType="text"></w2:column>
+    					<w2:column id="sfdmgVehclEndDt" name="(자동차보험)자손 종료일" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceShortStdDt" name="(적재물보험)단기 시작일" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceShortEndDt" name="(적재물보험)단기 종료일" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceYearStdDt" name="(적재물보험)1년 시작일" dataType="text"></w2:column>
+    					<w2:column id="luggageInsuranceYearEndDt" name="(적재물보험)1년 종료일" dataType="text"></w2:column>
+    					<w2:column id="guaranteeLimitCd" name="(적재물보험)보상한도" dataType="text"></w2:column>
+    					<w2:column id="glassYn" name="(적재물보험)유리여부" dataType="text"></w2:column>
+    					<w2:column id="glassStdDt" name="(적재물보험)유리 시작일" dataType="text"></w2:column>
+    					<w2:column id="glassEndDt" name="(적재물보험)유리 종료일" dataType="text"></w2:column>
+    					<w2:column id="frizYn" name="(적재물보험)냉동여부" dataType="text"></w2:column>
+    					<w2:column id="frizStdDt" name="(적재물보험)냉동 시작일" dataType="text"></w2:column>
+    					<w2:column id="frizEndDt" name="(적재물보험)냉동 종료일" dataType="text"></w2:column>
+    					<w2:column id="umbrellaPolicyYn" name="(적재물보험)기업포괄여부" dataType="text"></w2:column>
+    					<w2:column id="umbrellaPolicyStdDt" name="(적재물보험)기업포괄 시작일" dataType="text"></w2:column>
+    					<w2:column id="umbrellaPolicyEndDt" name="(적재물보험)기업포괄 종료일" dataType="text"></w2:column>
+    					<w2:column id="regId" name="등록자" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+    					<w2:column id="preVehclNo" name="차량번호2" dataType="text"></w2:column>
+    					<w2:column id="preDeptCd" name="소속지사2" dataType="text"></w2:column>
+    					<w2:column id="prePossessCd" name="소유구분2" dataType="text"></w2:column>
+    					<w2:column id="preVehclTypeCd" name="차량형식2" dataType="text"></w2:column>
+    					<w2:column id="preMaxPayloadCd" name="최대적재량2" dataType="text"></w2:column>
+    					<w2:column id="preReleaseYear" name="차량년식2" dataType="text"></w2:column>
+    					<w2:column id="preCarInsuranceYearStdDt" name="(자동차보험)1년 시작일2" dataType="text"></w2:column>
+    					<w2:column id="col58" name="수정일자" dataType="text"></w2:column>
+    					<w2:column id="preCarInsuranceYearEndDt" name="(자동차보험)1년 종료일2" dataType="text"></w2:column>
+    					<w2:column id="preObjectLimitCd" name="(자동차보험)대물한도2" dataType="text"></w2:column>
+    					<w2:column id="preDriverAge" name="(자동차보험)운전자연령2" dataType="text"></w2:column>
+    					<w2:column id="preSelfVehclYn" name="(자동차보험)자차여부2" dataType="text"></w2:column>
+    					<w2:column id="preSelfVehclStdDt" name="(자동차보험)자차 시작일2" dataType="text"></w2:column>
+    					<w2:column id="preSelfVehclEndDt" name="(자동차보험)자차 종료일2" dataType="text"></w2:column>
+    					<w2:column id="preSfdmgVehclYn" name="(자동차보험)자손여부2" dataType="text"></w2:column>
+    					<w2:column id="preSfdmgVehclStdDt" name="(자동차보험)자손 시작일2" dataType="text"></w2:column>
+    					<w2:column id="preSfdmgVehclEndDt" name="(자동차보험)자손 종료일2" dataType="text"></w2:column>
+    					<w2:column id="preLuggageInsurYearStdDt" name="(적재물보험)1년 시작일2" dataType="text"></w2:column>
+    					<w2:column id="preLuggageInsurYearEndDt" name="(적재물보험)1년 종료일2" dataType="text"></w2:column>
+    					<w2:column id="preGuaranteeLimitCd" name="(적재물보험)보상한도2" dataType="text"></w2:column>
+    					<w2:column id="preGlassYn" name="(적재물보험)유리여부2" dataType="text"></w2:column>
+    					<w2:column id="preGlassStdDt" name="(적재물보험)유리 시작일2" dataType="text"></w2:column>
+    					<w2:column id="preGlassEndDt" name="(적재물보험)유리 종료일2" dataType="text"></w2:column>
+    					<w2:column id="preFrizYn" name="(적재물보험)냉동여부2" dataType="text"></w2:column>
+    					<w2:column id="preFrizStdDt" name="(적재물보험)냉동 시작일2" dataType="text"></w2:column>
+    					<w2:column id="preFrizEndDt" name="(적재물보험)냉동 종료일2" dataType="text"></w2:column>
+    					<w2:column id="indDistrStdDt" name="(산재보험)입직일" dataType="text"></w2:column>
+    					<w2:column id="indDistrEndDt" name="(산재보험)이직/적용제외신청일" dataType="text"></w2:column>
+    					<w2:column id="indDistrSndTypeCd" name="(산재보험)배송수단" dataType="text"></w2:column>
+    					<w2:column id="preIndDistrStdDt" name="(산재보험)입직일" dataType="text"></w2:column>
+    					<w2:column id="preIndDistrEndDt" name="(산재보험)이직/적용제외신청일" dataType="text"></w2:column>
+    					<w2:column id="preIndDistrDrvNm" name="(산재보험)운전자명" dataType="text"></w2:column>
+    					<w2:column id="preIndDistrBirthDt" name="(산재보험)생년월일" dataType="text"></w2:column>
+    					<w2:column id="preIndDistrWrkClsCd" name="(산재보험)산재작업구분" dataType="text"></w2:column>
+    					<w2:column id="preIndDistrSndTypeCd" name="(산재보험)배송수단" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="reqDeptCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="reqPossessCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="reqApplyStdDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="reqApplyEndDt" name="name4" dataType="text"></w2:key>
+    					<w2:key id="reqVehclNo" name="name5" dataType="text"></w2:key>
+    					<w2:key id="reqDrcrNo" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_condition2">
+    				<w2:keyInfo>
+    					<w2:key id="mgntNo" name="name1" dataType="text"></w2:key>
+    					<w2:key id="wrkSeq" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_cdNm">
+    				<w2:keyInfo>
+    					<w2:key id="param1" name="name1" dataType="text"></w2:key>
+    					<w2:key id="param2" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param3" name="name3" dataType="text"></w2:key>
+    					<w2:key id="param4" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_vehclInsuranceMgntChangeDetail">
+    				<w2:columnInfo>
+    					<w2:column id="mgntNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="chgWrkCd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="pastData" name="name3" dataType="text"></w2:column>
+    					<w2:column id="currentData" name="name4" dataType="text"></w2:column>
+    					<w2:column id="modSeq" name="name5" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_cdNm">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_attachCond">
+    				<w2:keyInfo>
+    					<w2:key id="mgntNo" name="name1" dataType="text"></w2:key>
+    					<w2:key id="wrkSeq" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_fileList">
+    				<w2:columnInfo>
+    					<w2:column id="fileClsNm" name="name1" dataType="text"></w2:column>
+    					<w2:column id="fileClsCd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="fileName" name="name3" dataType="text"></w2:column>
+    					<w2:column id="fileSize" name="name4" dataType="text"></w2:column>
+    					<w2:column id="wrkSeq" name="name5" dataType="text"></w2:column>
+    					<w2:column id="filePath" name="name6" dataType="text"></w2:column>
+    					<w2:column id="fileSeq" name="name7" dataType="text"></w2:column>
+    					<w2:column id="mgntNo" name="name8" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="fileUploadGDS" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="fileClsCD" name="name3" dataType="text"></w2:column>
+    					<w2:column id="fileClsNm" name="name4" dataType="text"></w2:column>
+    					<w2:column id="fileClsCd" name="name5" dataType="text"></w2:column>
+    					<w2:column id="fileName" name="name6" dataType="text"></w2:column>
+    					<w2:column id="fileSize" name="name7" dataType="text"></w2:column>
+    					<w2:column id="fileSeq" name="name8" dataType="text"></w2:column>
+    					<w2:column id="filePath" name="name9" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="fileDeleteGDS">
+    				<w2:columnInfo>
+    					<w2:column id="mgntNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="wrkSeq" name="name2" dataType="text"></w2:column>
+    					<w2:column id="fileSeq" name="name3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_mgntNo" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="mgntNo" name="name1"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_wrkSeq" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="wrkSeq" name="name1"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_fileClsCd" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="fileClsCd" name="name3"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_fileType">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="name1" dataType="text"></w2:column>
+    					<w2:column id="name" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/cm.bc.vehclinsurancemgnt.cmd.RetrieveVehclInsuranceMgntListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_vehclInsuranceMgnt","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_vehclInsuranceMgnt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_cdNm" action="" method="post" mediatype="application/json" ref="data:json,dma_cdNm" target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_create" action="/cm.bc.vehclinsurancemgnt.cmd.CreateAttachFilCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"fileUploadGDS","key":"IN_DS1"},{"id":"dma_mgntNo","key":"mgntNo"},{"id":"dma_wrkSeq","key":"wrkSeq"},{"id":"dma_fileClsCd","key":"fileClsCd"}]'
+    			target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_create_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_chkAfterDayAndYear" action="" method="post" mediatype="application/json" ref="" target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/cm.bc.vehclinsurancemgnt.cmd.CreateVehclInsuranceMgntCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_vehclInsuranceMgnt","key":"IN_DS1"}' target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save2" action="/cm.bc.vehclinsurancemgnt.cmd.CreateVehclInsuranceMgntChangeDetailCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_vehclInsuranceMgntChangeDetail","key":"IN_DS1"}' target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save2_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve_detail" action="/cm.bc.vehclinsurancemgnt.cmd.RetrieveVehclInsuranceMgntChangeDetailListCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition2","key":"IN_DS1"},{"id":"ds_vehclInsuranceMgntChangeDetail","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_vehclInsuranceMgntChangeDetail","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveAttachFile" action="/cm.bc.vehclinsurancemgnt.cmd.RetrieveAttachedFileListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_attachCond","key":"IN_DS1"},{"id":"ds_fileList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_fileList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_delete" action="/cm.bc.vehclinsurancemgnt.cmd.DeleteAttachFilCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"fileDeleteGDS","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_delete_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역변수
+scwin.memJson = $c.data.getMemInfo();
+
+scwin.sDate = $c.date.getServerDateTime("");  // 서버를 기준으로 현재 날짜 반환
+scwin.strFromDate = scwin.sDate.substring(0,8);
+scwin.strLastDate = ($c.date.getLastDateOfMonth(scwin.strFromDate.substring(0,6)));
+
+scwin.strToDate = scwin.strFromDate.substring(0,6) + scwin.strLastDate;
+scwin.strFromDate = scwin.strFromDate.substring(0,6)+"01";
+
+scwin.gv_loabranCd = scwin.memJson.loUpperLobranCd;
+scwin.preWrkClsCd = '';
+
+scwin.onpageload = function() {
+    scwin.pDeptCd = $c.data.getParameter("pDeptCd") == null ? "" : $c.data.getParameter("pDeptCd");
+    scwin.pVehchlNo = $c.data.getParameter("pVehchlNo") == null ? "" : $c.data.getParameter("pVehchlNo");
+    scwin.pDrcrNo = $c.data.getParameter("pDrcrNo") == null ? "" : $c.data.getParameter("pDrcrNo");
+    scwin.pApplyDt = $c.data.getParameter("pApplyDt") == null ? "" : $c.data.getParameter("pApplyDt");
+    scwin.pPorteYn = $c.data.getParameter("pPorteYn") == null ? "" : $c.data.getParameter("pPorteYn");
+
+	const codeOptions = [
+        {
+            method: "getLuxeComboDataNoSort",
+            param1: "VehclInsuranceMgntEBC",
+            param2: "retriveLobranCodeList",
+            compID: "acb_reqDeptCd"
+        },        
+        {
+            method: "getLuxeComboDataNoSort",
+            param1: "VehclInsuranceMgntEBC",
+            param2: "retriveLobranCodeList",
+            compID: "acb_deptCd"
+        },
+
+    ];
+    $c.data.setGauceUtil(codeOptions, function(){
+        if (scwin.gv_loabranCd != null) {
+            acb_reqDeptCd.setValue(scwin.gv_loabranCd);
+        } else {
+            acb_reqDeptCd.setValue('');
+        }
+
+        if (scwin.pPorteYn == "Y") {
+            acb_reqDeptCd.setValue(scwin.pDeptCd);
+            $c.gus.cfDisableObjects([acb_reqDeptCd]);
+        }
+    });
+
+    const codeOptions2 = [
+        { grpCd: "ZZ831", compID: "rd_wrkClsCd" },//rd_wrkClsCd
+        { grpCd: "ZZ832", compID: "acb_reqPossessCd,lc_possessCd" },
+        { grpCd: "ZZ833", compID: "lc_vehclTypeCd",opt : {"range" : "1"} },
+        { grpCd: "ZZ843", compID: "lc_cancelCd" },
+        { grpCd: "ZZ840", compID: "lc_driverAge" },
+        { grpCd: "ZZ835", compID: "lc_objectLimitCd" },
+        { grpCd: "ZZ836", compID: "lc_guaranteeLimitCd" },
+        { grpCd: "ZZ838", compID: "",opt : {"range" : "1"} },
+        { grpCd: "ZZ844", compID: "rd_indDistrWrkClsCd" },//rd_indDistrWrkClsCd
+        { grpCd: "ZZ845", compID: "lc_indDistrSndTypeCd" }
+    ];
+    $c.data.setCommonCode(codeOptions2, function() {
+        dlt_commonCodeZZ838.insertRow(0);
+        dlt_commonCodeZZ838.setCellData(0,"cd","00");
+        dlt_commonCodeZZ838.setCellData(0,"cdNm","선택하지않음");
+
+        for(let i = 0; i < dlt_commonCodeZZ838.getRowCount(); i++) {
+            let newRow = ds_fileType.insertRow();
+            ds_fileType.setCellData(newRow, "code", dlt_commonCodeZZ838.getCellData(i,"cd"));
+            ds_fileType.setCellData(newRow, "name", dlt_commonCodeZZ838.getCellData(i,"cdNm"));
+        }
+    });
+};
+
+//-------------------------------------------------------------------------
+// UDC 로딩 완료 후
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    scwin.f_firstSetting();
+    
+    ed_reqApplyStdDt.setValue(scwin.strFromDate);
+    ed_reqApplyEndDt.setValue(scwin.strToDate);
+};
+
+scwin.ondataload = async function() {  
+    if (scwin.pPorteYn == "Y") {
+        ed_reqVehclNo.setValue(scwin.pVehchlNo);
+        ed_reqDrcrNo.setValue(scwin.pDrcrNo);
+        ed_reqApplyStdDt.setValue(scwin.pApplyDt);
+        ed_reqApplyEndDt.setValue(scwin.pApplyDt);
+        
+        $c.gus.cfDisableObjects([ed_reqVehclNo, ed_reqDrcrNo, acb_reqPossessCd, udc_reqApply, btn_retrive]); 
+        $c.gus.cfDisableObjects([btn_create, btn_update, btn_cancel, btn_save]);
+        scwin.f_Retrieve();
+    }
+
+    //(dlt_commonCodeZZ838);
+    dma_attachCond.set("mgntNo", "1");
+    dma_attachCond.set("wrkSeq", "1");
+
+    udcFileUpload.setTypeData(ds_fileType.getAllJSON(), true);
+    let e = await $c.sbm.execute(sbm_retrieveAttachFile);
+    scwin.sbm_retrieveAttachFile_submitdone(e);
+}
+
+//-------------------------------------------------------------------------
+// Enable/Disable
+//-------------------------------------------------------------------------
+scwin.f_firstSetting = function() {
+    $c.gus.cfDisableKeyData();      
+    
+    // 기본정보 항목
+    $c.gus.cfDisableObjects([rd_wrkClsCd, acb_deptCd, ed_applyDt, ed_vehclNo, ed_drcrNo, lc_cancelCd, lc_possessCd, lc_vehclTypeCd, ed_maxPayloadCd, ed_releaseYear]); 
+    
+    // 자동차보험 항목
+    //cfDisableObjects([ed_carInsuranceShortStdDt, ed_carInsuranceShortEndDt, img_carInsuranceShortStdDt, img_carInsuranceShortEndDt]); 
+    $c.gus.cfDisableObjects([udc_carInsuranceYear]); 
+    $c.gus.cfDisableObjects([lc_objectLimitCd, lc_driverAge]); 
+    $c.gus.cfDisableObjects([cbx_selfVehclYn, udc_selfVehcl]); 
+    $c.gus.cfDisableObjects([cbx_sfdmgVehclYn, udc_sfdmgVehcl]); 
+    
+    // 적재물보험 항목
+    //cfDisableObjects([ed_luggageInsuranceShortStdDt, ed_luggageInsuranceShortEndDt, img_luggageInsuranceShortStdDt, img_luggageInsuranceShortEndDt]); 
+    $c.gus.cfDisableObjects([udc_luggageInsuranceYear]); 
+    $c.gus.cfDisableObjects([lc_guaranteeLimitCd]); 
+    $c.gus.cfDisableObjects([cbx_glassYn, udc_glass]); 
+    $c.gus.cfDisableObjects([cbx_frizYn, udc_friz]); 
+    //cfDisableObjects([chb_umbrellaPolicyYn, ed_umbrellaPolicyStdDt, ed_umbrellaPolicyEndDt, img_umbrellaPolicyStdDt, img_umbrellaPolicyEndDt]);
+    
+    // 버튼 항목
+    $c.gus.cfDisableObjects([btn_create, btn_update, btn_cancel, btn_save]);
+    
+    // 산재보험 항목
+    $c.gus.cfDisableObjects([udc_indDistr, ed_indDistrDrvNm, ed_indDistrBirthDt, rd_indDistrWrkClsCd, lc_indDistrSndTypeCd]); 
+};
+
+//-------------------------------------------------------------------------
+// Enable
+//-------------------------------------------------------------------------
+scwin.f_enableSetting = function() {
+    // 기본정보
+    $c.gus.cfEnableObjects([acb_deptCd, ed_vehclNo, ed_drcrNo, lc_possessCd, lc_vehclTypeCd, ed_maxPayloadCd, ed_releaseYear]);
+    
+    // 자동차 보험
+    //cfEnableObjects([ed_carInsuranceShortStdDt, ed_carInsuranceShortEndDt, img_carInsuranceShortStdDt, img_carInsuranceShortEndDt]); 
+    $c.gus.cfEnableObjects([udc_carInsuranceYear]); 
+    $c.gus.cfEnableObjects([lc_objectLimitCd, lc_driverAge, cbx_selfVehclYn, cbx_sfdmgVehclYn]);
+    
+    // 적재물 보험
+    //cfEnableObjects([ed_luggageInsuranceShortStdDt, ed_luggageInsuranceShortEndDt, img_luggageInsuranceShortStdDt, img_luggageInsuranceShortEndDt]); 
+    $c.gus.cfEnableObjects([udc_luggageInsuranceYear]); 
+    $c.gus.cfEnableObjects([lc_guaranteeLimitCd, cbx_glassYn, cbx_frizYn]);//, chb_umbrellaPolicyYn]); 
+    
+    scwin.f_checkSelfVehclYn();
+    scwin.f_checkSfdmgVehclYn();
+    scwin.f_checkGlassYn();
+    scwin.f_checkFrizYn();
+    //scwin.f_checkUmbrellaPolicyYn();
+    
+    // 산재보험 항목
+    $c.gus.cfEnableObjects([udc_indDistr, ed_indDistrDrvNm, ed_indDistrBirthDt, rd_indDistrWrkClsCd, lc_indDistrSndTypeCd]);       
+};    
+
+//-------------------------------------------------------------------------
+// onloadSetting
+//-------------------------------------------------------------------------
+scwin.f_onloadSetting = function() {
+    scwin.f_firstSetting();
+    
+    let row = ds_vehclInsuranceMgnt.getRowPosition();
+    if (row < 0) return;
+    
+    let chkWrkClsCd      = ds_vehclInsuranceMgnt.getCellData(row,"wrkClsCd");
+    let chkApprvReqNo    = ds_vehclInsuranceMgnt.getCellData(row,"apprvReqNo");
+    let chkApprvStsCd    = ds_vehclInsuranceMgnt.getCellData(row,"apprvStsCd");
+    
+    if(chkApprvReqNo == ''){    // 전자결재 올리지 않은 상태 (수정이 가능 해야함)
+        $c.gus.cfEnableObjects([btn_create, btn_update]);
+    }
+    else{
+        if(chkApprvStsCd == '05' || chkApprvStsCd == '03' || chkApprvStsCd == '06' ){   // 전자결재 최종완결 상태와 반려 상태 (수정이 가능 해야함)
+            $c.gus.cfEnableObjects([btn_create, btn_update]);
+            
+        }   
+        else{   // 전자결재는 상신했음 ~ 나머지 상태들 (신규만 가능)
+            $c.gus.cfEnableObjects([btn_create]);
+        }
+    }
+    
+    if(chkWrkClsCd == '02' && chkApprvStsCd == '01'){
+        if(scwin.pPorteYn == ''){
+            $c.gus.cfEnableObjects([btn_create, btn_update]);
+        }
+    }
+};  
+
+//-------------------------------------------------------------------------
+// 신규 버튼 클릭시
+//------------------------------------------------------------------------- 
+scwin.f_Create = function() {
+    let newRow = ds_vehclInsuranceMgnt.insertRow();
+    gr_vehclInsuranceMgnt.setFocusedCell(newRow, "wrkClsCd");
+
+    ds_vehclInsuranceMgnt.setCellData(newRow, "wrkClsCd", '01');   // 작업구분
+    ds_vehclInsuranceMgnt.setCellData(newRow, "deptCd", scwin.gv_loabranCd);  // 소속지사
+    ds_vehclInsuranceMgnt.setCellData(newRow, "applyDt", $c.date.getServerDateTime("yyyyMMdd")); // 신청일자
+    
+    scwin.f_enableSetting(); 
+    $c.gus.cfEnableObjects([rd_wrkClsCd, btn_cancel, btn_save]);
+    $c.gus.cfDisableObjects([btn_create, btn_update]);
+};      
+
+//-------------------------------------------------------------------------
+// 수정 버튼 클릭시
+//-------------------------------------------------------------------------             
+scwin.f_Update = function() {
+    $c.gus.cfDisableObjects([btn_create, btn_update]);
+    $c.gus.cfEnableObjects([rd_wrkClsCd, btn_cancel, btn_save]);
+    rd_wrkClsCd.focus();
+    
+    let row = ds_vehclInsuranceMgnt.getRowPosition();
+    
+    ds_vehclInsuranceMgnt.setCellData(row, "applyDt", $c.date.getServerDateTime("yyyyMMdd")); // 신청일자
+    
+    let chkWrkClsCd = ds_vehclInsuranceMgnt.getCellData(row,"wrkClsCd");
+
+    if(chkWrkClsCd == '01'){        // 가입 상태인 경우 모든 메뉴 수정 가능
+        scwin.f_enableSetting();
+    }
+    else if(chkWrkClsCd == '02'){   // 변경 상태인 경우 [기본정보: 소속지사, 차량번호, 차대번호, 최대적재량, 차량년식, 소유구분, 차량형식]
+        // [자동차보험정보: 자차, 자손, 운전자연령, 대물한도],[적재물보험정보: 유리특약, 냉동특약, 보상한도] 수정가능
+        scwin.f_enableSetting();
+        //$c.gus.cfDisableObjects([ed_maxPayloadCd, ed_releaseYear]);
+    }
+    else if(chkWrkClsCd == '03'){   // 대차를 선택 하는 경우 차대번호, 최대적재량, 차량년식, 소속지사, 소유구분만 수정 가능
+        $c.gus.cfEnableObjects([ed_drcrNo, ed_maxPayloadCd, ed_releaseYear, acb_deptCd, lc_possessCd]);
+    }
+    else if(chkWrkClsCd == '04'){   // 갱신 상태인 경우 모든 메뉴 수정 가능
+        scwin.f_enableSetting();
+    }
+    else if(chkWrkClsCd == '05'){   // 해지를 선택 하는 경우 보험기간, 해지사유만 수정 가능           
+        //$c.gus.cfEnableObjects([ed_carInsuranceShortStdDt, ed_carInsuranceShortEndDt, img_carInsuranceShortStdDt, img_carInsuranceShortEndDt]);
+        $c.gus.cfEnableObjects([lc_cancelCd, udc_carInsuranceYear]);
+        //$c.gus.cfEnableObjects([ed_luggageInsuranceShortStdDt, ed_luggageInsuranceShortEndDt, img_luggageInsuranceShortStdDt, img_luggageInsuranceShortEndDt]);
+        $c.gus.cfEnableObjects([udc_luggageInsuranceYear]);
+    }
+    
+    if(ds_vehclInsuranceMgnt.getCellData(row,"apprvStsCd") != '05'){
+        $c.gus.cfDisableObjects([rd_wrkClsCd]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 취소 버튼 클릭시
+//-------------------------------------------------------------------------
+scwin.f_Cancel = function() {
+    $c.data.undoRow(ds_vehclInsuranceMgnt);
+    rd_wrkClsCd.focus();
+
+    scwin.f_firstSetting();
+    scwin.f_onloadSetting();
+};   
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() { 
+    if(ed_reqApplyStdDt.getValue() == "" || ed_reqApplyEndDt.getValue() == ""){
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_002, "신청일자"));
+        ed_reqApplyStdDt.focus();
+        return;
+    }
+    
+    //시작일자가 종료일자 이전인지 check
+    if (!$c.gus.cfIsAfterDate(ed_reqApplyStdDt.getValue(), ed_reqApplyEndDt.getValue())){
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_039));
+        return;
+    }
+
+    $c.sbm.execute(sbm_search);
+    
+    //scwin.f_setFileUpDownFrame(slipNo);
+};
+
+//-------------------------------------------------------------------------
+// 공통코드 조회 - 전 (past)
+//-------------------------------------------------------------------------     
+scwin.f_cdNm = async function(GRP_CD, CD) {
+    let grp_cd = GRP_CD;
+    let pCode = CD;
+        
+    // SELECT 절 
+    let param1 =  
+      " CD_NM      as COL1 "
+    + ",''      as COL2 "
+    + ",''      as COL3 "
+    + ",''      as COL4 "
+    + ",''      as COL5 "
+    + ",''      as COL6 "
+    + ",''      as COL7 "
+    + ",''      as COL8 "
+    + ",''      as COL9 "
+    + ",''      as COL10";
+        
+    // 대상테이블     
+    let param2 = " TB_ZZ002 ";
+        
+    // 조건절
+    let param3 =  
+          " AND GRP_CD = '"+grp_cd+"'" 
+        + " AND CD = '"+pCode+"'" 
+        ;
+        
+    let param4 =  "CD_NM";
+    
+    dma_cdNm.set("param1", param1);
+    dma_cdNm.set("param2", param2);
+    dma_cdNm.set("param3", param3);
+    dma_cdNm.set("param4", param4);
+    
+    sbm_cdNm.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC&queryId=dinymicQueryTest" + "&param1=" + param1 + "&param2=" + param2 + "&param3=" + param3 + "&param4=" + param4;
+    await $c.sbm.execute(sbm_cdNm);  
+};  
+
+scwin.check_Num = function(a) {
+    let num = a;
+    let j;
+    let t = false;
+    
+    //소수점 유무 판별
+    for( j = 1; j <= num.length; j++){
+        if(num.substring(j-1,j)=='.'){
+            t = true; //소수점 있음
+        }
+    }
+    
+    //소수점 몇 자리인지 판별
+    if(t == true){
+        num = (num=num.toString()).substring(num.indexOf('.')+1, num.length)
+        if(num.length > 1) { //소수점 2자리 이상
+            return false;
+        }else{  //소수점 1자리 이하
+            return true;
+        }
+    }else{  //소수점 없음
+        return true;
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장 버튼 클릭시
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    if (ds_vehclInsuranceMgnt.getModifiedIndex().length == 0) {
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    }
+
+    let oValidExp = {dataName:"차량보험신청관리",
+    validFeatures:"ignoreStatus=no,",
+    validExp:`wrkClsCd:작업구분:yes, deptCd:소속지사:yes, applyDt:신청일:yes, drcrNo:차대번호:yes, possessCd:소유구분:yes, 
+                    vehclTypeCd:차량형식:yes, maxPayloadCd:최대적재랑:yes, releaseYear:차량년식:yes, 
+                    carInsuranceYearStdDt:자동차보험기간1년:yes, carInsuranceYearEndDt:자동차보험기간1년:yes,
+                    luggageInsuranceYearStdDt:적재물보험기간1년:yes, luggageInsuranceYearEndDt:적재물보험기간1년:yes,
+                    driverAge:운전자연령:yes, objectLimitCd:대물한도:yes, guaranteeLimitCd:보상한도:yes,
+                    indDistrStdDt:입직일:yes, indDistrEndDt:이직/적용제외신청일:yes, indDistrDrvNm:운전자명:yes,
+                    indDistrBirthDt:생년월일:yes, indDistrWrkClsCd:산재작업구분:yes`};
+    await $c.gus.setValidExp(gr_vehclInsuranceMgnt, oValidExp);            
+    
+    let ret = await $c.gus.cfValidate([gr_vehclInsuranceMgnt], null, true);
+    if (ret) {
+        let row = ds_vehclInsuranceMgnt.getRowPosition();
+        if (ds_vehclInsuranceMgnt.getCellData(row,"wrkClsCd") == '02' || ds_vehclInsuranceMgnt.getCellData(row,"wrkClsCd") == '03') { // 변경 또는 대차 상태인 경우
+
+            let pastCdNm = '';
+            let currentCdNm = '';
+            
+            //'변경 및 대차 내역' 자동저장을 위한 데이터 설정
+            if(ds_vehclInsuranceMgnt.getCellData(row,"deptCd") != ds_vehclInsuranceMgnt.getCellData(row,"preDeptCd")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));             
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '01'); //소속지사                    
+                
+                await scwin.f_cdNm('ZZ842', ds_vehclInsuranceMgnt.getCellData(row,"preDeptCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ842', ds_vehclInsuranceMgnt.getCellData(row,"deptCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"vehclNo") != ds_vehclInsuranceMgnt.getCellData(row,"preVehclNo")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '02'); //차량번호
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preVehclNo"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"vehclNo"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"drcrNo") != ds_vehclInsuranceMgnt.getCellData(row,"preDrcrNo")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '03'); //차대번호
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preDrcrNo"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"drcrNo"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"maxPayloadCd") != ds_vehclInsuranceMgnt.getCellData(row,"preMaxPayloadCd")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '04'); //최대적재량(톤) 공통코드 안 씀                                                        
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preMaxPayloadCd"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"maxPayloadCd"));
+                
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"releaseYear") != ds_vehclInsuranceMgnt.getCellData(row,"preReleaseYear")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '05'); //차량년식
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preReleaseYear"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"releaseYear"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"possessCd") != ds_vehclInsuranceMgnt.getCellData(row,"prePossessCd")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '06'); //소유구분
+                
+                await scwin.f_cdNm('ZZ832', ds_vehclInsuranceMgnt.getCellData(row,"prePossessCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ832', ds_vehclInsuranceMgnt.getCellData(row,"possessCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"vehclTypeCd") != ds_vehclInsuranceMgnt.getCellData(row,"preVehclTypeCd")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '07'); //차량형식
+                
+                await scwin.f_cdNm('ZZ833', ds_vehclInsuranceMgnt.getCellData(row,"preVehclTypeCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ833', ds_vehclInsuranceMgnt.getCellData(row,"vehclTypeCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"carInsuranceYearStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preCarInsuranceYearStdDt") 
+            || ds_vehclInsuranceMgnt.getCellData(row,"carInsuranceYearEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preCarInsuranceYearEndDt")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '08'); //자동차보험기간
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preCarInsuranceYearStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preCarInsuranceYearEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"carInsuranceYearStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"carInsuranceYearEndDt"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"selfVehclYn") != ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclYn")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '09'); //자차          
+                
+                if(ds_vehclInsuranceMgnt.getCellData(row,"selfVehclYn") == '0'){   //체크 해제
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclEndDt"));
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", '자차보험 해지');               
+                }else if(ds_vehclInsuranceMgnt.getCellData(row,"selfVehclYn") == '1'){   //체크
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", '가입내역 없음');
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"selfVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"selfVehclEndDt"));
+                }
+            }else if(ds_vehclInsuranceMgnt.getCellData(row,"selfVehclStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclStdDt") 
+            || ds_vehclInsuranceMgnt.getCellData(row,"selfVehclEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclEndDt")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '09'); //자차  
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preSelfVehclEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"selfVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"selfVehclEndDt"));
+            }
+            
+                        
+            if(ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclYn") != ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclYn")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '10'); //자손          
+                
+                if(ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclYn") == '0'){  //체크 해제
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclEndDt"));
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", '자손보험 해지');               
+                }else if(ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclYn") == '1'){  //체크
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", '가입내역 없음');
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclEndDt"));
+                }
+            }else if(ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclStdDt") 
+            || ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclEndDt")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '10'); //자손  
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preSfdmgVehclEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclEndDt"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"driverAge") != ds_vehclInsuranceMgnt.getCellData(row,"preDriverAge")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '11'); //운전자연령                  
+                                    
+                await scwin.f_cdNm('ZZ840', ds_vehclInsuranceMgnt.getCellData(row,"preDriverAge")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ840', ds_vehclInsuranceMgnt.getCellData(row,"driverAge")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"objectLimitCd") != ds_vehclInsuranceMgnt.getCellData(row,"preObjectLimitCd")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '12'); //대물한도
+                
+                await scwin.f_cdNm('ZZ835', ds_vehclInsuranceMgnt.getCellData(row,"preObjectLimitCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ835', ds_vehclInsuranceMgnt.getCellData(row,"objectLimitCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"luggageInsuranceYearStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preLuggageInsurYearStdDt") 
+            || ds_vehclInsuranceMgnt.getCellData(row,"luggageInsuranceYearEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preLuggageInsurYearEndDt")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '13'); //적재물보험기간
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preLuggageInsurYearStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preLuggageInsurYearEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"luggageInsuranceYearStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"luggageInsuranceYearEndDt"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"glassYn") != ds_vehclInsuranceMgnt.getCellData(row,"preGlassYn")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '14'); //유리특약          
+                
+                if(ds_vehclInsuranceMgnt.getCellData(row,"glassYn") == '0'){   //체크 해제
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preGlassStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preGlassEndDt"));
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", '유리특약 해지');               
+                }else if(ds_vehclInsuranceMgnt.getCellData(row,"glassYn") == '1'){   //체크
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", '특약내역 없음');
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"glassStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"glassEndDt"));
+                }
+            }else if(ds_vehclInsuranceMgnt.getCellData(row,"glassStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preGlassStdDt") 
+            || ds_vehclInsuranceMgnt.getCellData(row,"glassEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preGlassEndDt")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '14'); //유리특약      
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preGlassStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preGlassEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"glassStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"glassEndDt"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"frizYn") != ds_vehclInsuranceMgnt.getCellData(row,"preFrizYn")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '15'); //냉동특약          
+                
+                if(ds_vehclInsuranceMgnt.getCellData(row,"frizYn") == '0'){   //체크 해제
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preFrizStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preFrizEndDt"));
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", '냉동특약 해지');               
+                }else if(ds_vehclInsuranceMgnt.getCellData(row,"frizYn") == '1'){   //체크
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", '특약내역 없음');
+                    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"frizStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"frizEndDt"));
+                }
+            }else if(ds_vehclInsuranceMgnt.getCellData(row,"frizStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preFrizStdDt") 
+            || ds_vehclInsuranceMgnt.getCellData(row,"frizEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preFrizEndDt")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '15'); //냉동특약      
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preFrizStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preFrizEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"frizStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"frizEndDt"));
+            }
+            
+            if(ds_vehclInsuranceMgnt.getCellData(row,"guaranteeLimitCd") != ds_vehclInsuranceMgnt.getCellData(row,"preGuaranteeLimitCd")){
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '16'); //보상한도
+                
+                await scwin.f_cdNm('ZZ836', ds_vehclInsuranceMgnt.getCellData(row,"preGuaranteeLimitCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ836', ds_vehclInsuranceMgnt.getCellData(row,"guaranteeLimitCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            //산재보험정보
+            if (ds_vehclInsuranceMgnt.getCellData(row,"indDistrStdDt") != ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrStdDt") 
+                    || ds_vehclInsuranceMgnt.getCellData(row,"indDistrEndDt") != ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrEndDt")) {
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '17'); //산재보험보험기간        
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrEndDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"indDistrStdDt")+"~"+ds_vehclInsuranceMgnt.getCellData(row,"indDistrEndDt"));
+            }
+            
+            if (ds_vehclInsuranceMgnt.getCellData(row,"indDistrDrvNm") != ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrDrvNm")) {
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '18'); //운전자명
+                
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrDrvNm"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"indDistrDrvNm"));
+            }
+            
+            if (ds_vehclInsuranceMgnt.getCellData(row,"indDistrBirthDt") != ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrBirthDt")) {
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '19'); //생년월일
+                
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrBirthDt"));
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", ds_vehclInsuranceMgnt.getCellData(row,"indDistrBirthDt"));
+            }
+            
+            if (ds_vehclInsuranceMgnt.getCellData(row,"indDistrWrkClsCd") != ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrWrkClsCd")) {
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '20'); //산재작업구분
+                
+                await scwin.f_cdNm('ZZ844', ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrWrkClsCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ844', ds_vehclInsuranceMgnt.getCellData(row,"indDistrWrkClsCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+            if (ds_vehclInsuranceMgnt.getCellData(row,"indDistrSndTypeCd") != ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrSndTypeCd")) {
+                let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(row,"mgntNo"));            
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "chgWrkCd", '21'); //배송수단
+                
+                await scwin.f_cdNm('ZZ845', ds_vehclInsuranceMgnt.getCellData(row,"preIndDistrSndTypeCd")); //변경전 
+                pastCdNm = ds_cdNm.getCellData(0, "col1");
+
+                await scwin.f_cdNm('ZZ845', ds_vehclInsuranceMgnt.getCellData(row,"indDistrSndTypeCd")); //변경후 
+                currentCdNm = ds_cdNm.getCellData(0, "col1");
+    
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "pastData", pastCdNm);
+                ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, "currentData", currentCdNm);
+            }
+            
+        }
+
+        let chkCarInsuranceYearStdDt    = ds_vehclInsuranceMgnt.getCellData(row,"carInsuranceYearStdDt");
+        let chkCarInsuranceYearEndDt    = ds_vehclInsuranceMgnt.getCellData(row,"carInsuranceYearEndDt");
+        let chkLuggageInsuranceYearStdDt    = ds_vehclInsuranceMgnt.getCellData(row,"luggageInsuranceYearStdDt");
+        let chkLuggageInsuranceYearEndDt    = ds_vehclInsuranceMgnt.getCellData(row,"luggageInsuranceYearEndDt");
+        
+        let chkSelfVehclYn      = ds_vehclInsuranceMgnt.getCellData(row,"selfVehclYn");
+        let chkSfdmgVehclYn     = ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclYn");
+        let chkGlassYn          = ds_vehclInsuranceMgnt.getCellData(row,"glassYn");
+        let chkFrizYn           = ds_vehclInsuranceMgnt.getCellData(row,"frizYn");
+        
+        let chkWrkClsCd         = ds_vehclInsuranceMgnt.getCellData(row,"wrkClsCd");
+        
+        //산재보험 보험기간
+        let chkIndDistrStdDt    = ds_vehclInsuranceMgnt.getCellData(row,"indDistrStdDt");
+        let chkIndDistrEndDt    = ds_vehclInsuranceMgnt.getCellData(row,"indDistrEndDt");
+        
+        //시작일자가 종료일자 이전인지 check
+        if (!$c.gus.cfIsAfterDate(chkCarInsuranceYearStdDt, chkCarInsuranceYearEndDt)){
+            await $c.win.alert("자동차보험 정보 기간(1년)의 시작일자가 종료일자 전 이어야 합니다");
+            ed_carInsuranceYearStdDt.focus();
+            return;
+        }
+        
+        //시작일자가 종료일자 이전인지 check
+        if (!$c.gus.cfIsAfterDate(chkLuggageInsuranceYearStdDt, chkLuggageInsuranceYearEndDt)){
+            await $c.win.alert("적재물보험 정보 기간(1년)의 시작일자가 종료일자 전 이어야 합니다");
+            ed_luggageInsuranceYearStdDt.focus();
+            return;
+        }
+        
+        //시작일자가 종료일자 이전인지 check
+        if (!$c.gus.cfIsAfterDate(chkIndDistrStdDt, chkIndDistrEndDt)){
+            await $c.win.alert("산재보험 보험 기간의 시작일자가 종료일자 전 이어야 합니다");
+            ed_indDistrStdDt.focus();
+            return;
+        }
+        
+        if(chkSelfVehclYn == '1'){      // 자차여부
+            let chkSelfVehclStdDt = ds_vehclInsuranceMgnt.getCellData(row,"selfVehclStdDt");
+            let chkSelfVehclEndDt = ds_vehclInsuranceMgnt.getCellData(row,"selfVehclEndDt");
+            
+            if(chkSelfVehclStdDt == '' || chkSelfVehclEndDt == ''){
+                await $c.win.alert("자차여부 선택시 시작일자와 종료일자를 입력 해야합니다.");
+                ed_selfVehclStdDt.focus();
+                return;
+            }
+            
+            if (!$c.gus.cfIsAfterDate(chkSelfVehclStdDt, chkSelfVehclEndDt)){
+                await $c.win.alert("자차여부 선택시 자차기간 시작일자가 종료일자 전 이어야 합니다");
+                ed_selfVehclStdDt.focus();
+                return;
+            }
+        }
+    
+        if(chkSfdmgVehclYn == '1'){     // 자손여부
+            let chkSfdmgVehclStdDt = ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclStdDt");
+            let chkSfdmgVehclEndDt = ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclEndDt");
+            
+            if(chkSfdmgVehclStdDt == '' || chkSfdmgVehclEndDt == ''){
+                await $c.win.alert("자손여부 선택시 시작일자와 종료일자를 입력 해야합니다.");
+                ed_sfdmgVehclStdDt.focus();
+                return;
+            }
+            
+            if (!$c.gus.cfIsAfterDate(chkSfdmgVehclStdDt, chkSfdmgVehclEndDt)){
+                await $c.win.alert("자손여부 선택시 자손여부 시작일자가 종료일자 전 이어야 합니다");
+                ed_sfdmgVehclStdDt.focus();
+                return;
+            }
+        }
+        
+        if(chkGlassYn == '1'){          // 유리여부
+            let chkGlassStdDt = ds_vehclInsuranceMgnt.getCellData(row,"glassStdDt");
+            let chkGlassEndDt = ds_vehclInsuranceMgnt.getCellData(row,"glassEndDt");
+            
+            if(chkGlassStdDt == '' || chkGlassEndDt == ''){
+                await $c.win.alert("유리여부 선택시 시작일자와 종료일자를 입력 해야합니다.");
+                ed_glassStdDt.focus();
+                return;
+            }
+            
+            if (!$c.gus.cfIsAfterDate(chkGlassStdDt, chkGlassEndDt)){
+                await $c.win.alert("유리여부 선택시 유리여부 시작일자가 종료일자 전 이어야 합니다");
+                ed_glassStdDt.focus();
+                return;
+            }
+        }
+        
+        if(chkFrizYn == '1'){               // 냉동여부
+            let chkFrizStdDt = ds_vehclInsuranceMgnt.getCellData(row,"frizStdDt");
+            let chkFrizEndDt = ds_vehclInsuranceMgnt.getCellData(row,"frizEndDt");
+            
+            if(chkFrizStdDt == '' || chkFrizEndDt == ''){
+                await $c.win.alert("냉동여부 선택시 시작일자와 종료일자를 입력 해야합니다.");
+                ed_frizStdDt.focus();
+                return;
+            }
+            
+            if (!$c.gus.cfIsAfterDate(chkFrizStdDt, chkFrizEndDt)){
+                await $c.win.alert("냉동여부 선택시 냉동여부 시작일자가 종료일자 전 이어야 합니다");
+                ed_frizStdDt.focus();
+                return;
+            }
+        }
+        
+        if(chkWrkClsCd == '05'){
+            let chkCancelCd = ds_vehclInsuranceMgnt.getCellData(row,"cancelCd");
+
+            if(chkCancelCd == ''){
+                await $c.win.alert("작업구분 해지 상태의 경우 해지사유는 필수입력 입니다.");
+                lc_cancelCd.focus();
+                return;
+            }
+        }
+        
+        if(await $c.win.confirm(MSG_CM_CRM_001)==true){
+            $c.sbm.execute(sbm_save);        
+        }else{
+            if(ds_vehclInsuranceMgntChangeDetail.getRowCount() > 0){
+                for(let i=ds_vehclInsuranceMgntChangeDetail.getRowCount()-1; i>=0; i--){
+                    if($c.gus.cfIsNull(ds_vehclInsuranceMgntChangeDetail.getCellData(i,"chkBox"))){
+                        $c.data.undoRow(ds_vehclInsuranceMgntChangeDetail);
+                    }
+                }
+            }
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 첨부파일
+//-------------------------------------------------------------------------
+scwin.f_attachFileList = async function() {
+    dma_attachCond.set("mgntNo", ds_vehclInsuranceMgnt.getCellData(ds_vehclInsuranceMgnt.getRowPosition(),"mgntNo"));
+    dma_attachCond.set("wrkSeq", ds_vehclInsuranceMgnt.getCellData(ds_vehclInsuranceMgnt.getRowPosition(),"wrkSeq"));
+    let e = await $c.sbm.execute(sbm_retrieveAttachFile);
+    scwin.sbm_retrieveAttachFile_submitdone(e);
+};
+
+//-------------------------------------------------------------------------
+// 자차여부 클릭시   chb_selfVehclYn
+//------------------------------------------------------------------------- 
+scwin.f_checkSelfVehclYn = function() {
+    if(ed_carInsuranceYearStdDt.getValue() != ''  && ed_carInsuranceYearEndDt.getValue() != ''){
+        if(ed_selfVehclStdDt.getValue() == '' && ed_selfVehclEndDt.getValue() == ''){
+            ed_selfVehclStdDt.setValue(ed_carInsuranceYearStdDt.getValue());
+            ed_selfVehclEndDt.setValue(ed_carInsuranceYearEndDt.getValue());
+        }
+    }
+    
+    let row = ds_vehclInsuranceMgnt.getRowPosition();
+
+    if(ds_vehclInsuranceMgnt.getCellData(row,"selfVehclYn") == '0'){        // 체크 해제
+        $c.gus.cfDisableObjects([udc_selfVehcl]); 
+        ed_selfVehclStdDt.setValue('');
+        ed_selfVehclEndDt.setValue('');
+    }
+    else if(ds_vehclInsuranceMgnt.getCellData(row,"selfVehclYn") == '1'){   // 체크
+        $c.gus.cfEnableObjects([udc_selfVehcl]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 자손여부 클릭시   chb_sfdmgVehclYn
+//------------------------------------------------------------------------- 
+scwin.f_checkSfdmgVehclYn = function() {
+    if(ed_carInsuranceYearStdDt.getValue() != ''  && ed_carInsuranceYearEndDt.getValue() != ''){
+        if(ed_sfdmgVehclStdDt.getValue() == '' && ed_sfdmgVehclEndDt.getValue() == ''){
+            ed_sfdmgVehclStdDt.setValue(ed_carInsuranceYearStdDt.getValue());
+            ed_sfdmgVehclEndDt.setValue(ed_carInsuranceYearEndDt.getValue());
+        }
+    }
+    
+    let row = ds_vehclInsuranceMgnt.getRowPosition();
+
+    if(ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclYn") == '0'){       // 체크 해제
+        $c.gus.cfDisableObjects([udc_sfdmgVehcl]); 
+        ed_sfdmgVehclStdDt.setValue('');
+        ed_sfdmgVehclEndDt.setValue('');
+    }
+    else if(ds_vehclInsuranceMgnt.getCellData(row,"sfdmgVehclYn") == '1'){  // 체크
+        $c.gus.cfEnableObjects([udc_sfdmgVehcl]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 유리여부 클릭시   chb_glassYn
+//------------------------------------------------------------------------- 
+scwin.f_checkGlassYn = function() {
+    let row = ds_vehclInsuranceMgnt.getRowPosition();
+
+    if(ds_vehclInsuranceMgnt.getCellData(row,"glassYn") == '0'){        // 체크 해제
+        $c.gus.cfDisableObjects([udc_glass]); 
+        ed_glassStdDt.setValue('');
+        ed_glassEndDt.setValue('');
+    }
+    else if(ds_vehclInsuranceMgnt.getCellData(row,"glassYn") == '1'){   // 체크
+        $c.gus.cfEnableObjects([udc_glass]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 냉동여부 클릭시   chb_frizYn
+//------------------------------------------------------------------------- 
+scwin.f_checkFrizYn = function() {
+    let row = ds_vehclInsuranceMgnt.getRowPosition();
+
+    if(ds_vehclInsuranceMgnt.getCellData(row,"frizYn") == '0'){     // 체크 해제
+        $c.gus.cfDisableObjects([udc_friz]); 
+        ed_frizStdDt.setValue('');
+        ed_frizEndDt.setValue('');
+    }
+    else if(ds_vehclInsuranceMgnt.getCellData(row,"frizYn") == '1'){    // 체크
+        $c.gus.cfEnableObjects([udc_friz]);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 초기화
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function() {
+    $c.gus.cfInitObjects(table1,null);
+}
+
+//-------------------------------------------------------------------------
+// 엑셀 Download
+//-------------------------------------------------------------------------
+scwin.f_runExcel = async function(varGrNm) {
+    let totCnt = ds_vehclInsuranceMgnt.getRowCount();
+    let sheetTitle = "차량보험관리";
+    
+    if( totCnt != 0){
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if(cfrm){
+            const options = {
+                fileName: sheetTitle + ".xlsx",
+                sheetName: sheetTitle
+            };
+            $c.data.downloadGridViewExcel(gr_vehclInsuranceMgnt, options);  
+        }
+    } else {
+        await $c.win.alert($c.data.getMessage(MSG_CM_WRN_002));    
+    }
+};
+
+//-------------------------------------------------------------------------
+// 행추가 버튼 클릭시 
+//-------------------------------------------------------------------------
+scwin.f_AddRow = function() {
+    let newRow = ds_vehclInsuranceMgntChangeDetail.insertRow();
+    
+    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'mgntNo', ds_vehclInsuranceMgnt.getCellData(ds_vehclInsuranceMgnt.getRowPosition(), "mgntNo"));
+    ds_vehclInsuranceMgntChangeDetail.setCellData(newRow, 'modSeq', ds_vehclInsuranceMgntChangeDetail.getRowCount());
+};
+      
+//-------------------------------------------------------------------------
+// 행삭제 버튼 클릭시 
+//-------------------------------------------------------------------------
+scwin.f_DeleteRow = function() {
+    ds_vehclInsuranceMgntChangeDetail.removeRow(ds_vehclInsuranceMgntChangeDetail.getRowPosition());
+};
+
+//-------------------------------------------------------------------------
+// 취소 버튼 클릭시 
+//-------------------------------------------------------------------------
+scwin.f_UndoRow = function() {
+    $c.data.undoRow(ds_vehclInsuranceMgntChangeDetail);
+};
+
+//-------------------------------------------------------------------------
+// 단기(보험기간) 날짜 입력 후 1년(보험기간) 셋팅을 위한 날짜 확인
+//-------------------------------------------------------------------------
+scwin.f_chkAfterDayAndYear = async function(chkDate) {
+    sbm_chkAfterDayAndYear.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC&queryId=chkAfterDayAndYear"
+											+ "&param1=" + chkDate;
+    await $c.sbm.execute(sbm_chkAftsbm_cdNmerDayAndYear);
+};  
+    
+//-------------------------------------------
+// 최대적재량 입력 : '숫자', '소수점'
+//-------------------------------------------
+scwin.f_checkCharacter = async function(e) {
+    if(((e.keyCode != 46) && ((e.keyCode < 48) || (e.keyCode > 57)))){
+        await $c.win.alert("최대적재량은 '숫자', '소수점' 만 입력 가능 합니다.");
+        e.returnValue = false;
+    }   
+};
+
+scwin.btn_init_onclick = function (e) {
+    scwin.f_InitObjects();
+};
+
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.apprvStsCd_displayFormatter = function (data) {
+    return $c.gus.decode(data,"01","대기","02","상신","03","반려","04","중간승인","05","최종승인","06","보류", "","미상신");
+};
+
+scwin.vehclTypeCd_displayFormatter = function (data) {
+    return $c.gus.decode(data,"01","트랙터","02","카고","03","T/P","04","T/L","05","탱크로리","06","윙바디","07","트랙터(냉동)","08","카고(냉동)","09","덤프");
+};
+
+scwin.possessCd_displayFormatter = function (data) {
+    return $c.gus.decode(data,"01","위수탁","02","지입","03","지입용차","04","KPX운송","05","지입협력");
+};
+
+scwin.indDistrWrkClsCd_displayFormatter = function (data) {
+    return $c.gus.decode(data,"01","입직","02","이직","03","적용제외");
+};
+
+scwin.wrkClsCd_displayFormatter = function (data) {
+    return $c.gus.decode(data,"01","가입","02","변경","03","대차","04","갱신","05","해지");
+};
+
+scwin.btn_create_onclick = function (e) {
+    scwin.f_Create();
+};
+
+scwin.btn_update_onclick = function (e) {
+    scwin.f_Update();
+};
+
+
+scwin.btn_cancel_onclick = function (e) {
+    scwin.f_Cancel();
+};
+
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        if(ds_vehclInsuranceMgntChangeDetail.getModifiedIndex().length > 0){
+            $c.sbm.execute(sbm_save2);
+        } else {
+            await $c.win.alert($c.data.getMessage(MSG_CM_INF_001));
+            ds_vehclInsuranceMgnt.reform();
+            scwin.f_Retrieve();
+        }
+    }
+};
+
+
+scwin.sbm_save2_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        await $c.win.alert($c.data.getMessage(MSG_CM_INF_001)); 
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_search_submitdone = async function (e) {
+    let rowCnt = ds_vehclInsuranceMgnt.getRowCount();
+
+    if (rowCnt == 0) {
+        await $c.win.alert("조회결과가 존재하지 않습니다.");
+        $c.gus.cfEnableObjects([btn_create]);
+    }
+    else {
+        gr_vehclInsuranceMgnt.setFocusedCell(0, "wrkClsCd");
+        totalRows.setValue(rowCnt);
+        
+        scwin.f_onloadSetting();
+            
+        dma_condition2.set('mgntNo', ds_vehclInsuranceMgnt.getCellData(0,'mgntNo'));    
+        dma_condition2.set('wrkSeq', ds_vehclInsuranceMgnt.getCellData(0,'wrkSeq'));    
+        
+        let e = await $c.sbm.execute(sbm_retrieve_detail);
+        
+        // 로드 되었을때 첫번째 작업구분값
+        scwin.preWrkClsCd = ds_vehclInsuranceMgnt.getCellData(0,'wrkClsCd');    
+                    
+        if (scwin.pPorteYn == "Y"){
+            $c.gus.cfDisableObjects([btn_create]);
+        }
+
+        scwin.f_attachFileList();
+    }
+};
+
+scwin.gr_vehclInsuranceMgnt_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    scwin.f_onloadSetting();
+
+    dma_condition2.set('mgntNo', ds_vehclInsuranceMgnt.getCellData(rowIndex,'mgntNo'));    
+    dma_condition2.set('wrkSeq', ds_vehclInsuranceMgnt.getCellData(rowIndex,'wrkSeq'));    
+      
+    await $c.sbm.execute(sbm_retrieve_detail);
+    
+    // 클릭시 현재 행의 작업구분값
+    scwin.preWrkClsCd = ds_vehclInsuranceMgnt.getCellData(rowIndex,'wrkClsCd');    
+    rd_wrkClsCd.focus();
+
+    if(ds_vehclInsuranceMgnt.getRowStatus(rowIndex) == "C"){
+        return false;
+    }
+
+    $c.gus.cfDisableKeyData();
+
+    if(ds_vehclInsuranceMgnt.getRowStatus(rowIndex) != "C"){
+        $c.data.undoAll(ds_vehclInsuranceMgnt);
+        gr_vehclInsuranceMgnt.setFocusedCell(rowIndex, "wrkClsCd");
+    }
+};
+
+scwin.ds_vehclInsuranceMgnt_onrowpositionchange = async function (info) {
+    scwin.f_attachFileList();
+};
+
+scwin.ds_vehclInsuranceMgnt_oncelldatachange = async function (info) {
+    let row = info.rowIndex;
+    let colid = info.colID;
+
+    if (colid == "wrkClsCd") {
+        scwin.f_firstSetting();
+        $c.gus.cfEnableObjects([rd_wrkClsCd, btn_cancel, btn_save]);
+          
+        let chkWrkClsCd      = ds_vehclInsuranceMgnt.getCellData(row,"wrkClsCd");
+        let chkApprvReqNo    = ds_vehclInsuranceMgnt.getCellData(row,"apprvReqNo");
+        let chkApprvStsCd    = ds_vehclInsuranceMgnt.getCellData(row,"apprvStsCd");
+       
+        if(chkWrkClsCd == '01' && ed_drcrNo.getValue() != ''){
+            ds_vehclInsuranceMgnt.setCellData(row, 'wrkClsCd', scwin.preWrkClsCd);
+          
+            await $c.win.alert("작업구분을 가입을 선택 하셨습니다.\n\n"
+                  + "신규등록만 가입 선택이 가능 합니다.");
+            scwin.f_onloadSetting();
+            $c.data.undoRow(ds_vehclInsuranceMgnt);
+            return;
+        }
+        else if(chkWrkClsCd == '02'){   
+            $c.gus.cfEnableObjects([btn_update]);
+            scwin.f_enableSetting();
+        }
+        else if(chkWrkClsCd == '03'){   
+            $c.gus.cfEnableObjects([ed_drcrNo, ed_maxPayloadCd, ed_releaseYear, acb_deptCd, lc_possessCd]);
+        }
+        else if(chkWrkClsCd == '04'){   
+            await $c.win.alert("작업구분을 갱신을 선택 하셨습니다.\n\n"
+                  + "갱신 상태로의 변경은 '차량보험일괄갱신'탭 에서만 처리 가능 합니다.");
+            $c.data.undoRow(ds_vehclInsuranceMgnt);
+            gr_vehclInsuranceMgnt.setFocusedCell(ds_vehclInsuranceMgnt.getRowPosition(), "wrkClsCd");
+            scwin.f_onloadSetting();
+            return;
+        }
+        else if(chkWrkClsCd == '05'){   
+            $c.gus.cfEnableObjects([lc_cancelCd, udc_carInsuranceYear]);
+            $c.gus.cfEnableObjects([udc_luggageInsuranceYear]);
+          
+            ds_vehclInsuranceMgnt.setCellData(row, "carInsuranceYearEndDt", $c.date.getServerDateTime("yyyyMMdd"));
+            ds_vehclInsuranceMgnt.setCellData(row, "luggageInsuranceYearEndDt", $c.date.getServerDateTime("yyyyMMdd"));
+        }
+    }
+};
+
+scwin.sbm_retrieveAttachFile_submitdone = function (e) {
+    udcFileUpload.setType("00");
+    let fileJson = [];
+    for (let i = 0 ; i < ds_fileList.getRowCount() ; i ++){
+        let attachFilePath = ds_fileList.getCellData(i, "filePath")
+
+        let fileStoredPath = attachFilePath.substr(0, attachFilePath.lastIndexOf('/')+1);
+        let storedFileNm = attachFilePath.substr(attachFilePath.lastIndexOf('/')+1);
+
+        let fileInfoData = {
+            FILE_EXPLAIN        : ""
+            , FILE_SIZE         : ds_fileList.getCellData(i, "fileSize")
+            , FILE_STORED_PATH  : fileStoredPath
+            , ORIGIN_FILE_NM    : ds_fileList.getCellData(i, "fileName")
+            , STORED_FILE_NM    : storedFileNm
+            , chk               : "0"
+            , evidClsNm         : ds_fileList.getCellData(i, "fileClsCd")
+            , hiddenKey         : ""
+            , preView           : ""
+            , receptYn          : ""
+            , rowStatus         : ds_fileList.getCellData(i, "rowStatus")
+            , slipKndNm         : ""
+            , slipNo            : ""
+            , status            : ""
+        }
+        fileJson.push(fileInfoData);
+    }
+    udcFileUpload.setData(fileJson);
+};
+
+scwin.udcFileUpload_onFileUploadDone = function (isSuccess) {
+    if (!isSuccess) return;
+
+    let attachData = udcFileUpload.getData();
+    fileUploadGDS.removeAll();
+
+    for(let i = 0; i < attachData.length; i++) {
+        if (attachData[i].status == "Completed"){
+            let rowIndex = fileUploadGDS.insertRow();
+            fileUploadGDS.setCellData(rowIndex, "fileName"   , attachData[i].ORIGIN_FILE_NM); //파일명
+            fileUploadGDS.setCellData(rowIndex, "fileSize"  , attachData[i].FILE_SIZE); //파일SIZE
+            fileUploadGDS.setCellData(rowIndex, "filePath" , attachData[i].FILE_STORED_PATH + attachData[i].STORED_FILE_NM);	//파일경로
+        }
+    }
+
+    let mgntNo = ds_vehclInsuranceMgnt.getCellData(ds_vehclInsuranceMgnt.getRowPosition(), "mgntNo") || "1";
+    let wrkSeq = ds_vehclInsuranceMgnt.getCellData(ds_vehclInsuranceMgnt.getRowPosition(), "wrkSeq") || "1";
+    dma_mgntNo.set("mgntNo", mgntNo);// 상차요청번호
+    dma_wrkSeq.set("wrkSeq", wrkSeq);// 자가운송사코드
+    dma_fileClsCd.set("fileClsCd", udcFileUpload.getType());
+
+    $c.sbm.execute(sbm_create);
+};
+
+scwin.f_fileSave = async function() {
+    let fileList = udcFileUpload.getData();
+    let iCnt = 0;
+    let dCnt = 0;
+    for (let idx in fileList) {
+        let rowStatus = fileList[idx].rowStatus;
+        switch (rowStatus) {
+            case "C":
+                iCnt++;
+                break;
+            case "D":
+                dCnt++;
+                break;
+            default:
+                break;
+        }
+    }
+    //등록, 삭제가 둘다 있는 경우
+    if (iCnt > 0 && dCnt > 0) {
+        await $c.win.alert("신규등록과 삭제를 같이 할 수 없습니다.");
+        return;
+    } else {
+        if (iCnt > 0) {
+            scwin.fileSubmit();
+        } else if (dCnt > 0) {
+            scwin.fileDelete();
+        } else {
+            if(udcFileUpload.getType() == "00"){
+                await $c.win.alert("증빙파일종류를 선택해 주시기 바랍니다.");
+                return;
+            }
+
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_049, ["등록할 파일"]);
+            return;
+        }
+    }
+}
+
+scwin.fileSubmit = async function () {
+    //증빙파일종류 선택하지 않으면 업로드 불가
+    if(udcFileUpload.getType() == "00"){
+        await $c.win.alert("증빙파일종류를 선택해 주시기 바랍니다.");
+        return;
+    }
+    if (!await $c.win.confirm("파일을 업로드 하시겠습니까?")) {
+        return;
+    }
+
+    udcFileUpload.startFileUpload();
+};
+
+scwin.fileDelete = async function () {
+    if (!await udcFileUpload.isModified()) {
+        await $c.win.alert("삭제 할 파일이 없습니다.");
+        return;
+    }
+
+    //UDC에서 값 넘겨 받기
+    fileDeleteGDS.removeAll();
+
+    let fileList = udcFileUpload.getData();
+    for (let idx in fileList) {
+        let chk = fileList[idx].chk;
+        if (chk == "1") {
+            let row = fileDeleteGDS.insertRow();
+            let hiddenKey = fileList[idx].hiddenKey;
+            let delVal = hiddenKey.split("||");
+
+            fileDeleteGDS.setCellData(row, "mgntNo", ds_fileList.getCellData(idx, "mgntNo"));
+            fileDeleteGDS.setCellData(row, "fileSeq", ds_fileList.getCellData(idx, "fileSeq"));
+        }
+    }
+
+    if (await $c.win.confirm("선택하신 파일을 정말로 삭제하시겠습니까")) {
+        $c.sbm.execute(sbm_delete);
+    }
+}
+scwin.sbm_delete_submitdone = async function (e) {
+    await $c.win.alert("삭제가 완료 되었습니다.");
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_create_submitdone = async function (e) {
+    await $c.win.alert("업로드가 완료 되었습니다.");
+    scwin.f_Retrieve();
+};
+
+scwin.cbx_selfVehclYn_onviewchange = function (info) {
+    scwin.f_checkSelfVehclYn();
+};
+
+scwin.cbx_sfdmgVehclYn_onviewchange = function (info) {
+    scwin.f_checkSfdmgVehclYn();
+};
+
+scwin.cbx_glassYn_onviewchange = function (info) {
+    scwin.f_checkGlassYn();
+};
+
+scwin.cbx_frizYn_onviewchange = function (info) {
+    scwin.f_checkFrizYn();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="shbox" id="" style="">
+    		<xf:group class="shbox-inner" id="" style="">
+    			<xf:group class="w2tb " id="table1" style="" tagname="table">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="colgroup">
+    					<xf:group style="width:70px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:105px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:60px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:90px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    				</xf:group>
+    				<xf:group class="" id="" style="" tagname="tr">
+    					<xf:group class="w2tb_th " style="" tagname="th">
+    						<w2:textbox class="" id="" label="소속지사" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<w2:autoComplete class="" editType="select" id="acb_reqDeptCd" search="start" style="width: 150px;"
+    							submenuSize="fixed" allOption="" chooseOption="true" chooseOptionLabel="전체지사" ref="data:dma_condition.reqDeptCd">
+    							<w2:choices></w2:choices>
+    						</w2:autoComplete>
+    					</xf:group>
+    					<xf:group class="w2tb_th" style="" tagname="th">
+    						<w2:textbox class="req" id="" label="신청일자 " style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" style="" tagname="td">
+    						<w2:udc_fromToCalendar refStDt="reqApplyStdDt" refDataMap="dma_condition" style="" id="udc_reqApply"
+    							refEdDt="reqApplyEndDt" mandatoryFrom="true" objTypeBtn="data" edToId="ed_reqApplyEndDt" edFromId="ed_reqApplyStdDt"
+    							mandatoryTo="true" titleFrom="신청일자" titleTo="신청일자">
+    						</w2:udc_fromToCalendar>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes></w2:attributes>
+    						<w2:textbox class="" id="" label="차량번호" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_reqVehclNo" style="width: 150px;" maxlength="30"
+    							ref="data:dma_condition.reqVehclNo">
+    						</xf:input>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes></w2:attributes>
+    						<w2:textbox class="" id="" label="차대번호" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_reqDrcrNo" style="width: 150px;" maxlength="30" ref="data:dma_condition.reqDrcrNo"></xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="" tagname="tr">
+    					<xf:group class="w2tb_th " tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="소유구분" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<w2:autoComplete allOption="" chooseOption="true" chooseOptionLabel="전체" class="" editType="select"
+    							id="acb_reqPossessCd" ref="data:dma_condition.reqPossessCd" search="start" style="width: 150px;" submenuSize="fixed"
+    							visibleRowNum="10">
+    							<w2:choices></w2:choices>
+    						</w2:autoComplete>
+    					</xf:group>
+    					<xf:group class="w2tb_th" tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_th" id="" tagname="th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" id="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="btn-shbox" id="" style="">
+    			<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onclick">
+    				<xf:label><![CDATA[새로고침]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" objType="bRetrive"
+    				userAuth="R" ev:onclick="scwin.btn_retrieve_onclick">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group class="round-box" id="" style="">
+    		<xf:group class="row-gap-8" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="보험관리차량 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_runExcel" gridID="gr_vehclInsuranceMgnt"
+    						gridUpYn="N" gridDownUserAuth="X">
+    					</w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_vehclInsuranceMgnt"
+    					focusMode="row" id="gr_vehclInsuranceMgnt" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="4"
+    					visibleRowNumFix="true" gridName="차량보험신청관리" rowStatusVisible="true" ev:oncellclick="scwin.gr_vehclInsuranceMgnt_oncellclick">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="text" value="차량보험관리번호" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" value="작업&lt;/br&gt;구분" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column36" inputType="text" value="산재&lt;/br&gt;작업구분" width="100">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" value="지사&lt;/br&gt;코드" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column32" inputType="text" value="지사명" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" value="소유&lt;/br&gt;구분" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" value="차량번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" value="차대번호" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column24" inputType="text" value="운전자명" width="100"></w2:column>
+    							<w2:column width="100" inputType="text" id="column46" value="생년월일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column44" value="신청일자" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column40" value="차량&lt;/br&gt;형식" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column42" value="최대&lt;/br&gt;적재량" displayMode="label">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="column56" value="차량&lt;/br&gt;년식" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column54" value="전자결재&lt;/br&gt;상태" displayMode="label">
+    							</w2:column>
+    							<w2:column width="150" inputType="text" id="column52" value="차량보험관리번호" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column48" value="순번" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" id="column50" value="결재요청번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column86" value="소속지사" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column84" value="소속지사" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column82" value="(자동차보험)단기 시작일 " displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column80" value="(자동차보험)단기 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column78" value="(자동차보험)1년 시작일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column76" value="(자동차보험)1년 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column74" value="(자동차보험)대물한도" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column72" value="(자동차보험)운전자연령" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column70" value="(자동차보험)자차여부" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column68" value="(자동차보험)자차 시작일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column66" value="(자동차보험)자차 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column64" value="(자동차보험)자손여부" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column58" value="(자동차보험)자손 시작일 " displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column60" value="(자동차보험)자손 종료일 " displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column62" value="(적재물보험)단기 시작일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column96" value="(적재물보험)단기 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column94" value="(적재물보험)1년 시작일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column88" value="(적재물보험)1년 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column90" value="(적재물보험)보상한도" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column92" value="(적재물보험)유리여부" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column116" value="(적재물보험)유리 시작일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column114" value="(적재물보험)유리 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column112" value="(적재물보험)냉동여부 " displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column110" value="(적재물보험)냉동 시작일 " displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column108" value="(적재물보험)냉동 종료일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column106" value="(적재물보험)기업포괄여부" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column104" value="(적재물보험)기업포괄 시작일" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column102" value="(적재물보험)기업포괄 종료일" displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column98" value="등록자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column132" value="등록일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column130" value="수정자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column128" value="수정일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column126" value="차량번호2" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column124" value="소속지사2" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column122" value="소유구분2" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column120" value="차량형식2 " displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column118" value="최대적재량2" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column100" value="차량년식2" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column142" value="(자동차보험)1년 시작일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column138" value="(자동차보험)1년 종료일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column134" value="(자동차보험)대물한도2" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column136" value="(자동차보험)운전자연령2 " displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column164" value="(자동차보험)자차여부2" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column162" value="(자동차보험)자차 시작일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column160" value="(자동차보험)자차 종료일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column158" value="(자동차보험)자손여부2" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column156" value="(자동차보험)자손 시작일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column154" value="(자동차보험)자손 종료일2 " displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column152" value="(적재물보험)1년 시작일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column150" value="(적재물보험)1년 종료일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column144" value="(적재물보험)보상한도2 " displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column146" value="(적재물보험)유리여부2" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column148" value="(적재물보험)유리 시작일2 " displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column172" value="(적재물보험)유리 종료일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column166" value="(적재물보험)냉동여부2" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column168" value="(적재물보험)냉동 시작일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column180" value="(적재물보험)냉동 종료일2" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column182" value="(산재보험)입직일" displayMode="label"></w2:column>
+    							<w2:column width="250" inputType="text" id="column184" value="(산재보험)이직/적용제외신청일" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column186" value="(산재보험)배송수단" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column188" value="(산재보험)입직일" displayMode="label"></w2:column>
+    							<w2:column width="250" inputType="text" id="column190" value="(산재보험)이직/적용제외신청일" displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="column192" value="(산재보험)운전자명" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column194" value="(산재보험)생년월일" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column196" value="(산재보험)산재작업구분" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column198" value="(산재보험)배송수단" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="mgntNo" inputType="text" width="150" hidden="true" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="wrkClsCd" inputType="text" width="70" mandatory="true" readOnly="true"
+    								displayFormatter="scwin.wrkClsCd_displayFormatter">
+    							</w2:column>
+    							<w2:column displayMode="label" id="indDistrWrkClsCd" inputType="text" width="100" readOnly="true"
+    								displayFormatter="scwin.indDistrWrkClsCd_displayFormatter">
+    							</w2:column>
+    							<w2:column displayMode="label" id="deptCd" inputType="text" width="70" mandatory="true" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="deptNm" inputType="text" width="100" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="possessCd" inputType="text" width="70" mandatory="true" readOnly="true"
+    								textAlign="left" displayFormatter="scwin.possessCd_displayFormatter">
+    							</w2:column>
+    							<w2:column displayMode="label" id="vehclNo" inputType="text" width="100" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="drcrNo" inputType="text" width="150" mandatory="true" readOnly="true"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="indDistrDrvNm" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="indDistrBirthDt" displayMode="label" readOnly="true"
+    								textAlign="left" displayFormat="yyyy/MM/dd" dataType="date">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="applyDt" displayMode="label" mandatory="true" readOnly="true"
+    								displayFormat="yyyy/MM/dd" dataType="date">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="vehclTypeCd" displayMode="label" textAlign="left"
+    								displayFormatter="scwin.vehclTypeCd_displayFormatter" readOnly="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="maxPayloadCd" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="releaseYear" displayMode="label" readOnly="true"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="apprvStsCd" displayMode="label" readOnly="true"
+    								displayFormatter="scwin.apprvStsCd_displayFormatter">
+    							</w2:column>
+    							<w2:column width="150" inputType="expression" id="col16" displayMode="label" hidden="true"
+    								expression='display("mgntNo")' readOnly="true">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" id="wrkSeq" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" id="apprvReqNo" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="expression" id="col19" displayMode="label" hidden="true"
+    								expression='display("deptCd")' readOnly="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="cancelCd" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="carInsuranceShortStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="carInsuranceShortEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="carInsuranceYearStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="carInsuranceYearEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="objectLimitCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="driverAge" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="selfVehclYn" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="selfVehclStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="selfVehclEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="sfdmgVehclYn" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="sfdmgVehclStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="sfdmgVehclEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="luggageInsuranceShortStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="luggageInsuranceShortEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="luggageInsuranceYearStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="luggageInsuranceYearEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="guaranteeLimitCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="glassYn" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="glassStdDt" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="glassEndDt" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="frizYn" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="frizStdDt" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="frizEndDt" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="200" inputType="text" id="umbrellaPolicyYn" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="umbrellaPolicyStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="umbrellaPolicyEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="regId" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="regDtm" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="modId" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="modDtm" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="preVehclNo" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="preDeptCd" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="prePossessCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="preVehclTypeCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="preMaxPayloadCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="preReleaseYear" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preCarInsuranceYearStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="col58" displayMode="label" hidden="true" readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preCarInsuranceYearEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preObjectLimitCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preDriverAge" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preSelfVehclYn" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preSelfVehclStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preSelfVehclEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preSfdmgVehclYn" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preSfdmgVehclStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preSfdmgVehclEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preLuggageInsurYearStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preLuggageInsurYearEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preGuaranteeLimitCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preGlassYn" displayMode="label" hidden="true" readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preGlassStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preGlassEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preFrizYn" displayMode="label" hidden="true" readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preFrizStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preFrizEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="250" inputType="text" id="indDistrStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="indDistrEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="indDistrSndTypeCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="250" inputType="text" id="preIndDistrStdDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preIndDistrEndDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preIndDistrDrvNm" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preIndDistrBirthDt" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="preIndDistrWrkClsCd" displayMode="label" hidden="true"
+    								readOnly="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style=""
+    								tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="row-gap-8" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="기본정보 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb tb" id="tbl_id2" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group tagname="col" style="width:120.00px;"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:select1 appearance="full" class="" cols="" id="rd_wrkClsCd" ref="data:ds_vehclInsuranceMgnt.wrkClsCd"
+    								renderType="radiogroup" rows="" selectedIndex="-1" style="" mandatory="true" title="작업구분">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th ">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="소속지사" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_deptCd" search="start" style="width: 150px;"
+    								submenuSize="fixed" allOption="" chooseOption="true" chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.deptCd"
+    								mandatory="true" title="소속지사">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="신청일자" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_applyDt" style=""
+    								displayFormat="yyyy/MM/dd" mandatory="true" objType="data" title="신청일자" ref="data:ds_vehclInsuranceMgnt.applyDt">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="차량번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_vehclNo" style="width: 150px;" title="차량번호" objType="data"
+    								ref="data:ds_vehclInsuranceMgnt.vehclNo">
+    							</xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="차대번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_drcrNo" style="width: 150px;" title="차대번호" mandatory="true" objType="data"
+    								ref="data:ds_vehclInsuranceMgnt.drcrNo">
+    							</xf:input>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th ">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="최대적재량(톤)" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_maxPayloadCd" style="width: 150px;text-align:;" title="최대적재량(톤)" mandatory="true"
+    								objType="data" allowChar="0-9." displayFormat="#,##0.#" ref="data:ds_vehclInsuranceMgnt.maxPayloadCd" dataType="number"
+    								maxlength="30" applyFormat="all">
+    							</xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="차량년식" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_releaseYear" style="width: 150px;" title="차량년식" objType="data" mandatory="true"
+    								maxlength="4" allowChar="0-9" ref="data:ds_vehclInsuranceMgnt.releaseYear">
+    							</xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="소유구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_possessCd" style="width: 150px;" submenuSize="fixed" title="소유구분"
+    								chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.possessCd" objType="data" mandatory="true" visibleRowNum="10">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="차량형식" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_vehclTypeCd" style="width: 150px;" submenuSize="fixed" title="차량형식" objType="data"
+    								mandatory="true" chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.vehclTypeCd" visibleRowNum="10" sortMethod="ascending"
+    								sortOption="value">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th ">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="해지사유" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_cancelCd" style="width: 150px;" submenuSize="fixed" title="해지사유" objType="data"
+    								chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.cancelCd" visibleRowNum="10">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="row-gap-8" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="자동차보험 정보 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb tb" id="tbl_id3" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="width: 100px;" tagname="col"></xf:group>
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>5</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_fromToCalendar refStDt="carInsuranceYearStdDt" refDataMap="ds_vehclInsuranceMgnt" style=""
+    								id="udc_carInsuranceYear" refEdDt="carInsuranceYearEndDt" titleFrom="보험기간" titleTo="보험기간" edFromId="ed_carInsuranceYearStdDt"
+    								mandatoryFrom="true" objTypeBtn="data" objTypeFrom="data" objTypeTo="data" mandatoryTo="true"
+    								edToId="ed_carInsuranceYearEndDt">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="자차" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="cbx_selfVehclYn"
+    								ref="data:ds_vehclInsuranceMgnt.selfVehclYn" renderType="checkboxgroup" rows="" selectedindex="-1" style="" objType="data"
+    								ev:onviewchange="scwin.cbx_selfVehclYn_onviewchange" falseValue="0">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_selfVehcl" refDataMap="ds_vehclInsuranceMgnt" refEdDt="selfVehclEndDt"
+    								refStDt="selfVehclStdDt" style="" titleFrom="보험기간" titleTo="보험기간" edFromId="ed_selfVehclStdDt" objTypeFrom="data"
+    								objTypeTo="data" objTypeBtn="data" edToId="ed_selfVehclEndDt">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="운전자연령" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_driverAge" style="width: 150px;" submenuSize="fixed" title="운전자연령" objType="data"
+    								mandatory="true" chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.driverAge">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="자손" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="cbx_sfdmgVehclYn"
+    								ref="data:ds_vehclInsuranceMgnt.sfdmgVehclYn" renderType="checkboxgroup" rows="" selectedindex="-1" style="" objType="data"
+    								ev:onviewchange="scwin.cbx_sfdmgVehclYn_onviewchange" falseValue="0">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_sfdmgVehcl" refDataMap="ds_vehclInsuranceMgnt" refEdDt="sfdmgVehclEndDt"
+    								refStDt="sfdmgVehclStdDt" style="" titleFrom="보험기간" titleTo="보험기간" edFromId="ed_sfdmgVehclStdDt" objTypeFrom="data"
+    								objTypeTo="data" objTypeBtn="data" edToId="ed_sfdmgVehclEndDt">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="대물한도" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_objectLimitCd" style="width: 150px;" submenuSize="fixed" title="대물한도" objType="data"
+    								mandatory="true" chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.objectLimitCd">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="적재물 보험 정보 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb tb" id="tbl_id4" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group style="width: 100px;" tagname="col"></xf:group>
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th" style="" tagname="th">
+    								<w2:textbox class="req" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" style="" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>5</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:udc_fromToCalendar id="udc_luggageInsuranceYear" refDataMap="ds_vehclInsuranceMgnt"
+    									refEdDt="luggageInsuranceYearEndDt" refStDt="luggageInsuranceYearStdDt" style="" titleFrom="보험기간" titleTo="보험기간"
+    									edFromId="ed_luggageInsuranceYearStdDt" objTypeTo="data" objTypeFrom="data" objTypeBtn="data" mandatoryFrom="true"
+    									mandatoryTo="true" edToId="ed_luggageInsuranceYearEndDt">
+    								</w2:udc_fromToCalendar>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th " tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="유리특약" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<xf:select appearance="full" class="" cols="" id="cbx_glassYn" ref="data:ds_vehclInsuranceMgnt.glassYn"
+    									renderType="checkboxgroup" rows="" selectedindex="-1" style="" objType="data" ev:onviewchange="scwin.cbx_glassYn_onviewchange"
+    									falseValue="0">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    							</xf:group>
+    							<xf:group class="w2tb_th " tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:udc_fromToCalendar id="udc_glass" refDataMap="ds_vehclInsuranceMgnt" refEdDt="glassEndDt"
+    									refStDt="glassStdDt" style="" edFromId="ed_glassStdDt" objTypeFrom="data" objTypeBtn="data" objTypeTo="data"
+    									edToId="ed_glassEndDt" titleFrom="보험기간" titleTo="보험기간">
+    								</w2:udc_fromToCalendar>
+    							</xf:group>
+    							<xf:group class="w2tb_th " tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="req" id="" label="보상한도" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto"
+    									disabled="false" disabledClass="w2selectbox_disabled" id="lc_guaranteeLimitCd" style="width: 150px;" submenuSize="fixed"
+    									title="보상한도" objType="data" mandatory="true" chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.guaranteeLimitCd">
+    									<xf:choices></xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th " tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="냉동특약" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<xf:select appearance="full" class="" cols="" id="cbx_frizYn" ref="data:ds_vehclInsuranceMgnt.frizYn"
+    									renderType="checkboxgroup" rows="" selectedindex="-1" style="" objType="data" ev:onviewchange="scwin.cbx_frizYn_onviewchange"
+    									falseValue="0">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    							</xf:group>
+    							<xf:group class="w2tb_th " tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>3</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:udc_fromToCalendar id="udc_friz" refDataMap="ds_vehclInsuranceMgnt" refEdDt="frizEndDt"
+    									refStDt="frizStdDt" style="" edFromId="ed_frizStdDt" objTypeBtn="data" objTypeFrom="data" objTypeTo="data"
+    									edToId="ed_frizEndDt">
+    								</w2:udc_fromToCalendar>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="row-gap-8" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label=" 산재 보험 정보 " style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group class="w2tb tb" id="tbl_id5" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="보험기간" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_fromToCalendar id="udc_indDistr" refDataMap="ds_vehclInsuranceMgnt" refEdDt="indDistrEndDt"
+    										refStDt="indDistrStdDt" style="" titleFrom="보험기간" titleTo="보험기간" edFromId="ed_indDistrStdDt" objTypeTo="data"
+    										objTypeFrom="data" objTypeBtn="data" mandatoryFrom="true" mandatoryTo="true" edToId="ed_indDistrEndDt">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="운전자명" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_indDistrDrvNm" style="width: 150px;" title="운전자명" mandatory="true"
+    										objType="data" maxlength="50" ref="data:ds_vehclInsuranceMgnt.indDistrDrvNm">
+    									</xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="생년월일" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_indDistrBirthDt" style=""
+    										title="생년월일" mandatory="true" objType="data" ref="data:ds_vehclInsuranceMgnt.indDistrBirthDt">
+    									</w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="산재작업구분" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 appearance="full" class="" cols="" id="rd_indDistrWrkClsCd"
+    										ref="data:ds_vehclInsuranceMgnt.indDistrWrkClsCd" renderType="radiogroup" rows="" selectedIndex="-1" style="" title="산재작업구분"
+    										mandatory="true">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="배송수단" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto"
+    										disabled="false" disabledClass="w2selectbox_disabled" id="lc_indDistrSndTypeCd" style="width: 150px;" submenuSize="fixed"
+    										title="배송수단" objType="data" chooseOptionLabel="선택" ref="data:ds_vehclInsuranceMgnt.indDistrSndTypeCd">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="btnbox" id="" style="">
+    			<xf:group class="right" id="" style="">
+    				<xf:trigger class="btn" id="btn_create" style="" type="button" objType="bCreate" userAuth="C"
+    					ev:onclick="scwin.btn_create_onclick">
+    					<xf:label><![CDATA[신규]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" disabled="false" id="btn_update" style="" type="button" objType="bUpdate" userAuth="U"
+    					ev:onclick="scwin.btn_update_onclick">
+    					<xf:label><![CDATA[수정]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_cancel" style="" type="button" objType="ctrlBtn"
+    					ev:onclick="scwin.btn_cancel_onclick">
+    					<xf:label><![CDATA[취소]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_save" style="" type="button" objType="bUpdate" userAuth="U"
+    					ev:onclick="scwin.btn_save_onclick">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group><xf:group class="left" id="" style="">
+    		<xf:group class="info-list txt-red" id="">
+    			<w2:textbox class="" id="bSearch" label="1. 파일명, 파일경로에 특수문자를 입력하실 수 없습니다.(특수문자 종류 : '!,+&amp;^%$#@~;)" ref="" style="" userData2="">
+    			</w2:textbox>
+    			<w2:textbox class="" id="bSearch2" label="2. 첨부파일종류를 파일별로 건건이 '파일 업로드' 버튼을 누르세요! (여러 파일을 한번에 업로드 시 같은 증빙파일종류로 업로드 됩니다.) " ref="" style="" userData2="">
+    			</w2:textbox>
+    		</xf:group>
+    	</xf:group>
+    		<xf:group class="file-wrap no-title" id="" style="">
+    			<w2:udc_fileMultiUpload addButtonName="찾아보기" class="" explainYn="N" fileTypeYn="Y"
+    				filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" id="udcFileUpload" maxFileCount="500"
+    				maxFileSize="52428800" receiptYn="N" saveButtonId="btn_udcFileUpload" saveButtonName="파일업로드" saveFn="scwin.f_fileSave" style=""
+    				totalFileSize="2009715200" subDir="FI/vehclinsurancemgnt/" readOnlyYn="Y"
+    				ev:onFileUploadDone="scwin.udcFileUpload_onFileUploadDone" evidYn="Y" tranResultYn="N" evidTitle="첨부파일종류">
+    			</w2:udc_fileMultiUpload>
+    		</xf:group>
+    	</xf:group>
+    	
+    </body>
+</html>

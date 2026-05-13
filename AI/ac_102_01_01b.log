@@ -1,0 +1,38 @@
+ac_102_01_01b.log
+
+[2026-02-20 12:04:25.749] 변환 시작
+[2026-02-20 12:04:25.947] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 12:12:33.491] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=4, warnings=7 | LLM 486639ms, total 487542ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 7건: ed_bldtfrom (EMEDIT→xf:input), ed_bldtto (EMEDIT→xf:input), cnd_ed_bilgClntNo (EMEDIT→xf:input), cnd_ed_picNo (EMEDIT→xf:input), ed_cncd (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 2건: ds_Search, ds
+    - [적정성] async 선언 누락 — scwin.f_PopUp (uses $c.gus.cfAlertMsg), scwin.f_invoice (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_PopUp → $c.gus.cfAlertMsg, scwin.f_invoice → $c.win.alert
+[2026-02-20 12:12:33.863] #1 검증: 자동수정 4건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 12:12:34.725] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=2, warnings=7
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 13건: lc_jobgb (LUXECOMBO→w2:autoComplete), lc_transTyp (LUXECOMBO→w2:autoComplete), lc_iogb (LUXECOMBO→w2:autoComplete), lc_printDt (LUXECOMBO→w2:autoComplete), ed_bldtfrom (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 2건: ds_Search, ds
+[2026-02-20 12:12:34.741] #2 재시도 (에러 6건)
+[2026-02-20 12:12:35.743] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 12:21:01.384] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=6 | LLM 504635ms, total 505641ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 10건: lc_jobgb (LUXECOMBO→w2:autoComplete), lc_transTyp (LUXECOMBO→w2:autoComplete), lc_iogb (LUXECOMBO→w2:autoComplete), lc_printDt (LUXECOMBO→w2:autoComplete), cnd_ed_bilgClntNo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-20 12:21:01.390] 실패 (2회 시도, 16m 35s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+  2. [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+  3. [적정성] 컴포넌트 ID 유지 — 누락 10건: lc_jobgb (LUXECOMBO→w2:autoComplete), lc_transTyp (LUXECOMBO→w2:autoComplete), lc_iogb (LUXECOMBO→w2:autoComplete), lc_printDt (LUXECOMBO→w2:autoComplete), cnd_ed_bilgClntNo (EMEDIT→xf:input)
+  4. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="관리부서 코드(귀속부서)" dataType="text"></w2:key>
+    					<w2:key id="apprTypeCd" name="인허가종류코드" dataType="text"></w2:key>
+    					<w2:key id="apprCd" name="인허가명코드" dataType="text"></w2:key>
+    					<w2:key id="apprNo" name="인허가관리번호" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_condition2">
+    				<w2:keyInfo>
+    					<w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="관리부서 코드(귀속부서)" dataType="text"></w2:key>
+    					<w2:key id="apprTypeCd" name="인허가종류코드" dataType="text"></w2:key>
+    					<w2:key id="apprCd" name="인허가명코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_attach" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="apprNo" name="인허가관리번호" dataType="text"></w2:column>
+    					<w2:column id="attachFileSeq" name="등록순번" dataType="text"></w2:column>
+    					<w2:column id="attachFileNm" name="첨부파일명" dataType="text"></w2:column>
+    					<w2:column id="attachFileDesc" name="첨부파일설명" dataType="text"></w2:column>
+    					<w2:column id="attachFileSiz" name="SIZE" dataType="text"></w2:column>
+    					<w2:column id="attachFilePath" name="첨부파일경로" dataType="text"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_results">
+    				<w2:keyInfo>
+    					<w2:key id="apprNo" name="인허가관리번호" dataType="number"></w2:key>
+    					<w2:key id="apprTypeCd" name="인허가종류코드" dataType="text"></w2:key>
+    					<w2:key id="apprTypeNm" name="인허가종류명" dataType="text"></w2:key>
+    					<w2:key id="apprCd" name="인허가명코드" dataType="text"></w2:key>
+    					<w2:key id="apprNm" name="인허가명" dataType="text"></w2:key>
+    					<w2:key id="apprRegNo" name="등록(허가)번호" dataType="text"></w2:key>
+    					<w2:key id="apprMgntAgcy" name="인허가관리청" dataType="text"></w2:key>
+    					<w2:key id="mgntAgcyPicNm" name="인허가관리담당자" dataType="text"></w2:key>
+    					<w2:key id="mgntAgcyPicTel" name="인허가관리담당자 연락처" dataType="text"></w2:key>
+    					<w2:key id="rltViol" name="관련법규" dataType="text"></w2:key>
+    					<w2:key id="bizDomCd" name="사업영역코드" dataType="text"></w2:key>
+    					<w2:key id="purps" name="용도" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="관리부서(귀속부서코드)" dataType="text"></w2:key>
+    					<w2:key id="acctDeptNm" name="관리부서명" dataType="text"></w2:key>
+    					<w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+    					<w2:key id="coClsNm" name="회사구분명" dataType="text"></w2:key>
+    					<w2:key id="asgNmCd" name="부여명의코드" dataType="text"></w2:key>
+    					<w2:key id="asgNm" name="기타-부여명의(부여명의코드가 기타일 경우에만 작성)" dataType="text"></w2:key>
+    					<w2:key id="firstAcqDt" name="취득일(최초)" dataType="text"></w2:key>
+    					<w2:key id="renDt" name="취득/갱신일(최종)" dataType="text"></w2:key>
+    					<w2:key id="regStDt" name="등록기간 시작일자" dataType="text"></w2:key>
+    					<w2:key id="regEndDt" name="등록기간 종료일자" dataType="text"></w2:key>
+    					<w2:key id="renYn" name="갱신필요여부" dataType="number"></w2:key>
+    					<w2:key id="renPsblStDt" name="갱신가능 시작일자" dataType="text"></w2:key>
+    					<w2:key id="renPsblEndDt" name="갱신가능 종료일자" dataType="text"></w2:key>
+    					<w2:key id="picDeptCd" name="담당자부서코드" dataType="text"></w2:key>
+    					<w2:key id="picDeptNm" name="담당자부서명" dataType="text"></w2:key>
+    					<w2:key id="picEmpNo" name="담당자사번" dataType="text"></w2:key>
+    					<w2:key id="picEmpNm" name="담당자명" dataType="text"></w2:key>
+    					<w2:key id="apprRegDtm" name="인허가 등록일시" dataType="text"></w2:key>
+    					<w2:key id="apprvDeptCd" name="승인자부서코드" dataType="text"></w2:key>
+    					<w2:key id="apprvDeptNm" name="승인자부서명" dataType="text"></w2:key>
+    					<w2:key id="apprvEmpNo" name="승인자사번" dataType="text"></w2:key>
+    					<w2:key id="apprvEmpNm" name="승인자명" dataType="text"></w2:key>
+    					<w2:key id="apprApprvDtm" name="인허가 승인일시" dataType="text"></w2:key>
+    					<w2:key id="chgDesc" name="갱신변경사유" dataType="text"></w2:key>
+    					<w2:key id="useYn" name="사용여부" dataType="number"></w2:key>
+    					<w2:key id="apprGubun" name="신규(N),변경(R),갱신(U) 구분" dataType="text"></w2:key>
+    					<w2:key id="regSeq" name="인허가승인 등록순번" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_mailInfo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="mailCntn" name="name1" dataType="text"></w2:column>
+    					<w2:column id="mailSubject" name="name2" dataType="text"></w2:column>
+    					<w2:column id="regNm" name="name3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_apprNo" saveRemovedData="true">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_tb_DataSet1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="name1" dataType="text"></w2:column>
+    					<w2:column id="code02" name="name2" dataType="text"></w2:column>
+    					<w2:column id="code03" name="name3" dataType="text"></w2:column>
+    					<w2:column id="name" name="name4" dataType="text"></w2:column>
+    					<w2:column id="name02" name="name5" dataType="text"></w2:column>
+    					<w2:column id="name03" name="name6" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_tr_retrieve" action="/cm.bc.permitmgnt.RetrieveApprInfoCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"dma_results","key":"OUT_DS1"},{"id":"ds_attach","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"dma_results","key":"OUT_DS1"},{"id":"ds_attach","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_retrieve_onload" action="/cm.bc.permitmgnt.RetrieveApprInfoCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"dma_results","key":"OUT_DS1"},{"id":"ds_attach","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"dma_results","key":"OUT_DS1"},{"id":"ds_attach","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_retrieve_onload_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_retrieve2" action="/cm.bc.permitmgnt.RetrieveApprInfo2CMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition2","key":"IN_DS1"},{"id":"dma_results","key":"OUT_DS1"},{"id":"ds_attach","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"dma_results","key":"OUT_DS1"},{"id":"ds_attach","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_retrieve2_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_save" action="/cm.bc.permitmgnt.SaveApprInfoListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_results","key":"IN_DS1"},{"id":"ds_attach","key":"IN_DS2"},{"id":"ds_apprNo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_apprNo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_apprv" action="/cm.bc.permitmgnt.SaveApprvYnCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"dma_results","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_apprv_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_sendMail" action="/cm.bc.permitmgnt.SendMailApprCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_mailInfo","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_delete" action="/cm.bc.permitmgnt.DeleteApprvInfoCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"dma_results","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_delete_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_sendMailTest" action="/cm.bc.comnmgnt.mailmgnt.RetrieveScheduledMailCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_mailInfo","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_co_ds_combo2" action="" method="get" mediatype="application/json" ref="" target='data:json,{"id":"ds_tb_DataSet1","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_co_ds_combo2_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 인허가 등록/승인
+ * 메뉴경로 : 공통/총무업무/인허가 관리/
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/cm/bc/permitmgnt/zz_950_01_01b.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-11-04
+ * 수정이력  :
+ *    - 2025-11-04      정승혜    최초작성
+ *    - 2026-02-10      정승혜    기타수정
+ * 메모 : 
+ * 회사구분:000 / 인허가종류:등록증 / 인허가명:보세운송업자 등록증 / 관리부서:운영기획 으로 조회시 데이터조회가능
+ * 부모페이지 zz_950_01_02b
+ * frm.disabled
+ * 
+ */
+scwin.toDate = $c.date.getServerDateTime("yyyyMMdd");
+
+scwin.params = "";
+scwin.apprNo = "";
+scwin.coClsCd = "";
+scwin.apprTypeCd = "";
+scwin.apprCd = "";
+scwin.acctDeptCd = "";
+scwin.uploadFlag = false; // 첨부파일 변경 및 추가 여부 Flag
+
+scwin.memJson = $c.data.getMemInfo();
+
+// 파일 업로드 위치
+// String systemPathKey =  DFWConstants.FILE_UPLOAD_SYSTEM_PATH ;
+scwin.systemPathVal = "cm/bc/permitmgnt/";
+
+//scwin.MSG_CM_ERR_002 = "변경된 사항이 없습니다."
+
+//-------------------------------------------------------------------------
+// function name : f_OnLoad
+// function desc : 화면로딩시 
+//-------------------------------------------------------------------------   
+scwin.onpageload = function() {
+    // getCodeList
+    const codeOptions = [
+        { grpCd : "ZZ590", compID : "lc_apprTypeCdS,lc_apprTypeCd" },
+        { grpCd : "ZZ593", compID : "lc_asgNmCd" },
+        { grpCd : "ZZ592", compID : "lc_bizDomCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    scwin.params = $c.data.getParameter();
+    scwin.apprNo = (scwin.params["apprNo"]  == null) ? "" : scwin.params["apprNo"];
+    scwin.coClsCd = (scwin.params["coClsCd"]  == null) ? "" : scwin.params["coClsCd"];
+    scwin.apprTypeCd = (scwin.params["apprTypeCd"]  == null) ? "" : scwin.params["apprTypeCd"];
+    scwin.apprCd = (scwin.params["apprCd"]  == null) ? "" : scwin.params["apprCd"];
+    scwin.acctDeptCd = (scwin.params["acctDeptCd"]  == null) ? "" : scwin.params["acctDeptCd"];
+};
+
+scwin.onUdcCompleted = function() {
+
+};
+
+scwin.ondataload = function() { 
+    scwin.f_onLoad_done();
+};
+
+// f_OnLoad
+scwin.f_onLoad_done = function() { 
+    scwin.f_createHeader();
+    scwin.f_createHeader2();
+    scwin.f_createHeader_forMail();	
+    scwin.f_createHeader_ForUpload();
+    $c.gus.cfDisableObjects([ed_apprNm]);
+
+    if(scwin.apprNo != ""){
+        dma_condition.set("coClsCd",scwin.coClsCd);
+        dma_condition.set("apprTypeCd",scwin.apprTypeCd);
+        dma_condition.set("apprCd",scwin.apprCd);
+        dma_condition.set("acctDeptCd",scwin.acctDeptCd);
+        dma_condition.set("apprNo",scwin.apprNo);
+
+        scwin.f_Retrieve_onload();			
+    }
+    //신규인 경우
+    else{
+        scwin.f_createNewHeader();
+        scwin.f_createHeader();
+        $c.gus.cfDisableObjects([btn_update, btn_reset, btn_apprv, btn_delete]);
+
+        //갱신필요 기본체크
+        rd_renYn.setValue('1');
+        //사용여부 기본체크
+        rd_useYn.setValue('1');
+        //부여명의를 기본적으로 사용못하도록 한다.
+        $c.gus.cfDisableObjects([ed_asgNm]);		
+        dma_results.set("apprGubun","N");
+    }
+
+};
+
+// f_OnLoad 에 있지만 f_Retrieve 후에 실행하기 위하여 별도 함수 생성
+scwin.f_Retrieve_after = function() {
+    //PK 수정불가
+    $c.gus.cfEnableObj(ed_coCd, false); 
+    $c.gus.cfEnableObj(ed_coNm, false); 
+    $c.gus.cfEnableObj(ed_regDept, false); 
+    $c.gus.cfEnableObj(ed_regDeptNm, false); 
+    
+    $c.gus.cfDisableObjects([tbl_detailArea, btn_save, btn_apprv, btn_delete, btn_delRow, btn_cancelRow,btn_addRow]);
+    gr_attachFile.setReadOnly("column","attachFileDesc", true);
+    
+    //경영전략팀인 경우 승인, 삭제권한 오픈
+    if(scwin.memJson.acctDeptCd == "00004"){
+        $c.gus.cfEnableObjects([btn_apprv]); 
+        
+        if(dma_results.get("apprvDeptNm") == ""){
+        //삭제권한은 신규작성 후 승인 전 단계에서만 가능(단 한번도 승인받지 않은 건)
+            $c.gus.cfEnableObjects([btn_delete]); 
+        }else{
+            $c.gus.cfDisableObjects([btn_delete]);
+        }							
+    }else{
+        $c.gus.cfDisableObjects([btn_apprv, btn_delete]);
+    }
+    
+    //미승인 건은 갱신 불가
+    if(dma_results.get("apprvDeptNm") == ""){
+        $c.gus.cfDisableObjects([btn_reset]);
+    }	
+    
+    $c.gus.cfDisableObjects(frm);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_createHeader
+// function desc : Grid Header정보 Setting
+//-------------------------------------------------------------------------
+
+// 온로드 조회용
+scwin.f_createHeader = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+// 조회버튼용
+scwin.f_createHeader2 = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+scwin.f_createHeader_ForUpload = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+scwin.f_createNewHeader = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+    dma_results.set( "picDeptCd", scwin.memJson.acctDeptCd );
+    dma_results.set( "picEmpNo", scwin.memJson.empNo );
+
+    sp_picDeptNm.setValue( scwin.memJson.acctDeptNm );
+    sp_picEmpNm.setValue( scwin.memJson.userNm );
+    sp_apprRegDtm.setValue( scwin.toDate );
+};
+
+scwin.f_createHeader_forMail = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회(저장되어 있는 자료)
+//-------------------------------------------------------------------------
+scwin.f_Retrieve_onload = function() {
+    $c.sbm.execute(sbm_tr_retrieve_onload);
+};
+
+scwin.f_Retrieve = function() {
+    $c.sbm.execute(sbm_tr_retrieve);
+};
+
+scwin.sbm_tr_retrieve_onload_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    dma_results.setJSON(e.responseJSON.OUT_DS1[0])
+    scwin.f_Retrieve_after();
+};
+
+scwin.sbm_tr_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    sp_picDeptNm.setValue(e.responseJSON.OUT_DS1[0].picDeptNm);
+    sp_picEmpNm.setValue(e.responseJSON.OUT_DS1[0].picEmpNm);
+    sp_apprRegDtm.setValue(e.responseJSON.OUT_DS1[0].apprRegDtm);
+    sp_apprvDeptNm.setValue(e.responseJSON.OUT_DS1[0].apprvDeptNm);
+    sp_apprvEmpNm.setValue(e.responseJSON.OUT_DS1[0].apprvEmpNm);
+    sp_apprApprvDtm.setValue(e.responseJSON.OUT_DS1[0].apprApprvDtm);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve2
+// function desc : 조회조건으로 조회(저장되어 있는 자료)
+//-------------------------------------------------------------------------
+scwin.f_Retrieve2 = async function (e) {
+    scwin.uploadFlag = false;
+    dma_condition2.set("acctDeptCd",lc_regDept.getValue());
+
+    if(ds_tb_DataSet1.getRowCount()== 1){
+    	await $c.win.alert("조회결과가 없습니다.");
+    	return false;	
+    }
+    
+	if(dma_condition2.get("coClsCd") == ""){
+		await $c.win.alert("회사구분을 선택해주시기 바랍니다.");
+		ed_coCdS.focus();
+		return false;	
+	}
+	
+	if(dma_condition2.get("apprTypeCd") == ""){
+		await $c.win.alert("인허가종류를 선택해주시기 바랍니다.");
+		lc_apprTypeCdS.focus();
+		return false;	
+	}
+	
+	if(dma_condition2.get("apprCd") == ""){
+		await $c.win.alert("인허가명을 선택해주시기 바랍니다.");
+		ed_apprNmS.focus();
+		return false;	
+	}
+	
+	if(dma_condition2.get("acctDeptCd") == ""){
+		await $c.win.alert("관리부서를 선택해주시기 바랍니다.");
+		return false;	
+	}
+
+    $c.sbm.execute(sbm_tr_retrieve2);
+};
+
+scwin.sbm_tr_retrieve2_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    dma_results.setJSON(e.responseJSON.OUT_DS1[0])
+
+    $c.gus.cfEnableObj(ed_coCd, false); 
+    $c.gus.cfEnableObj(ed_coNm, false); 
+    $c.gus.cfEnableObj(ed_regDept, false); 
+    $c.gus.cfEnableObj(ed_regDeptNm, false); 
+    
+    $c.gus.cfDisableObjects([tbl_detailArea, btn_save, btn_apprv, btn_delete, btn_delRow, btn_cancelRow,btn_addRow]);
+    gr_attachFile.setReadOnly("column","attachFileDesc", true);
+    $c.gus.cfEnableObjects([btn_reset, btn_update]); 	
+    
+    //경영전략팀인 경우 승인, 삭제권한 오픈
+
+
+    if(scwin.memJson.acctDeptCd == "00004"){
+        $c.gus.cfEnableObjects([btn_apprv]); 
+        if(dma_results.get("apprvDeptNm") == ""){
+            //삭제권한은 신규작성 후 승인 전 단계에서만 가능(단 한번도 승인받지 않은 건)
+            $c.gus.cfEnableObjects([btn_delete]); 
+        }else{
+            $c.gus.cfDisableObjects([btn_delete]);
+        }							
+    }else{
+        $c.gus.cfDisableObjects([btn_apprv, btn_delete]);
+    }
+    
+    //미승인 건은 갱신 불가
+    if(dma_results.get("apprvDeptNm") == ""){
+        $c.gus.cfDisableObjects([btn_reset]);
+    }	
+
+    totalRows.setValue(ds_attach.getRowCount());
+    gr_attachFile.setFocusedCell(0,"attachFileSeq",false)
+
+};
+
+// 신규, 수정
+scwin.f_Save = async function() {
+    if(dma_results.get("coClsCd") == ""){
+		await $c.win.alert("저장시 필요한 회사구분의 값이 없습니다. \n 회사구분을 조회해서 입력하시기 바랍니다.");
+		ed_coCd.focus();
+		return false;	
+	}
+
+	if(dma_results.get("apprTypeCd") == ""){
+		await $c.win.alert("인허가 종류를 선택해주시기 바랍니다.");
+		lc_apprTypeCdS.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("apprCd") == ""){
+		await $c.win.alert("저장시 필요한 인허가명의 값이 없습니다. \n 인허가명을 조회해서 입력하시기 바랍니다.");
+		ed_apprNm.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("acctDeptCd") == ""){
+		await c.win.alert("관리부서를 선택해주시기 바랍니다.");
+		ed_regDept.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("asgNmCd") == ""){
+		await $c.win.alert("부여명의를 선택해주시기 바랍니다.");
+		lc_asgNmCd.focus();
+		return false;	
+	}	
+	
+	if(dma_results.get("asgNmCd") == "05" && dma_results.get("asgNm") == ""){
+		await $c.win.alert("부여명의를 기타로 선택하신 경우에는 내용을 입력해주시기 바랍니다.");
+		ed_asgNm.focus();
+		return false;	
+	}
+		
+	if(dma_results.get("bizDomCd") == ""){
+		await $c.win.alert("사업영역을 선택해주시기 바랍니다.");
+		lc_bizDomCd.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("apprRegNo") == ""){
+		await $c.win.alert("등록(허가)번호를 작성해주시기 바랍니다.");
+		ed_apprRegNo.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("apprMgntAgcy") == ""){
+		await $c.win.alert("인허가 관리청을 작성해주시기 바랍니다.");
+		ed_apprMgntAgcy.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("chgDesc") == ""){
+	    await $c.win.alert("갱신/변경 사유를 입력해주시기 바랍니다.");
+	    ed_chgDesc.focus();
+       	return false;
+	}
+	
+	if(dma_results.get("renDt") == ""){
+		await $c.win.alert("취득/갱신일(최종)을 입력해주시기 바랍니다.");
+		ed_renDt.focus();
+		return false;	
+	}
+	
+	if ( ! await $c.gus.cfIsAfterDate(dma_results.get("firstAcqDt"), dma_results.get("renDt")) ) {
+        await $c.win.alert("취득/갱신일(최종)은 취득일(최초) 이후로 입력하여 주십시오.");
+        return false;
+    }
+	
+	if(dma_results.get("regStDt") == ""){
+		await $c.win.alert("등록(유효)기간 시작일자를 입력해주시기 바랍니다.");
+		ed_regStDt.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("regEndDt") == ""){
+		await $c.win.alert("등록(유효)기간 종료일자를 입력해주시기 바랍니다.");
+		ed_regEndDt.focus();
+		return false;	
+	}
+
+    if ( !await $c.gus.cfIsAfterDate(dma_results.get("regStDt"), dma_results.get("regEndDt")) ) {
+        await $c.win.alert("등록(유효)기간의 종료일자를 시작일자 이후로 입력하여 주십시오.");
+        return false;
+    }
+    
+    
+    if(dma_results.get("renYn") > 1){
+		await $c.win.alert("갱신필요여부를 체크해주시기 바랍니다.");
+		rd_renYn.focus();
+		return false;	
+	}
+	
+	if(dma_results.get("renYn") == 1 && dma_results.get("renPsblStDt") == ""){
+		await $c.win.alert("갱신가능기간을 입력해주시기 바랍니다.");
+		ed_renPsblStDt.focus();
+		return false;
+	}
+
+    if (dma_results.get("renPsblStDt") != "" && dma_results.get("renPsblEndDt") == ""){
+   		await $c.win.alert("갱신가능기간의 종료일자를 입력해주시기 바랍니다.");
+		ed_renPsblEndDt.focus();
+		return false;	
+    }else if (dma_results.get("renPsblStDt") == "" && dma_results.get("renPsblEndDt") != ""){
+   		await $c.win.alert("갱신가능기간의 시작일자를 입력해주시기 바랍니다.");
+		ed_renPsblStDt.focus();
+		return false;	
+    }else if (dma_results.get("renPsblStDt") != "" && dma_results.get("renPsblEndDt") != ""){
+	    if ( ! await $c.gus.cfIsAfterDate(dma_results.get("renPsblStDt"), dma_results.get("renPsblEndDt")) ) {
+	            await c.win.alert("갱신가능기간의 종료일자를 시작일자 이후로 입력하여 주십시오.");
+	            return false;
+	    }
+	}
+	
+	if(ds_attach.getRowCount() == 0){
+        await $c.win.alert("첨부파일을 1건 이상 등록해주시기 바랍니다.");
+        return false;
+	}
+	
+	// 첨부파일 Grid 에 1건 이상의 Data가 존재하고 업로드 버튼을 클릭 안했을 때
+    if (udc_fielUpload.getData().length > 0 && !scwin.uploadFlag) {
+        await $c.win.alert("첨부파일 변경 및 추가시 업로드 버튼을 클릭하여 주십시오.");
+        scwin.uploadFlag = false;
+        return false;
+    }
+
+    let confirm = await $c.gus.cfAlertMsg("저장하시겠습니까?");
+    if (confirm) {
+        $c.sbm.execute(sbm_tr_save);
+		// scwin.f_Apprv();
+	}
+};
+
+scwin.sbm_tr_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+	await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    scwin.uploadFlag = false;
+    dma_results.get("apprvEmpNo")
+	
+	scwin.f_createHeader();
+
+    dma_condition.set("coClsCd",ds_apprNo.getCellData(0, "coClsCd"));
+    dma_condition.set("apprTypeCd",ds_apprNo.getCellData(0, "apprTypeCd"));
+    dma_condition.set("apprCd",ds_apprNo.getCellData(0, "apprCd"));
+    dma_condition.set("acctDeptCd",ds_apprNo.getCellData(0, "acctDeptCd"));
+    dma_condition.set("apprNo",ds_apprNo.getCellData(0, "apprNo"));
+   
+	scwin.f_Retrieve();	
+
+	if(scwin.memJson.acctDeptCd == "00004"){
+		$c.gus.cfEnableObjects([btn_apprv]); 
+        
+		if(dma_results.get("apprvDeptNm") == ""){
+			$c.gus.cfEnableObjects([btn_delete]); 
+		}else{
+			$c.gus.cfDisableObjects([btn_delete]);
+		}							
+	}else{
+		$c.gus.cfDisableObjects([btn_apprv, btn_delete]);
+	}
+	
+	//미승인 건은 갱신 불가
+	if(dma_results.get("apprvDeptNm") == ""){
+		$c.gus.cfDisableObjects([btn_reset]);
+		$c.gus.cfEnableObjects([btn_update]);
+		
+	}else{
+		$c.gus.cfEnableObjects([btn_update, btn_reset]); 
+	}		
+	
+	$c.gus.cfDisableObjects([tbl_detailArea, btn_save, btn_delRow, btn_cancelRow,btn_addRow]);
+    gr_attachFile.setReadOnly("column","attachFileDesc", true);
+
+    scwin.f_Apprv();
+};
+
+// 승인 f_Save 에서 호출
+scwin.f_Apprv = function() {
+    //APPRV_YN =0(미승인)//=1(승인) 
+
+    if(dma_results.get("apprApprvDtm") != ""){
+		$c.gus.cfAlertMsg("이미 승인된 건입니다.");
+	}else{
+		dma_results.set( "apprvDeptCd", scwin.memJson.acctDeptCd );
+		dma_results.set( "apprvEmpNo", scwin.memJson.empNo );
+		dma_results.set( "apprvDeptNm", "" );
+		dma_results.set( "apprvEmpNm", "" );
+        $c.sbm.execute(sbm_tr_apprv);
+	}
+};
+
+scwin.sbm_tr_apprv_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+	await $c.win.alert("성공적으로 승인되었습니다.");
+	
+	scwin.f_createHeader();	
+
+    dma_condition.set("coClsCd",dma_results.get("coClsCd"));
+    dma_condition.set("apprTypeCd",dma_results.get("apprTypeCd"));
+    dma_condition.set("apprCd",dma_results.get("apprCd"));
+    dma_condition.set("acctDeptCd",dma_results.get("acctDeptCd"));
+    dma_condition.set("apprNo",dma_results.get("apprNo"));
+	
+	scwin.f_Retrieve();			
+	
+	//경영전략
+	if(scwin.memJson.acctDeptCd == "00004"){
+		$c.gus.cfEnableObjects([btn_update, btn_reset, btn_apprv]); 	
+		//삭제권한은 신규작성 후 승인 전 단계에서만 가능(단 한번도 승인받지 않은 건)
+		$c.gus.cfDisableObjects([tbl_detailArea, btn_init, btn_save, btn_delete, btn_delRow, btn_cancelRow,btn_addRow ]);
+        gr_attachFile.setReadOnly("column","attachFileDesc", true);
+	}    
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function(inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+ 	if (! await $c.gus.cfCanOpenPopup(inObj, pairObj))
+       return;
+
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+
+   	// inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true){
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+        // inObj가 코드명 필드일 경우 팝업
+    }else{
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    }
+};
+
+// 변경
+scwin.f_Update = function() {
+    $c.gus.cfEnableObjects([tbl_detailArea, btn_save, btn_delRow, btn_cancelRow, btn_addRow, frm]);
+
+    gr_attachFile.setReadOnly("column","attachFileDesc", false);
+	$c.gus.cfDisableObjects([btn_apprv, btn_delete, ed_coCd, ed_coNm, btn_company, lc_apprTypeCd, ed_apprNm, apprNm_popup, ed_regDept, ed_regDeptNm, clntNo_popup]);
+	
+    dma_results.set("picDeptCd",scwin.memJson.acctDeptCd);
+    dma_results.set("picEmpNo",scwin.memJson.empNo);
+
+    sp_picDeptNm.setValue( scwin.memJson.acctDeptNm );
+    sp_picEmpNm.setValue( scwin.memJson.userNm );
+    sp_apprRegDtm.setValue( scwin.toDate );
+
+    sp_apprvDeptNm.setValue( "" );
+    sp_apprvEmpNm.setValue( "" );
+    sp_apprApprvDtm.setValue( "" );
+    
+    dma_results.set("apprGubun","U");
+    dma_results.set("chgDesc","");
+    ed_chgDesc.setValue("");
+
+};
+
+// 갱신
+scwin.f_Reset = function() {
+    scwin.f_createHeader_ForUpload();
+
+    $c.gus.cfEnableObjects([tbl_detailArea, btn_save, btn_delRow, btn_cancelRow,btn_addRow, frm]);
+    gr_attachFile.setReadOnly("column","attachFileDesc", false);
+	$c.gus.cfDisableObjects([btn_apprv, btn_delete, ed_coCd, ed_coNm, btn_company, lc_apprTypeCd, ed_apprNm, apprNm_popup, ed_regDept, ed_regDeptNm, clntNo_popup]);
+
+    dma_results.set( "picDeptCd", scwin.memJson.acctDeptCd );
+    dma_results.set( "picEmpNo", scwin.memJson.empNo );
+
+    sp_picDeptNm.setValue( scwin.memJson.acctDeptNm );
+    sp_picEmpNm.setValue( scwin.memJson.userNm );
+    sp_apprRegDtm.setValue( scwin.toDate );
+
+    sp_apprvDeptNm.setValue( "" );
+    sp_apprvEmpNm.setValue( "" );
+    sp_apprApprvDtm.setValue( "" );
+	
+    dma_results.set( "apprGubun", "R" );
+    dma_results.set( "chgDesc", "" );
+    ed_chgDesc.setValue("");
+
+};
+
+//-------------------------------------------------------------------------
+// 파일을 업로드한다.
+//-------------------------------------------------------------------------
+scwin.f_Submit = function() {
+    //udc
+};
+
+//-------------------------------------------------------------------------
+// function name : uploadComplete
+// function desc : Upload File complete 
+//-------------------------------------------------------------------------
+scwin.uploadComplete = function() {
+    //udc
+};
+
+//-------------------------------------------------------------------------
+// function name : f_delrow
+// function desc : 그리드 칼럼 삭제
+//-------------------------------------------------------------------------
+scwin.f_delrow = function() {
+    let nowRow = ds_attach.getRowPosition();
+    let sts = ds_attach.getRowStatus(gr_attachFile.getFocusedRowIndex());
+
+	if ( ds_attach.getRowCount() == 0 ) {
+        $c.win.alert("삭제할 데이타가 없습니다");
+    }else {
+        if(nowRow != null){
+            if(sts == "C") {
+                ds_attach.removeRow(nowRow);
+                gr_attachFile.setFocusedCell(nowRow-1, 0, false);
+            }else if(sts == "D"){
+                //아무동작 하지 않음
+            }else{
+                ds_attach.deleteRow(nowRow);
+                //gr_attachFile.setRowDisabled(nowRow, true);
+            }
+        }
+    }
+    $c.gus.cfEnableBtnOnly([btn_cancelRow,btn_delRow]);
+};
+
+//-------------------------------------------------------------------------
+// 가우스의 Grid에 표현된 Multi 레코드를 삭제
+//-------------------------------------------------------------------------
+scwin.gf_MultiDeleteRow = function() {
+
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_Clear = function() {
+    $c.gus.cfInitObjects(tbl_detailArea,null);
+    sp_picDeptNm.setValue("");
+    sp_picEmpNm.setValue("");
+    sp_apprRegDtm.setValue("");
+    sp_apprvDeptNm.setValue("");
+    sp_apprvEmpNm.setValue("");
+    sp_apprApprvDtm.setValue("");
+	
+	//필수키 입력가능
+	$c.gus.cfEnableObj(ed_coCd, true); 
+	$c.gus.cfEnableObj(ed_coNm, true); 
+	$c.gus.cfEnableObj(ed_regDept, true); 
+	$c.gus.cfEnableObj(ed_regDeptNm, true); 
+
+    scwin.f_createNewHeader();
+	scwin.f_createHeader_ForUpload();
+	scwin.f_createHeader();
+
+    dma_results.set("apprGubun", "N");
+
+    $c.gus.cfEnableObjects([tbl_detailArea, btn_init, btn_save, gr_attachFile, btn_delRow, btn_cancelRow, btn_addRow, frm]);
+    $c.gus.cfDisableObjects([btn_update, btn_reset, btn_apprv, btn_delete]);
+
+};
+
+// 인허가정보 내의 인허가명 팝업	
+scwin.f_openApprPopUp = async function() {
+    let apprGubun = lc_apprTypeCd.getValue();
+    let apprNm = ed_apprNm.getValue();
+    let rtnList = new Array();
+
+    let data = {};
+    data.apprGubun = apprGubun;
+    data.apprTypeCd = apprGubun;
+    data.apprNm = apprNm;
+    data.closeTF= "T";
+
+    let opt = {};
+    opt.id = "smpPop";
+    opt.title = "title";
+    opt.width = "750";
+    opt.height = "700";
+    opt.popupName = "인허가명 조회";
+    opt.modal = true;    
+
+    if(apprGubun == ""){
+        $c.gus.cfAlertMsg("인허가 종류를 먼저 선택해주시기 바랍니다.");
+        return false;
+		   
+    }else{
+        rtnList = await $c.win.openPopup("/ui/cm/bc/permitmgnt/zz_950_01_01p.xml", opt, data);
+        if (rtnList != null) {
+            ed_apprNm.setValue(rtnList[1]);
+            dma_results.set("apprCd", rtnList[0]);
+        }
+    }
+};
+
+// 조회용 인허가명 팝업	
+scwin.f_openApprPopUpS = async function() {
+    let apprGubun = lc_apprTypeCdS.getValue();
+    let apprNm = ed_apprNmS.getValue();
+    let rtnList = new Array();
+
+    let data = {};
+    data.apprGubun = apprGubun;
+    data.apprTypeCd = apprGubun;
+    data.apprNm = apprNm;
+    data.closeTF= "T";
+
+    let opt = {};
+    opt.id = "smpPops";
+    opt.width = "750";
+    opt.height = "700";
+    opt.popupName = "인허가명 조회";
+    opt.modal = true;    
+
+    if(apprGubun == ""){
+        await $c.gus.cfAlertMsg("인허가 종류를 먼저 선택해주시기 바랍니다.");
+        return false;
+    }else{
+
+    }
+    rtnList = await $c.win.openPopup("/ui/cm/bc/permitmgnt/zz_950_01_01p.xml", opt, data);
+    if (rtnList != null) {
+        dma_condition2.set("apprCd", rtnList[0]);
+        ed_apprNmS.setValue(rtnList[1]);
+        if(ed_coCdS.getValue() != ""){
+            scwin.f_getRegDeptCombo();
+        }
+    }else{
+        dma_condition2.set("apprCd", "");
+        ed_apprNmS.getValue("");
+    }
+
+    
+};
+
+scwin.lc_apprTypeCdS_onchange = function (info) {
+    //인허가종류가 바뀔때 인허가명조회 팝업
+    dma_condition2.set("apprCd", "");
+    ed_apprNmS.setValue("");
+    scwin.f_openApprPopUpS();
+};
+
+scwin.f_SendMail = function() {
+    //호출되는곳 없음
+}
+
+//-------------------------------------------------------------------------
+// function name : f_openPopUp
+// function desc : popup
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    switch (disGubun)
+    {
+        case 1: //거래처
+            let condition = "";
+            udc_acctDeptCdInfo.cfCommonPopUp(scwin.udc_acctDeptCdInfo_callBackFunc,
+            pCode,pName,pClose,'5',null,'150,170',null,condition,null,null,null,null,null,pAllSearch,null);
+        break;
+        case 4: //회사코드
+            udc_companyInfo2.cfCommonPopUp(scwin.udc_companyInfo2_callBackFunc,
+            pCode,pName,pClose,null,null,null,null,null,null,null,null,null );
+        break;
+        case 5: //회사코드 조회조건용
+            udc_companyInfo.cfCommonPopUp(scwin.udc_companyInfo_callBackFunc,
+            pCode,pName,pClose,null,null,null,null,null,null,null,null,null );
+        break;
+
+    default:
+  	break;        
+    }
+};
+
+scwin.udc_companyInfo_callBackFunc = function(rtnList) {
+    if(rtnList != null ) {
+        if (rtnList[0] == "N/A") return;
+        ed_coCdS.setValue(rtnList[0]); // 코드
+        ed_coNmS.setValue(rtnList[5]); // 회사명
+        ed_coCdS.options.hidVal = rtnList[0];
+    }else{
+        ed_coCdS.setValue("");
+        ed_coNmS.setValue("");
+        ed_coCdS.options.hidVal = "";
+    }
+
+    // 관리부서 load
+	if(lc_apprTypeCdS.getValue() != "" && ed_apprNmS.getValue() != "" && ed_coCdS.getValue() != ""){
+		scwin.f_getRegDeptCombo();
+	}
+};
+
+scwin.udc_companyInfo2_callBackFunc = function(rtnList) {
+    if(rtnList != null ) {
+        if (rtnList[0] == "N/A") return;
+        ed_coCd.setValue(rtnList[0]); // 코드
+        ed_coNm.setValue(rtnList[5]); // 회사명
+        ed_coCd.options.hidVal = rtnList[0];
+    }else{
+        ed_coCd.setValue("");
+        ed_coNm.setValue("");
+        ed_coCd.options.hidVal = "";
+    }
+};
+
+scwin.udc_acctDeptCdInfo_callBackFunc = function(rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_regDept, ed_regDeptNm);
+};
+
+//-------------------------------------------------------------------------
+// 관리부서명을 조건에 따라 바꾼다.
+//-------------------------------------------------------------------------
+scwin.f_getRegDeptCombo = function() {
+    let condition = "";
+    let tmpstr = "strVal=" + lc_apprTypeCdS.getValue();
+        tmpstr += "&strVal2=" + ed_coCdS.getValue(); 
+        tmpstr += "&strVal3=" + dma_condition2.get("apprCd");
+
+    condition = "?cmd=retriveDeptCboCmm&" + tmpstr +"&intVal="
+    sbm_co_ds_combo2.action = "/ps.co.RetrievePsCboCmmCMD.do" + condition;
+    $c.sbm.execute(sbm_co_ds_combo2);
+
+};
+
+scwin.sbm_co_ds_combo2_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    ds_tb_DataSet1.sort("name", 0)
+    lc_regDept.changeChooseOption("", "선택");
+    lc_regDept.setSelectedIndex(0);
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(portCondtionPart, null);
+};
+
+scwin.f_Delete = async function() {
+    let confirm = await $c.gus.cfAlertMsg("삭제하시겠습니까?");
+    if (confirm) {
+        $c.sbm.execute(sbm_tr_delete);
+	}
+};
+
+scwin.sbm_tr_delete_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert("성공적으로 삭제되었습니다.");	
+	scwin.f_Clear()
+};
+
+//-------------------------------------------------------------------------                                                                                                                                                                                                                                               
+// Dataset DEBUG                                                                                                                                                                                                                                                                                                          
+//-------------------------------------------------------------------------     
+scwin.dataSetDebug = function() {
+    //호출되는곳 없음
+};
+
+scwin.f_test = function() {
+    //호출되는곳 없음
+};
+
+//-------------------------------------------------------------------------                                                                                                                                                                                                                                               
+// udc                                                                                                                                                                                                                                                                                                        
+//-------------------------------------------------------------------------    
+
+// 회사구분1
+scwin.udc_companyInfo_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_coCdS, ed_coNmS, 5);
+    
+	if(lc_apprTypeCdS.getValue() != "" && ed_apprNmS.getValue() != "" && ed_coCdS.getValue() != ""){
+		scwin.f_getRegDeptCombo();
+	}   
+};
+
+// 회사구분1
+scwin.udc_companyInfo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(5, ed_coCdS.getValue(), ed_coNmS.getValue(),'F','F');
+    // 관리부서 load
+    if(lc_apprTypeCdS.getValue() != "" && ed_apprNmS.getValue() != "" && ed_coCdS.getValue() != ""){
+		scwin.f_getRegDeptCombo();
+	}
+};
+
+// 회사구분1
+scwin.udc_companyInfo_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_apprNmS, ed_coCdS, 5, false)
+};
+
+// 회사구분2
+scwin.udc_companyInfo2_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_coCd, ed_coNm, 4);
+};
+
+// 회사구분2
+scwin.udc_companyInfo2_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(4, ed_coCd.getValue(), ed_coNm.getValue(),'T','T');
+};
+
+// 회사구분2
+scwin.udc_companyInfo2_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_coNm, ed_coCd, 4, false)
+};
+
+// 관리부서
+scwin.udc_acctDeptCdInfo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_regDept.getValue(), ed_regDeptNm.getValue(),'F','F');
+};
+
+// 관리부서
+scwin.udc_acctDeptCdInfo_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_regDept, ed_regDeptNm, 1);
+    //scwin.f_openCommonPopUp(1, ed_regDept.getValue(), ed_regDeptNm.getValue(),'F','F');
+};
+
+// 관리부서
+scwin.udc_acctDeptCdInfo_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_regDeptNm, ed_regDept, 1, false)
+};
+
+/* 갱신필요여부 변경 시 */
+scwin.rd_renYn_onchange = function (info) {
+
+};
+
+/* 부여명의 '기타' 입력시  */
+scwin.lc_asgNmCd_onchange = function (info) {
+ 	if(lc_asgNmCd.getValue() == "05"){
+ 		$c.gus.cfEnableObjects([ed_asgNm]);
+ 	}else{
+ 		$c.gus.cfDisableObjects([ed_asgNm]);
+ 		ed_asgNm.setValue("");
+ 	}
+};
+
+scwin.saveFile = async function() {
+    scwin.uploadFlag = true;
+    udc_fielUpload.setSubDir(scwin.systemPathVal);
+    udc_fielUpload.startFileUpload();
+    scwin.saveDone();
+};
+
+scwin.saveDone = function() {
+    //$c.win.alert("파일이 저장되었습니다.");
+};
+
+// uploadComplete
+scwin.udc_fielUpload_onFileUploadDone = function (isSuccess) {
+    if(!isSuccess) {
+        return
+    };
+    let strNxtSeq = 0;
+    let data = udc_fielUpload.getData();
+
+    for (let i = 0; i < data.length; i++) {
+		let insRow = ds_attach.insertRow();		
+
+		ds_attach.setCellData(insRow, "attachFileSeq", strNxtSeq);        
+		ds_attach.setCellData(insRow, "attachFileNm", data[i].ORIGIN_FILE_NM); //파일명        
+
+		ds_attach.setCellData(insRow, "attachFileDesc", ""); //파일설명
+		ds_attach.setCellData(insRow, "attachFileSiz", data[i].FILE_SIZE); //파일SIZE
+        ds_attach.setCellData(insRow, "attachFilePath", data[i].FILE_STORED_PATH + data[i].STORED_FILE_NM); //파일경로
+		ds_attach.setCellData(insRow, "regId", scwin.memJson.empNo);
+
+        if(dma_results.get("apprNo") != ""){
+            ds_attach.setCellData(insRow, "apprNo", dma_results.get("apprNo"));
+
+		}
+	}
+    gr_attachFile.setFocusedCell(0, "attachFileNm", false);
+
+    udc_fielUpload.setGridClear();
+};
+
+scwin.gr_attachFile_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    if(columnId == "attachFileNm"){
+        $c.gus.cfGetFileURL(ds_attach.getCellData(rowIndex, "attachFileNm"),ds_attach.getCellData(rowIndex, "attachFilePath"))
+	}
+};
+
+scwin.f_cancelRow = function(){
+    let nowRow = ds_attach.getRowPosition();
+    let sts = ds_attach.getRowStatus(gr_attachFile.getFocusedRowIndex());
+    if(nowRow != null){
+        if(sts == "C") {
+            ds_attach.removeRow(nowRow);
+            gr_attachFile.setFocusedCell(nowRow-1, 0, false);
+        }else{
+	        ds_attach.undoRow(nowRow);
+        }
+    }    
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="portCondtionPart" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="회사구분 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="" selectID="retrieveDongbuGroupCompanyInfo" codeId="ed_coCdS" validTitle="회사구분" popupTitle="" nameId="ed_coNmS" style="" objTypeCode="data" objTypeName="data" code="coClsCd" name="coNm" refDataCollection="dma_condition2" id="udc_companyInfo" ev:onclickEvent="scwin.udc_companyInfo_onclickEvent" ev:onblurCodeEvent="scwin.udc_companyInfo_onblurCodeEvent" mandatoryCode="true" UpperFlagCode="1" maxlengthCode="3" allowCharCode="0-9" btnId="btn_companyS" ev:onviewchangeNameEvent="scwin.udc_companyInfo_onviewchangeNameEvent" skipOnBlurCodeValueEmpty="N">
+    									</w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="인허가 종류 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_apprTypeCdS" style="width: 150px;" submenuSize="auto" ref="data:dma_condition2.apprTypeCd" chooseOptionLabel="선택" ev:onchange="scwin.lc_apprTypeCdS_onchange" visibleRowNum="25" mandatory="true" title="인허가종류">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="인허가명 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group" id="" style="">
+    										<xf:input class=" w200" id="ed_apprNmS" placeholder="" style="" ref="" mandatory="true" title="인허가명" objType="data">
+    										</xf:input>
+    										<xf:trigger class="btn ico sch" id="apprNm_popupS" style="" type="button" ev:onclick="scwin.f_openApprPopUpS">
+    											<xf:label><![CDATA[버튼]]></xf:label>
+    										</xf:trigger>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group tagname="th" id="" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="관리부서 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" id="" class="w2tb_td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto"
+    										disabled="false" disabledClass="w2selectbox_disabled" id="lc_regDept" style="width: 150px;" submenuSize="auto"
+    										ref="data:dma_condition2.acctDeptCd" chooseOptionLabel="선택" visibleRowNum="25" title="관리부서">
+    										<xf:choices>
+    											<xf:itemset nodeset="data:ds_tb_DataSet1">
+    												<xf:label ref="name"></xf:label>
+    												<xf:value ref="code"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group></xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_Retrieve2" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="tbl_detailArea"><xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="인허가 정보" class="tit"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="tbbox">
+    					<xf:group tagname="table" style="" id="tbl_detailArea1" class="w2tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr" style="">
+    							<xf:group tagname="th" style="" class="w2tb_th">
+    								<w2:textbox ref="" style="" userData2="" id="" label="회사구분" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<w2:udc_comCode maxlengthCode="3" objTypeCode="data" refDataCollection="dma_results" popupID="" code="coClsCd" UpperFlagCode="1" mandatoryCode="true" ev:onclickEvent="scwin.udc_companyInfo2_onclickEvent" allowCharCode="0-9" selectID="retrieveDongbuGroupCompanyInfo" codeId="ed_coCd" popupTitle="" validTitle="회사구분" objTypeName="data" name="coClsNm" nameId="ed_coNm" style="" id="udc_companyInfo2" ev:onblurCodeEvent="scwin.udc_companyInfo2_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_companyInfo2_onviewchangeNameEvent" btnId="btn_company" skipOnBlurCodeValueEmpty="N">
+    								</w2:udc_comCode>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="인허가 종류" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:select1 submenuSize="auto" chooseOptionLabel="선택" chooseOption="true" allOption="" title="인허가종류" mandatory="true" displayMode="label" ref="data:dma_results.apprTypeCd" appearance="minimal" disabledClass="w2selectbox_disabled" disabled="false" style="width: 300px;" id="lc_apprTypeCd" class="" direction="auto">
+    									<xf:choices></xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="인허가명" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:group style="width: 300px;" id="" class="form-group">
+    									<xf:input ref="data:dma_results.apprNm" style="" id="ed_apprNm" placeholder="" title="인허가명" class="" mandatory="true"></xf:input>
+    									<xf:trigger ev:onclick="scwin.f_openApprPopUp" style="" id="apprNm_popup" type="button" class="btn ico sch">
+    										<xf:label><![CDATA[버튼]]></xf:label>
+    									</xf:trigger>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="관리부서" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:udc_comCode maxlengthCode="5" refDataCollection="dma_results" popupID="" code="acctDeptCd" UpperFlagCode="1" mandatoryCode="true" ev:onclickEvent="scwin.udc_acctDeptCdInfo_onclickEvent" allowCharCode="0-9 " codeId="ed_regDept" selectID="retrieveAcctDeptCdInfo" popupTitle="" validTitle="관리부서" name="acctDeptNm" nameId="ed_regDeptNm" style="" id="udc_acctDeptCdInfo" ev:onblurCodeEvent="scwin.udc_acctDeptCdInfo_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_acctDeptCdInfo_onviewchangeNameEvent" btnId="clntNo_popup">
+    								</w2:udc_comCode>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="부여명의" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>3</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    							<xf:group id="" class="form-group"><xf:select1 submenuSize="auto" chooseOptionLabel="선택" ev:onchange="scwin.lc_asgNmCd_onchange" chooseOption="true" allOption="" title="부여명의" mandatory="true" displayMode="label" ref="data:dma_results.asgNmCd" appearance="minimal" disabledClass="w2selectbox_disabled" disabled="false" style="width: 300px;" id="lc_asgNmCd" class="" direction="auto">
+    									<xf:choices></xf:choices>
+    								</xf:select1><xf:input ref="data:dma_results.asgNm" maxlength="100" style="width: 300px;" id="ed_asgNm" class="">
+    								</xf:input></xf:group></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="사업영역" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:select1 submenuSize="auto" chooseOptionLabel="선택" chooseOption="true" allOption="" title="사업영역" mandatory="true" displayMode="label" ref="data:dma_results.bizDomCd" appearance="minimal" disabledClass="w2selectbox_disabled" disabled="false" style="width: 300px;" id="lc_bizDomCd" class="" direction="auto">
+    									<xf:choices></xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="용도" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input ref="data:dma_results.purps" maxlength="100" style="width: 300px;" id="ed_purps" class="" title="용도"></xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="등록(허가)번호" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input ref="data:dma_results.apprRegNo" maxlength="100" style="width: 300px;" id="ed_apprRegNo" title="등록(허가)번호" class="" mandatory="true">
+    								</xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="인허가 관리청" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input ref="data:dma_results.apprMgntAgcy" maxlength="100" style="width: 300px;" id="ed_apprMgntAgcy" title="인허가관리청" class="" mandatory="true">
+    								</xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="인허가 관리담당자" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input ref="data:dma_results.mgntAgcyPicNm" maxlength="100" style="width: 300px;" id="ed_mgntAgcyPicNm" class="" title="인허가관리담당자">
+    								</xf:input>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="관리담당자 연락처" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:input ref="data:dma_results.mgntAgcyPicTel" maxlength="100" style="width: 300px;" id="ed_mgntAgcyPicTel" class="" title="관리담당자연락처">
+    								</xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="관련법규" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>5</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<xf:input ref="data:dma_results.rltViol" maxlength="300" style="" id="ed_rltViol" class=" " title="관련법규"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="사용여부" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<xf:select1 ref="data:dma_results.useYn" appearance="full" style="" id="rd_useYn" renderType="radiogroup" rows="" class="rdo-grp" cols="" objType="data" selectedIndex="0" title="사용여부">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[사용]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[미사용]]></xf:label>
+    											<xf:value><![CDATA[0]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="갱신/변경 사유" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>3</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<xf:input ref="data:dma_results.chgDesc" maxlength="300" style="" id="ed_chgDesc" title="갱신/변경사유" class=" " mandatory="true">
+    								</xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group><xf:group style="" id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="인허가 기간" class="tit"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="tbbox">
+    					<xf:group tagname="table" style="" id="tbl_detailArea2" class="w2tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col" style=""></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr" style="">
+    							<xf:group tagname="th" style="" class="w2tb_th">
+    								<w2:textbox ref="" style="" userData2="" id="" label="취득일(최초)" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<w2:inputCalendar ref="data:dma_results.firstAcqDt" displayFormat="yyyy/MM/dd" style="" id="ed_firstAcqDt" class=" cal" calendarValueType="yearMonthDate" title="취득일(최초)">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="취득/갱신일(최종)" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:inputCalendar ref="data:dma_results.renDt" displayFormat="yyyy/MM/dd" style="" id="ed_renDt" title="취득/갱신일(최종)" class=" cal" mandatory="true" calendarValueType="yearMonthDate">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="등록(유효)기간" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:udc_fromToCalendar refStDt="regStDt" mandatoryTo="true" refDataMap="dma_results" edFromId="ed_regStDt" edToId="ed_regEndDt" titleTo="등록(유효)기간" mandatoryFrom="true" style="" id="udc_fromToCalendar2" refEdDt="regEndDt" titleFrom="등록(유효)기간">
+    								</w2:udc_fromToCalendar>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="갱신필요여부" class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<xf:select1 ev:onchange="scwin.rd_renYn_onchange" rows="" title="갱신필요여부" mandatory="true" selectedIndex="0" ref="data:dma_results.renYn" appearance="full" style="" id="rd_renYn" renderType="radiogroup" class="rdo-grp" cols="" objType="data">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[필요]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[불필요]]></xf:label>
+    											<xf:value><![CDATA[0]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="갱신가능기간" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>3</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:udc_fromToCalendar refStDt="renPsblStDt" refDataMap="dma_results" edFromId="ed_renPsblStDt" edToId="ed_renPsblEndDt" style="" id="udc_fromToCalendar1" refEdDt="renPsblEndDt" titleFrom="갱신가능기간" titleTo="갱신가능기간">
+    								</w2:udc_fromToCalendar>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group><xf:group style="" id="" class="row-gap-8">
+    				<xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="담당 정보" class="tit"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="tbbox">
+    					<xf:group tagname="table" style="" id="tbl_detailArea3" class="w2tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group tagname="col" style="width: 120px;"></xf:group>
+    							<xf:group tagname="col" style=""></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr" style="">
+    							<xf:group tagname="th" style="" class="w2tb_th">
+    								<w2:textbox ref="" style="" userData2="" id="" label="담당자 부서" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<w2:textbox ref="data:dma_results.picDeptNm" style="" userData2="" id="sp_picDeptNm" label=" text" class="">
+    								</w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="담당자" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="data:dma_results.picEmpNm" style="" userData2="" id="sp_picEmpNm" label=" text" class="">
+    								</w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="등록일시" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="data:dma_results.apprRegDtm" dataType="date" displayFormat="yyyy/MM/dd" style="" userData2="" id="sp_apprRegDtm" label=" text" class="">
+    								</w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="승인자 부서" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    								<w2:textbox ref="data:dma_results.apprvDeptNm" style="" userData2="" id="sp_apprvDeptNm" label=" text" class="">
+    								</w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="승인자" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="data:dma_results.apprvEmpNm" style="" userData2="" id="sp_apprvEmpNm" label=" text" class="">
+    								</w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="th" class="w2tb_th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="" style="" userData2="" id="" label="승인일시" class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox ref="data:dma_results.apprApprvDtm" displayFormatter="scwin.fn_dateFormat" displayFormat="####/##/##" style="" userData2="" id="sp_apprApprvDtm" label=" text" class="">
+    								</w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group></xf:group><xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="변경정보 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownYn="N" gridID="gr_attachFile"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_attach" id="gr_attachFile"
+    						style="" visibleRowNum="10" visibleRowNumFix="true" readOnly="true" ev:oncelldblclick="scwin.gr_attachFile_oncelldblclick" rowStatusVisible="true" rowStatusWidth="20">
+    						<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column displayMode="label" id="column1" inputType="text" style="" value="인허가관리번호" width="130">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column17" inputType="text" style="" value="등록순번" width="50">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column15" inputType="text" style="" value="첨부파일명" width="130">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column13" inputType="text" style="" value="첨부파일설명" width="300"
+    									class="txt-blue">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column11" inputType="text" style="" value="SIZE" width="50" sortable="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column9" inputType="text" style="" value="첨부파일경로" width="130">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column3" inputType="text" style="" value="등록자ID" width="100">
+    								</w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column displayMode="label" id="apprNo" inputType="text" style="" value="" width="130" hidden="true" ></w2:column>
+    								<w2:column displayMode="label" id="attachFileSeq" inputType="text" style="" value="" width="50" dataType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="attachFileNm" inputType="text" style="" value="" width="130" textAlign="left" class="underline">
+    								</w2:column>
+    								<w2:column displayMode="label" id="attachFileDesc" inputType="text" style="" value="" width="300" textAlign="left" readOnly="false" class="">
+    								</w2:column>
+    								<w2:column displayMode="label" id="attachFileSiz" inputType="text" style="" value="" width="50" textAlign="right" displayFormat="#,###" dataType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="attachFilePath" inputType="text" style="" value="" width="130" textAlign="left" hidden="true" >
+    								</w2:column>
+    								<w2:column displayMode="label" id="regId" inputType="text" style="" value="" width="100" textAlign="left" hidden="true" ></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number"
+    									displayFormat="#,##0">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="right" id="" style="">
+    							<w2:udc_bottomGrdBtn btnDelYn="N" btnCancelYn="Y" style="" id="btn_rowCon" delUserAuth="D"
+    								cancelUserAuth="D" rowDelUserAuth="D" btnRowDelYn="Y" btnRowAddYn="N" rowDelObjType="data" cancelObjType="data" rowDelFunction="scwin.f_delrow" btnRowDelObj="btn_delRow" btnCancelObj="btn_cancelRow" cancelFunction="scwin.f_cancelRow">
+    							</w2:udc_bottomGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			
+    			<xf:group id="" class="file-wrap"><xf:group id="" class="title-wrap"><xf:group id="" class="right"></xf:group></xf:group>
+    			<xf:group id="frm"><w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="" id="udc_fielUpload" saveFn="scwin.saveFile" ev:onFileUploadDone="scwin.udc_fielUpload_onFileUploadDone" saveButtonId="btn_addRow" addButtonName="첨부파일추가" saveButtonName="업로드">
+    				</w2:udc_fileMultiUpload></xf:group></xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="left" id="" style="">
+    					<w2:textbox escape="false" class="info-txt blk" id=""
+    						label=" 파일 첨부 방법 &lt;br/&gt; &amp;nbsp; &amp;nbsp;1. 첨부파일 추가 → 2. 업로드 → 3. 첨부파일설명 입력 " ref="" style="" userData2="">
+    					</w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btn_init" style="" type="button" ev:onclick="scwin.f_Clear" userAuth="U">
+    						<xf:label><![CDATA[신규]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_update" style="" type="button" ev:onclick="scwin.f_Update" userAuth="U">
+    						<xf:label><![CDATA[변경]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_reset" style="" type="button" ev:onclick="scwin.f_Reset" userAuth="U">
+    						<xf:label><![CDATA[갱신]]></xf:label>
+    					</xf:trigger>
+    					
+    					<xf:trigger class="btn" id="btn_apprv" style="" type="button" ev:onclick="scwin.f_Apprv" userAuth="U">
+    						<xf:label><![CDATA[승인]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_delete" style="" type="button" ev:onclick="scwin.f_Delete" userAuth="U">
+    						<xf:label><![CDATA[삭제]]></xf:label>
+    					</xf:trigger>
+    				<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger></xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

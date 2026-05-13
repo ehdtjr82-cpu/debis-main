@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="mFilename" name="name4" dataType="text"></w2:column><w2:column id="filename" name="name3" dataType="text"></w2:column>
+    					<w2:column id="filepath" name="name1" dataType="text"></w2:column>
+    					<w2:column id="filesize" name="name2" dataType="text"></w2:column>
+    					
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/cm/fw/constants/DFWConstants.js" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// PGM명 : 자동차등록증 업로드 (eq_530_01_51p)
+// 작성자 : 송정희
+// 최초작성일자 : 2026-01-24
+//------------------------------------------------------------------------
+scwin.p_fileNm = "";
+scwin.p_fileSavePath = "";
+scwin.p_vehclNo = "";
+scwin.p_fileSiz = "";
+scwin.p_accdNo = "temp";
+
+scwin.systemPathKey = "";
+scwin.systemPathVal = "";
+scwin.tFileNm = "";
+
+scwin.onpageload = function() {
+console.log("PGM명 : 자동차등록증 업로드 (eq_530_01_51p)");   
+   //파일 업로드 위치
+    scwin.systemPathKey =  DFWConstants.FILE_UPLOAD_SYSTEM_PATH ;
+    scwin.systemPathVal =  "/ps/eq/adjmmgnt/fixrslts/";
+
+	scwin.params = $c.data.getParameter();
+    scwin.p_fileNm = scwin.params["fileNm"];
+    scwin.p_fileSavePath = scwin.params["fileSavePath"];
+    scwin.p_vehclNo = scwin.params["vehclNo"];
+    scwin.p_fileSiz = scwin.params["fileSiz"];
+       
+    scwin.tFileNm = "자동차등록증_" + scwin.p_vehclNo;
+    ed_fileNm.setValue(scwin.tFileNm);
+};
+
+scwin.onUdcCompleted = function() {//debugger;
+	scwin.params = $c.data.getParameter();
+
+    scwin.p_fileNm = scwin.params["fileNm"];
+    scwin.p_fileSavePath = scwin.params["fileSavePath"];
+    scwin.p_fileSiz = scwin.params["fileSiz"];
+    scwin.p_vehclNo = scwin.params["vehclNo"];
+
+    let jsonDt = {
+        "FILE_STORED_PATH": scwin.p_fileSavePath,
+        "STORED_FILE_NM": scwin.p_fileNm,
+        "ORIGIN_FILE_NM": scwin.p_fileNm,
+        "FILE_SIZE": scwin.p_fileSiz
+    };
+
+    let arr = [];
+    arr.push(jsonDt);
+
+    if (!$c.gus.cfIsNull(scwin.p_fileSavePath)) {
+        udc_fielUpload.setData(arr);
+    }
+}
+		
+
+//-------------------------------------------------------------------------
+// function name : fileSubmit
+// function desc : File Upload 
+//-------------------------------------------------------------------------
+scwin.fileSubmit = async function (){		
+    var formObj = document.frm ; 
+    var intFileCnt = 0;
+
+    //cfUploadFile( formObj , fileUploadGDS, "uploadComplete" , true , g_accdNo );		
+    let fileArr = udc_fielUpload.getData();
+
+    let fileStr = "";
+    let fileStoredNameStr = "";       
+    let fileNameStr = "";    
+    let filePathStr = "";
+    let fileSizStr = "";
+
+    fileUploadGDS.removeAll();
+    
+    for(let idx in fileArr) {
+        fileStr += JSON.stringify(fileArr[idx])+"\n";    
+
+        fileStoredNameStr = JSON.stringify(fileArr[idx].STORED_FILE_NM );   
+        fileNameStr = JSON.stringify(fileArr[idx].ORIGIN_FILE_NM );         
+        // filePathStr = JSON.stringify(fileArr[idx].FILE_STORED_PATH );
+        filePathStr = JSON.stringify(fileArr[idx].FILE_STORED_PATH + fileArr[idx].STORED_FILE_NM );
+        fileSizStr = JSON.stringify(fileArr[idx].FILE_SIZE );    
+ 
+        fileUploadGDS.insertRow(idx);
+        fileUploadGDS.setCellData(idx, "mFilename", scwin.tFileNm);
+        fileUploadGDS.setCellData(idx, "filename", fileNameStr);             
+        fileUploadGDS.setCellData(idx, "filepath", filePathStr);   
+        fileUploadGDS.setCellData(idx, "filesize", fileSizStr);                  
+    }
+    fileStr += udc_fielUpload.getType(); // 증빙파일종류
+ console.log("fileStr : " + fileStr );       
+
+    await $c.win.alert(ed_fileNm.getValue() + " 저장하였습니다."); 
+    
+}    
+
+scwin.saveFile = async function() {
+    let ret = await $c.win.confirm("저장하시겠습니까?");
+    if (ret) {
+        udc_fielUpload.startFileUpload();
+        // await $c.win.alert("해당파일을 저장하였습니다.");
+    }
+};
+
+//-------------------------------------------------------------------------
+// 화면닫기
+//------------------------------------------------------------------------- 	
+scwin.f_Close = async function () {
+    var	rtnList		= new Array();
+    var sFileNm = "";
+    var sFileSize = 0;
+    
+    var rCnt = fileUploadGDS.getRowCount();
+    if (rCnt > 0) {
+        for (var i = 0 ; i < rCnt ; i++) {
+            sFileNm = fileUploadGDS.getCellData(i,"filename");
+            if (sFileNm.trim().length > 0) {
+                sFileSize += $c.num.parseInt(fileUploadGDS.getCellData(i,"filesize"));
+            }
+        } 
+        var g_filePath = scwin.systemPathVal;
+        var g_fileName = ed_fileNm.getValue();	
+        var g_fileSiz  = sFileSize;
+
+        rtnList[0] = g_filePath;
+        rtnList[1] = g_fileName;
+        rtnList[2] = g_fileSiz;
+        rtnList[3] = scwin.p_vehclNo;
+    }    
+    $c.win.closePopup(rtnList);
+}
+
+scwin.btn_Close_onclick = function (e) {
+    scwin.f_Close();
+};
+
+scwin.btn_Save_onclick = function (e) {
+    scwin.f_Close();
+};
+]]></script>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="파일명 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="ed_fileNm" style="width: 200px;" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		<xf:group id="" class="file-wrap no-title"><w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="" id="udc_fielUpload" saveFn="scwin.saveFile" subDir="/ps/eq/adjmmgnt/fixrslts" typeYn="N" receiptYn="N" explainYn="N" ev:onFileUploadDone="scwin.fileSubmit">
+    			</w2:udc_fileMultiUpload></xf:group></xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_Close" style="" type="button" ev:onclick="scwin.btn_Close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_Save" style="" type="button" ev:onclick="scwin.btn_Save_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

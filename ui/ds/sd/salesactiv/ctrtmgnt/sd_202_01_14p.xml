@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="dma_retrieve">
+    				<w2:keyInfo>
+    					<w2:key id="ctrtNo" name="계약번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_sd211" saveRemovedData="true" ev:onrowpositionchange="scwin.ds_sd211_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="ctrtNo" name="계약번호" dataType="text" length="11"></w2:column>
+    					<w2:column id="selpchItemCd" name="매입항목코드" dataType="text" length="4"></w2:column>
+    					<w2:column id="selpchItemNm" name="매출입항목명" dataType="text" length="50"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_sd212_1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="ctrtNo" name="계약번호" dataType="text" length="32"></w2:column>
+    					<w2:column id="selpchItemCd" name="매입항목코드" dataType="text" length="32"></w2:column>
+    					<w2:column id="extrCondItemCd" name="부대조건항목코드" dataType="text" length="4"></w2:column>
+    					<w2:column id="extrCondItemNm" name="부대조건항목명" dataType="text" length="50"></w2:column>
+    					<w2:column id="chk" name="chk" dataType="text" length="38"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_sd212_2" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="ctrtNo" name="계약번호" dataType="text" length="32"></w2:column>
+    					<w2:column id="selpchItemCd" name="매입항목코드" dataType="text" length="32"></w2:column>
+    					<w2:column id="extrCondItemCd" name="부대조건항목코드" dataType="text" length="4"></w2:column>
+    					<w2:column id="extrCondItemNm" name="부대조건항목명" dataType="text" length="50"></w2:column>
+    					<w2:column id="chk" name="chk" dataType="text" length="38"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>    			
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.sd.salesactiv.ctrtmgnt.RetrieveContractTariffExtraConditionListCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,["dma_retrieve",{"id":"ds_sd211","key":"OUT_DS1"},{"id":"ds_sd212_1","key":"OUT_DS2"},{"id":"ds_sd212_2","key":"OUT_DS3"}]'
+    			target='data:json,[{"id":"ds_sd211","key":"OUT_DS1"},{"id":"ds_sd212_1","key":"OUT_DS2"},{"id":"ds_sd212_2","key":"OUT_DS3"}]'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.sd.salesactiv.ctrtmgnt.SaveContractTariffExtraConditionListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"action":"modified","id":"ds_sd212_1","key":"IN_DS1"},{"action":"modified","id":"ds_sd212_2","key":"IN_DS2"}]' target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면 로딩 
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    
+    scwin.f_defaultValue();
+    scwin.f_retrieve();	
+};
+
+//-------------------------------------------------------------------------
+// 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function() {
+	console.log("scwin.f_defaultValue");
+
+	var ctrtNo = scwin.params.ctrtNo;
+    var completeYn = scwin.params.completeYn;
+    //scwin.params.ctrtNo = "C0812010600";
+    //var completeYn = "02";
+	
+	if (completeYn == "02") {
+		$c.gus.cfDisableObjects([btn_save]);
+   	}
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function() {
+	console.log("scwin.f_retrieve");
+
+    dma_retrieve.set("ctrtNo", scwin.params.ctrtNo);
+    $c.sbm.execute(sbm_retrieve);	
+}
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_save = async function() {
+	console.log("scwin.f_save");
+
+    if(!$c.data.isModified(ds_sd212_1) && !$c.data.isModified(ds_sd212_2)){
+		$c.gus.cfAlertMsg(MSG_CM_ERR_001, new Array("부대조건"));
+		return;
+	}else{
+        let conf = await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_001))
+        if(conf)   $c.sbm.execute(sbm_save)
+	}
+}
+
+//-------------------------------------------------------------------------
+// 부대조건 filter
+//-------------------------------------------------------------------------
+scwin.f_sd212_1_filter = function() {
+    let condition = "selpchItemCd == '" + ds_sd211.getCellData(ds_sd211.getRowPosition(), "selpchItemCd") + "'";
+    ds_sd212_1.removeColumnFilterAll()
+    $c.data.dataListFilter(ds_sd212_1, condition);
+    ds_sd212_1.sort("extrCondItemNm", 0);
+}
+
+//-------------------------------------------------------------------------
+// 할인할증항목 filter
+//-------------------------------------------------------------------------
+scwin.f_sd212_2_filter = function() {
+    let condition = "selpchItemCd == '" + ds_sd211.getCellData(ds_sd211.getRowPosition(), "selpchItemCd") + "'";
+    ds_sd212_2.removeColumnFilterAll()
+    $c.data.dataListFilter(ds_sd212_2, condition)
+    ds_sd212_2.sort("extrCondItemNm", 0);
+}
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+//조회 완료
+scwin.sbm_retrieve_submitdone = function(e) {
+    console.log("scwin.sbm_retrieve_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    ds_sd211.setRowPosition(0);
+    gr_sd211.setFocusedCell(0, 0);
+    spn_totalRow211.setValue(ds_sd211.getRowCount());
+
+    scwin.f_sd212_1_filter();
+    scwin.f_sd212_2_filter();
+
+    gr_sd212_1.setFocusedCell(0, 0);
+    gr_sd212_2.setFocusedCell(0, 0);
+
+    spn_totalRow212_1.setValue(ds_sd212_1.getRowCount());
+    spn_totalRow212_2.setValue(ds_sd212_2.getRowCount());   
+};
+
+//저장 완료
+scwin.sbm_save_submitdone = function (e) {
+    console.log("scwin.sbm_save_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);
+};
+
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+//계약요율항목 그리드 행 변경 > 필터
+scwin.gr_sd211_onrowindexchange = function (rowIndex, oldRow) {
+
+};
+
+//저장 버튼 
+scwin.btn_save_onclick = function (e) {
+    scwin.f_save();
+};
+
+//닫기 버튼
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+
+scwin.gr_sd211_onaftercolumnmove = function (info) {
+};
+
+scwin.ds_sd211_onrowpositionchange = function (info) {
+  scwin.f_sd212_1_filter();
+  scwin.f_sd212_2_filter();
+
+    gr_sd212_1.setFocusedCell(0, 0);
+    gr_sd212_2.setFocusedCell(0, 0);
+
+  spn_totalRow212_1.setValue(ds_sd212_1.getRowCount());
+  spn_totalRow212_2.setValue(ds_sd212_2.getRowCount()); 	
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="계약요율 항목" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="" style="height:200px">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_sd211"
+    						defaultCellHeight="-1" ev:onrowindexchange="" focusMode="both" id="gr_sd211" scrollByColumn="false"
+    						scrollByColumnAdaptive="false" style="" readOnly="false" focusFlow="linear" focusMove="true" ignoreNonEditableCell="false"
+    						ignoreNonEditableCellTabEnter="false" columnMove="true" moveKeyEditMode="false" moveKeyEditModeAll="false" arrowMove="false" ev:oncellindexchange="" ev:oncolumnindexchange="" ev:onaftercolumnmove="scwin.gr_sd211_onaftercolumnmove">
+    						<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column13" inputType="text" value="계약번호" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column15" inputType="text" value="매출입항목코드" width="70"></w2:column>
+    								<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" value="계약요율 항목"
+    									width="100">
+    								</w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" hidden="true" id="ctrt" inputType="text" width="70"></w2:column>
+    								<w2:column displayMode="label" hidden="true" id="selpchItemCd" inputType="text" width="70"></w2:column>
+    								<w2:column blockSelect="false" displayMode="label" id="selpchItemNm" inputType="text" textAlign="left"
+    									width="100" readOnly="true">
+    								</w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spn_totalRow211" label="0" style="" tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group><xf:group class="lybox" id="">
+    				<xf:group class="col" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="부대조건" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    						<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_sd212_1"
+    							focusMode="row" id="gr_sd212_1" scrollByColumn="false" scrollByColumnAdaptive="false" style="" readOnly="false" ignoreNonEditableCell="true">
+    							<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header2" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column width="70" inputType="text" style="" id="column13" value="계약번호" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column15" value="매출입항목코드" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column17" value="부대조건항목코드"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    										removeBorderStyle="false" width="200" value="부대조건">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column11" inputType="checkbox"
+    										removeBorderStyle="false" width="99" value="" class="" checkboxLabel="포함" checkboxLabelPosition="right">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody2" style="">
+    								<w2:row id="row4" style="">
+    									<w2:column width="70" inputType="text" style="" id="ctrt" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="selpchItemCd" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="extrCondItemCd" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="extrCondItemNm" inputType="text"
+    										removeBorderStyle="false" width="200" textAlign="left" readOnly="true">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="chk" inputType="checkbox"
+    										removeBorderStyle="false" width="99" valueType="binary" trueValue="1">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" id="spn_totalRow212_1" label="0" style="" tagname="span" dataType="number"
+    										displayFormat="#,##0">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="col" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="할인할증항목" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    						<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_sd212_2"
+    							focusMode="row" id="gr_sd212_2" scrollByColumn="false" scrollByColumnAdaptive="false" style="" readOnly="false">
+    							<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header2" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column width="70" inputType="text" style="" id="column13" value="계약번호" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column15" value="매출입항목코드" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column17" value="할인할증항목코드"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    										removeBorderStyle="false" width="200" value="할인할증항목">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column11" inputType="checkbox"
+    										removeBorderStyle="false" width="112" value="포함" class="" checkboxLabel="포함" checkboxLabelPosition="right">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody2" style="">
+    								<w2:row id="row4" style="">
+    									<w2:column width="70" inputType="text" style="" id="ctrt" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="selpchItemCd" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="extrCondItemCd" value="" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="extrCondItemNm" inputType="text"
+    										removeBorderStyle="false" width="200" textAlign="left" readOnly="true">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="chk" inputType="checkbox"
+    										removeBorderStyle="false" width="112" valueType="binary" trueValue="1">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" id="spn_totalRow212_2" label="0" style="" tagname="span" dataType="number"
+    										displayFormat="#,##0">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+
+    			<xf:trigger class="btn" id="btn_save" style="" type="button" userAuth="U" ev:onclick="scwin.btn_save_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

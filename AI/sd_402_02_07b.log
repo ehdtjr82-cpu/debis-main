@@ -1,0 +1,31 @@
+sd_402_02_07b.log
+
+[2026-02-19 15:32:46.574] 변환 시작
+[2026-02-19 15:32:46.644] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 15:33:51.954] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 65181ms, total 65309ms
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 2건: doIssueDdStDt: EMEDIT→w2:key (기대: xf:input), doIssueDdEndDt: EMEDIT→w2:key (기대: xf:input)
+[2026-02-19 15:33:52.110] #1 검증: 자동수정 9건 적용
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U13: flex_gvw/content 래퍼 클래스 제거
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] U27: 과잉 닫기 태그 제거
+[2026-02-19 15:33:52.276] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=2, warnings=3
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_lineCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 2건: doIssueDdStDt: EMEDIT→w2:key (기대: xf:input), doIssueDdEndDt: EMEDIT→w2:key (기대: xf:input)
+[2026-02-19 15:33:52.283] #2 재시도 (에러 1건)
+[2026-02-19 15:33:53.302] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 15:34:59.806] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 66153ms, total 66506ms
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 2건: doIssueDdStDt: EMEDIT→w2:column (기대: xf:input), doIssueDdEndDt: EMEDIT→w2:column (기대: xf:input)
+[2026-02-19 15:34:59.922] #1 검증: 최적 시도 #1 채택 (confidence: 0.96)
+[2026-02-19 15:34:59.923] 성공 (#2, 2m 13s, confidence:0.96)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 타입 매핑 — 불일치 2건: doIssueDdStDt: EMEDIT→w2:key (기대: xf:input), doIssueDdEndDt: EMEDIT→w2:key (기대: xf:input)
+================================================================================

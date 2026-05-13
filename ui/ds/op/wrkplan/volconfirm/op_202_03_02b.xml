@@ -1,0 +1,2072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieve" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranNm" name="배차점소" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlNm" name="출발역" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlNm" name="도착역" dataType="text"></w2:column>
+    					<w2:column id="wrkStDtm" name="출발예정/일시" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDtm" name="도착예정/일시" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="bilgClntNm" name="청구화주" dataType="text"></w2:column>
+    					<w2:column id="doorWrkPlNm" name="DOOR명" dataType="text"></w2:column>
+    					<w2:column id="doorEndDt" name="DOOR(예정)/도착일시" dataType="text"></w2:column>
+    					<w2:column id="cntr20e" name="20E" dataType="text"></w2:column>
+    					<w2:column id="cntr20f" name="20F" dataType="text"></w2:column>
+    					<w2:column id="cntr40e" name="40E" dataType="text"></w2:column>
+    					<w2:column id="cntr40f" name="40F" dataType="text"></w2:column>
+    					<w2:column id="cntr45e" name="45E" dataType="text"></w2:column>
+    					<w2:column id="cntr45f" name="45F" dataType="text"></w2:column>
+    					<w2:column id="cntrVan" name="VAN" dataType="text"></w2:column>
+    					<w2:column id="cntrTeu" name="TEU" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="배차점소" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlCd" name="출발역" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlCd" name="도착역" dataType="text"></w2:column>
+    					<w2:column id="bilgClntNo" name="청구화주" dataType="text"></w2:column>
+    					<w2:column id="doorWrkPlCd" name="DOOR" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="rmk" dataType="text"></w2:column>
+    					<w2:column id="dumy" name="dumy" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieveDtl" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="규격" dataType="text"></w2:column>
+    					<w2:column id="fullEmptyClsCd" name="F/E" dataType="text"></w2:column>
+    					<w2:column id="lineCd" name="LINE" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlNm" name="출발역" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlNm" name="도착역" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="출발예정일자" dataType="text"></w2:column>
+    					<w2:column id="wrkStHh" name="출발예정시간" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="도착예정일자" dataType="text"></w2:column>
+    					<w2:column id="wrkEndHh" name="도착예정시간" dataType="text"></w2:column>
+    					<w2:column id="currPosNm" name="현위치" dataType="text"></w2:column>
+    					<w2:column id="cntrSeq" name="컨테이너순번" dataType="text"></w2:column>
+    					<w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+    					<w2:column id="odrWrkStpSeq" name="오더작업단계순번" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="컨테이너TYPE코드" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlCd" name="출발역코드" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlCd" name="도착역코드" dataType="text"></w2:column>
+    					<w2:column id="currPosCd" name="현위치코드" dataType="text"></w2:column>
+    					<w2:column id="basisWrkStDtm" name="근거작업시작일시" dataType="text"></w2:column>
+    					<w2:column id="basisWrkEndDtm" name="근거작업종료일시" dataType="text"></w2:column>
+    					<w2:column id="existFlag" name="존재여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieveDtlAll" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="cntrSizCd" name="규격" dataType="text"></w2:column>
+    					<w2:column id="fullEmptyClsCd" name="F/E" dataType="text"></w2:column>
+    					<w2:column id="lineCd" name="LINE" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlNm" name="출발역" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlNm" name="도착역" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="출발예정일자" dataType="text"></w2:column>
+    					<w2:column id="wrkStHh" name="출발예정시간" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="도착예정일자" dataType="text"></w2:column>
+    					<w2:column id="wrkEndHh" name="도착예정시간" dataType="text"></w2:column>
+    					<w2:column id="currPosNm" name="현위치" dataType="text"></w2:column>
+    					<w2:column id="cntrSeq" name="컨테이너순번" dataType="text"></w2:column>
+    					<w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+    					<w2:column id="odrWrkStpSeq" name="오더작업단계순번" dataType="text"></w2:column>
+    					<w2:column id="cntrTypCd" name="컨테이너TYPE코드" dataType="text"></w2:column>
+    					<w2:column id="dptWrkPlCd" name="출발역코드" dataType="text"></w2:column>
+    					<w2:column id="arvWrkPlCd" name="도착역코드" dataType="text"></w2:column>
+    					<w2:column id="currPosCd" name="현위치코드" dataType="text"></w2:column>
+    					<w2:column id="basisWrkStDtm" name="근거작업시작일시" dataType="text"></w2:column>
+    					<w2:column id="basisWrkEndDtm" name="근거작업종료일시" dataType="text"></w2:column>
+    					<w2:column id="existFlag" name="존재여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="alloccarBran" name="배차점소" dataType="text"></w2:key>
+    					<w2:key id="dptArvCls" name="출발도착구분(D:출발,A:도착)" dataType="text"></w2:key>
+    					<w2:key id="loadRegYn" name="적재내역등록여부" dataType="text"></w2:key>
+    					<w2:key id="qryDt" name="예정일자From" dataType="text"></w2:key>
+    					<w2:key id="qryDtTo" name="예정일자To" dataType="text"></w2:key>
+    					<w2:key id="dptStnCd" name="출발역" dataType="text"></w2:key>
+    					<w2:key id="arvStnCd" name="도착역" dataType="text"></w2:key>
+    					<w2:key id="currPosCd" name="현위치" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_searchRetrieveDtl">
+    				<w2:keyInfo>
+    					<w2:key id="odrNo" name="name1" dataType="text"></w2:key>
+    					<w2:key id="dptWrkPlCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="arvWrkPlCd" name="name3" dataType="text"></w2:key>
+    					<w2:key id="dptArvCls" name="name4" dataType="text"></w2:key>
+    					<w2:key id="qryDt" name="name5" dataType="text"></w2:key>
+    					<w2:key id="qryDtTo" name="name6" dataType="text"></w2:key>
+    					<w2:key id="loadRegYn" name="name7" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkplan.volconfirm.RetrieveRailroadVolumeCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_retrieve","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_retrieve","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_retrieve_submit" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="scwin.sbm_retrieve_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve1" action="/ds.op.wrkplan.volconfirm.RetrieveOrderTotalRailroadDistanceCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_retrieveDtlAll","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_retrieveDtlAll","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_retrieve1_submit"
+    			ev:submitdone="" ev:submiterror="scwin.sbm_retrieve1_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.wrkplan.volconfirm.UpdateRailroadDistanceCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_retrieveDtl","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="scwin.sbm_save_submit"
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="scwin.sbm_save_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveDtl" action="/ds.op.wrkplan.volconfirm.RetrieveOrderEachRailroadDistanceCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_searchRetrieveDtl","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_retrieveDtl_submit" ev:submitdone="scwin.sbm_retrieveDtl_submitdone" ev:submiterror="scwin.sbm_retrieveDtl_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : op_202_03_02b 
+// 이름     : 역별작업일자별예정물량조회
+// 경로     : 물류/작업계획/철송/
+// 작 성 자 : 조성빈
+// 작 업 일 : 2025-12-30
+// 사용계정 : 내부
+// 비고     : 
+// 레포트   :
+//              op_202_03_02r (출발역발행 버튼클릭, 도착역발행 버튼클릭)
+//              op_202_02_03r (오더SHEET 버튼클릭)
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            
+//==================================================================================================================
+scwin.onloadRetrieve;
+scwin.v_loadRegYn;
+
+scwin.onpageload = async function() {
+    scwin.onloadRetrieve  = true;   //조회 여부
+    scwin.v_loadRegYn     = 0;
+
+    const codeOptions = [ 
+        {
+            method: "getLuxeComboData", 
+            param1: "WorkImplementEBC", 
+            param2: "retriveLobran2CodeList",
+            //param3: ["CMP"],
+            compID: "acb_alloccarBran" 
+        }
+    ];
+    $c.data.setGauceUtil(codeOptions, scwin.getLuxeComboDataCallBack);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+
+    }, {"delay":50});
+};
+
+scwin.getLuxeComboDataCallBack = function(){
+    $p.setTimeout(function() {
+        acb_alloccarBran.addItem("", "전체", 0);
+        acb_alloccarBran.setSelectedIndex(0);
+
+        ica_qryDt.setValue($c.date.getServerDateTime("yyyyMMdd"));
+        ica_qryDtTo.setValue($c.date.getServerDateTime("yyyyMMdd"));
+        acb_dptArvCls.setSelectedIndex(0);
+        
+        scwin.onloadRetrieve = false;
+
+        // ica_qryDt.setValue("20240101")
+        // ica_qryDtTo.setValue("20240131")
+    }, {"delay":150});
+};
+
+//-------------------------------------------------------------------------
+// clear 버튼 클릭시(조회)
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tb_searchCondition);
+    ica_qryDt.setValue($c.date.getServerDateTime("yyyyMMdd"));
+    ica_qryDtTo.setValue($c.date.getServerDateTime("yyyyMMdd"));
+};
+
+//-------------------------------------------------------------------------
+// clear 버튼 클릭시(일괄적용)
+//-------------------------------------------------------------------------
+scwin.f_FieldClear2 = function () {
+    $c.gus.cfInitObjects(tb_batchCondition);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel1 = function () {
+    //sheet명, 저장파일명,     저장 다이얼로그
+    // cfGridToExcel(gr_retrieve, "오더별철송구간목록", "오더별철송구간목록.xls", 4+8+16);
+    const infoArr = [];
+    const options = {
+        fileName : "오더별철송구간목록.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: "오더별철송구간목록",
+        useSubTotal :"true", 
+        useSubTotalData  : "true",
+        type : "1"
+    };
+    $c.data.downloadGridViewExcel(gr_retrieve, options, infoArr);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel2 = function () {
+    //sheet명, 저장파일명,     저장 다이얼로그
+    // cfGridToExcel(gr_retrieveDtl, "오더별컨테이너목록", "오더별컨테이너목록.xls", 2+4+8+16);
+    const infoArr = [];
+    const options = {
+        fileName : "오더별컨테이너목록.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: "오더별컨테이너목록",
+        useSubTotal :"true", 
+        useSubTotalData  : "true",
+        type : "1"
+    };
+    // var jsonData = {
+    //     "fileName":"오더별컨테이너목록.xlsx",
+    //     "type":"2+4+8+16"
+    // };
+    // udc_topBottonArea.setDownOpts(jsonData)
+    gr_retrieveDtl.setColumnVisible("odrNo", true);
+    $c.data.downloadGridViewExcel(gr_retrieveDtl, options, infoArr);
+    gr_retrieveDtl.setColumnVisible("odrNo", false);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel3 = async function () {
+    //sheet명, 저장파일명,     저장 다이얼로그
+    // 240429 - 오더별컨테이너 전체 엑셀다운 미체크 후 데이터 조회 -> 체크 후 엑셀 DN시 select 결과가 없어 다운이 안되는 것을 방지
+    const infoArr = [];
+    const options = {
+        fileName : "오더별컨테이너 전체목록.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: "오더별컨테이너 전체목록",
+        useSubTotal :"true", 
+        useSubTotalData  : "true",
+        type : "1"
+    };
+    // var jsonData = {
+    //     "fileName":"오더별컨테이너 전체목록.xlsx",
+    //     "type":"4+8+16"
+    // };
+    // udc_topBottonArea.setDownOpts(jsonData);
+    
+    if (!ds_retrieveDtlAll.getRowCount() > 0){
+        var rs = await $c.sbm.execute(sbm_retrieve1);
+        if(rs.responseJSON.resultDataSet[0].Msg == "SUCC"){
+            $c.data.downloadGridViewExcel(gr_retrieveDtlAll, options, infoArr);
+        }
+    }else{
+        // cfGridToExcel(gr_retrieveDtlAll, "오더별컨테이너 전체목록", "오더별컨테이너 전체목록.xls", 4+8+16);
+        $c.data.downloadGridViewExcel(gr_retrieveDtlAll, options, infoArr);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 체크박스 체크 여부에 따라서 저장할 그리드 데이터 분기
+//-------------------------------------------------------------------------
+scwin.f_swapingExcel = function (){
+    if(cbx_allOdrYn.getValue() == "1"){
+        scwin.f_toExcel3();
+    }else{
+        scwin.f_toExcel2();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  	
+  	// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  	if (!await $c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+    
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+	
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+	
+	// inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+	    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+	else
+	    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    switch (disGubun) {
+        case 1:
+        //출발역
+        udc_dptStn.setSelectId('retrieveTrainWorkPlace');
+        udc_dptStn.cfCommonPopUp(scwin.udc_dptStn_callBackFunc   // XML상의 SELECT ID
+                                ,pCode                    // 화면에서의 ??? Code Element의    Value
+                                ,pName                    // 화면에서의 ??? Name Element의    Value
+                                ,pClose                   // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                                ,null                     // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                                ,"출발역코드,출발역명"    // Title순서
+                                ,null                     // 보여주는 각 컬럼들의 폭
+                                ,null                     // 컬럼중에서 숨기는    컬럼 지정
+                                ,null                     // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                                ,null                     // POP-UP뛰을때 원도우의    사용자 정의 폭
+                                ,null                     // POP-UP뛰을때 우도우의    사용자 정의 높이
+                                ,null                     // 윈도우 위치 Y좌표
+                                ,null                     // 윈도우 위치 X좌표
+                                ,null                     // 중복체크여부 ("F")
+                                ,pAllSearch               // 전체검색허용여부 ("F")
+                                ,"출발역조회,출발역코드,출발역명" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+        break;
+    case 2:
+        //도착역
+        udc_arvStn.setSelectId('retrieveTrainWorkPlace');
+        udc_arvStn.cfCommonPopUp(scwin.udc_arvStn_callBackFunc    // XML상의 SELECT ID
+                                ,pCode                      // 화면에서의 ??? Code Element의    Value
+                                ,pName                      // 화면에서의 ??? Name Element의    Value
+                                ,pClose                     // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                                ,null                       // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                                ,"도착역코드,도착역명"      // Title순서
+                                ,null                       // 보여주는 각 컬럼들의 폭
+                                ,null                       // 컬럼중에서 숨기는    컬럼 지정
+                                ,null                       // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                                ,null                       // POP-UP뛰을때 원도우의    사용자 정의 폭
+                                ,null                       // POP-UP뛰을때 우도우의    사용자 정의 높이
+                                ,null                       // 윈도우 위치 Y좌표
+                                ,null                       // 윈도우 위치 X좌표
+                                ,null                       // 중복체크여부 ("F")
+                                ,pAllSearch                 // 전체검색허용여부 ("F")
+                                ,"도착역조회,도착역코드,도착역명"   // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+        break;
+    case 3:
+        //현위치
+        udc_currPos.setSelectId('retrieveWrkPlInfo');
+        udc_currPos.cfCommonPopUp(scwin.udc_currPos_callBackFunc    // XML상의 SELECT ID
+                                 ,pCode                      // 화면에서의 ??? Code Element의    Value
+                                 ,pName                      // 화면에서의 ??? Name Element의    Value
+                                 ,pClose                     // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                                 ,null                       // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                                 ,"현위치코드,현위치명"      // Title순서
+                                 ,null                       // 보여주는 각 컬럼들의 폭
+                                 ,null                       // 컬럼중에서 숨기는    컬럼 지정
+                                 ,"CURPOS"                   // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                                 ,null                       // POP-UP뛰을때 원도우의    사용자 정의 폭
+                                 ,null                       // POP-UP뛰을때 우도우의    사용자 정의 높이
+                                 ,null                       // 윈도우 위치 Y좌표
+                                 ,null                       // 윈도우 위치 X좌표
+                                 ,null                       // 중복체크여부 ("F")
+                                 ,pAllSearch                 // 전체검색허용여부 ("F")
+                                 ,"현위치조회,현위치코드,현위치명"   // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+        break;
+    case 4:
+        //출발역(일괄적용)
+        udc_batchDptStn.setSelectId('retrieveTrainWorkPlace');
+        udc_batchDptStn.cfCommonPopUp(scwin.udc_batchDptStn_callBackFunc   // XML상의 SELECT ID
+                                     ,pCode                    // 화면에서의 ??? Code Element의    Value
+                                     ,pName                    // 화면에서의 ??? Name Element의    Value
+                                     ,pClose                   // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                                     ,null                     // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                                     ,"출발역코드,출발역명"    // Title순서
+                                     ,null                     // 보여주는 각 컬럼들의 폭
+                                     ,null                     // 컬럼중에서 숨기는    컬럼 지정
+                                     ,null                     // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                                     ,null                     // POP-UP뛰을때 원도우의    사용자 정의 폭
+                                     ,null                     // POP-UP뛰을때 우도우의    사용자 정의 높이
+                                     ,null                     // 윈도우 위치 Y좌표
+                                     ,null                     // 윈도우 위치 X좌표
+                                     ,null                     // 중복체크여부 ("F")
+                                     ,pAllSearch               // 전체검색허용여부 ("F")
+                                     ,"출발역조회,출발역코드,출발역명" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+        break;
+    case 5:
+        //도착역(일괄적용)
+        udc_batchArvStn.setSelectId('retrieveTrainWorkPlace');
+        udc_batchArvStn.cfCommonPopUp(scwin.udc_batchArvStn_callBackFunc    // XML상의 SELECT ID
+                                     ,pCode                      // 화면에서의 ??? Code Element의    Value
+                                     ,pName                      // 화면에서의 ??? Name Element의    Value
+                                     ,pClose                     // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                                     ,null                       // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                                     ,"도착역코드,도착역명"      // Title순서
+                                     ,null                       // 보여주는 각 컬럼들의 폭
+                                     ,null                       // 컬럼중에서 숨기는    컬럼 지정
+                                     ,null                       // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                                     ,null                       // POP-UP뛰을때 원도우의    사용자 정의 폭
+                                     ,null                       // POP-UP뛰을때 우도우의    사용자 정의 높이
+                                     ,null                       // 윈도우 위치 Y좌표
+                                     ,null                       // 윈도우 위치 X좌표
+                                     ,null                       // 중복체크여부 ("F")
+                                     ,pAllSearch                 // 전체검색허용여부 ("F")
+                                     ,"도착역조회,도착역코드,도착역명"   // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+        break;
+    }//end switch
+};
+
+//-------------------------------------------------------------------------
+// 그리드에서 입력된 코드/명칭 정보로  조회 (Grid PopUp)
+//-------------------------------------------------------------------------
+scwin.f_openCommPopUpGrid = function (disGubun, row, pClose) {
+    // 선언부
+    var pCode = "";
+    var pName = "";
+    switch (disGubun) {
+        case 1:
+            //출발역
+            pName = ds_retrieveDtl.getCellData(row, "dptWrkPlNm");  //출발역명
+            udc_grdTextImage.setSelectId('retrieveTrainWorkPlace');
+            udc_grdTextImage.cfCommonPopUp(
+                function(ref){
+                    $c.gus.cfSetGridReturnValue(ref, ds_retrieveDtl, row, "dptWrkPlCd", "dptWrkPlNm");
+                }   
+                ,pCode                    // 화면에서의 ??? Code Element의    Value
+                ,pName                    // 화면에서의 ??? Name Element의    Value
+                ,pClose                   // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                ,null                     // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                ,"출발역명코드,출발역명"  // Title순서
+                ,null                     // 보여주는 각 컬럼들의 폭
+                ,null                     // 컬럼중에서 숨기는    컬럼 지정
+                ,null                     // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                ,null                     // POP-UP뛰을때 원도우의    사용자 정의 폭
+                ,null                     // POP-UP뛰을때 우도우의    사용자 정의 높이
+                ,null                     // 윈도우 위치 Y좌표
+                ,null                     // 윈도우 위치 X좌표
+                ,null                     // 중복체크여부 ("F")
+                ,'F'                      // 전체검색허용여부 ("F")
+                ,"출발역조회,출발역명코드,출발역명" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            );
+        break;
+        case 2:
+            //도착역
+            pName = ds_retrieveDtl.getCellData(row, "arvWrkPlNm");  //도착역명
+            udc_grdTextImage.setSelectId('retrieveTrainWorkPlace');
+            udc_grdTextImage.cfCommonPopUp(
+                function(ref){
+                    $c.gus.cfSetGridReturnValue(ref, ds_retrieveDtl, row, "arvWrkPlCd", "arvWrkPlNm");
+                }
+                ,pCode                      // 화면에서의 ??? Code Element의    Value
+                ,pName                      // 화면에서의 ??? Name Element의    Value
+                ,pClose                     // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                ,null                       // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                ,"도착역명코드,도착역명"    // Title순서
+                ,null                       // 보여주는 각 컬럼들의 폭
+                ,null                       // 컬럼중에서 숨기는    컬럼 지정
+                ,null                       // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                ,null                       // POP-UP뛰을때 원도우의    사용자 정의 폭
+                ,null                       // POP-UP뛰을때 우도우의    사용자 정의 높이
+                ,null                       // 윈도우 위치 Y좌표
+                ,null                       // 윈도우 위치 X좌표
+                ,null                       // 중복체크여부 ("F")
+                ,'F'                      // 전체검색허용여부 ("F")
+                ,"도착역명조회,도착역명코드,도착역명"   // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            );
+            break;
+        default:
+            break;
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    // 필수항목 체크
+    if(!await $c.gus.cfValidate([tb_searchCondition])){
+        return;
+    }
+    if (!await $c.gus.cfIsAfterDate(ica_qryDt.getValue(), ica_qryDtTo.getValue())) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        ica_qryDt.focus();
+        return;
+    }
+    // 적재내역등록여부
+    if(cbx_loadRegYn.getValue() == 1) {
+        cbx_loadRegYn.setValue("1");
+        scwin.v_loadRegYn = 1;
+    } else {
+        cbx_loadRegYn.setValue("0");
+        scwin.v_loadRegYn = 0;
+    }  
+    ds_search.set("loadRegYn", cbx_loadRegYn.getValue());
+    //출발도착구분이 출발인 경우
+    if(acb_dptArvCls.getValue() == 'D'){
+        // ds_retrieve.SortExpr   = "+lobranNm+dptWrkPlNm+arvWrkPlNm+odrNo";
+        // ds_retrieve.SubSumExpr = "2:lobranNm,1:dptWrkPlNm:arvWrkPlNm";
+        // ds_retrieve.Sort();
+        // var options = {
+        //     sortIndex : "lobranNm dptWrkPlNm arvWrkPlNm odrNo",
+        //     sortOrder : "1 1 1 1"
+        // };
+        // ds_retrieve.multisort(options);
+
+    } else if(acb_dptArvCls.getValue() == 'A' ){
+        // ds_retrieve.SortExpr   = "+arvWrkPlNm+dptWrkPlNm+odrNo";
+        // ds_retrieve.SubSumExpr = "1:arvWrkPlNm";
+        // ds_retrieve.Sort();
+        // var options = {
+        //     sortIndex : "arvWrkPlNm dptWrkPlNm odrNo",
+        //     sortOrder : "1 1 1"
+        // };
+        // ds_retrieve.multisort(options);
+    }
+    ds_retrieve.removeAll();
+    ds_retrieveDtl.removeAll();
+    scwin.onloadRetrieve = true;
+
+    $c.sbm.execute(sbm_retrieve);
+
+    scwin.onloadRetrieve = false;
+}
+
+//-------------------------------------------------------------------------
+// 상세조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveDtl = async function () {
+    var row = ds_retrieve.getRowPosition();
+    var p_odrNo       = ds_retrieve.getCellData(row, "odrNo");          //오더번호
+    var p_dptWrkPlCd  = ds_retrieve.getCellData(row, "dptWrkPlCd");     //출발역코드
+    var p_arvWrkPlCd  = ds_retrieve.getCellData(row, "arvWrkPlCd");     //도착역코드
+    var p_dptArvCls   = acb_dptArvCls.getValue();                       //출발도착구분(D:출발,A:도착)
+    var p_qryDt       = ica_qryDt.getValue();                           //예정일자
+    var p_qryDtTo     = ica_qryDtTo.getValue();                         //예정일자
+    
+    if(await $c.gus.cfIsNull( p_odrNo ) ) return;
+    
+    // 적재내역등록여부(retrieve조회 후 체크박스를 해제 또는 설정 하는 경우대비
+    if(cbx_loadRegYn.getValue() == 1) {
+        scwin.v_loadRegYn = 1;
+    } else {
+        scwin.v_loadRegYn = 0;
+    }     
+
+    // var param = "";
+    // param = "/ds.op.wrkplan.volconfirm.RetrieveOrderEachRailroadDistanceCMD.do?"
+    //     + "odrNo=" + p_odrNo          + "&dptWrkPlCd=" + p_dptWrkPlCd + "&arvWrkPlCd=" + p_arvWrkPlCd
+    //     + "&dptArvCls=" + p_dptArvCls + "&qryDt=" + p_qryDt + "&qryDtTo=" + p_qryDtTo + "&loadRegYn=" + scwin.v_loadRegYn ;
+    ds_searchRetrieveDtl.set("odrNo", p_odrNo);
+    ds_searchRetrieveDtl.set("dptWrkPlCd", p_dptWrkPlCd);
+    ds_searchRetrieveDtl.set("arvWrkPlCd", p_arvWrkPlCd);
+    ds_searchRetrieveDtl.set("dptArvCls", p_dptArvCls);
+    ds_searchRetrieveDtl.set("qryDt", p_qryDt);
+    ds_searchRetrieveDtl.set("qryDtTo", p_qryDtTo);
+    ds_searchRetrieveDtl.set("loadRegYn", scwin.v_loadRegYn);
+    ds_retrieveDtl.removeAll();
+    $c.sbm.execute(sbm_retrieveDtl);
+    
+};
+
+//-------------------------------------------------------------------------
+// 모든 오더의 상세조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveDtlAll = function () {
+    // gr_retrieveDtlAll.redraw = false;
+    $c.sbm.execute(sbm_retrieve1);
+};
+
+//-------------------------------------------------------------------------
+// 일괄적용
+//-------------------------------------------------------------------------
+scwin.f_BatchApply = async function () {
+    // 필수항목 체크
+    if(!await $c.gus.cfValidate([tb_batchCondition],null,true)){
+        return;
+    }
+    var p_batchDptStnCd = ed_batchDptStnCd.getValue();      //출발역코드
+    var p_batchDptStnNm = ed_batchDptStnNm.getValue();    //출발역
+    var p_batchArvStnCd = ed_batchArvStnCd.getValue();      //도착역코드
+    var p_batchArvStnNm = ed_batchArvStnNm.getValue();    //도착역
+    var p_batchWrkStDt  = ica_batchWrkStDt.getValue();       //출발예정일자
+    var p_batchWrkStHh  = ed_batchWrkStHh.getValue();       //출발예정시간
+    var p_batchWrkEndDt = ica_batchWrkEndDt.getValue();      //도착예정일자
+    var p_batchWrkEndHh = ed_batchWrkEndHh.getValue();      //도착예정시간
+
+    var p_batchWrkStDtm   = p_batchWrkStDt + p_batchWrkStHh;
+    var p_batchWrkEndDtm  = p_batchWrkEndDt + p_batchWrkEndHh;
+
+    if(!await $c.gus.cfIsNull( p_batchDptStnCd ) && !await $c.gus.cfIsNull( p_batchArvStnCd ) && p_batchDptStnCd == p_batchArvStnCd) {
+        await $c.gus.cfAlertMsg("출발역과 도착역이 같으면 안 됩니다.");
+        return;
+    }
+
+    if(!await $c.gus.cfIsNull(p_batchWrkStDt) && !await $c.gus.cfIsNull(p_batchWrkEndDt)){
+        if (!await $c.gus.cfIsAfterDate(p_batchWrkStDt, p_batchWrkEndDt)) {
+            await $c.gus.cfAlertMsg( "출발예정일자가 도착예정일자 이전이어야 합니다." );
+            return;
+        }
+        if(!await $c.gus.cfIsNull( p_batchWrkStHh ) && !await $c.gus.cfIsNull( p_batchWrkEndHh )){
+            if(parseInt(p_batchWrkStDtm) >= parseInt(p_batchWrkEndDtm)) {
+                await $c.gus.cfAlertMsg("출발예정일시가 도착예정일시 이전이어야 합니다.");
+                return;
+            }
+        }
+    }//end if
+    for( var i = 0; i < ds_retrieveDtl.getRowCount(); i++ ) {
+        if(!await $c.gus.cfIsNull( p_batchDptStnCd ) && !await $c.gus.cfIsNull( p_batchDptStnNm ) ) {
+            ds_retrieveDtl.setCellData( i, "dptWrkPlCd", p_batchDptStnCd );    //출발역코드
+            ds_retrieveDtl.setCellData( i, "dptWrkPlNm", p_batchDptStnNm );    //출발역
+        }
+        if(!await $c.gus.cfIsNull( p_batchArvStnCd ) && !await $c.gus.cfIsNull( p_batchArvStnNm ) ) {
+            ds_retrieveDtl.setCellData( i, "arvWrkPlCd", p_batchArvStnCd );    //도착역코드
+            ds_retrieveDtl.setCellData( i, "arvWrkPlNm", p_batchArvStnNm );    //도착역
+        }
+        if(!await $c.gus.cfIsNull( p_batchWrkStDt ) ) {
+            ds_retrieveDtl.setCellData( i, "wrkStDt", p_batchWrkStDt );     //출발예정일자
+        }
+        if(!await $c.gus.cfIsNull( p_batchWrkStHh ) ) {
+            ds_retrieveDtl.setCellData( i, "wrkStHh", p_batchWrkStHh );     //출발예정시간
+        }
+        if(!await $c.gus.cfIsNull( p_batchWrkEndDt )  ) {
+            ds_retrieveDtl.setCellData( i, "wrkEndDt", p_batchWrkEndDt );    //도착예정일자
+        }
+        if(!await $c.gus.cfIsNull( p_batchWrkEndHh ) ) {
+            ds_retrieveDtl.setCellData( i, "wrkEndHh", p_batchWrkEndHh );    //도착예정시간
+        }
+    }//end for
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+    var modifiedCnt = ds_retrieveDtl.getModifiedIndex().length;
+    //데이터셋의 변경여부 체크
+    if(!modifiedCnt > 0 ) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["오더별 컨테이너 목록"]); //@은(는) 변경된 사항이 없습니다.
+        return;
+    }
+    //가우스의 Grid에 대해 유효성 검사
+    // if(!await $c.gus.cfValidateGrid( [gr_retrieveDtl] ) ) return;
+    if(!await $c.gus.cfValidate([gr_retrieveDtl],null,true) ) return;
+
+    for( var i = 0; i < ds_retrieveDtl.getRowCount(); i++ ) {
+        //수정시
+        if(ds_retrieveDtl.getRowStatus(i) == "U" ) {
+
+            var p_wrkStDt         = ds_retrieveDtl.getCellData( i, "wrkStDt" );         //출발예정일자
+            var p_wrkStHh         = ds_retrieveDtl.getCellData( i, "wrkStHh" );         //출발예정시간
+            var p_wrkEndDt        = ds_retrieveDtl.getCellData( i, "wrkEndDt" );        //도착예정일자
+            var p_wrkEndHh        = ds_retrieveDtl.getCellData( i, "wrkEndHh" );        //도착예정시간
+            var p_basisWrkStDtm   = ds_retrieveDtl.getCellData( i, "basisWrkStDtm" );   //근거작업시작일시
+            var p_basisWrkEndDtm  = ds_retrieveDtl.getCellData( i, "basisWrkEndDtm" );  //근거작업종료일시
+
+            var p_wrkStDtm        = p_wrkStDt + p_wrkStHh;
+            var p_wrkEndDtm       = p_wrkEndDt + p_wrkEndHh;
+
+            var p_formatBasisWrkStDtm = p_basisWrkStDtm.substring(0,4) + "/" + p_basisWrkStDtm.substring(4,6) + "/" + p_basisWrkStDtm.substring(6,8) + " " + p_basisWrkStDtm.substring(8,10) + ":" + p_basisWrkStDtm.substring(10,12);
+            var p_formatBasisWrkEndDtm = p_basisWrkEndDtm.substring(0,4) + "/" + p_basisWrkEndDtm.substring(4,6) + "/" + p_basisWrkEndDtm.substring(6,8) + " " + p_basisWrkEndDtm.substring(8,10) + ":" + p_basisWrkEndDtm.substring(10,12);
+
+            if(ds_retrieveDtl.getCellData( i, "dptWrkPlCd" ) == ds_retrieveDtl.getCellData( i, "arvWrkPlCd" ) ) {
+                await $c.gus.cfAlertMsg( (i+1) + "번째 출발역과 도착역이 같으면 안 됩니다." );
+                return;
+            }
+
+            //from~to의 일자 유효성체크
+            if(parseInt( p_wrkStDtm ) >= parseInt( p_wrkEndDtm ) ) {
+                await $c.gus.cfAlertMsg( (i+1) + "번째 출발예정일시가 도착예정일시 이전이어야 합니다." );
+                return;
+            }
+            if(parseInt( p_wrkStDtm ) < parseInt( p_basisWrkStDtm ) ) {
+                await $c.gus.cfAlertMsg( (i+1) + "번째 출발예정일시는 작업시작일시("+ p_formatBasisWrkStDtm +")와 작업종료일시("+ p_formatBasisWrkEndDtm +") 사이이어야 합니다." );
+                return;
+            }
+        }
+    }//end for
+    if(await $c.win.confirm(MSG_CM_CRM_001)){ //저장하시겠습니까?
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 출발역발행
+//-------------------------------------------------------------------------
+scwin.f_OzReportDptWrkPlCd = async function () {
+    // 필수항목 체크
+    if(!await $c.gus.cfValidate([tb_searchCondition])){
+        return;
+    }
+    //출발도착구분=D(출발)만 가능
+    if(acb_dptArvCls.getValue() != "D" ) {
+        await $c.gus.cfAlertMsg( "출발을 선택하지 않았습니다." );
+        return;
+    }
+    //출발역 유효성 체크
+    if(await $c.gus.cfIsNull( ed_dptStnCd.getValue() ) || await $c.gus.cfIsNull( ed_dptStnNm.getValue() ) ) {
+        await $c.gus.cfAlertMsg( MSG_CM_WRN_003, ["출발역정보"] ); //@을(를) 입력하십시오.
+        return;
+    }
+
+
+    // ASIS OZREPORT 
+    // var ozrId = "/ds/op/wrkplan/volconfirm/op_202_03_02r.ozr";
+    // var odiId = "op_202_03_02r";
+
+    // // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // var odiParam = new ODIParam(odiId);
+    // odiParam.add( "pgmId",      "op_202_03_02b.jsp" );
+    // odiParam.add( "qryDt",      ica_qryDt.getValue() );  //예정일자
+    // odiParam.add( "stnCd",      ed_dptStnCd.getValue() ); //출발역/도착역코드
+    // odiParam.add( "stnNm",      ed_dptStnNm.getValue() ); //출발역/도착역명
+    // odiParam.add( "dptArvCls",  acb_dptArvCls.getValue() );  //출발도착구분(D:출발,A:도착)
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam();
+
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // viewerParam.add( "viewer.useprogressbar", "true" );  // 인쇄 진행중 프로그래스바 표시
+    // viewerParam.add( "print.mode", "silent" ); // 인쇄 옵션창 표시 없이 바로 출력
+
+    // $c.gus.cfOZPreview( ozrId, odiParam, viewerParam, formParam );
+    
+    let data = {
+        odiName : "op_202_03_02r",
+        reportName: "/ds/op/wrkplan/volconfirm/op_202_03_02r.ozr",
+        odiParam : {
+              pgmId       : "op_202_03_02b.xml"
+            , qryDt       : ica_qryDt.getValue()
+            , stnCd       : ed_dptStnCd.getValue()
+            , stnNm       : ed_dptStnNm.getValue()
+            , dptArvCls   : acb_dptArvCls.getValue()
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+            zoom : 90, // 배율 설정
+        },
+        formParam : {}
+    };
+    let opts = {
+        id          : "ozReportPopup",
+        popupName   : "오즈 리포트",
+        modal       : true,
+        type        : "browserPopup",
+        width       : 1000,
+        height      : 600,
+        title       : "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+
+};
+
+//-------------------------------------------------------------------------
+// 도착역발행
+//-------------------------------------------------------------------------
+scwin.f_OzReportArvWrkPlCd = async function () {
+    // 필수항목 체크
+    if(!await $c.gus.cfValidate([tb_searchCondition])){
+        return;
+    }
+    //출발도착구분=A(도착)만 가능
+    if(acb_dptArvCls.getValue() != "A") {
+        await $c.gus.cfAlertMsg( "도착을 선택하지 않았습니다." );
+        return;
+    }
+
+    //도착역 유효성 체크
+    if(await $c.gus.cfIsNull( ed_arvStnCd.getValue() ) || await $c.gus.cfIsNull( ed_arvStnNm.getValue() ) ) {
+        await $c.gus.cfAlertMsg( MSG_CM_WRN_003, ["도착역정보"] ); //@을(를) 입력하십시오.
+        return;
+    }
+
+    // ASIS OZREPORT 
+    // var ozrId = "/ds/op/wrkplan/volconfirm/op_202_03_02r.ozr";
+    // var odiId = "op_202_03_02r";
+
+    // // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // var odiParam = new ODIParam(odiId);
+    // odiParam.add( "pgmId",      "op_202_03_02b.jsp" );
+    // odiParam.add( "qryDt",      ica_qryDt.getValue() );  //예정일자
+    // odiParam.add( "stnCd",      ed_arvStnCd.getValue() ); //출발역/도착역코드
+    // odiParam.add( "stnNm",      ed_arvStnNm.getValue() ); //출발역/도착역명
+    // odiParam.add( "dptArvCls",  acb_dptArvCls.getValue() );  //출발도착구분(D:출발,A:도착)
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam();
+
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // viewerParam.add( "viewer.useprogressbar", "true" );  // 인쇄 진행중 프로그래스바 표시
+    // viewerParam.add( "print.mode", "silent" ); // 인쇄 옵션창 표시 없이 바로 출력
+
+    // cfOZPreview( ozrId, odiParam, viewerParam, formParam );
+
+    let data = {
+        odiName : "op_202_03_02r",
+        reportName: "/ds/op/wrkplan/volconfirm/op_202_03_02r.ozr",
+        odiParam : {
+              pgmId       : "op_202_03_02b.xml"
+            , qryDt       : ica_qryDt.getValue()
+            , stnCd       : ed_arvStnCd.getValue()
+            , stnNm       : ed_arvStnNm.getValue()
+            , dptArvCls   : acb_dptArvCls.getValue()
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+            zoom : 90, // 배율 설정
+        },
+        formParam : {}
+    };
+    let opts = {
+        id          : "ozReportPopup",
+        popupName   : "오즈 리포트",
+        modal       : true,
+        type        : "browserPopup",
+        width       : 1000,
+        height      : 600,
+        title       : "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+//-------------------------------------------------------------------------
+// 오더SHEET
+//-------------------------------------------------------------------------
+scwin.f_Print = async function () {
+    var p_odrNo  = ds_retrieve.getCellData(ds_retrieve.getRowPosition(), "odrNo" );
+    if ( await $c.gus.cfIsNull( p_odrNo ) ) {
+        await $c.gus.cfAlertMsg( "오더번호가 있는 행을 선택하십시오.");
+        return;
+    }
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var odiParam = new ODIParam("op_202_02_03r");
+    // odiParam.add( "odrNo", p_odrNo );   //오더번호
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam();
+
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // viewerParam.add( "viewer.useprogressbar", "true" );  // 인쇄 진행중 프로그래스바 표시
+    // viewerParam.add( "print.mode", "silent" ); // 인쇄 옵션창 표시 없이 바로 출력
+
+    // cfOZPreview( "/ds/op/wrkplan/transwrkplan/op_202_02_03r.ozr", odiParam, viewerParam, formParam );
+
+    let data = {
+        odiName : "op_202_02_03r",
+        reportName: "/ds/op/wrkplan/transwrkplan/op_202_02_03r.ozr",
+        odiParam : {
+            odrNo       : p_odrNo
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+            zoom : 90, // 배율 설정
+        },
+        formParam : {}
+    };
+    let opts = {
+        id          : "ozReportPopup",
+        popupName   : "오즈 리포트",
+        modal       : true,
+        type        : "browserPopup",
+        width       : 1000,
+        height      : 600,
+        title       : "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+//-------------------------------------------------------------------------
+// 현위치발행
+//-------------------------------------------------------------------------
+scwin.f_OzReportCurrPosCd = function () {
+
+};
+
+scwin.udc_dptStn_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_dptStnNm, ed_dptStnCd, 1, false);
+};
+
+scwin.udc_dptStn_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_dptStnCd.getValue(), ed_dptStnNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_dptStn_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_dptStnCd, ed_dptStnNm, 1);
+};
+
+scwin.udc_arvStn_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_arvStnNm, ed_arvStnCd, 2, false);
+};
+
+scwin.udc_arvStn_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_arvStnCd.getValue(), ed_arvStnNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_arvStn_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_arvStnCd, ed_arvStnNm, 2);
+};
+
+scwin.udc_currPos_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_currPosNm, ed_currPosCd, 3, false);
+};
+
+scwin.udc_currPos_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(3, ed_currPosCd.getValue(), ed_currPosNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_currPos_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_currPosCd, ed_currPosNm, 3);
+};
+
+scwin.btn_clear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.udc_batchDptStn_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_batchDptStnNm, ed_batchDptStnCd, 4, false);
+};
+
+scwin.udc_batchDptStn_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(4, ed_batchDptStnCd.getValue(), ed_batchDptStnNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_batchDptStn_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_batchDptStnCd, ed_batchDptStnNm, 4);
+};
+
+scwin.udc_batchArvStn_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_batchArvStnNm, ed_batchArvStnCd, 5, false);
+};
+
+scwin.udc_batchArvStn_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(5, ed_batchArvStnCd.getValue(), ed_batchArvStnNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_batchArvStn_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_batchArvStnCd, ed_batchArvStnNm, 5);
+};
+
+scwin.btn_clear2_onclick = function (e) {
+    scwin.f_FieldClear2();
+};
+
+scwin.btn_batchApply_onclick = function (e) {
+    scwin.f_BatchApply();
+};
+
+scwin.btn_ozReportDpt_onclick = function (e) {
+    scwin.f_OzReportDptWrkPlCd();
+};
+
+scwin.btn_ozReportArv_onclick = function (e) {
+    scwin.f_OzReportArvWrkPlCd();
+};
+
+scwin.btn_print_onclick = function (e) {
+    scwin.f_Print();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.sbm_retrieve_submit = function (e) {
+    ds_search.set("alloccarBran", acb_alloccarBran.getValue());  // 배차점소
+    ds_search.set("dptArvCls", acb_dptArvCls.getValue());        // 도착
+    ds_search.set("qryDt", ica_qryDt.getValue());                // 예정일자From
+    ds_search.set("qryDtTo", ica_qryDtTo.getValue());            // 예정일자To
+	ds_search.set("loadRegYn", cbx_loadRegYn.getValue());        // 적재내역등록여부
+    ds_search.set("dptStnCd", ed_dptStnCd.getValue());          // 출발역
+    ds_search.set("arvStnCd", ed_arvStnCd.getValue());          // 도착역
+    ds_search.set("currPosCd", ed_currPosCd.getValue());        // 현위치
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    var rowCnt = ds_retrieve.getRowCount();
+    if (cbx_allOdrYn.getValue() == 1) $c.sbm.execute(sbm_retrieve1);
+    if (rowCnt == 0 ){
+        await $c.gus.cfAlertMsg( MSG_CM_WRN_002 );
+    }
+    // 총 조회건수 표시
+    txt_totalRows1.setValue(rowCnt);
+
+    //출발인 경우 D1
+    if(acb_dptArvCls.getValue() == 'D' ){
+        scwin.drawRetrieveGrid("D1");
+
+    //도착인 경우 A1
+    } else if(acb_dptArvCls.getValue() == 'A' ){
+        scwin.drawRetrieveGrid("A1");
+
+    }
+    scwin.f_RetrieveDtl();  //상세조회
+};
+
+scwin.sbm_retrieve_submiterror = function (e) {
+
+};
+
+scwin.sbm_retrieve1_submit = function (e) {
+    ds_search.set("alloccarBran", acb_alloccarBran.getValue());  // 배차점소
+    ds_search.set("dptArvCls", acb_dptArvCls.getValue());        // 도착
+    ds_search.set("qryDt", ica_qryDt.getValue());                // 예정일자From
+    ds_search.set("qryDtTo", ica_qryDtTo.getValue());            // 예정일자To
+	ds_search.set("loadRegYn", cbx_loadRegYn.getValue());        // 적재내역등록여부
+    ds_search.set("dptStnCd", ed_dptStnCd.getValue());          // 출발역
+    ds_search.set("arvStnCd", ed_arvStnCd.getValue());          // 도착역
+    ds_search.set("currPosCd", ed_currPosCd.getValue());        // 현위치
+
+};
+
+scwin.sbm_retrieve1_submitdone = function (e) {
+    // gr_retrieveDtlAll.redraw = true;
+};
+
+scwin.sbm_retrieve1_submiterror = function (e) {
+
+};
+
+scwin.sbm_save_submit = function (e) {
+
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_save_submiterror = function (e) {
+
+};
+
+scwin.sbm_retrieveDtl_submit = function (e) {
+
+};
+
+scwin.sbm_retrieveDtl_submitdone = function (e) {
+    if(e.responseJSON.resultDataSet[0].Msg == "SUCC"){
+        ds_retrieveDtl.setJSON(e.responseJSON.GAUCE);
+
+        var rowCnt = ds_retrieveDtl.getRowCount();
+        txt_totalRows2.setValue(rowCnt);
+        scwin.v_loadRegYn = 0;
+    }
+};
+
+scwin.sbm_retrieveDtl_submiterror = function (e) {
+    scwin.v_loadRegYn = 0; 
+};
+
+scwin.gr_retrieve_onaftercolumnmove = function (info) {
+    // OnColIndexChanged(srcIndex, destIndex)
+    $p.setTimeout(function() {
+        //배차점소인 경우
+        if("lobranNm" == info.startColumnID) {
+            // ds_retrieve.SortExpr ="+lobranNm";
+            // ds_retrieve.SubsumExpr = "2:lobranNm,1:dptWrkPlNm:arvWrkPlNm" ;
+            // ds_retrieve.Sort();
+            scwin.drawRetrieveGrid("A2");
+
+        //출발역인 경우
+        } else if("dptWrkPlNm" == info.startColumnID) {
+
+            // ds_retrieve.SortExpr ="+dptWrkPlNm+arvWrkPlNm";
+            // ds_retrieve.SubsumExpr = "1:dptWrkPlNm" ;
+            // ds_retrieve.Sort();
+            scwin.drawRetrieveGrid("A3");
+
+        //도착역인 경우
+        } else if("arvWrkPlNm" == info.startColumnID) {
+
+            // ds_retrieve.SortExpr ="+arvWrkPlNm+dptWrkPlNm";
+            // ds_retrieve.SubsumExpr = "1:arvWrkPlNm" ;
+            // ds_retrieve.Sort();
+            scwin.drawRetrieveGrid("A1");
+        }
+        scwin.f_RetrieveDtl();  //상세조회
+    }, {"delay":100});
+};
+
+scwin.gr_retrieve_oncellindexchange = function (rowIndex, columnIndex, oldRow, oldColumnIndex) {
+    if(scwin.onloadRetrieve == false ) {
+        scwin.f_RetrieveDtl();  //상세조회
+    }
+};
+
+scwin.gr_retrieveDtl_oncellindexchange = function (rowIndex, columnIndex, oldRow, oldColumnIndex) {
+    //계약한 경우(존재여부=1)에는 수정불가
+    if(ds_retrieveDtl.getCellData( rowIndex, "existFlag" ) == "1" ) {
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'dptWrkPlNm', true);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'arvWrkPlNm', true);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkStDt', true);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkStHh', true);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkEndDt', true);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkEndHh', true);
+    } else {
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'dptWrkPlNm', false);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'arvWrkPlNm', false);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkStDt', false);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkStHh', false);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkEndDt', false);
+        gr_retrieveDtl.setCellReadOnly(rowIndex, 'wrkEndHh', false);
+    }
+
+    // switch (Colid) {
+    //     case "wrkStDt":
+    //     gr_retrieveDtl.UrlImages = CALENDAR_BTN;
+    //     break;
+    //     case "wrkEndDt":
+    //     gr_retrieveDtl.UrlImages = CALENDAR_BTN;
+    //     break;
+    //     default:
+    //     gr_retrieveDtl.UrlImages = SEARCH_BTN;
+    //     break;
+    // }
+};
+
+scwin.gr_retrieveDtl_ontextimageclick = function (rowIndex, columnIndex) {
+    var colId = gr_retrieveDtl.getColumnID(columnIndex);
+    switch (colId) {
+        case "dptWrkPlNm":     //출발역
+            scwin.f_openCommPopUpGrid( 1, rowIndex, 'T' );
+        break;
+        case "arvWrkPlNm" :    //도착역
+            scwin.f_openCommPopUpGrid( 2, rowIndex, 'T' );
+        break;
+        // case "wrkStDt" :         //출발예정일자
+        //     cfOpenCalendar(gr_retrieveDtl, row, colid);
+        // break;
+        // case "wrkEndDt" :         //도착예정일자
+        //     cfOpenCalendar(gr_retrieveDtl, row, colid);
+        // break;
+    }
+};
+
+scwin.gr_retrieveDtl_onafteredit = function (rowIndex, columnIndex, value) {
+    var colId = gr_retrieveDtl.getColumnID(columnIndex);
+    switch ( colId ) {
+        case "dptWrkPlNm":     //출발역
+            scwin.f_openCommPopUpGrid( 1, rowIndex, 'T' );
+        break;
+        case "arvWrkPlNm" :    //도착역
+            scwin.f_openCommPopUpGrid( 2, rowIndex, 'T' );
+        break;
+
+    }//end switch
+};
+
+scwin.udc_dptStn_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_dptStnCd, ed_dptStnNm);
+};
+
+scwin.udc_arvStn_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_arvStnCd, ed_arvStnNm);
+};
+
+scwin.udc_currPos_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_currPosCd, ed_currPosNm);
+};
+
+scwin.udc_batchDptStn_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_batchDptStnCd, ed_batchDptStnNm);
+};
+
+scwin.udc_batchArvStn_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_batchArvStnCd, ed_batchArvStnNm);
+};
+
+scwin.drawRetrieveGrid = function(type){
+    var gr_retrieve_target = '<w2:gridView xmlns:w2="http://www.inswave.com/websquare" xmlns:ev="http://www.w3.org/2001/xml-events" '
+    gr_retrieve_target += '    autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_retrieve" rowStatusVisible="true" drawType="virtual"' // virtual, native
+    if (acb_dptArvCls.getValue() == "D"){
+        gr_retrieve_target += ' columnMove="true"'
+    } else {
+        gr_retrieve_target += ' columnMove="false"'
+    }
+    gr_retrieve_target += '    focusMode="row" id="gr_retrieve" scrollByColumn="false" scrollByColumnAdaptive="false" style="height: 282px;" visibleRowNum="8" sortable="false"'
+    gr_retrieve_target += '    visibleRowNumFix="true" ev:onaftercolumnmove="scwin.gr_retrieve_onaftercolumnmove" ev:oncellindexchange="scwin.gr_retrieve_oncellindexchange">'
+    gr_retrieve_target += '    <w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>'
+    gr_retrieve_target += '    <w2:header id="header2" style="">'
+    gr_retrieve_target += '        <w2:row id="row3" style="">'
+    if (type == "D1" || type == "A2"){
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center value={decode(curlevel,1,"", decode(curlevel, 2, "점소계", lobranNm ))} suppress=1 </c> '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", decode(curlevel,2,"", dptWrkPlNm ))} </c>            '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", decode(curlevel,2,"", arvWrkPlNm ))} </c>    
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header0" sortable="true" inputType="text" value="" width="100" hidden="true"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header1" sortable="true" inputType="text" style="" value="배차점소" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header2" sortable="true" inputType="text" style="" value="출발역" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header3" sortable="true" inputType="text" style="" value="도착역" width="100"></w2:column>'
+    
+    } else if (type == "A1"){
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"구간계", arvWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"", dptWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header3" sortable="true" inputType="text" style="" value="도착역" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header2" sortable="true" inputType="text" style="" value="출발역" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header1" sortable="true" inputType="text" style="" value="배차점소" width="100"></w2:column>'
+    
+    } else if (type == "A3"){
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", dptWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", arvWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header2" sortable="true" inputType="text" style="" value="출발역" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header3" sortable="true" inputType="text" style="" value="도착역" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" id="header1" sortable="true" inputType="text" style="" value="배차점소" width="100"></w2:column>'
+    
+    }
+    gr_retrieve_target += '            <w2:column displayMode="label" id="header4" sortable="true" inputType="text" style="" value="출발예정&lt;/br&gt;일시"'
+    gr_retrieve_target += '                width="130">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" id="header5" sortable="true" inputType="text" style="" value="도착예정&lt;/br&gt;일시"'
+    gr_retrieve_target += '                width="130">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" id="header6" sortable="true" inputType="text" style="" value="오더번호" width="120"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" id="header7" sortable="true" inputType="text" style="" value="청구화주" width="100"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" id="header8" sortable="true" inputType="text" style="" value="DOOR명" width="100"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" id="header9" sortable="true" inputType="text" style="" value="DOOR(예정)&lt;/br&gt;도착일시"'
+    gr_retrieve_target += '                width="130">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header10" sortable="true" value="20E" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header11" sortable="true" value="20F" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header12" sortable="true" value="40E" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header13" sortable="true" value="40F" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header14" sortable="true" value="45E" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header15" sortable="true" value="45F" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header16" sortable="true" value="VAN" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="header17" sortable="true" value="TEU" displayMode="label"></w2:column>'
+    gr_retrieve_target += '        </w2:row>'
+    gr_retrieve_target += '    </w2:header>'
+    gr_retrieve_target += '    <w2:gBody id="gBody2" style="">'
+    gr_retrieve_target += '        <w2:row id="row4" style="">'
+    if (type == "D1" || type == "A2"){
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center value={decode(curlevel,1,"", decode(curlevel, 2, "점소계", lobranNm ))} suppress=1 </c> '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", decode(curlevel,2,"", dptWrkPlNm ))} </c>            '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", decode(curlevel,2,"", arvWrkPlNm ))} </c>                  '
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="dumy" inputType="expression" expression="display(\'dptWrkPlNm\')+display(\'arvWrkPlNm\')" style="" value="" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="lobranNm" inputType="text" style="" value="" width="100" colMerge="true"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="dptWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="arvWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+    
+    } else if (type == "A1"){
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"구간계", arvWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"", dptWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="arvWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="dptWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="lobranNm" inputType="text" style="" value="" width="100"></w2:column>'
+    
+    } else if (type == "A3"){
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", dptWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", arvWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="dptWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="arvWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+        gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="lobranNm" inputType="text" style="" value="" width="100"></w2:column>'
+    
+    }
+    gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="wrkStDtm" inputType="text" style="" value="" width="130"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="wrkEndDtm" inputType="text" style="" value="" width="130"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="odrNo" inputType="text" style="" value="" width="120"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="bilgClntNm" inputType="text" style="" value="" width="100"'
+    gr_retrieve_target += '                textAlign="left">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="doorWrkPlNm" inputType="text" style="" value="" width="100"></w2:column>'
+    gr_retrieve_target += '            <w2:column displayMode="label" readOnly="true" id="doorEndDt" inputType="text" style="" value="" width="130"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" id="cntr20e" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntr20f" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntr40e" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntr40f" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntr45e" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntr45f" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntrVan" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="text" style="" readOnly="true" id="cntrTeu" value="" displayMode="label"'
+    gr_retrieve_target += '                textAlign="right" dataType="number">'
+    gr_retrieve_target += '            </w2:column>'
+    gr_retrieve_target += '        </w2:row>'
+    gr_retrieve_target += '    </w2:gBody>'
+    if (type == "D1" || type == "A2"){
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center value={decode(curlevel,1,"", decode(curlevel, 2, "점소계", lobranNm ))} suppress=1 </c> '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", decode(curlevel,2,"", dptWrkPlNm ))} </c>            '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", decode(curlevel,2,"", arvWrkPlNm ))} </c>                  '
+        gr_retrieve_target += '    <w2:subTotal targetColumnID="dumy" style="" id="subTotal1">'
+        gr_retrieve_target += '        <w2:row style="" id="row6">'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_dumy" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_lobranNm" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_dptWrkPlNm" value="구간계" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_arvWrkPlNm" value="" displayMode="label"></w2:column>'
+                    
+    } else if (type == "A1"){
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"구간계", arvWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"", dptWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+        gr_retrieve_target += '    <w2:subTotal targetColumnID="arvWrkPlNm" style="" id="subTotal1">'
+        gr_retrieve_target += '        <w2:row style="" id="row6">'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_arvWrkPlNm" value="구간계" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_dptWrkPlNm" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_lobranNm" value="" displayMode="label"></w2:column>'
+         
+    } else if (type == "A3"){
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", dptWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", arvWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+        gr_retrieve_target += '    <w2:subTotal targetColumnID="dptWrkPlNm" style="" id="subTotal1">'
+        gr_retrieve_target += '        <w2:row style="" id="row6">'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_dptWrkPlNm" value="구간계" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_arvWrkPlNm" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_lobranNm" value="" displayMode="label"></w2:column>'
+         
+    }
+    gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column126" value="" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column116" value="" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="120" inputType="text" style="" id="column115" value="" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column114" value="" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column113" value="" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column112" value="" displayMode="label"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column111" value="" displayMode="label" expression="sum(\'cntr20e\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column110" value="" displayMode="label" expression="sum(\'cntr20f\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column109" value="" displayMode="label" expression="sum(\'cntr40e\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column108" value="" displayMode="label" expression="sum(\'cntr40f\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column107" value="" displayMode="label" expression="sum(\'cntr45e\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column106" value="" displayMode="label" expression="sum(\'cntr45f\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column105" value="" displayMode="label" expression="sum(\'cntrVan\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column103" value="" displayMode="label" expression="sum(\'cntrTeu\')" textAlign="right"></w2:column>'
+    gr_retrieve_target += '        </w2:row>'
+    gr_retrieve_target += '    </w2:subTotal>'
+    if (type == "D1" || type == "A2"){
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center value={decode(curlevel,1,"", decode(curlevel, 2, "점소계", lobranNm ))} suppress=1 </c> '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", decode(curlevel,2,"", dptWrkPlNm ))} </c>            '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", decode(curlevel,2,"", arvWrkPlNm ))} </c>                  '
+        // gr_retrieve_target += '    <w2:subTotal targetColumnID="arvWrkPlNm" style="" id="subTotal2">'
+        // gr_retrieve_target += '        <w2:row style="" id="row6">'
+        // gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_lobranNm" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_dptWrkPlNm" value="구간계" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="sub1_arvWrkPlNm" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column126" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column116" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="120" inputType="text" style="" id="column115" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column114" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column113" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column112" value="" displayMode="label"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column111" value="" displayMode="label" expression="sum(\'cntr20e\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column110" value="" displayMode="label" expression="sum(\'cntr20f\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column109" value="" displayMode="label" expression="sum(\'cntr40e\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column108" value="" displayMode="label" expression="sum(\'cntr40f\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column107" value="" displayMode="label" expression="sum(\'cntr45e\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column106" value="" displayMode="label" expression="sum(\'cntr45f\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column105" value="" displayMode="label" expression="sum(\'cntrVan\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column103" value="" displayMode="label" expression="sum(\'cntrTeu\')" textAlign="right"></w2:column>'
+        // gr_retrieve_target += '        </w2:row>'
+        // gr_retrieve_target += '    </w2:subTotal>'
+        gr_retrieve_target += '    <w2:subTotal targetColumnID="lobranNm" style="" id="subTotal3">'
+        gr_retrieve_target += '        <w2:row style="" id="row7">'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column157" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column156" value="점소계" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column155" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="120" inputType="text" style="" id="column154" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column143" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column142" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column141" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column140" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="100" inputType="text" style="" id="column139" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="130" inputType="text" style="" id="column138" value="" displayMode="label"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column137" value="" displayMode="label" expression="sum(\'cntr20e\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column136" value="" displayMode="label" expression="sum(\'cntr20f\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column135" value="" displayMode="label" expression="sum(\'cntr40e\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column134" value="" displayMode="label" expression="sum(\'cntr40f\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column133" value="" displayMode="label" expression="sum(\'cntr45e\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column132" value="" displayMode="label" expression="sum(\'cntr45f\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column131" value="" displayMode="label" expression="sum(\'cntrVan\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '            <w2:column width="70" inputType="expression" style="" id="column130" value="" displayMode="label" expression="sum(\'cntrTeu\')" textAlign="right"></w2:column>'
+        gr_retrieve_target += '        </w2:row>'
+        gr_retrieve_target += '    </w2:subTotal>'
+    } else if (type == "A1"){
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"구간계", arvWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"", dptWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+    
+    } else if (type == "A3"){
+        // gr_retrieve_target += '<c> id="dptWrkPlNm"          name="출발역"               width=80 align=center value={decode(curlevel,1,"구간계", dptWrkPlNm )} </c>   '
+        // gr_retrieve_target += '<c> id="arvWrkPlNm"          name="도착역"               width=80 align=center value={decode(curlevel,1,"", arvWrkPlNm )} </c>         '
+        // gr_retrieve_target += '<c> id="lobranNm"            name="배차점소"             width=70 align=center  </c>                       '
+    
+    }
+    gr_retrieve_target += '</w2:gridView>'
+    gr_retrieve.setGridStyle(gr_retrieve_target);
+    // gr_retrieve.setSortable("header1", false);
+    // gr_retrieve.setSortable("header2", false);
+    // gr_retrieve.setSortable("header3", false);
+    // gr_retrieve.setSortable("header4", false);
+    // gr_retrieve.setSortable("header5", false);
+    // gr_retrieve.setSortable("header6", false);
+    // gr_retrieve.setSortable("header7", false);
+    // gr_retrieve.setSortable("header8", false);
+    // gr_retrieve.setSortable("header9", false);
+    // gr_retrieve.setSortable("header10", false);
+    // gr_retrieve.setSortable("header11", false);
+    // gr_retrieve.setSortable("header12", false);
+    // gr_retrieve.setSortable("header13", false);
+    // gr_retrieve.setSortable("header14", false);
+    // gr_retrieve.setSortable("header15", false);
+    // gr_retrieve.setSortable("header16", false);
+    // gr_retrieve.setSortable("header17", false);
+    // gr_retrieve.clearHeaderSort();
+    $p.setTimeout(function() {
+        if (ds_retrieve.getRowCount() > 0){
+            gr_retrieve.setFocusedCell(0, 0);
+        }
+    }, {"delay":50});
+};
+
+scwin.dtlCustomFormatter = function(data, formatData, rowIndex, columnIndex){
+    var columnId = ds_retrieveDtl.getColumnID(columnIndex);
+    var returnData = data;
+    if (columnId == "cntrSizCd"){
+        returnData = data + ds_retrieveDtl.getCellData(rowIndex, "cntrTypCd");
+    }
+    return returnData;
+}
+
+scwin.dtlCustomFormatter2 = function(data, formatData, rowIndex, columnIndex){
+    var columnId = ds_retrieveDtlAll.getColumnID(columnIndex);
+    var returnData = data;
+    if (columnId == "cntrSizCd"){
+        returnData = data + ds_retrieveDtlAll.getCellData(rowIndex, "cntrTypCd");
+    }
+    return returnData;
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_searchCondition" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="배차점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="acb_alloccarBran" style="width: 230px;" submenuSize="fixed" ref=""
+    								chooseOptionLabel=" : 전체" displayMode="value delim label">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    						<xf:group id="" class="form-group">
+    							<xf:select1 submenuSize="fixed" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption=""
+    								disabled="false" style="width: 80px;" allOption="" id="acb_dptArvCls" class="" direction="auto" ref="" title="출발도착구분" displayMode="value delim label" objType="data">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[출발]]></xf:label>
+    										<xf:value><![CDATA[D]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[도착]]></xf:label>
+    										<xf:value><![CDATA[A]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    							<w2:textbox style="" id="" label="예정일자" class="req"></w2:textbox></xf:group></xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_qryDt"
+    								refEdDt="" edFromId="ica_qryDt" mandatoryFrom="true" edToId="ica_qryDtTo" mandatoryTo="true" titleFrom="예정일자" titleTo="예정일자">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="cbx_loadRegYn" ref="" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="" falseValue="0" objType="key">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[적재내역등록여부 ]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="cbx_allOdrYn" ref="" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="" falseValue="0" objType="key">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[오더별컨테이너 전체 엑셀다운 ]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="출발역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode codeId="ed_dptStnCd" nameId="ed_dptStnNm" popupID="" selectID="" style="width:%; height:px; " validTitle="" id="udc_dptStn" maxlengthCode="6" UpperFlagCode="1" ev:onviewchangeNameEvent="scwin.udc_dptStn_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_dptStn_onclickEvent" ev:onblurCodeEvent="scwin.udc_dptStn_onblurCodeEvent" allowCharCode="a-zA-Z0-9" UpperFlag="1"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="도착역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode popupID="" selectID="" codeId="ed_arvStnCd" validTitle="" nameId="ed_arvStnNm" style="width:%; height:px; " id="udc_arvStn" maxlengthCode="6" UpperFlagCode="1" ev:onviewchangeNameEvent="scwin.udc_arvStn_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_arvStn_onclickEvent" ev:onblurCodeEvent="scwin.udc_arvStn_onblurCodeEvent" allowCharCode="a-zA-Z0-9" UpperFlag="1"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="현위치" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode codeId="ed_currPosCd" nameId="ed_currPosNm" popupID="" selectID="" style="width:%; height:px; " validTitle="" id="udc_currPos" maxlengthCode="6" UpperFlagCode="1" ev:onviewchangeNameEvent="scwin.udc_currPos_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_currPos_onclickEvent" ev:onblurCodeEvent="scwin.udc_currPos_onblurCodeEvent" allowCharCode="a-zA-Z0-9" UpperFlag="1"></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="오더별 철송구간 목록 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" btnUser="N" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_toExcel1" gridID="gr_retrieve" id="udc_topBottonArea" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+                        <w2:udc_comCode codeId="ed_grdTextImageCd" nameId="ed_grdTextImageNm" popupID="" selectID="" style="display: none;" validTitle="" id="udc_grdTextImage" maxlengthCode="5" UpperFlagCode="1" ev:onviewchangeNameEvent="scwin.udc_dptStn_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_dptStn_onclickEvent" ev:onblurCodeEvent="scwin.udc_dptStn_onblurCodeEvent"></w2:udc_comCode>
+    					<xf:group id="">
+    						<w2:gridView scrollByColumnAdaptive="false" ev:onaftercolumnmove="scwin.gr_retrieve_onaftercolumnmove"
+    							scrollByColumn="false" checkReadOnlyOnPasteEnable="" ev:oncellindexchange="scwin.gr_retrieve_oncellindexchange" focusMode="row"
+    							visibleRowNumFix="true" dataList="data:ds_retrieve" style="height: 282px;" columnMove="true" autoFit="none" id="gr_retrieve"
+    							visibleRowNum="8" class="wq_gvw" sortable="false" drawType="native" rowStatusVisible="true">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header2">
+    								<w2:row style="" id="row3">
+    									<w2:column width="100" inputType="text" id="column30" sortable="true" value="배차점소"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="column38" sortable="true" value="출발역"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="column36" sortable="true" value="도착역"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="130" inputType="text" id="column34" sortable="true" value="출발예정&lt;/br&gt;일시"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="130" inputType="text" id="column32" sortable="true" value="도착예정&lt;/br&gt;일시"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="120" inputType="text" id="column28" sortable="true" value="오더번호"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="column26" sortable="true" value="청구화주"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="column22" sortable="true" value="DOOR명"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="130" inputType="text" id="column24" sortable="true"
+    										value="DOOR(예정)&lt;/br&gt;도착일시" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column50" sortable="true" value="20E"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column48" sortable="true" value="20F"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column46" sortable="true" value="40E"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column40" sortable="true" value="40F"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column42" sortable="true" value="45E"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column44" sortable="true" value="45F"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column52" sortable="true" value="VAN"
+    										displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" id="column54" sortable="true" value="TEU"
+    										displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody2">
+    								<w2:row style="" id="row4">
+    									<w2:column width="100" colMerge="true" inputType="text" id="lobranNm" displayMode="label"
+    										readOnly="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="dptWrkPlNm" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column width="100" inputType="text" id="arvWrkPlNm" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column width="130" inputType="text" id="wrkStDtm" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column width="130" inputType="text" id="wrkEndDtm" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column width="120" inputType="text" id="odrNo" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column textAlign="left" width="100" inputType="text" id="bilgClntNm" displayMode="label"
+    										readOnly="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="doorWrkPlNm" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column width="130" inputType="text" id="doorEndDt" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntr20e"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntr20f"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntr40e"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntr40f"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntr45e"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntr45f"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntrVan"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    									<w2:column textAlign="right" dataType="number" width="70" inputType="text" id="cntrTeu"
+    										displayMode="label" readOnly="true">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:subTotal targetColumnID="lobranNm" style="" id="subTotal1">
+    								<w2:row style="" id="row6">
+    									<w2:column width="100" inputType="text" id="sub1_lobranNm" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="sub1_dptWrkPlNm" value="구간계" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="sub1_arvWrkPlNm" displayMode="label"></w2:column>
+    									<w2:column width="130" inputType="text" id="column126" displayMode="label"></w2:column>
+    									<w2:column width="130" inputType="text" id="column116" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column115" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column114" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column113" displayMode="label"></w2:column>
+    									<w2:column width="130" inputType="text" id="column112" displayMode="label"></w2:column>
+    									<w2:column expression="sum('cntr20e')" textAlign="right" width="70" inputType="expression"
+    										id="column111" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr20f')" textAlign="right" width="70" inputType="expression"
+    										id="column110" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr40e')" textAlign="right" width="70" inputType="expression"
+    										id="column109" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr40f')" textAlign="right" width="70" inputType="expression"
+    										id="column108" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr45e')" textAlign="right" width="70" inputType="expression"
+    										id="column107" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr45f')" textAlign="right" width="70" inputType="expression"
+    										id="column106" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntrVan')" textAlign="right" width="70" inputType="expression"
+    										id="column105" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntrTeu')" textAlign="right" width="70" inputType="expression"
+    										id="column103" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:subTotal>
+    							<w2:subTotal targetColumnID="dptWrkPlNm" style="" id="subTotal2">
+    								<w2:row style="" id="row7">
+    									<w2:column width="100" inputType="text" id="column156" value="점소계" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column155" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column154" displayMode="label"></w2:column>
+    									<w2:column width="130" inputType="text" id="column143" displayMode="label"></w2:column>
+    									<w2:column width="130" inputType="text" id="column142" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" id="column141" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column140" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column139" displayMode="label"></w2:column>
+    									<w2:column width="130" inputType="text" id="column138" displayMode="label"></w2:column>
+    									<w2:column expression="sum('cntr20e')" textAlign="right" width="70" inputType="expression"
+    										id="column137" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr20f')" textAlign="right" width="70" inputType="expression"
+    										id="column136" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr40e')" textAlign="right" width="70" inputType="expression"
+    										id="column135" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr40f')" textAlign="right" width="70" inputType="expression"
+    										id="column134" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr45e')" textAlign="right" width="70" inputType="expression"
+    										id="column133" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntr45f')" textAlign="right" width="70" inputType="expression"
+    										id="column132" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntrVan')" textAlign="right" width="70" inputType="expression"
+    										id="column131" displayMode="label">
+    									</w2:column>
+    									<w2:column expression="sum('cntrTeu')" textAlign="right" width="70" inputType="expression"
+    										id="column130" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:subTotal>
+    						</w2:gridView></xf:group><xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows1" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="row-gap-8">
+    				<xf:group style="" id="" class="tbbox">
+    					<xf:group tagname="table" style="" id="" class="w2tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:120px;"></xf:group>
+    							<xf:group tagname="col" style=""></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr" style="">
+    							<xf:group tagname="th" style="" class="w2tb_th">
+    								<w2:textbox ref="" style="" userData2="" id="" label="특기사항 " class=""></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<xf:textarea class="" id="txt_odrRmk" style="" ref="data:ds_retrieve.rmk"></xf:textarea>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb" id="tb_batchCondition" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group style="width: 120px;" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group style="width: 120px;" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group>
+    							<xf:group style="width: 120px;" tagname="col"></xf:group>
+    							<xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th" style="" tagname="th">
+    								<w2:textbox class="" id="" label="출발역" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" style="" tagname="td">
+    								<w2:udc_comCode codeId="ed_batchDptStnCd" nameId="ed_batchDptStnNm" popupID="" selectID="" style="width:%; height:px; " validTitle="" objTypeCode="data" objTypeName="data" id="udc_batchDptStn" maxlengthCode="6" UpperFlagCode="1" ev:onviewchangeNameEvent="scwin.udc_batchDptStn_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_batchDptStn_onclickEvent" ev:onblurCodeEvent="scwin.udc_batchDptStn_onblurCodeEvent" allowCharCode="a-zA-Z0-9" UpperFlag="1" validExpCode="출발역코드:no:" validExpName="출발역명:no:"></w2:udc_comCode>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="도착역" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:udc_comCode codeId="ed_batchArvStnCd" nameId="ed_batchArvStnNm" popupID="" selectID="" style="width:%; height:px; " validTitle="" id="udc_batchArvStn" maxlengthCode="6" UpperFlagCode="1" objTypeCode="data" objTypeName="data" ev:onviewchangeNameEvent="scwin.udc_batchArvStn_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_batchArvStn_onclickEvent" ev:onblurCodeEvent="scwin.udc_batchArvStn_onblurCodeEvent" allowCharCode="a-zA-Z0-9" UpperFlag="1" validExpCode="도착역코드:no:" validExpName="도착역명:no:"></w2:udc_comCode>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="출발예정일시" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<xf:group class="form-group" id="grp_group9" style="">
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_batchWrkStDt" style="" validExp="출발예정일자:no:date=YYYYMMDD&amp;length=8"></w2:inputCalendar>
+    									<xf:input class="w50 tac" dataType="time" id="ed_batchWrkStHh" style="" maxlength="4" validExp="출발예정시간:no:date=HHmm&amp;length=4"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes></w2:attributes>
+    								<w2:textbox class="" id="" label="도착예정일시" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<xf:group class="form-group" id="grp_group10" style="">
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_batchWrkEndDt" style="" validExp="도착예정일자:no:date=YYYYMMDD&amp;length=8"></w2:inputCalendar>
+    									<xf:input class="w50 tac" dataType="time" id="ed_batchWrkEndHh" style="" maxlength="4" validExp="도착예정시간:no:date=HHmm&amp;length=4"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="td" class="w2tb_td">
+    								<w2:attributes></w2:attributes>
+    							<xf:group id="" class="form-group"><xf:trigger style="" id="btn_clear2" type="button" class="btn ico refresh" ev:onclick="scwin.btn_clear2_onclick">
+    										<xf:label><![CDATA[새로고침]]></xf:label>
+    									</xf:trigger><xf:trigger disabled="" style="" id="btn_batchApply" type="button" class="btn" escape="false" ev:onclick="scwin.btn_batchApply_onclick" userAuth="R">
+    										<xf:label><![CDATA[일괄적용]]></xf:label>
+    									</xf:trigger></xf:group></xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			
+    			<xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="오더별 컨테이너 목록 " style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section2" style="" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_swapingExcel" gridID="gr_retrieveDtl" id="udc_topBottonArea2" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_retrieveDtl"
+    						focusMode="row" id="gr_retrieveDtl" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5"
+    						visibleRowNumFix="true" columnMove="true" ev:oncellindexchange="scwin.gr_retrieveDtl_oncellindexchange"
+    						ev:ontextimageclick="scwin.gr_retrieveDtl_ontextimageclick" rowStatusVisible="true"
+    						sortable="false" ev:onafteredit="scwin.gr_retrieveDtl_onafteredit" dataName="오더별 컨테이너 목록" validFeatures="ignoreStatus=no" validExp="dptWrkPlCd:출발역:yes,arvWrkPlCd:도착역:yes,wrkStDt:출발예정일자:yes:date=YYYYMMDD&amp;length=8,wrkStHh:출발예정시간:yes:date=HHmm&amp;length=4,wrkEndDt:도착예정일자:yes:date=YYYYMMDD&amp;length=8,wrkEndHh:도착예정시간:yes:date=HHmm&amp;length=4">
+    						<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" value="오더번호" width="100" hidden="true" sortable="true"></w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" value="컨테이너번호" width="130" sortable="true"></w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" value="규격" width="70" sortable="true"></w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" value="F/E" width="70" sortable="true"></w2:column>
+    								<w2:column displayMode="label" id="column32" inputType="text" value="LINE" width="70" sortable="true"></w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" value="출발역" width="100" class="txt-red" sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="text" value="도착역" width="100" class="txt-red" sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column22" inputType="text" value="출발예정일자" width="130"
+    									class="txt-red" sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column24" inputType="text" value="출발예정시간" width="130"
+    									class="txt-red" sortable="true">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" id="column50" value="도착예정일자" displayMode="label"
+    									class="txt-red" sortable="true">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" id="column48" value="도착예정시간" displayMode="label"
+    									class="txt-red" sortable="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" id="column46" value="현위치" displayMode="label" sortable="true"></w2:column>
+    								<!-- <w2:column width="130" inputType="text" id="column40" value="컨테이너순번" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="column42" value="오더작업경로순번" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="column44" value="오더작업단계순번" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="column66" value="컨테이너TYPE코드" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="column64" value="출발역코드" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="130" inputType="text" id="column62" value="도착역코드" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="130" inputType="text" id="column60" value="현위치코드" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="column58" value="근거작업시작일시" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="column56" value="근거작업종료일시" displayMode="label" sortable="false" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="column52" value="존재여부" displayMode="label" sortable="false" hidden="true"></w2:column> -->
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="odrNo" inputType="text" width="100" readOnly="true" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="cntrNo" inputType="text" width="130" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="cntrSizCd" inputType="text" width="70" readOnly="true" customFormatter="scwin.dtlCustomFormatter"></w2:column>
+    								<w2:column displayMode="label" id="fullEmptyClsCd" inputType="text" width="70" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="lineCd" inputType="text" width="70" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="dptWrkPlNm" inputType="textImage" style="cursor:pointer;"
+    									width="100" mandatory="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="arvWrkPlNm" inputType="textImage" style="cursor:pointer;"
+    									width="100" mandatory="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="wrkStDt" inputType="calendar" style="cursor:pointer;" width="130"
+    									dataType="date" mandatory="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="wrkStHh" inputType="text" style="cursor:pointer;" width="130"
+    									dataType="time" maxByteLength="4" mandatory="true">
+    								</w2:column>
+    								<w2:column width="130" inputType="calendar" style="cursor:pointer;" id="wrkEndDt" displayMode="label"
+    									dataType="date" mandatory="true">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="cursor:pointer;" id="wrkEndHh" displayMode="label"
+    									dataType="time" maxByteLength="4" mandatory="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" id="currPosNm" displayMode="label" readOnly="true"></w2:column>
+    								<!-- <w2:column width="130" inputType="text" id="cntrSeq" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="odrWrkPathSeq" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="odrWrkStpSeq" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="cntrTypCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" id="dptWrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="130" inputType="text" id="arvWrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="130" inputType="text" id="currPosCd" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="basisWrkStDtm" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" id="basisWrkEndDtm" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" id="existFlag" displayMode="label" readOnly="true"></w2:column> -->
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_retrieveDtlAll"
+    						focusMode="row" id="gr_retrieveDtlAll" scrollByColumn="false" scrollByColumnAdaptive="false" style="display: none;" visibleRowNum="5" visibleRowNumFix="true" columnMove="true" rowStatusVisible="true">
+    						<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="column30" inputType="text" style="" value="오더번호" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column38" inputType="text" style="" value="컨테이너번호" width="130"></w2:column>
+    								<w2:column displayMode="label" id="column36" inputType="text" style="" value="규격" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" style="" value="F/E" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column32" inputType="text" style="" value="LINE" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column28" inputType="text" style="" value="출발역" width="100"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="text" style="" value="도착역" width="100"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column22" inputType="text" style="" value="출발예정일자" width="130"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column24" inputType="text" style="" value="출발예정시간" width="130"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column50" value="도착예정일자" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column48" value="도착예정시간" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column46" value="현위치" displayMode="label"></w2:column>
+    								<!-- <w2:column width="130" inputType="text" style="" id="column40" value="컨테이너순번" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column42" value="오더작업경로순번" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column44" value="오더작업단계순번" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column66" value="컨테이너TYPE코드" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column64" value="출발역코드" displayMode="label"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column62" value="도착역코드" displayMode="label"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="column60" value="현위치코드" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column58" value="근거작업시작일시" displayMode="label"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="column56" value="근거작업종료일시" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column52" value="존재여부" displayMode="label"></w2:column> -->
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="odrNo" inputType="text" style="" value="" width="100" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="cntrNo" inputType="text" style="" value="" width="130" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="cntrSizCd" inputType="text" style="" value="" width="70" readOnly="true" customFormatter="scwin.dtlCustomFormatter2"></w2:column>
+    								<w2:column displayMode="label" id="fullEmptyClsCd" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="lineCd" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="dptWrkPlNm" inputType="textImage" style="cursor:pointer;" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="arvWrkPlNm" inputType="textImage" style="cursor:pointer;" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="wrkStDt" inputType="calendar" style="cursor:pointer;" value="" width="130" dataType="date"></w2:column>
+    								<w2:column displayMode="label" id="wrkStHh" inputType="text" style="cursor:pointer;" value="" width="130" dataType="time" maxByteLength="4"></w2:column>
+    								<w2:column width="130" inputType="calendar" style="cursor:pointer;" id="wrkEndDt" value="" displayMode="label" dataType="date"></w2:column>
+    								<w2:column width="130" inputType="text" style="cursor:pointer;" id="wrkEndHh" value="" displayMode="label" dataType="time" maxByteLength="4"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="currPosNm" value="" displayMode="label" readOnly="true"></w2:column>
+    								<!-- <w2:column width="130" inputType="text" style="" id="cntrSeq" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="odrWrkPathSeq" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="odrWrkStpSeq" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="cntrTypCd" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="dptWrkPlCd" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="arvWrkPlCd" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="currPosCd" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="basisWrkStDtm" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="basisWrkEndDtm" value="" displayMode="label" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="existFlag" value="" displayMode="label" readOnly="true"></w2:column> -->
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows2" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn white" id="btn_ozReportDpt" style="" type="button" ev:onclick="scwin.btn_ozReportDpt_onclick" userAuth="P" objType="bUpdate">
+    						<xf:label><![CDATA[출발역발행]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn white" disabled="false" id="btn_ozReportArv" style="" type="button" ev:onclick="scwin.btn_ozReportArv_onclick" userAuth="P" objType="bUpdate">
+    						<xf:label><![CDATA[도착역발행]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn white" id="btn_print" style="" type="button" ev:onclick="scwin.btn_print_onclick" userAuth="P" objType="bUpdate">
+    						<xf:label><![CDATA[오더SHEET]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U" objType="bSave">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,449 @@
+/*amd /ui/ac/fi/fixedaset/fi_302_01_05b.xml 39756 ba2f1b4747079feb0d5f385021c8e70e662860cabab2b715b7cf5aa599351608 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',A:{},E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'coCd',name:'회사코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coNm',name:'회사명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coClsCd',name:'회사구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'depreciationStYm',name:'추정기간(시작)',dataType:'text'}},{T:1,N:'w2:key',A:{id:'depreciationEndYm',name:'추정기간(종료)',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acqCls',name:'취득구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'searchKind',name:'조회구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'searchFixedAsetNo',name:'자산번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'closeYm',name:'마감년월(hidden)',dataType:'text'}},{T:1,N:'w2:key',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'conseCd',name:'결과코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'conseMsg',name:'결과메시지',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_masterResult',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'자산형태코드(자산번호)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'자산형태명(자산명)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'자산유형코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'자산유형명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'연,월,추출결과항목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'정렬구분값',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'부서명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'amt',name:'금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sort',name:'순서',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_lastCalculationDate',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'lastCalculationYm',name:'최종계산월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lastCalculationDtm',name:'최종계산수행일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'resultMsg',name:'최종결과메시지(숨김)',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_lastCalculationDate'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'lastCalculationYm',name:'최종계산월',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lastCalculationDtm',name:'최종계산수행일시',dataType:'text'}},{T:1,N:'w2:key',A:{id:'resultMsg',name:'최종결과메시지(숨김)',dataType:'text'}}]}]}]},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ac.fi.fixedaset.RetrieveDepreciationExpenseEstimationCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_masterResult","key":"OUT_DS1"},{"id":"ds_lastCalculationDate","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_masterResult","key":"OUT_DS1"},{"id":"ds_lastCalculationDate","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous','ev:submit':'',processMsg:'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_master',action:'/ac.fi.fixedaset.SaveDepreciationExpenseEstimationCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_search","key":"IN_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous','ev:submit':'','ev:submitdone':'scwin.sbm_master_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/ac/am/constants/ACConstants.js',type:'text/javascript',scopeVariable:'ACConstants'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/**
+ * 화 면 명 : 감가상각비추정
+ * 메뉴경로 : 회계/재무회계/고정자산/
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/fi/fixedaset/fi_302_01_05b.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-11-24
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항 : 
+ *    1. (2026-03-27, 기준)피벗으로 작업했다가 속도/디자인/엑셀 이슈로 인해 일반 그리드로 작업
+ * 수정이력 :
+ *    - 2025-11-24      배기원    최초작성
+ */
+//hidden 값
+scwin.txtCoClsCd = ""; //회사구분코드(hidden, 회사팝업호출 시)
+
+//로그인 정보
+scwin.memJson;
+scwin.vLoginCoCd; //소속자회사
+scwin.vLoginCoClsCd; //회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd; //사용자소속구분코드
+scwin.isSubCompany;
+scwin.privAdmin;
+scwin.initJson = {}; //초기세팅값(TOBE)
+scwin.first = 0;
+scwin.search = "";
+
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function () {
+  // scwin.f_setHeader();
+  // scwin.f_setDefault();
+  // scwin.f_QryCond();
+  // scwin.f_setCompanyInfo();
+  // $c.gus.cfDisableObjects([ed_searchFixedAsetNo]);
+
+  scwin.memJson = $c.data.getMemInfo($p);
+  scwin.vLoginCoCd = $c.gus.cfIsNull($p, scwin.memJson["coCd"]) ? "" : scwin.memJson["coCd"]; //소속자회사
+  scwin.vLoginCoClsCd = $c.gus.cfIsNull($p, scwin.memJson["coClsCd"]) ? "" : scwin.memJson["coClsCd"]; //회계_회사구분('CO035' : 0:동부 EXPRESS)
+  scwin.vUserHomeClsCd = $c.gus.cfIsNull($p, scwin.memJson["userHomeClsCd"]) ? "" : scwin.memJson["userHomeClsCd"]; //사용자소속구분코드
+  scwin.isSubCompany = false;
+  scwin.privAdmin = $c.gus.cfIsNull($p, scwin.memJson["privAdmin"]) ? "" : scwin.memJson["privAdmin"]; //관리자권한
+  scwin.first = 0;
+};
+
+/**
+ * 초기세팅(TOBE 그리드, 총건수)
+ */
+scwin.setInit = function () {
+  ds_masterResult.removeAll();
+  dma_lastCalculationDate.setEmptyValue();
+  scwin.search = "";
+  gr_masterResult1.hide();
+  gr_masterResult2.show("");
+  gr_masterResult3.hide();
+  gr_masterResult1.setNoResultMessageVisible(false);
+  gr_masterResult2.setNoResultMessageVisible(false);
+  gr_masterResult3.setNoResultMessageVisible(false);
+};
+
+/**
+ * UDC값 초기화(scwin.onpageload 이후 세팅됨)
+ */
+scwin.onUdcCompleted = function () {
+  const codeOptions = [{
+    grpCd: "FI028",
+    compID: "lc_acqCls"
+  } //자산취득구분
+  ];
+  $c.data.setCommonCode($p, codeOptions);
+  scwin.f_setDefault();
+  //scwin.f_QryCond();
+  scwin.f_setCompanyInfo();
+  scwin.setInit();
+  $c.gus.cfDisableObjects($p, [ed_searchFixedAsetNo]);
+};
+
+/**
+ * $c.data.setCommonCode 함수의 콜백함수
+ */
+scwin.callBackCommonCode = function () {
+  scwin.initJson = dma_search.getJSON();
+};
+
+/**
+ * 조회필드 CLEAR
+ */
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tbl_search, [ed_coCd, ed_coNm]);
+  //dma_search.setJSON(scwin.initJson);
+  scwin.f_setDefault();
+  ed_coCd.hidVal = ""; //회사코드(조회)
+};
+
+/**
+ * 자회사 회계 시스템 추가에 따른 설정 
+ */
+scwin.f_setCompanyInfo = function () {
+  // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를 '동부 EXPRESS'로 Default set
+  if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+    scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+    scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+  }
+  ed_coCd.setValue(scwin.vLoginCoCd);
+  scwin.f_PopUpCompanyInfo('T');
+};
+
+/**
+ * 회사코드 팝업호출(UDC)
+ */
+scwin.f_PopUpCompanyInfo = function (pWinCloseTF) {
+  //asis 소스
+  // var rtnList = cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+  //     , ed_coCd.getValue(), ed_coNm.value
+  //     , pWinCloseTF, null, null, null, null
+  //     , null, null, null, null, null);
+  // // SET
+  // if (rtnList != null) {
+  //     if (rtnList[0] == "N/A") return;
+
+  //     ed_coCd.setValue = rtnList[0]; // 코드
+  //     ed_coNm.value = rtnList[5]; // 회사명
+  //     ed_coCd.hidVal = rtnList[0]; // 히든값
+  //     scwin.txtCoClsCd = rtnList[1]; // 회사구분
+  //     $c.gus.cfInitObjects([ed_srchAcctDeptCd, ed_srchAcctDeptNm]); // 조회조건 - 귀속부서 From
+  // } else {
+  //     ed_coCd.setValue = "";
+  //     ed_coNm.value = "";
+  //     ed_coCd.hidVal = "";
+  //     scwin.txtCoClsCd = "";
+  // }
+
+  // if (scwin.txtCoClsCd > 'scwin.ACConstants.CO_CLS_CD_DONGBU') { // 자회사 회계 시스템
+  //     scwin.isSubCompany = true;
+  // } else {
+  //     scwin.isSubCompany = false;
+  // }
+
+  udc_comCode.cfCommonPopUp(scwin.udc_comCode_callBackFunc, ed_coCd.getValue(), ed_coNm.getValue(), pWinCloseTF, null, null, null, null, null, null, null, null, null, null, null, null, null);
+};
+
+/**
+ * 회사코드 팝업 callBack
+ */
+scwin.udc_comCode_callBackFunc = function (ret) {
+  if (ret[0] != "N/A" && !$c.gus.cfIsNull($p, ret)) {
+    ed_coCd.setValue(ret[0]); // 코드
+    ed_coNm.setValue(ret[5]); // 회사명
+    ed_coCd.hidVal = ret[0]; // 히든값
+    scwin.txtCoClsCd = ret[1]; // 회사구분
+  } else {
+    ed_coCd.setValue(""); // 코드
+    ed_coNm.setValue(""); // 회사명
+    ed_coCd.hidVal = ""; // 히든값
+    scwin.txtCoClsCd = ""; // 회사구분
+  }
+
+  //TODO : 처음 로딩 시 한번만 처리(웹스퀘어 UDC 싱크....)
+  if (scwin.first == 0) {
+    // 자회사 회계 시스템
+    if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+      scwin.isSubCompany = true;
+    } else {
+      scwin.isSubCompany = false;
+    }
+    // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+    if ('T' == scwin.privAdmin || !scwin.isSubCompany) {
+      $c.gus.cfEnableObjects($p, [ed_coCd, ed_coNm, btn_company]);
+    } else {
+      $c.gus.cfDisableObjects($p, [ed_coCd, ed_coNm, btn_company]);
+    }
+  }
+  scwin.first++;
+};
+
+/**
+ * 데이터셋 헤더 설정
+ * TOBE 사용안함
+ */
+// scwin.f_setHeader = function() {
+
+//     //조회 조건 DATASET
+//     var GAUCE_DATASET_HEADER = "depreciationStYm:STRING"
+//         + ",depreciationEndYm:STRING"
+//         + ",acqCls:STRING"
+//         + ",searchKind:STRING"
+//         + ",closeYm:STRING" // 마감년월
+//         + ",coCd:STRING" // 회사코드
+//         + ",coClsCd:STRING" // 회사구분코드
+//         + ",regId:STRING"
+//         + ",conseCd:INT"
+//         + ",conseMsg:STRING"
+//         + ",searchFixedAsetNo:STRING" // 자산번호
+//         ;
+//     ds_search.SetDataHeader(GAUCE_DATASET_HEADER);
+//     ds_search.insertRow();
+// };
+
+/**
+ * 조회 초기값 설정
+ */
+scwin.f_setDefault = function () {
+  let toYM = $c.date.getServerDateTime($p, "yyyyMM");
+  ica_depreciationStYm.setValue(toYM);
+  ica_depreciationEndYm.setValue(toYM);
+  lc_acqCls.setValue("00"); //초기값:전체
+  lc_searchKind.setValue("1"); //초기값:일반
+  ica_depreciationStYm.focus();
+  $c.gus.cfDisableObjects($p, [ed_searchFixedAsetNo]);
+  gr_masterResult1.hide();
+  gr_masterResult2.show("");
+  gr_masterResult3.hide();
+  gr_masterResult1.setNoResultMessageVisible(false);
+  gr_masterResult2.setNoResultMessageVisible(false);
+  gr_masterResult3.setNoResultMessageVisible(false);
+  ds_masterResult.removeAll();
+};
+
+/**
+ * 조회
+ */
+scwin.f_Retrieve = async function () {
+  let ret = await $c.gus.cfValidate($p, [tbl_search]);
+  if (!ret) {
+    return;
+  }
+  if (ica_depreciationStYm.getValue() > ica_depreciationEndYm.getValue()) {
+    await $c.win.alert($p, "기간설정이 잘못되었습니다.");
+    return;
+  }
+  scwin.setInit();
+  dma_search.set("coClsCd", scwin.txtCoClsCd);
+  $c.sbm.execute($p, sbm_retrieve);
+};
+scwin.sbm_retrieve_submitdone = function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  scwin.search = lc_searchKind.getValue();
+  let rowCnt = ds_masterResult.getRowCount();
+  if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+    if (rowCnt == 0) {
+      $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    } else {
+      /**
+       * TODO : 데이터리스트 값 처리 로직
+       */
+      // 예시: DataCollection에서 그룹핑 및 합계 처리
+      scwin.f_QryCond();
+      dma_lastCalculationDate.setJSON(ds_lastCalculationDate.getRowJSON(0));
+    }
+  }
+};
+scwin.sbm_retrieve_submiterror = function (e) {
+  $c.gus.cfAlertMsg($p, e.responseJSON.resultDataSet[1].Msg);
+};
+
+/**
+ * 조건이 바뀔때마다 그리드전환 (1^일반,2^요약,3^상세)
+ */
+scwin.f_QryCond = function () {
+  // if (lc_searchKind.getValue() == "2") {
+  //     gr1.style.display = "none";
+  //     gr2.style.display = "inline";
+  //     gr3.style.display = "none";
+  //     ds_master.SubsumExpr = "false";
+  //     ds_master.GroupExpr = "col1:col2:col3:col4, col5, col6:amt";
+  // } else if (lc_searchKind.getValue() == "3") {
+  //     gr1.style.display = "none";
+  //     gr2.style.display = "none";
+  //     gr3.style.display = "inline";
+  //     ds_master.SubsumExpr = "1:col4";
+  //     ds_master.GroupExpr = "col3:col4:col1:col2:col7, col5, col6:amt";
+  // } else {
+  //     gr1.style.display = "inline";
+  //     gr2.style.display = "none";
+  //     gr3.style.display = "none";
+  //     ds_master.SubsumExpr = "1:col2";
+  //     ds_master.GroupExpr = "col1:col2:col3:col4, col5, col6:amt";
+  // }
+
+  let sGroupExpr = "";
+  let sSubsumExpr = "";
+
+  //조회조건 : 요약
+  if (lc_searchKind.getValue() == "2") {
+    gr_masterResult1.hide();
+    gr_masterResult2.show("");
+    gr_masterResult3.hide();
+    sGroupExpr = "col1:col2:col3:col4,col5,col6:amt";
+    sSubsumExpr = "false";
+    $c.data.applyGridViewGroupExpr($p, ds_masterResult, gr_masterResult2, sGroupExpr, {
+      'fixColSpan': ['column47']
+    });
+
+    //let dataListObj = $p.getComponentById(gr_masterResult3.getDataList());
+    //dataListObj.sort(sSubsumExpr, 0);
+
+    //조회조건 : 상세
+  } else if (lc_searchKind.getValue() == "3") {
+    gr_masterResult1.hide();
+    gr_masterResult2.hide();
+    gr_masterResult3.show("");
+    sGroupExpr = "col3:col4:col1:col2:col7,col5,col6:amt";
+    sSubsumExpr = "col3";
+    $c.data.applyGridViewGroupExpr($p, ds_masterResult, gr_masterResult3, sGroupExpr, {
+      'fixColSpan': ['column47']
+    });
+    let dataListObj = $p.getComponentById(gr_masterResult3.getDataList());
+    dataListObj.sort(sSubsumExpr, 0);
+
+    //조회조건 : 일반
+  } else {
+    gr_masterResult1.show("");
+    gr_masterResult2.hide();
+    gr_masterResult3.hide();
+    sGroupExpr = "col1:col2:col3:col4,col5,col6:amt";
+    sSubsumExpr = "1:col2";
+    $c.data.applyGridViewGroupExpr($p, ds_masterResult, gr_masterResult1, sGroupExpr, {
+      'fixColSpan': ['column47']
+    });
+    let dataListObj = $p.getComponentById(gr_masterResult3.getDataList());
+    dataListObj.sort("col2", 1);
+  }
+};
+
+/**
+ * 그리드 높이 늘리기
+ * TOBE 사용안함(UDC +-버튼사용, udc_topGrdBtn)
+ */
+// scwin.f_cfGrdHeiht = function (HeihtNum) {
+//     var grName = "";
+
+//     if (lc_searchKind.getValue() == "2") {
+//         grName = "gr_masterResult2";
+//     } else if (lc_searchKind.getValue() == "3") {
+//         grName = "gr_masterResult3";
+//     } else {
+//         grName = "gr_masterResult1";
+//     }
+
+//     $c.gus.cfGrdHeiht(grName, HeihtNum);
+// };
+
+/**
+ * 엑셀 다운로드
+ */
+scwin.f_Export = async function () {
+  let totCnt = ds_masterResult.getRowCount();
+  if (totCnt != 0) {
+    let grid;
+    if (await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?")) {
+      if (scwin.search == "2") {
+        grid = gr_masterResult2;
+      } else if (scwin.search == "3") {
+        grid = gr_masterResult3;
+      } else {
+        grid = gr_masterResult1;
+      }
+      let options = {};
+      options.type = "1";
+      options.fileName = "감가상각비추정" + ".xlsx";
+      options.sheetName = "감가상각비추정";
+      $c.data.downloadGridViewExcel($p, grid, options);
+    }
+  } else {
+    await $c.win.alert($p, MSG_CM_WRN_002);
+  }
+};
+
+/**
+ * 추정계산
+ */
+scwin.f_DepreciationDrawDeduction = async function () {
+  let ret;
+  ret = await $c.gus.cfValidate($p, [tbl_search]);
+  if (!ret) {
+    return false;
+  }
+
+  // if (!$c.gus.cfValidate([tbl_search])) return false;
+  // if (!$c.gus.cfValidate([ed_coCd])) return false;
+  if (ica_depreciationStYm.getValue() > ica_depreciationEndYm.getValue()) {
+    await $c.win.alert($p, "기간설정이 잘못되었습니다.");
+    return false;
+  }
+
+  // if (await $c.win.confirm(MSG_CM_CRM_009, ["감가상각추정계산내역"])) {
+  if (await $c.win.confirm($p, "감가상각추정계산내역을(를) 생성하시겠습니까?")) {
+    // resultMsg = "감가상각추정계산내역 계산";
+    sbm_master.userData1 = "noError";
+    $c.sbm.execute($p, sbm_master);
+  }
+};
+scwin.sbm_master_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) {
+    await $c.gus.cfAlertMsg($p, e.responseJSON.resultDataSet[1].Msg);
+    return;
+  }
+  if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+    scwin.f_Retrieve();
+  }
+};
+scwin.sbm_master_submiterror = function (e) {
+  $c.gus.cfAlertMsg($p, e.responseJSON.resultDataSet[1].Msg);
+};
+
+/**
+ * 조회조건 변경시
+ */
+scwin.lc_searchKind_onviewchange = function (info) {
+  if (lc_searchKind.getValue() == "3") {
+    $c.gus.cfEnableObjects($p, [ed_searchFixedAsetNo]);
+  } else {
+    $c.gus.cfDisableObjects($p, [ed_searchFixedAsetNo]);
+    ed_searchFixedAsetNo.setValue("");
+  }
+};
+scwin.ed_searchFixedAsetNo_onkeydown = function (e) {
+  if (e.keyCode == "13") {
+    if (!$c.util.isEmpty($p, e.target.value)) {
+      this.setValue(e.target.value);
+      scwin.f_Retrieve();
+    }
+  }
+};
+
+/*##############################################################
+ * UDC 이벤트
+ *##############################################################*/
+/**
+ * 회사코드(조회) 팝업 호출
+ */
+scwin.udc_comCode_onclickEvent = function (e) {
+  if (ed_coCd.hidVal != ed_coCd.getValue()) {
+    ed_coNm.setValue("");
+  }
+  scwin.f_PopUpCompanyInfo('F');
+};
+scwin.udc_comCode_onviewchangeCodeEvent = function (info) {
+  ed_coNm.setValue("");
+  if (!$c.gus.cfIsNull($p, ed_coCd.getValue())) {
+    scwin.f_PopUpCompanyInfo('T');
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYearMon',type:'page',variableClone:'true',src:'/cm/udc/fromToYearMon.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'tbl_search',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'회사코드 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{allowCharCode:'0-9',btnId:'btn_company',code:'coCd',codeId:'ed_coCd',editTypeCode:'focus','ev:onclickEvent':'scwin.udc_comCode_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_comCode_onviewchangeCodeEvent',id:'udc_comCode',mandatoryCode:'true',maxlengthCode:'3',maxlengthName:'30',name:'coNm',nameId:'ed_coNm',objTypeCode:'data',objTypeName:'key',popupID:'popupCocd',refDataCollection:'dma_search',selectID:'retrieveDongbuGroupCompanyInfo',style:'',validExpCode:'회사코드',validTitle:'회사코드',codeWidth:'50'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'취득구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',class:'w150',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_acqCls',style:'',submenuSize:'auto',title:'취득구분',chooseOptionLabel:'전체',chooseOptionValue:'00',ref:'data:dma_search.acqCls'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'자산번호',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_searchFixedAsetNo',style:'',objType:'data',title:'자산번호',editFormat:'##########',ref:'data:dma_search.searchFixedAsetNo','ev:onkeydown':'scwin.ed_searchFixedAsetNo_onkeydown'}},{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'추정기간',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:udc_fromToYearMon',A:{edFromId:'ica_depreciationStYm',edToId:'ica_depreciationEndYm',id:'udc_fromToYearMon',titleFrom:'추정기간',titleTo:'추정기간',mandatoryFrom:'true',mandatoryTo:'true',refDataMap:'dma_search',refEdDt:'depreciationEndYm',refStDt:'depreciationStYm',style:''}},{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'조회조건',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:'w150',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_searchKind',style:'',submenuSize:'auto',ref:'data:dma_search.searchKind','ev:onviewchange':'scwin.lc_searchKind_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'일반'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'요약'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'2'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'상세'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'3'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh','ev:onclick':'scwin.f_FieldClear',id:'btn_fieldClear',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'','ev:onclick':'scwin.f_Retrieve',id:'btn_search',style:'',type:'button',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'감가상각비추정',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white','ev:onclick':'scwin.f_DepreciationDrawDeduction',id:'btn_depreciationDrawDeduction',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'추정계산'}]}]},{T:1,N:'w2:udc_topGrdBtn',A:{gridID:'',gridUpYn:'N',grp:'grd_section1',id:'udc_excel',style:'',templateYn:'N',btnUser:'N',gridDownUserAuth:'X',btnPlusYn:'N',gridDownFn:'scwin.f_Export'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'xf:group',A:{id:''},E:[{T:1,N:'w2:gridView',A:{scrollByColumnAdaptive:'false',visibleRowNumFix:'true',dataList:'data:ds_masterResult',scrollByColumn:'false',style:'',autoFit:'allColumn',id:'gr_masterResult1',visibleRowNum:'15',class:'wq_gvw',checkReadOnlyOnPasteEnable:'',readOnly:'true',autoFitCellMinWidth:'150'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption2',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'4',width:'470',inputType:'text',style:'',id:'column52',value:'구분',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column47',value:'월별상각액',displayMode:'label',sortable:'false'}}]},{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{hidden:'true',width:'100',inputType:'text',style:'',id:'column39',value:'형태코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column40',value:'형태',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column41',value:'자산유형코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column42',value:'자산유형',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'70',inputType:'text',style:'',id:'column44_$$',value:'구분',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'$xkeyname_$$',value:'',displayMode:'label',sortable:'false'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'col1',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',colMerge:'true',inputType:'text',style:'',id:'col2',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'center',width:'100',inputType:'text',style:'',id:'col3',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'col4',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'text',style:'',id:'col6',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'text',style:'',id:'amt',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'col1',style:'',id:'subTotal1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row6'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column59',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column58',value:'소계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column57',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column56',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{expression:'SUM(\'col6\')',textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column54_$$',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{expression:'SUM(\'amt\')',textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column53_$$',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row7'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column66',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column65',value:'총계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column64',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column63',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{expression:'SUM(\'col6\')',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column61_$$',value:'',displayMode:'label',textAlign:'right',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{expression:'SUM(\'amt\')',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column60_$$',value:'',displayMode:'label',textAlign:'right',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]}]},{T:1,N:'w2:gridView',A:{scrollByColumnAdaptive:'false',visibleRowNumFix:'true',dataList:'data:ds_masterResult',scrollByColumn:'false',style:'',autoFit:'allColumn',id:'gr_masterResult2',visibleRowNum:'15',class:'wq_gvw',checkReadOnlyOnPasteEnable:'',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption2',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'4',width:'100',inputType:'text',style:'',id:'column52',value:'구분',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column47',value:'월별상각액',displayMode:'label',sortable:'false'}}]},{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{hidden:'true',width:'1',inputType:'text',style:'',id:'column39',value:'형태코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column40',value:'형태',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'1',inputType:'text',style:'',id:'column41',value:'자산유형코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column42',value:'자산유형',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'70',inputType:'text',style:'',id:'column44_$$',value:'구분',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'$xkeyname_$$',value:'',displayMode:'label',sortable:'false'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{textAlign:'left',width:'1',inputType:'text',style:'',id:'col1',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',colMerge:'true',inputType:'text',style:'',id:'col2',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'center',width:'1',inputType:'text',style:'',id:'col3',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'col4',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'text',style:'',id:'col6',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'text',style:'',id:'amt',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row7'},E:[{T:1,N:'w2:column',A:{width:'1',inputType:'text',style:'',id:'column66',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column65',value:'총계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'1',inputType:'text',style:'',id:'column64',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column63',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{expression:'SUM(\'col6\')',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column61_$$',value:'',displayMode:'label',textAlign:'right',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{expression:'SUM(\'amt\')',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column60_$$',value:'',displayMode:'label',textAlign:'right',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]}]},{T:1,N:'w2:gridView',A:{scrollByColumnAdaptive:'false',visibleRowNumFix:'true',dataList:'data:ds_masterResult',scrollByColumn:'false',style:'',autoFit:'allColumn',id:'gr_masterResult3',visibleRowNum:'15',class:'wq_gvw',checkReadOnlyOnPasteEnable:'',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption2',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'5',width:'470',inputType:'text',style:'',id:'column52',value:'구분',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column47',value:'월별상각액',displayMode:'label',sortable:'false'}}]},{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{hidden:'true',width:'100',inputType:'text',style:'',id:'column39',value:'자산유형코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column40',value:'자산유형',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column41',value:'자산번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column42',value:'자산명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column44',value:'귀속부서',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'100',inputType:'text',style:'',id:'column44_$$',value:'구분',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'$xkeyname_$$',value:'',displayMode:'label',sortable:'false'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'col3',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',colMerge:'true',inputType:'text',style:'',id:'col4',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'center',width:'100',inputType:'text',style:'',id:'col1',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'100',inputType:'text',style:'',id:'col2',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'left',width:'70',inputType:'text',style:'',id:'col7',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'text',style:'',id:'col6',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'text',style:'',id:'amt',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'col3',style:'',id:'subTotal1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row6'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column59',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column58',value:'소계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column57',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column56',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column55',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{expression:'SUM(\'col6\')',textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column54_$$',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{expression:'SUM(\'amt\')',textAlign:'right',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column53_$$',value:'',displayMode:'label',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row7'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column66',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column65',value:'총계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column64',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column63',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column62',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{expression:'SUM(\'col6\')',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column61_$$',value:'',displayMode:'label',textAlign:'right',excelCellType:'bigDecimal',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{expression:'SUM(\'amt\')',dataType:'bigDecimal',width:'120',displayFormat:'#,###',inputType:'expression',style:'',id:'column60_$$',value:'',displayMode:'label',textAlign:'right',excelCellType:'bigDecimal',excelFormat:'#,##0'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''}}]}]}]},{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'최종계산월',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonth',class:'',id:'ica_lastCalculationYm',style:'',pickerType:'dynamic',displayFormat:'yyyy/MM',ref:'data:dma_lastCalculationDate.lastCalculationYm',title:'최종계산월'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'최종계산수행일시',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:inputCalendar',A:{id:'ica_lastCalculationDtm',style:'',calendarValueType:'yearMonthDateTimeSec',ref:'data:dma_lastCalculationDate.lastCalculationDtm',class:'w150',title:'최종계산수행일시',displayFormat:'yyyy/MM/dd HH:mm:SS'}},{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''}}]}]}]}]}]}]})

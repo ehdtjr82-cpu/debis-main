@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="smpGridCustom" meta_screenId="smpGridCustom">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="ds_list1" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="전체선택" dataType="text"></w2:column>
+            			<w2:column id="col2" name="name2" dataType="text"></w2:column>
+            			<w2:column id="col3" name="name3" dataType="text"></w2:column>
+            			<w2:column id="col4" name="name4" dataType="text"></w2:column>
+            			<w2:column id="col5" name="name5" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" repeatNode="map" id="ds_list2" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="label" name="name1" dataType="text"></w2:column>
+            			<w2:column id="value" name="name2" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<label><![CDATA[사용]]></label>
+            				<value><![CDATA[1]]></value>
+            				<col1><![CDATA[사용]]></col1>
+            				<col2><![CDATA[1]]></col2>
+            			</w2:row>
+            			<w2:row>
+            				<label><![CDATA[미사용]]></label>
+            				<value><![CDATA[2]]></value>
+            				<col1><![CDATA[미사용]]></col1>
+            				<col2><![CDATA[2]]></col2>
+            			</w2:row>
+            			<w2:row>
+            				<label><![CDATA[전체]]></label>
+            				<value><![CDATA[3]]></value>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataMap baseNode="map" id="dataMap1">
+            		<w2:keyInfo>
+            			<w2:key id="key1" name="name1" dataType="text"></w2:key>
+            			<w2:key id="key2" name="name2" dataType="text"></w2:key>
+            		</w2:keyInfo>
+            	</w2:dataMap>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+      
+         <script type="text/javascript" lazy="false">
+        
+    scwin.onpageload = function() {
+        var jsonData = [
+            {&quot;col1&quot; : &quot;1&quot;,&quot;col2&quot; : &quot;name1-1&quot;,&quot;col3&quot; : &quot;name1-2&quot;,&quot;col4&quot; : &quot;name1-3&quot;},
+            {&quot;col1&quot; : &quot;2&quot;,&quot;col2&quot; : &quot;name2-1&quot;,&quot;col3&quot; : &quot;name2-2&quot;,&quot;col4&quot; : &quot;name2-3&quot;},
+            {&quot;col1&quot; : &quot;3&quot;,&quot;col2&quot; : &quot;name3-1&quot;,&quot;col3&quot; : &quot;name3-2&quot;,&quot;col4&quot; : &quot;name3-3&quot;},
+            {&quot;col1&quot; : &quot;3&quot;,&quot;col2&quot; : &quot;name4-1&quot;,&quot;col3&quot; : &quot;name4-2&quot;,&quot;col4&quot; : &quot;name4-3&quot;},
+            {&quot;col1&quot; : &quot;2&quot;,&quot;col2&quot; : &quot;name5-1&quot;,&quot;col3&quot; : &quot;name5-2&quot;,&quot;col4&quot; : &quot;name5-3&quot;}
+            
+        ];
+        ds_list1.setJSON( jsonData );
+    };
+			
+    scwin.grd_list1_onviewchange = function (info) {
+        if(info.colId == &quot;col5&quot;) { 
+            let opts = scwin.custom_Info(info.newValue);
+            grd_list1.setCellInputType(info.rowIndex, &quot;col1&quot;, opts);                               
+        }
+    };
+
+    // type 에 맞는 info 정보 셋팅
+    scwin.custom_Info = function(type) {
+        let ret = &quot;&quot;;
+
+        switch(type) {
+            case &quot;select&quot; :
+                ret = {
+                    inputType : &quot;select&quot;,
+                    options : {
+                        viewType: &quot;icon&quot;, chooseOption: true
+                    },
+                    itemSet : {
+                        nodeset: &quot;data:ds_list2&quot;, 
+                        label: &quot;label&quot;,
+                        value: &quot;value&quot;
+                    }
+                };
+                break;
+            case &quot;autoComplete&quot; :
+                ret = {
+                    inputType : &quot;autoComplete&quot;,
+                    options : {allOption:&quot;&quot;, chooseOption:&quot;true&quot;, chooseOptionLabel:&quot;-선택-&quot;},
+                    itemSet : {
+                        nodeset: &quot;data:ds_list2&quot;, 
+                        label: &quot;label&quot;,
+                        value: &quot;value&quot;
+                    }
+                };
+                break;
+            case &quot;checkbox&quot; :
+                ret = {inputType :&quot;checkbox&quot;};
+                break;
+            case &quot;calendar&quot; :
+                ret = {inputType : &quot;calendar&quot;, options : {calendarValueType:&quot;yearMonthDate&quot;} };
+                break;
+            case &quot;textImage&quot; :
+                ret = {inputType : &quot;textImage&quot;, options : {imageClickFunction:&quot;scwin.clickFn&quot;} };
+                break;
+            case &quot;radio&quot; :
+                ret = {inputType : &quot;radio&quot;};
+                break;
+            default :
+                ret = {inputType : &quot;text&quot;};
+                break;
+        }
+        return ret;
+    }
+
+    scwin.clickFn = function(a,b) {
+            debugger;
+    }</script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="" id="grp_group1" style="position: relative;width: 100%;height: 200px;">
+
+    		<w2:textbox class="" label='- 그리드의 inputType 을 다르게 보여 준다&lt;br/&gt;1. 그리드의 setCellInputTypeCustom="true" , 동적으로 표시될 column 의 property에서 inputType 을 custom 으로 선택.&lt;br/&gt;2. 그리드에서 "컬럼선택" 항목의 값을 선택하면 해당 ROW의 "동적컬럼"의 타입이 변경.&lt;br/&gt;3. scwin.custom_Info 에서 options 의 내용은 해당 컴포넌트의 properties 의 값을 넣으시면 됩니다.' style="font-weight:bold;" escape="false"></w2:textbox>
+    		<xf:group class="" id="grp_group11" style="height: 20px;"></xf:group>
+
+    		<xf:group style="position: relative;width: 100%;height: 150px;" class="">
+    			<w2:gridView id="grd_list1" ignoreToggleOnDisabled="false" useShiftKey="true"
+    				style="position: relative;width: 100%;height: 150px;" useFilterList="false" scrollByColumn="false" defaultCellHeight="20"
+    				showSortableUseFilter="false" scrollByColumnAdaptive="false" summaryAuto="false" summaryOnlyAuto="false" applyAllColumnStyle="false"
+    				dataList="data:ds_list1" ignoreCellClick="false" autoFit="allColumn" editModeEvent="onclick" setCellInputTypeCustom="true" ev:onviewchange="scwin.grd_list1_onviewchange" class="">
+    				<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    				<w2:header style="" id="header1">
+    					<w2:row style="" id="row1">
+    						<w2:column width="70" inputType="text" style="" id="column9" value="동적컬럼" blockSelect="false"
+    							displayMode="label" checkboxLabel="" chooseOptionLabel="" sortable="false">
+    						</w2:column>
+    						<w2:column width="105" inputType="text" style="" id="column7" value="name2" blockSelect="false"
+    							displayMode="label">
+    						</w2:column>
+    						<w2:column width="120" inputType="text" style="" id="column5" value="name3" blockSelect="false"
+    							displayMode="label">
+    						</w2:column>
+    						<w2:column width="100" inputType="text" style="" id="column3" value="name4" blockSelect="false"
+    							displayMode="label">
+    						</w2:column>
+    						<w2:column width="70" inputType="text" style="" id="column1" value="컬럼선택" blockSelect="false"
+    							displayMode="label" sortable="false">
+    						</w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody style="" id="gBody1">
+    					<w2:row style="" id="row2">
+    						<w2:column width="70" inputType="custom" style="" id="col1" value="" blockSelect="false" displayMode="label"
+    							class="" checkboxLabel="chk">
+    						</w2:column>
+    						<w2:column width="105" inputType="textImage" style="" id="col2" value="" blockSelect="false" displayMode="label"
+    							typeGetter="" textAlign="">
+    						</w2:column>
+    						<w2:column width="120" inputType="" style="" id="col3" value="" blockSelect="false" displayMode="label"
+    							typeGetter="">
+    						</w2:column>
+    						<w2:column width="100" inputType="text" style="" id="col4" value="" blockSelect="false" displayMode="label"
+    							typeGetter="">
+    						</w2:column>
+    						<w2:column width="70" inputType="select" style="" id="col5" value="" blockSelect="false" displayMode="label"
+    							allOption="" chooseOption="true" ref="" chooseOptionLabel="-- 변경 --" viewType="icon">
+    							<w2:choices>
+    								<w2:item>
+    									<w2:label><![CDATA[text]]></w2:label>
+    									<w2:value><![CDATA[text]]></w2:value>
+    								</w2:item>
+    								<w2:item>
+    									<w2:label><![CDATA[select]]></w2:label>
+    									<w2:value><![CDATA[select]]></w2:value>
+    								</w2:item>
+    								<w2:item>
+    									<w2:label><![CDATA[radio]]></w2:label>
+    									<w2:value><![CDATA[radio]]></w2:value>
+    								</w2:item>
+    								<w2:item>
+    									<w2:label><![CDATA[calendar]]></w2:label>
+    									<w2:value><![CDATA[calendar]]></w2:value>
+    								</w2:item>
+    								<w2:item>
+    									<w2:label><![CDATA[autoComplete]]></w2:label>
+    									<w2:value><![CDATA[autoComplete]]></w2:value>
+    								</w2:item>
+    								<w2:item>
+    									<w2:label><![CDATA[checkbox]]></w2:label>
+    									<w2:value><![CDATA[checkbox]]></w2:value>
+    								</w2:item>
+    								<w2:item>
+    									<w2:label><![CDATA[textImage]]></w2:label>
+    									<w2:value><![CDATA[textImage]]></w2:value>
+    								</w2:item>
+    							</w2:choices>
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

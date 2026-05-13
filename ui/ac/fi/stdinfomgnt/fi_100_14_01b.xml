@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="crn" name="사업자번호" dataType="text"></w2:key>
+    					<w2:key id="quitYn" name="폐업여부" dataType="text"></w2:key>
+    					<w2:key id="frDt" name="적용일자" dataType="text"></w2:key>
+    					<w2:key id="toDt" name="적용일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_List1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+    					<w2:column id="repstNm" name="사업자명" dataType="text"></w2:column>
+    					<w2:column id="taxnCls" name="과세유형" dataType="text"></w2:column>
+    					<w2:column id="taxnClsAdptDt" name="과세유형 적용일" dataType="text"></w2:column>
+    					<w2:column id="quitYn" name="폐업여부" dataType="text"></w2:column>
+    					<w2:column id="quitDt" name="폐업일자" dataType="text"></w2:column>
+    					<w2:column id="adptDt" name="국세청 적용일" dataType="text"></w2:column>
+    					<w2:column id="seekYn" name="국세청 조회여부" dataType="text"></w2:column>
+    					<w2:column id="remark" name="비고" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ac.fi.stdinfomgnt.RetrieveOutOfBusinessListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_List1","key":"OUT_DS1"}]' target='data:json,{"id":"ds_List1","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ac.fi.stdinfomgnt.CUDOutOfBusinessListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_List1","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.strCurDate = WebSquare.date.getCurrentServerDate()
+scwin.login = $c.data.getMemInfo();
+scwin.privAdmin = scwin.login.privAdmin;
+
+//-------------------------------------------------------------------------
+// G L O B A L   V A R I A B L E S   D E F I N I T I O N
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// function name : scwin.onpageload
+// function desc : 화면로딩시
+// function Parameter : null 
+//-------------------------------------------------------------------------  
+scwin.onpageload = function () {
+    const codeOptions = [
+        { grpCd: "FI069", compID: "gr_List1:taxnCls" },
+        { grpCd: "FM119", compID: "gr_List1:quitYn" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+scwin.onUdcCompleted = function () {
+    scwin.f_FieldClear();
+    ed_crn.focus();
+}
+
+//-------------------------------------------------------------------------
+// function name : f_chkOpenPopUp
+// function desc : 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+// function Parameter : inObj : 코드값, pairObj : 코드명, isCode : 코드구분(코드, 명칭)
+//-------------------------------------------------------------------------
+scwin.f_chkOpenPopUp = function(inObj, pairObj, isCode){
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+    
+    // 검색어 세팅
+    let pVal = inObj.getValue()
+            
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+    } else {
+        scwin.f_openCommonPopUp('', pVal, 'T', 'T');
+    }
+}
+
+//-------------------------------------------------------------------------
+// function name : f_openCommonPopUp
+// function desc : 공통 Popup 처리 : 공통 Popup 을 호출한다.
+// function Parameter : pCode : 코드, pName : 코드명, pClose : 창여부, pAllSearch : 전체허용여부
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function(pCode, pName, pClose, pAllSearch){
+    // 선언부
+    let rtnList;  // 공통POP-UP -> 요청화면             
+    rtnList = udc_crnInfo3.cfCommonPopUp(scwin.udc_crnInfo3_callBackFunc, pCode
+                            ,pName
+                            ,pClose
+                            ,null
+                            ,null
+                            ,null
+                            ,null
+                            ,null
+                            ,null
+                            ,null
+                            ,null
+                            ,null);
+    // cfSetReturnValue(rtnList, ed_crn, ed_busiNm);  
+} 
+
+// ======================
+// 콜백 함수들
+// ======================
+scwin.udc_crnInfo3_callBackFunc = function(rtnList) {
+    if (rtnList != null) {
+        if (rtnList[0] == "N/A") return;
+        ed_crn.setValue(rtnList[0]);
+        ed_busiNm.setValue(rtnList[1]);
+        ed_crn.options.hidVal = rtnList[0];
+        ed_busiNm.options.hidVal = rtnList[1];
+    } else {
+        ed_crn.setValue("");
+        ed_busiNm.setValue("");
+        ed_crn.options.hidVal = "";
+        ed_busiNm.options.hidVal = "";
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects([ed_frDt, ed_toDt, ed_busiNm, ed_crn]);
+    // $c.gus.cfInitHidVal(tbl_search);
+    scwin.f_SetSrchDefault()
+}
+
+//-------------------------------------------------------------------------
+// function name : f_downExcelSheet
+// function desc : 일용직 부서별 실적 조회 엑셀 다운
+// function Parameter : null
+//-------------------------------------------------------------------------
+scwin.f_downExcelSheet = async function(objGrd) {
+    if (ds_List1.getRowCount() == 0) {
+        $c.win.alert("조회된 내역이 없습니다! 조회 먼저 해주세요.");
+        return;
+    }
+
+    let fileName = '사업자 휴폐업 현황 목록';
+    let sheetTitle = '사업자 휴폐업 현황 목록';
+        
+    if (await $c.win.confirm("Excel로 다운로드 하시겠습니까?")) {
+        await $c.data.downloadGridViewExcel(gr_List1, { fileName: fileName + ".xlsx", sheetName: sheetTitle });
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// function name : f_Undo
+// function desc : 취소
+// function Parameter : null
+//-------------------------------------------------------------------------
+scwin.f_Undo = function (e) {
+    ds_List1.undoRow(ds_List1.getRowPosition());
+    // gr_List1.setReadOnly(false);
+    $c.gus.cfEnableAllBtn();
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 기본값 설정
+//-------------------------------------------------------------------------
+scwin.f_SetSrchDefault = function () {
+    ed_frDt.setValue(scwin.strCurDate);
+    ed_toDt.setValue(scwin.strCurDate);
+}
+
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+// function Parameter : null
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    if (! await $c.gus.cfValidate([tbl_search])) {
+        return;
+    }
+    $c.sbm.execute(sbm_search);
+}
+
+//-------------------------------------------------------------------------
+// 매개변수가 숫자인지 확인하는 함수 
+//-------------------------------------------------------------------------
+scwin.fCheckIsNumber = function (value) {
+    let count = 0;
+    let ch;
+
+    for (i = 0; i < value.length; i++) {
+        ch = value.charAt(i);
+
+        if (isNaN(ch)) {
+            if (ch == ".") {
+                count++;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    if (count > 1) {
+        return false;
+    } else {
+        return true;
+    }
+
+    return result;
+}
+
+//-------------------------------------------------------------------------
+// 매개변수가 유효한 날짜인지 확인 
+//-------------------------------------------------------------------------
+scwin.fCheckIsDate = function (value) {
+    let count = 0;
+    let ch;
+
+    let year;
+    let month;
+    let date;
+
+    if (value.length != 8) {
+        return false;
+    }
+
+    year = value.substr(0, 4);
+    month = value.substr(4, 2);
+    date = value.substr(6, 2);
+
+    if (year < 1900 || year > 2200) { return false; }
+    if (month < 0 || month > 12) { return false; }
+    if (date < 0 || date > 31) { return false; }
+
+    return true;
+}
+
+
+//-------------------------------------------------------------------------
+// function name : f_Update
+// function desc : 수정
+// function Parameter : null
+//-------------------------------------------------------------------------  
+scwin.f_save = function() {
+    scwin.f_Update();
+}
+
+scwin.f_Update = async function () {
+    const modifiedIndexList = ds_List1.getModifiedIndex();
+    const modifiedCount = modifiedIndexList.length;
+
+    if (modifiedCount <= 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["데이터"]);
+        return;
+    }
+
+    if (!await $c.gus.cfValidate([gr_List1])) return;
+
+    for (let i = 0; i < ds_List1.getRowCount(); i++) {
+        let quitYn = ds_List1.getCellData(i, "quitYn");
+        let quitDt = ds_List1.getCellData(i, "quitDt");
+        let taxnCls = ds_List1.getCellData(i, "taxnCls");
+
+        // if (modifiedIndexList.includes(i) && $c.gus.cfIsNull(taxnCls)) {
+        //     $c.win.alert(`사업자 현황 목록의 ${i + 1}번째 데이터에서 과세유형은(는) 필수 입력 항목입니다.`);
+
+        //     gr_List1.setFocusedCell(i, "taxnCls", false);
+        //     return;
+        // }
+
+        if (quitYn == 1 && $c.gus.cfIsNull(quitDt)) {
+            $c.win.alert(`${i + 1}번째 사업자번호의 폐업 일자를 입력하십시오.`);
+            ds_List1.rowposition = i;
+            gr_List1.setFocusedCell(i, "quitDt", false);
+            return;
+        }
+
+        if (quitYn == 1 && !scwin.fCheckIsDate(quitDt)) {
+            $c.win.alert(`${i + 1} 번째 폐업일자의 형식이 잘못되었습니다.`);
+            gr_List1.setFocusedCell(i, "quitDt", false);
+            return;
+        }
+
+        if (quitYn == 0 && !$c.gus.cfIsNull(quitDt)) {
+            $c.win.alert(`${i + 1} 번째 사업자는 폐업이 아닙니다.`);
+            gr_List1.setFocusedCell(i, "quitDt", false);
+            return;
+        }
+    }
+
+    $c.sbm.execute(sbm_save);
+};
+
+
+//-------------------------------------------------------------------------
+// script
+//-------------------------------------------------------------------------
+scwin.ucd_crnInfo_onclickEvent = async function (e) {
+    scwin.f_openCommonPopUp(ed_crn.getValue(), ed_busiNm.getValue(),'F','F')
+};
+
+scwin.udc_crnInfo3_onblurCodeEvent = function (e) {
+    ed_busiNm.setValue("")
+    if (ed_crn.getValue() != ""){
+        
+        scwin.f_chkOpenPopUp(ed_crn, ed_busiNm , true);
+    }
+};
+
+scwin.udc_crnInfo3_onblurNameEvent = function (e) {
+    ed_crn.setValue("")
+    if (ed_busiNm.getValue() != ""){
+        
+        scwin.f_chkOpenPopUp(ed_busiNm, ed_crn, false);
+    }
+};
+
+
+
+
+//서브미션 완료
+scwin.sbm_search_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    let lowCnt = ds_List1.getRowCount()
+    ds_List1_totalRows.setValue(lowCnt);
+    if (lowCnt == 0) {
+        $c.win.alert("조회된 데이터가 없습니다.");
+    }
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert(MSG_CM_INF_001);
+    scwin.f_Retrieve()
+};
+
+
+// grid decode format
+scwin.seekYnDisplayFm = function (data) {
+    return $c.gus.decode(data, "1", "조회", "0", "미조회");
+}
+
+// 폐업여부
+scwin.gr_List1_onviewchange = function (info) {
+    if (info.newValue == "0" && info.colId == "quitYn") {
+        ds_List1.setCellData(info.rowIndex, "quitDt", "")
+    }
+};
+
+
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:80px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:65px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="사업자번호" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="popupMgntClntNo" style="" class="col8" codeId="ed_crn" mandatoryCode="false" objTypeCode="data" nameId="ed_busiNm" UpperFlagCode="1" allowCharCode="0-9" maxlengthCode="10" validExpCode="사업자번호:no:format=0000000000" objTypeName="data" selectID="retrieveCrnInfo3" code="crn" refDataCollection="dma_search" popupTitle="사업자번호조회,사업자번호,사업자명" popupGridHeadTitle="사업자번호,사업자명" ev:onclickEvent="scwin.ucd_crnInfo_onclickEvent" btnId="btn_crn" id="udc_crnInfo3" ev:onblurCodeEvent="scwin.udc_crnInfo3_onblurCodeEvent" ev:onblurNameEvent="scwin.udc_crnInfo3_onblurNameEvent"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="적용일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar id="" refDataMap="dma_search" refEdDt="toDt" refStDt="frDt" style="" mandatory="true" userAttr2="" edFromId="ed_frDt" edToId="ed_toDt" mandatoryFrom="true" mandatoryTo="true" titleFrom="적용일자" titleTo="적용일자"></w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="폐업여부" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 appearance="full" class="rdo-grp" cols="" id="rd_quitYn" ref="data:dma_search.quitYn" renderType="radiogroup" rows="" selectedIndex="-1" style="" mandatory="false" objType="data">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[전체]]></xf:label>
+    												<xf:value><![CDATA[]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[아니오]]></xf:label>
+    												<xf:value><![CDATA[0]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[예]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group id="" class="round-box"><xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="사업자 현황 목록" class="tit"></w2:textbox>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_List1" gridDownFn="scwin.f_downExcelSheet"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView scrollByColumnAdaptive="false" focusMode="cell" visibleRowNumFix="true" dataList="data:ds_List1" scrollByColumn="false" style="" autoFit="allColumn" id="gr_List1" visibleRowNum="16" class="wq_gvw" checkReadOnlyOnPasteEnable="" validFeatures="ignoreStatus=no" validExp="crn:사업자번호:YES, repstNm:사업자명:YES, taxnCls:과세유형:YES, taxnClsAdptDt:과세유형적용일:NO, quitYn:폐업여부:YES, quitDt:폐업일자:NO, adptDt:국세청적용일:NO, seekYn:국세청조회여부:YES " editModeEvent="onclick" ev:onviewchange="scwin.gr_List1_onviewchange" readOnly="true" rowStatusVisible="true" rowStatusWidth="15" columnMove="true">
+    							<w2:caption style="" id="caption10" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header2">
+    								<w2:row style="" id="row3">
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="column12" blockSelect="false" displayMode="label" value="사업자번호">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="column11" blockSelect="false" displayMode="label" value="사업자명">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="column10" blockSelect="false" displayMode="label" value="과세유형" class="col-type2">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="120" inputType="text" id="column9" blockSelect="false" displayMode="label" value="과세유형 적용일">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column17" value="폐업여부" displayMode="label" class="col-type2">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column13" value="폐업일자" displayMode="label" class="col-type2">
+    									</w2:column>
+    									<w2:column width="120" inputType="text" style="" id="column15" value="국세청 적용일" displayMode="label">
+    									</w2:column>
+    									<w2:column width="120" inputType="text" style="" id="column19" value="국세청 조회여부" displayMode="label">
+    									</w2:column>
+    									<w2:column width="350" inputType="text" style="" id="column21" value="비고" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody2">
+    								<w2:row style="" id="row4">
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="crn" blockSelect="false" displayMode="label" mandatory="true">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="repstNm" blockSelect="false" displayMode="label" textAlign="left" mandatory="true">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="100" inputType="select" id="taxnCls" blockSelect="false" displayMode="value delim label" textAlign="left" allOption="" ref="" readOnly="false" chooseOption="" mandatory="true">
+    										<w2:choices></w2:choices>
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="120" inputType="text" id="taxnClsAdptDt" blockSelect="false" displayMode="label" editFormat="####/##/##">
+    									</w2:column>
+    									<w2:column width="100" inputType="select" style="" id="quitYn" value="" displayMode="value delim label" allOption="" chooseOption="" ref="" textAlign="left" readOnly="false" mandatory="true">
+    										<w2:choices></w2:choices>
+    									</w2:column>
+    									<w2:column width="100" inputType="calendar" style="" id="quitDt" value="" displayMode="label" displayFormat="yyyy/MM/dd" readOnly="false"></w2:column>
+    									<w2:column width="120" inputType="text" style="" id="adptDt" value="" displayMode="label" editFormat="####/##/##"></w2:column>
+    									<w2:column width="120" inputType="text" style="" id="seekYn" value="" displayMode="label" displayFormatter="scwin.seekYnDisplayFm" mandatory="true"></w2:column>
+    									<w2:column width="350" inputType="text" style="" id="remark" value="" displayMode="label" textAlign="left">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" style="" id="ds_List1_totalRows" label="0" class="num" dataType="number" displayFormat="#,##0"></w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group style="" id="" class="right">
+    							<w2:button style="" id="btn_cancel" label="취소" class="btn sm" ev:onclick="scwin.f_Undo"></w2:button>
+    						</xf:group>
+    					</xf:group></xf:group><xf:group id="" class="btnbox"><xf:group id="" class="right"><xf:trigger style="" id="btn_save" label="저장" type="button" class="btn" ev:onclick="scwin.f_Update" userAuth="U">
+    					<xf:label>저장</xf:label>
+    				</xf:trigger></xf:group></xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

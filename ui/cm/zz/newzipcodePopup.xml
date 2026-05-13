@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+    <w2:buildDate/>
+    <w2:MSA/>
+    <xf:model>
+    	<w2:dataCollection baseNode="map">
+    		<w2:dataList baseNode="list" repeatNode="map" id="ds_zip" saveRemovedData="true">
+    			<w2:columnInfo>
+    				<w2:column id="zip" name="zip" dataType="text"></w2:column>
+    				<w2:column id="sidoNm" name="sidoNm" dataType="text"></w2:column>
+    				<w2:column id="sigunguNm" name="sigunguNm" dataType="text"></w2:column>
+    				<w2:column id="eupmyeonNm" name="eupmyeonNm" dataType="text"></w2:column>
+    				<w2:column id="roadNm" name="roadNm" dataType="text"></w2:column>
+    				<w2:column id="buildingManageNo" name="buildingManageNo" dataType="text"></w2:column>
+    				<w2:column id="sigunguBuildingNm" name="sigunguBuildingNm" dataType="text"></w2:column>
+    				<w2:column id="lawDongCd" name="lawDongCd" dataType="text"></w2:column>
+    				<w2:column id="lawDongNm" name="lawDongNm" dataType="text"></w2:column>
+    				<w2:column id="guZip" name="guZip" dataType="text"></w2:column>
+    				<w2:column id="address" name="address" dataType="text"></w2:column>
+    			</w2:columnInfo>
+    			<w2:data>
+    			</w2:data>
+    		</w2:dataList>
+    	</w2:dataCollection>
+    	<w2:workflowCollection />
+    	<xf:submission id="sbm_save" action="/cm.bc.comnmgnt.zipmgnt.SaveZipInformationCMD.do" method="post" mediatype="application/json"
+    		ref='data:json,[{"id":"ds_zip","key":"IN_DS1"}]' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="scwin.sbm_save_submiterror"
+    		abortTrigger="">
+    	</xf:submission>
+    </xf:model>
+    <w2:layoutInfo/>
+    <w2:publicInfo method=""/>
+
+    <script lazy="false" type="text/javascript"><![CDATA[// -------------------------------------------------------
+// onpageload
+// -------------------------------------------------------
+scwin.onpageload = function() {
+    // 최신 공지 URL/제목 준비
+    scwin.loadLatestDaumPostNotice && scwin.loadLatestDaumPostNotice();
+
+    // daum API를 동적으로 로드
+    scwin.loadDaumPostcode(function() {
+        // 로드 완료 후 자동 실행 or 버튼 클릭 대기
+        scwin.openPostcodeSearch();
+    });
+};
+
+// -------------------------------------------------------
+// 팝업타이틀 변경 
+// -------------------------------------------------------
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("우편번호 검색");
+}
+
+// -------------------------------------------------------
+// daum postcode 동적 로드
+// -------------------------------------------------------
+scwin.loadDaumPostcode = function(callback) {
+    function ready() {
+        return (window.daum && typeof daum.Postcode === "function");
+    }
+
+    if (ready()) { callback(); return; }
+
+    var script = document.createElement('script');
+    script.src = "https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+
+    script.onload = function () {
+        var cnt = 0;
+        var timer = setInterval(function () {
+            cnt++;
+            if (ready() || cnt > 50) { // 5초
+                clearInterval(timer);
+                if (!ready()) {
+                    console.log("Daum Postcode loaded but not ready.");
+                    return;
+                }
+                callback();
+            }
+        }, 100);
+    };
+
+    script.onerror = function() {
+        console.log("Failed to load Daum Postcode script.");
+    };
+
+    document.head.appendChild(script);
+};
+
+// -------------------------------------------------------
+// 우편번호 팝업 열기
+// -------------------------------------------------------
+scwin.openPostcodeSearch = function () {
+
+    var popupContent = document.querySelector(".pop_contents");
+    if (!popupContent) return;
+
+    popupContent.style.position = "relative";
+    popupContent.style.overflow = "hidden";
+
+    var layer = document.createElement("div");
+    layer.id = "daumPostLayer";
+    layer.style.position = "absolute";
+    layer.style.left = "0";
+    layer.style.top = "0";
+    layer.style.width = "100%";
+    layer.style.height = "100%";
+    layer.style.zIndex = "9999";
+    layer.style.background = "#fff";
+    layer.style.overflow = "hidden";
+    layer.style.boxSizing = "border-box";
+
+    popupContent.appendChild(layer);
+
+    // 공지바 - overlay 위에 sticky로 붙임
+    var notice = document.createElement("div");
+    notice.id = "zipNoticeBar";
+    notice.style.position = "absolute";
+    notice.style.left = "0";
+    notice.style.top = "0";
+    notice.style.right = "0";
+    notice.style.zIndex = "10000";
+    notice.style.background = "#fff3cd";
+    notice.style.borderBottom = "1px solid #ffe69c";
+    notice.style.padding = "10px 14px";
+    notice.style.fontSize = "13px";
+    notice.style.display = "flex";
+    notice.style.justifyContent = "space-between";
+    notice.style.alignItems = "center";
+    notice.style.boxSizing = "border-box";
+
+    var title = document.createElement("span");
+    title.id = "zipNoticeText";
+    title.style.overflow = "hidden";
+    title.style.textOverflow = "ellipsis";
+    title.style.whiteSpace = "nowrap";
+    title.textContent = scwin._noticeTitle || "우편번호 서비스 이용 안내";
+
+    var link = document.createElement("a");
+    link.href = "javascript:void(0)";
+    link.textContent = "자세히 보기";
+    link.style.textDecoration = "underline";
+    link.onclick = function () { scwin.openPostNotice(); };
+
+    notice.appendChild(title);
+    notice.appendChild(link);
+
+    // layer 위에 올리기
+    layer.appendChild(notice);
+    layer.style.overflow = "hidden";
+    // 공지바 높이만큼 embed 영역 내려주기 (안 잘리게)
+    layer.style.paddingTop = "44px"; // 공지바 대략 높이
+
+    var NOTICE_H = 44;
+
+    // embed 전용 영역
+    var embedWrap = document.createElement("div");
+    embedWrap.id = "daumEmbedWrap";
+    embedWrap.style.position = "absolute";
+    embedWrap.style.left = "0";
+    embedWrap.style.right = "0";
+    embedWrap.style.top = NOTICE_H + "px";
+    embedWrap.style.bottom = "0";
+    embedWrap.style.overflow = "hidden";
+
+    layer.appendChild(embedWrap);
+
+    new daum.Postcode({
+        oncomplete: function (data) {
+            popupContent.removeChild(layer);
+
+            // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            let fullAddr = data.address; // 최종 주소 변수
+            let extraAddr = ''; // 조합형 주소 변수
+            // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                fullAddr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                fullAddr = data.jibunAddress;
+            }
+
+            // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+            if (data.userSelectedType === 'R') {
+                // 법정동명이 있을 경우 추가한다.
+                if (data.bname !== '') {
+                    extraAddr += data.bname;
+                }
+
+                // 건물명이 있을 경우 추가한다.
+                if (data.buildingName !== '') {
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+
+                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+            }
+            // tb_zz214에 insert 시킴
+            let  postcode = data.postcode1 + data.postcode2;
+            
+            scwin.f_save(
+                data.zonecode,
+                data.sido,
+                data.sigungu,
+                data.bname1,
+                data.roadname,
+                data.buildingCode,
+                data.buildingName,
+                data.bcode,
+                data.bname,
+                postcode,
+                data.roadAddress
+            );
+
+            scwin.f_ReturnSel(
+                data.zonecode,
+                fullAddr,
+                data.sido,
+                data.sigungu,
+                data.bname
+            );
+        }
+    }).embed(embedWrap);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_ReturnSel = function(zip,fullAddr,stasNm,cuntyNm,dongNm) {
+    // 객체를 생성하고, 그 안의 변수에 값을 설정해 리턴
+    var objReturn = new Object();
+    objReturn.zip       = zip;
+    objReturn.addr1     = fullAddr; // 주소1
+    objReturn.allAddr   = fullAddr; // 전체주소
+    objReturn.stasNm    = stasNm;   // 시도명
+    objReturn.cuntyNm   = cuntyNm;  // 시군구명
+    objReturn.dongNm    = dongNm;   // 동명   
+
+    $c.win.closePopup(objReturn);
+}
+   
+
+//-------------------------------------------------------------------------
+// TB_ZZ214 저장
+//-------------------------------------------------------------------------
+scwin.f_save = function(zip,sidoNm,sigunguNm,eupmyeonNm,roadNm,buildingManageNo,sigunguBuildingNm,lawDongCd,lawDongNm,guZip,roadAddress) {
+
+    ds_zip.insertRow(0);
+
+    ds_zip.setCellData(0, "zip", zip);
+    ds_zip.setCellData(0, "sidoNm", sidoNm);
+    ds_zip.setCellData(0, "sigunguNm", sigunguNm);
+    ds_zip.setCellData(0, "eupmyeonNm", eupmyeonNm);
+    ds_zip.setCellData(0, "roadNm", roadNm);
+    ds_zip.setCellData(0, "buildingManageNo", buildingManageNo);
+    ds_zip.setCellData(0, "sigunguBuildingNm", sigunguBuildingNm);
+    ds_zip.setCellData(0, "lawDongCd", lawDongCd);
+    ds_zip.setCellData(0, "lawDongNm", lawDongNm);
+    ds_zip.setCellData(0, "guZip", guZip);
+    ds_zip.setCellData(0, "address", roadAddress);
+
+    // var ls_zip = ds_zip.getCellData(0, "zip");
+
+    $p.executeSubmission(sbm_save);
+}
+
+scwin.sbm_save_submiterror = function (e) {
+    console.log("error!");
+};
+
+// 기본 fallback
+scwin._noticeUrl = "https://github.com/daumPostcode/QnA/issues";
+scwin._noticeTitle = "우편번호 서비스 공지 확인";
+
+// 최신 notice 1건 가져오기(업데이트될수록 자동 반영)
+scwin.loadLatestDaumPostNotice = async function () {
+    try {
+        var api = "https://api.github.com/repos/daumPostcode/QnA/issues?labels=notice&state=open&per_page=1&sort=created&direction=desc";
+        var res = await fetch(api, { headers: { "Accept": "application/vnd.github+json" } });
+        if (!res.ok) return;
+
+        var list = await res.json();
+        var issue = list && list[0];
+        if (!issue) return;
+
+        scwin._noticeUrl = issue.html_url;
+        scwin._noticeTitle = "[공지] " + issue.title;
+
+        // 이미 공지바가 떠 있으면 즉시 갱신
+        var el = document.getElementById("zipNoticeText");
+        if (el) el.textContent = scwin._noticeTitle;
+    } catch (e) {
+        // 실패 시 fallback 유지
+    }
+};
+
+scwin.openPostNotice = function () {
+    window.open(scwin._noticeUrl, "_blank", "noopener,noreferrer");
+};
+
+]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    <xf:group class="pop_contents" meta_componentContainer="true">
+    	<w2:wframe src="/cm/xml/contentHeader.xml" />
+    	<xf:group class="pop-btnbox"></xf:group>
+    	<w2:iframe src="" style="width:1406px;height:839px;" id="iframe1" ev:oniframeload="scwin.iframe1_oniframeload"></w2:iframe>
+    </xf:group>
+</body>
+</html>

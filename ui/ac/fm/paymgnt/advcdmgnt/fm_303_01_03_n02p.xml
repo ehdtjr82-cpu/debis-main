@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// 팝업 타이틀 변경
+//------------------------------------------------------------------------- 
+scwin.popTitleCh = function () {
+    $c.data.setPopupTitle("전도금관리내역메일전송팝업");
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//------------------------------------------------------------------------- 
+scwin.onpageload = async function () {
+    scwin.params = $c.data.getParameter();
+    if (scwin.params != null) {
+        if (scwin.params["certiNo"] != null) {
+            scwin.certiNo = scwin.params["certiNo"];
+        }
+    }
+    scwin.f_OnLoad();
+};
+
+scwin.onUdcCompleted = function() {
+    
+}
+
+scwin.f_OnLoad = async function () {
+    txt_fileNm.setValue("내부용 EXCEL파일을 등록하세요");
+};
+
+//-------------------------------------------------------------------------
+// 화면닫기
+//------------------------------------------------------------------------- 
+scwin.f_Close = async function () {
+    let fileArr = udc_fielUpload.getData();
+
+    if(fileArr.length == 0) {
+        let rtn = await $c.win.confirm("파일이 선택되지 않아 이메일 전송이 취소됩니다. <br/>창을 닫으시겠습니까?");
+        if(rtn) {
+            $c.win.closePopup();  
+        }
+        
+        return;
+    }
+
+    if(fileArr[0].STORED_FILE_NM == "") {
+        let rtn = await $c.win.confirm("파일이 저장되지 않아 이메일 전송이 취소됩니다. <br/>창을 닫으시겠습니까?");
+        if(rtn) {
+            $c.win.closePopup();  
+        }
+        
+        return;
+    }
+
+    let rtnList = [];
+    rtnList[0] = fileArr[0].ORIGIN_FILE_NM;    //파일명
+    rtnList[1] = fileArr[0].FILE_STORED_PATH + fileArr[0].STORED_FILE_NM;    //파일경로
+    rtnList[2] = fileArr[0].FILE_SIZE;         //파일크기
+
+    $c.win.closePopup(rtnList);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 저장/ 닫기 버튼
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+    scwin.f_Close();
+};
+
+scwin.udc_fielUpload_onFileUploadDone = function (isSuccess) {
+    let fileArr = udc_fielUpload.getData();
+
+    if(fileArr.length != 0) { 
+        txt_fileNm.setValue(fileArr[0].ORIGIN_FILE_NM);
+    }
+};
+]]></script>
+		<w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="">
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:120px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="파일명" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:input class=" w300" id="txt_fileNm" style="" maxlength="50"></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="file-wrap no-title" id="" style="">
+					<w2:udc_fileMultiUpload fileGrpSeq=""
+						filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="1" maxFileSize="536870912"
+						style="" totalFileSize="2009715200" id="udc_fielUpload" saveButtonName="업로드" subDir="ds/fs/bilg/cma/" explainYn="N" receiptYn="N" typeYn="N" addButtonName="첨부파일 추가" ev:onFileUploadDone="scwin.udc_fielUpload_onFileUploadDone">
+					</w2:udc_fileMultiUpload>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label><![CDATA[저장 후 닫기]]></xf:label>
+				</xf:trigger>
+            </xf:group>
+			</xf:group>
+	</body>
+</html>

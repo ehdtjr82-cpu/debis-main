@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenId="in_201_02_10_1p" meta_screenName="화종,품목,품명 팝업" meta_author="김원빈" meta_subsystem="물류&gt;터미널운영&gt;터미널벌크계획&gt;벌크작업지시등록" meta_type="팝업" meta_desc="">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_condition">
+					<w2:keyInfo>
+						<w2:key id="repKcgCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="commcd" name="name2" dataType="text"></w2:key>
+						<w2:key id="commNm" name="name3" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_registBudget" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="commCd" name="품명코드" dataType="text"></w2:column>
+						<w2:column id="commNm" name="품명이름" dataType="text"></w2:column>
+						<w2:column id="upperCommCd" name="품목코드" dataType="text"></w2:column>
+						<w2:column id="upperCommNm" name="품목이름" dataType="text"></w2:column>
+						<w2:column id="kcgCd" name="화종코드" dataType="text"></w2:column>
+						<w2:column id="kcgNm" name="화종이름" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_condition" action="/to.in.bulk.tmlbulk.RetrieveBulkCargoLupContentsCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_registBudget","key":"OUT_DS1"}]' target='data:json,{"id":"ds_registBudget","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<w2:historyInfo>
+			<w2:history meta_no="" meta_desc="개발완료" meta_date="2026/03/19" meta_user="김원빈"></w2:history>
+		</w2:historyInfo>
+		<script lazy="false" type="text/javascript"><![CDATA[/**
+ * @event 
+ * @name onpageload 
+ * @description 화면 초기화
+ */
+scwin.onpageload = function () { };
+
+
+
+/**
+ * @event 
+ * @name onUdcCompleted 
+ * @description UDC 완료
+ */
+scwin.onUdcCompleted = function () { };
+
+
+
+/**
+ * @event 
+ * @name ondataload 
+ * @description 코드 완료
+ */
+scwin.ondataload = function () {
+    scwin.globalVars();
+    scwin.f_OnLoad();
+};
+
+
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언
+ */
+scwin.globalVars = function () {
+
+    const paramData = $c.data.getParameter();
+    scwin.commCd = paramData["cd"];
+    scwin.repKcgCd = paramData["repKcgCd"];
+    scwin.commNm = paramData["nm"];
+    scwin.g_closeTF = paramData["closeTF"] ?? "T";
+
+    scwin.gubun = scwin.repKcgCd;
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 
+ */
+scwin.f_OnLoad = function () {
+
+    ed_commCd.setValue(scwin.commCd);
+    acb_repKcgCd.setValue(scwin.repKcgCd);
+    ed_commNm.setValue(scwin.commNm);
+
+    scwin.f_Retrieve();
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_Retrieve 
+ * @description 
+ */
+scwin.f_Retrieve = async function () {
+
+    scwin.commCd = ed_commCd.getValue();
+    scwin.commNm = ed_commNm.getValue();
+
+    if (scwin.commCd == "" && scwin.commNm == "") return;
+
+    const validSearchCondition = await $c.gus.cfValidate(tb_searchCondition);
+    if (!validSearchCondition) return;
+
+    scwin.submitExcute(sbm_condition);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_FieldClear 
+ * @description 조회 필드 Clear
+ */
+scwin.f_FieldClear = function () {
+
+    ed_commCd.setValue(""); //-> 코드값 
+    ed_commNm.setValue(""); //-> 이름 값
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_FieldClear 
+ * @description Windows Close
+ */
+scwin.f_WinClose = function () {
+
+    const returnValue = ["N/A"];
+    $c.win.closePopup(returnValue);
+
+};
+
+
+
+
+/**
+ * @method 
+ * @name upperFlag 
+ * @description 소문자 입력 시 대문자로 변경
+ */
+scwin.upperFlag = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+
+
+/**
+ * @method 
+ * @name submitExcute 
+ * @description submit 처리
+ */
+scwin.submitExcute = async function (sbmObj) {
+
+    const e = await $c.sbm.execute(sbmObj);
+
+    if (e.responseJSON.resultDataSet[0].Msg == 'SUCC') {
+        if (e.responseJSON.resultDataSet[0].Code == -1) return;
+        await scwin.submitdone(e);
+    };
+
+};
+
+
+
+//-----------------------------------------------------------------------------
+//   Submission event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @method 
+ * @name submitdone 
+ * @description submit 정상
+ */
+scwin.submitdone = async function (e) {
+
+    let submitObj = $p.getComponentById(e.id);
+
+    switch (submitObj) {
+        case sbm_condition:
+            ds_registBudget.
+                break;
+        default:
+            break;
+    }
+
+};
+
+
+
+/**
+ * @method 
+ * @name ds_registBudget_OnLoadCompleted 
+ * @description
+ * @asis for=ds_registBudget event=OnLoadCompleted(rowCnt)
+ */
+scwin.ds_registBudget_OnLoadCompleted = async function () {
+
+    // 팝업 호출 시 하나의 결과일 경우 자동 Close 후 값 본 화면에 Setting
+    const rowCnt = ds_registBudget.getRowCount();
+    ed_totalRows.setValue(rowCnt);
+
+    if (rowCnt == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);  // 해당되는 자료가 존재하지 않습니다	
+        return;
+    };
+
+    if (rowCnt == 1 && scwin.g_closeTF == "T") {
+        const rowData = ds_registBudget.getRowJSON(0);
+        let rtnValues = [];
+
+        rtnValues[0] = rowData["commCd"]; // 품명
+        rtnValues[1] = rowData["commNm"];
+
+        $c.win.closePopup(rtnValues);
+    };
+
+};
+
+
+
+
+//-----------------------------------------------------------------------------
+//   Component event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name gr_registBudget_oncelldblclick 
+ * @description 셀이 더블 클릭된 경우 발생
+ * @asis for=gr_registBudget event=OnDblClick(row,colid)
+ */
+scwin.gr_registBudget_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+
+    const rowData = this._dataList.getRowJSON(rowIndex);
+    const conditionData = dma_condition.getJSON();
+    let rtnValues = [];
+
+    switch (scwin.gubun) {
+        case 0:
+            rtnValues[0] = rowData["kcgCd"];
+            rtnValues[1] = rowData["kcgNm"];
+            break;
+
+        case 1:
+            rtnValues[0] = rowData["upperCommCd"];
+            rtnValues[1] = rowData["upperCommNm"];
+            break;
+
+        case 2:
+            rtnValues[0] = rowData["commCd"];
+            rtnValues[1] = rowData["commNm"];
+            break;
+
+        default: break;
+    };
+
+    rtnValues[2] = dma_condition.get("repKcgCd");
+
+    $c.win.closePopup(rtnValues);
+
+};
+
+
+
+/**
+ * @event 
+ * @name btn_fieldClear_onclick 
+ * @description 조회조건 초기화 버튼 클릭
+ */
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_fieldClear_onclick 
+ * @description 조회 버튼 클릭
+ */
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_fieldClear_onclick 
+ * @description 엑셀다운로드 버튼 클릭
+ */
+scwin.excel_registBudget = function () {
+    // todo - f_runExcel 함수 미존재
+    // f_runExcel(gr_registBudget, 1);
+};
+
+
+
+/**
+ * @event 
+ * @name btn_winClose_onclick 
+ * @description 닫기 버튼 클릭
+ */
+scwin.btn_winClose_onclick = function (e) {
+    scwin.f_WinClose();
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style="" msaName="품목 검색"></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb" id="tb_searchCondition" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:group id="" class="form-group">
+									<w2:autoComplete search="start" submenuSize="fixed" editType="select" style="width:120px;"
+										id="acb_repKcgCd" class="" allOption="" chooseOption="" ref="data:dma_condition.repKcgCd" displayMode="value delim label">
+										<w2:choices>
+											<w2:item>
+												<w2:label><![CDATA[화종]]></w2:label>
+												<w2:value><![CDATA[0]]></w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label><![CDATA[품목]]></w2:label>
+												<w2:value><![CDATA[1]]></w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label><![CDATA[품명]]></w2:label>
+												<w2:value><![CDATA[2]]></w2:value>
+											</w2:item>
+										</w2:choices>
+									</w2:autoComplete>
+									<xf:input style="width:120px;" id="ed_commCd" class="" objType="data" maxlength="8" ev:onkeyup="scwin.upperFlag" ref="data:dma_condition.commcd"></xf:input>
+									<xf:input style="width:200px;" id="ed_commNm" class="" objType="data" ref="data:dma_condition.commNm"></xf:input>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.btn_retrieve_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="품목 검색 " style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_registBudget" grdDownOpts="scwin.excel_registBudget" gridDownUserAuth="X" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_registBudget" id="gr_registBudget"
+						style="" visibleRowNum="12" visibleRowNumFix="true" gridName="품목 검색" ev:oncelldblclick="scwin.gr_registBudget_oncelldblclick">
+						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="text" value="품명코드" width="80"></w2:column>
+								<w2:column displayMode="label" id="column17" inputType="text" value="품명이름" width="100"></w2:column>
+								<w2:column displayMode="label" id="column15" inputType="text" value="품목코드" width="80"></w2:column>
+								<w2:column displayMode="label" id="column13" inputType="text" value="품목이름" width="100"></w2:column>
+								<w2:column displayMode="label" id="column11" inputType="text" value="화종코드" width="80"></w2:column>
+								<w2:column displayMode="label" id="column9" inputType="text" value="화종이름" width="120"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="commCd" inputType="text" width="80" readOnly="true" textAlign="center"></w2:column>
+								<w2:column displayMode="label" id="commNm" inputType="text" width="100" textAlign="center"
+									readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="upperCommCd" inputType="text" width="80" textAlign="center"
+									readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="upperCommNm" inputType="text" width="100" textAlign="center"
+									readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="kcgCd" inputType="text" width="80" textAlign="center" readOnly="true"></w2:column>
+								<w2:column displayMode="label" id="kcgNm" inputType="text" width="120" textAlign="center" readOnly="true"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="" style="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="ed_totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_winClose" style="" type="button" ev:onclick="scwin.btn_winClose_onclick">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

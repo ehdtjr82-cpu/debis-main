@@ -1,0 +1,31 @@
+tn_306_01_03b.log
+
+[2026-02-20 14:53:43.077] 변환 시작
+[2026-02-20 14:53:43.318] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 14:59:09.758] #1 검증: XML: WebSquareXmlValidator: score=0.23, grade=B, verdict=REVIEW, errors=2, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=3, warnings=8 | LLM 325686ms, total 326440ms
+    - [XML] scwin.f_openCommonPopUp에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_openCommonPopUp
+    - [XML] scwin.f_openCommonPopUp이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_openCommonPopUp
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: ed_transDstFromNm1 (EMEDIT→xf:input), ed_transDstToNm1 (EMEDIT→xf:input), ed_transDstToNm2 (EMEDIT→xf:input), ed_transDstFromNm2 (EMEDIT→xf:input), ed_dchrPortNm2 (EMEDIT→xf:input)
+    - [적정성] async 선언 누락 — scwin.f_openCommonPopUp (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_openCommonPopUp → $c.gus.cfAlertMsg
+[2026-02-20 14:59:10.146] #1 검증: 자동수정 4건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] MISSING_ASYNC: scwin.f_openCommonPopUp이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_openCommonPopUp
+[2026-02-20 14:59:10.974] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A_PLUS, verdict=PASS, errors=0, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=8
+    - [적정성] 컴포넌트 ID 유지 — 누락 25건: ed_transDstFromNm1 (EMEDIT→xf:input), lc_expimpClsCd1 (LUXECOMBO→w2:autoComplete), ed_crryinoutDt1 (EMEDIT→xf:input), lc_fullEmptyClsCd1 (LUXECOMBO→w2:autoComplete), ed_transDstToNm1 (EMEDIT→xf:input)
+[2026-02-20 14:59:10.978] #2 재시도 (에러 4건)
+[2026-02-20 14:59:11.985] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 15:05:07.026] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=8 | LLM 354250ms, total 355041ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: ed_transDstFromNm1 (EMEDIT→xf:input), ed_transDstToNm1 (EMEDIT→xf:input), ed_transDstToNm2 (EMEDIT→xf:input), ed_transDstFromNm2 (EMEDIT→xf:input), ed_dchrPortNm2 (EMEDIT→xf:input)
+[2026-02-20 15:05:07.030] #1 검증: 최적 시도 #1 채택 (confidence: 0.82)
+[2026-02-20 15:05:07.031] 성공 (#2, 11m 23s, confidence:0.82)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 25건: ed_transDstFromNm1 (EMEDIT→xf:input), lc_expimpClsCd1 (LUXECOMBO→w2:autoComplete), ed_crryinoutDt1 (EMEDIT→xf:input), lc_fullEmptyClsCd1 (LUXECOMBO→w2:autoComplete), ed_transDstToNm1 (EMEDIT→xf:input)
+================================================================================

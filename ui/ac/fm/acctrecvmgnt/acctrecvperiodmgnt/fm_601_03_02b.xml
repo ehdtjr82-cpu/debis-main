@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="dma_search">
+                	<w2:keyInfo>
+                		<w2:key id="startprtMn" name="name1" dataType="text"></w2:key>
+                		<w2:key id="endprtMn" name="name2" dataType="text"></w2:key>
+                		<w2:key id="deptClsCd" name="name3" dataType="text"></w2:key>
+                		<w2:key id="acctDeptCd" name="name4" dataType="text"></w2:key>
+                		<w2:key id="deptNm" name="name5" dataType="text"></w2:key>
+                	</w2:keyInfo>
+                </w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// 전역변수
+scwin.login = $c.data.getMemInfo();
+scwin.privAdmin = scwin.login.privAdmin;
+scwin.vUserHomeClsCd = scwin.login.userHomeClsCd;
+scwin.vLoginCoCd = scwin.login.coCd;
+scwin.vLoginCoClsCd = scwin.login.coClsCd;
+
+scwin.onpageload = function() {
+
+    
+};
+
+scwin.onUdcCompleted = function() {
+
+    const codeOptions = [
+        { grpCd : "FM062", compID : "acb_deptClsCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    //f_Retrieve();
+    // scwin.f_Header();
+
+    dma_search.set("acctDeptCd", scwin.login.acctDeptCd);
+    dma_search.set("deptNm", scwin.login.acctDeptNm);
+
+    acb_deptClsCd.setSelectedIndex(0);
+    //날짜셋팅
+    ed_startprtMn.setValue(WebSquare.date.getCurrentServerDate().substring(0,6));
+    ed_endprtMn.setValue(WebSquare.date.getCurrentServerDate().substring(0,6));
+  	ed_startprtMn.focus();
+};
+
+// //-------------------------------------------------------------------------
+// // 헤더생성
+// //-------------------------------------------------------------------------   
+// function f_Header(){
+//     // 조회조건
+//     var SEARCH_HEADER =         ",startprtMn:STRING(6)"  
+//                                 + ",endprtMn:STRING(6)" 
+//                             + ",deptClsCd:STRING(2)"
+//                             + ",acctDeptCd:STRING(5)"
+//                             + ",deptNm:STRING(50)"
+//                             + ",outClsCd:STRING(1)";
+                            
+//     ds_search.SetDataHeader(SEARCH_HEADER);
+//     ds_search.AddRow();
+//         // Session 이용
+//     ds_search.NameString(1,"acctDeptCd") = "<%=login.getAcctDeptCd()%>"
+//     ds_search.NameString(1,"deptNm") = "<%=login.getAcctDeptNm()%>";
+// }
+
+//-------------------------------------------------------------------------
+// 채권실적 발행
+//-------------------------------------------------------------------------
+scwin.f_OzReport = async function(){
+                            
+if (!await $c.gus.cfValidate([ed_startprtMn, ed_endprtMn, ed_acctDeptCd])) {
+        return ;
+}	
+        
+//     // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+//     var formParam = new FormParam() ;
+//     //formParam.add("form1","폼1") ; 
+    
+//     // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+//     var viewerParam = new ViewerParam();
+//     //viewerParam.add("viewer.showtree","false"); // 트리 표시
+//     viewerParam.add("viewer.zoom","100");
+//     viewerParam.add("viewer.useprogressbar","false");		//PROGRESSBAR 안보이게....
+//     viewerParam.add("print.mode","silent"); // 인쇄 옵션창 표시 없이 바로 출력
+
+//     //                iframe     viewer        OZR 경로 및 파일명  ODI파라미터 뷰어파라미터       폼파라미터
+//     // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)-수금부서별
+    
+//     var odiParam = new ODIParam("fm_601_03_02") ;
+// //		odiParam.add("sysPath", "dbl.ac.fm.acctrecvmgnt.acctrecvperiodmgnt") ;
+//     odiParam.add("startprtMn",ed_startprtMn.getValue().trim());
+//     odiParam.add("endprtMn",ed_endprtMn.getValue().trim());
+//     odiParam.add("deptClsCd",acb_deptClsCd.getValue().trim()); 
+//     odiParam.add("acctDeptCd",ed_acctDeptCd.getValue().trim());
+    
+        
+//     cfOZEmbedPreview("ozFrame", "myozviewer", "/ac/fm/acctrecvmgnt/acctrecvperiodmgnt/fm_601_03_02.ozr", odiParam, viewerParam, formParam);
+
+
+    let data = {
+        reportName: "/ac/fm/acctrecvmgnt/acctrecvperiodmgnt/fm_601_03_02.ozr",
+        odiParam : {
+            // 발행 일시도 명시적으로 전달 (OZ Viewer 기본 값 방지)
+            startprtMn: ed_startprtMn.getValue().trim(), // ds_retrieve.getCellData(row, "cvsslMgntNo")
+            endprtMn: ed_endprtMn.getValue().trim(), // ds_retrieve.getCellData(row, "rltNo")
+            deptClsCd: acb_deptClsCd.getValue().trim(),  //ds_retrieve.getCellData(row, "stockMgntNo")
+            acctDeptCd: ed_acctDeptCd.getValue().trim()
+            // mode : "silent"
+            // isframe : false
+            // configmode : "html"
+            // printcommand : false
+            // showTree : true,
+            
+        },
+        viewerParam : {
+            useprogressbar : false, // 프로그레스바 쓸지 말지
+
+        },
+        formParam: {
+        
+        }
+    }
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+}
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(flag,check) {
+	var rtnList = new Array(); 
+    // 부서조회
+    //var param = ",,,0,"; 
+ 	rtnList = udc_srchAcctDeptCd.cfCommonPopUp(scwin.udc_srchAcctDeptCd_callBackFunc,ed_acctDeptCd.getValue().trim(),ed_deptNm.getValue(),check,null,null,null,null,null,null,null,null,null); 
+	// f_resultPopEd(ed_acctDeptCd,txt_deptNm,rtnList);
+} 
+
+scwin.udc_srchAcctDeptCd_callBackFunc = function(rtnList){
+    if (rtnList != null ) {
+	   	if (rtnList[0] == "N/A") return;
+			ed_acctDeptCd.setValue(rtnList[0]);	// 코드
+			ed_deptNm.setValue(rtnList[1]);	// 명
+			ed_acctDeptCd.options.hidVal = rtnList[0];  // 히든값
+    }else{
+        ed_acctDeptCd.setValue("");
+        ed_deptNm.setValue("");
+        ed_acctDeptCd.options.hidVal = "";
+    }
+}
+
+//-------------------------------------------------------------------------
+// 팝업체크
+//-------------------------------------------------------------------------
+scwin.f_checkPopEd = function(strCd,strNm,flag){
+	
+	if (strCd.getValue().trim() == strCd.options.hidVal)
+        return;
+        
+	strNm.setValue("");
+	if(strCd.getValue().trim()!="") scwin.f_openPopUp(flag,'T');
+}
+
+scwin.btn_search_onclick = async function (e) {
+
+
+    if($c.gus.cfIsNull(ed_startprtMn.getValue()) || $c.gus.cfIsNull(ed_endprtMn.getValue())){
+        await $c.win.alert("기준년월은 필수 입력 항목입니다.");
+        ed_startprtMn.focus(); 
+        return;
+    }
+
+    scwin.f_OzReport();
+};
+
+scwin.udc_srchAcctDeptCd_onclickEvent = function (e) {
+    scwin.f_openPopUp('1','F');
+};
+
+scwin.udc_srchAcctDeptCd_onblurCodeEvent = function (e) {
+    scwin.f_checkPopEd(ed_acctDeptCd,ed_deptNm,'1');
+};  
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기준년월" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToYearMon id="udc_acqDate" refDataMap="dma_search" refEdDt="endprtMn" refStDt="startprtMn"
+    								style='' edFromId="ed_startprtMn" edToId="ed_endprtMn">
+    							</w2:udc_fromToYearMon>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="매출부서코드 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode allowCharCode="0-9" btnId="btn_srchAcctDeptCd" code="acctDeptCd" codeId="ed_acctDeptCd"
+                                    id="udc_srchAcctDeptCd" maxlengthCode="5" maxlengthName="100"
+                                    name="deptNm" nameId="ed_deptNm" objTypeCode="key" objTypeName="key" popupID="retrieveAcctDeptCdInfopopup"
+                                    selectID="retrieveAcctDeptCdInfo" style="" refDataCollection="dma_search" mandatoryCode="true" ev:onclickEvent="scwin.udc_srchAcctDeptCd_onclickEvent" ev:onblurCodeEvent="scwin.udc_srchAcctDeptCd_onblurCodeEvent" validTitle="수금부서코드" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N">
+                                </w2:udc_comCode>
+
+    						</xf:group>
+    						<xf:group tagname="th" id="" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="부서구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="acb_deptClsCd" style="width: 150px;"
+    								submenuSize="fixed">
+    							</xf:select1>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<!-- <w2:textbox class="h-full" id="" label="OZ &amp;nbsp;뷰어" style=""></w2:textbox> -->
+                <xf:group id="ozFrame" class="ozWrap"><w2:iframe src="/ui/cm/zz/ozreportComp.xml" style="" id="wfm_ozReport"></w2:iframe></xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

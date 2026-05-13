@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_approveDetail">
+    				<w2:keyInfo>
+    					<w2:key id="approveRequestNumber" name="전자결재 요청번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_approveDetail" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="check" dataType="text"></w2:column>
+    					<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+    					<w2:column id="slipKndCd" name="전표종류" dataType="text"></w2:column>
+    					<w2:column id="postReqDt" name="회계요청일자" dataType="text"></w2:column>
+    					<w2:column id="acctCd" name="계정코드" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+    					<w2:column id="drAmt" name="차변금액" dataType="text"></w2:column>
+    					<w2:column id="crAmt" name="대변금액" dataType="text"></w2:column>
+    					<w2:column id="drAmtFcrc" name="차변(외화)" dataType="text"></w2:column>
+    					<w2:column id="crAmtFcrc" name="대변(외화)" dataType="text"></w2:column>
+    					<w2:column id="slipAcctDeptCd" name="귀속부서" dataType="text"></w2:column>
+    					<w2:column id="slipAcctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="mgntClntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="mgntClntNm" name="거래처" dataType="text"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    					<w2:column id="mgntSummary" name="관리적요" dataType="text"></w2:column>
+    					<w2:column id="taxnClsNm" name="과세구분" dataType="text"></w2:column>
+    					<w2:column id="approveDate" name="거래일시" dataType="text"></w2:column>
+    					<w2:column id="bizcondNm" name="업종(업태)" dataType="text"></w2:column>
+    					<w2:column id="drawAcctDeptNm" name="작성부서" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNm" name="작성자" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="작성일자" dataType="text"></w2:column>
+    					<w2:column id="postDt" name="회계일자" dataType="text"></w2:column>
+    					<w2:column id="slipKnd" name="전표종류" dataType="text"></w2:column>
+    					<w2:column id="fixedAsetNo" name="자산번호" dataType="text"></w2:column>
+    					<w2:column id="perVehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="vendorAddress" name="가맹점주소" dataType="text"></w2:column>
+    					<w2:column id="payDt" name="지급일자" dataType="text"></w2:column>
+    					<w2:column id="dcsnDt" name="확정일자" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_approveDetail" action="/cm.bc.apprvmgnt.elecapprv.RetrieveSlipApproveRequestDetailCMD.do" method="post"
+    			mediatype="application/json" ref="data:json,dma_approveDetail" target='data:json,{"id":"ds_approveDetail","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_approveDetail_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+// 자회사 아이디로 로그인 (198015/1111)
+//  - 전자결재 요청번호 : 1414031 조회
+
+
+scwin.onpageload = function () {
+    scwin.approveRequestNumber = $c.data.getParameter("approveRequestNumber") == null ? "" : $c.data.getParameter("approveRequestNumber");
+    scwin.apprReqNo = $c.data.getParameter("apprReqNo") == null ? "" : $c.data.getParameter("apprReqNo")
+    scwin.vApproveRequestNumber = "";
+
+    if (scwin.approveRequestNumber != "") {
+        scwin.vApproveRequestNumber = scwin.approveRequestNumber;
+    } else if (scwin.apprReqNo != "") {
+        scwin.vApproveRequestNumber = scwin.apprReqNo;
+    }
+
+    approveRequestNumber.setValue(scwin.vApproveRequestNumber);
+    // resizeTo(1280,710);
+    if (approveRequestNumber.getValue() != "") {
+        $c.gus.cfEnableObj(approveRequestNumber, false);
+        $c.gus.cfDisableBtn([b_Retrieve]);
+    }
+
+    chb_printCheck.setValue("1");
+    scwin.f_Retrieve(0);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function (fw) {
+    if (scwin.vApproveRequestNumber.trim() == "" && fw == "0") {
+        $c.win.alert("요청하신 전표결재요청의 요청번호가 입력되지 않았습니다.");
+        return false;
+    }
+
+    if (fw == "1") scwin.vApproveRequestNumber = approveRequestNumber.getValue();
+    // var condition = "?approveRequestNumber=" + vApproveRequestNumber;
+    // ds_approveDetail.DataID = "/cm.bc.apprvmgnt.elecapprv.RetrieveSlipApproveRequestDetailCMD.do" + condition;
+    // ds_approveDetail.Reset();
+    dma_approveDetail.set("approveRequestNumber", scwin.vApproveRequestNumber);
+    $c.sbm.execute(sbm_approveDetail);
+}
+
+//-------------------------------------------------------------------------
+// 엑셀 Download
+//-------------------------------------------------------------------------
+scwin.f_Export = function () {
+    if (ds_approveDetail.getTotalRow() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        return;
+    }
+
+    fileName = '전자결요청 상세조회_' + approveRequestNumber.getValue();
+    // cfGridToExcel(gr_approveDetail, fileName, fileName, 2 + 8 + 16);
+
+    const grdObj = gr_approveDetail;
+    const infoArr = [];
+    const options = {
+        fileName: fileName + ".xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: fileName,
+    };
+    $c.data.downloadGridViewExcel(grdObj, options, infoArr);
+}
+
+//-------------------------------------------------------------------------
+// 인쇄
+//-------------------------------------------------------------------------
+
+scwin.f_OzReport = async function () {
+
+    // // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // var odiParam = new ODIParam("zz_710_01_02p");
+    // odiParam.add("sysPath", "dbl.cm.bc");
+    // odiParam.add("approveRequestNumber", approveRequestNumber.getValue());
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam();
+
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+
+    // viewerParam.add("print.mode", "silent"); // 인쇄 옵션창 표시 없이 바로 출력\
+
+    // // iframe     viewer        OZR 경로 및 파일명  ODI파라미터 뷰어파라미터       폼파라미터
+    // $c.gus.cfOZReport(
+    //     "chb_printCheck",
+    //     "chb_previewCheck",
+    //     "/cm/bc/zz_710_01_02p.ozr", odiParam, viewerParam, formParam
+    // );
+    //////////////////////////////////////////////////////////////////////
+
+    var mode = "";
+    if (chb_printCheck.getValue() == "1") {
+        mode = "print";
+    }
+
+    if (chb_previewCheck.getValue() == "1") {
+        mode = "preview";
+    }
+
+    const data = {
+        odiName: "zz_710_01_02p",
+        reportName: '/cm/bc/zz_710_01_02p.ozr',
+        // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+        odiParam: {
+            // sysPath: "dbl.cm.bc",
+            approveRequestNumber: approveRequestNumber.getValue()
+        },
+
+        // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+        viewerParam: {
+            mode: mode, // 인쇄 옵션창 표시 없이 바로 출력\
+        },
+
+        // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+        formParam: {},
+    }
+
+    let options = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", options, data);
+}
+
+//-------------------------------------------------------------------------
+//  예산실적
+//-------------------------------------------------------------------------
+
+scwin.f_Budget = function () {
+
+    if (!$c.gus.cfValidate([approveRequestNumber]))
+        return false;
+
+    var valueObject = new Object();
+    valueObject.approveRequestNumber = approveRequestNumber.getValue().trim();
+
+    let strPath = "/ui/ac/fi/gnrlaccount/slipmgnt/fi_201_01_04p.xml";
+    let style = {
+        id: "pupup",
+        popupName: "",
+        modal: true,
+        type: "browserPopup",
+        width: 1035,
+        height: 600,
+        title: ""
+    };
+
+    rtnList = $c.win.openPopup(strPath, style, valueObject);
+}
+
+//-------------------------------------------------------------------------
+//  고정자산조회화면 호출 (TAB/POPUP)
+//-------------------------------------------------------------------------
+scwin.ShowfixedAsetInfo = function (fixedAsetNo) {
+
+    //상세화면 Popup 호출
+    if (typeof (fixedAsetNo) != "undefined" && fixedAsetNo != null && fixedAsetNo != "") {
+        var valueObject = new Object();
+        valueObject.fixedAsetNo = fixedAsetNo;
+
+        let v_url = "/ui/ac/fi/fixedaset/fi_301_02_01p.xml";
+        let opts = {
+            id: "pupup",
+            popupName: "고정자산조회팝업",
+            modal: true,
+            type: "browserPopup",
+            width: 1550,
+            height: 1200,
+            title: "",
+        };
+        var data = { valueObject: valueObject, className: "view_pop" }
+        rtnList = $c.win.openPopup(v_url, opts, valueObject, data);
+    }
+}
+
+//-------------------------------------------------------------------------
+// 부가세 e세로 대사 팝업 
+//-------------------------------------------------------------------------  	
+scwin.f_evidPopUp = function () {
+    var valueObject = new Object();
+    valueObject.apprReqNo = approveRequestNumber.getValue();
+    let v_url = "/ui/ac/fi/taxbiz/evidmgnt/fi_403_01_02b.xml";
+    let opts = {
+        id: "pupup",
+        popupName: "",
+        modal: true, 
+        type: "browserPopup",
+        width: 1500,
+        height: 680,
+        title: ""
+    };
+    rtnList = $c.win.openPopup(v_url, opts, valueObject);
+}
+
+//-------------------------------------------------------------------------
+//  개인차량 유류비정산 호출 (TAB/POPUP)
+//-------------------------------------------------------------------------
+scwin.ShowPerVehclInfo = function (slipNo) {
+    //상세화면 Popup 호출
+    if (typeof (slipNo) != "undefined" && slipNo != null && slipNo != "") {
+        var valueObject = new Object();
+        valueObject.slipNo = slipNo;
+
+        let v_url = "/ui/cm/bc/pervehcl/zz_510_01_02b.xml";
+        let opts = {
+            id: "pupup",
+            popupName: "",
+            modal: true,
+            type: "browserPopup",
+            width: 1010,
+            height: 660,
+            title: ""
+        };
+        rtnList = $c.win.openPopup(v_url, opts, valueObject);
+    }
+}
+
+
+// for="ds_approveDetail" event="OnLoadCompleted(rowcnt)"
+scwin.sbm_approveDetail_submitdone = function (e) {
+
+    let rowcnt = ds_approveDetail.getTotalRow();
+    totalRows.setValue(rowcnt);
+
+    if (rowcnt == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    } else {
+        if (ds_approveDetail.getCellData(1, "slipKndCd") == "A27") {//개인차량정산 전표인경우
+            gr_approveDetail.setColumnVisible("fixedAsetNo", false);
+            gr_approveDetail.setColumnVisible("perVehclNo", true);
+        } else {
+            gr_approveDetail.setColumnVisible("fixedAsetNo", true);
+            gr_approveDetail.setColumnVisible("perVehclNo", false);
+        }
+    }
+
+    gr_approveDetail.setColumnStyle("slipNo", "color", "blue");
+    gr_approveDetail.setColumnStyle("slipNo", "text-decoration", "underline");
+};
+
+
+// for="gr_approveDetail" event=OnHeadCheckClick(Col,Colid,bCheck)
+scwin.gr_approveDetail_onheaderclick = function (headerId) {
+
+    var vCountRow = ds_approveDetail.getTotalRow();
+    let bCheck = gr_approveDetail.getHeaderValue(headerId)
+    let vChk;
+
+    vChk = bCheck == 1 ? "T" : "F";
+
+    if (vCountRow > 0) {
+        if (headerId == "chk") {
+            for (var i = 0; i < vCountRow; i++) {
+                ds_approveDetail.setCellData(i, "chk", vChk);
+            }
+        }
+    }
+};
+
+
+// for=gr_approveDetail event=OnClick(Row,Colid)
+scwin.gr_approveDetail_oncellclick = async function (rowIndex, columnIndex, columnId) {
+
+    if (rowIndex < 0) return;
+
+    if (columnId == "slipNo") {
+        await $c.gus.cfShowSlipInfo(ds_approveDetail.getCellData(rowIndex, "slipNo"));
+    }
+    if (columnId == "fixedAsetNo") {
+        scwin.ShowfixedAsetInfo(ds_approveDetail.getCellData(rowIndex, "fixedAsetNo"));
+    }
+    if (columnId == "perVehclNo") {
+        scwin.ShowPerVehclInfo(ds_approveDetail.getCellData(rowIndex, "slipNo"));
+    }
+};
+
+scwin.b_Retrieve_onclick = function (e) {
+    scwin.f_Retrieve(1);
+};
+
+scwin.btn_close_onclick = function (e) {
+    self.close();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label=" 전자결재 요청번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="approveRequestNumber" placeholder="" style="width: 150px;"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn link" disabled="" escape="false" id="pu_evid" style="" type="button" ev:onclick="scwin.f_evidPopUp">
+    					<xf:label><![CDATA[증빙연결]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn link" disabled="" escape="false" id="pu_budget" style="" type="button" ev:onclick="scwin.f_Budget">
+    					<xf:label><![CDATA[예산실적]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="b_Retrieve" style="" type="button" ev:onclick="scwin.b_Retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="전표결재요청-상세조회 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_approveDetail" gridDownFn="scwin.f_Export" gridDownUserAuth="X" btnPlusYn="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" btnUser="Y"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_approveDetail"
+    					focusMode="cell" id="gr_approveDetail" scrollByColumn="true" scrollByColumnAdaptive="false" style="" visibleRowNum="14"
+    					visibleRowNumFix="true" fixedColumn="2" ev:onheaderclick="scwin.gr_approveDetail_onheaderclick"
+    					ev:oncellclick="scwin.gr_approveDetail_oncellclick" columnMove="false" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column width="50" inputType="checkbox" id="column33" displayMode="label" fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column75" value="전표번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column72" value="전표종류" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column69" value="회계요청일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column66" value="계정코드" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" id="column63" value="계정명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column60" value="차변금액" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column57" value="대변금액" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column54" value="차변(외화)" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column51" value="대변(외화)" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column48" value="귀속부서" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" id="column45" value="귀속부서명" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column42" value="거래처번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column39" value="거래처" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="column36" value="적요" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="text" id="column30" value="관리적요" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column27" value="과세구분" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column24" value="거래일시" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column15" value="업종(업태)" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column18" value="작성부서" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column21" value="작성자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column99" value="작성일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column96" value="회계일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column93" value="전표종류" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column90" value="자산번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column87" value="차량번호" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column84" value="가맹점주소" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column78" value="지급일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column81" value="확정일자" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column width="50" inputType="checkbox" id="chk" displayMode="label" fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="slipNo" displayMode="label" colMerge="true" style=""></w2:column>
+    							<w2:column width="100" inputType="text" id="slipKndCd" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="postReqDt" displayMode="label" displayFormat="####/##/##"></w2:column>
+    							<w2:column width="100" inputType="text" id="acctCd" displayMode="label" textAlign="left" style=";text-align:left;"></w2:column>
+    							<w2:column width="130" inputType="text" id="acctNm" displayMode="label" style=";text-align:left;" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="drAmt" displayMode="label" textAlign="right" style=";text-align:right;" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" id="crAmt" displayMode="label" style=";text-align:right;" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,###"></w2:column>
+    							<w2:column width="120" inputType="text" id="drAmtFcrc" displayMode="label" style=";text-align:right;" textAlign="right" dataType="number" displayFormat="#,###.#0" excelCellType="number" excelFormat="#,##0.00"></w2:column>
+    							<w2:column width="120" inputType="text" id="crAmtFcrc" displayMode="label" style=";text-align:right;" textAlign="right" dataType="number" displayFormat="#,###.#0" excelCellType="number" excelFormat="#,##0.00"></w2:column>
+    							<w2:column width="100" inputType="text" id="slipAcctDeptCd" displayMode="label" style=";text-align:left;" textAlign="left"></w2:column>
+    							<w2:column width="130" inputType="text" id="slipAcctDeptNm" displayMode="label" style=";text-align:left;" textAlign="left"></w2:column>
+    							
+                                
+                                <w2:column width="120" inputType="text" id="mgntClntNo" displayMode="label" style=";text-align:left;" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="mgntClntNm" displayMode="label" style=";text-align:left;" textAlign="left"></w2:column>
+    							<w2:column width="150" inputType="text" id="summary" displayMode="label" style=";text-align:left;" textAlign="left"></w2:column>
+    							<w2:column width="200" inputType="text" id="mgntSummary" displayMode="label" textAlign="left" style=";text-align:left;"></w2:column>
+    							<w2:column width="100" inputType="text" id="taxnClsNm" displayMode="label" hidden="true"></w2:column>
+    							
+                                
+                                <w2:column width="100" inputType="text" id="approveDate" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bizcondNm" displayMode="label" textAlign="left" style=";text-align:left;"></w2:column>
+    							<w2:column width="100" inputType="text" id="drawAcctDeptNm" displayMode="label" textAlign="left" style=";text-align:left;"></w2:column>
+    							<w2:column width="100" inputType="text" id="drawEmpNm" displayMode="label" textAlign="center" style=";text-align:center;"></w2:column>
+    							
+                                
+                                <w2:column width="100" inputType="text" id="slipDt" displayMode="label" displayFormat="####/##/##" style=";text-align:center;" textAlign="center"></w2:column>
+    							<w2:column width="100" inputType="text" id="postDt" displayMode="label" displayFormat="####/##/##" style=";text-align:center;" textAlign="center"></w2:column>
+    							<w2:column width="100" inputType="text" id="slipKnd" displayMode="label" style=";text-align:center;" textAlign="center"></w2:column>
+    							<w2:column width="100" inputType="text" id="fixedAsetNo" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="perVehclNo" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="vendorAddress" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="payDt" displayMode="label" displayFormat="####/##/##"></w2:column>
+    							<w2:column width="100" inputType="text" id="dcsnDt" displayMode="label" displayFormat="####/##/##"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="70" inputType="text" id="column35" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column77" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column74" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column71" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column68" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column65" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="expression" id="column62" displayMode="label" expression="SUM('drAmt')" dataType="number" displayFormat="#,###" textAlign="right" style=";text-align:right;"></w2:column>
+    							<w2:column width="100" inputType="expression" id="column59" displayMode="label" expression="SUM('crAmt')" dataType="number" displayFormat="#,###" textAlign="right" style=";text-align:right;"></w2:column>
+    							<w2:column width="120" inputType="expression" id="column56" displayMode="label" expression="SUM('drAmtFcrc')" dataType="number" displayFormat="#,###.#0" textAlign="right" style=";text-align:right;"></w2:column>
+    							<w2:column width="120" inputType="expression" id="column53" displayMode="label" expression="SUM('crAmtFcrc')" dataType="number" displayFormat="#,###.#0" textAlign="right" style=";text-align:right;"></w2:column>
+    							<w2:column width="100" inputType="text" id="column50" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column47" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column44" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column41" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column38" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column32" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column26" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column17" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column20" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column23" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column101" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column98" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column95" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column92" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column89" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column86" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column80" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column83" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group id="" class="right">
+    					<xf:group id="" class="inner">
+    						<xf:select ref="" appearance="full" style="" id="chb_printCheck" renderType="checkboxgroup" rows=""
+    							selectedindex="-1" class="flex-row" cols="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[인쇄옵션]]></xf:label>
+    									<xf:value><![CDATA[1]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select>
+    						<xf:select ref="" appearance="full" style="" id="chb_previewCheck" renderType="checkboxgroup" rows=""
+    							selectedindex="-1" class="flex-row" cols="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[미리보기]]></xf:label>
+    									<xf:value><![CDATA[1]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select>
+    					</xf:group>
+    					<xf:trigger style="" id="" type="button" class="btn" ev:onclick="scwin.f_OzReport">
+    						<xf:label><![CDATA[출력]]></xf:label>
+    					</xf:trigger>
+
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

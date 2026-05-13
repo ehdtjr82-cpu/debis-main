@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="lobranCd" name="점소코드" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+    					<w2:key id="qryStDt" name="작업시작일자" dataType="text"></w2:key>
+    					<w2:key id="qryEndDt" name="작업종료일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_lobran" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="물류점소코드" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="물류점소명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_heavyEquipKindEachInputResults" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="wrkDt" name="작업일자" dataType="text"></w2:column>
+    					<w2:column id="shiftNm" name="Shift" dataType="text"></w2:column>
+    					<w2:column id="hveqKndNm" name="중기종류" dataType="text"></w2:column>
+    					<w2:column id="hveqNo" name="중기번호" dataType="text"></w2:column>
+    					<w2:column id="hveqNrmNm" name="규격" dataType="text"></w2:column>
+    					<w2:column id="hveqHomeCoNm" name="소속" dataType="text"></w2:column>
+    					<w2:column id="inputWrkStpNm" name="작업단계" dataType="text"></w2:column>
+    					<w2:column id="stHh" name="시작" dataType="text"></w2:column>
+    					<w2:column id="endHh" name="종료" dataType="text"></w2:column>
+    					<w2:column id="hveqInputHh" name="시간" dataType="text"></w2:column>
+    					<w2:column id="hveqInputMint" name="분" dataType="text"></w2:column>
+    					<w2:column id="netOprtHh" name="시간" dataType="text"></w2:column>
+    					<w2:column id="netOprtMint" name="분" dataType="text"></w2:column>
+    					<w2:column id="pchsAdptHhCnt" name="적용시간" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_heavyEquipKindEachInputResultsSum" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="hveqKndNm" name="중기종류" dataType="text"></w2:column>
+    					<w2:column id="hveqNrmCd" name="중기규격" dataType="text"></w2:column>
+    					<w2:column id="inputHveqCnt1" name="장치" dataType="text"></w2:column>
+    					<w2:column id="inputHveqCnt2" name="보관환적" dataType="text"></w2:column>
+    					<w2:column id="inputHveqCnt3" name="보관이적" dataType="text"></w2:column>
+    					<w2:column id="inputHveqCnt4" name="포장" dataType="text"></w2:column>
+    					<w2:column id="pchsPcostAmt" name="금액" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_lobran" action="/ds.co.RetreiveLoBranCMD.do" method="post" mediatype="application/json" ref=""
+    			target='data:json,{"id":"ds_lobran","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_lobran_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+            <xf:submission id="sbm_search" action="/ds.op.wrkrslts.stvwrkrslts.cmd.RetrieveWorkPlaceHeavyEquipInputResultsCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_heavyEquipKindEachInputResults","key":"OUT_DS1"},{"id":"ds_heavyEquipKindEachInputResultsSum","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"ds_heavyEquipKindEachInputResults","key":"OUT_DS1"},{"id":"ds_heavyEquipKindEachInputResultsSum","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    console.log("scwin.onpageload");
+    scwin.sCurrDate = $c.date.getServerDateTime();
+    scwin.memInfo = $c.data.getMemInfo();
+    scwin.cnt = 0;
+    
+    //점소코드 조회
+    $c.sbm.execute(sbm_lobran);
+};
+
+//-------------------------------------------------------------------------
+// UDC 로딩
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    console.log("scwin.onUdcCompleted");
+    udc_fromToCalendar.setInitDate(scwin.sCurrDate, scwin.sCurrDate);
+}
+
+//-------------------------------------------------------------------------
+// 조회조건 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_fieldClear = function () {
+    $c.gus.cfInitObjects([tbl_search]);
+    ed_worksCd.setValue("");
+    ed_worksNm.setValue("");
+    ed_qryStDt.setValue(scwin.sCurrDate);
+    ed_qryEndDt.setValue(scwin.sCurrDate);
+    acb_lobran.setValue(scwin.memInfo.loUpperLobranCd);
+    acb_lobran.focus();
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function() {
+    var qryStDt = ed_qryStDt.getValue();
+    var qryEndDt = ed_qryEndDt.getValue();
+
+	let chkVal = await $c.gus.cfValidate([tbl_search]);
+    if (!chkVal) return;
+
+   	if (qryStDt !="" && qryEndDt !=""){
+        if(!$c.gus.cfIsAfterDate(qryStDt, qryEndDt, false) ){
+            $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+            ed_qryStDt.focus();
+		}
+	}
+
+    //작업장중기투입실적 조회
+    $c.sbm.execute(sbm_search);
+}
+
+//-------------------------------------------------------------------------
+// 공통 팝업 호출
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+        return;
+    }
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    let pVal = $c.gus.cfGetValue(inObj);
+
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+        // inObj가 코드명 필드일 경우 팝업
+    } else {
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    }
+};
+
+
+scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+    switch (disGubun) {
+
+        case 1:
+            var wrkPlGbCd = "7"; 
+            var lodeptCd = acb_lobran.getValue();
+            var paramList = ","+lodeptCd+","+wrkPlGbCd;
+
+            udc_worksCd.cfCommonPopUp(   scwin.callBackWrkPlInfo
+                                        ,pCode
+                                        ,pName
+                                        ,pClose
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,paramList
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null); 
+            break;
+    }
+}
+
+//-------------------------------------------------------------------------
+// 공통팝업호출 callBack
+//-------------------------------------------------------------------------
+scwin.callBackWrkPlInfo = function(rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_worksCd, ed_worksNm);  		
+}
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+//점소코드 조회 
+scwin.sbm_lobran_submitdone = function (e) {
+    console.log("scwin.sbm_lobran_submitdone");
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    acb_lobran.setValue(scwin.memInfo.loUpperLobranCd);
+};
+
+//조회
+scwin.sbm_search_submitdone = function (e) {
+    console.log("scwin.sbm_lobran_submitdone");
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    var rowCnt = ds_heavyEquipKindEachInputResults.getTotalRow();
+    if( rowCnt == 0 ){
+	    if($c.gus.cfCheckCreateFlag() == true) {
+	        $c.gus.cfTurnCreateFlag(false);
+	    } else{
+		    $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+		    return;
+	   }
+	}
+
+    spn_totalRow.setValue(rowCnt);
+    spn_totalRowSum.setValue(ds_heavyEquipKindEachInputResultsSum.getTotalRow());
+};
+
+
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+//작업장 찾기 버튼
+scwin.udc_worksCd_onclickEvent = async function (e) {
+    console.log("scwin.udc_worksCd_onclickEvent");
+    scwin.f_openCommonPopUp(1, ed_worksCd.getValue(), ed_worksNm.getValue(), 'F', 'F');
+};
+
+scwin.udc_worksCd_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_worksCd, ed_worksNm, 1);
+};
+
+scwin.udc_worksCd_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_worksNm, ed_worksCd, 1, false)
+};
+
+//조회 clear 버튼
+scwin.btn_clear_onclick = function (e) {
+    console.log("btn_clear_onclick");
+    scwin.f_fieldClear();
+};
+
+//조회 버튼
+scwin.btn_search_onclick = function (e) {
+    console.log("btn_search_onclick");
+    scwin.f_retrieve();
+};
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="tbl_search" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="" id="" label="점소 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:autoComplete class="" editType="select" id="acb_lobran" search="start" style="width: 150px;" submenuSize="auto" allOption="" chooseOption="" ref="data:dma_search.lobranCd" allowChar="A-Z0-9" searchTarget="value">
+    										<w2:choices>
+    											<w2:itemset nodeset="data:ds_lobran">
+    												<w2:label ref="lobranNm"></w2:label>
+    												<w2:value ref="lobranCd"></w2:value>
+    											</w2:itemset>
+    										</w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="작업장" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" codeId="ed_worksCd" nameId="ed_worksNm" id="udc_worksCd" UpperFlagCode="1" allowCharCode="a-zA-Z0-9" editTypeCode="select" selectID="retrieveWrkPlInfo" ev:onclickEvent="scwin.udc_worksCd_onclickEvent" popupTitle="작업장,작업장코드,작업장명" popupGridHeadTitle="작업장코드,작업장명" btnId="btn_worksCd" popupGridHiddenColumn="3,4,5,6,7,8,9,10" refDataCollection="dma_search" code="wrkPlCd" objTypeCode="data" validExpCode="작업장:yes" mandatoryName="true" validExpName="작업장:yes" mandatoryCode="true" ev:onblurCodeEvent="scwin.udc_worksCd_onblurCodeEvent" validTitle="작업장" maxlengthCode="5" ev:onviewchangeNameEvent="scwin.udc_worksCd_onviewchangeNameEvent"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="작업일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="dma_search" refEdDt="qryEndDt" refStDt="qryStDt" style="" edToId="ed_qryEndDt" edFromId="ed_qryStDt" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data" objTypeTo="data" objTypeBtn="data" titleFrom="작업일자" titleTo="작업일자"></w2:udc_fromToCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="row-gap-8" id="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="작업장중기투입실적" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_workPlaceHeavyEquipInputResults" id="upd_equipGrd" grdDownOpts='{"fileName":"작업장중기투입실적.xlsx", "sheetName" : "작업장중기투입실적", "type":"4+8+16","useSubTotal":"true", "useSubTotalData" : "true"}' templateYn="N" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw"
+    									dataList="data:ds_heavyEquipKindEachInputResults" focusMode="row" id="gr_workPlaceHeavyEquipInputResults"
+    									scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="7" visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    												removeBorderStyle="false" width="100" value="작업일자" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text"
+    												removeBorderStyle="false" width="90" value="Shift" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text"
+    												removeBorderStyle="false" width="100" value="중기종류" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text"
+    												removeBorderStyle="false" width="100" value="중기번호" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column59" value="subSum"
+    												displayMode="label" colSpan="" rowSpan="2" hidden="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="text" value="규격" width="70"
+    												colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="소속" width="130"
+    												colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="작업단계" width="100"
+    												colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="작업시간" width="140"
+    												colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column width="140" inputType="text" id="column41" displayMode="label" value="투입시간"
+    												colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column67" value="" displayMode="label"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column71" value="" displayMode="label"
+    												hidden="false">
+    											</w2:column>
+    											<w2:column width="210" inputType="text" id="column35" displayMode="label" value="실가동시간"
+    												colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column79" value="" displayMode="label"
+    												hidden="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column75" value="" displayMode="label"
+    												hidden="false">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column44" value="적용시간"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row5">
+    											<w2:column width="60" inputType="text" id="column24" displayMode="label" value="시작"></w2:column>
+    											<w2:column width="60" inputType="text" id="column23" displayMode="label" value="종료"></w2:column>
+    											<w2:column width="60" inputType="text" id="column42" displayMode="label" value="시간"></w2:column>
+    											<w2:column width="60" inputType="text" id="column33" displayMode="label" value="분"></w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column68" value="" displayMode="label"
+    												hidden="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column72" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column36" displayMode="label" value="시간"></w2:column>
+    											<w2:column width="60" inputType="text" id="column39" displayMode="label" value="분"></w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column80" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column76" value=""
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="wrkDt" inputType="calendar"
+    												removeBorderStyle="false" width="100" displayFormat="yyyy/MM/dd" calendarValueType="yearMonthDate">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="shiftNm" inputType="text"
+    												removeBorderStyle="false" width="90">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="hveqKndNm" inputType="text"
+    												removeBorderStyle="false" width="100" textAlign="left">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="hveqNo" inputType="text"
+    												removeBorderStyle="false" width="100" textAlign="left">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="subSum" value=""
+    												displayMode="label" expression="display('wrkDt')+display('shiftNm')+display('hveqKndNm')" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="hveqNrmNm" inputType="text" width="70"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="hveqHomeCoNm" inputType="text" width="130"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inputWrkStpNm" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="stHh" inputType="text" width="60" value=""
+    												displayFormat="##:##">
+    											</w2:column>
+    											<w2:column displayMode="label" id="endHh" inputType="text" width="60"
+    												displayFormat="##:##">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="hveqInputHh" displayMode="label"
+    												textAlign="right">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="hveqInputMint" displayMode="label"
+    												textAlign="right">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="subSumHveqHh" value=""
+    												displayMode="label" expression="Number(display('hveqInputHh')) + Number(Number(display('hveqInputMint'))/60)"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="subSumHveqMint"
+    												value="subSumHveqMint" displayMode="label"
+    												expression="Number(display('hveqInputMint')) - Number(Number(display('hveqInputMint'))/60*60)" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="netOprtHh" displayMode="label"
+    												textAlign="right">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="netOprtMint" displayMode="label"
+    												textAlign="right">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="subSumNetHh" value=""
+    												displayMode="label" expression="Number(display('netOprtHh')) + Number(Number(display('netOprtMint'))/60)" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="subSumNetMint" value=""
+    												displayMode="label" expression="Number(display('netOprtMint')) - Number(Number(display('netOprtMint'))/60*60)"
+    												hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="pchsAdptHhCnt" value=""
+    												displayMode="label" textAlign="right">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:subTotal targetColumnID="subSum" style="" id="subTotal1">
+    										<w2:row style="" id="row6">
+    											<w2:column width="100" inputType="text" style="" id="column58" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" style="" id="column57" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column56" value=""
+    												displayMode="label" expression='"소계"' textAlign="left">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column55" value=""
+    												displayMode="label" expression="count('hveqNo')+&quot;대&quot;" textAlign="left">
+    											</w2:column>
+    											<w2:column width="70" inputType="" style="" id="column62" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column54" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="130" inputType="text" style="" id="column53" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column52" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" style="" id="column51" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" style="" id="column50" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="expression" style="" id="column49" value=""
+    												displayMode="label" textAlign="right" expression="Sum('subSumHveqHh')">
+    											</w2:column>
+    											<w2:column width="60" inputType="expression" style="" id="column48" value=""
+    												displayMode="label" textAlign="right" expression="Sum('subSumHveqMint')">
+    											</w2:column>
+    											<w2:column width="70" inputType="" style="" id="column70" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column74" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="expression" style="" id="column47" value=""
+    												displayMode="label" textAlign="right" expression="Sum('subSumNetsHh')">
+    											</w2:column>
+    											<w2:column width="60" inputType="expression" style="" id="column46" value=""
+    												displayMode="label" textAlign="right" expression="Sum('subSumNetMint')">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column82" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column78" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column45" value=""
+    												displayMode="label" textAlign="right" expression="Sum('pchsAdptHhCnt')">
+    											</w2:column>
+    										</w2:row>
+    									</w2:subTotal>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spn_totalRow" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					</xf:group>
+    					<xf:group class="row-gap-8" id="" style="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="작업장중기투입실적SUM" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section2" style="" gridUpYn="N" id="udc_equipSumGrd" grdDownOpts='{"fileName":"작업장중기투입실적SUM.xlsx", "sheetName" : "작업장중기투입실적", "type":"4+8+16", "useSubTotal":"true", "useSubTotalData" : "true"}' templateYn="N" gridID="gr_heavyEquipKindEachInputResultsSum" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_heavyEquipKindEachInputResultsSum" focusMode="row" id="gr_heavyEquipKindEachInputResultsSum" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5" visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" width="190" value="중기종류">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" width="120" value="중기규격">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" width="120" value="장치">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false" width="120" value="보관환적">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="text" style="" value="보관이적" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" style="" value="포장" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="금액" width="140">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="hveqKndNm" inputType="text" removeBorderStyle="false" width="190">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="hveqNrmCd" inputType="text" removeBorderStyle="false" width="120">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="inputHveqCnt1" inputType="text" removeBorderStyle="false" width="120" textAlign="right" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="inputHveqCnt2" inputType="text" removeBorderStyle="false" width="120" textAlign="right" excelCellType="number" dataType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inputHveqCnt3" inputType="text" style="" value="" width="120" textAlign="right" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="inputHveqCnt4" inputType="text" style="" value="" width="120" textAlign="right" dataType="number" excelCellType="number">
+    											</w2:column>
+    											<w2:column displayMode="label" id="pchsPcostAmt" inputType="text" style="" value="" width="140" textAlign="right" dataType="number" excelCellType="number">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row5">
+    											<w2:column width="190" inputType="text" style="" id="column31" value="합계" displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column30" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column29" value="" displayMode="label" textAlign="right" expression="Sum('inputHveqCnt1')">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column28" value="" displayMode="label" textAlign="right" expression="Sum('inputHveqCnt2')">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column27" value="" displayMode="label" textAlign="right" expression="Sum('inputHveqCnt3')">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column26" value="" displayMode="label" textAlign="right" expression="Sum('inputHveqCnt4')">
+    											</w2:column>
+    											<w2:column width="140" inputType="expression" style="" id="column25" value="" displayMode="label" textAlign="right" expression="Sum('pchsPcostAmt')">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spn_totalRowSum" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

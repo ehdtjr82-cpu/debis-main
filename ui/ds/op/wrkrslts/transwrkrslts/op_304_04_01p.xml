@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.params = null;
+scwin.argObject = "";
+scwin.filePath = "";
+scwin.fileName = "";
+scwin.fileSize = "";
+scwin.accdNo = "temp";
+
+//-------------------------------------------------------------------------
+// 페이지로드
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.params = $c.data.getParameter();
+
+    if (!$c.util.isEmpty(scwin.params["filePath"])) {
+        scwin.filePath = scwin.params["filePath"];
+    }
+
+    if (!$c.util.isEmpty(scwin.params["fileName"])) {
+        scwin.fileName = scwin.params["fileName"];
+    }
+
+    if (!$c.util.isEmpty(scwin.params["fileSize"])) {
+        scwin.fileSize = scwin.params["fileSize"];
+    }
+};
+
+//-------------------------------------------------------------------------
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+
+};
+
+//-------------------------------------------------------------------------
+// 파일 업로드(UDC 저장버튼)
+//-------------------------------------------------------------------------
+scwin.fileSubmit = function () {
+    udc_fielUpload.startFileUpload();
+};
+
+//-------------------------------------------------------------------------
+// 업로드 완료
+//-------------------------------------------------------------------------
+scwin.uploadComplete = async function () {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_002);  // 성공적으로 등록하였습니다.
+
+    // 과태료 첨부파일은 한건만 등록 가능
+    let fileList = udc_fielUpload.getData();
+    
+    if (fileList.length > 0) {
+        let status = fileList[0].status;
+        if (status == "Completed") {
+            scwin.filePath = fileList[0].filePath;
+            scwin.fileName = fileList[0].fileName;
+            scwin.fileSize = fileList[0].fileSize;
+
+            if ($c.gus.cfIsNull(scwin.fileName)) {
+                scwin.fileName = fileList[0].ORIGIN_FILE_NM;
+            }
+            if ($c.gus.cfIsNull(scwin.filePath)) {
+                scwin.filePath = fileList[0].FILE_STORED_PATH + fileList[0].STORED_FILE_NM;
+            }
+            if ($c.gus.cfIsNull(scwin.fileSize)) {
+                scwin.fileSize = fileList[0].FILE_SIZE;
+            }
+        }
+    }
+
+    // 테스트 데이터
+    //scwin.filePath = "/ds/op/wrkrslts/transwrkrslts/그리드팝업[1_10101_251029103743337].png";
+    //scwin.fileName = "그리드팝업.png";
+    //scwin.fileSize = "4016";
+
+    let rtnList = new Array();
+    rtnList[0] = scwin.filePath;
+    rtnList[1] = scwin.fileName;
+    rtnList[2] = scwin.fileSize;
+
+    $c.win.closePopup(rtnList);
+};
+
+//-------------------------------------------------------------------------
+// 화면닫기
+//------------------------------------------------------------------------- 	
+scwin.f_Close = function () {
+    let rt = ["N/A"];
+    $c.win.closePopup(rt);
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group id="" class="file-wrap no-title">
+    				<w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+    					maxFileCount="1" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="" id="udc_fielUpload"
+    					subDir="/ds/op/wrkrslts/transwrkrslts/" ev:onFileUploadDone="scwin.uploadComplete" saveFn="scwin.fileSubmit">
+    				</w2:udc_fileMultiUpload>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_Close">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

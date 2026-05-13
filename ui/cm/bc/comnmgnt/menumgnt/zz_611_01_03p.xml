@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_menuGrp" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="menuGrpNm" name="메뉴그룹명"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    console.log("===========scwin.onpageload==========");
+    scwin.menuGrpNm = $c.data.getParameter("menuGrpNm") == null ? "" : $c.data.getParameter("menuGrpNm");
+
+    // console.log("▶ evidac ["+scwin.menuGrpNm+"]");
+    // console.log("▶ evidac ["+scwin.menuGrpNm.length+"]");
+    // console.log("▶ evidac ["+JSON.stringify(scwin.menuGrpNm)+"]");
+
+    for(var i=0; i<scwin.menuGrpNm.length; i++) {
+        var vmJson = JSON.stringify(scwin.menuGrpNm[i]);
+        var vmenuGrpNm = JSON.parse(vmJson).code;
+
+        ds_menuGrp.insertJSON( i, [{menuGrpNm: vmenuGrpNm}] );
+	}
+
+    spanTotal.setValue(ds_menuGrp.getRowCount());
+
+    ds_menuGrp.modifyAllStatus("R");
+};
+
+scwin.btn_confrim_onclick = function (e) {
+    scwin.f_ReturnResult();
+};
+
+scwin.btn_close_onclick = function (e) {
+	$c.win.closePopup();
+};
+
+// scwin.f_OnLoad() {
+// 	var headerStr = "menuGrpNm:STRING(30)";
+// 	ds_menuGrp.SetDataHeader(headerStr);
+	
+// 	gr_menuGrp.IndWidth = 0;
+	
+// 	var oArg = window.dialogArguments;
+// 	var menuGrps = oArg.split(",");
+// 	for (var i = 0; i < menuGrps.length; i++) {
+// 		ds_menuGrp.AddRow();
+// 		ds_menuGrp.NameValue(ds_menuGrp.RowPosition, "menuGrpNm") = menuGrps[i].split(":")[0];
+// 	}
+// 	// ds_menuGrp.ResetStatus();
+//     ds_menuGrp.modifyAllStatus("R")
+
+// }; 
+
+scwin.f_Cancel = function () {
+    let rowIndex = ds_menuGrp.getRowPosition();
+    if( ds_menuGrp.getRowStatus(rowIndex) != "R" ) {
+        if( ds_menuGrp.getRowStatus(rowIndex) == "D" ) {
+            ds_menuGrp.modifyRowStatus(rowIndex, ("R") );
+        } else {
+            $c.data.undoRow(ds_menuGrp, "Y");
+        }
+    }
+
+};
+
+scwin.f_Del = function(){
+    let rowIndex = ds_menuGrp.getRowPosition();
+    ds_menuGrp.removeRow(rowIndex);
+    // if (ds_menuGrp.getRowStatus(rowIndex) == "C") {
+    //     ds_menuGrp.removeRow(rowIndex);
+    // } else {
+    //     ds_menuGrp.deleteRow(rowIndex);
+    // }
+}
+
+scwin.f_ReturnResult = function() {
+    var arrRtnVal = new Array();
+    arrRtnVal.evidac = ds_menuGrp.getAllArray();
+    let rtnVal = [arrRtnVal.evidac];
+    $c.win.closePopup(rtnVal);
+
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label=" MY그룹관리 " style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group2" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_menuGrp" focusMode="row" id="gr_menuGrpNm" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10" visibleRowNumFix="true" rowStatusVisible="true" rowStatusWidth="20">
+    									<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column width="120" inputType="text" style="" id="column13" value="메뉴그룹명" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column width="120" inputType="text" style="" id="menuGrpNm" value="" displayMode="label" dataType="text">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spanTotal" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:udc_bottomGrdBtn style="" btnCancelYn="Y" btnDelYn="N" gridID="gr_menuGrpNm" id="udc_menuGrpNm" btnRowAddYn="Y" btnRowDelYn="Y" cancelFunction="scwin.f_Cancel" rowDelFunction="scwin.f_Del">
+    									</w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger><xf:trigger class="btn" id="btn_confrim" style="" type="button" ev:onclick="scwin.btn_confrim_onclick">
+    						<xf:label><![CDATA[확인]]></xf:label>
+    					</xf:trigger>
+    					
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

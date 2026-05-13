@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+html {font-size:12px;}
+
+/* body.pda */
+.calculatorbox {width:360px;height:80px;font-size:42px;border:1px solid var(--dw-gray7);border-radius:4px;background:linear-gradient(180deg, #fdfdfd 0%, #e0e4e7 60%, #c9ced3 100%)}
+.calculatorbox .cal_title {padding:12px 25px 0 30px;box-sizing:border-box}
+.calculatorbox .cal_title .w2input { border: 1px solid #909090; border-radius: 12px; padding: 12px 16px; text-align:center; font-size: 22px; font-weight: 700; letter-spacing: 4px; min-height: 52px; display: flex; align-items: center; justify-content: flex-end;}
+.calculatorbox .cal_content {display:grid;grid-template-columns:1fr 1fr 1fr;padding:35px 20px 20px;gap:24px}
+.calculatorbox .cal_content .w2trigger { position: relative; width: 100%; height:75px; padding-bottom: 6px; border: none; border-radius: 16px; cursor: pointer; font-size: 48px; font-weight: 600; color: #ffffff; letter-spacing: 0.5px; transition: all 0.12s ease; border:0;background: linear-gradient(to bottom, #4a89dc 0%, #215dbb 45%, #12408c 50%, #0d3476 100%);outline: none; user-select: none; }
+
+.sub_contents.pda .round-box{max-width:1064px;max-height:768px;flex:0;background:linear-gradient(180deg, #fdfdfd 0%, #e0e4e7 60%, #c9ced3 100%) !important}
+.sub_contents.pda .keypad .w2trigger {border:0;background: linear-gradient(to bottom, #4a89dc 0%, #215dbb 45%, #12408c 50%, #0d3476 100%);color:#fff;font-size:42px}
+.sub_contents.pda [id*="btn_complete"] {border:0;background: linear-gradient(to bottom, #e74c3c 0%, #c0392b 45%, #a93226 50%, #8e251a 100%) !important;color:#fff}
+.sub_contents.pda [id*="btn_cancel"],
+.sub_contents.pda [id*="btn_close"] {border:0;background: linear-gradient(to bottom, #555555 0%, #333333 45%, #222222 50%, #111111 100%) !important;color:#fff}
+.sub_contents.pda .pda-wrap .shbox .btn-shbox .sch,
+.sub_contents.pda .pda-wrap .shbox .btn-shbox .sch:hover {background-image:url(/cm/images/base/ico_search_white.svg), linear-gradient(to bottom, #7db9e8 0%, #2989d8 45%, #1e7dc8 50%, #195e95 100%);background-repeat:no-repeat;background-position:left 6px center,left;background-size:24px 24px, cover}
+.sub_contents.pda .pda-wrap table {font-size:1.8rem;}
+.sub_contents.pda .pda-wrap .tbbox .w2tb .w2tb_th, .pda-wrap .tbbox .w2tb .w2tb_td {line-height:20px;background:transparent}
+.sub_contents.pda .pda-wrap .tbbox .w2tb .w2tb_th {text-align:right}
+.sub_contents.pda .pda-wrap .tbbox .w2tb .w2tb_th .w2textbox {font-weight:bold}
+.sub_contents.pda .btn {border:0;background: linear-gradient(to bottom, #4a89dc 0%, #215dbb 45%, #12408c 50%, #0d3476 100%);color:#fff}
+
+/* 1. screen: 화면 출력 장치
+  2. max-width: 브라우저 뷰포트 320px 이하
+  3. max-device-width: 기기 전체 너비 480px 이하 (저해상도 스마트폰/PDA 포함)
+  4. orientation: 세로 모드 우선
+*/
+@media screen and (max-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+	.w2table_sb .w2table_sb_ul_col {height:48px;font-size:1.8rem}
+	
+	.w2calendar {width:340px;height:395px}
+	.w2calendar_picker_header_dynamic_entity {font-size:20px}
+	.w2calendar_picker_header_dynamic_entity .year {top:1px;left:40px}
+	.w2calendar_picker_header_dynamic_entity .month {top:1px;left:118px}
+	.w2calendar_content .w2calendar_col_day {background-size:13px;}
+	.w2calendar_content .w2calendar_col_day, .w2calendar_content .w2calendar_col_date {height:40px;font-size:20px}
+	.w2calendar_content .w2calendar_selected:after {width:30px;height:30px}
+	button.w2calendar_go_today {width:63px}
+	.w2calendar_footer {height:35px;font-size:18px}
+	.w2calendar_go_today {height:34px}
+	.w2calendar_go_today:before {font-size:15px}
+}
+
+.pda-wrap  {height:100%; display: flex; flex-direction: column;}
+.pda-wrap .title-wrap {height:3.2rem;}
+.pda-wrap .title-wrap h3.tit {position: relative;font-size:2.0rem; margin-right:1rem;padding-left: 1.2rem;}
+.pda-wrap .title-wrap h3.tit:before {content: ''; background:var(--dw-color-darkblue3); border-radius: 0.1rem; width: 0.5rem; height: 2.0rem; position:absolute; left: 0;top: 0.6rem;}
+
+.pda-wrap .w2input, .pda-wrap .w2selectbox, .pda-wrap .w2autoComplete, .pda-wrap .w2textarea, 
+.pda-wrap .w2inputCalendar_divInput, .pda-wrap .w2inputCalendar_div, .pda-wrap .w2autoComplete_acc,
+.pda-wrap .w2autoComplete_input {height:4.2rem;font-size:2rem;border-color:#909090}
+.pda-wrap .w2autoComplete_acc {position: relative;}
+.pda-wrap .w2autoComplete_ul_label {display:flex !important;align-items:center;height:100%}
+.pda-wrap .w2autoComplete_ul_col_label {height:4.2rem !important;}
+.pda-wrap .w2autoComplete_acc .w2autoComplete_ul_col_arrow {width: auto;}
+.pda-wrap .w2autoComplete_acc .w2autoComplete_col_button,
+.pda-wrap .w2autoComplete_acc .w2autoComplete_col_button:hover, 
+.pda-wrap .w2autoComplete_acc.w2autoComplete_selected .w2autoComplete_col_button,
+.pda-wrap .w2autoComplete_acc.w2autoComplete_selected .w2autoComplete_col_button:hover {background: url(/cm/images/base/ico_selectarrow.svg) no-repeat right 2px center; background-size: 2.4rem;width:2.4rem;height: 4.0rem;}
+.pda-wrap .w2inputCalendar_div {width:100%}
+.pda-wrap .w2inputCalendar_div_img button {background: url(/cm/images/base/ico_calendar.svg) !important;background-size: 24px !important; background-repeat: no-repeat !important; background-position:right 1px center !important;}
+
+/* 엔콜PDA 차량번호  */
+.pda-login {height:54.0rem; width:100%; border-radius:1.2rem; box-sizing:border-box; background:var(--pda-color);padding: 6.0rem 7.0rem;display: grid;grid-template-columns: repeat(2, 1fr);gap:7.0rem;} 
+.pda-login .input-wrap .input-wrap-inner {display: flex; flex-direction: column; align-items: center;gap:1.6rem;}
+.pda-login .input-wrap .title {font-size:2.8rem; font-weight:700; color:var(--dw-gray10);} 
+.pda-login .input-wrap .w2input {height:7.0rem; width:100%; border-radius:1.2rem; background:var(--dw-white);border:0.2rem solid var(--dw-gray5); font-size:2.2rem;box-sizing:border-box; padding:1.4rem 2.0rem;}
+.pda-login .input-wrap .w2input:focus {border:0.2rem solid var(--dw-gray12)}
+.pda-login .input-wrap .w2input.w2input_disabled {background:var(--form-dis-bgcolor);border-color:var(--dw-gray5);color:var(--pda-color1);}
+.pda-login .input-wrap .login {width:100%; height:8.1rem; border-radius:1.6rem; background:var(--dw-color-blue2); border:0; color:var(--dw-white); font-size:3.2rem; font-weight:700; letter-spacing:-0.1rem;}
+.pda-login .input-wrap .login:hover {background:var(--dw-color-blue6);}
+.pda-login .input-wrap .login.w2trigger_disabled {background:var(--form-dis-bgcolor1); color:var(--pda-color1);}
+.keypad{display: grid;grid-template-columns: repeat(3, 1fr);gap:2.0rem;min-height: 30rem;height:42.0rem; width: 32.0rem;} 
+.keypad .w2trigger {width:100%; height:100%; border-radius:1.0rem;font-size: 3.0rem;background-color:var(--dw-tac-color1);color:var(--pda-color2);border:none;}
+.keypad .w2trigger.last {grid-column:2;}  
+.keypad .w2trigger.keypad-del {background-image:url(/cm/images/base/keypad-del.svg);background-repeat: no-repeat;background-position: center; text-indent:-999px;}
+.keypad .w2trigger:hover {background-color:var(--dw-tac-color2);}  
+	
+/* 검색영역  */
+.pda-wrap .shbox .w2tb .w2tb_th, .pda-wrap .shbox .w2tb .w2tb_td {height:3.2rem}
+.pda-wrap .shbox .w2tb .w2tb_th  {font-size:1.6rem;}
+.pda-wrap .shbox .btn-shbox .btn,
+.pda-wrap .shbox .btn-shbox .btn:hover {height: 4.2rem;min-width: 4.2rem;font-size:1.6rem;padding: 0 1.0rem;background-color:var(--dw-white);}
+.pda-wrap .shbox .btn-shbox .sch,
+.pda-wrap .shbox .btn-shbox .sch:hover {text-indent: 1.4rem;color: var(--dw-white);background:var(--dw-color-blue2) url(/cm/images/base/ico_search_white.svg) no-repeat left 6px center;border: 0;background-size: 2.0rem;}
+.pda-wrap .shbox h3 {position: relative;font-size:2.0rem; margin-right:1rem;padding-left: 1.2rem;}
+.pda-wrap .shbox h3:before {content: ''; background:var(--dw-color-darkblue3); border-radius:0.1rem; width:0.5rem; height:2.0rem; position: absolute; left:0rem;top: -0.1rem;}
+
+/* table */
+.pda-wrap table {font-size:1.6rem;}
+
+/* 버튼영역 */
+.pda-wrap .btn {padding: 0 2.0rem;font-weight: 500;}
+.pda-wrap .btnbox .btn:not(.ico) {height:4.8rem;font-size: 2.8rem;min-width: 10rem;}
+
+/* 그리드 */
+.pda-wrap .wq_gvw .gridBodyDefault,
+.pda-wrap .wq_gvw th.gridHeaderTDDefault {height:3.2rem; font-size:2.3rem;}
+.pda-wrap .grid-total > span {font-size:1.6rem}
+
+/* autoComplete */
+.pda-wrap .w2autoComplete_ul_col_label {padding-left:5px}
+.pda-wrap .w2autoComplete_ul_col_label, 
+.pda-wrap .w2autoComplete_input {height:4rem !important}
+
+/* autoComplete */
+.sbx_pda.w2table_sb .w2table_sb_ul_col,
+[id*="_gr_outInfo"].w2input_table_sb .w2input_table_sb_col {height:4rem}
+.sbx_pda.w2table_sb .w2table_sb_ul_col a,
+[id*="_gr_outInfo"].w2input_table_sb .w2input_table_sb_col {color:var(--dw-gray12);font-size:2rem;line-height:4rem}

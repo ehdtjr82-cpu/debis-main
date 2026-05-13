@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_QueryCondition" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="reqDt" name="reqDt" dataType="text"></w2:column>
+        				<w2:column id="dptStn" name="dptStn" dataType="text"></w2:column>
+        				<w2:column id="arvStn" name="arvStn" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		<w2:data use="false"></w2:data></w2:dataList>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_CutAmountPriority" saveRemovedData="true" ev:ondataload="scwin.ds_CutAmountPriority_ondataload" ev:onbeforecelldatachange="scwin.ds_CutAmountPriority_onbeforecelldatachange">
+        			<w2:columnInfo>
+        				<w2:column id="No" name="번호" dataType="text"></w2:column>
+        				<w2:column id="dptStnWrkPlNm" name="출발역" dataType="text"></w2:column>
+        				<w2:column id="arvStnWrkPlNm" name="도착역" dataType="text"></w2:column>
+        				<w2:column id="cntrSizCd" name="SIZE" dataType="text"></w2:column>
+        				<w2:column id="fullEmptyClsCd" name="F/E구분" dataType="text"></w2:column>
+        				<w2:column id="cumulateTeu" name="누적TEU" dataType="text"></w2:column>
+        				<w2:column id="sortKey" name="화차구분" dataType="text"></w2:column>
+        				<w2:column id="railroadFareSa" name="사유화차" dataType="text"></w2:column>
+        				<w2:column id="railroadFare" name="공사화차" dataType="text"></w2:column>
+        				<w2:column id="cutAmount" name="저감액" dataType="text"></w2:column>
+        				<w2:column id="reqDt" name="일자" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_RetrieveCutAmountPriority" action="/ds.op.wrkplan.railroadwrkplan.RetrieveCutAmountPriorityCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_QueryCondition","key":"IN_DS1"},{"id":"ds_CutAmountPriority","key":"OUT_DS1"}]' target='data:json,{"id":"ds_CutAmountPriority","key":"OUT_DS1"}'
+        		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.sbm_RetrieveCutAmountPriority_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.f_sortKey = function (data) {
+    var retVal;
+    switch (data) {
+        case "0":
+            retVal = "사유";
+            break;
+        case "3":
+            retVal = "전용";
+            break;
+    }
+    if (retVal == "") {
+        retVal = data;
+    }
+    return retVal;
+}
+
+scwin.f_No = function (data, formattedData, rowIndex, colIndex) {
+    return rowIndex + 1;
+}
+
+scwin.onpageload = function () {
+
+    scwin.popTitleCh();
+    var ed_signDt =  $c.data.getParameter("ed_signDt");
+    //var ed_signDt = "20190715";
+    ds_QueryCondition.removeAll();
+    ds_QueryCondition.insertRow();
+
+    ds_QueryCondition.setCellData(0, "reqDt", ed_signDt);
+    $c.sbm.execute(sbm_RetrieveCutAmountPriority);
+    
+    
+};
+
+scwin.popTitleCh = function() {
+    $c.data.setPopupTitle("저감액우선순위조회");
+
+}
+
+scwin.f_WinClose = function () {
+     $c.win.closePopup();
+}
+
+scwin.ds_CutAmountPriority_OnLoadCompleted = function (rowcnt) {
+
+    totalRows.setValue(rowcnt);
+
+    var reqDt = ds_QueryCondition.getCellData(0, "reqDt");
+    var date1 = WebSquare.date.parseDate(reqDt);
+    var date2 = WebSquare.date.parseDate("20071000");
+
+    var teuHab = 0;
+
+    for (var i = 0; i < ds_CutAmountPriority.getRowCount(); i++) {
+        if (ds_CutAmountPriority.getCellData(i, "cntrSizCd") == "20") {
+            teuHab += 1;
+        }
+        else {
+            teuHab += 2;
+        }
+        ds_CutAmountPriority.setCellData(i, "cumulateTeu", teuHab);
+
+        if (date1 > date2) {
+            if (teuHab == 202) {
+                gr_CutAmountPriority.setRowColor(i, "RED");
+                gr_CutAmountPriority.setRowBackgroundColor(i, "#DAEAE9");
+            } else {
+                if (teuHab == 201) {
+                    gr_CutAmountPriority.setRowColor(i, "RED");
+                    gr_CutAmountPriority.setRowBackgroundColor(i, "#DAEAE9");
+                } else {
+                    gr_CutAmountPriority.setRowColor(i, "BLUE");
+                    gr_CutAmountPriority.setRowBackgroundColor(i, "#ffffff");
+                }
+            }
+        } else {
+            if (teuHab == 174) {
+                gr_CutAmountPriority.setRowColor(i, "RED");
+                gr_CutAmountPriority.setRowBackgroundColor(i, "#DAEAE9");
+            } else {
+                if (teuHab == 173) {
+                    gr_CutAmountPriority.setRowColor(i, "RED");
+                    gr_CutAmountPriority.setRowBackgroundColor(i, "#DAEAE9");
+                } else {
+                    gr_CutAmountPriority.setRowColor(i, "BLUE");
+                    gr_CutAmountPriority.setRowBackgroundColor(i, "#ffffff");
+                }
+            }
+        }
+
+    }
+}
+
+scwin.ds_CutAmountPriority_ondataload = function () {
+    var rowcnt = ds_CutAmountPriority.getRowCount();
+    scwin.ds_CutAmountPriority_OnLoadCompleted(rowcnt);
+};
+
+scwin.sbm_RetrieveCutAmountPriority_submitdone = function (e) {
+
+    debugger;
+    if(ds_CutAmountPriority.getRowCount() > 0){
+        ds_CutAmountPriority.modifyAllStatus("R")
+
+    }
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_CutAmountPriority" id="gr_CutAmountPriority" style="" ev:oncellclick="scwin.gr_CutAmountPriority_oncellclick" readOnly="true" selectedCellColor="   " rowStatusVisible="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="번호" width="70" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="구간" width="140" colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="SIZE" width="70" colSpan="" rowSpan="2" editType="select">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="F/E구분" width="90" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" style="" value="누적TEU" width="90" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" style="" value="화차구분" width="100" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" style="" value="철송단가" width="210" colSpan="3" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column31" value="일자" displayMode="label" colSpan="" rowSpan="2" hidden="true">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    											<w2:column width="90" inputType="text" style="" id="column29" value="출발역" displayMode="label">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" style="" id="column28" value="도착역" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column23" value="사유화차" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column22" value="공사화차" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column21" value="저감액" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="No" inputType="expression" style="" value="" width="70" textAlign="center" expression="rowIndex+1">
+    											</w2:column>
+    											<w2:column displayMode="label" id="dptStnWrkPlNm" inputType="text" style="" value="" width="90" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="arvStnWrkPlNm" inputType="text" style="" value="" width="90" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cntrSizCd" inputType="text" style="" value="" width="70">
+    											</w2:column>
+    											<w2:column displayMode="label" id="fullEmptyClsCd" inputType="text" style="" value="" width="90">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cumulateTeu" inputType="text" style="" value="" width="90" textAlign="right">
+    											</w2:column>
+    											<w2:column displayMode="label" id="sortKey" inputType="text" style="" value="" width="100" customFormatter="scwin.f_sortKey">
+    											</w2:column>
+    											<w2:column displayMode="label" id="railroadFareSa" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="railroadFare" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cutAmount" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="reqDt" value="" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	<xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_WinClose">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group></xf:group>
+    </body>
+</html>

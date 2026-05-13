@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="coCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="fromDate" name="name2" dataType="text"></w2:key>
+    					<w2:key id="endDate" name="name3" dataType="text"></w2:key>
+    					<w2:key id="sAcctDeptCd" name="name4" dataType="text"></w2:key>
+    					<w2:key id="coNm" name="name5" dataType="text"></w2:key>
+    					<w2:key id="sAcctDeptNm" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/jquery-1.8.3.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+        <script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" scopeVariable="ACConstants" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.strCurDate =  WebSquare.date.getCurrentServerDate()
+scwin.strFromDate = scwin.strCurDate.substring(0, 6) + "01"; 
+scwin.strToDate = scwin.strCurDate
+scwin.login = $c.data.getMemInfo();
+scwin.privAdmin = scwin.login.privAdmin;
+scwin.vUserHomeClsCd = scwin.login.userHomeClsCd
+scwin.vLoginCoCd = scwin.login.coCd
+scwin.vLoginCoClsCd = scwin.login.coClsCd
+scwin.isSubCompany = false
+scwin.isChecked = true;
+
+
+scwin.onpageload = function() {
+ 
+};
+
+scwin.onUdcCompleted = function() {
+    ed_fromDt.setValue(scwin.strFromDate);
+    ed_endDt.setValue(scwin.strToDate);
+    scwin.f_setCompanyInfo();  
+}
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function () {   
+        // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+    if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+        scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+        scwin.vLoginCoClsCd =  ACConstants.CO_CLS_CD_DONGBU ;
+    }
+    ed_coCd.setValue(scwin.vLoginCoCd);
+    scwin.f_PopUpCompanyInfo('T');
+
+} 
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = function(pWinCloseTF) { 
+    udc_companyInfo.cfCommonPopUp(scwin.udc_companyInfo_callBackFunc
+                                ,ed_coCd.getValue(), ed_coNm.getValue()
+                                ,pWinCloseTF,null,null,null,null
+                                ,null,null,null,null,null);   
+}
+
+scwin.udc_companyInfo_onclickEvent = function (e) {
+    scwin.f_PopUpCompanyInfo("F");
+};
+
+scwin.udc_companyInfo_callBackFunc = function(rtnList) {
+    if (rtnList != null) {
+        if (rtnList[0] == "N/A") return;
+        ed_coCd.setValue(rtnList[0]);
+        ed_coNm.setValue(rtnList[5]);
+        ed_coCd.options.hidVal = rtnList[0];
+        scwin.txtCoClsCd = rtnList[1];
+    } else {
+        ed_coCd.setValue("");
+        ed_coNm.setValue("");
+        ed_coCd.options.hidVal = "";
+        scwin.txtCoClsCd = "";
+    }
+
+    if(scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {  	// 자회사 회계 시스템 
+    scwin.isSubCompany = true;
+    }else{
+        scwin.isSubCompany = false;
+    } 	
+
+    if(scwin.isChecked == true){    
+        if('T' == scwin.privAdmin  ||  !scwin.isSubCompany   ){
+            $c.gus.cfEnableObjects([ed_coCd,ed_coNm,btn_company ]);    
+            }
+        else {
+            $c.gus.cfDisableObjects([ed_coCd,ed_coNm,btn_company]);   
+        }  
+    }
+
+    scwin.isChecked = false; 
+};
+
+scwin.udc_companyInfo_onblurCodeEvent = function (e) {
+    ed_coNm.setValue("")
+    if (ed_coCd.getValue() != ""){
+        
+        scwin.f_PopUpCompanyInfo('T');
+    }
+};
+
+scwin.udc_companyInfo_onviewchangeNameEvent = function (info) {
+    ed_coCd.setValue("")
+    if (ed_coNm.getValue() != ""){
+        scwin.f_PopUpCompanyInfo('T');
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:검색->관리부서 , 2:검색->거래처
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function(select_code,txtCode,txtName,sPopupCls) {
+    // let rtnList = null;
+    // let rtnList = new Array();
+    // let sCmdName = "";
+    let code = txtCode.getValue().trim();
+    let name = txtName.getValue();
+
+    switch (select_code) {
+        case '1' :
+            // 부서조회    
+            let  param = ","+ed_coCd.getValue()+","+scwin.txtCoClsCd+",0";  
+
+            rtnList = udc_acctDeptCdInfo6.cfCommonPopUp(scwin.udc_acctDeptCdInfo6_callBackFunc, 
+                                                        code,
+                                                        name,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        param,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null); 			
+    //			sCmdName = "retrieveAcctDeptCdInfo"
+    //			rtnList = cfCommonPopUp(sCmdName,code,name,sPopupCls,null,null,null,null,null,null,null,null,null,null,null,null,null); // 관리부서
+    }
+
+    // if ( rtnList != null ) {
+    //     if (rtnList[0] == "N/A") return;
+    //     txtCode.setValue(rtnList[0].trim());	// 코드
+    //     txtName.setValue(rtnList[1]);	// 코드명
+    //     txtCode.options.hidVal = rtnList[0];	// 코드
+    // } else {
+    //     txtCode.setValue("");	// 코드
+    //     txtName.setValue("");	// 코드명
+    //     txtCode.options.hidVal = "";	// 코드
+    // }
+}
+
+//-------------------------------------------------------------------------
+// 팝업결과
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCdInfo6_callBackFunc = function(rtnList) {
+    if ( rtnList != null ) {
+        if (rtnList[0] == "N/A") return;
+        ed_acctDeptCd.setValue(rtnList[0].trim());	// 코드
+        ed_acctDeptNm.setValue(rtnList[1]);	// 코드명
+        ed_acctDeptCd.options.hidVal = rtnList[0];	// 코드
+    } else {
+        ed_acctDeptCd.setValue("");	// 코드
+        ed_acctDeptNm.setValue("");	// 코드명
+        ed_acctDeptCd.options.hidVal = "";	// 코드
+    }
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+//-------------------------------------------------------------------------
+scwin.f_CheckPopUp = function(orgObjCd, orgObjNm,select_code) {
+    if (orgObjCd._wTagName.toUpperCase() == "INPUT" ) {
+        if (orgObjCd.getValue() != orgObjCd.options.hidVal){
+            orgObjNm.setValue("");
+        }
+
+        if (orgObjCd.getValue().trim() != "" ) {
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,"T")
+        } else {
+            if (!orgObjNm == null)
+            {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+            orgObjCd.options.hidVal = "";
+        }
+    }
+    else if (orgObjCd._wTagName.toUpperCase() == "OBJECT" ) {
+        if (orgObjCd.getValue() != orgObjCd.options.hidVal){
+            orgObjNm.setValue("");
+        }
+
+        if (orgObjCd.getValue().trim() != "") {
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,"T");
+        } else {
+            if (!orgObjNm == null)
+            {
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+        }
+    }
+}
+
+//-------------------------------------------------------------------------
+// 오즈 검색 후 결과를 화면 하단에 표시
+//-------------------------------------------------------------------------
+scwin.f_Search = async function () {                  
+
+    if (! await $c.gus.cfValidate([ed_fromDt,ed_endDt])) 
+        return
+
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+
+    // let odiParam = new ODIParam("fm_100_05_05");
+
+    let coCd = dma_condition.get("coCd")
+    let fromDate = dma_condition.get("fromDate")
+    let endDate = dma_condition.get("endDate")
+    let sAcctDeptCd = dma_condition.get("sAcctDeptCd")
+
+    let data = {
+        reportName: "/ac/fm/stdinfomgnt/fm_100_05_05.ozr",
+        odiName : "fm_100_05_05",
+        odiParam : {
+            // 발행 일시도 명시적으로 전달 (OZ Viewer 기본 값 방지)
+            CO_CD: coCd, 
+            START_DATE: fromDate,
+            END_DATE: endDate,  
+            P_ACCT_DEPT_CD: sAcctDeptCd
+            
+            // mode : "silent"
+            // isframe : false
+            // configmode : "html"
+            // printcommand : false
+            // showTree : true,
+            
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+        },
+        formParam: {
+        }
+    }
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+};
+
+//-------------------------------------------------------------------------
+// script
+//-------------------------------------------------------------------------
+
+
+scwin.udc_acctDeptCdInfo6_onclickEvent = function (e) {
+    scwin.f_openPopUp('1',ed_acctDeptCd,ed_acctDeptNm,'F')
+};
+
+scwin.udc_acctDeptCdInfo6_onblurCodeEvent = function (e) {
+    scwin.f_CheckPopUp(ed_acctDeptCd,ed_acctDeptNm,'1');
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:40px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:40px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="회사코드 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_comCode popupID="popupMgntClntNo" style="" class="col8" codeId="ed_coCd" nameId="ed_coNm" mandatoryCode="true" allowCharCode="0-9" UpperFlagCode="1" maxlengthCode="3" objTypeCode="data" objTypeName="data" btnId="btn_company" code="coCd" name="coNm" refDataCollection="dma_condition" selectID="retrieveDongbuGroupCompanyInfo" id="udc_companyInfo" popupGridHeadTitle="회사코드,temp,temp,temp,temp,회사명" popupTitle="회사조회,회사코드,법인명" maxlengthName="65" ev:onclickEvent="scwin.udc_companyInfo_onclickEvent" ev:onblurCodeEvent="scwin.udc_companyInfo_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_companyInfo_onviewchangeNameEvent" popupGridHiddenColumn="2,3,4,5,7,8,9,10" validTitle="회사코드"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="기간" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar id="" refDataMap="dma_condition" refEdDt="endDate" refStDt="fromDate" style="" edFromId="ed_fromDt" edToId="ed_endDt" mandatoryFrom="true" mandatoryTo="true"></w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="부서 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="popupMgntClntNo" style="" class="col8" codeId="ed_acctDeptCd" nameId="ed_acctDeptNm" objTypeName="data" objTypeCode="data" mandatoryCode="false" maxlengthCode="5" allowCharCode="0-9" selectID="retrieveAcctDeptCdInfo6" name="sAcctDeptNm" code="sAcctDeptCd" refDataCollection="dma_condition" id="udc_acctDeptCdInfo6" popupGridHeadTitle="귀속코드,부서명" popupTitle="귀속부서조회,귀속부서코드,귀속부서명" popupGridHiddenColumn="3,4,5,6,7,8,9,10" ev:onclickEvent="scwin.udc_acctDeptCdInfo6_onclickEvent" ev:onblurCodeEvent="scwin.udc_acctDeptCdInfo6_onblurCodeEvent" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N"></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R" ev:onclick="scwin.f_Search">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    		<xf:group id="ozFrame" class="ozWrap"><w2:iframe src="/ui/cm/zz/ozreportComp.xml" style="" id="wfm_ozReport"></w2:iframe></xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

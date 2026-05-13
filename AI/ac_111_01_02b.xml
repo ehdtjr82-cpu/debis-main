@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+
+            <w2:dataMap baseNode="map" id="dma_searchCloseYm">
+                <w2:keyInfo>
+                    <w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_getMaxCloseYm" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="closeYm" name="마감년월" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_csv" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="col1" name="" dataType="text"></w2:column>
+                    <w2:column id="col2" name="" dataType="text"></w2:column>
+                    <w2:column id="col3" name="" dataType="text"></w2:column>
+                    <w2:column id="col4" name="" dataType="text"></w2:column>
+                    <w2:column id="col5" name="" dataType="text"></w2:column>
+                    <w2:column id="col6" name="" dataType="text"></w2:column>
+                    <w2:column id="col7" name="" dataType="text"></w2:column>
+                    <w2:column id="col8" name="" dataType="text"></w2:column>
+                    <w2:column id="col9" name="" dataType="text"></w2:column>
+                    <w2:column id="col10" name="" dataType="text"></w2:column>
+                    <w2:column id="col11" name="" dataType="text"></w2:column>
+                    <w2:column id="col12" name="" dataType="text"></w2:column>
+                    <w2:column id="col13" name="" dataType="text"></w2:column>
+                    <w2:column id="col14" name="" dataType="text"></w2:column>
+                    <w2:column id="col15" name="" dataType="text"></w2:column>
+                    <w2:column id="col16" name="" dataType="text"></w2:column>
+                    <w2:column id="col17" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_freightList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="seaAirCls" name="해운/항공" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="Export/Import" dataType="text"></w2:column>
+                    <w2:column id="partner" name="파트너" dataType="text"></w2:column>
+                    <w2:column id="cd" name="매출/매입" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="House B/L" dataType="text"></w2:column>
+                    <w2:column id="custCd" name="Customer Code" dataType="text"></w2:column>
+                    <w2:column id="freightCd" name="Freight Code" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="CUR" dataType="text"></w2:column>
+                    <w2:column id="amount" name="AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="ex-rate" dataType="text"></w2:column>
+                    <w2:column id="amountWon" name="Amount(원)" dataType="text"></w2:column>
+                    <w2:column id="vat" name="vat" dataType="text"></w2:column>
+                    <w2:column id="resultDate" name="실적일자" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="invoice일자" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="외화정산" dataType="text"></w2:column>
+                    <w2:column id="innerDept" name="내부거래코드" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="요청범위" dataType="text"></w2:column>
+                    <w2:column id="err" name="오류" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_err" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="err" name="에러내역" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_validation" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="" dataType="text"></w2:column>
+                    <w2:column id="partner" name="" dataType="text"></w2:column>
+                    <w2:column id="cd" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="custCd" name="" dataType="text"></w2:column>
+                    <w2:column id="freightCd" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="amount" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="amountWon" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="resultDate" name="" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="" dataType="text"></w2:column>
+                    <w2:column id="innerDept" name="" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="" dataType="text"></w2:column>
+                    <w2:column id="err" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_RetrieveValidation" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="" dataType="text"></w2:column>
+                    <w2:column id="partner" name="" dataType="text"></w2:column>
+                    <w2:column id="cd" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="custCd" name="" dataType="text"></w2:column>
+                    <w2:column id="freightCd" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="amount" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="amountWon" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="resultDate" name="" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="" dataType="text"></w2:column>
+                    <w2:column id="innerDept" name="" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="" dataType="text"></w2:column>
+                    <w2:column id="err" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_dbCodeRetrieve" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="" dataType="text"></w2:column>
+                    <w2:column id="partner" name="" dataType="text"></w2:column>
+                    <w2:column id="cd" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="custCd" name="" dataType="text"></w2:column>
+                    <w2:column id="freightCd" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="amount" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="amountWon" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="resultDate" name="" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="" dataType="text"></w2:column>
+                    <w2:column id="innerDept" name="" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="" dataType="text"></w2:column>
+                    <w2:column id="err" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_dbCodeResult" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_dbCodeList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_freightList_complete" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="seaAirCls" name="해운/항공" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="Export/Import" dataType="text"></w2:column>
+                    <w2:column id="partner" name="파트너" dataType="text"></w2:column>
+                    <w2:column id="cd" name="매출/매입" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="House B/L" dataType="text"></w2:column>
+                    <w2:column id="custCd" name="Customer Code" dataType="text"></w2:column>
+                    <w2:column id="freightCd" name="Freight Code" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="CUR" dataType="text"></w2:column>
+                    <w2:column id="amount" name="AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="ex-rate" dataType="text"></w2:column>
+                    <w2:column id="amountWon" name="Amount(원)" dataType="text"></w2:column>
+                    <w2:column id="vat" name="vat" dataType="text"></w2:column>
+                    <w2:column id="resultDate" name="실적일자" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="invoice일자" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="외화정산" dataType="text"></w2:column>
+                    <w2:column id="innerDept" name="내부거래코드" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="요청범위" dataType="text"></w2:column>
+                    <w2:column id="err" name="오류" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_seaImpPartner" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_seaImpBuying" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_seaExpPartner" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_seaExpBuying" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_airImpPartner" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_airImpBuying" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_airExpPartner" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_airExpBuying" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceSIP" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="" dataType="text"></w2:column>
+                    <w2:column id="partner" name="" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceSIB" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                    <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="" dataType="text"></w2:column>
+                    <w2:column id="qty" name="" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsSeq" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNo" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsClntNm" name="" dataType="text"></w2:column>
+                    <w2:column id="selpchItemCd" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsUpr" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsAmt" name="" dataType="text"></w2:column>
+                    <w2:column id="vat" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptCd" name="" dataType="text"></w2:column>
+                    <w2:column id="sellDeptNm" name="" dataType="text"></w2:column>
+                    <w2:column id="pchsTyp" name="" dataType="text"></w2:column>
+                    <w2:column id="billingDate" name="" dataType="text"></w2:column>
+                    <w2:column id="foreignCurSet" name="" dataType="text"></w2:column>
+                    <w2:column id="requestSize" name="" dataType="text"></w2:column>
+                    <w2:column id="partner" name="" dataType="text"></w2:column>
+                    <w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceSEP" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column><w2:column id="kcomcd" name="" dataType="text"></w2:column><w2:column id="seaAirCls" name="" dataType="text"></w2:column><w2:column id="blNo" name="" dataType="text"></w2:column><w2:column id="mhno" name="" dataType="text"></w2:column><w2:column id="fareEngCd" name="" dataType="text"></w2:column><w2:column id="fareEngNm" name="" dataType="text"></w2:column><w2:column id="fareGrpCd" name="" dataType="text"></w2:column><w2:column id="fareUnit" name="" dataType="text"></w2:column><w2:column id="locPtnCls" name="" dataType="text"></w2:column><w2:column id="mblHblCls" name="" dataType="text"></w2:column><w2:column id="drcrCls" name="" dataType="text"></w2:column><w2:column id="ppccCls" name="" dataType="text"></w2:column><w2:column id="crcCd" name="" dataType="text"></w2:column><w2:column id="qty" name="" dataType="text"></w2:column><w2:column id="grossWt" name="" dataType="text"></w2:column><w2:column id="chgWt" name="" dataType="text"></w2:column><w2:column id="trfUpr" name="" dataType="text"></w2:column><w2:column id="usdAmt" name="" dataType="text"></w2:column><w2:column id="exRate" name="" dataType="text"></w2:column><w2:column id="exRateTyp" name="" dataType="text"></w2:column><w2:column id="prtnAmt" name="" dataType="text"></w2:column><w2:column id="rsltsStdDt" name="" dataType="text"></w2:column><w2:column id="vatYn" name="" dataType="text"></w2:column><w2:column id="sellSeq" name="" dataType="text"></w2:column><w2:column id="bilgClntNo" name="" dataType="text"></w2:column><w2:column id="bilgClntNm" name="" dataType="text"></w2:column><w2:column id="sellItemCd" name="" dataType="text"></w2:column><w2:column id="sellUpr" name="" dataType="text"></w2:column><w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column><w2:column id="sellAmt" name="" dataType="text"></w2:column><w2:column id="vatAmt" name="" dataType="text"></w2:column><w2:column id="billingDate" name="" dataType="text"></w2:column><w2:column id="foreignCurSet" name="" dataType="text"></w2:column><w2:column id="requestSize" name="" dataType="text"></w2:column><w2:column id="partner" name="" dataType="text"></w2:column><w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceSEB" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column><w2:column id="kcomcd" name="" dataType="text"></w2:column><w2:column id="seaAirCls" name="" dataType="text"></w2:column><w2:column id="blNo" name="" dataType="text"></w2:column><w2:column id="mhno" name="" dataType="text"></w2:column><w2:column id="fareEngCd" name="" dataType="text"></w2:column><w2:column id="fareEngNm" name="" dataType="text"></w2:column><w2:column id="fareGrpCd" name="" dataType="text"></w2:column><w2:column id="fareUnit" name="" dataType="text"></w2:column><w2:column id="locPtnCls" name="" dataType="text"></w2:column><w2:column id="mblHblCls" name="" dataType="text"></w2:column><w2:column id="drcrCls" name="" dataType="text"></w2:column><w2:column id="ppccCls" name="" dataType="text"></w2:column><w2:column id="crcCd" name="" dataType="text"></w2:column><w2:column id="qty" name="" dataType="text"></w2:column><w2:column id="grossWt" name="" dataType="text"></w2:column><w2:column id="chgWt" name="" dataType="text"></w2:column><w2:column id="trfUpr" name="" dataType="text"></w2:column><w2:column id="usdAmt" name="" dataType="text"></w2:column><w2:column id="exRate" name="" dataType="text"></w2:column><w2:column id="exRateTyp" name="" dataType="text"></w2:column><w2:column id="prtnAmt" name="" dataType="text"></w2:column><w2:column id="rsltsStdDt" name="" dataType="text"></w2:column><w2:column id="vatYn" name="" dataType="text"></w2:column><w2:column id="pchsSeq" name="" dataType="text"></w2:column><w2:column id="pchsClntNo" name="" dataType="text"></w2:column><w2:column id="pchsClntNm" name="" dataType="text"></w2:column><w2:column id="selpchItemCd" name="" dataType="text"></w2:column><w2:column id="pchsUpr" name="" dataType="text"></w2:column><w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column><w2:column id="pchsAmt" name="" dataType="text"></w2:column><w2:column id="vat" name="" dataType="text"></w2:column><w2:column id="sellDeptCd" name="" dataType="text"></w2:column><w2:column id="sellDeptNm" name="" dataType="text"></w2:column><w2:column id="pchsTyp" name="" dataType="text"></w2:column><w2:column id="billingDate" name="" dataType="text"></w2:column><w2:column id="foreignCurSet" name="" dataType="text"></w2:column><w2:column id="requestSize" name="" dataType="text"></w2:column><w2:column id="partner" name="" dataType="text"></w2:column><w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceAIP" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column><w2:column id="kcomcd" name="" dataType="text"></w2:column><w2:column id="seaAirCls" name="" dataType="text"></w2:column><w2:column id="blNo" name="" dataType="text"></w2:column><w2:column id="mhno" name="" dataType="text"></w2:column><w2:column id="fareEngCd" name="" dataType="text"></w2:column><w2:column id="fareEngNm" name="" dataType="text"></w2:column><w2:column id="fareGrpCd" name="" dataType="text"></w2:column><w2:column id="fareUnit" name="" dataType="text"></w2:column><w2:column id="locPtnCls" name="" dataType="text"></w2:column><w2:column id="mblHblCls" name="" dataType="text"></w2:column><w2:column id="drcrCls" name="" dataType="text"></w2:column><w2:column id="ppccCls" name="" dataType="text"></w2:column><w2:column id="crcCd" name="" dataType="text"></w2:column><w2:column id="qty" name="" dataType="text"></w2:column><w2:column id="grossWt" name="" dataType="text"></w2:column><w2:column id="chgWt" name="" dataType="text"></w2:column><w2:column id="trfUpr" name="" dataType="text"></w2:column><w2:column id="usdAmt" name="" dataType="text"></w2:column><w2:column id="exRate" name="" dataType="text"></w2:column><w2:column id="exRateTyp" name="" dataType="text"></w2:column><w2:column id="prtnAmt" name="" dataType="text"></w2:column><w2:column id="rsltsStdDt" name="" dataType="text"></w2:column><w2:column id="vatYn" name="" dataType="text"></w2:column><w2:column id="sellSeq" name="" dataType="text"></w2:column><w2:column id="bilgClntNo" name="" dataType="text"></w2:column><w2:column id="bilgClntNm" name="" dataType="text"></w2:column><w2:column id="sellItemCd" name="" dataType="text"></w2:column><w2:column id="sellUpr" name="" dataType="text"></w2:column><w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column><w2:column id="sellAmt" name="" dataType="text"></w2:column><w2:column id="vatAmt" name="" dataType="text"></w2:column><w2:column id="billingDate" name="" dataType="text"></w2:column><w2:column id="foreignCurSet" name="" dataType="text"></w2:column><w2:column id="requestSize" name="" dataType="text"></w2:column><w2:column id="partner" name="" dataType="text"></w2:column><w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceAIB" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column><w2:column id="kcomcd" name="" dataType="text"></w2:column><w2:column id="seaAirCls" name="" dataType="text"></w2:column><w2:column id="blNo" name="" dataType="text"></w2:column><w2:column id="mhno" name="" dataType="text"></w2:column><w2:column id="fareEngCd" name="" dataType="text"></w2:column><w2:column id="fareEngNm" name="" dataType="text"></w2:column><w2:column id="fareGrpCd" name="" dataType="text"></w2:column><w2:column id="fareUnit" name="" dataType="text"></w2:column><w2:column id="locPtnCls" name="" dataType="text"></w2:column><w2:column id="mblHblCls" name="" dataType="text"></w2:column><w2:column id="drcrCls" name="" dataType="text"></w2:column><w2:column id="ppccCls" name="" dataType="text"></w2:column><w2:column id="crcCd" name="" dataType="text"></w2:column><w2:column id="qty" name="" dataType="text"></w2:column><w2:column id="grossWt" name="" dataType="text"></w2:column><w2:column id="chgWt" name="" dataType="text"></w2:column><w2:column id="trfUpr" name="" dataType="text"></w2:column><w2:column id="usdAmt" name="" dataType="text"></w2:column><w2:column id="exRate" name="" dataType="text"></w2:column><w2:column id="exRateTyp" name="" dataType="text"></w2:column><w2:column id="prtnAmt" name="" dataType="text"></w2:column><w2:column id="rsltsStdDt" name="" dataType="text"></w2:column><w2:column id="vatYn" name="" dataType="text"></w2:column><w2:column id="pchsSeq" name="" dataType="text"></w2:column><w2:column id="pchsClntNo" name="" dataType="text"></w2:column><w2:column id="pchsClntNm" name="" dataType="text"></w2:column><w2:column id="selpchItemCd" name="" dataType="text"></w2:column><w2:column id="pchsUpr" name="" dataType="text"></w2:column><w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column><w2:column id="pchsAmt" name="" dataType="text"></w2:column><w2:column id="vat" name="" dataType="text"></w2:column><w2:column id="sellDeptCd" name="" dataType="text"></w2:column><w2:column id="sellDeptNm" name="" dataType="text"></w2:column><w2:column id="pchsTyp" name="" dataType="text"></w2:column><w2:column id="billingDate" name="" dataType="text"></w2:column><w2:column id="foreignCurSet" name="" dataType="text"></w2:column><w2:column id="requestSize" name="" dataType="text"></w2:column><w2:column id="partner" name="" dataType="text"></w2:column><w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceAEP" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column><w2:column id="kcomcd" name="" dataType="text"></w2:column><w2:column id="seaAirCls" name="" dataType="text"></w2:column><w2:column id="blNo" name="" dataType="text"></w2:column><w2:column id="mhno" name="" dataType="text"></w2:column><w2:column id="fareEngCd" name="" dataType="text"></w2:column><w2:column id="fareEngNm" name="" dataType="text"></w2:column><w2:column id="fareGrpCd" name="" dataType="text"></w2:column><w2:column id="fareUnit" name="" dataType="text"></w2:column><w2:column id="locPtnCls" name="" dataType="text"></w2:column><w2:column id="mblHblCls" name="" dataType="text"></w2:column><w2:column id="drcrCls" name="" dataType="text"></w2:column><w2:column id="ppccCls" name="" dataType="text"></w2:column><w2:column id="crcCd" name="" dataType="text"></w2:column><w2:column id="qty" name="" dataType="text"></w2:column><w2:column id="grossWt" name="" dataType="text"></w2:column><w2:column id="chgWt" name="" dataType="text"></w2:column><w2:column id="trfUpr" name="" dataType="text"></w2:column><w2:column id="usdAmt" name="" dataType="text"></w2:column><w2:column id="exRate" name="" dataType="text"></w2:column><w2:column id="exRateTyp" name="" dataType="text"></w2:column><w2:column id="prtnAmt" name="" dataType="text"></w2:column><w2:column id="rsltsStdDt" name="" dataType="text"></w2:column><w2:column id="vatYn" name="" dataType="text"></w2:column><w2:column id="sellSeq" name="" dataType="text"></w2:column><w2:column id="bilgClntNo" name="" dataType="text"></w2:column><w2:column id="bilgClntNm" name="" dataType="text"></w2:column><w2:column id="sellItemCd" name="" dataType="text"></w2:column><w2:column id="sellUpr" name="" dataType="text"></w2:column><w2:column id="sellAmtFcrc" name="" dataType="text"></w2:column><w2:column id="sellAmt" name="" dataType="text"></w2:column><w2:column id="vatAmt" name="" dataType="text"></w2:column><w2:column id="billingDate" name="" dataType="text"></w2:column><w2:column id="foreignCurSet" name="" dataType="text"></w2:column><w2:column id="requestSize" name="" dataType="text"></w2:column><w2:column id="partner" name="" dataType="text"></w2:column><w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceAEB" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="odrNo" name="" dataType="text"></w2:column><w2:column id="kcomcd" name="" dataType="text"></w2:column><w2:column id="seaAirCls" name="" dataType="text"></w2:column><w2:column id="blNo" name="" dataType="text"></w2:column><w2:column id="mhno" name="" dataType="text"></w2:column><w2:column id="fareEngCd" name="" dataType="text"></w2:column><w2:column id="fareEngNm" name="" dataType="text"></w2:column><w2:column id="fareGrpCd" name="" dataType="text"></w2:column><w2:column id="fareUnit" name="" dataType="text"></w2:column><w2:column id="locPtnCls" name="" dataType="text"></w2:column><w2:column id="mblHblCls" name="" dataType="text"></w2:column><w2:column id="drcrCls" name="" dataType="text"></w2:column><w2:column id="ppccCls" name="" dataType="text"></w2:column><w2:column id="crcCd" name="" dataType="text"></w2:column><w2:column id="qty" name="" dataType="text"></w2:column><w2:column id="grossWt" name="" dataType="text"></w2:column><w2:column id="chgWt" name="" dataType="text"></w2:column><w2:column id="trfUpr" name="" dataType="text"></w2:column><w2:column id="usdAmt" name="" dataType="text"></w2:column><w2:column id="exRate" name="" dataType="text"></w2:column><w2:column id="exRateTyp" name="" dataType="text"></w2:column><w2:column id="prtnAmt" name="" dataType="text"></w2:column><w2:column id="rsltsStdDt" name="" dataType="text"></w2:column><w2:column id="vatYn" name="" dataType="text"></w2:column><w2:column id="pchsSeq" name="" dataType="text"></w2:column><w2:column id="pchsClntNo" name="" dataType="text"></w2:column><w2:column id="pchsClntNm" name="" dataType="text"></w2:column><w2:column id="selpchItemCd" name="" dataType="text"></w2:column><w2:column id="pchsUpr" name="" dataType="text"></w2:column><w2:column id="pchsAmtFcrc" name="" dataType="text"></w2:column><w2:column id="pchsAmt" name="" dataType="text"></w2:column><w2:column id="vat" name="" dataType="text"></w2:column><w2:column id="sellDeptCd" name="" dataType="text"></w2:column><w2:column id="sellDeptNm" name="" dataType="text"></w2:column><w2:column id="pchsTyp" name="" dataType="text"></w2:column><w2:column id="billingDate" name="" dataType="text"></w2:column><w2:column id="foreignCurSet" name="" dataType="text"></w2:column><w2:column id="requestSize" name="" dataType="text"></w2:column><w2:column id="partner" name="" dataType="text"></w2:column><w2:column id="expImp" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="filePath" name="파일경로" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+        </w2:dataCollection>
+
+        <w2:workflowCollection />
+
+        <xf:submission id="sbm_getMaxCloseYm"
+            action="/cm.bc.comnmgnt.closemgnt.RetrieveMaxCloseYmCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_searchCloseYm","key":"IN_DS1"},{"id":"ds_getMaxCloseYm","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_getMaxCloseYm","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_getMaxCloseYm_submitdone"
+            ev:submiterror="scwin.sbm_getMaxCloseYm_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_validation"
+            action="/il.acc.acetc.RetrieveFreightValidationCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_RetrieveValidation","key":"IN_DS1"},{"id":"ds_validation","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_validation","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_validation_submitdone"
+            ev:submiterror="scwin.sbm_validation_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_dbCodeRetrieve"
+            action="/il.acc.acetc.RetrieveFreightDBCodeCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_dbCodeRetrieve","key":"IN_DS1"},{"id":"ds_dbCodeResult","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_dbCodeResult","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_dbCodeRetrieve_submitdone"
+            ev:submiterror="scwin.sbm_dbCodeRetrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_saveFreight"
+            action="/il.acc.acetc.SaveCSVFreightCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_seaImpPartner","key":"IN_DS1"},{"id":"ds_seaImpBuying","key":"IN_DS2"},{"id":"ds_seaExpPartner","key":"IN_DS3"},{"id":"ds_seaExpBuying","key":"IN_DS4"},{"id":"ds_airImpPartner","key":"IN_DS5"},{"id":"ds_airImpBuying","key":"IN_DS6"},{"id":"ds_airExpPartner","key":"IN_DS7"},{"id":"ds_airExpBuying","key":"IN_DS8"},{"id":"ds_invoiceSIP","key":"IN_DS9"},{"id":"ds_invoiceSIB","key":"IN_DS10"},{"id":"ds_invoiceSEP","key":"IN_DS11"},{"id":"ds_invoiceSEB","key":"IN_DS12"},{"id":"ds_invoiceAIP","key":"IN_DS13"},{"id":"ds_invoiceAIB","key":"IN_DS14"},{"id":"ds_invoiceAEP","key":"IN_DS15"},{"id":"ds_invoiceAEB","key":"IN_DS16"}]'
+            target=''
+            ev:submitdone="scwin.sbm_saveFreight_submitdone"
+            ev:submiterror="scwin.sbm_saveFreight_submiterror">
+        </xf:submission>
+
+    </xf:model>
+
+    <w2:layoutInfo />
+    <w2:publicInfo method="" />
+
+    <script type="text/javascript"><![CDATA[
+scwin.flag = false;
+scwin.editFlag = false;
+scwin.columnNum = 17;
+
+scwin.onpageload = async function() {
+    dma_searchCloseYm.set("coCd", "000");
+    await $c.sbm.execute(sbm_getMaxCloseYm);
+};
+
+scwin.sbm_getMaxCloseYm_submitdone = function(e) {
+};
+
+scwin.sbm_getMaxCloseYm_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.f_CheckFileExt = function(ext, path) {
+    ext = ext.toUpperCase();
+    path = path.toUpperCase();
+    let elen = ext.length;
+    let flen = path.length;
+    return (ext == path.substring((flen - elen), flen));
+};
+
+scwin.f_JobCloseYn = function(date) {
+    date = date.substr(0, 6);
+    if (ds_getMaxCloseYm.getCellData(0, "closeYm") > date) {
+        return -1;
+    }
+    else if (ds_getMaxCloseYm.getCellData(0, "closeYm") < date) {
+        return 0;
+    }
+    else {
+        return 1;
+    }
+};
+
+scwin.f_CsvValidation = async function() {
+    if (ds_csv.getRowCount() == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        return false;
+    }
+
+    if (ds_csv.getColumnCount() != scwin.columnNum) {
+        await $c.gus.cfAlertMsg("\n컬럼값이 상이합니다. [형식=" + scwin.columnNum + "개] 입력한 열 개수 => " + ds_csv.getColumnCount() + "\n업로드 양식을 다운로드후, 양식에 맞게 입력해주세요.");
+        return false;
+    }
+
+    let cntRow = ds_csv.getRowCount();
+
+    for (let i = 0; i < ds_csv.getRowCount(); i++) {
+        let colcnt = 0;
+        for (let v = 0; v < ds_csv.getColumnCount(); v++) {
+            if (ds_csv.getCellData(i, ds_csv.getColumnID(v)) == null || ds_csv.getCellData(i, ds_csv.getColumnID(v)) == '') {
+                colcnt += 1;
+            }
+        }
+        if (colcnt == scwin.columnNum) {
+            cntRow = i;
+            break;
+        }
+
+        let err = "";
+        let partner = '';
+        partner = 'Y';
+        ds_csv.setCellData(i, ds_csv.getColumnID(2), 'Y');
+
+        let partnerYn = 'Y';
+
+        ds_csv.setCellData(i, ds_csv.getColumnID(3), 'D');
+
+        let customerCode = '';
+        customerCode = ds_csv.getCellData(i, ds_csv.getColumnID(5));
+        if (customerCode == null) {
+            customerCode = '';
+            ds_csv.setCellData(i, ds_csv.getColumnID(5), '');
+        }
+
+        customerCode = customerCode.replace(/ /gi, "");
+
+        for (let k = 0; k < ds_csv.getColumnCount(); k++) {
+            let temp = '';
+            temp = ds_csv.getCellData(i, ds_csv.getColumnID(k));
+            if (temp == null) {
+                ds_csv.setCellData(i, ds_csv.getColumnID(k), '');
+                temp = '';
+            }
+            temp = temp.replace(/ /gi, "");
+            temp = temp.replace(/,/gi, "");
+            temp = temp.toUpperCase();
+            ds_csv.setCellData(i, ds_csv.getColumnID(k), temp);
+
+            switch (k) {
+            case 0:
+                if (temp == '' || !(/^[SA]{1}$/.test(temp))) {
+                    err += "'SEA/AIR'열에는 S나 A를 입력해주세요. ";
+                }
+                break;
+            case 1:
+                if (temp == '' || !(/^[IE]{1}$/.test(temp))) {
+                    err += "'EXP/IMP'열에는 I나 E를 입력해주세요. ";
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                if (temp == '') {
+                    err += "House B/L을 입력해주세요. ";
+                }
+                break;
+            case 5:
+                if (temp == '') {
+                    err += "Customer Code를 입력해주세요. ";
+                }
+                break;
+            case 6:
+                if (temp == '') {
+                    err += "Freight Code를 입력해주세요. ";
+                }
+                else if (partnerYn != 'Y' && ds_csv.getCellData(i, ds_csv.getColumnID(7)) != ''
+                        && ds_csv.getCellData(i, ds_csv.getColumnID(7)) != 'KRW' && (ds_csv.getCellData(i, ds_csv.getColumnID(14)) == 'Y')) {
+                    let c = temp.charAt(temp.length - 1);
+                    if (c == 'J' || c == 'V' || c == 'K') {
+                        err += "CUR이 KRW가 아니며 외화정산이 Y일 경우, 운임코드에 -J, -V, -K의 코드는 올 수 없습니다. ";
+                    }
+                }
+                break;
+            case 7:
+                if (temp == '') {
+                    err += "CUR를 입력해주세요. ";
+                }
+                break;
+            case 8:
+                if (isNaN(temp)) {
+                    err += "'Amount'열은 숫자나 공백으로 입력해주세요. ";
+                }
+                break;
+            case 9:
+                if (isNaN(temp)) {
+                    err += "'Ex-rate'열은 숫자나 공백으로 입력해주세요. ";
+                }
+                break;
+            case 10:
+                if (isNaN(temp)) {
+                    err += "'Amount(원)'열은 숫자나 공백으로 입력해주세요. ";
+                }
+                break;
+            case 11:
+                if (isNaN(temp)) {
+                    err += "'VAT'열은 숫자나 공백으로 입력해주세요. ";
+                }
+                if (String(ds_csv.getCellData(i, ds_csv.getColumnID(6))).charAt(String(ds_csv.getCellData(i, ds_csv.getColumnID(6))).length - 1) == 'V') {
+                    ds_csv.setCellData(i, ds_csv.getColumnID(11), ds_csv.getCellData(i, ds_csv.getColumnID(10)) * 0.1);
+                }
+                break;
+            case 12:
+                if (temp == '' || isNaN(temp) || temp.length != 8) {
+                    err += "'Result Date'열은 날짜로 입력해주세요. ";
+                }
+                else if (scwin.f_JobCloseYn(temp) == -1) {
+                    err += "'Result Date'의 날짜는 결산이 완료된 과거로 설정될 수 없습니다. ";
+                }
+                break;
+            case 13:
+                break;
+            case 14:
+                if (partnerYn == 'N' && (temp != '' && temp != 'Y')) {
+                    err += "'외화 정산'열은 Y나 공백으로 입력해주세요. ";
+                }
+                break;
+            case 15:
+                break;
+            case 16:
+                if (temp == '') {
+                    err += "'요청범위'를 입력해주세요. (1~2) ";
+                }
+                else if (temp != '1' && temp != '2') {
+                    err += "'요청범위'는 1~2 사이의 숫자를 입력해주세요. ";
+                } else if (temp == '2') {
+                    if (ds_csv.getCellData(i, ds_csv.getColumnID(13)) == '' || isNaN(ds_csv.getCellData(i, ds_csv.getColumnID(13))) || String(ds_csv.getCellData(i, ds_csv.getColumnID(13))).length != 8) {
+                        err += "'Invoice Date'열은 날짜로 입력해주세요. ";
+                    }
+                    else if (scwin.f_JobCloseYn(ds_csv.getCellData(i, ds_csv.getColumnID(13))) == -1) {
+                        err += "'Invoice Date'의 날짜는 결산이 완료된 과거로 설정될 수 없습니다. ";
+                    }
+                }
+                break;
+            }
+        }
+
+        ds_err.insertRow(ds_err.getRowCount());
+        ds_err.setCellData(ds_err.getRowCount() - 1, "err", err);
+        if (err == '') {
+            ds_RetrieveValidation.removeAll();
+            ds_validation.removeAll();
+            // TODO: ImportData/ExportData 1행 복사 → WebSquare에서는 행 단위 복사 로직 필요
+            ds_RetrieveValidation.insertRow(0);
+            for (let col = 0; col < ds_csv.getColumnCount(); col++) {
+                let colId = ds_csv.getColumnID(col);
+                let csvColIds = ["seaAirCls","expImp","partner","cd","blNo","custCd","freightCd","crcCd","amount","exRate","amountWon","vat","resultDate","billingDate","foreignCurSet","innerDept","requestSize","err"];
+                if (col < csvColIds.length) {
+                    ds_RetrieveValidation.setCellData(0, csvColIds[col], ds_csv.getCellData(i, colId));
+                }
+            }
+            await $c.sbm.execute(sbm_validation);
+        }
+    }
+
+    let csvColIds = ["seaAirCls","expImp","partner","cd","blNo","custCd","freightCd","crcCd","amount","exRate","amountWon","vat","resultDate","billingDate","foreignCurSet","innerDept","requestSize","err"];
+    ds_freightList.removeAll();
+    for (let r = 0; r < cntRow; r++) {
+        ds_freightList.insertRow(ds_freightList.getRowCount());
+        for (let c = 0; c < ds_csv.getColumnCount(); c++) {
+            if (c < csvColIds.length) {
+                ds_freightList.setCellData(r, csvColIds[c], ds_csv.getCellData(r, ds_csv.getColumnID(c)));
+            }
+        }
+    }
+    for (let k = 0; k < ds_freightList.getRowCount(); k++) {
+        ds_freightList.setCellData(k, "err", ds_err.getCellData(k, "err"));
+    }
+    ds_err.removeAll();
+    return true;
+};
+
+scwin.drmFileSubmit = function() {
+    $c.gus.cfDrmUploadFile(fileUploadGDS, "scwin.f_Upload");
+};
+
+scwin.f_Upload = function() {
+    ds_csv.removeAll();
+    // TODO: fileUploadGDS 기반 CSV 업로드 → WebSquare 파일 업로드 방식으로 대체 필요
+    ds_csv.setDataId(fileUploadGDS.getCellData(0, "filePath"));
+    $c.gus.cfProgressWinOpen();
+    $p.setTimeout(function() { scwin.f_Import(); }, {"delay": 1000});
+};
+
+scwin.f_Import = async function() {
+    scwin.f_DsClear();
+    scwin.flag = false;
+    $c.gus.cfProgressWinClose();
+    if (await scwin.f_CsvValidation()) {
+        $c.gus.cfShowTotalRows(totalRows, ds_freightList.getRowCount());
+        await $c.gus.cfAlertMsg("업로드 완료");
+    }
+    else {
+        $c.gus.cfShowTotalRows(totalRows, 0);
+    }
+    scwin.f_ErrCheck();
+};
+
+scwin.f_ErrCheck = function() {
+    for (let i = 0; i < ds_freightList.getRowCount(); i++) {
+        if (ds_freightList.getCellData(i, "err") != "") {
+            scwin.flag = false;
+            return;
+        }
+    }
+    scwin.flag = true;
+    return;
+};
+
+scwin.f_Save = async function() {
+    if (scwin.editFlag) {
+        await $c.gus.cfAlertMsg("수정한 값이 존재합니다. 재검증 버튼을 눌러 재검증을 해주세요.");
+        return;
+    }
+    if (!ds_freightList.isUpdated()) {
+        await $c.gus.cfAlertMsg("변경된 내역이 없습니다. 업로드 후 저장해주세요.");
+        return;
+    }
+    if (!scwin.flag) {
+        await $c.gus.cfAlertMsg("수정되지 않은 오류 내역이 있습니다. '오류'열을 확인하고, 수정 후 재업로드 해주세요.");
+        return;
+    }
+
+    let chk = await $c.win.confirm("저장하시겠습니까?");
+    if (!chk) {
+        return;
+    }
+
+    for (let i = 0; i < ds_freightList.getRowCount(); i++) {
+        ds_dbCodeRetrieve.removeAll();
+        ds_dbCodeRetrieve.insertRow(0);
+        let csvColIds = ["seaAirCls","expImp","partner","cd","blNo","custCd","freightCd","crcCd","amount","exRate","amountWon","vat","resultDate","billingDate","foreignCurSet","innerDept","requestSize","err"];
+        for (let c = 0; c < csvColIds.length; c++) {
+            ds_dbCodeRetrieve.setCellData(0, csvColIds[c], ds_freightList.getCellData(i, csvColIds[c]));
+        }
+        await $c.sbm.execute(sbm_dbCodeRetrieve);
+    }
+
+    for (let i = 0; i < ds_freightList.getRowCount(); i++) {
+        let SA = ds_freightList.getCellData(i, "seaAirCls");
+        let IE = ds_freightList.getCellData(i, "expImp");
+        let P = "Y";
+
+        let temp;
+        let tempInv;
+        if (SA == 'S') {
+            if (IE == 'I') {
+                if (P == 'Y') {
+                    temp = ds_seaImpPartner;
+                    tempInv = ds_invoiceSIP;
+                }
+                else {
+                    temp = ds_seaImpBuying;
+                    tempInv = ds_invoiceSIB;
+                }
+            }
+            else {
+                if (P == 'Y') {
+                    temp = ds_seaExpPartner;
+                    tempInv = ds_invoiceSEP;
+                }
+                else {
+                    temp = ds_seaExpBuying;
+                    tempInv = ds_invoiceSEB;
+                }
+            }
+        }
+        else {
+            if (IE == 'I') {
+                if (P == 'Y') {
+                    temp = ds_airImpPartner;
+                    tempInv = ds_invoiceAIP;
+                }
+                else {
+                    temp = ds_airImpBuying;
+                    tempInv = ds_invoiceAIB;
+                }
+            }
+            else {
+                if (P == 'Y') {
+                    temp = ds_airExpPartner;
+                    tempInv = ds_invoiceAEP;
+                }
+                else {
+                    temp = ds_airExpBuying;
+                    tempInv = ds_invoiceAEB;
+                }
+            }
+        }
+
+        let newRow = temp.insertRow(temp.getRowCount());
+        let r = temp.getRowCount() - 1;
+        temp.setCellData(r, "odrNo", ds_dbCodeList.getCellData(i, "odrNo"));
+        temp.setCellData(r, "kcomcd", ds_dbCodeList.getCellData(i, "kcomcd"));
+        temp.setCellData(r, "seaAirCls", SA);
+        temp.setCellData(r, "blNo", ds_freightList.getCellData(i, "blNo"));
+        temp.setCellData(r, "mhno", ds_dbCodeList.getCellData(i, "mhno"));
+        temp.setCellData(r, "fareEngCd", ds_freightList.getCellData(i, "freightCd"));
+        temp.setCellData(r, "fareEngNm", ds_dbCodeList.getCellData(i, "fareEngNm"));
+        temp.setCellData(r, "fareGrpCd", ds_dbCodeList.getCellData(i, "fareGrpCd"));
+        temp.setCellData(r, "fareUnit", SA == 'S' ? 'CASE' : '');
+        temp.setCellData(r, "locPtnCls", '1');
+        temp.setCellData(r, "mblHblCls", 'H');
+        temp.setCellData(r, "drcrCls", 'D');
+        temp.setCellData(r, "ppccCls", SA == 'S' ? ds_dbCodeList.getCellData(i, "ppccCls") : '');
+        temp.setCellData(r, "crcCd", ds_freightList.getCellData(i, "crcCd"));
+        temp.setCellData(r, "qty", SA == 'S' ? 0 : ds_dbCodeList.getCellData(i, "qty"));
+        temp.setCellData(r, "grossWt", SA == 'S' ? 0.0 : ds_dbCodeList.getCellData(i, "grossWt"));
+        temp.setCellData(r, "chgWt", 1);
+        temp.setCellData(r, "trfUpr", 0.0);
+        temp.setCellData(r, "exRate", ds_freightList.getCellData(i, "exRate"));
+        temp.setCellData(r, "exRateTyp", SA == 'S' ? ds_dbCodeList.getCellData(i, "exRateTyp") : '');
+        temp.setCellData(r, "prtnAmt", 0);
+        temp.setCellData(r, "rsltsStdDt", ds_freightList.getCellData(i, "resultDate"));
+        temp.setCellData(r, "vatYn", ds_freightList.getCellData(i, "vat") > 0 ? 1 : 0);
+
+        temp.setCellData(r, "sellSeq", 0);
+        temp.setCellData(r, "bilgClntNo", ds_freightList.getCellData(i, "custCd"));
+        temp.setCellData(r, "bilgClntNm", ds_dbCodeList.getCellData(i, "bilgClntNm"));
+        temp.setCellData(r, "sellItemCd", ds_dbCodeList.getCellData(i, "sellItemCd"));
+        temp.setCellData(r, "sellUpr", 1);
+        temp.setCellData(r, "sellAmtFcrc", ds_freightList.getCellData(i, "amount"));
+        temp.setCellData(r, "sellAmt", ds_freightList.getCellData(i, "amountWon") != '' ?
+                ds_freightList.getCellData(i, "amountWon") : (ds_freightList.getCellData(i, "amount") * ds_freightList.getCellData(i, "exRate")));
+        temp.setCellData(r, "vatAmt", ds_freightList.getCellData(i, "vat"));
+
+        if (SA == 'S' && ds_dbCodeList.getCellData(i, "usdAmt") != 0) {
+            temp.setCellData(r, "usdAmt", P == 'Y' ?
+                    Math.round((temp.getCellData(r, "sellAmt") / ds_dbCodeList.getCellData(i, "usdAmt")) * 100) / 100
+                    : Math.round((temp.getCellData(r, "pchsAmt") / ds_dbCodeList.getCellData(i, "usdAmt")) * 100) / 100);
+        }
+
+        if (SA == 'A' && IE == 'E' && P == 'Y') {
+            temp.setCellData(r, "qty", 0);
+            temp.setCellData(r, "grossWt", 0);
+        }
+
+        let invRow = tempInv.insertRow(tempInv.getRowCount());
+        let ir = tempInv.getRowCount() - 1;
+        let tempColCount = temp.getColumnCount();
+        for (let tc = 0; tc < tempColCount; tc++) {
+            let colId = temp.getColumnID(tc);
+            tempInv.setCellData(ir, colId, temp.getCellData(r, colId));
+        }
+        tempInv.setCellData(ir, "billingDate", ds_freightList.getCellData(i, "billingDate"));
+        tempInv.setCellData(ir, "foreignCurSet", ds_freightList.getCellData(i, "foreignCurSet"));
+        tempInv.setCellData(ir, "requestSize", ds_freightList.getCellData(i, "requestSize"));
+        tempInv.setCellData(ir, "partner", P);
+        tempInv.setCellData(ir, "expImp", IE == 'I' ? 'I' : 'O');
+        if ("Y" != tempInv.getCellData(ir, "foreignCurSet")) {
+            tempInv.setCellData(ir, "crcCd", "KRW");
+        }
+    }
+
+    await $c.sbm.execute(sbm_saveFreight);
+};
+
+scwin.f_tmp = function() {
+    let tmp = "확인 \n\n";
+    let check = ds_seaImpPartner;
+    for (let i = 0; i < check.getRowCount(); i++) {
+        for (let j = 0; j < check.getColumnCount(); j++) {
+            tmp = tmp + check.getCellData(i, check.getColumnID(j)) + ", ";
+        }
+        tmp = tmp + "\n";
+    }
+    alert(tmp);
+
+    let cnt = "열 수 확인 \n" + ds_seaImpPartner.getRowCount() + "\n" + ds_seaImpBuying.getRowCount() + "\n"
+    + ds_seaExpPartner.getRowCount() + "\n" + ds_seaExpBuying.getRowCount() + "\n"
+    + ds_airImpPartner.getRowCount() + "\n" + ds_airImpBuying.getRowCount() + "\n"
+    + ds_airExpPartner.getRowCount() + "\n" + ds_airExpBuying.getRowCount() + "\n";
+    alert(cnt);
+};
+
+scwin.f_DsClear = function() {
+    ds_freightList.removeAll();
+    ds_RetrieveValidation.removeAll();
+    ds_validation.removeAll();
+    ds_err.removeAll();
+    ds_seaImpPartner.removeAll();
+    ds_seaImpBuying.removeAll();
+    ds_seaExpPartner.removeAll();
+    ds_seaExpBuying.removeAll();
+    ds_airImpPartner.removeAll();
+    ds_airImpBuying.removeAll();
+    ds_airExpPartner.removeAll();
+    ds_airExpBuying.removeAll();
+    ds_dbCodeList.removeAll();
+    ds_dbCodeRetrieve.removeAll();
+    ds_dbCodeResult.removeAll();
+    ds_invoiceSIP.removeAll();
+    ds_invoiceSIB.removeAll();
+    ds_invoiceSEP.removeAll();
+    ds_invoiceSEB.removeAll();
+    ds_invoiceAIP.removeAll();
+    ds_invoiceAIB.removeAll();
+    ds_invoiceAEP.removeAll();
+    ds_invoiceAEB.removeAll();
+    $c.gus.cfShowTotalRows(totalRows, 0);
+};
+
+scwin.f_ReCheck = async function() {
+    if (!scwin.editFlag) {
+        await $c.gus.cfAlertMsg("값을 수정 후, 재검증 버튼을 눌러주세요.");
+        return;
+    }
+    if (ds_freightList.getRowCount() == 0) {
+        await $c.gus.cfAlertMsg("먼저 CSV 파일을 업로드해주세요.");
+        return;
+    }
+    ds_csv.removeAll();
+    let csvColIds = ["seaAirCls","expImp","partner","cd","blNo","custCd","freightCd","crcCd","amount","exRate","amountWon","vat","resultDate","billingDate","foreignCurSet","innerDept","requestSize","err"];
+    for (let r = 0; r < ds_freightList.getRowCount(); r++) {
+        ds_csv.insertRow(ds_csv.getRowCount());
+        for (let c = 0; c < csvColIds.length; c++) {
+            ds_csv.setCellData(r, ds_csv.getColumnID(c), ds_freightList.getCellData(r, csvColIds[c]));
+        }
+    }
+    ds_freightList.removeAll();
+    ds_err.removeAll();
+
+    if (await scwin.f_CsvValidation()) {
+        scwin.f_ErrCheck();
+        await $c.gus.cfAlertMsg("재검사를 완료하였습니다.");
+    }
+    scwin.editFlag = false;
+};
+
+scwin.sbm_validation_submitdone = function(e) {
+    let arr = ["blNo", "custCd", "freightCd", "crcCd", "innerDept"];
+    let arrMsg = ["House B/L", "Customer Code", "Freight Code", "CUR Code", "내부거래 코드"];
+
+    let msg = "";
+    for (let i = 0; i < arr.length; i++) {
+        if (ds_validation.getCellData(0, arr[i]) != '1') {
+            msg += arrMsg[i] + " 항목이 유효하지 않습니다. ";
+        }
+    }
+    ds_err.setCellData(ds_err.getRowCount() - 1, "err", ds_err.getCellData(ds_err.getRowCount() - 1, "err") + msg);
+};
+
+scwin.sbm_validation_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+    scwin.f_DsClear();
+    ds_csv.removeAll();
+};
+
+scwin.sbm_dbCodeRetrieve_submitdone = function(e) {
+    ds_dbCodeList.insertRow(ds_dbCodeList.getRowCount());
+    let r = ds_dbCodeList.getRowCount() - 1;
+    ds_dbCodeList.setCellData(r, "kcomcd", ds_dbCodeResult.getCellData(0, "kcomcd"));
+    ds_dbCodeList.setCellData(r, "blNo", ds_dbCodeResult.getCellData(0, "blNo"));
+    ds_dbCodeList.setCellData(r, "mhno", ds_dbCodeResult.getCellData(0, "mhno"));
+    ds_dbCodeList.setCellData(r, "ppccCls", ds_dbCodeResult.getCellData(0, "ppccCls"));
+    ds_dbCodeList.setCellData(r, "odrNo", ds_dbCodeResult.getCellData(0, "odrNo"));
+    ds_dbCodeList.setCellData(r, "usdAmt", ds_dbCodeResult.getCellData(0, "usdAmt"));
+    ds_dbCodeList.setCellData(r, "exRateTyp", ds_dbCodeResult.getCellData(0, "exRateTyp"));
+    ds_dbCodeList.setCellData(r, "fareEngNm", ds_dbCodeResult.getCellData(0, "fareEngNm"));
+    ds_dbCodeList.setCellData(r, "sellItemCd", ds_dbCodeResult.getCellData(0, "sellItemCd"));
+    ds_dbCodeList.setCellData(r, "fareGrpCd", ds_dbCodeResult.getCellData(0, "fareGrpCd"));
+    ds_dbCodeList.setCellData(r, "bilgClntNm", ds_dbCodeResult.getCellData(0, "bilgClntNm"));
+    ds_dbCodeList.setCellData(r, "selpchItemCd", ds_dbCodeResult.getCellData(0, "selpchItemCd"));
+    ds_dbCodeList.setCellData(r, "pchsClntNm", ds_dbCodeResult.getCellData(0, "pchsClntNm"));
+    ds_dbCodeList.setCellData(r, "qty", ds_dbCodeResult.getCellData(0, "qty"));
+    ds_dbCodeList.setCellData(r, "grossWt", ds_dbCodeResult.getCellData(0, "grossWt"));
+    ds_dbCodeList.setCellData(r, "sellDeptNm", ds_dbCodeResult.getCellData(0, "sellDeptNm"));
+};
+
+scwin.sbm_dbCodeRetrieve_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+    scwin.f_DsClear();
+    ds_csv.removeAll();
+};
+
+scwin.sbm_saveFreight_submitdone = async function(e) {
+    await $c.win.alert("저장이 완료되었습니다.");
+    ds_freightList_complete.removeAll();
+    let csvColIds = ["seaAirCls","expImp","partner","cd","blNo","custCd","freightCd","crcCd","amount","exRate","amountWon","vat","resultDate","billingDate","foreignCurSet","innerDept","requestSize","err"];
+    for (let r = 0; r < ds_freightList.getRowCount(); r++) {
+        ds_freightList_complete.insertRow(ds_freightList_complete.getRowCount());
+        for (let c = 0; c < csvColIds.length; c++) {
+            ds_freightList_complete.setCellData(r, csvColIds[c], ds_freightList.getCellData(r, csvColIds[c]));
+        }
+    }
+    $c.gus.cfShowTotalRows(totalRows2, ds_freightList_complete.getRowCount());
+    scwin.f_DsClear();
+};
+
+scwin.sbm_saveFreight_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+    ds_seaImpPartner.removeAll();
+    ds_seaImpBuying.removeAll();
+    ds_seaExpPartner.removeAll();
+    ds_seaExpBuying.removeAll();
+    ds_airImpPartner.removeAll();
+    ds_airImpBuying.removeAll();
+    ds_airExpPartner.removeAll();
+    ds_airExpBuying.removeAll();
+    ds_dbCodeList.removeAll();
+    ds_dbCodeRetrieve.removeAll();
+    ds_dbCodeResult.removeAll();
+    ds_invoiceSIP.removeAll();
+    ds_invoiceSIB.removeAll();
+    ds_invoiceSEP.removeAll();
+    ds_invoiceSEB.removeAll();
+    ds_invoiceAIP.removeAll();
+    ds_invoiceAIB.removeAll();
+    ds_invoiceAEP.removeAll();
+    ds_invoiceAEB.removeAll();
+};
+
+scwin.gr_freightList_oneditend = function(rowIndex, columnId, oldValue, newValue) {
+    if (newValue != oldValue) {
+        scwin.flag = false;
+        scwin.editFlag = true;
+    }
+};
+
+scwin.gr_freightList_complete_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+    if (rowIndex >= 0) {
+        if (ds_freightList_complete.getCellData(rowIndex, "seaAirCls") == "S") {
+            if (ds_freightList_complete.getCellData(rowIndex, "expImp") == "I") {
+                let strPath = "/ui/il/seainb/sibl/se_201_01_03b.xml";
+                let param = {
+                    linkcheck: "2",
+                    kcomcd: "DBEX",
+                    blno: ds_freightList_complete.getCellData(rowIndex, "blNo")
+                };
+                $c.win.openMenu("Import House B/L (New)", strPath, "se_201_01_03b.xml", param);
+            }
+            else {
+                let strPath = "/ui/il/seaout/sobl/se_105_01_05b.xml";
+                let param = {
+                    linkcheck: "2",
+                    kcomcd: "DBEX",
+                    blno: ds_freightList_complete.getCellData(rowIndex, "blNo")
+                };
+                $c.win.openMenu("Export House B/L (New)", strPath, "se_105_01_05b.xml", param);
+            }
+        }
+        else {
+            if (ds_freightList_complete.getCellData(rowIndex, "expImp") == "I") {
+                let strPath = "/ui/il/airinb/aibl/ar_203_01_03b.xml";
+                let param = {
+                    kcomcd: "DBEX",
+                    blno: ds_freightList_complete.getCellData(rowIndex, "blNo")
+                };
+                $c.win.openMenu("Import House B/L (New)", strPath, "ar_203_01_03b.xml", param);
+            }
+            else {
+                let strPath = "/ui/il/airout/aobl/ar_104_01_06b.xml";
+                let param = {
+                    kcomcd: "DBEX",
+                    blno: ds_freightList_complete.getCellData(rowIndex, "blNo")
+                };
+                $c.win.openMenu("Export House B/L (New)", strPath, "ar_104_01_06b.xml", param);
+            }
+        }
+    }
+};
+
+scwin.btn_ReCheck_onclick = function(e) {
+    scwin.f_ReCheck();
+};
+
+scwin.btn_Save_onclick = function(e) {
+    scwin.f_Save();
+};
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="tabbox" id="" style="">
+    			<xf:group class="wq_tab" id="">
+    				<w2:tabControl alwaysDraw="false" class="" id="" style="">
+    					<w2:tabs disabled="false" id="tabs1" label="업로드" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs2" label="업로드 내역 확인" style=""></w2:tabs>
+    					<w2:content alwaysDraw="false" id="content1" style=""><xf:group id="" class="round-box"><xf:group style="" id="" class="title-wrap">
+    							<xf:group id="" class="right">
+    								<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    							<w2:gridView scrollByColumnAdaptive="false" focusMode="row" visibleRowNumFix="true" dataList="ds_freightList" scrollByColumn="false" style="" autoFit="allColumn" id="gr_freightList" visibleRowNum="15" class="wq_gvw" checkReadOnlyOnPasteEnable="" readOnly="false">
+    								<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header2">
+    									<w2:row style="" id="row3">
+    										<w2:column width="70" inputType="text" style="" id="seaAirCls" value="해운/&lt;/br&gt;항공" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="expImp" value="Export/&lt;/br&gt;Import" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="partner" value="파트너" displayMode="label" hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" style="" id="cd" value="매출/&lt;/br&gt;매입" displayMode="label" hidden="true">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="blNo" value="House&lt;/br&gt;B/L" displayMode="label">
+    										</w2:column>
+    										<w2:column width="120" inputType="text" style="" id="custCd" value="Customer&lt;/br&gt;Code" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="freightCd" value="Freight&lt;/br&gt;Code" displayMode="label">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" style="" id="crcCd" value="CUR" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="amount" value="AMOUNT" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="exRate" value="ex-rate" displayMode="label">
+    										</w2:column>
+    										<w2:column width="120" inputType="text" style="" id="amountWon" value="Amount(원)" displayMode="label">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" style="" id="vat" value="vat" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="resultDate" value="실적일자" displayMode="label">
+    										</w2:column>
+    										<w2:column width="130" inputType="text" style="" id="billingDate" value="invoice일자" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="foreignCurSet" value="외화 정산" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="innerDept" value="내부거래 &lt;/br&gt;코드" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="requestSize" value="요청범위" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="err" value="오류" displayMode="label"></w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody2">
+    									<w2:row style="" id="row4">
+    										<w2:column width="70" inputType="text" style="" id="seaAirCls" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="expImp" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="partner" value="" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="cd" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="blNo" value="" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="custCd" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="freightCd" value="" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="crcCd" value="" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="amount" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="exRate" value="" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="amountWon" value="" displayMode="label" allowChar="0-9"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="vat" value="" displayMode="label" allowChar="0-9"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="resultDate" value="" displayMode="label" allowChar="0-9"></w2:column>
+    										<w2:column width="130" inputType="text" style="" id="billingDate" value="" displayMode="label" allowChar="0-9"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="foreignCurSet" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="innerDept" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="requestSize" value="" displayMode="label" allowChar="0-9"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="err" value="" displayMode="label" readOnly="true"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    								<w2:footer style="" id="footer1">
+    									<w2:row style="" id="row5">
+    										<w2:column width="70" inputType="text" style="" id="column48" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column47" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column46" value="" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="column45" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column44" value="" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column43" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column42" value="" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="column41" value="" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column40" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column60" value="" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column57" value="" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="column51" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+    										<w2:column width="130" inputType="text" style="" id="column75" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column72" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column69" value="" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column63" value="" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" style="" id="column66" value="" displayMode="label"></w2:column>
+    									</w2:row>
+    								</w2:footer>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group style="" id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group><xf:group style="" id="" class="btnbox">
+    							<xf:group style="" id="" class="left">
+    							<xf:group id="" class="info-list"><w2:textbox style="" id="" label="1. '엑셀DN' 버튼을 눌러 업로드 양식 파일을 다운로드 합니다." class=""></w2:textbox><w2:textbox style="" id="" label="2. 엑셀에 Freight 정보를 정확히 입력해주세요." class=""></w2:textbox><w2:textbox style="" id="" label="데이터에 쉼표(,)를 포함하여 입력하지마세요. CSV 파일의 특성 상, 정상적으로 파일이 읽히지 않을 수 있습니다." class="txt-dot txt-red"></w2:textbox><w2:textbox style="" id="" label="3. 엑셀 파일을 CSV 파일로 변환한 뒤, 우측 상단의 '엑셀UP' 버튼을 통해 업로드해주세요. (보안파일은 업로드 되지 않습니다.) " class=""></w2:textbox><w2:textbox style="" id="" label="4. 업로드 후, 잘못된 값이 있다면 '오류'열에 표시됩니다. 값 확인 및 수정 후 재검증 버튼을 눌러주세요." class=""></w2:textbox><w2:textbox style="" id="" label="5. '저장' 버튼을 누르면 Freight 내역이 등록됩니다. House B/L 메뉴에서, 정상적으로 등록 되었는지 확인 가능합니다. &lt;br/&gt;('오류'가 발생한 열에 대해서는 해당 열이 노란색으로 표시됩니다.)" class="" escape="false"></w2:textbox></xf:group></xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:textbox style="" id="" label="반드시 엑셀 파일을 CSV 파일로 변환하여 업로드 해주세요." class="txt-dot txt-red"></w2:textbox><xf:trigger style="" id="btn_ReCheck" ev:onclick="scwin.btn_ReCheck_onclick" type="button" class="btn white">
+    									<xf:label><![CDATA[재검증]]></xf:label>
+    								</xf:trigger>
+    								<xf:trigger style="" id="btn_Save" ev:onclick="scwin.btn_Save_onclick" type="button" class="btn">
+    									<xf:label><![CDATA[저장]]></xf:label>
+    								</xf:trigger>
+    								
+    							</xf:group>
+    						</xf:group></xf:group></w2:content>
+    					<w2:content alwaysDraw="false" id="content2" style="">
+    						<xf:group class="round-box" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    								<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="ds_freightList_complete"
+    									focusMode="row" id="gr_freightList_complete" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15"
+    									visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column width="70" inputType="text" style="" id="seaAirCls" value="해운/&lt;/br&gt;항공"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="expImp"
+    												value="Export/&lt;/br&gt;Import" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="partner" value="파트너"
+    												displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="cd" value="매출/&lt;/br&gt;매입"
+    												displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="blNo" value="House&lt;/br&gt;B/L"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="custCd"
+    												value="Customer&lt;/br&gt;Code" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="freightCd"
+    												value="Freight&lt;/br&gt;Code" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="crcCd" value="CUR"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="amount" value="AMOUNT"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="exRate" value="ex-rate"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="amountWon" value="Amount(원)"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="vat" value="vat"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="resultDate" value="실적일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="billingDate" value="invoice일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="foreignCurSet" value="외화 정산"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="innerDept" value="내부거래 &lt;/br&gt;코드"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="requestSize" value="요청범위"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="err" value="오류"
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column width="70" inputType="text" style="" id="seaAirCls" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="expImp" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="partner" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="cd" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="blNo" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="custCd" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="freightCd" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="crcCd" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="amount" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="exRate" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="amountWon" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="vat" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="resultDate" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="billingDate" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="foreignCurSet" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="innerDept" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="requestSize" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="err" value=""
+    												displayMode="label" readOnly="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer id="footer1" style="">
+    										<w2:row id="row5" style="">
+    											<w2:column width="70" inputType="text" style="" id="column72" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column69" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column66" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column63" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column60" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column51" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column54" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column57" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column87" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column84" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column75" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column78" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column81" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column99" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column96" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column90" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column93" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column102" value=""
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="" style="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group><xf:group id="" class="btnbox"><xf:group id="" class="right"><w2:textbox style="" id="" label=" 표의 행을 더블클릭 하시면, 해당 B/L로 넘어갑니다." class="txt-dot txt-blue"></w2:textbox></xf:group></xf:group></xf:group>
+    					</w2:content>
+    				</w2:tabControl>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

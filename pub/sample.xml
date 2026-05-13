@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="index" meta_screenName="퍼블가이드" meta_desc=" ">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_dataMap1">
+    				<w2:keyInfo>
+    					<w2:key id="grpCode" name="name1" dataType="text"></w2:key>
+    					<w2:key id="key2" name="name2" dataType="text"></w2:key>
+    					<w2:key id="key3" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+
+
+    						<col1><![CDATA[HX]]></col1>
+    					</w2:row>
+    					<w2:row>
+
+
+    						<col1><![CDATA[HY]]></col1>
+    						<col3><![CDATA[]]></col3>
+    					</w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[ scwin.onpageload = function() {
+
+    // .link 클릭 시 새창 열기
+$(".link").on("click", function(e) {
+  e.preventDefault();
+//   const url = `/websquare/websquare.html?w2xPath=/pub/${$(this).attr("target")}/${$(this).attr("name")}.xml`;
+
+  const src = `pub/${$(this).attr("target")}/${$(this).attr("name")}.xml`;
+//   window.open(url, "_blank");
+$c.win.openMenu(src.substring(src.lastIndexOf("/")+1),src,src.substring(src.lastIndexOf("/")+1));
+});
+
+// name 값을 옆 td에 넣기
+$(".link[name]").each(function() {
+  $(this).closest("td").next("td").text($(this).attr("name"));
+});
+
+
+}
+        ]]></script>
+    	<style>
+    		.guide-wrap{overflow:hidden}
+
+    	</style>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" class=""><xf:group id="" class="sub_contents" style="overflow: visible;">
+	<xf:group class="round-box" id="" style="">
+		<xf:group class="tbbox" id="section" style="" user-target="aa">
+			<xf:group class="w2tb w-full" id="" style="" tagname="table">
+				<w2:attributes>
+					<w2:summary></w2:summary>
+				</w2:attributes>
+				<xf:group tagname="colgroup">
+					<xf:group style="width:120px;" tagname="col"></xf:group>
+				</xf:group>
+				<xf:group style="" tagname="tr">
+					<xf:group class="w2tb_th tac" style="" tagname="th"></xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:attributes>
+							<w2:scope>row</w2:scope>
+						</w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="01기본페이지" outerDiv="false" style="" target="/"
+							userData1="aa">
+							<xf:label><![CDATA[기본페이지]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="02조회그리드입력" outerDiv="false" style="" target="/"
+							userData1="aa">
+							<xf:label><![CDATA[조회그리드입력]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group tagname="td" class="w2tb_td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="03그리드2개" outerDiv="false" style="" target="/"
+							userData1="aa">
+							<xf:label><![CDATA[그리드2개]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="04서브탭" outerDiv="false" style="" target="/" userData1="aa">
+							<xf:label><![CDATA[서브탭]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="05유형이 다른 여러 그리드" outerDiv="false" style="" target="/"
+							userData1="aa">
+							<xf:label><![CDATA[유형이 다른 여러 그리드]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="06서브탭이 다양한 경우" outerDiv="false" style="" target="/"
+							userData1="aa">
+							<xf:label><![CDATA[서브탭 내용이 다양한 경우]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group class="w2tb_td" tagname="td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="sd_402_01_26b" outerDiv="false" style=""
+							target="ds/sd/odrmgnt/odrreg" userData1="aa">
+							<xf:label><![CDATA[그리드3단스크롤]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group tagname="td" class="w2tb_td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="sd_402_01_02b" outerDiv="false" style=""
+							target="ds/sd/odrmgnt/odrreg" userData1="aa">
+							<xf:label><![CDATA[그리드 펼치고 닫기 ]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+				<xf:group tagname="tr">
+					<xf:group tagname="td" class="w2tb_td">
+						<w2:attributes></w2:attributes>
+						<w2:anchor class="link" data-category="ac" id="" name="07그리드 좌우 동일 늘어나기" outerDiv="false" style="" userData1="aa"
+							target="/">
+							<xf:label><![CDATA[그리드 좌우 동일하게 늘어나기]]></xf:label>
+						</w2:anchor>
+					</xf:group>
+				</xf:group>
+			<xf:group tagname="tr">
+				<xf:group tagname="td" class="w2tb_td">
+					<w2:attributes></w2:attributes>
+					<w2:anchor class="link" data-category="ac" id="" name="co_301_03_02b" outerDiv="false" style="" target="ac/co/budgetmgnt"
+						userData1="aa">
+						<xf:label><![CDATA[오즈테스트]]></xf:label>
+					</w2:anchor>
+				</xf:group></xf:group></xf:group>
+		</xf:group>
+	</xf:group></xf:group></body>
+</html>

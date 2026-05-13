@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_oldDept">
+    				<w2:keyInfo>
+    					<w2:key id="oldDeptCd" name="oldDeptCd" dataType="text"></w2:key>
+    					<w2:key id="oldDeptCdNm" name="oldDeptCdNm" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	scwin.params = $c.data.getParameter();
+
+    // dma_oldDept.set("oldDeptCd"     , scwin.params.oldDeptCd);
+    // dma_oldDept.set("oldDeptCdNm"   , scwin.params.oldDeptCdNm);
+    dma_oldDept.set("oldDeptCd"     , scwin.params.pdept);
+    dma_oldDept.set("oldDeptCdNm"   , scwin.params.pdeptnm);
+};
+
+scwin.onUdcCompleted = function () {
+    ed_oldDeptCode.setReadOnly(true);
+    btn_oldDept.setDisabled(true);
+    ed_oldDeptCodeName.setReadOnly(true);
+}
+
+scwin.f_OpenCommonPopUp = function (disGubun, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+    if (disGubun == "oldDepartmentA") {
+        // udc_dept.setSelectId("retrieveOpDeptCdInfo"); // XML상의 SELECT ID
+        udc_oldDept.ilCommonPopUp(scwin.udc_oldDept_callBackFunc // 콜백 함수
+            , ed_oldDeptCode.getValue() // 화면에서의 ??? Code Element의 Value
+            , ed_oldDeptCodeName.getValue() // 화면에서의 ??? Name Element의 Value
+            , pWinCloseTF // 결과가 1건 일때 원도우를 AutoClose 여부 (T:Close,F:Opened)
+            , "2" // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+            , "Code, Name" // Title순서
+            , "80, 230" // 보여주는 각 컬럼들의 폭
+            , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는 컬럼 지정
+            , null // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+            , null // POP-UP뛰을때 원도우의 사용자 정의 폭
+            , null // POP-UP뛰을때 우도우의 사용자 정의 높이
+            , null // 윈도우 위치 Y좌표
+            , null // 윈도우 위치 X좌표
+            , null // 중복체크여부 ("F")
+            , pAllSearchTF // 전체검색허용여부 ("F")
+            , "DEPT,Code,Name" // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            , pNoDataCloseTF
+        );
+    }
+
+    if (disGubun == "newDepartment") {
+        // udc_dept.setSelectId("retrieveOpDeptCdInfo"); // XML상의 SELECT ID
+        udc_newDept.ilCommonPopUp(scwin.udc_newDept_callBackFunc // 콜백 함수
+            , ed_newDeptCode.getValue() // 화면에서의 ??? Code Element의 Value
+            , ed_newDeptCodeName.getValue() // 화면에서의 ??? Name Element의 Value
+            , pWinCloseTF // 결과가 1건 일때 원도우를 AutoClose 여부 (T:Close,F:Opened)
+            , "2" // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+            , "Code, Name" // Title순서
+            , "80, 230" // 보여주는 각 컬럼들의 폭
+            , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는 컬럼 지정
+            , null // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+            , null // POP-UP뛰을때 원도우의 사용자 정의 폭
+            , null // POP-UP뛰을때 우도우의 사용자 정의 높이
+            , null // 윈도우 위치 Y좌표
+            , null // 윈도우 위치 X좌표
+            , null // 중복체크여부 ("F")
+            , pAllSearchTF // 전체검색허용여부 ("F")
+            , "DEPT,Code,Name" // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            , pNoDataCloseTF
+        );
+    }
+};
+
+scwin.udc_oldDept_onclickEvent = function (e) {
+    scwin.f_OpenCommonPopUp("oldDepartmentA", "F", "F", "F");
+};
+
+scwin.udc_newDept_onclickEvent = function (e) {
+    scwin.f_OpenCommonPopUp("newDepartment", "F", "F", "F");
+};
+
+scwin.udc_oldDept_onviewchangeCodeEvent = function (info) {
+    scwin.f_OpenCommonPopUp("newDepartment", "T", "F", "F");
+};
+
+
+scwin.udc_newDept_onviewchangeCodeEvent = function (info) {
+    var strClntNo = ed_newDeptCode.getValue().trim();
+
+    if (ed_newDeptCode.isModified()) {
+
+        if (strClntNo.length > 0) {
+            ed_newDeptCodeName.setValue("");
+            scwin.f_OpenCommonPopUp("newDepartment", "T", "F", "F");
+        } else {
+            ed_newDeptCodeName.setValue("");
+        }
+    }
+};
+
+scwin.udc_oldDept_callBackFunc = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_oldDeptCode, ed_oldDeptCodeName);
+};
+
+scwin.udc_newDept_callBackFunc = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_newDeptCode, ed_newDeptCodeName);
+};
+
+scwin.btn_close_onclick = function (e) {
+    var arrRtnVal = [];
+    arrRtnVal[0] = "N/A";
+    arrRtnVal[1] = ed_newDeptCode.getValue().trim();
+    arrRtnVal[2] = ed_newDeptCodeName.getValue().trim();
+
+    $c.win.closePopup(arrRtnVal);
+};
+
+
+
+]]></script>
+    	<w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="tb_searchCondition" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:150px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="Old Department" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_ilcomCode codeId="ed_oldDeptCode" nameId="ed_oldDeptCodeName" popupID="" selectID="retrieveOpDeptCdInfo" style="" validTitle="" id="udc_oldDept" btnId="btn_oldDept" ev:onclickEvent="scwin.udc_oldDept_onclickEvent" ev:onviewchangeCodeEvent="scwin.udc_oldDept_onviewchangeCodeEvent" code="oldDeptCd" refDataCollection="dma_oldDept" name="oldDeptCdNm" setNameOnBlurCode="Y" UpperFlagCode="1" maxlengthCode="4"></w2:udc_ilcomCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="New Department" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_ilcomCode codeId="ed_newDeptCode" nameId="ed_newDeptCodeName" popupID="" selectID="retrieveOpDeptCdInfo" style="" validTitle="" id="udc_newDept" btnId="btn_newDept" ev:onclickEvent="scwin.udc_newDept_onclickEvent" ev:onviewchangeCodeEvent="scwin.udc_newDept_onviewchangeCodeEvent" setNameOnBlurCode="Y" UpperFlagCode="1" allowCharCodeLength="0" allowCharCode="a-zA-Z0-9" maxlengthCode="4"></w2:udc_ilcomCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[Close]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

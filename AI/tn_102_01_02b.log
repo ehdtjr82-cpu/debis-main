@@ -1,0 +1,30 @@
+tn_102_01_02b.log
+
+[2026-02-19 15:54:17.337] 변환 시작
+[2026-02-19 15:54:17.376] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:55:00.669] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=C, verdict=REVIEW, errors=6, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=0, warnings=5 | LLM 43216ms, total 43293ms
+    - [XML] 'sbm_comboCarKind'가 참조하는 데이터 'ds_combo2'가 dataCollection에 선언되지 않음 — sbm_comboCarKind
+    - [XML] 'lc_eqkndcd'가 참조하는 데이터 'ds_queryConditionDTO'가 dataCollection에 선언되지 않음 — lc_eqkndcd
+    - [XML] 'txt_vehclno'가 참조하는 데이터 'ds_queryConditionDTO'가 dataCollection에 선언되지 않음 — txt_vehclno
+    - [XML] 'sbm_comboCarKind'가 참조하는 데이터 'ds_combo2'가 dataCollection에 선언되지 않음 — sbm_comboCarKind
+    - [XML] 'sbm_comboCarKind'가 참조하는 데이터 'ds_combo2'가 dataCollection에 선언되지 않음 — sbm_comboCarKind
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:55:00.753] #1 검증: 자동수정 2건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:55:00.841] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=C, verdict=REVIEW, errors=6, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=5
+    - [XML] 'sbm_comboCarKind'가 참조하는 데이터 'ds_combo2'가 dataCollection에 선언되지 않음 — sbm_comboCarKind
+    - [XML] 'acb_eqkndcd'가 참조하는 데이터 'ds_queryConditionDTO'가 dataCollection에 선언되지 않음 — acb_eqkndcd
+    - [XML] 'txt_vehclno'가 참조하는 데이터 'ds_queryConditionDTO'가 dataCollection에 선언되지 않음 — txt_vehclno
+    - [XML] 'sbm_comboCarKind'가 참조하는 데이터 'ds_combo2'가 dataCollection에 선언되지 않음 — sbm_comboCarKind
+    - [XML] 'sbm_comboCarKind'가 참조하는 데이터 'ds_combo2'가 dataCollection에 선언되지 않음 — sbm_comboCarKind
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_lobranCd (LUXECOMBO→w2:autoComplete), lc_cargoClsCd (LUXECOMBO→w2:autoComplete)
+[2026-02-19 15:55:00.845] #2 재시도 (에러 6건)
+[2026-02-19 15:55:01.859] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:55:48.366] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=0, warnings=5 | LLM 46426ms, total 46506ms
+[2026-02-19 15:55:48.369] 성공 (#2, 1m 31s, confidence:0.96)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

@@ -1,0 +1,24 @@
+op_204_01_01b.log
+
+[2026-02-19 13:53:12.227] 변환 시작
+[2026-02-19 13:53:12.329] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 13:57:24.423] #1 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 251792ms, total 252094ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_empNo (EMEDIT→xf:input), ed_qryStDt (EMEDIT→xf:input), ed_qryEndDt (EMEDIT→xf:input)
+[2026-02-19 13:57:24.538] #1 검증: 자동수정 1건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+[2026-02-19 13:57:24.883] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=3
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_empNo (EMEDIT→xf:input), ed_qryStDt (EMEDIT→xf:input), ed_qryEndDt (EMEDIT→xf:input)
+[2026-02-19 13:57:24.898] #2 재시도 (에러 1건)
+[2026-02-19 13:57:25.903] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:01:54.010] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 267873ms, total 268107ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_empNo (EMEDIT→xf:input), ed_qryStDt (EMEDIT→xf:input), ed_qryEndDt (EMEDIT→xf:input)
+[2026-02-19 14:01:54.014] #1 검증: 최적 시도 #1 채택 (confidence: 0.84)
+[2026-02-19 14:01:54.014] 성공 (#2, 8m 41s, confidence:0.84)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_empNo (EMEDIT→xf:input), ed_qryStDt (EMEDIT→xf:input), ed_qryEndDt (EMEDIT→xf:input)
+================================================================================

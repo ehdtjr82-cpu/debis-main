@@ -1,0 +1,31 @@
+op_210_01_02b.log
+
+[2026-02-19 14:11:45.201] 변환 시작
+[2026-02-19 14:11:45.264] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:14:31.533] #1 검증: XML: WebSquareXmlValidator: score=0.61, grade=B, verdict=REVIEW, errors=1, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 165945ms, total 166269ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.gr_eq_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 14:14:31.725] #1 검증: 자동수정 6건 적용
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U20: grid-wrap 래퍼 제거
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] U27: 과잉 닫기 태그 제거
+[2026-02-19 14:14:32.107] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.61, grade=B, verdict=REVIEW, errors=1, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=0, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.gr_eq_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 14:14:39.880] #2 재시도 (에러 1건)
+[2026-02-19 14:14:40.884] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:17:39.657] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.83, grade=B, verdict=REVIEW, errors=3, warnings=7 | LLM 178295ms, total 178770ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] NameValue→getCellData/get — 잔재 2건 (소스 21건)
+    - [적정성] RowPosition→getRowPosition() — 잔재 1건 (소스 5건)
+    - [적정성] .NameValue() 잔재 — 2건 발견
+[2026-02-19 14:17:39.679] #1 검증: 최적 시도 #1 채택 (confidence: 0.81)
+[2026-02-19 14:17:39.680] 실패 (2회 시도, 5m 54s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.gr_eq_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+================================================================================

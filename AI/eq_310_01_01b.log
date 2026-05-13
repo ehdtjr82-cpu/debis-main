@@ -1,0 +1,32 @@
+eq_310_01_01b.log
+
+[2026-02-18 22:45:57.783] 변환 시작
+[2026-02-18 22:45:57.796] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 22:47:40.397] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=C, verdict=REVIEW, errors=6, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=REVIEW, errors=3, warnings=4 | LLM 102496ms, total 102600ms
+    - [XML] submission 'sbm_retrieve'에 action 속성 누락 — sbm_retrieve
+    - [XML] submission 'sbm_retrieveCombo'에 action 속성 누락 — sbm_retrieveCombo
+    - [XML] scwin.sbm_retrieve_submiterror에서 $c.win.alert를 await 없이 호출 — script:scwin.sbm_retrieve_submiterror
+    - [XML] scwin.sbm_retrieve_submiterror이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.sbm_retrieve_submiterror
+    - [XML] scwin.sbm_saveFixPlan_submiterror에서 $c.win.alert를 await 없이 호출 — script:scwin.sbm_saveFixPlan_submiterror
+    - [XML] scwin.sbm_saveFixPlan_submiterror이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.sbm_saveFixPlan_submiterror
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_standDate1 (EMEDIT→xf:input), ed_standDate2 (EMEDIT→xf:input)
+    - [적정성] async 선언 누락 — scwin.sbm_retrieve_submiterror (uses $c.win.alert), scwin.sbm_saveFixPlan_submiterror (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.sbm_retrieve_submiterror → $c.win.alert, scwin.sbm_saveFixPlan_submiterror → $c.win.alert
+[2026-02-18 22:47:40.451] #1 검증: 자동수정 2건 적용
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 22:47:40.557] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=4
+    - [XML] submission 'sbm_retrieve'에 action 속성 누락 — sbm_retrieve
+    - [XML] submission 'sbm_retrieveCombo'에 action 속성 누락 — sbm_retrieveCombo
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_standDate1 (EMEDIT→xf:input), ed_standDate2 (EMEDIT→xf:input)
+[2026-02-18 22:47:46.531] #2 재시도 (에러 9건)
+[2026-02-18 22:47:47.532] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 22:49:30.623] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=4 | LLM 102979ms, total 103091ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_standDate1 (EMEDIT→xf:input), ed_standDate2 (EMEDIT→xf:input)
+[2026-02-18 22:49:30.625] 성공 (#2, 3m 32s, confidence:0.96)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_standDate1 (EMEDIT→xf:input), ed_standDate2 (EMEDIT→xf:input)
+================================================================================

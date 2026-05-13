@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="fromToCalendar" meta_screenName="From To Calendar" meta_subsystem="공통" meta_author="인스웨이브"
+    	meta_desc="2개의 INPUTCALENDAR를 제어하는 UDC">
+    	<w2:type palette="support">COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:publicInfo method="scwin.setInitDate" />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:aliasDataMap id="aliasDataMap" scope=""></w2:aliasDataMap>
+                <w2:aliasDataList id="aliasDataList" scope=""></w2:aliasDataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+/**
+ * @component
+ * @componentName udc_fromToCalendarTime
+ * @pluginName 
+ * @company 
+ * @developer user
+ * @category /cm/udc
+ * @variableClone true
+ * @notSupportBrowser 
+ * @version 
+ * @htmlRender 
+ * @icon 
+ * @disableIcon 
+ * @width %
+ * @height px
+ * @description 
+ */ 
+
+/**
+ * @property
+ * @name id
+ * @category 01.Basic & ETC
+ * @type string
+ * @option 
+ * @default udc_fromToCal
+ * @necessary Y
+ * @description 메인화면에서 사용할 UDC ID
+ */   
+
+/**
+ * @property
+ * @name class
+ * @category 01.Basic & ETC
+ * @type string
+ * @option 
+ * @default 
+ * @necessary N
+ * @description Class ID
+ */  
+
+/**
+ * @property
+ * @name style
+ * @category 01.Basic & ETC
+ * @type string
+ * @option 
+ * @default 
+ * @necessary N
+ * @description 메안화면의 style
+ */   
+
+/**
+ * @property
+ * @name refStDt
+ * @category 01.Basic & ETC
+ * @type string
+ * @option 
+ * @default 
+ * @necessary Y
+ * @description bind 할 메인화면의  dataMap 컬럼 ID ( 시작날짜 )
+ */               
+
+ 
+
+/**
+ * @property
+ * @name refEdDt
+ * @category 01.Basic & ETC
+ * @type string
+ * @option 
+ * @default 
+ * @necessary Y
+ * @description bind 할 메인화면의  dataMap 컬럼 ID ( 종료날짜 )
+ */            
+
+/**
+ * @property
+ * @name refDataMap
+ * @category 01.Basic & ETC
+ * @type string
+ * @option 
+ * @default 
+ * @necessary Y
+ * @description bind 할 메인화면의 dataMap  ID (메인화면의 데이타 맵인 경우   예: ../dataMapid )
+ */       
+
+/**
+ * @property
+ * @name mandatoryFrom
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description From 필수입력 여부
+ */
+
+/**
+ * @property
+ * @name objTypeFrom
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description from 달력의 objType 속성
+ */
+
+/**
+ * @property
+ * @name objTypeTo
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description To 달력의 objType
+ */
+
+/**
+ * @property
+ * @name objTypeBtn
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 달력버튼 objTypeBtn
+ */
+
+/**
+ * @property
+ * @name mandatoryTo
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 필수 입력여부 To
+ */
+
+/**
+ * @property
+ * @name userAuthBtn
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description userAuth From
+ */
+
+/**
+ * @property
+ * @name edFromId
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description From 객체로 사용할 아이디
+ */
+
+/**
+ * @property
+ * @name edToId
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description To 객체로 사용할 아이디
+ */
+
+
+
+   
+
+
+
+
+/**
+ * @method
+ * @name setInit
+ * @description desc
+ * @return None|없음.
+ * @param 
+ * @hidden Y
+ * @exception 
+ * @sample 
+ */      
+
+	scwin.onpageload = function() {
+		scwin.setInit();
+		scwin.disFlag = true;
+        scwin.initFlag = true; // 초기화면 셋팅시 달력도 일치하게 처리
+	};
+	
+	scwin.setInit = function(){
+		let opts = $p.getOptions();
+		let refDataMap = opts.refDataMap;
+        let pFrame = $p.parent();
+        let alias, aliasId;
+        
+        scwin.initFromDate = "";
+        scwin.initToDate = "";
+
+        
+        if(opts.edFromId) {
+            pFrame[opts.edFromId] = ipt_from;
+        }
+        if(opts.edToId) {
+            pFrame[opts.edToId] = ipt_to;
+        }
+
+        if(opts.mandatoryFrom == "true") {
+            ipt_from.setMandatory(true);
+            ipt_from.options.dateValidSet = true;
+        } else if(opts.mandatoryFrom == "false"){
+            ipt_from.setMandatory(false);
+            ipt_from.options.dateValidSet = false;
+        }
+        if(opts.mandatoryTo == "true") {
+            ipt_to.setMandatory(true);
+            ipt_to.options.dateValidSet = true;
+        } else if(opts.mandatoryTo == "false"){
+            ipt_to.setMandatory(false);
+            ipt_to.options.dateValidSet = false;
+        }
+
+        if(opts.objTypeFrom) {
+            ipt_from.options.objType = opts.objTypeFrom;
+        }
+        if(opts.objTypeTo) {
+            ipt_to.options.objType = opts.objTypeTo;
+        }
+        if(opts.objTypeBtn) {
+            img_Cal.options.objType = opts.objTypeBtn;
+        }
+        if(opts.userAuthBtn) {
+            img_Cal.options.userAuth = opts.userAuthBtn;
+        }
+
+		if ( !refDataMap ) return;
+        switch(pFrame[refDataMap].options.pluginName)
+        {
+            case "dataMap":
+                alias = aliasDataMap;
+                aliasId = aliasDataMap.org_id + ".";
+                break;
+            case "dataList":
+                alias = aliasDataList;
+                aliasId = aliasDataList.org_id + ".";
+                break;
+        }
+		alias.setScope("../"+refDataMap);
+		ipt_from.setRef("data:"+ aliasId + opts.refStDt);
+		ipt_to.setRef("data:"+ aliasId + opts.refEdDt);
+		// let refStDt = alias.get(opts.refStDt);
+		// let refEdDt = alias.get(opts.refEdDt);
+		// scwin.setInitDate(refStDt,refEdDt);
+		
+	};
+	
+/**
+ * @method
+ * @name setInitDate
+ * @description desc
+ * @return None|없음
+ * @param <String>|fromDate|desc
+ * @param <String>|toDate|desc 
+ * @hidden N
+ * @exception 
+ * @sample 
+ */    
+	scwin.setInitDate = function(fromDate , toDate ){//debugger;
+		gr_cal.setStyle( "display" , "none" );
+		scwin.disFlag = true;
+		
+		if ( fromDate.length == 12 ){
+			scwin.setInitFromDate(fromDate);
+            scwin.initFromDate = fromDate.substring(0,8);
+		}
+		if ( toDate.length == 12 ){
+			scwin.setInitToDate(toDate);
+            scwin.initToDate = toDate.substring(0,8);
+		}
+		if(!fromDate) scwin.initFromDate = cal_fr.getDate();
+        if(!toDate) scwin.initToDate = cal_to.getDate();
+
+		cal_fr.gotoCalendar(fromDate);	
+		cal_to.gotoCalendar(toDate);	
+		
+		//scwin.disableBeforeDate(fromDate.substring(0,8));
+		//scwin.disableAfterDate(toDate.substring(0,8));
+		
+	};
+/**
+ * @method
+ * @name setInitFromDate
+ * @description desc
+ * @return None|없음
+ * @param <String>|dateStr|desc 
+ * @hidden Y
+ * @exception 
+ * @sample 
+ */     
+	scwin.setInitFromDate = function(dateStr){
+		ipt_from.setValue(dateStr);
+		//scwin.setMainFromDate(dateStr);
+	};
+		
+/**
+ * @method
+ * @name setInitToDate
+ * @description desc
+ * @return None|없음
+ * @param <String>|dateStr|desc 
+ * @hidden Y
+ * @exception 
+ * @sample 
+ */   
+	scwin.setInitToDate = function(dateStr){
+		ipt_to.setValue(dateStr);
+		//scwin.setMainFromDate(dateStr);
+	};
+		
+	scwin.img_Cal_onclick = function(e) {//debugger;
+		if (scwin.disFlag){
+            //$c.win.gridSettingsClose();
+            gr_cal.focus();
+			scwin.disFlag = false;
+
+            let left = 0;
+            if($("#"+this.id).offset().left > (560+220)) {
+                left = -320 ;
+            }
+
+            let top = this.getPosition("top")+24;
+            gr_cal.setStyle('top',top + 'px');		
+            gr_cal.setStyle('left',left + 'px');	
+            gr_cal.show("");
+	
+			if ( scwin.initFlag && scwin.initFlag && ipt_to.getValue()  && ipt_to.getValue().length == 12 ){
+				cal_to.gotoCalendar(ipt_to.getValue());
+                let to_h = ipt_to.getValue().substring(8,10);
+                let to_m = ipt_to.getValue().substring(10,12);
+
+                cal_to.gotoTime(to_h, to_m);
+			} else {
+				cal_to.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+			}
+			if ( scwin.initFlag && scwin.initFlag && ipt_from.getValue()  && ipt_from.getValue().length == 12 ){
+				cal_fr.gotoCalendar(ipt_from.getValue());
+                let from_h = ipt_from.getValue().substring(8,10);
+                let from_m = ipt_from.getValue().substring(10,12);
+
+                cal_fr.gotoTime(from_h, from_m);
+			} else {
+				cal_fr.gotoCalendar($p.getCurrentServerDate( "yyyyMMdd" ));
+			}
+		} else {
+			scwin.disFlag = true;
+			gr_cal.setStyle( "display" , "none" );
+		}
+    				
+	};
+	
+	scwin.cal_fr_ondateselect = function(dateStr,dateObj) {//debugger;
+        dateStr = dateStr || cal_fr.getDate()+cal_fr.getTime();
+
+		if ( dateStr >  ipt_to.getValue() && ipt_to.getValue() != "" && dateStr.length == 12){
+ 			$c.win.alert("TO DATE 보다 미래일자 입니다.",function() {
+                if(gr_cal.getStyleValue("display") !== "none") {
+                    ipt_from.setValue(scwin.initFromDate);
+                    cal_fr.gotoCalendar(scwin.initFromDate);
+                } else {
+                    ipt_from.setValue("");
+                    ipt_from.focus();
+                }
+                return;
+            });
+ 		} else {
+            let minY = $W.configCacheObj.calendar.minYear || 1978;
+            let maxY = $W.configCacheObj.calendar.maxYear || 2030;
+            let strY = dateStr.substring(0,4);
+
+            if((!$c.date.isDate(dateStr) && dateStr.length == 12) || parseInt(strY) < minY || parseInt(strY) > maxY) {
+                $c.win.alert("날짜 형식이 올바르지 않습니다.", function() {
+                    ipt_from.setValue("");
+                    ipt_from.focus();
+                    return;
+                });
+            }
+            
+ 			ipt_from.setValue(dateStr);
+            scwin.initFromDate = cal_fr.getDate();
+            cal_fr.gotoCalendar(dateStr);
+
+  			if ( ipt_to.getValue() ){
+  				scwin.disFlag = true;
+  				gr_cal.setStyle( "display" , "none" );
+  			}
+ 		}
+ 		//scwin.disableBeforeDate( dateStr.substring(0,8));		
+	};
+	
+	scwin.cal_to_ondateselect = function(dateStr,dateObj) {//debugger;
+        dateStr = dateStr || cal_to.getDate()+cal_to.getTime();
+
+		if ( dateStr < ipt_from.getValue() && ipt_from.getValue() != "" && dateStr.length == 12){
+    		$c.win.alert("FROM DATE 보다 과거일자 입니다.", function() {
+                if(gr_cal.getStyleValue("display") !== "none") {
+                    ipt_to.setValue(scwin.initToDate);
+                    cal_to.gotoCalendar(scwin.initToDate);
+                } else {
+                    ipt_to.setValue("");
+                    ipt_to.focus();
+                }
+                return;
+            });
+    					
+		} else {
+            let minY = $W.configCacheObj.calendar.minYear || 1978;
+            let maxY = $W.configCacheObj.calendar.maxYear || 2030;
+            let strY = dateStr.substring(0,4);
+
+            if((!$c.date.isDate(dateStr) && dateStr.length == 12) || parseInt(strY) < minY || parseInt(strY) > maxY) {
+                $c.win.alert("날짜 형식이 올바르지 않습니다.", function() {
+                    ipt_to.setValue("");
+                    ipt_to.focus();
+                    return;
+                });
+            }
+
+ 			ipt_to.setValue( dateStr );
+// 			cal_to.gotoCalendar(dateStr);
+            scwin.initToDate = cal_to.getDate();
+
+ 			if ( ipt_from.getValue() ){
+ 				scwin.disFlag = true;
+ 				gr_cal.setStyle( "display" , "none" );
+ 			}
+		}
+		//scwin.disableAfterDate	( dateStr.substring(0,8) );	
+	};
+	comp = ipt_from;
+
+	scwin.disableBeforeDate = function( dateStr ){
+		if ( dateStr ){
+			var date1 = $p.dateAdd( dateStr , 0 );
+			cal_to.options.disableBeforeDate = date1;
+		} else {
+			cal_to.options.disableBeforeDate = false;
+		}
+	};
+	
+	scwin.disableAfterDate = function( dateStr ){
+		if ( dateStr ){
+			var date1 = $p.dateAdd( dateStr , 0 );
+			
+			cal_fr.options.disableAfterDate = date1;
+		} else {
+			cal_fr.options.disableAfterDate = false;
+		}
+	};
+	
+	scwin.ipt_from_onviewchange = function(info) {//debugger;
+		var val = info.newValue;
+		scwin.cal_fr_ondateselect(val);
+	};
+	
+	scwin.ipt_to_onviewchange = function(info) {
+		var val = info.newValue;
+		scwin.cal_to_ondateselect (val);
+	};
+	
+scwin.cal_fr_oncancel = function () {
+    scwin.disFlag = true;
+ 	gr_cal.setStyle( "display" , "none" );
+};
+
+/**
+ * @event
+ * @name onBlurFrom
+ * @description from blur 이벤트
+ * @param {object} e desc
+ * @example
+ */
+scwin.emit_onBlurFrom = function (e) {
+	$p.emit("onBlurFrom", e);
+};
+
+
+/**
+ * @event
+ * @name onBlurTo
+ * @description blurTo 이벤트
+ * @param {object} e desc
+ * @example
+ */
+scwin.emit_onBlurTo = function (e) {
+	$p.emit("onBlurTo", e);
+};
+scwin.onBlurTo = function (e) {
+    let dateStr = this.getValue(); 
+	// if(this.getValue() && this.getValue().length != 12 ) {
+	if(dateStr != "" && dateStr.length != 12 || (!$c.date.isDate(dateStr) && dateStr.length == 12) ) {
+        $c.win.alert("날짜 형식이 올바르지 않습니다.", function() {
+            ipt_to.setValue("");
+            ipt_to.focus();
+            return;
+        });
+    }
+    $p.emit("onBlurTo", e);
+};
+
+scwin.ipt_from_onblur = function (e) {
+    let dateStr = this.getValue(); 
+    // if(this.getValue() && this.getValue().length != 12 ) {
+    if(dateStr != "" && dateStr.length != 12 || (!$c.date.isDate(dateStr) && dateStr.length == 12) ) {
+        $c.win.alert("날짜 형식이 올바르지 않습니다.", function() {
+            ipt_from.setValue("");
+            ipt_from.focus();
+            return;
+        });
+    }
+    $p.emit("onBlurFrom", e);
+};
+
+scwin.btn_trigger1_onclick = function (e) {//debugger;
+    if ( cal_fr.getDate() == "" || cal_fr.getDate().length != 8){
+        $c.win.alert("시작일자를 입력하세요.", function() {
+            // cal_fr.setValue("");
+            cal_fr.focus();
+            return;           
+        });
+    } else if ( cal_to.getDate() == "" || cal_to.getDate().length != 8){
+        $c.win.alert("종료일자를 입력하세요.", function() {
+            // cal_to.setValue("");
+            cal_to.focus();
+            return;           
+        });
+    } else if ( cal_fr.getDate()+cal_fr.getTime() > cal_to.getDate()+cal_to.getTime()){
+        $c.win.alert("시작일자가 종료일자 이전이여야 합니다.", function() {
+            // cal_fr.setValue("");
+            cal_fr.focus();
+            return;           
+        });
+    } else {
+        ipt_from.setValue(cal_fr.getDate()+cal_fr.getTime());
+        ipt_to.setValue(cal_to.getDate()+cal_to.getTime());
+
+        scwin.disFlag = true;
+        gr_cal.setStyle( "display" , "none" );
+    }
+};
+
+scwin.ipt_from_onfocus = function (e) {
+    scwin.disFlag = true;
+    gr_cal.setStyle( "display" , "none" );
+};
+
+scwin.ipt_to_onfocus = function (e) {
+    scwin.disFlag = true;
+    gr_cal.setStyle( "display" , "none" );
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload()">
+        <xf:group id="grp_udcContent" class="cal-wrap">
+            <xf:group localeRef="cal-box" id="grp_group1" class="cal-input">
+                <xf:input ref="" rightAlign="false" dataType="date" adjustMaxLength="false" style="" id="ipt_from" renderType="" class="form-control" title="시작일자" invalidMessage="시작일자" allowChar="0-9" ev:onblur="scwin.ipt_from_onblur" maxlength="12" displayFormat="yyyy/MM/dd HHmm" ioFormat="yyyyMMddHHmm" validateOnInput="true" ev:onfocus="scwin.ipt_from_onfocus">
+    		</xf:input><w2:span style="" id="" label="~"></w2:span>
+            <xf:input rightAlign="false" dataType="date" displayFormat="yyyy/MM/dd HHmm" adjustMaxLength="false" style="" id="ipt_to" renderType="" class="form-control" ioFormat="yyyyMMddHHmm"  title="종료일자" invalidMessage="종료일자" allowChar="0-9" validateOnInput="true" ev:onblur="scwin.onBlurTo" maxlength="12" ev:onfocus="scwin.ipt_to_onfocus">
+    		</xf:input>
+            <xf:trigger anchorWithGroupClass="" ev:onclick="scwin.img_Cal_onclick" style="" id="img_Cal" type="button" class="btn ico btn_calender">
+    			<xf:label><![CDATA[calendar]]></xf:label>
+    		</xf:trigger></xf:group>
+            <xf:group style="z-index:2000;display:none" id="gr_cal" class="gr_cal calender-wrap">
+            	<xf:group adaptiveThreshold="" class="cal-grp" id="" style="">
+            		<w2:calendar footerDiv="true" style="" id="cal_fr" calendarValueType="yearMonthDateTime"
+            			ev:onconfirm="" ev:oncancel="scwin.cal_fr_oncancel">
+            		</w2:calendar>
+            	</xf:group>
+            	<xf:group class="cal-grp" id="" style="">
+            		<w2:calendar footerDiv="true" style="" id="cal_to" calendarValueType="yearMonthDateTime"
+            			ev:onconfirm="" ev:oncancel="scwin.cal_fr_oncancel">
+            		</w2:calendar>
+            	</xf:group>
+            	<xf:trigger class="btn pt-blue" id="btn_trigger1" style="" type="button" ev:onclick="scwin.btn_trigger1_onclick">
+            		<xf:label><![CDATA[확인]]></xf:label>
+            	</xf:trigger>
+            </xf:group></xf:group></body>
+</html>

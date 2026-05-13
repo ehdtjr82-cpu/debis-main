@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="pivot 샘플" meta_screenId="smp_pivot">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="bank" name="name1" dataType="text"></w2:column>
+						<w2:column id="due_mon" name="name2" dataType="text"></w2:column>
+						<w2:column id="amt" name="name3" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="false"></w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[    scwin.onpageload = function() {
+        // 데이터 세팅
+        dataList1.setData(
+        [
+            "국민은행 강남","2025-01",15205000,
+            "국민은행 강남","2025-02",8225000,
+            "국민은행 강남","2025-03",8125000,
+            "국민은행 강남","2025-04",0,
+            "기업은행 중소","2025-01",12020010,
+            "기업은행 중소","2025-02",57010,
+            "기업은행 중소","2025-03",0,
+            "우리은행 포스코","2025-01",38151200,
+            "우리은행 포스코","2025-02",0,
+            "우리은행 포스코","2025-03",0,
+            
+        ]);
+        pivotTable1.setOption({});
+    }        
+	
+// 다운로드
+scwin.btn_trigger2_onclick = function (e) {
+    pivotTable1.pivotExcelDownload( {} );
+
+};
+
+// 업로드
+scwin.btn_trigger1_onclick = function (e) {
+    var options = {}; 
+    options.startRowIndex = 2;
+    options.startColumnIndex = 0;
+    options.append = 1;
+    pivotTable1.pivotExcelUpload( options );
+};
+]]></script>
+		<style>.w2editablePivot_container_header_hiddenList:before { content:"제외컬럼" }</style>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe style="" id="wfm_wframe1" src="/cm/xml/contentHeader.xml"></w2:wframe>
+			<xf:group id="" class="round-box">
+				<xf:group style="" id="" class="title-wrap">
+					<xf:group id="" class="title">
+						<w2:textbox tagname="h3" style="" id="" label="pivot Sample" class="tit"></w2:textbox>
+					</xf:group>
+				</xf:group>
+				<w2:pivot allTotalName="합계" vals="amt" editablePivotMode="false" rows="bank" valuesAxis="row" ev:onRefresh=""
+					showGrandTotal="true" showZero="true" dataList="data:dataList1" contextMenuGetter="getContext" excludeHiddenList="" style=";"
+					aggregatorName="Sum" id="pivotTable1" autoFit="allColumn" cols="due_mon" class="cm_pivot" useNumberFormat="true">
+					<w2:fieldInfo>
+						<w2:field name="은행" id="bank"></w2:field>
+						<w2:field name="날짜" id="due_mon"></w2:field>
+						<w2:field name="합계" id="amt"></w2:field>
+					</w2:fieldInfo>
+				</w2:pivot>
+				<xf:trigger type="button" id="btn_trigger1" style="width:80px; height:23px; " ev:onclick="scwin.btn_trigger1_onclick">
+					<xf:label><![CDATA[업로드]]></xf:label>
+				</xf:trigger>
+				<xf:trigger type="button" id="btn_trigger2" style="width:80px; height:23px; " ev:onclick="scwin.btn_trigger2_onclick">
+					<xf:label><![CDATA[다운로드]]></xf:label>
+				</xf:trigger>
+			</xf:group></xf:group>
+	</body>
+</html>

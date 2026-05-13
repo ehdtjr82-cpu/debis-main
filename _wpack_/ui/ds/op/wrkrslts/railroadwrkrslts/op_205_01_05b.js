@@ -1,0 +1,120 @@
+/*amd /ui/ds/op/wrkrslts/railroadwrkrslts/op_205_01_05b.xml 24299 2a68ae960ae0f0ce004d6a8a170e3dc43b1dfab29fb3ae67975c5aa6e1a54834 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_QueryCondition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'dptDtFrom',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptDtTo',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dptStn',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_PrivatetrainCutResults',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'No',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptStnWrkPlNm',name:'출발역',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvStnWrkPlNm',name:'도착역',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prvtAssgnCnt20Empty',name:'20E',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prvtAssgnCnt20Full',name:'20F',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prvtAssgnCnt40Empty',name:'40E',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prvtAssgnCnt40Full',name:'40F',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prvtAssgnCnt45Empty',name:'45E',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prvtAssgnCnt45Full',name:'45F',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsCnt20Empty',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsCnt20Full',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsCnt40Empty',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsCnt40Full',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsCnt45Empty',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsCnt45Full',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadFare',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cutAmount',name:'name17',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.wrkrslts.railroadwrkrslts.RetrievePrivatetrainCutResultsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_QueryCondition","key":"IN_DS1"},{"id":"ds_PrivatetrainCutResults","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_PrivatetrainCutResults","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.strCurDate = WebSquare.date.getCurrentServerDate(); // 서버를 기준으로 현재 날짜 반환
+scwin.strCurym = scwin.strCurDate.substring(0, 6);
+scwin.oldrowData = 0;
+scwin.onpageload = function () {
+  udc_fromToCalendar.setInitDate(scwin.strCurym + "01", scwin.strCurDate); //udc달력
+};
+scwin.udc_comCode_rain_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(), 'F', 'T');
+};
+
+//callback
+scwin.udc_comCode_rain_callBackFunc = function (ret) {
+  $c.gus.cfSetReturnValue($p, ret, ed_begintrainWorkPlaceCd, ed_begintrainWorkPlaceNm);
+};
+scwin.udc_comCode_rain_onblurCodeEvent = function (e) {
+  if (ed_begintrainWorkPlaceCd.getValue() === "") {
+    ed_begintrainWorkPlaceNm.setValue("");
+  } else {
+    scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(), 'T', 'T');
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch) {
+  // 선언부
+  // var rtnList= new Array();  // 공통POP-UP -> 요청화면 
+  var rtnList = null;
+  var pWhere = "";
+  switch (disGubun) {
+    case 1:
+      // 출발역 역명 팝업	
+      udc_comCode_rain.setSelectId("retrieveTrainWorkPlace");
+      rtnList = await udc_comCode_rain.cfCommonPopUp(scwin.retrieveTrainWorkPlaceCb // XML상의 SELECT ID	
+      , pCode // 화면에서의 ??? Code Element의	Value
+      , pName // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서	
+      , null // 보여주는 각 컬럼들의 폭	
+      , null // 컬럼중에서 숨기는	컬럼 지정	
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이	
+      , null // 윈도우 위치 Y좌표	
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , "역명조회,작업장코드,작업장명" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //도착지코드          도착지명
+
+      break;
+  }
+};
+scwin.retrieveTrainWorkPlaceCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_begintrainWorkPlaceCd, ed_begintrainWorkPlaceNm);
+};
+scwin.udc_comCode_rain_onviewchangeNameEvent = function (info) {
+  if (ed_begintrainWorkPlaceNm.getValue() === "") {
+    ed_begintrainWorkPlaceCd.setValue("");
+  } else {
+    scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(), 'T', 'T');
+  }
+};
+
+//초기화
+scwin.btn_fieldClear_onclick = function (e) {
+  ed_FromDt.setValue(scwin.strCurym + "01");
+  ed_ToDt.setValue(scwin.strCurDate);
+  ed_begintrainWorkPlaceCd.setValue("");
+  ed_begintrainWorkPlaceNm.setValue("");
+};
+
+//조회
+scwin.btn_retrieve_onclick = async function (e) {
+  if (!(await $c.gus.cfValidate($p, [ed_FromDt, ed_ToDt]))) {
+    return;
+  }
+  ds_PrivatetrainCutResults.removeAll();
+
+  //dataMap set
+  dma_QueryCondition.set("dptDtFrom", ed_FromDt.getValue());
+  dma_QueryCondition.set("dptDtTo", ed_ToDt.getValue());
+  dma_QueryCondition.set("dptStn", ed_begintrainWorkPlaceCd.getValue());
+  $c.sbm.execute($p, sbm_retrieve);
+  scwin.oldrowData = 0;
+};
+
+//조회callback
+scwin.sbm_retrieve_submitdone = function () {
+  let nCnt = ds_PrivatetrainCutResults.getRowCount();
+  if (nCnt == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+  } else {
+    gr_PrivatetrainCutResults.setFocusedCell(0, 0);
+    total.setValue(nCnt);
+  }
+};
+scwin.f_railroadFareExcel = async function () {
+  var totCnt = ds_PrivatetrainCutResults.getRowCount();
+  if (totCnt != "0") {
+    var cfrm = await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?");
+    if (cfrm) {
+      // cfGridToExcel(varGrNm, sheetTitle, sheetTitle, 2+4+8+16);	
+
+      var fileName = "사유화차저감실적";
+      await $c.data.downloadGridViewExcel($p, gr_PrivatetrainCutResults, {
+        fileName: fileName + ".xlsx",
+        sheetName: fileName
+      });
+    }
+  } else {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'tbl_search',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'출발역 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{hideName:'Y',popupID:'',style:'',codeId:'ed_begintrainWorkPlaceCd',nameId:'ed_begintrainWorkPlaceNm',id:'udc_comCode_rain',maxlengthCode:'6',objTypeCode:'Key',UpperFlagCode:'1',selectID:'','ev:onclickEvent':'scwin.udc_comCode_rain_onclickEvent','ev:onblurCodeEvent':'scwin.udc_comCode_rain_onblurCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_comCode_rain_onviewchangeNameEvent',maxlengthName:'100',allowCharCode:'a-z0-9A-Z'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업일자 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_fromToCalendar',refDataMap:'',refEdDt:'',refStDt:'',style:'',edFromId:'ed_FromDt',edToId:'ed_ToDt',mandatoryFrom:'true',titleFrom:'작업시작일자',titleTo:'작업종료일자',mandatoryTo:'true'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'사유화차저감실적',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',gridID:'gr_PrivatetrainCutResults',gridDownFn:'scwin.f_railroadFareExcel',gridDownUserAuth:'X'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_PrivatetrainCutResults',id:'gr_PrivatetrainCutResults',style:'',visibleRowNum:'15',visibleRowNumFix:'true',focusMode:'cell',readOnly:'true',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',value:'컬럼헤더명',width:'70',colSpan:'',rowSpan:'2',class:'txt-blue',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'출발역',width:'150',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'도착역',width:'150',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'배정수량',width:'420',colSpan:'6',rowSpan:''}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'실적수량',width:'420',colSpan:'6',rowSpan:''}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column34',displayMode:'label',value:'철송임',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column37',displayMode:'label',value:'저감실적',colSpan:'',rowSpan:'2'}}]},{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column65',value:'20E',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column64',value:'20F',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column63',value:'40E',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column62',value:'40F',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column61',value:'45E',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column60',value:'45F',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column59',value:'20E',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column58',value:'20F',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column57',value:'40E',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column56',value:'40F',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column55',value:'45E',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column54',value:'45F',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'No',inputType:'text',width:'70',hiddenCol:'true',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'dptStnWrkPlNm',inputType:'text',width:'150',textAlign:'center',colMerge:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'arvStnWrkPlNm',inputType:'text',width:'150',textAlign:'center'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'prvtAssgnCnt20Empty',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'prvtAssgnCnt20Full',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'prvtAssgnCnt40Empty',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'prvtAssgnCnt40Full',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'prvtAssgnCnt45Empty',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'prvtAssgnCnt45Full',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'rsltsCnt20Empty',inputType:'text',width:'70',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'rsltsCnt20Full',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'rsltsCnt40Empty',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'rsltsCnt40Full',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'rsltsCnt45Empty',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'rsltsCnt45Full',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'railroadFare',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'cutAmount',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',excelCellType:'number',dataType:'number'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'dptStnWrkPlNm',style:'',id:'subTotal1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column82',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'column81',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'expression',style:'',id:'column80',value:'',displayMode:'label',expression:'COUNT("arvStnWrkPlNm") + "건"'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column79',value:'',displayMode:'label',expression:'SUM("prvtAssgnCnt20Empty")',textAlign:'right',displayFormat:'#,###,###,###,###',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column78',value:'',displayMode:'label',expression:'SUM("prvtAssgnCnt20Full")',textAlign:'right',displayFormat:'#,###,###,###,###',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column77',value:'',displayMode:'label',expression:'SUM("prvtAssgnCnt40Empty")',textAlign:'right',displayFormat:'#,###,###,###,###',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column76',value:'',displayMode:'label',expression:'SUM("prvtAssgnCnt40Full")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column75',value:'',displayMode:'label',expression:'SUM("prvtAssgnCnt45Empty")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column74',value:'',displayMode:'label',expression:'SUM("prvtAssgnCnt45Full")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column73',value:'',displayMode:'label',expression:'SUM("rsltsCnt20Empty")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column72',value:'',displayMode:'label',expression:'SUM("rsltsCnt20Full")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column71',value:'',displayMode:'label',expression:'SUM("rsltsCnt40Empty")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column70',value:'',displayMode:'label',expression:'SUM("rsltsCnt40Full")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column69',value:'',displayMode:'label',expression:'SUM("rsltsCnt45Empty")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column68',value:'',displayMode:'label',expression:'SUM("rsltsCnt45Full")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column67',value:'',displayMode:'label',expression:'SUM("railroadFare")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',style:'',id:'column66',value:'',displayMode:'label',expression:'SUM("cutAmount")',textAlign:'right',displayFormat:'#,###,###,###,###',dataType:'number',excelCellType:'number'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column27',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("prvtAssgnCnt20Empty")',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column26',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("prvtAssgnCnt20Full")',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column25',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("prvtAssgnCnt40Empty")',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column24',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("prvtAssgnCnt40Full")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column23',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("prvtAssgnCnt45Empty")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column22',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("prvtAssgnCnt45Full")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column21',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("rsltsCnt20Empty")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column51',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("rsltsCnt20Full")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column48',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("rsltsCnt40Empty")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column45',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("rsltsCnt40Full")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column42',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("rsltsCnt45Empty")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column33',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("rsltsCnt45Full")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column36',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("railroadFare")',excelCellType:'number',dataType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column39',displayMode:'label',textAlign:'right',displayFormat:'#,###,###,###,###',expression:'SUM("cutAmount")',excelCellType:'number',dataType:'number'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'total',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]}]}]}]}]})

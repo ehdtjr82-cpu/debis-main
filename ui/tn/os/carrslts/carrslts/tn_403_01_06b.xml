@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="lobranCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="odrNo" name="name2" dataType="text"></w2:key>
+    					<w2:key id="commSeq" name="name3" dataType="text"></w2:key>
+    					<w2:key id="wrkPathSeq" name="name4" dataType="text"></w2:key>
+    					<w2:key id="wrkStpSeq" name="name5" dataType="text"></w2:key>
+    					<w2:key id="transSeq" name="name6" dataType="text"></w2:key>
+    					<w2:key id="rsltsStdDt" name="name7" dataType="text"></w2:key>
+    					<w2:key id="crn" name="name8" dataType="text"></w2:key>
+    					<w2:key id="pchsCrn" name="name9" dataType="text"></w2:key>
+    					<w2:key id="cargoClsCd" name="name10" dataType="text"></w2:key>
+    					<w2:key id="pchsDeptCd" name="name11" dataType="text"></w2:key>
+    					<w2:key id="ordRegId" name="name12" dataType="text"></w2:key>
+    					<w2:key id="transRegId" name="name13" dataType="text"></w2:key>
+    					<w2:key id="ordRegNm" name="name14" dataType="text"></w2:key>
+    					<w2:key id="transRegNm" name="name15" dataType="text"></w2:key>
+    					<w2:key id="bilgClntNo" name="name16" dataType="text"></w2:key>
+    					<w2:key id="sellAmt" name="name17" dataType="text"></w2:key>
+    					<w2:key id="sellVat" name="name18" dataType="text"></w2:key>
+    					<w2:key id="sellTot" name="name19" dataType="text"></w2:key>
+    					<w2:key id="vehclNo" name="name20" dataType="text"></w2:key>
+    					<w2:key id="vehclArvDt" name="name21" dataType="text"></w2:key>
+    					<w2:key id="vehclPchsAmt" name="name22" dataType="text"></w2:key>
+    					<w2:key id="pchsClntNo" name="name23" dataType="text"></w2:key>
+    					<w2:key id="pchsCtrtStDt" name="name24" dataType="text"></w2:key>
+    					<w2:key id="pchsPchsAmt" name="name25" dataType="text"></w2:key>
+    					<w2:key id="pchsVehcl" name="name26" dataType="text"></w2:key>
+    					<w2:key id="confirmYn" name="name27" dataType="text"></w2:key>
+    					<w2:key id="upperCommCd" name="name28" dataType="text"></w2:key>
+    					<w2:key id="upperCommNm" name="name29" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_330_FillUse" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bilgClntNo" name="name1" dataType="text" />
+    					<w2:column id="sellAmt" name="name2" dataType="text" />
+    					<w2:column id="sellVat" name="name3" dataType="text" />
+    					<w2:column id="vehclNo" name="name4" dataType="text" />
+    					<w2:column id="vehclArvDt" name="name5" dataType="text" />
+    					<w2:column id="vehclPchsAmt" name="name6" dataType="text" />
+    					<w2:column id="pchsClntNo" name="name7" dataType="text" />
+    					<w2:column id="pchsCtrtStDt" name="name8" dataType="text" />
+    					<w2:column id="pchsPchsAmt" name="name9" dataType="text" />
+    					<w2:column id="pchsVehcl" name="name10" dataType="text" />
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_Tmp_FillUse" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bilgClntNo" name="name1" dataType="text" />
+    					<w2:column id="sellAmt" name="name2" dataType="text" />
+    					<w2:column id="sellVat" name="name3" dataType="text" />
+    					<w2:column id="vehclNo" name="name4" dataType="text" />
+    					<w2:column id="vehclArvDt" name="name5" dataType="text" />
+    					<w2:column id="vehclPchsAmt" name="name6" dataType="text" />
+    					<w2:column id="pchsClntNo" name="name7" dataType="text" />
+    					<w2:column id="pchsCtrtStDt" name="name8" dataType="text" />
+    					<w2:column id="pchsPchsAmt" name="name9" dataType="text" />
+    					<w2:column id="pchsVehcl" name="name10" dataType="text" />
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_330" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bilgClntNo" name="name1" dataType="text" />
+    					<w2:column id="sellAmt" name="name2" dataType="text" />
+    					<w2:column id="sellVat" name="name3" dataType="text" />
+    					<w2:column id="sellTot" name="name4" dataType="text" />
+    					<w2:column id="vehclNo" name="name5" dataType="text" />
+    					<w2:column id="vehclArvDt" name="name6" dataType="text" />
+    					<w2:column id="vehclPchsAmt" name="name7" dataType="text" />
+    					<w2:column id="pchsClntNo" name="name8" dataType="text" />
+    					<w2:column id="pchsCtrtStDt" name="name9" dataType="text" />
+    					<w2:column id="pchsPchsAmt" name="name10" dataType="text" />
+    					<w2:column id="pchsVehcl" name="name11" dataType="text" />
+    					<w2:column id="uploadDt" name="name12" dataType="text" />
+    					<w2:column id="sndDtm" name="name13" dataType="text" />
+    					<w2:column id="upSeq" name="name14" dataType="text" />
+    					<w2:column id="ctrtStDt" name="name15" dataType="text" />
+    					<w2:column id="confirmYn" name="name16" dataType="text" />
+    					<w2:column id="chk" name="name17" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="name18" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="name19" dataType="text"></w2:column>
+    					<w2:column id="commSeq" name="name20" dataType="text"></w2:column>
+    					<w2:column id="wrkPathSeq" name="name21" dataType="text"></w2:column>
+    					<w2:column id="wrkStpSeq" name="name22" dataType="text"></w2:column>
+    					<w2:column id="transSeq" name="name23" dataType="text"></w2:column>
+    					<w2:column id="rsltsStdDt" name="name24" dataType="text"></w2:column>
+    					<w2:column id="ordRegId" name="name25" dataType="text"></w2:column>
+    					<w2:column id="transRegId" name="name26" dataType="text"></w2:column>
+    					<w2:column id="cargoClsCd" name="name27" dataType="text"></w2:column>
+    					<w2:column id="pchsDeptCd" name="name28" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_330_upload" saveRemovedData="true">
+    				<w2:columnInfo>
+                        <w2:column id="bilgClntNo" name="name1" dataType="text" />
+    					<w2:column id="sellAmt" name="name2" dataType="text" />
+    					<w2:column id="sellVat" name="name3" dataType="text" />
+    					<w2:column id="sellTot" name="name4" dataType="text" />
+    					<w2:column id="vehclNo" name="name5" dataType="text" />
+    					<w2:column id="vehclArvDt" name="name6" dataType="text" />
+    					<w2:column id="vehclPchsAmt" name="name7" dataType="text" />
+    					<w2:column id="pchsClntNo" name="name8" dataType="text" />
+    					<w2:column id="pchsCtrtStDt" name="name9" dataType="text" />
+    					<w2:column id="pchsPchsAmt" name="name10" dataType="text" />
+    					<w2:column id="pchsVehcl" name="name11" dataType="text" />
+    					<w2:column id="uploadDt" name="name12" dataType="text" />
+    					<w2:column id="sndDtm" name="name13" dataType="text" />
+    					<w2:column id="upSeq" name="name14" dataType="text" />
+    					<w2:column id="ctrtStDt" name="name15" dataType="text" />
+    					<w2:column id="confirmYn" name="name16" dataType="text" />
+    					<w2:column id="chk" name="name17" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="name18" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="name19" dataType="text"></w2:column>
+    					<w2:column id="commSeq" name="name20" dataType="text"></w2:column>
+    					<w2:column id="wrkPathSeq" name="name21" dataType="text"></w2:column>
+    					<w2:column id="wrkStpSeq" name="name22" dataType="text"></w2:column>
+    					<w2:column id="transSeq" name="name23" dataType="text"></w2:column>
+    					<w2:column id="rsltsStdDt" name="name24" dataType="text"></w2:column>
+    					<w2:column id="ordRegId" name="name25" dataType="text"></w2:column>
+    					<w2:column id="transRegId" name="name26" dataType="text"></w2:column>
+    					<w2:column id="cargoClsCd" name="name27" dataType="text"></w2:column>
+    					<w2:column id="pchsDeptCd" name="name28" dataType="text"></w2:column>
+                    </w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ncall.tn.os.carrslts.carrslts.RetrieveCargoTransRsltsDeclarUploadCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_330","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_330","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ncall.tn.os.carrslts.carrslts.RegistCargoTransRsltDeclarUploadCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_330","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// NTIS/실적신고/화물운송실적신고(tn_403_01_05b) -업로드
+
+
+scwin.memJson = $c.data.getMemInfo();
+scwin.loUpperLobranCd = scwin.memJson.loUpperLobranCd;
+if (scwin.loUpperLobranCd == null) {
+    scwin.loUpperLobranCd = "";
+}
+
+
+
+
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    console.log(scwin.params);
+    var lobranCd     = $c.gus.cfIsNull(scwin.params["lobranCd"]) ? "" : scwin.params["lobranCd"];
+    var odrNo        = $c.gus.cfIsNull(scwin.params["odrNo"]) ? "" : scwin.params["odrNo"];
+    var commSeq      = $c.gus.cfIsNull(scwin.params["commSeq"]) ? "" : scwin.params["commSeq"];
+    var wrkPathSeq   = $c.gus.cfIsNull(scwin.params["wrkPathSeq"]) ? "" : scwin.params["wrkPathSeq"];
+    var wrkStpSeq    = $c.gus.cfIsNull(scwin.params["wrkStpSeq"]) ? "" : scwin.params["wrkStpSeq"];
+    var transSeq     = $c.gus.cfIsNull(scwin.params["transSeq"]) ? "" : scwin.params["transSeq"];
+    var rsltsStdDt   = $c.gus.cfIsNull(scwin.params["rsltsStdDt"]) ? "" : scwin.params["rsltsStdDt"];
+
+    var strCurrDate  = $c.date.getServerDateTime("yyyyMMdd")  // 서버를 기준으로 현재 날짜 반환
+    
+    var crn          = $c.gus.cfIsNull(scwin.params["crn"]) ? "" : scwin.params["crn"];
+    var pchsCrn      = $c.gus.cfIsNull(scwin.params["pchsCrn"]) ? "" : scwin.params["pchsCrn"];  
+    var cargoClsCd   = $c.gus.cfIsNull(scwin.params["cargoClsCd"]) ? "" : scwin.params["cargoClsCd"];
+    var pchsDeptCd   = $c.gus.cfIsNull(scwin.params["pchsDeptCd"]) ? "" : scwin.params["pchsDeptCd"];
+    var ordRegId     = $c.gus.cfIsNull(scwin.params["ordRegId"]) ? "" : scwin.params["ordRegId"];
+    var transRegId   = $c.gus.cfIsNull(scwin.params["transRegId"]) ? "" : scwin.params["transRegId"];
+    var pchsSystemYn = $c.gus.cfIsNull(scwin.params["pchsSystemYn"]) ? "" : scwin.params["pchsSystemYn"];
+
+    var bilgClntNo   = $c.gus.cfIsNull(scwin.params["bilgClntNo"]) ? "" : scwin.params["bilgClntNo"];
+    var sellAmt      = $c.gus.cfIsNull(scwin.params["sellAmt"]) ? "" : scwin.params["sellAmt"];
+    var sellVat      = $c.gus.cfIsNull(scwin.params["sellVat"]) ? "" : scwin.params["sellVat"];
+    var sellTot      = $c.gus.cfIsNull(scwin.params["sellTot"]) ? "" : scwin.params["sellTot"];
+    var vehclNo      = $c.gus.cfIsNull(scwin.params["vehclNo"]) ? "" : scwin.params["vehclNo"];
+    var vehclArvDt   = $c.gus.cfIsNull(scwin.params["vehclArvDt"]) ? "" : scwin.params["vehclArvDt"];
+    var vehclPchsAmt = $c.gus.cfIsNull(scwin.params["vehclPchsAmt"]) ? "" : scwin.params["vehclPchsAmt"];
+    var pchsClntNo   = $c.gus.cfIsNull(scwin.params["pchsClntNo"]) ? "" : scwin.params["pchsClntNo"];
+    var pchsCtrtStDt = $c.gus.cfIsNull(scwin.params["pchsCtrtStDt"]) ? "" : scwin.params["pchsCtrtStDt"];
+    var pchsPchsAmt  = $c.gus.cfIsNull(scwin.params["pchsPchsAmt"]) ? "" : scwin.params["pchsPchsAmt"];
+    var pchsVehcl    = $c.gus.cfIsNull(scwin.params["pchsVehcl"]) ? "" : scwin.params["pchsVehcl"];
+    var upperCommCd  = $c.gus.cfIsNull(scwin.params["upperCommCd"]) ? "" : scwin.params["upperCommCd"];
+    var upperCommNm  = $c.gus.cfIsNull(scwin.params["upperCommNm"]) ? "" : scwin.params["upperCommNm"];
+    var confirmYn    = $c.gus.cfIsNull(scwin.params["confirmYn"]) ? "" : scwin.params["confirmYn"];
+
+    ds_search.set("lobranCd", lobranCd);
+    ds_search.set("odrNo", odrNo);
+    ds_search.set("commSeq", commSeq);
+    ds_search.set("wrkPathSeq", wrkPathSeq);
+    ds_search.set("wrkStpSeq", wrkStpSeq);
+    ds_search.set("transSeq", transSeq);
+    ds_search.set("rsltsStdDt", rsltsStdDt);
+
+    ds_search.set("crn", crn);
+    ds_search.set("pchsCrn", pchsCrn);
+    ds_search.set("cargoClsCd", cargoClsCd);
+    ds_search.set("pchsDeptCd", pchsDeptCd);
+    ds_search.set("ordRegId", ordRegId);
+    ds_search.set("transRegId", transRegId);
+    ds_search.set("pchsSystemYn", pchsSystemYn);
+
+    ds_search.set("bilgClntNo", bilgClntNo);
+    ds_search.set("sellAmt", sellAmt);
+    ds_search.set("sellVat", sellVat);
+    ds_search.set("sellTot", sellTot);
+    ds_search.set("vehclNo", vehclNo);
+    ds_search.set("vehclArvDt", vehclArvDt);
+    ds_search.set("vehclPchsAmt", vehclPchsAmt);
+    ds_search.set("pchsClntNo", pchsClntNo);
+    ds_search.set("pchsCtrtStDt", pchsCtrtStDt);
+    ds_search.set("pchsPchsAmt", pchsPchsAmt);
+    ds_search.set("pchsVehcl", pchsVehcl);
+
+    ds_search.set("upperCommCd", upperCommCd);
+    ds_search.set("upperCommNm", upperCommNm);
+    ds_search.set("confirmYn", confirmYn);  // ?? ds_search.NameValue(1, "confirmYn") = paramArray[0][46];
+
+    scwin.f_Retrieve();
+};
+
+
+//-----------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-----------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    $c.sbm.execute(sbm_retrieve);
+};
+
+
+
+//-----------------------------------------------------------------------------
+// 저장 
+//-----------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    //변경사항 확인
+    if (ds_330.getModifiedIndex().length == 0) {
+        await $c.gus.cfAlertMsg("변경사항이 없습니다."); //변경사항이 없습니다.
+        return;
+    }
+
+
+    for (var i = 1; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "sellAmt") + ds_330.getCellData(i, "sellVat") != ds_330.getCellData(i-1, "sellAmt") + ds_330.getCellData(i-1, "sellVat")) {
+            await $c.win.alert("합계금액이 일치하지 않습니다.");
+            return;
+        }
+    } 
+    
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "bilgClntNo") == "") {
+            await $c.win.alert("계약정보는 필수 항목입니다.");
+            return;
+        }
+    } 
+
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if ((ds_330.getCellData(i, "pchsClntNo") != "" || ds_330.getCellData(i, "pchsCtrtStDt") != "" || 
+             ds_330.getCellData(i, "pchsPchsAmt") != 0 || ds_330.getCellData(i, "pchsVehcl") != "") && 
+            (ds_330.getCellData(i, "vehclNo") != "" && ds_330.getCellData(i, "vehclArvDt") != "" && ds_330.getCellData(i, "vehclPchsAmt") != 0)) {
+            await $c.win.alert("배차정보를 입력시 위탁계약정보를 입력할수 없습니다.");
+            return;
+        } 
+    }
+
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if ((ds_330.getCellData(i, "vehclNo") != "" || ds_330.getCellData(i, "vehclArvDt") != "" || 
+             ds_330.getCellData(i, "vehclPchsAmt") != 0) &&
+            (ds_330.getCellData(i, "pchsClntNo") != "" && ds_330.getCellData(i, "pchsCtrtStDt") != "" && 
+             ds_330.getCellData(i, "pchsPchsAmt") != 0 && ds_330.getCellData(i, "pchsVehcl") != "")) {
+            await $c.win.alert("위탁계약정보 입력시 배차정보를 입력할수 없습니다.");
+            return;
+        } 
+    }
+
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "confirmYn") == 1) {
+            await $c.win.alert("확정된 화물은 저장할수 없습니다");
+            return;
+        }
+    }
+    //하차일 날짜 유효성 확인
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "vehclArvDt") != "") {
+            if (!$c.date.isDate(ds_330.getCellData(i, "vehclArvDt"))){
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_018,["하차일"]);
+                return;
+            }
+        }
+    }
+    
+    //위탁계약정보_계약기간 from 날짜 유효성 확인
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "pchsCtrtStDt") != "") {
+            if (!$c.date.isDate(ds_330.getCellData(i, "pchsCtrtStDt"))){
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_018,["위탁계약정보_계약기간 from"]);
+                return;
+            }
+        } 
+    }
+    //계약기간 from 은 실적날짜 이전 확인 
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "vehclArvDt") > ds_330.getCellData(i, "rsltsStdDt")) {
+            await $c.gus.cfAlertMsg("'하차일' 은 '실적날짜'" + ds_330.getCellData(i, "rsltsStdDt") + "이전으로만 입력가능합니다.");
+            return; 
+        }       
+    }
+    //계약기간 from 은 실적날짜 이전 확인       
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "pchsCtrtStDt") > ds_330.getCellData(i, "rsltsStdDt")) {
+            await $c.gus.cfAlertMsg("'위탁계약정보_계약기간 from' 은 '실적날짜': " + ds_330.getCellData(i, "rsltsStdDt") + "이전으로만 입력가능합니다.");
+            return; 
+        }
+    }
+    //차량번호7~ 9자리 확인            
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "vehclNo") != ""){       
+            var vehclNoLength = ds_330.getCellData(i, "vehclNo");
+                if (vehclNoLength.trim().length <7) {
+                        await $c.win.alert("배차정보의 차량등록번호는 7자리 이상입니다.");
+                        retrun;
+                }
+                if (vehclNoLength.trim().length >9) {
+                    await $c.win.alert("배차정보의 차량등록번호는 9자리 이하입니다.");
+                    retrun;
+                }
+        }
+    }
+        
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        if (ds_330.getCellData(i, "pchsVehcl") != "") {   
+            var pchsVehclLength = ds_330.getCellData(i, "pchsVehcl");     
+                if (pchsVehclLength.trim().length <7){
+                    await $c.win.alert("위탁계약정보의 차량등록번호는 7자리 이상입니다.");
+                    retrun;
+                }
+                if (pchsVehclLength.trim().length >9){
+                    await $c.win.alert("위탁계약정보의 차량등록번호는  9자리 이하입니다.");
+                    retrun;
+                }                 
+        }             
+    }
+    
+    if (await $c.win.confirm(MSG_CM_CRM_001)){ // 저장 하시겠습니까?
+        $c.sbm.execute(sbm_save);
+    }             
+};
+
+
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드 
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function(){
+    if (ds_330.getTotalRow() == 0) {
+        return;
+    }
+    var fileName = "화물운송실적신고(업로드)";
+    var options = {
+        fileName: fileName + ".xlsx", 
+        sheetName: fileName,
+        type: 1
+    }
+    await $c.data.downloadGridViewExcel(gr_330, options);
+};
+
+
+
+//-------------------------------------------------------------------------
+// 엑셀 업로드 
+//-------------------------------------------------------------------------
+scwin.f_upload = async function() {
+    var options = {
+        // headerExist: 1,
+        startRowIndex: 1,
+        type: 1,
+        status: "C"
+    }
+    
+    //파일업로드용 hide 그리드 새로 생성
+    await udc_grd.uploadGridViewExcel(gr_330_upload, options);  
+};
+
+scwin.gr_330_onfilereadend = async function (value) { // =scwin.f_Import
+    if (await scwin.f_AddRowUploaded()) {
+        // await $c.gus.cfProgressWinClose();
+        await $c.gus.cfAlertMsg("업로드작업이 완료되었습니다.");
+        
+        ds_330.removeAll();
+        ds_330.setJSON(ds_330_upload.getAllJSON());
+        ds_330.modifyAllStatus("C");
+        totalRows.setValue(ds_330.getTotalRow());
+    }
+    // gr_330.Redraw = "true"; 
+};
+
+//업로드 자료 추가
+scwin.f_AddRowUploaded = async function() {   
+    // ds_Tmp_FillUse.ImportData(ds_330_FillUse.ExportData(1, ds_330_FillUse.CountRow, true));
+    ds_Tmp_FillUse.setJSON(ds_330_FillUse.getAllJSON());
+
+    ds_330_upload.removeAll();  //alertMsg 이후 ds_330에 setJSON 하기 위한 datalist
+
+    for (var i = 0 ; i < ds_Tmp_FillUse.getTotalRow(); i++) {                           
+        ds_330_upload.insertRow(i);
+        ds_330_upload.setCellData(i, "lobranCd"         , ds_search.get("lobranCd"));
+        ds_330_upload.setCellData(i, "odrNo"            , ds_search.get("odrNo"));
+        ds_330_upload.setCellData(i, "commSeq"          , ds_search.get("commSeq"));
+        ds_330_upload.setCellData(i, "wrkPathSeq"       , ds_search.get("wrkPathSeq"));
+        ds_330_upload.setCellData(i, "wrkStpSeq"        , ds_search.get("wrkStpSeq"));
+        ds_330_upload.setCellData(i, "transSeq"         , ds_search.get("transSeq"));
+        ds_330_upload.setCellData(i, "rsltsStdDt"       , ds_search.get("rsltsStdDt"));
+        ds_330_upload.setCellData(i, "ordRegId"         , ds_search.get("ordRegId"));
+        ds_330_upload.setCellData(i, "transRegId"       , ds_search.get("transRegId"));  
+        ds_330_upload.setCellData(i, "cargoClsCd"       , ds_search.get("cargoClsCd"));            
+        ds_330_upload.setCellData(i, "pchsDeptCd"       , ds_search.get("pchsDeptCd"));  
+        
+        ds_330_upload.setCellData(i, "bilgClntNo"       , ds_Tmp_FillUse.getCellData(i, "bilgClntNo"));
+        ds_330_upload.setCellData(i, "sellAmt"          , ds_Tmp_FillUse.getCellData(i, "sellAmt"));
+        ds_330_upload.setCellData(i, "sellVat"          , ds_Tmp_FillUse.getCellData(i, "sellVat"));
+        ds_330_upload.setCellData(i, "vehclNo"          , ds_Tmp_FillUse.getCellData(i, "vehclNo"));
+        ds_330_upload.setCellData(i, "vehclArvDt"       , ds_Tmp_FillUse.getCellData(i, "vehclArvDt"));
+        ds_330_upload.setCellData(i, "vehclPchsAmt"     , ds_Tmp_FillUse.getCellData(i, "vehclPchsAmt"));
+        ds_330_upload.setCellData(i, "pchsClntNo"       , ds_Tmp_FillUse.getCellData(i, "pchsClntNo"));
+        ds_330_upload.setCellData(i, "pchsCtrtStDt"     , ds_Tmp_FillUse.getCellData(i, "pchsCtrtStDt"));
+        ds_330_upload.setCellData(i, "pchsPchsAmt"      , ds_Tmp_FillUse.getCellData(i, "pchsPchsAmt"));
+        ds_330_upload.setCellData(i, "pchsVehcl"        , ds_Tmp_FillUse.getCellData(i, "pchsVehcl")); 
+        ds_330_upload.setCellData(i, "confirmYn"        , "0");
+    }
+
+    return true;
+};
+
+
+//-------------------------------------------------------------------------
+// 행 추가
+//-------------------------------------------------------------------------
+scwin.f_Addrow330 = function() {
+    var i = ds_330.getTotalRow();
+    
+    ds_330.insertRow(i);
+    gr_330.setFocusedCell(i, 0);
+    ds_330.setCellData(i, "lobranCd"    ,  ds_search.get("lobranCd"));
+    ds_330.setCellData(i, "odrNo"       ,  ds_search.get("odrNo"));
+    ds_330.setCellData(i, "commSeq"     ,  ds_search.get("commSeq"));
+    ds_330.setCellData(i, "wrkPathSeq"  ,  ds_search.get("wrkPathSeq"));
+    ds_330.setCellData(i, "wrkStpSeq"   ,  ds_search.get("wrkStpSeq"));
+    ds_330.setCellData(i, "transSeq"    ,  ds_search.get("transSeq"));
+    ds_330.setCellData(i, "rsltsStdDt"  ,  ds_search.get("rsltsStdDt"));
+    ds_330.setCellData(i, "cargoClsCd"  ,  ds_search.get("cargoClsCd"));
+    ds_330.setCellData(i, "pchsDeptCd"  ,  ds_search.get("pchsDeptCd"));
+    ds_330.setCellData(i, "ordRegId"    ,  ds_search.get("ordRegId"));
+    ds_330.setCellData(i, "transRegId"  ,  ds_search.get("transRegId")); 
+    ds_330.setCellData(i, "bilgClntNo"  ,  ds_search.get("bilgClntNo"));
+    ds_330.setCellData(i, "sellAmt"     ,  ds_search.get("sellAmt"));
+    ds_330.setCellData(i, "sellVat"     ,  ds_search.get("sellVat"));
+    ds_330.setCellData(i, "sellTot"     ,  ds_search.get("sellTot"));
+    ds_330.setCellData(i, "vehclNo"     ,  ds_search.get("vehclNo"));
+    ds_330.setCellData(i, "vehclArvDt"  ,  ds_search.get("vehclArvDt"));
+    ds_330.setCellData(i, "vehclPchsAmt",  ds_search.get("vehclPchsAmt"));
+    ds_330.setCellData(i, "pchsClntNo"  ,  ds_search.get("pchsClntNo"));
+    ds_330.setCellData(i, "pchsCtrtStDt",  ds_search.get("pchsCtrtStDt"));
+    ds_330.setCellData(i, "pchsPchsAmt" ,  ds_search.get("pchsPchsAmt"));
+    ds_330.setCellData(i, "pchsVehcl"   ,  ds_search.get("pchsVehcl")); 
+    ds_330.setCellData(i, "upperCommCd" ,  ds_search.get("upperCommCd")); 
+    ds_330.setCellData(i, "upperCommNm" ,  ds_search.get("upperCommNm")); 
+    ds_330.setCellData(i, "confirmYn"   ,  "0");
+};
+
+
+//-------------------------------------------------------------------------
+// 행 삭제
+//-------------------------------------------------------------------------
+scwin.f_Del330 = async function() {
+    for (var i = 0; i < ds_330.getTotalRow(); i++) {
+        //신고일자가 있을시 삭제 불가능
+        if (ds_330.getCellData(i,"sndDtm") != "" && ds_330.getCellData(i, "chk") == "1" ){
+            await $c.gus.cfAlertMsg((i + 1) + "행에 신고일자가 있어 삭제가 불가능합니다.");
+            return; 
+        } 
+        
+        if (ds_330.getCellData(i,"sndDtm") == "" && ds_330.getCellData(i,"chk") == "1" ){
+            // ds_330.DeleteRow(i);
+            var rowIdx = ds_330.getRowPosition();
+            if (ds_330.getRowStatus(i) == "C") {
+                ds_330.removeRow(i);
+            } else {
+                ds_330.deleteRow(i);
+                ds_330.setRowPosition(i);
+                ds_330.setCellData(i, "chk", "0");
+                gr_330.setCellReadOnly(i, "chk", true);
+            }
+        }
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// 행 취소
+//-------------------------------------------------------------------------
+scwin.f_Cancel330 = function() {
+    var rowInx = ds_330.getRowPosition();
+    // ds_330.undoRow(ds_330.getRowPosition());
+    if(ds_330.getRowStatus(rowInx) == "C"){
+        ds_330.removeRow(rowInx);
+        gr_330.setFocusedCell(rowInx - 1, 0);
+    } else {
+        ds_330.undoRow(rowInx);
+        gr_330.setCellReadOnly(rowInx, "chk", false);
+    }
+};
+
+
+
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.gus.cfAlertMsg("정상적으로 반영되었습니다.");
+    scwin.f_Retrieve();
+    $c.win.closePopup();
+};
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    var rowCnt = ds_330.getTotalRow();
+    totalRows.setValue(rowCnt);
+    if(rowCnt == 0){
+        $c.gus.cfAlertMsg("조회결과가 존재하지 않습니다."); 
+    }
+};
+
+
+scwin.gr_330_onafteredit = function (rowIndex, columnIndex, value) {
+    //계약금액, 부가세, 운송료, 위탁계약금액 value == ""이면 "0" 세팅
+    var colid = gr_330.getFocusedColumnID();
+
+    if (value != "") {
+        return;
+    }
+
+    switch (colid) {
+        case "sellAmt":
+            ds_330.setCellData(rowIndex, "sellAmt", "0");
+            break;
+        case "sellVat":
+            ds_330.setCellData(rowIndex, "sellVat", "0");
+            break;
+        case "vehclPchsAmt":
+            ds_330.setCellData(rowIndex, "vehclPchsAmt", "0");
+            break;
+        case "pchsPchsAmt":
+            ds_330.setCellData(rowIndex, "pchsPchsAmt", "0");
+            break;
+    }
+};
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    	<xf:group class="title-wrap" id="" style="">
+    		<xf:group class="title" id="">
+    			<w2:textbox class="tit" id="" label="화물운송실적신고(업로드)" style="" tagname="h3"></w2:textbox>
+    		</xf:group>
+    		<xf:group class="right" id="">
+    			<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_Excel" gridID="gr_330" btnPlusYn="Y" btnUser="N" gridDownYn="Y" gridUpYn="Y" templateYn="N" gridUpFn="scwin.f_upload" id="udc_grd">
+    			</w2:udc_topGrdBtn>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    		<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_330" id="gr_330" style=""
+    			visibleRowNum="10" visibleRowNumFix="true" rowStatusVisible="true" ev:onafteredit="scwin.gr_330_onafteredit">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column displayMode="label" id="column1" inputType="checkbox" style="" value="" width="50" colSpan=""
+    						rowSpan="2">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column17" inputType="text" style="" value="업로드일자" width="100" colSpan=""
+    						rowSpan="2" class="txt-red">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column15" inputType="text" style="" value="신고일자" width="100" colSpan=""
+    						rowSpan="2" class="txt-blue">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column13" inputType="text" style="" value="소속지사" width="100" colSpan=""
+    						rowSpan="2" class="txt-red">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column11" inputType="text" style="" value="운송의뢰자 정보" width="120"
+    						sortable="false">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column9" inputType="text" style="" value="계약정보" width="140" colSpan="2"
+    						rowSpan="" sortable="false">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column5" inputType="text" style="" value="배차정보" width="210" colSpan="3"
+    						rowSpan="" sortable="false">
+    					</w2:column>
+    					<w2:column width="280" inputType="text" style="" id="column40" value="위탁계약정보" displayMode="label" colSpan="4"
+    						rowSpan="" sortable="false">
+    					</w2:column>
+    				</w2:row>
+    				<w2:row style="" id="row3">
+    					<w2:column width="120" inputType="text" style="" id="column26" value="거래처코드" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column25" value="계약금액" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column24" value="부가세" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column23" value="차량등록번호" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column22" value="하차일" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column21" value="운송료" displayMode="label"></w2:column>
+    					<w2:column width="150" inputType="text" style="" id="column41" value="위탁협력업체코드" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column38" value="계약기간&lt;br/&gt;from" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column32" value="위탁&lt;br/&gt;계약금액" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column35" value="차량등록번호" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50"></w2:column>
+    					<w2:column displayMode="label" id="uploadDt" inputType="calendar" style="" value="" width="100" textAlign="left"></w2:column>
+    					<w2:column displayMode="label" id="sndDtm" inputType="text" style="" value="" width="100" readOnly="true"
+    						textAlign="right">
+    					</w2:column>
+    					<w2:column displayMode="label" id="lobranCd" inputType="text" style="" value="" width="100" textAlign="right"></w2:column>
+    					<w2:column displayMode="label" id="bilgClntNo" inputType="text" style="" value="" width="120"></w2:column>
+    					<w2:column displayMode="label" id="sellAmt" inputType="text" style="" value="" width="100" textAlign="right"
+    						dataType="number" displayFormat="#,##0" excelCellType="number" excelFormat="#,##0">
+    					</w2:column>
+    					<w2:column displayMode="label" id="sellVat" inputType="text" style="" value="" width="100" textAlign="right"
+    						dataType="number" displayFormat="#,##0" excelCellType="number" excelFormat="#,##0">
+    					</w2:column>
+    					<w2:column displayMode="label" id="vehclNo" inputType="text" style="" value="" width="120"></w2:column>
+    					<w2:column displayMode="label" id="vehclArvDt" inputType="text" style="" value="" width="100"></w2:column>
+    					<w2:column displayMode="label" id="vehclPchsAmt" inputType="text" style="" value="" width="100" textAlign="right"
+    						dataType="number" displayFormat="#,##0" excelFormat="#,##0" excelCellType="number">
+    					</w2:column>
+    					<w2:column width="150" inputType="text" style="" id="pchsClntNo" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="pchsCtrtStDt" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="pchsPchsAmt" value="" displayMode="label" textAlign="right"
+    						dataType="number" displayFormat="#,##0" excelCellType="number" excelFormat="#,##0">
+    					</w2:column>
+    					<w2:column width="120" inputType="text" style="" id="pchsVehcl" value="" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<xf:group class="grid-bottom " id="" style="">
+    			<xf:group class="left" id="">
+    				<xf:group class="grid-total" id="">
+    					<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="right" id="" style="">
+    				<w2:udc_bottomGrdBtn style="" rowAddFunction="scwin.f_Addrow330" rowDelFunction="scwin.f_Del330"
+    					cancelFunction="scwin.f_Cancel330" gridID="gr_330" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="Y" btnRowDelYn="Y" EngYn="N">
+    				</w2:udc_bottomGrdBtn>
+    			</xf:group>
+    		</xf:group>
+    		<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_330_FillUse"
+    			id="gr_330_upload" style="display: none;" visibleRowNum="10" visibleRowNumFix="true" ev:onfilereadend="scwin.gr_330_onfilereadend">
+    			<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column displayMode="label" id="column11" inputType="text" value="운송의뢰자 정보" width="120" sortable="false">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column9" inputType="text" value="계약정보" width="140" colSpan="2"
+    						sortable="false">
+    					</w2:column>
+    					<w2:column displayMode="label" id="column5" inputType="text" value="배차정보" width="210" colSpan="3"
+    						sortable="false">
+    					</w2:column>
+    					<w2:column width="280" inputType="text" id="column40" value="위탁계약정보" displayMode="label" colSpan="4"
+    						sortable="false">
+    					</w2:column>
+    				</w2:row>
+    				<w2:row style="" id="row3">
+    					<w2:column width="120" inputType="text" id="column26" value="거래처코드" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="column25" value="계약금액" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="column24" value="부가세" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" id="column23" value="차량등록번호" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="column22" value="하차일" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="column21" value="운송료" displayMode="label"></w2:column>
+    					<w2:column width="150" inputType="text" id="column41" value="위탁협력업체코드" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="column38" value="계약기간&lt;br/&gt;from" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="column32" value="위탁&lt;br/&gt;계약금액" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" id="column35" value="차량등록번호" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column displayMode="label" id="bilgClntNo" inputType="text" width="120"></w2:column>
+    					<w2:column displayMode="label" id="sellAmt" inputType="text" width="100" textAlign="right" dataType="number"
+    						displayFormat="#,##0">
+    					</w2:column>
+    					<w2:column displayMode="label" id="sellVat" inputType="text" width="100" textAlign="right" dataType="number"
+    						displayFormat="#,##0">
+    					</w2:column>
+    					<w2:column displayMode="label" id="vehclNo" inputType="text" width="120"></w2:column>
+    					<w2:column displayMode="label" id="vehclArvDt" inputType="text" width="100"></w2:column>
+    					<w2:column displayMode="label" id="vehclPchsAmt" inputType="text" width="100" textAlign="right" dataType="number"
+    						displayFormat="#,##0">
+    					</w2:column>
+    					<w2:column width="150" inputType="text" id="pchsClntNo" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="pchsCtrtStDt" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" id="pchsPchsAmt" displayMode="label" textAlign="right" dataType="number"
+    						displayFormat="#,##0">
+    					</w2:column>
+    					<w2:column width="120" inputType="text" id="pchsVehcl" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    	<xf:group class="btnbox" id="">
+    		<xf:group class="right" id="">
+    			<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.f_Save">
+    				<xf:label>저장</xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group></xf:group>
+    	
+    	
+    	
+    </body>
+</html>

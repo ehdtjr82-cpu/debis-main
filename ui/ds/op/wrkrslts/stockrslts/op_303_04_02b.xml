@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_condition">
+					<w2:keyInfo>
+						<w2:key id="wrkPlCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="fromDt" name="name2" dataType="text"></w2:key>
+						<w2:key id="toDt" name="name3" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="inDeclarNo" name="name1" dataType="text"></w2:column>
+						<w2:column id="crryinDt" name="name2" dataType="text"></w2:column>
+						<w2:column id="mchtNmCmpy" name="name3" dataType="text"></w2:column>
+						<w2:column id="mchtname" name="name4" dataType="text"></w2:column>
+						<w2:column id="frgtKndCd" name="name5" dataType="text"></w2:column>
+						<w2:column id="crryoutShedRsn1" name="name6" dataType="text"></w2:column>
+						<w2:column id="comm1" name="name7" dataType="text"></w2:column>
+						<w2:column id="shedEndDt" name="name8" dataType="text"></w2:column>
+						<w2:column id="shedRsn" name="name9" dataType="text"></w2:column>
+						<w2:column id="inCnt" name="name10" dataType="text"></w2:column>
+						<w2:column id="inPackUnitCd" name="name11" dataType="text"></w2:column>
+						<w2:column id="inWt" name="name12" dataType="text"></w2:column>
+						<w2:column id="outCntSum" name="name13" dataType="text"></w2:column>
+						<w2:column id="outWtSum" name="name14" dataType="text"></w2:column>
+						<w2:column id="stockDay" name="name15" dataType="text"></w2:column>
+						<w2:column id="outDeclarNo" name="name16" dataType="text"></w2:column>
+						<w2:column id="crryoutDt" name="name17" dataType="text"></w2:column>
+						<w2:column id="outCnt" name="name18" dataType="text"></w2:column>
+						<w2:column id="outPackUnitCd" name="name19" dataType="text"></w2:column>
+						<w2:column id="outWt" name="name20" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_commonCodeOP475" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="grpCd" name="name1" dataType="text"></w2:column>
+						<w2:column id="cd" name="name2" dataType="text"></w2:column>
+						<w2:column id="cdNm" name="name3" dataType="text"></w2:column>
+						<w2:column id="fltrCd1" name="name4" dataType="text"></w2:column>
+						<w2:column id="fltrCd2" name="name5" dataType="text"></w2:column>
+						<w2:column id="fltrCd3" name="name6" dataType="text"></w2:column>
+						<w2:column id="sortSeq" name="name7" dataType="text"></w2:column>
+						<w2:column id="cdDesc" name="name8" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_wrkPlCd" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column dataType="text" name="name1" id="wrkPlCd"></w2:column>
+						<w2:column dataType="text" name="name2" id="wrkPlNm"></w2:column>
+						<w2:column dataType="text" name="name3" id="bondZoneCd"></w2:column>
+						<w2:column dataType="text" name="name4" id="bondZoneNm"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve"
+				action="/ds.op.wrkrslts.stockrslts.RetrieveHomeCargoCarryInAndCarryOutPresentConditionCMD.do" method="post" mediatype="application/json"
+				ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retreive_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_wrkPlCd" action="/ds.co.RetreiveWrkPlCdCMD.do" method="post" mediatype="application/json" ref=''
+				target='data:json,{"id":"ds_wrkPlCd","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_wrkPlCd_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.today = $c.date.getServerDateTime("yyyyMMdd");
+
+scwin.onpageload = function () {
+    let codeOptions = [
+        { grpCd: "OP475", compID: "gr_master: frgtKndCd" }
+    ];
+
+    $c.data.setCommonCode(codeOptions);
+
+    $c.sbm.execute(sbm_wrkPlCd);
+};
+
+scwin.onUdcCompleted = function () {
+    $c.data.setPopupTitle("내국화물 반출입 재고현황");
+
+    // 일자 setting
+    ed_fromDt.setValue(scwin.today.substring(0, 6) + "01");
+    ed_toDt.setValue(scwin.today);
+
+    lc_wrkPlCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// RETRIEVE;
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function () {
+    if (lc_wrkPlCd.getValue() == "") {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["작업장"]);
+        lc_wrkPlCd.focus();
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tbl_search, null);
+};
+
+//-------------------------------------------------------------------------
+// Excel
+//-------------------------------------------------------------------------
+scwin.f_runExcel = async function () {
+    let totCnt = ds_master.getRowCount();
+    let sheetTitle = "내국화물현황_" + ed_bondZoneCd.getValue() + "(" + scwin.today + ")";
+
+    if (totCnt != 0) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+        if (cfrm) {
+            let options = {
+                fileName: sheetTitle + ".xlsx",
+                sheetName: sheetTitle
+            };
+
+            $c.data.downloadGridViewExcel(gr_master, options);
+        }
+    } else {
+        $c.win.alert(MSG_CM_WRN_002);
+    }
+};
+
+scwin.sbm_wrkPlCd_submitdone = function (e) {
+    let data = ds_wrkPlCd.getAllJSON();
+    let resultVal = data.find(item => item.wrkPlCd == lc_wrkPlCd.getValue());
+
+    ed_bondZoneCd.setValue(resultVal.bondZoneCd);
+};
+
+scwin.sbm_retreive_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        return;
+    }
+
+    if (ds_master.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    }
+
+    totalRows.setValue(ds_master.getRowCount())
+};
+
+scwin.lc_wrkPlCd_onchange = function (info) {
+    let data = ds_wrkPlCd.getAllJSON();
+    let resultVal = data.find(item => item.wrkPlCd == info.newValue);
+
+    ed_bondZoneCd.setValue(resultVal.bondZoneCd);
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="tbl_search" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="작업장" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:group id="" class="form-group">
+									<w2:autoComplete search="none" submenuSize="auto" style="width:200px;" id="lc_wrkPlCd" class=""
+										ref="data:dma_condition.wrkPlCd" ev:onchange="scwin.lc_wrkPlCd_onchange" allOption="" chooseOption="" visibleRowNum="11"
+										sortOption="value" mandatory="true" validExp="작업장:yes" hideListOnFocus="true" caseSensitive="true" emptyItem="true">
+										<w2:choices>
+											<w2:itemset nodeset="data:ds_wrkPlCd">
+												<w2:label ref="wrkPlNm"></w2:label>
+												<w2:value ref="wrkPlCd"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:autoComplete>
+									<xf:input style="width:100px;" id="ed_bondZoneCd" placeholder="" class="" disabled="true" ref=""></xf:input>
+								</xf:group>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="반입신고일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="dma_condition" refEdDt="toDt" refStDt="fromDt"
+									style="" edFromId="ed_fromDt" edToId="ed_toDt" titleFrom="조회시작일" titleTo="조회마감일"></w2:udc_fromToCalendar>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+						ev:onclick="scwin.f_retrieve">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="내국화물 반출입 재고현황" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_topGrdBtn" gridDownFn="scwin.f_runExcel" gridUpYn="N"
+							btnPlusYn="Y" btnUser="Y" gridDownYn="Y" templateYn="N" gridID="gr_master"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_master" id="gr_master" style=""
+						visibleRowNum="15" visibleRowNumFix="true" fixedColumn="2" autoFitMinWidth="2100" readOnly="true" focusMode="cell" columnMove="true"
+						fixedColumnNoMove="true">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="text" value="반입&lt;br/&gt;신고번호" width="120"></w2:column>
+								<w2:column displayMode="label" id="column17" inputType="text" value="반입&lt;br/&gt;일자" width="100"></w2:column>
+								<w2:column displayMode="label" id="column15" inputType="text" value="화주상호" width="100"></w2:column>
+								<w2:column displayMode="label" id="column13" inputType="text" value="화주명" width="100"></w2:column>
+								<w2:column displayMode="label" id="column11" inputType="text" value="물품&lt;br/&gt;종류코드" width="100"></w2:column>
+								<w2:column displayMode="label" id="column9" inputType="text" value="장치&lt;br/&gt;사유" width="100"></w2:column>
+								<w2:column displayMode="label" id="column3" inputType="text" value="품명" width="100"></w2:column>
+								<w2:column displayMode="label" id="column5" inputType="text" value="장치&lt;br/&gt;종료일자" width="100"></w2:column>
+								<w2:column displayMode="label" id="column7" inputType="text" value="장치&lt;br/&gt;위치" width="100"></w2:column>
+								<w2:column displayMode="label" id="column19" inputType="text" value="반입&lt;br/&gt;수량" width="70"></w2:column>
+								<w2:column width="70" inputType="text" id="column39" value="단위" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column37" value="반입&lt;br/&gt;중량" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column35" value="재고&lt;br/&gt;수량" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column33" value="재고&lt;br/&gt;중량" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column41" value="장치일" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" id="column31" value="반출&lt;br/&gt;신고번호" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column29" value="반출&lt;br/&gt;일자" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column27" value="반출&lt;br/&gt;수량" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column21" value="단위" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column23" value="반출&lt;br/&gt;중량" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="inDeclarNo" inputType="text" width="120" colMerge="true"></w2:column>
+								<w2:column displayMode="label" id="crryinDt" inputType="text" width="100" displayFormat="####/##/##" colMerge="true"
+									upperColumn="inDeclarNo">
+								</w2:column>
+								<w2:column displayMode="label" id="mchtNmCmpy" inputType="text" width="100" textAlign="left" colMerge="true"
+									upperColumn="crryinDt">
+								</w2:column>
+								<w2:column displayMode="label" id="mchtname" inputType="text" width="100" textAlign="left" colMerge="true"
+									upperColumn="mchtNmCmpy">
+								</w2:column>
+								<w2:column displayMode="label" id="frgtKndCd" inputType="select" width="100" colMerge="true" upperColumn="mchtname">
+								</w2:column>
+								<w2:column displayMode="label" id="crryoutShedRsn1" inputType="text" width="100" textAlign="left" colMerge="true"
+									upperColumn="frgtKndCd">
+								</w2:column>
+								<w2:column displayMode="label" id="comm1" inputType="text" width="100" textAlign="left" colMerge="true"
+									upperColumn="crryoutShedRsn1">
+								</w2:column>
+								<w2:column displayMode="label" id="shedEndDt" inputType="text" width="100" displayFormat="####/##/##" colMerge="true"
+									upperColumn="comm1">
+								</w2:column>
+								<w2:column displayMode="label" id="shedRsn" inputType="text" width="100" textAlign="left" colMerge="true"
+									upperColumn="shedEndDt">
+								</w2:column>
+								<w2:column displayMode="label" id="inCnt" inputType="text" width="70" textAlign="right" displayFormat="#,###"
+									colMerge="true" upperColumn="shedRsn" dataType="number" excelCellType="number">
+								</w2:column>
+								<w2:column width="70" inputType="text" id="inPackUnitCd" displayMode="label" colMerge="true" upperColumn="inCnt">
+								</w2:column>
+								<w2:column width="70" inputType="text" id="inWt" displayMode="label" textAlign="right" displayFormat="#,###"
+									colMerge="true" upperColumn="inPackUnitCd" dataType="number" excelCellType="number">
+								</w2:column>
+								<w2:column width="70" inputType="text" id="outCntSum" displayMode="label" textAlign="right" displayFormat="#,###"
+									colMerge="true" upperColumn="inWt" dataType="number" excelCellType="number">
+								</w2:column>
+								<w2:column width="70" inputType="text" id="outWtSum" displayMode="label" textAlign="right" displayFormat="#,###"
+									colMerge="true" upperColumn="outCntSum" dataType="number" excelCellType="number">
+								</w2:column>
+								<w2:column width="70" inputType="text" id="stockDay" displayMode="label" textAlign="right" colMerge="true"
+									upperColumn="outWtSum" dataType="number" excelCellType="number">
+								</w2:column>
+								<w2:column width="120" inputType="text" id="outDeclarNo" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="crryoutDt" displayMode="label" displayFormat="####/##/##"></w2:column>
+								<w2:column width="70" inputType="text" id="outCnt" displayMode="label" textAlign="right" displayFormat="#,###"
+									dataType="number" excelCellType="number">
+								</w2:column>
+								<w2:column width="70" inputType="text" id="outPackUnitCd" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="outWt" displayMode="label" textAlign="right" displayFormat="#,###"
+									dataType="number" excelCellType="number">
+								</w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

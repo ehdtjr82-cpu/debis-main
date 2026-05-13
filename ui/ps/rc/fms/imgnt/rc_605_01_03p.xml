@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="true">
+					<w2:columnInfo></w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script cache="false" scopeExternal="true" src="/ui/cm/fw/constants/DFWConstants.js" type="text/javascript" scopeVariable="DFWConstants"></script>
+		<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 차량별 운행실적 / 실적상세 그리드 증빙파일 돋보기
+ * 메뉴경로 : 공통/총무업무/업무용 차량관리/
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ps/rc/fms/imgnt/rc_605_01_03p.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-12-12
+ * 수정이력  :
+ *    - 2025-12-12      정승혜    최초작성
+ * 메모 : 
+ * 부모페이지 rc_605_01_03b
+ */
+
+   //파일 업로드 위치
+//scwin.systemPathKey =  DFWConstants.FILE_UPLOAD_SYSTEM_PATH ;
+scwin.systemPathVal =  "/ps/rc/fms/imgnt/";
+
+	//-------------------------------------------------------------------------
+	// 화면로딩시
+	//------------------------------------------------------------------------- 
+scwin.onpageload = function() {
+	
+};
+
+	//-------------------------------------------------------------------------
+	// 화면닫기
+	//------------------------------------------------------------------------- 
+scwin.f_Close = function() {
+    var rtnValues = new Array();
+	rtnValues[0] = "Y";
+    $c.win.closePopup(rtnValues);
+};
+
+	//-------------------------------------------------------------------------
+	// function name : fileSubmit
+	// function desc : File Upload 
+	//-------------------------------------------------------------------------
+scwin.fileSubmit = async function() {
+    
+    let ret = await scwin.saveBefore();
+    if (!ret){
+        return;
+    }
+
+    udc_fielUpload.setSubDir(scwin.systemPathVal);
+    udc_fielUpload.startFileUpload();
+    scwin.saveDone();
+	
+};
+
+scwin.saveBefore = async function() {
+    let data = udc_fielUpload.getData();
+    
+    if(data.length == 0) {
+        await $c.win.alert("파일을 등록하세요");
+        return false;
+    };
+
+    if(data.length != 0 && data[0].FILE_EXPLAIN == "") {
+        await $c.win.alert("파일명을 입력하세요");
+        return false;
+    };
+    return true;
+};
+
+scwin.saveDone = function() {
+    //$c.win.alert("파일이 저장되었습니다.");
+};
+
+scwin.udc_fielUpload_onFileUploadDone = function (isSuccess) {
+    if(!isSuccess) {
+        return
+    };
+
+    let rtnValues = new Array();
+
+    let data = udc_fielUpload.getData();
+
+    let g_filePath = data[0].FILE_STORED_PATH + data[0].STORED_FILE_NM;
+    let g_fileName = data[0].FILE_EXPLAIN;
+    
+    rtnValues[0] = g_filePath;
+    rtnValues[1] = g_fileName;
+    
+    $c.win.closePopup(rtnValues);
+};
+
+	//-------------------------------------------------------------------------
+	// function name : uploadComplete
+	// function desc : Upload File complete 
+	//-------------------------------------------------------------------------
+scwin.uploadComplete = function() {
+
+};
+
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="">
+				<xf:group class="file-wrap  no-title" id="" style="">
+					<w2:udc_fileMultiUpload fileGrpSeq=""
+						filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="1" maxFileSize="536870912"
+						style="" totalFileSize="2009715200" explainYn="Y" id="udc_fielUpload" addButtonName="첨부파일 추가" saveFn="scwin.fileSubmit" ev:onFileUploadDone="scwin.udc_fielUpload_onFileUploadDone">
+					</w2:udc_fileMultiUpload>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="" style="" type="button" ev:onclick="scwin.f_Close">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

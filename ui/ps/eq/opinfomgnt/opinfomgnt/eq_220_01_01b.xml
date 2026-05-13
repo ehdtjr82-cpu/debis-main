@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="ds_re_pl">
+					<w2:keyInfo>
+						<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+						<w2:key id="wrkPlNm" name="작업장명" dataType="text"></w2:key>
+						<w2:key id="homeClsCd" name="사업부문코드" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_work_pl" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="homeClsCd" name="소속코드" dataType="text"></w2:column>
+						<w2:column id="fixWrkPlCd" name="작업장코드" dataType="text"></w2:column>
+						<w2:column id="fixWrkPlNm" name="작업장명" dataType="text"></w2:column>
+						<w2:column id="repFixWrkPlCd" name="대표작업장" dataType="text"></w2:column>
+						<w2:column id="repFixWrkPlNm" name="대표작업장명" dataType="text"></w2:column>
+						<w2:column id="acctDeptCd" name="귀속부서" dataType="text"></w2:column>
+						<w2:column id="acctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+						<w2:column id="adptWages" name="적용공임" dataType="text"></w2:column>
+						<w2:column id="wrkPlRepstNm" name="작업장대표" dataType="text"></w2:column>
+						<w2:column id="zip" name="우편번호" dataType="text"></w2:column>
+						<w2:column id="addr1" name="주소1" dataType="text"></w2:column>
+						<w2:column id="addr2" name="주소2" dataType="text"></w2:column>
+						<w2:column id="telNo" name="전화번호" dataType="text"></w2:column>
+						<w2:column id="faxNo" name="FAX번호" dataType="text"></w2:column>
+						<w2:column id="useYn" name="name15" dataType="number" defaultValue="1"></w2:column>
+						<w2:column id="regId" name="name16" dataType="text"></w2:column>
+						<w2:column id="regDtm" name="name17" dataType="text"></w2:column>
+						<w2:column id="modId" name="name18" dataType="text"></w2:column>
+						<w2:column id="modDtm" name="name19" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_delivery" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="lobranCd" name="물류점소" dataType="text"></w2:column>
+						<w2:column id="lobranNm" name="점소명" dataType="text"></w2:column>
+						<w2:column id="fixWrkPlCd" name="작업장코드" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_lux_wrkPlCd" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="코드" dataType="text"></w2:column>
+						<w2:column id="name" name="코드명" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+                <w2:dataMap baseNode="map" id="ds_lux_wrkPlCdCondition">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="시스템코드" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="쿼리ID" dataType="text"></w2:key>
+    					<w2:key id="param1" name="파라메터1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+			</w2:dataCollection>
+            <xf:submission id="sbm_wrkPlCd" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,ds_lux_wrkPlCdCondition" target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_wrkPlCd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+            <xf:submission id="sbm_retrieve" action="" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_re_pl","key":"IN_DS1"},{"id":"ds_work_pl","key":"OUT_DS1"},{"id":"ds_delivery","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"ds_work_pl","key":"OUT_DS1"},{"id":"ds_delivery","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+            <xf:submission id="sbm_SaveRepairShop" action="/ps.eq.opinfomgnt.opinfomgnt.SaveFixWorkPlaceCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_work_pl","key":"IN_DS1"},{"id":"ds_delivery","key":"IN_DS2"}]' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_SaveRepairShop_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript">//세션 정보를 가지고 온다.
+scwin.memJson = $c.data.getMemInfo();
+scwin.RetrievedRow = 0;
+
+//그리드 변경전 데이터를 담는 정보
+scwin.oriRepFixWrkPlCd = &quot;&quot;;
+scwin.oriAcctDeptCd = &quot;&quot;;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    //공통코드 적용
+    const codeOptions = [
+        { grpCd : &quot;ZZ205&quot;, compID : &quot;lc_homeClsCd&quot;,opt :{&quot;range&quot; : &quot;1,EQ&quot;}}
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    
+};
+
+//-------------------------------------------------------------------------
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+//-------------------------------------------------------------------------
+scwin.ondataload = function() { 
+    lc_homeClsCd.setValue(scwin.memJson.eqHomeClsCd); // 정비소속구분코드
+    lc_homeClsCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    sbm_retrieve.action = &quot;/ps.eq.opinfomgnt.opinfomgnt.RetrieveFixWorkPlaceListCMD.do&quot;;
+    ds_work_pl.removeAll();
+    ds_delivery.removeAll();
+    $c.sbm.execute(sbm_retrieve);
+    //RetrievedRow = ds_work_pl.CountRow; 콜백으로이동
+};
+
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function(e) {
+    try{
+        if (e.responseJSON.resultDataSet[0].Code &lt; 0) return; //onFail
+        
+        scwin.RetrievedRow = ds_work_pl.getRowCount();
+
+        // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+        tbx_totalRows.setValue(ds_work_pl.getRowCount());
+        gr_work_pl.setFocusedCell(0, &quot;fixWrkPlCd&quot;);
+        gr_delivery.setFocusedCell(0, &quot;lobranCd&quot;);
+
+        //scwin.gr_work_pl_onrowindexchange(0);//s_delivery.filter(); + 그리드카운트 처리
+
+    } catch (e) {
+       console.log(&quot;sbm_retrieve_submitdone &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 정비작업장 목록 그리드 인덱스가 변경시
+//-------------------------------------------------------------------------
+scwin.gr_work_pl_onrowindexchange = function (rowIndex, oldRow) {
+    try{
+        ds_delivery.removeColumnFilterAll();
+        // 1. 현재 선택한 행의 기준 값 가져오기
+        let v_val = ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;);
+        let filterLogic = function(cellData, tmpParam, rowIdx) {
+            if (ds_delivery.getCellData(rowIdx, &quot;fixWrkPlCd&quot;) == v_val) {
+                if (v_val == &quot;&quot;) // 배점소정보중에 작업장코드가 없을 경우는 필터링 대상에서 제외
+                    return false;
+                else
+                    return true;
+            } else {
+                return false;
+            }
+        };
+
+        // 2. 함수형 필터 적용
+        ds_delivery.setColumnFilter({
+            type: &quot;func&quot;,
+            colIndex: &quot;fixWrkPlCd&quot;, // 대상 컬럼
+            key: filterLogic,
+            condition : &quot;and&quot;
+        });
+        tbx_totalRows2.setValue(ds_delivery.getRowCount());
+        gr_delivery.setFocusedCell(0, &quot;lobranCd&quot;);
+
+
+        if( rowIndex &lt; scwin.RetrievedRow ) { //조회된 카운트보다 작은경우
+            gr_work_pl.setReadOnly(&quot;cell&quot;,rowIndex,&quot;fixWrkPlCd&quot;,true); //readOnly Edit none
+        } else { 
+            gr_work_pl.setReadOnly(&quot;cell&quot;,rowIndex,&quot;fixWrkPlCd&quot;,false); //Edit Numeric
+        }
+
+    } catch (e) {
+       console.log(&quot;gr_work_pl_onrowindexchange &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 정비작업장 목록 그리드 정보변경전 변경전 데이터 정의 olddata
+//-------------------------------------------------------------------------
+scwin.gr_work_pl_onbeforeedit = function (rowIndex, columnIndex, value) {
+    try{
+        let colid = gr_work_pl.getColumnID(columnIndex);
+        if( colid == &quot;repFixWrkPlCd&quot; ) {
+            scwin.oriRepFixWrkPlCd = value;
+        }
+
+        if( colid == &quot;acctDeptCd&quot; ) {
+            scwin.oriAcctDeptCd = value;
+        }
+
+    } catch (e) {
+       console.log(&quot;gr_work_pl_onbeforeedit &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 정비작업장 목록 그리드 정보 변경시
+//-------------------------------------------------------------------------
+scwin.gr_work_pl_onafteredit = async function (rowIndex, columnIndex, value, info) {
+    try{
+
+        let colid = gr_work_pl.getColumnID(columnIndex);
+       
+        //돋보기 클릭하는 컬럼인경우
+        if( colid == &quot;repFixWrkPlCd&quot; || colid == &quot;acctDeptCd&quot; || colid == &quot;zip&quot;) {
+            if (info.type === 'mousedown') { //입력에는 keydown, 이미지클릭시 mousedown 돋보기 클릭만 처리하기 위한 방어코드
+                return false; // onafteredit 로직 중단
+            }
+        }
+       
+        let i = 0;
+        switch (colid) {
+            case &quot;fixWrkPlCd&quot;:
+                for (i = 0; i &lt; ds_work_pl.getRowCount(); i++) {
+                    // 작업장코드 중복되면 오류
+                    if (rowIndex != i &amp;&amp; ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;) != &quot;&quot; &amp;&amp; ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;) == ds_work_pl.getCellData(i, &quot;fixWrkPlCd&quot;)) {
+                        $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_032,[&quot;작업장코드&quot;]));//$c.gus.cfAlertMsg(MSG_CM_ERR_032, [&quot;작업장코드&quot;]);
+                        gr_work_pl.setFocusedCell(i, &quot;fixWrkPlCd&quot;, true);//gr_work_pl.SetColumn(&quot;fixWrkPlCd&quot;);
+                    }
+
+                    // 사업부문이 물류이고 작업장코드가 2로 시작하면 오류
+                    if (lc_homeClsCd.getValue() == &quot;LO&quot; &amp;&amp; parseInt(ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;)) &gt;= 200) {
+                        $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_055,[&quot;작업장코드&quot;]));
+                        gr_work_pl.setFocusedCell(i, &quot;fixWrkPlCd&quot;, true);
+                        return false;
+                    }
+
+                    // 사업부문이 고속이고 작업장코드가 1로 시작하거나 3이상으로 시작하면 오류
+                    if (lc_homeClsCd.getValue() == &quot;TR&quot; &amp;&amp; (parseInt(ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;)) &lt; 200 || parseInt(ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;)) &gt; 300)) {
+                        $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_055,[&quot;작업장코드&quot;]));
+                        gr_work_pl.setFocusedCell(i, &quot;fixWrkPlCd&quot;, true);
+                        return false;
+                    }
+                }
+                break;
+
+            case &quot;fixWrkPlNm&quot;:
+                for (i = 0; i &lt; ds_work_pl.getRowCount(); i++) {
+                    if (i != rowIndex &amp;&amp; ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlNm&quot;) != &quot;&quot; &amp;&amp; ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlNm&quot;) == ds_work_pl.getCellData(i, &quot;fixWrkPlNm&quot;)) {
+                        $c.gus.cfAlertMsg($c.data.MSG_CM_ERR_032(MSG_CM_ERR_055,[&quot;작업장명&quot;]));
+                        gr_work_pl.setFocusedCell(i, &quot;fixWrkPlNm&quot;, true);//gr_work_pl.focus();
+                    }
+                }
+                break;
+            case &quot;repFixWrkPlCd&quot;:
+                let param3 = ds_work_pl.getCellData(rowIndex, &quot;homeClsCd&quot;);
+                if (ds_work_pl.getCellData(rowIndex, &quot;repFixWrkPlCd&quot;) == ds_work_pl.getCellData(rowIndex, &quot;fixWrkPlCd&quot;)) return false;
+                
+                if (ds_work_pl.getCellData(rowIndex, colid) != &quot;&quot; &amp;&amp; ds_work_pl.getCellData(rowIndex, colid) != scwin.oriRepFixWrkPlCd ) {
+                    ds_work_pl.setCellData(rowIndex, &quot;repFixWrkPlNm&quot;, &quot;&quot;);
+
+                    let param1 = ds_work_pl.getCellData(rowIndex, &quot;repFixWrkPlCd&quot;);
+                    let param2 = ds_work_pl.getCellData(rowIndex, &quot;repFixWrkPlNm&quot;);
+
+                    ds_work_pl.setCellData(rowIndex, &quot;repFixWrkPlCd&quot;, &quot;&quot;);
+
+                    //popupResult = cfCommonPopUp('retrieveWorkPlaceInfo', param1, param2, &quot;T&quot;, null, null, null, null, param3, null, null, null, null); // 작업장
+                    udc_comCodeGrid.setSelectId('retrieveWorkPlaceInfo');
+                    udc_comCodeGrid.cfCommonPopUp(scwin.grd_repFixWrkPlCd_callBackFunc // 콜백 함수
+                        , param1                            // 화면에서의  Code Element의 Value
+                        , param2                            // 화면에서의  Name Element의 Value
+                        , &quot;T&quot;                           // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            
+                        , null                            
+                        , null                            
+                        , null                            
+                        , param3                          
+                        , null,null,null,null
+                    ); 
+                } else if (ds_work_pl.getCellData(rowIndex, colid) == &quot;&quot;) {
+                    ds_work_pl.setCellData(rowIndex, &quot;repFixWrkPlCd&quot; , &quot;&quot;);
+                    ds_work_pl.setCellData(rowIndex, &quot;repFixWrkPlNm&quot; , &quot;&quot;);
+                }
+                break;
+            case &quot;acctDeptCd&quot;:
+                if (ds_work_pl.getCellData(rowIndex, colid) != &quot;&quot; &amp;&amp; ds_work_pl.getCellData(rowIndex, colid) != scwin.oriAcctDeptCd ) {
+                    ds_work_pl.setCellData(rowIndex, &quot;acctDeptNm&quot;, &quot;&quot;);
+
+                    let param1 = ds_work_pl.getCellData(rowIndex, &quot;acctDeptCd&quot;);
+                    let param2 = ds_work_pl.getCellData(rowIndex, &quot;acctDeptNm&quot;);
+                    let param3 = null;
+
+                    ds_work_pl.setCellData(rowIndex, &quot;acctDeptCd&quot;, &quot;&quot;);
+                    //popupResult = cfCommonPopUp('retrieveAcctDeptCdInfo', param1, param2, &quot;T&quot;, null, null, null, null, param3, null, null, null, null); // 귀속부서
+                    udc_comCodeGrid.setSelectId('retrieveAcctDeptCdInfo');
+                    udc_comCodeGrid.cfCommonPopUp(scwin.grd_acctDeptCd_callBackFunc // 콜백 함수
+                        , param1                            // 화면에서의  Code Element의 Value
+                        , param2                            // 화면에서의  Name Element의 Value
+                        , &quot;T&quot;                           // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            
+                        , null                            
+                        , null                            
+                        , null                            
+                        , param3                          
+                        , null,null,null,null
+                    );
+                } else if (ds_work_pl.getCellData(rowIndex, colid) == &quot;&quot;) {
+                    ds_work_pl.setCellData(rowIndex, &quot;acctDeptCd&quot; , &quot;&quot;);
+                    ds_work_pl.setCellData(rowIndex, &quot;acctDeptNm&quot; , &quot;&quot;);
+                }
+                break;
+            case &quot;zip&quot;:
+                if (ds_work_pl.getCellData(rowIndex, colid)!= &quot;&quot; &amp;&amp; ds_work_pl.getCellData(rowIndex,colid) != value) {
+                    ds_work_pl.setCellData(rowIndex, &quot;addr1&quot;, &quot;&quot;);
+                    let param1 = ds_work_pl.getCellData(rowIndex, zip);
+                    let data = {};
+                    let popupResult;
+                    const options = {
+                        id: &quot;newzipcodePopup&quot;,
+                        type: &quot;popup&quot;,
+                        modal: true,
+                        popupName: &quot;우편번호&quot;,
+                        width: 530,
+                        height: 400
+                    };
+                    popupResult = await $c.win.openPopup(&quot;/ui/cm/zz/newzipcodePopup.xml&quot;, options, data);
+                    // Modal Dialog를 리턴값 없이 닫을 경우에 대비해
+                    if (popupResult != null &amp;&amp; popupResult != undefined &amp;&amp; popupResult[0] != &quot;N/A&quot; ) {
+                        ds_work_pl.setCellData(rowIndex, &quot;zip&quot;, popupResult.zip);
+                        ds_work_pl.setCellData(rowIndex, &quot;addr1&quot;, popupResult.addr1);
+                    }
+                }
+                break;
+        }
+
+    } catch (e) {
+       console.log(&quot;gr_work_pl_onafteredit &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 정비작업장 목록 이미지 클릭 팝업
+//-------------------------------------------------------------------------
+scwin.gr_work_pl_ontextimageclick = async function (rowIndex, columnIndex) {
+    
+    let colid = gr_work_pl.getColumnID(columnIndex);
+    //대표작업장코드 팝업
+	if( colid == &quot;repFixWrkPlCd&quot; ) {
+        if(ds_work_pl.getCellData(rowIndex, &quot;homeClsCd&quot;) == &quot;&quot;){
+            await $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_WRN_007,[&quot;소속코드&quot;]));
+            gr_work_pl.setFocusedCell(rowIndex, &quot;homeClsCd&quot;, true);//gr_work_pl.SetColumn(&quot;homeClsCd&quot;);
+        }
+
+        //popupResult = cfCommonPopUp('retrieveWorkPlaceInfo' ,ds_work_pl.NameValue(row,&quot;repFixWrkPlCd&quot;),ds_work_pl.NameValue(row,&quot;repFixWrkPlNm&quot;),&quot;F&quot;,null,null,null,null,ds_work_pl.NameValue(row,&quot;homeClsCd&quot;),null,null,null,null); // 작업장
+        udc_comCodeGrid.setSelectId('retrieveWorkPlaceInfo');
+        udc_comCodeGrid.cfCommonPopUp(scwin.grd_repFixWrkPlCd_callBackFunc // 콜백 함수
+            , ds_work_pl.getCellData(rowIndex, &quot;repFixWrkPlCd&quot;)                            // 화면에서의  Code Element의 Value
+            , ds_work_pl.getCellData(rowIndex, &quot;repFixWrkPlNm&quot;)                             // 화면에서의  Name Element의 Value
+            , &quot;F&quot;                           // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+            , null                            
+            , null                            
+            , null                           
+            , null                            
+            , ds_work_pl.getCellData(rowIndex, &quot;homeClsCd&quot;)
+            , null                            
+            , null                            
+            , null                            
+            , null                            
+        ); 
+    
+    //귀속부서 팝업
+	} else if( colid == &quot;acctDeptCd&quot; ){
+        // Modal Dialog를 리턴값 없이 닫을 경우에 대비해
+		//popupResult = cfCommonPopUp('retrieveAcctDeptCdInfo',ds_work_pl.NameValue(row,&quot;acctDeptCd&quot;),ds_work_pl.NameValue(row,&quot;acctDeptNm&quot;),&quot;F&quot;,null,null,null,null,null,null,null,null,null,null,null); // 귀속부서
+        udc_comCodeGrid.setSelectId('retrieveAcctDeptCdInfo');
+        udc_comCodeGrid.cfCommonPopUp(scwin.grd_acctDeptCd_callBackFunc // 콜백 함수
+            , ds_work_pl.getCellData(rowIndex, &quot;acctDeptCd&quot;)                            // 화면에서의  Code Element의 Value
+            , ds_work_pl.getCellData(rowIndex, &quot;acctDeptNm&quot;)                             // 화면에서의  Name Element의 Value
+            , &quot;F&quot;                           // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+            , null,null,null,null,null,null,null,null,null,null,null
+        );
+
+    //우편번호 팝업
+	} else if( colid == &quot;zip&quot; ){
+        let data = {};
+        let popupResult;
+        const options = {
+            id: &quot;newzipcodePopup&quot;,
+            type: &quot;popup&quot;,
+            modal: true,
+            popupName: &quot;우편번호&quot;,
+            width: 530,
+            height: 400
+        };
+        popupResult = await $c.win.openPopup(&quot;/ui/cm/zz/newzipcodePopup.xml&quot;, options, data);
+        // Modal Dialog를 리턴값 없이 닫을 경우에 대비해
+        if (popupResult != null &amp;&amp; popupResult != undefined &amp;&amp; popupResult[0] != &quot;N/A&quot; ) {
+            ds_work_pl.setCellData(rowIndex, &quot;zip&quot;, popupResult.zip);
+            ds_work_pl.setCellData(rowIndex, &quot;addr1&quot;, popupResult.addr1);
+        }
+    }
+
+};
+
+//-------------------------------------------------------------------------
+// 그리드 호출 repFixWrkPlCd 콜백
+//-------------------------------------------------------------------------
+scwin.grd_repFixWrkPlCd_callBackFunc = function (ret) {
+    $c.gus.cfSetGridReturnValue(ret, ds_work_pl, ds_work_pl.getRowPosition(), &quot;repFixWrkPlCd&quot;, &quot;repFixWrkPlNm&quot;);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 호출 acctDeptCd 콜백
+//-------------------------------------------------------------------------
+scwin.grd_acctDeptCd_callBackFunc = function (ret) {
+    $c.gus.cfSetGridReturnValue(ret, ds_work_pl, ds_work_pl.getRowPosition(), &quot;acctDeptCd&quot;, &quot;acctDeptNm&quot;);
+};
+
+//-------------------------------------------------------------------------
+// Popup 배점소 그리드
+//-------------------------------------------------------------------------
+scwin.gr_delivery_onafteredit = function (rowIndex, columnIndex, value, info) {
+    try{
+        let colid = gr_delivery.getColumnID(columnIndex);
+        //돋보기 클릭하는 컬럼인경우
+        if( colid == &quot;lobranCd&quot;) {
+            if (info.type === 'mousedown') { //입력에는 keydown, 이미지클릭시 mousedown 돋보기 클릭만 처리하기 위한 방어코드
+                return false; // onafteredit 로직 중단
+            }
+        }
+
+        //popupResult = cfCommonPopUp('retrieveLogisDeptInfo', ds_delivery.NameValue(row,&quot;lobranCd&quot;),ds_delivery.NameValue(row,&quot;lobranNm&quot;),&quot;&quot;,null,null,null,null,&quot;A,B&quot;,null,null,null,null); // 배점소
+        udc_comCodeGrid.setSelectId('retrieveLogisDeptInfo');
+        udc_comCodeGrid.cfCommonPopUp(scwin.grd_lobranCd_callBackFunc // 콜백 함수
+            , ds_delivery.getCellData(rowIndex, &quot;lobranCd&quot;)                            // 화면에서의  Code Element의 Value
+            , ds_delivery.getCellData(rowIndex, &quot;lobranNm&quot;)                             // 화면에서의  Name Element의 Value
+            , &quot;T&quot;                           // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+            , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+            , null                            // Title순서
+            , null                            // 보여주는 각 컬럼들의 폭
+            , null                            // 컬럼중에서 숨기는 컬럼 지정
+            , &quot;A,B&quot;                           // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+            , null                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+            , null                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+            , null                            // 윈도우 위치 Y좌표
+            , null                            // 윈도우 위치 X좌표
+            , null                            // 중복체크여부	(&quot;F&quot;)
+            , null                            // 전체검색허용여부	(&quot;F&quot;)
+            , null                            // POP-UP Window Title 검색어1,2 (&quot;Win타이틀,첫번검색Nm,두번검색Nm&quot;)
+        );
+
+    } catch (e) {
+       console.log(&quot;gr_delivery_onafteredit &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// Popup 배점소 그리드 찾기
+//-------------------------------------------------------------------------
+scwin.gr_delivery_ontextimageclick = function (rowIndex, columnIndex) {
+    try{
+        //popupResult = cfCommonPopUp('retrieveLogisDeptInfo', ds_delivery.NameValue(row,&quot;lobranCd&quot;),ds_delivery.NameValue(row,&quot;lobranNm&quot;),&quot;&quot;,null,null,null,null,&quot;A,B&quot;,null,null,null,null); // 배점소
+        udc_comCodeGrid.setSelectId('retrieveLogisDeptInfo');
+        udc_comCodeGrid.cfCommonPopUp(scwin.grd_lobranCd_callBackFunc // 콜백 함수
+            , ds_delivery.getCellData(rowIndex, &quot;lobranCd&quot;)                            // 화면에서의  Code Element의 Value
+            , ds_delivery.getCellData(rowIndex, &quot;lobranNm&quot;)                             // 화면에서의  Name Element의 Value
+            , &quot;T&quot;                           // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+            , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+            , null                            // Title순서
+            , null                            // 보여주는 각 컬럼들의 폭
+            , null                            // 컬럼중에서 숨기는 컬럼 지정
+            , &quot;A,B&quot;                           // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+            , null                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+            , null                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+            , null                            // 윈도우 위치 Y좌표
+            , null                            // 윈도우 위치 X좌표
+            , null                            // 중복체크여부	(&quot;F&quot;)
+            , null                            // 전체검색허용여부	(&quot;F&quot;)
+            , null                            // POP-UP Window Title 검색어1,2 (&quot;Win타이틀,첫번검색Nm,두번검색Nm&quot;)
+        );
+    } catch (e) {
+       console.log(&quot;gr_delivery_ontextimageclick &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 호출 lobranCd 콜백
+//-------------------------------------------------------------------------
+scwin.grd_lobranCd_callBackFunc = function (ret) {
+    if (ret != null &amp;&amp; ret != undefined &amp;&amp; ret[0] != &quot;N/A&quot; ) {
+        ds_delivery.setCellData(ds_delivery.getRowPosition(), &quot;lobranCd&quot;, ret[0]); //배점소코드
+        ds_delivery.setCellData(ds_delivery.getRowPosition(), &quot;lobranNm&quot;, ret[1]); //배점소명
+    }
+    $c.gus.cfSetGridReturnValue(ret, ds_delivery, ds_delivery.getRowPosition(), &quot;lobranCd&quot;, &quot;lobranNm&quot;);
+};
+
+//-------------------------------------------------------------------------
+// Popup 배점소 그리드 row 선택시
+//-------------------------------------------------------------------------
+scwin.gr_delivery_onrowindexchange = function (rowIndex, oldRow) {
+    try{
+        if( ds_delivery.getRowStatus(rowIndex) =='R'){
+            gr_delivery.setReadOnly(&quot;cell&quot;,rowIndex,&quot;lobranCd&quot;,true); //readOnly Edit none
+        } else {
+            gr_delivery.setReadOnly(&quot;cell&quot;,rowIndex,&quot;lobranCd&quot;,false); //Edit ANY
+        }
+    } catch (e) {
+       console.log(&quot;gr_delivery_onrowindexchange &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function (value) {
+    $c.gus.cfInitObjects(tb_wrk,null);
+};
+
+//-------------------------------------------------------------------------
+// 작업장콤보 DataSet
+//-------------------------------------------------------------------------
+scwin.lc_homeClsCd_onchange = function (info) {
+    try {
+        const params = {
+            sysCd      : &quot;PsCommonEBC&quot; , 
+            queryId : &quot;retriveWrkplList&quot; ,
+            param1 : lc_homeClsCd.getValue(),
+        };
+
+        //데이터셋에 정보설정
+        ds_lux_wrkPlCdCondition.setJSON(params);
+        $c.sbm.execute(sbm_wrkPlCd);
+    } catch (e) {
+        console.log(&quot;lc_homeClsCd_onviewchange : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_wrkPlCd_submitdone = function(e) {
+  if (e.responseJSON.resultDataSet[0].Code &lt; 0) return; //onFail
+    if(e.responseJSON.GAUCE) {
+        ds_lux_wrkPlCd.setJSON(e.responseJSON.GAUCE);
+        ds_lux_wrkPlCd.insertRow(0);
+        ds_lux_wrkPlCd.setCellData(0, &quot;code&quot;, &quot;&quot;);
+        ds_lux_wrkPlCd.setCellData(0, &quot;name&quot;, &quot;전체&quot;);
+        lc_wrkPlCd.setSelectedIndex(0);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+    try {
+        if(ds_work_pl.getModifiedIndex().length==0 &amp;&amp; ds_delivery.getModifiedIndex().length==0){
+            $c.win.alert($c.data.getMessage(MSG_CM_ERR_001,&quot;정비작업장, 점소&quot;));
+        } else {
+            
+            if (!await $c.gus.cfValidate([gr_work_pl], null, true)) return false;
+
+            if(ds_work_pl.getModifiedIndex().length &gt; 0 ){
+                let count = 0;
+                for (let i = scwin.RetrievedRow; i &lt; ds_work_pl.getRowCount(); i++) {
+                    count = i + 1 ;
+                    if( ds_work_pl.getCellData(i, &quot;repFixWrkPlCd&quot;) == &quot;&quot; ){
+                        $c.win.alert(&quot;[&quot;+count+&quot;]번째 대표작업장코드를 입력하세요.&quot;);
+                        return false;
+                    } 
+                }
+            }
+
+            if (await $c.gus.cfValidate([gr_work_pl], null, true) &amp;&amp; await $c.gus.cfValidate([gr_delivery], null, true)){
+                for (let row = 0; row &lt; ds_work_pl.getRowCount(); row++) {
+                    // 사업부문이 물류이고 작업장코드가 2로 시작하면 오류
+                    if( lc_homeClsCd.getValue() == &quot;LO&quot; &amp;&amp; parseInt(ds_work_pl.getCellData(row, &quot;fixWrkPlCd&quot;)) &gt;= 200 ) {
+                        $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_055,[&quot;작업장코드&quot;]));
+                        gr_work_pl.setFocusedCell(i, &quot;fixWrkPlCd&quot;, true);//gr_work_pl.SetColumn(&quot;fixWrkPlCd&quot;);
+                        return false;
+                    }
+
+                    // 사업부문이 고속이고 작업장코드가 1로 시작하거나 3이상으로 시작하면 오류
+                    if( lc_homeClsCd.getValue() == &quot;TR&quot; &amp;&amp; (parseInt(ds_work_pl.getCellData(row, &quot;fixWrkPlCd&quot;)) &lt; 200 || parseInt(ds_work_pl.getCellData(row, &quot;fixWrkPlCd&quot;)) &gt; 300) ) {
+                        $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_055,[&quot;작업장코드&quot;]));
+                        gr_work_pl.setFocusedCell(i, &quot;fixWrkPlCd&quot;, true);//gr_work_pl.SetColumn(&quot;fixWrkPlCd&quot;);
+                        return false;
+                    }
+                }
+
+                if(await $c.win.confirm(&quot;저장하시겠습니까?&quot;)) {
+                     $c.sbm.execute(sbm_SaveRepairShop);
+                }
+            }
+        }
+       
+    } catch (e) {
+        console.log(&quot;f_Save : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장콜백
+//------------------------------------------------------------------------
+scwin.sbm_SaveRepairShop_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code &lt; 0) return; //onFail
+    await  $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+}
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드추가 - 코드 적용
+//------------------------------------------------------------------------
+scwin.f_WorkAddRow = function (e) {
+    try{
+        //ASIS 행이 없을때는 추가하지 않고 있어서 방어코드 추가함
+        if (ds_work_pl.getRowCount() &gt; 0){
+            let addRow = ds_work_pl.insertRow();
+            ds_work_pl.setCellData(addRow, &quot;homeClsCd&quot;, lc_homeClsCd.getValue());//소속
+            gr_work_pl.setReadOnly(&quot;cell&quot;,addRow,&quot;fixWrkPlCd&quot;,false); //Edit Numeric
+            gr_work_pl.setFocusedCell(addRow, &quot;fixWrkPlCd&quot;, true);//작업장코드
+        }
+    } catch (e) {
+        console.log(&quot;f_WorkAddRow : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 그리드추가 - 코드 적용
+//------------------------------------------------------------------------
+scwin.f_CostAddRow = function (e) {
+    try{
+        //ASIS 행이 없을때는 추가하지 않고 있어서 방어코드 추가함
+        if (lc_homeClsCd.getValue() == &quot;LO&quot;){
+            let addRow = ds_delivery.insertRow();
+            ds_delivery.setCellData(addRow, &quot;fixWrkPlCd&quot;, ds_work_pl.getCellData(ds_work_pl.getRowPosition(), &quot;fixWrkPlCd&quot;));
+            ds_delivery.setRowPosition(addRow);
+            $c.gus.cfGoPrevPosition(gr_delivery, addRow);
+        }
+    } catch (e) {
+        console.log(&quot;f_CostAddRow : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드삭제 - 서브데이타도 삭제
+//------------------------------------------------------------------------
+scwin.f_DelClass = async function (e) {
+    try{
+        for (let row = 0; row &lt; ds_work_pl.getRowCount(); row++) {
+            if( ds_work_pl.getCellData(ds_work_pl.getRowPosition(), &quot;fixWrkPlCd&quot;) == ds_work_pl.getCellData(row, &quot;repFixWrkPlCd&quot;) ) {
+                //alert(&quot;해당 작업장은 대표작업장으로 사용중입니다.&quot;);
+			    //return;
+            }    
+        }
+
+        if(await $c.win.confirm(&quot;작업장코드를 삭제하면 하위코드도 모두 삭제됩니다.&lt;br/&gt;삭제하시겠습니까?&quot;)) {
+            for (let i=ds_delivery.getRowCount()-1; i &gt;=0; i--){       
+                //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+                if (ds_delivery.getRowStatus(i)==&quot;C&quot;){
+                    ds_delivery.removeRow(i);
+                }else{
+                    let curPos = ds_delivery.getRowPosition();
+                    ds_delivery.deleteRow(ds_delivery.getRowPosition());//ds_delivery.DeleteRow(ds_delivery.RowPosition);
+                    gr_delivery.setFocusedCell(curPos, &quot;lobranCd&quot;);
+                    break;
+                }
+            }
+            
+            //ds_work_pl.setCellData(ds_work_pl.getRowPosition(), &quot;fixWrkPlCd&quot;, &quot;&quot;);
+            
+            if (ds_work_pl.getRowStatus(ds_work_pl.getRowPosition()) ==&quot;C&quot;){
+                ds_work_pl.removeRow(ds_work_pl.getRowPosition());
+            }else{
+                let curPos2 = ds_work_pl.getRowPosition();
+                ds_work_pl.deleteRow(curPos2);
+                gr_work_pl.setEventPause(&quot;&quot;,true);
+                gr_work_pl.setFocusedCell(curPos2, &quot;fixWrkPlCd&quot;);
+                gr_work_pl.setEventPause(&quot;&quot;,false);
+            }
+        }
+    } catch (e) {
+        console.log(&quot;f_DelClass : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 첫번째 그리드취소 - 서브데이타도 적용
+//-------------------------------------------------------------------------
+scwin.f_CancelClass = function (e) {
+    try{
+
+        if (ds_work_pl.getRowStatus(ds_work_pl.getRowPosition()) ==&quot;C&quot;){//추가데이타인 경우, 서브데이타삭제
+            for (let i=ds_delivery.getRowCount()-1; i &gt;=0; i--){            
+                ds_delivery.removeRow(i);
+            }                
+        }
+
+        if (ds_work_pl.getRowStatus(ds_work_pl.getRowPosition()) ==&quot;C&quot;){
+            ds_work_pl.removeRow(ds_work_pl.getRowPosition());
+        }else{
+            ds_work_pl.undoRow(ds_work_pl.getRowPosition());
+            gr_work_pl.setFocusedCell(ds_work_pl.getRowPosition(), &quot;fixWrkPlCd&quot;);
+        }
+
+    } catch (e) {
+        console.log(&quot;f_CancelClass : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 그리드삭제
+//-------------------------------------------------------------------------
+scwin.f_DelClass2 = function (e) {
+    try{
+        if (ds_delivery.getRowStatus(ds_delivery.getRowPosition()) ==&quot;C&quot;){
+           ds_delivery.removeRow(ds_delivery.getRowPosition());                 
+        } else {
+            let curPos = ds_delivery.getRowPosition();
+            ds_delivery.deleteRow(curPos);
+            gr_delivery.setFocusedCell(curPos, &quot;lobranCd&quot;);
+        }
+
+    } catch (e) {
+        console.log(&quot;f_DelClass2 : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 두번째 그리드취소
+//-------------------------------------------------------------------------
+scwin.f_CancelClass2 = function (e) {
+    try{
+        if (ds_delivery.getRowStatus(ds_delivery.getRowPosition()) ==&quot;C&quot;){
+           ds_delivery.removeRow(ds_delivery.getRowPosition());                 
+        } else {
+            ds_delivery.undoRow(ds_delivery.getRowPosition());
+        }
+    } catch (e) {
+        console.log(&quot;f_CancelClass2 : &quot; + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀다운로드
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel = function() {
+    
+    const options = {
+        fileName : &quot;정비작업장목록.xlsx&quot; //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        ,sheetName : &quot;정비작업장목록&quot; //엑셀내 시트명 지정필요시
+        , bodyWordwrap   : true    // 줄바꿈
+    };
+    const infoArr = [];
+    $c.data.downloadGridViewExcel(gr_work_pl, options, infoArr);
+};
+</script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+		<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="tb_wrk" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:70px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:105px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="사업부문 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="width: 100px;" submenuSize="fixed" mandatory="true" title="사업부문"
+									ref="data:ds_re_pl.homeClsCd" ev:onchange="scwin.lc_homeClsCd_onchange" chooseOptionLabel="$blank" emptyItem="true">
+									<xf:choices></xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="작업장 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_wrkPlCd" style="width:200px;" submenuSize="fixed" ref="data:ds_re_pl.wrkPlCd"
+									visibleRowNum="15" chooseOptionLabel="$blank" emptyItem="true">
+									<xf:choices>
+										<xf:itemset nodeset="data:ds_lux_wrkPlCd">
+											<xf:label ref="name"></xf:label>
+											<xf:value ref="code"></xf:value>
+										</xf:itemset>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_Clear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+                        <xf:label><![CDATA[조회]]></xf:label>
+                    </xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="lybox  wfix" id="" style="">
+					<xf:group class="col" id="" style="">
+						<xf:group class="title-wrap" id="" style="">
+							<xf:group class="title" id="">
+								<w2:textbox class="tit" id="" label="정비작업장 목록" style="" tagname="h3"></w2:textbox>
+							</xf:group>
+							<xf:group class="right" id="">
+								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownFn="scwin.f_GridToExcel" gridID="gr_work_pl"></w2:udc_topGrdBtn>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+							<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_work_pl"
+								focusMode="cell" id="gr_work_pl" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15"
+								visibleRowNumFix="true" gridName="정비작업장" ev:ontextimageclick="scwin.gr_work_pl_ontextimageclick" ev:onrowindexchange="scwin.gr_work_pl_onrowindexchange" ev:onafteredit="scwin.gr_work_pl_onafteredit" resize="true" columnMove="true"
+                                dataName="정비작업장" validFeatures="ignoreStatus=no" validExp="fixWrkPlCd:작업장코드:yes:length=3:key,fixWrkPlNm:작업장명:yes::key,repFixWrkPlCd:대표작업장코드:yes:length=3:key,acctDeptCd:귀속부서코드:yes:length=5:key,acctDeptNm:귀속부서명:yes::key" ev:onbeforeedit="scwin.gr_work_pl_onbeforeedit" rowStatusVisible="true">
+								<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header2" style="">
+									<w2:row id="row3" style="">
+										<w2:column displayMode="label" id="column30" inputType="text" value="소속코드" width="100"></w2:column>
+										<w2:column displayMode="label" id="column38" inputType="text" value="작업장코드" width="120"
+											class="txt-red">
+										</w2:column>
+										<w2:column displayMode="label" id="column36" inputType="text" value="작업장명" width="150"
+											class="txt-red">
+										</w2:column>
+										<w2:column displayMode="label" id="column34" inputType="text" value="대표&lt;br/&gt;작업장"
+											width="120" class="txt-red">
+										</w2:column>
+										<w2:column displayMode="label" id="column32" inputType="text" value="대표&lt;br/&gt;작업장명" width="150"
+											class="">
+										</w2:column>
+										<w2:column displayMode="label" id="column28" inputType="text" value="귀속부서" width="120"
+											class="txt-red">
+										</w2:column>
+										<w2:column displayMode="label" id="column26" inputType="text" value="귀속부서명" width="150"></w2:column>
+										<w2:column width="120" inputType="text" id="column54" value="적용공임" displayMode="label"
+											class="txt-blue">
+										</w2:column>
+										<w2:column width="120" inputType="text" id="column52" value="작업장&lt;br/&gt;대표" displayMode="label"
+											class="txt-blue">
+										</w2:column>
+										<w2:column width="90" inputType="text" id="column50" value="우편번호" displayMode="label"
+											class="txt-blue">
+										</w2:column>
+										<w2:column width="250" inputType="text" id="column48" value="주소1" displayMode="label"></w2:column>
+										<w2:column width="120" inputType="text" id="column46" value="주소2" displayMode="label" class="txt-blue"></w2:column>
+										<w2:column width="120" inputType="text" id="column44" value="전화번호" displayMode="label" class="txt-blue"></w2:column>
+										<w2:column width="120" inputType="text" id="column42" value="FAX번호" displayMode="label" class="txt-blue"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody2" style="">
+									<w2:row id="row4" style="">
+										<w2:column displayMode="label" id="homeClsCd" inputType="text" width="100" hidden="true" sortable="false"></w2:column>
+										<w2:column displayMode="label" id="fixWrkPlCd" inputType="text" width="120" textAlign="center" sortable="true" allowChar="0-9" maxLength="3"></w2:column>
+										<w2:column displayMode="label" id="fixWrkPlNm" inputType="text" width="150" textAlign="left" sortable="true" maxByteLength="30" maxLength="30"></w2:column>
+										<w2:column displayMode="label" id="repFixWrkPlCd" inputType="textImage" width="120" textAlign="center" sortable="true"></w2:column>
+										<w2:column displayMode="label" id="repFixWrkPlNm" inputType="text" width="150" textAlign="left" sortable="true" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="acctDeptCd" inputType="textImage" width="120" textAlign="center" sortable="true" allowChar="0-9" maxLength="5" validateOnInput="true"></w2:column>
+										<w2:column displayMode="label" id="acctDeptNm" inputType="text" width="150" textAlign="left" sortable="false" readOnly="true"></w2:column>
+										<w2:column width="120" inputType="text" id="adptWages" displayMode="label" textAlign="right" sortable="false" displayFormat="#,##0" dataType="number" maxLength="13" allowChar="0-9" excelCellType="number"></w2:column>
+										<w2:column width="120" inputType="text" id="wrkPlRepstNm" displayMode="label" textAlign="left" sortable="false" maxLength="20" maxByteLength="20"></w2:column>
+										<w2:column width="90" inputType="textImage" id="zip" displayMode="label" textAlign="center" sortable="false" readOnly="true" viewType="icon"></w2:column>
+										<w2:column width="250" inputType="text" id="addr1" displayMode="label" textAlign="left" sortable="false" readOnly="true"></w2:column>
+										<w2:column width="120" inputType="text" id="addr2" displayMode="label" textAlign="left" sortable="false" maxByteLength="20" maxLength="20"></w2:column>
+										<w2:column width="120" inputType="text" id="telNo" displayMode="label" textAlign="left" sortable="false" maxLength="20" maxByteLength="20"></w2:column>
+										<w2:column width="120" inputType="text" id="faxNo" displayMode="label" textAlign="left" sortable="false" maxByteLength="20" maxLength="20"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="" style="">
+									<xf:group class="grid-total" id="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group id="udc_addDel1" class="right">
+									<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" btnRowAddYn="Y" EngYn="N" btnDelYn="N" btnRowDelYn="Y" rowAddUserAuth="C" rowDelUserAuth="D" rowAddFunction="scwin.f_WorkAddRow" rowDelFunction="scwin.f_DelClass" cancelFunction="scwin.f_CancelClass" id="udc_addDel">
+									</w2:udc_bottomGrdBtn>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group class="col" id="" style="width: 300px;">
+						<xf:group adaptiveThreshold="" class="gvwbox" id="" style="margin-top:32px;">
+							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_delivery" id="gr_delivery" style=""
+								visibleRowNum="16" visibleRowNumFix="true" gridName="배점점소 등록" readOnly="true" ev:onafteredit="scwin.gr_delivery_onafteredit" ev:onrowindexchange="scwin.gr_delivery_onrowindexchange" ev:ontextimageclick="scwin.gr_delivery_ontextimageclick" rowStatusVisible="true"
+                                dataName="배점점소 등록" validFeatures="ignoreStatus=no" validExp="lobranCd:배점소코드:yes::key" resize="true" columnMove="true">
+								<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label" id="column1" inputType="text" style="" value="물류점소" width="70" class="txt-red"></w2:column>
+										<w2:column displayMode="label" id="column17" inputType="text" style="" value="점소명" width="70"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" style="" value="작업장코드" width="70"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label" id="lobranCd" inputType="textImage" style="" value="" width="70" sortable="true"></w2:column>
+										<w2:column displayMode="label" id="lobranNm" inputType="text" style="" value="" width="70" sortable="true"></w2:column>
+										<w2:column displayMode="label" id="fixWrkPlCd" inputType="text" style="" value="" width="70" hidden="true"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="">
+									<xf:group class="grid-total" id="" style="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows2" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group class="right" id="" style="">
+									<w2:udc_bottomGrdBtn btnDelYn="N" style="" btnCancelYn="Y" id="udc_addDel2" rowAddFunction="scwin.f_CostAddRow" rowDelFunction="scwin.f_DelClass2" cancelFunction="scwin.f_CancelClass2" rowAddUserAuth="C" rowDelUserAuth="D"></w2:udc_bottomGrdBtn>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+    			
+    			
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btn_Save" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U"
+							objType="bSave">
+							<xf:label><![CDATA[저장]]></xf:label>
+						</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+        <w2:udc_comCode btnId="" codeId="" id="udc_comCodeGrid" nameId="" popupID="" selectID="" style="display:none"></w2:udc_comCode>
+    </body>
+</html>

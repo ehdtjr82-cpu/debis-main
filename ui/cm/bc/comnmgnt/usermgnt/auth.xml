@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_condition" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="seqNo" name="seqNo" dataType="text"></w2:column>
+						<w2:column id="sndNo" name="sndNo" dataType="text"></w2:column>
+						<w2:column id="rcvNo" name="rcvNo" dataType="text"></w2:column>
+						<w2:column id="authNo" name="authNo" dataType="text"></w2:column>
+						<w2:column id="authAvailDtm" name="authAvailDtm" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_confirm" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="rcvNo" name="rcvNo" dataType="text"></w2:column>
+						<w2:column id="rcvNo2" name="rcvNo2" dataType="text"></w2:column>
+						<w2:column id="authNo" name="authNo" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="authNo" name="authNo" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/cm.bc.comnmgnt.usermgnt.cmd.RetrieveAuthNoCheckCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"ds_confirm","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_save" action="/cm.bc.comnmgnt.usermgnt.cmd.CreateAuthNoInfoCMD.do" method="post"
+				mediatype="application/json" ref='data:json,{"id":"ds_condition","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.getLoginInfo = function() {
+    var loginInfo = {};
+    var mergeLoginInfo = function(param) {
+        if (!param || typeof param !== "object") {
+            return;
+        }
+
+        if (param.loginInfo && typeof param.loginInfo === "object") {
+            Object.assign(loginInfo, param.loginInfo);
+        } else if (param.data && param.data.loginInfo && typeof param.data.loginInfo === "object") {
+            Object.assign(loginInfo, param.data.loginInfo);
+        } else if (param.data && typeof param.data === "object" && (param.data.userMpNo || param.data.userMpNo2)) {
+            Object.assign(loginInfo, param.data);
+        } else {
+            Object.assign(loginInfo, param);
+        }
+    };
+
+    try {
+        mergeLoginInfo($c.data.getMemInfo());
+    } catch (e) {
+    }
+
+    try {
+        mergeLoginInfo($p.getParameter("param"));
+    } catch (e) {
+    }
+
+    try {
+        mergeLoginInfo($p.getParameter("paramData"));
+    } catch (e) {
+    }
+
+    try {
+        var allParam = $p.getAllParameter() || {};
+        mergeLoginInfo(allParam.param);
+        mergeLoginInfo(allParam.paramData);
+        if (allParam.dataObject && allParam.dataObject.data) {
+            mergeLoginInfo(allParam.dataObject.data);
+        }
+    } catch (e) {
+    }
+
+    try {
+        var savedLoginInfo = WebSquare.localStorage.getItem("loginAuthPopupInfo");
+        if (savedLoginInfo) {
+            mergeLoginInfo(JSON.parse(savedLoginInfo));
+        }
+    } catch (e) {
+    }
+
+    return loginInfo;
+};
+
+scwin.memJson = {};
+scwin.mobile = "";
+scwin.mobile2 = "";
+scwin.minute = 5;
+scwin.second = 00;
+scwin.end = 0;
+
+scwin.initLoginInfo = function() {
+    scwin.memJson = scwin.getLoginInfo();
+    scwin.mobile = String(scwin.memJson.userMpNo || "").replace(/-/g, "");
+    scwin.mobile2 = String(scwin.memJson.userMpNo2 || "").replace(/-/g, "");
+};
+
+scwin.ensureLoginInfo = function() {
+    if (!scwin.mobile && !scwin.mobile2) {
+        scwin.initLoginInfo();
+    }
+};
+
+scwin.hasMobileNo = function() {
+    scwin.ensureLoginInfo();
+    return (scwin.mobile != "" && scwin.mobile != "null") || (scwin.mobile2 != "" && scwin.mobile2 != "null");
+};
+
+scwin.onpageload = function() {
+    scwin.initLoginInfo();
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    if(!scwin.hasMobileNo()) {
+        $c.win.alert("인증번호를 전송할 휴대폰번호가 없습니다.");
+        return false;
+    }
+    ds_condition.removeAll();
+    if(scwin.mobile != "" && scwin.mobile != "null")	{
+        ds_condition.insertRow(0);
+        ds_condition.setCellData(0, "rcvNo", scwin.mobile);
+        if(scwin.mobile2 != "" && scwin.mobile2 != "null")	{
+            ds_condition.insertRow(1);
+            ds_condition.setCellData(1, "rcvNo", scwin.mobile2);
+        }
+    } else {
+        if(scwin.mobile2 != "" && scwin.mobile2 != "null")	{
+            ds_condition.setCellData(0, "rcvNo", scwin.mobile2);
+        }else	{
+            return;
+        }		
+    }
+    // tr_save.post();
+    try {
+        await $c.sbm.execute(sbm_save);
+
+    } catch (e) {
+        $c.win.alert("인증번호 전송에 실패했습니다.");
+        return false;
+    }
+
+    return true;
+};
+
+// //-------------------------------------------------------------------------
+// // 조회
+// //-------------------------------------------------------------------------
+scwin.f_checkAuth = async function() {
+    var cnt = 0;
+    ds_confirm.removeAll();
+    if(scwin.hasMobileNo())	{
+        // ds_confirm.NameValue(1, "authNo")  =  txt_autnNo.value;
+        // ds_confirm.NameValue(1, "rcvNo")  =  scwin.mobile;
+        // ds_confirm.NameValue(1, "rcvNo2")  =  scwin.mobile2;	        		
+        // tr_retrieve.post();
+        ds_confirm.insertRow(0);
+        ds_confirm.setCellData(0, "authNo", ed_autnNo.getValue());
+        ds_confirm.setCellData(0, "rcvNo", scwin.mobile);
+        ds_confirm.setCellData(0, "rcvNo2", scwin.mobile2);
+        await $c.sbm.execute(sbm_retrieve);
+    }
+    if(ds_result.getRowCount() > 0)	{
+        cnt++;
+    }
+        
+    if(cnt == 0)	{	
+        try {
+            WebSquare.localStorage.removeItem("loginAuthPopupInfo");
+        } catch (e) {
+        }
+        window.returnValue = "1";
+        $c.win.closePopup("1");
+    }else	{
+        try {
+            WebSquare.localStorage.removeItem("loginAuthPopupInfo");
+        } catch (e) {
+        }
+        window.returnValue = "0";
+        $c.win.closePopup("0");
+    }
+    
+};
+
+scwin.f_TimerCount = function() {
+
+    if (scwin.second == 00) {
+        scwin.minute = scwin.minute - 1;
+        scwin.second = 59;
+    } else {
+        scwin.second = scwin.second - 1;
+    }
+    
+    if ((scwin.minute < 0) && (scwin.end == 0)) {
+        scwin.end = 1;
+        Promise.resolve($c.win.alert("인증시간이 지났습니다.")).then(function() {
+            try {
+                WebSquare.localStorage.removeItem("loginAuthPopupInfo");
+            } catch (e) {
+            }
+            window.returnValue = "1";
+            $c.win.closePopup("1");
+        });
+        return;
+    }
+    
+    ed_min.setValue( 0 + scwin.minute.toString() );
+    if (scwin.second < 10) {
+        ed_secs.setValue( 0 + scwin.second.toString() );
+    } else {
+        ed_secs.setValue( scwin.second );
+    }
+    // setTimeout("f_TimerCount()", 1000);
+    $p.setTimeout(function() {
+        scwin.f_TimerCount();
+    }, {"delay":1000});
+
+}; 
+
+//-------------------------------------------------------------------------
+// 전송   20200421 sh1004dd 인증전송문자 보내는 버튼 추가
+//-------------------------------------------------------------------------
+scwin.f_smsSend = async function() {
+    let flage = await scwin.f_Save();
+    if(flage != false) {
+        scwin.f_TimerCount();
+    }
+};
+
+scwin.btn_close_onclick = function (e) {
+    try {
+        WebSquare.localStorage.removeItem("loginAuthPopupInfo");
+    } catch (e) {
+    }
+    window.returnValue = "1";
+    $c.win.closePopup("1");
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0){
+         return false;
+    }else{
+         return true;
+    }
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<xf:group class="round-box vam" id="" style="margin-top:20px;">
+				<w2:textbox class="fs16 bold tac" escape="false" id=""
+					label='고객님의 휴대폰으로 전송된 &lt;span class="txt-blue"&gt;인증번호를 정확히 입력&lt;/span&gt;하신 후&lt;br/&gt;&lt;span class="txt-blue"&gt;인증확인&lt;/span&gt; 버튼을 눌러주세요.'
+					style="">
+				</w2:textbox>
+    			
+    			<xf:group class="tbbox mt16" id="" style="width: 400px;">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">    						
+    					<xf:group class="w2tb_th" style="" tagname="th">
+    						<w2:textbox class="" id="" label="인증번호입력" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+                        <xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:group id="" class="form-group"><xf:input style="width: 120px;" id="ed_autnNo" class="" dataType="number" mandatory="true" title="인증번호확인" maxByteLength="6"></xf:input>
+                            <xf:input style="width: 60px" id="ed_min" class="tac"></xf:input>
+                            <w2:textbox style="" id="" label=":" class="" escape="false"></w2:textbox>
+                            <xf:input style="width: 60px;" id="ed_secs" class="tac"></xf:input>
+                        </xf:group>
+                    </xf:group>
+                </xf:group>
+    		</xf:group>
+    	</xf:group>
+    	<w2:textbox class="txt-dot" escape="false" id="" label="휴대폰번호로 인증번호가 도착하지 않을시 휴대폰 설정에 따라 스팸메세지함으로 전송될 수 있으니 스팸메세지함을 확인하시기 바랍니다. " style="margin-top:50px;">
+    	</w2:textbox>
+        </xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_smsSend" style="" type="button" objType="bUpdate" ev:onclick="scwin.f_smsSend">
+    				<xf:label><![CDATA[인증전송]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_checkAuth" style="" type="button" objType="bUpdate" ev:onclick="scwin.f_checkAuth">
+    				<xf:label><![CDATA[인증확인]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

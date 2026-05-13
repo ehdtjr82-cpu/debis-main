@@ -1,0 +1,32 @@
+eq_520_01_10b.log
+
+[2026-02-18 23:10:12.941] 변환 시작
+[2026-02-18 23:10:12.951] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 23:11:10.940] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=3, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.96, grade=A_PLUS, verdict=PASS, errors=0, warnings=5 | LLM 57943ms, total 57988ms
+    - [XML] 'lc_homeClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_homeClsCd
+    - [XML] 'lc_fixWrkPlCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_fixWrkPlCd
+    - [XML] 'lc_inClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_inClsCd
+[2026-02-18 23:11:10.967] #1 검증: 자동수정 3건 적용
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 23:11:11.010] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=3, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5
+    - [XML] 'acb_homeClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — acb_homeClsCd
+    - [XML] 'acb_fixWrkPlCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — acb_fixWrkPlCd
+    - [XML] 'acb_inClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — acb_inClsCd
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: lc_homeClsCd (LUXECOMBO→w2:autoComplete), lc_fixWrkPlCd (LUXECOMBO→w2:autoComplete), lc_inClsCd (LUXECOMBO→w2:autoComplete)
+[2026-02-18 23:11:16.663] #2 재시도 (에러 3건)
+[2026-02-18 23:11:17.672] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 23:12:25.807] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.96, grade=A_PLUS, verdict=PASS, errors=0, warnings=5 | LLM 68095ms, total 68135ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-18 23:12:25.808] #1 검증: 최적 시도 #1 채택 (confidence: 0.57)
+[2026-02-18 23:12:25.808] 실패 (2회 시도, 2m 12s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 'lc_homeClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_homeClsCd
+  2. [XML] 'lc_fixWrkPlCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_fixWrkPlCd
+  3. [XML] 'lc_inClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_inClsCd
+================================================================================

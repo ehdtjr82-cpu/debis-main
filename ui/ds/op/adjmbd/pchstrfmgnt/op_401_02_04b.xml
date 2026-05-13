@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="op_401_02_04b" meta_screenName="철송임률등록" meta_author="김원빈" meta_subsystem="물류/공통(통합)/매입요율/운송/철송매입요율" meta_type="서브">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_railroadFrates" saveRemovedData="true" ev:ondataload="scwin.dlt_onload" ev:oninsertrow="scwin.dlt_oninsertrow" ev:onremoverow="scwin.dlt_onremoverow" ev:oncelldatachange="scwin.ds_railroadFrates_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="ctrtDt" name="적용시작일자" dataType="text"></w2:column>
+    					<w2:column id="ctrtDtKey" name="적용시작일자(Key)" dataType="text"></w2:column>
+    					<w2:column id="expireDt" name="적용종료일자" dataType="text"></w2:column>
+    					<w2:column id="frt20Ft" name="20FULL" dataType="number"></w2:column>
+    					<w2:column id="frt40Ft" name="40FULL" dataType="number"></w2:column>
+    					<w2:column id="frt45Ft" name="45FULL" dataType="number"></w2:column>
+    					<w2:column id="emptyDcRt" name="EMPTY할인율" dataType="text"></w2:column>
+    					<w2:column id="existRow" name="기존Row" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="qryStDt" name="name1" dataType="text"></w2:key>
+    					<w2:key id="qryEndDt" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_procedureCall" saveRemovedData="true" ev:ondataload="scwin.dlt_onload" ev:oninsertrow="scwin.dlt_oninsertrow" ev:onremoverow="scwin.dlt_onremoverow">
+    				<w2:columnInfo>
+    					<w2:column id="prtn2" name="name1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_railroadFratesAlias">
+    				<w2:keyInfo>
+    					<w2:key id="ctrtDt" name="name1" dataType="text"></w2:key>
+    					<w2:key id="expireDt" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ds.op.RetrieveRailroadAmountPerDistanceCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_railroadFrates","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_railroadFrates","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_procedureCall" action="/ds.op.adjmbd.pchstrfmgnt.ExecuteDistanceEachRailroadTariffCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_procedureCall","key":"OUT_DS1"}' target='data:json,{"id":"ds_procedureCall","key":"OUT_DS1"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.SaveRailroadAmountPerDistanceCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_railroadFrates","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_check" action="" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_railroadFratesAlias","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<w2:historyInfo>
+    		<w2:history meta_no="" meta_desc="개발완료" meta_date="2026/04/09" meta_user=""></w2:history>
+    	</w2:historyInfo>
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * @event 
+ * @name onpageload 
+ * @description 화면 초기화
+ */
+scwin.onpageload = function () { };
+
+
+
+/**
+ * @event 
+ * @name onUdcCompleted 
+ * @description UDC 완료
+ */
+scwin.onUdcCompleted = function () { };
+
+
+
+/**
+ * @event 
+ * @name ondataload 
+ * @description 코드 완료
+ */
+scwin.ondataload = function () {
+    scwin.globalVars();
+    scwin.f_OnLoad();
+};
+
+
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언
+ */
+scwin.globalVars = function () {
+    scwin.sCurrDate = $c.date.getServerDateTime("yyyyMMdd");
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 화면로딩시
+ */
+scwin.f_OnLoad = function () {
+
+    ed_qryStDt.setValue(scwin.sCurrDate);
+    ed_qryEndDt.setValue("99999999");
+
+    ed_qryStDt.focus();
+
+    scwin.f_objDisable();
+    ed_qryEndDt.setDisabled(true);
+
+    $c.gus.cfDisableBtnOnly(
+        [btn_Create, btn_Modify, btn_Cancel, btn_Save, btn_Delete, btn_Proc]
+    );
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_Retrieve 
+ * @description 조회
+ */
+scwin.f_Retrieve = async function () {
+
+    const validQryDate = await $c.gus.cfValidate([ed_qryStDt], null, true);
+    if (!validQryDate) return;
+
+    dma_search.set("qryStDt", ed_qryStDt.getValue());
+    dma_search.set("qryEndDt", ed_qryEndDt.getValue());
+
+    scwin.f_objDisable();
+    ds_railroadFrates.removeAll();
+
+    //버튼제어
+    $c.gus.cfEnableBtnOnly(
+        [btn_Create, btn_Modify, btn_Cancel, btn_Save, btn_Delete, btn_Proc]
+    );
+    $c.gus.cfDisableBtnOnly([btn_Cancel, btn_Save]);
+    gr_railroadFrates.setDisabled("grid", false);
+
+    await scwin.submitExcute(sbm_search);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_ctrtDtValidate 
+ * @description 적용시작일자 Validation Check (이전 적용시작일자 보다 커야된다)
+ */
+scwin.f_ctrtDtValidate = async function () {
+
+    const validGrid = await $c.gus.cfValidate([gr_railroadFrates], null, true);
+    if (!validGrid) return false;
+
+    return true;
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_DeleteRow 
+ * @description 삭제
+ */
+scwin.f_DeleteRow = async function () {
+
+    if (ds_railroadFrates.getRowCount() == 1) {
+        await $c.win.alert("데이타가 한건인 경우 삭제 하실수 없습니다.");
+        return;
+    };
+
+
+    const retConfirm = await $c.win.confirm(MSG_CM_CRM_004);
+    if (!retConfirm) return;
+
+    const focusIdx = ds_railroadFrates.getRowPosition();
+    ds_railroadFrates.deleteRow(focusIdx);
+
+    if (focusIdx == 0 || ds_railroadFrates.getRowStatus(focusIdx) == 'D') {
+        ds_railroadFrates.setCellData(focusIdx + 1, "expireDt", "99999999");
+    };
+
+    await scwin.submitExcute(sbm_save);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_Save 
+ * @description 저장
+ */
+scwin.f_Save = async function () {
+
+    const targetComps = [
+        ica_ctrtDt, ed_frt20Ft, ed_frt40Ft, ed_frt45Ft, ed_emptyDcRt
+    ]
+
+    const validComps = await $c.gus.cfValidate(targetComps, null, true);
+    if (!validComps) return;
+
+    const row = ds_railroadFrates.getRowPosition();
+    const rowData = ds_railroadFrates.getRowJSON(row)
+
+    // ica_expireDt.setValue("99999999");
+    ds_railroadFrates.setCellData(0, "expireDt", "99999999");
+
+    dma_railroadFratesAlias.set("ctrtDt", rowData.ctrtDt);
+    dma_railroadFratesAlias.set("expireDt", rowData.expireDt);
+    
+    let anctionStr = "";
+    switch (ds_railroadFrates.getRowStatus(row)) {
+        //신규
+        case "C": anctionStr = "/ds.op.adjmbd.pchstrfmgnt.RetrieveRailroadFratesNewProperYnCMD.do"; break;
+        // 수정
+        case "U": anctionStr = "/ds.op.adjmbd.pchstrfmgnt.RetrieveRailroadFratesModifyProperYnCMD.do"; break;
+        default: return;
+    };
+
+    sbm_check.action = anctionStr;
+    await scwin.submitExcute(sbm_check);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_Create 
+ * @description 신규
+ */
+scwin.f_Create = function () {
+
+    ds_railroadFrates.insertRow(0);
+
+    scwin.f_objEnable();
+
+    //버튼제어
+    $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Cancel, btn_Save, btn_Delete, btn_Proc]);
+    $c.gus.cfDisableBtnOnly([btn_Create, btn_Modify, btn_Delete, btn_Proc]);
+
+    // gr_railroadFrates.setGridReadOnly(true);
+    gr_railroadFrates.setDisabled("grid", true);
+
+    ica_ctrtDt.focus();
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_Update 
+ * @description 수정
+ */
+scwin.f_Update = function () {
+
+    //버튼제어
+    $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Cancel, btn_Save, btn_Delete, btn_Proc]);
+    $c.gus.cfDisableBtnOnly([btn_Create, btn_Modify, btn_Delete, btn_Proc]);
+
+    // gr_railroadFrates.setGridReadOnly(true);
+    gr_railroadFrates.setDisabled("grid", true);
+
+    scwin.f_objEnable();
+
+    //focus 설정
+    ica_ctrtDt.focus();
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_objDisable 
+ * @description obj Disable
+ */
+scwin.f_objDisable = function () {
+
+    ica_ctrtDt.setDisabled(true);
+    ica_expireDt.setDisabled(true);
+    ed_frt20Ft.setDisabled(true);
+    ed_frt40Ft.setDisabled(true);
+    ed_frt45Ft.setDisabled(true);
+    ed_emptyDcRt.setDisabled(true);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_objEnable 
+ * @description obj Enable
+ */
+scwin.f_objEnable = function () {
+
+    ica_ctrtDt.setDisabled(false);
+    ica_expireDt.setDisabled(true);
+    ed_frt20Ft.setDisabled(false);
+    ed_frt40Ft.setDisabled(false);
+    ed_frt45Ft.setDisabled(false);
+    ed_emptyDcRt.setDisabled(false);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_ProcedureCall 
+ * @description 요율 생성
+ */
+scwin.f_ProcedureCall = async function () {
+
+    const retConfirm = await $c.win.confirm("요율을 생성하시겠습니까?");
+    if (!retConfirm) return;
+
+    await scwin.submitExcute(sbm_procedureCall);
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_FieldClear 
+ * @description 조회조기 필드 Clear
+ */
+scwin.f_FieldClear = function () {
+
+    $c.gus.cfInitObjects(tbl_search, null);
+    ed_qryStDt.setValue(scwin.sCurrDate);
+    ed_qryEndDt.setValue("99999999");
+
+    ed_qryStDt.focus();
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_Cancel 
+ * @description 취소
+ */
+scwin.f_Cancel = function () {
+
+    scwin.f_objDisable();
+
+    // gr_railroadFrates.setGridReadOnly(false);
+    gr_railroadFrates.setDisabled("grid", false);
+
+    $c.data.undoAll(ds_railroadFrates);
+
+    $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Save, btn_Cancel]);
+    $c.gus.cfDisableBtnOnly([btn_Save, btn_Cancel]);
+
+};
+
+
+
+/**
+ * @method 
+ * @name submitExcute 
+ * @description submit 처리
+ */
+scwin.submitExcute = async function (sbmObj) {
+
+    const e = await $c.sbm.execute(sbmObj);
+
+    if (e.responseJSON.resultDataSet[0].Msg == 'SUCC') {
+        await scwin.submitdone(e);
+    };
+
+};
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------
+//   Submission event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @method 
+ * @name submitdone 
+ * @description submit 정상
+ */
+scwin.submitdone = async function (e) {
+
+    let submitObj = $p.getComponentById(e.id);
+
+    switch (submitObj) {
+        case sbm_check:
+            if (e.responseJSON.resultDataSet[0].Code == -1) {
+                ica_ctrtDt.focus();
+            };
+
+            /** for=tr_check event=OnSuccess() */
+            const retConfirm = await $c.win.confirm(MSG_CM_CRM_001);
+            if (!retConfirm) return;
+
+            if (ds_railroadFrates.getRowCount() > 1) {
+                ds_railroadFrates.setCellData(0, "expireDt", "99999999");
+            };
+
+            const MAX_VALUE = 2147483647;
+            const focusIdx = ds_railroadFrates.getRowPosition();
+            const rowData = ds_railroadFrates.getRowJSON(focusIdx);
+            const targetCols = ['frt20Ft', 'frt40Ft', 'frt45Ft'];
+
+            targetCols.forEach((colId) => {
+                const targetVal = rowData[colId];
+                ds_railroadFrates.setCellData(focusIdx, colId, targetVal > MAX_VALUE ? MAX_VALUE : targetVal);
+            })
+
+            await scwin.submitExcute(sbm_save);
+            break;
+
+        case sbm_save: // 저장 TR 
+            if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+            /** for=tr_save event=OnSuccess() */
+            await scwin.f_Retrieve();
+
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+            scwin.f_objDisable();
+
+            //버튼제어
+            $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Save, btn_Delete, btn_Proc]);
+            $c.gus.cfDisableBtnOnly([btn_Save]);
+            break;
+
+        case sbm_search: // 조회 TR 
+            // 철송임률조회 DataSet 완료
+            scwin.ds_railroadFrates_OnLoadCompleted(ds_railroadFrates.getRowCount());
+            break;
+
+        case sbm_procedureCall:
+            // 요율생성
+            scwin.ds_procedureCall_OnLoadCompleted(ds_procedureCall.getRowCount());
+            break;
+
+        default:
+            break;
+    }
+
+};
+
+
+
+/**
+ * @method 
+ * @name ds_railroadFrates_OnLoadCompleted 
+ * @asis for=ds_railroadFrates event=OnLoadCompleted(rowCnt)
+ */
+scwin.ds_railroadFrates_OnLoadCompleted = async function (rowCnt) {
+
+    totalRows.setValue(rowCnt);
+
+    if (rowCnt != 0) return;
+
+    if ($c.gus.cfCheckCreateFlag()) {
+        $c.gus.cfTurnCreateFlag(false);
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    };
+
+};
+
+
+
+/**
+ * @method 
+ * @name ds_procedureCall_OnLoadCompleted 
+ * @asis for=ds_procedureCall event=OnLoadCompleted(rowCnt)
+ */
+scwin.ds_procedureCall_OnLoadCompleted = async function (rowCnt) {
+    await $c.win.alert(ds_procedureCall.getCellData(0, "prtn2"));
+};
+
+
+
+// /**
+//  * @method 
+//  * @name ds_procedureCall_OnLoadCompleted
+//  * @description 하나의 셀에 대한 값이 변경된 경우 발생
+//  */
+// scwin.ds_railroadFrates_oncelldatachange = function (info) {
+
+//     const { colID, newValue, rowIndex } = info;
+
+//     if (["frt20Ft", "frt40Ft", "frt45Ft", "emptyDcRt"].includes(colID)) {
+//         if (newValue == ""){
+//             this.setCellData(rowIndex, colID, 0);
+//         };
+//     };
+
+// };
+
+
+
+/**
+ * @method 
+ * @name dlt_onload 
+ * @description DataList의 데이터가 전체적으로 변경(set)되는 경우 발생
+ */
+scwin.dlt_onload = function () {
+
+    if (this.getRowPosition() == null && this.getRowCount() > 0) {
+        this.setRowPosition(0);
+        scwin.gridSetFocus(this, 'ctrtDt', 0, gr_railroadFrates);
+    };
+
+};
+
+
+
+/**
+ * @method 
+ * @name dlt_oninsertrow 
+ * @description 새로운 행이 추가된 후에 발생 (여러 행이 동시에 추가되면 한번만 발생)
+ */
+scwin.dlt_oninsertrow = function (info) {
+
+    if (Object.keys(info.insertedDataObj).length < 1) return;
+
+    const rowIdx = Object.keys(info.insertedDataObj)[0] ?? 0;
+    this.setRowPosition(rowIdx);
+
+    scwin.gridSetFocus(this, 'ctrtDt', rowIdx, gr_railroadFrates);
+
+};
+
+
+
+/**
+ * @method 
+ * @name dlt_onremoverow 
+ * @description 행이 제거된 후에 발생 (여러 행이 동시에 제거되면 한번만 발생)
+ */
+scwin.dlt_onremoverow = function (info) {
+
+    if (Object.keys(info.removedDataObj).length < 1) return;
+
+    const rowIdx = Number(Object.keys(info.removedDataObj)[0]) - 1;
+    const clacIdx = rowIdx == -1 ? 0 : rowIdx;
+    this.setRowPosition(clacIdx);
+
+    scwin.gridSetFocus(this, 'ctrtDt', clacIdx, gr_railroadFrates);
+
+};
+
+
+
+/**
+ * @method 
+ * @name gridSetFocus 
+ * @description dataList 이벤트 후 그리드 실제 포커스 처리
+ */
+scwin.gridSetFocus = function (dataList, defaultCol, rowIndex, targetGrid) {
+
+    if (dataList != targetGrid._dataList) return;
+
+    const focusCol = targetGrid.getFocusedColumnID() ?? defaultCol;
+    targetGrid.setFocusedCell(rowIndex, focusCol);
+
+};
+
+
+
+//-----------------------------------------------------------------------------
+//   Component event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name submitdone 
+ * @description 셀이 클릭된 경우 발생
+ * @asis for=gr_railroadFrates event=OnClick(row,colid)
+ */
+scwin.gr_railroadFrates_oncellclick = function (rowIndex, columnIndex, columnId) {
+
+    if (ds_railroadFrates.getRowStatus(rowIndex) == "C") {
+        scwin.f_objEnable();
+    } else {
+        scwin.f_objDisable();
+    };
+
+    const rowCnt = ds_railroadFrates.getRowCount();
+    for (let i = 0; i < rowCnt; i++) {
+        if (ds_railroadFrates.getRowStatus(i) == 'U') {
+            //버튼제어
+            $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Save, btn_Delete, btn_Proc]);
+            $c.gus.cfDisableBtnOnly([btn_Create, btn_Modify, btn_Delete, btn_Proc]);
+            return;
+        };
+    };
+
+    if (ds_railroadFrates.getRowStatus(0) == 'C') {
+        //버튼제어
+        $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Save, btn_Delete, btn_Proc]);
+        $c.gus.cfDisableBtnOnly([btn_Create, btn_Modify, btn_Delete, btn_Proc]);
+        return;
+    };
+
+    //버튼제어
+    $c.gus.cfEnableBtnOnly([btn_Create, btn_Modify, btn_Save, btn_Delete, btn_Proc]);
+    if (ds_railroadFrates.getCellData(rowIndex, "expireDt") == "99999999") {
+        $c.gus.cfDisableBtnOnly([btn_Save]);
+    } else {
+        $c.gus.cfDisableBtnOnly([btn_Modify, btn_Save, btn_Delete, btn_Proc]);
+    }
+
+};
+
+
+
+/**
+ * @event 
+ * @name btn_fieldClear_onclick 
+ * @description 초기화 버튼 클릭 시 발생
+ */
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_retrieve_onclick 
+ * @description 조회 버튼 클릭 시 발생
+ */
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_Proc_onclick 
+ * @description 요율생성 버튼 클릭 시 발생
+ */
+scwin.btn_Proc_onclick = function (e) {
+    scwin.f_ProcedureCall();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_Create_onclick 
+ * @description 신규 버튼 클릭 시 발생
+ */
+scwin.btn_Create_onclick = function (e) {
+    scwin.f_Create();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_Create_onclick 
+ * @description 신규 버튼 클릭 시 발생
+ */
+scwin.btn_Modify_onclick = function (e) {
+    scwin.f_Update();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_Cancel_onclick 
+ * @description 취소 버튼 클릭 시 발생
+ */
+scwin.btn_Cancel_onclick = function (e) {
+    scwin.f_Cancel();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_Save_onclick 
+ * @description 저장 버튼 클릭 시 발생
+ */
+scwin.btn_Save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+
+
+/**
+ * @event 
+ * @name btn_Delete_onclick 
+ * @description 삭제 버튼 클릭 시 발생
+ */
+scwin.btn_Delete_onclick = function (e) {
+    scwin.f_DeleteRow();
+};
+
+
+
+/**
+ * @event 
+ * @name gridFormat 
+ * @description 그리드 Formatter
+ */
+scwin.gridFormat = function (data, formattedData, rowIndex, colIndex) {
+
+    let colID = this.getColumnID(colIndex);
+
+    switch (colID) {
+        case "frt20Ft":
+        case "frt40Ft":
+        case "frt45Ft":
+            if (data == "") return "0";
+            else return formattedData;
+
+        case "emptyDcRt":
+            if (data == "") return "0.00";
+            else return formattedData;
+    };
+
+};]]></script>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="round-box" id="" style="">
+    		<xf:group class="title-wrap" id="" style="">
+    			<xf:group class="title" id="">
+    				<w2:textbox class="tit" id="" label="철송임률등록" style="" tagname="h3"></w2:textbox>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="shbox" id="tbl_search" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="적용기간 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="" refEdDt="" refStDt="" style="" edFromId="ed_qryStDt" edToId="ed_qryEndDt" mandatoryFrom="true" objTypeFrom="data" objTypeTo="data" titleFrom="적용기간"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="lybox wfix  flex_no" id="">
+    			<xf:group class="col" id="">
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_railroadFrates" id="gr_railroadFrates" style="" focusMove="true" rowStatusVisible="true" visibleRowNum="14" visibleRowNumFix="true" validExp="ctrtDt:적용시작일자:yes:date=YYYYMMDD:key" dataName="철송임률" ev:oncellclick="scwin.gr_railroadFrates_oncellclick" columnMove="false">
+    							<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" style="" value="적용시작일자" width="100" colSpan="" rowSpan="2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column17" inputType="text" style="" value="적용시작일자&lt;br/&gt;(Key)" width="100" colSpan="" rowSpan="2" hidden="true">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column15" inputType="text" style="" value="적용종료일자" width="100" colSpan="" rowSpan="2">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column13" inputType="text" style="" value="Km당 단가(원)" width="280" colSpan="4" rowSpan="" sortable="false">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column5" inputType="text" style="" value="기존Row" width="70" colSpan="" rowSpan="2" hidden="true">
+    									</w2:column>
+    								</w2:row>
+    								<w2:row style="" id="row3">
+    									<w2:column width="80" inputType="text" style="" id="column27" value="20FULL" displayMode="label"></w2:column>
+    									<w2:column width="80" inputType="text" style="" id="column26" value="40FULL" displayMode="label"></w2:column>
+    									<w2:column width="80" inputType="text" style="" id="column25" value="45FULL" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column24" value="EMPTY할인율" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="ctrtDt" inputType="calendar" style="" value="" width="100" textAlign="center" displayFormat="yyyy/MM/dd" dataType="date" mandatory="true" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="ctrtDtKey" inputType="text" style="" value="" width="100" textAlign="center" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="expireDt" inputType="calendar" style="" value="" width="100" textAlign="center" displayFormat="yyyy/MM/dd" dataType="date" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="frt20Ft" inputType="text" style="" value="" width="80" textAlign="right" dataType="number" displayFormat="#,##0" readOnly="true" customFormatter="scwin.gridFormat"></w2:column>
+    									<w2:column displayMode="label" id="frt40Ft" inputType="text" style="" value="" width="80" textAlign="right" dataType="number" displayFormat="#,##0" readOnly="true" customFormatter="scwin.gridFormat"></w2:column>
+    									<w2:column displayMode="label" id="frt45Ft" inputType="text" style="" value="" width="80" textAlign="right" dataType="number" displayFormat="#,##0" readOnly="true" customFormatter="scwin.gridFormat"></w2:column>
+    									<w2:column displayMode="label" id="emptyDcRt" inputType="text" style="" value="" width="100" textAlign="right" allowChar="0-9" dataType="number" displayFormat="#,##0.00" readOnly="true" customFormatter="scwin.gridFormat"></w2:column>
+    									<w2:column displayMode="label" id="existRow" inputType="text" style="" value="" width="70" textAlign="right" readOnly="true"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group></xf:group>
+    			</xf:group>
+    		<xf:group id="" class="col" style="width: 500px;"><xf:group style="" id="" class="tbbox">
+    				<xf:group tagname="table" style="" id="" class="w2tb tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style="width:120px;"></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="적용시작일자" class="req"></w2:textbox>
+    						</xf:group><xf:group tagname="td" style="" class="w2tb_td">
+    							<w2:inputCalendar ref="data:ds_railroadFrates.ctrtDt" style="" id="ica_ctrtDt" class="form-control cal" mandatory="true" calendarValueType="yearMonthDate" validExp="적용시작일자:yes:date=YYYYMMDD" objType="data">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="적용종료일자" class=""></w2:textbox>
+    						</xf:group><xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:inputCalendar ref="data:ds_railroadFrates.expireDt" style="" id="ica_expireDt" class="form-control cal" calendarValueType="yearMonthDate" objType="data" dateValidCheck="false" keepInvalidDate="true" validCheck="false" dateValidSet="false" displaymessage="false">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="임률20FULL" class="req" escape="false"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input ref="data:ds_railroadFrates.frt20Ft" dataType="number" style="" id="ed_frt20Ft" placeholder="" allowChar="0-9" class="form-control w150 tar" objType="data" mandatory="true" validExp="임률20FT:yes:minNumber=1" maxByteLength="13" byteCheckIgnoreChar="," ev:onblur="scwin.ed_frt20Ft_onblur" displayFormat="#,###"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="임률40FULL" class="req" escape="false"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input ref="data:ds_railroadFrates.frt40Ft" style="" id="ed_frt40Ft" placeholder="" allowChar="0-9" class="form-control w150 tar" mandatory="true" objType="data" validExp="임률40FT:yes:minNumber=1" maxByteLength="13" byteCheckIgnoreChar="," ev:onblur="scwin.ed_frt40Ft_onblur" dataType="number" displayFormat="#,###"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="임률45FULL" class="req" escape="false"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input ref="data:ds_railroadFrates.frt45Ft" style="" id="ed_frt45Ft" placeholder="" allowChar="0-9" class="form-control w150 tar" mandatory="true" objType="data" validExp="임률45FT:yes:minNumber=1" maxByteLength="13" byteCheckIgnoreChar="," ev:onblur="scwin.ed_frt45Ft_onblur" dataType="number" displayFormat="#,###"></xf:input>
+    						</xf:group></xf:group><xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="EMPTY할인율" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input ref="data:ds_railroadFrates.emptyDcRt" maxlength="3.2" style="" id="ed_emptyDcRt" placeholder="" allowChar="0-9." class="form-control w150 tar" mandatory="true" objType="data" validExp="EMPTY할인율:yes:minNumber=1" ev:onblur="scwin.ed_frt20Ft_onblur" dataType="float" displayFormat="#.###.##"></xf:input>
+    						</xf:group>
+</xf:group>
+    				</xf:group>
+    			</xf:group></xf:group></xf:group>
+    		<xf:group class="btnbox" id="">
+    			<xf:group class="right" id="">
+    				<xf:trigger class="btn white" id="btn_Proc" style="" type="button" ev:onclick="scwin.btn_Proc_onclick" objType="ctrlBtn" userAuth="C">
+    					<xf:label><![CDATA[요율생성]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_Create" style="" type="button" ev:onclick="scwin.btn_Create_onclick" objType="ctrlBtn" userAuth="C">
+    					<xf:label><![CDATA[신규]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_Modify" label="저장" style="" type="button" ev:onclick="scwin.btn_Modify_onclick" objType="ctrlBtn" userAuth="U">
+    					<xf:label>수정</xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_Cancel" style="" type="button" ev:onclick="scwin.btn_Cancel_onclick" objType="bCancel">
+    					<xf:label><![CDATA[취소]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_Save" label="저장" style="" type="button" ev:onclick="scwin.btn_Save_onclick" objType="ctrlBtn" userAuth="U">
+    					<xf:label>저장</xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn" id="btn_Delete" style="" type="button" ev:onclick="scwin.btn_Delete_onclick" objType="ctrlBtn" userAuth="D">
+    					<xf:label><![CDATA[삭제]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

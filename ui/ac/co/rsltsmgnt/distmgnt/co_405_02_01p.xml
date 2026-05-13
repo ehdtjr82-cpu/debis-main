@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_author="배기원" meta_screenName="배부기준등록자동생성" meta_screenId="D_co_405_02_01p" meta_subsystem="" meta_type="팝업">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_master">
+    				<w2:keyInfo>
+    					<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+    					<w2:key id="stdYr" name="기준년도" dataType="text"></w2:key>
+    					<w2:key id="distStdCd" name="현재기준" dataType="text"></w2:key>
+    					<w2:key id="chgDistStdCd" name="변경기준" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_temp" saveRemovedData="false">
+    				<w2:columnInfo>
+    					<w2:column id="sysCd" name="시스템코드" dataType="text"></w2:column>
+    					<w2:column id="queryId" name="쿼리아이디" dataType="text"></w2:column>
+    					<w2:column id="param1" name="회사코드" dataType="text"></w2:column>
+    					<w2:column id="param2" name="기준년도" dataType="text"></w2:column>
+    					<w2:column id="param3" name="현재기준" dataType="text"></w2:column>
+    					<w2:column id="col1" name="col1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_save" action="/ac.co.rsltsmgnt.distmgnt.ChangeDistributionStandardCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_master","key":"IN_DS1"}' target='' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref='' target='data:json,{"id":"ds_temp","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="synchronous" processMsg=""
+    			ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 배부기준등록자동생성
+ * 메뉴경로 : 회계/관리회계/실적관리/배부관리/배부기준등록
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/co/rsltsmgnt/distmgnt/co_405_02_01p.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-10-20
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항 :
+ * 수정이력 :
+ *    - 2025-10-20      배기원    최초작성
+ */
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function() {
+    scwin.f_Header();
+
+    scwin.params = $c.data.getParameter();
+    if (!$c.util.isEmpty(scwin.params["stdYr"])) {
+        ed_stdYr.setValue(scwin.params["stdYr"]);
+    }
+    if (!$c.util.isEmpty(scwin.params["coCd"])) {
+        ed_coCd.setValue(scwin.params["coCd"]);
+    }
+    if (!$c.util.isEmpty(scwin.params["coNm"])) {
+        ed_coNm.setValue(scwin.params["coNm"]);
+    }
+
+    const codeOptions = [
+        { grpCd: "CO007", compID: "lc_distStdCd, lc_chgDistStdCd" }
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    ed_stdYr.focus();
+    $c.gus.cfDisableObjects([ed_coCd]);
+};
+
+/**
+ * 조회 데이터셋 헤더 생성
+ * TOBE 사용안함
+ */
+scwin.f_Header = function() {
+    // var GAUCE_DATASET_HEADER = "coCd:STRING(3)"
+    //       + ",stdYr:STRING(4)"
+    //       + ",distStdCd:STRING()"
+    //       + ",chgDistStdCd:STRING()";
+    // ds_master.SetDataHeader(GAUCE_DATASET_HEADER);
+    // ds_master.insertRow();
+};
+
+/**
+ * 변경
+ */
+scwin.f_Change = async function (e) {
+    //생성조건 입력여부 및 형식 체크
+    let ret = await $c.gus.cfValidate([ed_stdYr, lc_distStdCd, lc_chgDistStdCd]);
+    if (!ret) {
+        return false;
+    }
+
+    if (lc_distStdCd.getValue() == lc_chgDistStdCd.getValue()) {
+        await $c.win.alert("현재 기준과 변경 기준이 같습니다. 기준을 다시 선택해주세요.");
+        return false;
+    }
+    ret = await scwin.f_chkDistributionStandardCount();
+    if (!ret) {
+        await $c.win.alert(lc_distStdCd.getText(true) + " 기준으로 등록된 내역이 없습니다.");
+        return false;
+    }
+    if (await $c.win.confirm(ed_stdYr.getValue() + "년도 기준자료가 일괄 변경됩니다.<BR>"
+        + lc_distStdCd.getText(true) + "기준을 " + lc_chgDistStdCd.getText(true) + "기준으로 일괄변경하시겠습니까?")) {
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        $c.gus.cfAlertMsg(MSG_CM_INF_001);        
+    }
+};
+
+// scwin.sbm_save_submiterror = function (e) {
+//     $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+// };
+
+
+/**
+ * 현재기준 등록여부 체크
+ */
+scwin.f_chkDistributionStandardCount = async function () {
+    var ebcId = "DistributionStandardInformationEBC";
+    var queryId = "retrieveDistributionStandardCount";
+    var param1 = ed_coCd.getValue();         // 회사코드
+    var param2 = ed_stdYr.getValue().trim(); // 기준년도
+    var param3 = lc_distStdCd.getValue();    // 현재기준
+    //테스트 데이터
+    //param3 = "25";
+    ds_temp.removeAll();
+    ds_temp.insertRow(0);
+    ds_temp.setCellData(0, "sysCd"  , ebcId);
+    ds_temp.setCellData(0, "queryId", queryId);
+    ds_temp.setCellData(0, "param1" , param1);
+    ds_temp.setCellData(0, "param2" , param2);
+    ds_temp.setCellData(0, "param3" , param3);
+
+    await $c.sbm.execute(sbm_retrieve, ds_temp.getRowJSON(0));
+
+    if (ds_temp.getCellData(0, "col1") == "0") {
+        return false;
+    }else {
+        return true;
+    }
+};
+
+/**
+ * 닫기
+ */
+scwin.f_WinClose = function (e) {
+    let rt = ["N/A"];
+    $c.win.closePopup(rt);
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="회사코드" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:group class="form-group col7" id="" style="">
+    										<xf:input class="form-control w85" id="ed_coCd" placeholder="" style="" readOnly="true" ref="data:ds_master.coCd" mandatory="true" title="회사코드">
+    										</xf:input>
+    										<xf:input class="form-control" id="ed_coNm" placeholder="" style="" readOnly="true"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="기준년도" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:inputCalendar calendarValueType="year" class="form-control cal w50" id="ed_stdYr" style="" ref="data:ds_master.stdYr" title="기준년도" mandatory="true">
+    									</w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="현재 기준" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="form-control " direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_distStdCd" style="" submenuSize="auto" ref="data:ds_master.distStdCd" chooseOptionLabel="선택" mandatory="true" title="현재기준" visibleRowNum="20">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="변경 기준" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="form-control " direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_chgDistStdCd" style="" submenuSize="auto" ref="data:ds_master.chgDistStdCd" chooseOptionLabel="선택" mandatory="true" title="변경기준" visibleRowNum="20">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_change" style="" type="button" ev:onclick="scwin.f_Change" userAuth="U" objType="bSave">
+    						<xf:label><![CDATA[변경]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" ev:onclick="scwin.f_WinClose" id="btn_close" style="" type="button">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

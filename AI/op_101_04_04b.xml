@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="oGDS_view_cond">
+                <w2:keyInfo>
+                    <w2:key id="vsslCd" name="모선코드" dataType="text"></w2:key>
+                    <w2:key id="portcnt" name="항차" dataType="text"></w2:key>
+                    <w2:key id="lineCd" name="라인코드" dataType="text"></w2:key>
+                    <w2:key id="cvsslMgntNo" name="본선관리번호" dataType="text"></w2:key>
+                    <w2:key id="odrNo" name="오더번호" dataType="text"></w2:key>
+                    <w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_cntrInfoList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="deprtPortYn" name="출항여부" dataType="text"></w2:column>
+                    <w2:column id="cntrNo" name="컨테이너번호" dataType="text"></w2:column>
+                    <w2:column id="cntrSizCd" name="SIZE" dataType="text"></w2:column>
+                    <w2:column id="cntrTypCd" name="TYPE" dataType="text"></w2:column>
+                    <w2:column id="fullEmptyClsCd" name="E/F" dataType="text"></w2:column>
+                    <w2:column id="currPosNm" name="현위치명" dataType="text"></w2:column>
+                    <w2:column id="arrvlportDtm" name="입항일시" dataType="text"></w2:column>
+                    <w2:column id="cntrStsCd" name="컨테이너상태코드" dataType="text"></w2:column>
+                    <w2:column id="currPosCd" name="현위치코드" dataType="text"></w2:column>
+                    <w2:column id="mgntClsYn" name="관리구분YN" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="launchWrkNm" name="출항작업장명" dataType="text"></w2:column>
+                    <w2:column id="selYn" name="선택여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_vssPortCnt">
+                <w2:columnInfo>
+                    <w2:column id="vsslPortcnt" name="모선항차" dataType="text"></w2:column>
+                    <w2:column id="pierNm" name="부두명" dataType="text"></w2:column>
+                    <w2:column id="tmlPortcnt" name="터미널항차" dataType="text"></w2:column>
+                    <w2:column id="dptDt" name="출항일자" dataType="text"></w2:column>
+                    <w2:column id="lineInfo" name="라인정보" dataType="text"></w2:column>
+                    <w2:column id="tot" name="total" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_save"
+            action="/ds.op.rscconfirm.transrscconfirm.UpdateVesselPortCountEachDeparturePortCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_cntrInfoList","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.op.rscconfirm.transrscconfirm.RetrieveVesselPortCountEachDeparturePortCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"oGDS_view_cond","key":"IN_DS1"},{"id":"ds_vssPortCnt","key":"OUT_DS1"},{"id":"ds_cntrInfoList","key":"OUT_DS2"}]'
+            target='data:json,[{"id":"ds_vssPortCnt","key":"OUT_DS1"},{"id":"ds_cntrInfoList","key":"OUT_DS2"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_cancel"
+            action="/ds.op.rscconfirm.transrscconfirm.UpdateVesselPortCancelEachDeparturePortCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_cntrInfoList","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_cancel_submitdone"
+            ev:submiterror="scwin.sbm_cancel_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.chkStatus = 0;
+
+        scwin.hid_vsslCd = "";
+        scwin.hid_vsslNm = "";
+        scwin.hid_lineCd = "";
+        scwin.hid_lineNm = "";
+        scwin.hid_cvsslMgntNo = "";
+
+        scwin.txt_odrNo_param = "";
+        scwin.txt_vsslCd_param = "";
+        scwin.txt_vsslNm_param = "";
+        scwin.txt_portcnt_param = "";
+        scwin.txt_lineCd_param = "";
+        scwin.txt_lineNm_param = "";
+        scwin.txt_cvsslMgntNo_param = "";
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            if (scwin.params != null) {
+                scwin.txt_vsslCd_param = scwin.params["vsslCd"] || "";
+                scwin.txt_vsslNm_param = scwin.params["vsslNm"] || "";
+                scwin.txt_portcnt_param = scwin.params["portcnt"] || "";
+                scwin.txt_lineCd_param = scwin.params["lineCd"] || "";
+                scwin.txt_lineNm_param = scwin.params["lineNm"] || "";
+                scwin.txt_cvsslMgntNo_param = scwin.params["cvsslMgntNo"] || "";
+                scwin.txt_odrNo_param = scwin.params["odrNo"] || "";
+            }
+        };
+
+        scwin.onUdcCompleted = function() {
+            txt_odrNo.setValue(scwin.txt_odrNo_param);
+            txt_vsslCd.setValue(scwin.txt_vsslCd_param);
+            txt_vsslNm.setValue(scwin.txt_vsslNm_param);
+            txt_portcnt.setValue(scwin.txt_portcnt_param);
+            txt_lineCd.setValue(scwin.txt_lineCd_param);
+            txt_lineNm.setValue(scwin.txt_lineNm_param);
+            txt_cvsslMgntNo.setValue(scwin.txt_cvsslMgntNo_param);
+
+            txt_vsslCd.setFocus();
+
+            if (txt_odrNo.getValue() != "") {
+                scwin.f_Retrieve();
+            }
+        };
+
+        scwin.f_defaultValue = function() {
+            $c.gus.cfInitObjects([txt_odrNo, txt_vsslCd, txt_vsslNm, txt_portcnt, txt_lineCd, txt_lineNm, txt_cvsslMgntNo, txt_cntrNo]);
+        };
+
+        scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList = null;
+            let pWhere = "";
+            pName = txt_vsslCd.getValue().trim();
+
+            switch (disGubun) {
+                case 1:
+                    pCode = txt_cvsslMgntNo.getValue().replace(/\s*$/, '').toUpperCase();
+
+                    udc_vssl.ilCommonPopUp(scwin.callbackCvsslMgntNo,
+                        pCode,
+                        pName,
+                        'T',
+                        null,
+                        null,
+                        '160,160',
+                        '3,4,5,6,7,8,9,10',
+                        'O',
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        pAllSearch,
+                        "본선관리,본선관리번호, 선박코드, 수입/수출여부"
+                    );
+                    break;
+                case 2:
+                    pCode = txt_lineCd.getValue().replace(/\s*$/, '').toUpperCase();
+                    pName = txt_lineNm.getValue().replace(/\s*$/, '').toUpperCase();
+
+                    udc_line.ilCommonPopUp(scwin.callbackLineInfo,
+                        pCode,
+                        pName,
+                        'T',
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        pAllSearch,
+                        "LINE,LINE코드,LINE명"
+                    );
+                    break;
+                case 3:
+                    pCode = txt_vsslCd.getValue().replace(/\s*$/, '').toUpperCase();
+                    pName = txt_vsslNm.getValue().replace(/\s*$/, '').toUpperCase();
+
+                    udc_vssl.ilCommonPopUp(scwin.callbackVsslCd,
+                        pCode,
+                        pName,
+                        'T',
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        pAllSearch,
+                        "모선,모선코드,모선명"
+                    );
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        scwin.callbackCvsslMgntNo = function(rtnList) {
+            if (rtnList != null) {
+                if (rtnList[0].trim() != "N/A") {
+                    txt_cvsslMgntNo.setValue(rtnList[0]);
+                    scwin.hid_cvsslMgntNo = rtnList[0];
+                    txt_vsslCd.setValue(rtnList[1]);
+                    txt_portcnt.setValue(rtnList[5]);
+
+                    let pName = txt_vsslCd.getValue().trim();
+                    if (pName.length == 0) {
+                        scwin.f_chkOpenCommonPopUpText(txt_vsslCd, txt_vsslNm, 3);
+                    }
+                } else {
+                    txt_cvsslMgntNo.setValue(scwin.hid_cvsslMgntNo);
+                }
+            } else {
+                txt_cvsslMgntNo.setValue("");
+                txt_vsslCd.setValue("");
+                scwin.hid_cvsslMgntNo = "";
+
+                let pName = txt_vsslCd.getValue().trim();
+                if (pName.length == 0) {
+                    scwin.f_chkOpenCommonPopUpText(txt_vsslCd, txt_vsslNm, 3);
+                }
+            }
+        };
+
+        scwin.callbackLineInfo = function(rtnList) {
+            if (rtnList != null) {
+                if (rtnList[0].trim() != "N/A") {
+                    txt_lineCd.setValue(rtnList[0]);
+                    txt_lineNm.setValue(rtnList[1]);
+                    scwin.hid_lineCd = rtnList[0];
+                } else {
+                    txt_lineCd.setValue(scwin.hid_lineCd);
+                    txt_lineNm.setValue(scwin.hid_lineNm);
+                }
+            } else {
+                txt_lineCd.setValue("");
+                txt_lineNm.setValue("");
+                scwin.hid_lineCd = "";
+                scwin.hid_lineNm = "";
+            }
+        };
+
+        scwin.callbackVsslCd = function(rtnList) {
+            if (rtnList != null) {
+                txt_vsslCd.setValue(rtnList[0]);
+                txt_vsslNm.setValue(rtnList[1]);
+                scwin.hid_vsslCd = rtnList[0];
+            } else {
+                txt_vsslCd.setValue("");
+                txt_vsslNm.setValue("");
+                scwin.hid_vsslCd = "";
+            }
+        };
+
+        scwin.f_chkOpenCommonPopUpText = function(inObj, codeObj, disGubun) {
+            let pCode = "";
+            let pName = "";
+
+            let inValue = inObj.getValue().trim();
+            let codeValue = codeObj.getValue();
+
+            if (inValue == "") {
+                codeObj.setValue("");
+            }
+
+            if (inValue.length == 0) {
+                return;
+            }
+
+            pName = inValue;
+
+            scwin.f_openCommonPopUp(disGubun, pCode, pName, 'T', 'T');
+        };
+
+        scwin.f_reqFieldChk = async function() {
+            let len_vsslCd;
+            let len_portcnt;
+            let len_cvsslMgntNo;
+            let len_odrNo;
+
+            len_vsslCd = txt_vsslCd.getValue().trim().length;
+            len_portcnt = txt_portcnt.getValue().trim().length;
+            len_cvsslMgntNo = txt_cvsslMgntNo.getValue().trim().length;
+            len_odrNo = txt_odrNo.getValue().trim().length;
+
+            if (len_cvsslMgntNo > 0) return true;
+
+            if (len_odrNo > 0) return true;
+
+            if (len_vsslCd > 0 && len_portcnt == 0) {
+                await $c.win.alert("모선코드와 항차는 함께 입력해야 합니다.");
+                txt_portcnt.setFocus();
+                return false;
+            }
+
+            if (len_vsslCd == 0 && len_portcnt > 0) {
+                await $c.win.alert("모선코드와 항차는 함께 입력해야 합니다.");
+                txt_vsslCd.setFocus();
+                return false;
+            }
+
+            if (len_cvsslMgntNo + len_odrNo + len_vsslCd + len_portcnt == 0) {
+                await $c.win.alert("①선명+항차\n\n②본선관리번호\n\n③오더번호\n\n위 3가지 중 1가지는 반드시 입력해야 합니다.");
+                txt_vsslCd.setFocus();
+                return false;
+            }
+
+            return true;
+        };
+
+        scwin.f_setCheckBox = function() {
+            for (let inx = 0; inx < ds_cntrInfoList.getRowCount(); inx++) {
+                if (ds_cntrInfoList.getCellData(inx, "cntrStsCd") == "E") {
+                    ds_cntrInfoList.setCellData(inx, "deprtPortYn", 1);
+                } else {
+                    ds_cntrInfoList.setCellData(inx, "deprtPortYn", 0);
+                }
+            }
+        };
+
+        scwin.f_Save = async function() {
+            if (ds_cntrInfoList.getUpdatedIndex().length == 0) {
+                await $c.win.alert("변경된 사항이 없습니다.");
+                return false;
+            }
+
+            let chk = await $c.gus.cfValidate([gr_cntrInfoList]);
+            if (chk) {
+                let confirmResult = await $c.win.confirm("저장하시겠습니까?");
+                if (confirmResult == true) {
+                    await $c.sbm.execute(sbm_save);
+                }
+            }
+            scwin.f_Retrieve();
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (!(await scwin.f_reqFieldChk())) return;
+
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.f_cntrInfoListExcel = function() {
+            $c.data.downloadGridViewExcel(gr_cntrInfoList, {fileName: "선명항차별 출항처리.xlsx", sheetName: "선명항차별 출항처리"});
+        };
+
+        scwin.f_Cancel = async function() {
+            for (let i = 0; i < ds_cntrInfoList.getRowCount(); i++) {
+                if (ds_cntrInfoList.getCellData(i, "deprtPortYn") == 1) {
+                    if (ds_cntrInfoList.getCellData(i, "currPosNm") != "출항") {
+                        await $c.win.alert("컨테이너 -->" + ds_cntrInfoList.getCellData(i, "cntrNo") + "는 출항처리가 되어 있지 않아 출항처리 취소할 수 없습니다.");
+                        return false;
+                    }
+                }
+            }
+
+            let chk = await $c.gus.cfValidate([gr_cntrInfoList]);
+            if (chk) {
+                let confirmResult = await $c.win.confirm("출항취소 하시겠습니까?");
+                if (confirmResult == true) {
+                    await $c.sbm.execute(sbm_cancel);
+                }
+            }
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_save_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            totalRows.setValue(ds_cntrInfoList.getTotalRow());
+        };
+
+        scwin.sbm_save_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_cancel_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_cancel_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            let rowCnt = ds_cntrInfoList.getRowCount();
+            totalRows.setValue(rowCnt);
+            if (rowCnt == 0) {
+                await $c.win.alert("컨테이너 목록이 없습니다.");
+                return;
+            }
+            scwin.f_setCheckBox();
+        };
+
+        scwin.sbm_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.gr_cntrInfoList_oncellclick = function(rowIndex, columnIndex, columnId) {
+            if (ds_cntrInfoList.getRowCount() == 0) return;
+
+            if (rowIndex == -1 && columnId == "deprtPortYn") {
+                for (let inx = 0; inx < ds_cntrInfoList.getRowCount(); inx++) {
+                    if (ds_cntrInfoList.getCellData(inx, "cntrStsCd") == "E") {
+                        ds_cntrInfoList.setCellData(inx, "deprtPortYn", 1);
+                    } else {
+                        if (ds_cntrInfoList.getCellData(inx, "selYn") == 1) {
+                            ds_cntrInfoList.setCellData(inx, "deprtPortYn", (scwin.chkStatus + 1) % 2);
+                        } else {
+                            ds_cntrInfoList.setCellData(inx, "deprtPortYn", 0);
+                        }
+                    }
+                }
+                scwin.chkStatus += 1;
+            }
+        };
+
+        scwin.btn_search_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.btn_save_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.btn_trigger1_onclick = function(e) {
+            scwin.f_openCommonPopUp(1, '', '', 'F', 'F');
+        };
+
+        scwin.btn_trigger2_onclick = function(e) {
+            scwin.f_Cancel();
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:80px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:105px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="txt-num red" id="" label="선명 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode id="udc_vssl" codeId="txt_vsslCd" nameId="txt_vsslNm" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="txt-num red" id="" label="항차 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="txt_portcnt" placeholder="" style="width:150px;" ref="data:oGDS_view_cond.portcnt"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="LINE " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode id="udc_line" codeId="txt_lineCd" nameId="txt_lineNm" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="txt-num num2 red" id="" label="본선관리번호 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:group class="form-group" id="" style="width: 230px;">
+    										<xf:input style="" id="txt_cvsslMgntNo" class="" ref="data:oGDS_view_cond.cvsslMgntNo"></xf:input>
+    										<xf:trigger class="btn ico sch" ev:onclick="scwin.btn_trigger1_onclick" id="btn_trigger1" style="" title="Search" type="button">
+    											<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    										</xf:trigger>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="txt-num num3 red" id="" label="오더번호 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="txt_odrNo" placeholder="" style="width:150px;" ref="data:oGDS_view_cond.odrNo"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="컨테이너번호 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="txt_cntrNo" placeholder="" style="width: 230px;" ref="data:oGDS_view_cond.cntrNo"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="" style="" type="button">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="선명항차 " ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:input class="" id="txt_m_vsslPortcnt" placeholder="" style="width:200px;" ref="data:ds_vssPortCnt.vsslPortcnt"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="선적 PORT " ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="txt_m_pierNm" placeholder="" style="width:200px;" ref="data:ds_vssPortCnt.pierNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="터미널항차 " ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="txt_m_tmlPortcnt" placeholder="" style="width:200px;" ref="data:ds_vssPortCnt.tmlPortcnt"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="출항일자 " ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="txt_m_dptDt" placeholder="" style="width:200px;" ref="data:ds_vssPortCnt.dptDt"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="LINE " ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="txt_m_lineInfo" placeholder="" style="width:200px;" ref="data:ds_vssPortCnt.lineInfo"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="Total " ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="txt_m_tot" placeholder="" style="width:200px;" ref="data:ds_vssPortCnt.tot"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="row-gap-8" id="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title row-gap-8" id="">
+    								<w2:textbox class="tit" id="" label=" 선명항차별 출항처리 " style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_cntrInfoList" id="gr_cntrInfoList"
+    									style="" visibleRowNum="10" visibleRowNumFix="true" readOnly="false">
+    									<w2:caption id="caption11" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="deprtPortYn" inputType="text" value="출항여부" width="100"></w2:column>
+    											<w2:column displayMode="label" id="cntrNo" inputType="text" value="컨테이너번호" width="150">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cntrSizCd" inputType="text" value="SIZE" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cntrTypCd" inputType="text" value="TYPE" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="fullEmptyClsCd" inputType="text" value="E/F" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="currPosNm" inputType="text" value="현위치명" width="160"></w2:column>
+    											<w2:column displayMode="label" id="arrvlportDtm" inputType="text" value="입항일시" width="100" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="cntrStsCd" inputType="text" value="컨테이너상태코드" width="150" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="currPosCd" inputType="text" value="현위치코드" width="100" hidden="true"></w2:column>
+    											<w2:column displayMode="label" id="mgntClsYn" inputType="text" value="관리구분YN" width="100" hidden="true">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="odrNo" value="오더번호" displayMode="label" hidden="true">
+    											</w2:column>
+    											<w2:column width="160" inputType="text" id="launchWrkNm" value="출항작업장명" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="selYn" value="선택여부"
+    												displayMode="label" hidden="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="deprtPortYn" inputType="checkbox" width="100" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    											<w2:column displayMode="label" id="cntrNo" inputType="text" width="150" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="cntrSizCd" inputType="text" width="120" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="cntrTypCd" inputType="text" width="120" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="fullEmptyClsCd" inputType="text" width="120" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="currPosNm" inputType="text" width="160" textAlign="center" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="arrvlportDtm" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="cntrStsCd" inputType="text" width="150"></w2:column>
+    											<w2:column displayMode="label" id="currPosCd" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="mgntClsYn" inputType="text" width="100"></w2:column>
+    											<w2:column width="100" inputType="text" id="odrNo" displayMode="label"></w2:column>
+    											<w2:column width="160" inputType="text" id="launchWrkNm" displayMode="label" textAlign="center"></w2:column>
+    											<w2:column width="100" inputType="text" style="" id="selYn" value=""
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								
+    							<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group>
+    					</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn white" id="btn_trigger2" label="저장" style="" type="button">
+    								<xf:label>출항취소</xf:label>
+    							</xf:trigger>
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+eq_610_05_01b.log
+
+[2026-02-18 23:24:52.359] 변환 시작
+[2026-02-18 23:24:52.377] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 23:26:51.619] #1 검증: XML: WebSquareXmlValidator: score=0.18, grade=B, verdict=REVIEW, errors=3, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=2, warnings=5 | LLM 119146ms, total 119242ms
+    - [XML] scwin.f_Chk에서 $c.win.alert를 await 없이 호출 — script:scwin.f_Chk
+    - [XML] scwin.f_Chk이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.f_Chk
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_setqrynm → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] async 선언 누락 — scwin.f_Chk (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_Chk → $c.win.alert
+[2026-02-18 23:26:51.673] #1 검증: 자동수정 4건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 23:26:51.775] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.35, grade=B, verdict=REVIEW, errors=1, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_setqrynm → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: lc_dtClsCd (LUXECOMBO→w2:autoComplete), lc_oilkndCd (LUXECOMBO→w2:autoComplete), lc_reqSelfTransYn (LUXECOMBO→w2:autoComplete), lc_stsCd (LUXECOMBO→w2:autoComplete)
+[2026-02-18 23:26:51.777] #2 재시도 (에러 5건)
+[2026-02-18 23:26:52.778] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 23:28:52.614] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A_PLUS, verdict=PASS, errors=0, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=0, warnings=5 | LLM 119721ms, total 119836ms
+[2026-02-18 23:28:52.616] 성공 (#2, 4m 0s, confidence:0.85)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lobranCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_main" saveRemovedData="true" ev:ondataload="scwin.ds_main_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="wrkIntendDt" name="작업투입예정일" dataType="text"></w2:column>
+    					<w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="shiftClsCd" name="SHIFT구분코드" dataType="text"></w2:column>
+    					<w2:column id="shiftClsNm" name="" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+    					<w2:column id="wrkStTm" name="" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+    					<w2:column id="wrkEndTm" name="" dataType="text"></w2:column>
+    					<w2:column id="extdYn" name="연장여부" dataType="bigDecimal"></w2:column>
+    					<w2:column id="ealyAtdYn" name="조기출근여부" dataType="bigDecimal"></w2:column>
+    					<w2:column id="completeProcYn" name="완료처리여부" dataType="bigDecimal"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="lobranCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="wrkIntendDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="shiftClsCd" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_shiftBasisHour" saveRemovedData="true" ev:ondataload="scwin.ds_shiftBasisHour_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkStDt" name="name1" dataType="text"></w2:column>
+    					<w2:column id="wrkStHh" name="name2" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="name3" dataType="text"></w2:column>
+    					<w2:column id="wrkEndHh" name="name4" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_staff1" saveRemovedData="true" ev:ondataload="scwin.ds_staff1_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="staffNo" name="사번" dataType="text"></w2:column>
+    					<w2:column id="staffNm" name="사원명" dataType="text"></w2:column>
+    					<w2:column id="occpgrdNm" name="직급명" dataType="text"></w2:column>
+    					<w2:column id="occptypeCd" name="직종코드" dataType="text"></w2:column>
+    					<w2:column id="occptypeNm" name="" dataType="text"></w2:column>
+    					<w2:column id="wrkStpCd" name="작업단계코드" dataType="text"></w2:column>
+    					<w2:column id="cfmanYn" name="CHIEF포맨여부" dataType="number"></w2:column>
+    					<w2:column id="tableFlag" name="" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_staff2" saveRemovedData="true" ev:ondataload="scwin.ds_staff2_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text" length="12"></w2:column>
+    					<w2:column id="staffNo" name="사번" dataType="text" length="6"></w2:column>
+    					<w2:column id="staffNm" name="사원명" dataType="text" length="20"></w2:column>
+    					<w2:column id="occpgrdNm" name="직급명" dataType="text" length="30"></w2:column>
+    					<w2:column id="occptypeCd" name="직종코드" dataType="text" length="2"></w2:column>
+    					<w2:column id="occptypeNm" name="" dataType="text" length="255"></w2:column>
+    					<w2:column id="wrkStpCd" name="작업단계코드" dataType="text" length="4"></w2:column>
+    					<w2:column id="cfmanYn" name="CHIEF포맨여부" dataType="number" length="1"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_staff3" saveRemovedData="true" ev:ondataload="scwin.ds_staff3_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="lunionInputCnt" name="" dataType="bigDecimal"></w2:column>
+    					<w2:column id="servPstInputYn" name="용역직투입여부" dataType="bigDecimal"></w2:column>
+    					<w2:column id="hveqDuseCnt" name="중기일용수" dataType="bigDecimal"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_heavy1" saveRemovedData="true"
+    				ev:ondataload="scwin.ds_heavy1_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="eqCd" name="중기번호" dataType="text"></w2:column>
+    					<w2:column id="vehclShortCd" name="단축코드" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="code" name="중기종류코드" dataType="text"></w2:column>
+    					<w2:column id="eqKndCd" name="코드" dataType="text"></w2:column>
+    					<w2:column id="eqKndNm" name="명" dataType="text"></w2:column>
+    					<w2:column id="eqNrmCd" name="규격코드" dataType="text"></w2:column>
+    					<w2:column id="eqNrmNm" name="규격;(ton)" dataType="text"></w2:column>
+    					<w2:column id="wrkStpCd" name="작업단계" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처코드" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="소속" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="일" dataType="text"></w2:column>
+    					<w2:column id="wrkStHh" name="시" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="일" dataType="text"></w2:column>
+    					<w2:column id="wrkEndHh" name="시" dataType="text"></w2:column>
+    					<w2:column id="drvStaffNo1" name="사번" dataType="text"></w2:column>
+    					<w2:column id="drvStaffNm1" name="이름" dataType="text"></w2:column>
+    					<w2:column id="drvStaffNo2" name="사번" dataType="text"></w2:column>
+    					<w2:column id="drvStaffNm2" name="이름" dataType="text"></w2:column>
+    					<w2:column id="assgnSeq" name="배정여부" dataType="text"></w2:column>
+    					<w2:column id="existRow" name="기존Row" dataType="text"></w2:column>
+    					<w2:column id="nesEqNrmCd" name="필요" dataType="text"></w2:column>
+    					<w2:column id="tformEqKndCd" name="필요" dataType="text"></w2:column>
+    					<w2:column id="inputHveqCnt" name="name25" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_heavy2" saveRemovedData="true"
+    				ev:ondataload="scwin.ds_heavy2_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="eqKndCd" name="코드" dataType="text"></w2:column>
+    					<w2:column id="eqKndNm" name="명" dataType="text"></w2:column>
+    					<w2:column id="nesEqNrmCd" name="필요규격코드" dataType="text"></w2:column>
+    					<w2:column id="nesEqNrmNm" name="필요규격;(ton)" dataType="text"></w2:column>
+    					<w2:column id="wrkStpCd" name="작업단계" dataType="text"></w2:column>
+    					<w2:column id="wrkStDt" name="일" dataType="text"></w2:column>
+    					<w2:column id="wrkStHh" name="시" dataType="text"></w2:column>
+    					<w2:column id="wrkEndDt" name="일" dataType="text"></w2:column>
+    					<w2:column id="wrkEndHh" name="시" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="코드" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="명" dataType="text"></w2:column>
+    					<w2:column id="assgnSeq" name="배정순번" dataType="text"></w2:column>
+    					<w2:column id="reqHveqCnt" name="배정대수" dataType="number"></w2:column>
+    					<w2:column id="inputHveqCnt" name="투입대수" dataType="number"></w2:column>
+    					<w2:column id="existRow" name="기존Row" dataType="text"></w2:column>
+    					<w2:column id="col17" name="name17" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_completeYN">
+    				<w2:keyInfo>
+    					<w2:key id="wrkIndictNo" name="name1" dataType="text"></w2:key>
+    					<w2:key id="completeProcYn" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_delete">
+    				<w2:keyInfo>
+    					<w2:key id="wrkIndictNo" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_lobran" action="/ds.co.RetreiveLoBranCMD.do" method="post" mediatype="application/json" ref=""
+    			target='data:json,{"id":"ds_lobranCd","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_lobran_submitDone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_search" action="/ds.op.wrkplan.stvwrkplan.cmd.RetrieveWorkPlaceWorkPlanCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"ds_shiftBasisHour","key":"OUT_DS1"},{"id":"ds_main","key":"OUT_DS2"},{"id":"ds_staff1","key":"OUT_DS3"},{"id":"ds_staff2","key":"OUT_DS4"},{"id":"ds_staff3","key":"OUT_DS5"},{"id":"ds_heavy1","key":"OUT_DS6"},{"id":"ds_heavy2","key":"OUT_DS7"},{"id":"dma_search","key":"IN_DS1"}]'
+    			target='data:json,[{"id":"ds_shiftBasisHour","key":"OUT_DS1"},{"id":"ds_main","key":"OUT_DS2"},{"id":"ds_staff1","key":"OUT_DS3"},{"id":"ds_staff2","key":"OUT_DS4"},{"id":"ds_staff3","key":"OUT_DS5"},{"id":"ds_heavy1","key":"OUT_DS6"},{"id":"ds_heavy2","key":"OUT_DS7"}]'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_search_submitDone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_mainSave" action="/ds.op.wrkplan.stvwrkplan.cmd.SaveWorkPlaceWorkPlanBasisInformationCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,{"id":"ds_main","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_mainSave_submitDone" ev:submiterror="scwin.sbm_mainSave_error" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_completeY" action="/ds.op.wrkplan.stvwrkplan.cmd.CompletePlanCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_completeYN","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_completeY_submitDone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_completeN" action="/ds.op.wrkplan.stvwrkplan.cmd.CompletePlanCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_completeYN","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_completeN_submitDone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_delete" action="/ds.op.wrkplan.stvwrkplan.cmd.DeleteWorkPlaceWorkPlanCMD.do" method="post"
+    			mediatype="application/json" ref="" target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_delete_submitDone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면내 사용 전역변수
+//-------------------------------------------------------------------------
+scwin.loginDto = $c.data.getMemInfo();
+scwin.lobran = $c.data.getMemInfo("loUpperLobranCd");
+scwin.sCurrDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+
+//-------------------------------------------------------------------------
+// 탭 화면에 보내줘야할 사용 전역변수 셋팅
+//-------------------------------------------------------------------------
+scwin.lc_lobranCd = ""; //점소코드
+scwin.lc_lobranNm = ""; //점소명
+scwin.txtWrkStpCd = "";
+scwin.txt_completeProcYn ="";
+scwin.txtCfmanYn = "";
+scwin.hid_txt_wrkCd = "";
+scwin.hid_txt_inqDt = "";
+scwin.hid_txt_lobranCd = "";
+scwin.hid_txt_shiftClsCd = "";
+
+// 탭1화면에서 사용할 데이터 선언 추후에 완료시 이벤트마다 전역변수에 값을 넣어주도록 설정해야함
+scwin.searchKind = "";
+scwin.acb_lobranCd = "";
+scwin.acb_lobranNm = "";
+scwin.txtWrkIndictNo = "";
+scwin.p_staff1RowCnt = "";
+scwin.p_staff2RowCnt = "";
+
+//-------------------------------------------------------------------------
+// 화면 로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    tab_Control.activateTab(1);
+    tab_Control.activateTab(0);
+	//공통코드데이터 호출
+    const codeOptions = [
+        { grpCd: "OP117", compID: "acb_inqShift" } // 셀렉트
+    ];
+
+    $c.data.setCommonCode(codeOptions);
+
+    $c.sbm.execute(sbm_lobran);
+
+    btn_Complete.setStyle("display", "none");
+    btn_Cancel.setStyle("display", "none");
+
+    ica_inqDt.setValue(scwin.sCurrDate);
+
+    $c.gus.cfEnableObj(ed_txtWrkIndictNo, false);
+
+    scwin.f_objControl();
+};
+
+
+//-------------------------------------------------------------------------
+// OBJ Disable
+//-------------------------------------------------------------------------
+scwin.f_objControl = function() {
+  	$c.gus.cfEnableObj(ica_wrkDt,false);
+  	$c.gus.cfEnableObj(ica_wrkStDt,false);
+  	$c.gus.cfEnableObj(ica_wrkStHh,false);
+  	$c.gus.cfEnableObj(ica_wrkEndDt,false);
+  	$c.gus.cfEnableObj(ica_wrkEndHh,false);
+	$c.gus.cfEnableObj(cbx_extdYn,false);
+	$c.gus.cfEnableObj(cbx_ealyAtdYn,false);
+	$c.gus.cfEnableObj(btn_mainSave,false);
+	$c.gus.cfEnableObj(btn_deleteAll,false);
+    
+}
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_Onclick = async function() {  
+    scwin.acb_lobranCd = acb_lobranCd.getValue();
+    // scwin.acb_lobranNm
+    scwin.acb_lobranNm = acb_lobranCd.getText(true);
+  
+    if (! await await $c.gus.cfValidate([search_cond])){
+		return;    
+	}  
+	
+	if (acb_inqShift.getValue() != "D" && ica_inqDt.getValue() == "99999999") {
+		$c.win.alert("9999/99/99일자는 Shift가 주간인 경우만 조회가능합니다");
+		return;
+	}
+    
+    if(ica_inqDt.getValue() !="99999999"){
+        // if(!$c.gus.cfValidateValue(ica_inqDt.getValue(),"date=YYYYMMDD")){
+        if(! await $c.date.isDate(ica_inqDt.getValue())){ 
+        	$c.win.alert($c.data.getMessage(MSG_CM_ERR_018, "작업일자"));
+    		return false;
+        }	
+    }
+    
+    ds_shiftBasisHour.removeAll();
+    ds_main.removeAll();
+    ds_staff1.removeAll();
+    ds_staff2.removeAll();
+    ds_staff3.removeAll();
+    ds_heavy1.removeAll();
+    ds_heavy2.removeAll();
+    dma_search.undo();
+    
+    scwin.hid_txt_wrkCd = ed_works_01.getValue();
+	scwin.hid_txt_inqDt = ica_inqDt.getValue();
+    scwin.hid_txt_lobranCd = acb_lobranCd.getValue();
+    scwin.hid_txt_shiftClsCd = acb_inqShift.getValue();
+
+	dma_search.set("lobranCd", acb_lobranCd.getValue());
+	dma_search.set("wrkPlCd", ed_works_01.getValue());
+	dma_search.set("wrkIntendDt", ica_inqDt.getValue());
+	dma_search.set("shiftClsCd", acb_inqShift.getValue());
+	
+    
+    $c.sbm.execute(sbm_search);   
+}
+
+//-------------------------------------------------------------------------
+// 조회 성공시
+//-------------------------------------------------------------------------
+scwin.sbm_search_submitDone = function (e) {
+
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0)return; //onFail
+        
+
+    
+
+    } catch (e) {
+       console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// Main저장 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.btn_mainSave_onClick = async function(){
+	
+	let mainWrkStDtm = ica_wrkStDt.getValue() + ica_wrkStHh.getValue();
+	let mainWrkEndDtm = ica_wrkEndDt.getValue() + ica_wrkEndHh.getValue();
+	
+	let wrkStDtm;
+	let wrkEndDtm;
+	
+	if(! await $c.gus.cfValidate([ica_wrkStDt, ica_wrkStHh, ica_wrkEndDt, ica_wrkEndHh])){
+		return;
+	}
+	
+	if(ica_wrkEndDt.getValue() !="99999999"){
+	    if(! await $c.date.isDate(ica_wrkEndDt.getValue())){
+        	$c.win.alert($c.data.getMessage(MSG_CM_ERR_018, "작업시간"));
+        	return false;
+        }else{
+        	$c.gus.cfValidate(ica_wrkEndDt.getValue(),"date=YYYYMMDD");
+        }	
+    }
+	
+	//작업일자 Check	
+	if(ica_wrkStDt.getValue() != "" && ica_wrkEndDt.getValue() != ""){
+		if(! await $c.gus.cfIsAfterDate(ica_wrkStDt.getValue(), ica_wrkEndDt.getValue(),false) ){
+			$c.win.alert(MSG_CM_ERR_039);
+			return;
+		}	
+	}
+	
+	if(ica_wrkEndDt.getValue() !="99999999"){
+		let diffDay = $c.date.diffDate(ica_wrkStDt.getValue(),ica_wrkEndDt.getValue());	
+	
+		if(diffDay > 1){
+			$c.win.alert("작업시간의 종료일자는 하루를 초과할 수 없습니다.");
+			ica_wrkEndDt.focus();
+			return;			
+		}
+	}	
+	
+	for(i = 0; i < ds_heavy1.getTotalRow(); i++){
+		
+		wrkStDtm = ds_heavy1.getCellData(i,"wrkStDt") + ds_heavy1.getCellData(i,"wrkStHh");
+		wrkEndDtm = ds_heavy1.getCellData(i,"wrkEndDt") + ds_heavy1.getCellData(i,"wrkEndHh");
+
+		if(parseInt(wrkStDtm) < parseInt(mainWrkStDtm)){
+		    $c.win.alert("중기작업시간이 기본작업시간을 초과합니다.");
+			return;
+		}
+		
+		if(parseInt(wrkEndDtm) > parseInt(mainWrkEndDtm)){
+		    $c.win.alert("중기작업시간이 기본작업시간을 초과합니다.");
+			return;
+		}
+		
+	}
+	
+	for(i = 0; i <  ds_heavy2.getTotalRow();i++){
+		
+		wrkStDtm = ds_heavy2.getCellData(i,"wrkStDt") + ds_heavy2.getCellData(i,"wrkStHh");
+		wrkEndDtm = ds_heavy2.getCellData(i,"wrkEndDt") + ds_heavy2.getCellData(i,"wrkEndHh");
+		
+		if(parseInt(wrkStDtm) < parseInt(mainWrkStDtm)){
+		    $c.win.alert("중기작업시간이 기본작업시간을 초과합니다.");
+			return;
+		}
+		
+		if(parseInt(wrkEndDtm) > parseInt(mainWrkEndDtm)){
+		    $c.win.alert("중기작업시간이 기본작업시간을 초과합니다.");
+			return;
+		}
+		
+	}
+
+    // ds_main.removeAll();
+
+    // let insertRow = ds_main.insertRow();
+
+
+    if(cbx_extdYn.getValue() == "") {
+    	ds_main.setCellData(0,"extdYn", "0");         // 연장여부
+    }
+	
+    if(ds_main.getTotalRow() == 0) {
+        ds_main.insertRow();
+    }
+
+	ds_main.setCellData(0,"wrkIndictNo", ed_txtWrkIndictNo.getValue());
+	ds_main.setCellData(0,"wrkIntendDt", ica_wrkDt.getValue()); // 작업일자
+	ds_main.setCellData(0,"shiftClsCd",  (scwin.hid_txt_shiftClsCd == "") ? acb_inqShift.getValue() : scwin.hid_txt_shiftClsCd); // SHIFT구분코드; 조회조건으로 set;
+	ds_main.setCellData(0,"wrkStDt", ica_wrkStDt.getValue());    // 작업시작일시
+	ds_main.setCellData(0,"wrkEndDt", ica_wrkEndDt.getValue());    // 작업종료일시
+	ds_main.setCellData(0,"wrkStTm", ica_wrkStHh.getValue());
+	ds_main.setCellData(0,"wrkEndTm", ica_wrkEndHh.getValue());
+	ds_main.setCellData(0,"ealyAtdYn", cbx_ealyAtdYn.getValue());     // 조기출근여부
+	ds_main.setCellData(0,"completeProcYn", scwin.txt_completeProcYn);  // 완료처리여부
+	// ds_main.setCellData(0,"completeProcYn", "1");  // 완료처리여부
+	ds_main.setCellData(0,"wrkPlCd", (scwin.hid_txt_wrkCd == "" ) ? ed_works_01.getValue() : scwin.hid_txt_wrkCd);     // 작업장코드;조회조건으로 set;
+	
+	if(!await $c.win.confirm(MSG_CM_CRM_001)){
+        return;
+    } else {
+        await $c.sbm.execute(sbm_mainSave);
+
+    }
+
+}	
+
+
+
+//-------------------------------------------------------------------------
+// ds_main 로드 완료시 탭화면들 Shift에 접근
+//-------------------------------------------------------------------------
+scwin.f_RetrievePierCd = function(wrkPlCd, wrkDt) {
+    
+    let tab1Index = tab_Control.getTabIndex("tabs1");
+    let tab2Index = tab_Control.getTabIndex("tabs2");
+
+    tab_Control.activateTab(tab1Index);
+    tab_Control.activateTab(tab2Index);
+
+    tab_Control.getWindow(tab1Index).scwin.shift(wrkPlCd, wrkDt);
+    tab_Control.getWindow(tab2Index).scwin.shift(wrkPlCd, wrkDt);
+    
+
+
+}
+
+
+//-------------------------------------------------------------------------
+// 계획완료 버튼클릭
+//-------------------------------------------------------------------------
+scwin.f_completeY = async function() {
+		
+	if(scwin.searchKind == "" && ed_txtWrkIndictNo.getValue() == ""){
+		$c.win.alert("먼저 기본정보를 조회해 주십시오.");
+		return;
+	}else if(scwin.searchKind == "E"){
+		$c.win.alert("기본 정보를 등록하십시오.");
+		return;
+	}
+		
+	if(await $c.win.confirm("완료처리 하시겠습니까?")==false){
+		return;
+	}
+	
+	dma_completeYN.set("wrkIndictNo", ed_txtWrkIndictNo.getValue());
+	dma_completeYN.set("completeProcYn", "1");
+	
+    $c.sbm.execute(sbm_completeY);
+	
+}
+
+ 
+//-------------------------------------------------------------------------
+// 계획취소 버튼클릭
+//-------------------------------------------------------------------------
+scwin.f_completeN = async function(){
+		
+	if(scwin.searchKind == "" && scwin.txtWrkIndictNo == ""){
+		$c.win.alert("먼저 기본정보를 조회해 주십시오.");
+		return;
+	}else if(scwin.searchKind == "E"){
+		$c.win.alert("기본 정보를 등록하십시오.");
+		return;
+	}
+		
+	if(await $c.win.confirm("취소처리 하시겠습니까?")==false){
+		return;
+	}
+	
+	dma_completeYN.set("wrkIndictNo", scwin.txtWrkIndictNo);
+	dma_completeYN.set("completeProcYn", "0");
+	
+    $c.sbm.execute(sbm_completeN)
+	
+}
+ 
+
+  
+//-------------------------------------------------------------------------
+// 전체삭제 처리
+//-------------------------------------------------------------------------
+scwin.btn_deleteAll_onClick = async function() {
+  	 
+    if(scwin.searchKind == "" && scwin.txtWrkIndictNo == ""){
+		$c.win.alert("먼저 기본정보를 조회해 주십시오.");
+		return;
+	}else if(scwin.searchKind == "E"){
+		$c.win.alert("기본 정보를 등록하십시오.");
+		return;
+	}
+  	 
+  	let indictNo = scwin.txtWrkIndictNo;
+  	 
+
+        let result = await $c.win.confirm(MSG_CM_CRM_004) 
+        if(!result) {
+            return;
+        } else {
+            $c.sbm.setAction(sbm_delete, "/ds.op.wrkplan.stvwrkplan.cmd.DeleteWorkPlaceWorkPlanCMD.do?wrkIndictNo="+indictNo);
+            $c.sbm.execute(sbm_delete);
+        };
+        
+  }
+
+ 
+
+
+//-------------------------------------------------------------------------
+// tabs1에서 쓸 데이터
+//-------------------------------------------------------------------------
+scwin.acb_lobranCd_onChange = function (info) {
+    scwin.acb_lobranCd = acb_lobranCd.getValue();
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 조건 초기화
+//-------------------------------------------------------------------------
+scwin.btn_init_onClick = function (e) {
+    acb_lobranCd.setValue(scwin.lobran);
+    acb_inqShift.setValue("");
+    ed_works_02.setValue("");
+    ica_inqDt.setValue(scwin.sCurrDate);
+    $c.gus.cfInitObjects([ed_works_01])
+    acb_lobranCd.focus();
+
+
+};
+
+scwin.sbm_lobran_submitDone = function (e) {
+    acb_lobranCd.setValue(scwin.lobran);
+
+};
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (작업장)
+//-------------------------------------------------------------------------
+scwin.udc_comCode_ed_works_onClick = function (e) {
+    scwin.f_openCommonPopUp(1, ed_works_01.getValue(), ed_works_02.getValue(),'F','F');
+};
+
+scwin.udc_comCode_ed_works_onBlur = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_works_01, ed_works_02, 1);
+};
+
+scwin.udc_comCode_ed_works_onChangeName = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_works_02, ed_works_01, 1, false)
+};
+
+scwin.udc_comCode_ed_works_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_works_01, ed_works_02);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+
+  	// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  	if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+    
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+	
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+	        
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+	    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+	else
+	    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+
+}
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+			
+	switch (disGubun)
+  	{
+  		case 1:
+ 			
+ 			var wrkPlGbCd="4";
+		
+	    	var lodeptCd = acb_lobranCd.getValue();
+			var paramList = ","+lodeptCd+","+wrkPlGbCd;
+ 			
+ 			
+			udc_comCode_ed_works.cfCommonPopUp(
+                scwin.udc_comCode_ed_works_callBackFunc
+                ,pCode
+                ,pName
+                ,pClose
+                ,null
+                ,null
+                ,null
+                ,null
+                ,paramList
+                ,null
+                ,null
+                ,null
+                ,null); // 작업장
+  									
+			break;
+  	}	
+
+}
+
+
+//-------------------------------------------------------------------------
+// 전체저장 성공시
+//-------------------------------------------------------------------------
+scwin.sbm_mainSave_submitDone = async function (e) {
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0) {
+            return; //onFail
+        }
+        await $c.win.alert(MSG_CM_INF_001);
+        scwin.searchKind = "S";
+        scwin.btn_retrieve_Onclick();
+    } catch (e) {
+       console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+    }
+
+};
+
+
+
+
+
+
+//-------------------------------------------------------------------------
+// 계획저장 성공시
+//-------------------------------------------------------------------------
+scwin.sbm_completeY_submitDone = function (e) {
+    btn_Complete.setStyle("display", "none");
+    btn_Cancel.setStyle("display", "block");
+    $c.win.alert(MSG_CM_INF_001);
+
+};
+
+//-------------------------------------------------------------------------
+// 계획취소 성공시
+//-------------------------------------------------------------------------
+scwin.sbm_completeN_submitDone = function (e) {
+    btn_Complete.setStyle("display", "block");
+    btn_Cancel.setStyle("display", "none");
+    $c.win.alert(MSG_CM_INF_001);
+};
+
+
+//-------------------------------------------------------------------------
+// 삭제 성공시
+//-------------------------------------------------------------------------
+scwin.sbm_delete_submitDone = async function (e) {
+
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0)return; //onFail
+
+
+            ds_main.removeAll();
+            ds_staff1.removeAll();
+            ds_staff2.removeAll();
+            ds_staff3.removeAll();
+            
+            ds_staff1.removeAll();
+            
+            btn_Complete.setStyle("display", "none");
+            btn_Cancel.setStyle("display", "none");
+            
+            scwin.f_objControl();	
+            acb_lobranCd.focus();
+            
+            scwin.searchKind = "";
+            scwin.txtWrkIndictNo ="";
+
+            ed_txtWrkIndictNo.setValue("");
+            ica_wrkDt.setValue("");
+            ica_wrkEndDt.setValue("");
+            ica_wrkEndHh.setValue("");
+            ica_wrkStDt.setValue("");
+            ica_wrkStHh.setValue("");
+
+            
+            tab_Control.getWindow(0).scwin.shift();
+            tab_Control.getWindow(1).scwin.shift();
+
+
+
+            await $c.win.alert(MSG_CM_INF_004);	
+
+
+    } catch (e) {
+       console.log("sbm_delete_submitDone : " + e);
+    }
+
+};
+
+
+
+//-------------------------------------------------------------------------
+// 점소 변경시
+//-------------------------------------------------------------------------
+scwin.lobranCd_OnviewChange = function (info) {
+    
+   //2020.04.07 대구지점의 하위 CY는 7C04가 유일함 
+   //박현동 주임 > 요청자에 의해 대구지점이면 해당 작업장으로 자동 세팅
+    if(acb_lobranCd.getValue() == "7CC"){
+    	ed_works_01.setValue("7C04");
+    	ed_works_01.focus();
+    } else {
+    	ed_works_01.setValue("");
+    	ed_works_02.setValue("");
+
+    }
+   
+};
+
+scwin.sbm_mainSave_error = function (e) {
+
+};
+
+scwin.txtWrkIndictNo_change = function (info) {
+    scwin.txtWrkIndictNo = ed_txtWrkIndictNo.getValue();
+};
+
+
+scwin.ica_inqDt_onblur = function (e) {
+    let dateStr = ica_inqDt.getValue()
+
+        let minY = 1900;
+        let maxY = 2099;
+        let strY = dateStr.substring(0,4);
+
+        // 형식 체크
+    if((!$c.date.isDate(dateStr) && dateStr.length == 8) || parseInt(strY) < minY || parseInt(strY) > maxY ) {
+        $c.win.alert("날짜 형식이 올바르지 않습니다.", function() {
+        ica_inqDt.setValue("");
+        ica_inqDt.focus();
+        return;
+        });
+    }
+};
+
+//-------------------------------------------------------------------------
+// 탭 화면 첫번째 데이터셋 로드시 (그리드로는 오른쪽 그리드)
+//-------------------------------------------------------------------------
+scwin.ds_staff1_ondataload = function () {
+    tab_Control.getWindow(0).spa_totalRow1.setValue(ds_staff1.getTotalRow());
+    tab_Control.getWindow(0).gr_staff1.refreshColumn("wrkStpCd")
+    ds_staff1.undoAll();
+
+    scwin.p_staff1RowCnt = ds_staff1.getTotalRow();
+    tab_Control.getWindow(0).gr_staff1.setFocusedCell(0,0);
+
+
+};
+
+
+//-------------------------------------------------------------------------
+// 탭 화면 첫번째 데이터셋 로드시 (그리드로는 왼쪽 그리드)
+//-------------------------------------------------------------------------
+scwin.ds_staff2_ondataload = function () {
+    tab_Control.getWindow(0).spa_totalRow2.setValue(ds_staff2.getTotalRow());
+    tab_Control.getWindow(0).gr_staff2.refreshColumn("wrkStpCd")
+    ds_staff1.undoAll();
+    scwin.p_staff2RowCnt = ds_staff2.getTotalRow();
+
+    if((scwin.p_staff1RowCnt + scwin.p_staff2RowCnt) == 0 && tab_Control.getWindow(1).scwin.p_shiftSearch == "Y") {
+        $c.win.alert(MSG_CM_WRN_002);
+    }
+
+    tab_Control.getWindow(0).gr_staff2.setFocusedCell(0,0);
+
+
+
+};
+
+
+//-------------------------------------------------------------------------
+// 메인화면 메인 데이터셋 로드시
+//-------------------------------------------------------------------------
+scwin.ds_main_ondataload = function () {
+    scwin.txtWrkIndictNo = ds_main.getCellData(0, "wrkIndictNo");
+    ed_txtWrkIndictNo.setValue(ds_main.getCellData(0, "wrkIndictNo"));
+    scwin.txt_completeProcYn = ds_main.getCellData(0, "completeProcYn");
+
+
+        // tab_Control.getWindow(0).scwin.onpageload();
+        // tab_Control.getWindow(1).scwin.onpageload();
+        
+        
+        if(scwin.searchKind == "E") {//+ds_shiftBasisHour.getCellData(0, "wrkStHh")
+            ica_wrkStDt.setValue(ds_shiftBasisHour.getCellData(0, "wrkStDt"))
+            ica_wrkStHh.setValue(ds_shiftBasisHour.getCellData(0, "wrkStHh"))
+
+            ica_wrkEndDt.setValue(ds_shiftBasisHour.getCellData(0, "wrkEndDt"))
+            ica_wrkEndHh.setValue(ds_shiftBasisHour.getCellData(0, "wrkEndHh"))
+        }
+
+
+        let mainTotal = ds_main.getTotalRow();
+
+        if(mainTotal == 0) {
+            scwin.searchKind = "E";
+            tab_Control.getWindow(0).ed_lunionInputCnt.setValue("");
+            tab_Control.getWindow(0).ed_hveqDuseCnt.setValue("");
+            $c.win.alert(MSG_CM_WRN_002);
+
+
+            ica_wrkDt.setValue(ica_inqDt.getValue());
+            
+            $c.gus.cfEnableObj(ica_wrkDt,false);
+            $c.gus.cfEnableObj(ica_wrkStDt,false);
+            $c.gus.cfEnableObj(ica_wrkStHh,true);
+            $c.gus.cfEnableObj(ica_wrkEndDt,true);
+            $c.gus.cfEnableObj(ica_wrkEndHh,true);
+            $c.gus.cfEnableObj(cbx_extdYn,true);
+            $c.gus.cfEnableObj(cbx_ealyAtdYn,true);
+            $c.gus.cfEnableObj(btn_mainSave,true);
+            $c.gus.cfEnableObj(btn_deleteAll,true);
+            
+            $c.gus.cfEnableObj(tab_Control.getWindow(0).acb_planList,false);
+            $c.gus.cfEnableObj(tab_Control.getWindow(1).acb_planList,false);
+            
+            $c.gus.cfEnableObj(tab_Control.getWindow(0).btn_shift,false);
+            $c.gus.cfEnableObj(tab_Control.getWindow(1).btn_shift,false);
+        } else {
+            scwin.searchKind = "Q";
+            ed_txtWrkIndictNo.setValue(ds_main.getCellData(0, "wrkIndictNo"));
+            ica_wrkDt.setValue(ds_main.getCellData(0, "wrkIntendDt"));
+            ica_wrkStDt.setValue(ds_main.getCellData(0, "wrkStDt"));
+            ica_wrkStHh.setValue(ds_main.getCellData(0, "wrkStTm"));
+            ica_wrkEndDt.setValue(ds_main.getCellData(0, "wrkEndDt"));
+            ica_wrkEndHh.setValue(ds_main.getCellData(0, "wrkEndTm"));
+            
+            $c.gus.cfEnableObj(ica_wrkDt,false);
+            $c.gus.cfEnableObj(ica_wrkStDt,false);
+            $c.gus.cfEnableObj(ica_wrkStHh,true);
+            $c.gus.cfEnableObj(ica_wrkEndDt,true);
+            $c.gus.cfEnableObj(ica_wrkEndHh,true);
+            $c.gus.cfEnableObj(cbx_extdYn,true);
+            $c.gus.cfEnableObj(cbx_ealyAtdYn,true);
+            $c.gus.cfEnableObj(btn_mainSave,true);
+            $c.gus.cfEnableObj(btn_deleteAll,true);
+            
+            $c.gus.cfEnableObj(tab_Control.getWindow(0).acb_planList,true);
+            $c.gus.cfEnableObj(tab_Control.getWindow(1).acb_planList,true);
+            
+            $c.gus.cfEnableObj(tab_Control.getWindow(0).btn_shift,true);
+            $c.gus.cfEnableObj(tab_Control.getWindow(1).btn_shift,true);
+            scwin.f_RetrievePierCd(ed_works_01.getValue(),ica_inqDt.getValue())
+        }
+
+        if (ds_main.getCellData(0,"completeProcYn") == 0){
+            btn_Complete.setStyle("display", "block");
+            btn_Cancel.setStyle("display", "none");	
+        }else if(ds_main.getCellData(0,"completeProcYn") == 1){
+            btn_Complete.setStyle("display", "none");
+            btn_Cancel.setStyle("display", "block");	
+        }
+
+        
+
+        tab_Control.getWindow(0).scwin.searchKind = scwin.searchKind;
+        tab_Control.getWindow(1).scwin.searchKind = scwin.searchKind;
+
+
+    cbx_extdYn.setValue(ds_main.getCellData(0, "extdYn"));
+    cbx_ealyAtdYn.setValue(ds_main.getCellData(0, "ealyAtdYn"));
+
+
+};
+
+//-------------------------------------------------------------------------
+// 두번째 탭 화면 데이터셋 로드시 (상단그리드)
+//-------------------------------------------------------------------------
+scwin.ds_heavy1_ondataload = function () {
+    tab_Control.getWindow(1).spa_totalRows1.setValue(ds_heavy1.getTotalRow());
+    tab_Control.getWindow(1).scwin.heqKndCd = ds_heavy1.getCellData(0, "eqKndCd");
+    tab_Control.getWindow(1).scwin.heqKndNm = ds_heavy1.getCellData(0, "eqKndNm");
+    tab_Control.getWindow(1).gr_heavy1.setFocusedCell(0,0);
+
+};
+
+
+//-------------------------------------------------------------------------
+// 두번째 탭 화면 데이터셋 로드시 (하단그리드)
+//-------------------------------------------------------------------------
+scwin.ds_heavy2_ondataload = function () {
+    tab_Control.getWindow(1).spa_totalRows2.setValue(ds_heavy2.getTotalRow());
+    tab_Control.getWindow(1).gr_heavy2.setFocusedCell(0,0);
+};
+
+
+
+scwin.ds_staff3_ondataload = function () {
+    tab_Control.getWindow(0).ed_lunionInputCnt.setValue(ds_staff3.getCellData(0, "lunionInputCnt"));
+    tab_Control.getWindow(0).ed_hveqDuseCnt.setValue(ds_staff3.getCellData(0, "hveqDuseCnt"));
+};
+
+
+scwin.tab_Control_onchange = function (tabId, index, userTabId) {
+    tab_Control.activateTab(index);
+
+};
+
+scwin.ds_shiftBasisHour_ondataload = function () {
+    ica_wrkStDt.setValue(ds_shiftBasisHour.getCellData(0, "wrkStDt"));    
+    ica_wrkStHh.setValue(ds_shiftBasisHour.getCellData(0, "wrkStHh"));
+    ica_wrkEndDt.setValue(ds_shiftBasisHour.getCellData(0, "wrkEndDt"));
+    ica_wrkEndHh.setValue(ds_shiftBasisHour.getCellData(0, "wrkEndHh"))
+
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="search_cond" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="점소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class=" w200" editType="select" id="acb_lobranCd" search="start" style=""
+    								submenuSize="auto" allOption="" chooseOption="" ref="" ev:onviewchange="scwin.lobranCd_OnviewChange" visibleRowNum="10">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_lobranCd">
+    										<w2:label ref="lobranNm"></w2:label>
+    										<w2:value ref="lobranCd"></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업장 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode popupID="" style="" codeId="ed_works_01" nameId="ed_works_02" UpperFlagCode="1"
+    								allowCharCode="a-zA-Z0-9" editTypeCode="select" maxlengthCode="5" objTypeCode="data" validExpCode="작업장:yes" mandatoryName="true"
+    								validExpName="작업장:yes" id="udc_comCode_ed_works" ev:onclickEvent="scwin.udc_comCode_ed_works_onClick" ev:onblurCodeEvent="scwin.udc_comCode_ed_works_onBlur" ev:onviewchangeNameEvent="scwin.udc_comCode_ed_works_onChangeName" selectID="retrieveWrkPlInfo" mandatoryCode="true" validTitle="작업장">
+    							</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="작업일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class=" cal" id="ica_inqDt" style="" objType="data"
+    								mandatory="true" editType="select" title="작업일자" ev:onblur="scwin.ica_inqDt_onblur">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Shift" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class=" w100" editType="select" id="acb_inqShift" search="start" style=""
+    								submenuSize="auto" delimiter="-" displayMode="value delim label" ev:onchange="scwin.acb_lobranCd_onChange">
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onClick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+    					ev:onclick="scwin.btn_retrieve_Onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="기본정보" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col" style="width: 20%;"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="작업지시번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:input class=" w150" id="ed_txtWrkIndictNo" placeholder="" style="" ref="" ev:onchange="scwin.txtWrkIndictNo_change"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="작업일자 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:group id="" class="form-group">
+    								<w2:inputCalendar style="" id="ica_wrkDt" class=" cal" objType="data"
+    									calendarValueType="yearMonthDate" ref="">
+    								</w2:inputCalendar>
+    								<xf:trigger style="" id="btn_Complete" type="button" class="btn" userAuth="U" ev:onclick="scwin.f_completeY">
+    									<xf:label><![CDATA[계획완료]]></xf:label>
+    								</xf:trigger>
+    								<xf:trigger class="btn" id="btn_Cancel" style="" type="button" userAuth="U" ev:onclick="scwin.f_completeN">
+    									<xf:label><![CDATA[계획취소]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="작업시간 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group id="" class="form-group">
+    								<xf:group class="form-group" id="group1" style="">
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_wrkStDt" style=""></w2:inputCalendar>
+    									<xf:input class="w50 tac" dataType="time" id="ica_wrkStHh" style=""></xf:input>
+    									<xf:group class="form-group" id="group2" style="">
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_wrkEndDt" style=""></w2:inputCalendar>
+    										<xf:input class="w50 tac" dataType="time" id="ica_wrkEndHh" style=""></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:select ref="" appearance="full" disabled="" style="" id="cbx_extdYn"
+    									rows="" selectedindex="1" class="chk-grp" renderType="checkboxgroup">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[연장]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    								<xf:select appearance="full" class="chk-grp" cols="" disabled="" id="cbx_ealyAtdYn"
+    									ref="" renderType="checkboxgroup" rows="" selectedindex="1" style="">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[조출]]></xf:label>
+    											<xf:value><![CDATA[1]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_mainSave" label="저장" style="" type="button"
+    						ev:onclick="scwin.btn_mainSave_onClick">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_deleteAll" label="저장" style="" type="button"
+    						ev:onclick="scwin.btn_deleteAll_onClick">
+    						<xf:label>삭제</xf:label>
+    					</xf:trigger>
+
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class=" tabbox" id="" style="">
+    				<w2:tabControl alwaysDraw="false" class="wq_tab" id="tab_Control" style="" ev:onchange="scwin.tab_Control_onchange">
+    					<w2:tabs disabled="false" id="tabs1" label="인원투입계획" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs2" label="중기투입계획" style=""></w2:tabs>
+    					<w2:content alwaysDraw="false" id="content1" style="" src="/ui/ds/op/wrkplan/stvwrkplan/op_204_03_06b.xml">
+    					</w2:content>
+    					<w2:content id="content2" style="" src="/ui/ds/op/wrkplan/stvwrkplan/op_204_03_07b.xml" alwaysDraw="false">
+    					</w2:content>
+    				</w2:tabControl>
+    				<xf:group id="" class="right">
+    					<xf:trigger style=";visibility:hidden;" id="btn_1" label="저장" type="button" class="btn" userAuth="P">
+    						<xf:label>작업일보</xf:label>
+    					</xf:trigger>
+    					<xf:trigger style=";visibility:hidden;" id="btn_2" label="저장" type="button" class="btn" userAuth="P">
+    						<xf:label>중기운행일보</xf:label>
+    					</xf:trigger>
+    					<xf:trigger style=";visibility:hidden;" id="btn_3" label="저장" type="button" class="btn">
+    						<xf:label>작업계획서 및 안전교육일지</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+
+
+
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

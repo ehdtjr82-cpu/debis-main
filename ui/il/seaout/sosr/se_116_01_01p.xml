@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+
+<head>
+    <w2:type>COMPONENT</w2:type>
+    <w2:buildDate />
+    <w2:MSA />
+    <xf:model>
+    	<w2:dataCollection baseNode="map">
+    		<w2:dataMap baseNode="map" id="dma_condition">
+    			<w2:keyInfo>
+    				<w2:key id="clntNo" name="고객번호" dataType="text"></w2:key>
+    				<w2:key id="clntNm" name="고객명" dataType="text"></w2:key>
+    			</w2:keyInfo>
+    		</w2:dataMap>
+            
+    		<w2:dataList baseNode="list" id="ds_master" repeatNode="map" saveRemovedData="true" ev:ondataload="scwin.ds_master_ondataload">
+    			<w2:columnInfo>
+    				<w2:column id="clntNo" name="고객번호" dataType="text"></w2:column>
+    				<w2:column id="clntEngNm" name="고객영문명" dataType="text"></w2:column>
+    				<w2:column id="engAddr1" name="영문주소1" dataType="text"></w2:column>
+    				<w2:column id="engAddr2" name="영문주소2" dataType="text"></w2:column>
+    				<w2:column id="engAddr3" name="영문주소3" dataType="text"></w2:column>
+    				<w2:column id="engAddr4" name="영문주소4" dataType="text"></w2:column>
+    				<w2:column id="ktnetId" name="KTNET ID" dataType="text"></w2:column>
+    				<w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+    				<w2:column id="taseq" name="순번" dataType="text"></w2:column>
+    				<w2:column id="tanm" name="담당자명" dataType="text"></w2:column>
+    				<w2:column id="atnm" name="대리인명" dataType="text"></w2:column>
+    				<w2:column id="telno" name="전화번호" dataType="text"></w2:column>
+    				<w2:column id="faxno" name="팩스번호" dataType="text"></w2:column>
+    				<w2:column id="eeMail" name="이메일" dataType="text"></w2:column>
+    				<w2:column id="ediVersion" name="EDI버전" dataType="text"></w2:column>
+    				<w2:column id="clntScacCd" name="SCAC코드" dataType="text"></w2:column>
+    				<w2:column id="lloydsCd" name="로이드코드" dataType="text"></w2:column>
+    			</w2:columnInfo>
+    		</w2:dataList>
+
+    	</w2:dataCollection>
+    	<w2:workflowCollection />
+
+    	<!-- 조회 -->
+    	<xf:submission id="sbm_retrieve" action="/il.seaout.sosr.RetrieveSrClntListCMD.do" method="post" mediatype="application/json" 
+            ref='data:json,[{"id":"dma_condition", "key" : "IN_DS1"}, {"id":"ds_master", "key" : "OUT_DS1"}]' 
+            target='data:json,[{"id":"ds_master", "key" : "OUT_DS1"}]' encoding="UTF-8" instance=""
+    		replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror=""
+    		abortTrigger="">
+    	</xf:submission>
+    </xf:model>
+    <w2:layoutInfo />
+    <w2:publicInfo method="" />
+    <script lazy="false" type="text/javascript"><![CDATA[scwin.clntNo;
+scwin.clntNm;
+
+// scwin.popTitleCh = function () {
+    
+// };
+
+scwin.onpageload = function () {
+    let param = $c.data.getParameter();
+    scwin.clntNo = param.clntNo;
+    scwin.clntNm = param.clntNm;
+
+    ed_clntNo.setValue(scwin.clntNo);
+   	
+   	if(ed_clntNo.getValue() == "NULL"){
+   		ed_clntNo.setValue("");
+   	} else {
+   		scwin.f_Retrieve();
+   	}       	
+
+};
+
+scwin.f_Retrieve = function () {
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    let jsonRtn = e.responseJSON;
+    if (jsonRtn.resultDataSet[0].Code != "0" || ds_master.getRowCount() == 0) {
+        $c.win.alert(E_MSG_CM_ERR_003); //  해당되는 자료가 존재하지 않습니다	
+    }
+};
+
+scwin.ds_master_ondataload = function () {
+    let count = Number(ds_master.getRowCount());
+    // 총 건수 세팅 (3자리마다 , 찍어서 표현)
+    txt_total.setValue(count.toLocaleString());
+
+    if(count != 1) {
+        return;
+    }
+
+    scwin.closePopup(0);
+};
+
+scwin.btn_Clear_onclick = function (e) {
+    ed_clntNo.setValue("");
+    txt_clntNm.setValue("");
+};
+
+scwin.btn_search_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.gr_master_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.closePopup(rowIndex);
+};
+
+scwin.btn_close_onclick = function (e) {
+    window.close();
+};
+
+scwin.closePopup = function (rowIndex) {
+    let rtnValues = [];
+    rtnValues[0]  = ds_master.getCellData(rowIndex, "clntNo");
+    rtnValues[1]  = ds_master.getCellData(rowIndex, "clntEngNm");
+    rtnValues[2]  = ds_master.getCellData(rowIndex, "engAddr1");
+    rtnValues[3]  = ds_master.getCellData(rowIndex, "engAddr2");
+    rtnValues[4]  = ds_master.getCellData(rowIndex, "engAddr3");
+    rtnValues[5]  = ds_master.getCellData(rowIndex, "engAddr4");
+    rtnValues[6]  = ds_master.getCellData(rowIndex, "ktnetId");
+    rtnValues[7]  = ds_master.getCellData(rowIndex, "crn");	       
+    rtnValues[8]  = ds_master.getCellData(rowIndex, "taseq");	       
+    rtnValues[9]  = ds_master.getCellData(rowIndex, "tanm");	       
+    rtnValues[10] = ds_master.getCellData(rowIndex, "atnm");	       
+    rtnValues[11] = ds_master.getCellData(rowIndex, "telno");	       
+    rtnValues[12] = ds_master.getCellData(rowIndex, "faxno");	       
+    rtnValues[13] = ds_master.getCellData(rowIndex, "eeMail");	       
+    rtnValues[14] = ds_master.getCellData(rowIndex, "ediVersion");	       
+    rtnValues[15] = ds_master.getCellData(rowIndex, "clntScacCd");	       
+    rtnValues[16] = ds_master.getCellData(rowIndex, "lloydsCd"); 		
+
+    $c.win.closePopup(rtnValues); 
+};
+
+scwin.excelDownload = async function() {
+    if(ds_master.getRowCount() == 0) {
+        $c.win.alert(MSG_CM_WRN_002);
+        return;
+    }
+
+    let rtn = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");		
+    if(!rtn) {
+        return;  
+    }
+
+    let options = {
+        fileName : "Customer List.xlsx",
+        sheetName : "Customer List"
+    }
+    let infoArr = {};    
+
+    $c.data.downloadGridViewExcel(gr_master, options, infoArr);
+};
+
+
+
+
+]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+</head>
+
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="CODE" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class=" w100" id="ed_clntNo" placeholder="" style="" allowChar="0-9" maxlength="6" objType="data" ref="data:dma_condition.clntNo"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="NAME" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class=" w200" id="txt_clntNm" placeholder="" style="" maxlength="35" objType="data" ref="data:dma_condition.clntNm"></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_Clear" style="" type="button" ev:onclick="scwin.btn_Clear_onclick">
+						<xf:label>
+							<![CDATA[Clear]]>
+						</xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R" ev:onclick="scwin.btn_search_onclick">
+						<xf:label>
+							<![CDATA[조회]]>
+						</xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="">
+                <xf:group style="" id="" class="title-wrap">
+                    <xf:group id="" class="title">
+                        <w2:textbox tagname="h3" style="" id="" label="Customer List" class="tit">
+                        </w2:textbox>
+                    </xf:group>
+                    <xf:group id="" class="right">
+                        <w2:udc_topGrdBtn id="udc_topGrdBtn" gridUpYn="N" grp="grd_section1" style="" btnUser="Y" btnPlusYn="Y" gridID="gr_master" gridDownYn="Y" gridDownFn="scwin.excelDownload" gridDownUserAuth="X">
+                        </w2:udc_topGrdBtn>
+                    </xf:group>
+                </xf:group>
+
+				<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_master" focusMode="row"
+						id="gr_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10" visibleRowNumFix="true" ev:oncelldblclick="scwin.gr_master_oncelldblclick">
+						<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+                        <w2:header id="header1">
+                            <w2:row id="row1">
+                                <w2:column id="h_clntNo" displayMode="label" inputType="text" value="CODE" width="80"></w2:column>
+                                <w2:column id="h_clntEngNm" displayMode="label" inputType="text" value="NAME" width="80"></w2:column>
+                                <w2:column id="h_engAddr1" displayMode="label" inputType="text" value="STREET" width="80"></w2:column>
+                                <w2:column id="h_engAddr2" displayMode="label" inputType="text" value="PLACE" width="80"></w2:column>
+                                <w2:column id="h_engAddr3" displayMode="label" inputType="text" value="STATE" width="80"></w2:column>
+                                <w2:column id="h_engAddr4" displayMode="label" inputType="text" value="ZIP" width="80"></w2:column>
+                                <w2:column id="h_ktnetId" displayMode="label" inputType="text" value="KTNET ID" width="80"></w2:column>
+                                <w2:column id="h_crn" displayMode="label" inputType="text" value="CRN" width="80"></w2:column>
+                                <w2:column id="h_taseq" displayMode="label" inputType="text" value="PIC" width="80"></w2:column>
+                                <w2:column id="h_tanm" displayMode="label" inputType="text" value="NAME" width="80"></w2:column>
+                                <w2:column id="h_atnm" displayMode="label" inputType="text" value="DEPT" width="80"></w2:column>
+                                <w2:column id="h_telno" displayMode="label" inputType="text" value="TEL" width="80"></w2:column>
+                                <w2:column id="h_faxno" displayMode="label" inputType="text" value="FAX" width="80"></w2:column>
+                                <w2:column id="h_eeMail" displayMode="label" inputType="text" value="EMAIL" width="80"></w2:column>
+                                <w2:column id="h_ediVersion" displayMode="label" inputType="text" value="EDI" width="80"></w2:column>
+                                <w2:column id="h_clntScacCd" displayMode="label" inputType="text" value="SCAC" width="80"></w2:column>
+                                <w2:column id="h_lloydsCd" displayMode="label" inputType="text" value="LLOYDSE" width="80"></w2:column>
+                            </w2:row>
+                        </w2:header>
+                        <w2:gBody id="gBody1">
+                            <w2:row id="row2">
+                                <w2:column id="clntNo" inputType="text" width="80" textAlign="center" readOnly="true"></w2:column>
+                                <w2:column id="clntEngNm" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="engAddr1" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="engAddr2" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="engAddr3" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="engAddr4" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="ktnetId" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="crn" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="taseq" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="tanm" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="atnm" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="telno" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="faxno" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="eeMail" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="ediVersion" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="clntScacCd" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                                <w2:column id="lloydsCd" inputType="text" width="80" textAlign="left" readOnly="true"></w2:column>
+                            </w2:row>
+                        </w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" id="txt_total" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label>
+						<![CDATA[닫기]]>
+					</xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+
+</html>

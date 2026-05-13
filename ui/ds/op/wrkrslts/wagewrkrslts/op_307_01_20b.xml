@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 전역변수
+//-------------------------------------------------------------------------
+scwin.firstDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.loginDTO = $c.data.getMemInfo();
+scwin.loUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd");
+
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	
+    scwin.f_setHeaderInspection();
+};
+
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_setHeaderInspection = function() { 
+    ica_wrkStYmDd.setValue(scwin.firstDate);
+
+}
+
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 (작업장)
+//-------------------------------------------------------------------------
+scwin.udc_wrkPl_onClick = async function (e) {
+    let lodeptCd = acb_branCd.getValue();
+    let paramList = ","+lodeptCd+"";
+
+    udc_wrkPl.cfCommonPopUp(scwin.udc_wrkPl_callBackFunc
+    , ed_wrkPlCd.getValue()
+    ,ed_wrkPlNm.getValue()
+    ,"F"
+    ,null
+    ,null
+    ,null
+    ,null
+    ,',' + acb_branCd.getValue() + ''
+    ,null
+    ,null
+    ,null
+    ,null
+    ,null
+    ,null
+    );
+
+};
+
+scwin.udc_wrkPl_onblurCode = async function (e) {
+    let lodeptCd = acb_branCd.getValue();
+    let paramList = ","+lodeptCd+"";
+    if(ed_wrkPlCd.getValue() != "") {
+        udc_wrkPl.cfCommonPopUp(scwin.udc_wrkPl_callBackFunc
+        , ed_wrkPlCd.getValue()
+         ,""
+         ,"T"
+        ,null
+        ,null
+        ,null
+        ,null
+        ,',' + acb_branCd.getValue() + ''
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        );
+    }else {
+        return;
+    }
+};
+
+scwin.udc_wrkPl_onChangeName = async function (info) {
+    let lodeptCd = acb_branCd.getValue();
+    let paramList = ","+lodeptCd+"";
+    if(ed_wrkPlNm.getValue() != "") {
+        udc_wrkPl.cfCommonPopUp(scwin.udc_wrkPl_callBackFunc
+        , ""
+        ,ed_wrkPlNm.getValue()
+        ,"T"
+        ,null
+        ,null
+        ,null
+        ,null
+        ,',' + acb_branCd.getValue() + ''
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        ,null
+        );
+    } else {
+        return;
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// UDC 공통 팝업 콜백 (작업장)
+//-------------------------------------------------------------------------
+scwin.udc_wrkPl_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_wrkPlCd, ed_wrkPlNm);
+};
+
+//-------------------------------------------------------------------------
+// 검색영역 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.btn_init_onClick = function (e) {
+    $c.gus.cfInitObjects(tb_mainData);
+    acb_branCd.focus();
+};
+
+
+//-------------------------------------------------------------------------
+// 출력 f_OzReport
+//-------------------------------------------------------------------------
+scwin.btn_OzReport_onClick = async function (e) {
+
+    var fileName = "";
+
+    if (! await $c.gus.cfValidate([tb_mainData])) {
+    	return;
+    }
+    
+    if( acb_div.getValue() == "0085" ) { //퇴직충당금
+    	fileName = "/ds/op/wrkrslts/wagewrkrslts/op_307_01_07.ozr";
+    } else if( acb_div.getValue() == "0218") { //교육훈련비
+    	fileName = "/ds/op/wrkrslts/wagewrkrslts/op_307_01_09.ozr";
+    } else if( acb_div.getValue() == "0072") { //현대화기금
+    	fileName = "/ds/op/wrkrslts/wagewrkrslts/op_307_01_11.ozr";
+    } else {
+    	return;
+    }
+    
+    scwin.f_OzReport(fileName);
+};
+
+
+//-------------------------------------------------------------------------
+// 출력 f_OzReport
+//-------------------------------------------------------------------------
+scwin.f_OzReport = function(str) {
+
+    let tocChk = "";
+    
+    if(cbx_toc.getValue() == "1") {
+        tocChk = "1";
+    } else {
+        tocChk = "0";
+    }
+
+
+    let data = {
+        odiName : "op_307_01_07",
+        reportName: "",
+        odiParam : {
+            dt: ica_wrkStYmDd.getValue(),
+            wrkPl: ed_wrkPlCd.getValue(),
+            dept : acb_branCd.getValue(),
+            div : acb_div.getValue(),
+            cntrBulk : acb_cb.getValue(),
+            toc : tocChk
+        },
+        viewerParam : {
+            useprogressbar : false, // 프로그레스바 쓸지 말지
+            printcommand : true,
+            zoom : 90, // 배율 설정
+        },
+        formParam: {
+            mode : "preview"
+        }
+    };
+
+    data.reportName = str;
+
+    scwin.openPopup(data);
+    
+}
+
+
+scwin.openPopup = async function(data){
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+}
+
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="right" id="">
+						<xf:trigger class="btn" id="btn_OzReport" style="" type="button" ev:onclick="scwin.btn_OzReport_onClick">
+							<xf:label><![CDATA[발행]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onClick">
+							<xf:label><![CDATA[취소]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="tb_mainData" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:180px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="width:180px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="점소 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="acb_branCd" search="start" style="" submenuSize="fixed"
+									objType="Data" mandatory="true" allOption="" chooseOption="" ref="" title="점소">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[부산지점]]></w2:label>
+											<w2:value><![CDATA[6AA]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[인천지점]]></w2:label>
+											<w2:value><![CDATA[4AA]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[울산지점]]></w2:label>
+											<w2:value><![CDATA[6BB]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[충남지사]]></w2:label>
+											<w2:value><![CDATA[3AA]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[전남지사]]></w2:label>
+											<w2:value><![CDATA[5AA]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="TOC 여부 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select appearance="full" class="" cols="" id="cbx_toc" ref="" renderType="native" rows="" selectedindex="-1"
+									style="" objType="data" falseValue="0" value="1">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[]]>
+											</xf:label>
+											<xf:value><![CDATA[]]>
+											</xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="작업장 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:udc_comCode popupID="" style="" codeId="ed_wrkPlCd" nameId="ed_wrkPlNm" id="udc_wrkPl" allowCharCode="a-zA-Z0-9" maxlengthCode="5" UpperFlagCode="1" objTypeName="data" ev:onclickEvent="scwin.udc_wrkPl_onClick" ev:onblurCodeEvent="scwin.udc_wrkPl_onblurCode" ev:onviewchangeNameEvent="scwin.udc_wrkPl_onChangeName" selectID="retrieveWrkPlInfo"></w2:udc_comCode>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="req" id="" label="작업월일 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_wrkStYmDd" pickerType="dynamic" style="" mandatory="true" title="작업년월">
+								</w2:inputCalendar>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="구분 " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="acb_div" search="start" style="" submenuSize="fixed"
+									mandatory="true" objType="Data" allOption="" chooseOption="" ref="" title="구분">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[교육훈련비]]></w2:label>
+											<w2:value><![CDATA[0218]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[퇴직충담금]]></w2:label>
+											<w2:value><![CDATA[0085]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[현대화기금]]></w2:label>
+											<w2:value><![CDATA[0072]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="req" id="" label="CNTR/BULK " ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="acb_cb" search="start" style="" submenuSize="fixed"
+									mandatory="true" objType="Ddata" allOption="" chooseOption="" ref="" title="CNBR/BULK">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[BULK]]></w2:label>
+											<w2:value><![CDATA[01]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[CNTR]]></w2:label>
+											<w2:value><![CDATA[02]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

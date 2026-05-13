@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_condition">
+					<w2:keyInfo>
+						<w2:key id="lobranCd" name="점소" dataType="text"></w2:key>
+						<w2:key id="stdYm" name="조회년월" dataType="text"></w2:key>
+						<w2:key id="endYm" name="종료년월일" dataType="text"></w2:key>
+						<w2:key id="wrkPlClsCd" name="구분" dataType="text"></w2:key>
+						<w2:key id="gubun" name="gubun" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_wrkList" saveRemovedData="true" ev:ondataload="scwin.ds_wrkList_ondataload">
+					<w2:columnInfo>
+						<w2:column id="wrkPlClsCd" name="구역" dataType="text"></w2:column>
+						<w2:column id="staffNm" name="성명" dataType="text"></w2:column>
+						<w2:column id="staffNo" name="사번(hidden)" dataType="text"></w2:column>
+						<w2:column id="ehrEmpNo" name="사번" dataType="text"></w2:column>
+						<w2:column id="occptypeClsCd" name="직종코드" dataType="text"></w2:column>
+						<w2:column id="occptypeClsNm" name="직종명" dataType="text"></w2:column>
+						<w2:column id="occpgrdCd" name="직책코드" dataType="text"></w2:column>
+						<w2:column id="occpgrdNm" name="직책명" dataType="text"></w2:column>
+						<w2:column id="clntNo" name="거래처" dataType="text"></w2:column>
+						<w2:column id="totalSalCnt" name="시수총" dataType="number"></w2:column>
+						<w2:column id="basisSalHourCnt" name="시수기본" dataType="number"></w2:column>
+						<w2:column id="nightSalHourCnt" name="시수야간" dataType="number"></w2:column>
+						<w2:column id="hourlyRate" name="시급" dataType="number"></w2:column>
+						<w2:column id="totalWage" name="총지급분" dataType="number"></w2:column>
+						<w2:column id="basicSalary" name="기본급" dataType="number"></w2:column>
+						<w2:column id="nightAllow" name="심야근로" dataType="number"></w2:column>
+						<w2:column id="positionAllowWage" name="직무수당" dataType="number"></w2:column>
+						<w2:column id="trffcCost" name="교통비" dataType="number"></w2:column>
+						<w2:column id="performanceAllow" name="성과수당" dataType="number"></w2:column>
+						<w2:column id="dayExtdShiftAllCnt" name="연장근로개수" dataType="number"></w2:column>
+						<w2:column id="extdWorkWage" name="연장근로금액" dataType="number"></w2:column>
+						<w2:column id="dayHoliShiftAllCnt" name="휴일근로개수" dataType="number"></w2:column>
+						<w2:column id="holiWorkWage" name="휴일근로금액" dataType="number"></w2:column>
+						<w2:column id="dayHoliExtdShiftAllCnt" name="휴일연장개수" dataType="number"></w2:column>
+						<w2:column id="holiExtdWorkWage" name="휴일연장금액" dataType="number"></w2:column>
+						<w2:column id="dayHoliNightShiftAllCnt" name="휴일야간개수" dataType="number"></w2:column>
+						<w2:column id="holiNightWorkWage" name="휴일야간금액" dataType="number"></w2:column>
+						<w2:column id="dayEarlyShiftAllCnt" name="조기출근개수" dataType="number"></w2:column>
+						<w2:column id="earlyWorkWage" name="조기출근금액" dataType="number"></w2:column>
+						<w2:column id="dayDailyJobSubAllCnt" name="일용직대체개수" dataType="number"></w2:column>
+						<w2:column id="dailyWorkWage" name="일용직대체금액" dataType="number"></w2:column>
+						<w2:column id="allMonthSumCnt" name="추가수당계개수" dataType="number"></w2:column>
+						<w2:column id="allowWage" name="추가수당계금액" dataType="number"></w2:column>
+						<w2:column id="addShiftAmount" name="추가실적" dataType="number"></w2:column>
+						<w2:column id="studentLoan" name="학자금" dataType="number"></w2:column>
+						<w2:column id="totalPaymentMembers" name="급여확인지급분학자금" dataType="number"></w2:column>
+						<w2:column id="totalPaymentOffice" name="급여확인본사" dataType="number"></w2:column>
+						<w2:column id="vacationAllow" name="상여휴가" dataType="number"></w2:column>
+						<w2:column id="festivalAllow" name="상여명절" dataType="number"></w2:column>
+						<w2:column id="familyAllow" name="상여가정" dataType="number"></w2:column>
+						<w2:column id="physicalTrainAllow" name="상여체육" dataType="number"></w2:column>
+						<w2:column id="safetyGearAllow" name="상여안전" dataType="number"></w2:column>
+						<w2:column id="incomeTax" name="공제소득세" dataType="number"></w2:column>
+						<w2:column id="residenceTax" name="공제주민세" dataType="number"></w2:column>
+						<w2:column id="unionDuesMembers" name="조합비" dataType="number"></w2:column>
+						<w2:column id="unionDuesOffice" name="조합비본사" dataType="number"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="co_ds_combo2" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="code" dataType="text"></w2:column>
+						<w2:column id="name" name="name" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_lobranCd">
+					<w2:keyInfo>
+						<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_lobranCd" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="name1" dataType="text"></w2:column>
+						<w2:column id="name" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+
+			<!-- 조회 -->
+			<xf:submission id="sbm_retrieve"
+				action="/ds.op.stvwrk.RetrieveStvUnloadWrkPaystubCMD.do"
+				method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+				ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_wrkList","key":"OUT_DS1"}]'
+				target='data:json,[{"id":"ds_wrkList","key":"OUT_DS1"}]'
+				ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="">
+			</xf:submission>
+
+			<!-- 점소코드 조회 -->
+			<xf:submission id="sbm_lobranCd"
+				action="/cm.zz.RetrieveComboCMD.do"
+				method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+				ref='data:json,dma_lobranCd' target='data:json,{"id":"ds_lobranCd","key":"GAUCE"}'
+				ev:submitdone="scwin.sbm_lobranCd_submitdone" ev:submiterror="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+			scwin.lobranCd = $c.data.getMemInfo("lobranCd") != null ? $c.data.getMemInfo("lobranCd") : ""; // 물류 점소 코드
+			scwin.vCurDate = "";
+
+			scwin.onpageload = function () {
+				scwin.vCurDate = $c.date.getServerDateTime("yyyyMM"); // 입항예정일자 from(현재 날짜가 포함된 달의 시작 일자)
+
+				// 점소
+				dma_lobranCd.set("sysCd", "BerthNonUsableEBC");
+				dma_lobranCd.set("queryId", "retriveLobranCodeList");
+				$c.sbm.execute(sbm_lobranCd);
+
+				// 구분
+				const codeOptions = [
+					{ grpCd : "OP316", compID : "lc_wrkPlClsCd", opt : {"range" : "1,1"}},
+				];
+				$c.data.setCommonCode(codeOptions);
+
+				scwin.f_SetDefaultData();
+				$c.gus.cfDisableObjects([lc_wrkPlClsCd]);
+			};
+
+			///////////////////////////////////////// I N I T /////////////////////////////////////////
+
+			//-------------------------------------------------------------------------
+			// 조회조건 초기화
+			//-------------------------------------------------------------------------
+			scwin.f_InitObjects = function () {
+				$c.gus.cfInitObjects(tb_mainData);
+				scwin.f_SetDefaultData();
+			};
+
+			//-------------------------------------------------------------------------
+			// Default Data Setting
+			//-------------------------------------------------------------------------
+			scwin.f_SetDefaultData = function () {
+				ed_stdYm.setValue(scwin.vCurDate);
+
+				lc_lobranCd.setValue(scwin.lobranCd);
+				lc_lobranCd.focus();
+			};
+
+			///////////////////////////////////////// B U S I N E S S   L O G I C /////////////////////////////////////////
+			
+			//-------------------------------------------------------------------------
+			// 조회
+			//-------------------------------------------------------------------------
+			scwin.f_Retrieve = async function() {
+				// validExp Setting
+				$c.gus.setValidExp(lc_lobranCd, "점소:yes");
+				$c.gus.setValidExp(ed_stdYm, "시작일자:yes:length=6");
+
+				let rtn = await $c.gus.cfValidate([lc_lobranCd, ed_stdYm], null, true); 
+				if (!rtn) return;
+
+				dma_condition.set("wrkPlClsCd", lc_wrkPlClsCd.getValue());
+				dma_condition.set("endYm", ed_stdYm.getValue() + "31");
+				dma_condition.set("gubun", "1");
+
+				$c.sbm.execute(sbm_retrieve);
+			}; 
+
+
+			///////////////////////////////////////// S U B M I S S I O N    E V E N T /////////////////////////////////////////
+			
+			// 조회
+			scwin.sbm_retrieve_submitdone = function (e) {
+				if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+				const rowCount = ds_wrkList.getRowCount();
+				if (rowCount == 0) {
+					$c.win.alert($c.data.getMessage(MSG_CM_ERR_003)); // 해당되는 자료가 존재하지 않습니다.
+				}
+
+				totalRows.setValue(rowCount);
+			};
+
+
+			// 점소
+			scwin.sbm_lobranCd_submitdone = function (e) {
+				if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+				lc_lobranCd.setValue(scwin.lobranCd);
+				lc_lobranCd.focus();
+			};
+			
+
+			// ds_wrkList 데이터 로드 
+			scwin.ds_wrkList_ondataload = function (e) {
+				// 직책코드 -> 직책명 변환
+				const occpgrdMap = {
+					"MN": "소장(총괄)",
+					"91": "원치",
+					"92": "홀드",
+					"93": "장비",
+					"97": "장비(BTC조정)",
+					"98": "장비(TTCAR운전)",
+					"94": "원치(신호수)"
+				};
+				const rowCount = ds_wrkList.getRowCount();
+				for (let i = 0; i < rowCount; i++) {
+					const cd = ds_wrkList.getCellData(i, "occpgrdCd");
+					ds_wrkList.setCellData(i, "occpgrdNm", occpgrdMap[cd] || cd);
+				}
+			};
+
+
+
+			///////////////////////////////////////// C O M P O N E N T   E V E N T /////////////////////////////////////////
+			
+			// 조회조건 초기화 
+			scwin.btn_fieldClear_onclick = function (e) {
+				scwin.f_InitObjects();
+			};
+
+			// 조회
+			scwin.btn_retrieve_onclick = function (e) {
+				scwin.f_Retrieve();
+			};
+
+			// 엑셀 다운로드
+			scwin.f_gridToExcel = function() {
+				const excelName = "상용직 급여(평택)";
+				let infoArr = [{
+					rowIndex: 0,
+                    colIndex: 0,
+                    rowSpan: 1,
+                    colSpan: scwin.getVisibleColumnCount(),
+                    text: excelName,
+                    textAlign: "center",
+                    fontSize: "22px", // 16pt
+                    fontName: "돋움체",
+                    color: "black",
+                    bgColor: "#ffffff",
+                    drawBorder: false // line-width:0pt
+				}];
+
+				$c.data.downloadGridViewExcel(gr_wrkList, {
+                    "fileName": excelName + ".xlsx",
+                    "sheetName": excelName,
+                    "startRowIndex": 2  // 타이틀(0행) + skiprow:1(1행) + 헤더(2행~)
+                }, infoArr);
+			};
+
+			// 실제 화면 기준 보여지는 그리드뷰 컬럼 수 확인
+			scwin.getVisibleColumnCount = function() {
+				const total = gr_wrkList.getColumnCount();
+
+				let visibleCount = 0;
+				for (let i = 0; i < total; i++) {
+					if (gr_wrkList.getColumnVisible(i)) {
+						visibleCount++;
+					}
+				}
+				return visibleCount;
+			};
+
+
+
+		]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="tb_mainData" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="점소 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="lc_lobranCd" ref="data:dma_condition.lobranCd" search="start" style="width:200px;" 
+									submenuSize="auto" objType="key" sortMethod="ascending" sortOption="value">
+									<w2:choices>
+										<w2:itemset nodeset="data:ds_lobranCd">
+											<w2:label ref="name"></w2:label>
+											<w2:value ref="code"></w2:value>
+										</w2:itemset>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="조회년월" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_stdYm" ref="data:dma_condition.stdYm" mandatory="true" pickerType="dynamic" style="" objType="Data"></w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="구분" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="lc_wrkPlClsCd" search="start" style="width:200px;" submenuSize="auto"></w2:autoComplete>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="임금내역" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" gridID="gr_wrkList" gridUpYn="N" gridDownUserAuth="X" gridDownFn="scwin.f_gridToExcel"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_wrkList" id="gr_wrkList" style="" visibleRowNum="10"
+						visibleRowNumFix="true" fixedColumn="8" readOnly="true" columnMove="true" fixedColumnNoMove="true" columnMoveWithFooter="true">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column width="100" inputType="text" displayMode="label" id="column89" value="구역" hidden="true" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column11" value="성명" colSpan="" rowSpan="2"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column9" value="사번(내부사번)" hidden="true" colSpan="" rowSpan="2"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column3" value="사번" colSpan="" rowSpan="2"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column5" value="직종 코드" hidden="true" colSpan="" rowSpan="2" class=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column93" value="직종" hidden="true" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column7" value="직책 코드" hidden="true" colSpan="" rowSpan="2"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column97" value="직책" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="180" inputType="text" displayMode="label" id="column154" value="거래처" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="210" inputType="text" displayMode="label" id="column174" value="시수" colSpan="3" rowSpan="" sortable="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column178" value="시급" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column101" value="총지급분" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column105" value="기본급" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column109" value="심야근로" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column113" value="직무수당" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column117" value="교통비" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column121" value="성과수당" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="280" inputType="text" displayMode="label" id="column31" value="연장근로" colSpan="2" rowSpan="" sortable="false"></w2:column>
+								<w2:column width="200" inputType="text" displayMode="label" id="column70" value="휴일근로" colSpan="2" rowSpan="" class="" sortable="false"></w2:column>
+								<w2:column width="200" inputType="text" displayMode="label" id="column64" value="휴일연장" colSpan="2" rowSpan="" class="" sortable="false"></w2:column>
+								<w2:column width="140" inputType="text" displayMode="label" id="column58" value="휴일야간" colSpan="2" rowSpan="" class="" sortable="false"></w2:column>
+								<w2:column width="170" inputType="text" displayMode="label" id="column52" value="조기출근" colSpan="2" rowSpan="" class="" sortable="false"></w2:column>
+								<w2:column width="140" inputType="text" displayMode="label" id="column134" value="일용직대체" colSpan="2" rowSpan="" style="" sortable="false"></w2:column>
+								<w2:column width="140" inputType="text" displayMode="label" id="column46" value="추가수당계" colSpan="2" rowSpan="" class="" sortable="false"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column142" value="추가실적" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column226" value="학자금" colSpan="" rowSpan="2" style=""></w2:column>
+								<w2:column width="140" inputType="text" displayMode="label" id="column222" value="급여 확인" colSpan="2" rowSpan="" style="" sortable="false"></w2:column>
+								<w2:column width="350" inputType="text" displayMode="label" id="column214" value="상여" colSpan="5" rowSpan="" style="" sortable="false"></w2:column>
+								<w2:column width="140" inputType="text" displayMode="label" id="column194" value="공제" colSpan="2" rowSpan="" style="" sortable="false"></w2:column>
+								<w2:column width="140" inputType="text" displayMode="label" id="column186" value="조합비" colSpan="2" rowSpan="" style="" sortable="false"></w2:column>
+							</w2:row>
+							<w2:row style="" id="row4">
+								<w2:column width="100" inputType="text" displayMode="label" id="column175" value="총" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column171" value="기본" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column167" value="야간" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column88" value="개수" class="" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column87" value="금액" class="" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column125" value="개수" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column126" value="금액" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column127" value="개수" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column128" value="금액" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column129" value="개수" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column130" value="금액" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column131" value="개수" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column132" value="금액" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column135" value="개수" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column139" value="금액" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column133" value="개수" hidden="false" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column147" value="금액" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column223" value="지급분&lt;br/&gt;학자금" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column219" value="본사" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column215" value="휴가" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column211" value="명절" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column207" value="가정" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column203" value="체육" hidden="true" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column199" value="안전" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column195" value="소득세" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column191" value="주민세" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column187" value="조합비" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column183" value="본사" style=""></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column width="100" inputType="text" displayMode="label" id="wrkPlClsCd" style="" hidden="true"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="staffNm"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="staffNo" hidden="true"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="ehrEmpNo"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="occptypeClsCd" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="occptypeClsNm" style="" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="occpgrdCd" hidden="true" textAlign="right"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="occpgrdNm" style="" colMerge="true"></w2:column>
+								<w2:column width="180" inputType="text" displayMode="label" id="clntNo" style=""></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="totalSalCnt" style="" textAlign="right"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="basisSalHourCnt" style="" textAlign="right"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="nightSalHourCnt" style="" textAlign="right"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="hourlyRate" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="totalWage" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="basicSalary" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="nightAllow" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="positionAllowWage" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="trffcCost" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="performanceAllow" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dayExtdShiftAllCnt" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="extdWorkWage" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dayHoliShiftAllCnt" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="holiWorkWage" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dayHoliExtdShiftAllCnt" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="holiExtdWorkWage" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dayHoliNightShiftAllCnt" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="holiNightWorkWage" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dayEarlyShiftAllCnt" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="earlyWorkWage" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dayDailyJobSubAllCnt" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="dailyWorkWage" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="allMonthSumCnt" textAlign="right" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="allowWage" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="addShiftAmount" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="studentLoan" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="totalPaymentMembers" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="totalPaymentOffice" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="vacationAllow" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="festivalAllow" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="familyAllow" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="physicalTrainAllow" textAlign="right" style="" hidden="true" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="safetyGearAllow" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="incomeTax" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="residenceTax" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="unionDuesMembers" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="unionDuesOffice" textAlign="right" style="" displayFormat="#,##0"></w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:footer style="" id="footer1">
+							<w2:row style="" id="row3">
+								<w2:column width="100" inputType="text" displayMode="label" id="column92" hidden="true"></w2:column>
+								<w2:column width="120" inputType="expression" displayMode="label" id="column26" value="0" expression="COUNT('staffNm')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column25" hidden="true"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column24" value="합계"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column23" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column96" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column22" hidden="true"></w2:column>
+								<w2:column width="120" inputType="text" displayMode="label" id="column100"></w2:column>
+								<w2:column width="180" inputType="text" displayMode="label" id="column157"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column177"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column173"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column169"></w2:column>
+								<w2:column width="100" inputType="text" displayMode="label" id="column181" textAlign="right"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column104" value="0" textAlign="right" expression="SUM('totalWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column108" value="0" textAlign="right" expression="SUM('basicSalary')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column112" value="0" textAlign="right" expression="SUM('nightAllow')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column116" value="0" textAlign="right" expression="SUM('positionAllowWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column120" value="0" textAlign="right" expression="SUM('trffcCost')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column124" value="0" textAlign="right" expression="SUM('performanceAllow')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column33" value="0" textAlign="right" expression="SUM('dayExtdShiftAllCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column36" value="0" textAlign="right" expression="SUM('extdWorkWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column72" value="0" textAlign="right" expression="SUM('dayHoliShiftAllCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column69" value="0" textAlign="right" expression="SUM('holiWorkWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column66" value="0" textAlign="right" expression="SUM('dayHoliExtdShiftAllCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column63" value="0" textAlign="right" expression="SUM('holiExtdWorkWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column60" value="0" textAlign="right" expression="SUM('dayHoliNightShiftAllCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column57" value="0" textAlign="right" expression="SUM('holiNightWorkWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column54" value="0" textAlign="right" expression="SUM('dayEarlyShiftAllCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column51" value="0" textAlign="right" expression="SUM('earlyWorkWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column137" value="0" textAlign="right" expression="SUM('dayDailyJobSubAllCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column141" value="0" textAlign="right" expression="SUM('dailyWorkWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column48" value="0" textAlign="right" expression="SUM('allMonthSumCnt')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column149" value="0" textAlign="right" expression="SUM('allowWage')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="120" inputType="expression" displayMode="label" id="column145" value="0" textAlign="right" expression="SUM('addShiftAmount')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="120" inputType="expression" displayMode="label" id="column229" value="0" textAlign="right" expression="SUM('studentLoan')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column225" value="0" textAlign="right" expression="SUM('totalPaymentMembers')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column221" value="0" textAlign="right" expression="SUM('totalPaymentOffice')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column217" value="0" textAlign="right" expression="SUM('vacationAllow')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column213" value="0" textAlign="right" expression="SUM('festivalAllow')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column209" value="0" textAlign="right" expression="SUM('familyAllow')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column205" value="0" textAlign="right" expression="SUM('physicalTrainAllow')" displayFormat="#,##0" dataType="number" hidden="true"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column201" value="0" textAlign="right" expression="SUM('safetyGearAllow')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column197" value="0" textAlign="right" expression="SUM('incomeTax')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column193" value="0" textAlign="right" expression="SUM('residenceTax')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column189" value="0" textAlign="right" expression="SUM('unionDuesMembers')" displayFormat="#,##0" dataType="number"></w2:column>
+								<w2:column width="100" inputType="expression" displayMode="label" id="column185" value="0" textAlign="right" expression="SUM('unionDuesOffice')" displayFormat="#,##0" dataType="number"></w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

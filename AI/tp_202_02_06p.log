@@ -1,0 +1,20 @@
+tp_202_02_06p.log
+
+[2026-02-19 16:09:43.883] 변환 시작
+[2026-02-19 16:09:43.938] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 16:10:53.768] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=1, warnings=8 | LLM 69637ms, total 69831ms
+    - [적정성] DATASET 전환 — 누락 2건: ds_modRsn, ds_ediMappingSearch
+[2026-02-19 16:10:53.869] #1 검증: 자동수정 2건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 16:10:54.062] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=2, warnings=8
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_odrCreatCls (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 2건: ds_modRsn, ds_ediMappingSearch
+[2026-02-19 16:10:54.077] #2 재시도 (에러 1건)
+[2026-02-19 16:10:55.088] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 16:12:07.469] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=0, warnings=8 | LLM 72205ms, total 72381ms
+[2026-02-19 16:12:07.473] 성공 (#2, 2m 23s, confidence:0.94)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

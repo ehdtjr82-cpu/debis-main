@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_condition">
+                <w2:keyInfo>
+                    <w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_List1" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="regId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="수정일시" dataType="text"></w2:column>
+                    <w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+                    <w2:column id="seq" name="순번" dataType="text"></w2:column>
+                    <w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+                    <w2:column id="mgntTrgtClntYn" name="관리대상거래처여부" dataType="text"></w2:column>
+                    <w2:column id="mgntTrgtRsnNm" name="관리대상사유" dataType="text"></w2:column>
+                    <w2:column id="clntKndNm" name="거래처종류" dataType="text"></w2:column>
+                    <w2:column id="clntYn" name="매출입구분" dataType="text"></w2:column>
+                    <w2:column id="transYn" name="운송사업구분" dataType="text"></w2:column>
+                    <w2:column id="sellClntClsCd" name="매출거래처구분" dataType="text"></w2:column>
+                    <w2:column id="clntDelYn" name="거래처삭제여부" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="청구거래처번호" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="청구거래처명" dataType="text"></w2:column>
+                    <w2:column id="adptStDt" name="적용시작일자" dataType="text"></w2:column>
+                    <w2:column id="histChgClsCd" name="이력변경구분" dataType="text"></w2:column>
+                    <w2:column id="clntKndCd" name="거래처종류코드" dataType="text"></w2:column>
+                    <w2:column id="sellClntYn" name="매출거래처여부" dataType="text"></w2:column>
+                    <w2:column id="pchsClntYn" name="매입거래처여부" dataType="text"></w2:column>
+                    <w2:column id="transBizYn" name="운송사업구분" dataType="text"></w2:column>
+                    <w2:column id="transIntcdBizYn" name="운송주선사업구분" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_List2" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="seq" name="순번" dataType="text"></w2:column>
+                    <w2:column id="histSeq" name="이력순번" dataType="text"></w2:column>
+                    <w2:column id="histChgClsCd" name="이력변경구분" dataType="text"></w2:column>
+                    <w2:column id="pchsClntClsCd" name="매입거래처구분" dataType="text"></w2:column>
+                    <w2:column id="regId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="수정일자" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_queryCondition"
+            action="/cm.bc.clnt.clntmgnt.RetrieveClntHistCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_List1","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_List1","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_queryCondition_submitdone"
+            ev:submiterror="scwin.sbm_queryCondition_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_queryConditionHistory"
+            action="/cm.bc.clnt.clntmgnt.RetrievePurchaseCustomerHistListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_List2","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_List2","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_queryConditionHistory_submitdone"
+            ev:submiterror="scwin.sbm_queryConditionHistory_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.clntNo = "";
+        scwin.txt_wrkIndictNo = "";
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            if (scwin.params != null && scwin.params["clntNo"] != null) {
+                scwin.clntNo = scwin.params["clntNo"];
+            }
+            scwin.f_SetDefaultData();
+            scwin.f_Retrieve();
+            scwin.f_RetrieveHistory();
+        };
+
+        scwin.f_SetDefaultData = function() {
+            dma_condition.set("clntNo", scwin.clntNo);
+        };
+
+        scwin.f_Retrieve = async function() {
+            await $c.sbm.execute(sbm_queryCondition);
+        };
+
+        scwin.f_RetrieveHistory = async function() {
+            await $c.sbm.execute(sbm_queryConditionHistory);
+        };
+
+        scwin.f_RunExcel = async function() {
+            let countA = ds_List1.getRowCount();
+            if (!(countA > 0)) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+            $c.data.downloadGridViewExcel(gr_List1, {"fileName":"거래처이력목록.xlsx", "sheetName":"거래처이력목록"});
+        };
+
+        scwin.sbm_queryCondition_submitdone = async function(e) {
+            let rowCnt = ds_List1.getRowCount();
+            spa_totalRowGrid1.setValue(rowCnt);
+            if (rowCnt == 0) {
+                await $c.win.alert("거래처 이력현황 조회결과가 없습니다.");
+            }
+        };
+
+        scwin.sbm_queryCondition_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_queryConditionHistory_submitdone = async function(e) {
+            let rowCnt = ds_List2.getRowCount();
+            spa_totalRowGrid2.setValue(rowCnt);
+            if (rowCnt == 0) {
+                await $c.win.alert("매입거래처 이력현황 조회결과가 없습니다.");
+            }
+        };
+
+        scwin.sbm_queryConditionHistory_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="거래처이력현황 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_List1" focusMode="row"
+    					id="gr_List1" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="10" visibleRowNumFix="true" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="regId" inputType="text" removeBorderStyle="false"
+    								value="수정자ID" width="100">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="regDtm" inputType="text" removeBorderStyle="false"
+    								value="수정일시" width="100">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntNo" value="거래처번호" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="clntNm" value="거래처명" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="seq" value="순번" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="crn" value="사업자번호" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="mgntTrgtClntYn" value="관리대상&lt;/br&gt;거래처여부"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="130" inputType="text" style="" id="mgntTrgtRsnNm" value="관리대상사유" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntKndNm" value="거래처종류" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntYn" value="매출입구분" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="transYn" value="운송사업구분" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="sellClntClsCd" value="매출거래처구분" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="clntDelYn" value="거래처삭제여부" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="bilgClntNo" value="청구거래처번호" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="bilgClntNm" value="청구거래처명" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="adptStDt" value="적용시작일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="histChgClsCd" value="이력변경구분" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="clntKndCd" value="거래처종류코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="sellClntYn" value="매출거래처여부" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="pchsClntYn" value="매입거래처여부" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="transBizYn" value="운송사업구분" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="transIntcdBizYn" value="운송주선사업구분" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="regId" inputType="text" removeBorderStyle="false"
+    								width="100" style="color:@acolor1;">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="regDtm" inputType="text" removeBorderStyle="false"
+    								textAlign="center" width="100" style="color:@acolor2;">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntNo" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="clntNm" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="seq" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="crn" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="select" style="" id="mgntTrgtClntYn" value="" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[아니오]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[예]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="130" inputType="select" style="" id="mgntTrgtRsnNm" value="" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[일반]]></w2:label>
+        <w2:value><![CDATA[01]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[관리]]></w2:label>
+        <w2:value><![CDATA[02]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntKndNm" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="transYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="select" style="" id="sellClntClsCd" value="" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[선사]]></w2:label>
+        <w2:value><![CDATA[01]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[화주]]></w2:label>
+        <w2:value><![CDATA[02]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="130" inputType="select" style="" id="clntDelYn" value="" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[아니오]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[예]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column width="130" inputType="text" style="" id="bilgClntNo" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="bilgClntNm" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="adptStDt" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="histChgClsCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="clntKndCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="sellClntYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="pchsClntYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="transBizYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="transIntcdBizYn" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="매입거래처 이력현황" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grp_group2" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_List2" focusMode="row"
+    					id="gr_List2" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5" visibleRowNumFix="true" readOnly="true">
+    					<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="clntNo" inputType="text" removeBorderStyle="false"
+    								value="거래처번호" width="100">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="seq" inputType="text" removeBorderStyle="false"
+    								value="순번" width="70">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="histSeq" value="이력순번" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="histChgClsCd" value="이력변경구분" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="pchsClntClsCd" value="매입거래처구분" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="regId" value="수정자ID" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="regDtm" value="수정일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="modId" value="수정자ID " displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="modDtm" value="수정일자" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="clntNo" inputType="text" removeBorderStyle="false"
+    								width="100" colMerge="true">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="seq" inputType="text" removeBorderStyle="false"
+    								textAlign="center" width="70" colMerge="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="histSeq" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="histChgClsCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="pchsClntClsCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="regId" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="regDtm" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="modId" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="modDtm" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

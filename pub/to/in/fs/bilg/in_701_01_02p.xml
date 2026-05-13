@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_vesselMng" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cvsslMgntNo" name="본선번호" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="컬럼헤더명" dataType=""></w2:column>
+    					<w2:column id="lobranNm" name="지점" dataType="text"></w2:column>
+    					<w2:column id="vsslCd" name="컬럼헤더명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+    					<w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+    					<w2:column id="vsslPurpsNm" name="선박구분" dataType="text"></w2:column>
+    					<w2:column id="portCd" name="부두코드" dataType="text"></w2:column>
+    					<w2:column id="pierCd" name="컬럼헤더명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="pierNm" name="부두" dataType="text"></w2:column>
+    					<w2:column id="arvDtm" name="입항(예정);일자" dataType="text"></w2:column>
+    					<w2:column id="dptDtm" name="출항(예정);일자" dataType="text"></w2:column>
+    					<w2:column id="alngpierDtm" name="접안료입항;일자" dataType="text"></w2:column>
+    					<w2:column id="offpierDtm" name="접안료출항:일자" dataType="text"></w2:column>
+    					<w2:column id="adptHh" name="적용시간" dataType="text"></w2:column>
+    					<w2:column id="agrWt" name="협정물량" dataType="text"></w2:column>
+    					<w2:column id="ocshipYn" name="컬럼헤더명" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="ocshipNm" name="구분" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_lobran" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="점소명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/to.in.fs.bilg.RetrieveBulkCvsslPopUpCMD.do" method="post" mediatype="application/json" ref="data:json,dma_search" target='data:json,{"id":"ds_vesselMng","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+
+
+    scwin.f_Retrieve();
+};
+
+
+scwin.f_Retrieve = function () {
+
+    const params = {
+        lobranCd    : "CommonEBC" , 
+        shpCoClntNo : "retrieveBorrowAcqKindInfo" ,
+        vsslCd      : "FM092" ,
+        qryStDt     : "FM092" ,
+        qyrEndDt    : "FM092" ,
+        cvsslMgntNo : "FM092",
+        mrn         : "FM092"  
+    };
+
+    //데이터셋에 정보설정
+    dma_search.setJSON(params);
+
+    $c.sbm.execute(sbm_retreive);
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<xf:group class="flex_gvw" id="">
+    			<xf:group class="content" id="">
+    				<xf:group class="shbox w-auto" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="점소 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class=" " editType="select" id="lc_lobran" search="start"
+    										style="" submenuSize="auto">
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="선사 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="popupShp" style="" id="udc_comCodeShp" nameId="ed_con_shpCoNm" codeId="ed_con_shpCo" btnId="btn_PopUpShp" popupGridHeadTitle="거래처코드,거래처명,거래처구분,거래처구분명,거래처주소" popupTitle="선사,선사코드,선사명" selectID="retrieveClntInfo" allowCharCode="A-Z0-9" maxlengthCode="6" objTypeCode="data" readOnlyCode="false" UpperFlagCode="1"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="본선관리번호 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" w80" id="ed_cvsslMgntNo" style=""></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="MRN " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" w80" id="ed_mrn" style=""></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="선박 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="popupVssl" style="" id="udc_comCodeVssl" codeId="ed_vsslCd" nameId="ed_vsslNm" btnId="btn_PopUpVssl" allowCharCode="A-Z0-9" UpperFlagCode="1" maxlengthCode="4" objTypeCode="data" readOnlyCode="false" selectID="retrieveVsslCdInfo" popupTitle="선박정보,선박코드,선박명" popupGridHeadTitle="선박코드,선박명"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="입항예정일자 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar id="udc_calendar" refDataMap="" refEdDt="" refStDt="" style="" edFromId="ed_qryStDt" edToId="ed_qryEndDt" mandatoryFrom="true" mandatoryTo="true"></w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id=" btn_fieldClear" style="" type="button">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    							<xf:label><![CDATA[Search]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="round-box" id="">
+    					<xf:group class="grid-wrap" id="" style="">
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_vesselMng" id="gr_vesselMng" style=""
+    									visibleRowNum="10" visibleRowNumFix="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="본선번호" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="지점" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="선박명" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="MRN" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" value="선박구분" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" value="부두코드" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column7" inputType="text" value="컬럼헤더명" width="100"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="부두" width="100">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="column37" value="입항(예정);일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="column35" value="출항(예정);일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="column33" value="접안료입항;일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="column31" value="접안료출항:일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column29" value="적용시간" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column27" value="협정물량" displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" id="column21" value="컬럼헤더명" displayMode="label"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column23" value="구분" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="cvsslMgntNo" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="lobranCd" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="lobranNm" inputType="text" width="100"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="vsslCd" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="vsslNm" inputType="text" width="120" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="mrn" inputType="text" width="70"></w2:column>
+    											<w2:column displayMode="label" id="vsslPurpsNm" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="portCd" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="pierCd" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="pierNm" inputType="text" width="100" textAlign="left"></w2:column>
+    											<w2:column width="120" inputType="text" id="arvDtm" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="text" id="dptDtm" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="text" id="alngpierDtm" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="text" id="offpierDtm" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="adptHh" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="agrWt" displayMode="label" textAlign="right"></w2:column>
+    											<w2:column width="100" inputType="text" id="ocshipYn" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="ocshipNm" displayMode="label"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							</xf:group>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="" label="0" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    				</xf:group>
+    				<xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_trigger1" style="" type="button">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

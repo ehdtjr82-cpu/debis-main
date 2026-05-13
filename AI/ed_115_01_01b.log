@@ -1,0 +1,32 @@
+ed_115_01_01b.log
+
+[2026-02-18 22:41:26.155] 변환 시작
+[2026-02-18 22:41:26.208] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 22:46:07.416] #1 검증: XML: WebSquareXmlValidator: score=0.56, grade=B, verdict=REVIEW, errors=1, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=1, warnings=9 | LLM 280814ms, total 281208ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_ByteCheck → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:46:07.522] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 22:46:07.928] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.56, grade=B, verdict=REVIEW, errors=1, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=9
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_ByteCheck → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: lc_scpYn (LUXECOMBO→w2:autoComplete), lc_relaxYn (LUXECOMBO→w2:autoComplete), lc_completeYn (LUXECOMBO→w2:autoComplete), lc_tempRsnCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:46:07.941] #2 재시도 (에러 2건)
+[2026-02-18 22:46:08.941] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 22:51:18.868] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=9 | LLM 309561ms, total 309926ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:51:18.871] #1 검증: 최적 시도 #1 채택 (confidence: 0.77)
+[2026-02-18 22:51:18.871] 실패 (2회 시도, 9m 52s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_ByteCheck → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

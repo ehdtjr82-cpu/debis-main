@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="팝업샘플 메인" meta_screenId="smp_popup">
+    	<w2:type>DEFAULT</w2:type>
+        <w2:buildDate/>
+        <xf:model>
+            <xf:instance>
+                <data xmlns=""/>
+            </xf:instance>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" repeatNode="map" id="dataList1" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="name1" dataType="text"></w2:column>
+            			<w2:column id="col2" name="name2" dataType="text"></w2:column>
+            			<w2:column id="col3" name="name3" dataType="text"></w2:column>
+            			<w2:column id="col4" name="name4" dataType="text"></w2:column>
+            			<w2:column id="col5" name="name5" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<col1><![CDATA[1]]></col1>
+            				<col2><![CDATA[aa]]></col2>
+            				<col3><![CDATA[11]]></col3>
+            			</w2:row>
+            			<w2:row>
+            				<col1><![CDATA[0]]></col1>
+            				<col2><![CDATA[bb]]></col2>
+            				<col3><![CDATA[22]]></col3>
+            			</w2:row>
+            			<w2:row>
+            				<col1><![CDATA[0]]></col1>
+            				<col2><![CDATA[cc]]></col2>
+            				<col3><![CDATA[33]]></col3>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection>
+            </w2:workflowCollection>
+        </xf:model>
+         <script type="text/javascript" lazy="false"><![CDATA[
+	scwin.onpageload = function() {debugger;		
+		input_name.setValue("홍길동");
+		input_tel.setValue("1234567890");
+
+        scwin.params = $c.data.getParameter();
+		
+	};
+
+// 닫기	
+scwin.btn_trigger1_onclick = function (e) {
+    let rt = ["code","name"];
+    $c.win.closePopup(rt);
+};
+
+// 팝업
+scwin.btn_trigger3_onclick = function (e) {
+    var data = {
+        name:input_name.getValue(), tel : input_tel.getValue(), callback: "scwin.callBackFunc1"
+    };
+    var options = {
+        id : "pop1",
+        title : "팝업 테스트"
+    }	
+    $c.win.openPopup("/ui/sample/smp_popup2.xml", options,data);
+};
+]]></script>
+    </head>
+    
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+    	<xf:group class="pop_contents">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group id="" class="round-box">
+    			<xf:group style="" class="mb16">
+    				<w2:textbox style="font-weight:bold;font-size:9pt;"
+    					label='1. "popup" 클릭시 입력된 내용을 파라미터로 팝업창으로 전달&lt;br/&gt;2. 팝업 화면에서 파라미터가 있으면 화면에 set 을 한다.&lt;br/&gt;3. "닫기" 클릭시 callback 함수가 있으면 입력된 내용을 부모의 callback 함수에 전달한다. &lt;br/&gt;4. 부모의 callback 함수에서 전달 받은 파라미터를 다시 화면에 set을 한다'
+    					class="" escape="false">
+    				</w2:textbox>
+    			</xf:group>
+    			<xf:group style="" id="" class="tbbox">
+    				<xf:group tagname="table" style="" id="" class="w2tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="caption"></xf:group>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style="width:120px;"></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							이름
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<xf:input ctrlBtn="true" adjustMaxLength="false" style="width: 144px;height: 21px;" id="input_name"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							전화번호
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<xf:input adjustMaxLength="false" style="width: 144px;height: 21px;" id="input_tel" objType="data"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="grp_group1" style="">
+
+    			<xf:trigger type="button" id="btn_trigger1" style="" objType="ctrlBtn" ev:onclick="scwin.btn_trigger1_onclick"
+    				class="btn">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger type="button" id="btn_trigger3" style="" ev:onclick="scwin.btn_trigger3_onclick" class="btn">
+    				<xf:label><![CDATA[팝업]]></xf:label>
+    			</xf:trigger>
+
+    		</xf:group>
+
+    	</xf:group>
+
+
+    </body>
+</html>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_fixWork">
+    				<w2:keyInfo>
+    					<w2:key id="term" name="기간" dataType="text"></w2:key>
+    					<w2:key id="eqHomeClsCd" name="사업부문" dataType="text"></w2:key>
+    					<w2:key id="repFixWrkPlCd" name="대표정비작업장" dataType="text"></w2:key>
+    					<w2:key id="fixWrkPlCd" name="정비작업장" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_fixWork" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cat" name="계통" dataType="text"></w2:column>
+    					<w2:column id="fyearRslts" name="전년실적" dataType="text"></w2:column>
+    					<w2:column id="thisMmRslts" name="실적" dataType="text"></w2:column>
+    					<w2:column id="thisMmRt" name="비율" dataType="text"></w2:column>
+    					<w2:column id="cumRslts" name="실적" dataType="text"></w2:column>
+    					<w2:column id="cumRt" name="비율" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_combo3" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="sysCd" name="sysCd"></w2:key>
+    					<w2:key dataType="text" id="queryId" name="queryId"></w2:key>
+    					<w2:key dataType="text" id="param1" name="param1"></w2:key>
+    					<w2:key dataType="text" id="param2" name="param2"></w2:key>
+    					<w2:key dataType="text" id="param3" name="param3"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_combo1" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="code"></w2:column>
+    					<w2:column dataType="text" id="name" name="name"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_combo2" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="code"></w2:column>
+    					<w2:column dataType="text" id="name" name="name"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_combo3" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="code" name="code"></w2:column>
+    					<w2:column dataType="text" id="name" name="name"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_combo1" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="cmd" name="cmd"></w2:key>
+    					<w2:key dataType="text" id="strVal" name="strVal"></w2:key>
+    					<w2:key dataType="text" id="intVal" name="intVal"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ps.eq.adjmmgnt.fixrslts.RetrieveCategoryEachOutordRepairPresentConditionCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_fixWork","key":"IN_DS1"},{"id":"ds_fixWork","key":"OUT_DS1"}'
+    			target='data:json,{"id":"ds_fixWork","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchCombo1" action="/ps.co.RetrievePsCboCmmCMD.do" method="post" mediatype="application/json" ref='data:json,dma_combo1' target='data:json,{"id":"ds_combo1","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchCombo2" action="/ps.co.RetrievePsCboCmmCMD.do" method="post" mediatype="application/json" ref='data:json,dma_combo1' target='data:json,{"id":"ds_combo2","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchCombo2_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchCombo3" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json" ref='data:json,dma_combo3' target='data:json,{"id":"ds_combo3","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.memJson = $c.data.getMemInfo();
+scwin.suserHomeClsCd = scwin.memJson.userHomeClsCd;        // 사용자소속구분코드
+scwin.sfixWrkPlCd = scwin.memJson.fixWrkPlCd;        // 사용자소속구분코드 	
+
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMM");
+
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "ZZ205", compID : "lc_homeClsCd",opt :{"range" : "1,EQ"} },
+        { grpCd : "EQ005", compID : "gr_fixWork: cat" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() {
+    dma_fixWork.set("term", scwin.currDate);
+    lc_homeClsCd.setSelectedIndex(0);
+	scwin.f_searchCombo1();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    let ret = await $c.gus.cfValidate([ica_term, lc_homeClsCd, lc_repFixWrkPlCd, lc_fixWrkPlCd]);
+    if (!ret) {
+        return false;
+    }
+	$c.sbm.execute(sbm_search);
+};
+
+scwin.sbm_search_submitdone = function (e) {
+    var rowCnt = ds_fixWork.getRowCount();
+	spanTotal.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_fixWork.setFocusedCell(0, 0);
+};
+
+scwin.lc_homeClsCd_onchange = function (info) {
+	scwin.f_searchCombo2(info.newValue);
+};
+
+scwin.f_searchCombo1 = function() {
+	dma_combo1.set("cmd", "retriveHomeClsList");
+	dma_combo1.set("strVal", "");
+	dma_combo1.set("intVal", "");
+	$c.sbm.execute(sbm_searchCombo1);
+};
+
+scwin.f_searchCombo2 = function(param1) {
+	dma_combo1.set("cmd", "retriveFixWrkList");
+	dma_combo1.set("strVal", param1);
+	dma_combo1.set("intVal", "");
+	$c.sbm.execute(sbm_searchCombo2);
+};
+
+scwin.lc_repFixWrkPlCd_onchange = function (info) {
+    scwin.f_searchCombo3(info.newValue); 
+};
+
+scwin.f_searchCombo3 = function(param1) {
+	dma_combo3.set("sysCd", "PsCommonEBC");
+	dma_combo3.set("queryId", "retriveWrkplList");
+	dma_combo3.set("param2", param1);
+	$c.sbm.execute(sbm_searchCombo3);
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    // cfInitObjects(tb_wrk, null);
+    $c.gus.cfInitObjects(table1);
+    lc_homeClsCd.setValue(scwin.suserHomeClsCd);
+    if( lc_homeClsCd.getValue() == scwin.suserHomeClsCd ){
+        lc_repFixWrkPlCd.setValue(scwin.sfixWrkPlCd); // 정비작업장코드
+    }
+    
+}
+
+//-------------------------------------------------------------------------
+// List 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel = async function () {
+    let sheetTitle = "계통별 외주수리현황조회";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_fixWork, options);
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    // $c.gus.cfInitObjects(table1);
+    scwin.f_FieldClear();
+};
+
+scwin.sbm_searchCombo2_submitdone = function (e) {
+    scwin.f_searchCombo3(lc_repFixWrkPlCd.getValue()); 
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="table1" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="기간" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_term" style="" ref="data:dma_fixWork.term" mandatory="true" title="기간" delimiter="/">
+    									</w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="사업부문" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_homeClsCd" style="width:150px;" submenuSize="auto" ref="data:dma_fixWork.eqHomeClsCd" ev:onchange="scwin.lc_homeClsCd_onchange" mandatory="true" title="사업부문" displayMode="value delim label" sortOption="value" emptyItem="true">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="대표정비작업장" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_repFixWrkPlCd" style="width:150px;" submenuSize="auto" ref="data:dma_fixWork.repFixWrkPlCd" ev:onchange="scwin.lc_repFixWrkPlCd_onchange" mandatory="true" title="대표정비작업장" displayMode="value delim label" sortOption="value" visibleRowNum="11">
+    										<xf:choices>
+    											<xf:itemset nodeset="data:ds_combo2">
+    												<xf:label ref="name"></xf:label>
+    												<xf:value ref="code"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="정비작업장" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_fixWrkPlCd" style="width:150px;" submenuSize="auto" ref="data:dma_fixWork.fixWrkPlCd" mandatory="true" title="정비작업장" displayMode="value delim label" visibleRowNum="11">
+    										<xf:choices>
+    											<xf:itemset nodeset="data:ds_combo3">
+    												<xf:label ref="name"></xf:label>
+    												<xf:value ref="code"></xf:value>
+    											</xf:itemset>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_fixWork" id="udc_gr_fixWork" gridDownYn="Y" gridDownFn="scwin.f_toExcel"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_fixWork" id="gr_fixWork" style="" visibleRowNum="16" visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="계통" width="120" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="전년실적" width="70" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="당월" width="140" colSpan="2" rowSpan="">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="누계" width="140" colSpan="2" rowSpan="">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    											<w2:column width="70" inputType="text" style="" id="column28" value="실적" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column27" value="비율" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column26" value="실적" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column25" value="비율" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="value delim label" id="cat" inputType="select" style="" value="" width="120" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="fyearRslts" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###,###,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="thisMmRslts" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###,###,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="thisMmRt" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###,###,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cumRslts" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###,###,###">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cumRt" inputType="text" style="" value="" width="70" textAlign="right" dataType="number" displayFormat="#,###,###,###">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row4">
+    											<w2:column width="120" inputType="text" style="" id="column36" value="합계" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="column35" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('fyearRslts')" textAlign="right">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="column34" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('thisMmRslts')" textAlign="right">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="column33" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('thisMmRt')" textAlign="right">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="column32" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('cumRslts')" textAlign="right">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="column31" value="" displayMode="label" dataType="number" displayFormat="#,###,###,###" expression="sum('cumRt')" textAlign="right">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spanTotal" label="0" style="" tagname="span" displayFormat="#,##0" dataType="number"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

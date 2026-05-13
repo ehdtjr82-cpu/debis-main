@@ -1,0 +1,647 @@
+/*amd /ui/ps/rc/fms/imgnt/rc_605_01_01p.xml 42900 02c034909b58f28c74ac126bba68a865149232ce6638849fde3f353456a806d4 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_Retrieve'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'shortCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vehclNo',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'ctrtNo',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'rsvDt',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'rsvSeq',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_out',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'rsvCntn',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'userId',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'userNm',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptIntendDt',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dptIntendHh',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvIntendDt',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvIntendHh',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'admitYnCd',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'admitDt',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'psserNo',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'psserNm',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvZip1',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvZip2',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'edZip',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvPlcNm',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqModelCd',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqModelNm',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'empNo',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvZipSeq',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdmaNo',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqCd',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ctrtNo',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ctrtVehclSeq',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsvSeq',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'deptCd',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oldDptIntendDt',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oldDptIntendHh',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oldArvIntendDt',name:'name31',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oldArvIntendHh',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsvDt',name:'name33',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ps.rc.fms.imgnt.RetrieveRsvStsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_Retrieve","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_out","key":"OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ps.rc.fms.imgnt.RegistRsvStsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_out","key":"IN_DS1","action":"modified"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/ds/co/constants/DsConstants.js',type:'text/javascript',scopeVariable:'DsConstants'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//전역변수
+scwin.strFromDate = "";
+scwin.strNowDatePlus3 = "";
+scwin.login = "";
+scwin.clntNo = "";
+scwin.clntNm = "";
+scwin.userId = "";
+scwin.userNm = "";
+scwin.empNo = "";
+scwin.deptCd = "";
+scwin.params = "";
+scwin.vehclShortCd = "";
+scwin.vehclNo = "";
+scwin.upCd = "";
+scwin.ctrtNo = "";
+scwin.rsvSeq = "";
+scwin.rsvDt = "";
+scwin.eqCd = "";
+scwin.eqModelNms = "";
+scwin.vehclDeptCd = "";
+scwin.admitYnCd = "";
+scwin._retrieveResolve = null;
+
+//-------------------------------------------------------------------------
+// TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  scwin.strFromDate = $c.date.getServerDateTime($p, "yyyyMMdd"); //현재년월일을 구한다.
+
+  //todo : isHoliday 관련함수 미존재
+  // 예약가능 3일이내 검증사용용 (오늘 포함 3일. 오늘이 2015/8/19이면 8/19,8/22,8/23만 예약가능)
+  //var count = 0;
+  // for(var i = 1; i < 30; i++){
+  //     if(count < 3){
+  //         scwin.strNowDatePlus3 = $c.date.addDate(scwin.strFromDate, i);
+
+  //         if(sDate2.isHoliday(strNowDatePlus3, true)){        	
+  //         }else{
+  //             count++;
+  //         }
+  //     }
+  // }
+
+  // 로그인정보를 json 데이터로 모두 받음
+  scwin.login = $c.data.getMemInfo($p);
+  scwin.clntNo = scwin.login.clntNo;
+  scwin.clntNm = scwin.login.clntNm;
+  scwin.userId = scwin.login.userId;
+  scwin.userNm = scwin.login.userNm;
+  scwin.empNo = scwin.login.empNo;
+  scwin.deptCd = scwin.login.acctDeptCd;
+
+  //부모창에서 전달받은 값
+  scwin.params = $c.data.getParameter($p);
+  scwin.vehclShortCd = scwin.params.vehclShortCd || "";
+  scwin.vehclNo = scwin.params.vehclNo || "";
+  scwin.upCd = scwin.params.upCd || "";
+  scwin.ctrtNo = scwin.params.ctrtNo || "";
+  scwin.rsvSeq = scwin.params.rsvSeq || "";
+  scwin.rsvDt = scwin.params.rsvDt || "";
+  scwin.eqCd = scwin.params.eqCd || "";
+  scwin.eqModelNms = scwin.params.eqModelNms || "";
+  scwin.vehclDeptCd = scwin.params.deptCd || "";
+  scwin.admitYnCd = scwin.params.admitYnCd || "";
+  var codeOptions = [{
+    grpCd: "RC977",
+    compID: "lc_superUser"
+  }, {
+    grpCd: "RC972",
+    compID: "lc_adminYnCd"
+  } // 승인여부
+  ];
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+//-------------------------------------------------------------------------
+// 공통코드 setCommonCode로 가져온 값들 셋팅 완료. onUdcCompleted 완료후, 진입
+//-------------------------------------------------------------------------
+scwin.ondataload = async function () {
+  //초기값설정
+  lc_adminYnCd.setSelectedIndex(-1);
+  lc_superUser.setSelectedIndex(-1);
+  scwin.f_ContentsDisable();
+  await scwin.f_RetrieveRsvSts();
+  var findRow = -1;
+  var data = lc_superUser.getItemArray();
+  let rowJson = data.find(item => item.value == scwin.empNo) || "";
+  lc_superUser.setValue(rowJson == "" ? "" : rowJson.value);
+  findRow = lc_superUser.getSelectedIndex();
+
+  // superUser가 아니면 수정 불가
+  if (findRow < 0) {
+    // 예약한 본인만 수정이 가능하다. 
+    if (ds_out.getRowJSON(0).userId != scwin.userId) {
+      $c.gus.cfDisableBtn($p, [btn_Update, btn_Delete]);
+    }
+  }
+  var resultadmitYnCd = $c.gus.cfIsNull($p, ds_out.getRowJSON(0).admitYnCd) ? 0 : ds_out.getRowJSON(0).admitYnCd;
+  if (scwin.userId == 'kimseok') {
+    await $c.win.alert($p, "ds_out.getRowJSON(0).admitYnCd => " + ds_out.getRowJSON(0).admitYnCd + "\n" + "admitYnCd                        => " + scwin.admitYnCd + "\n" + "resultadmitYnCd                  => " + resultadmitYnCd);
+  }
+
+  // superUser는 승인된 건도 수정/삭제 가능
+  if (findRow < 0) {
+    // 승인이 완료 된 일자는 신규/수정/삭제가 불가능 하다.
+    if (resultadmitYnCd == "1" || scwin.admitYnCd == "1") {
+      await $c.win.alert($p, "승인된 내역입니다");
+      btn_Create.setDisabled(true);
+      btn_Update.setDisabled(true);
+      btn_Save.setDisabled(true);
+      btn_Delete.setDisabled(true);
+    }
+  }
+
+  // 페이지가 로드될 때, 조회결과값이 하나도 없다면 신규버튼만 활성화한다. 
+  if (ds_out.getRowCount() == 0) {
+    btn_Create.setDisabled(false);
+    btn_Update.setDisabled(true);
+    btn_Save.setDisabled(true);
+    btn_Delete.setDisabled(true);
+  }
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. onPageLoad 에서 호출 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = async function () {
+  //초기값설정
+  lc_stHour.setSelectedIndex(-1);
+  lc_edHour.setSelectedIndex(-1);
+  ed_shortCd.setValue(scwin.vehclShortCd);
+  ed_vehclNo.setValue(scwin.vehclNo);
+  ed_eqModelNm.setValue(scwin.eqModelNms);
+  hid_ctrtNo.setValue(scwin.ctrtNo);
+  hid_rsvSeq.setValue(scwin.rsvSeq);
+  hid_rsvDt.setValue(scwin.rsvDt);
+  if (scwin.upCd == "N") {
+    //신규
+    $c.gus.cfDisableBtn($p, [btn_Update, btn_Delete]);
+    $c.gus.cfEnableObj($p, ed_vehclNo, false);
+    $c.gus.cfEnableObj($p, ed_eqModelNm, false);
+    hid_deptCd.setValue(scwin.deptCd);
+  } else if (scwin.upCd == "Y") {
+    //수정
+    $c.gus.cfDisableBtn($p, [btn_Create]);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 항목 Disable
+//-------------------------------------------------------------------------
+scwin.f_ContentsDisable = function () {
+  $c.gus.cfDisableKeyData($p);
+  $c.gus.cfEnableObj($p, btn_housezip_search, false);
+  $c.gus.cfEnableObj($p, btn_usrIdSrch, false);
+  $c.gus.cfEnableObj($p, btn_psserIdSrch, false);
+  $c.gus.cfEnableObj($p, ica_dtFrom, false);
+  $c.gus.cfEnableObj($p, ica_dtTo, false);
+};
+
+//-------------------------------------------------------------------------
+// 항목 Enable
+//-------------------------------------------------------------------------
+scwin.f_ContentsEnable = function () {
+  $c.gus.cfEnableKeyData($p);
+  $c.gus.cfEnableObj($p, btn_housezip_search, true);
+  $c.gus.cfEnableObj($p, btn_usrIdSrch, true);
+  $c.gus.cfEnableObj($p, btn_psserIdSrch, true);
+  $c.gus.cfEnableObj($p, ica_dtFrom, true);
+  $c.gus.cfEnableObj($p, ica_dtTo, true);
+};
+
+//-------------------------------------------------------------------------
+// 수정
+//-------------------------------------------------------------------------
+scwin.f_Update = function (e) {
+  scwin.f_ContentsEnable();
+  $c.gus.cfEnableObj($p, ed_vehclNo, false);
+  $c.gus.cfEnableObj($p, ed_eqModelNm, false);
+  $c.gus.cfEnableObj($p, lc_adminYnCd, false);
+  hid_clntNo.setValue(scwin.clntNo);
+  hid_clntNm.setValue(scwin.clntNm);
+  //hid_odrJobType.setValue(DGauceConstants.TB_JOB_UPDATE); //3
+
+  ed_rsvCntn.focus();
+};
+
+//-------------------------------------------------------------------------
+// 신규
+//------------------------------------------------------------------------- 
+scwin.f_Create = function (e) {
+  scwin.f_ContentsEnable();
+  $c.gus.cfEnableObj($p, ed_vehclNo, false);
+  $c.gus.cfEnableObj($p, ed_eqModelNm, false);
+  $c.gus.cfEnableObj($p, lc_adminYnCd, false);
+
+  //ds_out.AddRow();
+  ds_out.setJSON([]);
+  ds_out.insertRow(0);
+  ds_out.setRowPosition(0);
+  hid_deptCd.setValue(scwin.vehclDeptCd);
+  hid_hvehclNo.setValue(scwin.vehclNo);
+  hid_eqCd.setValue(scwin.eqCd);
+  hid_eqModelNm.setValue(scwin.eqModelNms);
+  hid_ctrtNo.setValue(scwin.ctrtNo);
+  hid_clntNo.setValue(scwin.clntNo);
+  hid_clntNm.setValue(scwin.clntNm);
+
+  //tobe추가
+  hid_arvZipSeq.setValue(0);
+  hid_ctrtVehclSeq.setValue(0);
+  hid_rsvSeq.setValue(0);
+  ica_dtFrom.setValue(scwin.rsvDt);
+  ica_dtTo.setValue(scwin.rsvDt);
+  ed_userId.setValue(scwin.userId);
+  ed_userNm.setValue(scwin.userNm);
+  lc_stHour.setSelectedIndex(8);
+  lc_edHour.setSelectedIndex(18);
+  lc_adminYnCd.setValue("2");
+  //hid_odrJobType.setValue(DGauceConstants.TB_JOB_INSERT); //2
+
+  ed_rsvCntn.focus();
+
+  // 신규버튼클릭시 저장버튼 활성화 		
+  btn_Create.setDisabled(true);
+  btn_Update.setDisabled(true);
+  btn_Save.setDisabled(false);
+  btn_Delete.setDisabled(true);
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = async function (e) {
+  hid_eqCd.setValue("11111");
+  hid_eqModelCd.setValue("");
+  //hid_odrJobType.setValue(DGauceConstants.TB_JOB_DELETE); //4
+
+  if (await $c.win.confirm($p, "삭제하시겠습니까?")) {
+    ds_out.removeRow(0);
+    // scwin.datalistSetting("delete");
+    $c.sbm.execute($p, sbm_save);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveRsvSts = async function () {
+  return new Promise(async function (resolve) {
+    scwin._retrieveResolve = resolve;
+    dma_Retrieve.set("shortCd", ed_shortCd.getValue());
+    dma_Retrieve.set("vehclNo", ed_vehclNo.getValue());
+    dma_Retrieve.set("ctrtNo", hid_ctrtNo.getValue());
+    dma_Retrieve.set("rsvDt", hid_rsvDt.getValue());
+    dma_Retrieve.set("rsvSeq", hid_rsvSeq.getValue());
+
+    //dma_Retrieve.UseChangeInfo = false;
+
+    ds_out.setJSON([]); //초기화
+    $c.sbm.execute($p, sbm_retrieve);
+  });
+};
+scwin.sbm_retrieve_submitdone = function (e) {
+  if (e.responseJSON.resultDataSet[0].Msg != 'FAIL') {
+    if (ds_out.getRowCount() > 0) {
+      ds_out.setRowPosition(0);
+      // scwin.datalistSetting("search");
+    } else {
+      ds_out.setJSON([]); //초기화
+      // scwin.datalistSetting("delete"); //초기화상태
+    }
+  }
+  if (scwin._retrieveResolve) {
+    scwin._retrieveResolve();
+    scwin._retrieveResolve = null;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+  // scwin.datalistSetting("save");
+
+  if (ds_out.getModifiedIndex().length < 1) {
+    await $c.win.alert($p, "변경된 내용이 없습니다.");
+    return;
+  }
+  if ($c.gus.cfIsNull($p, ed_zip.getValue()) || $c.gus.cfIsNull($p, ed_addr1.getValue())) {
+    await $c.win.alert($p, "행선지 주소를 정확히 입력하십시오.");
+    ed_zip.focus();
+    return;
+  }
+  if ($c.gus.cfIsNull($p, hid_arvZipSeq.getValue())) {
+    await $c.win.alert($p, "행선지 주소를 정확히 입력하십시오.");
+    return;
+  }
+  if (!$c.gus.cfIsNull($p, ica_dtFrom.getValue())) {
+    if (!$c.date.isDate($p, ica_dtFrom.getValue())) {
+      await $c.win.alert($p, "[예약시작일자]에 대한 데이터타입이 맞지 않습니다.(YYYYMMDD)");
+      ica_dtFrom.focus();
+      return;
+    }
+
+    //tobe삭제 : 필요없어보임
+    // var hour = lc_stHour.getValue() + "00";
+    // if (!cfValidateValue(hour, "date=HHmm")) {
+    //     alert("[예약시작시간]에 대한 데이터타입이 맞지 않습니다.(HHmm)");
+    //     return;
+    // }
+  } else if ($c.gus.cfIsNull($p, ica_dtFrom.getValue())) {
+    await $c.win.alert($p, "예약 일자는 필수 입력 사항입니다.");
+    ica_dtFrom.focus();
+    return;
+  }
+  if (!$c.gus.cfIsNull($p, ica_dtTo.getValue())) {
+    if (!$c.date.isDate($p, ica_dtTo.getValue())) {
+      await $c.win.alert($p, "[예약종료일자]에 대한 데이터타입이 맞지 않습니다.(YYYYMMDD)");
+      ica_dtTo.focus();
+      return;
+    }
+
+    //tobe삭제 : 필요없어보임
+    // var hour = lc_edHour.BindColVal + "00";
+    // if (!cfValidateValue(hour, "date=HHmm")) {
+    //     await $c.win.alert("[예약시작시간]에 대한 데이터타입이 맞지 않습니다.(HHmm)");
+    //     return;
+    // }
+  } else {
+    await $c.win.alert($p, "예약 일자는 필수 입력 사항입니다.");
+    ica_dtTo.focus();
+    return;
+  }
+  if (!$c.gus.cfIsAfterDate($p, ica_dtFrom.getValue(), ica_dtTo.getValue())) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+    ica_dtFrom.focus();
+    return;
+  }
+  var findRow = -1;
+  findRow = lc_superUser.getSelectedIndex();
+
+  // superUser가 아니면 시간/날짜 체크
+  if (findRow < 0) {
+    scwin.strNowDatePlus3 = $c.date.addDate($p, scwin.strFromDate, 3); //todo 위에 isHoliday 관련 함수 생겨, 작성하게 되면 아래 스크립트는 삭제.
+
+    // 3일 초과는 예약 불가 : 시작일자로 체크
+    var nowDate = scwin.strFromDate;
+    var nowDatePlus3 = scwin.strNowDatePlus3;
+    if ($c.num.parseInt($p, nowDatePlus3) <= $c.num.parseInt($p, ica_dtFrom.getValue())) {
+      await $c.win.alert($p, "현재일자[" + nowDate + "] 보다, 3일 초과일자는 예약이 불가능합니다.\n예약일자[" + ica_dtFrom.getValue() + "]");
+      ica_dtFrom.focus();
+      return;
+    }
+  }
+  if ($c.gus.cfIsNull($p, ed_userId.getValue())) {
+    await $c.win.alert($p, "운행자 아이디를  입력하십시오.");
+    ed_userId.focus();
+    return;
+  }
+  if (await $c.win.confirm($p, "저장하시겠습니까?")) {
+    $c.sbm.execute($p, sbm_save);
+  }
+};
+scwin.sbm_save_submitdone = function (e) {
+  if (e.responseJSON.resultDataSet[0].Msg != 'FAIL') {
+    $c.win.closePopup($p);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 우편번호팝업
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function (check) {
+  var v_url = "/ui/cm/zz/newzipcodePopup.xml";
+  var opts = {
+    id: "pupup",
+    popupName: "우편번호 검색",
+    modal: true,
+    type: "browserPopup",
+    width: 500,
+    height: 550,
+    title: "우편번호 검색"
+  };
+  var popupResult = await $c.win.openPopup($p, v_url, opts);
+
+  // Modal Dialog를 리턴값 없이 닫을 경우에 대비해
+  if (!$c.gus.cfIsNull($p, popupResult)) {
+    //if (rtnList[0] == "N/A") return;
+
+    ed_zip.setValue(popupResult.zip);
+    ed_addr1.setValue(popupResult.addr1);
+    ed_addr1.focus();
+
+    // 입력값이 없는경우 삭제    
+  } else {
+    ed_zip.setValue("");
+    ed_addr1.setValue("");
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통 PopUp 호출
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch, row) {
+  if ($c.gus.cfIsNull($p, row)) {
+    row = 0;
+  }
+  switch (disGubun) {
+    case 1:
+      // 사용자 팝업 (조회 팝업)
+      await udc_user.cfCommonPopUp(scwin.udc_user_callbackFunc, pCode // 화면에서의 ??? Code Element의Value
+      , pName // 화면에서의 ??? Name Element의Value
+      , 'T' // 결과가 1건 일때원도우를AutoClose 여부(T:Close,F:Opened)
+      , null // 검색 결과컬럼의 보여주는개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는컬럼 지정 
+      , null // SQL절의 WHERE절에원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의 사용자 정의폭
+      , null // POP-UP뛰을때 우도우의 사용자 정의높이
+      , null // 윈도우 위치 Y좌표 
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부 ("F")
+      , pAllSearch // 전체검색허용여부 ("F")
+      , null // POP-UP Window Title 검색어1,2("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case 2:
+      // 사용자 팝업 (조회 팝업)
+      await udc_psser.cfCommonPopUp(scwin.udc_psser_callbackFunc, pCode // 화면에서의 ??? Code Element의Value
+      , pName // 화면에서의 ??? Name Element의Value
+      , 'T' // 결과가 1건 일때원도우를AutoClose 여부(T:Close,F:Opened)
+      , null // 검색 결과컬럼의 보여주는개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는컬럼 지정 
+      , null // SQL절의 WHERE절에원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의 사용자 정의폭
+      , null // POP-UP뛰을때 우도우의 사용자 정의높이
+      , null // 윈도우 위치 Y좌표 
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부 ("F")
+      , pAllSearch // 전체검색허용여부 ("F")
+      , null // POP-UP Window Title 검색어1,2("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통 PopUp 콜백
+//-------------------------------------------------------------------------
+//운행자
+scwin.udc_user_callbackFunc = function (rtnList) {
+  if (!$c.gus.cfIsNull($p, rtnList)) {
+    if (rtnList[0] == "N/A") return;
+    ed_userId.setValue(rtnList[0]); // userId
+    ed_userNm.setValue(rtnList[1]); // userNm
+  } else {
+    ed_userId.setValue("");
+    ed_userNm.setValue("");
+  }
+};
+
+//동승자
+scwin.udc_psser_callbackFunc = function (rtnList) {
+  if (!$c.gus.cfIsNull($p, rtnList)) {
+    if (rtnList[0] == "N/A") return;
+    ed_psserNo.setValue(rtnList[0]); // ed_psserNo
+    ed_psserNm.setValue(rtnList[1]); // txt_psserNm
+  } else {
+    ed_psserNo.setValue("");
+    ed_psserNm.setValue("");
+  }
+};
+
+// scwin.f_openZipPopUp = function(idx){
+//     var vZip = "";
+//     var vTitle = "우편번호, 우편번호, 주소";
+
+//     if(idx == "2") {
+//         // 자택주소
+//         var zip1 = ed_zip1.getValue();
+//         var zip2 = ed_zip2.getValue();
+//         vZip = zip1+zip2;
+//     }
+
+//     var rtnList = new Array(); //retrieveFmsZipList
+//     rtnList = cfCommonPopUp('retrieveFmsZipList'
+//                             ,vZip
+//                             ,''
+//                             ,"T"
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,null
+//                             ,vTitle
+//                             ,null
+//                             );
+
+//     //우편번호 코드
+//     if (rtnList != null) {
+//         if (rtnList[0] == "N/A") {
+//             return false;
+//         }
+//         if(idx == "2") {
+//             // 자택주소
+//             var fZip = rtnList[0];
+//             ed_zip1.Text = fZip.substring(0,3);
+//             ed_zip2.Text = fZip.substring(3,6);
+//             txt_addr1.value = rtnList[1];
+//             hid_arvZipSeq.value = rtnList[6];
+
+//         }
+//     } 
+// }
+
+scwin.udc_user_onblurCodeEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_userId.getValue(), '', 'F', 'F');
+};
+scwin.udc_psser_onblurCodeEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_psserNo.getValue(), ed_psserNm.getValue(), 'F', 'F');
+};
+scwin.udc_zip_onclickEvent = function (e) {
+  scwin.f_openPopUp('F');
+};
+scwin.udc_user_onviewchangeNameEvent = function (info) {
+  scwin.f_openCommonPopUp(1, ed_userId.getValue(), ed_userNm.getValue(), 'F', 'F');
+};
+scwin.udc_user_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_userId.getValue(), ed_userNm.getValue(), 'F', 'F');
+};
+scwin.udc_psser_onviewchangeNameEvent = function (info) {
+  scwin.f_openCommonPopUp(2, ed_psserNo.getValue(), ed_psserNm.getValue(), 'F', 'F');
+};
+scwin.udc_psser_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_psserNo.getValue(), ed_psserNm.getValue(), 'F', 'F');
+};
+scwin.btn_close_onclick = function (e) {
+  $c.win.closePopup($p, ["N/A"]);
+};
+
+//-------------------------------------------------------------------------
+// 데이터 셋팅
+//-------------------------------------------------------------------------
+/* scwin.datalistSetting = function (fn) {
+
+    if (fn == "save") { //저장
+        var json = {
+            "rsvCntn": ed_rsvCntn.getValue(),
+            "userId": ed_userId.getValue(),
+            "userNm": ed_userNm.getValue(),
+            "dptIntendDt": ica_dtFrom.getValue(),
+            "dptIntendHh": lc_stHour.getValue(),
+            "arvIntendDt": ica_dtTo.getValue(),
+            "arvIntendHh": lc_edHour.getValue(),
+            "admitYnCd": lc_adminYnCd.getValue(),
+            "admitDt": ica_adminDt.getValue(),
+            "psserNo": ed_psserNo.getValue(),
+            "psserNm": ed_psserNm.getValue(),
+            // "arvZip1" : .getValue(),
+            // "arvZip2" : .getValue(),
+            "edZip": ed_zip.getValue(),
+            "arvPlcNm": ed_addr1.getValue(),
+
+            "eqModelCd": hid_eqModelCd.getValue(),
+            "eqModelNm": hid_eqModelNm.getValue(),
+            "empNo": hid_empNo.getValue(),
+            "arvZipSeq": hid_arvZipSeq.getValue(),
+            "cdmaNo": hid_cdmaNo.getValue(),
+            "eqCd": hid_eqCd.getValue(),
+            "ctrtNo": hid_ctrtNo.getValue(),
+            "ctrtVehclSeq": hid_ctrtVehclSeq.getValue(),
+            "rsvSeq": hid_rsvSeq.getValue(),
+            "clntNo": hid_clntNo.getValue(),
+            "clntNm": hid_clntNm.getValue(),
+            "deptCd": hid_deptCd.getValue(),
+            "vehclNo": hid_hvehclNo.getValue(),
+            "rsvDt": hid_rsvDt.getValue()
+        }
+
+        ds_out.setJSON(json, true);
+
+    } else if (fn == "search") { //조회
+        var result = ds_out.getRowJSON(0);
+
+        ed_rsvCntn.setValue(result.rsvCntn);
+        ed_userId.setValue(result.userId);
+        ed_userNm.setValue(result.userNm);
+        ica_dtFrom.setValue(result.dptIntendDt)
+        lc_stHour.setValue(result.dptIntendHh);
+        ica_dtTo.setValue(result.arvIntendDt);
+        lc_edHour.setValue(result.arvIntendHh);
+        lc_adminYnCd.setValue(result.admitYnCd);
+        //ed_adminDt
+        ed_psserNo.setValue(result.psserNo);
+        ed_psserNm.setValue(result.psserNm);
+        // ed_zip1
+        // ed_zip2
+        ed_zip.setValue(result.edZip);
+        ed_addr1.setValue(result.arvPlcNm);
+        hid_rsvDt.setValue(result.rsvDt);
+        hid_eqModelCd.setValue(result.eqModelCd);
+        hid_eqModelNm.setValue(result.eqModelNm);
+        //hid_empNo
+        hid_arvZipSeq.setValue(result.arvZipSeq);
+        hid_cdmaNo.setValue(result.cdmaNo)
+        hid_eqCd.setValue(result.eqCd);
+        hid_ctrtNo.setValue(result.ctrtNo);
+        hid_ctrtVehclSeq.setValue(result.ctrtVehclSeq);
+        hid_rsvSeq.setValue(result.rsvSeq);
+        hid_clntNo.setValue(result.clntNo);
+        hid_clntNm.setValue(result.clntNm);
+        hid_deptCd.setValue(result.deptCd);
+        hid_hvehclNo.setValue(result.vehclNo);
+        //hid_oldDptIntendDt
+        //hid_oldDptIntendHh
+        //hid_oldArvIntendDt
+        //hid_oldArvIntendHh
+
+    } else if (fn == "delete") { //삭제
+        ed_rsvCntn.setValue("");
+        ed_zip.setValue("");
+        ed_addr1.setValue("");
+        ed_userId.setValue("");
+        ed_userNm.setValue("");
+        ed_psserNo.setValue("");
+        ed_psserNm.setValue("");
+        ica_dtFrom.setValue("");
+        lc_stHour.setValue("");
+        ica_dtTo.setValue("");
+        lc_edHour.setValue("");
+        lc_adminYnCd.setValue("");
+    }
+}; */
+}}}]},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'pop_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'round-box',id:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:120px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'차량번호',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{id:'ed_shortCd',initValue:'텍스트',style:'width:150px;display:none',objType:'key'}},{T:1,N:'xf:input',A:{id:'ed_vehclNo',initValue:'텍스트',style:'width:150px;',objType:'key',ref:''}},{T:1,N:'xf:input',A:{id:'ed_eqModelNm',initValue:'텍스트',style:'width:150px;',objType:'key'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'운행목적',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{id:'ed_rsvCntn',style:'width:200px;',objType:'data',validExp:'운행목적:yes',ref:'data:ds_out.rsvCntn'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'행선지',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'',codeId:'ed_zip',validTitle:'',nameId:'ed_addr1',style:'',objTypeCode:'data',objTypeName:'data',validExp:'행선지:yes',id:'udc_zip',btnId:'btn_housezip_search','ev:onclickEvent':'scwin.udc_zip_onclickEvent',refDataCollection:'ds_out',code:'edZip',name:'arvPlcNm'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'운행자',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_userId',nameId:'ed_userNm',popupID:'',selectID:'retrieveUserInfo',style:'',validTitle:'',id:'udc_user',objTypeCode:'data',objTypeName:'data',validExp:'운행자:yes','ev:onviewchangeNameEvent':'scwin.udc_user_onviewchangeNameEvent','ev:onclickEvent':'scwin.udc_user_onclickEvent',mandatoryName:'true',btnId:'btn_usrIdSrch','ev:onblurCodeEvent':'scwin.udc_user_onblurCodeEvent',code:'userId',name:'userNm',refDataCollection:'ds_out'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'동승자',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_psserNo',nameId:'ed_psserNm',popupID:'',selectID:'retrieveUserInfo',style:'',validTitle:'',id:'udc_psser',objTypeCode:'data',objTypeName:'data','ev:onviewchangeNameEvent':'scwin.udc_psser_onviewchangeNameEvent','ev:onclickEvent':'scwin.udc_psser_onclickEvent',btnId:'btn_psserIdSrch','ev:onblurCodeEvent':'scwin.udc_psser_onblurCodeEvent',code:'psserNo',name:'psserNm',refDataCollection:'ds_out'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'예약일자',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'w2:inputCalendar',A:{style:'',id:'ica_dtFrom',class:'',calendarValueType:'yearMonthDate',validExp:'계약기간 시작일자:yes:length=8',mandatory:'true',objType:'data',displayFormat:'yyyy/MM/dd',ref:'data:ds_out.dptIntendDt'}},{T:1,N:'xf:select1',A:{submenuSize:'fixed',appearance:'minimal',disabledClass:'w2selectbox_disabled',chooseOption:'',disabled:'false',style:'width: 100px;',allOption:'',id:'lc_stHour',class:'',direction:'auto',objType:'data',ref:'data:ds_out.dptIntendHh',emptyItem:'true',displayMode:'label'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'00'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'00'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'01'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'01'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'02'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'02'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'03'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'03'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'04'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'04'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'05'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'05'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'06'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'06'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'07'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'07'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'08'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'08'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'09'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'09'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'10'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'10'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'11'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'11'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'12'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'12'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'13'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'13'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'14'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'14'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'15'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'15'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'16'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'16'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'17'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'17'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'18'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'18'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'19'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'19'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'20'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'20'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'21'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'21'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'22'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'22'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'23'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'23'}]}]}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'~',class:''}},{T:1,N:'w2:inputCalendar',A:{style:'',id:'ica_dtTo',class:'',calendarValueType:'yearMonthDate',validExp:'계약기간 종료일자:yes:length=8',mandatory:'true',objType:'data',displayFormat:'yyyy/MM/dd',ref:'data:ds_out.arvIntendDt'}},{T:1,N:'xf:select1',A:{submenuSize:'fixed',appearance:'minimal',disabledClass:'w2selectbox_disabled',chooseOption:'',disabled:'false',style:'width: 100px;',allOption:'',id:'lc_edHour',class:'',direction:'auto',ref:'data:ds_out.arvIntendHh',objType:'data',emptyItem:'true',displayMode:'label'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'00'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'00'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'01'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'01'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'02'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'02'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'03'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'03'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'04'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'04'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'05'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'05'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'06'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'06'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'07'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'07'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'08'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'08'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'09'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'09'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'10'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'10'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'11'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'11'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'12'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'12'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'13'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'13'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'14'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'14'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'15'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'15'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'16'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'16'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'17'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'17'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'18'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'18'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'19'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'19'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'20'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'20'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'21'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'21'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'22'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'22'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'23'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'23'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'승인여부',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_adminYnCd',style:'width: 150px;',submenuSize:'fixed',objType:'data',emptyItem:'true',ref:'data:ds_out.admitYnCd'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'배차승인시간',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ica_adminDt',style:'',validExp:'승인일자:yes:length=8',objType:'data',displayFormat:'####/##/##',ref:'',readOnly:'true'}}]}]}]}]},{T:1,N:'xf:group',A:{id:'hide_grp',style:'display: none;'},E:[{T:1,N:'xf:select1',A:{submenuSize:'auto',appearance:'minimal',disabledClass:'w2selectbox_disabled',chooseOption:'false',style:'width:148px; height:21px; ',disabled:'false',id:'lc_superUser',allOption:'false',objType:'data',direction:'auto',emptyItem:'true'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; ',id:'hid_ctrtNo',disabled:'true',objType:'data',ref:'data:ds_out.ctrtNo'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; ',id:'hid_rsvSeq',disabled:'true',objType:'data',ref:'data:ds_out.rsvSeq',dataType:'float',displayFormat:'####.0'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; ',id:'hid_odrJobType',disabled:'true',objType:'data'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; ',id:'hid_deptCd',disabled:'true',objType:'data',ref:'data:ds_out.deptCd'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; ',id:'hid_rsvDt',disabled:'true',objType:'data',ref:'data:ds_out.rsvDt'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; ',id:'hid_eqModelCd',disabled:'true',objType:'data',ref:'data:ds_out.eqModelCd'}},{T:1,N:'xf:input',A:{id:'hid_eqModelNm',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.eqModelNm'}},{T:1,N:'xf:input',A:{id:'hid_empNo',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:''}},{T:1,N:'xf:input',A:{id:'hid_eqCd',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.eqCd'}},{T:1,N:'xf:input',A:{id:'hid_arvZipSeq',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.arvZipSeq',dataType:'float',displayFormat:'####.0'}},{T:1,N:'xf:input',A:{id:'hid_ctrtVehclSeq',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.ctrtVehclSeq',dataType:'float',displayFormat:'####.0'}},{T:1,N:'xf:input',A:{id:'hid_cdmaNo',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.cdmaNo'}},{T:1,N:'xf:input',A:{id:'hid_clntNo',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.clntNo'}},{T:1,N:'xf:input',A:{id:'hid_clntNm',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.clntNm'}},{T:1,N:'xf:input',A:{id:'hid_hvehclNo',style:'width:144px; height:21px; ',disabled:'true',objType:'data',ref:'data:ds_out.vehclNo'}}]}]},{T:1,N:'xf:group',A:{class:'pop-btnbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_close',style:'',type:'button','ev:onclick':'scwin.btn_close_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'닫기'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Create',style:'',type:'button',objType:'ctrlBtn',userAuth:'C','ev:onclick':'scwin.f_Create'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'신규'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Update',style:'',type:'button',objType:'ctrlBtn',userAuth:'U','ev:onclick':'scwin.f_Update'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'수정'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Save',style:'',type:'button',objType:'ctrlBtn',userAuth:'U','ev:onclick':'scwin.f_Save'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Delete',style:'',type:'button',objType:'ctrlBtn',userAuth:'D','ev:onclick':'scwin.f_Delete'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'삭제'}]}]}]}]}]}]}]})

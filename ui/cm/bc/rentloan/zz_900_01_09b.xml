@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="userIdentifier" name="userIdentifier" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ctrt" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="chk" dataType="text"></w2:column>
+    					<w2:column id="rentloanNo" name="rentloanNo" dataType="text"></w2:column>
+    					<w2:column id="rentloanSeq" name="rentloanSeq" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="clntNo" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="clntNm" dataType="text"></w2:column>
+    					<w2:column id="userNm" name="userNm" dataType="text"></w2:column>
+    					<w2:column id="rentloanStDt" name="rentloanStDt" dataType="text"></w2:column>
+    					<w2:column id="rentloanEndDt" name="rentloanEndDt" dataType="text"></w2:column>
+    					<w2:column id="rmdrDdCnt" name="rmdrDdCnt" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/cm.bc.rentloan.RetrieveContractExpirationListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_ctrt","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_ctrt","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/cm.bc.rentloan.UpdateContractExpirationStatusCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_ctrt","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.memJson = $c.data.getMemInfo();
+scwin.userId = scwin.memJson.userId;
+//scwin.userId = "010811";
+
+//메세지용 전역변수 SETTING
+//-------------------------------------------------------------------------
+// scwin.name : f_OnLoad
+// scwin.desc : 화면로딩시 
+//-------------------------------------------------------------------------   
+scwin.onpageload = function() {
+    scwin.f_defaultValue();
+    scwin.f_createHeader();
+    scwin.f_Retrieve();
+    $c.data.setPopupTitle("계약 만료 내역");
+}; 
+
+//-------------------------------------------------------------------------
+// scwin.name : f_defaultValue
+// scwin.desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function() {
+    
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_createHeader
+// scwin.desc : Grid Header정보 Setting
+//-------------------------------------------------------------------------
+scwin.f_createHeader = function() {
+
+};
+
+//-------------------------------------------------------------------------
+//scwin.name : f_Save
+//scwin.desc : 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+	var cnt = 0;
+    for(var i=0; i<=ds_ctrt.getRowCount(); i++){
+        if( ds_ctrt.getCellData(i, "chk") == "T" ) {
+            cnt++;
+        }
+    }
+
+	if (cnt > 0) {
+        let confirmResult = await $c.win.confirm("확인하시겠습니까?");
+        if (confirmResult) {
+            $c.sbm.execute(sbm_save);
+        } else {
+            return;
+        }
+	} else {
+		await $c.win.alert("계약변경내역을 선택하세요.");
+		return;
+	}
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_Retrieve
+// scwin.desc : 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {     
+    dma_search.set("userIdentifier", scwin.userId);
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    let rowCnt = ds_ctrt.getRowCount();
+    spanTotal.setValue(rowCnt);
+    if ($c.gus.cfCheckCreateFlag() == true) {
+      $c.gus.cfTurnCreateFlag(false);
+    }
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+scwin.cfGridToExcel = async function() {
+    //계약만료현황     
+    let result = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+    if (!result) {
+        return ;
+    }
+    const options = {
+        fileName : "계약만료현황.xlsx"
+       ,sheetName : "계약만료현황"
+    };
+    const infoArr = [];
+    $c.data.downloadGridViewExcel(gr_ctrt, options, infoArr);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="계약 만료 내역" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_ctrt" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" id="udc_gr_ctrt" gridDownUserAuth="X" gridDownFn="scwin.cfGridToExcel"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw gvw fix" dataList="data:ds_ctrt" id="gr_ctrt" style=""
+    					visibleRowNum="10" visibleRowNumFix="true" readOnly="true" rowStatusVisible="true" rowStatusWidth="30" fixedColumnNoMove="false" columnMove="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="checkbox" value="선택" width="70" colSpan=""
+    								rowSpan="2" checkboxLabel="선택" fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="계약번호" width="100" colSpan=""
+    								rowSpan="2" fixColumnWidth="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="거래처번호" width="100" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="거래처명" width="120" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="계약등록자" width="100" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="계약기간" width="140" colSpan="2"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="계약잔여일수" width="120" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="100" inputType="text" style="" id="column21" value="시작일" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column20" value="종료일" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="chk" inputType="checkbox" width="70" fixColumnWidth="true" readOnly="false" trueValue="T" falseValue="0" valueType="other"></w2:column>
+    							<w2:column displayMode="label" id="rentloanNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="clntNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="userNm" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="rentloanStDt" inputType="text" width="100" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    							<w2:column displayMode="label" id="rentloanEndDt" inputType="text" width="100" displayFormat="yyyy/MM/dd" dataType="date"></w2:column>
+    							<w2:column displayMode="label" id="rmdrDdCnt" inputType="text" width="120" excelCellType="number"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spanTotal" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_Save" label="저장" style="" type="button" ev:onclick="scwin.f_Save">
+    						<xf:label>확인</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

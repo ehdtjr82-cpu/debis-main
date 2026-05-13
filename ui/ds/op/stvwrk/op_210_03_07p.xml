@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="occpgrdCd" name="구분코드" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="품목코드" dataType="text"></w2:key>
+    					<w2:key id="lobranCd" name="점소코드" dataType="text"></w2:key>
+    					<w2:key id="wrkDt" name="작업일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true" ev:ondataload="scwin.ds_result_ondataload">
+    				<w2:columnInfo>
+
+    					<w2:column id="occpgrdNm" name="구분" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="품목" dataType="text"></w2:column>
+
+    					<w2:column id="workDt" name="일자" dataType="text"></w2:column>
+
+    					<w2:column id="staffNm" name="성명" dataType="text"></w2:column>
+
+    					<w2:column id="shiftClsCd" name="시프트" dataType="text"></w2:column>
+    					
+    					<w2:column id="cntrSizCd" name="name6" dataType="text"></w2:column>
+    				<w2:column id="cumulateTeu" name="name7" dataType="text"></w2:column></w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+            <xf:submission id="sbm_Retrieve" action="/ds.op.stvwrk.RetrieveGroundWrkReportDetailCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]' target='data:json,{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8" mode="asynchronous" ev:submitdone="scwin.sbm_Retrieve_submitdone" ev:submit="scwin.sbm_Retrieve_submit" ev:submiterror="scwin.sbm_Retrieve_submiterror">
+            </xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : op_210_03_07p 
+// 이름     : 상용직 육상작업집계상세내역
+// 경로     : 물류/하역(인천)/현황/상용직 육상작업집계
+// 작 성 자 : 조성빈
+// 작 업 일 : 2026-01-29
+// 사용계정 : 내부
+// 비고     :  ***
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+scwin.onpageload = function() {
+    scwin.strCurrDate = $c.date.getServerDateTime("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+	// scwin.strStartDate = DDate.getPrevDate(strCurrDate, 2);
+	scwin.strStartDate = $c.date.addDate(scwin.strCurrDate, -2);
+	scwin.strFirstDate = scwin.strCurrDate.substring(0, 6) + "01";
+
+	scwin.cvsslMgntNo 	= ($c.data.getParameter("cvsslMgntNo") == null) ? "" : $c.data.getParameter("cvsslMgntNo");
+    scwin.args      = $p.getAllParameter().paramData.data;
+    scwin.occpgrdCd = scwin.args[0].trim();
+    scwin.rmk       = scwin.args[1].trim();
+    scwin.lobranCd  = scwin.args[2].trim();
+    scwin.wrkDt     = scwin.args[3].trim();
+
+    const codeOptions = [
+        { grpCd : "OP117", compID : "gr_result:shiftClsCd" }
+    ];
+    $c.data.setCommonCode(codeOptions, scwin.setCommonCodeCallBack);
+
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+
+    }, {"delay":50});
+};
+
+scwin.setCommonCodeCallBack = function(){
+    ds_condition.set("occpgrdCd", scwin.occpgrdCd);
+    ds_condition.set("wrkPlCd", scwin.rmk);
+    ds_condition.set("lobranCd", scwin.lobranCd);
+    ds_condition.set("wrkDt", scwin.wrkDt);
+    $c.sbm.execute(sbm_Retrieve);
+};
+
+//-------------------------------------------------------------------------
+// Windows Close
+//-------------------------------------------------------------------------
+scwin.f_WinClose = function () {
+    $c.win.closePopup();
+};
+
+scwin.sbm_Retrieve_submit = function (e) {
+
+};
+
+scwin.sbm_Retrieve_submitdone = function (e) {
+    var rowcnt = ds_result.getRowCount();
+    txt_totalRows.setValue(rowcnt);
+
+    ds_result.setRowPosition(0);
+	gr_result.setFocusedCell(0, 0);
+
+	var teuHab = 0;
+	
+	for(var i = 0 ; i < ds_result.getRowCount() ; i++) {
+        if (ds_result.getCellData(i, "cntrSizCd") == "20") {
+            teuHab += 1;
+        } else {
+            teuHab += 2;
+        }
+        ds_result.setCellData(i, "cumulateTeu", teuHab);
+	}
+
+    ds_result.modifyAllStatus("R");
+
+
+    for (var i = 0 ; i < ds_result.getRowCount() ; i ++){
+        if (ds_result.getCellData(i, "duplCnt") == 1){
+
+        } else {
+            gr_result.setCellBackgroundColor(i, "shiftClsCd", "#FBCED4");
+        }
+    }
+};
+
+scwin.sbm_Retrieve_submiterror = function (e) {
+
+};
+
+scwin.btn_close_onclick = function (e) {
+    scwin.f_WinClose();
+};
+
+scwin.excelDown = function(){
+    // f_gridToExcel(gr_result,'상용직 육상작업집계상세');
+    // Title
+    // argGrid.SetExcelTitle(0, "");
+    // argGrid.SetExcelTitle(1,"value:" + argTitle + ";" // 표시할 타이틀
+    //                       + "font-face:'돋움체';"      // 폰트
+    //                       + "font-size:16pt;"         // 폰트 크기
+    //                       + "font-color:black;"       // 폰트 색깔
+    //                       + "bgcolor:#ffffff;"        // 배경 색깔
+    //                       + "align:center;"           // 정렬
+    //                       + "line-color:white;"       // 타이틀 부분 테두리선 색깔
+    //                       + "line-width:0pt;"         // 타이틀 테두리선 굵기
+    //                       + "skiprow:1;");            // 타이틀 다음 떼는 로우 수
+    // cfGridToExcel(argGrid, argTitle, argTitle+".xls", 4+8+16);
+
+    var argGridTotalCol = 0;
+    for (var i = 0 ; i < gr_result.getTotalCol(); i++) {
+        if (gr_result.getColumnVisible(i)) {
+            argGridTotalCol++;
+        }
+    }
+
+    const infoArr = [{
+          rowIndex    : 0
+        , colIndex    : 0
+        , rowSpan     : 1
+        , colSpan     : argGridTotalCol
+        , text        : "상용직 육상작업집계상세"
+        , textAlign   : "center"
+        // , fontSize    : "16pt"
+        , fontName    : "돋움체"
+        , color       : "black"
+        , fontWeight  : ""
+        , drawBorder  : "false"
+        , borderColor : ""
+        , borderWidth : ""
+        , wordWrap    : "true"
+        , bgColor     : "#ffffff"
+    }];
+    const options = {
+        fileName : "상용직 육상작업집계상세.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName: "상용직 육상작업집계상세",
+        type : "1",
+        startRowIndex: 2,
+        // removeColumns: "0,21",
+        // hiddenVisible : true,
+        // useSubTotal :"true", 
+        // useSubTotalData  : "true",
+        // oddRowBackgroundColor  : "",                        // excel파일에서 그리드 body의 홀수줄의 배경색
+        // evenRowBackgroundColor : "#F5FFF5"                  // excel파일에서 그리드 body의 짝수줄의 배경색
+    };
+    $c.data.downloadGridViewExcel(gr_result, options, infoArr);
+
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="N" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_result" gridDownFn="scwin.excelDown"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_result" id="gr_result" style=""
+    					visibleRowNum="10" visibleRowNumFix="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="구분" width="120" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="품목" width="200" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="일자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" style="" value="성명" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" style="" value="시프트" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="occpgrdNm" inputType="text" style="" value="" width="120"
+    								colMerge="true" textAlign="left" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="rmk" inputType="text" style="" value="" width="200" colMerge="true" textAlign="left" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="workDt" inputType="calendar" style="" value="" width="100" dataType="date" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="staffNm" inputType="text" style="" value="" width="120" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="shiftClsCd" inputType="select" style="" value="" width="100" allOption=""
+    								chooseOption="" ref="" readOnly="true">
+    								<w2:choices></w2:choices>
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="txt_totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search">
+                <w2:keyInfo>
+                    <w2:key id="houseNo" name="House No" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="houseNo" name="House No" dataType="text"></w2:column>
+                    <w2:column id="fileSeq" name="파일순번" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileDeleteGDS" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="houseNo" name="House No" dataType="text"></w2:column>
+                    <w2:column id="fileSeq" name="파일순번" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_admin" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="cd" name="코드" dataType="text"></w2:column>
+                    <w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_admin2" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="cd" name="코드" dataType="text"></w2:column>
+                    <w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_checkRegistID" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="col1" name="" dataType="text"></w2:column>
+                    <w2:column id="col2" name="" dataType="text"></w2:column>
+                    <w2:column id="col3" name="" dataType="text"></w2:column>
+                    <w2:column id="col4" name="" dataType="text"></w2:column>
+                    <w2:column id="col5" name="" dataType="text"></w2:column>
+                    <w2:column id="col6" name="" dataType="text"></w2:column>
+                    <w2:column id="col7" name="" dataType="text"></w2:column>
+                    <w2:column id="col8" name="" dataType="text"></w2:column>
+                    <w2:column id="col9" name="" dataType="text"></w2:column>
+                    <w2:column id="col10" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_create"
+            action="/il.comm.util.cmd.SaveFileMgntCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"fileUploadGDS","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_create_submitdone"
+            ev:submiterror="scwin.sbm_create_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_delete"
+            action="/il.comm.util.cmd.DeleteFileMgntCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"fileDeleteGDS","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_delete_submitdone"
+            ev:submiterror="scwin.sbm_delete_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.houseNo = "";
+        scwin.apprvReqNo = "";
+        scwin.deptCd = "";
+        scwin.regId = "";
+        scwin.startDt = "";
+        scwin.endDt = "";
+        scwin.slipKndCd = "";
+
+        scwin.CREATE_AUTH = "C";
+        scwin.RETRIEVE_AUTH = "R";
+        scwin.UPDATE_AUTH = "U";
+        scwin.DELETE_AUTH = "D";
+        scwin.PRINT_AUTH = "P";
+        scwin.EXCEL_AUTH = "X";
+        scwin.TITLE_NAME = "";
+        scwin.PGM_ID = "ilCommonFilePopup_02.xml";
+        scwin.CALLER_URL = "/ui/il/common/xml/ilCommonFilePopup.xml";
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            scwin.houseNo = (scwin.params && scwin.params.houseNo) ? scwin.params.houseNo : "";
+            scwin.regId = $c.ses.getUserId();
+        };
+
+        scwin.dataSetDebug = function(dataList, isDebug) {
+            if (isDebug == true) {
+                let obj = dataList;
+                let str = "[[[[" + obj.getID() + "]]]]]\n";
+                let colInfos = obj.getColumnIDs();
+                for (let dsRow = 0; dsRow < obj.getRowCount(); dsRow++) {
+                    for (let dsCol = 0; dsCol < colInfos.length; dsCol++) {
+                        str += "[" + colInfos[dsCol] + "] " + obj.getCellData(dsRow, colInfos[dsCol]) + ", ";
+                    }
+                    str += "\n\n";
+                }
+                alert(str);
+            }
+        };
+
+        scwin.uploadComplete = function() {
+            scwin.f_saveFile();
+        };
+
+        scwin.f_saveFile = async function() {
+            await $c.sbm.execute(sbm_create);
+        };
+
+        scwin.fileSubmit = async function() {
+            let userId = $c.ses.getUserId();
+            let empNo = $c.ses.getEmpNo();
+            let houseNo = scwin.houseNo;
+            let userAcctDeptCd = $c.ses.getAcctDeptCd();
+            let admin = "";
+            let admin2 = "";
+            let count = 0;
+            let count2 = 0;
+
+            if (houseNo == "") {
+                await $c.win.alert("증빙파일 등록 할 House No가 입력되지 않았습니다.\nHouse No 입력 후 반드시 재조회 하세요.");
+                return;
+            }
+
+            let chk = await $c.win.confirm("House No:" + scwin.houseNo + "\n\n파일을 업로드 하시겠습니까?)");
+            if (!chk) {
+                return;
+            }
+
+            $c.gus.cfUploadFile(fileUploadGDS, "scwin.uploadComplete");
+        };
+
+        scwin.fileDelete = async function() {
+            let checkboxFile = scwin.getCheckFileValues();
+
+            if (checkboxFile == null || checkboxFile.length == 0) {
+                await $c.win.alert("삭제 할 파일이 없습니다.");
+                return;
+            }
+
+            let houseNo = scwin.houseNo;
+
+            if (houseNo == "") {
+                await $c.win.alert("증빙파일 삭제 할 House No가 입력되지 않았습니다.\nHouse No 입력 후 반드시 재조회 하세요.");
+                return;
+            }
+
+            if (checkboxFile.length == 1) {
+                if (!checkboxFile[0].checked) {
+                    await $c.win.alert("삭제 할 파일을 선택해야 합니다.");
+                    return;
+                }
+
+                let chk = await $c.win.confirm("선택하신 파일을 정말로 삭제하시겠습니까?");
+                if (chk) {
+                    fileDeleteGDS.removeAll();
+                    let delVal = checkboxFile[0].value.split("|");
+                    let newRow = fileDeleteGDS.insertRow();
+                    fileDeleteGDS.setCellData(newRow, "houseNo", delVal[0]);
+                    fileDeleteGDS.setCellData(newRow, "fileSeq", delVal[1]);
+
+                    await $c.sbm.execute(sbm_delete);
+                }
+            } else {
+                let checkedCnt = 0;
+
+                for (let i = 0; i < checkboxFile.length; i++) {
+                    if (checkboxFile[i].checked) {
+                        checkedCnt += 1;
+                    }
+                }
+
+                if (checkedCnt == 0) {
+                    await $c.win.alert("선택된 파일이 없습니다.");
+                    return;
+                }
+
+                let chk = await $c.win.confirm("선택하신 파일을 정말로 삭제하시겠습니까?");
+                if (chk) {
+                    let cbCnt = checkboxFile.length;
+                    fileDeleteGDS.removeAll();
+
+                    for (let i = 0; i < cbCnt; i++) {
+                        if (checkboxFile[i].checked) {
+                            let delVal = checkboxFile[i].value.split("|");
+
+                            let newRow = fileDeleteGDS.insertRow();
+                            fileDeleteGDS.setCellData(newRow, "houseNo", delVal[0]);
+                            fileDeleteGDS.setCellData(newRow, "fileSeq", delVal[1]);
+                        }
+                    }
+
+                    await $c.sbm.execute(sbm_delete);
+                }
+            }
+        };
+
+        scwin.getCheckFileValues = function() {
+            // TODO: UDC 파일 컴포넌트에서 체크된 파일 목록을 가져오는 로직 구현 필요
+            let checkFiles = [];
+            let checkElements = document.querySelectorAll("input[name='checkFile']");
+            if (checkElements == null || checkElements.length == 0) {
+                return null;
+            }
+            for (let i = 0; i < checkElements.length; i++) {
+                checkFiles.push({
+                    checked: checkElements[i].checked,
+                    value: checkElements[i].value
+                });
+            }
+            return checkFiles;
+        };
+
+        scwin.getSlipNoRegistID = function(houseNo) {
+            // TODO: 동적 쿼리 기반 전표 등록자 조회 — 서버 API 변경 필요
+            let param1 = " A.SLIP_NO   as COL1 "
+                + ",A.REG_ID    as COL2 "
+                + ",A.SLIP_DT   as COL3 "
+                + ",B.USER_NM   as COL4 "
+                + ",A.DRAW_EMP_NO as COL5 "
+                + ",''              as COL6 "
+                + ",''              as COL7 "
+                + ",''              as COL8 "
+                + ",''              as COL9 "
+                + ",''              as COL10 ";
+
+            let param2 = " TB_FI101 A, TB_ZZ315 B";
+
+            let param3 = " AND A.REG_ID = B.USER_ID "
+                + " AND A.SLIP_NO = '" + houseNo + "'";
+
+            let param4 = " A.SLIP_NO ";
+        };
+
+        scwin.sbm_create_submitdone = async function(e) {
+            await $c.win.alert("업로드가 완료 되었습니다.");
+            // TODO: document.location.reload() 대체 — 화면 새로고침 또는 파일 목록 재조회
+            $c.gus.cfReloadPage();
+            if (typeof parent.scwin !== "undefined" && typeof parent.scwin.f_Retrieve === "function") {
+                parent.scwin.f_Retrieve();
+            }
+        };
+
+        scwin.sbm_create_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_delete_submitdone = async function(e) {
+            await $c.win.alert("삭제가 완료 되었습니다.");
+            // TODO: document.location.reload() 대체 — 화면 새로고침 또는 파일 목록 재조회
+            $c.gus.cfReloadPage();
+            if (typeof parent.scwin !== "undefined" && typeof parent.scwin.f_Retrieve === "function") {
+                parent.scwin.f_Retrieve();
+            }
+        };
+
+        scwin.sbm_delete_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+    ]]></script>
+
+    <w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="file-wrap" id="" style="">
+    		<xf:group class="title-wrap" id="" style="">
+    			<xf:group class="title" id="" style="">
+    				<w2:textbox class="tit" escape="false" id="" label="파일첨부" style=""
+    					tagname="h3">
+    				</w2:textbox>
+    			</xf:group>
+    		</xf:group>
+    		<w2:udc_fileMultiUpload fileGrpSeq="" filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+    			maxFileCount="10" maxFileSize="536870912" style="" totalFileSize="2009715200">
+    		</w2:udc_fileMultiUpload>
+    	</xf:group>
+    </body>
+</html>

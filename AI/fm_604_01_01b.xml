@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_searchConfidenceInfo">
+                <w2:keyInfo>
+                    <w2:key id="confYr" name="신용년도" dataType="text"></w2:key>
+                    <w2:key id="crn" name="사업자번호" dataType="text"></w2:key>
+                    <w2:key id="crnNm" name="법인명" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_ConfidenceInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="num" name="" dataType="text"></w2:column>
+                    <w2:column id="confYr" name="신용년도" dataType="text"></w2:column>
+                    <w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+                    <w2:column id="crnNm" name="법인명" dataType="text"></w2:column>
+                    <w2:column id="confGrd" name="신용등급" dataType="text"></w2:column>
+                    <w2:column id="liablRt" name="부채비율" dataType="text"></w2:column>
+                    <w2:column id="sellAmtIncrRt" name="매출액증가율" dataType="text"></w2:column>
+                    <w2:column id="flowRt" name="유동비율" dataType="text"></w2:column>
+                    <w2:column id="sellAmtMwoundMarginRt" name="매출액경상이익률" dataType="text"></w2:column>
+                    <w2:column id="totSellAmt" name="총매출액" dataType="text"></w2:column>
+                    <w2:column id="aset" name="자산" dataType="text"></w2:column>
+                    <w2:column id="capi" name="자본" dataType="text"></w2:column>
+                    <w2:column id="bizStDd" name="설립년월" dataType="text"></w2:column>
+                    <w2:column id="entrScal" name="기업규모" dataType="text"></w2:column>
+                    <w2:column id="staffCnt" name="인원수" dataType="text"></w2:column>
+                    <w2:column id="closureQuitYn" name="휴폐업여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_judge" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="col1" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_excel">
+                <w2:columnInfo>
+                    <w2:column id="confYr" name="신용년도" dataType="text"></w2:column>
+                    <w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+                    <w2:column id="confGrd" name="신용등급" dataType="text"></w2:column>
+                    <w2:column id="liablRt" name="부채비율" dataType="text"></w2:column>
+                    <w2:column id="sellAmtIncrRt" name="매출액증가율" dataType="text"></w2:column>
+                    <w2:column id="flowRt" name="유동비율" dataType="text"></w2:column>
+                    <w2:column id="sellAmtMwoundMarginRt" name="매출액경상이익률" dataType="text"></w2:column>
+                    <w2:column id="totSellAmt" name="총매출액" dataType="text"></w2:column>
+                    <w2:column id="aset" name="자산" dataType="text"></w2:column>
+                    <w2:column id="capi" name="자본" dataType="text"></w2:column>
+                    <w2:column id="bizStDd" name="설립년월" dataType="text"></w2:column>
+                    <w2:column id="entrScal" name="기업규모" dataType="text"></w2:column>
+                    <w2:column id="staffCnt" name="인원수" dataType="text"></w2:column>
+                    <w2:column id="closureQuitYn" name="휴폐업여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_temp">
+                <w2:columnInfo>
+                    <w2:column id="confYr" name="신용년도" dataType="text"></w2:column>
+                    <w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+                    <w2:column id="confGrd" name="신용등급" dataType="text"></w2:column>
+                    <w2:column id="liablRt" name="부채비율" dataType="text"></w2:column>
+                    <w2:column id="sellAmtIncrRt" name="매출액증가율" dataType="text"></w2:column>
+                    <w2:column id="flowRt" name="유동비율" dataType="text"></w2:column>
+                    <w2:column id="sellAmtMwoundMarginRt" name="매출액경상이익률" dataType="text"></w2:column>
+                    <w2:column id="totSellAmt" name="총매출액" dataType="text"></w2:column>
+                    <w2:column id="aset" name="자산" dataType="text"></w2:column>
+                    <w2:column id="capi" name="자본" dataType="text"></w2:column>
+                    <w2:column id="bizStDd" name="설립년월" dataType="text"></w2:column>
+                    <w2:column id="entrScal" name="기업규모" dataType="text"></w2:column>
+                    <w2:column id="staffCnt" name="인원수" dataType="text"></w2:column>
+                    <w2:column id="closureQuitYn" name="휴폐업여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_upload">
+                <w2:columnInfo>
+                    <w2:column id="col1" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_searchConfidenceInfo"
+            action="/ac.fm.acctrecvmgnt.crdtmgnt.RetrieveConfidenceInformationListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_searchConfidenceInfo","key":"IN_DS1"},{"id":"ds_ConfidenceInfo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_ConfidenceInfo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_searchConfidenceInfo_submitdone"
+            ev:submiterror="scwin.sbm_searchConfidenceInfo_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_ConfidenceInfo"
+            action="/ac.fm.acctrecvmgnt.crdtmgnt.RegistConfidenceInformationCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_ConfidenceInfo","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_ConfidenceInfo_submitdone"
+            ev:submiterror="scwin.sbm_ConfidenceInfo_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_createCreditLimit"
+            action="/ac.fm.acctrecvmgnt.crdtmgnt.ProcessCreateCreditLimitCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_searchConfidenceInfo","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_createCreditLimit_submitdone"
+            ev:submiterror="scwin.sbm_createCreditLimit_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveJudge"
+            action="/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC&amp;queryId=retrieveBorrowAcqKindInfo&amp;param1=FM092"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_judge","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_judge","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveJudge_submitdone"
+            ev:submiterror="scwin.sbm_retrieveJudge_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.pos_groupCode = 0;
+        scwin.pos_crn = 0;
+        scwin.g_sUserId = "";
+        scwin.gJudgeYn = "0";
+
+        scwin.onpageload = async function() {
+            scwin.g_sUserId = $c.ses.getUserId();
+            scwin.gJudgeYn = "0";
+            scwin.f_Reset();
+            ica_confYr.setFocus();
+            scwin.f_retrieveJudge();
+        };
+
+        scwin.onUdcCompleted = function() {
+            ed_crn.setFocus();
+        };
+
+        scwin.f_openPopUp = async function(orgObjCd, orgObjNm, select_code, flag) {
+            let rtnList = [];
+            let cd = "";
+            let nm = "";
+            if (flag == "ALL") {
+                cd = "";
+                nm = "";
+            } else {
+                cd = orgObjCd.getValue();
+                nm = orgObjNm.getValue();
+            }
+            switch (select_code) {
+                case '3':
+                    rtnList = $c.gus.cfCommonPopUp('retrieveCreditCrnInfo', cd, nm, "T", null, null, null, null, null, null, null, null, null);
+                    scwin.f_resultPopUp(orgObjCd, orgObjNm, rtnList);
+                    break;
+                default:
+                    await $c.gus.cfAlertMsg("잘못된 Function호출 입니다. 관리자에게 문의하시기 바랍니다.");
+                    break;
+            }
+        };
+
+        scwin.f_CheckPopUp = async function(orgObjCd, orgObjNm, select_code, flag) {
+            if (flag == "CD") {
+                if (orgObjCd.getValue() == orgObjCd.hidVal) {
+                    return;
+                } else {
+                    orgObjNm.setValue("");
+                }
+            } else {
+                if (orgObjNm.getValue() == orgObjNm.hidVal) {
+                    return;
+                } else {
+                    orgObjCd.setValue("");
+                }
+            }
+            if (orgObjCd.getValue().trim() != "" || flag == "NM") {
+                if (orgObjNm.getValue().trim() != "" || flag == "CD") {
+                    orgObjCd.setValue(orgObjCd.getValue().trim());
+                    orgObjNm.setValue(orgObjNm.getValue().trim());
+                    await scwin.f_openPopUp(orgObjCd, orgObjNm, select_code, "NO");
+                }
+            } else {
+                orgObjNm.setValue("");
+                orgObjCd.setValue("");
+                orgObjCd.hidVal = "";
+            }
+        };
+
+        scwin.f_resultPopUp = function(orgObjCd, orgObjNm, rtnList) {
+            if (rtnList != null) {
+                if (rtnList[0] == "N/A") return;
+                orgObjCd.setValue(rtnList[0]);
+                orgObjNm.setValue(rtnList[1]);
+                orgObjCd.hidVal = rtnList[0];
+                orgObjNm.hidVal = rtnList[1];
+            } else {
+                orgObjCd.setValue("");
+                orgObjNm.setValue("");
+                orgObjCd.hidVal = "";
+                orgObjNm.hidVal = "";
+            }
+        };
+
+        scwin.f_checkCommonPopUp = async function(select_code, pCode, pName, Row) {
+            let code = ds_ConfidenceInfo.getCellData(Row, pCode);
+            if (code.trim() != "") {
+                await scwin.f_openCommonPopUp(select_code, pCode, pName, Row, "T");
+            } else {
+                ds_ConfidenceInfo.setCellData(Row, pCode, "");
+                ds_ConfidenceInfo.setCellData(Row, pName, "");
+            }
+        };
+
+        scwin.f_openCommonPopUp = async function(select_code, pCode, pName, Row, pClose) {
+            let rtnList = null;
+            let code = ds_ConfidenceInfo.getCellData(Row, pCode);
+            if (code == null || code == "") {
+                code = "";
+            }
+            let sCmdName = "";
+            switch (select_code) {
+                case '2':
+                    sCmdName = "retrieveCreditCrnInfo";
+                    rtnList = $c.gus.cfCommonPopUp(sCmdName, code, "", pClose, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                    break;
+            }
+            $c.gus.cfSetGridReturnValue(rtnList, ds_ConfidenceInfo, Row, pCode, pName);
+        };
+
+        scwin.f_retrieveJudge = async function() {
+            await $c.sbm.execute(sbm_retrieveJudge);
+        };
+
+        scwin.sbm_retrieveJudge_submitdone = async function(e) {
+            for (let i = 0; i < ds_judge.getRowCount(); i++) {
+                if (scwin.g_sUserId == ds_judge.getCellData(i, "col1")) {
+                    scwin.gJudgeYn = "1";
+                }
+            }
+            if (scwin.gJudgeYn == "1") {
+                $c.gus.cfEnableObjects([btn_set]);
+            } else {
+                $c.gus.cfDisableObjects([btn_set]);
+            }
+        };
+
+        scwin.sbm_retrieveJudge_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_Initial = function() {
+            $c.gus.cfDisableKey();
+        };
+
+        scwin.f_Reset = function() {
+            scwin.f_Initial();
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (ed_crn.getValue().trim() == "" && ed_crnNm.getValue().trim() == "") {
+                let chk = await $c.gus.cfValidate([ed_crnNm]);
+                if (!chk) {
+                    return;
+                }
+            }
+            await $c.sbm.execute(sbm_searchConfidenceInfo);
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_searchConfidenceInfo_submitdone = async function(e) {
+            spa_totalRow.setValue(ds_ConfidenceInfo.getTotalRow());
+            $c.gus.cfGoPrevPosition(ds_ConfidenceInfo, scwin.pos_groupCode);
+            if (ds_ConfidenceInfo.getRowCount() == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            }
+        };
+
+        scwin.sbm_searchConfidenceInfo_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_AddRow = function() {
+            ds_ConfidenceInfo.insertRow();
+            spa_totalRow.setValue(ds_ConfidenceInfo.getTotalRow());
+        };
+
+        scwin.f_delMarked = function() {
+            for (let i = ds_ConfidenceInfo.getRowCount() - 1; i >= 0; i--) {
+                if (ds_ConfidenceInfo.getCellData(i, "num") == "T") {
+                    ds_ConfidenceInfo.removeRow(i);
+                }
+            }
+            spa_totalRow.setValue(ds_ConfidenceInfo.getTotalRow());
+        };
+
+        scwin.f_Undo = function() {
+            ds_ConfidenceInfo.undoAll();
+        };
+
+        scwin.f_Save = async function() {
+            if (!ds_ConfidenceInfo.isUpdated()) {
+                await $c.gus.cfAlertMsg("변경된 사항이 없습니다.");
+                return;
+            }
+            let chkValid = await $c.gus.cfValidate([gr_ConfidenceInfo]);
+            if (!chkValid) {
+                return;
+            }
+            let chkConfirm = await $c.win.confirm("저장하시겠습니까?");
+            if (chkConfirm) {
+                scwin.pos_crn = ds_ConfidenceInfo.getRowPosition();
+                await $c.sbm.execute(sbm_ConfidenceInfo);
+            }
+        };
+
+        scwin.sbm_ConfidenceInfo_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_ConfidenceInfo_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_Excel = async function() {
+            let chk = await $c.win.confirm("Excel로 다운로드 하시겠습니까?");
+            if (chk) {
+                $c.data.downloadGridViewExcel(gr_ConfidenceInfo, {"fileName": "신용정보조회.xlsx", "sheetName": "신용정보"});
+            }
+        };
+
+        scwin.f_CheckFileExt = function(ext, path) {
+            ext = ext.toUpperCase();
+            path = path.toUpperCase();
+            let elen = ext.length;
+            let flen = path.length;
+            return (ext == path.substring((flen - elen), flen));
+        };
+
+        scwin.f_Import = async function() {
+            ds_excel.removeAll();
+            ds_temp.removeAll();
+            // TODO: GAUCE InputFile(inputF.Open()) 기반 CSV 업로드는 WebSquare 엑셀 업로드 UDC로 대체 필요
+            await $c.gus.cfAlertMsg("CSV 업로드 기능은 WebSquare 엑셀 업로드 기능으로 대체 필요합니다.");
+        };
+
+        scwin.f_AddRowUploaded = function() {
+            if (ds_temp.getRowCount() > 0) {
+                ds_ConfidenceInfo.removeAll();
+                for (let i = 0; i < ds_temp.getRowCount(); i++) {
+                    ds_ConfidenceInfo.insertRow();
+                    let row = ds_ConfidenceInfo.getRowCount() - 1;
+                    ds_ConfidenceInfo.setCellData(row, "confYr", ds_temp.getCellData(i, "confYr"));
+                    ds_ConfidenceInfo.setCellData(row, "crn", ds_temp.getCellData(i, "crn"));
+                    ds_ConfidenceInfo.setCellData(row, "confGrd", ds_temp.getCellData(i, "confGrd"));
+                    ds_ConfidenceInfo.setCellData(row, "liablRt", ds_temp.getCellData(i, "liablRt"));
+                    ds_ConfidenceInfo.setCellData(row, "sellAmtIncrRt", ds_temp.getCellData(i, "sellAmtIncrRt"));
+                    ds_ConfidenceInfo.setCellData(row, "flowRt", ds_temp.getCellData(i, "flowRt"));
+                    ds_ConfidenceInfo.setCellData(row, "sellAmtMwoundMarginRt", ds_temp.getCellData(i, "sellAmtMwoundMarginRt"));
+                    ds_ConfidenceInfo.setCellData(row, "totSellAmt", ds_temp.getCellData(i, "totSellAmt"));
+                    ds_ConfidenceInfo.setCellData(row, "aset", ds_temp.getCellData(i, "aset"));
+                    ds_ConfidenceInfo.setCellData(row, "capi", ds_temp.getCellData(i, "capi"));
+                    ds_ConfidenceInfo.setCellData(row, "bizStDd", ds_temp.getCellData(i, "bizStDd"));
+                    ds_ConfidenceInfo.setCellData(row, "entrScal", ds_temp.getCellData(i, "entrScal"));
+                    ds_ConfidenceInfo.setCellData(row, "staffCnt", ds_temp.getCellData(i, "staffCnt"));
+                    ds_ConfidenceInfo.setCellData(row, "closureQuitYn", ds_temp.getCellData(i, "closureQuitYn"));
+                }
+            }
+            spa_totalRow.setValue(ds_ConfidenceInfo.getTotalRow());
+            return true;
+        };
+
+        scwin.f_Create = async function() {
+            if (ica_confYr.getValue().trim() == "") {
+                let chk = await $c.gus.cfValidate([ica_confYr]);
+                if (!chk) {
+                    return;
+                }
+            }
+            let chkConfirm = await $c.win.confirm("일괄한도를 설정하시겠습니까?");
+            if (!chkConfirm) {
+                return false;
+            }
+            await $c.sbm.execute(sbm_createCreditLimit);
+        };
+
+        scwin.sbm_createCreditLimit_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        };
+
+        scwin.sbm_createCreditLimit_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.gr_ConfidenceInfo_onheaderclick = function(headerIndex, columnIndex, columnId) {
+            if (columnId == "num") {
+                let bCheck = gr_ConfidenceInfo.getHeaderValue(headerIndex, columnIndex);
+                if (bCheck == "T" || bCheck == true) {
+                    for (let i = 0; i < ds_ConfidenceInfo.getRowCount(); i++) {
+                        ds_ConfidenceInfo.setCellData(i, "num", "T");
+                    }
+                } else {
+                    for (let i = 0; i < ds_ConfidenceInfo.getRowCount(); i++) {
+                        ds_ConfidenceInfo.setCellData(i, "num", "F");
+                    }
+                }
+            }
+        };
+
+        scwin.gr_ConfidenceInfo_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+            if (columnId == "crn") {
+                scwin.f_openCommonPopUp('2', "crn", "crnNm", rowIndex, 'F');
+            }
+        };
+
+        scwin.gr_ConfidenceInfo_oneditend = function(rowIndex, columnIndex, columnId, oldValue, newValue) {
+            if (columnId == 'crn') {
+                scwin.f_checkCommonPopUp('2', "crn", "crnNm", rowIndex);
+            }
+        };
+
+        scwin.btn_Add_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.btn_set_onclick = function(e) {
+            scwin.f_Create();
+        };
+
+        scwin.f_addRow = function() {
+            scwin.f_AddRow();
+        };
+
+        scwin.f_deleteRow = function() {
+            scwin.f_delMarked();
+        };
+
+        scwin.f_cancelRow = function() {
+            scwin.f_Undo();
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:70px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:105px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="" id="" label="신용년도" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:inputCalendar calendarValueType="year" class="" id="ed_confYr" style="" pickerType="dynamic" ref="data:ds_searchConfidenceInfo.confYr" mandatory="true"></w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="사업자번호 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:udc_comCode popupID="" selectID="" codeId="ed_crn" validTitle="" nameId="ed_crnNm" id="udc_crn" style=""></w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="" style="" type="button">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" ev:onclick="scwin.btn_retrieve_onclick" style="" type="button">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_ConfidenceInfo" focusMode="row" id="gr_ConfidenceInfo"
+						scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="17" visibleRowNumFix="true" readOnly="false">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header2" style="">
+							<w2:row id="row3" style="">
+								<w2:column width="50" inputType="checkbox" style="" id="num" value="" displayMode="label" fixColumnWidth="true">
+								</w2:column>
+								<w2:column displayMode="label" id="confYr" inputType="text" style="" value="신용년도" width="100" class="txt-red"></w2:column>
+								<w2:column displayMode="label" id="crn" inputType="text" style="" value="사업자번호" width="120" class="txt-red"></w2:column>
+								<w2:column displayMode="label" id="crnNm" inputType="text" style="" value="법인명" width="200"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="confGrd" value="신용등급" displayMode="label" class="txt-red"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="liablRt" value="부채비율" displayMode="label" class="txt-red"></w2:column>
+								<w2:column width="150" inputType="text" style="" id="sellAmtIncrRt" value="매출액증가율" displayMode="label" class="txt-red">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="flowRt" value="유동비율" displayMode="label"></w2:column>
+								<w2:column width="150" inputType="text" style="" id="sellAmtMwoundMarginRt" value="매출액경상이익률" displayMode="label"></w2:column>
+								<w2:column width="150" inputType="text" style="" id="totSellAmt" value="총매출액" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="aset" value="자산" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="capi" value="자본" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="bizStDd" value="설립년월" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="entrScal" value="기업규모" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="staffCnt" value="인원수" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="closureQuitYn" value="휴폐업여부" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody2" style="">
+							<w2:row id="row4" style="">
+								<w2:column width="70" inputType="checkbox" style="" id="num" value="" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+								<w2:column displayMode="label" id="confYr" inputType="text" style="" value="" width="100" allowChar="0-9"></w2:column>
+								<w2:column displayMode="label" id="crn" inputType="textImage" style="" value="" width="120" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+								<w2:column displayMode="label" id="crnNm" inputType="text" style="" value="" width="100" readOnly="true"></w2:column>
+								<w2:column width="100" inputType="select" style="" id="confGrd" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="liablRt" value="" displayMode="label" textAlign="center" dataType="float" maxLength="0.2" displayFormat="#,##0.00">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="sellAmtIncrRt" value="" displayMode="label" textAlign="center" dataType="float" maxLength="0.2" displayFormat="#,##0.00">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="flowRt" value="" displayMode="label" textAlign="center" dataType="float" maxLength="0.2" displayFormat="#,##0.00">
+								</w2:column>
+								<w2:column width="70" inputType="text" style="" id="sellAmtMwoundMarginRt" value="" displayMode="label" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="totSellAmt" value="" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="aset" value="" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="capi" value="" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="bizStDd" value="" displayMode="label" allowChar="0-9"></w2:column>
+								<w2:column width="70" inputType="select" style="" id="entrScal" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="staffCnt" value="" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+								<w2:column width="70" inputType="select" style="" id="closureQuitYn" value="" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="" style="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+								</w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group id="" class="right">
+							<xf:group id="" class="inner">
+								<w2:textbox style="" id="" label="(단위 : 백만원)" class=""></w2:textbox>
+							</xf:group>
+							<w2:udc_bottomGrdBtn btnCancelYn="Y" btnDelYn="N" style=""></w2:udc_bottomGrdBtn>
+							
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="right" id="" style="">
+						<xf:trigger class="btn white" id="btn_set" ev:onclick="scwin.btn_set_onclick" style="" type="button">
+							<xf:label><![CDATA[일괄한도설정]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="btn_Add" ev:onclick="scwin.btn_Add_onclick" style="" type="button">
+							<xf:label><![CDATA[저장]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

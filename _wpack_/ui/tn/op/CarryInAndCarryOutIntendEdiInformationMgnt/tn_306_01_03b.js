@@ -1,0 +1,2003 @@
+/*amd /ui/tn/op/CarryInAndCarryOutIntendEdiInformationMgnt/tn_306_01_03b.xml 188537 89742687ac0c70c4487165ec54d0873dc09fda36df6e0abbd9816b62fe449750 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'hid_comp'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'hid_odrNo1',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_seq1',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_crryinCrryoutCls1',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cntrSeq1',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_wrkPathSeq1',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_wrkStpSeq1',name:'name6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cls1',name:'name7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_snd1',name:'name8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcv1',name:'name9',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndDes1',name:'name10',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcvDes1',name:'name11',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcvDes21',name:'name12',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndId1',name:'name13',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcvId1',name:'name14',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_transDstFromWrkPlCd1',name:'name15',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_crryinoutDtmMint1',name:'name16',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_transCntSht1',name:'name17',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_vehclNoFull1',name:'name18',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_suitCoTransCoNm1',name:'name19',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_startPoint1',name:'name20',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_arv1',name:'name21',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_arvCont1',name:'name22',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_finalArv1',name:'name23',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_finalArvCont1',name:'name24',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_liveCoCd1',name:'name25',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_liveCoNm1',name:'name26',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_crryinoutCls1',name:'name27',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_expimpClsCd1',name:'name28',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_drtCstmclrncExyn1',name:'name29',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sizTyp1',name:'name30',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_frzTemper1',name:'name31',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_temperCls1',name:'name32',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_dangerCd1',name:'name33',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_totWt1',name:'name34',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_overLength1',name:'name35',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_overWidth1',name:'name36',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_overHeight1',name:'name37',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_dchrPort1',name:'name38',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_iccntctPic1',name:'name39',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_iccntctPl1',name:'name40',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sendCoCd1',name:'name41',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_trustDd1',name:'name42',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_trustDtm1',name:'name43',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_teminal1',name:'name44',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_teminalVssl1',name:'name45',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_pusanjinHousCd1',name:'name46',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_railroadCls1',name:'name47',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_railroadIntendCls1',name:'name48',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_frtcarCls1',name:'name49',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_icdmoveCls1',name:'name50',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cargoCls1',name:'name51',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_drvNm1',name:'name52',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cntctPl1',name:'name53',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_hndlCd1',name:'name54',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_docStsCls1',name:'name55',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndClsCd1',name:'name56',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndDt1',name:'name57',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndHh1',name:'name58',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_errorCls1',name:'name59',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_odrNo2',name:'name60',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_seq2',name:'name61',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_crryinCrryoutCls2',name:'name62',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cntrSeq2',name:'name63',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_wrkPathSeq2',name:'name64',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_wrkStpSeq2',name:'name65',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cls2',name:'name66',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_snd2',name:'name67',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcv2',name:'name68',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndDes2',name:'name69',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcvDes2',name:'name70',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcvDes22',name:'name71',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndId2',name:'name72',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_rcvId2',name:'name73',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_transDstToWrkPlCd2',name:'name74',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_crryinoutDtmMint2',name:'name75',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_transCntSht2',name:'name76',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_vehclNoFull2',name:'name77',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_suitCoTransCoNm2',name:'name78',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_chassisNo2',name:'name79',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_startPoint2',name:'name80',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_arv2',name:'name81',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_arvCont2',name:'name82',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_finalArv2',name:'name83',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_finalArvCont2',name:'name84',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_liveCoCd2',name:'name85',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_liveCoNm2',name:'name86',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_crryinoutCls2',name:'name87',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_expimpClsCd2',name:'name88',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sizTyp2',name:'name89',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_temperCls2',name:'name90',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_iccntctPic2',name:'name91',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_iccntctPl2',name:'name92',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sendCoCd2',name:'name93',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_trustDd2',name:'name94',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_trustDtm2',name:'name95',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_teminal2',name:'name96',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_teminalVssl2',name:'name97',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_pusanjinHousCd2',name:'name98',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_railroadCls2',name:'name99',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_railroadIntendCls2',name:'name100',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_frtcarCls2',name:'name101',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_icdmoveCls2',name:'name102',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cargoCls2',name:'name103',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_drvNm2',name:'name104',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_cntctPl2',name:'name105',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_hndlCd2',name:'name106',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_docStsCls2',name:'name107',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndClsCd2',name:'name108',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndDt2',name:'name109',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_sndHh2',name:'name110',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_errorCls2',name:'name111',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hid_dchrPortNm2',name:'name112',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'vehclIdCardNo',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cntrNo',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_resultsCopinoOut',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'transWrkIndictNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'seq',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinCrryoutCls',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSeq',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPathSeq',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpSeq',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cls',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'snd',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcv',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDes',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes2',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndId',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvId',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFrom',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFromNm',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col18',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstTo',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstToNm',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col21',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutDtmMint',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCntSht',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFrtcarNo',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFull',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclCls',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCoCd',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'suitCoTransCoNm',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransVehclYn',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisNo',name:'name31',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisPosInfo',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPoint',name:'name33',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPointCont',name:'name34',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arv',name:'name35',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvCont',name:'name36',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArv',name:'name37',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArvCont',name:'name38',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoCd',name:'name39',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoNm',name:'name40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sizTyp',name:'name41',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'name42',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutCls',name:'name43',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expimpClsCd',name:'name44',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drtCstmclrncExyn',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col46',name:'name46',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frzTemper',name:'name47',dataType:'text'}},{T:1,N:'w2:column',A:{id:'temperCls',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCd',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCls',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'totWt',name:'name51',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overLength',name:'name52',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overWidth',name:'name53',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overHeight',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sealNo',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shpCoCd',name:'name56',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tmlVsslPortcnt',name:'name57',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dchrPort',name:'name58',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bookingNo',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'admitNo',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'doNo',name:'name62',dataType:'text'}},{T:1,N:'w2:column',A:{id:'xrayRettlPassYn',name:'name63',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPic',name:'name64',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPl',name:'name65',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslArrvlportYr',name:'name66',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tsCls',name:'name67',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtCd',name:'name68',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtNm',name:'name69',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hanjinSelfCls',name:'name70',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfCls',name:'name71',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sendCoCd',name:'name72',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDd',name:'name73',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDtm',name:'name74',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminal',name:'name75',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminalVssl',name:'name76',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pusanjinHousCd',name:'name77',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadCls',name:'name78',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadIntendCls',name:'name79',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frtcarCls',name:'name80',dataType:'text'}},{T:1,N:'w2:column',A:{id:'icdmoveCls',name:'name81',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cargoCls',name:'name82',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvNm',name:'name83',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntctPl',name:'name84',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hndlCd',name:'name85',dataType:'text'}},{T:1,N:'w2:column',A:{id:'docStsCls',name:'name86',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndClsCd',name:'name87',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDt',name:'name88',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndHh',name:'name89',dataType:'text'}},{T:1,N:'w2:column',A:{id:'errorCls',name:'name90',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rmk',name:'name91',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransYn',name:'name92',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondYardCd',name:'name93',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondYardNm',name:'name94',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_resultsCopinoIn',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'transWrkIndictNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'seq',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinCrryoutCls',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSeq',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPathSeq',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpSeq',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cls',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'snd',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcv',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDes',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes2',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndId',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvId',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFrom',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFromNm',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstTo',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstToNm',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutDtmMint',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCntSht',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFrtcarNo',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFull',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclCls',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCoCd',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'suitCoTransCoNm',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransVehclYn',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisNo',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisPosInfo',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPoint',name:'name31',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPointCont',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arv',name:'name33',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvCont',name:'name34',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArv',name:'name35',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArvCont',name:'name36',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoCd',name:'name37',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoNm',name:'name38',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sizTyp',name:'name39',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'name40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutCls',name:'name41',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expimpClsCd',name:'name42',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drtCstmclrncExyn',name:'name43',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frzTemper',name:'name44',dataType:'text'}},{T:1,N:'w2:column',A:{id:'temperCls',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCd',name:'name46',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCls',name:'name47',dataType:'text'}},{T:1,N:'w2:column',A:{id:'totWt',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overLength',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overWidth',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overHeight',name:'name51',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sealNo',name:'name52',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shpCoCd',name:'name53',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tmlVsslPortcnt',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dchrPort',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dchrPortNm',name:'name56',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'name57',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bookingNo',name:'name58',dataType:'text'}},{T:1,N:'w2:column',A:{id:'admitNo',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'doNo',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'xrayRettlPassYn',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPic',name:'name62',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPl',name:'name63',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslArrvlportYr',name:'name64',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tsCls',name:'name65',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtCd',name:'name66',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtNm',name:'name67',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hanjinSelfCls',name:'name68',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfCls',name:'name69',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sendCoCd',name:'name70',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDd',name:'name71',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDtm',name:'name72',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminal',name:'name73',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminalVssl',name:'name74',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pusanjinHousCd',name:'name75',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadCls',name:'name76',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadIntendCls',name:'name77',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frtcarCls',name:'name78',dataType:'text'}},{T:1,N:'w2:column',A:{id:'icdmoveCls',name:'name79',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cargoCls',name:'name80',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvNm',name:'name81',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntctPl',name:'name82',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hndlCd',name:'name83',dataType:'text'}},{T:1,N:'w2:column',A:{id:'docStsCls',name:'name84',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndClsCd',name:'name85',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDt',name:'name86',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndHh',name:'name87',dataType:'text'}},{T:1,N:'w2:column',A:{id:'errorCls',name:'name88',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rmk',name:'name89',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransYn',name:'name90',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_resultsCopinoIn2',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'transWrkIndictNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'seq',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinCrryoutCls',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSeq',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPathSeq',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpSeq',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cls',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'snd',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcv',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDes',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes2',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndId',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvId',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFrom',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFromNm',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstTo',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstToNm',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutDtmMint',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCntSht',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFrtcarNo',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFull',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclCls',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCoCd',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'suitCoTransCoNm',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransVehclYn',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisNo',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisPosInfo',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPoint',name:'name31',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPointCont',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arv',name:'name33',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvCont',name:'name34',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArv',name:'name35',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArvCont',name:'name36',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoCd',name:'name37',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoNm',name:'name38',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sizTyp',name:'name39',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'name40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutCls',name:'name41',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expimpClsCd',name:'name42',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drtCstmclrncExyn',name:'name43',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frzTemper',name:'name44',dataType:'text'}},{T:1,N:'w2:column',A:{id:'temperCls',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCd',name:'name46',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCls',name:'name47',dataType:'text'}},{T:1,N:'w2:column',A:{id:'totWt',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overLength',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overWidth',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overHeight',name:'name51',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sealNo',name:'name52',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shpCoCd',name:'name53',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tmlVsslPortcnt',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dchrPort',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dchrPortNm',name:'name56',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'name57',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bookingNo',name:'name58',dataType:'text'}},{T:1,N:'w2:column',A:{id:'admitNo',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'doNo',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'xrayRettlPassYn',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPic',name:'name62',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPl',name:'name63',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslArrvlportYr',name:'name64',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tsCls',name:'name65',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtCd',name:'name66',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtNm',name:'name67',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hanjinSelfCls',name:'name68',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfCls',name:'name69',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sendCoCd',name:'name70',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDd',name:'name71',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDtm',name:'name72',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminal',name:'name73',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminalVssl',name:'name74',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pusanjinHousCd',name:'name75',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadCls',name:'name76',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadIntendCls',name:'name77',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frtcarCls',name:'name78',dataType:'text'}},{T:1,N:'w2:column',A:{id:'icdmoveCls',name:'name79',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cargoCls',name:'name80',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvNm',name:'name81',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntctPl',name:'name82',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hndlCd',name:'name83',dataType:'text'}},{T:1,N:'w2:column',A:{id:'docStsCls',name:'name84',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndClsCd',name:'name85',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDt',name:'name86',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndHh',name:'name87',dataType:'text'}},{T:1,N:'w2:column',A:{id:'errorCls',name:'name88',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rmk',name:'name89',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransYn',name:'name90',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_resultsCopinoOut2',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'transWrkIndictNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'seq',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinCrryoutCls',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSeq',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPathSeq',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpSeq',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cls',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'snd',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcv',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDes',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvDes2',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndId',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rcvId',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFrom',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstFromNm',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col18',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstTo',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transDstToNm',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col21',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutDtmMint',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCntSht',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFrtcarNo',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFull',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclCls',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'transCoCd',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'suitCoTransCoNm',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransVehclYn',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisNo',name:'name31',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chassisPosInfo',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPoint',name:'name33',dataType:'text'}},{T:1,N:'w2:column',A:{id:'startPointCont',name:'name34',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arv',name:'name35',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arvCont',name:'name36',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArv',name:'name37',dataType:'text'}},{T:1,N:'w2:column',A:{id:'finalArvCont',name:'name38',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoCd',name:'name39',dataType:'text'}},{T:1,N:'w2:column',A:{id:'liveCoNm',name:'name40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sizTyp',name:'name41',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'name42',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutCls',name:'name43',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expimpClsCd',name:'name44',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drtCstmclrncExyn',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col46',name:'name46',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frzTemper',name:'name47',dataType:'text'}},{T:1,N:'w2:column',A:{id:'temperCls',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCd',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dangerCls',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'totWt',name:'name51',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overLength',name:'name52',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overWidth',name:'name53',dataType:'text'}},{T:1,N:'w2:column',A:{id:'overHeight',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sealNo',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shpCoCd',name:'name56',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tmlVsslPortcnt',name:'name57',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dchrPort',name:'name58',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bookingNo',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'admitNo',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'doNo',name:'name62',dataType:'text'}},{T:1,N:'w2:column',A:{id:'xrayRettlPassYn',name:'name63',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPic',name:'name64',dataType:'text'}},{T:1,N:'w2:column',A:{id:'iccntctPl',name:'name65',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslArrvlportYr',name:'name66',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tsCls',name:'name67',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtCd',name:'name68',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mchtNm',name:'name69',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hanjinSelfCls',name:'name70',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfCls',name:'name71',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sendCoCd',name:'name72',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDd',name:'name73',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trustDtm',name:'name74',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminal',name:'name75',dataType:'text'}},{T:1,N:'w2:column',A:{id:'teminalVssl',name:'name76',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pusanjinHousCd',name:'name77',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadCls',name:'name78',dataType:'text'}},{T:1,N:'w2:column',A:{id:'railroadIntendCls',name:'name79',dataType:'text'}},{T:1,N:'w2:column',A:{id:'frtcarCls',name:'name80',dataType:'text'}},{T:1,N:'w2:column',A:{id:'icdmoveCls',name:'name81',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cargoCls',name:'name82',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvNm',name:'name83',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntctPl',name:'name84',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hndlCd',name:'name85',dataType:'text'}},{T:1,N:'w2:column',A:{id:'docStsCls',name:'name86',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndClsCd',name:'name87',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndDt',name:'name88',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sndHh',name:'name89',dataType:'text'}},{T:1,N:'w2:column',A:{id:'errorCls',name:'name90',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rmk',name:'name91',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondTransYn',name:'name92',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondYardCd',name:'name93',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bondYardNm',name:'name94',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_lastCarInOutDTO',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'crryinCrryoutCls',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNoFull',name:'name2',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ncall.ds.lo.edimgnt.RetrieveCarryInAndCarryOutIntendEdiInformationForceCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"}, {"id":"ds_resultsCopinoOut","key":"OUT_DS1"},{"id":"ds_resultsCopinoIn","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_resultsCopinoOut","key":"OUT_DS1"},{"id":"ds_resultsCopinoIn","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitDone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve2',action:'/ncall.ds.lo.edimgnt.RetrieveCarryInAndCarryOutIntendEdiInformationForceCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"}, {"id":"ds_resultsCopinoOut2","key":"OUT_DS1"} {"id":"ds_resultsCopinoIn2","key":"OUT_DS2"}]',target:'data:json,[{"id":"ds_resultsCopinoOut2","key":"OUT_DS1"} {"id":"ds_resultsCopinoIn2","key":"OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve2_submitDone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve3',action:'/ncall.ds.lo.edimgnt.RetrieveLastCarInOutCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"}, {"id":"ds_lastCarInOutDTO","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_lastCarInOutDTO","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve3_submitDone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ncall.ds.lo.edimgnt.SaveCarryInAndCarryOutIntendEdiInformationForceCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"action":"modified","id":"ds_resultsCopinoOut2","key":"IN_DS1"},{"action":"modified","id":"ds_resultsCopinoIn2","key":"IN_DS2"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'sbm_save_submitDone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'false',src:'/ui/ds/co/constants/DsConstants.js',scopeVariable:'',type:'text/javascript'}},{T:1,N:'script',A:{cache:'false',scopeExternal:'false',src:'/ui/js/ds/dscommon.js',scopeVariable:'',type:'text/javascript'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.strCurYear;
+scwin.vCurDate;
+scwin.nowTime;
+scwin.gv_userClsCd;
+scwin.gv_clntNo;
+scwin.gv_clntNm;
+scwin.dateStr;
+scwin.dateTime;
+scwin.onpageload = function () {};
+scwin.onUdcCompleted = async function () {
+  scwin.f_defaultValue();
+  ds_resultsCopinoOut.removeAll(); // 반출(COPINO) DataSet 초기화
+  ds_resultsCopinoIn.removeAll(); // 반입(COPINO) DataSet 초기화
+  ed_sndClsCd1.setValue("");
+  ed_sndClsCd2.setValue("");
+  cbx_crryInCopino.setSelectedIndex(0, false);
+  cbx_crryOutCopino.setSelectedIndex(0, false);
+  scwin.f_create();
+};
+scwin.f_defaultValue = function () {
+  scwin.strCurYear = WebSquare.date.getCurrentServerDate().substring(0, 4);
+  scwin.dateStr = WebSquare.date.getCurrentServerDate().substring(0, 8);
+  scwin.dateTime = WebSquare.date.getCurrentServerDate().substring(8, 4);
+
+  // 오더번호 강제 설정
+  hid_comp.set("hid_odrNo1", "9999999999999");
+  hid_comp.set("hid_odrNo2", "9999999999999");
+
+  // 순번 설정
+  hid_comp.set("hid_seq1", "0");
+  hid_comp.set("hid_seq2", "0");
+
+  // 반입/반출구분, 반출입구분 설정
+  hid_comp.set("hid_crryinCrryoutCls1", "1"); // 반출 (1)
+  hid_comp.set("hid_crryinCrryoutCls2", "2"); // 반입 (2)
+
+  hid_comp.set("hid_crryinoutCls1", "2"); // 반출 (1)
+  hid_comp.set("hid_crryinoutCls2", "2"); // 반입 (2)
+
+  // 반입일시 & 반출일시
+  ica_crryinoutDt1.setValue("");
+  ed_crryinoutHh1.setValue("");
+  ica_crryinoutDt2.setValue("");
+  ed_crryinoutHh2.setValue("");
+  var nowTime = scwin.f_getNowTime();
+  ica_crryinoutDt1.setValue(scwin.dateStr);
+  ed_crryinoutHh1.setValue(nowTime);
+  ica_crryinoutDt2.setValue(scwin.dateStr);
+  ed_crryinoutHh2.setValue(nowTime);
+
+  // 모선입항년도 설정
+  ica_vsslArrvlportYr1.setValue("");
+  ica_vsslArrvlportYr2.setValue("");
+  ica_vsslArrvlportYr1.setValue(scwin.strCurYear);
+  ica_vsslArrvlportYr2.setValue(scwin.strCurYear);
+
+  // 전송구분
+  hid_comp.set("hid_sndClsCd1", DsConstants.EDI_SND_CLS_CD_SND_WAIT);
+  hid_comp.set("hid_sndClsCd2", DsConstants.EDI_SND_CLS_CD_SND_WAIT);
+
+  // 운송수단
+  hid_comp.set("hid_transCntSht1", "3");
+  hid_comp.set("hid_transCntSht2", "3");
+};
+scwin.f_getNowTime = function () {
+  var hour = WebSquare.date.getCurrentServerDate("HH");
+  var min = WebSquare.date.getCurrentServerDate("mm");
+  return hour + "" + min;
+};
+scwin.f_create = function () {
+  ds_resultsCopinoOut.removeAll(); // 반출(COPINO) DataSet 초기화
+  ds_resultsCopinoIn.removeAll(); // 반입(COPINO) DataSet 초기화
+
+  // 조회조건 초기화
+  scwin.f_FieldClear();
+
+  // 초기값 설정
+  scwin.f_defaultValue();
+  $c.gus.cfEnableBtnOnly($p, [btn_create]); // 버튼 활성화
+  $c.gus.cfEnableBtnOnly($p, [btn_save]); // 버튼 활성화
+
+  scwin.f_switchTransYn(1);
+  scwin.f_switchTransYn(2);
+  scwin.f_disableObjects(); // 기본 비활성 컴퍼넌트
+
+  ed_sndClsCd1.setValue(""); // 전송구분1 초기화
+  ed_sndDtHh1.setValue(""); // 전송일시1 초기화
+  ed_sndClsCd2.setValue(""); // 전송구분2 초기화
+  ed_sndDtHh2.setValue(""); // 전송일시2 초기화
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function (gubun) {
+  // 데이타 바인드 - 연결
+  //bnd_resultsCopinoIn.ActiveBind = true;
+  //bnd_resultsCopinoOut.ActiveBind = true;
+
+  /*if(ds_resultsCopinoOut.CountRow > 0){
+      chk_crryInCopino.checked = true;
+      f_switchTransYn(2);
+  }else{
+      chk_crryInCopino.checked = false;
+      f_switchTransYn(2);
+  }
+    if(ds_resultsCopinoIn.CountRow > 0){
+      chk_crryOutCopino.checked = true;
+      f_switchTransYn(1);
+  }else{
+      chk_crryOutCopino.checked = false;
+      f_switchTransYn(1);
+  }*/
+
+  if ((ed_vehclIdCardNo.getValue() == null || ed_vehclIdCardNo.getValue() == "") && (ed_cntrNo.getValue() == null || ed_cntrNo.getValue() == "")) {
+    $c.gus.cfAlertMsg($p, "조회시 차량 ID와 CNTR_NO 중 둘중에 하나 기입해야 합니다.");
+    return false;
+  }
+  if (ed_vehclIdCardNo.getValue() != null && ed_vehclIdCardNo.getValue() != "") {
+    if (ed_vehclIdCardNo.getValue().length != 8) {
+      $c.gus.cfAlertMsg($p, "조회시 차량 ID는  8자리를  기입해야 합니다.");
+      return false;
+    }
+  }
+  if (ed_cntrNo.getValue() != null && ed_cntrNo.getValue() != "") {
+    if (ed_cntrNo.getValue().length != 11) {
+      $c.gus.cfAlertMsg($p, "조회시 컨테이너는 번호는 11자리를  기입해야 합니다.");
+      return false;
+    }
+  }
+  if (gubun == null || gubun == "" || gubun == 0) {
+    ds_resultsCopinoOut.removeAll();
+    ds_resultsCopinoIn.removeAll();
+    btnFlag = ""; // 신규, 수정 구분자
+    rowFlag = ""; // 등록, 수정 후 저장 안하고 다른 master row 선택 불가능 구분자
+
+    await scwin.tr_retrieve();
+  } else {
+    if (cbx_crryInCopino.getValue() == "1") {
+      ds_resultsCopinoIn2.removeAll();
+      if (cbx_crryOutCopino.getValue() == "1") {
+        var v_features = "copyHeader=yes,rowFrom=1,rowCnt=1";
+        $c.gus.cfCopyDataSet($p, ds_resultsCopinoOut2, ds_resultsCopinoOut, v_features);
+        await scwin.tr_retrieve2();
+      }
+    }
+    if (cbx_crryOutCopino.getValue() == "0") {
+      ds_resultsCopinoOut2.removeAll();
+      if (chk_crryInCopino.checked) {
+        var v_features = "copyHeader=yes,rowFrom=1,rowCnt=1";
+        $c.gus.cfCopyDataSet($p, ds_resultsCopinoIn2, ds_resultsCopinoIn, v_features);
+        await scwin.tr_retrieve2();
+      }
+    }
+  }
+  ;
+  if (ds_resultsCopinoOut.getRowCount() == 0 && ds_resultsCopinoIn.getRowCount() > 0) {
+    //alert("1");
+    // 반출 DataSet 헤더선언
+    ds_resultsCopinoOut.removeAll();
+    //ds_resultsCopinoOut.AddRow();
+    //f_defaultValue();
+    cbx_crryOutCopino.setValue(0);
+    cbx_crryInCopino.setValue(1);
+    ica_crryinoutDt1.setValue("");
+    ed_crryinoutHh1.setValue("");
+    ica_vsslArrvlportYr1.setValue("");
+    ed_sndClsCd1.setValue("");
+    ed_sndDtHh1.setValue("");
+    scwin.f_switchTransYn(1);
+    scwin.f_switchTransYn(2);
+  } else if (ds_resultsCopinoIn.getRowCount() == 0 && ds_resultsCopinoOut.getRowCount() > 0) {
+    //alert("2");
+    ds_resultsCopinoIn.removeAll();
+    //ds_resultsCopinoIn.AddRow();
+    //f_defaultValue();
+    cbx_crryOutCopino.setValue("1");
+    cbx_crryInCopino.setValue("0");
+    ed_sndClsCd2.setValue("");
+    ica_crryinoutDt2.setValue("");
+    ed_crryinoutHh2.setValue("");
+    ica_vsslArrvlportYr2.setValue("");
+    ed_sndDtHh2.setValue("");
+    scwin.f_switchTransYn(1);
+    scwin.f_switchTransYn(2);
+  } else if (ds_resultsCopinoIn.getRowCount() == 0 && ds_resultsCopinoOut.getRowCount() == 0) {
+    //alert("3");
+
+    ds_resultsCopinoOut.removeAll();
+    //ds_resultsCopinoOut.AddRow();
+    ds_resultsCopinoIn.removeAll();
+    //ds_resultsCopinoIn.AddRow();
+    //f_defaultValue();
+
+    cbx_crryOutCopino.setValue("0");
+    cbx_crryInCopino.setValue("0");
+    scwin.f_switchTransYn(1);
+    scwin.f_switchTransYn(2);
+  } else if (ds_resultsCopinoIn.getRowCount() > 0 && ds_resultsCopinoOut.getRowCount() > 0) {
+    //alert("4");
+    cbx_crryOutCopino.setValue("1");
+    cbx_crryInCopino.setValue("1");
+    scwin.f_switchTransYn(1);
+    scwin.f_switchTransYn(2);
+    //scwin.f_disableObjects(); // 비활성 컴퍼넌트
+  } else {
+    //alert("7");
+  }
+
+  /*else if(ds_resultsCopinoIn.CountRow > 0 && ds_resultsCopinoOut.CountRow == 0){
+      //alert("4");
+      //ds_resultsCopinoOut.ClearData();
+      //ds_resultsCopinoOut.AddRow();
+      chk_crryInCopino.checked = true;
+      f_switchTransYn(1);
+      f_switchTransYn(2);
+      f_disableObjects(); // 비활성 컴퍼넌트
+  }else if(ds_resultsCopinoOut.CountRow > 0 && ds_resultsCopinoIn.CountRow == 0 ){
+      //ds_resultsCopinoIn.ClearData();
+      //ds_resultsCopinoIn.AddRow();
+      //alert("5");
+      chk_crryOutCopino.checked = true;
+      f_switchTransYn(1);
+      f_switchTransYn(2);
+      f_disableObjects(); // 비활성 컴퍼넌트
+  }*/
+
+  // 조회 결과시 온도 컴퍼넌트  활성여부
+  if (acb_temperCls2.getSelectedIndex() == 1) {
+    // DRY
+    $c.gus.cfDisableObjects($p, [ed_frzTemper2]);
+  } else {
+    // CELL OR FAH
+
+    $c.gus.cfEnableObjects($p, [ed_frzTemper2]);
+  }
+
+  // 조회 결과시 BL, BK 컴퍼넌트 활성여부
+  var v_expimpClsCd1 = acb_expimpClsCd1.getValue(); // 수출입구분1
+  var v_expimpClsCd2 = acb_expimpClsCd2.getValue(); // 수출입구분2
+
+  if (v_expimpClsCd1 == "E") {
+    $c.guscfDisableObjects([ed_blNo1]);
+  } else if (v_expimpClsCd1 == "I") {
+    $c.gus.cfDisableObjects($p, [ed_bookingNo1]);
+  }
+  if (v_expimpClsCd2 == "E") {
+    $c.gus.cfDisableObjects($p, [ed_blNo2]);
+  } else if (v_expimpClsCd2 == "I") {
+    $c.gus.cfDisableObjects($p, [ed_bookingNo2]);
+  }
+
+  // 조회 결과시 E/F 컴퍼넌트 활성여부
+  var v_fullEmptyClsCd1 = acb_fullEmptyClsCd1.getValue(); // 수출입구분1
+  var v_fullEmptyClsCd2 = acb_fullEmptyClsCd2.getValue(); // 수출입구분2
+
+  if (v_fullEmptyClsCd1 == "4") {
+    $c.gus.cfDisableObjects($p, [ed_sealNo1]);
+  } else if (v_fullEmptyClsCd1 == "5") {
+    $c.gus.cfEnableObjects($p, [ed_sealNo1]);
+  }
+  if (v_fullEmptyClsCd2 == "4") {
+    $c.gus.cfDisableObjects($p, [ed_sealNo2]);
+  } else if (v_fullEmptyClsCd2 == "5") {
+    $c.gus.cfEnableObjects($p, [ed_sealNo2]);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 필수값체크
+//-------------------------------------------------------------------------
+scwin.f_validate = async function () {
+  //반출
+  if (ds_resultsCopinoOut.getRowCount() > 0 && !$c.gus.cfIsNull($p, ds_resultsCopinoOut.getCellData(0, "transDstFrom"))) {
+    var rtn = await $c.gus.cfValidate($p, [tb_crryOutCopino]);
+    if (!rtn) {
+      return false;
+    }
+    //--->
+    if (!cfIsNull(ed_transDstFrom1.getValue())) {
+      // 출발지 설정
+      hid_comp.set("hid_startPoint1", ed_transDstFrom1.getValue());
+      if (ed_transDstFrom1.getValue() == "6P42") {
+        // CY 가 울산정일부두(6P42) 인 경우 : 화주 필수 입력
+        ed_mchtCd1.setMandatory(true);
+        ed_mchtCd1.validExp = "화주:yes";
+        // CY 가 울산정일부두(6P42) 인 경우 : 컨테이너번호 옵션
+        ed_cntrNo1.setMandatory(false);
+        ed_cntrNo1.setValue("");
+      } else if (ed_transDstFrom1.getValue() == "6P14" || ed_transDstFrom1.getValue() == "6P12") {
+        //  CY 가 허치슨감만T(6P14)/HBCT(6P12) 인 경우 : 컨테이너번호 <- ZZZZ1234567
+        if (acb_fullEmptyClsCd2.getValue() == "4") {
+          ed_cntrNo1.setMandatory(true);
+          ed_cntrNo1.setValue("ZZZZ1234567");
+        }
+      } else if (ed_transDstFrom1.getValue() == "6P42") {
+        // CY 가 울산6부두[UCTC] (6P36) 인 경우 : EMPTY
+        ed_cntrNo1.setMandatory(true);
+        ed_cntrNo1.setValue("EMPTY");
+      } else {
+        // 기타 작업장 : 컨테이너 필수 입력
+        ed_cntrNo1.setMandatory(true);
+      }
+      if (ed_transDstFrom1.getValue() == "6P13") {
+        // CY 가 PECT(6P36) 인 경우 : 샤시위치정보 필수
+        acb_chassisPosInfo1.mandatory = "true";
+      } else {
+        // 기타 작업장 : 샤시위치정보 선택
+        acb_chassisPosInfo1.setMandatory(true);
+      }
+    }
+    ;
+    if (ed_transDstFrom1.getValue().substring(1, 2) == DsConstants.WRK_PL_CLS_CD_PORT) {
+      // CY 가 부두인 경우 : OPERATOR 필수 입력
+      // ed_shpCoCd1.validExp="OPERATOR:yes";
+    }
+    if (!$c.gus.cfIsNull($p, ed_transDstFrom1.getValue())) {
+      // 수신자 <- 출발지 설정
+      hid_comp.set("hid_rcv1", ed_transDstFrom1.getValue());
+      //hid_rcv1.value = ed_transDstFrom1.Text;
+    } else {
+      hid_comp.set("hid_rcv1", "");
+    }
+    if (ed_tmlVsslPortcnt1.getValue().length == 5) {
+      // alert("k1"+ed_tmlVsslPortcnt2.Text.substring(0,3) +" " + ed_tmlVsslPortcnt2.Text.substring(3,5));
+
+      ds_resultsCopinoOut.setCellData(0, "tmlVsslPortcnt", ed_tmlVsslPortcnt1.getValue().substring(0, 3) + " " + ed_tmlVsslPortcnt1.getValue().substring(3, 5));
+      //  alert("k2"+ds_resultsCopinoIn.NameValue(1, "tmlVsslPortcnt"));
+    }
+    ;
+    hid_comp.set("hid_crryinoutDtmMint1", ica_crryinoutDt1.getValue() + ed_crryinoutHh1.getValue());
+
+    //[사전정보그룹구분=터미널]이면 차량ID를 입력받아야함
+    if (ds_resultsCopinoOut.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_TM && ds_resultsCopinoOut.getCellData(0, "vehclIdCardNo") == "") {
+      $c.gus.cfAlertMsg($p, "[사전정보그룹구분]이 터미널 일때 [차량ID카드번호]는 필수입니다");
+      return false;
+    }
+    if (cbx_crryOutCopino.getValue() == "1") {
+      var v_features = "copyHeader=yes,rowFrom=1,rowCnt=1";
+      $c.gus.cfCopyDataSet($p, ds_resultsCopinoOut, ds_resultsCopinoOut2, v_features);
+    }
+    if (chk_crryOutCopino.getValue() == "0") {
+      ds_resultsCopinoOut2.removeAll();
+    }
+
+    /*
+            if (ed_vehclNoFull1.Text.length != 9){
+                alert("차량번호는 FULL NAME을 정확히 입력하세요  예)경기98자1234");
+                return false;
+            }else{
+                    //가운데 숫자체크
+                    if (Number(ed_vehclNoFull1.Text.substring(2,4))>= 00 && Number(ed_vehclNoFull1.Text.substring(2,4)) <=99 && ed_vehclNoFull1.Text.substring(2,4).length == 2){
+                    //alert("OK");
+                    }else{
+                    alert("세번째 네번째는 숫자이어야 합니다. ");
+                    return false;
+                    }
+                    //마지막 네자리 숫자 체트
+                    if (Number(ed_vehclNoFull1.Text.substring(5,10))>= 0000 && Number(ed_vehclNoFull1.Text.substring(5,10)) <=9999 && ed_vehclNoFull1.Text.substring(5,10).length == 4){
+                    //alert("OK");
+                    }else{
+                    alert("끝에 네자리는 숫자이어야 합니다. ");
+                    return false;
+                    }
+    
+                    //처음2자리 문자자체크
+    
+                    var kk = ed_vehclNoFull1.Text.substring(0,2) ;
+    
+                    if ( kk == null ){
+                    return false ;
+                    }
+    
+                    for(var i=0; i < kk.length; i++){
+    
+                        var c=kk.charCodeAt(i);
+                        if( !( ( 0xAC00 <= c && c <= 0xD7A3 ) || ( 0x3131 <= c && c <= 0x318E ) ) ) {
+                        alert("처음2자리 한글이어야 합니다.!!! ");
+                        return false ;
+                        }
+                    }
+                    //가운데1자리 문자자체크
+    
+                    var kkk = ed_vehclNoFull1.Text.substring(4,5) ;
+    
+                    if ( kkk == null ){
+                    return false ;
+                    }
+    
+                    for(var i=0; i < kkk.length; i++){
+    
+                        var c=kkk.charCodeAt(i);
+                        if( !( ( 0xAC00 <= c && c <= 0xD7A3 ) || ( 0x3131 <= c && c <= 0x318E ) ) ) {
+                        alert("다서번째는 한글이어야 합니다.!!! ");
+                        return false ;
+                        }
+                    }
+            }    */
+
+    if (ed_sizTyp1.getValue() == "2210" || ed_sizTyp1.getValue() == "2270" || ed_sizTyp1.getValue() == "2232" || ed_sizTyp1.getValue() == "2251" || ed_sizTyp1.getValue() == "2264" || ed_sizTyp1.getValue() == "4310" || ed_sizTyp1.getValue() == "4370" || ed_sizTyp1.getValue() == "4332" || ed_sizTyp1.getValue() == "4351" || ed_sizTyp1.getValue() == "4364" || ed_sizTyp1.getValue() == "4510" || ed_sizTyp1.getValue() == "9510" || ed_sizTyp1.getValue() == "4532" || ed_sizTyp1.getValue() == "4350" || ed_sizTyp1.getValue() == "2250") {} else {
+      $c.win.alert($p, "SIZ/TYPE을 정확하게 입력하세요!!!");
+      ed_sizTyp1.focus();
+      return false;
+    }
+  }
+  ;
+
+  //반입
+  //alert("kkk::"+ds_resultsCopinoIn.ExportData(1,ds_resultsCopinoIn.CountRow,true));
+  if (ds_resultsCopinoIn.getRowCount() > 0 && !$c.gus.cfIsNull($p, ds_resultsCopinoIn.getCellData(0, "transDstTo"))) {
+    var rtn = await $c.gus.cfValidate($p, [tb_crryInCopino]);
+    if (!rtn) {
+      return false;
+    }
+    ;
+
+    //--->
+    if (!$c.gus.cfIsNull($p, ed_transDstTo2.getValue())) {
+      // 수신자 <- 도착지 설정
+      hid_comp.set("hid_rcv2", ed_transDstTo2.getValue());
+      // hid_rcv2.value = ed_transDstTo2.Text;
+    } else {
+      hid_comp.set("hid_rcv2", "");
+    }
+    ;
+    //<---
+
+    if (ed_tmlVsslPortcnt2.getValue().length == 5) {
+      // alert("k1"+ed_tmlVsslPortcnt2.Text.substring(0,3) +" " + ed_tmlVsslPortcnt2.Text.substring(3,5));
+
+      ds_resultsCopinoIn.setCellData(0, "tmlVsslPortcnt", ed_tmlVsslPortcnt2.getValue().substring(0, 3) + " " + ed_tmlVsslPortcnt2.getValue().substring(3, 5));
+      //  alert("k2"+ds_resultsCopinoIn.NameValue(1, "tmlVsslPortcnt"));
+    }
+    ;
+    hid_comp.set("hid_crryinoutDtmMint2", ica_crryinoutDt2.getValue() + ed_crryinoutHh2.getValue());
+
+    //[full/empty구분=full]이면 WEIGHT를 입력받아야함
+    if (ds_resultsCopinoIn.getCellData(0, "fullEmptyClsCd") == DsConstants.EDI_FULL_EMPTY_CLS_FULL && (ds_resultsCopinoIn.getCellData(0, "totWt") == 0 || ds_resultsCopinoIn.getCellData(0, "totWt") == "")) {
+      $c.gus.cfAlertMsg($p, "[E/F] 구분이 FULL 일때 [WEIGHT]는 필수입니다");
+      return false;
+    }
+    //[사전정보그룹구분=터미널]이면 차량ID를 입력받아야함
+    if (ds_resultsCopinoIn.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_TM && ds_resultsCopinoIn.getCellData(0, "vehclIdCardNo") == "") {
+      $c.gus.cfAlertMsg($p, "[사전정보그룹구분]이 터미널 일때 [차량ID카드번호]는 필수입니다");
+      return false;
+    }
+    //[사전정보그룹구분=터미널]이면 모선/항차를 입력받아야함
+    if (ds_resultsCopinoIn.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_TM && ds_resultsCopinoIn.getCellData(0, "tmlVsslPortcnt") == "") {
+      $c.gus.cfAlertMsg($p, "[사전정보그룹구분]이 터미널 일때 [모선/항차]는 필수입니다");
+      return false;
+    }
+    //[full/empty구분=full]이면 SEAL NO를 입력받아야함
+
+    if (cbx_crryInCopino.getValue() == "1") {
+      var v_features = "copyHeader=yes,rowFrom=1,rowCnt=1";
+      $c.gus.cfCopyDataSet($p, ds_resultsCopinoIn, ds_resultsCopinoIn2, v_features);
+    }
+    if (cbx_crryInCopino.getValue() == "0") {
+      ds_resultsCopinoIn2.removeAll();
+    }
+    ;
+
+    /*
+    if (ed_vehclNoFull2.Text.length != 9){
+        alert("차량번호는 FULL NAME을 정확히 입력하세요  예)경기98자1234");
+        return false;
+    }else{
+            //가운데 숫자체크
+            if (Number(ed_vehclNoFull2.Text.substring(2,4))>= 00 && Number(ed_vehclNoFull2.Text.substring(2,4)) <=99 && ed_vehclNoFull2.Text.substring(2,4).length == 2){
+            //alert("OK");
+            }else{
+            alert("세번째 네번째는 숫자이어야 합니다. ");
+            return false;
+            }
+            //마지막 네자리 숫자 체트
+            if (Number(ed_vehclNoFull2.Text.substring(5,10))>= 0000 && Number(ed_vehclNoFull2.Text.substring(5,10)) <=9999 && ed_vehclNoFull2.Text.substring(5,10).length == 4 ){
+            //alert("OK");
+            }else{
+            alert("끝에 네자리는 숫자이어야 합니다. ");
+            return false;
+            }
+             //처음2자리 문자자체크
+            var kk = ed_vehclNoFull2.Text.substring(0,2) ;
+             if ( kk == null ){
+            return false ;
+            }
+             for(var i=0; i < kk.length; i++){
+                 var c=kk.charCodeAt(i);
+                 if( !( ( 0xAC00 <= c && c <= 0xD7A3 ) || ( 0x3131 <= c && c <= 0x318E ) ) ) {
+                alert("처음2자리 한글이어야 합니다.!!! ");
+                return false ;
+                }
+            }
+            //가운데1자리 문자자체크
+            var kkk = ed_vehclNoFull2.Text.substring(4,5) ;
+             if ( kkk == null ){
+            return false ;
+            }
+             for(var i=0; i < kkk.length; i++){
+                 var c=kkk.charCodeAt(i);
+                 if( !( ( 0xAC00 <= c && c <= 0xD7A3 ) || ( 0x3131 <= c && c <= 0x318E ) ) ) {
+                alert("다서번째는 한글이어야 합니다.!!! ");
+                return false ;
+                }
+            }
+    }*/
+
+    if (ed_sizTyp2.getValue() == "2210" || ed_sizTyp2.getValue() == "2270" || ed_sizTyp2.getValue() == "2232" || ed_sizTyp2.getValue() == "2251" || ed_sizTyp2.getValue() == "2264" || ed_sizTyp2.getValue() == "4310" || ed_sizTyp2.getValue() == "4370" || ed_sizTyp2.getValue() == "4332" || ed_sizTyp2.getValue() == "4351" || ed_sizTyp2.getValue() == "4364" || ed_sizTyp2.getValue() == "4510" || ed_sizTyp2.getValue() == "9510" || ed_sizTyp2.getValue() == "4532" || ed_sizTyp2.getValue() == "4350" || ed_sizTyp2.getValue() == "2250") {} else {
+      $c.win.alert($p, "SIZ/TYPE을 정확하게 입력하세요!!!");
+      ed_sizTyp2.focus();
+      return false;
+    }
+  }
+  if (ed_sizTyp2.getValue() == "2232" || ed_sizTyp2.getValue() == "4332" || ed_sizTyp2.getValue() == "4532") {
+    if (ed_frzTemper2.getValue() == "") {
+      $c.win.alert($p, "냉동컨테이너 입력시 온도는 필수 입력 사항입니다.");
+      ed_frzTemper2.focus();
+      return false;
+    }
+    //if(ed_rmk3.Text == ""){
+    //	alert("냉동컨테이너 입력시 DRY/CEL은 필수 입력 사항입니다.");
+    //	ed_rmk3.Focus();
+    //}
+  }
+  ;
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_save = async function () {
+  // 데이타 바인드 - 연결
+  //bnd_resultsCopinoIn.ActiveBind = true;
+  //bnd_resultsCopinoOut.ActiveBind = true;
+
+  acb_expimpClsCd1.setMandatory(false);
+  //validExp="수출입구분:no";
+  lc_expimpClsCd2.setMandatory(false);
+  //validExp="수출입구분:no";
+  if ($c.gus.cfIsNull($p, ds_resultsCopinoOut.getCellData(0, "transDstFrom")) && $c.gus.cfIsNull($p, ds_resultsCopinoIn.getCellData(0, "transDstTo"))) {
+    $c.gus.cfAlertMsg($p, "저장할 데이터가 없습니다");
+    return;
+  }
+  if (!scwin.f_validate()) {
+    return;
+  }
+
+  //반출
+  if (ds_resultsCopinoOut2.getRowCount() > 0) {
+    // 구분 : 터미널(T), DPCT(Operator Code :OOL 제외)/ DKCT (D), 부산진(J), LG(L), 경인ICD(당사/고려/천일/현대 등등 : K), 한진자가 ()
+    if ($c.gus.cfIsNull($p, ds_resultsCopinoOut2.getCellData(0, "cls"))) {
+      ds_resultsCopinoOut2.setCellData(0, "cls", "T"); // 구분 : 터미널(T)
+    }
+
+    // 송신자 설정
+    if ($c.gus.cfIsNull($p, ds_resultsCopinoOut2.getCellData(0, "snd"))) {
+      ds_resultsCopinoOut2.setCellData(0, "snd", "DBE"); // 송신자 : DEB
+    }
+
+    // 수신자 : 각 터미널, DPCT/DKCT 는 작업장 코드, 경인ICD는 "ICD", LG전자는 "LGE"
+    if ($c.gus.cfIsNull($p, ds_resultsCopinoOut2.getCellData(0, "rcv"))) {
+      ds_resultsCopinoOut2.setCellData(0, "rcv", "DBE"); // 송신자 : DEB
+    }
+
+    // EDI전송구분 : 전송대기(0)
+    if (cfIsNull(ds_resultsCopinoOut2.getCellData(0, "sndClsCd"))) {
+      ds_resultsCopinoOut2.setCellData(0, "sndClsCd", DsConstants.EDI_SND_CLS_CD_SND_WAIT); // EDI전송구분 : 전송대기(0)
+    }
+
+    //전송구분코드 : 전송(0) 추후전송(3)
+    if (ds_resultsCopinoOut2.getCellData(0, "docStsCls") == "") {
+      //문서상태코드 : 원본(9) 수정본(4) 삭제본(3)
+      ds_resultsCopinoOut2.setCellData(0, "docStsCls", DsConstants.EDI_DOC_STS_CLS_ORIG);
+    }
+    if (ds_resultsCopinoOut2.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_SND_COMPLETE) {
+      ds_resultsCopinoOut2.setCellData(0, "docStsCls", DsConstants.EDI_DOC_STS_CLS_CHG);
+    }
+
+    // 반출일시분 설정
+    hid_comp.set("hid_crryinoutDtmMint1", ica_crryinoutDt1.getValue() + ed_crryinoutHh1.getValue());
+
+    //ds_resultsCopinoOut2.setGauceJobType(2);
+    ds_resultsCopinoOut2.setCellData(0, "setGauceJobType", "2");
+    ds_resultsCopinoOut2.setCellData(0, "emcTransCoId", "DBEXC050");
+    ds_resultsCopinoOut2.setCellData(0, "dpctTransCoId", "DBEXC050");
+  }
+  ;
+
+  //반입
+  if (ds_resultsCopinoIn2.getRowCount() > 0) {
+    // 송신자 설정
+    if ($c.gus.cfIsNull($p, ds_resultsCopinoIn2.getCellData(0, "snd"))) {
+      ds_resultsCopinoIn2.setCellData(0, "snd", "DBE"); // 송신자 : DEB
+    }
+
+    // EDI전송구분 : 전송대기(0)
+    if ($c.gus.cfIsNull($p, ds_resultsCopinoIn2.getCellData(0, "sndClsCd"))) {
+      ds_resultsCopinoIn2.setCellData(0, "sndClsCd", DsConstants.EDI_SND_CLS_CD_SND_WAIT); // EDI전송구분 : 전송대기(0)
+    }
+
+    //전송구분코드 : 전송(0) 추후전송(3)
+    if (ds_resultsCopinoIn2.getCellData(0, "docStsCls") == "") {
+      //문서상태코드 : 원본(9) 수정본(4) 삭제본(3)
+      ds_resultsCopinoIn2.setCellData(0, "docStsCls", DsConstants.EDI_DOC_STS_CLS_ORIG);
+    }
+    if (ds_resultsCopinoIn2.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_SND_COMPLETE) {
+      ds_resultsCopinoIn2.setCellData(1, "docStsCls", DsConstants.EDI_DOC_STS_CLS_CHG);
+    }
+    if (ds_resultsCopinoIn2.getCellData(0, "temperCls") != "") {
+      if (ed_frzTemper2.getValue() == null || ed_frzTemper2.getValue() == "") {
+        ds_resultsCopinoIn2.setCellData(0, "temperCls", DsConstants.EDI_TEMPER_CLS_DRY);
+      } else {
+        ds_resultsCopinoIn2.setCellData(0, "temperCls", DsConstants.EDI_TEMPER_CLS_CEL);
+      }
+    } else {
+      ds_resultsCopinoIn2.setCellData(0, "temperCls", "");
+    }
+
+    // 반입일시분 설정
+    hid_comp.set("hid_crryinoutDtmMint2", ica_crryinoutDt2.getValue() + ed_crryinoutHh2.getValue());
+    ds_resultsCopinoIn2.setCellData(0, "setGauceJobType", "2");
+    //ds_resultsCopinoIn2.setGauceJobType(2);
+    ds_resultsCopinoIn2.setCellData(0, "emcTransCoId", "DBEXC050");
+    ds_resultsCopinoIn2.setCellData(0, "dpctTransCoId", "DBEXC050");
+  }
+  ;
+  hid_comp.set("hid_crryinoutDtmMint2", ica_crryinoutDt2.getValue() + ed_crryinoutHh2.getValue());
+
+  //check digit
+
+  if (cbx_crryOutCopino.getValue() == "1") {
+    if (!$c.gus.cfIsNull($p, ed_cntrNo1.getValue()) && ed_cntrNo1.getValue() != "") {
+      if (!dscommon.cf_CheckCntrNo(ed_cntrNo1.getValue())) {
+        $c.gus.cfAlertMsg($p, "유효한 컨테이너번호가 아닙니다"); //유효한 @가 아닙니다
+      }
+    }
+  }
+  if (cbx_crryInCopino.getValue() == "1") {
+    if (!$c.gus.cfIsNull($p, ed_cntrNo2.getValue()) && ed_cntrNo2.getValue() != "") {
+      if (!dscommon.cf_CheckCntrNo(ed_cntrNo2.getValue())) {
+        $c.gus.cfAlertMsg($p, "유효한 컨테이너번호가 아닙니다"); //유효한 @가 아닙니다
+      }
+    }
+  }
+  if (cbx_crryInCopino.getValue() == "0" && cbx_crryOutCopino.getValue() == "0") {
+    $c.gus.cfAlertMsg($p, "저장할 데이터가 없습니다.");
+  } else {
+    var rtn = await $c.win.confirm($p, "저장하시겠습니까?");
+    if (rtn) {
+      scwin.tr_save();
+    } else {}
+  }
+};
+scwin.retrieveWrkPlInfoEdi_tproCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_transDstFrom1, ed_transDstFromNm1, [hid_transDstFromWrkPlCd1]);
+};
+scwin.retrieveWrkPlInfoEdi_tproCb2 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_transDstTo2, ed_transDstToNm2, [hid_transDstToWrkPlCd2]);
+};
+scwin.retrieveWrkPlInfo2_tproCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_transDstTo1, ed_transDstToNm1);
+};
+scwin.retrieveWrkPlInfo2_tproCb2 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_transDstFrom2, ed_transDstFromNm2);
+};
+scwin.retrieveEdiMappingList_tproCb = function (rtnList) {
+  if (!$c.gus.cfIsNull($p, rtnList) && rtnList[0] != "N/A") {
+    ed_mchtCd1.setValue(rtnList[2]);
+    ed_mchtNm1.setValue(rtnList[3]);
+  } else {
+    ed_mchtCd1.setValue("");
+    ed_mchtNm1.setValue("");
+  }
+};
+scwin.retrieveBilgMchtList_tproCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_mchtCd1, ed_mchtNm1);
+};
+scwin.retrieveEdiMappingList_tproCb2 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_sizTyp1, hid_sizTyp1);
+};
+scwin.retrieveEdiMappingList_tproCb3 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_sizTyp2, hid_sizTyp2);
+};
+scwin.retrieveEdiMappingList_tproCb4 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_shpCoCd1, null);
+};
+scwin.retrieveEdiMappingList_tproCb5 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_shpCoCd2, null);
+};
+scwin.retrievePortInfo_tproCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_dchrPort2, ed_dchrPortNm2);
+};
+scwin.retrieveConteinerNoCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_cntrNo1, null);
+};
+scwin.retrieveConteinerNoCb2 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_cntrNo2, null);
+};
+scwin.retrieveEdiMappingListCb = function (rtnList) {
+  if (!$c.gus.cfIsNull($p, rtnList) && rtnList[0] != "N/A") {
+    ed_mchtCd2.setValue(rtnList[2]);
+    ed_mchtNm2.setValue(rtnList[3]);
+  } else {
+    ed_mchtCd2.setValue("");
+    ed_mchtNm2.setValue("");
+  }
+  ;
+};
+scwin.retrieveBilgMchtList_tproCb2 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_mchtCd2, ed_mchtNm2);
+};
+scwin.retrieveCarKindClntInfo_tproCb = function (rtnList) {
+  debugger;
+  $c.gus.cfSetReturnValue($p, rtnList, ed_transCoCd1, ed_suitCoTransCoNm1);
+};
+scwin.retrieveCarKindClntInfo_tproCb2 = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_transCoCd2, ed_suitCoTransCoNm2);
+};
+scwin.retrieveOsideCdCb = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_bondYardCd, ed_bondYardNm);
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  // 선언부
+  var rtnList; // 공통POP-UP -> 요청화면
+  var pWhere;
+  var pTitle;
+  switch (disGubun) {
+    case 0:
+      pWhere = ",,,," + DsConstants.YN_YES;
+      pTitle = "수신처(반출),수신처코드,수신처명";
+      //pClose = "T";
+
+      // CY (반출)
+      udc_transDst1.setSelectId('retrieveWrkPlInfoEdi_tpro');
+      rtnList = udc_transDst1.cfCommonPopUp(scwin.retrieveWrkPlInfoEdi_tproCb // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      if (!$c.gus.cfIsNull($p, ed_transDstFrom1.getValue())) {
+        // 출발지 설정
+        hid_comp.set("hid_startPoint1", ed_transDstFrom1.getValue());
+        if (ed_transDstFrom1.getValue() == "6P42") {
+          // CY 가 울산정일부두(6P42) 인 경우 : 화주 필수 입력
+          acb_mchtCd1.setMandatory(true);
+          //ed_mchtCd1.validExp="화주:yes";
+
+          // CY 가 울산정일부두(6P42) 인 경우 : 컨테이너번호 옵션
+          ed_cntrNo1.setMandatory(false);
+          //ed_cntrNo1.validExp="컨테이너번호:no";
+          ed_cntrNo1.setValue("");
+        } else if (ed_transDstFrom1.getValue() == "6P14" || ed_transDstFrom1.getValue() == "6P12") {
+          //  CY 가 허치슨감만T(6P14)/HBCT(6P12) 인 경우 : 컨테이너번호 <- ZZZZ1234567
+          ed_cntrNo1.setMandatory(true);
+          //ed_cntrNo1.validExp="컨테이너번호:yes";
+          ed_cntrNo1.setValue("ZZZZ1234567");
+        } else if (ed_transDstFrom1.getValue() == "6P42") {
+          // CY 가 울산6부두[UCTC] (6P36) 인 경우 : EMPTY
+          ed_cntrNo1.setMandatory(true);
+          // ed_cntrNo1.validExp="컨테이너번호:yes";
+          ed_cntrNo1.setValue("EMPTY");
+        } else {
+          // 기타 작업장 : 컨테이너 필수 입력
+          ed_cntrNo1.setMandatory(true);
+          //ed_cntrNo1.validExp="컨테이너번호:yes";
+        }
+        if (ed_transDstFrom1.getValue() == "6P13") {
+          // CY 가 PECT(6P36) 인 경우 : 샤시위치정보 필수
+          acb_chassisPosInfo1.setMandatory(true);
+          // lc_chassisPosInfo1.validExp="샤시위치정보:yes";
+        } else {
+          // 기타 작업장 : 샤시위치정보 선택
+          acb_chassisPosInfo1.setMandatory(false);
+          //lc_chassisPosInfo1.validExp="샤시위치정보:no";
+        }
+      }
+      if (!$c.gus.cfIsNull($p, hid_transDstFromWrkPlCd1.getValue())) {
+        if (hid_comp.get(hid_transDstFromWrkPlCd1.getValue()) == DsConstants.WRK_PL_CLS_CD_PORT) {
+          // CY 가 부두인 경우 : OPERATOR 필수 입력
+          //ed_shpCoCd1.validExp="OPERATOR:yes";
+        }
+      }
+      if (!$c.gus.cfIsNull($p, ed_transDstFrom1.getValue())) {
+        // 수신자 <- 출발지 설정
+        hid_comp.set("hid_rcv1", ed_transDstFrom1.getValue());
+      } else {
+        hid_comp.set("hid_rcv1", "");
+      }
+      ;
+      break;
+    case 1:
+      pWhere = ",,,," + DsConstants.YN_YES;
+      pTitle = "수신처(반입),수신처코드,수신처명";
+      //pClose = "T";
+      pAllSearch = "T";
+      // CY (반입)
+      //'retrieveWrkPlInfoEdi_tpro'
+      ed_transDst2.setSelectId("retrieveWrkPlInfoEdi_tpro");
+      rtnList = ed_transDst2.cfCommonPopUp(scwin.retrieveWrkPlInfoEdi_tproCb2 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      if (!$c.gus.cfIsNull($p, ed_transDstTo2.getValue())) {
+        // 수신자 <- 도착지 설정
+        hid_comp.set("hid_rcv2", ed_transDstTo2.getValue());
+      } else {
+        hid_comp.set("hid_rcv2", "");
+      }
+      break;
+    case 2:
+      pWhere = "";
+      pTitle = "도착지(반출),도착지코드,도착지명";
+      //pClose = "T";
+      //'retrieveWrkPlInfo2_tpro'
+      //도착지
+      ed_transDst1.setSelectId("retrieveWrkPlInfo2_tpro");
+      rtnList = ed_transDst1.cfCommonPopUp(scwin.retrieveWrkPlInfo2_tproCb // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "도착지코드,도착지명" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //ed_transDstToNm1.Text = hid_transDstToNm1.value;
+
+      break;
+    case 3:
+      pWhere = "";
+      pTitle = "출발지(반입),출발지코드,출발지명";
+      //pClose = "T";
+      //'retrieveWrkPlInfo2_tpro'
+      //출발지
+      rtnList = cfCommonPopUp(scwin.retrieveWrkPlInfo2_tproCb2 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "출발지코드,출발지명" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //ed_transDstFromNm2.Text = hid_transDstFromNm2.value;
+
+      break;
+    case 4:
+      //반출 화주코드
+      if (ds_resultsCopinoOut.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_LG) {
+        //EDI 수신자ID팝업 사용
+        var pWhere = "OSIDE_CD2," + ds_resultsCopinoOut.getCellData(0, "transDstFrom") + ",RCVR,COPINO";
+        //'retrieveEdiMappingList_tpro'
+        //pClose = "T";
+        ed_mcht1.setSelectId("retrieveEdiMappingList_tpro");
+        rtnList = ed_mcht1.cfCommonPopUp(scwin.retrieveEdiMappingList_tproCb // XML상의 SELECT ID
+        , pCode.trim() // 화면에서의 ??? Code Element의	Value
+        , pName.trim() // 화면에서의 ??? Name Element의	Value
+        , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+        , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null // Title순서
+        , null // 보여주는 각 컬럼들의 폭
+        , null // 컬럼중에서 숨기는	컬럼 지정
+        , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+        , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+        , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+        , null // 윈도우 위치 Y좌표
+        , null // 윈도우 위치 X좌표
+        , null // 중복체크여부	("F")
+        , pAllSearch // 전체검색허용여부	("F")
+        , null);
+      } else {
+        //pClose = "T";
+        //[반출, 출발작업장의 사전정보그룹구분코드 = LG] 이면 거래처팝업 사용
+        ed_mcht1.setSelectId("retrieveEdiMappingList_tpro");
+        rtnList = ed_mcht1.cfCommonPopUp(scwin.retrieveBilgMchtList_tproCb // XML상의 SELECT ID
+        , pCode.trim() // 화면에서의 ??? Code Element의	Value
+        , pName.trim() // 화면에서의 ??? Name Element의	Value
+        , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+        , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null // Title순서
+        , null // 보여주는 각 컬럼들의 폭
+        , null // 컬럼중에서 숨기는	컬럼 지정
+        , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+        , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+        , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+        , null // 윈도우 위치 Y좌표
+        , null // 윈도우 위치 X좌표
+        , null // 중복체크여부	("F")
+        , pAllSearch // 전체검색허용여부	("F")
+        , null // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+      }
+      break;
+    case 5:
+      // SIZE/TYPE (반출)
+      pWhere = "OSIDE_CD1,,CNTRT,COPINO";
+      pTitle = "컨테이너규격,코드,SIZE/TYPE";
+      //pClose = "T";
+      //'retrieveEdiMappingList_tpro'
+      rtnList = cfCommonPopUp(scwin.retrieveEdiMappingList_tproCb2 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "코드,SIZE/TYPE" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //alert(ed_sizTyp1.Text.substring(2,3));
+      //if(ed_sizTyp1.Text.substring(2,3) == "3"){
+      //	lc_rmk3.Index = 1;
+      //}
+
+      break;
+    case 6:
+      // SIZE/TYPE (반입)
+      pWhere = "OSIDE_CD1,,CNTRT,COPINO";
+      pTitle = "컨테이너규격,코드,SIZE/TYPE";
+      //pClose = "T";
+      //'retrieveEdiMappingList_tpro'
+      rtnList = cfCommonPopUp(scwin.retrieveEdiMappingList_tproCb3 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "코드,SIZE/TYPE" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //alert(ed_sizTyp2.Text.substring(2,3));
+      if (ed_sizTyp2.getValue().substring(2, 3) == "3") {
+        // CELL
+        ed_frzTemper2.setDisabled(false);
+        ed_frzTemper2.setReadOnly(false);
+        acb_temperCls2.setSelectedIndex(2);
+        acb_temperCls2.setDisabled(false);
+        $c.gus.cfEnableObjects($p, [ed_frzTemper2]);
+        $c.gus.cfEnableObjects($p, [acb_temperCls2]);
+      } else {
+        // DRY
+        ed_frzTemper2.setDisabled(true);
+        ed_frzTemper2.setReadOnly(true);
+        acb_temperCls2.setSelectedIndex(1);
+        //cfDisableObjects([ed_frzTemper2]);
+        //cfDisableObjects([lc_temperCls2]);
+        acb_temperCls2.setReadOnly(true);
+        acb_temperCls2.setDisabled(true);
+      }
+      if (!$c.gus.cfIsNull($p, hid_sizTyp2.getValue())) {
+        //alert("a" + hid_sizTyp2.value.substr(2,2));
+        // 컨테이너 TYPE 이 RF 인경우만 입력가능
+        if (hid_sizTyp2.getValue().substr(2, 2) == "RF" || hid_sizTyp2.getValue().substr(2, 2) == "RH") {
+          ed_frzTemper2.setReadOnly(false); // 냉동온도
+          hid_comp.set("hid_temperCls2", "CEL"); // 온도구분
+          ed_frzTemper2.setMandatory(true);
+          acb_temperCls2.setMandatory(true);
+          //cfEnableObjects([ed_frzTemper2]);
+          //cfEnableObjects([lc_temperCls2]);
+        } else {
+          ed_frzTemper2.setValue("");
+          ed_frzTemper2.setReadOnly(true); // 냉동온도
+          hid_comp.set("hid_temperCls2", ""); // 온도구분
+          acb_temperCls2.setSelectedIndex(1);
+          ed_frzTemper2.setMandatory(false);
+          acb_temperCls2.setMandatory(false);
+          //cfDisableObjects([ed_frzTemper2]);
+          //cfDisableObjects([lc_temperCls2]);
+        }
+      } else {
+        //td_frzTemper2.innerText = "";
+        ed_frzTemper2.show();
+      }
+      ;
+      break;
+    case 7:
+      if ($c.gus.cfIsNull($p, ed_transDstFrom1.getValue())) {
+        $c.gus.cfAlertMsg($p, MSG_CM_WRN_003, new Array("CY")); // "@을(를) 입력하십시오.";
+        return;
+      }
+      pWhere = "OSIDE_CD1," + ed_transDstFrom1.getValue() + ",OPRCD";
+      pTitle = ed_transDstFromNm1.getValue() + " OPERATOR,CODE,LINE";
+      //pClose = "T";
+
+      // OPERATOR (반출)
+      //'retrieveEdiMappingList_tpro'
+      rtnList = cfCommonPopUp(scwin.retrieveEdiMappingList_tproCb4 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "CODE,LINE" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      cfSetReturnValue(rtnList, ed_shpCoCd1, null);
+      break;
+    case 8:
+      if ($c.gus.cfIsNull($p, ed_transDstTo2.getValue())) {
+        $c.gus.cfAlertMsg($p, MSG_CM_WRN_003, new Array("CY")); // "@을(를) 입력하십시오.";
+        return;
+      }
+      pWhere = "OSIDE_CD1," + ed_transDstTo2.getValue() + ",OPRCD";
+      pTitle = ed_transDstToNm2.getValue() + " OPERATOR,CODE,LINE";
+      //pClose = "T";
+      //'retrieveEdiMappingList_tpro'
+      // OPERATOR (반입)
+      rtnList = cfCommonPopUp(scwin.retrieveEdiMappingList_tproCb5 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "CODE,LINE" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case 9:
+      pTitle = "양하항,양하항코드,양하항명";
+      //pClose = "T";
+
+      // 양하항 - 항구 (반입)
+      //  'retrievePortInfo_tpro'
+      rtnList = cfCommonPopUp(scwin.retrievePortInfo_tproCb // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "양하항코드, 양하하명" // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //alert(hid_dchrPortNm2.value);
+      //ed_dchrPortNm2.text = hid_dchrPortNm2.value;
+
+      break;
+    case 10:
+      pTitle = "컨테이너(반출),컨테이너번호,오더번호";
+      //pClose = "T";
+
+      // 컨테이너번호 (반출)
+      //  'retrieveConteinerNo'
+      rtnList = cfCommonPopUp(scwin.retrieveConteinerNoCb // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      cfSetReturnValue(rtnList, ed_cntrNo1, null);
+      break;
+    case 11:
+      pTitle = "컨테이너(반입),컨테이너번호,오더번호";
+      //pClose = "T";
+
+      // 컨테이너번호 (반입)
+      // 'retrieveConteinerNo'
+      rtnList = cfCommonPopUp(scwin.retrieveConteinerNoCb2 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case 12:
+      //반입 화주코드
+      if (ds_resultsCopinoIn.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_LG) {
+        //EDI 수신자ID팝업 사용
+        var pWhere = "OSIDE_CD2," + ds_resultsCopino2.getCellData(0, "transDstFrom") + ",RCVR,COPINO";
+        //pClose = "T";
+        //  'retrieveEdiMappingList'
+        ed_mcht2.setSelectId("retrieveEdiMappingList");
+        rtnList = ed_mcht2.cfCommonPopUp(scwin.retrieveEdiMappingListCb // XML상의 SELECT ID
+        , pCode // 화면에서의 ??? Code Element의	Value
+        , pName // 화면에서의 ??? Name Element의	Value
+        , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+        , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null // Title순서
+        , null // 보여주는 각 컬럼들의 폭
+        , null // 컬럼중에서 숨기는	컬럼 지정
+        , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+        , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+        , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+        , null // 윈도우 위치 Y좌표
+        , null // 윈도우 위치 X좌표
+        , null // 중복체크여부	("F")
+        , pAllSearch // 전체검색허용여부	("F")
+        , null // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+      } else {
+        //pClose = "T";
+        //[반출, 출발작업장의 사전정보그룹구분코드 = LG] 이면 거래처팝업 사용
+        // 'retrieveBilgMchtList_tpro'
+        ed_mcht2.setSelectId("retrieveBilgMchtList_tpro");
+        rtnList = ed_mcht2.cfCommonPopUp(scwin.retrieveBilgMchtList_tproCb2 // XML상의 SELECT ID
+        , pCode // 화면에서의 ??? Code Element의	Value
+        , pName // 화면에서의 ??? Name Element의	Value
+        , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+        , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+        , null // Title순서
+        , null // 보여주는 각 컬럼들의 폭
+        , null // 컬럼중에서 숨기는	컬럼 지정
+        , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+        , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+        , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+        , null // 윈도우 위치 Y좌표
+        , null // 윈도우 위치 X좌표
+        , null // 중복체크여부	("F")
+        , pAllSearch // 전체검색허용여부	("F")
+        , null // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+        );
+      }
+      break;
+    case 13:
+      pTitle = "운송사, 운송사코드, 운송사명";
+      //pClose = "T";
+      //'retrieveCarKindClntInfo_tpro'
+      // 운송사
+      ed_transCo1.setSelectId("retrieveCarKindClntInfo_tpro");
+      rtnList = ed_transCo1.cfCommonPopUp(scwin.retrieveCarKindClntInfo_tproCb // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case 14:
+      pTitle = "운송사, 운송사코드, 운송사명";
+      //pClose = "T";
+      //'retrieveCarKindClntInfo_tpro'
+      // 운송사
+      ed_transCo2.setSelectId("retrieveCarKindClntInfo_tpro");
+      rtnList = ed_transCo2.cfCommonPopUp(scwin.retrieveCarKindClntInfo_tproCb2 // XML상의 SELECT ID
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case 15:
+      //황창기 보세장치장 조회 팝업추가
+      pTitle = "보세장치장,장치장코드 명";
+      // 'retrieveOsideCd'
+      ed_bondYard.setSelectId("retrieveOsideCd");
+      rtnList = ed_bondYard.cfCommonPopUp(scwin.retrieveOsideCdCb // XML상의 SELECT ID	
+      , pCode.trim() // 화면에서의 ??? Code Element의	Value
+      , pName.trim() // 화면에서의 ??? Name Element의	Value
+      , pClose // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , null // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서	
+      , null // 보여주는 각 컬럼들의 폭	
+      , null // 컬럼중에서 숨기는	컬럼 지정	
+      , pWhere // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때 우도우의	사용자 정의	높이	
+      , null // 윈도우 위치 Y좌표	
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , pTitle // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) return;
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = cfGetValue(inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+  // inObj가 코드명 필드일 경우 팝업
+  else scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp2 = function (inObj, pairObj, disGubun, isCode, refObj) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) {
+    $c.gus.cfClearPairObj($p, refObj);
+    return;
+  }
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+  $c.gus.cfClearPairObj($p, refObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+  // inObj가 코드명 필드일 경우 팝업
+  else scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tb_srchCond);
+  $c.gus.cfInitObjects($p, tb_crryOutCopino);
+  $c.gus.cfInitObjects($p, tb_crryInCopino);
+
+  //ed_crryinoutDt1.text = dateStr;
+  //ed_crryinoutDt2.text = dateStr;
+  //ed_crryinoutHh1.text= dateTime;
+  //ed_crryinoutHh2.text= dateTime;
+};
+//-------------------------------------------------------------------------
+// 전송여부 switch
+//-------------------------------------------------------------------------
+scwin.f_switchTransYn = function (gubun) {
+  debugger;
+  if (gubun == 1) {
+    if (cbx_crryOutCopino.getValue() == "1") {
+      $c.gus.cfEnableObjects($p, [tb_crryOutCopino]);
+      scwin.f_disableObjects(); // 비활성 컴퍼넌트
+    } else {
+      $c.gus.cfDisableObjects($p, [tb_crryOutCopino]);
+      scwin.f_disableObjects(); // 비활성 컴퍼넌트
+    }
+  } else if (gubun == 2) {
+    if (cbx_crryInCopino.getValue() == "1") {
+      $c.gus.cfEnableObjects($p, [tb_crryInCopino]);
+      scwin.f_disableObjects(); // 비활성 컴퍼넌트
+    } else {
+      $c.gus.cfDisableObjects($p, [tb_crryInCopino]);
+      scwin.f_disableObjects(); // 비활성 컴퍼넌트
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 항상 비활성 컴포넌트
+//-------------------------------------------------------------------------
+scwin.f_disableObjects = function () {
+  $c.gus.cfDisableObjects($p, [ed_transDstFromNm1, ed_transDstToNm1, ed_mchtNm1, ed_transDstToNm2, ed_suitCoTransCoNm1, ed_suitCoTransCoNm2, ed_transDstFromNm2, ed_dchrPortNm2, ed_mchtNm2]);
+};
+scwin.btn_fieldClear_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+scwin.btn_retrieve_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+scwin.btn_sizTyp1_onclick = function (e) {
+  scwin.f_openCommonPopUp(5, ed_sizTyp1.getValue(), '', 'F', 'F');
+};
+scwin.ed_transDstToNm1_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_transDstTo1.getValue(), ed_transDstToNm1.getValue(), 'F', 'F');
+};
+scwin.ed_transCo_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(13, ed_transCoCd1.getValue(), ed_suitCoTransCoNm1.getValue(), 'F', 'F');
+};
+scwin.ed_transDst1_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_transDstFrom1.getValue(), ed_transDstFromNm1.getValue(), 'F', 'F');
+};
+scwin.ed_mcht1_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(4, ed_mchtCd1.getValue(), ed_mchtNm1.getValue(), 'F', 'F');
+};
+scwin.ed_mcht1_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_mchtNm1, ed_mchtCd1, 4, false);
+};
+scwin.ed_bondYard_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(15, ed_bondYardCd.getValue(), ed_bondYardNm.getValue(), 'F', 'F');
+};
+scwin.ed_bondYard_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_bondYardNm, ed_bondYardCd, 15, false);
+};
+scwin.cbx_crryOutCopino_onchange = function (info) {
+  scwin.f_switchTransYn(1);
+};
+scwin.ed_transDst2_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_transDstTo2.getValue(), ed_transDstToNm2.getValue(), 'F', 'F');
+};
+scwin.btn_sizTyp2_onclick = function (e) {
+  scwin.f_openCommonPopUp(6, ed_sizTyp2.getValue(), '', 'F', 'F');
+};
+scwin.ed_transDst_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_transDstTo1.getValue(), ed_transDstToNm1.getValue(), 'F', 'F');
+};
+scwin.ed_transCo2_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(14, ed_transCoCd2.getValue(), ed_suitCoTransCoNm2.getValue(), 'F', 'F');
+};
+scwin.ed_dchr2_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(9, ed_dchrPort2.getValue(), ed_dchrPortNm2.getValue(), 'F', 'F');
+};
+scwin.ed_mcht2_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(12, ed_mchtCd2.getValue(), ed_mchtNm2.getValue(), 'F', 'T');
+};
+scwin.ed_mcht2_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(this, ed_mchtCd2, 12, false);
+};
+scwin.btn_save_onclick = function (e) {
+  scwin.f_save();
+};
+scwin.tr_retrieve = async function () {
+  dma_search.set("vehclIdCardNo", ed_vehclIdCardNo.getValue());
+  dma_search.set("cntrNo", ed_cntrNo.getValue());
+  await $c.sbm.execute($p, sbm_retrieve);
+};
+scwin.sbm_retrieve_submitDone = function () {
+  debugger;
+  if (ds_resultsCopinoOut.getRowCount() == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return flase;
+  }
+  for (var i = 0; i <= ds_resultsCopinoOut.getRowCount(); i++) {
+    //반출
+    ed_sndDtHh1.setValue((ds_resultsCopinoOut.getCellData(0, "sndDt") == "" ? "" : $c.gus.cfGetFormatStr($p, ds_resultsCopinoOut.getCellData(0, "sndDt"), "####/##/##")) + " " + (ds_resultsCopinoOut.getCellData(0, "sndHh") == "" ? "" : $c.gus.cfGetFormatStr($p, ds_resultsCopinoOut.getCellData(0, "sndHh"), "##:##:##")));
+    if (ds_resultsCopinoOut.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_SND_COMPLETE) {
+      ed_sndClsCd1.setValue("<font color='red'>전송완료</font>");
+    } else if (ds_resultsCopinoOut.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_LATER_SND) {
+      ed_sndClsCd1.setValue("<font color='red'>사후전송</font>");
+    } else if (ds_resultsCopinoOut.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_IMPITEM_WARN) {
+      ed_sndClsCd1.setValue("<font color='red'>필수입력오류</font>");
+    } else if (ds_resultsCopinoOut.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_SND_WAIT) {
+      ed_sndClsCd1.setValue("<font color='red'>전송대기</font>");
+    } else {
+      ed_sndClsCd1.setValue("<font color='red'>미등록</font>");
+    }
+
+    //[사전정보그룹구분코드=경인ICD and 작업단계코드<>철송]
+    if (ds_resultsCopinoOut.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_KYUNGIN_ICD && ds_resultsCopinoOut.getCellData(0, "wrkStpCd") != DsConstants.WRK_STP_CD_RAILROAD) {
+      $c.gus.cfDisableObjects($p, [ed_vehclNoFrtcarNo1]);
+    }
+    var crryinoutDtmMint1_Date = hid_comp.get("hid_crryinoutDtmMint1");
+    ica_crryinoutDt1.setValue(crryinoutDtmMint1_Date.substring(0, 8));
+    ed_crryinoutHh1.setValue(crryinoutDtmMint1_Date.substring(8, 4));
+  }
+  ;
+  if (ds_resultsCopinoIn.getRowCount == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return false;
+  }
+  for (var i = 0; i <= ds_resultsCopinoIn.getRowCount(); i++) {
+    //반입
+    ed_sndDtHh2.setValue(ds_resultsCopinoIn.getCellData(0, "sndDt") == "" ? "" : $c.gus.cfGetFormatStr($p, ds_resultsCopinoIn.getCellData(0, "sndDt"), "####/##/##")) + " " + (ds_resultsCopinoIn.getCellData(0, "sndHh") == "" ? "" : $c.gus.cfGetFormatStr($p, ds_resultsCopinoIn.getCellData(0, "sndHh"), "##:##:##"));
+    if (ds_resultsCopinoIn.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_SND_COMPLETE) {
+      ed_sndClsCd2.setValue("<font color='red'>전송완료</font>");
+    } else if (ds_resultsCopinoIn.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_LATER_SND) {
+      ed_sndClsCd2.setValue("<font color='red'>사후전송</font>");
+    } else if (ds_resultsCopinoIn.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_IMPITEM_WARN) {
+      ed_sndClsCd2.setValue("<font color='red'>필수입력오류</font>");
+    } else if (ds_resultsCopinoIn.getCellData(0, "sndClsCd") == DsConstants.EDI_SND_CLS_CD_SND_WAIT) {
+      ed_sndClsCd2.setValue("<font color='red'>전송대기</font>");
+    } else {
+      ed_sndClsCd2.setValue("<font color='red'>미등록</font>");
+    }
+
+    //[사전정보그룹구분코드=경인ICD and 작업단계코드<>철송]
+    if (ds_resultsCopinoIn.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_KYUNGIN_ICD && ds_resultsCopinoIn.getCellData(0, "wrkStpCd") != DsConstants.WRK_STP_CD_RAILROAD) {
+      $c.gus.cfDisableObjects($p, [ed_vehclNoFrtcarNo2]);
+    }
+    var crryinoutDtmMint2_Date = hid_comp.get("hid_crryinoutDtmMint2");
+    ica_crryinoutDt2.setValue(crryinoutDtmMint2_Date.substring(0, 8));
+    ed_crryinoutHh2.setValue(crryinoutDtmMint2_Date.substring(8, 4));
+  }
+  ;
+  if (ds_resultsCopinoOut.getRowCount() > 0) {
+    hid_comp.set("hid_transWrkIndictNo1", ds_resultsCopinoOut.getCellData(0, "transWrkIndictNo"));
+    hid_comp.set("hid_odrNo1", ds_resultsCopinoOut.getCellData(0, "odrNo"));
+    hid_comp.set("hid_seq1", ds_resultsCopinoOut.getCellData(0, "seq"));
+    hid_comp.set("hid_crryinCrryoutCls1", ds_resultsCopinoOut.getCellData(0, "crryinCrryoutCls"));
+    hid_comp.set("hid_cntrSeq1", ds_resultsCopinoOut.getCellData(0, "cntrSeq"));
+    hid_comp.set("hid_wrkPathSeq1", ds_resultsCopinoOut.getCellData(0, "wrkPathSeq"));
+    hid_comp.set("hid_wrkStpSeq1", ds_resultsCopinoOut.getCellData(0, "wrkStpSeq"));
+    hid_comp.set("hid_cls1", ds_resultsCopinoOut.getCellData(0, "cls"));
+    hid_comp.set("hid_snd1", ds_resultsCopinoOut.getCellData(0, "snd"));
+    hid_comp.set("hid_rcv1", ds_resultsCopinoOut.getCellData(0, "rcv"));
+    hid_comp.set("hid_sndDes1", ds_resultsCopinoOut.getCellData(0, "sndDes"));
+    hid_comp.set("hid_rcvDes1", ds_resultsCopinoOut.getCellData(0, "rcvDes"));
+    hid_comp.set("hid_rcvDes21", ds_resultsCopinoOut.getCellData(0, "rcvDes2"));
+    hid_comp.set("hid_sndId1", ds_resultsCopinoOut.getCellData(0, "sndId"));
+    hid_comp.set("hid_rcvId1", ds_resultsCopinoOut.getCellData(0, "rcvId"));
+    hid_comp.set("hid_transDstFromNm1", ds_resultsCopinoOut.getCellData(0, "transDstFromNm"));
+    hid_comp.set("hid_transDstToNm1", ds_resultsCopinoOut.getCellData(0, "transDstToNm"));
+    hid_comp.set("hid_crryinoutDtmMint1", ds_resultsCopinoOut.getCellData(0, "crryinoutDtmMint"));
+    hid_comp.set("hid_transCntSht1", ds_resultsCopinoOut.getCellData(0, "transCntSht"));
+    hid_comp.set("hid_startPoint1", ds_resultsCopinoOut.getCellData(0, "startPoint"));
+    hid_comp.set("hid_arv1", ds_resultsCopinoOut.getCellData(0, "arv"));
+    hid_comp.set("hid_arvCont1", ds_resultsCopinoOut.getCellData(0, "arvCont"));
+    hid_comp.set("hid_finalArv1", ds_resultsCopinoOut.getCellData(0, "finalArv"));
+    hid_comp.set("hid_finalArvCont1", ds_resultsCopinoOut.getCellData(0, "finalArvCont"));
+    hid_comp.set("hid_liveCoCd1", ds_resultsCopinoOut.getCellData(0, "liveCoCd"));
+    hid_comp.set("hid_liveCoNm1", ds_resultsCopinoOut.getCellData(0, "liveCoNm"));
+    hid_comp.set("hid_crryinoutCls1", ds_resultsCopinoOut.getCellData(0, "crryinoutCls"));
+    hid_comp.set("hid_drtCstmclrncExyn1", ds_resultsCopinoOut.getCellData(0, "drtCstmclrncExyn"));
+    hid_comp.set("hid_frzTemper1", ds_resultsCopinoOut.getCellData(0, "frzTemper"));
+    hid_comp.set("hid_temperCls1", ds_resultsCopinoOut.getCellData(0, "temperCls"));
+    hid_comp.set("hid_dangerCd1", ds_resultsCopinoOut.getCellData(0, "dangerCd"));
+    hid_comp.set("hid_totWt1", ds_resultsCopinoOut.getCellData(0, "totWt"));
+    hid_comp.set("hid_overLength1", ds_resultsCopinoOut.getCellData(0, "overLength"));
+    hid_comp.set("hid_overWidth1", ds_resultsCopinoOut.getCellData(0, "overWidth"));
+    hid_comp.set("hid_overHeight1", ds_resultsCopinoOut.getCellData(0, "overHeight"));
+    hid_comp.set("hid_dchrPort1", ds_resultsCopinoOut.getCellData(0, "dchrPort"));
+    hid_comp.set("hid_iccntctPic1", ds_resultsCopinoOut.getCellData(0, "iccntctPic"));
+    hid_comp.set("hid_iccntctPl1", ds_resultsCopinoOut.getCellData(0, "iccntctPl"));
+    hid_comp.set("hid_sendCoCd1", ds_resultsCopinoOut.getCellData(0, "sendCoCd"));
+    hid_comp.set("hid_trustDd1", ds_resultsCopinoOut.getCellData(0, "trustDd"));
+    hid_comp.set("hid_trustDtm1", ds_resultsCopinoOut.getCellData(0, "trustDtm"));
+    hid_comp.set("hid_teminal1", ds_resultsCopinoOut.getCellData(0, "teminal"));
+    hid_comp.set("hid_teminalVssl1", ds_resultsCopinoOut.getCellData(0, "teminalVssl"));
+    hid_comp.set("hid_pusanjinHousCd1", ds_resultsCopinoOut.getCellData(0, "pusanjinHousCd"));
+    hid_comp.set("hid_railroadCls1", ds_resultsCopinoOut.getCellData(0, "railroadCls"));
+    hid_comp.set("hid_railroadIntendCls1", ds_resultsCopinoOut.getCellData(0, "railroadIntendCls"));
+    hid_comp.set("hid_frtcarCls1", ds_resultsCopinoOut.getCellData(0, "frtcarCls"));
+    hid_comp.set("hid_icdmoveCls1", ds_resultsCopinoOut.getCellData(0, "icdmoveCls"));
+    hid_comp.set("hid_cargoCls1", ds_resultsCopinoOut.getCellData(0, "cargoCls"));
+    hid_comp.set("hid_drvNm1", ds_resultsCopinoOut.getCellData(0, "drvNm"));
+    hid_comp.set("hid_hndlCd1", ds_resultsCopinoOut.getCellData(0, "hndlCd"));
+    hid_comp.set("hid_docStsCls1", ds_resultsCopinoOut.getCellData(0, "docStsCls"));
+    hid_comp.set("hid_sndClsCd1", ds_resultsCopinoOut.getCellData(0, "sndClsCd"));
+    hid_comp.set("hid_sndDt1", ds_resultsCopinoOut.getCellData(0, "sndDt"));
+    hid_comp.set("hid_sndHh1", ds_resultsCopinoOut.getCellData(0, "sndHh"));
+    hid_comp.set("hid_errorCls1", ds_resultsCopinoOut.getCellData(0, "errorCls"));
+    var crryinoutDtmMint1_Date = hid_comp.get("hid_crryinoutDtmMint1");
+    ica_crryinoutDt1.setValue(crryinoutDtmMint1_Date.substring(0, 8));
+    ed_crryinoutHh1.setValue(crryinoutDtmMint1_Date.substring(8, 12));
+    // 운송구간
+    ed_transDstFrom1.setValue(ds_resultsCopinoOut.getCellData(0, "transDstFrom"));
+    ed_transDstFromNm1.setValue(ds_resultsCopinoOut.getCellData(0, "transDstFromNm"));
+    ed_transDstTo1.setValue(ds_resultsCopinoOut.getCellData(0, "transDstTo"));
+    ed_transDstToNm1.setValue(ds_resultsCopinoOut.getCellData(0, "transDstToNm"));
+    // 컨테이너 / 차량
+    ed_cntrNo1.setValue(ds_resultsCopinoOut.getCellData(0, "cntrNo"));
+    ed_vehclNoFrtcarNo1.setValue(ds_resultsCopinoOut.getCellData(0, "vehclNoFrtcarNo"));
+    ed_vehclNoFull1.setValue(ds_resultsCopinoOut.getCellData(0, "vehclNoFull"));
+    // 운송사
+    ed_transCoCd1.setValue(ds_resultsCopinoOut.getCellData(0, "transCoCd"));
+    ed_suitCoTransCoNm1.setValue(ds_resultsCopinoOut.getCellData(0, "suitCoTransCoNm"));
+    // 샤시
+    ed_chassisNo1.setValue(ds_resultsCopinoOut.getCellData(0, "chassisNo"));
+    // 출발지
+    // 안씀 ed_startPointCont1.setValue(ds_resultsCopinoOut.getCellData(0, "startPointCont"));
+    // 사이즈
+    ed_sizTyp1.setValue(ds_resultsCopinoOut.getCellData(0, "sizTyp"));
+    // Seal / 선적
+    ed_sealNo1.setValue(ds_resultsCopinoOut.getCellData(0, "sealNo"));
+    ed_shpCoCd1.setValue(ds_resultsCopinoOut.getCellData(0, "shpCoCd"));
+    ed_tmlVsslPortcnt1.setValue(ds_resultsCopinoOut.getCellData(0, "tmlVsslPortcnt"));
+    ed_blNo1.setValue(ds_resultsCopinoOut.getCellData(0, "blNo"));
+    ed_bookingNo1.setValue(ds_resultsCopinoOut.getCellData(0, "bookingNo"));
+    ed_admitNo1.setValue(ds_resultsCopinoOut.getCellData(0, "admitNo"));
+    ed_doNo1.setValue(ds_resultsCopinoOut.getCellData(0, "doNo"));
+    // 입항년도
+    ica_vsslArrvlportYr1.setValue(ds_resultsCopinoOut.getCellData(0, "vsslArrvlportYr"));
+    // 화주
+    ed_mchtCd1.setValue(ds_resultsCopinoOut.getCellData(0, "mchtCd"));
+    // 연락처
+    ed_tel1.setValue(ds_resultsCopinoOut.getCellData(0, "cntctPl"));
+    // 특이사항
+    ed_rmk1.setValue(ds_resultsCopinoOut.getCellData(0, "rmk"));
+    // 보세장치장
+    ed_bondYardCd.setValue(ds_resultsCopinoOut.getCellData(0, "bondYardCd"));
+    acb_vehclCls1.setValue(ds_resultsCopinoOut.getCellData(0, "vehclCls"));
+    acb_bondTransVehclYn1.setValue(ds_resultsCopinoOut.getCellData(0, "bondTransVehclYn"));
+    acb_chassisPosInfo1.setValue(ds_resultsCopinoOut.getCellData(0, "chassisPosInfo"));
+    acb_fullEmptyClsCd1.setValue(ds_resultsCopinoOut.getCellData(0, "fullEmptyClsCd"));
+    acb_expimpClsCd1.setValue(ds_resultsCopinoOut.getCellData(0, "expimpClsCd"));
+    acb_drtCstmclrncExyn1.setValue(ds_resultsCopinoOut.getCellData(0, "drtCstmclrncExyn"));
+    //lc_dangerCls1.setValue(ds_resultsCopinoOut.getCellData(0, "dangerCls"));
+    acb_tsCls1.setValue(ds_resultsCopinoOut.getCellData(0, "tsCls"));
+    acb_hanjinSelfCls1.setValue(ds_resultsCopinoOut.getCellData(0, "hanjinSelfCls"));
+    acb_selfCls1.setValue(ds_resultsCopinoOut.getCellData(0, "selfCls"));
+    cbx_xrayRettlPassYn1.setValue(ds_resultsCopinoOut.getCellData(0, "xrayRettlPassYn"));
+    cbx_out_bondTransYn.setValue(ds_resultsCopinoOut.getCellData(0, "bondTransYn"));
+  }
+  ;
+  if (ds_resultsCopinoIn.getRowCount() > 0) {
+    hid_comp.set("hid_transWrkIndictNo2", ds_resultsCopinoIn.getCellData(0, "transWrkIndictNo2"));
+    hid_comp.set("hid_odrNo2", ds_resultsCopinoIn.getCellData(0, "odrNo2"));
+    hid_comp.set("hid_seq2", ds_resultsCopinoIn.getCellData(0, "seq2"));
+    hid_comp.set("hid_crryinCrryoutCls2", ds_resultsCopinoIn.getCellData(0, "crryinCrryoutCls2"));
+    hid_comp.set("hid_cntrSeq2", ds_resultsCopinoIn.getCellData(0, "cntrSeq2"));
+    hid_comp.set("hid_wrkPathSeq2", ds_resultsCopinoIn.getCellData(0, "wrkPathSeq2"));
+    hid_comp.set("hid_wrkStpSeq2", ds_resultsCopinoIn.getCellData(0, "wrkStpSeq2"));
+    hid_comp.set("hid_cls2", ds_resultsCopinoIn.getCellData(0, "cls2"));
+    hid_comp.set("hid_snd2", ds_resultsCopinoIn.getCellData(0, "snd2"));
+    hid_comp.set("hid_rcv2", ds_resultsCopinoIn.getCellData(0, "rcv2"));
+    hid_comp.set("hid_sndDes2", ds_resultsCopinoIn.getCellData(0, "sndDes2"));
+    hid_comp.set("hid_rcvDes2", ds_resultsCopinoIn.getCellData(0, "rcvDes2"));
+    hid_comp.set("hid_rcvDes22", ds_resultsCopinoIn.getCellData(0, "rcvDes22"));
+    hid_comp.set("hid_sndId2", ds_resultsCopinoIn.getCellData(0, "sndId2"));
+    hid_comp.set("hid_rcvId2", ds_resultsCopinoIn.getCellData(0, "rcvId2"));
+    hid_comp.set("hid_transDstFromNm2", ds_resultsCopinoIn.getCellData(0, "transDstFromNm2"));
+    hid_comp.set("hid_transDstToNm2", ds_resultsCopinoIn.getCellData(0, "transDstToNm2"));
+    hid_comp.set("hid_crryinoutDtmMint2", ds_resultsCopinoIn.getCellData(0, "crryinoutDtmMint2"));
+    hid_comp.set("hid_transCntSht2", ds_resultsCopinoIn.getCellData(0, "transCntSht2"));
+    hid_comp.set("hid_startPoint2", ds_resultsCopinoIn.getCellData(0, "startPoint2"));
+    hid_comp.set("hid_arv2", ds_resultsCopinoIn.getCellData(0, "arv2"));
+    hid_comp.set("hid_arvCont2", ds_resultsCopinoIn.getCellData(0, "arvCont2"));
+    hid_comp.set("hid_finalArv2", ds_resultsCopinoIn.getCellData(0, "finalArv2"));
+    hid_comp.set("hid_finalArvCont2", ds_resultsCopinoIn.getCellData(0, "finalArvCont2"));
+    hid_comp.set("hid_liveCoCd2", ds_resultsCopinoIn.getCellData(0, "liveCoCd2"));
+    hid_comp.set("hid_liveCoNm2", ds_resultsCopinoIn.getCellData(0, "liveCoNm2"));
+    hid_comp.set("hid_crryinoutCls2", ds_resultsCopinoIn.getCellData(0, "crryinoutCls2"));
+    hid_comp.set("hid_drtCstmclrncExyn2", ds_resultsCopinoIn.getCellData(0, "drtCstmclrncExyn2"));
+    hid_comp.set("hid_frzTemper2", ds_resultsCopinoIn.getCellData(0, "frzTemper2"));
+    hid_comp.set("hid_temperCls2", ds_resultsCopinoIn.getCellData(0, "temperCls2"));
+    hid_comp.set("hid_dangerCd2", ds_resultsCopinoIn.getCellData(0, "dangerCd2"));
+    hid_comp.set("hid_totWt2", ds_resultsCopinoIn.getCellData(0, "totWt2"));
+    hid_comp.set("hid_overLength2", ds_resultsCopinoIn.getCellData(0, "overLength2"));
+    hid_comp.set("hid_overWidth2", ds_resultsCopinoIn.getCellData(0, "overWidth2"));
+    hid_comp.set("hid_overHeight2", ds_resultsCopinoIn.getCellData(0, "overHeight2"));
+    hid_comp.set("hid_dchrPort2", ds_resultsCopinoIn.getCellData(0, "dchrPort2"));
+    hid_comp.set("hid_iccntctPic2", ds_resultsCopinoIn.getCellData(0, "iccntctPic2"));
+    hid_comp.set("hid_iccntctPl2", ds_resultsCopinoIn.getCellData(0, "iccntctPl2"));
+    hid_comp.set("hid_sendCoCd2", ds_resultsCopinoIn.getCellData(0, "sendCoCd2"));
+    hid_comp.set("hid_trustDd2", ds_resultsCopinoIn.getCellData(0, "trustDd2"));
+    hid_comp.set("hid_trustDtm2", ds_resultsCopinoIn.getCellData(0, "trustDtm2"));
+    hid_comp.set("hid_teminal2", ds_resultsCopinoIn.getCellData(0, "teminal2"));
+    hid_comp.set("hid_teminalVssl2", ds_resultsCopinoIn.getCellData(0, "teminalVssl2"));
+    hid_comp.set("hid_pusanjinHousCd2", ds_resultsCopinoIn.getCellData(0, "pusanjinHousCd2"));
+    hid_comp.set("hid_railroadCls2", ds_resultsCopinoIn.getCellData(0, "railroadCls2"));
+    hid_comp.set("hid_railroadIntendCls2", ds_resultsCopinoIn.getCellData(0, "railroadIntendCls2"));
+    hid_comp.set("hid_frtcarCls2", ds_resultsCopinoIn.getCellData(0, "frtcarCls2"));
+    hid_comp.set("hid_icdmoveCls2", ds_resultsCopinoIn.getCellData(0, "icdmoveCls2"));
+    hid_comp.set("hid_cargoCls2", ds_resultsCopinoIn.getCellData(0, "cargoCls2"));
+    hid_comp.set("hid_drvNm2", ds_resultsCopinoIn.getCellData(0, "drvNm2"));
+    hid_comp.set("hid_hndlCd2", ds_resultsCopinoIn.getCellData(0, "hndlCd2"));
+    hid_comp.set("hid_docStsCls2", ds_resultsCopinoIn.getCellData(0, "docStsCls2"));
+    hid_comp.set("hid_sndClsCd2", ds_resultsCopinoIn.getCellData(0, "sndClsCd2"));
+    hid_comp.set("hid_sndDt2", ds_resultsCopinoIn.getCellData(0, "sndDt2"));
+    hid_comp.set("hid_sndHh2", ds_resultsCopinoIn.getCellData(0, "sndHh2"));
+    hid_comp.set("hid_errorCls2", ds_resultsCopinoIn.getCellData(0, "errorCls2"));
+    var crryinoutDtmMint2_Date = hid_comp.get("hid_crryinoutDtmMint2");
+    ica_crryinoutDt2.setValue(crryinoutDtmMint2_Date.substring(0, 8));
+    ed_crryinoutHh2.setValue(crryinoutDtmMint2_Date.substring(8, 12));
+    ed_transDstFrom2.setValue(ds_resultsCopinoIn.getCellData(0, "transDstFrom"));
+    ed_transDstFromNm2.setValue(ds_resultsCopinoIn.getCellData(0, "transDstFromNm"));
+    ed_transDstTo2.setValue(ds_resultsCopinoIn.getCellData(0, "transDstTo"));
+    ed_transDstToNm2.setValue(ds_resultsCopinoIn.getCellData(0, "transDstToNm"));
+    ed_cntrNo2.setValue(ds_resultsCopinoIn.getCellData(0, "cntrNo"));
+    ed_vehclNoFrtcarNo2.setValue(ds_resultsCopinoIn.getCellData(0, "vehclNoFrtcarNo"));
+    ed_vehclNoFull2.setValue(ds_resultsCopinoIn.getCellData(0, "vehclNoFull"));
+    ed_transCoCd2.setValue(ds_resultsCopinoIn.getCellData(0, "transCoCd"));
+    ed_suitCoTransCoNm2.setValue(ds_resultsCopinoIn.getCellData(0, "suitCoTransCoNm"));
+    ed_chassisNo2.setValue(ds_resultsCopinoIn.getCellData(0, "chassisNo"));
+    //acb_startPointCont2.setValue( ds_resultsCopinoIn.getCellData(0, "startPointCont") );
+    ed_sizTyp2.setValue(ds_resultsCopinoIn.getCellData(0, "sizTyp"));
+    ed_frzTemper2.setValue(ds_resultsCopinoIn.getCellData(0, "frzTemper"));
+    ed_dangerCd2.setValue(ds_resultsCopinoIn.getCellData(0, "dangerCd"));
+    ed_totWt2.setValue(ds_resultsCopinoIn.getCellData(0, "totWt"));
+    ed_overLength2.setValue(ds_resultsCopinoIn.getCellData(0, "overLength"));
+    ed_overWidth2.setValue(ds_resultsCopinoIn.getCellData(0, "overWidth"));
+    ed_overHeight2.setValue(ds_resultsCopinoIn.getCellData(0, "overHeight"));
+    ed_sealNo2.setValue(ds_resultsCopinoIn.getCellData(0, "sealNo"));
+    ed_shpCoCd2.setValue(ds_resultsCopinoIn.getCellData(0, "shpCoCd"));
+    ed_tmlVsslPortcnt2.setValue(ds_resultsCopinoIn.getCellData(0, "tmlVsslPortcnt"));
+    ed_dchrPort2.setValue(ds_resultsCopinoIn.getCellData(0, "dchrPort"));
+    ed_dchrPortNm2.setValue(ds_resultsCopinoIn.getCellData(0, "dchrPortNm"));
+    ed_blNo2.setValue(ds_resultsCopinoIn.getCellData(0, "blNo"));
+    ed_bookingNo2.setValue(ds_resultsCopinoIn.getCellData(0, "bookingNo"));
+    ed_admitNo2.setValue(ds_resultsCopinoIn.getCellData(0, "admitNo"));
+    ed_doNo2.setValue(ds_resultsCopinoIn.getCellData(0, "doNo"));
+    ica_vsslArrvlportYr2.setValue(ds_resultsCopinoIn.getCellData(0, "vsslArrvlportYr"));
+    ed_mchtCd2.setValue(ds_resultsCopinoIn.getCellData(0, "mchtCd"));
+    em_ctaNm.setValue(ds_resultsCopinoIn.getCellData(0, "iccntctPic"));
+    em_ctaTel.setValue(ds_resultsCopinoIn.getCellData(0, "iccntctPl"));
+    ed_tel2.setValue(ds_resultsCopinoIn.getCellData(0, "cntctPl"));
+    ed_rmk2.setValue(ds_resultsCopinoIn.getCellData(0, "rmk"));
+    acb_vehclCls2.setValue(ds_resultsCopinoIn.getCellData(0, "vehclCls"));
+    acb_bondTransVehclYn2.setValue(ds_resultsCopinoIn.getCellData(0, "bondTransVehclYn"));
+    acb_chassisPosInfo2.setValue(ds_resultsCopinoIn.getCellData(0, "chassisPosInfo"));
+    acb_fullEmptyClsCd2.setValue(ds_resultsCopinoIn.getCellData(0, "fullEmptyClsCd"));
+    acb_expimpClsCd2.setValue(ds_resultsCopinoIn.getCellData(0, "expimpClsCd"));
+    //acb_drtCstmclrncExyn2.setValue( ds_resultsCopinoIn.getCellData(0, "drtCstmclrncExyn") );
+    acb_temperCls2.setValue(ds_resultsCopinoIn.getCellData(0, "temperCls"));
+    acb_dangerCls2.setValue(ds_resultsCopinoIn.getCellData(0, "dangerCls"));
+    acb_tsCls2.setValue(ds_resultsCopinoIn.getCellData(0, "tsCls"));
+    //lc_hanjinSelfCls2.setValue( ds_resultsCopinoIn.getCellData(0, "hanjinSelfCls") );
+    acb_selfCls2.setValue(ds_resultsCopinoIn.getCellData(0, "selfCls"));
+    //chb_xrayRettlPassYn2.setValue(ds_resultsCopinoIn.getCellData(0, "xrayRettlPassYn"));
+    cbx_in_bondTransYn.setValue(ds_resultsCopinoIn.getCellData(0, "bondTransYn"));
+  }
+  ;
+  $c.gus.cfEnableBtnOnly($p, [btn_create, btn_save]);
+};
+scwin.sbm_retrieve2_submitDone = function () {
+  $c.gus.cfEnableBtnOnly($p, [btn_create, btn_save]); // 버튼 활성화
+
+  if (cbx_crryInCopino.getValue() == "0") {
+    ds_resultsCopinoIn2.removeAll();
+    if (cbx_crryInCopino.getValue() == "1") {
+      var v_features = "copyHeader=yes,rowFrom=1,rowCnt=1";
+      $c.gus.cfCopyDataSet($p, ds_resultsCopinoOut2, ds_resultsCopinoOut, v_features);
+    }
+  }
+  ;
+  if (cbx_crryOutCopino.getValue() == "0") {
+    ds_resultsCopinoOut2.removeAll();
+    if (cbx_crryInCopino.getValue() == "1") {
+      var v_features = "copyHeader=yes,rowFrom=1,rowCnt=1";
+      $c.gus.cfCopyDataSet($p, ds_resultsCopinoIn2, ds_resultsCopinoIn, v_features);
+    }
+  }
+};
+sbm_save_submitDone = function () {
+  $c.gus.cfAlertMsg($p, MSG_CM_INF_001); // 성공적으로 저장하였습니다
+  scwin.f_Retrieve("1");
+};
+scwin.ed_mcht1_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_mchtCd1, ed_mchtNm1, 4);
+};
+scwin.ed_mcht2_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_mchtCd2, ed_mchtNm2, 12);
+};
+scwin.ed_sizTyp1_onblur = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_sizTyp1, ed_sizTyp1.getValue(), 5, true);
+  if (ed_sizTyp1.getValue() == "2210" || ed_sizTyp1.getValue() == "2270" || ed_sizTyp1.getValue() == "2232" || ed_sizTyp1.getValue() == "2251" || ed_sizTyp1.getValue() == "2264" || ed_sizTyp1.getValue() == "4310" || ed_sizTyp1.getValue() == "4370" || ed_sizTyp1.getValue() == "4332" || ed_sizTyp1.getValue() == "4351" || ed_sizTyp1.getValue() == "4364" || ed_sizTyp1.getValue() == "4510" || ed_sizTyp1.getValue() == "9510" || ed_sizTyp1.getValue() == "4532" || ed_sizTyp1.getValue() == "4350" || ed_sizTyp1.getValue() == "2250") {} else {
+    $c.win.alert($p, "SIZ/TYPE을 정확하게 입력하세요!!!");
+  }
+  ;
+};
+scwin.ed_sizTyp2_onblur = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_sizTyp2, ed_sizTyp2.getValue(), 6, true);
+  if (ed_sizTyp2.getValue() == "2210" || ed_sizTyp2.getValue() == "2270" || ed_sizTyp2.getValue() == "2232" || ed_sizTyp2.getValue() == "2251" || ed_sizTyp2.getValue() == "2264" || ed_sizTyp2.getValue() == "4310" || ed_sizTyp2.getValue() == "4370" || ed_sizTyp2.getValue() == "4332" || ed_sizTyp2.getValue() == "4351" || ed_sizTyp2.getValue() == "4364" || ed_sizTyp2.getValue() == "4510" || ed_sizTyp2.getValue() == "9510" || ed_sizTyp2.getValue() == "4532" || ed_sizTyp2.getValue() == "4350" || ed_sizTyp2.getValue() == "2250") {
+    if (ed_sizTyp2.getValue() == "2232" || ed_sizTyp2.getValue() == "4332" || ed_sizTyp2.getValue() == "4532") {
+      ed_frzTemper2.setReadOnly(false); // 냉동온도
+      hid_comp.set("hid_temperCls2", "CEL");
+      ed_frzTemper2.setMandatory(true);
+      //ed_rmk3.mandatory = "true";
+    } else {
+      ed_frzTemper2.setValue("");
+      ed_frzTemper2.setReadOnly(true); // 냉동온도
+      hid_comp.set("hid_temperCls2", ""); // 온도구분
+      acb_temperCls2.setSelectedIndex(1);
+      //cfDisableObjects([lc_temperCls2]);
+      ed_frzTemper2.setMandatory(false);
+      //ed_rmk3.mandatory = "false";
+    }
+  } else {
+    $c.win.alert($p, "SIZ/TYPE을 정확하게 입력하세요!!!");
+    ed_sizTyp2.setValue("");
+  }
+};
+scwin.ed_vehclNoFull1_onblur = async function (e) {
+  var rtn = await $c.gus.cfValidate($p, [ed_vehclNoFull1]);
+  if (!rtn) {
+    ed_vehclNoFull1.setValue("");
+  }
+  //[사전정보그룹구분코드=경인ICD and 작업단계코드<>철송]
+  if (ds_resultsCopinoOut.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_KYUNGIN_ICD && ds_resultsCopinoOut.getCellData(0, "wrkStpCd") != DsConstants.WRK_STP_CD_RAILROAD && ds_resultsCopinoOut.getCellData(0, "wrkStpCd") != ed_vehclNoFull1.getValue()) {
+    $c.gus.cfEnableObjects($p, [ed_vehclNoFrtcarNo1]);
+  }
+};
+scwin.ed_vehclNoFull2_onblur = async function (e) {
+  var rtn = await $c.gus.cfValidate($p, [ed_vehclNoFull2]);
+  if (!rtn) {
+    ed_vehclNoFull2.setValue("");
+  }
+  //[사전정보그룹구분코드=경인ICD and 작업단계코드<>철송]
+  if (ds_resultsCopinoIn.getCellData(0, "preInfoGrpClsCd") == DsConstants.EDI_GRPCD_KYUNGIN_ICD && ds_resultsCopinoIn.getCellData(0, "wrkStpCd") != DsConstants.WRK_STP_CD_RAILROAD && ds_resultsCopinoIn.getCellData(0, "wrkStpCd") != ed_vehclNoFull2.getValue()) {
+    $c.gus.cfEnableObjects($p, [ed_vehclNoFrtcarNo2]);
+  }
+};
+scwin.ed_vehclNoFrtcarNo1_onblur = function (e) {
+  //차량id번호가 없는 경우 조회로직 안타도록함
+  if (ed_vehclNoFrtcarNo1.getValue().trim() == "") return;
+  dma_search.set("vehclIdCardNo", ed_vehclNoFrtcarNo1.getValue().trim());
+  scwin.tr_retrieve3();
+  if (ds_lastCarInOutDTO.getRowCount() > 0) {
+    for (var i = 0; i <= ds_lastCarInOutDTO.getRowCount(); i++) {
+      if (ds_lastCarInOutDTO.getCellData(i, "crryinCrryoutCls") == "3" && ed_vehclNoFrtcarNo1.getValue() != "") {
+        ed_vehclNoFull1.setValue(ds_lastCarInOutDTO.getCellData(i, "vehclNoFull"));
+      }
+    }
+  }
+};
+scwin.ed_vehclNoFrtcarNo2_onblur = function (e) {
+  //차량id번호가 없는 경우 조회로직 안타도록함
+  if (ed_vehclNoFrtcarNo2.getValue().trim() == "") return;
+  dma_search.set("vehclIdCardNo", ed_vehclNoFrtcarNo2.getValue());
+  scwin.tr_retrieve3();
+  if (ds_lastCarInOutDTO.getRowCount() > 0) {
+    for (var i = 0; i <= ds_lastCarInOutDTO.getRowCount(); i++) {
+      if (ds_lastCarInOutDTO.getCellData(i, "crryinCrryoutCls") == "3" && ed_vehclNoFrtcarNo2.getValue() != "") {
+        ed_vehclNoFull2.setValue(ds_lastCarInOutDTO.getCellData(i, "vehclNoFull"));
+      }
+    }
+  }
+};
+scwin.ed_frzTemper2_onblur = async function (e) {
+  var rtn = await $c.gus.cfValidate($p, [ed_frzTemper2]);
+  if (!rtn) {
+    ed_frzTemper2.setValue("");
+  } else {
+    if (hid_sizTyp2.getValue().substr(2, 2) == "RF" || hid_sizTyp2.getValue().substr(2, 2) == "RH") {
+      if (ed_frzTemper2.getValue() == "") {
+        hid_comp.set("hid_temperCls2", "DRY");
+
+        //ed_rmk3.text = "<%= DsConstants.EDI_TEMPER_CLS_DRY %>";
+        //td_frzTemper2.innerText = "<%= DsConstants.EDI_TEMPER_CLS_DRY %>";
+        acb_temperCls2.setSelectedIndex(1);
+      } else {
+        hid_comp.set("hid_temperCls2", "CEL");
+        //td_frzTemper2.innerText = "<%= DsConstants.EDI_TEMPER_CLS_CEL %>";
+        //ed_rmk3.text = "<%= DsConstants.EDI_TEMPER_CLS_CEL %>";
+        acb_temperCls2.setSelectedIndex(2);
+      }
+    }
+  }
+};
+scwin.acb_expimpClsCd1_onblur = function (e) {
+  var v_expimpClsCd = acb_expimpClsCd1.getValue(); // 수출입구분
+
+  //alert(lc_expimpClsCd1.Index +"/"+ v_expimpClsCd);
+  if (v_expimpClsCd == "I") {
+    // 수입
+    ed_bookingNo1.setReadOnly(true); // B/K 번호
+    ed_blNo1.setReadOnly(false); // BL 번호
+    //ed_bookingNo1.Enable  = "false";
+    $c.gus.cfDisableObjects($p, [ed_bookingNo1]);
+    ed_blNo1.setDisabled(false);
+    ed_bookingNo1.setValue("");
+  } else if (v_expimpClsCd == "E") {
+    // 수출
+    ed_bookingNo1.setReadOnly(false); // B/K 번호
+    ed_blNo1.setReadOnly(true); // BL 번호
+    ed_bookingNo1.setDisabled(false);
+    //ed_blNo1.Enable  = "false";
+    $c.gus.cfDisableObjects($p, [ed_blNo1]);
+    ed_blNo1.setValue("");
+  }
+  ;
+  acb_expimpClsCd1.setMandatory(false);
+  //validExp="수출입구분:no";
+  acb_expimpClsCd2.setMandatory(false);
+  //validExp="수출입구분:no";
+};
+scwin.acb_fullEmptyClsCd1_onselected = function () {
+  if (ds_resultsCopinoOut.getRowCount() > 0) {
+    var v_fullEmptyClsCd = acb_fullEmptyClsCd1.getValue(); // E/F 구분
+
+    if (v_fullEmptyClsCd == "4") {
+      // 4 : EMPTY
+      ed_sealNo1.setValue("");
+      ed_sealNo1.setReadOnly(true); // SEAL NO
+      $c.gus.cfDisableObjects($p, [ed_sealNo1]);
+    } else if (v_fullEmptyClsCd == "5") {
+      // 5 : FULL
+      ed_sealNo1.setReadOnly(false); // SEAL NO
+      $c.gus.cfEnableObjects($p, [ed_sealNo1]);
+    } else {
+      // E/F 구분을(를) 선택하십시오.
+      $c.gus.cfAlertMsg($p, MSG_CM_WRN_007, new Array("E/F 구분"));
+      ed_sealNo1.setReadOnly(true); // SEAL NO
+      $c.gus.cfDisableObjects($p, [ed_sealNo1]);
+    }
+  }
+};
+scwin.acb_expimpClsCd2_onselected = function () {
+  var v_expimpClsCd = acb_expimpClsCd2.getValue();
+  if (v_expimpClsCd == "I") {
+    // 수입
+    ed_bookingNo2.setReadOnly(true); // B/K 번호
+    ed_blNo2.setReadOnly(false); // BL 번호
+    $c.gus.cfDisableObjects($p, [ed_bookingNo2]);
+    ed_blNo2.setDisabled(false);
+  } else if (v_expimpClsCd == "E") {
+    // 수출
+    ed_bookingNo2.setReadOnly(false); // B/K 번호
+    ed_blNo2.setReadOnly(true); // BL 번호
+    ed_blNo2.setValue("");
+    $c.gus.cfDisableObjects($p, [ed_blNo2]);
+    ed_bookingNo2.setDisabled(false);
+  }
+  acb_expimpClsCd1.setMandatory(false);
+  //validExp="수출입구분:no";
+  acb_expimpClsCd2.setMandatory(false);
+  //validExp="수출입구분:no";
+};
+scwin.acb_fullEmptyClsCd2_onselected = function () {
+  if (ds_resultsCopinoIn.getRowCount() > 0) {
+    var v_fullEmptyClsCd2 = acb_fullEmptyClsCd2.getValue(); // E/F 구분
+
+    if (v_fullEmptyClsCd2 == "4") {
+      ed_sealNo2.setValue("");
+      // EMPTY 인 경우 : WEIGHT 선택
+      ed_totWt2.setMandatory(false);
+      $c.gus.cfDisableObjects($p, [ed_sealNo2]);
+    } else if (v_fullEmptyClsCd2 == "5") {
+      // 5 : FULL
+      ed_sealNo2.setReadOnly(false); // SEAL NO
+      $c.gus.cfEnableObjects($p, [ed_sealNo2]);
+      // FULL 인 경우 : WEIGHT 필수
+      ed_totWt2.setMandatory(true);
+    } else {
+      // E/F 구분을(를) 선택하십시오.
+      $c.gus.cfAlertMsg($p, MSG_CM_WRN_007, new Array("E/F 구분"));
+      // WEIGHT 선택
+      ed_totWt2.setMandatory(false);
+      $c.gus.cfDisableObjects($p, [ed_sealNo2]);
+    }
+  }
+};
+scwin.acb_temperCls2_onselected = function () {
+  if (acb_temperCls2.getSelectedIndex() == 1 || acb_temperCls2.getSelectedIndex() == 3) {
+    // DRY or FAH
+    ed_frzTemper2.setValue("");
+    $c.gus.cfDisableObjects($p, [ed_frzTemper2]);
+  } else {
+    // CELL
+    ed_frzTemper2.setValue("");
+    $c.gus.cfEnableObjects($p, [ed_frzTemper2]);
+  }
+};
+scwin.acb_tsCls1_onselected = function () {
+  var v_tsCls1 = acb_tsCls1.getValue(); // 수출입구분
+
+  if (v_tsCls1 == 14) {
+    cbx_out_bondTransYn.setMandatory(true);
+    ed_bondYardCd.setMandatory(true);
+    ed_bondYardNm.setMandatory(true);
+    ed_bondYardNm.validExp = "보세장치장:yes";
+  } else {
+    cbx_out_bondTransYn.setMandatory(false);
+    ed_bondYardCd.setMandatory(false);
+    ed_bondYardNm.setMandatory(false);
+  }
+};
+scwin.acb_tsCls2_onselected = function () {
+  var v_tsCls2 = acb_tsCls2.getValue(); // 수출입구분
+
+  if (v_tsCls2 == 14) {
+    cbx_in_bondTransYn.setMandatory(true);
+  } else {
+    cbx_in_bondTransYn.setMandatory(false);
+  }
+  ;
+};
+scwin.ed_transDst_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_transDstFrom1, ed_transDstFromNm1.getValue(), 0, true);
+};
+scwin.ed_transDst1_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_transDstTo1, ed_transDstToNm1.getValue(), 2, true);
+};
+scwin.ed_transCo1_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_transCoCd1, ed_suitCoTransCoNm1.getValue(), 13, true);
+};
+scwin.ed_transDst2_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_transDstTo2, ed_transDstToNm2.getValue(), 1, true);
+};
+scwin.ed_transCo2_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_transCoCd2, ed_suitCoTransCoNm2.getValue(), 14, true);
+};
+scwin.ed_dchr2_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_dchrPort2, ed_dchrPortNm2.getValue(), 9, true);
+};
+scwin.ed_bondYard_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_bondYardCd, txt_bondYardNm, 15);
+};
+scwin.cbx_crryInCopino_onchange = function (info) {
+  scwin.f_switchTransYn(2);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'tb_srchCond',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'차량ID번호',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_vehclIdCardNo',placeholder:'',style:'width:150px;'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'컨테이너번호',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_cntrNo',placeholder:'',style:'width:150px;',mandatory:'true',title:'컨테이너번호'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onclick'},E:[{T:1,N:'xf:label'}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'lybox flex_no'},E:[{T:1,N:'xf:group',A:{id:'tb_crryOutCopinoAll',class:'col'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'반출(COPINO)',class:'tit'}}]}]},{T:1,N:'xf:group',A:{id:'tb_crryOutCopino'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'수신처',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_comCode',A:{btnId:'btn_transDstFromNm1',codeId:'ed_transDstFrom1',id:'udc_transDst1',nameId:'ed_transDstFromNm1',popupID:'',selectID:'',style:'width:%; height:px; ',validTitle:'','ev:onclickEvent':'scwin.ed_transDst1_onclickEvent'}}]},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transDstFromNm1'}},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'수출입구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',ref:'',chooseOptionLabel:'[]',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_expimpClsCd1',allOption:'',title:'수출입구분',class:'','ev:onblur':'scwin.acb_expimpClsCd1_onblur'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'수입'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'I'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'수출'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'E'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'반출일시',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'w2:inputCalendar',A:{pickerType:'dynamic',style:'',id:'ica_crryinoutDt1',class:'',calendarValueType:'yearMonthDate'}},{T:1,N:'xf:input',A:{dataType:'time',style:'width: 50px;',id:'ed_crryinoutHh1',class:'tac'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'모선항차',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_tmlVsslPortcnt1',placeholder:'',title:'모선/항차',class:'',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'입항년도',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{pickerType:'dynamic',style:'',id:'ica_vsslArrvlportYr1',class:'',calendarValueType:'year'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'컨테이너번호',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_cntrNo1',placeholder:'',title:'컨테이너번호',class:'',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'E/F',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',ref:'',chooseOptionLabel:'[]',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_fullEmptyClsCd1',allOption:'',title:'E/F',class:'',mandatory:'true','ev:onselected':'scwin.acb_fullEmptyClsCd1_onselected'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'EMPTY'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'FULL'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'5'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'컨테이너규격',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width: 125px;',id:'ed_sizTyp1',placeholder:'',title:'SIZE/TYPE',class:'',mandatory:'true','ev:onblur':'scwin.ed_sizTyp1_onblur'}},{T:1,N:'xf:trigger',A:{'ev:onclick':'scwin.btn_sizTyp1_onclick',style:'',id:'btn_sizTyp1',type:'button',class:'btn ico sch'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Seal No',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_sealNo1',placeholder:'',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'OPERATOR',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_shpCoCd1',placeholder:'',title:'OPERATOR',class:'',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'도착지',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_transDst1_onclickEvent',allowCharCode:'가-힣',codeId:'ed_transDstTo1',popupID:'',nameId:'ed_transDstToNm1',style:'',id:'ed_transDst1',hideName:'Y',btnId:'btn_dptWrkPlCd','ev:onblurCodeEvent':'scwin.ed_transDst1_onblurCodeEvent'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transDstToNm1'}}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'차량ID번호',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_vehclNoFrtcarNo1',placeholder:'',title:'차량ID번호',class:'',mandatory:'true','ev:onblur':'scwin.ed_vehclNoFrtcarNo1_onblur'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'차량번호',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_vehclNoFull1',placeholder:'',class:'','ev:onblur':'scwin.ed_vehclNoFull1_onblur'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'차량구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width:150px;',allOption:'',id:'acb_vehclCls1',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'용차아님'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'용차'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'2'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'기사핸드폰',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_tel1',placeholder:'',title:'기사핸드폰',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'운송업체',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_transCo_onclickEvent',allowCharCode:'가-힣',codeId:'ed_transCoCd1',popupID:'',nameId:'ed_suitCoTransCoNm1',style:'',id:'ed_transCo1',btnId:'btn_transCo',hideName:'Y','ev:onblurCodeEvent':'scwin.ed_transCo1_onblurCodeEvent'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'input59'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'보운차량여부',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width:150px;',allOption:'',id:'acb_bondTransVehclYn1',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'샤시번호/위치',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width: 85px;',id:'ed_chassisNo1',placeholder:'',class:''}},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'/',class:''}},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width: 85px;',allOption:'',id:'acb_chassisPosInfo1',title:'샤시위치정보',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'앞'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'뒤'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'2'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'TS구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width:150px;',allOption:'',id:'acb_tsCls1',class:'','ev:onselected':'scwin.acb_tsCls1_onselected'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'타부투T/S'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'14'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'자가',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width:150px;',allOption:'',id:'acb_selfCls1',title:'자가구분',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'한진자가',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width:150px;',allOption:'',id:'acb_hanjinSelfCls1',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'B/L NO',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_blNo1',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'D/O',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_doNo1',placeholder:'',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'B/K NO',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_bookingNo1',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'승인번호',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_admitNo1',placeholder:'',class:''}}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'직통관유무',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{chooseOptionLabel:'[]',ref:'',search:'start',submenuSize:'auto',chooseOption:'true',editType:'select',style:'width:150px;',allOption:'',id:'acb_drtCstmclrncExyn1',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'X-RAY',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{falseValue:'0',ref:'',appearance:'full',style:'',id:'cbx_xrayRettlPassYn1',renderType:'checkboxgroup',rows:'',selectedindex:'0',class:'',cols:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'화주',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_mcht1_onclickEvent',codeId:'ed_mchtCd1','ev:onviewchangeNameEvent':'scwin.ed_mcht1_onviewchangeNameEvent',popupID:'',validTitle:'화주',nameId:'ed_mchtNm1',style:'',id:'ed_mcht1',btnId:'btn_mchtCd1',hideName:'Y','ev:onblurCodeEvent':'scwin.ed_mcht1_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'특이사항',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{style:'',id:'ed_rmk1',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'특례보세여부',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{falseValue:'0',ref:'',appearance:'full',style:'',id:'cbx_out_bondTransYn',renderType:'checkboxgroup',rows:'',selectedindex:'0',class:'',cols:'',title:'특례보세여부'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'보세장치장',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_bondYard_onclickEvent',codeId:'ed_bondYardCd','ev:onviewchangeNameEvent':'scwin.ed_bondYard_onviewchangeNameEvent',popupID:'',nameId:'ed_bondYardNm',style:'',id:'ed_bondYard',btnId:'btn_bondYardCd',hideName:'Y',validTitle:'보세장치장','ev:onblurCodeEvent':'scwin.ed_bondYard_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_sizTyp2'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display: none;',id:'hid_sizTyp1'}},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'전송구분',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'ed_sndClsCd1',label:'text',style:'',escape:'false'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'전송일시',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'ed_sndDtHh1',label:'text',style:''}}]}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'mt16',cols:'',id:'cbx_crryOutCopino',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'','ev:onchange':'scwin.cbx_crryOutCopino_onchange',falseValue:'0'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전송여부'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:'tb_crryInCopinoAll',style:''},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'반입(COPINO)',class:'tit'}}]}]},{T:1,N:'xf:group',A:{id:'tb_crryInCopino'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'수신처',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_transDst2_onclickEvent',allowCharCode:'가-힣',codeId:'ed_transDstTo2',popupID:'',nameId:'ed_transDstToNm2',style:'',id:'ed_transDst2',hideName:'Y',btnId:'btn_transDstToNm2','ev:onblurCodeEvent':'scwin.ed_transDst2_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transDstToNm2'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'수출입구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_expimpClsCd2',allOption:'',title:'수출입구분',class:'','ev:onselected':'scwin.acb_expimpClsCd2_onselected'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'수입'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'I'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'수출'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'E'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'반입일시',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'w2:inputCalendar',A:{pickerType:'dynamic',style:'',id:'ica_crryinoutDt2',title:'반입일시',class:'',calendarValueType:'yearMonthDate'}},{T:1,N:'xf:input',A:{dataType:'time',style:'width: 50px;',id:'ed_crryinoutHh2',class:'tac'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'모선항차',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_tmlVsslPortcnt2',placeholder:'',title:'모선/항차',class:'',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'입항년도',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{pickerType:'dynamic',style:'',id:'ica_vsslArrvlportYr2',title:'모선입항년도',class:'',calendarValueType:'year'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'컨테이너번호',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_cntrNo2',placeholder:'',title:'컨테이너번호',class:'',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'E/F',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_fullEmptyClsCd2',allOption:'',title:'E/F',class:'',mandatory:'true','ev:onselected':'scwin.acb_fullEmptyClsCd2_onselected'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'EMPYY'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'FULL'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'5'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'컨테이너규격',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width: 125px;',id:'ed_sizTyp2',placeholder:'',title:'SIZE/TYPE',class:'',mandatory:'true','ev:onblur':'scwin.ed_sizTyp2_onblur'}},{T:1,N:'xf:trigger',A:{'ev:onclick':'scwin.btn_sizTyp2_onclick',style:'',id:'btn_sizTyp2',type:'button',class:'btn ico sch'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Seal No',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_sealNo2',placeholder:'',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'OPERATOR',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{minlength:'1',style:'width:150px;',id:'ed_shpCoCd2',placeholder:'',title:'OPERATOR',class:'',mandatory:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'출발지',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_transDst_onclickEvent',codeId:'ed_transDstFrom2',popupID:'',nameId:'ed_transDstFromNm2',style:'',id:'ed_transDst',hideName:'Y',btnId:'btn_arvWrkPlCd'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transDstFromNm2'}}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'차량ID번호',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_vehclNoFrtcarNo2',placeholder:'',title:'차량ID번호',class:'',mandatory:'true','ev:onblur':'scwin.ed_vehclNoFrtcarNo2_onblur'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'차량번호',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_vehclNoFull2',placeholder:'',class:'','ev:onblur':'scwin.ed_vehclNoFull2_onblur'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'차량구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_vehclCls2',allOption:'',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'용차아님'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'용차'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'2'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'기사핸드폰',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_tel2',placeholder:'',title:'기사핸드폰',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'운송업체',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_transCo2_onclickEvent',allowCharCode:'가-힣',codeId:'ed_transCoCd2',popupID:'',nameId:'ed_suitCoTransCoNm2',style:'',id:'ed_transCo2',hideName:'Y',btnId:'btn_transCo2','ev:onblurCodeEvent':'scwin.ed_transCo2_onblurCodeEvent'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transWrkIndictNo2'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'보세차량여부',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_bondTransVehclYn2',allOption:'',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'샤시번호/위치',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width: 85px;',id:'ed_chassisNo2',placeholder:'',class:''}},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'/',class:''}},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width: 85px;',id:'acb_chassisPosInfo2',allOption:'',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'앞'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'뒤'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'2'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'TS구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_tsCls2',allOption:'',class:'','ev:onselected':'scwin.acb_tsCls2_onselected'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'타부두T/S'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'14'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'자가',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width:150px;',id:'acb_selfCls2',allOption:'',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'양하항',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_dchr2_onclickEvent',codeId:'ed_dchrPort2',popupID:'',nameId:'ed_dchrPortNm2',style:'',id:'ed_dchr2',hideName:'Y',btnId:'btn_dchrPort2','ev:onblurCodeEvent':'scwin.ed_dchr2_onblurCodeEvent'}}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'중량',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_totWt2',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'규격초과(W/H/L)',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'width: 150px;',id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'',id:'ed_overWidth2',placeholder:'',class:''}},{T:1,N:'xf:input',A:{style:'',id:'ed_overHeight2',placeholder:'',class:''}},{T:1,N:'xf:input',A:{style:'',id:'ed_overLength2',placeholder:'',class:''}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'온도',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width: 85px;',id:'ed_frzTemper2',placeholder:'',title:'냉동온도',class:'','ev:onblur':'scwin.ed_frzTemper2_onblur'}},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',editType:'select',style:'width: 85px;',id:'acb_temperCls2',title:'온도구분',class:'','ev:onselected':'scwin.acb_temperCls2_onselected'}}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'위험물코드',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width: 85px;',id:'ed_dangerCd2',placeholder:'',class:''}},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'auto',chooseOptionLabel:'[]',ref:'',chooseOption:'true',editType:'select',style:'width: 85px;',id:'acb_dangerCls2',allOption:'',class:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'IMDG'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'I'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'UNNO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'U'}]}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'B/K NO',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_bookingNo2',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'승인번호',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_admitNo2',placeholder:'',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'B/L NO',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_blNo2',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'D/O',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'ed_doNo2',placeholder:'',class:''}}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'화주',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_comCode',A:{'ev:onclickEvent':'scwin.ed_mcht2_onclickEvent',codeId:'ed_mchtCd2','ev:onviewchangeNameEvent':'scwin.ed_mcht2_onviewchangeNameEvent',popupID:'',nameId:'ed_mchtNm2',style:'',id:'ed_mcht2',hideName:'Y',btnId:'btn_mchtCd2','ev:onblurCodeEvent':'scwin.ed_mcht2_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'연락담당자',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'em_ctaNm',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'연락처',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:150px;',id:'em_ctaTel',placeholder:'',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'특이사항',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td br0'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{style:'w',id:'ed_rmk2',placeholder:'',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td bl0'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transDstFromWrkPlCd1'}},{T:1,N:'xf:input',A:{style:'width:144px; height:21px; display:none;',id:'hid_transDstToWrkPlCd2'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'특례보세여부',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{falseValue:'0',ref:'',appearance:'full',style:'',id:'cbx_in_bondTransYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',class:'',cols:'',title:'특례보세여부'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'전송구분',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{style:'',id:'ed_sndClsCd2',label:'text',class:'',escape:'false'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'전송일시',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{style:'',id:'ed_sndDtHh2',label:'text',class:''}}]}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'mt16',cols:'',id:'cbx_crryInCopino',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',falseValue:'0','ev:onchange':'scwin.cbx_crryInCopino_onchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전송여부'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'row-gap-4'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'info-list row'},E:[{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P10 : <span class="txt-blk">동부감만T</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P12 : <span class="txt-blk">HBCT</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P13 : <span class="txt-blk">PECT</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P14 : <span class="txt-blk">허치슨감만T</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P16 : <span class="txt-blk">BICT</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P17 : <span class="txt-blk">대통감만T</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P18 : <span class="txt-blk">한진감천T</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P19 : <span class="txt-blk">우암T</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P60 : <span class="txt-blk">부산신항</span>',class:'',escape:'false'}}]},{T:1,N:'xf:group',A:{id:'',class:'info-list row'},E:[{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P42 : <span class="txt-blk">울산정일</span>',class:'',escape:'false'}},{T:1,N:'w2:textbox',A:{ref:'',tagname:'p',style:'',userData2:'',id:'',label:'6P42 : <span class="txt-blk">울산6부두</span>',class:'',escape:'false'}}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_create',label:'저장',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:3,text:'신규'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_send',label:'저장',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:3,text:'전송'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_save',label:'저장',style:'',type:'button','ev:onclick':'scwin.btn_save_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'저장'}]}]}]}]}]}]}]}]}]})

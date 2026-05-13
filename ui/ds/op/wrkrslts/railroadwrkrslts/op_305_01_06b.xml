@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_railroadRslts" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="dptMonth" name="기준월" dataType="text"></w2:column>
+    					<w2:column id="dpt20e" name="name2" dataType="text"></w2:column>
+    					<w2:column id="dpt20f" name="name3" dataType="text"></w2:column>
+    					<w2:column id="dpt40e" name="name4" dataType="text"></w2:column>
+    					<w2:column id="dpt40f" name="name5" dataType="text"></w2:column>
+    					<w2:column id="arv20e" name="name6" dataType="text"></w2:column>
+    					<w2:column id="arv20f" name="name7" dataType="text"></w2:column>
+    					<w2:column id="arv40e" name="name8" dataType="text"></w2:column>
+    					<w2:column id="arv40f" name="name9" dataType="text"></w2:column>
+    					<w2:column id="sum20e" name="name10" dataType="text"></w2:column>
+    					<w2:column id="sum20f" name="name11" dataType="text"></w2:column>
+    					<w2:column id="sum40e" name="name12" dataType="text"></w2:column>
+    					<w2:column id="sum40f" name="name13" dataType="text"></w2:column>
+    					<w2:column id="dptTeu" name="발송" dataType="text"></w2:column>
+    					<w2:column id="arvTeu" name="도착" dataType="text"></w2:column>
+    					<w2:column id="totTeu" name="총TEU" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="stdYy" name="name1" dataType="text"></w2:key>
+    					<w2:key id="quarter" name="name2" dataType="text"></w2:key>
+    					<w2:key id="dptStnCd" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.railroadwrkrslts.RetrieveRailroadWrkRsltsPerQuarterCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_railroadRslts","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_railroadRslts","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+/*년월일 setting*/
+scwin.strCurDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.yyyy = scwin.strCurDate.substring(0, 4);
+/** ***********************************************************************
+ *  화면에서 기본 로딩시 발생하는 함수 START
+ ************************************************************************ */
+//-------------------------------------------------------------------------
+// 화면 로딩시 호출 되는 함수
+//------------------------------------------------------------------------- 
+scwin.onpageload = function() {
+};
+//-------------------------------------------------------------------------
+// 화면 에 UDC 컴포넌트가 모두 로딩 완료시 호출 되는 함수
+//------------------------------------------------------------------------- 
+scwin.onUdcCompleted = function() {
+    scwin.f_FieldClear("i");
+    ica_ed_stdYY.select();
+}
+/** ***********************************************************************
+ *  화면에서 기본 로딩시 발생하는 함수 END
+ ************************************************************************ */
+
+
+//-------------------------------------------------------------------------
+// 조회값 초기화
+//------------------------------------------------------------------------- 
+scwin.f_FieldClear = function(type='i') {
+    if ( type == "i" ) {
+        dma_search.set("stdYy"     ,scwin.yyyy);
+    } else {
+        dma_search.set("stdYy"     ,"");
+    }
+    ed_dptStn.setValue("");
+    ed_dptStnNm.setValue("");
+    dma_search.set("quarter","1");
+    ica_ed_stdYY.focus();
+}
+//-------------------------------------------------------------------------
+// 출발역 UDC 이벤트 호출 되는 함수 START
+//------------------------------------------------------------------------- 
+scwin.udc_comCode_dpstn_onclickEvent = function(e) {
+    udc_comCode_dpstn.cfCommonPopUp(scwin.udc_comCode_dpstn_callBackFunc
+                                   , ed_dptStn.getValue()
+                                   , ed_dptStnNm.getValue()
+                                   ,"F", null, "역명코드,역명", null, null, null, null, null, null, null, null, "T", "역명조회,역명코드,역명");
+};
+
+scwin.udc_comCode_dpstn_onblurCodeEvent = function (e) {
+    if ( ed_dptStn.originalValue != ed_dptStn.getValue() ) {
+        const dptStn = ed_dptStn.getValue();
+        const dptStnNm = ed_dptStnNm.getValue();
+        ed_dptStnNm.setValue("");
+        if ( dptStn != "" ) {
+            udc_comCode_dpstn.cfCommonPopUp(scwin.udc_comCode_dpstn_callBackFunc, dptStn, dptStnNm,"T", null, "역명코드,역명", null, null, null, null, null, null, null, null, null, "역명조회,역명코드,역명");
+        }
+        }
+};
+
+scwin.udc_comCode_dpstn_onblurNameEvent = function (e) {
+    if ( ed_dptStnNm.originalValue != ed_dptStnNm.getValue() ) {
+        const dptStn = ed_dptStn.getValue();
+        const dptStnNm = ed_dptStnNm.getValue();
+        ed_dptStn.setValue("");
+        if ( dptStnNm != "") {
+            udc_comCode_dpstn.cfCommonPopUp(scwin.udc_comCode_dpstn_callBackFunc, dptStn, dptStnNm,"T", null, "역명코드,역명", null, null, null, null, null, null, null, null, null, "역명조회,역명코드,역명");
+        }
+    }
+};
+scwin.udc_comCode_dpstn_callBackFunc = function(ret) {
+    $c.gus.cfSetReturnValue(ret, ed_dptStn, ed_dptStnNm);
+    console.log(ret);
+};
+
+//-------------------------------------------------------------------------
+// 출발역 UDC 이벤트 호출 되는 함수 END
+//------------------------------------------------------------------------- 
+
+
+//-------------------------------------------------------------------------
+// 조회
+//------------------------------------------------------------------------- 
+scwin.btn_retrieve_onclick = async function (e) {
+    let check = await $c.gus.cfValidate([ica_ed_stdYY, acb_lc_quarter, ed_dptStn]);
+    //필수입력항목 체크	  
+  	if( !check ) return;
+    dma_search.set("dptStnCd",ed_dptStn.getValue());
+
+	$c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function() {
+
+    let nCnt = ds_railroadRslts.getRowCount();
+    
+    if( nCnt == 0 ){
+
+		$c.gus.cfAlertMsg(MSG_CM_WRN_002);
+  	
+    } else {
+        gr_railroadRslts.setFocusedCell(0, 0);
+        total.setValue(nCnt);
+    }
+
+};
+
+//-------------------------------------------------------------------------
+// 엑셀저장
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel = async function() {
+    if ( ds_railroadRslts.getRowCount() <= 0) {
+        $c.win.alert(MSG_CM_WRN_002);
+        return false;
+    }
+    const options = {
+        fileName : "기간별철송실적현황.xlsx"
+        ,sheetName : "기간별철송실적현황"
+    };
+    await $c.data.downloadGridViewExcel(gr_railroadRslts, options);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="tb_railroadRslts" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="기준년도" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="year" class="" id="ica_ed_stdYY" pickerType="dynamic" title="기준년월"
+    								style="" mandatory="true" displayFormat="yyyy" ref="data:dma_search.stdYy" validExp="기준년월:yes:date=YYYY:length=4:key" >
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="분기별" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_lc_quarter" search="start" style="width:150px;"
+    								submenuSize="auto" mandatory="true" allOption="" chooseOption="" ref="data:dma_search.quarter" disableEdit="true">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[1/4분기]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[2/4분기]]></w2:label>
+    										<w2:value><![CDATA[2]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[3/4분기]]></w2:label>
+    										<w2:value><![CDATA[3]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[4/4분기]]></w2:label>
+    										<w2:value><![CDATA[4]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[전반기]]></w2:label>
+    										<w2:value><![CDATA[5]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[하반기]]></w2:label>
+    										<w2:value><![CDATA[6]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="철도역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_dptStn" nameId="ed_dptStnNm" id="udc_comCode_dpstn" mandatoryCode="true" objTypeCode="key" selectID="retrieveTrainWorkPlace" ev:onclickEvent="scwin.udc_comCode_dpstn_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCode_dpstn_onblurCodeEvent" ev:onblurNameEvent="scwin.udc_comCode_dpstn_onblurNameEvent" skipOnBlurNameValueEmpty="N" skipOnBlurCodeValueEmpty="N" allowCharCode="0-9A-Za-z" UpperFlagCode="1" maxlengthCode="6" validExpCode="철도역:yes:maxLength=6" validTitle="철도역"></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" btnPlusYn="Y" gridDownFn="scwin.f_GridToExcel" gridID="gr_railroadRslts" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_railroadRslts" id="gr_railroadRslts" style=""
+    					visibleRowNum="15" readOnly="true" columnMove="true" fixedColumn="1" fixedColumnNoMove="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1"  inputType="text" style="" value="기준월"    width="70"              rowSpan="3"  ></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="발송"      width="280" colSpan="4"              sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column9"  inputType="text" style="" value="도착"      width="280" colSpan="4"              sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" style="" value="합계"      width="280" colSpan="4"              sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" style="" value="TOTAL TEU" width="140" colSpan="2" rowSpan="2"  sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column91" inputType="text" style="" value="총계"      width="70"              rowSpan="2"  sortable="false"></w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row4">
+    							<w2:column width="140" inputType="text" style="" id="column59" value="20" displayMode="label" colSpan="2" sortable="false"></w2:column>
+    							<w2:column width="140" inputType="text" style="" id="column57" value="40" displayMode="label" colSpan="2" sortable="false"></w2:column>
+    							<w2:column width="140" inputType="text" style="" id="column55" value="20" displayMode="label" colSpan="2" sortable="false"></w2:column>
+    							<w2:column width="140" inputType="text" style="" id="column53" value="40" displayMode="label" colSpan="2" sortable="false"></w2:column>
+    							<w2:column width="140" inputType="text" style="" id="column51" value="20" displayMode="label" colSpan="2" sortable="false"></w2:column>
+    							<w2:column width="140" inputType="text" style="" id="column49" value="40" displayMode="label" colSpan="2" sortable="false"></w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row5">
+    							<w2:column width="70" inputType="text" style="" id="column74" value="E"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column73" value="F"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column72" value="E"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column71" value="F"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column70" value="E"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column69" value="F"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column68" value="E"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column67" value="F"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column66" value="E"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column65" value="F"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column64" value="E"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column63" value="F"     displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column62" value="발송"  displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column61" value="도착"  displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column93" value="총TEU" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="dptMonth" inputType="text" style="color:blue" value="" width="70"></w2:column>
+    							<w2:column displayMode="label" id="dpt20e"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="dpt20f"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="dpt40e"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="dpt40f"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="arv20e"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="arv20f"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="arv40e"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="arv40f"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="sum20e"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="sum20f"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="sum40e"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="sum40f"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="dptTeu"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="arvTeu"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="totTeu"   inputType="text" style="" value="" width="70" dataType="number" displayFormat="#,##0" excelCellType="number"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row13">
+    							<w2:column width="70" inputType="text"       style="" id="column130" value="합계" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column129" value=""     displayMode="label" dataType="number" expression='sum("dpt20e")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column128" value=""     displayMode="label" dataType="number" expression='sum("dpt20f")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column127" value=""     displayMode="label" dataType="number" expression='sum("dpt40e")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column126" value=""     displayMode="label" dataType="number" expression='sum("dpt40f")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column125" value=""     displayMode="label" dataType="number" expression='sum("arv20e")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column124" value=""     displayMode="label" dataType="number" expression='sum("arv20f")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column123" value=""     displayMode="label" dataType="number" expression='sum("arv40e")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column122" value=""     displayMode="label" dataType="number" expression='sum("arv40f")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column121" value=""     displayMode="label" dataType="number" expression='sum("sum20e")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column145" value=""     displayMode="label" dataType="number" expression='sum("sum20f")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column142" value=""     displayMode="label" dataType="number" expression='sum("sum40e")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column133" value=""     displayMode="label" dataType="number" expression='sum("sum40f")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column136" value=""     displayMode="label" dataType="number" expression='sum("dptTeu")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column139" value=""     displayMode="label" dataType="number" expression='sum("arvTeu")' displayFormat="#,##0" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column196" value=""     displayMode="label" dataType="number" expression='sum("totTeu")' displayFormat="#,##0" ></w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="70" inputType="text"       style="" id="column30" value="평균" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column29" value=""     displayMode="label" dataType="number" expression='AVG("dpt20e")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column28" value=""     displayMode="label" dataType="number" expression='AVG("dpt20f")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column27" value=""     displayMode="label" dataType="number" expression='AVG("dpt40e")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column26" value=""     displayMode="label" dataType="number" expression='AVG("dpt40f")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column25" value=""     displayMode="label" dataType="number" expression='AVG("arv20e")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column24" value=""     displayMode="label" dataType="number" expression='AVG("arv20f")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column23" value=""     displayMode="label" dataType="number" expression='AVG("arv40e")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column22" value=""     displayMode="label" dataType="number" expression='AVG("arv40f")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column21" value=""     displayMode="label" dataType="number" expression='AVG("sum20e")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column45" value=""     displayMode="label" dataType="number" expression='AVG("sum20f")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column42" value=""     displayMode="label" dataType="number" expression='AVG("sum40e")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column33" value=""     displayMode="label" dataType="number" expression='AVG("sum40f")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column36" value=""     displayMode="label" dataType="number" expression='AVG("dptTeu")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column39" value=""     displayMode="label" dataType="number" expression='AVG("arvTeu")' displayFormat="#,##0[floor]" ></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column96" value=""     displayMode="label" dataType="number" expression='AVG("totTeu")' displayFormat="#,##0[floor]" ></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="total" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

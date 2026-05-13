@@ -1,0 +1,37 @@
+lo_100_08_01b.log
+
+[2026-02-19 03:33:36.101] 변환 시작
+[2026-02-19 03:33:36.127] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 03:36:12.528] #1 검증: XML: WebSquareXmlValidator: score=0.47, grade=C, verdict=REVIEW, errors=4, warnings=8 | Adequacy: LlmConversionAdequacyValidator: score=0.85, grade=B, verdict=REVIEW, errors=4, warnings=7 | LLM 156278ms, total 156401ms
+    - [XML] scwin.dataSetDebug에서 $c.win.alert를 await 없이 호출 — script:scwin.dataSetDebug
+    - [XML] scwin.dataSetDebug이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.dataSetDebug
+    - [XML] i <= getRowCount() 패턴 발견 (1건) → i < getRowCount()로 변환 필요
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_createHeader_ForUpload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: lc_vsslPurpsCd (LUXECOMBO→w2:autoComplete), lc_holdKndCd (LUXECOMBO→w2:autoComplete), gr_outEqHold (GRID→w2:gridView), gr_attachFile (GRID→w2:gridView)
+    - [적정성] off-by-one 경계 오류 — i <= getRowCount() 1건 → i < getRowCount() 필요
+    - [적정성] async 선언 누락 — scwin.dataSetDebug (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.dataSetDebug → $c.win.alert
+[2026-02-19 03:36:12.610] #1 검증: 자동수정 5건 적용
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U24: async/await 선제 적용
+    - [자동수정] BOUND_OFF_BY_ONE: i <= getRowCount() 패턴 발견 (1건) → i < getRowCount()로 변환 필요
+[2026-02-19 03:36:12.746] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.62, grade=B, verdict=REVIEW, errors=1, warnings=8 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=7
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_createHeader_ForUpload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: lc_vsslPurpsCd (LUXECOMBO→w2:autoComplete), lc_holdKndCd (LUXECOMBO→w2:autoComplete), lc_htccvrTypCd (LUXECOMBO→w2:autoComplete), gr_outEqHold (GRID→w2:gridView), gr_attachFile (GRID→w2:gridView)
+[2026-02-19 03:36:12.748] #2 재시도 (에러 7건)
+[2026-02-19 03:36:13.756] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:38:53.535] #2 검증: XML: WebSquareXmlValidator: score=0.62, grade=B, verdict=REVIEW, errors=1, warnings=8 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=7 | LLM 159651ms, total 159779ms
+    - [XML] i <= getRowCount() 패턴 발견 (1건) → i < getRowCount()로 변환 필요
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: lc_vsslPurpsCd (LUXECOMBO→w2:autoComplete), lc_holdKndCd (LUXECOMBO→w2:autoComplete), gr_outEqHold (GRID→w2:gridView), gr_attachFile (GRID→w2:gridView)
+    - [적정성] off-by-one 경계 오류 — i <= getRowCount() 1건 → i < getRowCount() 필요
+[2026-02-19 03:38:53.538] #1 검증: 최적 시도 #1 채택 (confidence: 0.79)
+[2026-02-19 03:38:53.538] 실패 (2회 시도, 5m 17s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_createHeader_ForUpload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 ID 유지 — 누락 5건: lc_vsslPurpsCd (LUXECOMBO→w2:autoComplete), lc_holdKndCd (LUXECOMBO→w2:autoComplete), lc_htccvrTypCd (LUXECOMBO→w2:autoComplete), gr_outEqHold (GRID→w2:gridView), gr_attachFile (GRID→w2:gridView)
+================================================================================

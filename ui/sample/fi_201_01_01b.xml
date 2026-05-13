@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="index" meta_screenName="index 화면" meta_author="김팔수" meta_desc=" ">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_dataMap1">
+    				<w2:keyInfo>
+    					<w2:key id="grpCode" name="name1" dataType="text"></w2:key>
+    					<w2:key id="key2" name="name2" dataType="text"></w2:key>
+    					<w2:key id="key3" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    				<w2:data></w2:data>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList1" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="코드" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<cd><![CDATA[1]]></cd>
+    						<cdNm><![CDATA[aaa]]></cdNm>
+    					</w2:row>
+    					<w2:row>
+    						<cd><![CDATA[2]]></cd>
+    						<cdNm><![CDATA[bbb]]></cdNm>
+    					</w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList2" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row></w2:row>
+    					<w2:row></w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList3" saveRemovedData="true">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_test" action="/cmn/selectGrpCdList.do" method="get" mediatype="application/json" ref=""
+    			target='data:json,{"id":"dlt_dataList1","key":"response"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_submission1_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[// LoginDTO login = LoginUtil.getLoginDTO( request ) ; // 로그인 정보를 가져온다.
+
+// String privAdmin = login.getPrivAdmin() ;// ADMIN 권한 CHK : 'T' : ADMIN , 'F': ADMIN 아님 
+// String user_id   = login.getUserId();
+// String strToDate = DDate.getDate("");	// 현재일자를 구한다.
+// String systemPathKey =  DFWConstants.FILE_UPLOAD_SYSTEM_PATH ;
+// String systemPathVal =  "common/csv/uploadTemp";
+// String path = "/WEB-INF/struts_config/pt/co.xml";
+
+
+
+
+
+scwin.onpageload = function() {
+	//$c.gus.f_CopyDataRow("dlt_dataList1", "dlt_dataList2", 0, 0, "cdNm", "col2");
+    
+    scwin.init();
+   
+};
+
+scwin.init = funciton()
+{
+    // scwin.user_id ="userId"; // "<%=user_id%>";
+        
+    // scwin.state = "Y";
+    // scwin.delflag = "N";
+    // scwin.slipKndCd = "SLIPKNDCD_EXPENSE"; // "<%=ACConstants.SLIPKNDCD_EXPENSE%>"        // 전표 종류 : 경비전표
+    // scwin.vUserHomeClsCd = "Ucd"; //"<%=login.getUserHomeClsCd()%>";        // 사용자소속구분코드   
+    // scwin.slipKndNm = "경비전표";
+    // scwin.slipDt    = $c.date.getServerDateTime; //"<%=DDate.getDate()%>"
+    // scwin.vUpperAcctDeptCd = "";
+    // scwin.vBizDomCd = "";
+    // // 변동비구분
+    // scwin.varCostClsCd = "";
+    // // 소속구분
+    // scwin.gBizDomCdClsCd = "" 
+    // // 구분값
+    // scwin.rltSeq = 0;
+    // // 행복사여부
+    // scwin.rowCopyYn = 0;
+    // scwin.vCopyYn = 0; 
+    // scwin.vCoCd = ""; //cfIsNull(<%=login.getCoCd()%>)?'':'<%=login.getCoCd()%>'; // 소속 자회사  
+    // scwin.vCoClsCd=cfIsNull(<%=login.getCoClsCd()%>)?'': '<%=login.getCoClsCd()%>'  ;//회계_회사구분('CO035' : 0:동부 EXPRESS)
+    // scwin.vUserHomeClsCd= "<%=login.getUserHomeClsCd()%>";        // 사용자소속구분코드   
+    // scwin.isSubCompany = false;
+    // scwin.checkExchRt = 0;		//환율 부분 추가
+    // scwin.checkMain = false;
+    // scwin.uploadYn = "";  //엑셀업로드 여부
+    // scwin.vClntCrn = ""; //거래처 사업자번호
+    // scwin.vCrn = "" ;//사업자번호
+};
+]]></script>
+    	<style>
+    		.guide-wrap{overflow:hidden} .guide-con .tabbox > .wq_tab .w2tabcontrol_container{height: calc(100% - 60px)!important;}
+    		.guide-con .tab-flex{display:flex;height:calc(100vh - 100px);} .guide-con .tab-flex .page{overflow:hidden;} .guide-con .tab-flex
+    		.w2tabcontrol{width:100%;box-sizing:border-box} .guide-con{background:#F3F5F6;padding:20px} .guide-con .tab
+    		li{background:#E6EAED;} .guide-con .wq_tab_sub{padding:0 20px} .guide-wrap h2{height:60px;color:#fff;font-size:20px;padding: 0
+    		20px;font-weight:400;box-sizing:border-box;background:#20242B url('../../cm/images/base/logo.png')no-repeat 10px center;display:
+    		flex;} .guide-wrap h2 span{padding: 12px 0 0 150px;font-weight: 600;align-items: center;display: flex;} .guide-con
+    		h3{font-size:16px;font-weight:400} .guide-con .round-box{border:1px solid #E6E9EE;padding:20px;border-radius:20px} .guide-con
+    		.tabbox .wq_tab .w2tabcontrol_contents_wrapper .wq_tab_sub .w2tabcontrol_contents_wrapper{padding:20px 0}
+
+    	</style>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" class="">
+    	<xf:group id="grp_group311" class="sub_contents">
+    		<xf:group id="grp_group304" class="flex_gvw">
+    			<xf:group class="pgtbox" id="" style="">
+    				<w2:textbox class="pgt_tit" id="" label="화면타이틀" style="" tagname=""></w2:textbox>
+    				<xf:group class="breadcrumb" id="" style="">
+    					<xf:group id="" style="" tagname="ul">
+    						<xf:group class="home" id="" style="" tagname="li">
+    							<w2:anchor id="" outerDiv="false" style="">
+    								<xf:label><![CDATA[Home]]></xf:label>
+    							</w2:anchor>
+    						</xf:group>
+    						<xf:group id="" style="" tagname="li">
+    							<w2:anchor id="" outerDiv="false" style="">
+    								<xf:label><![CDATA[1Depth Menu]]></xf:label>
+    							</w2:anchor>
+    						</xf:group>
+    						<xf:group id="" style="" tagname="li">
+    							<w2:anchor id="" outerDiv="false" style="">
+    								<xf:label><![CDATA[2Depth Menu]]></xf:label>
+    							</w2:anchor>
+    						</xf:group>
+    						<xf:group id="" style="" tagname="li">
+    							<w2:span id="" label="3Depth Menu" style=""></w2:span>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:trigger class="btn ico bookmark" id="" style="" type="button">
+    					<xf:label></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group style="" id="grp_group299" class="content">
+    				<xf:group style="" id="grp_group300" class="round-box"></xf:group>
+    				<xf:group style="" id="grp_group301" class="round-box">
+    					<xf:group style="" id="grp_group302" class="section ">
+    						<xf:group id="grp_group306" class="grid-top justify-between">
+    							<xf:group id="grp_group307" class="title">
+    								<w2:textbox tagname="span" style="" id="tbx_textbox65" label="전표분개내역" class="tit"></w2:textbox>
+    							</xf:group>
+    							<xf:group style="" id="grp_group308" class="btn-grp col-gap-6">
+
+    								<xf:group id="grp_group309" class="section">
+    									<xf:trigger style="" id="" type="button" title="엑셀 UP" class="btn excel">
+    										<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    									</xf:trigger>
+    									<xf:trigger style="" id="" title="엑셀 UP" type="button" class="btn template">
+    										<xf:label><![CDATA[Template Download]]></xf:label>
+    									</xf:trigger>
+    								</xf:group>
+    								<xf:group id="grp_group310" class="section ">
+    									<w2:udc_topGrdBtn style="" grp="grd_section1"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" style="" id="" class="gvwbox">
+    								<w2:gridView rowNumWidth="40" visibleRowNumFix="false" checkAllType="false" dataList="data:dlt_dataList1" style="" autoFit="allColumn" id="grd_gridView16" visibleRowNum="3" class="wq_gvw" defaultCellHeight="24">
+    									<w2:caption style="" id="caption15" value="this is a grid caption."></w2:caption>
+    									<w2:header style="" id="header1">
+    										<w2:row style="" id="row1">
+    											<w2:column width="70" inputType="text" id="column2" value="증빙" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column1" value="계산서일자" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column3" value="계정" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column5" value="계정명" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column7" value="귀속부서" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="text" id="column9" value="공급가액" displayMode="label">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="column11" value="부가세액" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column26" value="할인금액" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column29" value="적요" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column32" value="업무용차 차량여부" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column35" value="비용구분" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column38" value="차량번호" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column41" value="기타금액계정" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column44" value="기타금액계정명1" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column47" value="" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody style="" id="gBody1">
+    										<w2:row style="" id="row2">
+    											<w2:column width="70" inputType="text" id="col1" value="5000001" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="cdNm" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column4" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column6" class="tar" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column8" class="tar" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="text" id="col2" class="tar" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="text" id="col3" class="tar" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column27" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column30" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column33" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column36" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column39" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column42" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column45" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column48" value="" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row4">
+    											<w2:column width="70" inputType="text" id="column25" value="합계" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column24" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column23" displayMode="label"></w2:column>
+    											<w2:column width="70" inputType="text" id="column22" class="tar" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column21" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="text" id="col2" class="tar" value="80,000" displayMode="label">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="column19" class="tar" value="80,000" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column28" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column31" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column34" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column37" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column40" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column43" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column46" value="" displayMode="label">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column49" value="" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    							</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="grp_group305" class="btnbox">
+    					<w2:button style="" id="btn_button101" label="발행" class="btn"></w2:button>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

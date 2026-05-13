@@ -1,0 +1,531 @@
+/*amd /ui/ds/op/wrkrslts/stockrslts/op_303_03_10b.xml 54399 f17f5a22a183177df10c20d6e8038435aae5cba0a7696bfa1668441e51f736da */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_oGDS_view_cond'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'bran',name:'점소',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cy',name:'cy',dataType:'text'}},{T:1,N:'w2:key',A:{id:'line',name:'라인',dataType:'text'}},{T:1,N:'w2:key',A:{id:'shpCo',name:'선사',dataType:'text'}},{T:1,N:'w2:key',A:{id:'typ',name:'타입',dataType:'text'}},{T:1,N:'w2:key',A:{id:'stDt',name:'시작일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'endDt',name:'종료일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPlPosnClsCd',name:'자사소유CY',dataType:'text'}},{T:1,N:'w2:key',A:{id:'socYn',name:'soc여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveLine',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cyNm',name:'CY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'line',name:'LINE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shpCoNm',name:'선사',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'TYPE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impFull20',name:'20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impFull40',name:'40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impFull45',name:'45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impFullTeu',name:'TEU',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expFull20',name:'20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expFull40',name:'40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expFull45',name:'45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expFullTeu',name:'TEU',dataType:'text'}},{T:1,N:'w2:column',A:{id:'empty20',name:'20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'empty40',name:'40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'empty45',name:'45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'emptyTeu',name:'TEU',dataType:'text'}},{T:1,N:'w2:column',A:{id:'all20',name:'20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'all40',name:'40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'all45',name:'45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'allTeu',name:'TEU',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cy',name:'CY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lineNm',name:'LINE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shpCo',name:'선사',dataType:'text'}},{T:1,N:'w2:column',A:{id:'allSum',name:'갯수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'passDt',name:'장치일수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'avgDt',name:'평균일수',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_srchLine'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'ebc',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'조회ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_LineList',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_lobran',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'lobranCd',name:'물류점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranNm',name:'물류점소명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranClsCd',name:'물류점소구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperLobranCd',name:'상위물류점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'회계부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkPlCd',name:'정비작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'useYn',name:'사용여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_line',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"ds_srchLine","key":"GAUCE"}',target:'data:json,{"id":"ds_LineList","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_line_submitdone','ev:submiterror':'scwin.sbm_line_submiterror',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.wrkrslts.stockrslts.RetrieveContainerYardEachLineEachStockPresentConditionCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_oGDS_view_cond","key":"IN_DS1"},{"id":"ds_retrieveLine","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_retrieveLine","key":"OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'scwin.sbm_retrieve_submiterror',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_lobran',action:'/ds.co.RetreiveLoBranCMD.do',method:'post',mediatype:'application/json',ref:'',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_lobran_submitdone','ev:submiterror':'scwin.sbm_lobran_submiterror',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/*   물류/실적현황/컨테이너 재고/CY별/LINE별 재고현황
+//125275	동원부산컨테이너터미널(주)
+    //세션 정보
+    LoginDTO    loginDTO    = LoginUtil.getLoginDTO(request);
+
+    String  loUpperLobranCd = loginDTO.getLoUpperLobranCd();     // 점소
+    String userClsCd = loginDTO.getUserClsCd(); 
+    //사용자구분코드(01:그룹사구분코드(01:그룹사, 02:협력업체(운송), 03:선사, 04:화주, 05:자가운송업체, 06:렌터카(고객), 07:정비(고객))
+
+    String loginClntNo = loginDTO.getClntNo(); //거래처번호
+    String loginClntNm = loginDTO.getClntNm(); //거래처명
+    String lobranCd = loginDTO.getLobranCd(); // 점소명
+    if ( loUpperLobranCd == null ) loUpperLobranCd = "";
+    if(userClsCd == null) userClsCd = "";
+    if(loginClntNo == null) loginClntNo = "";
+    if(loginClntNm == null) loginClntNm = "";
+    if(lobranCd == null) lobranCd = "";
+	
+    String reqLobranCd = request.getParameter("lobranCd")==null? "" : request.getParameter("lobranCd"); // 점소코드 
+    String reqCy = request.getParameter("cy")==null? "" : request.getParameter("cy"); // CY코드 
+    String reqCyNm = request.getParameter("cyNm")==null? "" : request.getParameter("cyNm"); // Cy명 
+*/
+scwin.params = "";
+//scwin.vCurDate = $c.date.getServerDateTime("yyyyMMdd");    // 서버를 기준으로 현재 날짜 반환
+//scwin.vQryStDt = $c.date.addDate(scwin.vCurDate, -10);
+scwin.memJson = $c.data.getMemInfo($p);
+scwin.loUpperLobranCd = ""; // 점소
+scwin.userClsCd = "";
+scwin.userId = "";
+scwin.userNm = "";
+scwin.loginClntNo = ""; //거래처번호
+scwin.loginClntNm = ""; //거래처명
+scwin.lobranCd = ""; // 점소명
+scwin.reqLobranCd = ""; // 점소코드 
+scwin.reqCy = ""; // CY코드 
+scwin.reqCyNm = ""; //Cy명 
+scwin.hidden_chk_wrkPlPosnClsCd = "";
+scwin.onpageload = function () {
+  scwin.params = $c.data.getParameter($p);
+  scwin.loUpperLobranCd = scwin.memJson.loUpperLobranCd; // 점소
+  scwin.userClsCd = scwin.memJson.userClsCd;
+  scwin.userId = scwin.memJson.userId;
+  scwin.userNm = scwin.memJson.userNm;
+  scwin.loginClntNo = scwin.memJson.clntNo; //거래처번호
+  scwin.loginClntNm = scwin.memJson.clntNm; //거래처명
+  scwin.lobranCd = scwin.memJson.lobranCd; // 점소명
+
+  scwin.reqLobranCd = scwin.params.lobranCd == null ? "" : scwin.params.lobranCd; // 점소코드 
+  scwin.reqCy = scwin.params.cy == null ? "" : scwin.params.cy; // CY코드 
+  scwin.reqCyNm = scwin.params.cyNm == null ? "" : scwin.params.cyNm; // Cy명 
+};
+
+//var userClsCd = "<%=userClsCd%>";
+//var lobranCd = "<%=lobranCd%>";
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.f_OnLoad = function () {
+  //co_ds_LoBran.DataID="/ds.co.RetreiveLoBranCMD.do";
+  //co_ds_LoBran.Reset();
+
+  ds_lobran.setJSON([]);
+  $c.sbm.execute($p, sbm_lobran);
+  console.log('scwin.userClsCd ==>' + scwin.userClsCd);
+  if (scwin.userClsCd != "01") {
+    //사용자가 그룹사가 아닐때
+    ed_shpCo.setValue(scwin.loginClntNo);
+    ed_shpCoNm.setValue(scwin.loginClntNm);
+
+    //ed_shpCo.Enable = false;
+    //ed_shpCo.DisabledBackColor = "#dfdfdf";
+    //ed_shpCoNm.disabled = true;
+    //ed_shpCoNm.style.background = "#dfdfdf";
+    //cfDisableObjects([img_PopUp1]);
+    //td_con_bran.innerText = "";
+    //acb_con_bran.style.display = "none";
+
+    scwin.f_setLine();
+    acb_lineCd.focus();
+  } else {
+    scwin.f_setLine();
+    ed_shpCo.focus();
+    acb_con_bran.setValue(scwin.lobranCd);
+  }
+
+  // 점소가 NULL이 아닐경우 넘어온 점소로 세팅함.
+  if (scwin.reqLobranCd != "") {
+    acb_con_bran.setValue(scwin.reqLobranCd);
+  }
+  /*
+  if ( scwin.reqLobranCd != "" ) {
+      for (var i=1; i<=co_ds_LoBran.getRowCount(); i++) {
+          if (co_ds_LoBran.NameValue(i,"lobranCd") == scwin.reqLobranCd ) {
+              acb_con_bran.Index = (i-1);
+              break;
+          }
+      }
+  }
+  */
+
+  if (scwin.reqCy != "") {
+    ed_con_cy.setValue(scwin.reqCy);
+  }
+  if (scwin.reqCyNm != "") {
+    ed_con_cyNm.setValue(scwin.reqCyNm);
+  }
+
+  // 연결화면에서 OPEN시는 로딩시 자동 조회 하도록 한다.
+  if (scwin.reqCy != "") {
+    scwin.f_Retrieve();
+  }
+};
+scwin.onUdcCompleted = function () {
+  scwin.f_OnLoad();
+  scwin.f_checkEvent();
+};
+
+//-------------------------------------------------------------------------
+// CHECKBOX 선택시 - 기준기간
+//-------------------------------------------------------------------------
+scwin.f_checkEvent = function () {
+  //console.log('f_checkEvent');
+  if (cbx_fromTo.getSelectedIndex() != "") {
+    //ica_stDt.setReadOnly(false);
+    //ica_endDt.setReadOnly(false);
+
+    $c.gus.cfEnableObjects($p, [udc_stDt]);
+  } else {
+    //ica_stDt.setReadOnly(true);
+    //ica_endDt.setReadOnly(true);
+
+    $c.gus.cfDisableObjects($p, [udc_stDt]);
+    ds_oGDS_view_cond.set("stDt", "");
+    ds_oGDS_view_cond.set("endDt", "");
+  }
+  //console.log('cbx_fromTo.getSelectedIndex() = ' + cbx_fromTo.getSelectedIndex());
+};
+
+//-------------------------------------------------------------------------
+// CHECKBOX 선택시 - 자CY
+//-------------------------------------------------------------------------
+scwin.f_chkwrkPlPosnClsCd = function (tag) {
+  console.log('f_chkwrkPlPosnClsCd');
+  if (tag.getSelectedIndex() != "") {
+    //if(tag.checked == true){ // 체크시
+    scwin.hidden_chk_wrkPlPosnClsCd = "Y";
+  } else {
+    scwin.hidden_chk_wrkPlPosnClsCd = "N";
+  }
+  console.log('scwin.hidden_chk_wrkPlPosnClsCd =' + scwin.hidden_chk_wrkPlPosnClsCd);
+  //alert("tag.checked : " + tag.checked + "\n" + "hidden_chk_wrkPlPosnClsCd.getValue() : " + hidden_chk_wrkPlPosnClsCd.getValue());
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  //if(cbx_fromTo.checked == true) {
+  if (cbx_fromTo.getSelectedIndex() != "") {
+    if (!(await $c.gus.cfIsAfterDate($p, ica_stDt.getValue(), ica_endDt.getValue()))) {
+      await $c.win.alert($p, MSG_CM_ERR_039);
+      ica_endDt.focus();
+      return;
+    }
+    /*
+            if (!await $c.gus.cfValidateValue(ica_stDt.getValue(), "length=8")) {
+                $c.win.alert("시작일자가 잘못되었습니다.");
+                return;
+            }
+            if (!await $c.gus.cfValidateValue(ica_endDt.getValue(), "length=8")) {
+                $c.win.alert("종료일자가 잘못되었습니다.");
+                return;
+            }
+    */
+
+    if (!$c.date.isDate($p, ica_stDt.getValue())) {
+      await $c.win.alert($p, "시작일자가 잘못되었습니다.");
+      return;
+    }
+    if (!$c.date.isDate($p, ica_endDt.getValue())) {
+      await $c.win.alert($p, "종료일자가 잘못되었습니다.");
+      return;
+    }
+    if (!(await $c.date.diffDateMsg($p, ica_stDt.getValue(), ica_endDt.getValue()))) {
+      return;
+    }
+    ds_oGDS_view_cond.set("stDt", ica_stDt.getValue());
+    ds_oGDS_view_cond.set("endDt", ica_endDt.getValue());
+  }
+  ds_oGDS_view_cond.set("wrkPlPosnClsCd", scwin.hidden_chk_wrkPlPosnClsCd);
+  if (!$c.gus.cfIsNull($p, cbx_socYn.getSelectedIndex())) {
+    ds_oGDS_view_cond.set("socYn", "Y");
+  } else {
+    ds_oGDS_view_cond.set("socYn", "N");
+  }
+
+  //console.log('cbx_socYn==>'+cbx_socYn.checked);
+  //debugger;
+  ds_retrieveLine.setJSON([]);
+  $c.sbm.execute($p, sbm_retrieve);
+
+  //var strAtcion = "/ds.op.wrkrslts.stockrslts.RetrieveContainerYardEachLineEachStockPresentConditionCMD.do";
+  //tr_retrieve.Action = strAtcion;
+  //tr_retrieve.Post();
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 초기화
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  if (scwin.userClsCd != "01") {
+    //사용자가 그룹사가 아닐때
+    ed_shpCo.setValue(scwin.loginClntNo);
+    ed_shpCoNm.setValue(scwin.loginClntNm);
+    $c.gus.cfInitObjects($p, [ed_con_cy, ed_con_cyNm, acb_lineCd]);
+    acb_lineCd.focus();
+  } else {
+    //acb_con_bran.index = 0;
+    acb_con_bran.setValue("");
+    $c.gus.cfInitObjects($p, [ed_con_cy, ed_con_cyNm, acb_lineCd, ed_shpCo, ed_shpCoNm]);
+    ed_shpCo.focus();
+  }
+};
+
+//-------------------------------------------------------------------------
+// TEXT BOX 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUpText = function (inObj, codeObj, disGubun) {
+  var pCode = "";
+  var pName = "";
+  if (inObj.getValue().trim() == "") {
+    codeObj.setValue("");
+    if (disGubun == 3) {
+      scwin.f_setLine();
+    }
+    return;
+  }
+
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (inObj.readOnly || inObj.getValue() == inObj.hidVal) return;
+  if (codeObj != null) {
+    if (codeObj.tagName == "OBJECT") {
+      codeObj.setValue("");
+    } else {
+      codeObj.setValue("");
+      codeObj.hidVal = "";
+    }
+  }
+  pName = inObj.getValue();
+  scwin.f_openCommonPopUp(disGubun, pCode, pName, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// EMEDIT 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUpEmEdit = function (inObj, chkObj, txtObj, disGubun) {
+  //console.log('f_chkOpenCommonPopUpEmEdit ==>');
+
+  var pCode = "";
+  var pName = "";
+
+  // console.log('pCode ==>' + inObj.getReadOnly() + ',' + chkObj.getValue());
+  // console.log('pCodettt ==>' + (inObj.getReadOnly() || (inObj.getValue() == chkObj.getValue())));
+  // 해당 EMEDIT가 Disable 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  //if(inObj.ReadOnly || !inObj.Enable || (inObj.getValue() == chkObj.getValue()))
+
+  //if(inObj.getReadOnly() || (inObj.getValue() == chkObj.getValue())){
+  //    return;
+  //}
+
+  if (inObj.getReadOnly()) {
+    //|| (inObj.getValue() == chkObj.hidVal)) {
+    return;
+  }
+  chkObj.hidVal = inObj.getValue();
+  if (txtObj != null) {
+    txtObj.setValue("");
+    txtObj.hidVal = "";
+  }
+  console.log('pCode22 ==>' + pCode);
+  pCode = inObj.getValue().replace(/^\s*/, '');
+  console.log('pCode ==>' + pCode);
+  // 값이 입력이 안된 경우  팝업을 실행하지 않음.
+  if (pCode == "" || pCode == null) {
+    inObj.setValue("");
+    chkObj.setValue("");
+    if (disGubun == 3) {
+      scwin.f_setLine();
+    }
+    return;
+  }
+  scwin.f_openCommonPopUp(disGubun, pCode, pName, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  // 선언부
+  var rtnList = new Array(); // 공통POP-UP -> 요청화면
+
+  switch (disGubun) {
+    case 1:
+      // CY 팝업
+      //rtnList = cfCommonPopUp('retrieveWrkPlInfo' // XML상의 SELECT ID 
+      udc_con_cy.setSelectId('retrieveWrkPlInfo');
+      rtnList = udc_con_cy.cfCommonPopUp(scwin.udc_con_cyCallback // XML상의 SELECT ID    
+      , pCode // 화면에서의  Code Element의   Value
+      , pName // 화면에서의  Name Element의   Value
+      , pClose // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+      , null // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서    
+      , null // 보여주는 각 컬럼들의 폭  
+      , null // 컬럼중에서 숨기는    컬럼 지정   
+      , ',' + acb_con_bran.getValue() // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의    사용자 정의 폭
+      , null // POP-UP뛰을때 우도우의    사용자 정의 높이    
+      , null // 윈도우 위치 Y좌표    
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부 ("F")
+      , pAllSearch // 전체검색허용여부 ("F")
+      , "CY,CY코드,CY명" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //cfSetReturnValue(rtnList, ed_con_cy, ed_con_cyNm);                
+      break;
+    case 2:
+      break;
+    case 3:
+      // 선사 팝업
+      //rtnList = cfCommonPopUp('retrieveClntInfo'      // XML상의 SELECT ID
+      udc_shpCo.setSelectId('retrieveClntInfo');
+      rtnList = udc_shpCo.cfCommonPopUp(scwin.udc_shpCoCallback // XML상의 SELECT ID    
+      , pCode // 화면에서의 ??? Code Element의    Value
+      , pName // 화면에서의 ??? Name Element의    Value
+      , pClose // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+      , null // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서    
+      , null // 보여주는 각 컬럼들의 폭  
+      , null // 컬럼중에서 숨기는    컬럼 지정   
+      , 'SHP' // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의    사용자 정의 폭
+      , null // POP-UP뛰을때 우도우의    사용자 정의 높이    
+      , null // 윈도우 위치 Y좌표    
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부 ("F")
+      , pAllSearch // 전체검색허용여부 ("F")
+      , "선사,선사코드,선사명" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+
+      //cfSetReturnValue(rtnList, ed_shpCo, ed_shpCoNm);
+      //scwin.f_setLine();
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// List 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel = function () {
+  var rowCount = ds_retrieveLine.getRowCount();
+  if (rowCount == 0) {
+    $c.win.alert($p, MSG_CM_ERR_003); // 해당되는 자료가 존재하지 않습니다
+  } else {
+    //sheet명       , 저장파일명            , 저장 다이얼로그
+    // cfGridToExcel(gr_retrieveLine, "CY별 LINE별 재고현황" , "CY별 LINE별 재고현황.xls" , 4+8+16);
+    //$c.data.downloadGridViewExcel(gr_retrieveLine, "CY별 LINE별 재고현황" , "CY별 LINE별 재고현황.xls" , 4+8+16);
+
+    var sheetTitle = "CY별 LINE별 재고현황";
+    const options = {
+      fileName: sheetTitle + ".xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+      ,
+
+      sheetName: sheetTitle //엑셀내 시트명 지정필요시
+    };
+    const infoArr = [];
+    $c.data.downloadGridViewExcel($p, gr_retrieveLine, options, infoArr);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 라인콤보 조회 
+//-------------------------------------------------------------------------
+scwin.f_setLine = function () {
+  //ds_LineList.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=LineEBC&queryId=retrieveLineEachShpCoCdCombo&param1=<%=loginClntNo%>&param2=<%=userClsCd%>&param3="+ed_shpCo.getValue();
+  //ds_LineList.Reset();
+
+  ds_LineList.setJSON([]);
+  if (scwin.userId == "dwstms") {
+    var row = ds_LineList.insertRow();
+    ds_LineList.setCellData(row, 'code', 'TMSC');
+    ds_LineList.setCellData(row, 'name', 'DOOWOO SHIPPING CO.,LTD');
+  } else {
+    var jsonData = {
+      sysCd: "LineEBC",
+      queryId: "retrieveLineEachShpCoCdCombo",
+      param1: scwin.loginClntNo,
+      param2: scwin.userClsCd,
+      param3: ed_shpCo.getValue()
+    };
+    ds_srchLine.setJSON(jsonData);
+    $c.sbm.execute($p, sbm_line);
+  }
+};
+scwin.btn_FieldClear_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+scwin.btn_search_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+scwin.sbm_retrieve_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+  var rowcnt = ds_retrieveLine.getRowCount();
+  tbx_totalRows.setValue(rowcnt);
+  if (rowcnt == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var options = {};
+  options.sortIndex = "cyNm line";
+  options.sortOrder = "1 1";
+  ds_retrieveLine.multisort(options);
+
+  /*
+  if(acb_wrkPlClsCd.getValue() == "G"){
+      gr_workImplement.setColumnVisible("crryoutDt", true);
+      gr_workImplement.setColumnVisible("outTerm", true);
+  }else{
+      gr_workImplement.setColumnVisible("crryoutDt", false);
+      gr_workImplement.setColumnVisible("outTerm", false);
+  }
+  */
+  gr_retrieveLine.setFocusedCell(0, "chk", false);
+};
+scwin.sbm_retrieve_submiterror = function (e) {};
+scwin.udc_shpCo_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUpEmEdit(ed_shpCo, ed_shpCo, ed_shpCoNm, 3);
+  //scwin.f_chkOpenCommonPopUpText(ed_shpCo, ed_shpCoNm, 3);
+};
+scwin.udc_shpCo_onblurNameEvent = function (e) {
+  scwin.f_chkOpenCommonPopUpText(ed_shpCoNm, ed_shpCo, 3);
+};
+scwin.udc_shpCo_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(3, '', '', 'F', 'T');
+};
+scwin.udc_con_cy_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUpEmEdit(ed_con_cy, ed_con_cy, ed_con_cyNm, 1);
+  //scwin.f_chkOpenCommonPopUpText(ed_con_cy, ed_con_cyNm, 1);
+};
+scwin.udc_con_cy_onblurNameEvent = function (e) {
+  scwin.f_chkOpenCommonPopUpText(ed_con_cyNm, ed_con_cy, 1);
+};
+scwin.udc_con_cy_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, '', '', 'F', 'T');
+};
+scwin.udc_shpCoCallback = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_shpCo, ed_shpCoNm);
+  scwin.f_setLine();
+};
+scwin.udc_con_cyCallback = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_con_cy, ed_con_cyNm);
+};
+scwin.sbm_lobran_submitdone = function (e) {
+  if (e.responseJSON.GAUCE) {
+    ds_lobran.setJSON(e.responseJSON.GAUCE);
+    var cnt = ds_lobran.getRowCount();
+    if (cnt == 0) {
+      $c.win.alert($p, "점소 자료 조회에 실패하였습니다");
+      return;
+    } else {
+      acb_con_bran.setValue(scwin.loUpperLobranCd);
+    }
+  }
+};
+scwin.sbm_lobran_submiterror = function (e) {};
+scwin.cbx_fromTo_onviewchange = function (info) {
+  scwin.f_checkEvent();
+};
+scwin.cbx_wrkPlPosnClsCd_onviewchange = function (info) {
+  //scwin.f_chkwrkPlPosnClsCd(info.newValue);
+  scwin.f_chkwrkPlPosnClsCd(cbx_wrkPlPosnClsCd);
+};
+scwin.cbx_socYn_onviewchange = function (info) {};
+scwin.sbm_line_submitdone = function (e) {};
+scwin.gr_retrieveLine_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+  //console.log('st~~'+gr_retrieveLine.getFocusedRowStatus(rowIndex));
+
+  /*2006.07.26 선사 정보가 없어도 CY별 재고현황이 OPEN되도록 요청함.
+  if (ds_retrieveLine.NameValue(Row, "shpCo") == "" || ds_retrieveLine.NameValue(row, "shpCo") == "") {
+          alert("선사 관련정보가 없습니다.");
+  } else 
+  */
+  if (ds_retrieveLine.getCellData(rowIndex, "line") == "" || ds_retrieveLine.getCellData(rowIndex, "lineNm") == "") {
+    $c.win.alert($p, "LINE 관련정보가 없습니다.");
+  } else if (ds_retrieveLine.getCellData(rowIndex, "cy") == "" || ds_retrieveLine.getCellData(rowIndex, "cyNm") == "") {
+    $c.win.alert($p, "CY 관련정보가 없습니다.");
+    return;
+  } else {
+    var argParam = "";
+    argParam = ds_retrieveLine.getCellData(rowIndex, "shpCo") + "^";
+    argParam += ds_retrieveLine.getCellData(rowIndex, "shpCoNm") + "^";
+    argParam += ds_retrieveLine.getCellData(rowIndex, "line") + "^";
+    argParam += ds_retrieveLine.getCellData(rowIndex, "cy") + "^";
+    argParam += ds_retrieveLine.getCellData(rowIndex, "cyNm") + "^";
+    argParam += ds_retrieveLine.getCellData(rowIndex, "cntrTypCd") + "^";
+    argParam += "R";
+
+    //cfTabMenuUpdate("/ds/op/wrkrslts/stockrslts/op_303_03_03b.jsp?argParams=" + argParam, "CY별 재고현황");
+
+    var pgmId = "op_303_03_03b.jsp";
+    var strUrl = "/ui/ds/op/wrkrslts/stockrslts/op_303_03_03b.xml";
+    var title = "CY별 재고현황";
+    var data = {
+      "argParams": argParam
+    };
+    //$c.gus.cfTabMenuUpdate(strCertiNoDetailUrl+condition, title);
+    $c.win.openMenu($p, title, strUrl, pgmId, data);
+  }
+};
+scwin.subFn = function (val) {
+  let obj = val.split("|");
+  return obj[0];
+};
+scwin.subFn2 = function (val) {
+  let obj = val.split("|");
+  return obj[1];
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:45px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:45px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:80px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 5%;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 15%;'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 70px;'}},{T:1,N:'xf:group',A:{style:'width: 10%;',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'선사 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'pop_shpCo',style:'',class:'col8',id:'udc_shpCo',codeId:'ed_shpCo',nameId:'ed_shpCoNm',btnId:'btn_shpCo',selectID:'retrieveClntInfo','ev:onblurCodeEvent':'scwin.udc_shpCo_onblurCodeEvent','ev:onclickEvent':'scwin.udc_shpCo_onclickEvent',refDataCollection:'ds_oGDS_view_cond',code:'shpCo',maxlengthCode:'6',maxlengthName:'20',allowCharCode:'A-Za-z0-9',validTitle:'선사',UpperFlagCode:'1',objTypeCode:'Data',objTypeName:'Data',skipOnBlurNameValueEmpty:'N',skipOnBlurCodeValueEmpty:'N','ev:onblurNameEvent':'scwin.udc_shpCo_onblurNameEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'LINE ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_lineCd',search:'start',style:'width:200px;',submenuSize:'auto',allOption:'',chooseOption:'true',chooseOptionLabel:'-전체-',ref:'data:ds_oGDS_view_cond.line',objType:'data'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_LineList'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'기간 기준 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',disabled:'',id:'cbx_fromTo',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'1',style:'','ev:onviewchange':'scwin.cbx_fromTo_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'반입일',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_stDt',refDataMap:'ds_oGDS_view_cond',refEdDt:'endDt',refStDt:'stDt',style:'',edFromId:'ica_stDt',edToId:'ica_endDt',mandatoryFrom:'true',mandatoryTo:'true',titleFrom:'반입 시작일',titleTo:'반입 완료일'}}]}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'CY ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',class:'col8',btnId:'btn_con_cy',codeId:'ed_con_cy',id:'udc_con_cy',nameId:'ed_con_cyNm',selectID:'retrieveWrkPlInfo','ev:onblurCodeEvent':'scwin.udc_con_cy_onblurCodeEvent','ev:onclickEvent':'scwin.udc_con_cy_onclickEvent',refDataCollection:'ds_oGDS_view_cond',code:'cy',maxlengthCode:'6',maxlengthName:'20',allowCharCode:'A-Za-z0-9',validTitle:'CY',UpperFlagCode:'1',objTypeName:'Data',objTypeCode:'Data','ev:onviewchangeNameEvent':'scwin.udc_con_cy_onblurNameEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'점소 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_con_bran',search:'start',style:'width:200px;',submenuSize:'auto',allOption:'',chooseOption:'true',chooseOptionLabel:'-전체-',ref:'data:ds_oGDS_view_cond.bran'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_lobran'},E:[{T:1,N:'w2:label',A:{ref:'lobranNm'}},{T:1,N:'w2:value',A:{ref:'lobranCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'자사소유CY ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',disabled:'',id:'cbx_wrkPlPosnClsCd',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'1',style:'','ev:onviewchange':'scwin.cbx_wrkPlPosnClsCd_onviewchange'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Type ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_typ',search:'start',style:'width:85px;',submenuSize:'auto',allOption:'',chooseOption:'true',chooseOptionLabel:'-전체-',ref:'data:ds_oGDS_view_cond.typ'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'DC'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'DC'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'FR'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'FR'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'HC'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'HC'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'OT'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'OT'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'RF'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'RF'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'RH'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'RH'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'TK'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'TK'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'PF'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'PF'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'JB'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'JB'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'ET'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ET'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'SOC제외 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',disabled:'',id:'cbx_socYn',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_FieldClear',style:'',type:'button','ev:onclick':'scwin.btn_FieldClear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_search',style:'',type:'button','ev:onclick':'scwin.btn_search_onclick',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',gridID:'gr_retrieveLine',gridDownFn:'scwin.f_toExcel',gridDownUserAuth:'X'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_retrieveLine',focusMode:'row',id:'gr_retrieveLine',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'15',visibleRowNumFix:'true',readOnly:'true','ev:oncelldblclick':'scwin.gr_retrieveLine_oncelldblclick'},E:[{T:1,N:'w2:caption',A:{id:'caption10',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column31',value:'CY',displayMode:'label',rowSpan:'2',colMerge:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column30',value:'LINE',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column97',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column29',value:'선사',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column28',value:'TYPE',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'280',inputType:'text',id:'column27',value:'수입FULL',displayMode:'label',colSpan:'4',sortable:'false'}},{T:1,N:'w2:column',A:{width:'280',inputType:'text',id:'column23',value:'수출FULL',displayMode:'label',colSpan:'4',sortable:'false'}},{T:1,N:'w2:column',A:{width:'280',inputType:'text',id:'column50',value:'EMPTY',displayMode:'label',colSpan:'4',sortable:'false'}},{T:1,N:'w2:column',A:{width:'490',inputType:'text',id:'column32',value:'전체',displayMode:'label',colSpan:'7',sortable:'false'}}]},{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column98',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column21',inputType:'text',value:'20',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'40',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'45',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'TEU',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'20',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column60',value:'40',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column57',value:'45',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column54',value:'TEU',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column51',value:'20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column48',value:'40',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column45',value:'45',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column42',value:'TEU',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column33',value:'20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column36',value:'40',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column39',value:'45',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column72',value:'TEU',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column69',value:'갯수',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column63',value:'장치일수',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column66',value:'평균일수',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'cyNm',inputType:'text',removeBorderStyle:'false',width:'100',textAlign:'left',colMerge:'true'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'line',inputType:'text',removeBorderStyle:'false',width:'80',textAlign:'left',colMerge:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'subTarget',value:'',displayMode:'label',expression:'display(\'cyNm\')+\'|\'+display(\'line\')',hiddenCol:'true',hidden:'true'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'shpCoNm',inputType:'text',removeBorderStyle:'false',width:'100',textAlign:'left',class:'underline',style:';color:#0000FF;'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'cntrTypCd',inputType:'text',removeBorderStyle:'false',width:'80',colMerge:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'impFull20',inputType:'text',width:'70',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'impFull40',inputType:'text',width:'70',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'impFull45',inputType:'text',width:'70',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'impFullTeu',inputType:'text',width:'70',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'expFull20',inputType:'text',width:'70',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'expFull40',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'expFull45',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'expFullTeu',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'empty20',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'empty40',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'empty45',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'emptyTeu',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'all20',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'all40',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'all45',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'allTeu',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'allSum',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'passDt',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'avgDt',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'subTarget',style:'',id:'subTotal1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row7'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column96',displayMode:'label',expression:'scwin.subFn(targetColValue())',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'80',inputType:'expression',id:'column95',displayMode:'label',expression:'scwin.subFn2(targetColValue())',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column100',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column94',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column93',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column92',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column91',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column90',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column89',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFullTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column88',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column87',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column86',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column85',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFullTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column84',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column83',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column82',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column81',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'emptyTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column80',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column79',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column78',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column77',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'allTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column76',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'allSum\')'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column75',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'passDt\')'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column74',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'avgDt\')'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'cyNm',style:'',id:'subTotal2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row7'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column96',displayMode:'label',value:''}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column95',displayMode:'label',value:'계',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column101',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column94',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column93',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column92',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column91',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column90',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column89',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFullTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column88',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column87',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column86',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column85',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFullTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column84',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column83',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column82',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column81',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'emptyTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column80',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column79',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column78',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column77',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'allTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column76',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'allSum\')'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column75',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'passDt\')'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column74',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'avgDt\')'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row6'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column96',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column95',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column102',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column94',displayMode:'label',value:''}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column93',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column92',displayMode:'label',dataType:'number',expression:'sum(\'impFull20\')',displayFormat:'#,##0'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column91',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column90',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFull45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column89',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'impFullTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column88',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column87',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column86',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFull45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column85',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'expFullTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column84',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column83',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column82',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'empty45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column81',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'emptyTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column80',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all20\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column79',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all40\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column78',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'all45\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column77',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'allTeu\')'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',id:'column76',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'allSum\')'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column75',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'passDt\')'}},{T:1,N:'w2:column',A:{width:'100',inputType:'expression',id:'column74',displayMode:'label',displayFormat:'#,##0',dataType:'number',expression:'sum(\'avgDt\')'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',id:'tbx_totalRows',label:'0',style:'',tagname:'span',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]}]}]}]}]})

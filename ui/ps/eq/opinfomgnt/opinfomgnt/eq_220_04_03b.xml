@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="ds_work_unit_re">
+					<w2:keyInfo>
+						<w2:key id="fixWrkUnitNo" name="정비작업단위번호" dataType="text"></w2:key>
+						<w2:key id="homeClsCd" name="소속구분코드" dataType="text"></w2:key>
+						<w2:key id="useYn" name="사용여부" dataType="number"></w2:key>
+						<w2:key id="wrkNm" name="작업명" dataType="text"></w2:key>
+						<w2:key id="catCd" name="계통코드" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_work_unit" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="fixWrkUnitNo" name="정비작업단위번호" dataType="text"></w2:column>
+						<w2:column id="homeClsCd" name="소속구분코드" dataType="text"></w2:column>
+						<w2:column id="fixWrkUnitNm" name="정비작업단위명" dataType="text"></w2:column>
+						<w2:column id="catCd" name="계통코드" dataType="text"></w2:column>
+						<w2:column id="stndWrkHhCnt" name="표준작업시간수" dataType="number"></w2:column>
+						<w2:column id="useYn" name="사용여부" dataType="number"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+             <xf:submission id="sbm_retrieve" action="" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_work_unit_re","key":"IN_DS1"},{"id":"ds_work_unit","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_work_unit","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[scwin.params = "";
+scwin.homeClsCd     = "";
+scwin.fixWrkUnitNo  = "";
+scwin.popCheck      = "";
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    try{
+        //공통코드 적용
+        const codeOptions = [
+            { grpCd : "ZZ205", compID : "lc_homeClsCd",opt :{"range" : "1,EQ"}},
+            { grpCd : "EQ005", compID : "lc_catCd"},
+            
+        ];
+        $c.data.setCommonCode(codeOptions);
+
+
+        scwin.params = $c.data.getParameter();
+
+        scwin.homeClsCd     = scwin.params.homeClsCd;
+        scwin.fixWrkUnitNo  = scwin.params.fixWrkUnitNo;
+        scwin.popCheck      = scwin.params.popCheck;
+    } catch (e) {
+       console.log("onpageload " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    try{    
+        //코드매핑은 ondataload에서 처리해야 한다.
+    } catch (e) {
+       console.log("onUdcCompleted " + e);
+    }
+};
+//-------------------------------------------------------------------------
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+//-------------------------------------------------------------------------
+scwin.ondataload = function() { 
+    if(scwin.params != "undefined" && scwin.params != null){
+        if( scwin.homeClsCd != null || scwin.fixWrkUnitNo != null ){
+            lc_homeClsCd.setValue(scwin.homeClsCd); //homeClsCdIndex = lux_homeClsCd.IndexOfColumn("code", homeClsCd);
+            ed_fixWrkUnitNo.setValue(scwin.fixWrkUnitNo);
+        }else{
+            lc_homeClsCd.setSelectedIndex(0);
+            ed_fixWrkUnitNo.setValue("");
+        }
+    }
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    sbm_retrieve.action = "/ps.eq.opinfomgnt.opinfomgnt.RetrieveFixWorkUnitListCMD.do";
+    ds_work_unit.removeAll();
+
+    ds_work_unit_re.set('useYn', 1);
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function(e) {
+    try{
+        
+        if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+
+        if (ds_work_unit.getRowCount() == 0) {
+            $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        }
+        // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+        tbx_totalRows.setValue(ds_work_unit.getRowCount());
+        $c.gus.cfGoPrevPosition(gr_work_pl, 0); //첫번째 포커스 이동
+
+    } catch (e) {
+       console.log("sbm_retrieve_submitdone " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 결과값 리턴
+//-------------------------------------------------------------------------
+scwin.f_rtnValue = function (row) {
+   
+    let rt = [ds_work_unit.getCellData(row, "fixWrkUnitNo") //arrRtnVal[0]
+        , ds_work_unit.getCellData(row, "fixWrkUnitNm") //arrRtnVal[1]
+        , ds_work_unit.getCellData(row, "stndWrkHhCnt") //arrRtnVal[2]
+    ];
+
+    $c.win.closePopup([rt]);
+};
+
+//-------------------------------------------------------------------------
+// 결과값 리턴
+//-------------------------------------------------------------------------
+scwin.f_rf_WinClosetnValue = function (row) {
+    let rt = [0];
+    $c.win.closePopup([rt]);
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function (value) {
+    $c.gus.cfInitObjects(tb_est,null);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 더블클릭
+//-------------------------------------------------------------------------
+scwin.gr_work_pl_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.f_rtnValue(rowIndex);
+};
+
+scwin.f_WinClose = function (e) {
+    let val = []
+    val[0] = "";
+    $c.win.closePopup(val);
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="tb_est" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:70px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:105px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="" id="" label="소속사업부문" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete allOption="" class=""
+                                    disabled="true" editType="select" id="lc_homeClsCd" search="start" ref="data:ds_work_unit_re.homeClsCd"
+                                    searchTarget="value" style="width: 130px;" submenuSize="auto" objType="Data">
+                                </w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="계통" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:autoComplete allOption="" class=""
+                                    disabled="false" editType="select" id="lc_catCd" search="start"
+                                    searchTarget="value" style="width: 130px;" submenuSize="auto" visibleRowNum="25" chooseOption="true" chooseOptionLabel="전체" ref="data:ds_work_unit_re.catCd">
+                                </w2:autoComplete>
+							</xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th " tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="작업단위" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="ed_fixWrkUnitNo" placeholder="" style="width:130px;" maxlength="6" allowChar="0-9" ref="data:ds_work_unit_re.fixWrkUnitNo"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="작업명" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class="" id="ed_txt_wrkNm" placeholder="" style="width:130px;" objType="key" ref="data:ds_work_unit_re.wrkNm"></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" ev:onclick="scwin.f_FieldClear" id="btn_FieldClear" style="" type="button">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" ev:onclick="scwin.f_Retrieve" id="btn_Retrieve" style="" type="button">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="group2" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_work_unit" id="gr_work_pl" style=""
+						visibleRowNum="9" visibleRowNumFix="true" ev:oncelldblclick="scwin.gr_work_pl_oncelldblclick" resize="true" columnMove="true" readOnly="true" readOnlyBackgroundColor="true">
+						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="text" value="작업단위코드" width="120"></w2:column>
+								<w2:column width="120" inputType="text" id="column3" value="단위명" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" id="column5" value="표준작업시간" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="fixWrkUnitNo" inputType="text" width="120" textAlign="center"></w2:column>
+								<w2:column width="120" inputType="text" id="fixWrkUnitNm" displayMode="label" textAlign="center"></w2:column>
+								<w2:column width="120" inputType="text" id="stndWrkHhCnt" displayMode="label" textAlign="center"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="" style="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_WinClose" style="" type="button" ev:onclick="scwin.f_WinClose" >
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

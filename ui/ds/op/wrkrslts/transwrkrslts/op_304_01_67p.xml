@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_searchCond">
+    				<w2:keyInfo>
+    					<w2:key id="srchWrkStDt" name="name1" dataType="text"></w2:key>
+    					<w2:key id="lobranCd" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_rateList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="adptDt" name="name1" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="strTrf" name="name3" dataType="number"></w2:column>
+    					<w2:column id="strAmt" name="name4" dataType="number"></w2:column>
+    					<w2:column id="endDt" name="name5" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.transwrkrslts.RetrieveStorageRateCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_searchCond","key":"IN_DS1"},{"id":"ds_rateList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_rateList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.wrkrslts.transwrkrslts.SaveRetrieveStorageRateCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_rateList","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.strFullDate = WebSquare.date.getCurrentServerDate();			// 현재년월일을 구한다.
+scwin.strDate = scwin.strFullDate.substring(0, 8);
+
+
+scwin.onpageload = function() {
+    const codeOptions = [
+        { grpCd: "BRL07", compID: "acb_srchLobranCd,gr_InIntendInformation:lobranCd" }
+    ];
+
+    $c.data.setCommonCode(codeOptions, scwin.setCommonCodeCallBack);
+};
+
+scwin.setCommonCodeCallBack = function () {
+    acb_srchLobranCd.addItem("전체", "", null, 0);
+    acb_srchLobranCd.setSelectedIndex(0);
+}
+
+scwin.onUdcCompleted = function() {
+    
+	ed_srchAdptDt.setValue(scwin.strDate);
+
+};
+
+scwin.f_Retrieve = function() {
+	if ($c.gus.cfValidate(tb_searchCondition)) {
+		$c.sbm.execute(sbm_retrieve);
+	}
+};
+
+
+scwin.f_Save = async function() {
+	//요율목록의  변경한 데이터가 있는지 체크한다. 
+	if (ds_rateList.getModifiedIndex().length == 0 || ds_rateList.getRowCount() == 0) {
+		await $c.gus.cfAlertMsg(MSG_CM_ERR_001, new Array("목록"));	//변경된 정보가 없습니다.
+		return;
+	}
+
+	// 필수 입력사항을 체크    
+	if (await scwin.f_validChk()) {
+		if( await $c.win.confirm("저장하시겠습니까?")) {  //MSG_CM_CRM_001, new Array("요율목록")
+			$c.sbm.execute(sbm_save);
+		} 
+	}
+};
+
+// 저장전 validation check
+scwin.f_validChk = async function() {
+	//필수 입력사항을 체크
+	if (await $c.gus.cfValidate([gr_InIntendInformation], null, true)) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 조건 Reset
+//-------------------------------------------------------------------------
+scwin.f_Reset = function() {
+	$c.gus.cfInitObjects(tb_searchCondition);
+
+    scwin.onUdcCompleted();
+};
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.f_close = function() {
+	let args = {
+			close : "close"
+	}
+
+	$c.win.closePopup(args);
+};
+
+//-------------------------------------------------------------------------
+// 행추가
+//------------------------------------------------------------------------- 
+scwin.f_AddRow = function() {
+	let rowIndex = ds_rateList.insertRow();
+	ds_rateList.setCellData(rowIndex, "endDt", "99991231");
+
+    ds_rateList.setRowPosition(rowIndex);
+    gr_InIntendInformation.setFocusedCell(rowIndex, 0, true);
+};
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    if(ds_rateList.getRowCount() > 0) {
+        // ds_rateList.setRowPosition(0);
+        gr_InIntendInformation.setFocusedCell(0, 0);
+
+        totalRows.setValue(ds_rateList.getRowCount());
+    }
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+
+    scwin.f_Retrieve();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox " id="tb_searchCondition" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="적용일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="form-control cal" id="ed_srchAdptDt" style="" ref="data:dma_searchCond.srchWrkStDt" mandatory="true">
+    									</w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="창고" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="form-control w150" editType="select" id="acb_srchLobranCd" search="start"
+    										style="" submenuSize="auto" ref="data:dma_searchCond.lobranCd" allOption=""
+    										chooseOption="">
+    										<w2:choices></w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id=" btn_fieldClear" style="" type="button" ev:onclick="scwin.f_Reset">
+    							<xf:label><![CDATA[]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="요율목록" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="N" gridUpYn="N" btnUser="N"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_rateList" id="gr_InIntendInformation" style="" visibleRowNum="10" visibleRowNumFix="true" rowStatusVisible="true" rowStatusWidth="40" validExp="adptDt:적용일:yes:date=YYYYMMDD,endDt:종료일:yes:,lobranCd:창고:yes">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="적용일" width="100" class="col-type1">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="창고" width="150" class="col-type1">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="매출단가" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="고정보관비" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="종료일자" width="100" class="col-type1">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="adptDt" inputType="calendar" style="" value="" width="100" editFormat="####/##/##">
+    											</w2:column>
+    											<w2:column displayMode="value delim label" id="lobranCd" inputType="select" style="" value="" width="150" textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="strTrf" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,##0.#0" applyFormat="all" dataType="float" defaultValue="0.00" autoDecimalPoint="false" maxLength="13.2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="strAmt" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,##0" dataType="float" defaultValue="0" allowChar="0-9" autoDecimalPoint="false" maxLength="13">
+    											</w2:column>
+    											<w2:column displayMode="label" id="endDt" inputType="calendar" style="" value="" width="100" editFormat="####/##/##">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:udc_bottomGrdBtn btnCancelYn="Y" btnDelYn="N" gridID="gr_InIntendInformation" id="udc_bottomGrdBtn1"
+    										rowAddFunction="scwin.f_AddRow" style="">
+    									</w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	<xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_close">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger><xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    					
+    				</xf:group></xf:group>
+    </body>
+</html>

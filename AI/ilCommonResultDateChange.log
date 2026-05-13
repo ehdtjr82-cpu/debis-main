@@ -1,0 +1,23 @@
+ilCommonResultDateChange.log
+
+[2026-02-19 02:44:55.290] 변환 시작
+[2026-02-19 02:44:55.302] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 02:45:05.612] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=2, warnings=3 | LLM 10305ms, total 10310ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onpageload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] cf 공통함수 prefix 변환 — 2종 미변환
+    - [적정성] 분기 로직 대량 감소 — 소스 8건→출력 0건 (0%) — 로직 삭제 의심
+[2026-02-19 02:45:05.623] #1 검증: 자동수정 1건 적용
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+[2026-02-19 02:45:05.631] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=3, warnings=3
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onpageload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: ed_resultdt (EMEDIT→xf:input)
+    - [적정성] cf 공통함수 prefix 변환 — 2종 미변환
+    - [적정성] 분기 로직 대량 감소 — 소스 8건→출력 0건 (0%) — 로직 삭제 의심
+[2026-02-19 02:45:05.632] #2 재시도 (에러 3건)
+[2026-02-19 02:45:06.647] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 02:45:26.390] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | LLM 19712ms, total 19744ms
+[2026-02-19 02:45:26.392] 성공 (#2, 31.1s, confidence:1.00)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

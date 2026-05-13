@@ -1,0 +1,39 @@
+fm_502_02_01b.log
+
+[2026-02-19 01:51:11.723] 변환 시작
+[2026-02-19 01:51:11.763] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 01:55:09.190] #1 검증: XML: WebSquareXmlValidator: score=0.35, grade=C, verdict=REVIEW, errors=6, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=2, warnings=5 | LLM 237193ms, total 237427ms
+    - [XML] submission 'sbm_searchBankAccount'에 action 속성 누락 — sbm_searchBankAccount
+    - [XML] submission 'sbm_saveSusRecv'에 action 속성 누락 — sbm_saveSusRecv
+    - [XML] submission 'sbm_cancelSusRecv'에 action 속성 누락 — sbm_cancelSusRecv
+    - [XML] submission 'sbm_deleteSusRecv'에 action 속성 누락 — sbm_deleteSusRecv
+    - [XML] submission 'sbm_deletecancelSusRecv'에 action 속성 누락 — sbm_deletecancelSusRecv
+    - [XML] 'lc_bankbookCombo'가 참조하는 데이터 'ds_addBankAccount'가 dataCollection에 선언되지 않음 — lc_bankbookCombo
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_FromDate (EMEDIT→xf:input), ed_ToDate (EMEDIT→xf:input), gr_Tmp_excelUpload (GRID→w2:gridView)
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-19 01:55:09.257] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 01:55:09.491] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.35, grade=C, verdict=REVIEW, errors=6, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=2, warnings=5
+    - [XML] submission 'sbm_searchBankAccount'에 action 속성 누락 — sbm_searchBankAccount
+    - [XML] submission 'sbm_saveSusRecv'에 action 속성 누락 — sbm_saveSusRecv
+    - [XML] submission 'sbm_cancelSusRecv'에 action 속성 누락 — sbm_cancelSusRecv
+    - [XML] submission 'sbm_deleteSusRecv'에 action 속성 누락 — sbm_deleteSusRecv
+    - [XML] submission 'sbm_deletecancelSusRecv'에 action 속성 누락 — sbm_deletecancelSusRecv
+    - [XML] 'acb_bankbookCombo'가 참조하는 데이터 'ds_addBankAccount'가 dataCollection에 선언되지 않음 — acb_bankbookCombo
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: ed_FromDate (EMEDIT→xf:input), ed_ToDate (EMEDIT→xf:input), lc_bankbookCombo (LUXECOMBO→w2:autoComplete), gr_Tmp_excelUpload (GRID→w2:gridView)
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-19 01:55:09.493] #2 재시도 (에러 8건)
+[2026-02-19 01:55:10.507] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 01:59:09.598] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 238837ms, total 239091ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_FromDate (EMEDIT→xf:input), ed_ToDate (EMEDIT→xf:input), gr_Tmp_excelUpload (GRID→w2:gridView)
+[2026-02-19 01:59:09.599] 성공 (#2, 7m 57s, confidence:0.84)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_FromDate (EMEDIT→xf:input), ed_ToDate (EMEDIT→xf:input), gr_Tmp_excelUpload (GRID→w2:gridView)
+================================================================================

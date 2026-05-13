@@ -1,0 +1,3551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="업무 화면 제어 관련 함수" meta_screenId="$c.win" meta_desc="업무 화면 영역 제어(권한, 업무 화면 공통 UI 요소 및 버튼 제어, 개인화 등) 함수를 작성한다.">
+		<w2:type>COMMON</w2:type>
+		<w2:buildDate/>
+		<w2:MSA/>
+		<xf:model>
+			<w2:dataCollection baseNode="map"/>
+			<w2:workflowCollection/>
+		</xf:model>
+		<w2:layoutInfo/>
+		<w2:publicInfo method="scwin.__getI18NUrl,scwin.getScope,scwin.__getScope,scwin.getActiveWindowInfo,scwin.showToastMessage,scwin.openMenu,scwin.openPopup,scwin.closePopup,scwin.closeAllPopup,scwin.isPopup,scwin.messageBox,scwin.setProgramAuthority,scwin.processCommonData,scwin.setHistoryBackEvent,scwin.pushState,scwin.changePageState,scwin.addEventOnBeforeUnload,scwin.removeEventOnBeforeUnload,scwin.__setOnBeforeUnload,scwin.errorHandler,scwin.reload,scwin.getProgramId,scwin.__getProgramId,scwin.goHome,scwin.logout,scwin.isAdmin,scwin.getFullPath,scwin.setEnterKeyEvent,scwin.alert,scwin.confirm,scwin.getLanguage,scwin.getPopupId,scwin.moveUrl,scwin.setPageFrameSrc,scwin.getFrame,scwin.getParent,scwin.setLangCode,scwin.getLangCode,scwin.getCbFunctionManager,scwin.extension,scwin.reduction,scwin.getGrid,scwin.getGridSetting,scwin.gridSetting,scwin.setAddTab,scwin.gridSetPopUp,scwin._grdSetInitalizer,scwin.gridSettingsClose,scwin.comboItemSet,scwin.isLocal,scwin.setPgmProc,scwin.getMainFrame,scwin.sKeyInit,scwin.setBtnAuth,scwin.setHolidayS,scwin.chUpper,scwin.chLower,scwin.openloginPopup,scwin.grdDupValid,scwin.getComboLabel,scwin.reductionS,scwin.extensionS,scwin.getEventList,scwin.isServerMode,scwin.isAuthFreePage"/>
+		<script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * @component
+ * @componentName udc_win
+ * @pluginName
+ * @company
+ * @developer
+ * @category /cm/gcc
+ * @notSupportBrowser
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description
+ * @width
+ * @height
+ * @license
+ * @imagePath
+ * @homepage
+ */
+// =============================================================================
+/**
+ * 업무 화면 영역 제어(권한, 업무 화면 공통 UI 요소 및 버튼 제어, 개인화 등) 함수를 작성한다.
+ *
+ * @author Inswave Systems
+ * @class win
+ * @namespace $c.win
+ */
+// =============================================================================
+
+// 메시지 레이어 인덱스
+scwin.MESSAGE_IDX = 1;
+
+// 메세지 알림 콜백 Function 정보 저장
+scwin.CB_FUNCTION_MANAGER = {
+    cbFuncIdx: 0, // 정보 저장 Index Key
+    cbFuncSave: {} // 정보 저장 객체
+};
+
+scwin.onpageload = function () {
+    requires("uiplugin.popup");
+};
+
+scwin.isAuthFreePage = function (src) {
+    let normalizedSrc = (src || "").toString().toLowerCase();
+
+    if (!normalizedSrc) {
+        return false;
+    }
+
+    try {
+        const contextPath = ($c.sbm.getContextPath() || "").toLowerCase();
+        if (contextPath && normalizedSrc.indexOf(contextPath) === 0) {
+            normalizedSrc = normalizedSrc.substring(contextPath.length);
+        }
+    } catch (e) {}
+
+    try {
+        if (normalizedSrc.indexOf("w2xpath=") > -1) {
+            let querySrc = normalizedSrc.substring(normalizedSrc.indexOf("w2xpath=") + 8);
+            if (querySrc.indexOf("&") > -1) {
+                querySrc = querySrc.substring(0, querySrc.indexOf("&"));
+            }
+            querySrc = decodeURIComponent(querySrc || "");
+            if (querySrc) {
+                normalizedSrc = querySrc.toLowerCase();
+            }
+        }
+    } catch (e) {}
+
+    if (normalizedSrc.indexOf("?") > -1) {
+        normalizedSrc = normalizedSrc.substring(0, normalizedSrc.indexOf("?"));
+    }
+
+    return normalizedSrc.indexOf("commonpopup.xml") > -1
+        || normalizedSrc.indexOf("commonpopup2.xml") > -1
+        || normalizedSrc.indexOf("commonpopupncall.xml") > -1
+        || normalizedSrc.indexOf("ilcommonpopup.xml") > -1
+        || normalizedSrc.indexOf("groupcodepopup.xml") > -1
+        || normalizedSrc.indexOf("commonfilepopup.xml") > -1
+        || normalizedSrc.indexOf("commonsinglefilepopup.xml") > -1
+        || normalizedSrc.indexOf("commonscreenhostpopup.xml") > -1
+        || normalizedSrc.indexOf("zz_690_01_06b_2.xml") > -1
+        || normalizedSrc.indexOf("zz_690_01_06p_2.xml") > -1
+        || normalizedSrc.indexOf("op_900_10_01p.xml") > -1
+        || normalizedSrc.indexOf("ilcommoncustomerchange.xml") > -1
+        || normalizedSrc.indexOf("ilcommonhawbnochange.xml") > -1
+        || normalizedSrc.indexOf("ilcommondeptchange.xml") > -1
+        || normalizedSrc.indexOf("ilcommonedircvselection.xml") > -1
+        || normalizedSrc.indexOf("ilcommonfilepopup.xml") > -1
+        || normalizedSrc.indexOf("ilcommonfilepopup_02.xml") > -1
+        || normalizedSrc.indexOf("ilcommonviewattachedfilepopup.xml") > -1
+        || normalizedSrc.indexOf("ilcommonresultdatechange.xml") > -1
+        || normalizedSrc.indexOf("ilcommonviewattachedfilepopup1.xml") > -1
+        || normalizedSrc.indexOf("ozreportpopup.xml") > -1
+        || normalizedSrc.indexOf("ozreportcomp.xml") > -1
+        || normalizedSrc.indexOf("zipcodepopup.xml") > -1
+        || normalizedSrc.indexOf("zipcodepopupncall.xml") > -1
+        || normalizedSrc.indexOf("newzipcodepopup.xml") > -1
+        || normalizedSrc.indexOf("autopopup") > -1
+        || normalizedSrc.indexOf("filemultiupload.xml") > -1
+        || normalizedSrc.indexOf("filemultiuploadpreview.xml") > -1
+        || normalizedSrc.indexOf("advancedfileupload") > -1
+        || normalizedSrc.indexOf("advancedmultiupload") > -1
+        || normalizedSrc.indexOf("csvfileupload") > -1
+        || normalizedSrc.indexOf("/_websquare_/uiplugin/grid/upload/") > -1
+        || normalizedSrc.indexOf("fileupload.jsp") > -1
+        || normalizedSrc.indexOf("zoom.xml") > -1
+        || normalizedSrc.indexOf("/sample/") > -1
+        || normalizedSrc.indexOf("zz_620_01_00b.xml") > -1
+        || normalizedSrc.indexOf("zz_620_01_02b.xml") > -1
+        || normalizedSrc.indexOf("zz_620_01_03b.xml") > -1
+        || normalizedSrc.indexOf("zz_620_01_04b.xml") > -1
+        || normalizedSrc.indexOf("zz_620_01_04b_01.xml") > -1
+        || normalizedSrc.indexOf("zz_620_01_04b_02.xml") > -1
+        || normalizedSrc.indexOf("zz_620_01_06b.xml") > -1
+        || normalizedSrc.indexOf("op_202_02_23p.xml") > -1
+        || normalizedSrc.indexOf("auth.xml") > -1;
+        
+};
+
+scwin.PROGRAM_LOG_SUBMISSION_SEQ = 0;
+
+scwin.normalizeProgramLogId = function (pgmId) {
+    return (pgmId || "").toString().split("?")[0].split("#")[0].replace(/\.xml$/i, ".jsp");
+};
+
+scwin.shouldWriteProgramUseLog = function (url, pgmId) {
+    const normalizedPgmId = scwin.normalizeProgramLogId(pgmId).toLowerCase();
+    const normalizedUrl = (url || "").toString().toLowerCase();
+
+    if (!normalizedPgmId) {
+        return false;
+    }
+
+    if (normalizedPgmId === "auth_failed.jsp") {
+        return false;
+    }
+
+    if (normalizedUrl.indexOf("xml/messagebox.xml") > -1) {
+        return false;
+    }
+
+    return !scwin.isAuthFreePage(url);
+};
+
+scwin.writeProgramUseLog = function (url, pgmId) {
+    const normalizedPgmId = scwin.normalizeProgramLogId(pgmId);
+
+    if (!scwin.shouldWriteProgramUseLog(url, normalizedPgmId)) {
+        return Promise.resolve(false);
+    }
+
+    const submissionId = "sbm_programUseLog_" + (++scwin.PROGRAM_LOG_SUBMISSION_SEQ);
+
+    return $c.sbm.executeDynamic({
+        id: submissionId,
+        action: "/programLogToDBMS.do",
+        method: "post",
+        mediatype: "application/json",
+        mode: "asynchronous",
+        isProcessMsg: false
+    }, {
+        PGM_ID: normalizedPgmId
+    }).then(function () {
+        return true;
+    }).catch(function (e) {
+        console.error("program use log submit failed", e);
+        return false;
+    }).then(function (result) {
+        try {
+            $p.deleteSubmission(submissionId);
+        } catch (e) {}
+
+        return result;
+    });
+};
+
+/**
+ * @method 
+ * @name __getI18NUrl
+ * @description 다국어 처리함수
+ * @param {String} xmlUrl 전체 URL중 w2xPath이하의 경로
+ * @hidden N
+ * @exception 
+ * @example
+ * $c.getI18NUrl( "/ui/SW/request.xml" ); 
+ * //return 예시)"/websquare/I18N?w2xPath=/ui/SW/request.xml"
+ */
+scwin.__getI18NUrl = function (xmlUrl) {
+    const contextPath = $c.sbm.getContextPath();
+    const baseURL = contextPath + "/I18N";
+    let rsURL = "";
+    const locale = WebSquare.cookie.getCookie("locale");
+    const bXml = "/blank.xml";
+
+    xmlUrl = $c.util.getParameter("w2xPath", xmlUrl) || xmlUrl;
+    xmlUrl = xmlUrl.replace(/\?.*/, "");
+
+    if (xmlUrl.search(bXml) > -1 && xmlUrl.search(WebSquare.baseURI) == -1) {
+        xmlUrl = WebSquare.baseURI + "/blank.xml";
+    }
+
+    rsURL = baseURL + "?w2xPath=" + WebSquare.jsLoader.getUri(WebSquare.core.getURL(xmlUrl));
+
+    if (locale != null && locale != '') {
+        rsURL = rsURL + "&locale=" + unescape(locale);
+    }
+
+    return rsURL;
+};
+
+/**
+ * @method
+ * @name getScope
+ * @description 컴포넌트의 현재 scope 정보를 반환한다.
+ * @param {string} comObj 컴포넌트 객체
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */
+scwin.getScope = function (comObj) {
+    if (typeof (comObj) == 'undefined') {
+        const scopeApi = $p;
+        return $c.win.__getScope(scopeApi);
+    }
+
+    return $c.win.__getScope(comObj);
+};
+
+/**
+ * @method
+ * @name __getScope
+ * @description $p를 파라미터로 직접 전달하는 getScope
+ * @param {Object} comObj 컴포넌트 객체
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.__getScope = function (comObj) {
+    try {
+        if (typeof comObj === "string") {
+            const scopeObj = $c.util.getComponent(comObj);
+            if (scopeObj !== null) {
+                return scopeObj.getScopeWindow();
+            }
+        } else {
+            return comObj.getScopeWindow();
+        }
+    } catch (ex) {
+        console.error(ex);
+        return null;
+    }
+};
+
+/**
+ * @method 
+ * @name getActiveWindowInfo
+ * @description 현재 활성화된 실행 프레임 윈도우 정보를 반환한다.
+ * @param {Object} scopeApi 객체 컴포넌트 객체 또는 아이디(pageFrame Scope 경로를 포함한 Full Path Id)
+ * @returns {Object} activeInfo 현재 Active Window 정보 반환
+ * {String} activeinfo.type : 액티브 윈도우 타입 [P : 팝업, T: 탭컨텐츠, W: 윈도우컴포넌트]
+ * {Object} activeinfo.window : 액티브 윈도우 객체
+ * {String} activeinfo.programCd : 액티브 윈도우 프로그램 코드
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.getActiveWindowInfo = function (scopeApi) {
+
+    // $p를 직접 넣은 경우.
+    if (typeof (scopeApi) == 'object') {
+        $p = scopeApi;
+    };
+
+    const activeInfo = {
+        "type": "", // T:Tabcontrol, W:windowContainer, P:popup
+        "window": "", // Window객체
+        "programCd": "" // 프로그램 코드 (팝업인경우는 예외)
+    };
+
+    const popupList = $p.getPopupWindowList();
+    let popupWindow = null;
+
+    if (popupList.length > 0) {
+        for (let i = popupList.length - 1; i > -1; i--) {
+            if (document.activeElement.id != '' && document.activeElement.id + "_pageFrame" === popupList[i].$p.getFrameId()) {
+                popupWindow = $p.getPopupWindow(document.activeElement.id);
+            }
+        }
+    }
+
+    let findProgramList;
+    if (popupWindow !== null) {
+        // pageFrame Popup 방식으로 오픈된 팝업 화면
+        activeInfo["type"] = "P";
+        activeInfo["pgmId"] = $c.win.getProgramId(popupWindow.$p);
+        activeInfo["window"] = popupWindow;
+    } else if (typeof typeof $p.top().tac_layout !== "undefined") {
+        // TabControl 또는 WindowContainer를 통해서 오픈된 업무 화면
+        // activeInfo["type"] = $p.main().main.getLayoutId();
+        activeInfo["type"] = "T";
+        if (activeInfo["type"] == "T") {
+            const selectedTabId = $p.top().tac_layout.getSelectedTabID();
+            findProgramList = $c.win.getMainFrame().ds_allMenuList.getMatchedJSON("actPgmId", selectedTabId, false);
+            if (findProgramList.length > 0) {
+                activeInfo["pgmId"] = findProgramList[0].actPgmId;
+            } else {
+                let fullPgmId= "";
+                if(selectedTabId.indexOf(".jsp") == -1) {
+                    fullPgmId = selectedTabId+".jsp";
+                }
+                activeInfo["pgmId"] = fullPgmId;
+            }
+            activeInfo["window"] = $c.win.getMainFrame().tac_layout.getWindow(selectedTabId);
+        } else if (activeInfo["type"] == "M") {
+            const selectedWindowId = $p.main().wdc_main.getSelectedWindowId();
+            findProgramList = $c.data.menuComp.getMatchedJSON("actPgmId", selectedWindowId, true);
+            if (findProgramList.length > 0) {
+                activeInfo["pgmId"] = findProgramList[0].actPgmId;
+            }
+            activeInfo["window"] = $p.main().wdc_main.getWindow(selectedWindowId);
+        } else if (activeInfo["type"] == "S") {
+            if (!$c.util.isEmpty($c.data.getParameter($p.main().pfm_layout.getWindow().$p, "menuInfo"))) {
+                activeInfo["pgmId"] = $c.data.getParameter($p.main().pfm_layout.getWindow().$p, "menuInfo").programCd;
+            }
+            activeInfo["window"] = $p.main().pfm_layout.getWindow();
+        }
+    } else {
+        // Window Popup 방식으로 오픈된 팝업 화면
+        activeInfo["type"] = "P";
+        activeInfo["pgmId"] = $c.win.getProgramId();
+        activeInfo["window"] = $p.getFrame();
+    }
+
+    return activeInfo;
+};
+
+/**
+ * @method 
+ * @name showToastMessage
+ * @description 토스트 메시지를 보여준다.
+ * @param {String} messageType 메시지 종류 ( 에러 : scwin.MESSAGE_CODE.STATUS_ERROR, 성공 : scwin.MESSAGE_CODE.STATUS_SUCCESS, 경고 : scwin.MESSAGE_CODE.STATUS_WARNING, 정보 : scwin.MESSAGE_CODE.STATUS_INFO )
+ * @param {String} message 메시지
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.showToastMessage($c.sbm.getMessageCode('STATUS_SUCCESS'), e.responseJSON.rsMsg.statusMsg);
+ */
+scwin.showToastMessage = function (messageType, message) {
+
+    if ($c.util.isEmpty($p.main().pfm_footer)) {
+        return;
+    }
+
+    const messageIdx = new Date().getTime();
+
+    const pgfFooter = $p.main().pfm_footer.getWindow();
+    let className = "";
+
+    if ($c.sbm.getMessageCode('STATUS_ERROR') === messageType) {
+        className = "error";
+    } else if ($c.sbm.getMessageCode('STATUS_SUCCESS') === messageType) {
+        className = "success";
+    } else if ($c.sbm.getMessageCode('STATUS_WARNING') === messageType) {
+        className = "warning";
+    } else {
+        className = "info";
+    }
+
+    pgfFooter.$p.dynamicCreate("grp_notice_" + messageIdx, "group", { style: "opacity: 0.0;" }, pgfFooter.grp_noticeArea);
+    let grpNotice = pgfFooter.$p.getComponentById("grp_notice_" + messageIdx);
+    grpNotice.addClass("notice");
+
+    pgfFooter.$p.dynamicCreate("grp_noticeInfo_" + messageIdx, "group", { style: "opacity: 0.0" }, grpNotice);
+    let grpNoticeInfo = pgfFooter.$p.getComponentById("grp_noticeInfo_" + messageIdx);
+    grpNoticeInfo.addClass(className);
+
+    pgfFooter.$p.dynamicCreate("tbx_message_" + messageIdx, "textbox", { style: "display:inline; margin-left:3px", label: message }, grpNoticeInfo);
+
+    pgfFooter.$p.$("#" + grpNotice.getID()).fadeTo(1000, 1);
+    pgfFooter.$p.$("#" + grpNoticeInfo.getID()).fadeTo(1000, 1);
+
+    $c.util.setTimeout(
+        function (idx) {
+            let grpNotice = pgfFooter.$p.getComponentById("grp_notice_" + idx);
+            if (!$c.util.isEmpty(grpNotice)) {
+                pgfFooter.$p.$("#" + grpNotice.getID()).fadeTo(1000, 0);
+            }
+
+            let grpNoticeInfo = pgfFooter.$p.getComponentById("grp_noticeInfo_" + idx);
+            if (!$c.util.isEmpty(grpNoticeInfo)) {
+                pgfFooter.$p.$("#" + grpNoticeInfo.getID()).fadeTo(1000, 0);
+            }
+
+            $c.util.setTimeout(
+                function (idx) {
+                    const tbxMessage = pgfFooter.$p.getComponentById("tbx_message_" + idx);
+                    if (!$c.util.isEmpty(tbxMessage)) {
+                        tbxMessage.remove();
+                    }
+
+                    let grpNoticeInfo = pgfFooter.$p.getComponentById("grp_noticeInfo_" + idx);
+                    if (!$c.util.isEmpty(grpNoticeInfo)) {
+                        grpNoticeInfo.remove();
+                    }
+
+                    let grpNotice = pgfFooter.$p.getComponentById("grp_notice_" + idx);
+                    if (!$c.util.isEmpty(grpNotice)) {
+                        grpNotice.remove();
+                    }
+
+                    let objArr = $c.util.getChildren(pgfFooter.grp_noticeArea, {
+                        includePlugin: "group textbox",
+                        recursive: true
+                    });
+                },
+                { delay: 1500, args: [idx], key: "MessageRemove" + idx }
+            );
+
+        },
+        { delay: 3000, args: [messageIdx], key: "MessageFadeOut" + messageIdx }
+    );
+};
+
+
+/**
+ * @method 
+ * @name openMenu
+ * @description 특정 메뉴를 오픈한다.
+ * @param {String} menuNm 메뉴명 - 단위화면에서 해당 값으로 title을 설정한다.
+ * @param {String} url 화면 파일 경로
+ * @param {String} pgmId 프로그램코드 - DB에 저장되어있는 프로그램 코드
+ * @param {Object} paramObj 화면에 전달할 JSON 데이터 객체
+ * @param {Object} option 화면 오픈 옵션
+ * @param {String} option.menuType 메뉴타입 ("SP" : 샘플화면)
+ * @param {String} option.closable 닫기버튼 보여주기 여부
+ * @param {Boolean} option.isHistory Browser History에 기록할 지 여부 (true, false)
+ * @returns {Boolean} Main Layout 안에 화면이 오픈 됐는지 여부
+ * @hidden N
+ * @exception 
+ * @example
+ * $c.win.openMenu("인사조회","/tmp/tmp01.xml","tmp01.xml");
+ */
+scwin.openMenu = function (menuNm, url, pgmId, paramObj, option) {
+    // client에서 url 숨기기 메뉴일 경우에는 새 창으로 띄우기 적용 
+    if ($c.util.isEmpty(url)) {
+        $c.win.alert("메뉴에 프로그램이 등록되지 않았습니다.");
+        return false;
+    } 
+    let openAction = "exist";
+    let refreshPid = "", menuCode = "",menuCode2 = "", getMId="";
+    if (url == "/") {
+        const url = document.location.href + "/";
+        window.open(url, "", "width=1200, height=700, left=450, top=100");
+        return false;
+    } else {
+        if (!$c.util.isEmpty(pgmId)) {
+            if (!/\.(jsp|xml)$/i.test(pgmId)) {
+                pgmId += ".jsp";
+            } else {
+                pgmId = pgmId.replace(/\.xml$/i, ".jsp");
+            }
+        }
+        menuCode = pgmId.replace(/.jsp/g,"").replace(/.xml/g,"") || "";
+        let pgmNm = "",mId = "",mParam="",pObj={}, menuSysCd = "", authBypassYn = "";
+        const closeCurrentTabYn = !$c.util.isEmpty(option) && (option.closeCurrentTabYn === "Y" || option.closeCurrentTabYn === true);
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.pgmNm)) {
+            pgmNm = option.pgmNm;
+        }
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.menuId)) {
+            mId = option.menuId;
+        }
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.sysCd)) {
+            menuSysCd = option.sysCd;
+        }
+        if (!$c.util.isEmpty(option) && option.authBypassYn === "Y") {
+            authBypassYn = "Y";
+        }
+
+        let mdiTitId = pgmId.replace(/\_/g,"").replace(/\.(xml|jsp)$/i,"");
+        if (!$c.util.isEmpty(option) && (!$c.util.isEmpty(option.menuCode) || !$c.util.isEmpty(option.menuCode2))) {
+            menuCode = option.menuCode;
+            menuCode2 = option.menuCode2;
+            refreshPid = menuCode;
+
+            mdiTitId = mdiTitId+menuCode;
+            // if(menuCode2) {
+            //     mId = menuCode;
+            // }
+
+        }
+
+        let parentMenuId = "";
+        try {
+            if (paramObj != null && typeof paramObj.menuInfo !== "undefined" && paramObj.menuInfo.menuId) {
+                parentMenuId = paramObj.menuInfo.menuId;
+            }
+        } catch (e) {}
+        try {
+            if (!parentMenuId && typeof $p.getAllParameter === "function") {
+                const allParam = $p.getAllParameter();
+                if (allParam && allParam.paramData && allParam.paramData.menuInfo && allParam.paramData.menuInfo.menuId) {
+                    parentMenuId = allParam.paramData.menuInfo.menuId;
+                }
+            }
+        } catch (e) {}
+
+        let mIdObj = "",openYn="1";
+            mIdObj = $c.win.getMainFrame().ds_allMenuList.getMatchedJSON("actPgmId", pgmId, false);
+
+        // 운영에서는 openYn="0" 인 화면은 alert 처리
+            try {
+               if (scwin.isServerMode() == "prd" && mIdObj.length > 0) {
+                // openYn = "1"인 애 찾기
+                let openItem = mIdObj.find(item => item.openYn === "1");
+
+                if (!openItem) {
+                    $c.win.alert("해당 화면은 현재 점검 및 준비 중 입니다.");
+                    return;
+                }
+            }
+            } catch(e) {
+                console.log(e);
+            }
+
+            if(mId == "") {
+                if(mIdObj.length > 0) {
+                    mId = mIdObj[mIdObj.length -1].menuId;
+                }
+            }
+        if (mId == "" && parentMenuId) {
+            mId = parentMenuId;
+        }
+        const resolvedMenuId = (mId || parentMenuId || menuCode || "").toLowerCase();
+        if (!menuSysCd && resolvedMenuId.indexOf("n") > -1) {
+            menuSysCd = "NC";
+        }
+        try {
+            if (!menuSysCd) {
+                let authMenuList = [];
+                if (mId) {
+                    authMenuList = $c.win.getMainFrame().ds_allMenuList.getMatchedJSON("menuId", mId, false);
+                }
+                if ((!authMenuList || authMenuList.length === 0) && mIdObj && mIdObj.length > 0) {
+                    authMenuList = mIdObj;
+                }
+                if ((!authMenuList || authMenuList.length === 0) && pgmId) {
+                    authMenuList = $c.win.getMainFrame().ds_allMenuList.getMatchedJSON("actPgmId", pgmId, false);
+                }
+                if (authMenuList && authMenuList.length > 0) {
+                    menuSysCd = authMenuList[authMenuList.length - 1].sysCd || "";
+                }
+            }
+        } catch (e) {}
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.menuParam)) {
+            mParam = option.menuParam.split('&');
+            mParam.forEach(param => {
+                let [key, value] = param.split('=');
+                pObj[key] = value;
+            });
+        }
+        if(paramObj != null && typeof paramObj.menuInfo !== "undefined" && paramObj.menuInfo.menuParam) {
+            pObj = paramObj.menuInfo.menuParam;
+        }
+
+        const layout = "T";
+        let tmpUrl;
+        // let menuCodeParm = menuCode;
+        let frameMode = '';
+        let data = {};
+        let closable = true;
+        let fixed = false;
+
+        if (url.indexOf("/") !== 0) {
+            url = "/" + url;
+        }
+        url = $c.sbm.getContextPath() + url;
+
+        if ((typeof paramObj !== "undefined") && (paramObj !== null)) {
+            data = paramObj;
+        }
+
+        data.menuInfo = {
+            menuNm: menuNm,
+            pgmNm : pgmNm,
+            pgmId: pgmId,
+            menuId : mId || menuCode,
+            sysCd : menuSysCd,
+            authBypassYn : authBypassYn,
+            refreshPid : refreshPid,
+            src: url,
+            menuParam : pObj
+        };
+
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.menuType)) {
+            data.menuInfo.menuType = option.menuType;
+        }
+
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.closable)) {
+            closable = option.closable;
+        }
+
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.fixed)) {
+            fixed = option.fixed;
+        }
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.openAction)) {
+            openAction = option.openAction;
+        }
+
+        if (layout == "T") {
+            let shouldWriteProgramUseLog = true;
+            const callerTabIndex = (function () {
+                try {
+                    if (!closeCurrentTabYn || $p.top().$p.isPopup()) {
+                        return -1;
+                    }
+
+                    const mainFrame = $p.main();
+                    const currentFrame = $p.getFrame();
+                    const tabCount = mainFrame.tac_layout.getTabCount();
+
+                    for (let idx = 0; idx < tabCount; idx++) {
+                        const tabFrame = mainFrame.tac_layout.getFrame(idx);
+                        if (tabFrame === currentFrame) {
+                            return idx;
+                        }
+                        if (tabFrame && currentFrame && tabFrame.id && currentFrame.id && tabFrame.id === currentFrame.id) {
+                            return idx;
+                        }
+                    }
+
+                    return mainFrame.tac_layout.getSelectedTabIndex();
+                } catch (e) {
+                    return -1;
+                }
+            })();
+
+            const closeCallerTabIfNeeded = function (tabId) {
+                if (!closeCurrentTabYn || callerTabIndex < 0 || tabId === callerTabIndex) {
+                    return tabId;
+                }
+
+                try {
+                    const mainFrame = $p.main();
+                    const callerFrame = mainFrame.tac_layout.getFrame(callerTabIndex);
+                    if (!callerFrame || mainFrame.main.closeBeforePage(callerFrame) === false) {
+                        return tabId;
+                    }
+
+                    mainFrame.tac_layout.deleteTab(callerTabIndex);
+
+                    let targetTabIndex = tabId;
+                    if (callerTabIndex < tabId) {
+                        targetTabIndex = tabId - 1;
+                    }
+                    if (targetTabIndex > -1) {
+                        mainFrame.tac_layout.setSelectedTabIndex(targetTabIndex);
+                    }
+                    return targetTabIndex;
+                } catch (e) {
+                    return tabId;
+                }
+            };
+            const tabObj = {
+                closable: closable, // 탭 닫기 기능 제공
+                openAction: openAction, // exist 는 기존 탭을 갱신, new 는 항상 새로, select는 동일 id 가 존재하면 선택, last: 기존 tab을 마지막 tab으로 이동후 선택
+                label: menuNm
+            };
+
+        if (!$c.util.isEmpty(option) && !$c.util.isEmpty(option.addTabIndex)) {
+            tabObj.addTabIndex = option.addTabIndex;
+        }
+
+            const contObj = {
+                frameMode: "pageFrame",
+                scope: true,
+                src: url,
+                alwaysDraw: false,
+                title: menuNm,
+                dataObject: {
+                    type: "json",
+                    name: "paramData",
+                    data: data
+                }
+            };
+
+            let uId = $c.data.getMemInfo("userId");
+            if(uId && pgmId) {
+                let dma = $p.top().dma_mem;
+                if (dma !== undefined) {
+                    dma.set("userId", uId);
+                    dma.set("pgmId", pgmId);
+                    dma.set("authMenuId", mId || menuCode);
+                    dma.set("authSysCd", menuSysCd || "");
+                    dma.set("authBypassYn", authBypassYn || "");
+                }
+
+            }
+
+            // tabObj의 openAction의 last값의 동작 특이 사항으로 선택이 되지 않은 경우 선택하는 로직 추가
+            if (authBypassYn === "Y" || scwin.isAuthFreePage(url)) {
+                return Promise.resolve().then(function () {
+                    // return $p.main().tac_layout.addTab(mId || menuCode, tabObj, contObj);
+                    return $p.main().tac_layout.addTab(mdiTitId, tabObj, contObj);
+                }).then(function (tabId) {
+                    return closeCallerTabIfNeeded(tabId);
+                }).then(function (tabId) {
+                    $p.main().tac_layout.setSelectedTabIndex(tabId);
+                    return tabId;
+                }).then( function(tabId) {
+                    if(!$c.util.isEmpty(option) && typeof option.mdiTitle !== "undefined") {
+                        $p.main().tac_layout.setLabelText($p.main().tac_layout.getSelectedTabIndex(), option.mdiTitle)
+                    }
+                    if (!$c.util.isEmpty(option) && option.isHistory && !$c.util.isEmpty(menuCode)) {
+                        $c.win.pushState(data);
+                    }
+                    scwin.writeProgramUseLog(url, pgmId);
+                    return tabId;
+                });
+            }
+
+            return Promise.resolve().then(function () {
+                 return $p.top().scwin.setUserAuth();
+            }).then(function (ret) {
+                if (ret === false) {
+                    shouldWriteProgramUseLog = false;
+                    const authFailedUrl = $c.sbm.getContextPath() + "/cm/xml/auth_failed.xml";
+                    const authFailedContObj = {
+                        frameMode: "pageFrame",
+                        scope: true,
+                        src: authFailedUrl,
+                        alwaysDraw: false,
+                        title: menuNm,
+                        dataObject: {
+                            type: "json",
+                            name: "paramData",
+                            data: {
+                                menuInfo: {
+                                    menuNm: menuNm,
+                                    pgmNm: menuNm,
+                                    pgmId: "auth_failed.jsp",
+                                    menuId: mId || menuCode,
+                                    refreshPid: refreshPid,
+                                    src: authFailedUrl,
+                                    menuParam: pObj
+                                }
+                            }
+                        }
+                    };
+                    // return $p.main().tac_layout.addTab(mId || menuCode, tabObj, authFailedContObj);
+                    return $p.main().tac_layout.addTab(mdiTitId, tabObj, authFailedContObj);
+                }
+                //  return $p.main().tac_layout.addTab(mId || menuCode, tabObj, contObj);
+                 return $p.main().tac_layout.addTab(mdiTitId, tabObj, contObj);
+            }).then(function (tabId) {
+                return closeCallerTabIfNeeded(tabId);
+            }).then(function (tabId) {
+                $p.main().tac_layout.setSelectedTabIndex(tabId);
+                return tabId;
+            }).then( function(tabId) {
+                if(!$c.util.isEmpty(option) && typeof option.mdiTitle !== "undefined") {
+                    $p.main().tac_layout.setLabelText($p.main().tac_layout.getSelectedTabIndex(), option.mdiTitle)
+                }
+                // history에 화면 전환했던 프로그램 코드 저장
+                if (!$c.util.isEmpty(option) && option.isHistory && !$c.util.isEmpty(menuCode)) {
+                    $c.win.pushState(data);
+                }
+                if (shouldWriteProgramUseLog) {
+                    scwin.writeProgramUseLog(url, pgmId);
+                }
+                return tabId;
+            });
+
+        } else if (layout == "M") {
+            const options = {
+                title: menuNm,
+                src: url,
+                windowTitle: menuNm,
+                windowId: menuCode,
+                openAction: "selectWindow",
+                frameMode: "pageFrame",
+                fixed: (fixed === true) ? true : false,
+                _closable: (closable === false) ? false : true,
+                closeAction: function (title) {
+                    const winScope = $p.main().wdc_main.getWindowByUniqueId(this.id);
+
+                    if (winScope.options != undefined && winScope.options._closable === false) {
+                        return false;
+                    } else {
+                        const isOnbeforecloseall = $p.main().wdc_main.getUserData("isOnbeforeCloseAll");
+
+                        if ((typeof isOnbeforecloseall === "undefined") || (isOnbeforecloseall === false)) {
+                            const isClose = true;
+                            // const isClose = $p.main().main.closeBeforePage(winScope.$p.getFrame());
+                            // if (isClose === false) {
+                                // $p.main().wdc_main.setFocus($p.main().wdc_main.getSelectedIndex());
+                            // }
+                            $p.main().wdc_main.setUserData("isOnbeforeCloseAll", false);
+                            return isClose;
+                        }
+
+                        return true;
+                    }
+                },
+                dataObject: {
+                    type: "json",
+                    name: "paramData",
+                    data: data
+                }
+            }
+
+            return Promise.resolve().then(function () {
+                $p.main().wdc_main.createWindow(options);
+                return options;
+            }).then(function (options) {
+                let winScope = $p.main().wdc_main.getWindow(options.windowId);
+                winScope.options = { _closable: options._closable };
+
+                // history에 화면 전환했던 프로그램 코드 저장
+                if (!$c.util.isEmpty(option) && option.isHistory && !$c.util.isEmpty(menuCode)) {
+                    $c.win.pushState(data);
+                }
+            });
+        } else if (layout == "S") {
+            //start 동일메뉴 재오픈 체크
+            let curParamData = $p.main().pfm_layout.scope.$p.getParameter("paramData") || {};
+            let curMenuInfo = curParamData["menuInfo"];
+            if (curMenuInfo){
+                let curMenuCd = curMenuInfo["menuCode"];
+                if (curMenuCd == menuCode){
+                    //이미 열려있는 메뉴면 리턴처리.
+                    return false;
+                }
+            }
+            //end
+            const isClose = $p.main().main.closeBeforePage($p.main().pfm_layout.getWindow().$p.getFrame());
+
+            if (isClose) {
+                const programCd = $p.main().pfm_side.getWindow().dlt_menu.getMatchedColumnData("SRC_PATH", url, "PROGRAM_CD");
+                data.menuInfo.programCd = programCd[0];
+
+                // history에 화면 전환했던 프로그램 코드 저장
+                if (!$c.util.isEmpty(option) && option.isHistory && !$c.util.isEmpty(menuCode)) {
+                    $c.win.pushState(data);
+                }
+
+                const param = {
+                    dataObject: {
+                        type: "json",
+                        name: "paramData",
+                        data: data
+                    }
+                };
+
+                return Promise.resolve().then(function () {
+                    return $p.main().pfm_layout.setSrc(url, param);
+                });
+            } else {
+                return false;
+            }
+        }
+    }
+    return false;
+};
+
+/**
+ * @method 
+ * @name openPopup
+ * @description 팝업창을 연다.
+ * @param {String} url url 화면경로
+ * @param {Array} opts Popup창 옵션
+ * @param {String} options.id Popup창 아이디
+ * @param {String} options.type 화면 오픈 타입 ("pageFramePopup", "browserPopup")
+ * @param {String} options.width Popup창 넓이
+ * @param {String} options.height Popup창 높이
+ * @param {String} options.popupName useIframe : true시 popup 객체의 이름으로 popup 프레임의 표시줄에 나타납니다.
+ * @param {String} options.useIFrame [default : false] true : IFrame 을 사용하는 WebSquare popup / false: window.open 을 사용하는 popup
+ * @param {String} options.style Popup의 스타일을 지정합니다. 값이 있으면 left top width height는 적용되지 않습니다.
+ * @param {String} options.resizable [default : false]
+ * @param {String} options.modal [default : false]
+ * @param {String} options.scrollbars [default : false]
+ * @param {String} options.title [default : false]
+ * @param {String} options.notMinSize [default : false]
+ * @param {Object} data 팝업 화면에 전달할 데이터 객체 (type이 pageFramePopup인 경우만 지원)
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.openPopup = function (url, opts, data, tp) {
+    return new Promise(function (resolve, reject) {
+
+        if (typeof opts !== "object") {
+            opts = {};
+        }
+
+        if ($c.util.isEmpty(data)) {
+            data = {};
+        }
+
+        if (Array.isArray(data)) {
+            data = {data: data};
+        }
+
+        // resolve 1회 보장
+        let __settled = false;                               
+        const __safeResolve = function (v) {                 
+            if (__settled) return;
+            __settled = true;
+            resolve(v);
+        };
+
+        _POP_RESOLVE_ = __safeResolve;;
+        _POP_CALLBK_ = null;
+        if ($c.util.isEmpty(data.callbackFn)) {
+            data.callbackFn = function (rtn) {
+                if (!$c.util.isEmpty(rtn)) {
+                    if (!$c.util.isEmpty(rtn.clickValue)) {
+                        resolve(rtn.clickValue);
+                    } else {
+                        resolve(rtn);
+                    }
+                } else {
+                    resolve(false);
+                }
+            };
+        } else { // X버튼 눌렀을 때 promise가 영원히 pending에 걸리는 문제 해결을 위해 넣은 로직
+            // ★CHANGED: 기존 콜백 유지 + Promise도 종료
+            const __userCb = data.callbackFn;
+            _POP_CALLBK_ = __userCb;
+
+            data.callbackFn = function (rtn) {
+                try {
+                    if (typeof __userCb === "function") __userCb.call(this, rtn);
+                } finally {
+                    if (!$c.util.isEmpty(rtn)) {
+                        if (!$c.util.isEmpty(rtn.clickValue)) __safeResolve(rtn.clickValue);
+                        else __safeResolve(rtn);
+                    } else {
+                        __safeResolve(false);
+                    }
+                }
+            };
+        }
+
+        scwin._openPopup(url, opts, data, tp);
+
+        // X 닫힘에서도 closeAction/콜백이 안 올 수 있으니 “닫힘 감시”로 강제 종료
+        try {                                                
+            const popupId = opts.id;                          
+            if (!popupId) return;
+
+            let existedOnce = false;
+            const iv = setInterval(function () {
+                // 팝업이 한 번이라도 존재했는지 체크
+                const w = $p.getPopupWindow(popupId);
+                if (w) existedOnce = true;
+
+                // 한 번 존재했는데 이제 없으면 = 닫힘 (X 포함)
+                if (existedOnce && !w) {
+                    clearInterval(iv);
+                    __safeResolve(false); // X 닫힘은 false로 종료 (async 쪽에서 null 처리하면 됨)
+                }
+
+                // 이미 resolve 됐으면 감시 중단
+                if (__settled) {
+                    clearInterval(iv);
+                }
+            }, 200);
+        } catch (e) {}                                        
+    });
+
+};
+
+/**
+ * @method 
+ * @name _openPopup
+ * @description 팝업창을 연다.
+ * @param {String} url url 화면경로
+ * @param {Array} opt Popup창 옵션
+ * @param {String} options.id Popup창 아이디
+ * @param {String} options.type 화면 오픈 타입 ("pageFramePopup", "browserPopup")
+ * @param {String} options.width Popup창 넓이
+ * @param {String} options.height Popup창 높이
+ * @param {String} options.popupName useIframe : true시 popup 객체의 이름으로 popup 프레임의 표시줄에 나타납니다.
+ * @param {String} options.useIFrame [default : false] true : IFrame 을 사용하는 WebSquare popup / false: window.open 을 사용하는 popup
+ * @param {String} options.style Popup의 스타일을 지정합니다. 값이 있으면 left top width height는 적용되지 않습니다.
+ * @param {String} options.resizable [default : false]
+ * @param {String} options.modal [default : false]
+ * @param {String} options.scrollbars [default : false]
+ * @param {String} options.title [default : false]
+ * @param {String} options.notMinSize [default : false]
+ * @param {Object} data 팝업 화면에 전달할 데이터 객체
+ * @param {Object} closeActionFunc 팝업이 닫힐 때 실행될 콜백 함수
+ * @hidden Y
+ * @exception 
+ * @example
+ */
+scwin.normalizePopupProgramId = function (url, popupId, pgmId) {
+    const normalizedUrl = (url || "").split("?")[0].split("#")[0];
+    const urlFileNm = normalizedUrl.substring(normalizedUrl.lastIndexOf("/") + 1);
+    const urlBaseId = urlFileNm.replace(/\.(xml|jsp)$/i, "");
+    let normalizedPgmId = pgmId || "";
+
+    if (!normalizedPgmId && popupId) {
+        if (/\.(jsp|xml)$/i.test(popupId)) {
+            normalizedPgmId = popupId;
+        } else if (popupId === urlBaseId) {
+            normalizedPgmId = popupId + ".jsp";
+        }
+    }
+
+    if (!normalizedPgmId) {
+        normalizedPgmId = urlFileNm;
+    }
+
+    return (normalizedPgmId || "").split("?")[0].split("#")[0].replace(/\.xml$/i, ".jsp");
+};
+
+scwin._openPopup = function (url, opt, data, tp) {//debugger;
+    let parentPgmId = "";
+    const popupPgmId = scwin.normalizePopupProgramId(url, opt.id, opt.pgmId);
+    try {
+        parentPgmId = $p.getAllParameter().paramData.menuInfo.pgmId;
+        parentMenuId = $p.getAllParameter().paramData.menuInfo.menuId;
+    } catch(e) {
+        parentPgmId = "";
+        parentMenuId = "";
+    }
+    data.menuInfo = {
+        src: url,
+        pgmId : popupPgmId,
+        pFrmId: $p.getFrameId(),
+        parentPgmId : parentPgmId,
+        parentMenuId : parentMenuId,
+        popupName: opt.popupName || "",
+        popupTitle: opt.popupTitle || "",
+    };
+    
+    const _dataObj = {
+        type: "json",
+        data: data,
+        name: "paramData"
+    };
+
+    let width = opt.width || 500;
+    let height = opt.height || 500;
+    opt.type = opt.type || "browserPopup";
+
+    try {
+        const deviceWidth = parseFloat($("body").css("width"));
+        const deviceHeight = parseFloat($("body").css("height"));
+
+        if (!opt.notMinSize) {
+            let borderSize = 4;
+            if (opt.type != "browserPopup") {
+                borderSize = 4
+                if (deviceWidth > 0 && width > deviceWidth) {
+                    width = deviceWidth - borderSize; // 팝업 border 고려
+                }
+
+                if (deviceHeight > 0 && height > deviceHeight) {
+                    height = deviceHeight - borderSize; // 팝업 border 고려
+                }
+
+            } else {
+                if (window.screen.availHeight <= height) {
+                    height = window.screen.availHeight - 100;
+                }
+            }
+        }
+    } catch (ex) {
+        console.error(ex);
+    }
+
+    opt.frameModal = opt.frameModal || "";
+
+    opt.className = opt.frameModal == "frame" ? opt.className ? opt.className + " f_pop" : "f_pop" : "";
+
+    let top, left;
+
+    if (opt.type == "browserPopup") {
+        top = Math.floor(((window.screen.availHeight - 50 - $c.num.parseInt(height))) / 2) + (window.screen.availTop || 0) + "px";
+        left = Math.floor((window.screen.availWidth - $c.num.parseInt(width)) / 2) + (window.screen.availLeft || 0) + "px";
+    } else {
+        let frameTop = 0;
+        let frameLeft = 0;
+
+        if (opt.frameModal === "frame") {
+            frameTop = $p.getFrame().render.getBoundingClientRect().top / 2;
+            frameLeft = $p.getFrame().render.getBoundingClientRect().left / 2;
+        }
+
+        top = ((document.body.offsetHeight / 2) - ($c.num.parseInt(height) / 2) - frameTop + $(document).scrollTop()) + "px";
+        left = ((document.body.offsetWidth / 2) - ($c.num.parseInt(width) / 2) - frameLeft + $(document).scrollLeft()) + "px";
+
+    }
+
+    if (typeof _dataObj.data !== "undefined") {
+        if (typeof _dataObj.data.callbackFn == "function") {
+            const cbFuncIdx = ++scwin.CB_FUNCTION_MANAGER["cbFuncIdx"];
+            const idx = "__close_callback_Func__" + new Date().getTime() + "_" + cbFuncIdx;
+            scwin.CB_FUNCTION_MANAGER["cbFuncSave"][$p.id + idx] = _dataObj.data.callbackFn;
+            _dataObj.data.callbackFn = $p.id + idx;
+        } else if (typeof _dataObj.data.callbackFn === "undefined") {
+            _dataObj.data.callbackFn = "";
+        } else if (typeof _dataObj.data.callbackFn === "string") {
+            _dataObj.data.callbackFn = $p.id + _dataObj.data.callbackFn;
+        }
+    }
+
+    const options = {
+        id: opt.id,
+        popupName: opt.popupName || "",
+        type: opt.type,
+        width: width + "px",
+        height: height + "px",
+        top: opt.top || top || "140px",
+        left: opt.left || left || "500px",
+        modal: (opt.modal == false) ? false : true,
+        frameModal: opt.frameModal,
+        dataObject: _dataObj,
+        alwaysOnTop: opt.alwaysOnTop || true,
+        useModalStack: (opt.useModalStack == false) ? false : true,
+        resizable: (opt.resizable == false) ? false : true,
+        useMaximize: opt.useMaximize || false,
+        className: opt.className || "",
+        scrollbars: true,
+        windowDragMove: opt.windowDragMove || true,
+        windowMoveType: opt.windowMoveType || "overflow",
+        controls : opt.controls || "",
+        useControl : opt.useControl || "",
+        minVisibleWindowPixel: 20,
+        // popupUrl: "../popup" ,
+        closeAction: function () {
+            let popupWindow = $p.getPopupWindow(this.id);
+            if ($p.getPopupWindow(this.id) == undefined) {
+                popupWindow = this.getScopeWindow();
+            }
+
+            const messageType = $c.data.getParameter("messageType", popupWindow.$p) || "alert";
+            const callbackFuncStr = $c.data.getParameter("callbackFn", popupWindow.$p);
+            const callbackFunc = $c.util.getCallBackFunction(callbackFuncStr);
+
+            if (typeof callbackFunc === "function") {
+                let popup;
+                if (popupWindow.$p.isWFramePopup()) {
+                    popup = popupWindow.scwin._popup;
+                } else {
+                    popup = popupWindow.$p.main().scwin._popup
+                }
+
+                if (!$c.util.isEmpty(popup) && !$c.util.isEmpty(popup.callbackParam)) {
+                    callbackFunc($c.util.getJSON(popup.callbackParam));
+                } else {
+                    if (messageType === "confirm") {
+                        callbackFunc({ clickValue: false });
+                    } else {
+                        callbackFunc();
+                    }
+                }
+            }
+            return true;
+        }
+        //  , popupUrl: "../popup"
+    };
+
+    if (url.indexOf("xml/messageBox.xml") > 0 || scwin.isAuthFreePage(url)) {
+        $p.openPopup(url, options);
+    } else {
+        if (typeof tp !== "undefined" && tp == "ebiz") {
+            $p.openPopup(url, options);
+            scwin.writeProgramUseLog(url, popupPgmId);
+        } else {
+            return Promise.resolve().then(function () {
+                let uId = $c.data.getMemInfo("userId");
+                let pgmId = scwin.normalizePopupProgramId(url, opt.id, opt.pgmId);
+                let menuCode="" ,menuSysCd = "";
+                menuCode = pgmId.replace(/.jsp/g,"").replace(/.xml/g,"") || "";
+                const resolvedMenuId = (menuCode || "").toLowerCase();
+
+                try {
+                    if (!menuSysCd && resolvedMenuId.indexOf("n") > -1) {
+                        menuSysCd = "NC";
+                    }
+                    if($c.data.getMemInfo().userHomeClsCd == "FB" || $c.data.getMemInfo().userHomeClsCd == "81") {
+                        menuSysCd = "NC";
+                    }
+                } catch(e) {
+                    console.log(e);
+                }
+                
+                if ($p.isPopup() && !$p.isWFramePopup()) {
+                    let mFrm = scwin.getMainFrame();
+                    if (uId && pgmId) {
+                        let dma = mFrm.dma_mem;
+                        if (dma !== undefined) {
+                            dma.set("userId", uId);
+							dma.set("authSysCd", menuSysCd || "");
+                            dma.set("pgmId", pgmId);
+                        }
+                    }
+                    return mFrm.scwin.setUserAuth();
+                    // return $p.top().$p.parent().scwin.setUserAuth();
+                } else {
+                    if(pgmId != 'commonPopup.jsp' && pgmId != 'auth_failed.jsp') {
+                        if (uId && pgmId) {
+                            let dma = $p.top().dma_mem;
+                            if (dma !== undefined) {
+                                dma.set("userId", uId);
+								dma.set("authSysCd", menuSysCd || "");
+                                dma.set("pgmId", pgmId);
+                            }
+                        }
+                        return scwin.getMainFrame().scwin.setUserAuth();
+                    }
+                }
+            }).then(function (ret) {
+                if (ret === false) {
+                    const authFailedUrl = $c.sbm.getContextPath() + "/cm/xml/auth_failed.xml";
+                    const authFailedOptions = Object.assign({}, options, {
+                        dataObject: {
+                            type: "json",
+                            name: "paramData",
+                            data: {
+                                menuInfo: {
+                                    src: authFailedUrl,
+                                    pgmId: "auth_failed.jsp",
+                                    pFrmId: $p.getFrameId(),
+                                    parentPgmId: parentPgmId,
+                                    parentMenuId: parentMenuId,
+                                    popupName: opt.popupName || ""
+                                }
+                            }
+                        }
+                    });
+                    return $p.openPopup(authFailedUrl, authFailedOptions);
+                }
+                $p.openPopup(url, options);
+                scwin.writeProgramUseLog(url, popupPgmId);
+            });
+        }
+    }
+
+};
+
+/**
+ * @method 
+ * @name closePopup
+ * @description 팝업창을 닫는다.
+ * @param {String} callbackParam 부모 창에 전달한 데이터
+ * @param {String} callbackFnStr 콜백 함수 명
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.closePopup = function (callbackParam, callbackFnStr) {
+    if (!$c.util.isEmpty(callbackParam)) {
+        $p.getFrame().scope.scwin._popup = {
+            callbackParam: callbackParam
+        };
+    }
+    scwin._closePopup($c.win.getPopupId(), $c.str.serialize(callbackParam), callbackFnStr);
+};
+
+// TODO :: 아래의 코드는 테스트 완료 후 삭제해야 합니다.
+/**
+ * @method 
+ * @name _closePopup
+ * @description 팝업창을 닫는다.
+ * @param {String} popId popup창 id로 값이 없을 경우 현재창의 아이디
+ * @param {String} callbackParamStr 부모 창에 전달한 데이터
+ * @param {String} callbackFnStr 콜백 함수 명
+ * @hidden Y
+ * @exception 
+ * @example
+ */
+scwin._closePopup = function (popId, callbackParamStr, callbackFnStr) {
+    $c.util.setTimeout(
+        function () {
+            if ($p.isWFramePopup()) {
+                $p.closePopup(popId);
+            } else {
+                let func = $c.util.getCallBackFunction(callbackFnStr);
+
+                if (func) {
+                    func($c.util.getJSON(callbackParamStr));
+                } else if (opener !== null) {
+                    func = opener.$c.util.getCallBackFunction(callbackFnStr);
+                    if (func) {
+                        func($c.util.getJSON(callbackParamStr));
+                    }
+                }
+                $w.closePopup();
+            }
+        },
+        { delay: 10, key: "closePopup" + (Math.random() * 16).toString().replace(".", "") }
+    );
+};
+
+
+/**
+ * @method 
+ * @name closeAllPopup
+ * @description 현재 오픈된 전체 팝업창을 닫는다.
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.closeAllPopup();
+ */
+scwin.closeAllPopup = function () {
+    // WebSquare.uiplugin.popup.popupList 속성은 엔진 내 비공개 속성으로 공통에서만 제한적으로 사용함(업무 화면 소스 사용 금지)
+    const popupList = WebSquare.uiplugin.popup.popupList;
+    for (let idx = 0; idx < popupList.length; idx++) {
+        $p.closePopup(WebSquare.uiplugin.popup.popupList[idx].id);
+    }
+};
+
+/**
+ * @method 
+ * @name isPopup
+ * @description 현재 화면이 팝업 인지의 여부를 반환한다.
+ * @returns {Boolean} 팝업여부(팝업인 경우 true, 팝업이 아닌 경우 false)
+ * @hidden N
+ * @exception 
+ * @example
+if ($c.win.isPopup()) {
+    $c.win.alert("현재 화면은 팝업입니다.");
+};
+ */
+scwin.isPopup = function () {
+    return isPopup($p);
+
+    function isPopup(scope) {
+        if (scope.isPopup()) {
+            return true;
+        } else if (scope.top().$p.getFrameId() === scope.getFrameId()) {
+            return false;
+        } else {
+            return isPopup(scope.parent().$p);
+        }
+    }
+};
+
+
+/**
+ * @method 
+ * @name messageBox
+ * @description 메세지 팝업을 호출한다.
+ * @param {String} messageType 팝업창 타입 (alert || confirm)
+ * @param {String} messageStr 메시지
+ * @param {String} closeCallbackFncName 콜백 함수명
+ * @param {Object} opts messageBox의 callBackParam 등의 정보가 있는 객체
+ * @hidden N
+ * @exception 
+ * @example
+//alert창을 띄울 경우
+scwin.callback = function(){
+    console.log("콜백 함수입니다.");
+};
+$c.win.messageBox($p, "alert", "보낼 메시지", "callback");
+
+//confirm창을 띄울 경우
+scwin.callback = function(){
+    console.log("콜백 함수입니다.");
+};
+$c.win.messageBox($p, "confirm", "보낼 메시지", "callback");
+ */
+scwin.messageBox = function (messageType, messageStr, closeCallbackFncName, opts) {
+    messageStr = messageStr || "";
+    messageType = messageType || "alert";
+    let popId = messageType || "tmp";
+
+    popId = popId + (Math.random() * 16).toString().replace(".", "");
+
+    if (typeof opts.callBackParam !== "object") {
+        opts.callBackParam = {};
+    }
+
+    let sysMsg = "";
+
+    if ($c.util.isArray(messageStr)) {
+        sysMsg = $c.data.getMessage(messageStr);
+        if (typeof sysMsg === "string" && sysMsg != "") {
+            messageStr = sysMsg;
+        } else {
+            messageStr = "";
+        }
+    } else {
+        sysMsg = $c.data.getMessage(messageStr);
+        if (typeof sysMsg === "string" && $c.util.isEmpty(sysMsg) === false) {
+            messageStr = sysMsg;
+        }
+    }
+
+    const data = {
+        "message": messageStr,
+        "callbackFn": closeCallbackFncName,
+        "messageType": messageType,
+        "id": popId,
+        "callBackParam": opts.callBackParam
+    };
+
+    const options = {
+        id: popId,
+        popupName: messageType == "alert" ? $c.data.getMessage(MSG_CM_00046) : $c.data.getMessage(MSG_CM_00047),
+        width: 380,
+        height: 350,
+        frameModal: "top",
+        type : "pageFramePopup",
+        className: "messagebox"
+    };
+
+    $c.win.openPopup("/cm/xml/messageBox.xml", options, data);
+};
+
+/**
+ * @method 
+ * @name setProgramAuthority
+ * @description 사용자의 권한에 따른 화면 컴포넌트 제어를 한다.
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.setProgramAuthority = function () {
+    const menuInfo = $c.data.getParameter("menuInfo");
+    // const pgmInfo = $c.data.getParameter("pgmInfo");
+    let uId = $c.data.getMemInfo("userId");
+
+    if (uId && typeof menuInfo !== "undefined") {
+
+        try {
+            let pgmId = menuInfo.pgmId;
+            let dma = $p.top().dma_mem;
+            if (dma) {
+                dma.set("userId", uId);
+                dma.set("pgmId", pgmId);
+
+                $p.top().scwin.setUserAuth();
+            } else {
+                dma = $p.top().$p.parent().dma_mem;
+                dma.set("userId", uId);
+                // as-is 서버를 바라보고 있어서 jsp 로 변경
+                pgmId = menuInfo.src.substr(menuInfo.src.lastIndexOf("/") + 1).replace(/.xml/g, ".jsp");
+                dma.set("pgmId", pgmId);
+
+                $p.top().$p.parent().scwin.setUserAuth();
+            }
+
+        } catch (e) {
+            console.log("############### setProgramAuthority catch ######");
+        }
+    }
+
+    //if ((typeof menuInfo !== "undefined") && (typeof menuInfo.menuCode !== "undefined") && (menuInfo.menuCode.trim() !== "")) {
+    //const menuCd = menuInfo.menuCode;
+    //const menuInfoList = $p.main().pfm_side.getWindow().dlt_menu.getMatchedJSON("MENU_CD", menuCd);
+
+    //if (menuInfoList.length > 0) {
+    //const programAuthorityList = $p.main().pfm_side.getWindow().dlt_programAuthority.getMatchedJSON("PROGRAM_CD", menuInfoList[0].PROGRAM_CD);
+
+    //if (programAuthorityList.length > 0) {
+    //const programAuthority = programAuthorityList[0];
+
+    //}
+    //}
+    //}
+};
+
+/**
+ * @method 
+ * @name processCommonData
+ * @description 공통 코드, 권한, 개인화 처리를 위해서 생성된 Submission을 Promise Workflow 기능을 이용해서 실행한다.
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.processCommonData = function () {
+    const scwinObj = $c.util.getObject("scwin");
+
+    const commonDataWorkflow = {
+        "id": "wkf_commonDataWorkflow",
+        "processMsg": "",
+        "step": [],
+        "resolveCallback": "",
+        "rejectCallback": ""
+    };
+
+    if (typeof scwinObj.popTitleCh === "function") {
+        scwinObj.popTitleCh();
+    }
+    if (typeof scwinObj.ondataload === "function") {
+        commonDataWorkflow["resolveCallback"] = scwinObj.ondataload;
+    }
+
+    const sbmSearchCode = $c.util.getComponent("_sbm_searchCode");
+
+    if ($c.util.isEmpty(sbmSearchCode) === false) {
+        commonDataWorkflow.step = [
+            { "type": "submit", "action": "_sbm_searchCode" },
+            { "type": "submitDone", "action": "_sbm_searchCode" }
+        ];
+    }
+
+    const sbmSelectShortcutList = $c.util.getComponent("_sbm_selectShortcutList");
+
+    if ($c.util.isEmpty(sbmSelectShortcutList) === false) {
+        commonDataWorkflow.step.push({ "type": "submit", "action": "_sbm_selectShortcutList" });
+        commonDataWorkflow.step.push({ "type": "submitDone", "action": "_sbm_selectShortcutList" });
+    }
+
+    if (commonDataWorkflow.step.length > 0) {
+        $c.sbm.executeWorkflow(commonDataWorkflow);
+    } else {
+        if (typeof scwinObj.ondataload === "function") {
+            scwinObj.ondataload();
+        }
+    }
+};
+
+/**
+ * @method 
+ * @name setHistoryBackEvent
+ * @description 브라우저 Back, Forward 발생 시 onPopState 이벤트를 등록한다.
+ * @hidden N
+ * @exception 
+ * @example $c.win._setHistoryBackEvent();
+ */
+scwin.setHistoryBackEvent = function () {
+    if (window.addEventListener) {
+        window.addEventListener("popstate", $c.win.changePageState);
+    } else {
+        window.attachEvent("popstate", $c.win.changePageState);
+    }
+};
+
+/**
+ * @method 
+ * @name pushState
+ * @description history.pushState API를 호출해서 브라우저에서 History 상태를 기록한다.
+ * @param {Object} data 현재 호출된 메뉴화면 정보 객체. 
+ * @hidden N
+ * @exception 
+ * @example $c.win.pushState(option.dataObject.data);
+ */
+scwin.pushState = function (data) {
+    if (data.menuInfo.menuCode === "MAIN") {
+        history.pushState({ "data": data }, data.menuInfo.menuNm, $c.sbm.getContextPath() + "/");
+    } else {
+        history.pushState({ "data": data }, data.menuInfo.menuNm, "?menuCd=" + data.menuInfo.menuCode);
+    }
+};
+
+/**
+ * @method 
+ * @name changePageState
+ * @description 브라우저 Back, Forward 발생 시 onPopState 이벤트 처리를 수행한다.
+ * @hidden N
+ * @exception 
+ * @example $c.win.changePageState();
+ */
+scwin.changePageState = function () {
+    scwin.__changePageState();
+};
+
+/**
+ * @method
+ * @name __changePageState
+ * @description changePageState에서 $p를 직접 파라미터로 보내는 경우 사용
+ * @param
+ * @hidden Y
+ * @exception 
+ */
+scwin.__changePageState = function () {
+    if (!$c.util.isEmpty(history.state) && !$c.util.isEmpty(history.state.data) && !$c.util.isEmpty(history.state.data.menuInfo)) {
+        const options = {};
+        options.isHistory = false;
+        const data = history.state.data;
+        $c.win.openMenu(data.menuInfo.menuNm, data.menuInfo.src, data.menuInfo.pgmId, data.param, options);
+    }
+};
+
+/**
+ * @method 
+ * @name addEventOnBeforeUnload
+ * @description Window.onBeforeUnload 이벤트를 추가한다.
+ * @hidden N
+ * @exception 
+ * @example $c.win.addEventOnBeforeUnload();
+ */
+scwin.addEventOnBeforeUnload = function () {
+    if (window.addEventListener) {
+        window.addEventListener("beforeunload", $c.win.__setOnBeforeUnload);
+    } else {
+        window.attachEvent("onbeforeunload", $c.win.__setOnBeforeUnload);
+    }
+};
+
+
+/**
+ * @method 
+ * @name removeEventOnBeforeUnload
+ * @description Window.onBeforeUnload 이벤트를 삭제한다.
+ * @hidden N
+ * @exception 
+ * @example $c.win.removeEventOnBeforeUnload();
+ */
+scwin.removeEventOnBeforeUnload = function () {
+    if (window.removeEventListener) {
+        window.removeEventListener("beforeunload", $c.win.__setOnBeforeUnload);
+    } else {
+        window.detachEvent("onbeforeunload", $c.win.__setOnBeforeUnload);
+    }
+};
+
+
+/**
+ * @method
+ * @name __setOnBeforeUnload
+ * @description Window.onBeforeUnload 이벤트 발생 시 페이지를 떠날 것인지 확인한다.
+ * @param {object} e 이벤트 객체
+ * @hidden N
+ * @exception 
+ * @example $c.win.__setOnBeforeUnload();
+ */
+scwin.__setOnBeforeUnload = function (e) {
+    e.preventDefault();
+    e.returnValue = "You didn't save changes";
+    return e.returnValue;
+};
+
+/**
+ * @method 
+ * @name errorHandler
+ * @description 웹스퀘이 페이지 호출 시 에러가 발생할 경우 발생하는 이벤트 함수
+ * @param {Object} e 통신 정보 객체.
+ * @hidden N
+ * @exception 
+ */
+scwin.errorHandler = function (e) {
+    if (e.status == 404) {
+        $c.win.alert(e.responseURL + " URL이 존재하지 않습니다.");
+    }
+};
+
+/**
+ * @method 
+ * @name reload
+ * @description 전체 페이지 새로고침을 한다.
+ * @hidden N
+ * @exception 
+ */
+scwin.reload = function () {
+    $c.win.removeEventOnBeforeUnload();
+    window.location.reload();
+};
+
+/**
+ * @method 
+ * @name getProgramId
+ * @description 프로그램 아이디를 반환한다.
+ * @param {Object} scopeApi $p의 scope정보가 들어있는 객체
+ * @hidden N
+ * @exception 
+ * @example
+const programId = $c.win.getProgramId();
+ */
+scwin.getProgramId = function (scopeApi) {
+    if (typeof (scopeApi) == "object") {
+        return scwin.__getProgramId(scopeApi);
+    };
+
+    return scwin.__getProgramId();
+};
+
+/**
+ * @method
+ * @name __getProgramId
+ * @description getProgramId에서 $p를 파라미터로 직접 보내는 경우 호출되는 함수
+ * @param {$p} scopeApi $p인자가 담긴 객체
+ * @hidden N
+ * @exception 
+ */
+scwin.__getProgramId = function (scopeApi) {
+    const $p = scopeApi;
+    let programId = "";
+
+    if ($c.util.isEmpty($p.getMetaValue("meta_screenId"))) {
+        // 웹스퀘어 파일명을 프로그램 아이디와 동일하게 작성한 경우에만 정상 동작한다.
+        let src = "";
+
+        if (!$c.util.isEmpty($p.getFrame())) {
+            src = $p.getFrame().getSrc();
+        } else {
+            src = $p.getParameter("w2xPath");
+        }
+
+        if (src.indexOf("/ui/") >= 0) {
+            programId = src.substring(src.lastIndexOf("/") + 1, src.lastIndexOf("."));
+        }
+    } else {
+        programId = $p.getMetaValue("meta_screenId");
+    }
+
+    return programId;
+}
+
+/**
+ * @method 
+ * @name goHome
+ * @description 최상위 page를 index화면으로 이동 (/)
+ * @param {string} param QueryString 형태로 전달된 메뉴코드
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.goHome = function (param) {
+    const contextPath = $c.sbm.getContextPath();
+
+    if (contextPath == "" && !$c.util.isEmpty(param)) {
+        top.window.location.href = "/?menuCd=" + param;
+    } else if (contextPath == "" && $c.util.isEmpty(param)) {
+        top.window.location.href = "/websquare/websquare.html?w2xPath=/ui/main/index.xml";
+    } else {
+        top.window.location.href = contextPath;
+    }
+
+};
+
+/**
+ * @method 
+ * @name logout
+ * @description
+ * 로그아웃으로 WAS의 사용자 session을 삭제한다.
+ * 정상 처리 : /로 이동.
+ * 오류 발생 : 기존 화면으로 오류 메세지 전송
+ * @hidden N
+ * @exception 
+ * @example
+ * $c.win.logout();
+ */
+scwin.logout = function () {
+    $c.win.removeEventOnBeforeUnload();
+
+    const logoutGrpOption = {
+        id: "_sbm_Logout",
+        action: "/main/logout",
+        target: "",
+        submitDoneHandler: "$c.win.goHome",
+        isProcessMsg: false
+    };
+
+    $c.sbm.executeDynamic(logoutGrpOption);
+};
+
+/**
+ * @method 
+ * @name isAdmin
+ * @description 로그인한 사용자가 시스템 관리자 인지의 여부를 반환한다.
+ * @hidden N
+ * @exception 
+ * @example
+ */
+scwin.isAdmin = function () {
+    const isAdmin = $p.main().pfm_side.getWindow().dma_defInfo.get("IS_ADMIN");
+
+    if (isAdmin === "Y") {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+/**
+ * @method 
+ * @name getFullPath
+ * @description contextRoot가 포함된 path를 반환한다.
+ * @param {String} path 파일경로(Context가 포함되지 않은)
+ * @returns {String} Context가 포함된 파일경로
+ * @hidden N
+ * @exception 
+ * @example
+// context가 /sample 인경우
+$c.win.getFullPath("/ui/dev/common/commonCode1.xml");
+ */
+scwin.getFullPath = function (path) {
+    let rtn_path = "";
+    const contextPath = $c.sbm.getContextPath();
+
+    if (contextPath == "") {
+        rtn_path = path;
+    } else {
+        rtn_path = contextPath + path;
+    }
+    return rtn_path;
+};
+
+/**
+ * @method 
+ * @name setEnterKeyEvent
+ * @description 해당 그룹 안의 컴포넌트에서 엔터키가 발생하면 해당 컴포넌트의 값을 DataCollection에 저장하고 objFunc 함수를 실행한다.
+ * @param {Object} grpObj 그룹 객체
+ * @param {Object} objFunc 함수 객체
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.setEnterKeyEvent(tbl_search, scwin.btn_search_onclick);
+ */
+scwin.setEnterKeyEvent = function (grpObj, objFunc) {
+    let objArr = $c.util.getChildren(grpObj, {
+        includePlugin: "checkbox checkcombobox editor input inputCalendar multiselect radio selectbox searchbox secret textarea autoComplete",
+        recursive: true
+    });
+
+    try {
+        for (let i = 0; i < objArr.length; i++) {
+            try {
+                if (typeof objFunc === "function") {
+                    objArr[i].bind("onkeyup", function (e) {
+                        if (e.keyCode === 13) {
+                            if (typeof this.getRef === "function") {
+                                let ref = this.getRef();
+                                let refArray = ref.substring(5).split(".");
+                                if ((typeof refArray !== "undefined") && (refArray.length === 2)) {
+                                    const dataCollectionName = refArray[0];
+                                    const columnId = refArray[1];
+                                    const dataCollection = this.getScopeWindow().$p.getComponentById(dataCollectionName);
+                                    const dataType = dataCollection.getObjectType().toLowerCase();
+                                    if (dataType === "datamap") {
+                                        dataCollection.set(columnId, this.getValue());
+                                    } else if ((dataType === 'datalist') && (typeof rowIndex !== "undefined")) {
+                                        dataCollection.setCellData(dataCollection.getRowPosition(), columnId, this.getValue());
+                                    }
+                                }
+                                objFunc();
+                            }
+                        }
+                    });
+                }
+            } catch (e) {
+                console.error("[$c.win.setEnterKeyEvent] Exception :: " + e.message);
+            }
+        }
+    } catch (ex) {
+        console.error(ex);
+    } finally {
+        objArr = null;
+    }
+};
+
+/**
+ * @method 
+ * @name alert
+ * @description Alert 메시지 창을 호출한다.
+ * @param {String} messageStr 메시지
+ * @param {String} closeCallbackFncName 콜백 함수명
+ * @param {Object} opts 팝업 옵션
+ * @returns {String} Context가 포함된 파일경로
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.alert("우편번호를 선택하시기 바랍니다.");
+$c.win.alert("우편번호를 선택하시기 바랍니다.", "scwin.alertCallBack");
+
+// 공통메시지 아이디를 전달하면 메시지로 변경하여 보여줌
+$c.win.alert("$c.cfm.0002") // 저장하시겠습니까?
+
+// 공통메시지에 치환값이 있는 경우는 Array로 전달
+$c.win.alert(["bbs.cfm.0001",  "MA0101", "MA010101"]) //"카테고리 [MA0101]를 삭제하시겠습니까?\n삭제 시, [MA0101]로 등록한 게시글을 조회할 수 없습니다."
+
+// 존재하지 않는 공통메시지 아이디인경우 String 인경우
+$c.win.alert("$c.cfm.002") // "$c.cfm.002"
+
+// 존재하지 않는 공통메시지 아이디인경우 Array 인경우
+$c.win.alert(["bbs.cfm.0001",  "MA0101", "MA010101"]) //메시지 없음
+ */
+scwin.alert = function (messageStr, closeCallbackFncName, opts) {
+    return new Promise(function (resolve, reject) {
+        if (typeof opts !== "object") {
+            opts = {};
+        }
+
+        if ($c.util.isEmpty(closeCallbackFncName)) {
+            closeCallbackFncName = function () {
+                resolve();
+            };
+        }
+
+        // 2026-02-13 to-be alert은 \n 안먹어서 <br/>로 치환
+        messageStr = messageStr.replaceAll("\n", "<br/>");
+
+        $c.win.messageBox("alert", messageStr, closeCallbackFncName, opts);
+    });
+};
+
+/**
+ * @method 
+ * @name confirm
+ * @description Confirm 메시지 창을 호출한다.
+ * @param {String} messageStr 메시지
+ * @param {String} closeCallbackFncName 콜백 함수명
+ * @param {Object} opts confirm창에 대한 option이 담긴 객체.
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.confirm("변경된 코드 그룹 정보를 저장하시겠습니까?", "scwin.saveCodeGrpConfirmCallback");
+$c.win.confirm("하위에 새로운 조직을 추가하시겠습니까?", "scwin.insertConfirmCallBack");
+ */
+scwin.confirm = function (messageStr, closeCallbackFncName, opts) {
+    return new Promise(function (resolve, reject) {
+        if (typeof opts !== "object") {
+            opts = {};
+        }
+
+        if ($c.util.isEmpty(closeCallbackFncName)) {
+            closeCallbackFncName = function (rtn) {
+                if (!$c.util.isEmpty(rtn) && !$c.util.isEmpty(rtn.clickValue)) {
+                    resolve(rtn.clickValue);
+                } else {
+                    resolve(false);
+                }
+            };
+        }
+
+        $c.win.messageBox("confirm", messageStr, closeCallbackFncName, opts);
+    });
+};
+
+/**
+ * @method 
+ * @name getLanguage
+ * @description 언어 코드를 반환한다.
+ * @returns {String} 언어코드 (ex. "ko", "en")
+ * @hidden N
+ * @exception 
+ * @example
+const lang = $c.win.getLanguage();
+ */
+scwin.getLanguage = function () {
+    const language = $c.win.getLangCode() || navigator.language || navigator.userLanguage || navigator.systemLanguage;
+    if (($c.util.isEmpty(language) === false) && (language.length > 1)) {
+        return language.substring(0, 2);
+    } else {
+        return "";
+    }
+}
+
+/**
+ * @method 
+ * @name getPopupId
+ * @description 팝업 아이디를 반환한다.
+ * @hidden N
+ * @exception 
+ * @example
+const popupId = $c.win.getPopupId();
+ */
+scwin.getPopupId = function () {
+    // const parent = opener || parent;
+
+    if ($p.getPopupId()) {
+        return $p.getPopupId();
+    } else {
+        return window.scwin.$w.getPopupId();
+    }
+};
+
+/**
+ * @method 
+ * @name moveUrl
+ * @description 현재 화면을 특정 URL로 이동한다.
+ * @param {String} moveUrl 화면 파일 경로
+ * @param {Object} paramObj 이동 시 전달할 파라미터 값
+ * @hidden N
+ * @exception 
+ * @example
+const param = {
+    id : "00001",
+    name : "홍길동"
+};
+$c.win.moveUrl("/tmp/tmp01.xml", param);
+ */
+scwin.moveUrl = function (moveUrl, paramObj) {
+
+    paramObj = {
+        "dataObject": {
+            "type": "json",
+            "name": "paramData",
+            "data": paramObj
+        }
+    };
+
+    const contextPath = $c.sbm.getContextPath();
+
+    return $p.getFrame().setSrc(contextPath + moveUrl, paramObj);
+};
+
+/**
+ * @method 
+ * @name setPageFrameSrc
+ * @description 특정 pageFrame의 웹스퀘어 페이지(XML)을 변경한다.
+ * @param {Object} pageFrameObj pageFrame 객체
+ * @param {String} moveUrl 웹스퀘어 페이지(XML) 파일 경로
+ * @param {Object} paramObj pageFrame을 set할 시 전달할 파라미터 객체
+ * @hidden N
+ * @exception 
+ * @example
+const param = {
+    id : "00001",
+    name : "홍길동"
+};
+$c.win.setPageFrameSrc(pfm_content, "/tmp/tmp01.xml", param);
+ */
+scwin.setPageFrameSrc = function (pageFrameObj, moveUrl, paramObj) {
+    paramObj = {
+        "dataObject": {
+            "type": "json",
+            "name": "paramData",
+            "data": paramObj
+        }
+    };
+
+    const contextPath = $c.sbm.getContextPath();
+
+    return pageFrameObj.setSrc(contextPath + moveUrl, paramObj);
+};
+
+/**
+ * @method 
+ * @name getFrame
+ * @description pageFrame안의 스크립트 영역에서 이 함수를 호출할 경우 자신을 감싼 pageFrame object를 반환한다. 전역스크립트에서 호출 시에는 null을 반환한다.
+ * @returns {Object} 객체 자신을 감싼 pageFrame object
+ * @hidden N
+ * @exception 
+ * @example
+const frameObj = $c.win.getFrame();
+ */
+scwin.getFrame = function (scopeApi) {
+    try {
+        if (typeof (scopeApi) == 'object') {
+            return scopeApi.getFrame();
+        }
+        return $p.getFrame();
+    } catch (ex) {
+        console.error(ex);
+    }
+};
+/**
+ * @method 
+ * @name getParent
+ * @description 자신의 부모 pageFrame 객체를 찾아 반환한다.
+ * @returns {Object} 자신을 감싼 pageFrame object의 부모 pageFrame 객체
+ * @hidden N
+ * @exception 
+ * @example
+const parentFrame = $c.win.getParent();
+const dltObj = parentFrame.dlt_dataList1; // 자기 부모 프레임 내에 있는 dlt_dataList1에 접근
+const pScwinObj = parentFrame.scwin; // 자기 부모 프레임에 있는 scwin 객체에 접근
+if (!$c.util.isEmpty(pScwinObj){
+    pScwinObj.search(); // 부모화면에 있는 scwin.search 함수를 호출
+}
+ */
+scwin.getParent = function () {
+    try {
+        return $p.parent();
+    } catch (ex) {
+        console.error(ex);
+    }
+};
+
+/**
+ * @method 
+ * @name setLangCode
+ * @description 언어 코드를 설정한다.
+ * @param {String} langCode 언어코드 (한국어 : "ko", 영어 : "en", 중국어 : "zh")
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.setLangCode("ko");
+$c.win.setLangCode("en");
+ */
+scwin.setLangCode = function (langCode) {
+    WebSquare.cookie.setCookie("system_language", langCode);
+};
+
+/**
+ * @method 
+ * @name getLangCode
+ * @description 언어 코드를 반환한다.
+ * @returns 언어코드 (한국어 : "ko", 영어 : "en", 중국어 : "zh");
+ * @hidden N
+ * @exception 
+ * @example
+$c.win.getLangCode();
+ */
+scwin.getLangCode = function () {
+    return WebSquare.cookie.getCookie("system_language");
+};
+
+/**
+ * @method
+ * @name getCbFunctionManager
+ * @description 메세지 알림 콜백 Function 정보 저장을 위한 객체를 불러온다.
+ * @param
+ * @returns {Object} $c.win에 선언된 CB_FUNCTION_MANAGER 객체를 가져온다
+ * @hidden N
+ * @exception
+ * @example const CB_FUNCTION_MANAGER = $c.win.getCbFunctionManager();
+ */
+scwin.getCbFunctionManager = function () {
+    return scwin.CB_FUNCTION_MANAGER
+};
+
+/**
+ * @method
+ * @name extension
+ * @description 해당 그룹의 그리드, 트리를 확대한다
+ * @param {string} grp desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.initNum = [];
+
+scwin.extension = function (grp) {
+    if (!$c.util.isEmpty(grp)) {
+        let objArr = $c.util.getChildren(grp, {
+            includePlugin: "gridView treeview",
+            recursive: true
+        });
+
+        for (var i in objArr) {
+            if (objArr[i].getPluginName() == "treeview") {
+                var tH = parseInt(objArr[i].getStyle("height"));
+                objArr[i].setStyle("height", tH + 50 + "px");
+            } else if (objArr[i].getPluginName() == "gridView") {//debugger;
+
+                if(typeof objArr[i].options.initRowNumCnt !== "undefined" && objArr[i].options.initRowNumCnt > 0) {
+                    // objArr[i].options.initFixedHeightByRowNum = objArr[i].options.initRowNumCnt;
+                    // objArr[i].options.visibleRowNum = '';
+                } 
+                // objArr[i].options.visibleRowNumFix = "false";
+
+                // var rNum = objArr[i].getVisibleRowNum();
+                var tNum = objArr[i].getRowCount();
+                // var curNum = objArr[i].getDrawCount();
+                var curNum = objArr[i]._getDrawedRowCount();
+                scwin.initNum[objArr[i]] = scwin.initNum[objArr[i]] || parseInt(objArr[i].options.initRowNumCnt);
+
+                let allCnt = parseInt(tNum + (objArr[i]._getExcelSubtotalData().split("\",\"").length / objArr[i].getTotalCol()));
+
+                // if (tNum > scwin.initNum[objArr[i]] && tNum > curNum) {
+
+                if(curNum >= allCnt) {
+                    continue;
+                    // objArr[i].setVisibleRowNum(allCnt);
+                }else if (allCnt > curNum) {
+                    // objArr[i].setTopRowIndex(curNum);
+                    objArr[i].setVisibleRowNum(curNum + 5);
+                }
+            }
+        }
+    }
+};
+
+/**
+ * @method
+ * @name reduction
+ * @description 해당 그룹의 그리드, 트리를 축소한다(visibleRowNum 버젼)
+ * @param {string} grp desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.reduction = function (grp) {
+    if (!$c.util.isEmpty(grp)) {
+        let objArr = $c.util.getChildren(grp, {
+            includePlugin: "gridView treeview",
+            recursive: true
+        });
+
+        for (var i in objArr) {
+            if (objArr[i].getPluginName() == "treeview") {
+                var tH = parseInt(objArr[i].getStyle("height"));
+                if (tH > 100) {
+                    objArr[i].setStyle("height", tH - 50 + "px");
+                }
+            } else if (objArr[i].getPluginName() == "gridView") {//debugger;
+           
+                if(typeof objArr[i].options.initRowNumCnt !== "undefined" && objArr[i].options.initRowNumCnt > 0) {
+                    // objArr[i].options.initFixedHeightByRowNum = objArr[i].options.initRowNumCnt;
+                    // objArr[i].options.visibleRowNum = '';
+                } 
+                // objArr[i].options.visibleRowNumFix = "false";
+
+                var tNum = objArr[i].getRowCount();
+                // var curNum = objArr[i].getDrawCount();
+                var curNum = objArr[i]._getDrawedRowCount();
+                scwin.initNum[objArr[i]] = scwin.initNum[objArr[i]] || parseInt(objArr[i].options.initRowNumCnt);
+
+                // if (tNum > 0 && scwin.initNum[objArr[i]] + curNum > tNum) {
+                // if(curNum == tNum && scwin.initNum[objArr[i]] > tNum) {
+                // if(curNum < 1 && scwin.initNum[objArr[i]] > tNum) {
+                if(curNum <= 1 ) {
+                    continue;
+                } else if (tNum > 0 ) {
+                    let visibleCnt = curNum - 5 > 0 ? (curNum - 5) : 1;
+                    objArr[i].setVisibleRowNum(visibleCnt);
+                } 
+            }
+        }
+    }
+};
+
+/**
+ * @method
+ * @name getGrid
+ * @description 그룹에 포함된 그리드 객체 가져오기
+ * @param {string} grp 그룹아이디
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getGrid = function (grp) {
+    let ret = null;
+    if (!$c.util.isEmpty(grp)) {
+        let objArr = $c.util.getChildren(grp, {
+            includePlugin: "gridView",
+            recursive: true
+        });
+
+        for (var i in objArr) {
+            if (objArr[i].getPluginName() == "gridView") {
+                return objArr[i];
+            }
+        }
+    }
+    return ret;
+};
+
+/**
+ * @method
+ * @name getGridSetting
+ * @description 그리드 개인화 초기셋팅
+ * @param {string} grd desc
+ * @param {string} opts desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getGridSetting = async function (grd, opts) {
+    let grdObj = (typeof grd == 'object') ? grd : (typeof grd === 'string') ? $c.gus.object(grd) : grd;
+    let gridId = grdObj.id;
+    let gridOrgId = grdObj.org_id;
+    let userId = $c.data.getMemInfo("userId");
+    let pgmId = "";
+    // let pgmId = scwin._getPgmId(grdObj.getScopeWindow());
+    pgmId = $p.parent().$p.getFrame().getSrc();
+
+    if(pgmId != "") {
+        pgmId = pgmId.substring(pgmId.lastIndexOf("/")+1).replace(".xml",".jsp");
+    } else {
+        pgmId = scwin.__getPgmId(grdObj.getScopeWindow());
+    }        
+    pgmId = pgmId.substring(pgmId.lastIndexOf("/")+1).replace(".xml",".jsp");
+    
+    // pgmId를 못가져오는 화면이 있어 추가
+    if (!pgmId) {
+        const contentsArr = $p.top().tac_layout.contentsArr;
+        const selectedTabIndex = $p.top().tac_layout.getSelectedTabIndex();
+        pgmId = contentsArr[selectedTabIndex]?.src;
+    }
+
+        
+    let dmSearchSet = $c.gus.object("dma_dataPrivate");
+    // if(!dmSearchSet) {	 		
+    var jsonData = ["method", "pgmId", "gridId"];
+    dmSearchSet = $c.data.createDataMap("dma_dataPrivate", jsonData);
+    // }
+
+    dmSearchSet.setJSON({ "method": "select", "pgmId": pgmId, "gridId": gridOrgId });
+
+    const gridSetOption = {
+        id: "sbm_getGridSet",
+        action: "/GridPrivateService",
+        ref: "data:json,dma_dataPrivate",
+        processMsg: "none"
+    };
+
+    let res = await $c.sbm.executeDynamic(gridSetOption);
+    if (res.responseJSON.result == "OK") {
+
+        var rtData = res.responseJSON.gridSetCtnt;
+        if (rtData != null) {
+            // $p.top().scwin.gridSetArr[usrId+pgmId+gridOrgId] = rtData;
+            if (rtData.columnOrderIdx) {
+                if (!grdObj.setColumnOrder(JSON.stringify(rtData.columnOrderIdx).replace(/(\[)|(\])/g, ""))) {
+                   // return;
+                }
+            }
+
+            if (rtData.fixedCol && rtData.fixedCol > 0) {
+            //    grdObj.setFixedColumn(rtData.fixedCol);
+            }
+
+            if (rtData.columnOrderIdx && rtData.hiddenList) {
+                for (var key in rtData.hiddenList) {
+                    grdObj.setColumnVisible(rtData.columnOrderIdx[key], !rtData.hiddenList[Number(key) + grdObj.defaultColCnt]);
+                }
+            }
+
+        }
+    }
+
+
+};
+
+/**
+ * @method
+ * @name gridSetting
+ * @description 그리드 개인화 셋팅
+ * @param {string} grd desc
+ * @param {string} btnId desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.gridSetting = async function (grd,flag,moveFlag) {//debugger;
+    try {
+        let gridObj = (typeof grd == 'object') ? grd : (typeof grd === 'string') ? $c.gus.object(grd) : grd;
+        let gridId = gridObj.id;
+        let gridOrgId = gridObj.org_id;
+        let userId = $c.data.getMemInfo("userId");
+        // let pgmId = scwin._getPgmId(gridObj.getScopeWindow());
+        let pgmId = "";
+
+        if(typeof moveFlag !== "undefined" && moveFlag == "colMove") {
+            if($p.getFrame().scope_obj !== null) {
+                pgmId = $p.getFrame().scope_obj.getSrc();
+            }
+        } else {
+            if($p.parent().$p.getFrame().scope_obj !== null) {
+                pgmId = $p.parent().$p.getFrame().scope_obj.getSrc();
+            }
+        }
+        if(pgmId != "") {
+            pgmId = pgmId.substring(pgmId.lastIndexOf("/")+1).replace(".xml",".jsp");
+        } else {
+            pgmId = scwin.__getPgmId(gridObj.getScopeWindow());
+        }        
+        pgmId = pgmId.substring(pgmId.lastIndexOf("/")+1).replace(".xml",".jsp");
+        
+        // pgmId를 못가져오는 화면이 있어 추가
+        if (!pgmId) {
+            const contentsArr = $p.top().tac_layout.contentsArr;
+            const selectedTabIndex = $p.top().tac_layout.getSelectedTabIndex();
+            pgmId = contentsArr[selectedTabIndex]?.src;
+        }
+
+        if (!pgmId) {
+            $c.win.alert("pgmId 가 등록되지 않았습니다");
+            return;
+        }
+        let dmaSetSave = $c.gus.object("dma_dataPrivate");
+
+        // if(!dmaSetSave) {				
+        let jsonColumn = ["pgmId", "gridId", "method", "gridSetCtnt"];
+        dmaSetSave = $c.data.createDataMap("dma_dataPrivate", jsonColumn);
+        // }
+
+        let jsonData = {
+            pgmId: pgmId,
+            method: "save",
+            gridSetCtnt: JSON.stringify({
+                "columnOrderIdx": gridObj.getColumnOrder(),
+                "colwidthList": gridObj.colWidthList,
+                "hiddenList": gridObj.hiddenList,
+                "fixedCol": parseInt(gridObj.getFixedColumnLastIndex(false)),
+                "initColwidthList": gridObj.colWidthList,
+                "initColumnOrderIdx": gridObj.getColumnOrder(),
+                "initHiddenList": gridObj.hiddenList,
+                "initFixedCol": parseInt(gridObj.getFixedColumnLastIndex(false))
+            }),
+            gridId: gridOrgId
+        };
+
+        dmaSetSave.setJSON(jsonData);
+
+        const gridSetOption = {
+            id: "sbm_gridSetSave",
+            action: "/GridPrivateService",
+            ref: "data:json,dma_dataPrivate",
+            isProcessMsg: false
+        };
+        let res = await $c.sbm.executeDynamic(gridSetOption);
+        if (res.responseJSON.result == "OK") {
+            if(typeof flag !== "undefined" && flag == "init") {
+                $c.win.alert("개인화 정보가 초기화되었습니다.");
+            } else {
+                $c.win.alert("개인화 등록이 완료 되었습니다.");
+            }
+            return;
+        }
+
+
+    } catch (e) {
+        $p.log("[$c.win.gridSetting] Exception :: ", e);
+    }
+};
+
+scwin._chkCnt = 0;
+scwin.__getPgmId = function (obj) {
+    try {
+        if (scwin._chkCnt > 8) {
+            scwin._chkCnt = 0;
+            return "";
+        }
+
+        let scopeApi = null;
+        if (obj && obj.$p) {
+            scopeApi = obj.$p;
+        } else if (obj && obj.scope && obj.scope.$p) {
+            scopeApi = obj.scope.$p;
+        }
+
+        if (!scopeApi || typeof scopeApi.getParameter !== "function") {
+            scwin._chkCnt = 0;
+            return "";
+        }
+
+        const paramData = scopeApi.getParameter("paramData");
+        if (paramData && paramData.menuInfo) {
+            scwin._chkCnt = 0;
+            return paramData.menuInfo.refreshPid || paramData.menuInfo.pgmId || "";
+        }
+
+        let parentObj = null;
+        if (typeof scopeApi.parent === "function") {
+            parentObj = scopeApi.parent();
+        }
+
+        if (!parentObj || parentObj === obj) {
+            scwin._chkCnt = 0;
+            return "";
+        }
+
+        scwin._chkCnt++;
+        return scwin.__getPgmId(parentObj);
+    } catch (e) {
+        scwin._chkCnt = 0;
+        console.log(e);
+        return "";
+    }
+}
+
+scwin._getPgmId = function (obj) {
+    return scwin.__getPgmId(obj);
+};
+
+/**
+ * @method
+ * @name setAddTab
+ * @description 탭을 추가한다
+ * @param {string} tabObj 탭 컨트롤 아이디
+ * @param {string} param2 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setAddTab = function (tabCont, opts) {
+    let tabConObj = $c.gus.object(tabCont);
+    var opts = opts || {};
+
+    let tabId = opts.tabId,
+        url = opts.url,
+        menuNm = opts.menuNm,
+        data = opts.data;
+
+    const tabObj = {
+        closable: true, // 탭 닫기 기능 제공
+        openAction: "select", // exist 는 기존 탭을 갱신, new 는 항상 새로, select는 동일 id 가 존재하면 선택, last: 기존 tab을 마지막 tab으로 이동후 선택
+        label: menuNm
+    };
+
+    const contObj = {
+        frameMode: "pageFrame",
+        scope: true,
+        src: url,
+        alwaysDraw: false,
+        title: menuNm,
+        dataObject: {
+            type: "json",
+            name: "paramData",
+            data: data
+        }
+    };
+
+    // tabObj의 openAction의 last값의 동작 특이 사항으로 선택이 되지 않은 경우 선택하는 로직 추가
+    return Promise.resolve().then(function () {
+        return tabConObj.addTab(tabId, tabObj, contObj);
+    }).then(function (tabId) {
+        tabConObj.setSelectedTabIndex(tabId);
+        return tabId;
+    });
+};
+
+/**
+ * @method
+ * @name gridSetPopUp
+ * @description 그리드 정보를 불러와 그리드 setting 화면 show/hide
+ * @param {string} grdObj desc
+ * @param {string} btnId desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.gridSetPopUp = function (grdObj, btnId) {
+    try {
+        obj = $c.gus.object("setting");
+        // let pgmId = $p.parent().$p.getAllParameter().paramData.menuInfo.pgmId;
+        let pgmId = "";
+        if($p.top().$p.isPopup()) {
+            let pObj = _getParam($p.parent());
+            pgmId = pObj["menuInfo"].pgmId;
+        } else {
+            // pgmId = scwin._getPgmId(grdObj.getScopeWindow());
+            pgmId = $p.parent().$p.getFrame().getSrc();
+            pgmId = pgmId.substring(pgmId.lastIndexOf("/")+1).replace(".xml",".jsp");
+        }
+
+        function _getParam(f) {
+            if(typeof f.$p.getParameter("paramData") !== "undefined") {
+                return f.$p.getParameter("paramData");
+            } else {
+                return _getParam(f.$p.parent());
+            }
+        }
+        // await scwin.getGridSetting(grdObj);
+
+        obj.scope.scwin._gridSetPopUp(grdObj, btnId);
+    } catch (e) {
+
+        var pobj = scwin._grdSetInitalizer(grdObj, btnId);
+        pobj.then(function (wfmObj) {
+            wfmObj.getWindow().scwin._gridSetPopUp(grdObj, btnId);
+        });
+        // console.log("[scwin.gridSetPopUp] Exception :: "+ e);
+        //$p.setTimeout(function() { scwin._gridSetPopUp(grdObj,btnId); }, 200);
+    }
+};
+
+/**
+ * @method
+ * @name _grdSetInitalizer
+ * @description grid setting 팝업을 생성 
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin._grdSetInitalizer = function (grdArea,btnId) {
+    var wfm_makeForm = $c.gus.object("setting");
+    if (typeof wfm_makeForm === "undefined") {
+        scwin.gridSettingsClose();
+
+        var pObj = $c.util.createComponent("setting", "wframe", {
+            src: "/cm/xml/userFilter.xml"
+        // }, WebSquare.getBody());
+        }, $p.getComponentById($p.getComponentById(btnId).parentControl.id));
+        pObj = pObj.then(function (wfmObj) {
+            wfmObj.setEventPause("", true);
+            return wfmObj;
+        });
+        return pObj
+    }
+};
+
+/**
+ * @method
+ * @name gridSettingsClose
+ * @description 개인화 팝업을 닫는다
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.gridSettingsClose = function () {
+    try {
+        $(document).mouseup(function (e) {
+            $('.pop_ty1').each(function () {
+                if ($(this).css('display') !== 'none') {
+                    var l_position = $(this).offset();
+                    l_position.right = parseInt(l_position.left) + parseInt($(this).outerWidth());
+                    l_position.bottom = parseInt(l_position.top) + parseInt($(this).outerHeight());
+
+                    if ((l_position.left <= e.pageX && e.pageX <= l_position.right) && (l_position.top <= e.pageY && e.pageY <= l_position.bottom)) {
+                    } else {
+                        $(this).hide("fast");
+                    }
+                }
+            });
+        });
+    } catch (e) {
+        console.log("[$c.win.gridSettingsClose] Exception :: " + e);
+    }
+}
+/**
+ * @method
+ * @name comboItemSet
+ * @description desc
+ * @param {string} dataList desc
+ * @param {string} label label 값
+ * @param {string} val value값
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.comboItemSet = function (dataList, label, val) {
+    let dlt = $c.gus.object(dataList);
+    let ret = {
+        nodeset: "data:" + dlt.id,
+        label: label,
+        value: val,
+        hideHeader: "true",
+        item: [{ "ref": val }, { "ref": label }]
+    };
+    return ret;
+};
+
+/**
+ * @method
+ * @name isLocal
+ * @description 로컬여부
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.isLocal = function () {
+    let ret = false;
+    if (location.host.indexOf("localhost") > -1 || location.host.indexOf("127.0.0.1") > -1) { // 로컬일때
+        ret = true;
+    }
+    return ret;
+};
+
+/**
+ * @method
+ * @name setPgmProc
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setPgmProc = function () {//debugger;
+    let frm;
+    let frame = $p.getFrame();
+    if (typeof $p.top().tac_layout === "undefined") {
+        let darkYn = $c.data.getMemInfo("darkmodeYn");
+
+        let topFrame = scwin.getMainFrame();
+        if ($p.top().$p.isPopup() && !$p.top().$p.isWFramePopup()) {
+            frame = WebSquare.getBody();
+            if (darkYn == "1") {
+                if (!frame.hasClass("dark")) {
+                    frame.addClass("dark");
+                }
+            }
+            if($p.getOptions().className) {
+                frame.addClass($p.getOptions().className);
+            }
+        }
+        frame.CREATE_AUTH = topFrame.scwin.globalVal.CREATE_AUTH;
+        frame.RETRIEVE_AUTH = topFrame.scwin.globalVal.RETRIEVE_AUTH;
+        frame.UPDATE_AUTH = topFrame.scwin.globalVal.UPDATE_AUTH;
+        frame.DELETE_AUTH = topFrame.scwin.globalVal.DELETE_AUTH;
+        frame.PRINT_AUTH = topFrame.scwin.globalVal.PRINT_AUTH;
+        frame.EXCEL_AUTH = topFrame.scwin.globalVal.EXCEL_AUTH;
+    } else {
+        
+        if(location.host.indexOf("ebiz.") > -1) {
+            frame.CREATE_AUTH = $p.top().$p.parent().scwin.globalVal.CREATE_AUTH;
+            frame.RETRIEVE_AUTH = $p.top().$p.parent().scwin.globalVal.RETRIEVE_AUTH;
+            frame.UPDATE_AUTH = $p.top().$p.parent().scwin.globalVal.UPDATE_AUTH;
+            frame.DELETE_AUTH = $p.top().$p.parent().scwin.globalVal.DELETE_AUTH;
+            frame.PRINT_AUTH = $p.top().$p.parent().scwin.globalVal.PRINT_AUTH;
+            frame.EXCEL_AUTH = $p.top().$p.parent().scwin.globalVal.EXCEL_AUTH;
+        } else {            
+            frame.CREATE_AUTH = $p.top().scwin.globalVal.CREATE_AUTH;
+            frame.RETRIEVE_AUTH = $p.top().scwin.globalVal.RETRIEVE_AUTH;
+            frame.UPDATE_AUTH = $p.top().scwin.globalVal.UPDATE_AUTH;
+            frame.DELETE_AUTH = $p.top().scwin.globalVal.DELETE_AUTH;
+            frame.PRINT_AUTH = $p.top().scwin.globalVal.PRINT_AUTH;
+            frame.EXCEL_AUTH = $p.top().scwin.globalVal.EXCEL_AUTH;
+        }
+    }
+
+    let objBtn = "", tmpFrm = [], tmpObjBtn = [];
+    let fIdx = "",subTabCnt =0;
+
+	if(frame.options.pluginName == "pageFrame") {
+		tmpFrm = $c.util.getChildren($p, frame, {
+			includePlugin: "tabControl",
+			recursive: true
+		});
+		if(tmpFrm.length > 0) {
+/*
+            objBtn = $c.util.getChildren(frame, {
+				includePlugin: "trigger anchor button",
+			    excludeInnerComp: true, 
+				recursive: true
+			});
+*/
+            objBtn = $c.util.getChildren(frame, {
+				includePlugin: "trigger anchor button",
+			    // excludeInnerComp: true, 
+				recursive: true
+			});
+            let allBtnBbj = [];
+            for(var idx in tmpFrm) {
+                var subContArr = tmpFrm[idx].contentsArr;
+                for(var idx1 =0; idx1 < subContArr.length; idx1++) {
+                    if(subContArr[idx1].src != "" ) {
+                        tmpObjBtn= $c.util.getChildren($p,tmpFrm[idx].getChildren()[idx1],{ includePlugin: "trigger anchor button",recursive: true });
+                        if(tmpObjBtn.length > 0) {
+                            for(var idx2 in tmpObjBtn) {
+                                allBtnBbj.push(tmpObjBtn[idx2].id);
+                            }
+                        }
+                    }
+                }
+            }
+            objBtn = objBtn.filter((e) => !allBtnBbj.includes(e.id));
+
+		} else {
+			objBtn = $c.util.getChildren(frame, {
+				includePlugin: "trigger anchor button",
+				recursive: true
+			});
+		}
+
+	} else {
+		objBtn = $c.util.getChildren(frame, {
+            includePlugin: "trigger anchor button",
+            excludePlugin: "tabControl",
+			// excludeInnerComp: true,
+            recursive: true
+        });
+	}
+
+    frame.ctrlBtn = [];
+    frame.bCreate = null;
+    frame.bUpdate = null;
+    frame.bSave = null;
+    frame.bDelete = null;
+    frame.bCreate2 = null;
+    frame.bUpdate2 = null;
+    frame.bSave2 = null;
+    frame.bDelete2 = null;
+
+    for (let k = 0; k < objBtn.length; k++) {
+        // 버튼 권한처리
+        if (typeof objBtn[k].options !== "undefined" && typeof objBtn[k].options.userAuth !== "undefined" && $c.gus.cfCheckAuth(objBtn[k].options.userAuth) == false) {
+            $c.gus.cfEnableObj(objBtn[k], false);
+        }
+        // 제어 대상 버튼을 배열에 저장
+        if (typeof objBtn[k].options !== "undefined") {
+            if (objBtn[k].options.objType == "ctrlBtn") {
+                frame.ctrlBtn.push(objBtn[k].id);
+            }
+
+            switch (objBtn[k].options.objType) {
+                // 신규 버튼
+                case 'bCreate': frame.bCreate = objBtn[k].id; break;
+                // 수정 버튼
+                case 'bUpdate': frame.bUpdate = objBtn[k].id; break;
+                // 저장 버튼
+                case 'bSave': frame.bSave = objBtn[k].id; break;
+                // 삭제 버튼
+                case 'bDelete': frame.bDelete = objBtn[k].id; break;
+                // 신규 버튼2
+                case 'bCreate2': frame.bCreate2 = objBtn[k].id; break;
+                // 수정 버튼2
+                case 'bUpdate2': frame.bUpdate2 = objBtn[k].id; break;
+                // 저장 버튼2
+                case 'bSave2': frame.bSave2 = objBtn[k].id; break;
+                // 삭제 버튼2
+                case 'bDelete2': frame.bDelete2 = objBtn[k].id; break;
+            }
+        }
+    }
+
+    const objArr = $c.util.getChildren(frame, {
+        excludePlugin: "body calendar group textbox output calendar image span tabControl",
+        // excludeInnerComp: true,
+        recursive: true
+    });
+
+    frame.key = [];
+    frame.data = [];
+    for (let i = 0; i < objArr.length; i++) {
+        switch (objArr[i].getPluginName()) {
+            case "input":
+            case "inputCalendar":
+            case "autoComplete":
+            case "radio":
+            case "checkbox":
+            case "textarea":
+            case "secret":
+            case "selectbox":
+                if (typeof objArr[i].options !== "undefined" && objArr[i].options.objType == "key") {
+                    frame.key.push(objArr[i].id);
+                } else if (typeof objArr[i].options !== "undefined" && objArr[i].options.objType == "data") {
+                    frame.data.push(objArr[i].id);
+                }
+                break;
+        }
+
+    }
+};
+
+/**
+ * @method
+ * @name getMainFrame
+ * @description 팝업에서 메인 프레임 찾을때 사용
+ * @param {string} p desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getMainFrame = function (p) {
+    let frm = p || $p.top();
+
+    if (typeof frm.tac_layout !== "undefined") {
+        return frm;
+    } else {
+
+        if (typeof frm.$p.parent().tac_layout !== "undefined") {
+            return frm.$p.parent().$p.top();
+        } else {
+            return scwin.getMainFrame(frm.$p.parent());
+        }
+
+    }
+};
+
+/**
+ * @method
+ * @name sKeyInit
+ * @description desc
+ * @param {string} complexKey 복합키
+ * @param {string} lastKey 최종키
+ * @param {string} fn 실행함수
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.sKeyInit = function (complexKey, lastKey, fn) {//debugger;
+    try {
+        let menuInfo = "";
+        if ($p.getFrame().getPluginName() == "wframe") {
+            menuInfo = $c.data.getParameter(undefined, $p.parent().$p).menuInfo;
+        } else {
+            menuInfo = $c.data.getParameter().menuInfo;
+        }
+
+        let pgmId = menuInfo.pgmId || "";
+
+        let jsonData = {
+            PROGRAM_CD: pgmId,
+            COMPLEX_KEY: complexKey,
+            LAST_KEY: lastKey.toUpperCase(),
+            EVENT_NAME: fn
+        };
+        scwin.getMainFrame().dlt_shortcutList.setJSON([jsonData], true);
+    } catch (e) {
+        console.log(e);
+    }
+
+};
+
+/**
+ * @method
+ * @name setBtnAuth
+ * @description 버튼 권한 셋팅
+ * @param {Object} obj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setBtnAuth = function (obj) {
+    if (typeof obj === "string") return;
+
+    if (obj) {
+        let frame = $p.getFrame();
+        if ($p.top().$p.isPopup() && !$p.top().$p.isWFramePopup()) {
+            frame = WebSquare.getBody();
+        }
+
+        if (typeof $p.top().tac_layout === "undefined") {
+            let topFrame = scwin.getMainFrame();
+
+            frame.CREATE_AUTH = obj.CREATE_AUTH || topFrame.scwin.globalVal.CREATE_AUTH;
+            frame.RETRIEVE_AUTH = obj.RETRIEVE_AUTH || topFrame.scwin.globalVal.RETRIEVE_AUTH;
+            frame.UPDATE_AUTH = obj.UPDATE_AUTH || topFrame.scwin.globalVal.UPDATE_AUTH;
+            frame.DELETE_AUTH = obj.DELETE_AUTH || topFrame.scwin.globalVal.DELETE_AUTH;
+            frame.PRINT_AUTH = obj.PRINT_AUTH || topFrame.scwin.globalVal.PRINT_AUTH;
+            frame.EXCEL_AUTH = obj.EXCEL_AUTH || topFrame.scwin.globalVal.EXCEL_AUTH;
+
+        } else {
+            frame.CREATE_AUTH = obj.CREATE_AUTH || $p.top().scwin.globalVal.CREATE_AUTH;
+            frame.RETRIEVE_AUTH = obj.RETRIEVE_AUTH || $p.top().scwin.globalVal.RETRIEVE_AUTH;
+            frame.UPDATE_AUTH = obj.UPDATE_AUTH || $p.top().scwin.globalVal.UPDATE_AUTH;
+            frame.DELETE_AUTH = obj.DELETE_AUTH || $p.top().scwin.globalVal.DELETE_AUTH;
+            frame.PRINT_AUTH = obj.PRINT_AUTH || $p.top().scwin.globalVal.PRINT_AUTH;
+            frame.EXCEL_AUTH = obj.EXCEL_AUTH || $p.top().scwin.globalVal.EXCEL_AUTH;
+        }
+    }
+};
+
+/**
+ * @method
+ * @name setHolidayS
+ * @description 스케쥴달력 공휴일 설정
+ * @param {string} date 날짜(년,월)
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setHolidayS = function (date) {//debugger;
+    if ($c.gus.cfIsNull(date)) return;
+    let chkDate = "";
+    let tFrm = $c.win.getMainFrame($p);
+    let holidayArr = tFrm.dlt_holiday.getMatchedJSON("holiday", date.substring(0, 6), false);
+    for (let idx in holidayArr) {
+        chkDate = holidayArr[idx].holiday.substring(0, 4) + "-" + holidayArr[idx].holiday.substring(4, 6) + "-" + holidayArr[idx].holiday.substring(6, 8);
+        $('td').find("[data-date='" + chkDate + "']").css("color", "red");
+    }
+};
+
+/**
+ * @method
+ * @name chUpper
+ * @description 소문자를 대문자로 변경
+ * @param {object} e 영문자
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.chUpper = function (e) {
+    let obj = $p.getComponentById(e.target.id);
+    if(e.keyCode > 64 && e.keyCode < 91) {
+        obj.setValue(e.target.value.toUpperCase());
+    } 
+
+};
+
+/**
+ * @method
+ * @name chLower
+ * @description 대문자를 소문자로 변경
+ * @param {object} e 이벤트 객체
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.chLower = function (e) {
+	let obj = $p.getComponentById(e.target.id);
+    if(e.keyCode > 64 && e.keyCode < 91) {
+        obj.setValue(e.target.value.toLowerCase());
+    }
+
+};
+
+/**
+ * @method pSysCd에 따른 화면 오픈
+ * @name externalInterfaceGo
+ * @description desc
+ * @param {string} pSysCd desc
+ * @hidden Y
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.externalInterfaceGo = async function (pSysCd) {
+    if ($c.util.isEmpty(pSysCd)) {
+        $c.win.alert("시스템구분코드 : [" + pSysCd + "]를 확인 바랍니다.");
+    }
+
+    let pCallUrl;
+    let pPgmId;
+    let pUserId;
+    let pCallParam = {};
+
+    const SYS_MAP = {
+        CYAUTO_PC_P: {
+            url: "/ui/tn/op/transwrkindict/cntr/tn_304_03_05b.xml",
+            pgmId: "tn_304_03_05b.jsp",
+            userId: "cy4c02"
+        },
+        CYAUTO_PC_P1: {
+            url: "/ui/tn/op/transwrkindict/cntr/tn_304_03_05b.xml",
+            pgmId: "tn_304_03_05b.jsp",
+            userId: "cy4c01"
+        },
+        CYAUTO_PC_P2: {
+            url: "/ui/tn/op/transwrkindict/cntr/tn_304_03_05b.xml",
+            pgmId: "tn_304_03_05b.jsp",
+            userId: "cy5c08"
+        }
+    };
+
+    if (SYS_MAP[pSysCd]) {
+        pCallUrl = SYS_MAP[pSysCd].url;
+        pPgmId = SYS_MAP[pSysCd].pgmId;
+        pUserId  = SYS_MAP[pSysCd].userId;
+    }
+
+    scwin.openMenu("", pCallUrl, pPgmId, pCallParam);
+
+};
+
+/**
+ * @method 로그인 팝업 호출
+ * @name openloginPopup
+ * @description desc
+ * @param
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.openloginPopup = function () {
+    const messageIdx = new Date().getTime();
+    
+    $c.util.setTimeout(
+        function () {
+            let url = "/ui/main/login_popup.xml";
+            let opts = {
+                id: "pop_login",
+                popupName: "로그인",
+                width: "400px",
+                height: "420px"
+            };
+            const options = {
+                id: "pop_login",
+                popupName: "로그인",
+                type: "browserPopup",
+                width: "400px",
+                height: "420px",
+                top: "140px",
+                left: "500px",
+                modal: true,
+                frameModal: "",
+                alwaysOnTop: true,
+                useModalStack: false,
+                resizable: false,
+                useMaximize: false,
+                className: "",
+                scrollbars: true,
+                windowDragMove: true,
+                windowMoveType: "overflow",
+                minVisibleWindowPixel: 20
+            }
+            $p.openPopup(url, options);
+        },
+        { delay: 0, args: [messageIdx], key: "AlertMessage" + messageIdx }
+    );
+};
+
+/**
+ * @method
+ * @name grdDupValid
+ * @description 그리드내 컬럼의 중복 여부 체크
+ * @param {object} grdID 그리드 아이디
+ * @param {object} objColID 그리드 컬럼명
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.grdDupValid = async function (grdID, objColID) {
+    let grdObj = $c.gus.object(grdID);
+    if(typeof grdObj === "undefined") {
+        $c.win.alert("그리드 아이디가 존재하지 않습니다.");
+        return;
+    }
+    let colObj = $c.gus.object(objColID);
+    if(typeof colObj === "undefined" || colObj.length < 1) {
+        $c.win.alert("중복 체크할 컬럼정보가 존재하지 않습니다.");
+        return;
+    }
+    let hVal="", tHval="",gridNm="";
+    gridNm = grdObj.options.gridName ?? "";
+    try {
+        // alert 출력을 위해서 헤더 정보값을 만든다
+        for(let idx in colObj) {
+            hVal = grdObj.getHeaderValue(grdObj.getHeaderID(grdObj.getColumnIndex(colObj[idx]))) || "이름없음";
+            tHval = tHval + ", "+hVal;
+        }
+        // 데이터 중복 체크
+        let colData,dupIdx,dupCol;
+        for(let idx in colObj) {
+            colData = grdObj.getColData(colObj[idx]);
+
+            const result = {};
+            let dupRt = false;
+            colData.forEach((value, key) => { 
+                result[value] = (result[value] || 0)+1; 
+                if(result[value] > 1) {
+                    dupIdx = key;
+                    dupCol = colObj[idx];
+                    dupRt = true;
+                    return false;
+                }
+            });
+            if(dupRt) break;
+        }
+        if(typeof dupIdx !== "undefined") {
+            await $c.win.alert(gridNm +" "+dupIdx +"번째 "+tHval+"은(는) 중복될 수 없습니다");
+            $p.setTimeout(function() {
+                grdObj.setFocusedCell(dupIdx, dupCol,true);
+                return false;
+            }, {delay : 50})
+            return;
+        } else {
+            return true;
+        }
+    } catch(e) {
+        console.log(e);
+    }
+
+};
+
+/**
+ * @method
+ * @name getComboLabel
+ * @description combo label 가져오기
+ * @param {object} comboObj combo (select, autocomplete) 객체
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getComboLabel = function (comboObj) {
+    let obj = $c.gus.object(comboObj);
+    let idx = obj.getSelectedIndex();
+    let comboJSON = obj.getItemArray()[idx];
+
+    if(typeof comboJSON.orgLabel === "undefined") {
+        return comboJSON.label;
+    } else {
+        return comboJSON.orgLabel;
+    }
+};
+
+/**
+ * @method
+ * @name reductionS
+ * @description 높이로 축소
+ * @param {string} grp desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.reductionS = function (grp) {
+	if (!$c.util.isEmpty(grp)) {
+        let objArr = $c.util.getChildren(grp, {
+            includePlugin: "gridView treeview",
+            recursive: true
+        });
+
+        for (var i in objArr) {
+            if (objArr[i].getPluginName() == "treeview") {
+                var tH = parseInt(objArr[i].getStyle("height"));
+                if (tH > 100) {
+                    objArr[i].setStyle("height", tH - 50 + "px");
+                }
+            } else if (objArr[i].getPluginName() == "gridView") {//debugger;
+                let grdH = parseInt(objArr[i].getStyle("height"));
+
+                // if(grdH > 100) {
+                    objArr[i].setGridHeight(grdH - 140);
+                // }
+                // scwin.initNum[objArr[i]] = scwin.initNum[objArr[i]] || parseInt(objArr[i].options.visibleRowNum);
+
+                // if (tNum > 0 && scwin.initNum[objArr[i]] + curNum > tNum) {
+                // if(curNum == tNum && scwin.initNum[objArr[i]] > tNum) {
+                // if(curNum < 1 && scwin.initNum[objArr[i]] > tNum) {
+                //     continue;
+                // } else if (tNum > 0 ) {
+                //     let visibleCnt = curNum - 5 > 0 ? (curNum - 5) : 1;
+                //     objArr[i].setVisibleRowNum(visibleCnt);
+                // } 
+
+            }
+        }
+    }
+};
+
+/**
+ * @method
+ * @name extensionS
+ * @description 높이로 확대
+ * @param {string} grp desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.extensionS = function (grp) {//debugger;
+	if (!$c.util.isEmpty(grp)) {
+        let objArr = $c.util.getChildren(grp, {
+            includePlugin: "gridView treeview",
+            recursive: true
+        });
+
+        for (var i in objArr) {
+            if (objArr[i].getPluginName() == "treeview") {
+                var tH = parseInt(objArr[i].getStyle("height"));
+                objArr[i].setStyle("height", tH + 50 + "px");
+            } else if (objArr[i].getPluginName() == "gridView") {//debugger;
+                // var rNum = objArr[i].getVisibleRowNum();
+
+                let grdH = parseInt(objArr[i].getStyle("height"));
+                objArr[i].setGridHeight(grdH + 140);
+
+            }
+        }
+    }
+};
+
+/**
+ * @method
+ * @name getEventList
+ * @description desc
+ * @param {object} grid 그리드명
+ * @param {object} eventNm 이벤트명
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getEventList = function (grid, eventNm) {
+    try {
+        let grd = $c.gus.object(grid);
+        let evCnt = 0;
+        let ret = false;
+
+        if(grd.getPluginName() == "gridView" ) {
+            let grdEvList = grd.userEventList ;   
+            for(var idx in grdEvList) {
+                if(eventNm) {
+                    if(grdEvList[idx].name == eventNm) {
+                        ret = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return ret;
+   
+    } catch(e) {
+        console.log(e);
+    }
+};
+
+/**
+ * @method
+ * @name isServerMode
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.isServerMode = function () {
+	let ret = window.location.hostname.indexOf("newdevdebis.dongwon.com") > -1 ? "dev" :  window.location.hostname.indexOf("newdebis.dongwon.com") > -1 ? "prd" : "local";
+    return ret;
+};
+
+/**
+ * @method
+ * @name isAuthFreePage
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+ 
+// =============================================================================
+/**
+ * 디버그용 개발자도구 Console 로그 출력 관련 함수를 작성한다.
+ *
+ * @author Inswave Systems
+ * @class console
+ * @namespace console
+ */
+// =============================================================================
+
+var DEBUG_MODE = false;
+
+//웹스퀘어 엔진이 디버그 모드가 아닐 경우 경우 console 로그가 출력되지 않도록 한다.
+if (WebSquare.core.getConfiguration("debug") === "false") {
+    var debugMode = $p.getParameter("debugMode");
+    if (debugMode == "true") {
+        DEBUG_MODE = true;
+    } else {
+        DEBUG_MODE = false;
+    }
+} else {
+    DEBUG_MODE = true;
+}
+
+/**
+ * 일반 메시지를 웹 브라우저 콘솔에 출력한다.
+ * @param {Object} 출력할 메시지 문자열 또는 객체
+ * @example
+ */
+console.log = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.log, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 정보 메시지를 웹 브라우저 콘솔에 출력한다.
+ *
+ * 추가 매개변수와 함께 문자열 치환을 사용할 수 있다.
+ *
+ * @param {Object} 출력할 메시지 문자열 또는 객체
+ * @memberOf console
+ * @author Inswave Systems
+ * @example
+ */
+console.info = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.info, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 스택 출력을 웹 브라우저 콘솔에 출력한다.
+ *
+ * @memberOf console
+ * @author Inswave Systems
+ * @example
+console.trace();
+ */
+console.trace = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.trace, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 정보 메시지를 웹 브라우저 콘솔에 출력한다.
+ *
+ * 추가 매개변수와 함께 문자열 치환을 사용할 수 있다.
+ *
+ * @param {Object} 출력할 메시지 문자열 또는 객체
+ * @memberOf console
+ * @author Inswave Systems
+ * @example
+ */
+console.error = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.error, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 경고 메시지를 웹 브라우저 콘솔에 출력한다.
+ *
+ * 추가 매개변수와 함께 문자열 치환을 사용할 수 있다.
+ *
+ * @param {Object} 출력할 메시지 문자열 또는 객체
+ * @memberOf console
+ * @author Inswave Systems
+ * @example
+ */
+console.warn = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.warn, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 디버그용 메시지를 웹 브라우저 콘솔에 출력한다.
+ *
+ * 추가 매개변수와 함께 문자열 치환을 사용할 수 있다.
+ *
+ * @param {Object} 출력할 메시지 문자열 또는 객체
+ * @memberOf console
+ * @author Inswave Systems
+ * @example
+ */
+console.debug = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.debug, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 인자로 전달된 객체를 덤프해서 보기 쉽게 표시한다.
+ *
+ * JSON이나 Array를 Console창에 출력 시에 적합함
+ *
+ * @param {Object} Console에 출력할 객체
+ * @memberOf console
+ * @author Inswave Systems
+ * @return {Object} 콘솔 로그 출력
+ * @example
+ */
+console.dir = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.dir, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 인자로 전달된 객체를 테이블 형식으로 표시한다.
+ * IE에서는 console.log 함수와 동일하게 동작함. (IE에서는 console.table() 미지원)
+ * JSON이나 Array를 Console창에 출력 시에 적합함.
+ * @param {Object} Console에 출력할 객체
+ * @memberOf console
+ * @author Inswave Systems
+ * @return {Object} 콘솔 로그 출력
+ * @example
+ */
+if (navigator.userAgent.toLowerCase().indexOf("msie") != -1 || navigator.userAgent.toLowerCase().indexOf("trident") != -1) {
+    console.table = (function () {
+        if (DEBUG_MODE === true) {
+            return Function.prototype.bind.call(console.table, console);
+        } else {
+            return new Function();
+        }
+    })();
+} else {
+    console.table = (function () {
+        if (DEBUG_MODE === true) {
+            return Function.prototype.bind.call(console.log, console);
+        } else {
+            return new Function();
+        }
+    })();
+}
+
+/**
+ * 특정 행이 몇 번 실행되었는지 확인하기 위해서 사용한다.
+ *
+ * @param {String} 카운터 레이블 (행의 카운터 체크를 위한 레이블)
+ * @memberOf console
+ * @author Inswave Systems
+ * @example
+ */
+console.count = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.count, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 콘솔 창에 시간 측정을 시작한다. (밀리초 단위로 표시됨)
+ *
+ * @param {String} 시간 측정 아이디 (console.timeEnd 실행 시 console.time 아이디와 동일해야 함)
+ * @memberOf console
+ * @author Inswave Systems
+ * @return {Date} 시간 출력
+ * @example
+ */
+console.time = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.time, console);
+    } else {
+        return new Function();
+    }
+})();
+
+/**
+ * 콘솔 창에 시간 측정을 종료한다. (밀리초 단위로 표시됨)
+ *
+ * @param {String} 시간 측정 아이디 (console.timeEnd 실행 시 console.time 아이디와 동일해야 함)
+ * @memberOf console
+ * @author Inswave Systems
+ * @return {Time} 시간 출력
+ * @example
+ */
+console.timeEnd = (function () {
+    if (DEBUG_MODE === true) {
+        return Function.prototype.bind.call(console.timeEnd, console);
+    } else {
+        return new Function();
+    }
+})();
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload"/>
+</html>

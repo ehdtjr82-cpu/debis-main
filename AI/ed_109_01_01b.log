@@ -1,0 +1,28 @@
+ed_109_01_01b.log
+
+[2026-02-18 22:39:29.611] 변환 시작
+[2026-02-18 22:39:29.638] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-18 22:40:54.135] #1 검증: XML: WebSquareXmlValidator: score=0.23, grade=B, verdict=REVIEW, errors=2, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 84450ms, total 84497ms
+    - [XML] .Modified → 이벤트에서 처리 필요 (1건 발견)
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onpageload, scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:40:54.161] #1 검증: 자동수정 6건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 22:40:54.218] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.23, grade=B, verdict=REVIEW, errors=2, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=5
+    - [XML] .Modified → 이벤트에서 처리 필요 (1건 발견)
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onpageload, scwin.onUdcCompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: cnd_lc_rfno (LUXECOMBO→w2:autoComplete), lc_mfGb (LUXECOMBO→w2:autoComplete), lc_sgb (LUXECOMBO→w2:autoComplete), lc_ergb (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-18 22:40:54.220] #2 재시도 (에러 3건)
+[2026-02-18 22:40:55.225] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-18 22:42:22.020] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A_PLUS, verdict=PASS, errors=0, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=5 | LLM 86748ms, total 86795ms
+[2026-02-18 22:42:22.021] 성공 (#2, 2m 52s, confidence:0.84)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

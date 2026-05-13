@@ -1,0 +1,3740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenId="op_301_01_47b" meta_author="김태근" meta_screenName="일일 반출입 현황" meta_type="메인">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_queryCondition">
+					<w2:keyInfo>
+						<w2:key id="lobranCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="wrkPlCd" name="name2" dataType="text"></w2:key>
+						<w2:key id="stDt" name="반출입 시작일자" dataType="text"></w2:key>
+						<w2:key id="endDt" name="반출입 종료일자" dataType="text"></w2:key>
+						<w2:key id="vsslCd" name="name5" dataType="text"></w2:key>
+						<w2:key id="portcnt" name="name6" dataType="text"></w2:key>
+						<w2:key id="lineCd" name="name7" dataType="text"></w2:key>
+						<w2:key id="shpCoClntNo" name="name8" dataType="text"></w2:key>
+						<w2:key id="crryinoutClsCd" name="name9" dataType="text"></w2:key>
+						<w2:key id="impExpClsCd" name="name10" dataType="text"></w2:key>
+						<w2:key id="fullEmptyClsCd" name="name11" dataType="text"></w2:key>
+						<w2:key id="cntrSizCd" name="name12" dataType="text"></w2:key>
+						<w2:key id="cntrTypCd" name="name13" dataType="text"></w2:key>
+						<w2:key id="odrKndCd" name="name14" dataType="text"></w2:key>
+						<w2:key id="stHh" name="name15" dataType="text"></w2:key>
+						<w2:key id="endHh" name="name16" dataType="text"></w2:key>
+						<w2:key id="bilgClntNo" name="name17" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_Grid1" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="cntrNo" name="CNTR번호" dataType="text"></w2:column>
+						<w2:column id="sealNo" name="SEAL번호" dataType="text"></w2:column>
+						<w2:column id="strCntrSizCd" name="SIZE" dataType="text"></w2:column>
+						<w2:column id="cntrSizCd" name="SIZE" dataType="text"></w2:column>
+						<w2:column id="cntrTypCd" name="TYPE" dataType="text"></w2:column>
+						<w2:column id="vehclShortNo" name="CAR" dataType="text"></w2:column>
+						<w2:column id="tl" name="T/L" dataType="text"></w2:column>
+						<w2:column id="odrKndCd" name="I/O" dataType="text"></w2:column>
+						<w2:column id="crryinoutClsNm" name="반출입" dataType="text"></w2:column>
+						<w2:column id="crryinoutDthh" name="TIME" dataType="text"></w2:column>
+						<w2:column id="wrkPlNm" name="Door Name" dataType="text"></w2:column>
+						<w2:column id="bilgClntNo" name="청구처" dataType="text"></w2:column>
+						<w2:column id="bookingNo" name="Booking No" dataType="text"></w2:column>
+						<w2:column id="portNm" name="Port" dataType="text"></w2:column>
+						<w2:column id="destPortNm" name="목적항" dataType="text"></w2:column>
+						<w2:column id="sellAmt" name="매출" dataType="text"></w2:column>
+						<w2:column id="wrkStpNm" name="STATUS" dataType="text"></w2:column>
+						<w2:column id="origin" name="ORIGIN" dataType="text"></w2:column>
+						<w2:column id="lineCd" name="LINE" dataType="text"></w2:column>
+						<w2:column id="vsslCd" name="VSL" dataType="text"></w2:column>
+						<w2:column id="portcnt" name="VOY" dataType="text"></w2:column>
+						<w2:column id="selfClsNm" name="운송" dataType="text"></w2:column>
+						<w2:column id="mcomAssgnClsNm" name="배정" dataType="text"></w2:column>
+						<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+						<w2:column id="dptWrkPlNm" name="출발지" dataType="text"></w2:column>
+						<w2:column id="arvWrkPlNm" name="도착지" dataType="text"></w2:column>
+
+						<w2:column id="fullEmptyClsCd" name="name27" dataType="text"></w2:column>
+						<w2:column id="crryinoutClsCd" name="name28" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_branCd" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="col1" name="value" dataType="text"></w2:column>
+						<w2:column id="col2" name="label" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_wrkPlCd" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="col1" name="value" dataType="text"></w2:column>
+						<w2:column id="col2" name="label" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_block" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="col1" name="value" dataType="text"></w2:column>
+						<w2:column id="col2" name="label" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_LineList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="value" dataType="text"></w2:column>
+						<w2:column id="name" name="label" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_retriveLobranCd">
+					<w2:keyInfo>
+						<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<sysCd><![CDATA[CommonEBC]]></sysCd>
+						<queryId><![CDATA[retriveLobranCd]]></queryId>
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_retriveWrkLobranCd">
+					<w2:keyInfo>
+						<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+						<w2:key id="param1" name="name3" dataType="text"></w2:key>
+						<w2:key id="param2" name="name4" dataType="text"></w2:key>
+						<w2:key id="param3" name="name5" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="false">
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_retrivecBlockList">
+					<w2:keyInfo>
+						<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+						<w2:key id="param1" name="name3" dataType="text"></w2:key>
+						<w2:key id="param2" name="name4" dataType="text"></w2:key>
+						<w2:key id="param3" name="name5" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="false">
+					</w2:data>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_retrieveLineEachShpCoCdCombo">
+					<w2:keyInfo>
+						<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+						<w2:key id="param1" name="name3" dataType="text"></w2:key>
+						<w2:key id="param2" name="name4" dataType="text"></w2:key>
+						<w2:key id="param3" name="name5" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="false">
+					</w2:data>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieveDailyCntrMove"
+				action="/ds.op.wrkrslts.cywrkrslts.RetrieveDailyCarryInAndCarryOutPresentConditionCMD.do" method="post" mediatype="application/json"
+				ref='data:json,[{"id":"dma_queryCondition","key":"IN_DS1"},{"action":"modified","id":"ds_Grid1","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_Grid1","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveDailyCntrMove_submitdone" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_retriveLobranCd" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post"
+				mediatype="application/json" ref="data:json,dma_retriveLobranCd" target='data:json,{"id":"ds_branCd","key":"GAUCE"}' encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_retriveLobranCd_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_retriveWrkLobranCd" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post"
+				mediatype="application/json" ref="data:json,dma_retriveWrkLobranCd" target='data:json,{"id":"ds_wrkPlCd","key":"GAUCE"}'
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_retriveWrkLobranCd_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_retrivecBlockLis" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json"
+				ref="data:json,dma_retrivecBlockList" target='data:json,{"id":"ds_block","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_retrieveLineEachShpCoCdCombo" action="/cm.zz.RetrieveComboCMD.do" method="post"
+				mediatype="application/json" ref="data:json,dma_retrieveLineEachShpCoCdCombo" target='data:json,{"id":"ds_LineList","key":"GAUCE"}'
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_retrieveLineEachShpCoCdCombo_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script cache="false" scopeExternal="true" src="/ui/ds/co/constants/DsConstants.js" type="text/javascript"
+			scopeVariable="DsConstants"></script>
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.sLoUpperLobranCd;
+scwin.sUserClsCd;
+
+/**
+ * event
+ * @name onpageload
+ * @description 화면로딩시
+ */
+scwin.onpageload = function () {
+    scwin.sUserId = $c.data.getMemInfo("userId");
+    scwin.sUserClsCd = $c.data.getMemInfo("userClsCd") ?? "";
+    scwin.sClntNo = $c.data.getMemInfo("clntNo") ?? "";
+    scwin.sClntNm = $c.data.getMemInfo("clntNm") ?? "";
+
+    //  loUpperLobranCd // 물류상위점소코드
+    /*
+    사용자 구분(그룹코드:ZZ010)
+    01:그룹사
+    02:협력업체&고객
+    03:선사
+    04:화주
+    05:자가운송업체
+    */
+    //물류상위점소코드:  loUpperLobranCd
+    scwin.sLoUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd") ?? "";
+
+    let param = $c.data.getParameter();
+    let lobranCd = param.lobranCd ?? "";
+    scwin.wrkPlCd = param.wrkPlCd ?? "";
+    scwin.lineCd = param.lineCd ?? "";
+
+    if (!$c.gus.cfIsNull(lobranCd)) {
+        scwin.sLoUpperLobranCd = lobranCd;
+    }
+    scwin.currentDate = $c.date.getServerDateTime("yyyyMMdd");
+
+    const codeOptions = [
+        { grpCd: "OP171", compID: "acb_fullEmptyClsCd" },
+        { grpCd: "OP101", compID: "acb_siz" },
+        { grpCd: "OP102", compID: "acb_typ" },
+        { grpCd: "OP197", compID: "acb_crryInOutCd" },
+        { grpCd: "SD060", compID: "acb_impExpClsCd" },
+        { grpCd: "SD113", compID: "acb_odrKndCd" },
+    ];
+    $c.data.setCommonCode(codeOptions, scwin.onLoadCommonCode);
+
+    $c.sbm.execute(sbm_retriveLobranCd);
+
+    ed_stDt.setValue(scwin.currentDate);
+    ed_endDt.setValue(scwin.currentDate);
+};
+
+/**
+ * method
+ * @name onUdcCompleted
+ * @description
+ */
+scwin.onUdcCompleted = function () {
+    if (scwin.sUserClsCd != "01") {  //사용자가 협력업체 일때
+        //개인화 문제로 그리드 2개 만들어서 보이는것 교체
+        grp_title1.hide();
+        grp_title2.show();
+        grd_section1.hide();
+        grd_section2.show();
+
+        ed_shpCo.setValue(scwin.sClntNo);
+        ed_shpNm.setValue(scwin.sClntNm);
+        ed_shpCo.setDisabled(true);
+        ed_shpNm.setDisabled(true);
+        $c.gus.cfDisableObjects([btn_shpCd]);
+
+        scwin.f_setLine();
+    }
+};
+
+/**
+ * method
+ * @name onLoadCommonCode
+ * @description 공통코드 조회 콜백
+ */
+scwin.onLoadCommonCode = function () {
+    acb_fullEmptyClsCd.addItem("전체", "", null, 0);
+    acb_fullEmptyClsCd.setValue("");
+    acb_siz.addItem("전체", "", null, 0);
+    acb_siz.setValue("");
+    acb_typ.addItem("전체", "", null, 0);
+    acb_typ.setValue("");
+    acb_crryInOutCd.addItem("전체", "", null, 0);
+    acb_crryInOutCd.setValue("");
+    acb_impExpClsCd.addItem("전체", "", null, 0);
+    acb_impExpClsCd.setValue("");
+    let dlt_odrKndCd = $c.gus.object("dlt_commonCodeSD113");
+    $c.data.dataListFilter(dlt_odrKndCd, "fltrCd1 == '" + DsConstants.ODR_CNTR + "' && fltrCd3 == '1'");
+    acb_odrKndCd.addItem("전체", "", null, 0);
+    acb_odrKndCd.setValue("");
+};
+
+/**
+ * method
+ * @name f_FieldClear
+ * @description 조회 조건 초기화
+ */
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(grp_cond, [])
+    ed_stDt.setValue(scwin.currentDate);
+    ed_endDt.setValue(scwin.currentDate);
+
+    acb_con_branCd.setValue(scwin.sLoUpperLobranCd);
+    scwin.acb_con_branCd_onviewchange();
+
+    if (scwin.sUserClsCd != "01") {  //사용자가 협력업체 일때
+        ed_shpCo.setValue(scwin.sClntNo);
+        ed_shpNm.setValue(scwin.sClntNm);
+        ed_shpCo.setDisabled(true);
+        ed_shpNm.setDisabled(true);
+        $c.gus.cfDisableObjects([btn_shpCd]);
+
+        scwin.f_setLine();
+    }
+};
+
+/**
+ * method
+ * @name f_Retrieve
+ * @description 조회
+ */
+scwin.f_Retrieve = async function () {
+    let valInfo = [
+        { id: "stDt", label: "반출입 시작일자", mandatory: true, minLength: 8, maxLength: 8 },
+        { id: "endDt", label: "반출입 종료일자", mandatory: true, minLength: 8, maxLength: 8 },
+    ];
+    if (!$c.data.validateGroup(grp_cond, valInfo)) {
+        return;
+    }
+
+    const stHh = ed_stHh.getValue().replace(":", "");
+    if (stHh != "" && stHh.length < 4) {
+        await $c.gus.cfAlertMsg("시작시간이 잘못되었습니다.");
+        return;
+    }
+    const endHh = ed_endHh.getValue().replace(":", "");
+    if (endHh != "" && endHh.length < 4) {
+        await $c.gus.cfAlertMsg("종료시간이 잘못되었습니다.");
+        return;
+    }
+
+    if (ed_stDt.getValue() > ed_endDt.getValue()) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039).then(() => ed_endDt.focus());
+        return;
+    }
+
+    dma_queryCondition.setJSON({
+        "lobranCd": acb_con_branCd.getValue(),           //점소
+        "wrkPlCd": acb_wrkPlCd.getValue(),               // 작업장
+        "vsslCd": ed_vsslCd.getValue(),                       // 선박
+        "portcnt": ed_portCnt.getValue(),                   // 항차
+        "lineCd": acb_lineCd.getValue(),                 // 라인코드
+        "shpCoClntNo": ed_shpCo.getValue(),                   // 선사
+        "crryinoutClsCd": acb_crryInOutCd.getValue(),    // 반출입구분
+        "impExpClsCd": acb_impExpClsCd.getValue(),       // 수출입구분
+        "fullEmptyClsCd": acb_fullEmptyClsCd.getValue(), // F/E
+        "cntrSizCd": acb_siz.getValue(),                 // 사이즈
+        "cntrTypCd": acb_typ.getValue(),                 // 타입
+        "odrKndCd": acb_odrKndCd.getValue(),             // 오더종류
+        "stHh": stHh,                           // 시작시간
+        "endHh": endHh,                         // 종료시간
+        "bilgClntNo": ed_bilgClntNo.getValue(),
+    });
+    $c.sbm.execute(sbm_retrieveDailyCntrMove);
+};
+
+/**
+ * method
+ * @name f_runExcel
+ * @description Excel
+ * @param
+ */
+scwin.f_runExcel = async function () {
+    if (ds_Grid1.getRowCount()) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (cfrm) {
+            $c.data.downloadGridViewExcel(gr_Grid1, { fileName: 'Daily Cntr Movement.xlsx', sheetName: 'Daily Cntr Movement' });
+        }
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+/**
+ * method
+ * @name f_runExcel2
+ * @description Excel
+ * @param
+ */
+scwin.f_runExcel2 = async function () {
+    if (ds_Grid2.getRowCount()) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (cfrm) {
+            $c.data.downloadGridViewExcel(gr_Grid2, { fileName: 'Daily Cntr Movement.xlsx', sheetName: 'Daily Cntr Movement' });
+        }
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+/**
+ * method
+ * @name f_openCommonPopUp
+ * @description 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+ * @param {Number} disGubun
+ * @param {String} pCode
+ * @param {String} pName
+ * @param {String} pClose
+ * @param {String} pAllSearch
+ */
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    switch (disGubun) {
+        case 3:
+            // 선사 팝업
+            udc_shpCode.cfCommonPopUp(scwin.udc_shpCode_popup_callback, pCode, pName, pClose, null, null, null, null, 'SHP', null, null, null, null, null, pAllSearch, "선사,선사코드,선사명", "F");
+            break;
+
+        case 4:
+            // 선박
+            udc_vsslCode.cfCommonPopUp(scwin.udc_vsslCode_popup_callback, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "선사,선사코드,선사명", "F");
+            break;
+
+        case 5:
+            // 청구처
+            udc_bilgClntCode.cfCommonPopUp(scwin.udc_bilgClntCode_popup_callback, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, "청구 거래처,거래처코드,거래처명", "F");
+            break;
+
+        default:
+            break;
+    }
+};
+
+/**
+ * method
+ * @name udc_shpCode_popup_callback
+ * @description 팝업 콜백
+ * @param {Array} rtnList
+ */
+scwin.udc_shpCode_popup_callback = function (rtnList) {
+    if (rtnList != null) {
+        if (rtnList[0] == "N/A") {
+            return
+        };
+        ed_shpCo.setValue(rtnList[0]);    //선사코드
+        ed_shpNm.setValue(rtnList[1]);  //선사명
+        ed_shpNm.options.hidVal = rtnList[1];  //선사명
+    } else {
+        ed_shpCo.setValue("");    //선사코드
+        ed_shpNm.setValue("");  //선사명
+        ed_shpNm.options.hidVal = "";  //선사명
+    }
+    scwin.f_setLine();
+};
+
+/**
+ * method
+ * @name udc_vsslCode_popup_callback
+ * @description 팝업 콜백
+ * @param {Array} rtnList
+ */
+scwin.udc_vsslCode_popup_callback = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_vsslCd, ed_vsslNm, null);
+};
+
+/**
+ * method
+ * @name udc_bilgClntCode_popup_callback
+ * @description 팝업 콜백
+ * @param {Array} rtnList
+ */
+scwin.udc_bilgClntCode_popup_callback = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_bilgClntNo, ed_bilgClntNm);
+};
+
+/**
+ * method
+ * @name f_chkOpenCommonPopUp
+ * @description 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+ * @param {Object} inObj
+ * @param {Object} pairObj
+ * @param {Number} disGubun
+ * @param {Boolean} isCode
+ */
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+        return;
+    }
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    let pVal = $c.gus.cfGetValue(inObj);
+
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'F');
+        // inObj가 코드명 필드일 경우 팝업
+    } else {
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    }
+};
+
+/**
+ * method
+ * @name f_setLine
+ * @description 라인콤보 조회
+ */
+scwin.f_setLine = function () {
+    dma_retrieveLineEachShpCoCdCombo.setJSON({
+        sysCd: "LineEBC",
+        queryId: "retrieveLineEachShpCoCdCombo",
+        param1: scwin.sClntNo,
+        param2: scwin.sUserClsCd,
+        param3: ed_shpCo.getValue(),
+    });
+    $c.sbm.execute(sbm_retrieveLineEachShpCoCdCombo);
+};
+
+/**
+ * method
+ * @name f_dateChange
+ * @description
+ */
+scwin.f_dateChange = function () {
+    if (ed_endDt.getValue().trim() === "") {
+        ed_endDt.setValue(ed_stDt.getValue());
+    }
+};
+
+/**
+ * method
+ * @name f_OzReport
+ * @description Daily Cntr Movement 발행
+ */
+scwin.f_OzReport = async function () {
+    let valInfo = [
+        { id: "stDt", label: "반출입 시작일자", mandatory: true, minLength: 8, maxLength: 8 },
+        { id: "endDt", label: "반출입 종료일자", mandatory: true, minLength: 8, maxLength: 8 },
+    ];
+    if (!$c.data.validateGroup(grp_cond, valInfo)) {
+        return;
+    }
+
+    if (ed_stDt.getValue() > ed_endDt.getValue()) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039).then(() => ed_endDt.focus());
+        return;
+    }
+
+    let reportFile = "/ds/op/wrkrslts/cywrkrslts/op_301_01_47r.ozr";
+    if (scwin.sUserClsCd != "01") {  //선사권한일 경우
+        reportFile = "/ds/op/wrkrslts/cywrkrslts/op_301_01_47_1r.ozr";
+    }
+    let conBran = acb_con_branCd.getText().split(":");
+    let data = {
+        odiName: "op_301_01_47r",
+        reportName: reportFile,
+        odiParam: {
+            odiName: "op_301_01_47r",
+            conBranCd: conBran[0].trim(),
+            conBranNm: conBran[1].trim() ?? "",
+            wrkPlCd: acb_wrkPlCd.getValue() ?? "",
+            vsslCd: ed_vsslCd.getValue() ?? "",
+            portCnt: ed_portCnt.getValue() ?? "",
+            lineCd: acb_lineCd.getValue() ?? "",
+            crryInOutCd: acb_crryInOutCd.getValue() ?? "",
+            impExpClsCd: acb_impExpClsCd.getValue() ?? "",
+            fullEmptyClsCd: acb_fullEmptyClsCd.getValue() ?? "",
+            siz: acb_siz.getValue() ?? "",
+            typ: acb_typ.getValue() ?? "",
+            stDt: ed_stDt.getValue() ?? "",
+            endDt: ed_endDt.getValue() ?? "",
+            odrKndCd: acb_odrKndCd.getValue() ?? "",
+            shpCoClntNo: ed_shpCo.getValue() ?? "",
+        },
+        viewerParam: {
+            "useprogressbar": true, // 프로그레스바 쓸지 말지
+            "mode": chb_previewCheck.getValue() == "1" ? "preview" : "export", //preview, print, export
+        },
+        formParam: {
+        }
+    };
+
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: false,
+        type: "browserPopup",
+        width: 1000,
+        height: 830,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+/**
+ * method
+ * @name f_SetDataPut
+ * @description 하위 내역 Set
+ */
+scwin.f_SetDataPut = function () {
+    // 본선 -------------------------------------
+    let C120F_val = 0;
+    let C120E_val = 0;
+    let C140F_val = 0;
+    let C140E_val = 0;
+    let C145F_val = 0;
+    let C145E_val = 0;
+
+    let O_C120F_val = 0;
+    let O_C120E_val = 0;
+    let O_C140F_val = 0;
+    let O_C140E_val = 0;
+    let O_C145F_val = 0;
+    let O_C145E_val = 0;
+    // DEV ------------------------------------
+    let DEV20F_val = 0;
+    let DEV20E_val = 0;
+    let DEV40F_val = 0;
+    let DEV40E_val = 0;
+    let DEV45F_val = 0;
+    let DEV45E_val = 0;
+
+    let O_DEV20F_val = 0;
+    let O_DEV20E_val = 0;
+    let O_DEV40F_val = 0;
+    let O_DEV40E_val = 0;
+    let O_DEV45F_val = 0;
+    let O_DEV45E_val = 0;
+
+    // STV ------------------------------------
+    let STV20F_val = 0;
+    let STV20E_val = 0;
+    let STV40F_val = 0;
+    let STV40E_val = 0;
+    let STV45F_val = 0;
+    let STV45E_val = 0;
+
+    let O_STV20F_val = 0;
+    let O_STV20E_val = 0;
+    let O_STV40F_val = 0;
+    let O_STV40E_val = 0;
+    let O_STV45F_val = 0;
+    let O_STV45E_val = 0;
+
+    // HIRE ------------------------------------
+    let HIRE20F_val = 0;
+    let HIRE20E_val = 0;
+    let HIRE40F_val = 0;
+    let HIRE40E_val = 0;
+    let HIRE45F_val = 0;
+    let HIRE45E_val = 0;
+
+    let O_HIRE20F_val = 0;
+    let O_HIRE20E_val = 0;
+    let O_HIRE40F_val = 0;
+    let O_HIRE40E_val = 0;
+    let O_HIRE45F_val = 0;
+    let O_HIRE45E_val = 0;
+
+    // POM ------------------------------------
+    let POM20F_val = 0;
+    let POM20E_val = 0;
+    let POM40F_val = 0;
+    let POM40E_val = 0;
+    let POM45F_val = 0;
+    let POM45E_val = 0;
+
+    let O_POM20F_val = 0;
+    let O_POM20E_val = 0;
+    let O_POM40F_val = 0;
+    let O_POM40E_val = 0;
+    let O_POM45F_val = 0;
+    let O_POM45E_val = 0;
+
+    // RET ------------------------------------
+    let RET20F_val = 0;
+    let RET20E_val = 0;
+    let RET40F_val = 0;
+    let RET40E_val = 0;
+    let RET45F_val = 0;
+    let RET45E_val = 0;
+
+    let O_RET20F_val = 0;
+    let O_RET20E_val = 0;
+    let O_RET40F_val = 0;
+    let O_RET40E_val = 0;
+    let O_RET45F_val = 0;
+    let O_RET45E_val = 0;
+
+    //  ================================
+
+    let EIDC_20F_val = 0;
+    let EIDC_40F_val = 0;
+    let EIDC_45F_val = 0;
+
+    let EIRF_20F_val = 0;
+    let EIRF_40F_val = 0;
+    let EIRF_45F_val = 0;
+
+    let EIHC_20F_val = 0;
+    let EIHC_40F_val = 0;
+    let EIHC_45F_val = 0;
+
+    let EIET_20F_val = 0;
+    let EIET_40F_val = 0;
+    let EIET_45F_val = 0;
+
+    let EIFR_20F_val = 0;
+    let EIFR_40F_val = 0;
+    let EIFR_45F_val = 0;
+
+    let EIPF_20F_val = 0;
+    let EIPF_40F_val = 0;
+    let EIPF_45F_val = 0;
+
+    let EIJB_20F_val = 0;
+    let EIJB_40F_val = 0;
+    let EIJB_45F_val = 0;
+
+    let EIOT_20F_val = 0;
+    let EIOT_40F_val = 0;
+    let EIOT_45F_val = 0;
+
+    let EITK_20F_val = 0;
+    let EITK_40F_val = 0;
+    let EITK_45F_val = 0;
+
+    //  ================================
+
+    let EODC_20F_val = 0;
+    let EODC_40F_val = 0;
+    let EODC_45F_val = 0;
+
+    let EORF_20F_val = 0;
+    let EORF_40F_val = 0;
+    let EORF_45F_val = 0;
+
+    let EOHC_20F_val = 0;
+    let EOHC_40F_val = 0;
+    let EOHC_45F_val = 0;
+
+    let EOET_20F_val = 0;
+    let EOET_40F_val = 0;
+    let EOET_45F_val = 0;
+
+    let EOFR_20F_val = 0;
+    let EOFR_40F_val = 0;
+    let EOFR_45F_val = 0;
+
+    let EOPF_20F_val = 0;
+    let EOPF_40F_val = 0;
+    let EOPF_45F_val = 0;
+
+    let EOJB_20F_val = 0;
+    let EOJB_40F_val = 0;
+    let EOJB_45F_val = 0;
+
+    let EOOT_20F_val = 0;
+    let EOOT_40F_val = 0;
+    let EOOT_45F_val = 0;
+
+    let EOTK_20F_val = 0;
+    let EOTK_40F_val = 0;
+    let EOTK_45F_val = 0;
+
+    //  ================================
+
+    let FIDC_20F_val = 0;
+    let FIDC_40F_val = 0;
+    let FIDC_45F_val = 0;
+
+    let FIRF_20F_val = 0;
+    let FIRF_40F_val = 0;
+    let FIRF_45F_val = 0;
+
+    let FIHC_20F_val = 0;
+    let FIHC_40F_val = 0;
+    let FIHC_45F_val = 0;
+
+    let FIET_20F_val = 0;
+    let FIET_40F_val = 0;
+    let FIET_45F_val = 0;
+
+    let FIFR_20F_val = 0;
+    let FIFR_40F_val = 0;
+    let FIFR_45F_val = 0;
+
+    let FIPF_20F_val = 0;
+    let FIPF_40F_val = 0;
+    let FIPF_45F_val = 0;
+
+    let FIJB_20F_val = 0;
+    let FIJB_40F_val = 0;
+    let FIJB_45F_val = 0;
+
+    let FIOT_20F_val = 0;
+    let FIOT_40F_val = 0;
+    let FIOT_45F_val = 0;
+
+    let FITK_20F_val = 0;
+    let FITK_40F_val = 0;
+    let FITK_45F_val = 0;
+
+    //  ================================
+
+    let FODC_20F_val = 0;
+    let FODC_40F_val = 0;
+    let FODC_45F_val = 0;
+
+    let FORF_20F_val = 0;
+    let FORF_40F_val = 0;
+    let FORF_45F_val = 0;
+
+    let FOHC_20F_val = 0;
+    let FOHC_40F_val = 0;
+    let FOHC_45F_val = 0;
+
+    let FOET_20F_val = 0;
+    let FOET_40F_val = 0;
+    let FOET_45F_val = 0;
+
+    let FOFR_20F_val = 0;
+    let FOFR_40F_val = 0;
+    let FOFR_45F_val = 0;
+
+    let FOPF_20F_val = 0;
+    let FOPF_40F_val = 0;
+    let FOPF_45F_val = 0;
+
+    let FOJB_20F_val = 0;
+    let FOJB_40F_val = 0;
+    let FOJB_45F_val = 0;
+
+    let FOOT_20F_val = 0;
+    let FOOT_40F_val = 0;
+    let FOOT_45F_val = 0;
+
+    let FOTK_20F_val = 0;
+    let FOTK_40F_val = 0;
+    let FOTK_45F_val = 0;
+
+    let allData = ds_Grid1.getAllJSON();
+    for (let i = 0; i < allData.length; ++i) {
+        let rowObj = allData[i];
+        let odrKndCd = rowObj.odrKndCd.trim();
+        let crryinoutClsCd = rowObj.crryinoutClsCd.trim();
+        let cntrSizCd = rowObj.cntrSizCd.trim();
+        let cntrTypCd = rowObj.cntrTypCd.trim();
+        let fullEmptyClsCd = rowObj.fullEmptyClsCd.trim();
+        if (odrKndCd == "C1" || odrKndCd == "C3" || odrKndCd == "CS" || odrKndCd == "CT" || odrKndCd == "CW") {
+            if (crryinoutClsCd == "I") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++C120F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++C120E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++C140F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++C140E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++C145F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++C145E_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_C120F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_C120E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_C140F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_C140E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_C145F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_C145E_val;
+                    }
+                }
+            }
+        } else if (odrKndCd == "C2") {  // [ DEV ]====================================================
+            if (crryinoutClsCd == "I") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++DEV20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++DEV20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++DEV40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++DEV40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++DEV45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++DEV45E_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_DEV20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_DEV20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_DEV40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_DEV40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_DEV45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_DEV45E_val;
+                    }
+                }
+            }
+        } else if (odrKndCd == "C4") {  // [ STV ]====================================================
+            if (crryinoutClsCd == "I") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++STV20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++STV20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++STV40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++STV40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++STV45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++STV45E_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_STV20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_STV20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_STV40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_STV40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_STV45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_STV45E_val;
+                    }
+                }
+            }
+        } else if (odrKndCd == "C5" || odrKndCd == "C6") {    // [ HIRE ]====================================================
+            if (crryinoutClsCd == "I") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++HIRE20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++HIRE20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++HIRE40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++HIRE40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++HIRE45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++HIRE45E_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_HIRE20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_HIRE20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_HIRE40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_HIRE40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_HIRE45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_HIRE45E_val;
+                    }
+                }
+            }
+        } else if (odrKndCd == "C7" || odrKndCd == "CP" || odrKndCd == "CX") {    // [ POM ]====================================================
+            if (crryinoutClsCd == "I") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++POM20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++POM20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++POM40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++POM40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++POM45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++POM45E_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_POM20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_POM20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_POM40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_POM40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_POM45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_POM45E_val;
+                    }
+                }
+            }
+        } else if (odrKndCd == "CR") {    // [ RET ]====================================================
+            if (crryinoutClsCd == "I") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++RET20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++RET20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++RET40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++RET40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++RET45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++RET45E_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrSizCd == "20") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_RET20F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_RET20E_val;
+                    }
+                } else if (cntrSizCd == "40") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_RET40F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_RET40E_val;
+                    }
+                } else if (cntrSizCd == "45") {
+                    if (fullEmptyClsCd == "F") {
+                        ++O_RET45F_val;
+                    } else if (fullEmptyClsCd == "E") {
+                        ++O_RET45E_val;
+                    }
+                }
+            }
+        }
+
+        // 아래쪽 ===============================================================================
+        if (fullEmptyClsCd == "E") {
+            if (crryinoutClsCd == "I") {
+                if (cntrTypCd == "DC") {
+                    if (cntrSizCd == "20") {
+                        ++EIDC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIDC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIDC_45F_val;
+                    }
+                } else if (cntrTypCd == "RF" || cntrTypCd == "RH") {
+                    if (cntrSizCd == "20") {
+                        ++EIRF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIRF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIRF_45F_val;
+                    }
+                } else if (cntrTypCd == "HC") {
+                    if (cntrSizCd == "20") {
+                        ++EIHC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIHC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIHC_45F_val;
+                    }
+                } else if (cntrTypCd == "FR") {
+                    if (cntrSizCd == "20") {
+                        ++EIFR_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIFR_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIFR_45F_val;
+                    }
+                } else if (cntrTypCd == "PF") {
+                    if (cntrSizCd == "20") {
+                        ++EIPF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIPF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIPF_45F_val;
+                    }
+                } else if (cntrTypCd == "JB") {
+                    if (cntrSizCd == "20") {
+                        ++EIJB_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIJB_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIJB_45F_val;
+                    }
+                } else if (cntrTypCd == "OT") {
+                    if (cntrSizCd == "20") {
+                        ++EIOT_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIOT_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIOT_45F_val;
+                    }
+                } else if (cntrTypCd == "TK") {
+                    if (cntrSizCd == "20") {
+                        ++EITK_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EITK_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EITK_45F_val;
+                    }
+                } else {
+                    if (cntrSizCd == "20") {
+                        ++EIET_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EIET_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EIET_45F_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrTypCd == "DC") {
+                    if (cntrSizCd == "20") {
+                        ++EODC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EODC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EODC_45F_val;
+                    }
+                } else if (cntrTypCd == "RF" || cntrTypCd == "RH") {
+                    if (cntrSizCd == "20") {
+                        ++EORF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EORF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EORF_45F_val;
+                    }
+                } else if (cntrTypCd == "HC") {
+                    if (cntrSizCd == "20") {
+                        ++EOHC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOHC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOHC_45F_val;
+                    }
+                } else if (cntrTypCd == "FR") {
+                    if (cntrSizCd == "20") {
+                        ++EOFR_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOFR_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOFR_45F_val;
+                    }
+                } else if (cntrTypCd == "PF") {
+                    if (cntrSizCd == "20") {
+                        ++EOPF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOPF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOPF_45F_val;
+                    }
+                } else if (cntrTypCd == "JB") {
+                    if (cntrSizCd == "20") {
+                        ++EOJB_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOJB_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOJB_45F_val;
+                    }
+                } else if (cntrTypCd == "OT") {
+                    if (cntrSizCd == "20") {
+                        ++EOOT_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOOT_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOOT_45F_val;
+                    }
+                } else if (cntrTypCd == "TK") {
+                    if (cntrSizCd == "20") {
+                        ++EOTK_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOTK_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOTK_45F_val;
+                    }
+                } else {
+                    if (cntrSizCd == "20") {
+                        ++EOET_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++EOET_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++EOET_45F_val;
+                    }
+                }
+            }
+        } else if (fullEmptyClsCd == "F") {
+            if (crryinoutClsCd == "I") {
+                if (cntrTypCd == "DC") {
+                    if (cntrSizCd == "20") {
+                        ++FIDC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIDC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIDC_45F_val;
+                    }
+                } else if (cntrTypCd == "RF" || cntrTypCd == "RH") {
+                    if (cntrSizCd == "20") {
+                        ++FIRF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIRF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIRF_45F_val;
+                    }
+                } else if (cntrTypCd == "HC") {
+                    if (cntrSizCd == "20") {
+                        ++FIHC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIHC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIHC_45F_val;
+                    }
+                } else if (cntrTypCd == "FR") {
+                    if (cntrSizCd == "20") {
+                        ++FIFR_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIFR_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIFR_45F_val;
+                    }
+                } else if (cntrTypCd == "PF") {
+                    if (cntrSizCd == "20") {
+                        ++FIPF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIPF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIPF_45F_val;
+                    }
+                } else if (cntrTypCd == "JB") {
+                    if (cntrSizCd == "20") {
+                        ++FIJB_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIJB_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIJB_45F_val;
+                    }
+                } else if (cntrTypCd == "OT") {
+                    if (cntrSizCd == "20") {
+                        ++FIOT_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIOT_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIOT_45F_val;
+                    }
+                } else if (cntrTypCd == "TK") {
+                    if (cntrSizCd == "20") {
+                        ++FITK_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FITK_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FITK_45F_val;
+                    }
+                } else {
+                    if (cntrSizCd == "20") {
+                        ++FIET_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FIET_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FIET_45F_val;
+                    }
+                }
+            } else if (crryinoutClsCd == "O") {
+                if (cntrTypCd == "DC") {
+                    if (cntrSizCd == "20") {
+                        ++FODC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FODC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FODC_45F_val;
+                    }
+                } else if (cntrTypCd == "RF" || cntrTypCd == "RH") {
+                    if (cntrSizCd == "20") {
+                        ++FORF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FORF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FORF_45F_val;
+                    }
+                } else if (cntrTypCd == "HC") {
+                    if (cntrSizCd == "20") {
+                        ++FOHC_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOHC_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOHC_45F_val;
+                    }
+                } else if (cntrTypCd == "FR") {
+                    if (cntrSizCd == "20") {
+                        ++FOFR_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOFR_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOFR_45F_val;
+                    }
+                } else if (cntrTypCd == "PF") {
+                    if (cntrSizCd == "20") {
+                        ++FOPF_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOPF_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOPF_45F_val;
+                    }
+                } else if (cntrTypCd == "JB") {
+                    if (cntrSizCd == "20") {
+                        ++FOJB_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOJB_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOJB_45F_val;
+                    }
+                } else if (cntrTypCd == "OT") {
+                    if (cntrSizCd == "20") {
+                        ++FOOT_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOOT_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOOT_45F_val;
+                    }
+                } else if (cntrTypCd == "TK") {
+                    if (cntrSizCd == "20") {
+                        ++FOTK_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOTK_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOTK_45F_val;
+                    }
+                } else {
+                    if (cntrSizCd == "20") {
+                        ++FOET_20F_val;
+                    } else if (cntrSizCd == "40") {
+                        ++FOET_40F_val;
+                    } else if (cntrSizCd == "45") {
+                        ++FOET_45F_val;
+                    }
+                }
+            }
+        }
+    }  // for ============================
+
+    C120F.setValue(C120F_val);
+    C120E.setValue(C120E_val);
+    C140F.setValue(C140F_val);
+    C140E.setValue(C140E_val);
+    C145F.setValue(C145F_val);
+    C145E.setValue(C145E_val);
+    O_C120F.setValue(O_C120F_val);
+    O_C120E.setValue(O_C120E_val);
+    O_C140F.setValue(O_C140F_val);
+    O_C140E.setValue(O_C140E_val);
+    O_C145F.setValue(O_C145F_val);
+    O_C145E.setValue(O_C145E_val);
+
+    DEV20F.setValue(DEV20F_val);
+    DEV20E.setValue(DEV20E_val);
+    DEV40F.setValue(DEV40F_val);
+    DEV40E.setValue(DEV40E_val);
+    DEV45F.setValue(DEV45F_val);
+    DEV45E.setValue(DEV45E_val);
+    O_DEV20F.setValue(O_DEV20F_val);
+    O_DEV20E.setValue(O_DEV20E_val);
+    O_DEV40F.setValue(O_DEV40F_val);
+    O_DEV40E.setValue(O_DEV40E_val);
+    O_DEV45F.setValue(O_DEV45F_val);
+    O_DEV45E.setValue(O_DEV45E_val);
+
+    STV20F.setValue(STV20F_val);
+    STV20E.setValue(STV20E_val);
+    STV40F.setValue(STV40F_val);
+    STV40E.setValue(STV40E_val);
+    STV45F.setValue(STV45F_val);
+    STV45E.setValue(STV45E_val);
+    O_STV20F.setValue(O_STV20F_val);
+    O_STV20E.setValue(O_STV20E_val);
+    O_STV40F.setValue(O_STV40F_val);
+    O_STV40E.setValue(O_STV40E_val);
+    O_STV45F.setValue(O_STV45F_val);
+    O_STV45E.setValue(O_STV45E_val);
+
+    HIRE20F.setValue(HIRE20F_val);
+    HIRE20E.setValue(HIRE20E_val);
+    HIRE40F.setValue(HIRE40F_val);
+    HIRE40E.setValue(HIRE40E_val);
+    HIRE45F.setValue(HIRE45F_val);
+    HIRE45E.setValue(HIRE45E_val);
+    O_HIRE20F.setValue(O_HIRE20F_val);
+    O_HIRE20E.setValue(O_HIRE20E_val);
+    O_HIRE40F.setValue(O_HIRE40F_val);
+    O_HIRE40E.setValue(O_HIRE40E_val);
+    O_HIRE45F.setValue(O_HIRE45F_val);
+    O_HIRE45E.setValue(O_HIRE45E_val);
+
+    POM20F.setValue(POM20F_val);
+    POM20E.setValue(POM20E_val);
+    POM40F.setValue(POM40F_val);
+    POM40E.setValue(POM40E_val);
+    POM45F.setValue(POM45F_val);
+    POM45E.setValue(POM45E_val);
+    O_POM20F.setValue(O_POM20F_val);
+    O_POM20E.setValue(O_POM20E_val);
+    O_POM40F.setValue(O_POM40F_val);
+    O_POM40E.setValue(O_POM40E_val);
+    O_POM45F.setValue(O_POM45F_val);
+    O_POM45E.setValue(O_POM45E_val);
+
+    RET20F.setValue(RET20F_val);
+    RET20E.setValue(RET20E_val);
+    RET40F.setValue(RET40F_val);
+    RET40E.setValue(RET40E_val);
+    RET45F.setValue(RET45F_val);
+    RET45E.setValue(RET45E_val);
+    O_RET20F.setValue(O_RET20F_val);
+    O_RET20E.setValue(O_RET20E_val);
+    O_RET40F.setValue(O_RET40F_val);
+    O_RET40E.setValue(O_RET40E_val);
+    O_RET45F.setValue(O_RET45F_val);
+    O_RET45E.setValue(O_RET45E_val);
+
+    TOT20F.setValue(C120F_val + DEV20F_val + STV20F_val + HIRE20F_val + POM20F_val + RET20F_val);
+    TOT20E.setValue(C120E_val + DEV20E_val + STV20E_val + HIRE20E_val + POM20E_val + RET20E_val);
+    TOT40F.setValue(C140F_val + DEV40F_val + STV40F_val + HIRE40F_val + POM40F_val + RET40F_val);
+    TOT40E.setValue(C140E_val + DEV40E_val + STV40E_val + HIRE40E_val + POM40E_val + RET40E_val);
+    TOT45F.setValue(C145F_val + DEV45F_val + STV45F_val + HIRE45F_val + POM45F_val + RET45F_val);
+    TOT45E.setValue(C145E_val + DEV45E_val + STV45E_val + HIRE45E_val + POM45E_val + RET45E_val);
+
+    O_TOT20F.setValue(O_C120F_val + O_DEV20F_val + O_STV20F_val + O_HIRE20F_val + O_POM20F_val + O_RET20F_val);
+    O_TOT20E.setValue(O_C120E_val + O_DEV20E_val + O_STV20E_val + O_HIRE20E_val + O_POM20E_val + O_RET20E_val);
+    O_TOT40F.setValue(O_C140F_val + O_DEV40F_val + O_STV40F_val + O_HIRE40F_val + O_POM40F_val + O_RET40F_val);
+    O_TOT40E.setValue(O_C140E_val + O_DEV40E_val + O_STV40E_val + O_HIRE40E_val + O_POM40E_val + O_RET40E_val);
+    O_TOT45F.setValue(O_C145F_val + O_DEV45F_val + O_STV45F_val + O_HIRE45F_val + O_POM45F_val + O_RET45F_val);
+    O_TOT45E.setValue(O_C145E_val + O_DEV45E_val + O_STV45E_val + O_HIRE45E_val + O_POM45E_val + O_RET45E_val);
+
+    //==========================
+
+    EIDC_20F.setValue(EIDC_20F_val);
+    EIDC_40F.setValue(EIDC_40F_val);
+    EIDC_45F.setValue(EIDC_45F_val);
+    EIRF_20F.setValue(EIRF_20F_val);
+    EIRF_40F.setValue(EIRF_40F_val);
+    EIRF_45F.setValue(EIRF_45F_val);
+    EIHC_20F.setValue(EIHC_20F_val);
+    EIHC_40F.setValue(EIHC_40F_val);
+    EIHC_45F.setValue(EIHC_45F_val);
+    EIET_20F.setValue(EIET_20F_val);
+    EIET_40F.setValue(EIET_40F_val);
+    EIET_45F.setValue(EIET_45F_val);
+    EIFR_20F.setValue(EIFR_20F_val);
+    EIFR_40F.setValue(EIFR_40F_val);
+    EIFR_45F.setValue(EIFR_45F_val);
+    EIPF_20F.setValue(EIPF_20F_val);
+    EIPF_40F.setValue(EIPF_40F_val);
+    EIPF_45F.setValue(EIPF_45F_val);
+    EIJB_20F.setValue(EIJB_20F_val);
+    EIJB_40F.setValue(EIJB_40F_val);
+    EIJB_45F.setValue(EIJB_45F_val);
+    EIOT_20F.setValue(EIOT_20F_val);
+    EIOT_40F.setValue(EIOT_40F_val);
+    EIOT_45F.setValue(EIOT_45F_val);
+    EITK_20F.setValue(EITK_20F_val);
+    EITK_40F.setValue(EITK_40F_val);
+    EITK_45F.setValue(EITK_45F_val);
+
+    EODC_20F.setValue(EODC_20F_val);
+    EODC_40F.setValue(EODC_40F_val);
+    EODC_45F.setValue(EODC_45F_val);
+    EORF_20F.setValue(EORF_20F_val);
+    EORF_40F.setValue(EORF_40F_val);
+    EORF_45F.setValue(EORF_45F_val);
+    EOHC_20F.setValue(EOHC_20F_val);
+    EOHC_40F.setValue(EOHC_40F_val);
+    EOHC_45F.setValue(EOHC_45F_val);
+    EOET_20F.setValue(EOET_20F_val);
+    EOET_40F.setValue(EOET_40F_val);
+    EOET_45F.setValue(EOET_45F_val);
+    EOFR_20F.setValue(EOFR_20F_val);
+    EOFR_40F.setValue(EOFR_40F_val);
+    EOFR_45F.setValue(EOFR_45F_val);
+    EOPF_20F.setValue(EOPF_20F_val);
+    EOPF_40F.setValue(EOPF_40F_val);
+    EOPF_45F.setValue(EOPF_45F_val);
+    EOJB_20F.setValue(EOJB_20F_val);
+    EOJB_40F.setValue(EOJB_40F_val);
+    EOJB_45F.setValue(EOJB_45F_val);
+    EOOT_20F.setValue(EOOT_20F_val);
+    EOOT_40F.setValue(EOOT_40F_val);
+    EOOT_45F.setValue(EOOT_45F_val);
+    EOTK_20F.setValue(EOTK_20F_val);
+    EOTK_40F.setValue(EOTK_40F_val);
+    EOTK_45F.setValue(EOTK_45F_val);
+
+    FIDC_20F.setValue(FIDC_20F_val);
+    FIDC_40F.setValue(FIDC_40F_val);
+    FIDC_45F.setValue(FIDC_45F_val);
+    FIRF_20F.setValue(FIRF_20F_val);
+    FIRF_40F.setValue(FIRF_40F_val);
+    FIRF_45F.setValue(FIRF_45F_val);
+    FIHC_20F.setValue(FIHC_20F_val);
+    FIHC_40F.setValue(FIHC_40F_val);
+    FIHC_45F.setValue(FIHC_45F_val);
+    FIET_20F.setValue(FIET_20F_val);
+    FIET_40F.setValue(FIET_40F_val);
+    FIET_45F.setValue(FIET_45F_val);
+    FIFR_20F.setValue(FIFR_20F_val);
+    FIFR_40F.setValue(FIFR_40F_val);
+    FIFR_45F.setValue(FIFR_45F_val);
+    FIPF_20F.setValue(FIPF_20F_val);
+    FIPF_40F.setValue(FIPF_40F_val);
+    FIPF_45F.setValue(FIPF_45F_val);
+    FIJB_20F.setValue(FIJB_20F_val);
+    FIJB_40F.setValue(FIJB_40F_val);
+    FIJB_45F.setValue(FIJB_45F_val);
+    FIOT_20F.setValue(FIOT_20F_val);
+    FIOT_40F.setValue(FIOT_40F_val);
+    FIOT_45F.setValue(FIOT_45F_val);
+    FITK_20F.setValue(FITK_20F_val);
+    FITK_40F.setValue(FITK_40F_val);
+    FITK_45F.setValue(FITK_45F_val);
+
+    FODC_20F.setValue(FODC_20F_val);
+    FODC_40F.setValue(FODC_40F_val);
+    FODC_45F.setValue(FODC_45F_val);
+    FORF_20F.setValue(FORF_20F_val);
+    FORF_40F.setValue(FORF_40F_val);
+    FORF_45F.setValue(FORF_45F_val);
+    FOHC_20F.setValue(FOHC_20F_val);
+    FOHC_40F.setValue(FOHC_40F_val);
+    FOHC_45F.setValue(FOHC_45F_val);
+    FOET_20F.setValue(FOET_20F_val);
+    FOET_40F.setValue(FOET_40F_val);
+    FOET_45F.setValue(FOET_45F_val);
+    FOFR_20F.setValue(FOFR_20F_val);
+    FOFR_40F.setValue(FOFR_40F_val);
+    FOFR_45F.setValue(FOFR_45F_val);
+    FOPF_20F.setValue(FOPF_20F_val);
+    FOPF_40F.setValue(FOPF_40F_val);
+    FOPF_45F.setValue(FOPF_45F_val);
+    FOJB_20F.setValue(FOJB_20F_val);
+    FOJB_40F.setValue(FOJB_40F_val);
+    FOJB_45F.setValue(FOJB_45F_val);
+    FOOT_20F.setValue(FOOT_20F_val);
+    FOOT_40F.setValue(FOOT_40F_val);
+    FOOT_45F.setValue(FOOT_45F_val);
+    FOTK_20F.setValue(FOTK_20F_val);
+    FOTK_40F.setValue(FOTK_40F_val);
+    FOTK_45F.setValue(FOTK_45F_val);
+};
+
+/**
+ * event
+ * @name sbm_retrieveDailyCntrMove_submitdone
+ * @description
+ * @param {Object} e
+ */
+scwin.sbm_retrieveDailyCntrMove_submitdone = async function (e) {
+    if (e.responseJSON?.resultDataSet?.length && e.responseJSON.resultDataSet[0].Code == -1) {
+        return;
+    }
+    let rowCnt = ds_Grid1.getRowCount();
+    if (!rowCnt) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+    txt_totalRows.setValue(rowCnt);
+    txt_totalRows1.setValue(rowCnt);
+    scwin.f_SetDataPut();
+};
+
+/**
+ * event
+ * @name sbm_retriveLobranCd_submitdone
+ * @description
+ * @param {Object} e
+ */
+scwin.sbm_retriveLobranCd_submitdone = function (e) {
+    if (e.responseJSON?.resultDataSet?.length && e.responseJSON.resultDataSet[0].Code == -1) {
+        return;
+    }
+    ds_branCd.insertJSON(0, [{ col1: "", col2: "전체" }]);
+    acb_con_branCd.setValue(scwin.sLoUpperLobranCd);
+    scwin.acb_con_branCd_onviewchange();
+};
+
+/**
+ * event
+ * @name acb_con_branCd_onviewchange
+ * @description
+ * @param {Object} info
+ */
+scwin.acb_con_branCd_onviewchange = function (info) {
+    dma_retriveWrkLobranCd.setJSON({
+        sysCd: "CommonEBC",
+        queryId: "retriveWrkLobranCd",
+        param1: "",
+        param2: "",
+        param3: acb_con_branCd.getValue(),
+    });
+    $c.sbm.execute(sbm_retriveWrkLobranCd);
+    acb_wrkPlCd.focus();
+};
+
+/**
+ * event
+ * @name sbm_retriveWrkLobranCd_submitdone
+ * @description
+ * @param {Object} e
+ */
+scwin.sbm_retriveWrkLobranCd_submitdone = async function (e) {
+    if (e.responseJSON?.resultDataSet?.length && e.responseJSON.resultDataSet[0].Code == -1) {
+        return;
+    }
+    ds_wrkPlCd.insertJSON(0, [{ col1: "", col2: "전체" }]);
+    acb_wrkPlCd.setValue(scwin.wrkPlCd);
+    scwin.acb_wrkPlCd_onviewchange();
+    if (!$c.gus.cfIsNull(scwin.wrkPlCd)) {
+        await scwin.f_Retrieve();
+    }
+};
+
+/**
+ * event
+ * @name acb_wrkPlCd_onviewchange
+ * @description
+ * @param {Object} info
+ */
+scwin.acb_wrkPlCd_onviewchange = function (info) {
+    dma_retrivecBlockList.setJSON({
+        sysCd: "WorkPlaceEachGoodsEBC",
+        queryId: "retrivecBlockList",
+        param1: acb_wrkPlCd.getValue(),
+        param2: "",
+        param3: "",
+    });
+    $c.sbm.execute(sbm_retrivecBlockLis);
+};
+
+/**
+ * event
+ * @name sbm_retrieveLineEachShpCoCdCombo_submitdone
+ * @description
+ * @param {Object} e
+ */
+scwin.sbm_retrieveLineEachShpCoCdCombo_submitdone = async function (e) {
+    if (e.responseJSON?.resultDataSet?.length && e.responseJSON.resultDataSet[0].Code == -1) {
+        return;
+    }
+    ds_LineList.insertJSON(0, [{ code: "", name: "전체" }]);
+    acb_lineCd.setValue(scwin.lineCd);
+    if (!$c.gus.cfIsNull(scwin.lineCd)) {
+        await scwin.f_Retrieve();
+    }
+};
+
+/**
+ * event
+ * @name udc_bilgClntCode_onblurCodeEvent
+ * @description
+ * @param {Object} e
+ */
+scwin.udc_bilgClntCode_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_bilgClntNo, ed_bilgClntNm, 5, true);
+};
+
+/**
+ * event
+ * @name udc_shpCode_onblurCodeEvent
+ * @description
+ * @param {Object} e
+ */
+scwin.udc_shpCode_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_shpCo, ed_shpNm, 3, true);
+};
+
+/**
+ * event
+ * @name udc_vsslCode_onblurCodeEvent
+ * @description
+ * @param {Object} e
+ */
+scwin.udc_vsslCode_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_vsslCd, ed_vsslNm, 4, true);
+};
+
+/**
+ * event
+ * @name ed_stDt_ondateselect
+ * @description
+ * @param {String} date
+ * @param {Object} dateObject
+ */
+scwin.ed_stDt_ondateselect = function (date, dateObject) {
+    scwin.f_dateChange();
+};
+
+/**
+ * event
+ * @name ed_endDt_ondateselect
+ * @description
+ * @param {String} date
+ * @param {Object} dateObject
+ */
+scwin.ed_endDt_ondateselect = function (date, dateObject) {
+    scwin.f_dateChange();
+};
+
+/**
+ * event
+ * @name udc_shpCode_onviewchangeNameEvent
+ * @description
+ * @param {Object} info
+ */
+scwin.udc_shpCode_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_shpNm, ed_shpCo, 3, false);
+};
+
+/**
+ * event
+ * @name udc_shpCode_onclickEvent
+ * @description
+ * @param {Object} e
+ */
+scwin.udc_shpCode_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(3, ed_shpCo.getValue(), ed_shpNm.getValue(), 'F', 'F');
+};
+
+/**
+ * event
+ * @name udc_vsslCode_onviewchangeNameEvent
+ * @description
+ * @param {Object} info
+ */
+scwin.udc_vsslCode_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_vsslNm, ed_vsslCd, 4, false);
+};
+
+/**
+ * event
+ * @name udc_vsslCode_onclickEvent
+ * @description
+ * @param {Object} e
+ */
+scwin.udc_vsslCode_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(4, ed_vsslCd.getValue(), ed_vsslNm.getValue(), 'F', 'F');
+};
+
+/**
+ * event
+ * @name udc_bilgClntCode_onviewchangeNameEvent
+ * @description
+ * @param {Object} info
+ */
+scwin.udc_bilgClntCode_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_bilgClntNm, ed_bilgClntNo, 5, false);
+};
+
+/**
+ * event
+ * @name udc_bilgClntCode_onclickEvent
+ * @description
+ * @param {Object} e
+ */
+scwin.udc_bilgClntCode_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(5, ed_bilgClntNo.getValue(), ed_bilgClntNm.getValue(), 'F', 'F');
+};
+
+/**
+ * event
+ * @name btn_ozprint_onclick
+ * @description
+ * @param {Object} e
+ */
+scwin.btn_ozprint_onclick = function (e) {
+    scwin.f_OzReport();
+};
+
+/**
+ * event
+ * @name btn_fieldClear_onclick
+ * @description
+ * @param {Object} e
+ */
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+/**
+ * event
+ * @name btn_retrieve_onclick
+ * @description
+ * @param {Object} e
+ */
+scwin.btn_retrieve_onclick = async function (e) {
+    await scwin.f_Retrieve();
+};
+
+/**
+ * event
+ * @name input_onkeyup
+ * @description inputbox 소문자 -> 대문자
+ * @returns
+ */
+scwin.input_onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="grp_cond" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="" id="" label="점소" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="acb_con_branCd" search="start" style="width:230px;" objType="key"
+									submenuSize="auto" allOption="" ref="" searchTarget="value" sortOption="value" sortMethod="ascending"
+									ev:onviewchange="scwin.acb_con_branCd_onviewchange" caseSensitive="false" visibleRowNum="20">
+									<w2:choices>
+										<w2:itemset nodeset="data:ds_branCd">
+											<w2:label ref="col2"></w2:label>
+											<w2:value ref="col1"></w2:value>
+										</w2:itemset>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="작업장" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="acb_wrkPlCd" search="start" style="width:200px;" submenuSize="auto"
+									allOption="" ref="" ev:onviewchange="scwin.acb_wrkPlCd_onviewchange" searchTarget="both" sortOption="value" sortMethod="ascending"
+									caseSensitive="false" visibleRowNum="20">
+									<w2:choices>
+										<w2:itemset nodeset="data:ds_wrkPlCd">
+											<w2:label ref="col2"></w2:label>
+											<w2:value ref="col1"></w2:value>
+										</w2:itemset>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="req" id="" label="반출입기간" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:group class="form-group" id="" style="">
+									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_stDt" pickerType="dynamic" style="width:95px;"
+										mandatory="true" ev:ondateselect="scwin.ed_stDt_ondateselect" ref="data:dma_queryCondition.stDt" displayFormat="yyyy/MM/dd"
+										validateOnInput="true" fixLength="8">
+									</w2:inputCalendar>
+									<xf:input class="tac" dataType="text" id="ed_stHh" style="width: 50px;" maxByteLength="4" allowChar="0-9"
+										maskFormat="##:##" displayFormat="##:##" editFormat="##:##" validateOnInput="true" fixLength="4">
+									</xf:input>
+									<w2:textbox class="" id="" label="~" ref="" style="" userData2=""></w2:textbox>
+									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_endDt" pickerType="dynamic"
+										style="width:95px;" mandatory="true" ev:ondateselect="scwin.ed_endDt_ondateselect" ref="data:dma_queryCondition.endDt"
+										displayFormat="yyyy/MM/dd" validateOnInput="true" fixLength="8">
+									</w2:inputCalendar>
+									<xf:input class="tac" dataType="text" id="ed_endHh" style="width: 50px;" maxByteLength="4" allowChar="0-9"
+										maskFormat="##:##" editFormat="##:##" displayFormat="##:##" validateOnInput="true" fixLength="4">
+									</xf:input>
+								</xf:group>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="수입/수출" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="acb_impExpClsCd" search="start" style="width:100px;"
+									submenuSize="auto" allOption="" ref="" searchTarget="both" sortOption="value" sortMethod="ascending" caseSensitive="false" visibleRowNum="20">
+									<w2:choices></w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="오더종류" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="acb_odrKndCd" search="start" style="width:230px;" submenuSize="auto"
+									allOption="" ref="" searchTarget="both" sortOption="value" sortMethod="ascending" caseSensitive="false" visibleRowNum="20">
+									<w2:choices></w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="F/E" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="acb_fullEmptyClsCd" search="start" style="width:100px;"
+									submenuSize="auto" allOption="" ref="" searchTarget="both" sortOption="value" sortMethod="ascending" caseSensitive="false" visibleRowNum="20">
+									<w2:choices></w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="SIZE/TYPE" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:group id="" class="form-group" style="width: 310px;">
+									<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width:95px;" id="acb_siz"
+										class="flex_no" allOption="" ref="" searchTarget="both" sortOption="value" sortMethod="ascending" caseSensitive="false" visibleRowNum="20">
+										<w2:choices></w2:choices>
+									</w2:autoComplete>
+									<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_typ" class="" allOption=""
+										ref="" searchTarget="both" sortOption="value" sortMethod="ascending" caseSensitive="false" visibleRowNum="10">
+										<w2:choices></w2:choices>
+									</w2:autoComplete>
+								</xf:group>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="반출/반입" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="acb_crryInOutCd" search="start" style="width:100px;"
+									submenuSize="auto" allOption="" ref="" searchTarget="both" sortOption="value" sortMethod="ascending" caseSensitive="false" visibleRowNum="20">
+									<w2:choices></w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr" id="">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="선사" style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_shpCo" nameId="ed_shpNm" id="udc_shpCode"
+									ev:onblurCodeEvent="scwin.udc_shpCode_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_shpCode_onviewchangeNameEvent"
+									ev:onclickEvent="scwin.udc_shpCode_onclickEvent" UpperFlagCode="1" objTypeCode="Data" maxlengthCode="6" objTypeName="Data"
+									selectID="retrieveClntInfo" btnId="btn_shpCd" codeWidth="55" allowCharCode="a-zA-Z0-9">
+								</w2:udc_comCode>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="LINE" style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="acb_lineCd" search="start" style="width:200px;"
+									submenuSize="auto" allOption="" ref="" searchTarget="value" sortOption="value" sortMethod="ascending" objType="data"
+									caseSensitive="false" chooseOption="" visibleRowNum="20">
+									<w2:choices>
+										<w2:itemset nodeset="data:ds_LineList">
+											<w2:label ref="name"></w2:label>
+											<w2:value ref="code"></w2:value>
+										</w2:itemset>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group tagname="th" id="" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="선박" style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_vsslCd" nameId="ed_vsslNm" id="udc_vsslCode"
+									ev:onblurCodeEvent="scwin.udc_vsslCode_onblurCodeEvent" maxlengthCode="5" UpperFlagCode="1" objTypeCode="data" objTypeName="Data"
+									ev:onviewchangeNameEvent="scwin.udc_vsslCode_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_vsslCode_onclickEvent"
+									selectID="retrieveOrdVsslInfo" btnId="btn_vsslCd" codeWidth="45" allowCharCode="a-zA-Z0-9">
+								</w2:udc_comCode>
+							</xf:group>
+							<xf:group tagname="th" id="" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="항차" style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:group id="" class="form-group">
+									<xf:input style="width:100px;" id="ed_portCnt" placeholder="" class="" maxByteLength="10" ev:onkeyup="scwin.input_onkeyup">
+									</xf:input>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr" id="">
+							<xf:group class="w2tb_td" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="청구처" style=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_th">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_bilgClntNo" nameId="ed_bilgClntNm" id="udc_bilgClntCode"
+									ev:onblurCodeEvent="scwin.udc_bilgClntCode_onblurCodeEvent" maxlengthCode="6" UpperFlagCode="1" objTypeCode="data"
+									ev:onviewchangeNameEvent="scwin.udc_bilgClntCode_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_bilgClntCode_onclickEvent"
+									selectID="retrieveClntInfo" btnId="btn_PopUp3" objTypeName="data" codeWidth="55" allowCharCode="a-zA-Z0-9">
+								</w2:udc_comCode>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+							</xf:group>
+							<xf:group tagname="th" id="" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+							</xf:group>
+							<xf:group tagname="th" id="" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+							</xf:group>
+							<xf:group tagname="td" id="" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group id="">
+					<xf:group style="" id="" class="btn-shbox">
+						<xf:trigger ev:onclick="scwin.btn_fieldClear_onclick" style="" id="btn_fieldClear" type="button" class="btn ico refresh">
+							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+						</xf:trigger>
+						<xf:trigger ev:onclick="scwin.btn_retrieve_onclick" disabled="" style="" id="btn_retrieve" type="button" class="btn sch"
+							escape="false">
+							<xf:label><![CDATA[조회]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<xf:group id="" class="btnbox">
+						<xf:group style="" id="" class="right">
+							<xf:group id="">
+								<xf:select ref="" appearance="full" style="" id="chb_previewCheck" renderType="checkboxgroup" rows="" selectedindex="0"
+									class="" cols="">
+									<xf:choices>
+										<xf:item>
+											<xf:label></xf:label>
+											<xf:value><![CDATA[1]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+								<xf:trigger ev:onclick="scwin.btn_ozprint_onclick" disabled="" style="" id="btn_ozprint" type="button" class="btn"
+									escape="false">
+									<xf:label><![CDATA[발행]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="grp_title1" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label=" DAILY CNTR MOVEMENT 정보" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn btnPlusYn="Y" btnUser="Y" gridDownFn="scwin.f_runExcel" gridDownYn="Y" gridID="gr_Grid1"
+							gridUpYn="N" grp="grd_section1" id="udc_grdBtn" style="" templateYn="N">
+						</w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group class="title-wrap" id="grp_title2" style="display:none;">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label=" DAILY CNTR MOVEMENT 정보" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn btnPlusYn="Y" btnUser="Y" gridDownFn="scwin.f_runExcel2" gridDownYn="Y" gridID="gr_Grid2"
+							gridUpYn="N" grp="grd_section2" id="udc_topGrdBtn1" style="" templateYn="N">
+						</w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView checkAllType="false" class="wq_gvw" columnMove="true" columnMoveWithFooter="true" dataList="data:ds_Grid1"
+						focusMove="false" id="gr_Grid1" readOnly="true" style="" visibleRowNum="4" visibleRowNumFix="true">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column colSpan="" displayMode="label" id="column1" inputType="text" rowSpan="2" value="CNTR번호" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column17" inputType="text" rowSpan="2" sortable="false" value="SEAL번호"
+									width="90">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column15" inputType="text" rowSpan="2" value="SIZE" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column13" inputType="text" rowSpan="2" value="TYPE" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column11" inputType="text" rowSpan="2" sortable="false" value="CAR"
+									width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column9" inputType="text" rowSpan="2" value="T/L" width="100">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column3" inputType="text" rowSpan="2" value="I/O" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column5" inputType="text" rowSpan="2" value="반출입" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column19" inputType="text" rowSpan="2" value="TIME" width="120">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column58" inputType="text" rowSpan="2" value="Door Name" width="120">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column89" inputType="text" rowSpan="2" style="" value="청구처" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column55" inputType="text" rowSpan="2" value="Booking No" width="120">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column52" inputType="text" rowSpan="2" value="Port" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column49" inputType="text" rowSpan="2" value="목적항" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column46" inputType="text" rowSpan="2" value="매출" width="100">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column31" inputType="text" rowSpan="2" value="STATUS" width="100">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column34" inputType="text" rowSpan="2" value="ORIGIN" width="70">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column37" inputType="text" rowSpan="2" value="LINE" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column82" inputType="text" rowSpan="2" sortable="false" value="VSL"
+									width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column79" inputType="text" rowSpan="2" sortable="false" value="VOY"
+									width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column76" inputType="text" rowSpan="2" value="운송" width="80">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column73" inputType="text" rowSpan="2" value="배정" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column93" inputType="text" rowSpan="2" sortable="false" style=""
+									value="차량번호" width="100">
+								</w2:column>
+								<w2:column colSpan="2" displayMode="label" id="column70" inputType="text" rowSpan="" value="운송구간" width="140" sortable="false">
+								</w2:column>
+							</w2:row>
+							<w2:row id="row4" style="">
+								<w2:column displayMode="label" id="column88" inputType="text" sortable="false" style="" value="출발지" width="100">
+								</w2:column>
+								<w2:column displayMode="label" id="column87" inputType="text" sortable="false" style="" value="도착지" width="100">
+								</w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="cntrNo" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="sealNo" inputType="text" width="90"></w2:column>
+								<w2:column displayMode="label" id="strCntrSizCd" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="cntrTypCd" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="vehclShortNo" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="tl" inputType="text" textAlign="left" width="100"></w2:column>
+								<w2:column displayMode="label" id="odrKndCd" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="crryinoutClsNm" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="crryinoutDthh" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="wrkPlNm" inputType="text" textAlign="left" width="120"></w2:column>
+								<w2:column displayMode="label" id="bilgClntNo" inputType="text" style="" textAlign="left" value="" width="110">
+								</w2:column>
+								<w2:column displayMode="label" id="bookingNo" inputType="text" textAlign="left" width="120"></w2:column>
+								<w2:column displayMode="label" id="portNm" inputType="text" textAlign="left" width="110"></w2:column>
+								<w2:column displayMode="label" id="destPortNm" inputType="text" textAlign="left" width="110"></w2:column>
+								<w2:column dataType="number" displayFormat="#,##0.000" displayMode="label" excelCellType="number" id="sellAmt"
+									inputType="text" textAlign="right" width="100">
+								</w2:column>
+								<w2:column displayMode="label" id="wrkStpNm" inputType="text" textAlign="left" width="100"></w2:column>
+								<w2:column displayMode="label" id="origin" inputType="text" width="70"></w2:column>
+								<w2:column displayMode="label" id="lineCd" inputType="text" textAlign="left" width="60"></w2:column>
+								<w2:column displayMode="label" id="vsslCd" inputType="text" textAlign="left" width="60"></w2:column>
+								<w2:column displayMode="label" id="portcnt" inputType="text" textAlign="left" width="60"></w2:column>
+								<w2:column displayMode="label" id="selfClsNm" inputType="text" textAlign="left" width="80"></w2:column>
+								<w2:column displayMode="label" id="mcomAssgnClsNm" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="vehclNo" inputType="text" style="" value="" width="100"></w2:column>
+								<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" textAlign="left" width="100"></w2:column>
+								<w2:column displayMode="label" id="arvWrkPlNm" inputType="text" textAlign="left" width="100"></w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:footer id="footer1" style="">
+							<w2:row id="row3" style="">
+								<w2:column displayMode="label" id="column30" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column29" inputType="text" width="90"></w2:column>
+								<w2:column displayMode="label" id="column28" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column27" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column26" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column25" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column24" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column23" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column21" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="column60" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="column92" inputType="text" style="" value="" width="110"></w2:column>
+								<w2:column displayMode="label" id="column57" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="column54" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column51" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column48" inputType="text" textAlign="right" width="100"></w2:column>
+								<w2:column displayMode="label" id="column33" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column36" inputType="text" width="70"></w2:column>
+								<w2:column displayMode="label" id="column39" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column84" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column81" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column78" inputType="text" width="80"></w2:column>
+								<w2:column displayMode="label" id="column75" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column96" inputType="text" style="" value="" width="100"></w2:column>
+								<w2:column displayMode="label" id="column72" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column69" inputType="text" width="100"></w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows" label="0" style="" tagname="span">
+								</w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="display:none;">
+					<w2:gridView checkAllType="false" class="wq_gvw" columnMove="true" columnMoveWithFooter="true" dataList="data:ds_Grid1"
+						focusMove="false" id="gr_Grid2" readOnly="true" style="" visibleRowNum="4" visibleRowNumFix="true">
+						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column colSpan="" displayMode="label" id="column1" inputType="text" rowSpan="2" value="CNTR번호" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column17" inputType="text" rowSpan="2" sortable="false" value="SEAL번호"
+									width="90">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column15" inputType="text" rowSpan="2" value="SIZE" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column13" inputType="text" rowSpan="2" value="TYPE" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column11" inputType="text" rowSpan="2" sortable="false" value="CAR"
+									width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column9" inputType="text" rowSpan="2" value="T/L" width="100">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column3" inputType="text" rowSpan="2" value="I/O" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column5" inputType="text" rowSpan="2" value="반출입" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column19" inputType="text" rowSpan="2" value="TIME" width="120">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column58" inputType="text" rowSpan="2" value="Door Name" width="120">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column89" inputType="text" rowSpan="2" style="" value="청구처" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column55" inputType="text" rowSpan="2" value="Booking No" width="120">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column52" inputType="text" rowSpan="2" value="Port" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column49" inputType="text" rowSpan="2" value="목적항" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column31" inputType="text" rowSpan="2" value="STATUS" width="100">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column34" inputType="text" rowSpan="2" value="ORIGIN" width="70">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column37" inputType="text" rowSpan="2" value="LINE" width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column82" inputType="text" rowSpan="2" sortable="false" value="VSL"
+									width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column79" inputType="text" rowSpan="2" sortable="false" value="VOY"
+									width="60">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column76" inputType="text" rowSpan="2" value="운송" width="80">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column73" inputType="text" rowSpan="2" value="배정" width="110">
+								</w2:column>
+								<w2:column colSpan="" displayMode="label" id="column93" inputType="text" rowSpan="2" sortable="false" style=""
+									value="차량번호" width="100">
+								</w2:column>
+								<w2:column colSpan="2" displayMode="label" id="column70" inputType="text" rowSpan="" value="운송구간" width="140" sortable="false">
+								</w2:column>
+							</w2:row>
+							<w2:row id="row4" style="">
+								<w2:column displayMode="label" id="column88" inputType="text" sortable="false" style="" value="출발지" width="100">
+								</w2:column>
+								<w2:column displayMode="label" id="column87" inputType="text" sortable="false" style="" value="도착지" width="100">
+								</w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="cntrNo" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="sealNo" inputType="text" width="90"></w2:column>
+								<w2:column displayMode="label" id="strCntrSizCd" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="cntrTypCd" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="vehclShortNo" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="tl" inputType="text" textAlign="left" width="100"></w2:column>
+								<w2:column displayMode="label" id="odrKndCd" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="crryinoutClsNm" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="crryinoutDthh" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="wrkPlNm" inputType="text" textAlign="left" width="120"></w2:column>
+								<w2:column displayMode="label" id="bilgClntNo" inputType="text" style="" textAlign="left" value="" width="110">
+								</w2:column>
+								<w2:column displayMode="label" id="bookingNo" inputType="text" textAlign="left" width="120"></w2:column>
+								<w2:column displayMode="label" id="portNm" inputType="text" textAlign="left" width="110"></w2:column>
+								<w2:column displayMode="label" id="destPortNm" inputType="text" textAlign="left" width="110"></w2:column>
+								<w2:column displayMode="label" id="wrkStpNm" inputType="text" textAlign="left" width="100"></w2:column>
+								<w2:column displayMode="label" id="origin" inputType="text" width="70"></w2:column>
+								<w2:column displayMode="label" id="lineCd" inputType="text" textAlign="left" width="60"></w2:column>
+								<w2:column displayMode="label" id="vsslCd" inputType="text" textAlign="left" width="60"></w2:column>
+								<w2:column displayMode="label" id="portcnt" inputType="text" textAlign="left" width="60"></w2:column>
+								<w2:column displayMode="label" id="selfClsNm" inputType="text" textAlign="left" width="80"></w2:column>
+								<w2:column displayMode="label" id="mcomAssgnClsNm" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="vehclNo" inputType="text" style="" value="" width="100"></w2:column>
+								<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" textAlign="left" width="100"></w2:column>
+								<w2:column displayMode="label" id="arvWrkPlNm" inputType="text" textAlign="left" width="100"></w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:footer id="footer1" style="">
+							<w2:row id="row3" style="">
+								<w2:column displayMode="label" id="column30" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column29" inputType="text" width="90"></w2:column>
+								<w2:column displayMode="label" id="column28" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column27" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column26" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column25" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column24" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column23" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column21" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="column60" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="column92" inputType="text" style="" value="" width="110"></w2:column>
+								<w2:column displayMode="label" id="column57" inputType="text" width="120"></w2:column>
+								<w2:column displayMode="label" id="column54" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column51" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column33" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column36" inputType="text" width="70"></w2:column>
+								<w2:column displayMode="label" id="column39" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column84" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column81" inputType="text" width="60"></w2:column>
+								<w2:column displayMode="label" id="column78" inputType="text" width="80"></w2:column>
+								<w2:column displayMode="label" id="column75" inputType="text" width="110"></w2:column>
+								<w2:column displayMode="label" id="column96" inputType="text" style="" value="" width="100"></w2:column>
+								<w2:column displayMode="label" id="column72" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="column69" inputType="text" width="100"></w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows1" label="0" style="" tagname="span">
+								</w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group tagname="col" style="width:60px;"></xf:group>
+							<xf:group style="width: 50px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>16</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+							</xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>2</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="내역 소계" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_th tac" style="" tagname="th">
+								<w2:attributes>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="본선" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_th tac" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="DEV" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="STV" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="HIRE" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="PO MOVE" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="RETURN" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="TOTAL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>3</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="반입&lt;br/&gt;(IN)" ref="" style="" userData2="" escape="false"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="20" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="C120F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="C120E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="DEV20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="DEV20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="STV20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="STV20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="HIRE20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="HIRE20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="POM20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="POM20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="RET20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="RET20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="TOT20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="TOT20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="40" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="C140F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="C140E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="DEV40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="DEV40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="STV40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="STV40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="HIRE40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="HIRE40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="POM40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="POM40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="RET40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="RET40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="TOT40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="TOT40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="45" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="C145F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="C145E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="DEV45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="DEV45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="STV45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="STV45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="HIRE45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="HIRE45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="POM45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="POM45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="RET45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="RET45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="TOT45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="TOT45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>3</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="반출&lt;br/&gt;(OUT)" ref="" style="" userData2="" escape="false"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="20" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_C120F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_C120E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_DEV20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_DEV20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_STV20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_STV20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_HIRE20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_HIRE20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_POM20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_POM20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_RET20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_RET20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_TOT20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_TOT20E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="40" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_C140F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_C140E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_DEV40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_DEV40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_STV40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_STV40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_HIRE40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_HIRE40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_POM40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_POM40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_RET40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_RET40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_TOT40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_TOT40E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="45" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_C145F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_C145E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_DEV45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_DEV45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_STV45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_STV45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_HIRE45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_HIRE45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_POM45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_POM45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_RET45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_RET45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_TOT45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="O_TOT45E" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group tagname="col" style="width:60px;"></xf:group>
+							<xf:group style="width: 50px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>2</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="구분" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="DC" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="RF(RH)" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="HC" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="FR" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="PF" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="JB" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="OT" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="TK" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>3</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="ETC" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th tac" style="" tagname="th">
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_th tac" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_th tac" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="20F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="40F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th tac">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="45F" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>2</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="EMPTY&lt;br/&gt;CNTR" ref="" style="" userData2="" escape="false"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="IN" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="EIDC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="EIDC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="EIDC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIRF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIRF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIRF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIHC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIHC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIHC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIET_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIET_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIET_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIFR_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIFR_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIFR_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIPF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIPF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIPF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIJB_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIJB_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIJB_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIOT_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIOT_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EIOT_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EITK_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EITK_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EITK_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="OUT" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EODC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="EODC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td tar" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="EODC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EORF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EORF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EORF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOHC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOHC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOHC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOET_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOET_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOET_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOFR_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOFR_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOFR_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOPF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOPF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOPF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOJB_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOJB_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOJB_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOOT_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOOT_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOOT_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOTK_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOTK_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="EOTK_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>2</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="FULL&lt;br/&gt;CNTR" ref="" style="" userData2="" escape="false"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="IN" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIDC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIDC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIDC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIRF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIRF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIRF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIHC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIHC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIHC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIET_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIET_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIET_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIFR_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIFR_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIFR_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIPF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIPF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIPF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIJB_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIJB_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIJB_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIOT_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIOT_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FIOT_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FITK_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FITK_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FITK_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="OUT" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FODC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FODC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FODC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FORF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FORF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FORF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOHC_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOHC_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOHC_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOET_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOET_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOET_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOFR_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOFR_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOFR_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOPF_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOPF_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOPF_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOJB_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOJB_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOJB_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOOT_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOOT_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOOT_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOTK_20F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOTK_40F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td tar">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="FOTK_45F" label="0" style="" dataType="number" displayFormat="#,##0"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

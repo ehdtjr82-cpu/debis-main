@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.params = "";
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	scwin.params = $c.data.getParameter();
+    $c.gus.cfDisableKey();
+    
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    ed_FromDate.setValue(scwin.params.fromDate);
+    ed_ToDate.setValue(scwin.params.toDate);
+    ed_sacctDeptCd.setValue(scwin.params.acctDeptCd);
+    ed_sacctDeptCd.hidVal =scwin.params.acctDeptCd;
+	ed_sacctDeptNm.setValue(scwin.params.acctDeptNm);
+};
+
+//-------------------------------------------------------------------------
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+//-------------------------------------------------------------------------
+scwin.ondataload = function() { 
+
+};
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+//-------------------------------------------------------------------------
+// 귀속부서
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_onblurCodeEvent = function (e) {
+    scwin.f_CheckPopUp(ed_sacctDeptCd,ed_sacctDeptNm,'1','CD');
+};
+
+//-------------------------------------------------------------------------
+// 귀속부서명
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_onblurNameEvent = function (e) {
+    scwin.f_CheckPopUp(ed_sacctDeptCd,ed_sacctDeptNm,'1','NM');
+};
+
+//-------------------------------------------------------------------------
+// 귀속부서찾기
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_onclickEvent = function (e) {
+    scwin.f_openPopUp(ed_sacctDeptCd,ed_sacctDeptNm,'1','ALL');
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+// flag값이 CD:코드변경이 없으면 POPUP안뛰움, NM:무조건 POPUP뛰움
+//-------------------------------------------------------------------------
+scwin.f_CheckPopUp = function (orgObjCd, orgObjNm, select_code, flag) {
+    try {
+        if ( flag == "CD") {
+            if (orgObjCd.getValue() == orgObjCd.hidVal) {
+                return;
+            } else {
+                orgObjNm.setValue("");
+            }
+        }else {
+            if (orgObjNm.getValue() == orgObjNm.hidVal) {
+                return;
+            } else {
+                orgObjCd.setValue("");
+            }
+        }
+
+        if (orgObjCd.getValue().trim() != "" || flag == "NM") {
+		    if (orgObjNm.getValue().trim() != "" || flag == "CD") {   
+                orgObjCd.setValue(orgObjCd.getValue().trim());
+			    orgObjNm.setValue(orgObjNm.getValue().trim());
+                scwin.f_openPopUp(orgObjCd, orgObjNm, select_code,"NO");
+            }
+        }else{
+            orgObjNm.setValue("");
+            orgObjCd.setValue("");
+            orgObjCd.hidVal = "";
+        }
+    } catch (e) {
+       console.log(e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:조회->청구(수금)귀속부서
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = function (orgObjCd, orgObjNm, select_code, flag) {
+    try {
+        let cd = "";
+        let nm = "";
+        
+        // POPUP 돋보기 클릭시는 모든값을 조회 할 수 있도록 한다. flag:ALL일 경우는 돋보기 클릭한것임.
+	    // 넘어온 OBJ가 EMEdit인지 TextBox인지 구분한다.
+        if (flag == "ALL") {
+            cd = "";
+            nm = "";
+        } else {
+            cd = orgObjCd.getValue();
+            nm = orgObjNm.getValue();
+        }
+
+        switch (select_code) {
+            // 조회조건용 청구(수금)부서 PopUp 호출
+            case '1' :
+                //rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo',cd, nm,"T",null,null,null,null,",,,,","450","500",null,null); // 귀속부서
+                udc_acctDeptCd.setSelectId('retrieveAcctDeptCdInfo');
+                udc_acctDeptCd.cfCommonPopUp(scwin.udc_acctDeptCd_callBackFunc // 콜백 함수
+                        , cd                              // 화면에서의 ??? Code Element의 Value
+                        , nm                              // 화면에서의 ??? Name Element의 Value
+                        , 'T'                             // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                        , null                            // Title순서
+                        , null                            // 보여주는 각 컬럼들의 폭
+                        , null                            // 컬럼중에서 숨기는 컬럼 지정
+                        , ',,,,'                           // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+                        , '450'                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+                        , '500'                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+                        , null                            // 윈도우 위치 Y좌표
+                        , null                            // 윈도우 위치 X좌표
+                        , null                            // 중복체크여부	("F")
+                        , null                            // 전체검색허용여부	("F")
+                        , null                            // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+                        ); 
+                break;
+            
+            default :
+                $c.gus.cfAlertMsg("잘못된 Function호출 입니다. 관리자에게 문의하시기 바랍니다.");
+                break;            
+        }
+    } catch (e) {
+       console.log("f_openPopUp : " +e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 부서 팝업 콜백
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_callBackFunc = function (ret) {
+    try{
+        // 선언부
+        let rtnList = new Array();  // 공통POP-UP -> 요청화면
+        rtnList = ret ;
+        
+        if (rtnList != null ) {
+			if ( rtnList[0] == "N/A" ) return ;
+			ed_sacctDeptCd.setValue(rtnList[0]);	// 코드값
+			ed_sacctDeptNm.setValue(rtnList[1]);	// 코드명
+            ed_sacctDeptCd.hidVal = rtnList[0];	// HIDDEN 코드값
+            ed_sacctDeptNm.hidVal = rtnList[1];	// HIDDEN 코드값
+		} else {
+			ed_sacctDeptCd.setValue("");
+			ed_sacctDeptNm.setValue("");
+            ed_sacctDeptCd.hidVal = "";
+            ed_sacctDeptNm.hidVal = "";
+		}
+    } catch (e) {
+       console.log("udc_acctDeptCd_callBackFunc " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 리포트 출력
+//-------------------------------------------------------------------------
+scwin.f_Report = async function (e) {
+    let ret = await $c.gus.cfValidate([ed_FromDate,ed_ToDate,ed_sacctDeptCd,ed_sacctDeptNm]);
+    if (!ret) {
+        return false;
+    }
+
+    let printMode = "";
+    if (chb_printCheck.getValue()=="1"){
+        printMode ="print";
+    }
+
+    //chb_printCheck, chb_previewCheck 인경우도 preview가 됨
+    if (chb_previewCheck.getValue()=="1"){
+        printMode ="view";
+    }
+    
+    //console.log("printMode : " + printMode);
+    
+    let data = {
+        odiName   : "fm_603_04_01",
+        reportName: "/ac/fm/acctrecvmgnt/acctrecvcontmgnt/fm_603_04_01.ozr",
+        odiParam : {
+            fromDate    : ed_FromDate.getValue().trim(),
+            toDate      : ed_ToDate.getValue().trim(),
+            acctDeptCd  : ed_sacctDeptCd.getValue().trim(),
+            acctDeptNm  : ed_sacctDeptNm.getValue().trim(),
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+            zoom : 90, // 배율 설정
+            mode : printMode,
+        },
+        formParam : {
+        }
+    };
+    //출력
+    if (printMode =="print"){
+        let opts = {
+			"type": 'print',
+			"printMode": 'view'
+		};
+        $c.ext.printOzReport(data, opts);
+    }else if (printMode =="preview"){
+        let opts = {
+            "type": 'viewer',
+            "printMode": 'view'
+        };
+        $c.ext.openOzReport(data, opts);
+    }else{
+        let opts = {
+            filename: '',
+            exportMode:'view'
+        }
+        $c.ext.downloadOzReport(data, opts);
+    }
+
+    //scwin.openPopup(data);
+};
+
+//-------------------------------------------------------------------------
+// 리포트 출력
+//-------------------------------------------------------------------------
+scwin.openPopup = async function(data){
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 600,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+}]]></script>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="잡손일자 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="" style="" edFromId="ed_FromDate"  edToId="ed_ToDate" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data" objTypeTo="data" titleFrom="입금일자" titleTo="입금일자">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="청구부서 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_comCode class="" popupID="" style="" codeId="ed_sacctDeptCd" nameId="ed_sacctDeptNm"  maxlengthCode="5"
+                                    allowCharCode="0-9" selectID="retrieveAcctDeptCdInfo" id="udc_acctDeptCd" validTitle="청구부서" ev:onblurCodeEvent="scwin.udc_acctDeptCd_onblurCodeEvent" ev:onclickEvent="scwin.udc_acctDeptCd_onclickEvent" ev:onblurNameEvent="scwin.udc_acctDeptCd_onblurNameEvent" mandatoryCode="true" maxlengthName="20" objTypeCode="data" objTypeName="data" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N" UpperFlagCode="1" mandatoryName="true">
+                                </w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group id="" class="right"><xf:group id="" class="inner">
+                        <xf:select ref="" appearance="full" style="" id="chb_printCheck" renderType="checkboxgroup" rows="" selectedindex="0" class="" cols="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[인쇄옵션]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select>
+                        <xf:select ref="" appearance="full" style="" id="chb_previewCheck" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[미리보기]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select></xf:group><xf:trigger style="" id="btn_Upt" type="button" class="btn" objType="bSave" ev:onclick="scwin.f_Report">
+    						<xf:label><![CDATA[출력]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

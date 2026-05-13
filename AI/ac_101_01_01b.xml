@@ -1,0 +1,2983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search">
+                <w2:keyInfo>
+                    <w2:key id="kcomcd" name="법인코드" dataType="text"></w2:key>
+                    <w2:key id="seaair" name="해운항공구분" dataType="text"></w2:key>
+                    <w2:key id="iogb" name="수출입구분" dataType="text"></w2:key>
+                    <w2:key id="mblno" name="MASTER B/L NO" dataType="text"></w2:key>
+                    <w2:key id="blno" name="HOUSE B/L NO" dataType="text"></w2:key>
+                    <w2:key id="mhno" name="Console번호" dataType="text"></w2:key>
+                    <w2:key id="certiNo" name="거래명세서번호" dataType="text"></w2:key>
+                    <w2:key id="prtnGrpNo" name="출력그룹번호" dataType="text"></w2:key>
+                    <w2:key id="dept" name="부서코드" dataType="text"></w2:key>
+                    <w2:key id="deptnm" name="부서명" dataType="text"></w2:key>
+                    <w2:key id="bilgClntNo" name="청구처코드" dataType="text"></w2:key>
+                    <w2:key id="bilgClntNm" name="청구처명" dataType="text"></w2:key>
+                    <w2:key id="sellVatNo" name="부가세번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="dma_searchFreight">
+                <w2:keyInfo>
+                    <w2:key id="kcomcd" name="법인코드" dataType="text"></w2:key>
+                    <w2:key id="seaair" name="해운항공구분" dataType="text"></w2:key>
+                    <w2:key id="iogb" name="수출입구분" dataType="text"></w2:key>
+                    <w2:key id="mblno" name="MASTER B/L NO" dataType="text"></w2:key>
+                    <w2:key id="blno" name="HOUSE B/L NO" dataType="text"></w2:key>
+                    <w2:key id="mhno" name="Console번호" dataType="text"></w2:key>
+                    <w2:key id="certiNo" name="거래명세서번호" dataType="text"></w2:key>
+                    <w2:key id="prtnGrpNo" name="출력그룹번호" dataType="text"></w2:key>
+                    <w2:key id="slipNo" name="전표번호" dataType="text"></w2:key>
+                    <w2:key id="odrNo" name="오더번호" dataType="text"></w2:key>
+                    <w2:key id="dept" name="부서코드" dataType="text"></w2:key>
+                    <w2:key id="deptnm" name="부서명" dataType="text"></w2:key>
+                    <w2:key id="bilgClntNo" name="청구처코드" dataType="text"></w2:key>
+                    <w2:key id="bilgClntNm" name="청구처명" dataType="text"></w2:key>
+                    <w2:key id="locPtnCls" name="국내해외매출구분" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_search">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+                    <w2:column id="seaair" name="해운항공구분" dataType="text"></w2:column>
+                    <w2:column id="iogb" name="수출입구분" dataType="text"></w2:column>
+                    <w2:column id="mblno" name="MASTER B/L NO" dataType="text"></w2:column>
+                    <w2:column id="blno" name="HOUSE B/L NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="Console번호" dataType="text"></w2:column>
+                    <w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="prtnGrpNo" name="출력그룹번호" dataType="text"></w2:column>
+                    <w2:column id="dept" name="부서코드" dataType="text"></w2:column>
+                    <w2:column id="deptnm" name="부서명" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="청구처코드" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="청구처명" dataType="text"></w2:column>
+                    <w2:column id="sellVatNo" name="부가세번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+                    <w2:column id="mblno" name="MASTER B/L NO" dataType="text"></w2:column>
+                    <w2:column id="blno" name="HOUSE B/L NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="CONSOL NO" dataType="text"></w2:column>
+                    <w2:column id="seaair" name="해운항공Trans구분" dataType="text"></w2:column>
+                    <w2:column id="iogb" name="Import/Export구분" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="청구처코드" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="청구처명" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNo" name="청구처담당자코드" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNm" name="청구처담당자명" dataType="text"></w2:column>
+                    <w2:column id="dept" name="부서코드" dataType="text"></w2:column>
+                    <w2:column id="deptnm" name="부서코드명" dataType="text"></w2:column>
+                    <w2:column id="exdt" name="환율일" dataType="text"></w2:column>
+                    <w2:column id="cucd" name="Currency" dataType="text"></w2:column>
+                    <w2:column id="exgb" name="적용환율TYPE" dataType="text"></w2:column>
+                    <w2:column id="rate" name="환율" dataType="text"></w2:column>
+                    <w2:column id="stdt" name="etd/eta" dataType="text"></w2:column>
+                    <w2:column id="dpcd" name="출발지코드" dataType="text"></w2:column>
+                    <w2:column id="dpnm" name="출발지명" dataType="text"></w2:column>
+                    <w2:column id="dstn" name="도착지코드" dataType="text"></w2:column>
+                    <w2:column id="dsnm1" name="도착지명" dataType="text"></w2:column>
+                    <w2:column id="fltno" name="편명/vessel" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="MASTER/HOUSE구분" dataType="text"></w2:column>
+                    <w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="bilgIntendDt" name="청구예정일자" dataType="text"></w2:column>
+                    <w2:column id="clntBilgDocNo" name="거래처청구서번호" dataType="text"></w2:column>
+                    <w2:column id="prtnGrpNo" name="출력그룹번호" dataType="text"></w2:column>
+                    <w2:column id="confirmDt" name="확인일자" dataType="text"></w2:column>
+                    <w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+                    <w2:column id="summary" name="remark" dataType="text"></w2:column>
+                    <w2:column id="certiPatternCd" name="Certi구분" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="VAT유무" dataType="number"></w2:column>
+                    <w2:column id="prebilgYn" name="선청구유무" dataType="number"></w2:column>
+                    <w2:column id="fromArea" name="운송FROM지역코드" dataType="text"></w2:column>
+                    <w2:column id="fromAreaNm" name="운송FROM지역명" dataType="text"></w2:column>
+                    <w2:column id="fromDt" name="운송FROM일자" dataType="text"></w2:column>
+                    <w2:column id="fromTm" name="운송FROM시간" dataType="text"></w2:column>
+                    <w2:column id="toArea" name="운송TO지역코드" dataType="text"></w2:column>
+                    <w2:column id="toAreaNm" name="운송TO지역명" dataType="text"></w2:column>
+                    <w2:column id="toDt" name="운송TO일자" dataType="text"></w2:column>
+                    <w2:column id="toTm" name="운송TO시간" dataType="text"></w2:column>
+                    <w2:column id="transTyp" name="운송TYPE" dataType="number"></w2:column>
+                    <w2:column id="sumSellAmt" name="합계금액" dataType="text"></w2:column>
+                    <w2:column id="sumVatAmt" name="합계부가세금액" dataType="text"></w2:column>
+                    <w2:column id="sumSellAmtFcrc" name="합계외화금액" dataType="text"></w2:column>
+                    <w2:column id="sellVatNo" name="세금계산서번호" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="slipCloseYm" name="회계마감월" dataType="text"></w2:column>
+                    <w2:column id="taxCloseYm" name="세무마감월" dataType="text"></w2:column>
+                    <w2:column id="receiveSellingYn" name="영수거래처여부" dataType="text"></w2:column>
+                    <w2:column id="regId" name="담당자" dataType="text"></w2:column>
+                    <w2:column id="taxnClsCd" name="과세구분코드" dataType="text"></w2:column>
+                    <w2:column id="EXP" name="BillingType표시" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceCommon" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="certiPatternCd" name="거래명세서유형코드" dataType="text"></w2:column>
+                    <w2:column id="upperCertiNo" name="상위거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="mainCertiNo" name="주요거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="bilgLodeptCd" name="청구물류부서코드" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="청구거래처번호" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="청구거래처명" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNo" name="청구담당자번호" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNm" name="청구처담당자명" dataType="text"></w2:column>
+                    <w2:column id="confirmDt" name="확인일자" dataType="text"></w2:column>
+                    <w2:column id="delYn" name="삭제여부" dataType="number"></w2:column>
+                    <w2:column id="certiCnt" name="거래명세서건수" dataType="number"></w2:column>
+                    <w2:column id="dcsnClsCd" name="확정구분코드" dataType="text"></w2:column>
+                    <w2:column id="evidRglClsCd" name="증빙정상구분코드" dataType="text"></w2:column>
+                    <w2:column id="taxnClsCd" name="과세구분코드" dataType="text"></w2:column>
+                    <w2:column id="fmlaClsCd" name="서식구분코드" dataType="text"></w2:column>
+                    <w2:column id="fmlaPatternCd" name="서식유형코드" dataType="text"></w2:column>
+                    <w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="adptExchRt" name="적용환율" dataType="text"></w2:column>
+                    <w2:column id="bilgExchRt" name="BILL환율" dataType="text"></w2:column>
+                    <w2:column id="exchRtAdptDt" name="환율적용일자" dataType="text"></w2:column>
+                    <w2:column id="adptExchRtInscrpYn" name="적용환율표기여부" dataType="number"></w2:column>
+                    <w2:column id="spplyAmt" name="공급금액" dataType="text"></w2:column>
+                    <w2:column id="spplyAmtFcrc" name="공급금액외화" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="부가세금액" dataType="text"></w2:column>
+                    <w2:column id="fireInsrRateAmt" name="화재보험료금액" dataType="text"></w2:column>
+                    <w2:column id="bilgAmt" name="청구금액" dataType="text"></w2:column>
+                    <w2:column id="fcrcBilgAmt" name="외화청구금액" dataType="text"></w2:column>
+                    <w2:column id="bilgAmtFcrc" name="청구금액외화" dataType="text"></w2:column>
+                    <w2:column id="bilgInscrpAmtFcrc" name="BILL표기금액외화" dataType="text"></w2:column>
+                    <w2:column id="wcrcDcsnClsCd" name="원화확정구분코드" dataType="text"></w2:column>
+                    <w2:column id="prebilgYn" name="선청구여부" dataType="number"></w2:column>
+                    <w2:column id="pgmId" name="프로그램ID" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="LINE코드" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="inscrpVsslCd" name="표기선박코드" dataType="text"></w2:column>
+                    <w2:column id="inscrpVsslEngNm" name="표기선박영문명" dataType="text"></w2:column>
+                    <w2:column id="inscrpPortcnt" name="표기항차" dataType="text"></w2:column>
+                    <w2:column id="vsslCdFrom" name="선박코드FROM" dataType="text"></w2:column>
+                    <w2:column id="portcntFrom" name="항차FROM" dataType="text"></w2:column>
+                    <w2:column id="vsslCdTo" name="선박코드TO" dataType="text"></w2:column>
+                    <w2:column id="portcntTo" name="항차TO" dataType="text"></w2:column>
+                    <w2:column id="arDepPortDt" name="입출항일자" dataType="text"></w2:column>
+                    <w2:column id="mrn" name="적하목록관리번호" dataType="text"></w2:column>
+                    <w2:column id="msn" name="MSN" dataType="text"></w2:column>
+                    <w2:column id="hsn" name="HSN" dataType="text"></w2:column>
+                    <w2:column id="billCoverPatternSeq" name="BILLCOVER유형순번" dataType="text"></w2:column>
+                    <w2:column id="billTitleNm" name="BILLTITLE명" dataType="text"></w2:column>
+                    <w2:column id="subTitleNm1" name="SUB_TITLE명1" dataType="text"></w2:column>
+                    <w2:column id="subTitleNm2" name="SUB_TITLE명2" dataType="text"></w2:column>
+                    <w2:column id="subTitleNm3" name="SUB_TITLE명3" dataType="text"></w2:column>
+                    <w2:column id="billAggrTitle" name="BILL집계TITLE" dataType="text"></w2:column>
+                    <w2:column id="billAggrSeq" name="BILL집계순번" dataType="number"></w2:column>
+                    <w2:column id="impExpDomesticClsCd" name="수입수출내수구분코드" dataType="text"></w2:column>
+                    <w2:column id="transCargoClsCd" name="운송화물구분코드" dataType="text"></w2:column>
+                    <w2:column id="cntrSizCd" name="컨테이너SIZE코드" dataType="text"></w2:column>
+                    <w2:column id="cntrTypCd" name="컨테이너TYPE코드" dataType="text"></w2:column>
+                    <w2:column id="fullEmptyClsCd" name="FULLEMPTY구분코드" dataType="text"></w2:column>
+                    <w2:column id="pldgMgntNo" name="담보관리번호" dataType="text"></w2:column>
+                    <w2:column id="bilgIntendDt" name="청구예정일자" dataType="text"></w2:column>
+                    <w2:column id="bankAcntNoInscrpYn" name="계좌번호표기여부" dataType="number"></w2:column>
+                    <w2:column id="offsetNo1" name="OFFSET번호1" dataType="text"></w2:column>
+                    <w2:column id="offsetNo2" name="OFFSET번호2" dataType="text"></w2:column>
+                    <w2:column id="ediSndReqDt" name="EDI전송요청일자" dataType="text"></w2:column>
+                    <w2:column id="ediSndTrgtYn" name="EDI전송대상여부" dataType="number"></w2:column>
+                    <w2:column id="ediSndClsCd" name="EDI전송구분코드" dataType="text"></w2:column>
+                    <w2:column id="ediSndDt" name="EDI전송일자" dataType="text"></w2:column>
+                    <w2:column id="ediSndHh" name="EDI전송시간" dataType="text"></w2:column>
+                    <w2:column id="certiAutoCreatClsCd" name="거래명세서자동생성구분코드" dataType="text"></w2:column>
+                    <w2:column id="summary" name="적요" dataType="text"></w2:column>
+                    <w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+                    <w2:column id="clntBilgDocNo" name="거래처청구서번호" dataType="text"></w2:column>
+                    <w2:column id="prtnGrpNo" name="출력그룹번호" dataType="text"></w2:column>
+                    <w2:column id="chk" name="거래명세서생성유무" dataType="text"></w2:column>
+                    <w2:column id="refkey" name="거래명세서GROUP번호" dataType="text"></w2:column>
+                    <w2:column id="receptClsCd" name="수령구분코드" dataType="text"></w2:column>
+                    <w2:column id="totAmt" name="총금액" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="부가세유무" dataType="text"></w2:column>
+                    <w2:column id="spplyAmtOri" name="기존공급금액" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_invoiceFreight" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+                    <w2:column id="mblno" name="Master B/L No" dataType="text"></w2:column>
+                    <w2:column id="blno" name="House B/L No" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="CONSOL번호" dataType="text"></w2:column>
+                    <w2:column id="iogb" name="Export/Import구분" dataType="text"></w2:column>
+                    <w2:column id="seaair" name="해운/항공/Trans구분" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="매출순번" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNo" name="청구처코드" dataType="text"></w2:column>
+                    <w2:column id="bilgClntNm" name="청구처명" dataType="text"></w2:column>
+                    <w2:column id="sellItemCd" name="매출입항목코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="fareGrpCd" name="운임그룹코드" dataType="text"></w2:column>
+                    <w2:column id="fareUnit" name="운임UNIT" dataType="text"></w2:column>
+                    <w2:column id="locPtnCls" name="국내해외매출구분" dataType="text"></w2:column>
+                    <w2:column id="mblHblCls" name="MASTER/HOUSE구분" dataType="text"></w2:column>
+                    <w2:column id="drcrCls" name="매출매입구분" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="text"></w2:column>
+                    <w2:column id="grossWt" name="GROSS WEIGHT" dataType="text"></w2:column>
+                    <w2:column id="chgWt" name="CHARGEABLE WEIGHT" dataType="text"></w2:column>
+                    <w2:column id="trfUpr" name="TARIFF단가" dataType="text"></w2:column>
+                    <w2:column id="usdAmt" name="매출금액외화" dataType="text"></w2:column>
+                    <w2:column id="sellUpr" name="단가" dataType="text"></w2:column>
+                    <w2:column id="sellAmt" name="매출금액" dataType="text"></w2:column>
+                    <w2:column id="vatAmt" name="부가세금액" dataType="text"></w2:column>
+                    <w2:column id="sellAmtFcrc" name="매출금액외화" dataType="text"></w2:column>
+                    <w2:column id="exRate" name="환율" dataType="text"></w2:column>
+                    <w2:column id="exRateTyp" name="적용환율TYPE" dataType="text"></w2:column>
+                    <w2:column id="rateCls" name="RATE CLASS" dataType="text"></w2:column>
+                    <w2:column id="commItem" name="COMMODITY ITEM" dataType="text"></w2:column>
+                    <w2:column id="prtnGrpNo" name="거래명세서그룹번호" dataType="text"></w2:column>
+                    <w2:column id="prtnUpr" name="출력용단가" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="출력용금액" dataType="text"></w2:column>
+                    <w2:column id="rsltsStdDt" name="실적일자" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="적요" dataType="text"></w2:column>
+                    <w2:column id="vatYn" name="VAT유무" dataType="text"></w2:column>
+                    <w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="certiNoSeq" name="거래명세서번호순번" dataType="text"></w2:column>
+                    <w2:column id="sellLodeptCd" name="매출물류부서코드" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="dcScCd" name="할인할증코드" dataType="text"></w2:column>
+                    <w2:column id="delYn" name="삭제여부" dataType="number"></w2:column>
+                    <w2:column id="sellYn" name="매출여부" dataType="number"></w2:column>
+                    <w2:column id="impExpDomesticClsCd" name="수입수출내수구분코드" dataType="text"></w2:column>
+                    <w2:column id="sellGoodsPatternCd" name="매출품목유형코드" dataType="text"></w2:column>
+                    <w2:column id="commNm" name="품명명" dataType="text"></w2:column>
+                    <w2:column id="wt" name="중량" dataType="text"></w2:column>
+                    <w2:column id="unitCd" name="단위코드" dataType="text"></w2:column>
+                    <w2:column id="unitClsCd" name="단위구분코드" dataType="text"></w2:column>
+                    <w2:column id="spplyAmtFcrc" name="공급금액외화" dataType="text"></w2:column>
+                    <w2:column id="spplyAmt" name="공급금액" dataType="text"></w2:column>
+                    <w2:column id="bilgInscrpAmtFcrc" name="BILL표기금액외화" dataType="text"></w2:column>
+                    <w2:column id="sellCommNo" name="매출품명번호" dataType="text"></w2:column>
+                    <w2:column id="eqNrmCd" name="장비규격코드" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="작업시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkStHh" name="작업시작시간" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="작업종료일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndHh" name="작업종료시간" dataType="text"></w2:column>
+                    <w2:column id="onWrkPlCd" name="상차작업장코드" dataType="text"></w2:column>
+                    <w2:column id="offWrkPlCd" name="하차작업장코드" dataType="text"></w2:column>
+                    <w2:column id="dptDistrictCd" name="출발권역코드" dataType="text"></w2:column>
+                    <w2:column id="arvDistrictCd" name="도착권역코드" dataType="text"></w2:column>
+                    <w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+                    <w2:column id="invoiceNo" name="송장번호" dataType="text"></w2:column>
+                    <w2:column id="arrowDdCnt" name="경과일수" dataType="text"></w2:column>
+                    <w2:column id="freeday" name="FREEDAY" dataType="text"></w2:column>
+                    <w2:column id="jdgAmt" name="감정금액" dataType="text"></w2:column>
+                    <w2:column id="cstmdtAmt" name="관세금액" dataType="text"></w2:column>
+                    <w2:column id="strDeg" name="보관차수" dataType="text"></w2:column>
+                    <w2:column id="scRt" name="할증율" dataType="text"></w2:column>
+                    <w2:column id="cntrSizCd" name="컨테이너SIZE코드" dataType="text"></w2:column>
+                    <w2:column id="cntrTypCd" name="컨테이너TYPE코드" dataType="text"></w2:column>
+                    <w2:column id="fullEmptyClsCd" name="FULLEMPTY구분코드" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="LINE코드" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="vsslCdFrom" name="선박코드FROM" dataType="text"></w2:column>
+                    <w2:column id="portcntFrom" name="항차FROM" dataType="text"></w2:column>
+                    <w2:column id="vsslCdTo" name="선박코드TO" dataType="text"></w2:column>
+                    <w2:column id="portcntTo" name="항차TO" dataType="text"></w2:column>
+                    <w2:column id="arDepPortDt" name="입출항일자" dataType="text"></w2:column>
+                    <w2:column id="mrn" name="적하목록관리번호" dataType="text"></w2:column>
+                    <w2:column id="msn" name="MSN" dataType="text"></w2:column>
+                    <w2:column id="hsn" name="HSN" dataType="text"></w2:column>
+                    <w2:column id="bookingNo" name="BOOKING번호" dataType="text"></w2:column>
+                    <w2:column id="shippingDt" name="선적일자" dataType="text"></w2:column>
+                    <w2:column id="retrvDt" name="회수일자" dataType="text"></w2:column>
+                    <w2:column id="sealNo" name="봉인번호" dataType="text"></w2:column>
+                    <w2:column id="lane" name="항로" dataType="text"></w2:column>
+                    <w2:column id="transDstOn" name="운송구간상차" dataType="text"></w2:column>
+                    <w2:column id="transDstOff" name="운송구간하차" dataType="text"></w2:column>
+                    <w2:column id="ediSndReqDt" name="EDI전송요청일자" dataType="text"></w2:column>
+                    <w2:column id="ediCreatSeq" name="EDI생성순번" dataType="text"></w2:column>
+                    <w2:column id="ediSndTrgtYn" name="EDI전송대상여부" dataType="number"></w2:column>
+                    <w2:column id="ediSndClsCd" name="EDI전송구분코드" dataType="text"></w2:column>
+                    <w2:column id="ediSndDt" name="EDI전송일자" dataType="text"></w2:column>
+                    <w2:column id="ediSndHh" name="EDI전송시간" dataType="text"></w2:column>
+                    <w2:column id="summary" name="적요" dataType="text"></w2:column>
+                    <w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+                    <w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+                    <w2:column id="ediSndTrgtYn2" name="EDI전송대상여부2" dataType="number"></w2:column>
+                    <w2:column id="adptExchRt" name="적용환율" dataType="text"></w2:column>
+                    <w2:column id="chk" name="거래명세서생성여부" dataType="text"></w2:column>
+                    <w2:column id="refkey" name="거래명세서GROUP번호" dataType="text"></w2:column>
+                    <w2:column id="jobType" name="JOB TYPE" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNo" name="청구처담당자코드" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNm" name="청구처담당자명" dataType="text"></w2:column>
+                    <w2:column id="slipNo" name="Slip No" dataType="text"></w2:column>
+                    <w2:column id="seq" name="SEQ" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_billgb">
+                <w2:columnInfo>
+                    <w2:column id="billgb" name="환종구분" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_certiCommonDs">
+                <w2:columnInfo>
+                    <w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+                    <w2:column id="receptClsCd" name="수령구분코드" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_heinzInfo">
+                <w2:columnInfo>
+                    <w2:column id="col1" name="col1" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_mhno">
+                <w2:columnInfo>
+                    <w2:column id="code" name="code" dataType="text"></w2:column>
+                    <w2:column id="name" name="name" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/il.acc.acinv.RetrieveInvoiceListCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_invoiceList","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_invoiceList","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveTaxPrint"
+            action="/il.acc.acinv.RetrieveTaxPrintCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_retrieveTaxPrint_submitdone"
+            ev:submiterror="scwin.sbm_retrieveTaxPrint_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveCertiPrint"
+            action="/il.acc.acinv.RetrieveCertiPrintCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_retrieveCertiPrint_submitdone"
+            ev:submiterror="scwin.sbm_retrieveCertiPrint_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveCommon"
+            action="/il.acc.acinv.RetrieveInvoiceCommonCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_searchFreight","key":"IN_DS1"},{"id":"ds_invoiceCommon","key":"OUT_DS1"},{"id":"ds_invoiceFreight","key":"OUT_DS2"}]'
+            target='data:json,[{"id":"ds_invoiceCommon","key":"OUT_DS1"},{"id":"ds_invoiceFreight","key":"OUT_DS2"}]'
+            ev:submitdone="scwin.sbm_retrieveCommon_submitdone"
+            ev:submiterror="scwin.sbm_retrieveCommon_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/il.acc.acinv.SaveInvoiceCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_invoiceCommon","key":"IN_DS1"},{"id":"ds_invoiceFreight","key":"IN_DS2"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_prtnGrpNo"
+            action="/il.acc.acinv.SaveInvoicePrtnGrpNoCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"ds_invoiceList","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_prtnGrpNo_submitdone"
+            ev:submiterror="scwin.sbm_prtnGrpNo_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_mhnoLoading"
+            action="/cm.zz.RetrieveComboCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_mhno","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_mhno","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_mhnoLoading_submitdone"
+            ev:submiterror="scwin.sbm_mhnoLoading_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_heinzInfo"
+            action="/cm.zz.RetrieveComboCMD.do"
+            method="post" mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+            ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_heinzInfo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_heinzInfo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_heinzInfo_submitdone">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+    scwin.processFlag = "";
+    scwin.mhnoFlg = "";
+    scwin.E_MSG_ERR_001 = "전표번호가  (@) 존재 합니다. 수정 삭제 할 수 없습니다.";
+    scwin.vUserId = "";
+    scwin.hid_kcomcd = "DBEX";
+    scwin.hid_sellVatNo = "";
+    scwin.hid_intendDt = "";
+    scwin.hid_bilgPicNo = "";
+    scwin.hid_bilgPicNm = "";
+    scwin.hid_commNm = "DBEX";
+    scwin.txt_countRow = "";
+    scwin.txa_certiPatternCd = "";
+    scwin.txa_vatYn = "";
+    scwin.dtl_sellVatNo = "";
+    scwin.dtl_offsetVatNo = "";
+    scwin.nowDt = "";
+    scwin.paramKcomcd = "DBEX";
+    scwin.paramSeaair = "S";
+    scwin.paramIogb = "O";
+    scwin.paramMblno = "";
+    scwin.paramBlno = "";
+    scwin.paramMhno = "";
+    scwin.paramPrtnGrpNo = "";
+    scwin.paramBilgClntNo = "";
+
+    scwin.onpageload = async function() {
+        scwin.vUserId = $c.ses.getEmpNo();
+        scwin.nowDt = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+
+        let params = $c.data.getParameter();
+        if (params != null) {
+            scwin.paramKcomcd = params.kcomcd || "DBEX";
+            scwin.paramSeaair = params.seaair || "S";
+            scwin.paramIogb = params.iogb || "O";
+            scwin.paramMblno = params.mblno || "";
+            scwin.paramBlno = params.blno || "";
+            scwin.paramMhno = params.mhno || "";
+            scwin.paramPrtnGrpNo = params.prtnGrpNo || "";
+            scwin.paramBilgClntNo = params.bilgClntNo || "";
+        }
+        scwin.hid_kcomcd = scwin.paramKcomcd;
+
+        scwin.f_initSetTab();
+        scwin.f_Set("INIT");
+        scwin.f_DefaultValue();
+        scwin.processFlag = "INIT";
+        cnd_ed_mblno.setFocus();
+
+        $c.gus.cfEnableObj(ica_slipCloseYm, false);
+        $c.gus.cfEnableObj(ica_taxCloseYm, false);
+        $c.gus.cfDisableObjects([ica_tempBilgIntendDt]);
+    };
+
+    scwin.f_initSetTab = async function() {
+        scwin.f_selectTabMenu(0);
+    };
+
+    scwin.f_DefaultValue = async function() {
+        acb_seaair.setValue(scwin.paramSeaair);
+        acb_iogb.setValue(scwin.paramIogb);
+        cnd_ed_mblno.setValue(scwin.paramMblno);
+        cnd_ed_blno.setValue(scwin.paramBlno);
+        cnd_ed_prtnGrpNo.setValue(scwin.paramPrtnGrpNo);
+        cnd_ed_bilgClntNo.setValue(scwin.paramBilgClntNo);
+
+        if (cnd_ed_mblno.getValue() != "") {
+            scwin.f_MhnoLoading("M", cnd_ed_mblno.getValue());
+        }
+
+        if (cnd_ed_blno.getValue() != "") {
+            scwin.f_MhnoLoading("H", cnd_ed_blno.getValue());
+        }
+
+        // TODO: cnd_lc_mhno.setValue(scwin.paramMhno);
+
+        rd_enggb.setValue("1");
+        rd_prebilgYn.setValue("0");
+        chb_pre.setValue("0");
+    };
+
+    scwin.f_Set = async function(gubun) {
+        switch (gubun) {
+            case "INIT":
+                $c.gus.cfDisableKeyData();
+                $c.gus.cfDisableBtnOnly([btn_Print, btn_Create, btn_Update, btn_Cancel, btn_Save, btn_Delete]);
+                scwin.f_DisablePopUpObj();
+                break;
+            case "RETRIEVE":
+                $c.gus.cfDisableKeyData();
+                scwin.f_DisablePopUpObj();
+                if (scwin.processFlag == "RETRIEVE") {
+                    $c.gus.cfDisableBtnOnly([btn_Save, btn_Cancel]);
+                    $c.gus.cfEnableBtnOnly([btn_Update, btn_Delete, btn_Print]);
+                } else {
+                    $c.gus.cfDisableBtnOnly([btn_Cancel, btn_Update, btn_Save, btn_Delete]);
+                    $c.gus.cfEnableBtnOnly([btn_Create]);
+                }
+                break;
+            case "CANCEL":
+                scwin.f_Set("RETRIEVE");
+                break;
+            case "CREATE":
+                $c.gus.cfEnableKeyData();
+                scwin.f_EnablePopUpObj();
+                $c.gus.cfDisableBtnOnly([btn_Create, btn_Update, btn_Delete]);
+                $c.gus.cfEnableBtnOnly([btn_Save, btn_Cancel]);
+                if (ds_invoiceCommon.getCellData(ds_invoiceCommon.getRowPosition(), "crcCd") == "KRW") {
+                    chb_billgb.setDisabled(true);
+                } else {
+                    chb_billgb.setDisabled(false);
+                }
+                break;
+            case "UPDATE":
+                $c.gus.cfEnableKeyData();
+                scwin.f_EnablePopUpObj();
+                $c.gus.cfDisableBtnOnly([btn_Create, btn_Update, btn_Delete]);
+                $c.gus.cfEnableBtnOnly([btn_Save, btn_Cancel]);
+                chb_billgb.setDisabled(true);
+                break;
+            case "SAVE":
+                $c.gus.cfDisableBtnOnly([btn_Save, btn_Cancel]);
+                $c.gus.cfEnableBtnOnly([btn_Update, btn_Create, btn_Delete]);
+                scwin.f_Set("RETRIEVE");
+                break;
+            case "DELETE":
+                $c.gus.cfDisableBtnOnly([btn_Save, btn_Cancel]);
+                $c.gus.cfEnableBtnOnly([btn_Create, btn_Update, btn_Delete]);
+                scwin.f_Set("RETRIEVE");
+                break;
+        }
+    };
+
+    scwin.f_EnablePopUpObj = async function() {
+        // TODO: enable popup image objects for bilgDt, bilgPicNo
+    };
+
+    scwin.f_DisablePopUpObj = async function() {
+        // TODO: disable popup image objects for bilgDt, bilgPicNo
+    };
+
+    scwin.f_selectTabMenu = async function(idx) {
+        switch (idx) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
+        $c.gus.cfViewTab(idx);
+    };
+
+    scwin.f_Retrieve = async function() {
+        if (cnd_ed_mblno.getValue().trim() == "" && cnd_ed_blno.getValue().trim() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["Master or House B/L"]);
+            cnd_ed_mblno.setFocus();
+            return;
+        }
+
+        ds_invoiceList.removeAll();
+        ds_invoiceCommon.removeAll();
+        ds_invoiceFreight.removeAll();
+
+        dma_search.set("kcomcd", scwin.hid_kcomcd);
+        dma_search.set("seaair", acb_seaair.getValue());
+        dma_search.set("iogb", acb_iogb.getValue());
+        dma_search.set("mblno", cnd_ed_mblno.getValue());
+        dma_search.set("blno", cnd_ed_blno.getValue());
+        dma_search.set("mhno", acb_taxnClsCd.getValue());
+        dma_search.set("prtnGrpNo", cnd_ed_prtnGrpNo.getValue());
+        dma_search.set("bilgClntNo", cnd_ed_bilgClntNo.getValue());
+        dma_search.set("bilgClntNm", cnd_txt_bilgClntNm.getValue());
+        dma_search.set("dept", cnd_ed_dept.getValue());
+        dma_search.set("deptnm", cnd_txt_deptnm.getValue());
+        dma_search.set("certiNo", "");
+
+        await $c.sbm.execute(sbm_retrieve);
+    };
+
+    scwin.sbm_retrieve_submitdone = async function(e) {
+        chb_billgb.setValue("");
+        if (ds_invoiceList.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+            scwin.processFlag = "INIT";
+            scwin.f_Set("INIT");
+        } else {
+            $c.gus.cf_ShowTotalRows(totalRows, ds_invoiceList.getRowCount());
+        }
+    };
+
+    scwin.sbm_retrieve_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+        chb_billgb.setValue("");
+    };
+
+    scwin.f_RetrievePrint = async function() {
+        if (acb_printOp.getValue() == "5") {
+            scwin.f_RetrieveCertiPrint();
+        } else {
+            scwin.f_RetrieveTaxPrint();
+        }
+    };
+
+    scwin.f_SendEmail = async function() {
+        let row = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(row, "seaair") == "S") {
+            let odiParam = new ODIParam("ac_101_01_01_sea");
+            odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+            odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+            odiParam.add("SEAAIR", "S");
+            odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+            odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+            odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+            odiParam.add("TYPE", acb_printOp.getValue());
+            odiParam.add("RMK", rd_billgb.getValue());
+            odiParam.add("REMARK", txa_summary.getValue());
+            odiParam.add("ENG", rd_enggb.getValue());
+
+            if (ed_bilgPicNo.getValue() != "") {
+                odiParam.add("PIC", "1");
+            } else {
+                odiParam.add("PIC", "2");
+            }
+
+            let formParam = new FormParam();
+            let viewerParam = new ViewerParam();
+            viewerParam.add("viewer.mode", "export");
+            viewerParam.add("viewer.useprogressbar", "false");
+            viewerParam.add("viewer.exportcommand", "true");
+            viewerParam.add("export.mode", "silent");
+            viewerParam.add("export.path", "C:\\");
+            viewerParam.add("export.filename", "certi");
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.confirmsave", "false");
+            viewerParam.add("export.target", "email");
+
+            $c.gus.cfOZExport("/il/acc/ac_101_01_01_sea.ozr", odiParam, viewerParam, formParam);
+        } else {
+            let odiParam = new ODIParam("ac_101_01_01_air");
+            odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+            odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+            odiParam.add("SEAAIR", "A");
+            odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+            odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+            odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+            odiParam.add("TYPE", acb_printOp.getValue());
+            odiParam.add("RMK", rd_billgb.getValue());
+            odiParam.add("REMARK", txa_summary.getValue());
+            odiParam.add("ENG", rd_enggb.getValue());
+
+            if (ed_bilgPicNo.getValue() != "") {
+                odiParam.add("PIC", "1");
+            } else {
+                odiParam.add("PIC", "2");
+            }
+
+            let formParam = new FormParam();
+            let viewerParam = new ViewerParam();
+            viewerParam.add("viewer.mode", "export");
+            viewerParam.add("viewer.useprogressbar", "false");
+            viewerParam.add("viewer.exportcommand", "true");
+            viewerParam.add("export.mode", "silent");
+            viewerParam.add("export.path", "C:\\");
+            viewerParam.add("export.filename", "certi");
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.confirmsave", "false");
+            viewerParam.add("export.target", "email");
+
+            $c.gus.cfOZExport("/il/acc/ac_101_01_01_air.ozr", odiParam, viewerParam, formParam);
+        }
+        OZExecuteBatch();
+    };
+
+    scwin.f_RetrieveTaxPrint = async function() {
+        let row = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(row, "sellVatNo") == "") {
+            await $c.win.alert("세금계산서 / 전표를 먼저 생성 하세요");
+            return;
+        }
+        scwin.hid_sellVatNo = ds_invoiceList.getCellData(row, "sellVatNo");
+        dma_search.set("sellVatNo", ds_invoiceList.getCellData(row, "sellVatNo"));
+        await $c.sbm.execute(sbm_retrieveTaxPrint);
+    };
+
+    scwin.sbm_retrieveTaxPrint_submitdone = async function(e) {
+        scwin.f_TaxPrint();
+    };
+
+    scwin.sbm_retrieveTaxPrint_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.f_RetrieveCertiPrint = async function() {
+        let row = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(row, "certiNo") == "") {
+            await $c.win.alert("Invoice를 먼저 생성 하세요");
+            return;
+        }
+        dma_search.set("certiNo", ds_invoiceList.getCellData(row, "certiNo"));
+        await $c.sbm.execute(sbm_retrieveCertiPrint);
+    };
+
+    scwin.sbm_retrieveCertiPrint_submitdone = async function(e) {
+        scwin.f_CertiPrint();
+    };
+
+    scwin.sbm_retrieveCertiPrint_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.f_RetrieveCommon = async function() {
+        ds_invoiceCommon.removeAll();
+        ds_invoiceFreight.removeAll();
+        await $c.sbm.execute(sbm_retrieveCommon);
+    };
+
+    scwin.sbm_retrieveCommon_submitdone = async function(e) {
+        if (ds_invoiceCommon.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+            scwin.processFlag = "INIT";
+            scwin.f_Set("INIT");
+        } else {
+            for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                if (ds_invoiceCommon.getCellData(i, "certiNo") == "") {
+                    ds_invoiceCommon.setCellData(i, "spplyAmt", 0);
+                    ds_invoiceCommon.setCellData(i, "spplyAmtFcrc", 0);
+                    ds_invoiceCommon.setCellData(i, "vatAmt", 0);
+                    ds_invoiceCommon.setCellData(i, "fcrcBilgAmt", 0);
+                    ds_invoiceCommon.setCellData(i, "bilgAmt", 0);
+                    ds_invoiceCommon.setCellData(i, "bilgAmtFcrc", 0);
+                }
+                if (ds_invoiceCommon.getCellData(i, "chk") == "F") {
+                    ds_invoiceCommon.setCellData(i, "chk", "T");
+                }
+                ds_invoiceCommon.setCellData(i, "spplyAmtOri",
+                    Number(ds_invoiceCommon.getCellData(i, "spplyAmt")) + Number(ds_invoiceCommon.getCellData(i, "vatAmt")));
+            }
+        }
+
+        ica_bilgIntendDt.setValue(scwin.hid_intendDt);
+        ed_bilgPicNo.setValue(scwin.hid_bilgPicNo);
+        txt_bilgPicNm.setValue(scwin.hid_bilgPicNm);
+
+        let listRow = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(listRow, "certiNo") == "" && ds_invoiceList.getCellData(listRow, "bilgClntNo") == "308556") {
+            scwin.f_heinzRmk();
+        }
+
+        if (ds_invoiceFreight.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+            scwin.processFlag = "INIT";
+            scwin.f_Set("INIT");
+        } else {
+            scwin.hid_commNm = ds_invoiceFreight.getCellData(0, "commNm");
+            for (let i = 0; i < ds_invoiceFreight.getRowCount(); i++) {
+                if (ds_invoiceFreight.getCellData(i, "chk") == "F") {
+                    ds_invoiceFreight.setCellData(i, "chk", "T");
+                }
+            }
+        }
+    };
+
+    scwin.sbm_retrieveCommon_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+        chb_billgb.setValue("");
+    };
+
+    scwin.f_Create = async function() {
+        scwin.f_Set("CREATE");
+        scwin.f_billgbSetting();
+        ica_bilgIntendDt.setValue(scwin.nowDt);
+        ica_bilgIntendDt.setFocus();
+    };
+
+    scwin.f_Update = async function() {
+        scwin.f_Set("UPDATE");
+        ica_bilgIntendDt.setFocus();
+    };
+
+    scwin.f_Undo = async function() {
+        ds_invoiceList.undoRow(ds_invoiceList.getRowPosition());
+        ds_invoiceCommon.undoRow(ds_invoiceCommon.getRowPosition());
+        ds_invoiceFreight.removeAll();
+        scwin.f_Set("CANCEL");
+    };
+
+    scwin.f_Save = async function() {
+        let vCountRow = ds_invoiceList.getRowCount();
+
+        for (let i = 0; i < vCountRow; i++) {
+            let vCurRowStatus = ds_invoiceList.getRowStatus(i);
+            if (vCurRowStatus == "U" || vCurRowStatus == "D") {
+                if (ds_invoiceList.getCellData(i, "slipNo") != "") {
+                    await $c.gus.cfAlertMsg(scwin.E_MSG_ERR_001, [ds_invoiceList.getCellData(i, "slipNo")]);
+                    return;
+                }
+            }
+        }
+
+        if (ds_invoiceCommon.getRowCount() < 1) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Invoice"]);
+            return false;
+        }
+
+        if (ds_invoiceFreight.getRowCount() < 1) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Invoice"]);
+            return false;
+        }
+
+        if (ds_invoiceList.getUpdatedIndex().length == 0 && ds_invoiceCommon.getUpdatedIndex().length == 0 && ds_invoiceFreight.getUpdatedIndex().length == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_001, ["Invoice"]);
+            return false;
+        }
+
+        if ($c.gus.cfGetByteLength(txa_summary.getValue()) > 500) {
+            await $c.gus.cfAlertMsg("Remark는 공백포함 영문500자, 한글250자 만 입력가능합니다.");
+            txa_summary.setFocus();
+            return;
+        }
+
+        if (ds_invoiceCommon.getRowCount() > 1) {
+            for (let i = 1; i < ds_invoiceCommon.getRowCount(); i++) {
+                if (ds_invoiceCommon.getCellData(0, "summary") != "") {
+                    ds_invoiceCommon.setCellData(i, "summary", ds_invoiceCommon.getCellData(0, "summary"));
+                }
+            }
+        }
+
+        let fcodecnt = 0;
+        let fcodesum = 0;
+        let fcode = "";
+        let wfcode = 0;
+        let tfcode = 0;
+
+        for (let i = 0; i < ds_invoiceFreight.getRowCount(); i++) {
+            if (ds_invoiceFreight.getCellData(i, "chk") == "T") {
+                if (ds_invoiceFreight.getCellData(i, "fareEngCd") == "WFG" || ds_invoiceFreight.getCellData(i, "fareEngCd") == "TSG") {
+                    fcodesum += Number(ds_invoiceFreight.getCellData(i, "sellAmt"));
+                    if (ds_invoiceFreight.getCellData(i, "fareEngCd") == "WFG") { wfcode++; }
+                    if (ds_invoiceFreight.getCellData(i, "fareEngCd") == "TSG") { tfcode++; }
+                    fcodecnt++;
+                }
+            }
+        }
+
+        if (wfcode > 0 && tfcode > 0) { fcode = "WFG/TSG"; }
+        else if (wfcode > 0) { fcode = "WFG"; }
+        else if (tfcode > 0) { fcode = "TSG"; }
+
+        if (fcodecnt > 0) {
+            for (let i = 0; i < ds_invoiceFreight.getRowCount(); i++) {
+                if (ds_invoiceFreight.getCellData(i, "chk") == "T" && Number(ds_invoiceFreight.getCellData(i, "vatAmt")) == 0) {
+                    ds_invoiceFreight.setCellData(i, "summary", fcode + " : " + fcodesum + "  " + ds_invoiceCommon.getCellData(0, "crcCd"));
+                }
+            }
+        }
+
+        if (scwin.f_chk_billgbSetting()) {
+            let chkValid = await scwin.f_ReqFieldChk();
+            if (chkValid) {
+                let chk = await $c.gus.cfConfirmMsg(E_MSG_CM_CRM_001);
+                if (chk) {
+                    await $c.sbm.execute(sbm_save);
+                    scwin.processFlag = "RETRIEVE";
+                    scwin.f_Set("RETRIEVE");
+                }
+            }
+        }
+    };
+
+    scwin.f_PrtnGrpNo = async function() {
+        let cf = ds_invoiceList.getRowCount();
+
+        for (let i = 0; i < cf; i++) {
+            if (ds_invoiceList.getCellData(i, "prtnGrpNo") != "") {
+                ds_invoiceList.setCellData(i, "prtnGrpNo", ed_prtnGrpNo.getValue());
+            }
+        }
+
+        let row = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(row, "slipNo") != "") {
+            await $c.gus.cfAlertMsg(scwin.E_MSG_ERR_001, [ds_invoiceList.getCellData(row, "slipNo")]);
+            return;
+        }
+
+        if (ds_invoiceCommon.getRowCount() < 1) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Invoice"]);
+            return false;
+        }
+
+        if (ds_invoiceFreight.getRowCount() < 1) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Invoice"]);
+            return false;
+        }
+
+        if (ds_invoiceList.getUpdatedIndex().length == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_001, ["Invoice"]);
+            return false;
+        }
+
+        let chk = await $c.gus.cfConfirmMsg(E_MSG_CM_CRM_001);
+        if (chk) {
+            await $c.sbm.execute(sbm_prtnGrpNo);
+            scwin.processFlag = "RETRIEVE";
+            scwin.f_Set("RETRIEVE");
+        }
+    };
+
+    scwin.f_Delete = async function() {
+        let row = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(row, "slipNo") != "") {
+            await $c.gus.cfAlertMsg(scwin.E_MSG_ERR_001, [ds_invoiceList.getCellData(row, "slipNo")]);
+            return;
+        }
+
+        let chk = await $c.gus.cfConfirmMsg(E_MSG_CM_CRM_004);
+        if (chk) {
+            let cf = ds_invoiceCommon.getRowCount();
+            for (let i = cf - 1; i >= 0; i--) {
+                if (ds_invoiceCommon.getCellData(i, "chk") == "T") {
+                    ds_invoiceCommon.removeRow(i);
+                }
+            }
+            await $c.sbm.execute(sbm_save);
+        }
+    };
+
+    scwin.f_ReqFieldChk = async function() {
+        let chk = await $c.gus.cfValidate([oDetailInfo]);
+        return chk;
+    };
+
+    scwin.f_SlipPopUp = async function() {
+        let cf = ds_invoiceCommon.getRowCount();
+        for (let i = 0; i < cf; i++) {
+            if (ds_invoiceCommon.getCellData(i, "chk") == "T") {
+                if (ds_invoiceCommon.getCellData(i, "prtnGrpNo") != "") {
+                    let listRow = ds_invoiceList.getRowPosition();
+                    let blno = ds_invoiceList.getCellData(listRow, "blno");
+                    let intendDt = ica_bilgIntendDt.getValue().trim();
+                    let kcomcd = ds_invoiceList.getCellData(listRow, "kcomcd");
+                    let prtnGrpNo = ds_invoiceList.getCellData(listRow, "prtnGrpNo");
+                    let seaair = ds_invoiceList.getCellData(listRow, "seaair");
+                    let iogb = ds_invoiceList.getCellData(listRow, "iogb");
+                    let bilgClntNo = ds_invoiceList.getCellData(listRow, "bilgClntNo");
+                    let userId = ds_invoiceList.getCellData(listRow, "modId");
+                    let type = acb_printOp.getValue();
+                    let rmk = rd_billgb.getValue();
+                    let remark = txa_summary.getValue();
+                    let summary = ds_invoiceFreight.getCellData(0, "summary");
+                    let eng = rd_enggb.getValue();
+                    let locPtnCls = "1";
+                    let pic = (ed_bilgPicNo.getValue() != "") ? 1 : 2;
+
+                    $c.gus.cfCopyDataSet(ds_invoiceCommon, ds_certiCommonDs, "copyHeader=yes");
+                    ds_certiCommonDs.setCellData(0, "receptClsCd", "02");
+
+                    let obj = {
+                        blno: blno,
+                        intendDt: intendDt,
+                        kcomcd: kcomcd,
+                        prtnGrpNo: prtnGrpNo,
+                        seaair: seaair,
+                        iogb: iogb,
+                        bilgClntNo: bilgClntNo,
+                        userId: userId,
+                        type: type,
+                        rmk: rmk,
+                        remark: remark,
+                        eng: eng,
+                        locPtnCls: locPtnCls,
+                        pic: pic,
+                        summary: summary,
+                        ds_certiCommonDs: ds_certiCommonDs,
+                        commNm: scwin.hid_commNm
+                    };
+
+                    let returnValue = await $c.win.openPopup("/ui/ds/fs/bilg/fs_202_06_03p.xml", {
+                        width: 630,
+                        height: 710,
+                        modal: true,
+                        data: obj
+                    });
+
+                    if (returnValue != null) {
+                        if (returnValue[0] != undefined) {
+                            scwin.dtl_sellVatNo = returnValue[0];
+                        }
+                        if (returnValue[1] == "TRUE") {
+                            scwin.f_Retrieve();
+                        }
+                    }
+                } else {
+                    await $c.gus.cfAlertMsg(MSG_FS_WRN_002);
+                    return;
+                }
+            }
+        }
+    };
+
+    scwin.f_SlipCreate = async function() {
+        let listRow = ds_invoiceList.getRowPosition();
+        let bilgLodeptCd = ed_dept.getValue().trim();
+        let bilgLodeptNm = txt_deptnm.getValue().trim();
+        let bilgClntNo = ed_bilgClntNo.getValue().trim();
+        let bilgClntNm = txt_bilgClntNm.getValue().trim();
+        let certiPatternCd = "04";
+        let qryConDtFm = ica_bilgIntendDt.getValue().trim();
+        let qryConDtTo = ica_bilgIntendDt.getValue().trim();
+        let taxnClsCd = "01";
+
+        if (Number(ds_invoiceList.getCellData(listRow, "sumVatAmt")) == 0) {
+            taxnClsCd = "02";
+            if (acb_taxnClsCd.getValue() == "03") {
+                taxnClsCd = "03";
+            }
+        }
+
+        let kcomcd = ds_invoiceList.getCellData(listRow, "kcomcd");
+        let seaair = ds_invoiceList.getCellData(listRow, "seaair");
+        let iogb = ds_invoiceList.getCellData(listRow, "iogb");
+        let userId = ds_invoiceList.getCellData(listRow, "modId");
+        let type = acb_printOp.getValue();
+        let rmk = rd_billgb.getValue();
+        let eng = rd_enggb.getValue();
+        let locPtnCls = "1";
+        let pic = (ed_bilgPicNo.getValue() != "") ? 1 : 2;
+
+        let paramObj = {
+            bilgLodeptCd: bilgLodeptCd,
+            bilgLodeptNm: bilgLodeptNm,
+            bilgClntNo: bilgClntNo,
+            bilgClntNm: bilgClntNm,
+            certiPatternCd: certiPatternCd,
+            qryConDtFm: qryConDtFm,
+            qryConDtTo: qryConDtTo,
+            taxnClsCd: taxnClsCd,
+            kcomcd: kcomcd,
+            seaair: seaair,
+            iogb: iogb,
+            userId: userId,
+            type: type,
+            rmk: rmk,
+            eng: eng,
+            locPtnCls: locPtnCls,
+            pic: pic
+        };
+
+        $c.win.openMenu("청구세금계산서일괄생성", "/ui/ds/fs/bilg/fs_202_06_05b.xml", "fs_202_06_05b.xml", paramObj);
+    };
+
+    scwin.f_PopUp = async function(disGubun, chgGubun) {
+        switch (disGubun) {
+            case "bilgClntNo":
+                udc_bilgClnt.ilCommonPopUp(scwin.callbackBilgClnt,
+                    cnd_ed_bilgClntNo.getValue().trim(),
+                    cnd_txt_bilgClntNm.getValue(),
+                    chgGubun, "5", "Customer", "140,300",
+                    null, null, "500", "500", null, null, null,
+                    "F", "Customer Search,Customer Code,Customer Name");
+                break;
+            case 2:
+                if (ed_bilgClntNo.getValue().trim() == "") {
+                    await $c.gus.cfAlertMsg(E_MSG_CM_ERR_056, ["Customer"]);
+                    ed_bilgClntNo.setFocus();
+                    return;
+                }
+                udc_bilgPic.ilCommonPopUp(scwin.callbackBilgPic,
+                    ed_bilgPicNo.getValue().trim(),
+                    txt_bilgPicNm.getValue(),
+                    chgGubun, "4", "PIC", "100,350",
+                    null, ed_bilgClntNo.getValue().trim(), "500", "500", null, null, null,
+                    "T", null);
+                break;
+            case 3:
+                udc_dept.ilCommonPopUp(scwin.callbackDept,
+                    cnd_ed_dept.getValue().trim(),
+                    cnd_txt_deptnm.getValue(),
+                    "T", "2", "Code, Name", "80,230",
+                    "3,4,5,6,7,8,9,10", null, null, null, null, null, null,
+                    "F", "Department,Code,Name", "F");
+                break;
+            default:
+                break;
+        }
+    };
+
+    scwin.callbackBilgClnt = async function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, cnd_ed_bilgClntNo, cnd_txt_bilgClntNm);
+    };
+
+    scwin.callbackBilgPic = async function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, ed_bilgPicNo, txt_bilgPicNm, ed_bilgClntNo);
+    };
+
+    scwin.callbackDept = async function(rtnList) {
+        $c.gus.cfSetReturnValue(rtnList, cnd_ed_dept, cnd_txt_deptnm);
+    };
+
+    scwin.f_MhnoLoading = async function(mhgb, blno) {
+        let strClntNo = blno;
+        if (strClntNo.length > 0) {
+            let param1 = strClntNo;
+            let seaairVal = acb_seaair.getValue();
+            let iogbVal = acb_iogb.getValue();
+            let queryId = "";
+
+            if (seaairVal == "A") {
+                queryId = (mhgb == "M") ? "retriveAirMasterMhnoListCombo" : "retriveAirHouseMhnoListCombo";
+            } else if (seaairVal == "S") {
+                queryId = (mhgb == "M") ? "retriveSeaMasterMhnoListCombo" : "retriveSeaHouseMhnoListCombo";
+            } else if (seaairVal == "T") {
+                if (mhgb == "M") {
+                    await $c.win.alert("After House B/L No Input. Search Pls.");
+                    return;
+                } else {
+                    queryId = "retriveTransMhnoListCombo";
+                }
+            }
+            // TODO: ds_mhno combo loading via sbm_mhnoLoading with queryId, param1, iogbVal
+            await $c.sbm.execute(sbm_mhnoLoading);
+        }
+    };
+
+    scwin.sbm_mhnoLoading_submitdone = async function(e) {
+        if (ds_mhno.getRowCount() == 0) {
+            await $c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+        } else {
+            if (scwin.paramMblno != "" || scwin.paramBlno != "") {
+                scwin.f_Retrieve();
+            }
+        }
+    };
+
+    scwin.sbm_mhnoLoading_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.f_Print = async function() {
+        let preChecked = (chb_pre.getValue() != "" && chb_pre.getValue() != "0");
+        let directSaveChecked = (chb_directSave.getValue() != "" && chb_directSave.getValue() != "0");
+
+        if (preChecked && directSaveChecked) {
+            await $c.win.alert("미리보기 와 바로저장을 동시에 체크할 수 없습니다.");
+            chb_pre.setValue("");
+            chb_directSave.setValue("");
+            return false;
+        }
+
+        let row = ds_invoiceList.getRowPosition();
+        let printOpVal = acb_printOp.getValue();
+
+        if (printOpVal == "4" || printOpVal == "2" || printOpVal == "6") {
+            if (ica_bilgIntendDt.getValue() == "") {
+                let param = "";
+                for (let i = 0; i < ds_invoiceFreight.getRowCount(); i++) {
+                    if (ds_invoiceFreight.getCellData(i, "chk") == "T") {
+                        param = param + "," + ds_invoiceFreight.getCellData(i, "sellSeq");
+                    }
+                }
+
+                if (ds_invoiceList.getCellData(row, "seaair") == "S") {
+                    let odiParam = new ODIParam("ac_101_01_01_sea");
+                    odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+                    odiParam.add("SEAAIR", "S");
+                    odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+                    odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+                    odiParam.add("USER_ID", scwin.vUserId);
+                    odiParam.add("TYPE", printOpVal);
+                    odiParam.add("RMK", rd_billgb.getValue());
+                    odiParam.add("REMARK", txa_summary.getValue());
+                    odiParam.add("ENG", rd_enggb.getValue());
+                    odiParam.add("RECEIVE_SELLING_YN", ds_invoiceList.getCellData(row, "receiveSellingYn"));
+                    odiParam.add("ODR_NO", ds_invoiceFreight.getCellData(ds_invoiceFreight.getRowPosition(), "odrNo"));
+                    odiParam.add("SELL_SEQ", param.substring(1));
+                    odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+                    let formParam = new FormParam();
+                    if (printOpVal == "2") {
+                        formParam.add("BILLING_DT", ica_tempBilgIntendDt.getValue());
+                    }
+
+                    let viewerParam = new ViewerParam();
+                    if (preChecked) {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("viewer.mode", "preview");
+                        viewerParam.add("print.mode", "print");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else if (directSaveChecked) {
+                        viewerParam.add("viewer.useprogressbar", "false");
+                        viewerParam.add("viewer.mode", "export");
+                        viewerParam.add("export.mode", "silent");
+                        viewerParam.add("export.confirmsave", "false");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("print.mode", "silent");
+                    }
+                    $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_sea_02_temp.ozr", odiParam, viewerParam, formParam);
+                } else {
+                    let odiParam = new ODIParam("ac_101_01_01_air");
+                    odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+                    odiParam.add("SEAAIR", "A");
+                    odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+                    odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+                    odiParam.add("USER_ID", scwin.vUserId);
+                    odiParam.add("TYPE", printOpVal);
+                    odiParam.add("RMK", rd_billgb.getValue());
+                    odiParam.add("REMARK", txa_summary.getValue());
+                    odiParam.add("ENG", rd_enggb.getValue());
+                    odiParam.add("RECEIVE_SELLING_YN", ds_invoiceList.getCellData(row, "receiveSellingYn"));
+                    odiParam.add("ODR_NO", ds_invoiceFreight.getCellData(ds_invoiceFreight.getRowPosition(), "odrNo"));
+                    odiParam.add("SELL_SEQ", param.substring(1));
+                    odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+                    let formParam = new FormParam();
+                    formParam.add("PIC_NAME", txt_bilgPicNm.getValue());
+
+                    let viewerParam = new ViewerParam();
+                    if (preChecked) {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("viewer.mode", "preview");
+                        viewerParam.add("print.mode", "print");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else if (directSaveChecked) {
+                        viewerParam.add("viewer.useprogressbar", "false");
+                        viewerParam.add("viewer.mode", "export");
+                        viewerParam.add("export.mode", "silent");
+                        viewerParam.add("export.confirmsave", "false");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("print.mode", "silent");
+                    }
+                    $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_air_02.ozr", odiParam, viewerParam, formParam);
+                }
+            } else {
+                if (ds_invoiceList.getCellData(row, "seaair") == "S") {
+                    let odiParam = new ODIParam("ac_101_01_01_sea");
+                    odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+                    odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+                    odiParam.add("SEAAIR", "S");
+                    odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+                    odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+                    odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+                    odiParam.add("TYPE", printOpVal);
+                    odiParam.add("RMK", rd_billgb.getValue());
+                    odiParam.add("REMARK", txa_summary.getValue());
+                    odiParam.add("ENG", rd_enggb.getValue());
+                    odiParam.add("RECEIVE_SELLING_YN", ds_invoiceList.getCellData(row, "receiveSellingYn"));
+                    odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+                    let formParam = new FormParam();
+                    formParam.add("PIC_NAME", txt_bilgPicNm.getValue());
+                    let viewerParam = new ViewerParam();
+                    if (preChecked) {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("viewer.mode", "preview");
+                        viewerParam.add("print.mode", "print");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else if (directSaveChecked) {
+                        viewerParam.add("viewer.useprogressbar", "false");
+                        viewerParam.add("viewer.mode", "export");
+                        viewerParam.add("export.mode", "silent");
+                        viewerParam.add("export.confirmsave", "false");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("print.mode", "silent");
+                    }
+                    $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_sea_01_temp.ozr", odiParam, viewerParam, formParam);
+                } else {
+                    let odiParam = new ODIParam("ac_101_01_01_air");
+                    odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+                    odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+                    odiParam.add("SEAAIR", "A");
+                    odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+                    odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+                    odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+                    odiParam.add("TYPE", printOpVal);
+                    odiParam.add("RMK", rd_billgb.getValue());
+                    odiParam.add("REMARK", txa_summary.getValue());
+                    odiParam.add("ENG", rd_enggb.getValue());
+                    odiParam.add("RECEIVE_SELLING_YN", ds_invoiceList.getCellData(row, "receiveSellingYn"));
+                    odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+                    let formParam = new FormParam();
+                    formParam.add("PIC_NAME", txt_bilgPicNm.getValue());
+                    let viewerParam = new ViewerParam();
+                    if (preChecked) {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("viewer.mode", "preview");
+                        viewerParam.add("print.mode", "print");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else if (directSaveChecked) {
+                        viewerParam.add("viewer.useprogressbar", "false");
+                        viewerParam.add("viewer.mode", "export");
+                        viewerParam.add("export.mode", "silent");
+                        viewerParam.add("export.confirmsave", "false");
+                        viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                        viewerParam.add("export.format", "pdf");
+                        viewerParam.add("export.path", "C:\\OZExport");
+                    } else {
+                        viewerParam.add("viewer.useprogressbar", "true");
+                        viewerParam.add("print.mode", "silent");
+                    }
+                    $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_air_01.ozr", odiParam, viewerParam, formParam);
+                }
+            }
+        } else {
+            if (ds_invoiceList.getCellData(row, "seaair") == "S") {
+                let odiParam = new ODIParam("ac_101_01_01_sea");
+                odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+                odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+                odiParam.add("SEAAIR", "S");
+                odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+                odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+                odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+                odiParam.add("TYPE", printOpVal);
+                odiParam.add("RMK", rd_billgb.getValue());
+                odiParam.add("REMARK", txa_summary.getValue());
+                odiParam.add("ENG", rd_enggb.getValue());
+                odiParam.add("RECEIVE_SELLING_YN", ds_invoiceList.getCellData(row, "receiveSellingYn"));
+                odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+                let formParam = new FormParam();
+                formParam.add("PIC_NAME", txt_bilgPicNm.getValue());
+                let viewerParam = new ViewerParam();
+                if (preChecked) {
+                    viewerParam.add("viewer.useprogressbar", "true");
+                    viewerParam.add("viewer.mode", "preview");
+                    viewerParam.add("print.mode", "print");
+                    viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                    viewerParam.add("export.format", "pdf");
+                    viewerParam.add("export.path", "C:\\OZExport");
+                } else if (directSaveChecked) {
+                    viewerParam.add("viewer.useprogressbar", "false");
+                    viewerParam.add("viewer.mode", "export");
+                    viewerParam.add("export.mode", "silent");
+                    viewerParam.add("export.confirmsave", "false");
+                    viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                    viewerParam.add("export.format", "pdf");
+                    viewerParam.add("export.path", "C:\\OZExport");
+                } else {
+                    viewerParam.add("viewer.useprogressbar", "true");
+                    viewerParam.add("print.mode", "silent");
+                }
+                $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_sea_01.ozr", odiParam, viewerParam, formParam);
+            } else {
+                let odiParam = new ODIParam("ac_101_01_01_air");
+                odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+                odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+                odiParam.add("SEAAIR", "A");
+                odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+                odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+                odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+                odiParam.add("TYPE", printOpVal);
+                odiParam.add("RMK", rd_billgb.getValue());
+                odiParam.add("REMARK", txa_summary.getValue());
+                odiParam.add("ENG", rd_enggb.getValue());
+                odiParam.add("RECEIVE_SELLING_YN", ds_invoiceList.getCellData(row, "receiveSellingYn"));
+                odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+                let formParam = new FormParam();
+                formParam.add("PIC_NAME", txt_bilgPicNm.getValue());
+                let viewerParam = new ViewerParam();
+                if (preChecked) {
+                    viewerParam.add("viewer.useprogressbar", "true");
+                    viewerParam.add("viewer.mode", "preview");
+                    viewerParam.add("print.mode", "print");
+                    viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                    viewerParam.add("export.format", "pdf");
+                    viewerParam.add("export.path", "C:\\OZExport");
+                } else if (directSaveChecked) {
+                    viewerParam.add("viewer.useprogressbar", "false");
+                    viewerParam.add("viewer.mode", "export");
+                    viewerParam.add("export.mode", "silent");
+                    viewerParam.add("export.confirmsave", "false");
+                    viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+                    viewerParam.add("export.format", "pdf");
+                    viewerParam.add("export.path", "C:\\OZExport");
+                } else {
+                    viewerParam.add("viewer.useprogressbar", "true");
+                    viewerParam.add("print.mode", "silent");
+                }
+                $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_air_01.ozr", odiParam, viewerParam, formParam);
+            }
+        }
+        OZExecuteBatch();
+    };
+
+    scwin.f_TaxPrint = async function() {
+        let preChecked = (chb_pre.getValue() != "" && chb_pre.getValue() != "0");
+        let directSaveChecked = (chb_directSave.getValue() != "" && chb_directSave.getValue() != "0");
+
+        if (preChecked && directSaveChecked) {
+            await $c.win.alert("미리보기 와 바로저장을 동시에 체크할 수 없습니다.");
+            chb_pre.setValue("");
+            chb_directSave.setValue("");
+            return false;
+        }
+
+        let row = ds_invoiceList.getRowPosition();
+        let odiParam = new ODIParam("ac_101_01_01");
+        odiParam.add("SEAAIR", ds_invoiceList.getCellData(row, "seaair"));
+        odiParam.add("PCHSSELLCLS", ds_invoiceList.getCellData(row, "sellVatNo"));
+        odiParam.add("SELL_VAT_NO", ds_invoiceList.getCellData(row, "sellVatNo"));
+        odiParam.add("RMK", rd_billgb.getValue());
+        odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+        let formParam = new FormParam();
+        let viewerParam = new ViewerParam();
+        if (preChecked) {
+            viewerParam.add("viewer.useprogressbar", "true");
+            viewerParam.add("viewer.mode", "preview");
+            viewerParam.add("print.mode", "print");
+            viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_TAX" + ds_invoiceList.getRowPosition());
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+        } else if (directSaveChecked) {
+            viewerParam.add("viewer.useprogressbar", "false");
+            viewerParam.add("viewer.mode", "export");
+            viewerParam.add("export.mode", "silent");
+            viewerParam.add("export.confirmsave", "false");
+            viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_TAX" + ds_invoiceList.getRowPosition());
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+        } else {
+            viewerParam.add("viewer.useprogressbar", "true");
+            viewerParam.add("print.mode", "silent");
+        }
+        $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01.ozr", odiParam, viewerParam, formParam);
+    };
+
+    scwin.f_BulkBlPrint = async function() {
+        let preChecked = (chb_pre.getValue() != "" && chb_pre.getValue() != "0");
+        let directSaveChecked = (chb_directSave.getValue() != "" && chb_directSave.getValue() != "0");
+
+        if (preChecked && directSaveChecked) {
+            await $c.win.alert("미리보기 와 바로저장을 동시에 체크할 수 없습니다.");
+            chb_pre.setValue("");
+            chb_directSave.setValue("");
+            return false;
+        }
+
+        let row = ds_invoiceList.getRowPosition();
+        let odiParam = new ODIParam("ac_101_01_01_bulk");
+        odiParam.add("KCOMCD", ds_invoiceList.getCellData(row, "kcomcd"));
+        odiParam.add("PRTN_GRP_NO", ds_invoiceList.getCellData(row, "prtnGrpNo"));
+        odiParam.add("SEAAIR", "S");
+        odiParam.add("IOGB", ds_invoiceList.getCellData(row, "iogb"));
+        odiParam.add("BILG_CLNT_NO", ds_invoiceList.getCellData(row, "bilgClntNo"));
+        odiParam.add("USER_ID", ds_invoiceList.getCellData(row, "modId"));
+        odiParam.add("TYPE", acb_printOp.getValue());
+        odiParam.add("RMK", rd_billgb.getValue());
+        odiParam.add("REMARK", txa_summary.getValue());
+        odiParam.add("ENG", rd_enggb.getValue());
+        odiParam.add("PIC", (ed_bilgPicNo.getValue() != "") ? "1" : "2");
+
+        let formParam = new FormParam();
+        let viewerParam = new ViewerParam();
+        if (preChecked) {
+            viewerParam.add("viewer.useprogressbar", "true");
+            viewerParam.add("viewer.mode", "preview");
+            viewerParam.add("print.mode", "print");
+            viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+        } else if (directSaveChecked) {
+            viewerParam.add("viewer.useprogressbar", "false");
+            viewerParam.add("viewer.mode", "export");
+            viewerParam.add("export.mode", "silent");
+            viewerParam.add("export.confirmsave", "false");
+            viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_INVOICE_" + ds_invoiceList.getCellData(row, "certiNo"));
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+        } else {
+            viewerParam.add("viewer.useprogressbar", "true");
+            viewerParam.add("print.mode", "silent");
+        }
+        $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_bulk.ozr", odiParam, viewerParam, formParam);
+        OZExecuteBatch();
+    };
+
+    scwin.f_CertiPrint = async function() {
+        let preChecked = (chb_pre.getValue() != "" && chb_pre.getValue() != "0");
+        let directSaveChecked = (chb_directSave.getValue() != "" && chb_directSave.getValue() != "0");
+
+        if (preChecked && directSaveChecked) {
+            await $c.win.alert("미리보기 와 바로저장을 동시에 체크할 수 없습니다.");
+            chb_pre.setValue("");
+            chb_directSave.setValue("");
+            return false;
+        }
+
+        let row = ds_invoiceList.getRowPosition();
+        let odiParam = new ODIParam("ac_101_01_01_certi");
+        odiParam.add("PCHSSELLCLS", ds_invoiceList.getCellData(row, "certiNo"));
+        odiParam.add("SEAAIR", ds_invoiceList.getCellData(row, "seaair"));
+        odiParam.add("certiNo", ds_invoiceList.getCellData(row, "certiNo"));
+        odiParam.add("bilgLodeptCd", ds_invoiceList.getCellData(row, "dept"));
+        odiParam.add("bilgClntNo", ds_invoiceList.getCellData(row, "bilgClntNo"));
+        odiParam.add("SELL_VAT_NO", ds_invoiceList.getCellData(row, "sellVatNo"));
+
+        let formParam = new FormParam();
+        let viewerParam = new ViewerParam();
+        if (preChecked) {
+            viewerParam.add("viewer.useprogressbar", "true");
+            viewerParam.add("viewer.mode", "preview");
+            viewerParam.add("print.mode", "print");
+            viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_CERTI");
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+        } else if (directSaveChecked) {
+            viewerParam.add("viewer.useprogressbar", "false");
+            viewerParam.add("viewer.mode", "export");
+            viewerParam.add("export.mode", "silent");
+            viewerParam.add("export.confirmsave", "false");
+            viewerParam.add("export.filename", ds_invoiceList.getCellData(row, "blno") + "_CERTI");
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+        } else {
+            viewerParam.add("viewer.useprogressbar", "true");
+            viewerParam.add("print.mode", "silent");
+        }
+        $c.gus.cfOZReport("", "chb_previewCheck", "/il/acc/ac_101_01_01_certi.ozr", odiParam, viewerParam, formParam);
+    };
+
+    scwin.f_FieldClear = async function() {
+        $c.gus.cfInitObjects(tb_retrieve, null);
+    };
+
+    scwin.f_lengthCheck = async function() {
+        if ($c.gus.cfGetByteLength(txa_summary.getValue()) > 500) {
+            await $c.gus.cfAlertMsg("Remark는 공백포함 영문500자, 한글250자 만 입력가능합니다.");
+            txa_summary.setValue(txa_summary.getValue().substring(0, 500));
+            txa_summary.setFocus();
+            return;
+        }
+    };
+
+    scwin.f_openPgm = async function(name) {
+        if (name == "Profit") {
+            let paramObj = {
+                kcomcd: "",
+                seaair: acb_seaair.getValue(),
+                iogb: acb_iogb.getValue(),
+                blno: cnd_ed_blno.getValue(),
+                mblno: cnd_ed_blno.getValue(),
+                mhno: acb_taxnClsCd.getValue()
+            };
+            $c.win.openMenu("Booking Sheet", "/ui/il/pfm/pfbs/pe_101_01_01b.xml", "pe_101_01_01b.xml", paramObj);
+        } else if (name == "RSM") {
+            let obj = {
+                seaair: acb_seaair.getValue(),
+                iogb: acb_iogb.getValue(),
+                paramTitle: "InvoicePopup"
+            };
+            let rtnList = await $c.win.openPopup("/ui/il/acc/acinv/ac_101_01_01p.xml", {
+                width: 1000,
+                height: 500,
+                modal: true,
+                data: obj
+            });
+            if (rtnList == null) {
+                return false;
+            }
+        }
+    };
+
+    scwin.f_regstEmail = async function() {
+        $c.win.openMenu("전자세금계산서거래처관리", "/ui/ac/fi/stdinfomgnt/fi_100_01_03b.xml", "fi_100_01_03b.xml");
+    };
+
+    scwin.f_SaveDocument = async function() {
+        if (ds_invoiceList.getRowCount() == 0) {
+            return;
+        }
+
+        let row = ds_invoiceList.getRowPosition();
+        if (ds_invoiceList.getCellData(row, "certiNo") == "") {
+            await $c.win.alert("Invoice를 먼저 생성 하세요");
+            return;
+        }
+
+        let obj = {
+            kcomcd: scwin.hid_kcomcd,
+            mblno: ed_mblno.getValue(),
+            blno: ed_blno.getValue(),
+            mhno: acb_taxnClsCd.getValue(),
+            certiNo: ds_invoiceList.getCellData(row, "certiNo"),
+            userId: scwin.vUserId,
+            prtnGrpNo: ds_invoiceList.getCellData(row, "prtnGrpNo"),
+            type: acb_seaair.getValue()
+        };
+
+        let rtrValue = await $c.win.openPopup("/ui/il/acc/acinv/ac_101_01_05b.xml", {
+            width: 560,
+            height: 500,
+            modal: true,
+            data: obj
+        });
+    };
+
+    scwin.f_billgbSetting = async function() {
+        chb_billgb.setValue("T");
+        let cr = ds_invoiceFreight.getRowCount();
+        if (cr > 0) {
+            for (let i = 0; i < cr; i++) {
+                if (ds_invoiceFreight.getCellData(i, "chk") == "T") {
+                    if (ds_invoiceFreight.getCellData(i, "crcCd").trim() != "KRW") {
+                        ds_invoiceFreight.setCellData(i, "crcCd", "KRW");
+                        ds_invoiceFreight.setCellData(i, "exRate", 0);
+                        ds_invoiceFreight.setCellData(i, "sellAmtFcrc", 0);
+                        ds_invoiceFreight.setCellData(i, "spplyAmtFcrc", 0);
+                        ds_invoiceFreight.setCellData(i, "bilgInscrpAmtFcrc", 0);
+                    }
+                }
+            }
+        }
+
+        let rc = ds_invoiceCommon.getRowCount();
+        if (rc > 0) {
+            for (let i = 0; i < rc; i++) {
+                ds_invoiceCommon.setCellData(i, "crcCd", "KRW");
+                ds_invoiceCommon.setCellData(i, "spplyAmtFcrc", 0);
+                ds_invoiceCommon.setCellData(i, "fcrcBilgAmt", 0);
+                ds_invoiceCommon.setCellData(i, "bilgAmtFcrc", 0);
+                ds_invoiceCommon.setCellData(i, "bilgAmt",
+                    Number(ds_invoiceCommon.getCellData(i, "spplyAmt")) + Number(ds_invoiceCommon.getCellData(i, "vatAmt")) - Number(ds_invoiceCommon.getCellData(i, "fcrcBilgAmt")));
+                ds_invoiceCommon.setCellData(i, "crcCd", "KRW");
+            }
+        }
+    };
+
+    scwin.f_chk_billgbSetting = async function() {
+        let rc = ds_invoiceCommon.getRowCount();
+        let cr = ds_invoiceFreight.getRowCount();
+        let cucd = (rc > 0) ? ds_invoiceCommon.getCellData(0, "crcCd") : "";
+
+        if (rc > 0 && cucd == "KRW") {
+            for (let i = 0; i < cr; i++) {
+                if (ds_invoiceFreight.getCellData(i, "chk") == "T") {
+                    if (ds_invoiceFreight.getCellData(i, "crcCd").trim() != "KRW") {
+                        await $c.win.alert("Billing Type이 원화입니다. \n재조회 후 진행하세요");
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    };
+
+    scwin.f_heinzRmk = async function() {
+        // TODO: load heinz info via sbm_heinzInfo
+        await $c.sbm.execute(sbm_heinzInfo);
+    };
+
+    scwin.sbm_heinzInfo_submitdone = async function(e) {
+        if (ds_heinzInfo.getRowCount() > 0) {
+            txa_summary.setValue(ds_heinzInfo.getCellData(0, "col1"));
+        }
+    };
+
+    scwin.sbm_save_submitdone = async function(e) {
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        scwin.f_Retrieve();
+    };
+
+    scwin.sbm_save_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_prtnGrpNo_submitdone = async function(e) {
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        scwin.f_Retrieve();
+    };
+
+    scwin.sbm_prtnGrpNo_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.gr_invoiceList_oncellclick = function(rowIndex, columnIndex, columnId) {
+        let row = ds_invoiceList.getRowPosition();
+        let kcomcd = ds_invoiceList.getCellData(row, "kcomcd");
+        let seaair = ds_invoiceList.getCellData(row, "seaair");
+        let iogb = ds_invoiceList.getCellData(row, "iogb");
+        let mblno = ds_invoiceList.getCellData(row, "mblno");
+        let blno = ds_invoiceList.getCellData(row, "blno");
+        let mhno = ds_invoiceList.getCellData(row, "mhno");
+        let certiNo = ds_invoiceList.getCellData(row, "certiNo");
+        let prtnGrpNo = ds_invoiceList.getCellData(row, "prtnGrpNo");
+        let bilgClntNo = ds_invoiceList.getCellData(row, "bilgClntNo");
+        let bilgClntNm = ds_invoiceList.getCellData(row, "bilgClntNm");
+        let vatYn = ds_invoiceList.getCellData(row, "vatYn");
+        let slipNo = ds_invoiceList.getCellData(row, "slipNo");
+        let odrNo = ds_invoiceList.getCellData(row, "odrNo");
+
+        dma_searchFreight.set("kcomcd", kcomcd);
+        dma_searchFreight.set("seaair", seaair);
+        dma_searchFreight.set("iogb", iogb);
+        dma_searchFreight.set("mblno", mblno);
+        dma_searchFreight.set("blno", blno);
+        dma_searchFreight.set("mhno", mhno);
+        dma_searchFreight.set("certiNo", certiNo);
+        dma_searchFreight.set("prtnGrpNo", prtnGrpNo);
+        dma_searchFreight.set("bilgClntNo", bilgClntNo);
+        dma_searchFreight.set("bilgClntNm", bilgClntNm);
+        dma_searchFreight.set("odrNo", odrNo);
+        dma_searchFreight.set("slipNo", slipNo);
+
+        if (mhno != "" && bilgClntNo != "") {
+            scwin.f_RetrieveCommon();
+        }
+
+        if (ds_invoiceCommon.getCellData(ds_invoiceCommon.getRowPosition(), "crcCd") == "KRW") {
+            chb_billgb.setValue("T");
+            chb_billgb.setDisabled(true);
+        } else {
+            chb_billgb.setValue("");
+            chb_billgb.setDisabled(true);
+        }
+    };
+
+    scwin.ds_invoiceList_onrowpositionchange = function(rowIndex, oldRow) {
+        let row = rowIndex;
+        if (row >= 0) {
+            let vRowStatus = ds_invoiceList.getRowStatus(row);
+
+            let kcomcd = ds_invoiceList.getCellData(row, "kcomcd");
+            let seaair = ds_invoiceList.getCellData(row, "seaair");
+            let iogb = ds_invoiceList.getCellData(row, "iogb");
+            let mblno = ds_invoiceList.getCellData(row, "mblno");
+            let blno = ds_invoiceList.getCellData(row, "blno");
+            let mhno = ds_invoiceList.getCellData(row, "mhno");
+            let certiNo = ds_invoiceList.getCellData(row, "certiNo");
+            let prtnGrpNo = ds_invoiceList.getCellData(row, "prtnGrpNo");
+            let bilgClntNo = ds_invoiceList.getCellData(row, "bilgClntNo");
+            let bilgClntNm = ds_invoiceList.getCellData(row, "bilgClntNm");
+            let slipNo = ds_invoiceList.getCellData(row, "slipNo");
+            let odrNo = ds_invoiceList.getCellData(row, "odrNo");
+            let intendDt = ds_invoiceList.getCellData(row, "confirmDt");
+            let bilgPicNo = ds_invoiceList.getCellData(row, "bilgPicNo");
+            let bilgPicNm = ds_invoiceList.getCellData(row, "bilgPicNm");
+
+            dma_searchFreight.set("kcomcd", kcomcd);
+            dma_searchFreight.set("seaair", seaair);
+            dma_searchFreight.set("iogb", iogb);
+            dma_searchFreight.set("mblno", mblno);
+            dma_searchFreight.set("blno", blno);
+            dma_searchFreight.set("mhno", mhno);
+            dma_searchFreight.set("certiNo", certiNo);
+            dma_searchFreight.set("prtnGrpNo", prtnGrpNo);
+            dma_searchFreight.set("bilgClntNo", bilgClntNo);
+            dma_searchFreight.set("bilgClntNm", bilgClntNm);
+            dma_searchFreight.set("odrNo", odrNo);
+            dma_searchFreight.set("slipNo", slipNo);
+
+            scwin.hid_intendDt = intendDt;
+            scwin.hid_bilgPicNo = bilgPicNo;
+            scwin.hid_bilgPicNm = bilgPicNm;
+
+            acb_taxnClsCd.setValue(ds_invoiceList.getCellData(row, "taxnClsCd"));
+            if (ds_invoiceList.getCellData(row, "taxnClsCd") == "") {
+                if (Number(ds_invoiceList.getCellData(row, "sumVatAmt")) == 0) {
+                    acb_taxnClsCd.setValue("02");
+                    $c.gus.cfDisableObjects([acb_taxnClsCd]);
+                } else {
+                    acb_taxnClsCd.setValue("01");
+                    $c.gus.cfEnableObjects([acb_taxnClsCd]);
+                }
+            }
+
+            if (vRowStatus == "R") {
+                $c.gus.cfDisableBtnOnly([btn_Print, btn_Create, btn_Update, btn_Cancel, btn_Save, btn_Delete]);
+                if (prtnGrpNo.trim() == "") {
+                    $c.gus.cfEnableBtnOnly([btn_Create]);
+                    scwin.processFlag = "INIT";
+                } else {
+                    $c.gus.cfDisableBtnOnly([btn_Cancel, btn_Create, btn_Save, btn_Update, btn_Delete, btn_Print, btn_Tax]);
+                    if (slipNo == "") {
+                        $c.gus.cfEnableBtnOnly([btn_Update, btn_Delete, btn_Print]);
+                        if (certiNo != "") {
+                            $c.gus.cfEnableBtnOnly([btn_Tax]);
+                        }
+                        scwin.processFlag = "RETRIEVE";
+                    } else {
+                        $c.gus.cfEnableBtnOnly([btn_Print, btn_Tax]);
+                        scwin.processFlag = "RETRIEVE";
+                    }
+                }
+            } else if (vRowStatus == "C") {
+                scwin.f_Set("CREATE");
+            } else if (vRowStatus == "U") {
+                scwin.f_Set("UPDATE");
+            }
+        } else {
+            scwin.f_Set("INIT");
+            scwin.processFlag = "INIT";
+        }
+    };
+
+    scwin.ds_invoiceList_oncelldatachange = function(info) {
+        let row = info.row;
+        let colid = info.colId;
+        if (ds_invoiceList.getRowCount() > 0) {
+            switch (colid) {
+                case "confirmDt":
+                    let confirmDt = ds_invoiceList.getCellData(row, "confirmDt");
+                    for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                        ds_invoiceCommon.setCellData(i, "confirmDt", confirmDt);
+                        ds_invoiceCommon.setCellData(i, "bilgIntendDt", confirmDt);
+                    }
+                    break;
+                case "bilgPicNo":
+                    let bpNo = ed_bilgPicNo.getValue();
+                    let bpNm = txt_bilgPicNm.getValue();
+                    for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                        ds_invoiceCommon.setCellData(i, "bilgPicNo", bpNo);
+                        ds_invoiceCommon.setCellData(i, "bilgPicNm", bpNm);
+                    }
+                    break;
+                case "clntBilgDocNo":
+                    let clntBilgDocNo = ds_invoiceList.getCellData(row, "clntBilgDocNo");
+                    for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                        ds_invoiceCommon.setCellData(i, "clntBilgDocNo", clntBilgDocNo);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    scwin.ds_invoiceFreight_oncelldatachange = function(info) {
+        let row = info.row;
+        let colid = info.colId;
+        let vatCnt = 0;
+        if (ds_invoiceFreight.getRowCount() > 0) {
+            if (colid == "chk") {
+                let refkey = ds_invoiceFreight.getCellData(row, "refkey");
+                let spplyAmt = Number(ds_invoiceFreight.getCellData(row, "sellAmt"));
+                let spplyAmtFcrc = Number(ds_invoiceFreight.getCellData(row, "sellAmtFcrc"));
+                let vatAmt = Number(ds_invoiceFreight.getCellData(row, "vatAmt"));
+                let fcrcBilgAmt = 0;
+
+                if (ds_invoiceFreight.getCellData(row, "crcCd") == "KRW") {
+                    fcrcBilgAmt = 0;
+                } else {
+                    fcrcBilgAmt = Number(ds_invoiceFreight.getCellData(row, "sellAmt"));
+                }
+                let bilgAmt = spplyAmt + vatAmt - fcrcBilgAmt;
+                let bilgAmtFcrc = Number(ds_invoiceFreight.getCellData(row, "sellAmtFcrc"));
+
+                for (let i = 0; i < ds_invoiceFreight.getRowCount(); i++) {
+                    if (ds_invoiceFreight.getCellData(i, "chk") == "T" && refkey == ds_invoiceFreight.getCellData(i, "refkey")) {
+                        vatCnt = vatCnt + 1;
+                    }
+                }
+
+                for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                    if (ds_invoiceFreight.getCellData(row, "chk") == "T" && refkey == ds_invoiceCommon.getCellData(i, "refkey")) {
+                        ds_invoiceCommon.setCellData(i, "spplyAmt", Number(ds_invoiceCommon.getCellData(i, "spplyAmt")) + spplyAmt);
+                        ds_invoiceCommon.setCellData(i, "spplyAmtFcrc", Number(ds_invoiceCommon.getCellData(i, "spplyAmtFcrc")) + spplyAmtFcrc);
+                        ds_invoiceCommon.setCellData(i, "vatAmt", Number(ds_invoiceCommon.getCellData(i, "vatAmt")) + vatAmt);
+                        ds_invoiceCommon.setCellData(i, "fcrcBilgAmt", Number(ds_invoiceCommon.getCellData(i, "fcrcBilgAmt")) + fcrcBilgAmt);
+                        ds_invoiceCommon.setCellData(i, "bilgAmt", Number(ds_invoiceCommon.getCellData(i, "bilgAmt")) + bilgAmt);
+                        ds_invoiceCommon.setCellData(i, "bilgAmtFcrc", Number(ds_invoiceCommon.getCellData(i, "bilgAmtFcrc")) + bilgAmtFcrc);
+                    } else if (ds_invoiceFreight.getCellData(row, "chk") == "F" && refkey == ds_invoiceCommon.getCellData(i, "refkey")) {
+                        ds_invoiceCommon.setCellData(i, "spplyAmt", Number(ds_invoiceCommon.getCellData(i, "spplyAmt")) - spplyAmt);
+                        ds_invoiceCommon.setCellData(i, "spplyAmtFcrc", Number(ds_invoiceCommon.getCellData(i, "spplyAmtFcrc")) - spplyAmtFcrc);
+                        ds_invoiceCommon.setCellData(i, "vatAmt", Number(ds_invoiceCommon.getCellData(i, "vatAmt")) - vatAmt);
+                        ds_invoiceCommon.setCellData(i, "fcrcBilgAmt", Number(ds_invoiceCommon.getCellData(i, "fcrcBilgAmt")) - fcrcBilgAmt);
+                        ds_invoiceCommon.setCellData(i, "bilgAmt", Number(ds_invoiceCommon.getCellData(i, "bilgAmt")) - bilgAmt);
+                        ds_invoiceCommon.setCellData(i, "bilgAmtFcrc", Number(ds_invoiceCommon.getCellData(i, "bilgAmtFcrc")) - bilgAmtFcrc);
+                    }
+                }
+
+                if (vatCnt < 1) {
+                    for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                        if (ds_invoiceCommon.getCellData(i, "chk") == "T" && refkey == ds_invoiceCommon.getCellData(i, "refkey")) {
+                            ds_invoiceCommon.setCellData(i, "chk", "F");
+                        }
+                    }
+                } else {
+                    for (let i = 0; i < ds_invoiceCommon.getRowCount(); i++) {
+                        if (ds_invoiceCommon.getCellData(i, "chk") == "F" && refkey == ds_invoiceCommon.getCellData(i, "refkey")) {
+                            ds_invoiceCommon.setCellData(i, "chk", "T");
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    scwin.ds_invoiceFreight_onrowpositionchange = function(rowIndex, oldRow) {
+        if (rowIndex >= 0) {
+            if (ds_invoiceFreight.getCellData(rowIndex, "certiNo") == "") {
+                // TODO: enable chk column editing
+            } else {
+                // TODO: disable chk column editing
+            }
+        }
+    };
+
+    scwin.ds_billgb_oncelldatachange = function(info) {
+        let row = info.row;
+        let colid = info.colId;
+        if (ds_invoiceList.getRowCount() > 0) {
+            switch (colid) {
+                case "billgb":
+                    let listRow = ds_invoiceList.getRowPosition();
+                    if (ds_invoiceList.getCellData(listRow, "certiNo") == "") {
+                        let billgbChecked = (chb_billgb.getValue() != "" && chb_billgb.getValue() != "0" && chb_billgb.getValue() != "F");
+                        if (!billgbChecked && acb_printOp.getValue() != "6") {
+                            scwin.f_RetrieveCommon();
+                        } else if (billgbChecked) {
+                            let cr = ds_invoiceFreight.getRowCount();
+                            if (cr > 0) {
+                                for (let i = 0; i < cr; i++) {
+                                    if (ds_invoiceFreight.getCellData(i, "chk") == "T") {
+                                        if (ds_invoiceFreight.getCellData(i, "crcCd").trim() != "KRW") {
+                                            ds_invoiceFreight.setCellData(i, "crcCd", "KRW");
+                                            ds_invoiceFreight.setCellData(i, "exRate", 0);
+                                            ds_invoiceFreight.setCellData(i, "sellAmtFcrc", 0);
+                                            ds_invoiceFreight.setCellData(i, "spplyAmtFcrc", 0);
+                                            ds_invoiceFreight.setCellData(i, "bilgInscrpAmtFcrc", 0);
+                                        }
+                                    }
+                                }
+                            }
+                            let rc = ds_invoiceCommon.getRowCount();
+                            if (rc > 0) {
+                                for (let i = 0; i < rc; i++) {
+                                    ds_invoiceCommon.setCellData(i, "crcCd", "KRW");
+                                    ds_invoiceCommon.setCellData(i, "spplyAmtFcrc", 0);
+                                    ds_invoiceCommon.setCellData(i, "fcrcBilgAmt", 0);
+                                    ds_invoiceCommon.setCellData(i, "bilgAmtFcrc", 0);
+                                    ds_invoiceCommon.setCellData(i, "bilgAmt",
+                                        Number(ds_invoiceCommon.getCellData(i, "spplyAmt")) + Number(ds_invoiceCommon.getCellData(i, "vatAmt")) - Number(ds_invoiceCommon.getCellData(i, "fcrcBilgAmt")));
+                                    ds_invoiceCommon.setCellData(i, "crcCd", "KRW");
+                                }
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    scwin.cnd_ed_bilgClntNo_onblur = function(e) {
+        let strClntNo = cnd_ed_bilgClntNo.getValue().trim();
+        if (strClntNo.length > 0) {
+            cnd_txt_bilgClntNm.setValue("");
+            scwin.f_PopUp("bilgClntNo", "T");
+        } else {
+            cnd_txt_bilgClntNm.setValue("");
+        }
+    };
+
+    scwin.cnd_ed_dept_onblur = function(e) {
+        let strClntNo = cnd_ed_dept.getValue().trim();
+        if (strClntNo.length > 0) {
+            cnd_txt_deptnm.setValue("");
+            scwin.f_PopUp(3, "T");
+        } else {
+            cnd_txt_deptnm.setValue("");
+        }
+    };
+
+    scwin.ed_bilgPicNo_onblur = function(e) {
+        let strClntNo = ed_bilgPicNo.getValue().trim();
+        if (strClntNo.length > 0) {
+            txt_bilgPicNm.setValue("");
+            scwin.f_PopUp(2, "T");
+        } else {
+            txt_bilgPicNm.setValue("");
+        }
+    };
+
+    scwin.acb_taxnClsCd_onchange = function(e) {
+        if (acb_taxnClsCd.getValue() == "03") {
+            let rc = ds_invoiceCommon.getRowCount();
+            if (rc > 0) {
+                for (let i = 0; i < rc; i++) {
+                    if (ds_invoiceCommon.getCellData(i, "taxnClsCd") == "02") {
+                        ds_invoiceCommon.setCellData(i, "taxnClsCd", acb_taxnClsCd.getValue());
+                    }
+                }
+            }
+        }
+    };
+
+    scwin.cnd_ed_blno_onblur = function(e) {
+        scwin.f_MhnoLoading("H", cnd_ed_blno.getValue().trim());
+    };
+
+    scwin.cnd_ed_mblno_onblur = function(e) {
+        scwin.f_MhnoLoading("M", cnd_ed_mblno.getValue().trim());
+    };
+
+    scwin.cnd_ed_prtnGrpNo_onblur = function(e) {
+        dma_search.set("prtnGrpNo", cnd_ed_prtnGrpNo.getValue().trim());
+    };
+
+    scwin.acb_printOp_onchange = function(e) {
+        if (acb_printOp.getValue() == "5") {
+            $c.gus.cfEnableBtnOnly([btn_Tax]);
+        }
+        if (acb_printOp.getValue() == "2") {
+            $c.gus.cfEnableObjects([ica_tempBilgIntendDt]);
+        } else {
+            $c.gus.cfDisableObjects([ica_tempBilgIntendDt]);
+            ica_tempBilgIntendDt.setValue("");
+        }
+        if (acb_printOp.getValue() == "6") {
+            for (let i = 0; i < ds_invoiceFreight.getRowCount(); i++) {
+                if (ds_invoiceFreight.getCellData(i, "crcCd") == "KRW") {
+                    ds_invoiceFreight.setCellData(i, "chk", "F");
+                } else {
+                    ds_invoiceFreight.setCellData(i, "chk", "T");
+                }
+            }
+        }
+    };
+
+    scwin.btn_retrieve_onclick = function(e) {
+        scwin.f_Retrieve();
+    };
+
+    scwin.btn_fieldClear_onclick = function(e) {
+        scwin.f_FieldClear();
+    };
+
+    scwin.btn_PrtnGrpNo_onclick = function(e) {
+        scwin.f_PrtnGrpNo();
+    };
+
+    scwin.btn_Cancel_onclick = function(e) {
+        scwin.f_Undo();
+    };
+
+    scwin.btn_Create_onclick = function(e) {
+        scwin.f_Create();
+    };
+
+    scwin.btn_Update_onclick = function(e) {
+        scwin.f_Update();
+    };
+
+    scwin.btn_Save_onclick = function(e) {
+        scwin.f_Save();
+    };
+
+    scwin.btn_Delete_onclick = function(e) {
+        scwin.f_Delete();
+    };
+
+    scwin.btn_Print_onclick = function(e) {
+        scwin.f_Print();
+    };
+
+    scwin.btn_Tax_onclick = function(e) {
+        scwin.f_RetrievePrint();
+    };
+
+    scwin.btn_Emart_onclick = function(e) {
+        scwin.f_SaveDocument();
+    };
+
+    scwin.btn_BulkBlPrint_onclick = function(e) {
+        scwin.f_BulkBlPrint();
+    };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Job Type " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_seaair" search="start" style="width:150px;"
+    								submenuSize="auto" ref="data:ds_search.seaair">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Export/Import " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_iogb" search="start" style="width:150px;"
+    								submenuSize="auto" ref="data:ds_search.iogb">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Master B/L No " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="cnd_ed_mblno" placeholder="" style="width:150px;" ref="data:ds_search.mblno"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="House B/L No " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="cnd_ed_blno" placeholder="" style="width:150px;" ref="data:ds_search.blno"></xf:input>
+    						</xf:group></xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Console No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_taxnClsCd" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Invoice Group No " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class="" id="cnd_ed_prtnGrpNo" placeholder="" style="width:150px;" ref="data:ds_search.prtnGrpNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Customer " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_bilgClnt" codeId="cnd_ed_bilgClntNo" nameId="cnd_txt_bilgClntNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Department" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_dept" codeId="cnd_ed_dept" nameId="cnd_txt_deptnm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_invoiceList" id="gr_invoiceList" style=""
+    					visibleRowNum="4" visibleRowNumFix="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="kcomcd" inputType="text" value="법인코드" width="80" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="certiNo" inputType="text" value="Invoice No" width="120"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="prtnGrpNo" inputType="text" value="Invoice No(G)" width="120"></w2:column>
+    							<w2:column displayMode="label" id="odrNo" inputType="text" value="Order No" width="120" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="mblno" inputType="text" value="Master B/L No" width="120"></w2:column>
+    							<w2:column displayMode="label" id="blno" inputType="text" value="House B/L No" width="120"></w2:column>
+    							<w2:column displayMode="label" id="mhno" inputType="text" value="CONSOL NO" width="120" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="seaair" inputType="text" value="해운 항공 Trans 구분" width="120"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="iogb" value="Import/Export 구분" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="bilgClntNo" value="Customer" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bilgClntNm" value="Customer Name" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bilgPicNo" value="청구처 담당자 코드" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="bilgPicNm" value="청구처 담당자 명" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="dept" value="부서코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="deptnm" value="부서코드 명" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="exdt" value="환율일" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="exgb" value="적용환율 TYPE" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="rate" value="환율" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="stdt" value="etd/eta" displayMode="label" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="dpcd" inputType="text" value="출발지(DEPARTURE) 코드" width="120"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="dpnm" inputType="text" value="출발지(DEPARTURE) 명" width="120"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="dstn" value="도착지 코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="dsnm1" value="도착지 명" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="fltno" value="편명 / vessel" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="mblHblCls" value="MASTER/HOUSE구분 (M/H)" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="cucd" value="Billing Type" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="EXP" value="Billing Type" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="bilgIntendDt" value="Billing Date" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="clntBilgDocNo" value="Customer INV No" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="prtnGrpNo" value="Print No" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="confirmDt" value="확인일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="fromArea" value="운송 FROM 지역코드" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="fromAreaNm" value="운송 FROM 지역명" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="fromDt" value="운송 FROM 일자" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="fromTm" value="운송 FROM 시간" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="toArea" value="운송 TO 지역코드" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="toAreaNm" value="운송 TO 지역명" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="toDt" value="운송 TO 일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="toTm" value="운송 TO 시간" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="transTyp" value="운송 Type" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="90" inputType="text" id="sumSellAmtFcrc" value="Amount" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="sumSellAmt" value="Amount(W)" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="sumVatAmt" value="VAT" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="Expr" value="Total" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="slipNo" value="Slip No" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="sellVatNo" value="Tax No" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="receiveSellingYn" value="영수거래처 여부" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="90" inputType="text" id="regId" value="담당자" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="kcomcd" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="certiNo" inputType="text" width="120" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="prtnGrpNo" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="odrNo" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="mblno" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="blno" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="mhno" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="seaair" inputType="text" width="120"></w2:column>
+    							<w2:column width="120" inputType="text" id="iogb" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bilgClntNo" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bilgClntNm" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bilgPicNo" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="bilgPicNm" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="dept" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="deptnm" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="exdt" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="exgb" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="rate" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="stdt" displayMode="label"></w2:column>
+    							<w2:column displayMode="label" id="dpcd" inputType="text" width="120"></w2:column>
+    							<w2:column displayMode="label" id="dpnm" inputType="text" width="120"></w2:column>
+    							<w2:column width="120" inputType="text" id="dstn" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="dsnm1" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="fltno" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="mblHblCls" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="cucd" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="EXP" displayMode="label" style="color:{if(cucd=;"></w2:column>
+    							<w2:column width="100" inputType="text" id="bilgIntendDt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="clntBilgDocNo" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="prtnGrpNo" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="confirmDt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="fromArea" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="fromAreaNm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="fromDt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="fromTm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="toArea" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="toAreaNm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="toDt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="toTm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="transTyp" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="sumSellAmtFcrc" displayMode="label" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    							<w2:column width="90" inputType="text" id="sumSellAmt" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="90" inputType="text" id="sumVatAmt" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="90" inputType="text" id="Expr" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="slipNo" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="sellVatNo" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="receiveSellingYn" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" id="regId" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row3">
+    							<w2:column width="80" inputType="text" style="" id="column146" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column145" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column144" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column143" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column142" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column141" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column140" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column139" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column138" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column137" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column136" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column135" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column134" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column133" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column132" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column131" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column130" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column129" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column128" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column127" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column126" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column125" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column124" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column123" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column122" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column121" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column120" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column119" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column118" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column117" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column116" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column115" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column114" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column113" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column112" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column111" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column110" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column109" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column108" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column107" value="" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="expression" style="" id="column106" value="" displayMode="label" expression="sum('sumSellAmtFcrc')" dataType="float" displayFormat="#,##0.00" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="expression" style="" id="column105" value="" displayMode="label" expression="sum('sumSellAmt')" dataType="number" displayFormat="#,###" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="expression" style="" id="column104" value="" displayMode="label" expression="sum('sumVatAmt')" dataType="number" displayFormat="#,###" textAlign="right"></w2:column>
+    							<w2:column width="90" inputType="text" style="" id="column103" value="" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" style="" id="column102" value="" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" style="" id="column101" value="" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" style="" id="column100" value="" displayMode="label"></w2:column>
+    							<w2:column width="90" inputType="text" style="" id="column99" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="caption"></xf:group>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:100px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:100px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:100px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width:100px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<xf:trigger class="btn" id="btn_PrtnGrpNo" style="" type="button" ev:onclick="scwin.btn_PrtnGrpNo_onclick">
+    								<xf:label><![CDATA[Group No]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="ed_prtnGrpNo" placeholder="" style="width:150px;" ref="data:ds_invoiceList.prtnGrpNo"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Master B/L No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mblno" placeholder="" style="width:150px;" ref="data:ds_invoiceList.mblno"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="House B/L No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_blno" placeholder="" style="width:150px;" ref="data:ds_invoiceList.blno"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="txt-blue" id="" label="Customer INV" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_clntBilgDocNo" placeholder="" style="width:150px;" ref="data:ds_invoiceCommon.clntBilgDocNo"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req txt-blue" id="" label="Billing Date" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_bilgIntendDt" pickerType="selectbox"
+    								placeholderLocaleRef="yearMonthDate" style="" ref="data:ds_invoiceCommon.bilgIntendDt" mandatory="true">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="txt-blue" id="" label="신고 유무" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_exgb" search="start" style="width:150px;"
+    								submenuSize="auto" ref="data:ds_invoiceList.exgb">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Customer" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input class="" id="ed_bilgClntNo" placeholder="" style="" ref="data:ds_invoiceList.bilgClntNo"></xf:input>
+    								<xf:input class="" id="txt_bilgClntNm" placeholder="" style="" ref="data:ds_invoiceList.bilgClntNm"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="txt-blue" id="" label="PIC" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_bilgPic" codeId="ed_bilgPicNo" nameId="txt_bilgPicNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Department" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input class="" id="ed_dept" placeholder="" style="" ref="data:ds_invoiceList.dept"></xf:input>
+    								<xf:input class="" id="txt_deptnm" placeholder="" style="" ref="data:ds_invoiceList.deptnm"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="EX Date/CUR" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_exdt" style="" ref="data:ds_invoiceList.exdt"></w2:inputCalendar>
+    								<xf:input class="tac" dataType="time" id="ed_cucd" style="width: 50px;" ref="data:ds_invoiceList.cucd"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Ex-Rate Type" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_printOp" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Ex-Rate" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_rate" placeholder="" style="width:150px;" ref="data:ds_invoiceList.rate"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="tabbox " id="" style="">
+    				<w2:tabControl alwaysDraw="false" class="wq_tab" id="" style="">
+    					<w2:tabs disabled="false" id="tabs1" label="Freight Info" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs2" label="Remark" style=""></w2:tabs>
+    					<w2:content alwaysDraw="false" id="content1" style="height: auto;">
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section3" style="">
+    							<w2:gridView class="wq_gvw" dataList="ds_invoiceFreight" id="gr_invoiceFreightList" readOnly="true" rowNumHeaderValue="No"
+    								rowNumWidth="50" style="" visibleRowNum="3" visibleRowNumFix="true" autoFit="allColumn">
+    								<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header1" style="">
+    									<w2:row id="row1" style="">
+    										<w2:column width="70" inputType="text" id="refkey" displayMode="label" value="참고번호"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column displayMode="label" id="chk" inputType="checkbox" width="40" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other"></w2:column>
+    										<w2:column displayMode="label" id="seq" inputType="text" width="80" value="SEQ"></w2:column>
+    										<w2:column displayMode="label" id="certiNo" inputType="text" width="80" value="Invoice No"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column displayMode="label" id="bilgClntNo" inputType="text" width="80" value="Customer"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column displayMode="label" id="bilgClntNm" inputType="text" width="80" value="Name"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareGrpCd" value="Init" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="sellItemCd" value="통합매출입코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareEngCd" value="F/Code" displayMode="label"
+    											class="txt-red">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareEngNm" value="Name" displayMode="label"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="crcCd" value="CUR" displayMode="label"
+    											class="txt-red">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareUnit" value="Unit" displayMode="label"
+    											class="txt-red">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="chgWt" value="QTY" displayMode="label"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column displayMode="label" id="sellUpr" inputType="text" width="80" value="Rate"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column displayMode="label" id="sellAmtFcrc" inputType="text" width="80" value="Amount"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column displayMode="label" id="exRate" inputType="text" width="80" value="Ex-Rate"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column displayMode="label" id="sellAmt" inputType="text" width="80" value="Amount(W)"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column displayMode="label" id="vatAmt" inputType="text" width="80" value="VAT"
+    											class="txt-blue">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="Expr" value="Total" displayMode="label"></w2:column>
+    										<w2:column width="70" inputType="text" id="usdAmt" value="Amount(US$)" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="rsltsStdDt" value="Result" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="trfUpr" value="Tariff Rate" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="kcomcd" value="법인코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="mblno" value="Master B/L No" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="blno" value="House B/L No" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="mhno" value="CONSOL번호" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="iogb" value="Export / Import 구분"
+    											displayMode="label" hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="seaair" value="해운/항공/Trans 구분" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="odrNo" value="오더번호" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="sellSeq" value="매출순번" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="sellLodeptCd" value="부서 코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="sellItemCd" value="매출입항목코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareEngNm" value="영문 운임명" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareGrpCd" value="운임그룹코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="fareUnit" value="운임UNIT" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="locPtnCls" value="국내해외매출구분" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="mblHblCls" value="MASTER/HOUSE구분" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="drcrCls" value="매출/매입구분" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="ppccCls" value="PREPAID/COLLECT구분"
+    											displayMode="label" hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="crcCd" value="통화코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="qty" value="수량" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="grossWt" value="GROSS WEIGHT" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="trfUpr" value="TARIFF 단가" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="usdAmt" value="US 금액" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="exRate" value="환율" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="adptExchRt" value="적용환율" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="exRateTyp" value="적용환율 TYPE" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="rateCls" value="RATE CLASS" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="commItem" value="COMMODITY ITEM" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="prtnGrpNo" value="거래명세서 그룹번호" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="prtnUpr" value="출력용 단가" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="prtnAmt" value="출력용 금액" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="rsltsStdDt" value="실적일자" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="rmk" value="적요" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="bilgPicNo" value="청구처 담당자 코드" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="bilgPicNm" value="청구처 담당자 명" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" id="slipNo" value="Slip No" displayMode="label"
+    											hidden="true">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody1" style="">
+    									<w2:row id="row2" style="">
+    										<w2:column width="70" inputType="text" id="refkey" displayMode="label"></w2:column>
+    										<w2:column displayMode="label" id="chk" inputType="checkbox" width="40" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false"></w2:column>
+    										<w2:column displayMode="label" id="seq" inputType="text" width="80" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    										<w2:column displayMode="label" id="certiNo" inputType="text" width="80" readOnly="true"></w2:column>
+    										<w2:column displayMode="label" id="bilgClntNo" inputType="text" width="80" readOnly="true"></w2:column>
+    										<w2:column displayMode="label" id="bilgClntNm" inputType="text" width="80" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareGrpCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="sellItemCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareEngCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareEngNm" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="crcCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareUnit" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="chgWt" displayMode="label" readOnly="true" dataType="float" maxLength="0.3" displayFormat="#,##0.000"></w2:column>
+    										<w2:column displayMode="label" id="sellUpr" inputType="text" width="80" readOnly="true"></w2:column>
+    										<w2:column displayMode="label" id="sellAmtFcrc" inputType="text" width="80" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    										<w2:column displayMode="label" id="exRate" inputType="text" width="80" readOnly="true"></w2:column>
+    										<w2:column displayMode="label" id="sellAmt" inputType="text" width="80" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    										<w2:column displayMode="label" id="vatAmt" inputType="text" width="80" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    										<w2:column width="70" inputType="text" id="Expr" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="usdAmt" displayMode="label" readOnly="true" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    										<w2:column width="70" inputType="text" id="rsltsStdDt" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="trfUpr" displayMode="label" readOnly="true" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    										<w2:column width="70" inputType="text" id="kcomcd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="mblno" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="blno" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="mhno" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="iogb" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="seaair" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="odrNo" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="sellSeq" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="sellLodeptCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="sellItemCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareEngNm" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareGrpCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="fareUnit" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="locPtnCls" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="mblHblCls" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="drcrCls" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="ppccCls" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="crcCd" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="qty" displayMode="label" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    										<w2:column width="70" inputType="text" id="grossWt" displayMode="label" readOnly="true" dataType="number" displayFormat="#,###"></w2:column>
+    										<w2:column width="70" inputType="text" id="trfUpr" displayMode="label" readOnly="true" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    										<w2:column width="70" inputType="text" id="usdAmt" displayMode="label" readOnly="true" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    										<w2:column width="70" inputType="text" id="exRate" displayMode="label" readOnly="true" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    										<w2:column width="70" inputType="text" id="adptExchRt" displayMode="label" readOnly="true" dataType="float" maxLength="0.2" displayFormat="#,##0.00"></w2:column>
+    										<w2:column width="70" inputType="text" id="exRateTyp" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="rateCls" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="commItem" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="prtnGrpNo" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="prtnUpr" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="prtnAmt" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="rsltsStdDt" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="rmk" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="bilgPicNo" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="bilgPicNm" displayMode="label" readOnly="true"></w2:column>
+    										<w2:column width="70" inputType="text" id="slipNo" displayMode="label" readOnly="true"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="" style="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    											tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					<xf:group id="" class="row-gap-8 mt8"><xf:group tagname="ul" id="" class="amt-wrap">
+    							<xf:group tagname="li" id="">
+    								<w2:textbox style="" id="" label="Print Option" class=""></w2:textbox>
+    								<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width:150px;" id="acb_printOp" class="">
+    								</w2:autoComplete>
+    							</xf:group>
+    							<xf:group tagname="li" style="" id="">
+    								<w2:textbox style="" id="" label="Remark표시여부" class=""></w2:textbox>
+    								<xf:select1 ref="" appearance="full" style="" id="rd_billgb" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[Yes]]></xf:label>
+    											<xf:value><![CDATA[]]></xf:value>
+    										</xf:item>
+    										<xf:item>
+    											<xf:label><![CDATA[No]]></xf:label>
+    											<xf:value><![CDATA[]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select1>
+    							</xf:group>
+    							<xf:group tagname="li" style="" id="">
+    								<xf:select ref="" appearance="full" style="" id="chb_pre" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[미리보기]]></xf:label>
+    											<xf:value><![CDATA[]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    								<xf:select ref="" appearance="full" style="" id="chb_directSave" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+    									<xf:choices>
+    										<xf:item>
+    											<xf:label><![CDATA[바로저장]]></xf:label>
+    											<xf:value><![CDATA[]]></xf:value>
+    										</xf:item>
+    									</xf:choices>
+    								</xf:select>
+    							</xf:group>
+    						</xf:group><xf:group tagname="ul" style="" id="" class="amt-wrap">
+    							<xf:group tagname="li" id="">
+    								<w2:textbox style="" id="" label="회계마감월" class=""></w2:textbox>
+    								<w2:inputCalendar pickerType="dynamic" placeholderLocaleRef="yearMonth" style="" id="ica_slipCloseYm" class="" calendarValueType="yearMonth" ref="data:ds_invoiceList.slipCloseYm">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="li" style="" id="">
+    								<w2:textbox style="" id="" label="세무마감월" class=""></w2:textbox>
+    								<w2:inputCalendar pickerType="dynamic" placeholderLocaleRef="yearMonth" style="" id="ica_taxCloseYm" class="" calendarValueType="yearMonth" ref="data:ds_invoiceList.taxCloseYm">
+    								</w2:inputCalendar>
+    							</xf:group>
+    							<xf:group tagname="li" style="" id="">
+    								<w2:textbox style="" id="" label="경리용 Billing Date" class=""></w2:textbox>
+    								<w2:inputCalendar pickerType="selectbox" placeholderLocaleRef="yearMonthDate" style="" id="ica_tempBilgIntendDt" class="" calendarValueType="yearMonthDate">
+    								</w2:inputCalendar>
+    							</xf:group>
+    						</xf:group></xf:group></w2:content>
+    					<w2:content alwaysDraw="false" id="content2" style="">
+    						<xf:textarea class="" id="txa_summary" style="height: 200px;" ref="data:ds_invoiceCommon.summary"></xf:textarea>
+    					</w2:content>
+    				</w2:tabControl><xf:group class="right" id="">
+    					<xf:group style="width: 330px;" id="" class="flex-between">
+    						<xf:select ref="data:ds_billgb.billgb" appearance="full" style="" id="chb_billgb" renderType="checkboxgroup" rows="" selectedindex="-1" class="" cols="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[KRW]]></xf:label>
+    									<xf:value><![CDATA[]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select>
+    						<xf:select1 ref="" appearance="full" style="" id="rd_enggb" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[KOR]]></xf:label>
+    									<xf:value><![CDATA[1]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[ENG]]></xf:label>
+    									<xf:value><![CDATA[2]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select1>
+    						<xf:select1 ref="data:ds_invoiceCommon.prebilgYn" appearance="full" style="" id="rd_prebilgYn" renderType="radiogroup" rows="" class="" cols="" selectedIndex="-1">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[청구]]></xf:label>
+    									<xf:value><![CDATA[0]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[영수]]></xf:label>
+    									<xf:value><![CDATA[1]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select1>
+    					</xf:group><w2:udc_topGrdBtn grp="grd_section3" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group><xf:group class="btnbox" id="">
+    				<xf:group class="left" id="" style="">
+    					<xf:trigger class="btn link" id="" style="" type="button">
+    						<xf:label><![CDATA[Tax Create]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="" style="" type="button">
+    						<xf:label><![CDATA[Multi Tax Create]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="" style="" type="button">
+    						<xf:label><![CDATA[Profit]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="" style="" type="button">
+    						<xf:label><![CDATA[RSM Invoice]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btn_Cancel" label="저장" style="" type="button" ev:onclick="scwin.btn_Cancel_onclick">
+    						<xf:label>Cancel</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_Create" label="저장" style="" type="button" ev:onclick="scwin.btn_Create_onclick">
+    						<xf:label>Create</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Update" label="저장" style="" type="button" ev:onclick="scwin.btn_Update_onclick">
+    						<xf:label>Update</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Save" label="저장" style="" type="button" ev:onclick="scwin.btn_Save_onclick">
+    						<xf:label>Save</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Delete" label="저장" style="" type="button" ev:onclick="scwin.btn_Delete_onclick">
+    						<xf:label>Delete</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Print" label="저장" style="" type="button" ev:onclick="scwin.btn_Print_onclick">
+    						<xf:label>Print</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Tax" label="저장" style="" type="button" ev:onclick="scwin.btn_Tax_onclick">
+    						<xf:label>Tax Print</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_Emart" label="저장" style="" type="button" ev:onclick="scwin.btn_Emart_onclick">
+    						<xf:label>INV-Document</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn " id="btn_BulkBlPrint" label="저장" style="" type="button" ev:onclick="scwin.btn_BulkBlPrint_onclick">
+    						<xf:label>Bulk B/L Print</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+
+    			</xf:group>
+
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

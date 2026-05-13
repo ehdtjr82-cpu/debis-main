@@ -1,0 +1,677 @@
+/*amd /ui/ps/eq/fmsmgnt/fmsoilmgnt/eq_610_01_06b.xml 49839 2e681b17dcf1948b1afe68138f7a69437c6f5f4f1be37cc095d5280e510ad1b1 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'oilBizClsCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'selpchClsCd',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'oilUprrglClsCd',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'stdDt',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'oilTskClsCd',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'endDt',name:'name6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntNo',name:'name7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dcsnSts',name:'name8',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_oilUnitPrice',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'oilTskClsCd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilBizClsCd',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchClsCd',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilUprrglClsCd',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilkndCd',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stdDt',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'endDt',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'uprGasoline',name:'name10',dataType:'text',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'uprLight',name:'name11',dataType:'text',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'uprLpg',name:'name12',dataType:'text',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'bilgAcctDeptCd',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgAcctDeptNm',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellAcctDeptCd',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellAcctDeptNm',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'qty',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixEndDt',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selYn',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'confYn',name:'name35',dataType:'text'}},{T:1,N:'w2:column',A:{id:'apprvStsCd',name:'name36',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDt',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regNm',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modNm',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellClntNo',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellClntNm',name:'name33',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcUpr',name:'name34',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oilSellClsCd',name:'name40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'toQty',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDt',name:'name47',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_approve'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'apprvDocKndCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'reqUserId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'epUserId',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'apprvTitle',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'apprvDtlInfo',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'OilunitPriceList',name:'name6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bmodifylines',name:'name7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bmodifybody',name:'name8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bmodifyattach',name:'name9',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ps.eq.fmsmgnt.fmsoilmgnt.RetrieveFmsOilUnitPriceCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_oilUnitPrice","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_oilUnitPrice","key":"OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_saveOilPrice',action:'/ps.eq.fmsmgnt.fmsoilmgnt.RegistFmsOilUnitPriceCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_oilUnitPrice","key":"IN_DS1" }]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_fixEndDt',action:'/ps.eq.fmsmgnt.fmsoilmgnt.UpdateFixEndDtCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_oilUnitPrice","key":"IN_DS1","action":"modified"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//전역변수
+scwin.strCurDate = "";
+scwin.ed_stdDt = "";
+scwin.userInfo = "";
+scwin.empNo = "";
+scwin.epId = "";
+scwin.deptCd = "";
+scwin.curRow = "";
+scwin.curCol = "";
+scwin.onpageload = function () {
+  scwin.strCurDate = $c.date.getServerDateTime($p, "yyyyMMdd");
+  scwin.ed_stdDt = $c.date.getServerDateTime($p, "yyyyMM") + "01"; //당월 1일
+  scwin.userInfo = $c.data.getMemInfo($p);
+  scwin.empNo = scwin.userInfo.empNo;
+  scwin.epId = scwin.userInfo.epId;
+  scwin.deptCd = "00276";
+  const codeOptions = [{
+    grpCd: "TL103",
+    compID: "gr_oilUnitPrice:oilTskClsCd"
+  }, {
+    grpCd: "TL100",
+    compID: "gr_oilUnitPrice:oilBizClsCd"
+  }, {
+    grpCd: "TL101",
+    compID: "gr_oilUnitPrice:selpchClsCd"
+  }, {
+    grpCd: "TL102",
+    compID: "gr_oilUnitPrice:oilUprrglClsCd"
+  }, {
+    grpCd: "ZZ021",
+    compID: "gr_oilUnitPrice:apprvStsCd"
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. onPageLoad 에서 호출 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = async function () {
+  ed_stdDt.setValue(scwin.ed_stdDt);
+  ed_endDt.setValue(scwin.strCurDate);
+  dma_search.set('oilTskClsCd', "F"); // 유류업무구분 : FMS
+  dma_search.set('oilBizClsCd', "01"); // 유류사업구분 : 상품
+  dma_search.set('selpchClsCd', "01"); // 매출입구분    : 매입
+  dma_search.set('oilUprrglClsCd', "03"); // 유류단가구분 : 자가운송할인
+  await scwin.f_Retrieve(); //화면 자동조회
+  ed_stdDt.focus();
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = function () {
+  var count = ds_oilUnitPrice.getRowCount();
+  if (!(count > 0)) return;
+  var options = {
+    fileName: "유류자가운송할인단가.xlsx",
+    sheetName: "유류자가운송할인단가",
+    startRowIndex: 4,
+    startColumnIndex: 0,
+    type: 4 + 8 + 16,
+    columnMove: true //그리드 컬럼이동시 이동된 상태로 다운로드 유무 ( "true"인경우 컬럼이동 순서대로 출력 )
+  };
+  var infoArr = [{
+    rowIndex: 0,
+    colIndex: 0,
+    rowSpan: 1,
+    colSpan: 10,
+    text: "유류자가운송할인단가",
+    textAlign: "center",
+    fontSize: 12,
+    drawBorder: false
+  }, {
+    rowIndex: 2,
+    colIndex: 0,
+    rowSpan: 1,
+    colSpan: 10,
+    text: `기준일자 [${$c.date.formatDate($p, ed_stdDt.getValue(), "date")} ~ ${$c.date.formatDate($p, ed_endDt.getValue(), "date")}]`,
+    textAlign: "left",
+    fontSize: 10,
+    drawBorder: false
+  }, {
+    rowIndex: 3,
+    colIndex: 0,
+    rowSpan: 1,
+    colSpan: 10,
+    text: `주유소 [${ed_clntNm.getValue()}[${ed_clntNo.getValue()}]]`,
+    textAlign: "left",
+    fontSize: 10,
+    drawBorder: false
+  }];
+  $c.data.downloadGridViewExcel($p, gr_oilUnitPrice, options, infoArr);
+};
+scwin.f_CheckAdptDt = async function () {
+  if (!(await $c.gus.cfValidate($p, [ed_stdDt, ed_endDt]))) return;
+  if (!(await $c.gus.cfIsAfterDate($p, ed_stdDt.getValue(), ed_endDt.getValue(), false))) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039); //시작일자가 종료일자 이전이어야 합니다
+    ed_stdDt.focus();
+    return;
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function (e) {
+  var vChkVal = await scwin.f_CheckAdptDt(); //날짜 체크한 결과 값을 리턴
+  if (!vChkVal) {
+    //true or false 결과을 체크하여 잘못들어갔다면, false값 리턴
+    return false;
+  }
+
+  //조회조건
+  dma_search.set("stdDt", ed_stdDt.getValue());
+  dma_search.set("endDt", ed_endDt.getValue());
+  dma_search.set("clntNo", ed_clntNo.getValue());
+  dma_search.set("dcsnSts", lc_dcsnSts.getValue());
+
+  //ds_search.UseChangeInfo = "false";
+  var e = await $c.sbm.execute($p, sbm_retrieve);
+  if (e.responseJSON.resultDataSet[0].Msg != 'FAIL') {
+    //조회성공시
+    //for=ds_oilUnitPrice event=OnLoadCompleted(rowCnt) 
+    var rowCnt = ds_oilUnitPrice.getRowCount();
+    totalRows.setValue(rowCnt);
+    if (rowCnt == 0) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    } else {
+      gr_oilUnitPrice.setFocusedCell(0, 0);
+    }
+  }
+  gr_oilUnitPrice.setColumnReadOnly('oilTskClsCd', true);
+  gr_oilUnitPrice.setColumnReadOnly('oilBizClsCd', true);
+  gr_oilUnitPrice.setColumnReadOnly('selpchClsCd', true);
+  gr_oilUnitPrice.setColumnReadOnly('clntNo', true);
+  gr_oilUnitPrice.setColumnReadOnly('clntNm', true);
+  gr_oilUnitPrice.setColumnReadOnly('oilUprrglClsCd', true);
+  gr_oilUnitPrice.setColumnReadOnly('oilkndCd', true);
+  gr_oilUnitPrice.setColumnReadOnly('stdDt', true);
+  gr_oilUnitPrice.setColumnReadOnly('endDt', true);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+  if (ds_oilUnitPrice.getModifiedIndex().length < 1) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_001, ['유류자가운송할인단가 그리드']); //변경된 정보가 없습니다.
+    return;
+  }
+  if (!(await $c.gus.cfValidate($p, [gr_oilUnitPrice]))) return;
+  if (await $c.win.confirm($p, $c.data.getMessage($p, MSG_CM_CRM_001))) {
+    //저장하시겠습니까?
+    var e = await $c.sbm.execute($p, sbm_saveOilPrice);
+    if (e.responseJSON.resultDataSet[0].Msg != 'FAIL') {
+      //저장 성공시
+      await $c.gus.cfAlertMsg($p, MSG_CM_INF_001);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 체크 
+//-------------------------------------------------------------------------
+scwin.f_Check = async function () {
+  // tobe변경 : asis에는 key라는 값이 존재하여 tobe에서 key: true를 넣었는데, asis는 중복체크x, tobe는 중복체크o 따라서 key: true 삭제해줌.
+  var validArry = [{
+    id: "stdDt",
+    name: "기준일자",
+    mandatory: true,
+    valid: "date",
+    format: "YYYYMMDD"
+  }, {
+    id: "oilTskClsCd",
+    name: "유류업무구분",
+    mandatory: true
+  }, {
+    id: "oilBizClsCd",
+    name: "유류사업구분",
+    mandatory: true
+  }, {
+    id: "selpchClsCd",
+    name: "매출입구분",
+    mandatory: true
+  }, {
+    id: "oilUprrglClsCd",
+    name: "유류단가정상구분",
+    mandatory: true
+  }, {
+    id: "clntNo",
+    name: "거래처코드",
+    mandatory: true
+  }, {
+    id: "clntNm",
+    name: "거래처",
+    mandatory: true
+  }];
+  var gridName = "MASTER";
+  if (!(await $c.gus.cfValidateGrid($p, gr_oilUnitPrice, null, null, validArry, gridName))) {
+    return false;
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 신규
+//-------------------------------------------------------------------------
+scwin.f_AddRow = async function () {
+  var focusCol = gr_oilUnitPrice.getFocusedColumnIndex() || "selYn";
+  if (!(await scwin.f_Check())) {
+    return;
+  }
+  ds_oilUnitPrice.insertRow();
+  gr_oilUnitPrice.setFocusedCell(ds_oilUnitPrice.getRowCount() - 1, focusCol);
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'stdDt', scwin.strCurDate);
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'endDt', "99999999");
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'oilTskClsCd', "F"); // 유류업무구분
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'oilBizClsCd', "01"); // 유류사업구분    : 사움
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'selpchClsCd', "01"); // 매출입구분       : 매입
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'oilUprrglClsCd', "03"); // 유류단정상구분 : 자가운송할인
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'oilkndCd', ds_oilUnitPrice.getCellData(gr_oilUnitPrice.getFocusedRowIndex() - 1, 'oilkndCd'));
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'bilgAcctDeptCd', scwin.deptCd);
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'sellAcctDeptCd', scwin.deptCd);
+  ds_oilUnitPrice.setCellData(gr_oilUnitPrice.getFocusedRowIndex(), 'qty', 1);
+  gr_oilUnitPrice.setColumnReadOnly('oilTskClsCd', false);
+  gr_oilUnitPrice.setColumnReadOnly('oilBizClsCd', false);
+  gr_oilUnitPrice.setColumnReadOnly('selpchClsCd', false);
+  gr_oilUnitPrice.setColumnReadOnly('clntNo', false);
+  gr_oilUnitPrice.setColumnReadOnly('clntNm', true);
+  gr_oilUnitPrice.setColumnReadOnly('oilUprrglClsCd', false);
+  gr_oilUnitPrice.setColumnReadOnly('oilkndCd', false);
+  gr_oilUnitPrice.setColumnReadOnly('stdDt', false);
+  gr_oilUnitPrice.setColumnReadOnly('endDt', true);
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_DelRow = async function () {
+  var focusRow = gr_oilUnitPrice.getFocusedRowIndex(); //현재 포커스 되어있는 row
+  var focusCol = gr_oilUnitPrice.getFocusedColumnIndex(); //현재 포커스 되어있는 column
+
+  if (ds_oilUnitPrice.getRowCount() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다.
+    return;
+  }
+  var chkCnt = 0;
+  var checkRow = gr_oilUnitPrice.getCheckedIndex("selYn"); //체크박스 체크되어있는 행의 인덱스
+
+  for (var i = 0; i < checkRow.length; i++) {
+    var tempStdCd = ds_oilUnitPrice.getCellData(checkRow[i], "apprvStsCd");
+    if (tempStdCd == "02" || tempStdCd == "04" || tempStdCd == "05") {
+      // 02:상신, 04:중간승인, 05:최종승인
+      await $c.gus.cfAlertMsg($p, checkRow[i] + 1 + "번째 항목은 삭제 할 수 없습니다.\n결재상태를 확인해 주시기바랍니다.");
+      ds_oilUnitPrice.setRowPosition(checkRow[i]);
+      gr_oilUnitPrice.setFocusedCell(checkRow[i], "apprvStsCd");
+      return;
+    }
+    chkCnt++;
+  }
+  if (chkCnt == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_056, ["목록"]); // 선택된 @이(가) 없습니다.
+    return;
+  }
+
+  //ds_oilUnitPrice.DeleteRow(ds_oilUnitPrice.RowPosition);
+
+  //tobe 변경 : 추가된 행 삭제시 화면에서도 바로 삭제. 추가된 행이 아닌경우, 화면에서는 지워지지 않고 status만 삭제표시
+  if (ds_oilUnitPrice.getRowStatus(focusRow) == "C") {
+    //추가된 행
+    ds_oilUnitPrice.removeRow(focusRow);
+  } else {
+    ds_oilUnitPrice.deleteRow(focusRow);
+    for (var i = 0; i < 18; i++) {
+      ds_oilUnitPrice.setCellData(focusRow, ds_oilUnitPrice.getColumnID(i), ds_oilUnitPrice.getOriginalCellData(focusRow, ds_oilUnitPrice.getColumnID(i)));
+    }
+
+    //deleteRow 이후, 포커스 유지
+    gr_oilUnitPrice.setFocusedCell(focusRow, focusCol);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 행취소
+//-------------------------------------------------------------------------
+scwin.f_Cancel = function () {
+  var focusRow = gr_oilUnitPrice.getFocusedRowIndex();
+  var focusCol = gr_oilUnitPrice.getFocusedColumnID();
+  if (ds_oilUnitPrice.getRowStatus(focusRow) == "C") {
+    ds_oilUnitPrice.removeRow(focusRow);
+  } else {
+    ds_oilUnitPrice.undoRow(focusRow);
+    gr_oilUnitPrice.setCellReadOnly(focusRow, "selYn", false); //체크박스 
+    gr_oilUnitPrice.setCellReadOnly(focusRow, focusCol, false);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 	팝업창 처리
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  switch (disGubun) {
+    case 1:
+      // 거래처
+      udc_clnt.cfCommonPopUp(function (rtnList) {
+        $c.gus.cfSetReturnValue($p, rtnList, ed_clntNo, ed_clntNm);
+      }, pCode, pName, 'T', null, null, null, null, null, null, null, null, null);
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 체크박스 선택 상태 유무 체크 //gr_oilUnitPrice.getCheckedIndex("selYn").length == 0 이렇게 표현식으로 변경
+//-------------------------------------------------------------------------
+// scwin.f_checkflag = function () {
+//     for (var idx = 1; idx <= ds_oilUnitPrice.getRowCount(); idx++) {
+//         if (ds_oilUnitPrice.NameValue(idx, "selYn") == "T") {
+//             return true;
+//         }
+//     }
+//     return false;
+// };
+
+//-------------------------------------------------------------------------
+// 전자결제 
+//-------------------------------------------------------------------------
+scwin.f_RequestElectronicApprove = async function (e) {
+  var toDay = scwin.strCurDate;
+  var vReqApprvDocKndCd = "021"; // 결재문서종류 -- 유류판매단가 내역
+  var vReqUserId = scwin.userInfo.userId; //"<%=userInfo.getUserId()%>"; 	// 결재요청자 ID
+  var vEpUsrId = scwin.epId; //"<%=epId%>";//f_getSSOInfo();   				// EP사용자 ID
+
+  var fineInfo = await scwin.f_getFineItemList(); // 결재대상 (유류단가 정보)
+
+  if (fineInfo.itemSize == 0) {
+    await $c.gus.cfAlertMsg($p, "전자결재 대상을 선택해주십시오.");
+    return false;
+  }
+  var checkRow = gr_oilUnitPrice.getCheckedIndex("selYn");
+  for (var i = 0; i < checkRow.length; i++) {
+    var tempStdCd = ds_oilUnitPrice.getCellData(checkRow[i], "apprvStsCd");
+    if (tempStdCd == "02" || tempStdCd == "04" || tempStdCd == "05") {
+      // 02:상신, 04:중간승인, 05:최종승인
+      await $c.gus.cfAlertMsg($p, checkRow[i] + 1 + "번째 항목은 전자결재를 진행 할 수 없습니다.\n결재상태를 확인해 주시기바랍니다.");
+      ds_oilUnitPrice.setRowPosition(checkRow[i]);
+      gr_oilUnitPrice.setFocusedCell(checkRow[i], "apprvStsCd");
+      return;
+    }
+  }
+  if (!(await $c.win.confirm($p, "전자결재 요청하시겠습니까?"))) {
+    return;
+  }
+  var vReqApprvTitle = "FMS 유류자가운송할인단가  승인요청_" + toDay; //결재제목 
+
+  var styleTb = 'class=tb';
+  var vApprvDtlInfo = '<head>';
+  vApprvDtlInfo += '<style type=text/css>';
+  vApprvDtlInfo += '	.tb { ';
+  vApprvDtlInfo += '		border-top:solid 1px #000000;';
+  vApprvDtlInfo += '		border-right:solid 1px #000000;';
+  vApprvDtlInfo += '		border-left:solid 1px #000000; ';
+  vApprvDtlInfo += '		border-bottom:solid 1px #000000;';
+  vApprvDtlInfo += '	}';
+  vApprvDtlInfo += '</style>';
+  vApprvDtlInfo += '</head>';
+  vApprvDtlInfo += '<body align=center>';
+  vApprvDtlInfo += '<table width=850 cellspacing=0 cellpadding=0 border=1 ' + styleTb + '>';
+  vApprvDtlInfo += '	<tr>';
+  vApprvDtlInfo += '		<td height=35 align=center ' + styleTb + '>제 목</td>';
+  vApprvDtlInfo += '		<td ' + styleTb + '><b>FMS 유류자가운송할인단가  승인요청 -  (' + toDay + ')</b></td>';
+  vApprvDtlInfo += '	</tr>';
+  vApprvDtlInfo += '	<tr>';
+  vApprvDtlInfo += '		<td colspan=2 ' + styleTb + '>';
+  vApprvDtlInfo += '			<table width=850 border=0>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td colspan=2 height=10 align=center>&nbsp;</td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td colspan=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아래와 같이 FMS 유류자가운송할인단가 를 확정하고자 하오니 승인하여 주시기 바랍니다.</td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td colspan=2 height=10 align=center>&nbsp;</td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td colspan=2 align=center><font face=굴림><b>- 아&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;래 -</b></font></td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td colspan=2 height=10 align=center>&nbsp;</td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td><font face=굴림><b>1. FMS 유류자가운송할인단가  내역</b></font></td>';
+  vApprvDtlInfo += '					<td align=right>(단위:리터/원, VAT포함)</td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td colspan=2 align=right>';
+  vApprvDtlInfo += '						<table cellspacing=0 border=1 ' + styleTb + '>';
+  vApprvDtlInfo += '							<col width=150 align=left></col>';
+  vApprvDtlInfo += '							<col width=100 align=left></col>';
+  vApprvDtlInfo += '							<col width=300 align=right></col>';
+  vApprvDtlInfo += '							<col width=150 align=right></col>';
+  vApprvDtlInfo += '							<col width=150 align=right></col>';
+  vApprvDtlInfo += '							<col width=150 align=right></col>';
+  vApprvDtlInfo += '							<tr>';
+  vApprvDtlInfo += '								<td ' + styleTb + ' height=30 align=center><font size=2 face=굴림><b>기준일자</b></font></td>';
+  vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>거래처코드</b></font></td>';
+  vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>거래처</b></font></td>';
+  vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>경유단가</b></font></td>';
+  vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>휘발유단가</b></font></td>';
+  vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림><b>종료일자</b></font></td>';
+  vApprvDtlInfo += '							</tr>';
+  var oilCount = 0;
+  for (var i = 0; i < checkRow.length; i++) {
+    var stdDt1 = ds_oilUnitPrice.getCellData(checkRow[i], "stdDt");
+    var endDt1 = ds_oilUnitPrice.getCellData(checkRow[i], "endDt");
+    vApprvDtlInfo += '							<tr>';
+    vApprvDtlInfo += '								<td ' + styleTb + ' height=30 align=center><font size=2 face=굴림>' + stdDt1.substring(0, 4) + '/' + stdDt1.substring(4, 6) + '/' + stdDt1.substring(6, 8) + '</font></td>';
+    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + ds_oilUnitPrice.getCellData(checkRow[i], "clntNo") + '</font></td>';
+    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + ds_oilUnitPrice.getCellData(checkRow[i], "clntNm") + '</font></td>';
+    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + $c.gus.cfInsertComma($p, Number(ds_oilUnitPrice.getCellData(checkRow[i], "uprLight"))) + '</font></td>';
+    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + $c.gus.cfInsertComma($p, Number(ds_oilUnitPrice.getCellData(checkRow[i], "uprGasoline"))) + '</font></td>';
+    vApprvDtlInfo += '								<td ' + styleTb + ' align=center><font size=2 face=굴림>' + endDt1.substring(0, 4) + '/' + endDt1.substring(4, 6) + '/' + endDt1.substring(6, 8) + '</font></td>';
+    vApprvDtlInfo += '							</tr>';
+    oilCount++;
+  }
+  vApprvDtlInfo += '						</table>';
+  vApprvDtlInfo += '					</td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '				<tr>';
+  vApprvDtlInfo += '					<td align=right colspan=2><font face=굴림><b>이상 ' + oilCount + '건</b></font></td>';
+  vApprvDtlInfo += '				</tr>';
+  vApprvDtlInfo += '			</table>';
+  vApprvDtlInfo += '		</td>';
+  vApprvDtlInfo += '	</tr>';
+  vApprvDtlInfo += '</table>';
+  vApprvDtlInfo += '</body>';
+
+  // frmReqApprove.apprvDocKndCd.value = vReqApprvDocKndCd;    //결재문서종류
+  // frmReqApprove.reqUserId.value = vReqUserId;          //결재요청자
+  // frmReqApprove.epUserId.value = vEpUsrId;             //EP사용자
+  // frmReqApprove.apprvTitle.value = vReqApprvTitle;       //결재제목
+  // frmReqApprove.apprvDtlInfo.value = vApprvDtlInfo;        //결제문서양식
+  // frmReqApprove.OilunitPriceList.value = fineInfo.itemList;   //결제대상
+  // frmReqApprove.bmodifylines.value = "Y";				// 문서정보 변경 가능 여부
+  // frmReqApprove.bmodifybody.value = "Y";				// 문서 본문 수정 여부
+  // frmReqApprove.bmodifyattach.value = "Y";				// 첨부파일 기능 활성화 여부
+
+  // frmReqApprove.submit();
+
+  const params = {
+    apprvDocKndCd: vReqApprvDocKndCd,
+    //결재문서종류  
+    reqUserId: vReqUserId,
+    //결재요청자
+    epUserId: vEpUsrId,
+    //EP사용자
+    apprvTitle: vReqApprvTitle,
+    //결재제목
+    apprvDtlInfo: vApprvDtlInfo,
+    //결제문서양식
+    OilunitPriceList: fineInfo.itemList,
+    //결제대상
+    bmodifylines: "Y",
+    //문서정보 변경 가능 여부
+    bmodifybody: "Y",
+    //문서 본문 수정 여부
+    bmodifyattach: "Y" //첨부파일 기능 활성화 여부
+  };
+
+  // DataMap에 세팅
+  dma_approve.setJSON(params);
+
+  // 여기부터가 핵심: f_aprv처럼 팝업 + POST submit
+  let url = "/ps.eq.fmsmgnt.RequestFmsOilUnitPriceApproveCMD.do";
+  let targetName = "aprvPopup"; // 고정 이름 재사용
+
+  var data = dma_approve.getJSON() || {};
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = url;
+  form.target = targetName;
+
+  // 팝업 차단 회피: 사용자 confirm 이후 즉시 open
+  const win = window.open("", targetName);
+  if (!win) {
+    console.warn("Popup blocked");
+    // 필요하면 여기서 alert 처리
+    // $c.win.alert("팝업이 차단되었습니다. 팝업 허용 후 다시 시도해 주세요.");
+  }
+  Object.keys(data).forEach(key => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+
+    // 배열/객체는 서버가 JSON 문자열로 받는 구조인지 확인 필요.
+    // 보통은 stringify 해서 보내는 게 안전함.
+    const val = data[key];
+    input.value = val && typeof val === "object" ? JSON.stringify(val) : (val ?? "").toString();
+    form.appendChild(input);
+  });
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
+};
+
+//-------------------------------------------------------------------------
+// 전자결재를 위한 범칙금 리스트 정보와 건수, 총금액을 리턴한다
+//-------------------------------------------------------------------------
+scwin.f_getFineItemList = function () {
+  var oResult = {};
+  oResult.itemList = '';
+  oResult.itemSize = 0;
+  oResult.itemTotal = 0;
+  var checkRow = gr_oilUnitPrice.getCheckedIndex("selYn"); //체크된 rowIndex
+
+  for (var i = 0; i < checkRow.length; i++) {
+    if (oResult.itemList == "") {
+      //시작일자, 매출입구분, 판매단가기준, 유류업무구분, 유류사업구분, 유류단가정산구분코드, 수량, 매출거래처번호, 거래처번호
+      oResult.itemList += ds_oilUnitPrice.getCellData(checkRow[i], "stdDt") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "selpchClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilSellClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilTskClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilBizClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilUprrglClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "qty") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "sellClntNo") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "clntNo");
+    } else {
+      oResult.itemList += "," + ds_oilUnitPrice.getCellData(checkRow[i], "stdDt") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "selpchClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilSellClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilTskClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilBizClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "oilUprrglClsCd") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "qty") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "sellClntNo") + ":" + ds_oilUnitPrice.getCellData(checkRow[i], "clntNo");
+    }
+    oResult.itemSize += 1;
+    oResult.itemTotal += 1;
+  }
+  return oResult;
+};
+
+//-------------------------------------------------------------------------
+// 거래종료
+//-------------------------------------------------------------------------
+scwin.f_fixEndDt = async function (e) {
+  if (!(await $c.gus.cfValidate($p, [ica_fixEndDt]))) return;
+  var checkRow = gr_oilUnitPrice.getCheckedIndex("selYn");
+  if (checkRow.length == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_056, ["항목"]); //선택된 @이(가) 없습니다.
+    return;
+  }
+  var cnt = 0;
+  if (await $c.win.confirm($p, "거래를 종료하시겠습니까?")) {
+    for (var i = 0; i < checkRow.length; i++) {
+      if (ds_oilUnitPrice.getCellData(checkRow[i], "endDt") != "99999999") {
+        await $c.gus.cfAlertMsg($p, checkRow[i] + 1 + "번째 항목은 종료일자가 9999/99/99이 아닙니다.거래종료를 할수 없습니다.");
+        return;
+      } else if (!$c.gus.cfIsAfterDate($p, ds_oilUnitPrice.getCellData(checkRow[i], "stdDt"), ica_fixEndDt.getValue(), false)) {
+        await $c.gus.cfAlertMsg($p, "종료일자는 기준일자보다 이후이어야 합니다.");
+        ica_fixEndDt.focus();
+        return;
+      }
+      ds_oilUnitPrice.setCellData(checkRow[i], "fixEndDt", ica_fixEndDt.getValue());
+      cnt++;
+    }
+    if (cnt > 0) {
+      var e = await $c.sbm.execute($p, sbm_fixEndDt);
+      if (e.responseJSON.resultDataSet[0].Msg != 'FAIL') {
+        await $c.gus.cfAlertMsg($p, MSG_CM_INF_001);
+        scwin.f_Retrieve();
+      }
+    }
+  }
+};
+
+// afteredit이랑 소스 같으므로 afteredit으로 대체
+// scwin.gr_oilUnitPrice_ontextimageclick = function (rowIndex, columnIndex) {
+//     var colid = gr_oilUnitPrice.getColumnID(columnIndex);
+
+//     if (colid == 'clntNo') {
+//         udc_grClnt.cfCommonPopUp(
+//             function (rtnList) {
+//                 if (!$c.gus.cfIsNull(rtnList) && rtnList[0] != "N/A") {
+//                     ds_oilUnitPrice.setCellData(rowIndex, colid, rtnList[0]);
+//                     ds_oilUnitPrice.setCellData(rowIndex, "clntNm", rtnList[1]);
+//                 }
+//             },
+//             ds_oilUnitPrice.getCellData(rowIndex, "clntNo"),
+//             "",
+//             'T',
+//             null,
+//             null,
+//             null,
+//             null,
+//             null,
+//             null,
+//             null,
+//             null,
+//             null
+//         ); // 거래처
+//     }
+//     return true;
+// };
+
+scwin.gr_oilUnitPrice_onafteredit = function (rowIndex, columnIndex, value) {
+  var colid = gr_oilUnitPrice.getColumnID(columnIndex);
+  if (colid == 'clntNo') {
+    udc_grClnt.cfCommonPopUp(function (rtnList) {
+      if (!$c.gus.cfIsNull($p, rtnList) && rtnList[0] != "N/A") {
+        ds_oilUnitPrice.setCellData(rowIndex, colid, rtnList[0]);
+        ds_oilUnitPrice.setCellData(rowIndex, "clntNm", rtnList[1]);
+      }
+    }, ds_oilUnitPrice.getCellData(rowIndex, "clntNo"), "", 'T', null, null, null, null, null, null, null, null, null); // 거래처
+  }
+  return true;
+};
+scwin.gr_oilUnitPrice_oncolumnindexchange = function (columnIndex, oldColumnIndex) {
+  // if (colid == "clntNo") {
+  //     gr_oilUnitPrice.UrlImages = SEARCH_BTN;
+  // } else if (colid == "stdDt") {
+  //     gr_oilUnitPrice.UrlImages = CALENDAR_BTN;
+  // }
+
+  var row = gr_oilUnitPrice.getFocusedRowIndex();
+
+  //  asis => RowStatus : 0 Normal, 1 Insert, 2 Delete, 3 Update
+  //  tobe => 초기상태:"R", 갱신:"U", 삽입:"C", 삭제:"D", 삽입 후 삭제:"V"
+  var RowStatus = ds_oilUnitPrice.getRowStatus(row);
+  if (RowStatus == "R" || RowStatus == "D") {
+    gr_oilUnitPrice.setColumnReadOnly('stdDt', true);
+    gr_oilUnitPrice.setColumnReadOnly('clntNo', true);
+    gr_oilUnitPrice.setColumnReadOnly('uprLight', true);
+    gr_oilUnitPrice.setColumnReadOnly('uprGasoline', true);
+    gr_oilUnitPrice.setColumnReadOnly('uprLpg', true);
+  } else if (RowStatus == "C") {
+    gr_oilUnitPrice.setColumnReadOnly('stdDt', false);
+    gr_oilUnitPrice.setColumnReadOnly('clntNo', false);
+    gr_oilUnitPrice.setColumnReadOnly('uprLight', false);
+    gr_oilUnitPrice.setColumnReadOnly('uprGasoline', false);
+    gr_oilUnitPrice.setColumnReadOnly('uprLpg', false);
+  }
+  var tempStdCd = ds_oilUnitPrice.getCellData(row, "apprvStsCd");
+  if (tempStdCd == "02" || tempStdCd == "04" || tempStdCd == "05") {
+    // 02:상신, 04:중간승인, 05:최종승인
+    gr_oilUnitPrice.setColumnReadOnly('stdDt', true);
+    gr_oilUnitPrice.setColumnReadOnly('clntNo', true);
+    gr_oilUnitPrice.setColumnReadOnly('uprLight', true);
+    gr_oilUnitPrice.setColumnReadOnly('uprGasoline', true);
+    gr_oilUnitPrice.setColumnReadOnly('uprLpg', true);
+  } else {
+    gr_oilUnitPrice.setColumnReadOnly('stdDt', false);
+    gr_oilUnitPrice.setColumnReadOnly('clntNo', false);
+    gr_oilUnitPrice.setColumnReadOnly('uprLight', false);
+    gr_oilUnitPrice.setColumnReadOnly('uprGasoline', false);
+    gr_oilUnitPrice.setColumnReadOnly('uprLpg', false);
+  }
+};
+scwin.udc_clnt_onblurCodeEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_clntNo.getValue(), ed_clntNm.getValue(), 'F', 'F');
+};
+scwin.udc_clnt_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(ed_clntNm, ed_clntNo, 1, false);
+};
+scwin.udc_clnt_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_clntNo.getValue(), ed_clntNm.getValue(), 'F', 'F');
+};
+scwin.confYn_customFormatter = function (data, formattedData, rowIndex, colIndex) {
+  if (data > 0) {
+    return "확정";
+  } else {
+    return "미확정";
+  }
+};
+
+//tobe 추가 : 헤더에 있는 체크 박스를 클릭해도 그리드 안 포커스 유지.
+scwin.gr_oilUnitPrice_onheaderclick = function (headerId) {
+  if (headerId == "column30") {
+    gr_oilUnitPrice.setFocusedCell(scwin.curRow, scwin.curCol);
+  }
+};
+scwin.gr_oilUnitPrice_onheadermouseover = function (info) {
+  if (info.header_id == "column30") {
+    scwin.curRow = gr_oilUnitPrice.getAllFocusedIndex()[0].row;
+    scwin.curCol = gr_oilUnitPrice.getAllFocusedIndex()[0].col;
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'기준일자 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{refStDt:'',refDataMap:'',style:'',id:'udc_fromToCalendar3',refEdDt:'',titleFrom:'시작일자',titleTo:'종료일자',mandatoryFrom:'true',mandatoryTo:'true',edFromId:'ed_stdDt',edToId:'ed_endDt',objTypeFrom:'data',objTypeTo:'data',objTypeBtn:'data'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'거래처',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'retrieveClntEmpNoList',codeId:'ed_clntNo',validTitle:'',nameId:'ed_clntNm',style:'',id:'udc_clnt',UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',maxlengthCode:'6','ev:onviewchangeNameEvent':'scwin.udc_clnt_onviewchangeNameEvent','ev:onclickEvent':'scwin.udc_clnt_onclickEvent','ev:onblurCodeEvent':'scwin.udc_clnt_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'확정상태',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_dcsnSts',style:'width: 100px;',submenuSize:'fixed',chooseOptionLabel:'전체',ref:'',objType:'data'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'미확정'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'0'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'확정'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_trigger1',style:'',type:'button',userAuth:'R','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:' 유류자가운송할인단가 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',id:'udc_topGrd',gridUpYn:'N',gridDownFn:'scwin.f_Excel',gridID:'gr_oilUnitPrice'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_oilUnitPrice',id:'gr_oilUnitPrice',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'15',visibleRowNumFix:'true',rowStatusVisible:'true','ev:ontextimageclick':'scwin.gr_oilUnitPrice_ontextimageclick','ev:onafteredit':'scwin.gr_oilUnitPrice_onafteredit','ev:oncolumnindexchange':'scwin.gr_oilUnitPrice_oncolumnindexchange','ev:onheaderclick':'scwin.gr_oilUnitPrice_onheaderclick','ev:onheadermouseover':'scwin.gr_oilUnitPrice_onheadermouseover'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'checkbox',style:'',value:'selYn',width:'70',fixColumnWidth:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',style:'',value:'기준일자',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',style:'',value:'유류업무</br>구분',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column34',inputType:'text',style:'',value:'유류사업</br>구분',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column32',inputType:'text',style:'',value:'매출입</br>구분',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',style:'',value:'유류단가</br>정상구분',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',style:'',value:'거래처</br>코드',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',style:'',value:'거래처',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',style:'',value:'경유</br>단가',width:'70',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column67',value:'휘발유</br>단가',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column64',value:'등유</br>단가 ',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column61',value:'청구귀속</br>부서코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column58',value:'청구</br>귀속부서 ',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column55',value:'매출귀속</br>부서코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column49',value:'매출</br>귀속부서 ',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column52',value:'종료일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column70',value:'상태',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column73',value:'결재</br>상태 ',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column76',value:'종료일자',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'selYn',inputType:'checkbox',style:'',value:'',width:'70',fixColumnWidth:'true',falseValue:'F',trueValue:'T',valueType:'other'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'stdDt',inputType:'calendar',style:'',value:'',width:'100',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'oilTskClsCd',inputType:'select',style:'',value:'',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'oilBizClsCd',inputType:'select',style:'',value:'',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'selpchClsCd',inputType:'select',style:'',value:'',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'oilUprrglClsCd',inputType:'select',style:'',value:'',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'textImage',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNm',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'uprLight',inputType:'text',style:'',value:'',width:'70',maxLength:'11.2',dataType:'float',applyFormat:'all',displayFormat:'#,##0.00',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'uprGasoline',value:'',displayMode:'label',maxLength:'11.2',dataType:'float',applyFormat:'all',displayFormat:'#,##0.00',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'uprLpg',value:'',displayMode:'label',maxLength:'11.2',dataType:'float',applyFormat:'all',displayFormat:'#,##0.00',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'textImage',style:'',id:'bilgAcctDeptCd',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'bilgAcctDeptNm',value:'',displayMode:'label',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'textImage',style:'',id:'sellAcctDeptCd',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'sellAcctDeptNm',value:'',displayMode:'label',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'endDt',value:'',displayMode:'label',displayFormat:'yyyy/MM/dd',dataType:'date',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'confYn',value:'',displayMode:'label',customFormatter:'scwin.confYn_customFormatter',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'select',style:'',id:'apprvStsCd',value:'',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fixEndDt',value:'',displayMode:'label',hidden:'true',displayFormat:'####/##/##',readOnly:'true'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column48',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column47',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column46',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column45',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column44',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column43',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column42',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column41',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column40',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column69',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column66',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column63',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column60',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column57',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column51',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column54',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column72',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column75',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column78',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{btnCancelYn:'Y',style:'',btnRowAddYn:'Y',EngYn:'N',btnRowDelYn:'Y',id:'udc_bottomGrd',btnDelYn:'N',cancelFunction:'scwin.f_Cancel',rowAddFunction:'scwin.f_AddRow',rowDelFunction:'scwin.f_DelRow',rowAddUserAuth:'C',rowDelUserAuth:'D'}}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_approve',style:'',type:'button','ev:onclick':'scwin.f_RequestElectronicApprove',objType:'CtrlBtn',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전자결재'}]}]},{T:1,N:'w2:udc_comCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',codeId:'gr_clntNo',id:'udc_grClnt',maxlengthCode:'6',nameId:'gr_clntNm',popupID:'',selectID:'retrieveClntEmpNoList',style:'display:none',validTitle:''}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'적용일자 ',class:'req'}},{T:1,N:'w2:inputCalendar',A:{style:'',id:'ica_fixEndDt',class:'',calendarValueType:'yearMonthDate',objType:'data',mandatory:'true',title:'적용일자',displayFormat:'yyyy/MM/dd'}}]},{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_fixEndDt',style:'',type:'button','ev:onclick':'scwin.f_fixEndDt',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'거래종료'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_save',style:'',type:'button','ev:onclick':'scwin.f_Save',objType:'bUpdate'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]}]}]}]}]}]}]}]})

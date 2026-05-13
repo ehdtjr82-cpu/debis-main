@@ -1,0 +1,2979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_linelist_con">
+                <w2:keyInfo>
+                    <w2:key id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:key>
+                    <w2:key id="bilgComnCdKnd" name="청구공통코드종류" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+            <w2:dataMap baseNode="map" id="dma_billtitle_con">
+                <w2:keyInfo>
+                    <w2:key id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:key>
+                    <w2:key id="lineCd" name="라인코드" dataType="text"></w2:key>
+                    <w2:key id="bilgComnCdKnd" name="청구공통코드종류" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_linelist" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="라인코드" dataType="text"></w2:column>
+                    <w2:column id="lineNm" name="라인명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_billtitle" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="bilgLoofcCd" name="청구지점코드" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="라인코드" dataType="text"></w2:column>
+                    <w2:column id="bilgComnCdKnd" name="청구공통코드종류" dataType="text"></w2:column>
+                    <w2:column id="title1" name="TITLE1" dataType="text"></w2:column>
+                    <w2:column id="title2" name="TITLE2" dataType="text"></w2:column>
+                    <w2:column id="title3" name="TITLE3" dataType="text"></w2:column>
+                    <w2:column id="title4" name="TITLE4" dataType="text"></w2:column>
+                    <w2:column id="billAggrNm" name="집계표TITLE" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_linelist_retrieve"
+            action="/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillingComnCdLineListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_linelist_con","key":"IN_DS1"},{"id":"ds_linelist","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_linelist","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_linelist_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_linelist_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_billtitle_retrieve"
+            action="/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillTitleListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_billtitle_con","key":"IN_DS1"},{"id":"ds_billtitle","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_billtitle","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_billtitle_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_billtitle_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_billtitle_save"
+            action="/ds.fs.bilg.bilgcomncdmgnt.UpdateBillTitleCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_billtitle","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_billtitle_save_submitdone"
+            ev:submiterror="scwin.sbm_billtitle_save_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.MSG_FS_WRN_004 = "저장되지 않은 건입니다.";
+        scwin.MSG_FS_WRN_005 = "공통코드는 삭제할 수 없습니다.";
+        scwin.MSG_FS_WRN_006 = "TITLE은 필수 입력 항목입니다.";
+
+        scwin.addflag = "";
+        scwin.delflag = "";
+        scwin.billtitle = "BILLTITLE";
+        scwin.condition = "";
+
+        scwin.titleInputIds = [
+            ["ed_input1","ed_input2","ed_input3","","ed_input34"],
+            ["ed_input4","ed_input7","ed_input5","ed_input6","ed_input35"],
+            ["ed_input8","ed_input9","ed_input10","ed_input11","ed_input36"],
+            ["ed_input12","ed_input13","ed_input14","","ed_input37"],
+            ["ed_input15","ed_input16","ed_input17","","ed_input38"],
+            ["ed_input21","ed_input22","ed_input23","ed_input24","ed_input39"],
+            ["ed_input25","ed_input26","ed_input27","ed_input28","ed_input40"],
+            ["ed_input18","ed_input19","ed_input20","","ed_input41"],
+            ["ed_input29","","","","ed_input42"],
+            ["ed_input30","","","","ed_input43"],
+            ["ed_input31","","","","ed_input44"],
+            ["ed_input32","","","","ed_input45"],
+            ["ed_input33","","","","ed_input46"],
+            ["ed_input47","","","","ed_input48"],
+            ["ed_input119","ed_input120","","","ed_input49"],
+            ["ed_input121","ed_input122","","","ed_input50"],
+            ["ed_input123","ed_input124","","","ed_input51"],
+            ["ed_input125","ed_input127","ed_input126","","ed_input52"],
+            ["ed_input128","ed_input129","ed_input130","","ed_input53"],
+            ["ed_input131","ed_input132","","","ed_input54"],
+            ["ed_input133","ed_input134","ed_input135","","ed_input55"],
+            ["ed_input136","ed_input137","ed_input138","","ed_input56"],
+            ["ed_input139","","","","ed_input57"],
+            ["ed_input140","","","","ed_input58"],
+            ["ed_input141","ed_input142","","","ed_input59"],
+            ["ed_input143","ed_input144","","","ed_input60"],
+            ["ed_input145","ed_input146","","","ed_input61"],
+            ["ed_input147","ed_input148","","","ed_input62"],
+            ["ed_input149","ed_input150","","","ed_input63"],
+            ["ed_input151","ed_input152","","","ed_input64"],
+            ["ed_input153","ed_input154","ed_input155","","ed_input65"],
+            ["ed_input156","ed_input157","ed_input158","","ed_input66"],
+            ["ed_input159","ed_input160","ed_input161","","ed_input68"],
+            ["ed_input162","ed_input163","ed_input164","","ed_input67"],
+            ["ed_input165","ed_input166","","","ed_input69"],
+            ["ed_input167","ed_input168","","","ed_input70"],
+            ["ed_input169","ed_input170","ed_input171","","ed_input71"],
+            ["ed_input172","ed_input173","ed_input174","","ed_input72"],
+            ["ed_input175","ed_input176","ed_input177","","ed_input73"],
+            ["ed_input178","ed_input179","ed_input180","","ed_input74"],
+            ["ed_input181","","","","ed_input75"],
+            ["ed_input182","","","","ed_input76"],
+            ["ed_input183","","","","ed_input77"],
+            ["ed_input184","","","","ed_input78"],
+            ["ed_input185","","","","ed_input79"],
+            ["ed_input186","","","","ed_input80"],
+            ["ed_input187","","","","ed_input81"],
+            ["ed_input188","","","","ed_input82"],
+            ["ed_input189","","","","ed_input83"],
+            ["ed_input190","","","","ed_input84"],
+            ["ed_input191","","","","ed_input85"],
+            ["ed_input192","","","","ed_input86"],
+            ["ed_input193","","","","ed_input87"],
+            ["ed_input194","","","","ed_input88"],
+            ["ed_input195","","","","ed_input89"],
+            ["ed_input196","","","","ed_input90"],
+            ["ed_input197","","","","ed_input91"],
+            ["ed_input201","ed_input202","ed_input203","","ed_input92"],
+            ["ed_input204","ed_input205","ed_input206","","ed_input93"],
+            ["ed_input207","ed_input209","","","ed_input94"],
+            ["ed_input210","ed_input211","","","ed_input95"],
+            ["ed_input212","ed_input213","","","ed_input96"],
+            ["ed_input214","ed_input215","","","ed_input97"],
+            ["ed_input216","ed_input217","","","ed_input98"],
+            ["ed_input218","","","","ed_input99"],
+            ["ed_input219","ed_input220","","","ed_input100"],
+            ["ed_input221","ed_input222","","","ed_input101"],
+            ["ed_input223","ed_input224","","","ed_input102"],
+            ["ed_input225","","","","ed_input103"],
+            ["ed_input226","ed_input227","","","ed_input104"],
+            ["ed_input228","ed_input229","","","ed_input105"],
+            ["ed_input230","","","","ed_input106"],
+            ["ed_input231","ed_input232","","","ed_input107"],
+            ["ed_input233","ed_input234","","","ed_input108"],
+            ["ed_input235","","","","ed_input109"],
+            ["ed_input236","ed_input237","","","ed_input110"],
+            ["ed_input238","ed_input239","","","ed_input111"],
+            ["ed_input240","","","","ed_input112"],
+            ["ed_input241","","","","ed_input113"],
+            ["ed_input242","","","","ed_input114"],
+            ["ed_input243","","","","ed_input115"],
+            ["ed_input244","","","","ed_input116"],
+            ["ed_input245","","","","ed_input117"],
+            ["ed_input246","","","","ed_input118"],
+            ["ed_input247","ed_input248","ed_input249","","ed_input277"],
+            ["ed_input250","ed_input251","ed_input252","","ed_input278"],
+            ["ed_input253","ed_input254","ed_input255","","ed_input279"],
+            ["ed_input256","ed_input257","ed_input258","","ed_input280"],
+            ["ed_input259","ed_input260","ed_input261","","ed_input281"],
+            ["ed_input262","ed_input263","ed_input264","","ed_input282"],
+            ["ed_input265","ed_input266","ed_input267","","ed_input283"],
+            ["ed_input268","ed_input269","ed_input270","","ed_input284"],
+            ["ed_input271","ed_input272","ed_input273","","ed_input285"],
+            ["ed_input274","ed_input275","ed_input276","","ed_input286"],
+            ["ed_input294","","","","ed_input287"],
+            ["ed_input295","","","","ed_input288"],
+            ["ed_input296","","","","ed_input289"],
+            ["ed_input297","","","","ed_input290"],
+            ["ed_input298","","","","ed_input291"],
+            ["ed_input299","","","","ed_input292"],
+            ["ed_input300","","","","ed_input293"]
+        ];
+
+        scwin._getInputComp = function(id) {
+            if (!id || id === "") return null;
+            try {
+                return WebSquare.util.getComponentById(id);
+            } catch(e) {
+                return null;
+            }
+        };
+
+        scwin._getInputValue = function(id) {
+            let comp = scwin._getInputComp(id);
+            if (comp) return comp.getValue();
+            return "";
+        };
+
+        scwin._setInputValue = function(id, val) {
+            let comp = scwin._getInputComp(id);
+            if (comp) comp.setValue(val);
+        };
+
+        scwin.onpageload = function() {
+            $c.gus.cfDisableAllBtn();
+            $c.gus.cfDisableObjects([btn_addRow, btn_cancelRow]);
+        };
+
+        scwin.onUdcCompleted = function() {
+            ed_bilgLoofcCd.setFocus();
+        };
+
+        scwin.f_GetDataSet = async function(condition, row) {
+            if (condition == "LINE_CON") {
+                dma_linelist_con.set("bilgLoofcCd", ed_bilgLoofcCd.getValue());
+                dma_linelist_con.set("bilgComnCdKnd", scwin.billtitle);
+
+                sbm_linelist_retrieve.action = "/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillingComnCdLineListCMD.do";
+                await $c.sbm.execute(sbm_linelist_retrieve);
+
+            } else if (condition == "BILGCOMNCD_CON") {
+                dma_billtitle_con.set("bilgLoofcCd", ds_linelist.getCellData(0, "bilgLoofcCd"));
+                dma_billtitle_con.set("lineCd", ds_linelist.getCellData(row - 1, "lineCd"));
+                dma_billtitle_con.set("bilgComnCdKnd", scwin.billtitle);
+
+                if (row == "1") {
+                    sbm_billtitle_retrieve.action = "/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillTitleListCMD.do";
+                } else {
+                    sbm_billtitle_retrieve.action = "/ds.fs.bilg.bilgcomncdmgnt.RetrieveBillTitleListCMD.do";
+                }
+                await $c.sbm.execute(sbm_billtitle_retrieve);
+            }
+        };
+
+        scwin.f_Retrieve = async function() {
+            let chk = await $c.gus.cfValidate([ed_bilgLoofcCd]);
+            if (!chk) return;
+
+            await scwin.f_GetDataSet("LINE_CON");
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.f_Save = async function() {
+            let chk = await $c.gus.cfValidate([gr_line]);
+            if (!chk) return;
+
+            if (!(await scwin.f_CheckMandatory())) return;
+
+            let confirmChk = await $c.gus.cfConfirmMsg(MSG_CM_CRM_001);
+            if (!confirmChk) return;
+
+            let rowPos = ds_linelist.getRowPosition();
+            for (let j = 0; j < ds_billtitle.getRowCount(); j++) {
+                ds_billtitle.setCellData(j, "bilgLoofcCd", ds_linelist.getCellData(0, "bilgLoofcCd"));
+                ds_billtitle.setCellData(j, "lineCd", ds_linelist.getCellData(rowPos, "lineCd"));
+
+                let ids = scwin.titleInputIds[j];
+                if (ids) {
+                    ds_billtitle.setCellData(j, "title1", scwin._getInputValue(ids[0]));
+                    ds_billtitle.setCellData(j, "title2", scwin._getInputValue(ids[1]));
+                    ds_billtitle.setCellData(j, "title3", scwin._getInputValue(ids[2]));
+                    ds_billtitle.setCellData(j, "title4", scwin._getInputValue(ids[3]));
+                    ds_billtitle.setCellData(j, "billAggrNm", scwin._getInputValue(ids[4]));
+                }
+            }
+
+            scwin.delflag = "";
+
+            if (scwin.addflag == "REG") {
+                sbm_billtitle_save.action = "/ds.fs.bilg.bilgcomncdmgnt.RegistBillTitleCMD.do";
+            } else if (scwin.addflag == "" || scwin.addflag == "MOD") {
+                sbm_billtitle_save.action = "/ds.fs.bilg.bilgcomncdmgnt.UpdateBillTitleCMD.do";
+            }
+            await $c.sbm.execute(sbm_billtitle_save);
+        };
+
+        scwin.btn_save_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.f_AddRow = async function() {
+            ds_linelist.insertRow();
+            scwin.f_Popup();
+
+            await scwin.f_GetDataSet("BILGCOMNCD_CON", "1");
+
+            let rowPos = ds_linelist.getRowPosition();
+            if (ds_linelist.getRowStatus(rowPos) == "C") {
+                scwin.addflag = "REG";
+            }
+        };
+
+        scwin.f_addRow = function() {
+            scwin.f_AddRow();
+        };
+
+        scwin.f_Delete = async function() {
+            let rowPos = ds_linelist.getRowPosition();
+            if (ds_linelist.getRowStatus(rowPos) == "C") {
+                await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_004);
+                return;
+            } else {
+                if (ds_linelist.getCellData(rowPos, "lineCd") == "0000") {
+                    await $c.gus.cfAlertMsg(scwin.MSG_FS_WRN_005);
+                    return;
+                }
+
+                let confirmChk = await $c.gus.cfConfirmMsg(MSG_CM_CRM_004);
+                if (confirmChk == true) {
+                    ds_linelist.removeRow(rowPos);
+
+                    let btRowPos = ds_billtitle.getRowPosition();
+                    ds_billtitle.removeRow(btRowPos);
+
+                    scwin.delflag = "DEL";
+
+                    sbm_billtitle_save.action = "/ds.fs.bilg.bilgcomncdmgnt.DeleteBillTitleCMD.do";
+                    await $c.sbm.execute(sbm_billtitle_save);
+                    await scwin.f_Retrieve();
+                }
+            }
+        };
+
+        scwin.btn_del_onclick = function(e) {
+            scwin.f_Delete();
+        };
+
+        scwin.f_Editable = function(edit) {
+            if (edit == "true") {
+                gr_line.setColumnReadOnly("lineCd", false);
+                gr_line.setColumnReadOnly("lineNm", true);
+            } else {
+                gr_line.setColumnReadOnly("lineCd", true);
+                gr_line.setColumnReadOnly("lineNm", true);
+            }
+        };
+
+        scwin.f_CheckMandatory = async function() {
+            for (let i = 0; i < ds_billtitle.getRowCount(); i++) {
+                let ids = scwin.titleInputIds[i];
+                if (!ids) continue;
+
+                if (ds_billtitle.getCellData(i, "title1").trim().length > 1) {
+                    if (scwin._getInputValue(ids[0]).trim().length < 1) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["TITLE"]);
+                        let comp = scwin._getInputComp(ids[0]);
+                        if (comp) comp.setFocus();
+                        return false;
+                    }
+                }
+                if (ds_billtitle.getCellData(i, "title2").trim().length > 1) {
+                    if (scwin._getInputValue(ids[1]).trim().length < 1) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["TITLE"]);
+                        let comp = scwin._getInputComp(ids[1]);
+                        if (comp) comp.setFocus();
+                        return false;
+                    }
+                }
+                if (ds_billtitle.getCellData(i, "title3").trim().length > 1) {
+                    if (scwin._getInputValue(ids[2]).trim().length < 1) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["TITLE"]);
+                        let comp = scwin._getInputComp(ids[2]);
+                        if (comp) comp.setFocus();
+                        return false;
+                    }
+                }
+                if (ds_billtitle.getCellData(i, "title4").trim().length > 1) {
+                    if (scwin._getInputValue(ids[3]).trim().length < 1) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["TITLE"]);
+                        let comp = scwin._getInputComp(ids[3]);
+                        if (comp) comp.setFocus();
+                        return false;
+                    }
+                }
+                if (ds_billtitle.getCellData(i, "billAggrNm").trim().length > 1) {
+                    if (scwin._getInputValue(ids[4]).trim().length < 1) {
+                        await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["집계표 TITLE"]);
+                        let comp = scwin._getInputComp(ids[4]);
+                        if (comp) comp.setFocus();
+                        return false;
+                    }
+                }
+            }
+            return true;
+        };
+
+        scwin.f_Cancel = function() {
+            ds_linelist.undoAll();
+            scwin.addflag = "MOD";
+        };
+
+        scwin.f_cancelRow = function() {
+            scwin.f_Cancel();
+        };
+
+        scwin.f_Popup = function() {
+            let rtnList = [];
+            let pCode = "";
+            let pName = "";
+
+            rtnList = $c.gus.cfCommonPopUp('retrieveLineInfo', pCode, pName, 'F', null, null, null, null, null, null, null, null, null, null, 'F', null);
+
+            if (rtnList != null && rtnList[0] != "N/A") {
+                let rowPos = ds_linelist.getRowPosition();
+                ds_linelist.setCellData(rowPos, "lineCd", rtnList[0]);
+                ds_linelist.setCellData(rowPos, "lineNm", rtnList[1]);
+            }
+        };
+
+        scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList = [];
+
+            switch (disGubun) {
+                case 1:
+                    rtnList = $c.gus.cfCommonPopUp('retrieveOpDeptCdInfo', pCode.trim(), pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+                    $c.gus.cfSetReturnValue(rtnList, ed_bilgLoofcCd, txt_bilgLoofcNm);
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+
+            $c.gus.cfClearPairObj(pairObj);
+
+            let pVal = $c.gus.cfGetValue(inObj);
+
+            if (isCode == null || isCode == true) {
+                scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+            } else {
+                scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+            }
+        };
+
+        scwin.udc_bilgLoofc_onblurCode = function() {
+            scwin.f_chkOpenCommonPopUp(ed_bilgLoofcCd, txt_bilgLoofcNm, 1);
+        };
+
+        scwin.f_SetBilltitleToScreen = function() {
+            for (let i = 0; i < ds_billtitle.getRowCount(); i++) {
+                let ids = scwin.titleInputIds[i];
+                if (!ids) continue;
+                scwin._setInputValue(ids[0], ds_billtitle.getCellData(i, "title1"));
+                scwin._setInputValue(ids[1], ds_billtitle.getCellData(i, "title2"));
+                scwin._setInputValue(ids[2], ds_billtitle.getCellData(i, "title3"));
+                scwin._setInputValue(ids[3], ds_billtitle.getCellData(i, "title4"));
+                scwin._setInputValue(ids[4], ds_billtitle.getCellData(i, "billAggrNm"));
+            }
+        };
+
+        scwin.f_ClearTitleInputs = function() {
+            for (let i = 0; i < scwin.titleInputIds.length; i++) {
+                let ids = scwin.titleInputIds[i];
+                for (let k = 0; k < ids.length; k++) {
+                    scwin._setInputValue(ids[k], "");
+                }
+            }
+        };
+
+        scwin.sbm_linelist_retrieve_submitdone = async function(e) {
+            let rowcnt = ds_linelist.getRowCount();
+            // TODO: cfShowTotalRows equivalent
+            if (rowcnt == 0) {
+                $c.gus.cfInitObjects([]);
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                $c.gus.cfDisableAllBtn();
+                $c.gus.cfDisableObjects([btn_addRow, btn_cancelRow]);
+            } else {
+                $c.gus.cfEnableAllBtn();
+                $c.gus.cfEnableObjects([btn_addRow, btn_cancelRow]);
+
+                await scwin.f_GetDataSet("BILGCOMNCD_CON", "1");
+                scwin.f_Editable("false");
+            }
+        };
+
+        scwin.sbm_linelist_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_billtitle_retrieve_submitdone = function(e) {
+            scwin.f_SetBilltitleToScreen();
+        };
+
+        scwin.sbm_billtitle_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_billtitle_save_submitdone = async function(e) {
+            scwin.addflag = "MOD";
+            if (scwin.delflag == "DEL") {
+                await $c.gus.cfAlertMsg(MSG_CM_INF_004);
+            } else {
+                await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            }
+        };
+
+        scwin.sbm_billtitle_save_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.ds_linelist_onrowpositionchange = async function(info) {
+            let row = ds_linelist.getRowPosition();
+            if (row >= 0) {
+                if (ds_linelist.getRowStatus(row) != "C") {
+                    await scwin.f_GetDataSet("BILGCOMNCD_CON", row + 1);
+                    scwin.f_Editable("false");
+                    scwin.addflag = "MOD";
+                } else {
+                    scwin.f_Editable("true");
+                    scwin.addflag = "REG";
+                }
+            }
+        };
+
+        scwin.ds_linelist_canrowpositionchange = async function(info) {
+            let rowPos = ds_linelist.getRowPosition();
+            if (ds_linelist.getRowStatus(rowPos) == "C") {
+                let chk = await $c.win.confirm("저장하지 않은 데이타를 취소하시겠습니까?");
+                if (chk == true) {
+                    ds_linelist.undoAll();
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        scwin.gr_line_ontextimageclick = function(rowIndex, columnIndex) {
+            scwin.f_Popup();
+        };
+    ]]></script>
+
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="청구지점" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode id="udc_bilgLoofc" codeId="ed_bilgLoofcCd" nameId="txt_bilgLoofcNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox wfix flex_no">
+    				<xf:group id="" class="col" style="width: 40%;"><xf:group adaptiveThreshold="" style="" id="" class="gvwbox mt32">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_linelist" style="" autoFit="allColumn"
+    							id="gr_line" class="wq_gvw" visibleRowNum="14" readOnly="false">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="120" inputType="text" style="" id="bilgLoofcCd" value="청구지점코드" displayMode="label"
+    										hidden="true">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="lineCd" value="LINE" displayMode="label"
+    										class="txt-red">
+    									</w2:column>
+    									<w2:column width="120" inputType="text" style="" id="lineNm" value="LINE명" displayMode="label"
+    										class="txt-red">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="120" inputType="text" style="" id="bilgLoofcCd" value="" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="lineCd" value="" displayMode="label"></w2:column>
+    									<w2:column width="120" inputType="text" style="" id="lineNm" value="" displayMode="label"
+    										textAlign="left">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0"
+    										class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:udc_bottomGrdBtn style=""></w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					
+    				</xf:group>
+    				<xf:group id="" class="col"><xf:group style="" id="" class="tabbox">
+    					<w2:tabControl alwaysDraw="false" style="" id="tac_tabControl1" class="wq_tab">
+    						<w2:tabs disabled="false" style="" id="tabs1" label="운송"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs2" label="보관"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs3" label="하역"></w2:tabs>
+    						<w2:content alwaysDraw="false" style="" id="content1">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:70px;"></xf:group>
+    										<xf:group tagname="col" style="width:70px;"></xf:group>
+    										<xf:group style="width:70px;" tagname="col"></xf:group>
+    										<xf:group tagname="col" style="width:70px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    										<xf:group style="width: 25%;" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>4</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="구분" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="집계표 TITLE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>8</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="수출입&lt;br/&gt;운송" ref="" style="" userData2=""
+    												escape="false">
+    											</w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>4</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="수입" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:group id="" class="form-group">
+    												<xf:input style="width: 100px;" id="ed_input1" placeholder="" class=""></xf:input>
+    												<xf:input style="width: 120px;" id="ed_input2" placeholder="" class=""></xf:input>
+    												<xf:input style="" id="ed_input3" placeholder="" class=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input34" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>2</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input4" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input7" placeholder="" style="width: 45px;"></xf:input>
+    												<xf:input class="" id="ed_input5" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input6" placeholder="" style=""></xf:input>
+
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input35" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input8" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input9" placeholder="" style="width: 45px;"></xf:input>
+    												<xf:input class="" id="ed_input10" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input11" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input36" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input12" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input13" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input14" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input37" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>4</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="수출" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input15" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input16" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input17" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input38" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>2</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input21" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input22" placeholder="" style="width: 45px;"></xf:input>
+    												<xf:input class="" id="ed_input23" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input24" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input39" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input25" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input26" placeholder="" style="width: 45px;"></xf:input>
+    												<xf:input class="" id="ed_input27" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input28" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input40" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input18" placeholder="" style="width: 100px;"></xf:input>
+    												<xf:input class="" id="ed_input19" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input20" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input41" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>4</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="T/S&lt;br/&gt;(부두간)" ref="" style="" userData2=""
+    												escape="false">
+    											</w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>3</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input29" placeholder="" style=""></xf:input>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input42" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>2</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input30" placeholder="" style=""></xf:input>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input43" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input31" placeholder="" style=""></xf:input>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input44" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>3</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input32" placeholder="" style=""></xf:input>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_input45" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>4</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="POSITION" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input33" placeholder="" style=""></xf:input>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input46" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    												tagname="span">
+    											</w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="false" style="height: 506px;" id="content2">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:70px;"></xf:group><xf:group tagname="col" style="width:90px;"></xf:group><xf:group tagname="col" style="width:70px;"></xf:group><xf:group style="width:100px;" tagname="col"></xf:group>
+    										<xf:group tagname="col" style="width: 30px;"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group style="width: 25%;" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											<w2:colspan>4</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+    											<w2:textbox class="" id="" label="구분" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" style="" tagname="th">
+    											<w2:attributes><w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes><w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="집계표 TITLE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											<w2:colspan>1</w2:colspan><w2:rowspan>27</w2:rowspan></w2:attributes>
+    											<w2:textbox class="" id="" label="수출입&lt;br/&gt;본선" ref="" style="" userData2="" escape="false"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											<w2:colspan>1</w2:colspan><w2:rowspan>9</w2:rowspan></w2:attributes>
+    											<w2:textbox class="" id="" label="HANDLING&lt;br/&gt;CHG&lt;br/&gt;LUMP&lt;br/&gt;SUM" ref="" style="" userData2="" escape="false"></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+    											<w2:textbox class="" id="" label="수출입&lt;br/&gt;구분&lt;br/&gt;없음" ref="" style="" userData2="" escape="false"></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input47" placeholder="" style=""></xf:input>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input48" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr"><xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>2</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input119" placeholder="" style="width: 45px;"></xf:input>
+    												<xf:input class="" id="ed_input120" placeholder="" style=""></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input49" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th tac">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes>
+    											<w2:colspan>2</w2:colspan>
+    											<w2:rowspan>1</w2:rowspan>
+    										</w2:attributes>
+    										<xf:group class="form-group" id="" style="">
+    											<xf:input class="" id="ed_input121" placeholder="" style="width: 45px;"></xf:input>
+    											<xf:input class="" id="ed_input122" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_input50" placeholder="" style=""></xf:input>
+    									</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수입구분" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input123" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input124" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input51" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input125" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input127" placeholder="" style="width: 45px;"></xf:input><xf:input class="" id="ed_input126" placeholder="" style=""></xf:input>
+			
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input52" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input128" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input129" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input130" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input53" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출구분" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input131" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input132" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input54" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input133" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input134" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input135" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input55" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input136" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input137" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input138" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input56" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>18</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING&lt;br/&gt;CHG분리" ref="" style="" userData2="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>6</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출입&lt;br/&gt;구분&lt;br/&gt;없음" ref="" style="" userData2="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input139" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input57" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input140" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input58" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input141" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input142" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input59" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input143" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input144" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input60" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input145" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input146" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input61" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input147" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input148" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input62" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>6</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수입" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes></w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input149" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input150" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input63" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input151" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input152" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input64" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input153" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input154" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input155" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input65" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input156" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input157" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input158" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input66" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input159" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input160" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input161" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input68" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input162" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input163" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input164" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input67" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>6</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input165" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input166" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input69" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input167" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input168" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input70" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="FULL" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input169" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input170" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input171" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input71" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input172" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input173" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input174" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input72" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input175" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input176" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input177" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input73" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input178" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input179" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input180" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input74" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="ON&lt;br/&gt;HIRE" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING CHG LUMP SUM" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input181" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input75" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING CHG 분리" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input182" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input76" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input183" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input77" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="OFF&lt;br/&gt;HIRE" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING CHG LUMP SUM" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input184" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input78" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING CHG 분리" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input185" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input79" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input186" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input80" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>9</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="T/S&lt;br/&gt;(CY경유)" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING&lt;br/&gt;CHG LUMP&lt;br/&gt;SUM" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input187" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input81" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="FULL" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input188" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input82" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input189" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input83" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>6</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="HANDLING&lt;br/&gt;CHG분리" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input190" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input84" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input191" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input85" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="FULL" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input192" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input86" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input193" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input87" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="S" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input194" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input88" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="L" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input195" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input89" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>4</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="POSITION" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input196" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input90" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="RETURN" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="F/E구분 없음" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input197" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input91" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="FULL" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input201" placeholder="" style="width: 150px;"></xf:input>
+			<xf:input class="" id="ed_input202" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input203" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input92" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="EMPTY" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input204" placeholder="" style="width: 150px;"></xf:input>
+			<xf:input class="" id="ed_input205" placeholder="" style="width: 45px;"></xf:input>
+			<xf:input class="" id="ed_input206" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input93" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>5</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="REEFER" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수입" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input207" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input209" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input94" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>4</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="MONITORING" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input210" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input211" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input95" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="PTI&amp;PRE COOLING" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input212" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input213" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input96" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="PRE COOLING" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input214" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input215" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input97" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="PRE TRIP INSPECTION" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input216" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input217" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input98" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>4</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="CY보관료" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input218" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input99" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="CFS" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수입" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input219" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input220" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input100" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="STUFFING" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input221" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input222" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input101" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="SHIFTNG" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input223" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input224" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input102" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>16</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="DPCT&lt;br/&gt;통과성&lt;br/&gt;매출" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="하역료" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출입 구분 없음" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input225" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input103" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수입" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input226" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input227" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input104" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="수출" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input228" placeholder="" style="width: 100px;"></xf:input>
+			<xf:input class="" id="ed_input229" placeholder="" style=""></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input105" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Marsalling&lt;br/&gt;Charge" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수출입 구분 없음" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input230" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input106" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수입" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input231" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input232" placeholder="" style="width: 150px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input107" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수출" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input233" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input234" placeholder="" style="width: 150px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input108" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>3</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Bonded&lt;br/&gt;Charge" style="" escape="false"></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수출입 구분 없음" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input235" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input109" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수입" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input236" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input237" placeholder="" style="width: 150px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input110" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수출" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input238" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input239" placeholder="" style="width: 150px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input111" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="야간할증" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input240" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input112" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="휴일할증" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input241" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input113" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="위험할증" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input242" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input114" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Special Preminum" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input243" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input115" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Rehandling Charge" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input244" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input116" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Return Container" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input245" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input117" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Monitoring Charge" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<xf:input class="" id="ed_input246" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input118" placeholder="" style=""></xf:input>
+	</xf:group></xf:group></xf:group>
+    							</xf:group>
+    						</w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content3">
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group class="w2tb" id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:70px;"></xf:group><xf:group tagname="col" style="width:70px;"></xf:group><xf:group style="width:70px;" tagname="col"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    										<xf:group tagname="col" style="width: 25%;"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th tac" style="" tagname="th">
+    											<w2:attributes><w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes><w2:textbox class="" id="" label="구분" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group><xf:group class="w2tb_th tac" style="" tagname="th">
+    											<w2:textbox class="" id="" label="TITLE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="집계표 TITLE" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th tac" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											<w2:colspan>1</w2:colspan><w2:rowspan>4</w2:rowspan></w2:attributes>
+    											<w2:textbox class="" id="" label="하역" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>2</w2:rowspan>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="수입" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												
+    												
+    												<xf:input class="" id="ed_input249" placeholder="" style=""></xf:input><xf:input class="" id="ed_input248" placeholder="" style="width: 120px;"></xf:input><xf:input class="" id="ed_input247" placeholder="" style="width: 100px;"></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input277" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th tac">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:input class="" id="ed_input250" placeholder="" style=""></xf:input>
+    												<xf:input class="" id="ed_input251" placeholder="" style="width: 120px;"></xf:input>
+    												<xf:input class="" id="ed_input252" placeholder="" style="width: 100px;"></xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<xf:input class="" id="ed_input278" placeholder="" style=""></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th tac">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    											<w2:colspan>1</w2:colspan>
+    											<w2:rowspan>2</w2:rowspan>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="수출" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="th" class="w2tb_th tac">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group class="form-group" id="" style="">
+    											<xf:input class="" id="ed_input253" placeholder="" style=""></xf:input>
+    											<xf:input class="" id="ed_input254" placeholder="" style="width: 120px;"></xf:input>
+    											<xf:input class="" id="ed_input255" placeholder="" style="width: 100px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:input class="" id="ed_input279" placeholder="" style=""></xf:input>
+    									</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input256" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input257" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input258" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input280" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>4</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="하역T/S" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수입" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input259" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input260" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input261" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input281" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input262" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input263" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input264" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input282" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수출" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="CNTR" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input265" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input266" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input267" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input283" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="BULK" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input268" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input269" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input270" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input284" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>1</w2:colspan><w2:rowspan>2</w2:rowspan></w2:attributes>
+		<w2:textbox class="" id="" label="Shifting" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="CNTR" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input271" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input272" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input273" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input285" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="BULK" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:group class="form-group" id="" style="">
+			<xf:input class="" id="ed_input274" placeholder="" style=""></xf:input>
+			<xf:input class="" id="ed_input275" placeholder="" style="width: 120px;"></xf:input>
+			<xf:input class="" id="ed_input276" placeholder="" style="width: 100px;"></xf:input>
+		</xf:group>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input286" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>2</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="중기" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="SHORE CRANE" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input294" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input287" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="EQUIPMENT" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input295" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input288" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>1</w2:colspan>
+			<w2:rowspan>5</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="기타" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="HATCH" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input296" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input289" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="보상일용" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input297" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input290" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="야간할증" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input298" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input291" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="휴일할증" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input299" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input292" placeholder="" style=""></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th tac">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+			<w2:colspan>2</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="위험할증" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input300" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_input293" placeholder="" style=""></xf:input>
+	</xf:group></xf:group></xf:group>
+    							</xf:group>
+    						</w2:content>
+    					</w2:tabControl>
+    				</xf:group></xf:group></xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger><xf:trigger class="btn " id="btn_del" label="저장" style="" type="button">
+    						<xf:label>삭제</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

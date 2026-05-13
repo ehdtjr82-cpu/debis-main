@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_draftCheckClsCd_condition">
+    				<w2:keyInfo>
+    					<w2:key id="grpCd" name="그룹코드" dataType="text"></w2:key>
+    					<w2:key id="cd" name="코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_draftCheckClsCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="코드" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+    					<w2:column id="fltrCd1" name="fltrCd1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="draftCheckClsCd" name="어음수표구분코드" dataType="text"></w2:key>
+    					<w2:key id="prtBank" name="은행코드" dataType="text"></w2:key>
+    					<w2:key id="draftStsCd" name="어음상태코드" dataType="text"></w2:key>
+    					<w2:key id="recDt" name="수취일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_draftCheck" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="draftCheckNo" name="어음수표번호" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+    					<w2:column id="fltrCd1" name="fltrCd1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+            <xf:submission id="sbm_draftCheckClsCd" action="/cm.zz.RetrieveCodeCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,ds_draftCheckClsCd_condition" target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_draftCheckClsCd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+            <xf:submission id="sbm_retrieveDraft" action="/ac.fm.paymgnt.notepay.RetrieveDraftCheckContentsCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_draftCheck","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_draftCheck","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_retrieveDraft_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[scwin.params = "";
+scwin.recDtTemp = "";
+scwin.recDt = "";
+
+scwin.issueBankNm = "";
+scwin.issueBankCd = "";
+scwin.draftCheckClsCd = "";
+scwin.draftStsCd = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	scwin.params = $c.data.getParameter();
+
+    scwin.recDtTemp = scwin.params.recDt;
+    scwin.recDt =  scwin.recDtTemp.substring(0,4) + "/" + scwin.recDtTemp.substring(4,6) + "/" + scwin.recDtTemp.substring(6,8) ;
+    scwin.issueBankNm = scwin.params.issueBankNm;
+    scwin.issueBankCd = scwin.params.issueBankCd;
+    scwin.draftCheckClsCd = scwin.params.draftCheckClsCd;
+    scwin.draftStsCd = scwin.params.draftStsCd;
+
+    recDt.setValue(scwin.recDt);
+    issueBankNm.setValue(scwin.issueBankNm);
+
+    const params = {
+        grpCd      : "FM012" , 
+        cd : scwin.draftCheckClsCd,
+    };
+    //데이터셋에 정보설정
+    ds_draftCheckClsCd_condition.setJSON(params);
+    $c.sbm.execute(sbm_draftCheckClsCd);
+};
+
+//-------------------------------------------------------------------------
+// 어음수표구분 조회 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_draftCheckClsCd_submitdone = function(e) {
+   if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    
+    if(e.responseJSON.GAUCE) {
+        ds_draftCheckClsCd.setJSON(e.responseJSON.GAUCE);
+        draftCheckClsCd.setValue(ds_draftCheckClsCd.getCellData(0, 'cdNm'));
+        //draftCheckClsCd.innerHTML = ds_draftCheckClsCd.NameValue(1,'cdNm');
+    }
+
+    //어음수표번호 조회
+    const params = {
+        draftCheckClsCd : scwin.draftCheckClsCd , 
+        prtBank         : scwin.issueBankCd , 
+        draftStsCd      : scwin.draftStsCd , 
+        recDt           : scwin.recDtTemp , 
+    };
+    
+    //데이터셋에 정보설정
+    ds_condition.setJSON(params);
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {  
+    $c.sbm.execute(sbm_retrieveDraft);	
+}
+
+//-------------------------------------------------------------------------
+// 조회 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieveDraft_submitdone = async function (e) {
+    if (ds_draftCheck.getRowCount() == 0) {
+        $c.win.alert("해당 번호가 존재하지 않습니다");
+    }
+    tbx_totalRows.setValue($c.gus.cfInsertComma(ds_draftCheck.getRowCount()));
+};
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:120px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="수취일자" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:textbox class="" id="recDt" label="" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="수취은행" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:textbox class="" id="issueBankNm" label="" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="어음수표구분" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="draftCheckClsCd" label="" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="group2" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" id="gr_checkNo" style=""
+						visibleRowNumFix="true" dataList="data:ds_draftCheck" readOnly="true">
+						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="column1" inputType="text" style="" value="어음수표번호" width="100"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="draftCheckNo" inputType="text" style="" value="" width="100" textAlign="center"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="" style="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

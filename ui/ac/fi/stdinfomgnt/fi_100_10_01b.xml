@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_author="배기원" meta_screenName="전표종류등록" meta_screenId="D_fi_100_10_01b" meta_subsystem="" meta_type="메인">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="slipKndCd" name="전표종류코드" dataType="text"></w2:key>
+    					<w2:key id="slipKndNm" name="전표종류명" dataType="text"></w2:key>
+    					<w2:key id="useYn" name="사용여부" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_slipKind" saveRemovedData="false"
+    				ev:onbeforerowpositionchange="scwin.ds_slipKind_onbeforerowpositionchange"
+    				ev:onrowpositionchange="scwin.ds_slipKind_onrowpositionchange">
+    				<w2:columnInfo>
+    					<w2:column id="slipKndCd" name="전표종류코드" dataType="text"></w2:column>
+    					<w2:column id="slipKndNm" name="전표종류명" dataType="text"></w2:column>
+    					<w2:column id="autoSlipYn" name="자동전표여부" dataType="text"></w2:column>
+    					<w2:column id="modPsblYn" name="수정가능여부" dataType="text"></w2:column>
+    					<w2:column id="ctrlSlipYn" name="조정전표여부" dataType="text"></w2:column>
+    					<w2:column id="reversePsblYn" name="역분개가능여부" dataType="text"></w2:column>
+    					<w2:column id="reverseAutoSlipYn" name="역분개자동전표여부" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="사용여부" dataType="text"></w2:column>
+    					<w2:column id="elecStmtTrgtYn" name="전자결재대상여부" dataType="text"></w2:column>
+    					<w2:column id="elecApprvInfoYn" name="전자결재자정보여부" dataType="text"></w2:column>
+    					<w2:column id="crnQuitChkYn" name="사업자휴폐업체크여부" dataType="text"></w2:column>
+    					<w2:column id="corRegNoChk" name="법인번호체크(1:체크,0:X)" dataType="text"></w2:column>
+    					<w2:column id="compareDrcrClntYn" name="차/대거래처체크여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_retrieve" action="/ac.fi.stdinfomgnt.RetrieveSlipKindListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_slipKind","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_slipKind", "key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ac.fi.stdinfomgnt.UpdateSlipKindContentsInsertCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_slipKind","key":"IN_DS1"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 전표종류등록
+ * 메뉴경로 : 회계/재무회계/기준정보/
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/fi/stdinfomgnt/fi_100_10_01b.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-11-04
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ *    5. 그리드개인화 작업
+ *       정의 : <h> 태그를 제외한 나머지 컬럼에 대해서는 개인화 팝업에 컬럼명이 보이고(visible 상태는 check, unvisible 상태는 uncheck) 사용자가 개인화 가능함
+ *    ☞ hiddenVisible:true 인 경우 hiddenVisible:false로 처리 또는 속성 삭제
+ *    ☞ <h>테그만 hiddenCol="true" 하라는거고, 그외는 삭제.....언제해??(asis소스도 봐야하고, tobe컬럼없으면 만들라고??)
+ * 참고사항 : 
+ *    1. 그리드.setNoResultMessageVisible(false) 설정해줘야 그리드에 데이터없음 안보임
+ *    2. ☏ onbeforerowpositionchange 이벤트에 $c.gus.cfValidate([tbl_save]) 처리 안됨
+ *    ☞ 일단 scwin.f_ValidationSync() 만들어서 처리(scwin.setInit()에 ds_list.reform() 필수, 조회 시 이벤트 안태움)
+ *    3. ☏ UDC 행추가, 취소가 나와야 하는데 안됨
+ *    4. ☏전표종류(대문자1 + 숫자2) 포맷되도록 해야함(UDC라 송차장님께 확인)
+ * 수정이력 :
+ *    - 2025-11-04      배기원    최초작성
+ */
+
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function() {
+    // var SEARCH_HEADER = "slipKndCd:STRING(3)"
+    //     + ",slipKndNm:STRING(30)"
+    //     + ",useYn:DECIMAL";
+
+    // ds_search.SetDataHeader(SEARCH_HEADER);
+    // ds_search.insertRow();
+    // c_useYn.Index = 0;
+
+    // var GAUCE_DATASET_HEADER = "slipKndCd:STRING(3)"
+    //     + ",slipKndNm:STRING(30)"
+    //     + ",autoSlipYn:DECIMAL"
+    //     + ",modPsblYn:DECIMAL"
+    //     + ",ctrlSlipYn:DECIMAL"
+    //     + ",reversePsblYn:DECIMAL"
+    //     + ",reverseAutoSlipYn:DECIMAL"
+    //     + ",elecStmtTrgtYn:DECIMAL"
+    //     + ",crnQuitChkYn:DECIMAL"
+    //     + ",corRegNoChk:DECIMAL"
+    //     + ",compareDrcrClntYn:DECIMAL"
+    //     + ",useYn:DECIMAL";
+
+    // ds_slipKind.SetDataHeader(GAUCE_DATASET_HEADER);
+
+    // $c.gus.cfDisableKeyData();
+    // $c.gus.cfDisableBtn([bSave, btn_update]);
+    // c_slipKndCd.Focus();
+};
+
+/**
+ * 초기세팅(TOBE 그리드, 총건수)
+ */
+scwin.setInit = function() {
+    $c.gus.cfDisableObjects(grp_save);
+    $c.gus.cfDisableBtn([btn_update, btn_save]);
+    gr_slipKnd.setNoResultMessageVisible(false);
+    ds_slipKind.reform();
+    ds_slipKind.removeAll();
+    totalRows.setValue("0");
+    c_slipKndCd.focus();
+};
+
+/**
+ * UDC값 초기화(scwin.onpageload 이후 세팅됨)
+ */
+scwin.onUdcCompleted = function() {
+    scwin.setInit();
+};
+
+/**
+ * 조회
+ */
+scwin.f_Retrieve = function() {
+    // ds_search.UseChangeInfo = false
+    // sbm_search.setAction = "/ac.fi.stdinfomgnt.RetrieveSlipKindListCMD.do";
+    scwin.setInit();
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    gr_slipKnd.setNoResultMessageVisible(true);
+    let rowCnt = ds_slipKind.getRowCount();
+    totalRows.setValue(rowCnt);
+
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        if (rowCnt == 0) {
+            $c.gus.cfAlertMsg(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+
+        } else {
+            //조회된 결과 정렬(asis:<param name=SortExpr 참조)
+            ds_slipKind.sort("slipKndCd", 0);
+            gr_slipKnd.setFocusedCell(0, 0);
+            $c.gus.cfDisableBtn([btn_save]);
+        }
+    }
+};
+
+/**
+ * 행추가
+ */
+scwin.f_AddItem = async function() {
+    if(ds_slipKind.getInsertedIndex().length > 0) {
+        let ret = await scwin.f_Validation();
+        if(!ret) {
+            return false;
+        }
+    }
+    let row = ds_slipKind.insertRow();
+    gr_slipKnd.setFocusedCell(row, 0, false);
+    lc_useYn.setValue(1);
+    // $c.gus.cfEnableKeyData();
+    $c.gus.cfEnableObjects(grp_save);
+    $c.gus.cfDisableBtn([btn_update]);
+    ed_slipKndCd.focus();
+};
+
+/**
+ * 수정버튼
+ */
+scwin.f_Update = function() {
+    // disable 처리
+    $c.gus.cfEnableObjects(grp_save);
+    $c.gus.cfEnableObjects([ed_slipKndNm]);
+    $c.gus.cfDisableObjects([ed_slipKndCd]);
+    $c.gus.cfDisableBtn([btn_update]);
+    //focus 설정
+    // ed_slipKndNm.focus();
+};
+
+/**
+ * 취소
+ */
+scwin.f_Cancel = function(e) {
+    $c.data.undoRow(ds_slipKind, "N");
+    $c.gus.cfDisableObjects(grp_save);
+    $c.gus.cfDisableBtn([btn_save]);
+};
+
+/**
+ * 히든값 체크
+ * tobe 사용하지 않음
+ */
+// scwin.f_HiddenCheck = function (str, msg) {
+//     if (str.text.trim() == "") return true;
+//     if (str.text.trim() != str.hidVal) {
+//         $c.win.alert(MSG_CM_ERR_038, [msg]);
+//         str.SelectAll = "true";
+//         str.Focus();
+//         return false;
+//     } else {
+//         return true;
+//     }
+// };
+
+/**
+ * 저장 시 입력 Validation
+ */
+scwin.f_Validation = async function () {
+    //Mandatory 항목이 누락하지 않았는지 체크한다.
+    // if (!cfCheckMandatory())
+    // return false;
+
+    // 체크(전표종류코드, 전표종류명)
+    let ret = await $c.gus.cfValidate([ed_slipKndCd, ed_slipKndNm]);
+    if(!ret) {
+        return false;
+    }
+    return true;
+};
+
+/**
+ * scwin.f_ValidationSync 사용하기 위한 함수
+ */
+scwin.myCfValidate = function (oElement) {
+    let obj = $c.gus.object(oElement);
+    if (obj.length != null) {
+		for (var i = 0; i < obj.length; i++) {
+            let id = obj[i];
+            if($c.gus.cfIsNull(id.getValue())) {
+                $c.win.alert(id.options.title + "은(는) 필수 입력 항목입니다.");
+                id.focus();
+                return false;
+            }
+        }
+    }
+    return true;
+};
+
+/**
+ * onbeforerowpositionchange 사용을 위한 validation 체크
+ */
+scwin.f_ValidationSync = function() {
+    //필수값 임의로 체크(전표종류코드, 전표종류명)
+    let ret = scwin.myCfValidate([ed_slipKndCd, ed_slipKndNm]);
+    if(!ret) {
+        return false;
+    }
+    return true;
+};
+
+
+/**
+ * 저장버튼
+ */
+scwin.f_Save = async function () {
+    //변경한 데이터가 있는지 체크한다.
+    // if (ds_slipKind.IsUpdated == false) {
+    if (ds_slipKind.getModifiedIndex().length < 1) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["데이타"]);
+        return;
+    }
+
+    // 체크
+    if (!await scwin.f_Validation()) {
+        return;
+    }
+
+    let ret = await $c.gus.cfValidate([gr_slipKnd])
+    if (!ret) {
+        return false;
+    }
+    if (await $c.win.confirm(MSG_CM_CRM_001)) {
+	    sbm_save.userData1="noError";
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        await $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+        return;
+    }
+
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        ds_slipKind.reform();
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        scwin.f_Retrieve(); 
+    }
+};
+
+scwin.sbm_save_submiterror = function (e) {
+    $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+};
+
+/**
+ * 팝업호출
+ */
+scwin.f_openPopUp = function (flag, check) {
+    //asis 소스
+    // 전표종류
+    // rtnList = cfCommonPopUp('retrieveSlipKndCd', c_slipKndCd.text.trim(), c_slipKndNm.value, check, null, null, null, null, null, null, null, null, null);
+    // scwin.f_resultPopEd(c_slipKndCd, c_slipKndNm, rtnList);
+    udc_c_slipKndCd.cfCommonPopUp(scwin.udc_c_slipKndCd_callBackFunc, c_slipKndCd.getValue(), c_slipKndNm.getValue(), check, null
+                            , null, null, null, null, null
+                            , null, null, null, null, null
+                            , null, null
+    );
+};
+/**
+ * 전표종류(조회용) 팝업 callBack
+ */
+scwin.udc_c_slipKndCd_callBackFunc = function (ret) {
+    if (ret[0] != "N/A" && !$c.gus.cfIsNull(ret)) {
+        c_slipKndCd.setValue(ret[0]);        // 전표종류코드
+        c_slipKndNm.setValue(ret[1]);        // 전표종류명
+        c_slipKndCd.hidVal = ret[0];         // 히든값
+    } else {
+        c_slipKndCd.setValue("");            // 전표종류코드
+        c_slipKndNm.setValue("");            // 전표종류명
+        c_slipKndCd.hidVal = "";             // 히든값
+    }
+};
+
+
+/**
+ * 팝업호출
+ * tobe에서 사용안함(UDC udc_callBackFunc 사용)
+ */
+// scwin.f_checkPopEd = function (strCd, strNm, flag) {
+//     if (strCd.text.trim() == strCd.hidVal)
+//         return;
+
+//     strNm.value = "";
+//     strCd.hidVal = "";
+//     if (strCd.text.trim() != "") scwin.f_openPopUp(flag, "T");
+// };
+/**
+ * 팝업결과
+ * tobe에서 사용안함(UDC udc_callBackFunc 사용)
+ */
+// scwin.f_resultPopEd = function (strCd, strNm, rtnList) {
+//     if (rtnList != null) {
+//         if (rtnList[0] == "N/A") return;
+//         strCd.Text = rtnList[0]; // 코드
+//         strNm.value = rtnList[1]; // 명
+//         strCd.hidVal = rtnList[0]; // 히든값
+//     } else {
+//         strCd.Text = "";
+//         strNm.value = "";
+//         strCd.hidVal = "";
+//     }
+// };
+
+/**
+ * 엑셀파일 다운로드
+ * TOBE 사용안함(UDC 속성값 사용, udc_topGrdBtn)
+ */
+// scwin.f_Excel = function() {
+//     if ($c.win.confirm("Excel로 다운로드 하시겠습니까?")) {
+//         $c.data.downloadGridViewExcel(objGridName, "전표종류조회", "전표종류조회.xls", 2 + 8 + 16);
+//     }
+// };
+
+/**
+ * 그리드 높이 늘리기
+ * TOBE 사용안함(UDC +-버튼사용, udc_topGrdBtn)
+ */
+// scwin.f_grdHeiht = function (objGrd, size) {
+// };
+
+/**
+ * 그리드 값 변경(decode 대신 처리)
+ */
+scwin.decodeYnExp = function (data) {
+    return $c.gus.decode(data, "1", "사용", "0", "미사용", "");
+};
+scwin.decodeYnExp2 = function (data) {
+    return $c.gus.decode(data, "1", "Y", "0", "N", "");
+};
+
+/**
+ * 전표종류코드용(대문자1+숫자2)
+ */
+scwin.removeKor = function (id) {
+    var v = id.getValue().toUpperCase();
+    //한글방지
+    v = v.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g, "");
+    //영문 대문자 + 숫자만 남기기
+    v = v.replace(/[^A-Z0-9]/g, "");
+
+    // 길이 제한
+    if (v.length > 3) v = v.substring(0, 3);
+
+    // 패턴 보정
+    if (v.length >= 1 && !/[A-Z]/.test(v.charAt(0))) {
+        v = "";
+    }
+    if (v.length >= 2 && !/[0-9]/.test(v.charAt(1))) {
+        v = v.substring(0, 1);
+    }
+    if (v.length >= 3 && !/[0-9]/.test(v.charAt(2))) {
+        v = v.substring(0, 2);
+    }
+    id.setValue(v);
+};
+
+/**
+ * 전표종류코드
+ */
+scwin.ed_slipKndCd_onkeyup = function (e) {
+    scwin.removeKor(ed_slipKndCd);
+};
+
+
+
+/*##############################################################
+ * UDC 이벤트
+ *##############################################################*/
+/**
+ * 전표종류(조회영역) 팝업 호출
+ */
+scwin.udc_c_slipKndCd_onclickEvent = function (e) {
+    // if(c_slipKndCd.hidVal != c_slipKndCd.getValue()) {
+    //     c_slipKndNm.setValue("");
+    // }
+    let close = "F";
+    if(!$c.gus.cfIsNull(c_slipKndCd.getValue())) {
+        close = "T";
+    }
+    let id = e.target.id;
+    if(id.indexOf("btn") > -1) {
+        close = "F";
+    }
+    scwin.f_openPopUp("1", close);
+};
+scwin.udc_c_slipKndCd_onblurCodeEvent = function (e) {
+    if(c_slipKndCd.hidVal == c_slipKndCd.getValue()) {
+        return;
+    }
+    c_slipKndNm.setValue("");
+    c_slipKndCd.hidVal = "";
+    if(!$c.gus.cfIsNull(c_slipKndCd.getValue())) {
+        scwin.f_openPopUp("1", "T");
+    }
+};
+
+// scwin.udc_c_slipKndCd_onviewchangeCodeEvent = function (info) {
+//     if(c_slipKndCd.hidVal != c_slipKndCd.getValue()) {
+//         c_slipKndNm.setValue("");
+//         scwin.f_openPopUp("1", "T");
+//     }
+// };
+
+
+
+
+/*##############################################################
+ * 그리드, 트리뷰, 데이터리스트 이벤트
+ *##############################################################*/
+/**
+ * DataList의 rowPosition이 변경된 경우 발생
+ */
+scwin.ds_slipKind_onrowpositionchange = function (info) {
+    if (ds_slipKind.getRowStatus(info.newRowIndex) == "C") {
+        $c.gus.cfEnableKeyData();
+    } else {
+        //기타 데이타 -> 초기화, 수정, 삭제버튼 활성화
+        $c.gus.cfDisableObjects(grp_save);
+        $c.gus.cfDisableBtn([btn_save]);
+    }
+};
+
+ /**
+ * DataList의 rowPosition이 변경되기 직전에 발생하며 rowPosition의 변경 적용 여부를 결정
+ * asis : 그리드 로우를 변경하려고 할 경우 - 필수항목 체크
+ * tobe : 현재 $c.gus.cfValidate 사용 시 async라 이벤트에 async주면 return false안먹힘
+ */
+scwin.ds_slipKind_onbeforerowpositionchange = function (info) {
+    if (ds_slipKind.getRowStatus(info.oldRowIndex) == "C"
+        || ds_slipKind.getRowStatus(info.oldRowIndex) == "U") {            
+        return scwin.f_ValidationSync();
+    }
+};
+
+
+
+]]></script>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="전표종류" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+                                            <w2:udc_comCode id="udc_c_slipKndCd" btnId="btn_c_slipKndCd" codeId="c_slipKndCd" nameId="c_slipKndNm" popupID="popup_c_slipKndCd" validTitle="전표종류조회"
+                                                selectID="retrieveSlipKndCd" refDataCollection="dma_search" code="slipKndCd" name="slipKndNm"
+                                                maxlengthCode="3" objTypeCode="data" UpperFlagCode="1" editTypeCode="focus" 
+                                                maxlengthName="30" objTypeName="key"
+                                                ev:onclickEvent="scwin.udc_c_slipKndCd_onclickEvent" style="" editTypeName="focus" allowCharCode="a-zA-Z0-9" skipOnBlurCodeValueEmpty="N" afterAllowCharCode="0-9" allowCharCodeLength="1" beforeAllowCharCode="A-Za-z" ev:onblurCodeEvent="scwin.udc_c_slipKndCd_onblurCodeEvent">
+                                            </w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="사용여부" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control w100"
+    										direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="c_useYn"
+    										ref="data:dma_search.useYn" style="" submenuSize="auto" title="사용여부">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[전체]]></xf:label>
+    												<xf:value><![CDATA[-1]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[미사용]]></xf:label>
+    												<xf:value><![CDATA[0]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[사용]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" ev:onclick="scwin.f_Retrieve" id="btn_search" style="" type="button"
+    							userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="lybox wfix flex_no" id="">
+    						<xf:group class="col" id="" style="width: 850px;">
+    							<xf:group class="title-wrap" id="" style="">
+    									<xf:group class="right" id="">
+    										<w2:udc_topGrdBtn grdDownOpts='{"fileName":"전표종류조회.xlsx", "sheetName":"전표종류조회", "type":"1", "hiddenVisible":false}' gridID="gr_slipKnd" gridUpYn="N" grp="grd_section1" id="udc_excel" style="" templateYn="N" gridDownUserAuth="X">
+    										</w2:udc_topGrdBtn>
+    									</xf:group>
+    								</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    										<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_slipKind" focusMode="row" id="gr_slipKnd" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNumFix="true" readOnly="true" rowStatusWidth="20" rowStatusVisible="true" keepDefaultColumnWidth="true" visibleRowNum="12">
+    											<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    											<w2:header id="header2" style="">
+    												<w2:row id="row3" style="">
+    													<w2:column width="130" inputType="text" style="" id="column17" value="전표종류코드" displayMode="label">
+    													</w2:column>
+    													<w2:column width="200" inputType="text" style="" id="column13" value="전표종류명" displayMode="label">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" style="" id="column15" value="사용여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="130" inputType="text" style="" id="column29" value="자동전표여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="130" inputType="text" style="" id="column27" value="수정가능여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="130" inputType="text" style="" id="column25" value="조정전표여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column19" value="역분개가능여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column21" value="역분개자동전표여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column23" value="전자결재대상여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column37" value="전자결재자정보여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column35" value="사업자휴폐업체크여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column33" value="법인번호체크여부" displayMode="label">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="column31" value="차/대거래처체크여부" displayMode="label">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody id="gBody2" style="">
+    												<w2:row id="row4" style="">
+    													<w2:column width="130" inputType="text" style="" id="slipKndCd" value="" displayMode="label">
+    													</w2:column>
+    													<w2:column width="200" inputType="text" style="" id="slipKndNm" value="" displayMode="label" textAlign="left">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" style="" id="useYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp">
+    													</w2:column>
+    													<w2:column width="130" inputType="text" style="" id="autoSlipYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="130" inputType="text" style="" id="modPsblYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="130" inputType="text" style="" id="ctrlSlipYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="reversePsblYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="reverseAutoSlipYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="elecStmtTrgtYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="elecApprvInfoYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="crnQuitChkYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="corRegNoChk" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    													<w2:column width="150" inputType="text" style="" id="compareDrcrClntYn" value="" displayMode="label" displayFormatter="scwin.decodeYnExp2" hidden="true">
+    													</w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    										<xf:group class="left" id="">
+    											<xf:group class="grid-total" id="">
+    												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+    												</w2:textbox>
+    												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="right" id="" style="">
+    											<w2:udc_bottomGrdBtn btnCancelYn="Y" btnDelYn="N" btnRowDelYn="N" gridID="gr_slipKnd" id="udc_bottomGrdBtn" rowAddFunction="scwin.f_AddItem" rowAddUserAuth="C" style="" cancelFunction="scwin.f_Cancel">
+    											</w2:udc_bottomGrdBtn>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							<xf:group class="btnbox" id="" style="">
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="col" id="">
+    							<xf:group class="tbbox mt32" id="" style="">
+    								<xf:group class="w2tb tb" id="grp_save" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:150px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="req" id="" label="전표종류코드" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<xf:input class="form-control w100" id="ed_slipKndCd" style="" ref="data:ds_slipKind.slipKndCd" maxlength="3" mandatory="true" objType="key" editType="focus" imeMode="disabled" validateOnInput="true" ev:onkeyup="scwin.ed_slipKndCd_onkeyup" title="전표종류코드"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="전표종류명" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:input class="form-control" id="ed_slipKndNm" style="" ref="data:ds_slipKind.slipKndNm"
+    												title="전표종류명" mandatory="true" maxlength="50" objType="data" ltrim="true">
+    											</xf:input>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th" tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="자동전표여부" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_autoSlipYn"
+    												ref="data:ds_slipKind.autoSlipYn" refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style=""
+    												title="자동전표여부" objType="data">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[1]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    									</xf:group>
+    								<xf:group tagname="tr">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox class="" id="" label="수정가능여부" ref="" style="" userData2=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_modPsblYn"
+    											ref="data:ds_slipKind.modPsblYn" refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style=""
+    											title="수정가능여부" objType="data">
+    											<xf:choices>
+    												<xf:item>
+    													<xf:label><![CDATA[]]></xf:label>
+    													<xf:value><![CDATA[1]]></xf:value>
+    												</xf:item>
+    											</xf:choices>
+    										</xf:select>
+    									</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="조정전표여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_ctrlSlipYn" ref="data:ds_slipKind.ctrlSlipYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title="조정전표여부" objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="역분개가능여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_reversePsblYn" ref="data:ds_slipKind.reversePsblYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title="역분개가능여부" objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="역분개자동전표여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_reverseAutoSlipYn" ref="data:ds_slipKind.reverseAutoSlipYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title="역분개자동전표여부" objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="전자결재대상여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_elecStmtTrgtYn" ref="data:ds_slipKind.elecStmtTrgtYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title="전자결재대상여부" objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="전자결재자정보여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_elecApprvInfoYn" ref="data:ds_slipKind.elecApprvInfoYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title="전자결재자정보여부" objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="사업자휴폐업체크여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_crnQuitChkYn" ref="data:ds_slipKind.crnQuitChkYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title="사업자휴폐업체크여부" objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="법인번호체크여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_corRegNoChk" ref="data:ds_slipKind.corRegNoChk"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title='법인번호체크여부' objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="차/대거래처체크여부" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="chk-grp" cols="" falseValue="0" id="cbx_compareDrcrClntYn" ref="data:ds_slipKind.compareDrcrClntYn"
+			refInitSync="false" renderType="checkboxgroup" rows="" selectedindex="-1" style="" title='차/대거래처체크여부' objType="data">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr" style="">
+	<xf:group tagname="th" class="w2tb_th"><w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes><w2:textbox class="" id="" label="사용여부" ref="" style="" userData2=""></w2:textbox></xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select1 allOption="" appearance="minimal" chooseOption="" class="form-control w150" direction="auto" disabled="false"
+			disabledClass="w2selectbox_disabled" id="lc_useYn" mandatory="true" objType="data" ref="data:ds_slipKind.useYn" style=""
+			submenuSize="auto" title="사용여부">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[미사용]]></xf:label>
+					<xf:value><![CDATA[0]]></xf:value>
+				</xf:item>
+				<xf:item>
+					<xf:label><![CDATA[사용]]></xf:label>
+					<xf:value><![CDATA[1]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select1>
+	</xf:group></xf:group></xf:group>
+    							</xf:group>
+    						<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" ev:onclick="scwin.f_Update" id="btn_update" objType="bUpdate" style="" type="button" userAuth="U">
+    								<xf:label><![CDATA[수정]]></xf:label>
+    							</xf:trigger>
+    							<xf:trigger class="btn" ev:onclick="scwin.f_Save" id="btn_save" objType="bSave" style="" type="button" userAuth="U">
+    								<xf:label><![CDATA[저장]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group></xf:group>
+    					</xf:group>
+    					
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

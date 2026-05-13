@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_ramtConfirm">
+                <w2:keyInfo>
+                    <w2:key id="stdYm" name="잔액년월" dataType="text"></w2:key>
+                    <w2:key id="collMoneyAcctDeptCd" name="수금귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="ver" name="버젼" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.g_sCurrDate = "";
+        scwin.sAcctDeptCd = "";
+        scwin.sAppDeptNm = "";
+
+        scwin.onpageload = function() {
+            scwin.g_sCurrDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            scwin.sAcctDeptCd = $c.ses.getAcctDeptCd();
+            scwin.sAppDeptNm = $c.ses.getAcctDeptNm();
+
+            ed_stdYm.setValue(scwin.g_sCurrDate.substring(0, 6));
+            ed_appDept.setValue(scwin.sAcctDeptCd);
+            txt_appDeptNm.setValue(scwin.sAppDeptNm);
+        };
+
+        scwin.f_openPopUp = function(select_code, txtCodeId, txtNameId, sPopupCls) {
+            let rtnList = null;
+            let sCmdName = "";
+
+            let code = $p.getComponentById(txtCodeId).getValue();
+            let name = "";
+            if (txtNameId != null) {
+                name = $p.getComponentById(txtNameId).getValue();
+            }
+
+            switch (select_code) {
+                case '1':
+                    sCmdName = "retrieveAcctDeptCdInfo";
+                    rtnList = $c.gus.cfCommonPopUp(sCmdName, code, name, sPopupCls, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                    break;
+                case '2':
+                    sCmdName = "retrieveBorrLedgNoInfo";
+                    rtnList = $c.gus.cfCommonPopUp(sCmdName, code, name, sPopupCls, null, null, null, null, null, null, null, null, null);
+                    break;
+            }
+
+            if (rtnList != null) {
+                if (rtnList[0] == "N/A") return;
+                $p.getComponentById(txtCodeId).setValue(rtnList[0]);
+                if (txtNameId != null) {
+                    $p.getComponentById(txtNameId).setValue(rtnList[1]);
+                }
+            } else {
+                $p.getComponentById(txtCodeId).setValue("");
+                if (txtNameId != null) {
+                    $p.getComponentById(txtNameId).setValue("");
+                }
+            }
+        };
+
+        scwin.f_CheckPopUp = function(orgObjCdId, orgObjNmId, select_code) {
+            let orgObjCd = $p.getComponentById(orgObjCdId);
+            let orgObjNm = (orgObjNmId != null) ? $p.getComponentById(orgObjNmId) : null;
+
+            let codeVal = orgObjCd.getValue();
+            let hidVal = orgObjCd.getUserData("hidVal") || "";
+
+            if (codeVal != hidVal) {
+                if (orgObjNm != null) {
+                    orgObjNm.setValue("");
+                }
+            }
+            if (codeVal.trim() != "") {
+                scwin.f_openPopUp(select_code, orgObjCdId, orgObjNmId, 'T');
+            } else {
+                if (orgObjNm != null) {
+                    orgObjNm.setValue("");
+                }
+                orgObjCd.setValue("");
+                orgObjCd.setUserData("hidVal", "");
+            }
+        };
+
+        scwin.f_Search = async function() {
+            let chk = await $c.gus.cfValidate([ed_stdYm, udc_appDept]);
+            if (!chk) return false;
+
+            let odiParam = {};
+            odiParam["CLOSE_YM"] = ed_stdYm.getValue();
+            odiParam["DEPT_CD"] = ed_appDept.getValue();
+            odiParam["DEPT_NM"] = txt_appDeptNm.getValue();
+
+            let sPostYn = lc_postYn.getValue() + "";
+            odiParam["POST_YN"] = sPostYn;
+
+            let viewerParam = {};
+            viewerParam["print.mode"] = "silent";
+
+            let ozOptions = {
+                reportName: "ac_303_01_02",
+                ozrPath: "/il/acc/ac_303_01_02.ozr",
+                odiParam: odiParam,
+                viewerParam: viewerParam,
+                formParam: {}
+            };
+
+            $c.gus.cfOZEmbedPreview("wfm_ozReport", ozOptions);
+        };
+
+        scwin.ed_appDept_onblur = function(e) {
+            scwin.f_CheckPopUp("ed_appDept", "txt_appDeptNm", '1');
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Search();
+        };
+    ]]></script>
+
+    <w2:require as="udc_ilcomCode" type="page" variableClone="" src="/cm/udc/ilcomCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="사용부서" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_ilcomCode id="udc_appDept" codeId="ed_appDept" nameId="txt_appDeptNm" popupID="" selectID="" style="" validTitle=""></w2:udc_ilcomCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="사용년월" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_stdYm" pickerType="dynamic"
+    								placeholderLocaleRef="yearMonth" style="" ref="data:ds_ramtConfirm.stdYm" mandatory="true">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="진행상태" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_postYn" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+
+    		<xf:group class="ozWrap" id="ozFrame" style="">
+    			<w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style=""></w2:iframe>
+    		</xf:group></xf:group>
+    		
+    	</xf:group>
+    </body>
+</html>

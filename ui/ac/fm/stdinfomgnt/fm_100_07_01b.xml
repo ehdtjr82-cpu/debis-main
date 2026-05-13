@@ -1,0 +1,1303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_accountCustomer" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="coCd" name="회사코드" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="crn" name="사업자등록번호" dataType="text"></w2:column>
+    					<w2:column id="bizcondNm" name="업태" dataType="text"></w2:column>
+    					<w2:column id="biztypeNm" name="업종" dataType="text"></w2:column>
+    					<w2:column id="accountClntKndCd" name="계열구분" dataType="text"></w2:column>
+    					<w2:column id="repstNm" name="대표자명" dataType="text"></w2:column>
+    					<w2:column id="clntBusiClsCd" name="거래처사업자구분코드" dataType="text"></w2:column>
+    					<w2:column id="clntTelNo" name="거래처 전화번호" dataType="text"></w2:column>
+    					<w2:column id="clntMpNo" name="거래처 핸드폰 번호" dataType="text"></w2:column>
+    					<w2:column id="fncInstCd" name="금융기관코드" dataType="text"></w2:column>
+    					<w2:column id="empNo" name="사원번호" dataType="text"></w2:column>
+    					<w2:column id="clntEmail" name="거래처 EMAIL" dataType="text"></w2:column>
+    					<w2:column id="clntFaxNo" name="거래처 팩스번호" dataType="text"></w2:column>
+    					<w2:column id="zip" name="우편번호" dataType="text"></w2:column>
+    					<w2:column id="addr1" name="주소1" dataType="text"></w2:column>
+    					<w2:column id="addr2" name="주소2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_payCond" saveRemovedData="true" ev:oncelldatachange="scwin.ds_payCond_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="clntNo" name="거래처 번호" dataType="text"></w2:column>
+    					<w2:column id="seq" name="번호" dataType="number"></w2:column>
+    					<w2:column id="adptDt" name="적용일자" dataType="text"></w2:column>
+    					<w2:column id="payAcctDeptCd" name="지급부서코드" dataType="text"></w2:column>
+    					<w2:column id="payAcctDeptNm" name="지급부서명" dataType="text"></w2:column>
+    					<w2:column id="mbssysVehclYn" name="회원제차량여부" dataType="number"></w2:column>
+    					<w2:column id="mchtClntNo" name="화주거래처번호" dataType="text"></w2:column>
+    					<w2:column id="mchtClntNm" name="화주거래처명" dataType="text"></w2:column>
+    					<w2:column id="payCycCd" name="지급주기" dataType="text"></w2:column>
+    					<w2:column id="payDd" name="지급일" dataType="text"></w2:column>
+    					<w2:column id="payCntShtCd" name="지급수단" dataType="text"></w2:column>
+    					<w2:column id="draftDdCntCd" name="어음일수" dataType="text"></w2:column>
+    					<w2:column id="payCrcCd" name="지급화폐" dataType="text"></w2:column>
+    					<w2:column id="cashRt" name="현금비율" dataType="number"></w2:column>
+    					<w2:column id="draftRt" name="어음비율" dataType="number"></w2:column>
+    					<w2:column id="confirmYn" name="확인여부" dataType="number"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    					<w2:column id="payDtChgYn" name="지급일자변경여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_payAcnt" saveRemovedData="true" ev:oncelldatachange="scwin.ds_payAcnt_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="clntNo" name="거래처 번호" dataType="text"></w2:column>
+    					<w2:column id="seq" name="번호" dataType="number"></w2:column>
+    					<w2:column id="adptDt" name="적용일자" dataType="text"></w2:column>
+    					<w2:column id="payClsCd" name="지급구분코드" dataType="text"></w2:column>
+    					<w2:column id="bankCd" name="은행코드" dataType="text"></w2:column>
+    					<w2:column id="bankNm" name="은행명" dataType="text"></w2:column>
+    					<w2:column id="bankAcntNo" name="은행계좌번호" dataType="text"></w2:column>
+    					<w2:column id="dpstrNm" name="예금주명" dataType="text"></w2:column>
+    					<w2:column id="transfCmisDeductYn" name="이체수수료 공제여부" dataType="number"></w2:column>
+    					<w2:column id="payCrcCd" name="지급화폐" dataType="text"></w2:column>
+    					<w2:column id="confirmYn" name="확인여부" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_bankcd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bankCd" name="은행코드" dataType="text"></w2:column>
+    					<w2:column id="bankCdNm" name="은행명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="sysCls" name="sysCls" dataType="text"></w2:key>
+    					<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+    					<w2:key id="coNm" name="회사" dataType="text"></w2:key>
+    					<w2:key id="clntLupCond" name="조회조건구분" dataType="text"></w2:key>
+    					<w2:key id="qryCntn" name="조회조건내용" dataType="text"></w2:key>
+    					<w2:key id="confirmYn" name="확인여부" dataType="number"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+
+    			<w2:dataMap baseNode="map" id="ds_condition2">
+    				<w2:keyInfo>
+    					<w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+    					<w2:key id="confirmYn" name="확인여부" dataType="number"></w2:key>
+    					<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_payDd_condition">
+    				<w2:keyInfo>
+    					<w2:key id="grpCd" name="그룹코드" dataType="text"></w2:key>
+    					<w2:key id="cdNm" name="코드명" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_payDd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="코드" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_payCycCd_condition">
+    				<w2:keyInfo>
+    					<w2:key id="grpCd" name="그룹코드" dataType="text"></w2:key>
+    					<w2:key id="cdNm" name="코드명" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_payCycCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="cd" name="코드" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="코드명" dataType="text"></w2:column>
+    					<w2:column id="fltrCd1" name="fltrCd1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_bankcd_Retrieve" action="/ac.fm.stdinfomgnt.RetrieveBankCMD.do" method="post"
+    			mediatype="application/json" ref="" target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_bankcd_Retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_RetrieveCustomerList" action="" method="post" mediatype="application/json" ref='data:json,ds_condition'
+    			target='data:json,GAUCE' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_RetrieveCustomerList_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_RetrieveAccountCustomerList" action="/ac.fm.stdinfomgnt.RetrieveAccountCollMoneyPayCondAcntListCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_condition2","key":"ds_condition2"},{"id":"ds_payCond","key":"OUT_DS2"},{"id":"ds_payAcnt","key":"OUT_DS3"}]'
+    			target='data:json,[{"id":"ds_payCond","key":"OUT_DS2"},{"id":"ds_payAcnt","key":"OUT_DS3"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_RetrieveAccountCustomerList_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_payDd" action="/cm.zz.RetrieveCodeCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,ds_payDd_condition" target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="synchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_payDd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_payCycCd" action="/cm.zz.RetrieveCodeCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,ds_payCycCd_condition" target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_payCycCd_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+            <xf:submission id="sbm_saveAccountCustomer" action="" method="post" mediatype="application/json"
+    			ref='data:json,[{"action":"modified","id":"ds_accountCustomer","key":"IN_DS1"},{"action":"modified","id":"ds_payCond","key":"IN_DS2"},{"action":"modified","id":"ds_payAcnt","key":"IN_DS3"}]' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveAccountCustomer_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript"
+    		scopeVariable="ACConstants">
+    	</script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+let memJson = $c.data.getMemInfo();
+scwin.privAdmin = $c.data.getMemInfo("privAdmin");
+scwin.pos_clnt = 0;
+
+scwin.vUserHomeClsCd = $c.data.getMemInfo("userHomeClsCd");// 사용자소속구분코드 
+scwin.loginCoCd = $c.data.getMemInfo("coCd");
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.loginCoCd)?'':scwin.loginCoCd; // 소속 자회사
+scwin.loginCoClsCd = $c.data.getMemInfo("coClsCd");
+scwin.vLoginCoClsCd =$c.gus.cfIsNull(scwin.loginCoClsCd)?'': scwin.loginCoClsCd;  ;//회계_회사구분('CO035' : 0:동부 EXPRESS)
+
+scwin.isStarted = true;  // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 처리)
+scwin.payCycCd = ""; //scwin.f_payCycCdDsSet 콜벡 체크용정보
+//-------------------------------------------------------------------------
+// 전역변수 선언
+//-------------------------------------------------------------------------
+scwin.pos_groupCode = 0; // Grid의 저장시 위치로 이동하게 하는 전역변수
+
+//-------------------------------------------------------------------------
+// 히든정보설정
+//-------------------------------------------------------------------------
+scwin.txt_clntNoValChk = "";
+scwin.txt_clntNo = "";
+scwin.txt_clntLupCond = "";
+scwin.txt_sysCls = "";
+scwin.txt_payIdx = "";
+scwin.txt_createYn = "";
+scwin.txt_updateYn = "";
+scwin.txt_rowCount = "";
+scwin.txt_saveType = "";
+scwin.txtCoClsCd = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    
+    //공통코드 적용
+    const codeOptions = [
+        { grpCd: "FM041", compID: "gr_payCondition:payCycCd"},
+        { grpCd: "FM018", compID: "gr_payCondition:payCntShtCd"},
+        { grpCd: "ZZ006", compID: "gr_payCondition:payCrcCd,gr_payAccount:payCrcCd"},
+        { grpCd: "FM019", compID: "gr_payAccount:payClsCd"},
+    ];
+    
+    $c.data.setCommonCode(codeOptions);
+	
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    acb_confirmYn.setSelectedIndex(0);
+    acb_clntLupCond.setSelectedIndex(0);
+    scwin.f_bankcd_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_bankcd_Retrieve = function() {
+    $c.sbm.execute(sbm_bankcd_Retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회(은행조회) 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_bankcd_Retrieve_submitdone = function(e){
+    if(e.responseJSON.GAUCE) {
+        ds_bankcd.setJSON(e.responseJSON.GAUCE);
+    }
+    scwin.f_setCompanyInfo();
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function() {
+    try {
+        //사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+        if( scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD)  {  
+            scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+            scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+        }
+        ed_coCd.setValue(scwin.vLoginCoCd);
+        
+        scwin.f_PopUpCompanyInfo('T');
+    } catch (e) {
+       console.log(e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 회사코드입력시
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onblurCodeEvent = function (e) {
+    scwin.isStarted = false;
+    ed_coNm.setValue("");
+    scwin.f_PopUpCompanyInfo('T');
+};
+
+//-------------------------------------------------------------------------
+// 회사코드 찾기버튼 클릭시
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onclickEvent = function (e) {
+    scwin.isStarted = false;
+    scwin.f_PopUpCompanyInfo('F');
+};
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = async function (pWinCloseTF) {
+    
+    /*
+     var rtnList = cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+								,ed_coCd.text, txt_coNm.value
+								,pWinCloseTF,null,null,null,null
+								,null,null,null,null,null);
+    */
+    udc_coCd.setSelectId('retrieveDongbuGroupCompanyInfo');
+    udc_coCd.cfCommonPopUp(scwin.udc_coCd_callBackFunc // 콜백 함수
+                        , ed_coCd.getValue()              // 화면에서의 ??? Code Element의 Value
+                        , ed_coNm.getValue()              // 화면에서의 ??? Name Element의 Value
+                        , pWinCloseTF                     // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                        , null                            // Title순서
+                        , null                            // 보여주는 각 컬럼들의 폭
+                        , null                            // 컬럼중에서 숨기는 컬럼 지정
+                        , null                            // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+                        , null                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+                        , null                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+                        , null                            // 윈도우 위치 Y좌표
+                        , null                            // 윈도우 위치 X좌표
+                        , null                            // 중복체크여부	("F")
+                        , null                            // 전체검색허용여부	("F")
+                        , null                            // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+                        ); 
+};
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 콜백
+//-------------------------------------------------------------------------
+scwin.udc_coCd_callBackFunc = function (ret) {
+    try{
+        // 선언부
+        let rtnList = new Array();  // 공통POP-UP -> 요청화면
+        rtnList = ret ;
+
+        // SET	 
+        if(rtnList != null ) { 
+            if (rtnList[0] == "N/A") return false;  
+                ed_coCd.setValue(rtnList[0]);	// 코드
+                ed_coNm.setValue(rtnList[5]);	// 회사명
+                ed_coCd.hidVal = rtnList[0];  // 히든값
+                scwin.txtCoClsCd = rtnList[1];	// 회사구분  
+        }else{
+            ed_coCd.setValue("");
+            ed_coNm.setValue("");
+            scwin.txtCoClsCd ="";
+            scwin.txtCoClsCd = "";
+        }
+
+        if(scwin.txtCoClsCd > '0')  {  	// 자회사 회계 시스템 
+            scwin.isSubCompany = true;
+        }else{
+            scwin.isSubCompany = false;
+        }
+        
+        if ( scwin.isStarted == true ) {
+            if('T' == scwin.privAdmin  ||  !scwin.isSubCompany   ) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우 
+                $c.gus.cfEnableObjects([ed_coCd,ed_coNm,btn_company ]);    
+            }else {
+                $c.gus.cfDisableObjects([ed_coCd,ed_coNm,btn_company  ]);   
+            }
+        }
+
+    } catch (e) {
+       console.log(e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function (e) {
+
+    let edQryCntn = ed_qryCntn.getValue().trim()
+    let ret = await $c.gus.cfValidate([ed_coCd]);
+    if (!ret) {
+        return false;
+    }
+
+    if(scwin.bytelength(edQryCntn)< 2 && (acb_confirmYn.getValue() =='-1')) {
+        msgArr = new Array(2);
+		msgArr[0] = "검색어";
+		msgArr[1] = "글자(숫자) 한(두)";
+
+        await $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_011,msgArr[0],msgArr[1]));
+        ed_qryCntn.focus();
+        return false;
+    }else if(scwin.bytelength(edQryCntn)>1 && (acb_confirmYn.getValue() =='-1')) {
+        sbm_RetrieveCustomerList.action ="/ac.fm.stdinfomgnt.RetrieveAccountCustomerAllListCMD.do";
+    }else{
+        sbm_RetrieveCustomerList.action ="/ac.fm.stdinfomgnt.RetrieveAccountCustomerListCMD.do";
+    }
+
+    const params = {
+        sysCls      : "0" , 
+        clntLupCond : acb_clntLupCond.getValue() ,
+        qryCntn : ed_qryCntn.getValue() ,
+        coCd : ed_coCd.getValue() ,
+        confirmYn : acb_confirmYn.getValue()
+    };
+
+    //데이터셋에 정보설정
+    ds_condition.setJSON(params);
+
+    $c.sbm.execute(sbm_RetrieveCustomerList);
+};
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백(거래처 정보)
+//-------------------------------------------------------------------------
+scwin.sbm_RetrieveCustomerList_submitdone = async function(e) {
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+        
+        if(e.responseJSON.GAUCE) {
+            ds_accountCustomer.setJSON(e.responseJSON.GAUCE);
+
+            if( ds_accountCustomer.getRowCount() == 0 ){
+                //TOBE 기본정보 미존재시 지급조건,지급계좌 데이터 초기화밒 합계 0 처리 추가
+                ds_payCond.removeAll();
+                ds_payAcnt.removeAll();
+                tbx_totalRows2.setValue(ds_payCond.getRowCount());//지급조건합계
+                tbx_totalRows3.setValue(ds_payAcnt.getRowCount());//지급계좌합계
+
+                //f_OnLoad(); TODO 임시 막음. 테스트중입니다. 10.02
+                await $c.win.alert("조회된 데이터가 없습니다.");
+                ed_qryCntn.focus();
+            }else{
+                $c.gus.cfGoPrevPosition(gr_accountCustomer, scwin.pos_clnt); //포커스이동
+                scwin.gr_accountCustomer_onrowindexchange(scwin.pos_clnt);//저장전의 위치로 이동시킨다.
+            }
+        }
+
+        // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+        tbx_totalRows.setValue($c.gus.cfInsertComma(ds_accountCustomer.getRowCount()));
+        //TOBE 기본정보 설정을 위해 하단값 설정추가함.
+        tbx_totalRows2.setValue(ds_payCond.getRowCount());//지급조건합계
+        tbx_totalRows3.setValue(ds_payAcnt.getRowCount());//지급계좌합계
+    } catch (e) {
+       console.log("sbm_RetrieveCustomerList_submitdone : " + e);
+    }    
+}; 
+
+//-------------------------------------------------------------------------
+//거래처 정보 그리드가 변경되는 경우 ds_accountCustomer event=OnRowPosChanged(row)
+//-------------------------------------------------------------------------
+scwin.gr_accountCustomer_onrowindexchange = function (rowIndex, oldRow) {
+    ds_accountCustomer.setRowPosition(rowIndex);
+    scwin.f_RetrieveCollPayAcnt();
+};
+
+//-------------------------------------------------------------------------
+// 지급조건, 지급계좌 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveCollPayAcnt = function() {
+    const params = {
+        clntNo      : ds_accountCustomer.getCellData(ds_accountCustomer.getRowPosition(), "clntNo") , 
+        confirmYn : acb_confirmYn.getValue() ,
+        coCd : ed_coCd.getValue() ,
+    };
+    
+    //데이터셋에 정보설정
+    ds_condition2.setJSON(params);
+    $c.sbm.execute(sbm_RetrieveAccountCustomerList);
+};
+
+//-------------------------------------------------------------------------
+// 조회결과 콜백(지급조건, 지급계좌 조회)
+//-------------------------------------------------------------------------
+scwin.sbm_RetrieveAccountCustomerList_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+    tbx_totalRows2.setValue($c.gus.cfInsertComma(ds_payCond.getRowCount()));//지급조건합계
+    tbx_totalRows3.setValue($c.gus.cfInsertComma(ds_payAcnt.getRowCount()));//지급계좌합계
+
+    $c.gus.cfGoPrevPosition(gr_payCondition, 0); //포커스이동
+    $c.gus.cfGoPrevPosition(gr_payAccount, 0); //포커스이동
+};
+
+//-------------------------------------------------------------------------
+// 바이트 크기 체크
+//-------------------------------------------------------------------------
+scwin.bytelength = function (bstr) {
+    //var bstr = ed_qryCntn.getValue().trim();
+    var len = bstr.length;
+    for (ii=0; ii<bstr.length; ii++)
+    {
+       xx = bstr.substr(ii,1).charCodeAt(0);
+       if (xx > 127) { len++; }
+    }
+	return len;
+};
+
+//-------------------------------------------------------------------------
+// 초기화
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function (e) {
+    $c.gus.cfInitObjects(tbl_search, null);
+};
+
+//-------------------------------------------------------------------------
+// 지급주기 Combo 선택 처리
+//-------------------------------------------------------------------------
+scwin.gr_payCondition_onafteredit = function (rowIndex, columnIndex, value) {
+    try{
+        let colid = gr_payCondition.getColumnID(columnIndex);
+        
+        //ASIS 지급일 Combo 선택  gr_payCondition event=OnCloseUp(row,colid)
+        let payCycCd = ds_payCond.getCellData(rowIndex,"payCycCd");
+        let vPayCntShtCd  = ds_payCond.getCellData(rowIndex,"payCntShtCd");
+        // 지급주기, 주기일콤보를 여는 경우
+        if(colid=="payCycCd"){
+            if(payCycCd ==0){
+                ds_payCond.setCellData(rowIndex, "payDd", "");
+                gr_payCondition.setReadOnly("cell",rowIndex,"payDd",true); //readOnly
+            }else{
+                ds_payCond.setCellData(rowIndex, "payDd", "30");
+                gr_payCondition.setReadOnly("cell",rowIndex,"payDd",false); 
+            }
+            scwin.payCycCd = payCycCd;//scwin.f_payCycCdDsSet 콜벡 체크용정보
+            scwin.f_payCycCdDsSet("FM041");
+            //f_payCycCdDsSet 하위 다른 소스는 지급주기 조회 콜백으로 이전함.
+
+        }else if(colid=="payCntShtCd"){
+            if(vPayCntShtCd=="25" || vPayCntShtCd=="50"){   // 전자결재(25)나 실물어음(50)인 경우
+                ds_payCond.setCellData(rowIndex, "draftDdCntCd", "");
+                gr_payCondition.setReadOnly("cell",rowIndex,"draftDdCntCd",false);//ANY
+            }else{
+                ds_payCond.setCellData(rowIndex, "draftDdCntCd", "");
+                gr_payCondition.setReadOnly("cell",rowIndex,"draftDdCntCd",true);//none
+            }
+        }
+        //ASIS OnCloseUp(row,colid)
+        
+
+        if(colid=="payDd"){
+            scwin.payCycCd = ds_payCond.getCellData(rowIndex,"payCycCd");//scwin.f_payCycCdDsSet 콜벡 체크용정보
+            scwin.f_payCycCdDsSet("FM041");
+            //f_payCycCdDsSet 하위 다른 소스는 지급주기 조회 콜백으로 이전함.
+        }else if(colid=="payAcctDeptNm"){
+            scwin.f_OpenCommonPopUp(5, '', '','T','T');   // 귀속부서팝업
+        }else if(colid=="mchtClntNo"){
+            scwin.f_PopUp();   // 화주거래처번호팝업
+        }
+
+    } catch (e) {
+       console.log("gr_payCondition_onafteredit " + e);
+    }      
+};
+
+//-------------------------------------------------------------------------
+// 지급주기 조회
+//-------------------------------------------------------------------------
+scwin.f_payCycCdDsSet = function(grpCd) {
+    ds_payCycCd_condition.set("grpCd", grpCd)
+    $c.sbm.execute(sbm_payCycCd);
+};
+
+//-------------------------------------------------------------------------
+// 지급주기 조회 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_payCycCd_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    
+    let checkNum = 0;
+	
+    if(e.responseJSON.GAUCE) {
+        ds_payCycCd.setJSON(e.responseJSON.GAUCE);
+
+        for (let i=0; i<ds_payCycCd.getRowCount(); i ++){
+            if(scwin.payCycCd == ds_payCycCd.getCellData(i,"cd")){
+                checkNum = ds_payCycCd.getCellData(i,"fltrCd1");
+            }
+        }
+
+        if(checkNum == 1){
+            scwin.f_payDdDsSet("ZZ522");
+		}else if(checkNum == 2){
+			scwin.f_payDdDsSet("ZZ548");//f_payDdDsSet("ZZ548");
+		}
+    }
+};
+
+//-------------------------------------------------------------------------
+// 지급일자 조회
+//-------------------------------------------------------------------------
+scwin.f_payDdDsSet = function(grpCd) {
+    ds_payDd_condition.set("grpCd", grpCd)
+    $c.sbm.execute(sbm_payDd);
+};
+
+//-------------------------------------------------------------------------
+// 지급일자 조회 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_payDd_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    
+    if(e.responseJSON.GAUCE) {
+        ds_payDd.setJSON(e.responseJSON.GAUCE);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 지급조건 PopUp 호출
+//-------------------------------------------------------------------------
+scwin.gr_payCondition_ontextimageclick = function (rowIndex, columnIndex) {
+    try {
+        let Colid = gr_payCondition.getColumnID(columnIndex);
+        if(Colid=="payAcctDeptNm"){
+            scwin.f_openCommonPopUp(5, '', '','T','T');   // 귀속부서팝업
+        }else if(Colid=="mchtClntNo"){
+            scwin.f_PopUp();   // 화주거래처번호팝업
+        }
+    } catch (e) {
+       console.log("gr_payCondition_ontextimageclick : " + e);
+    }        
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함
+//-------------------------------------------------------------------------
+scwin.f_ChkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+    //값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+        return;
+    }
+
+    //짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    //검색어 세팅
+    var pVal = $c.gus.cfGetValue(inObj);
+
+    //inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true) {
+        scwin.f_OpenCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    } else { //inObj가 코드명 필드일 경우 팝업
+        scwin.f_OpenCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    }
+};
+
+//-------------------------------------------------------------------------
+// 귀속부서팝업
+//-------------------------------------------------------------------------
+scwin.f_OpenCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    try{
+        let pParam = "";
+        let param = "";
+
+        switch (disGubun) {
+            case 5:
+            //귀속부서 팝업
+                pCode = ds_payCond.getCellData(ds_payCond.getRowPosition(), "payAcctDeptCd");
+                pName = ds_payCond.getCellData(ds_payCond.getRowPosition(), "payAcctDeptNm");
+                pParam = ds_payCond.getCellData(ds_payCond.getRowPosition(), "adptDt");
+                param = ","+ ed_coCd.getValue()+","+scwin.txtCoClsCd+","; //자회사 회계시스템 추가사항
+
+                //rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo6',pCode, pName,'F',null,null,null,null,param,null,null,null,null); // 귀속부서
+                udc_comCodeGrid.setSelectId('retrieveAcctDeptCdInfo6');
+                udc_comCodeGrid.cfCommonPopUp(scwin.udc_comCodeGrid_payAcctDeptNm_callBackFunc // 팝업 콜백
+                    , pCode                  // 화면에서의 ??? Code Element의    Value
+                    , pName                  // 화면에서의 ??? Name Element의    Value
+                    , 'F'                    // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+                    , null                   // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                    , null                   // Title순서    
+                    , null                   // 보여주는 각 컬럼들의 폭  
+                    , null                   // 컬럼중에서 숨기는    컬럼 지정   
+                    , param                  // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+                    , null                   // POP-UP뛰을때 원도우의    사용자 정의 폭
+                    , null                   // POP-UP뛰을때 우도우의    사용자 정의 높이    
+                    , null                   // 윈도우 위치 Y좌표    
+                    , null                   // 윈도우 위치 X좌표
+                    , null                   // 중복체크여부 ("F")
+                    , null                   // 전체검색허용여부 ("F")
+                    , null                   // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                );
+                break;
+        }
+    } catch (e) {
+       console.log("f_OpenCommonPopUp : " + e);
+    }        
+};        
+
+//-------------------------------------------------------------------------
+// 귀속부서 콜백
+//-------------------------------------------------------------------------
+scwin.udc_comCodeGrid_payAcctDeptNm_callBackFunc = function (ret) {
+    $c.gus.cfSetGridReturnValue(ret, ds_payCond, ds_payCond.getRowPosition(), "payAcctDeptCd", "payAcctDeptNm");
+};
+
+//-------------------------------------------------------------------------
+// 화주거래처번호팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUp = function () {
+    try{
+        
+        let param = "";
+        param = ",,,"+ ed_coCd.getValue();
+        //rtnList = cfCommonPopUp('retrieveClntList','','',"T",null,null,null,"3,4,5,6,7,8,9,10",param,null,null,null,null,null,null,null); // 사업자등록번호
+        udc_comCodeGrid.setSelectId('retrieveClntList');
+        udc_comCodeGrid.cfCommonPopUp(scwin.udc_comCodeGrid_mchtClntNo_callBackFunc // 팝업 콜백
+            , ''                     // 화면에서의 ??? Code Element의    Value
+            , ''                     // 화면에서의 ??? Name Element의    Value
+            , 'T'                    // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+            , null                   // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+            , null                   // Title순서    
+            , null                   // 보여주는 각 컬럼들의 폭  
+            , '3,4,5,6,7,8,9,10'     // 컬럼중에서 숨기는    컬럼 지정   
+            , param                  // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+            , null                   // POP-UP뛰을때 원도우의    사용자 정의 폭
+            , null                   // POP-UP뛰을때 우도우의    사용자 정의 높이    
+            , null                   // 윈도우 위치 Y좌표    
+            , null                   // 윈도우 위치 X좌표
+            , null                   // 중복체크여부 ("F")
+            , null                   // 전체검색허용여부 ("F")
+            , null                   // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+            );
+        
+    } catch (e) {
+       console.log("f_PopUp : " + e);
+    }        
+};
+
+//-------------------------------------------------------------------------
+// 화주거래처번호팝업 콜백
+//-------------------------------------------------------------------------
+scwin.udc_comCodeGrid_mchtClntNo_callBackFunc = function (ret) {
+    try{
+        // 선언부
+        let rtnList = new Array();  // 공통POP-UP -> 요청화면
+        rtnList = ret ;
+        if (rtnList != null ) {
+			if(rtnList[0] == "N/A") return false;
+            let payCondRowPosi = ds_payCond.getRowPosition();
+
+            ds_payCond.setCellData(payCondRowPosi, "mchtClntNo", rtnList[0]); //화주거래처명
+            ds_payCond.setCellData(payCondRowPosi, "mchtClntNm", rtnList[1]); //화주거래처번호
+        }
+} catch (e) {
+       console.log("f_PopUp : " + e);
+    }        
+};
+
+//-------------------------------------------------------------------------
+// 지급조건 신규
+//-------------------------------------------------------------------------
+scwin.f_AddRow1 = async function () {
+    try{
+        
+        let row = $c.data.insertRow($p.getComponentById("gr_payCondition"));
+        ds_payCond.setCellData(row, "clntNo", ds_accountCustomer.getCellData(ds_accountCustomer.getRowPosition(), "clntNo"));
+        ds_payCond.setCellData(row, "cashRt", "100");
+        ds_payCond.setCellData(row, "payCrcCd", "KRW");
+        ds_payCond.setCellData(row, "seq", ds_payCond.getRowCount()); //ASIS 추가시 0을 getRowCount로 변경
+
+    } catch (e) {
+       console.log("f_addrow : " + e);
+    }
+}; 
+
+//-------------------------------------------------------------------------
+// 행삭제
+//-------------------------------------------------------------------------
+scwin.f_deleterow1 = async function () {
+    try{ 
+        if (ds_payCond.getRowCount() > 0){
+            //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+            if (ds_payCond.getRowStatus(ds_payCond.getRowPosition())=="C"){
+                ds_payCond.removeRow(ds_payCond.getRowPosition())
+            }else{
+                let delRow = ds_payCond.getRowPosition();
+                ds_payCond.deleteRow(ds_payCond.getRowPosition());
+                $c.gus.cfGoPrevPosition(gr_payCondition, delRow);    
+            }
+        }
+    } catch (e) {
+       console.log("f_deleterow1 : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_Undo1 = function () {
+    try{
+        if(ds_payCond.getRowStatus(ds_payCond.getRowPosition())=="C"){
+            ds_payCond.removeRow(ds_payCond.getRowPosition());
+        }else{
+            $c.data.undoRow(ds_payCond, "Y");
+        }
+    } catch (e) {
+       console.log("f_Undo1 : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 지급계좌 신규
+//-------------------------------------------------------------------------
+scwin.f_AddRow2 = async function () {
+    try{
+        
+        let row = $c.data.insertRow($p.getComponentById("gr_payAccount"));
+        ds_payAcnt.setCellData(row, "clntNo", ds_accountCustomer.getCellData(ds_accountCustomer.getRowPosition(), "clntNo"));
+
+    } catch (e) {
+       console.log("f_AddRow2 : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 행삭제
+//-------------------------------------------------------------------------
+scwin.f_deleterow2 = async function () {
+    try{ 
+        if (ds_payAcnt.getRowCount() > 0){
+            //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+            if (ds_payAcnt.getRowStatus(ds_payAcnt.getRowPosition())=="C"){
+                ds_payAcnt.removeRow(ds_payAcnt.getRowPosition())
+            }else{
+                let delRow1 = ds_payAcnt.getRowPosition();
+                ds_payAcnt.deleteRow(ds_payAcnt.getRowPosition());
+                $c.gus.cfGoPrevPosition(gr_payAccount, delRow1);    
+            }
+        }
+    } catch (e) {
+       console.log("f_deleterow2 : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_Undo2 = function () {
+    try{
+        if(ds_payAcnt.getRowStatus(ds_payAcnt.getRowPosition())=="C"){
+            ds_payAcnt.removeRow(ds_payAcnt.getRowPosition());
+        }else{
+            $c.data.undoRow(ds_payAcnt, "Y");
+        }
+    } catch (e) {
+       console.log("f_Undo2 : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 현금과 어음비율 값 입력
+//-------------------------------------------------------------------------
+scwin.ds_payCond_oncelldatachange = function (info) {
+    try{
+        let colid = info.colID;
+        let row = info.rowIndex;
+
+        let cashRt = ds_payCond.getCellData(row, "cashRt");
+        let draftRt = ds_payCond.getCellData(row, "draftRt");
+
+        // 현금과 어음 비율을 100으로
+	    if(colid=="cashRt"){
+            if(cashRt>=0 && cashRt<=100){
+                draftVal = 100- cashRt ;
+                ds_payCond.setCellData(row,"draftRt", draftVal);
+            }else{
+                $c.win.alert("현금비율은 입력값이 100보다 클 수 없습니다.");
+			    ds_payCond.setCellAllData(row,"cashRt", 100 - ds_payCond.getCellData(row,"draftRt"));
+            }
+        }
+
+        if(colid=="draftRt"){
+            if(draftRt>=0 && draftRt<=100){
+                cashVal = 100- draftRt ;
+                ds_payCond.setCellData(row,"cashRt",cashVal);
+            }else{
+                $c.win.alert("어음비율은 입력값이 100보다 클 수 없습니다.");
+                ds_payCond.setCellAllData(row,"draftRt", 100 - ds_payCond.getCellData(row,"cashRt"));
+            }
+        }
+    } catch (e) {
+       console.log("ds_payCond_oncelldatachange : " + e);
+    }
+};
+
+scwin.ds_payAcnt_oncelldatachange = function (info) {
+    try{
+
+        let colid = info.colID;
+        let row = info.rowIndex;
+
+        if(colid=="payClsCd"){
+            if(ds_payAcnt.getCellData(row,"payClsCd")!="60"){
+                ds_payAcnt.setCellAllData(row,"payCrcCd","KRW");
+            }else{
+                ds_payAcnt.setCellAllData(row,"payCrcCd","USD");
+            }
+        }
+
+        if(colid=="payCrcCd"){
+            if(ds_payAcnt.getCellData(row,"payCrcCd")=="KRW"&&ds_payAcnt.getCellData(row,"payClsCd")=="60"){
+                $c.win.alert("지급구분이 외화인경우 지급화폐를 원화(KRW)로 선택할 수 없습니다.");
+                ds_payAcnt.setCellAllData(row,"payCrcCd","USD");
+            }
+        }
+    } catch (e) {
+       console.log("ds_payAcnt_oncelldatachange : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (info) {
+    try{
+        if(ds_accountCustomer.getModifiedIndex().length==0 && ds_payCond.getModifiedIndex().length==0 && ds_payAcnt.getModifiedIndex().length==0){
+            $c.win.alert("변경된 사항이 없습니다.");
+            return false;
+        }
+
+        // 지급조건, 지급계좌 필수항목 체크
+        let ret = await $c.gus.cfValidate([gr_payCondition]);
+        if (!ret) {
+            return false;
+        }
+        //그리드 전체를 체크하지 못하여 개발로 체크하도록 수정.
+        let ret2 = await $c.gus.cfValidate([gr_payAccount]);
+        if (!ret2) {
+            return false;
+        }
+
+        // 지급수단 실물어음,전자결재일경우 어음일수 필수입력 체크
+        let payCondRowPosi = ds_payCond.getRowPosition();
+        let payCntShtCd =  ds_payCond.getCellData(payCondRowPosi, "payCntShtCd");
+        let cashRt =  ds_payCond.getCellData(payCondRowPosi, "cashRt");
+		let vDraftDdCntCd = ds_payCond.getCellData(payCondRowPosi, "draftDdCntCd");
+		let vCashRt = ds_payCond.getCellData(payCondRowPosi, "cashRt");
+
+        if((payCntShtCd=="50") && vDraftDdCntCd==""){
+			$c.win.alert("지급수단 실물어음,전자결제일경우 어음일수를 입력하셔야 합니다.");
+			return false;
+		}
+        if((payCntShtCd=="25") && vDraftDdCntCd=="" && (vCashRt!="100")){
+			$c.win.alert("지급수단 실물어음,전자결제일경우 어음일수를 입력하셔야 합니다.");
+			return false;
+		}
+
+        // 회원제차량여부 예 일때 화주거래처번호 필수입력 체크
+		let mbssysVehclYn =  ds_payCond.getCellData(payCondRowPosi, "mbssysVehclYn");
+        let vMchtClntNo = ds_payCond.getCellData(payCondRowPosi, "mchtClntNo");
+		if(mbssysVehclYn=="1" && vMchtClntNo==""){
+			$c.win.alert("회원제차량여부가 예인 경우 화주거래처번호를 입력하셔야 합니다.");
+			scwin.f_PopUp();
+			return false;		
+		}
+
+        if(ds_payAcnt.getModifiedIndex().length > 0){
+            let count = 1;
+            for (let i=0; i<ds_payAcnt.getRowCount(); i++) {
+                count++;
+                if(ds_payAcnt.getCellData(i,"payClsCd") == "60"&&(ds_payAcnt.getRowStatus(i)=="C"||ds_payAcnt.getRowStatus(i)=="U")){
+					if(ds_payAcnt.getCellData(i,"payCrcCd") == "KRW"){
+						$c.win.alert(count +"행 : 지급구분이 외화일경우 지급화폐는 원화(KRW)가 아닌값으로 입력하여 주세요.");
+						return false;
+					} 
+					if(ds_payAcnt.getCellData(i,"payCrcCd") == ""){
+						$c.win.alert(count +"행 : 지급구분이 외화일경우 지급화폐는 필수입력 입니다.");
+						return false;
+					}
+				}else if (ds_payAcnt.getCellData(i,"payClsCd") != "60"&&(ds_payAcnt.getRowStatus(i)=="C"||ds_payAcnt.getRowStatus(i)=="U")){
+					if(ds_payAcnt.getCellData(i,"payCrcCd") != "KRW" && ds_payAcnt.getCellData(i,"payCrcCd") != ""){
+						$c.win.alert(count +"행 : 지급구분이 외화가 아닐경우 지급화폐는 원화(KRW)로 입력하여 주세요.");
+						return false;
+					} 
+				}
+            }
+        }
+
+        if(await $c.win.confirm("저장하시겠습니까?")) {
+            scwin.pos_clnt = ds_accountCustomer.getRowPosition();
+            sbm_saveAccountCustomer.action = "/ac.fm.stdinfomgnt.SavePaymentConditionCMD.do";
+            $c.sbm.execute(sbm_saveAccountCustomer);
+        }
+        
+    } catch (e) {
+       console.log("f_Save : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_saveAccountCustomer_submitdone = function (e) {
+    try{
+        if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+        $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+        scwin.f_Retrieve();
+    } catch (e) {
+       console.log("sbm_saveAccountCustomer_submitdone : " + e);
+    }
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="tbl_search" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:65px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:65px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="회사코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" class="" codeId="ed_coCd" nameId="ed_coNm" btnId="btn_company" objTypeName="data" mandatoryCode="true" objTypeCode="data" UpperFlagCode="1" allowCharCode="0-9" maxlengthCode="3" id="udc_coCd" code="coCd" validTitle="회사코드" selectID="retrieveDongbuGroupCompanyInfo" ev:onblurCodeEvent="scwin.udc_coCd_onblurCodeEvent" ev:onclickEvent="scwin.udc_coCd_onclickEvent">
+                                        </w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="조회조건 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    								<xf:group id="" class="form-group ">
+    									<w2:autoComplete class="" editType="select" id="acb_clntLupCond" search="start" style="width: 150px;" submenuSize="auto" allOption="" chooseOption="" ref="" displayMode="value delim label">
+    										<w2:choices>
+    											<w2:item>
+    												<w2:label><![CDATA[거래처명]]></w2:label>
+    												<w2:value><![CDATA[0]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[거래처번호]]></w2:label>
+    												<w2:value><![CDATA[1]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[사업자번호]]></w2:label>
+    												<w2:value><![CDATA[2]]></w2:value>
+    											</w2:item>
+    										</w2:choices>
+    									</w2:autoComplete>
+    									<xf:input style="width: 150px;" id="ed_qryCntn" placeholder="" class=""></xf:input>
+    								</xf:group></xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="확인여부 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="acb_confirmYn" search="start" style="width: 80px;" submenuSize="auto" allOption="" chooseOption="" ref="" searchTarget="label" displayMode="label">
+    										<w2:choices>
+    											<w2:item>
+    												<w2:label><![CDATA[전체]]></w2:label>
+    												<w2:value><![CDATA[-1]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[아니오]]></w2:label>
+    												<w2:value><![CDATA[0]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[예]]></w2:label>
+    												<w2:value><![CDATA[1]]></w2:value>
+    											</w2:item>
+    										</w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.f_InitObjects">
+                                <xf:label><![CDATA[새로고침]]></xf:label>
+                            </xf:trigger>
+                            <xf:trigger class="btn sch" disabled="" escape="false" id="btn_Retrieve" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+                                <xf:label><![CDATA[조회]]></xf:label>
+                            </xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group id="" class="lybox wfix flex_no">
+    						<xf:group id="" class="col" style="width: 500px;">
+    							<xf:group adaptiveThreshold="" style="" id="" class="gvwbox gvwflex mt32">
+    									<w2:gridView scrollByColumnAdaptive="false" dataList="data:ds_accountCustomer" scrollByColumn="false" style="" autoFit="allColumn" id="gr_accountCustomer" class="wq_gvw h-full" checkReadOnlyOnPasteEnable="" resize="true" columnMove="true" sortable="true" ev:onrowindexchange="scwin.gr_accountCustomer_onrowindexchange" readOnly="true">
+    										<w2:caption style="" id="caption10" value="this is a grid caption."></w2:caption>
+    										<w2:header style="" id="header2">
+    											<w2:row style="" id="row3">
+    												<w2:column removeBorderStyle="false" width="150" inputType="text" id="column12" blockSelect="false" displayMode="label" value="거래처번호" class="col-type1">
+    												</w2:column>
+    												<w2:column removeBorderStyle="false" width="150" inputType="text" id="column11" blockSelect="false" displayMode="label" value="거래처명">
+    												</w2:column>
+    												<w2:column removeBorderStyle="false" width="150" inputType="text" id="column10" blockSelect="false" displayMode="label" value="사업자번호">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody style="" id="gBody2">
+    											<w2:row style="" id="row4">
+    												<w2:column removeBorderStyle="false" width="150" inputType="text" id="clntNo" blockSelect="false" displayMode="label" textAlign="center">
+    												</w2:column>
+    												<w2:column removeBorderStyle="false" width="150" inputType="text" id="clntNm" blockSelect="false" displayMode="label" textAlign="left">
+    												</w2:column>
+    												<w2:column removeBorderStyle="false" width="150" inputType="text" id="crn" blockSelect="false" displayMode="label" textAlign="left">
+    												</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    								<xf:group style="" id="" class="grid-bottom ">
+    									<xf:group id="" class="left">
+    										<xf:group id="" class="grid-total">
+    											<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    											<w2:textbox tagname="span" style="" id="tbx_totalRows" label="0" class="num"></w2:textbox>
+    											<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    						<xf:group id="" class="col">
+    							<xf:group style="" id="" class="row-gap-8">
+    								<xf:group style="" id="" class="title-wrap">
+    									<xf:group id="" class="title">
+    										<w2:textbox tagname="h3" style="" id="" label="지급조건" class="tit"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    										<w2:gridView scrollByColumnAdaptive="false" visibleRowNumFix="true" dataList="data:ds_payCond" scrollByColumn="false" style="" id="gr_payCondition" visibleRowNum="5" class="wq_gvw" checkReadOnlyOnPasteEnable="" autoFit="allColumn" autoFitMinWidth="1600" ev:onbeforeedit="scwin.gr_payCondition_onbeforeedit" ev:onafteredit="scwin.gr_payCondition_onafteredit" ev:ontextimageclick="scwin.gr_payCondition_ontextimageclick" rowStatusVisible="true" gridName="지급조건">
+    											<w2:caption style="" id="caption10" value="this is a grid caption."></w2:caption>
+    											<w2:header style="" id="header2">
+    												<w2:row style="" id="row3">
+    													<w2:column removeBorderStyle="false" width="70" inputType="text" id="column12" blockSelect="false" displayMode="label" value="번호" rowSpan="2" class="txt-red">
+    													</w2:column>
+    													<w2:column removeBorderStyle="false" width="100" inputType="text" id="column11" blockSelect="false" displayMode="label" value="적용일자" rowSpan="2" class="txt-red">
+    													</w2:column>
+    													<w2:column removeBorderStyle="false" width="120" inputType="text" id="column10" blockSelect="false" displayMode="label" value="계약부서명" rowSpan="2">
+    													</w2:column>
+    													<w2:column removeBorderStyle="false" width="100" inputType="text" id="column9" blockSelect="false" displayMode="label" value="지급주기" rowSpan="2" class="txt-red">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" id="column21" value="지급일" displayMode="label" rowSpan="2">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" id="column19" value="지급수단" displayMode="label" rowSpan="2" class="txt-red">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" id="column17" value="어음일수" displayMode="label" rowSpan="2">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" id="column13" value="지급화폐" displayMode="label" rowSpan="2">
+    													</w2:column>
+    													<w2:column width="140" inputType="text" id="column15" value="적용비율(%)" displayMode="label" colSpan="2">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" id="column41" value="회원제&lt;br/&gt;차량여부" displayMode="label" rowSpan="2">
+    													</w2:column>
+    													<w2:column width="120" inputType="text" id="column38" value="화주거래처번호" displayMode="label" rowSpan="2">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" id="column32" value="확인" displayMode="label" rowSpan="2">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" id="column35" value="지급일자&lt;br/&gt;변경여부" displayMode="label" rowSpan="2">
+    													</w2:column>
+    												</w2:row>
+    												<w2:row style="" id="row5">
+    													<w2:column width="70" inputType="text" id="column23" value="현금" displayMode="label" sortable="false">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" id="column45" value="어음" displayMode="label" sortable="false">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody style="" id="gBody2">
+    												<w2:row style="" id="row4">
+    													<w2:column removeBorderStyle="false" width="70" inputType="text" id="seq" blockSelect="false" displayMode="label" readOnly="true">
+    													</w2:column>
+    													<w2:column removeBorderStyle="false" width="100" inputType="calendar" id="adptDt" blockSelect="false" displayMode="label" allowChar="0-9" mandatory="true">
+    													</w2:column>
+    													<w2:column removeBorderStyle="false" width="120" inputType="textImage" id="payAcctDeptNm" blockSelect="false" displayMode="label">
+    													</w2:column>
+    													<w2:column blockSelect="false" width="100" removeBorderStyle="false" displayMode="label" id="payCycCd" inputType="select" value="" center="left" allOption="" chooseOption="" ref="" mandatory="true">
+                                                        </w2:column>
+
+    													<w2:column width="70" inputType="select" style="" id="payDd" value="" displayMode="label">
+                                                            <w2:choices>
+                                                                <w2:itemset nodeset="data:ds_payDd">
+                                                                    <w2:label ref="cdNm"></w2:label>
+                                                                    <w2:value ref="cd"></w2:value>
+                                                                </w2:itemset>
+                                                            </w2:choices>
+    													</w2:column>
+                                                        <w2:column width="100" id="payCntShtCd" inputType="select" value="" center="left" allOption="" chooseOption="" ref="" mandatory="true">
+                                                        </w2:column>
+
+    													<w2:column width="100" inputType="text" style="" id="draftDdCntCd" value="" displayMode="label" allowChar="0-9" maxLength="3">
+    													</w2:column>
+    													<w2:column width="100" displayMode="label" id="payCrcCd" inputType="select" value="" center="left" ref="">
+                                                        </w2:column>
+    													<w2:column width="70" inputType="text" style="" id="cashRt" value="" displayMode="label" maxLength="3" allowChar="0-9" displayFormat="###.#0">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="draftRt" value="" displayMode="label" maxLength="3" allowChar="0-9" displayFormat="###.#0">
+    													</w2:column>
+    													<w2:column width="100" displayMode="label" id="mbssysVehclYn" inputType="select" value="0" textAlign="center" allOption="" chooseOption="" ref="">
+                                                            <w2:choices>
+                                                                <w2:item>
+                                                                    <w2:label><![CDATA[아니오]]></w2:label>
+                                                                    <w2:value><![CDATA[0]]></w2:value>
+                                                                </w2:item>
+                                                                <w2:item>
+                                                                    <w2:label><![CDATA[예]]></w2:label>
+                                                                    <w2:value><![CDATA[1]]></w2:value>
+                                                                </w2:item>
+                                                            </w2:choices>
+                                                        </w2:column>
+    													<w2:column width="120" inputType="textImage" style="" id="mchtClntNo" value="" displayMode="label">
+    													</w2:column>
+    													<w2:column width="70" displayMode="label" id="confirmYn" inputType="select" value="0" textAlign="center" allOption="" chooseOption="" ref="">
+                                                            <w2:choices>
+                                                                <w2:item>
+                                                                    <w2:label><![CDATA[아니오]]></w2:label>
+                                                                    <w2:value><![CDATA[0]]></w2:value>
+                                                                </w2:item>
+                                                                <w2:item>
+                                                                    <w2:label><![CDATA[예]]></w2:label>
+                                                                    <w2:value><![CDATA[1]]></w2:value>
+                                                                </w2:item>
+                                                            </w2:choices>
+                                                        </w2:column>
+    													<w2:column width="100" inputType="text" style="" id="payDtChgYn" value="" displayMode="label">
+    													</w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group style="" id="" class="grid-bottom ">
+    										<xf:group id="" class="left">
+    											<xf:group id="" class="grid-total">
+    												<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    												<w2:textbox tagname="span" style="" id="tbx_totalRows2" label="0" class="num"></w2:textbox>
+    												<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group style="" id="" class="right">
+    											<w2:udc_bottomGrdBtn style="" btnCancelYn="Y" btnDelYn="N" btnRowDelYn="Y" btnRowAddYn="Y" rowAddObjType="ctrlBtn" rowAddFunction="f_AddRow1" rowAddUserAuth="C" rowDelFunction="f_deleterow1" cancelFunction="f_Undo1" gridID="gr_payCondition" id="udc_gridAddDel" cancelUserAuth="D" rowDelUserAuth="D" delObjType="ctrlBtn" rowDelObjType="ctrlBtn"></w2:udc_bottomGrdBtn>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							</xf:group>
+    							<xf:group class="row-gap-8" id="" style="">
+    								<xf:group class="title-wrap" id="" style="">
+    									<xf:group class="title" id="">
+    										<w2:textbox class="tit" id="" label="지급계좌" style="" tagname="h3"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    										<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_payAcnt" id="gr_payAccount" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5" visibleRowNumFix="true" rowStatusVisible="true" gridName="지급계좌">
+    											<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    											<w2:header id="header2" style="">
+    												<w2:row id="row3" style="">
+    													<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" width="70" value="번호" class="txt-red">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" width="100" value="적용일자" class="txt-red">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" width="100" value="지급구분" class="txt-red">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false" width="150" value="지급은행" class="txt-red" sortable="false">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column21" inputType="text" value="지급화폐" width="100">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column19" inputType="text" value="계좌번호" width="150" class="txt-red">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column17" inputType="text" value="예금주" width="100">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column13" inputType="text" value="확인" width="70">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody id="gBody2" style="">
+    												<w2:row id="row4" style="">
+    													<w2:column blockSelect="false" displayMode="label" id="seq" inputType="text" removeBorderStyle="false" width="70" textAlign="center" readOnly="true">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="adptDt" inputType="calendar" removeBorderStyle="false" width="100" textAlign="center" mandatory="true" allowChar="0-9">
+    													</w2:column>
+    													<w2:column blockSelect="false" removeBorderStyle="false" width="100" displayMode="label" id="payClsCd" inputType="select" value="0" textAlign="center" allOption="" chooseOption="" ref="" mandatory="true">
+                                                        </w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="bankCd" inputType="select" removeBorderStyle="false" width="150" textAlign="left" allOption="" chooseOption="true" chooseOptionLabel="$blank" ref="" mandatory="true">
+    														<w2:choices>
+    															<w2:itemset nodeset="data:ds_bankcd">
+    																<w2:label ref="bankCdNm"></w2:label>
+    																<w2:value ref="bankCd"></w2:value>
+    															</w2:itemset>
+    														</w2:choices>
+    													</w2:column>
+    													<w2:column width="100" removeBorderStyle="false" displayMode="label" id="payCrcCd" inputType="select" value="" center="left" allOption="" chooseOption="" ref="">
+                                                        </w2:column>
+    													<w2:column displayMode="label" id="bankAcntNo" inputType="text" width="150" textAlign="left" mandatory="true" maxLength="30">
+    													</w2:column>
+    													<w2:column displayMode="label" id="dpstrNm" inputType="text" width="100" textAlign="left" maxLength="30">
+    													</w2:column>
+    													<w2:column width="70" displayMode="label" id="confirmYn" inputType="select" removeBorderStyle="false" value="0" textAlign="center" allOption="" chooseOption="" ref="">
+                                                        <w2:choices>
+                                                            <w2:item>
+                                                                <w2:label><![CDATA[아니오]]></w2:label>
+                                                                <w2:value><![CDATA[0]]></w2:value>
+                                                            </w2:item>
+                                                            <w2:item>
+                                                                <w2:label><![CDATA[예]]></w2:label>
+                                                                <w2:value><![CDATA[1]]></w2:value>
+                                                            </w2:item>
+                                                        </w2:choices>
+                                                    </w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    										<xf:group class="left" id="">
+    											<xf:group class="grid-total" id="">
+    												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="num" id="tbx_totalRows3" label="0" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="right" id="" style="">
+    											<w2:udc_bottomGrdBtn style="" btnCancelYn="Y" btnDelYn="N" btnRowDelYn="Y" btnRowAddYn="Y" rowAddObjType="ctrlBtn" rowAddFunction="f_AddRow2" rowAddUserAuth="C" rowDelFunction="f_deleterow2" cancelFunction="f_Undo2" gridID="gr_payCondition" id="udc_gridAddDel2" cancelUserAuth="D" rowDelUserAuth="D" delObjType="ctrlBtn" rowDelObjType="ctrlBtn"></w2:udc_bottomGrdBtn>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							</xf:group>
+    						</xf:group></xf:group>
+    					<xf:group class="btnbox" id="">
+    						<xf:group class="right" id="">
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" userAuth="U" ev:onclick="scwin.f_Save">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+        <w2:udc_comCode btnId="" codeId="" id="udc_comCodeGrid" nameId="" popupID="" selectID="" style="display:none"></w2:udc_comCode>
+    </body>
+</html>

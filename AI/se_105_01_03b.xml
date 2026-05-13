@@ -1,0 +1,1970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_retrieve">
+                <w2:keyInfo>
+                    <w2:key id="kcomcd" name="대표거래처코드" dataType="text"></w2:key>
+                    <w2:key id="hhblno" name="HOUSE NO 1" dataType="text"></w2:key>
+                    <w2:key id="autono" name="B/L TYPE" dataType="text"></w2:key>
+                    <w2:key id="mhno" name="DOCUMENT NO 1" dataType="text"></w2:key>
+                    <w2:key id="hhmblno" name="MASTER B/L" dataType="text"></w2:key>
+                    <w2:key id="hhio" name="IN/OUT구분" dataType="text"></w2:key>
+                    <w2:key id="hheta" name="ETA" dataType="text"></w2:key>
+                    <w2:key id="inpid" name="입력자ID" dataType="text"></w2:key>
+                    <w2:key id="inpdt" name="입력일" dataType="text"></w2:key>
+                    <w2:key id="updid" name="수정자ID" dataType="text"></w2:key>
+                    <w2:key id="upddt" name="수정일" dataType="text"></w2:key>
+                    <w2:key id="odrNo" name="order no" dataType="text"></w2:key>
+                    <w2:key id="hhblno2" name="HOUSE NO 2" dataType="text"></w2:key>
+                    <w2:key id="mhno2" name="DOCUMENT NO 2" dataType="text"></w2:key>
+                    <w2:key id="hhblno3" name="HOUSE NO 3" dataType="text"></w2:key>
+                    <w2:key id="mhno3" name="DOCUMENT NO 3" dataType="text"></w2:key>
+                    <w2:key id="hhblno4" name="HOUSE NO 4" dataType="text"></w2:key>
+                    <w2:key id="mhno4" name="DOCUMENT NO 4" dataType="text"></w2:key>
+                    <w2:key id="hhblno5" name="HOUSE NO 5" dataType="text"></w2:key>
+                    <w2:key id="mhno5" name="DOCUMENT NO 5" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblList" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhactcust" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="autono" name="autono" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblList2" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhactcust" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="autono" name="autono" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblList3" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhactcust" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="autono" name="autono" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblList4" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhactcust" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="autono" name="autono" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblList5" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhactcust" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="autono" name="autono" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblListTemp" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblListTemp2" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblListTemp3" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblListTemp4" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_houseblListTemp5" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="chk" name="CHK" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="HOUSE NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="DOCUMENT NO" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="order no" dataType="text"></w2:column>
+                    <w2:column id="sellSeq" name="sellSeq" dataType="text"></w2:column>
+                    <w2:column id="hhpcgb" name="PP/CC" dataType="text"></w2:column>
+                    <w2:column id="hhp1" name="SAID TO CONTAIN" dataType="text"></w2:column>
+                    <w2:column id="hhp2" name="SHIPPERS LOAD AND COUNT" dataType="text"></w2:column>
+                    <w2:column id="hhp3" name="CONTAINER PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp4" name="TERM PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp5" name="RECIPT DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp6" name="ONBOARD DATE PRINT" dataType="text"></w2:column>
+                    <w2:column id="hhp7" name="Freight Print" dataType="text"></w2:column>
+                    <w2:column id="fareEngCd" name="영문운임코드" dataType="text"></w2:column>
+                    <w2:column id="fareEngNm" name="영문운임명" dataType="text"></w2:column>
+                    <w2:column id="ppccCls" name="PREPAID/COLLECT구분" dataType="text"></w2:column>
+                    <w2:column id="crcCd" name="통화코드" dataType="text"></w2:column>
+                    <w2:column id="prtnAmt" name="PRINT AMOUNT" dataType="text"></w2:column>
+                    <w2:column id="hhpaynm" name="PAYABLE AT" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_hmhno">
+                <w2:columnInfo>
+                    <w2:column id="code" name="Mhno code" dataType="text"></w2:column>
+                    <w2:column id="name" name="Mhno name" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_hmhno_2">
+                <w2:columnInfo>
+                    <w2:column id="code" name="Mhno code" dataType="text"></w2:column>
+                    <w2:column id="name" name="Mhno name" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_hmhno_3">
+                <w2:columnInfo>
+                    <w2:column id="code" name="Mhno code" dataType="text"></w2:column>
+                    <w2:column id="name" name="Mhno name" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_hmhno_4">
+                <w2:columnInfo>
+                    <w2:column id="code" name="Mhno code" dataType="text"></w2:column>
+                    <w2:column id="name" name="Mhno name" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_hmhno_5">
+                <w2:columnInfo>
+                    <w2:column id="code" name="Mhno code" dataType="text"></w2:column>
+                    <w2:column id="name" name="Mhno name" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataMap baseNode="map" id="dma_clntNo">
+                <w2:keyInfo>
+                    <w2:key id="hhactcust" name="거래처번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_mgntYn">
+                <w2:columnInfo>
+                    <w2:column id="mgntYn" name="관리여부" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_OZ" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="대표거래처코드" dataType="text"></w2:column>
+                    <w2:column id="hhblno" name="InvoiceNo" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="항공해상구분" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/il.seaout.sobl.RetrieveSeaExportHousePrintCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_retrieve","key":"IN_DS1"},{"id":"ds_houseblList","key":"OUT_DS1"},{"id":"ds_houseblListTemp","key":"OUT_DS2"},{"id":"ds_houseblList2","key":"OUT_DS3"},{"id":"ds_houseblListTemp2","key":"OUT_DS4"},{"id":"ds_houseblList3","key":"OUT_DS5"},{"id":"ds_houseblListTemp3","key":"OUT_DS6"},{"id":"ds_houseblList4","key":"OUT_DS7"},{"id":"ds_houseblListTemp4","key":"OUT_DS8"},{"id":"ds_houseblList5","key":"OUT_DS9"},{"id":"ds_houseblListTemp5","key":"OUT_DS10"}]'
+            target='data:json,[{"id":"ds_houseblList","key":"OUT_DS1"},{"id":"ds_houseblListTemp","key":"OUT_DS2"},{"id":"ds_houseblList2","key":"OUT_DS3"},{"id":"ds_houseblListTemp2","key":"OUT_DS4"},{"id":"ds_houseblList3","key":"OUT_DS5"},{"id":"ds_houseblListTemp3","key":"OUT_DS6"},{"id":"ds_houseblList4","key":"OUT_DS7"},{"id":"ds_houseblListTemp4","key":"OUT_DS8"},{"id":"ds_houseblList5","key":"OUT_DS9"},{"id":"ds_houseblListTemp5","key":"OUT_DS10"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/il.seaout.sobl.SaveHousePrintCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_houseblList","key":"IN_DS1"},{"id":"ds_houseblList2","key":"IN_DS2"},{"id":"ds_houseblList3","key":"IN_DS3"},{"id":"ds_houseblList4","key":"IN_DS4"},{"id":"ds_houseblList5","key":"IN_DS5"}]'
+            target=''
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieveMgntClnt"
+            action="/il.seaout.sobl.RetrieveSeaExportMgntClntCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_clntNo","key":"IN_DS1"},{"id":"ds_mgntYn","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_mgntYn","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveMgntClnt_submitdone"
+            ev:submiterror="scwin.sbm_retrieveMgntClnt_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_loadMhno"
+            action="/cm.zz.RetrieveComboCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref=''
+            target=''
+            ev:submitdone="scwin.sbm_loadMhno_submitdone"
+            ev:submiterror="scwin.sbm_loadMhno_submiterror">
+        </xf:submission>
+
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+    scwin.statusFlag = "";
+    scwin.processFlag = "";
+    scwin.invoiceCheck = "0";
+    scwin.tabNo = 0;
+    scwin.mhnoFlag = "0";
+    scwin.exRateCheck = "1";
+    scwin.v_linkcheck = "";
+    scwin.v_kcomcd = "";
+    scwin.v_blno = "";
+    scwin.v_mhno = "";
+    scwin.v_bkno = "";
+    scwin.v_tab = "0";
+    scwin.hd_kcomcd = "DBEX";
+    scwin.userId = "";
+    scwin.mhnoLoadingIdx = 0;
+
+    scwin.onpageload = function() {
+        scwin.params = $c.data.getParameter();
+        scwin.v_linkcheck = (scwin.params && scwin.params.linkcheck) ? scwin.params.linkcheck : "0";
+        scwin.v_kcomcd = (scwin.params && scwin.params.kcomcd) ? scwin.params.kcomcd : "";
+        scwin.v_blno = (scwin.params && scwin.params.blno) ? scwin.params.blno : "";
+        scwin.v_mhno = (scwin.params && scwin.params.mhno) ? scwin.params.mhno : "";
+        scwin.v_bkno = (scwin.params && scwin.params.bkno) ? scwin.params.bkno : "";
+        scwin.userId = $c.ses.getUserId();
+
+        scwin.f_DefaultValue();
+        scwin.f_getParametrSetting(scwin.v_linkcheck);
+        rd_prttype.setValue("K");
+        scwin.f_initSetTab();
+
+        tabs1.setLabel("House No 1");
+        tabs2.setLabel("House No 2");
+        tabs3.setLabel("House No 3");
+        tabs4.setLabel("House No 4");
+        tabs5.setLabel("House No 5");
+
+        lc_dateTitle.setValue("LADEN ON BOARD");
+    };
+
+    scwin.f_getParametrSetting = function(gubun) {
+        switch (gubun) {
+            case "0":
+                break;
+            case "5":
+                scwin.mhnoFlag = "1";
+                if (scwin.v_blno == "null" || scwin.v_blno == "") {
+                    ed_hhblno.setValue("");
+                    ed_hhblno.setFocus();
+                    return false;
+                }
+                scwin.hd_kcomcd = scwin.v_kcomcd;
+                ed_hhblno.setValue(scwin.v_blno);
+                if (ds_hmhno.getRowCount() == 0) {
+                    ds_hmhno.insertRow();
+                }
+                ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", scwin.v_mhno);
+                ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", scwin.v_mhno);
+                lc_dateTitle.setFocus();
+                break;
+        }
+    };
+
+    scwin.f_DefaultValue = function() {
+        scwin.f_Set("INIT");
+        ed_hhblno.setFocus();
+    };
+
+    scwin.f_Set = function(gubun) {
+        switch (gubun) {
+            case "INIT":
+                $c.gus.cfDisableBtnOnly([btn_Print, btn_Print2, btn_Print3, btn_Print4, btn_Print5, btn_Print6, btn_Print7, btn_Print8, btn_Print9, btn_Print10]);
+                $c.gus.cfEnableObjects([tbl_Search]);
+                scwin.statusFlag = "I";
+                break;
+            case "RETRIEVE":
+                $c.gus.cfEnableBtnOnly([btn_Print, btn_Print2, btn_Print3, btn_Print4, btn_Print5, btn_Print6, btn_Print7, btn_Print8, btn_Print9, btn_Print10]);
+                $c.gus.cfEnableObjects([tbl_Search]);
+                scwin.statusFlag = "";
+                break;
+            case "SAVE":
+                $c.gus.cfDisableBtnOnly([btn_Print, btn_Print2, btn_Print3, btn_Print4, btn_Print5, btn_Print6, btn_Print7, btn_Print8, btn_Print9, btn_Print10]);
+                scwin.f_Set("RETRIEVE");
+                break;
+        }
+    };
+
+    scwin.f_initSetTab = function() {
+        $c.gus.cfViewTab(0);
+        scwin.f_selectTabMenu(0);
+    };
+
+    scwin.f_selectTabMenu = function(idx) {
+        switch (idx) {
+            case 0:
+                scwin.v_tab = "0";
+                break;
+            case 1:
+                scwin.v_tab = "1";
+                break;
+            case 2:
+                scwin.v_tab = "2";
+                break;
+            case 3:
+                scwin.v_tab = "3";
+                break;
+            case 4:
+                scwin.v_tab = "4";
+                break;
+        }
+        $c.gus.cfViewTab(idx);
+    };
+
+    scwin.f_Retrieve = async function() {
+        if (ed_hhblno.getValue().trim() == "") {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["House No 1"]);
+            return;
+        }
+        lc_dateTitle.setFocus();
+
+        ds_retrieve.set("kcomcd", scwin.hd_kcomcd);
+        ds_retrieve.set("mhno", lc_dateTitle.getValue());
+        if (lc_hhpaynm.getValue() != "") {
+            ds_retrieve.set("mhno2", lc_hhpaynm.getValue());
+        }
+        if (lc_mhno_3.getValue() != "") {
+            ds_retrieve.set("mhno3", lc_mhno_3.getValue());
+        }
+        if (lc_mhno_4.getValue() != "") {
+            ds_retrieve.set("mhno4", lc_mhno_4.getValue());
+        }
+        if (lc_mhno_5.getValue() != "") {
+            ds_retrieve.set("mhno5", lc_mhno_5.getValue());
+        }
+
+        await $c.sbm.execute(sbm_retrieve);
+
+        $c.gus.cfEnableObj(ed_hhblno, true);
+        $c.gus.cfEnableObj(lc_dateTitle, true);
+    };
+
+    scwin.f_FieldClear = function() {
+        $c.gus.cfInitObjects([ed_hhblno]);
+        ds_hmhno.removeAll();
+    };
+
+    scwin.f_dataSetClear = function() {
+        ds_houseblList.removeAll();
+    };
+
+    scwin.f_Save = async function(flag) {
+        if (await scwin.f_validate()) {
+            let chk = await $c.win.confirm(MSG_CM_CRM_001);
+            if (chk) {
+                let checked = 0;
+                for (let i = 0; i < ds_houseblList.getRowCount(); i++) {
+                    ds_houseblList.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                    ds_houseblList.setCellData(i, "hhblno", ed_hhblno.getValue());
+                    ds_houseblList.setCellData(i, "mhno", lc_dateTitle.getValue());
+                    ds_houseblList.setCellData(i, "hhpaynm", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhpaynm"));
+                    ds_houseblList.setCellData(i, "hhp1", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp1"));
+                    ds_houseblList.setCellData(i, "hhp2", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp2"));
+                    ds_houseblList.setCellData(i, "hhp3", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp3"));
+                    ds_houseblList.setCellData(i, "hhp4", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp4"));
+                    ds_houseblList.setCellData(i, "hhp5", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp5"));
+                    ds_houseblList.setCellData(i, "hhp6", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp6"));
+                    ds_houseblList.setCellData(i, "hhp7", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp7"));
+                    ds_houseblList.setRowStatus(i, "C");
+                    checked++;
+                }
+                for (let i = 0; i < ds_houseblList2.getRowCount(); i++) {
+                    ds_houseblList2.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                    ds_houseblList2.setCellData(i, "hhblno", ed_hhblno_2.getValue());
+                    ds_houseblList2.setCellData(i, "mhno", lc_hhpaynm.getValue());
+                    ds_houseblList2.setCellData(i, "hhpaynm", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhpaynm"));
+                    ds_houseblList2.setCellData(i, "hhp1", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp1"));
+                    ds_houseblList2.setCellData(i, "hhp2", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp2"));
+                    ds_houseblList2.setCellData(i, "hhp3", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp3"));
+                    ds_houseblList2.setCellData(i, "hhp4", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp4"));
+                    ds_houseblList2.setCellData(i, "hhp5", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp5"));
+                    ds_houseblList2.setCellData(i, "hhp6", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp6"));
+                    ds_houseblList2.setCellData(i, "hhp7", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp7"));
+                    ds_houseblList2.setRowStatus(i, "C");
+                    checked++;
+                }
+                for (let i = 0; i < ds_houseblList3.getRowCount(); i++) {
+                    ds_houseblList3.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                    ds_houseblList3.setCellData(i, "hhblno", ed_hhblno_3.getValue());
+                    ds_houseblList3.setCellData(i, "mhno", lc_mhno_3.getValue());
+                    ds_houseblList3.setCellData(i, "hhpaynm", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhpaynm"));
+                    ds_houseblList3.setCellData(i, "hhp1", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp1"));
+                    ds_houseblList3.setCellData(i, "hhp3", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp3"));
+                    ds_houseblList3.setCellData(i, "hhp3", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp3"));
+                    ds_houseblList3.setCellData(i, "hhp4", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp4"));
+                    ds_houseblList3.setCellData(i, "hhp5", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp5"));
+                    ds_houseblList3.setCellData(i, "hhp6", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp6"));
+                    ds_houseblList3.setCellData(i, "hhp7", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp7"));
+                    ds_houseblList3.setRowStatus(i, "C");
+                    checked++;
+                }
+                for (let i = 0; i < ds_houseblList4.getRowCount(); i++) {
+                    ds_houseblList4.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                    ds_houseblList4.setCellData(i, "hhblno", ed_hhblno_4.getValue());
+                    ds_houseblList4.setCellData(i, "mhno", lc_mhno_4.getValue());
+                    ds_houseblList4.setCellData(i, "hhpaynm", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhpaynm"));
+                    ds_houseblList4.setCellData(i, "hhp1", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp1"));
+                    ds_houseblList4.setCellData(i, "hhp4", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp4"));
+                    ds_houseblList4.setCellData(i, "hhp3", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp3"));
+                    ds_houseblList4.setCellData(i, "hhp4", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp4"));
+                    ds_houseblList4.setCellData(i, "hhp5", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp5"));
+                    ds_houseblList4.setCellData(i, "hhp6", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp6"));
+                    ds_houseblList4.setCellData(i, "hhp7", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp7"));
+                    ds_houseblList4.setRowStatus(i, "C");
+                    checked++;
+                }
+                for (let i = 0; i < ds_houseblList5.getRowCount(); i++) {
+                    ds_houseblList5.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+                    ds_houseblList5.setCellData(i, "hhblno", ed_hhblno_5.getValue());
+                    ds_houseblList5.setCellData(i, "mhno", lc_mhno_5.getValue());
+                    ds_houseblList5.setCellData(i, "hhpaynm", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhpaynm"));
+                    ds_houseblList5.setCellData(i, "hhp1", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp1"));
+                    ds_houseblList5.setCellData(i, "hhp5", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp5"));
+                    ds_houseblList5.setCellData(i, "hhp3", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp3"));
+                    ds_houseblList5.setCellData(i, "hhp4", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp4"));
+                    ds_houseblList5.setCellData(i, "hhp5", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp5"));
+                    ds_houseblList5.setCellData(i, "hhp6", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp6"));
+                    ds_houseblList5.setCellData(i, "hhp7", ds_houseblListTemp.getCellData(ds_houseblListTemp.getRowPosition(), "hhp7"));
+                    ds_houseblList5.setRowStatus(i, "C");
+                    checked++;
+                }
+
+                if (rd_prttype.getValue() == "S") {
+                    if (ed_hhblno.getValue() != "") {
+                        if (ds_houseblList.getCellData(0, "autono") != "SURRENDER") {
+                            await $c.win.alert("House No 1의  B/L Type이  SURRENDER 아님으로 B/L 발급을 불허합니다.");
+                            return false;
+                        }
+                    }
+                    if (ed_hhblno_2.getValue() != "") {
+                        if (ds_houseblList2.getCellData(0, "autono") != "SURRENDER") {
+                            await $c.win.alert("House No 2의  B/L Type이  SURRENDER 아님으로 B/L 발급을 불허합니다.");
+                            return false;
+                        }
+                    }
+                    if (ed_hhblno_3.getValue() != "") {
+                        if (ds_houseblList3.getCellData(0, "autono") != "SURRENDER") {
+                            await $c.win.alert("House No 3의  B/L Type이  SURRENDER 아님으로 B/L 발급을 불허합니다.");
+                            return false;
+                        }
+                    }
+                    if (ed_hhblno_4.getValue() != "") {
+                        if (ds_houseblList4.getCellData(0, "autono") != "SURRENDER") {
+                            await $c.win.alert("House No 4의  B/L Type이  SURRENDER 아님으로 B/L 발급을 불허합니다.");
+                            return false;
+                        }
+                    }
+                    if (ed_hhblno_5.getValue() != "") {
+                        if (ds_houseblList5.getCellData(0, "autono") != "SURRENDER") {
+                            await $c.win.alert("House No 5의  B/L Type이  SURRENDER 아님으로 B/L 발급을 불허합니다.");
+                            return false;
+                        }
+                    }
+                }
+
+                dma_clntNo.set("hhactcust", ds_houseblList.getCellData(0, "hhactcust"));
+                await $c.sbm.execute(sbm_retrieveMgntClnt);
+                if (ds_mgntYn.getRowCount() > 0 && ds_mgntYn.getCellData(0, "mgntYn") == "Y") {
+                    await $c.win.alert("House No 1의  Customer는 관리거래처이므로 B/L 발급을 불허합니다.");
+                    return false;
+                }
+
+                dma_clntNo.set("hhactcust", ds_houseblList2.getCellData(0, "hhactcust"));
+                await $c.sbm.execute(sbm_retrieveMgntClnt);
+                if (ds_mgntYn.getRowCount() > 0 && ds_mgntYn.getCellData(0, "mgntYn") == "Y") {
+                    await $c.win.alert("House No 2의  Customer는 관리거래처이므로 B/L 발급을 불허합니다.");
+                    return false;
+                }
+
+                dma_clntNo.set("hhactcust", ds_houseblList3.getCellData(0, "hhactcust"));
+                await $c.sbm.execute(sbm_retrieveMgntClnt);
+                if (ds_mgntYn.getRowCount() > 0 && ds_mgntYn.getCellData(0, "mgntYn") == "Y") {
+                    await $c.win.alert("House No 3의  Customer는 관리거래처이므로 B/L 발급을 불허합니다.");
+                    return false;
+                }
+
+                dma_clntNo.set("hhactcust", ds_houseblList4.getCellData(0, "hhactcust"));
+                await $c.sbm.execute(sbm_retrieveMgntClnt);
+                if (ds_mgntYn.getRowCount() > 0 && ds_mgntYn.getCellData(0, "mgntYn") == "Y") {
+                    await $c.win.alert("House No 4의  Customer는 관리거래처이므로 B/L 발급을 불허합니다.");
+                    return false;
+                }
+
+                dma_clntNo.set("hhactcust", ds_houseblList5.getCellData(0, "hhactcust"));
+                await $c.sbm.execute(sbm_retrieveMgntClnt);
+                if (ds_mgntYn.getRowCount() > 0 && ds_mgntYn.getCellData(0, "mgntYn") == "Y") {
+                    await $c.win.alert("House No 5의  Customer는 관리거래처이므로 B/L 발급을 불허합니다.");
+                    return false;
+                }
+
+                await $c.sbm.execute(sbm_save);
+
+                $c.gus.cfEnableObj(ed_hhblno, true);
+                $c.gus.cfEnableObj(lc_dateTitle, true);
+                $c.gus.cfEnableObj(ed_hhblno_2, true);
+                $c.gus.cfEnableObj(lc_hhpaynm, true);
+                $c.gus.cfEnableObj(ed_hhblno_3, true);
+                $c.gus.cfEnableObj(lc_mhno_3, true);
+                $c.gus.cfEnableObj(ed_hhblno_4, true);
+                $c.gus.cfEnableObj(lc_mhno_4, true);
+                $c.gus.cfEnableObj(ed_hhblno_5, true);
+                $c.gus.cfEnableObj(lc_mhno_5, true);
+
+                await scwin.f_Retrieve();
+                scwin.f_Set("SAVE");
+
+                if (flag == 0) {
+                    scwin.f_Print(0);
+                } else if (flag == 1) {
+                    scwin.f_Print(1);
+                }
+            }
+        }
+    };
+
+    scwin.f_Cancel = function() {
+        $c.gus.cfEnableObj(ed_hhblno, true);
+        $c.gus.cfEnableObj(lc_dateTitle, true);
+        ed_hhblno.setFocus();
+        scwin.f_Set("RETRIEVE");
+        ds_houseblList.undoAll();
+    };
+
+    scwin.f_validate = async function() {
+        if (ed_hhblno.getValue() == "") {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["House B/L"]);
+            ed_hhblno.setFocus();
+            return false;
+        }
+        return true;
+    };
+
+    scwin.f_MhnoLoading = function(idx) {
+        let strClntNo = "";
+        scwin.mhnoLoadingIdx = idx;
+        switch (idx) {
+            case 1:
+                strClntNo = ed_hhblno.getValue().trim();
+                if (strClntNo.length > 0) {
+                    // TODO: MHNO 콤보 데이터 로딩 - sbm_loadMhno 사용하여 ds_hmhno에 데이터 로드
+                    // 원본: ds_hmhno.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=ilCommonEBC&queryId=retriveSeaHouseMhnoListCombo&param1=" + strClntNo;
+                    // ds_hmhno.Reset();
+                } else {
+                    ds_hmhno.removeAll();
+                }
+                break;
+            case 2:
+                strClntNo = ed_hhblno_2.getValue().trim();
+                if (strClntNo.length > 0) {
+                    // TODO: MHNO 콤보 데이터 로딩 - ds_hmhno_2
+                } else {
+                    ds_hmhno_2.removeAll();
+                }
+                break;
+            case 3:
+                strClntNo = ed_hhblno_3.getValue().trim();
+                if (strClntNo.length > 0) {
+                    // TODO: MHNO 콤보 데이터 로딩 - ds_hmhno_3
+                } else {
+                    ds_hmhno_3.removeAll();
+                }
+                break;
+            case 4:
+                strClntNo = ed_hhblno_4.getValue().trim();
+                if (strClntNo.length > 0) {
+                    // TODO: MHNO 콤보 데이터 로딩 - ds_hmhno_4
+                } else {
+                    ds_hmhno_4.removeAll();
+                }
+                break;
+            case 5:
+                strClntNo = ed_hhblno_5.getValue().trim();
+                if (strClntNo.length > 0) {
+                    // TODO: MHNO 콤보 데이터 로딩 - ds_hmhno_5
+                } else {
+                    ds_hmhno_5.removeAll();
+                }
+                break;
+        }
+    };
+
+    scwin.f_chk5 = function() {
+        let chkVal = chb_hhp5.getValue();
+        if (chkVal != "" && chkVal != "0") {
+            lc_dateTitle.setValue("RECEIVED DATE");
+            $c.gus.cfDisableObjects([chb_hhp6]);
+        } else {
+            lc_dateTitle.setValue("");
+            $c.gus.cfEnableObjects([chb_hhp6]);
+        }
+    };
+
+    scwin.f_chk6 = function() {
+        let chkVal = chb_hhp6.getValue();
+        if (chkVal != "" && chkVal != "0") {
+            lc_dateTitle.setValue("LADEN ON BOARD");
+            $c.gus.cfDisableObjects([chb_hhp5]);
+        } else {
+            lc_dateTitle.setValue("");
+            $c.gus.cfEnableObjects([chb_hhp5]);
+        }
+    };
+
+    scwin.f_Print = function(flag) {
+        ds_OZ.removeAll();
+
+        ds_OZ.insertRow();
+        ds_OZ.setCellData(0, "hhblno", ed_hhblno.getValue());
+        ds_OZ.setCellData(0, "mhno", lc_dateTitle.getValue());
+
+        if (ed_hhblno_2.getValue() != "") {
+            let r2 = ds_OZ.insertRow();
+            ds_OZ.setCellData(r2, "hhblno", ed_hhblno_2.getValue());
+            ds_OZ.setCellData(r2, "mhno", lc_hhpaynm.getValue());
+        }
+        if (ed_hhblno_3.getValue() != "") {
+            let r3 = ds_OZ.insertRow();
+            ds_OZ.setCellData(r3, "hhblno", ed_hhblno_3.getValue());
+            ds_OZ.setCellData(r3, "mhno", lc_mhno_3.getValue());
+        }
+        if (ed_hhblno_4.getValue() != "") {
+            let r4 = ds_OZ.insertRow();
+            ds_OZ.setCellData(r4, "hhblno", ed_hhblno_4.getValue());
+            ds_OZ.setCellData(r4, "mhno", lc_mhno_4.getValue());
+        }
+        if (ed_hhblno_5.getValue() != "") {
+            let r5 = ds_OZ.insertRow();
+            ds_OZ.setCellData(r5, "hhblno", ed_hhblno_5.getValue());
+            ds_OZ.setCellData(r5, "mhno", lc_mhno_5.getValue());
+        }
+
+        OZStartBatch();
+
+        for (let m = 0; m < ds_OZ.getRowCount(); m++) {
+            let odiParam = new ODIParam("se_105_01_03");
+            odiParam.add("KCOMCD", scwin.hd_kcomcd);
+            odiParam.add("HHBLNO", ds_OZ.getCellData(m, "hhblno"));
+            odiParam.add("MHNO", ds_OZ.getCellData(m, "mhno"));
+            odiParam.add("ONBOARD", lc_dateTitle.getValue());
+            odiParam.add("PAYAT", lc_hhpaynm.getValue());
+            let v_bank = "";
+            let chkBankVal = chb_bank.getValue();
+            if (chkBankVal != "" && chkBankVal != "0") {
+                v_bank = "1";
+                odiParam.add("RMK", v_bank);
+            } else {
+                v_bank = "0";
+                odiParam.add("RMK", v_bank);
+            }
+            odiParam.add("USERID", scwin.userId);
+
+            let formParam = new FormParam();
+            let viewerParam = new ViewerParam();
+            viewerParam.add("viewer.useprogressbar", "false");
+
+            let filename = ds_OZ.getCellData(m, "hhblno");
+            switch (rd_prttype.getValue()) {
+                case "K":
+                    filename += "_IMAGE BL";
+                    break;
+                case "C":
+                    filename += "_CHECK BL";
+                    break;
+                case "S":
+                    filename += "_SURRENDER BL";
+                    break;
+                case "P":
+                    filename += "_COPY BL";
+                    break;
+            }
+            viewerParam.add("export.filename", filename);
+            viewerParam.add("export.format", "pdf");
+            viewerParam.add("export.path", "C:\\OZExport");
+
+            if (flag == 0) {
+                if (rd_prttype.getValue() == "K") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03a.ozr", odiParam, viewerParam, formParam);
+                } else if (rd_prttype.getValue() == "C") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03b.ozr", odiParam, viewerParam, formParam);
+                } else if (rd_prttype.getValue() == "S") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03c.ozr", odiParam, viewerParam, formParam);
+                } else if (rd_prttype.getValue() == "P") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03d.ozr", odiParam, viewerParam, formParam);
+                }
+            } else if (flag == 1) {
+                if (rd_prttype.getValue() == "K") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03a_1.ozr", odiParam, viewerParam, formParam);
+                } else if (rd_prttype.getValue() == "C") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03b_1.ozr", odiParam, viewerParam, formParam);
+                } else if (rd_prttype.getValue() == "S") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03c_1.ozr", odiParam, viewerParam, formParam);
+                } else if (rd_prttype.getValue() == "P") {
+                    $c.gus.cfOZPreview("/il/seaout/se_105_01_03d_1.ozr", odiParam, viewerParam, formParam);
+                }
+            }
+        }
+        OZExecuteBatch();
+    };
+
+    scwin.f_RunExcel = async function(vtab) {
+        if (vtab == "0") {
+            if (!(ds_houseblList.getRowCount() > 0)) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+            let chkExcel = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+            if (chkExcel) {
+                $c.data.downloadGridViewExcel(gr_houseblList, {"fileName": "House B_L.xlsx", "sheetName": "House B/L"});
+            }
+        } else if (vtab == "1") {
+            if (!(ds_houseblList2.getRowCount() > 0)) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+            let chkExcel = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+            if (chkExcel) {
+                $c.data.downloadGridViewExcel(gr_houseblList2, {"fileName": "House B_L.xlsx", "sheetName": "House B/L"});
+            }
+        } else if (vtab == "2") {
+            if (!(ds_houseblList3.getRowCount() > 0)) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+            let chkExcel = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+            if (chkExcel) {
+                $c.data.downloadGridViewExcel(gr_houseblList3, {"fileName": "House B_L.xlsx", "sheetName": "House B/L"});
+            }
+        } else if (vtab == "3") {
+            if (!(ds_houseblList4.getRowCount() > 0)) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+            let chkExcel = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+            if (chkExcel) {
+                $c.data.downloadGridViewExcel(gr_houseblList4, {"fileName": "House B_L.xlsx", "sheetName": "House B/L"});
+            }
+        } else if (vtab == "4") {
+            if (!(ds_houseblList5.getRowCount() > 0)) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+                return;
+            }
+            let chkExcel = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+            if (chkExcel) {
+                $c.data.downloadGridViewExcel(gr_houseblList5, {"fileName": "House B_L.xlsx", "sheetName": "House B/L"});
+            }
+        }
+    };
+
+    scwin.f_grdHeiht = function(size) {
+        let vObjGrd;
+        if (scwin.v_tab == "0") {
+            vObjGrd = gr_houseblList;
+        } else if (scwin.v_tab == "1") {
+            vObjGrd = gr_houseblList2;
+        } else if (scwin.v_tab == "2") {
+            vObjGrd = gr_houseblList3;
+        } else if (scwin.v_tab == "3") {
+            vObjGrd = gr_houseblList4;
+        } else if (scwin.v_tab == "4") {
+            vObjGrd = gr_houseblList5;
+        }
+        if (vObjGrd) {
+            let strHeight = vObjGrd.getStyle("height");
+            let intHeight = parseInt(strHeight.replace("px", ""));
+            intHeight = intHeight + size;
+            if (intHeight > 0) {
+                vObjGrd.setStyle("height", intHeight + "px");
+            }
+        }
+    };
+
+    scwin.ed_hhblno_onblur = function(e) {
+        scwin.f_MhnoLoading(1);
+    };
+
+    scwin.ed_hhblno_2_onblur = function(e) {
+        scwin.f_MhnoLoading(2);
+    };
+
+    scwin.ed_hhblno_3_onblur = function(e) {
+        scwin.f_MhnoLoading(3);
+    };
+
+    scwin.ed_hhblno_4_onblur = function(e) {
+        scwin.f_MhnoLoading(4);
+    };
+
+    scwin.ed_hhblno_5_onblur = function(e) {
+        scwin.f_MhnoLoading(5);
+    };
+
+    scwin.sbm_retrieve_submitdone = async function(e) {
+        if (ds_houseblList.getRowCount() == 0) {
+            ds_houseblList.removeAll();
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            scwin.f_Set("INIT");
+        } else if (ds_houseblList.getCellData(0, "sellSeq") == "") {
+            gr_houseblList.setColumnVisible("chk", false);
+            gr_houseblList.setColumnVisible("fareEngCd", false);
+            gr_houseblList.setColumnVisible("fareEngNm", false);
+            gr_houseblList.setColumnVisible("ppccCls", false);
+            gr_houseblList.setColumnVisible("crcCd", false);
+            gr_houseblList.setColumnVisible("prtnAmt", false);
+            scwin.f_Set("RETRIEVE");
+        } else {
+            gr_houseblList.setColumnVisible("chk", true);
+            gr_houseblList.setColumnVisible("fareEngCd", true);
+            gr_houseblList.setColumnVisible("fareEngNm", true);
+            gr_houseblList.setColumnVisible("ppccCls", true);
+            gr_houseblList.setColumnVisible("crcCd", true);
+            gr_houseblList.setColumnVisible("prtnAmt", true);
+            scwin.f_Set("RETRIEVE");
+        }
+
+        if (ds_houseblList2.getRowCount() == 0) {
+            ds_houseblList2.removeAll();
+        } else if (ds_houseblList2.getCellData(0, "sellSeq") == "") {
+            gr_houseblList2.setColumnVisible("chk", false);
+            gr_houseblList2.setColumnVisible("fareEngCd", false);
+            gr_houseblList2.setColumnVisible("fareEngNm", false);
+            gr_houseblList2.setColumnVisible("ppccCls", false);
+            gr_houseblList2.setColumnVisible("crcCd", false);
+            gr_houseblList2.setColumnVisible("prtnAmt", false);
+        } else {
+            gr_houseblList2.setColumnVisible("chk", true);
+            gr_houseblList2.setColumnVisible("fareEngCd", true);
+            gr_houseblList2.setColumnVisible("fareEngNm", true);
+            gr_houseblList2.setColumnVisible("ppccCls", true);
+            gr_houseblList2.setColumnVisible("crcCd", true);
+            gr_houseblList2.setColumnVisible("prtnAmt", true);
+        }
+
+        if (ds_houseblList3.getRowCount() == 0) {
+            ds_houseblList3.removeAll();
+        } else if (ds_houseblList3.getCellData(0, "sellSeq") == "") {
+            gr_houseblList3.setColumnVisible("chk", false);
+            gr_houseblList3.setColumnVisible("fareEngCd", false);
+            gr_houseblList3.setColumnVisible("fareEngNm", false);
+            gr_houseblList3.setColumnVisible("ppccCls", false);
+            gr_houseblList3.setColumnVisible("crcCd", false);
+            gr_houseblList3.setColumnVisible("prtnAmt", false);
+        } else {
+            gr_houseblList3.setColumnVisible("chk", true);
+            gr_houseblList3.setColumnVisible("fareEngCd", true);
+            gr_houseblList3.setColumnVisible("fareEngNm", true);
+            gr_houseblList3.setColumnVisible("ppccCls", true);
+            gr_houseblList3.setColumnVisible("crcCd", true);
+            gr_houseblList3.setColumnVisible("prtnAmt", true);
+        }
+
+        if (ds_houseblList4.getRowCount() == 0) {
+            ds_houseblList4.removeAll();
+        } else if (ds_houseblList4.getCellData(0, "sellSeq") == "") {
+            gr_houseblList4.setColumnVisible("chk", false);
+            gr_houseblList4.setColumnVisible("fareEngCd", false);
+            gr_houseblList4.setColumnVisible("fareEngNm", false);
+            gr_houseblList4.setColumnVisible("ppccCls", false);
+            gr_houseblList4.setColumnVisible("crcCd", false);
+            gr_houseblList4.setColumnVisible("prtnAmt", false);
+        } else {
+            gr_houseblList4.setColumnVisible("chk", true);
+            gr_houseblList4.setColumnVisible("fareEngCd", true);
+            gr_houseblList4.setColumnVisible("fareEngNm", true);
+            gr_houseblList4.setColumnVisible("ppccCls", true);
+            gr_houseblList4.setColumnVisible("crcCd", true);
+            gr_houseblList4.setColumnVisible("prtnAmt", true);
+        }
+
+        if (ds_houseblList5.getRowCount() == 0) {
+            ds_houseblList5.removeAll();
+        } else if (ds_houseblList5.getCellData(0, "sellSeq") == "") {
+            gr_houseblList5.setColumnVisible("chk", false);
+            gr_houseblList5.setColumnVisible("fareEngCd", false);
+            gr_houseblList5.setColumnVisible("fareEngNm", false);
+            gr_houseblList5.setColumnVisible("ppccCls", false);
+            gr_houseblList5.setColumnVisible("crcCd", false);
+            gr_houseblList5.setColumnVisible("prtnAmt", false);
+        } else {
+            gr_houseblList5.setColumnVisible("chk", true);
+            gr_houseblList5.setColumnVisible("fareEngCd", true);
+            gr_houseblList5.setColumnVisible("fareEngNm", true);
+            gr_houseblList5.setColumnVisible("ppccCls", true);
+            gr_houseblList5.setColumnVisible("crcCd", true);
+            gr_houseblList5.setColumnVisible("prtnAmt", true);
+        }
+
+        if (ed_hhblno.getValue() == "") {
+            tabs1.setLabel("House No 1");
+        } else {
+            tabs1.setLabel(ed_hhblno.getValue());
+        }
+        if (ed_hhblno_2.getValue() == "") {
+            tabs2.setLabel("House No 2");
+        } else {
+            tabs2.setLabel(ed_hhblno_2.getValue());
+        }
+        if (ed_hhblno_3.getValue() == "") {
+            tabs3.setLabel("House No 3");
+        } else {
+            tabs3.setLabel(ed_hhblno_3.getValue());
+        }
+        if (ed_hhblno_4.getValue() == "") {
+            tabs4.setLabel("House No 4");
+        } else {
+            tabs4.setLabel(ed_hhblno_4.getValue());
+        }
+        if (ed_hhblno_5.getValue() == "") {
+            tabs5.setLabel("House No 5");
+        } else {
+            tabs5.setLabel(ed_hhblno_5.getValue());
+        }
+    };
+
+    scwin.sbm_retrieve_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_save_submitdone = function(e) {
+    };
+
+    scwin.sbm_save_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_retrieveMgntClnt_submitdone = function(e) {
+    };
+
+    scwin.sbm_retrieveMgntClnt_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_loadMhno_submitdone = async function(e) {
+        let idx = scwin.mhnoLoadingIdx;
+        let targetDs = null;
+        let targetLc = null;
+        let houseLabel = "";
+        switch (idx) {
+            case 1: targetDs = ds_hmhno; targetLc = lc_dateTitle; houseLabel = "House No 1"; break;
+            case 2: targetDs = ds_hmhno_2; targetLc = lc_hhpaynm; houseLabel = "House No 2"; break;
+            case 3: targetDs = ds_hmhno_3; targetLc = lc_mhno_3; houseLabel = "House No 3"; break;
+            case 4: targetDs = ds_hmhno_4; targetLc = lc_mhno_4; houseLabel = "House No 4"; break;
+            case 5: targetDs = ds_hmhno_5; targetLc = lc_mhno_5; houseLabel = "House No 5"; break;
+        }
+        if (targetDs && targetDs.getRowCount() == 0) {
+            if (scwin.statusFlag != "C") {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_049, [houseLabel]);
+            }
+            targetDs.insertRow();
+            targetDs.setCellData(targetDs.getRowPosition(), "code", "NONE");
+            targetDs.setCellData(targetDs.getRowPosition(), "name", "NONE");
+            if (targetLc) {
+                targetLc.setSelectedIndex(0);
+            }
+        }
+        if (idx == 1 && scwin.mhnoFlag == "1") {
+            await scwin.f_Retrieve();
+            scwin.mhnoFlag = "0";
+        }
+    };
+
+    scwin.sbm_loadMhno_submiterror = function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.gr_houseblList_onheaderclick = function(rowIndex, columnIndex, columnId) {
+        if (columnId == "chk") {
+            let allChecked = true;
+            for (let i = 0; i < ds_houseblList.getRowCount(); i++) {
+                if (ds_houseblList.getCellData(i, "chk") != "T") {
+                    allChecked = false;
+                    break;
+                }
+            }
+            let newVal = allChecked ? "F" : "T";
+            for (let i = 0; i < ds_houseblList.getRowCount(); i++) {
+                ds_houseblList.setCellData(i, "chk", newVal);
+            }
+        }
+    };
+
+    scwin.gr_houseblList2_onheaderclick = function(rowIndex, columnIndex, columnId) {
+        if (columnId == "chk") {
+            let allChecked = true;
+            for (let i = 0; i < ds_houseblList2.getRowCount(); i++) {
+                if (ds_houseblList2.getCellData(i, "chk") != "T") {
+                    allChecked = false;
+                    break;
+                }
+            }
+            let newVal = allChecked ? "F" : "T";
+            for (let i = 0; i < ds_houseblList2.getRowCount(); i++) {
+                ds_houseblList2.setCellData(i, "chk", newVal);
+            }
+        }
+    };
+
+    scwin.gr_houseblList3_onheaderclick = function(rowIndex, columnIndex, columnId) {
+        if (columnId == "chk") {
+            let allChecked = true;
+            for (let i = 0; i < ds_houseblList3.getRowCount(); i++) {
+                if (ds_houseblList3.getCellData(i, "chk") != "T") {
+                    allChecked = false;
+                    break;
+                }
+            }
+            let newVal = allChecked ? "F" : "T";
+            for (let i = 0; i < ds_houseblList3.getRowCount(); i++) {
+                ds_houseblList3.setCellData(i, "chk", newVal);
+            }
+        }
+    };
+
+    scwin.gr_houseblList4_onheaderclick = function(rowIndex, columnIndex, columnId) {
+        if (columnId == "chk") {
+            let allChecked = true;
+            for (let i = 0; i < ds_houseblList4.getRowCount(); i++) {
+                if (ds_houseblList4.getCellData(i, "chk") != "T") {
+                    allChecked = false;
+                    break;
+                }
+            }
+            let newVal = allChecked ? "F" : "T";
+            for (let i = 0; i < ds_houseblList4.getRowCount(); i++) {
+                ds_houseblList4.setCellData(i, "chk", newVal);
+            }
+        }
+    };
+
+    scwin.gr_houseblList5_onheaderclick = function(rowIndex, columnIndex, columnId) {
+        if (columnId == "chk") {
+            let allChecked = true;
+            for (let i = 0; i < ds_houseblList5.getRowCount(); i++) {
+                if (ds_houseblList5.getCellData(i, "chk") != "T") {
+                    allChecked = false;
+                    break;
+                }
+            }
+            let newVal = allChecked ? "F" : "T";
+            for (let i = 0; i < ds_houseblList5.getRowCount(); i++) {
+                ds_houseblList5.setCellData(i, "chk", newVal);
+            }
+        }
+    };
+
+    scwin.rd_prttype_onviewchange = function(e) {
+        if (rd_prttype.getValue() == "S") {
+            lc_dateTitle.setValue("LADEN ON BOARD");
+        }
+    };
+
+    scwin.btn_retrieve_onclick = function(e) {
+        scwin.f_Retrieve();
+    };
+
+    scwin.btn_Clear_onclick = function(e) {
+        scwin.f_FieldClear();
+    };
+
+    scwin.btn_Print_onclick = function(e) {
+        scwin.f_Save(0);
+    };
+
+    scwin.btn_Print2_onclick = function(e) {
+        scwin.f_Save(0);
+    };
+
+    scwin.btn_Print3_onclick = function(e) {
+        scwin.f_Save(0);
+    };
+
+    scwin.btn_Print4_onclick = function(e) {
+        scwin.f_Save(0);
+    };
+
+    scwin.btn_Print5_onclick = function(e) {
+        scwin.f_Save(0);
+    };
+
+    scwin.btn_Print6_onclick = function(e) {
+        scwin.f_Save(1);
+    };
+
+    scwin.btn_Print7_onclick = function(e) {
+        scwin.f_Save(1);
+    };
+
+    scwin.btn_Print8_onclick = function(e) {
+        scwin.f_Save(1);
+    };
+
+    scwin.btn_Print9_onclick = function(e) {
+        scwin.f_Save(1);
+    };
+
+    scwin.btn_Print10_onclick = function(e) {
+        scwin.f_Save(1);
+    };
+
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="House No 1" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="ed_hhblno" placeholder="" style="width:150px;" ref="data:ds_retrieve.hhblno" mandatory="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="DOC No 1" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="lc_dateTitle" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr" id="">
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="House No 2" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_hhblno_2" placeholder="" style="width:150px;" ref="data:ds_retrieve.hhblno2"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="DOC No 2" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" id="" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:autoComplete class="" editType="select" id="lc_hhpaynm" search="start" style="width:150px;"
+    							submenuSize="auto" ref="data:ds_houseblListTemp.hhpaynm">
+    						</w2:autoComplete>
+    					</xf:group></xf:group><xf:group tagname="tr" id="">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="House No 3" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_hhblno_3" placeholder="" style="width:150px;" ref="data:ds_retrieve.hhblno3"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="DOC No 3" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" id="" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:autoComplete class="" editType="select" id="lc_mhno_3" search="start" style="width:150px;" submenuSize="auto"></w2:autoComplete>
+	</xf:group></xf:group><xf:group tagname="tr" id="">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="House No 4" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_hhblno_4" placeholder="" style="width:150px;" ref="data:ds_retrieve.hhblno4"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="DOC No 4" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" id="" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:autoComplete class="" editType="select" id="lc_mhno_4" search="start" style="width:150px;" submenuSize="auto"></w2:autoComplete>
+	</xf:group></xf:group><xf:group tagname="tr" id="">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="House No 5" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_hhblno_5" placeholder="" style="width:150px;" ref="data:ds_retrieve.hhblno5"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="DOC No 5" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" id="" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:autoComplete class="" editType="select" id="lc_mhno_5" search="start" style="width:150px;" submenuSize="auto"></w2:autoComplete>
+	</xf:group></xf:group></xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_Clear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="row-gap-8"><xf:group style="" id="" class="title-wrap">
+    				<xf:group id="" class="title">
+    					<w2:textbox tagname="h3" style="" id="" label="Information" class="tit"></w2:textbox>
+    				</xf:group>
+    				<xf:group id="" class="right">
+    					<w2:udc_topGrdBtn gridUpYn="N" grp="grd_section1" style="" btnUser="N"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group><xf:group style="" id="" class="tbbox">
+    				<xf:group tagname="table" style="" id="" class="w2tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="caption"></xf:group>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox style="" id="" label="B/L Print Type" class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:select1 appearance="full" class="" cols="" id="rd_prttype" ref="" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Kiffa]]></xf:label>
+    										<xf:value><![CDATA[K]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[Check B/L]]></xf:label>
+    										<xf:value><![CDATA[C]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[SURRENDER B/L]]></xf:label>
+    										<xf:value><![CDATA[S]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[COPY B/L]]></xf:label>
+    										<xf:value><![CDATA[P]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="chb_hhp1" ref="data:ds_houseblListTemp.hhp1" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Said To contain]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="chb_hhp2" ref="data:ds_houseblListTemp.hhp2" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[Shipper's Load & Count]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Date Title" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_dateTitle" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<xf:select appearance="full" class="" cols="" id="chb_hhp3" ref="data:ds_houseblListTemp.hhp3" renderType="checkboxgroup" rows=""
+    							selectedindex="-1" style="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[Container Print]]></xf:label>
+    									<xf:value><![CDATA[]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:select appearance="full" class="" cols="" id="chb_hhp4" ref="data:ds_houseblListTemp.hhp4" renderType="checkboxgroup" rows=""
+    							selectedindex="-1" style="">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[Term Print]]></xf:label>
+    									<xf:value><![CDATA[]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select>
+    					</xf:group>
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="Payable At" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:autoComplete class="" editType="select" id="lc_hhpaynm" search="start" style="width:150px;"
+    							submenuSize="auto" ref="data:ds_houseblListTemp.hhpaynm">
+    						</w2:autoComplete>
+    					</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<xf:select appearance="full" class="" cols="" id="chb_hhp7" ref="data:ds_houseblListTemp.hhp7" renderType="checkboxgroup" rows="" selectedindex="-1"
+			style="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[Freight Print]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="" cols="" id="chb_hhp6" ref="data:ds_houseblListTemp.hhp6" renderType="checkboxgroup" rows="" selectedindex="-1"
+			style="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[Onboard Date Print]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="Bank" style=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:select appearance="full" class="" cols="" id="chb_bank" ref="" renderType="checkboxgroup" rows="" selectedindex="-1"
+			style="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		<w2:colspan>4</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+		<xf:select appearance="full" class="" cols="" id="chb_hhp5" ref="data:ds_houseblListTemp.hhp5" renderType="checkboxgroup" rows="" selectedindex="-1"
+			style="">
+			<xf:choices>
+				<xf:item>
+					<xf:label><![CDATA[Receipt Date Print]]></xf:label>
+					<xf:value><![CDATA[]]></xf:value>
+				</xf:item>
+			</xf:choices>
+		</xf:select>
+	</xf:group></xf:group></xf:group>
+    			</xf:group></xf:group><xf:group id="" class="row-gap-8"><xf:group style="" id="" class="title-wrap">
+    				<xf:group id="" class="title">
+    					<w2:textbox tagname="h3" style="" id="" label="House B/L Freight" class="tit"></w2:textbox>
+    				</xf:group>
+    				<xf:group id="" class="right">
+    					<w2:udc_topGrdBtn gridUpYn="N" grp="grd_section2" style="" btnUser="N"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group><xf:group style="" id="" class="tabbox ">
+    				<w2:tabControl alwaysDraw="false" style="" id="" class="wq_tab">
+    					<w2:tabs disabled="false" style="" id="tabs1" label="House No 1"></w2:tabs>
+    					<w2:tabs disabled="false" style="" id="tabs2" label="House No 2"></w2:tabs>
+    					<w2:tabs disabled="false" style="height:40px" id="tabs3" label="House No 3"></w2:tabs>
+    					<w2:tabs disabled="false" style="height:40px" id="tabs4" label="House No 4"></w2:tabs>
+    					<w2:tabs disabled="false" style="height:40px" id="tabs5" label="House No 5"></w2:tabs>
+    					<w2:content alwaysDraw="false" style="" id="content1">
+    						<xf:group adaptiveThreshold="" style="" id="grd_section2" class="gvwbox">
+    							<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_houseblList" style="" autoFit="allColumn"
+    								id="gr_houseblList" visibleRowNum="4" class="wq_gvw" readOnly="false">
+    								<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header1">
+    									<w2:row style="" id="row1">
+    										<w2:column width="40" inputType="checkbox" id="chk" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" id="fareEngCd" value="F/Code" displayMode="label"></w2:column>
+    										<w2:column width="150" inputType="text" id="fareEngNm" value="Freight Name"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" id="ppccCls" value="P/C" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" id="crcCd" value="Currency" displayMode="label"></w2:column>
+    										<w2:column width="150" inputType="text" id="prtnAmt" value="Print Amount"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="40" inputType="text" id="odrNo" value="Order No" displayMode="label" hidden="true"></w2:column>
+    										<w2:column width="40" inputType="text" id="sellSeq" value="sell Seq" displayMode="label" hidden="true"></w2:column>
+    										<w2:column width="40" inputType="text" id="hhpcgb" value="hhpcgb" displayMode="label" hidden="true"></w2:column>
+    										<w2:column width="40" inputType="text" id="hhactcust" value="hhactcust" displayMode="label" hidden="true"></w2:column>
+    										<w2:column width="40" inputType="text" id="autono" value="autono" displayMode="label" hidden="true"></w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody1">
+    									<w2:row style="" id="row2">
+    										<w2:column width="40" inputType="text" id="chk" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" id="fareEngCd" displayMode="label"></w2:column>
+    										<w2:column width="150" inputType="text" id="fareEngNm" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" id="ppccCls" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" id="crcCd" displayMode="label"></w2:column>
+    										<w2:column width="150" inputType="text" id="prtnAmt" displayMode="label" textAlign="right"></w2:column>
+    										<w2:column width="40" inputType="text" id="odrNo" displayMode="label"></w2:column>
+    										<w2:column width="40" inputType="text" id="sellSeq" displayMode="label"></w2:column>
+    										<w2:column width="40" inputType="text" id="hhpcgb" displayMode="label"></w2:column>
+    										<w2:column width="40" inputType="text" id="hhactcust" displayMode="label"></w2:column>
+    										<w2:column width="40" inputType="text" id="autono" displayMode="label"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    					<w2:content alwaysDraw="false" style="" id="content2">
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group4" style="">
+    							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_houseblList2" id="gr_houseblList2" style=""
+    								visibleRowNum="4" visibleRowNumFix="true" readOnly="false">
+    								<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header1" style="">
+    									<w2:row id="row1" style="">
+    										<w2:column displayMode="label" id="chk" inputType="checkbox" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" value="F/Code" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" value="Freight Name"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" value="P/C" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" value="Currency" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" value="Print Amount"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="odrNo" inputType="text" value="Order No"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="sellSeq" inputType="text" value="sell Seq"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhpcgb" inputType="text" value="hhpcgb"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhactcust" inputType="text" value="hhactcust"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="autono" inputType="text" value="autono"
+    											width="40">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody1" style="">
+    									<w2:row id="row2" style="">
+    										<w2:column displayMode="label" id="chk" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" width="150"></w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" textAlign="right" width="150"></w2:column>
+    										<w2:column displayMode="label" id="odrNo" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="sellSeq" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhpcgb" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhactcust" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="autono" inputType="text" width="40"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    											tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    					<w2:content alwaysDraw="false" style="" id="content3">
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group5" style="">
+    							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_houseblList3" id="gr_houseblList3" style=""
+    								visibleRowNum="4" visibleRowNumFix="true" readOnly="false">
+    								<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header1" style="">
+    									<w2:row id="row1" style="">
+    										<w2:column displayMode="label" id="chk" inputType="checkbox" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" value="F/Code" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" value="Freight Name"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" value="P/C" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" value="Currency" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" value="Print Amount"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="odrNo" inputType="text" value="Order No"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="sellSeq" inputType="text" value="sell Seq"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhpcgb" inputType="text" value="hhpcgb"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhactcust" inputType="text" value="hhactcust"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="autono" inputType="text" value="autono"
+    											width="40">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody1" style="">
+    									<w2:row id="row2" style="">
+    										<w2:column displayMode="label" id="chk" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" width="150"></w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" textAlign="right" width="150"></w2:column>
+    										<w2:column displayMode="label" id="odrNo" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="sellSeq" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhpcgb" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhactcust" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="autono" inputType="text" width="40"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    											tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    					<w2:content alwaysDraw="false" style="" id="content4">
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group6" style="">
+    							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_houseblList4" id="gr_houseblList4" style=""
+    								visibleRowNum="4" visibleRowNumFix="true" readOnly="false">
+    								<w2:caption id="caption5" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header1" style="">
+    									<w2:row id="row1" style="">
+    										<w2:column displayMode="label" id="chk" inputType="checkbox" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" value="F/Code" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" value="Freight Name"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" value="P/C" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" value="Currency" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" value="Print Amount"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="odrNo" inputType="text" value="Order No"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="sellSeq" inputType="text" value="sell Seq"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhpcgb" inputType="text" value="hhpcgb"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhactcust" inputType="text" value="hhactcust"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="autono" inputType="text" value="autono"
+    											width="40">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody1" style="">
+    									<w2:row id="row2" style="">
+    										<w2:column displayMode="label" id="chk" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" width="150"></w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" textAlign="right" width="150"></w2:column>
+    										<w2:column displayMode="label" id="odrNo" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="sellSeq" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhpcgb" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhactcust" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="autono" inputType="text" width="40"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    											tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    					<w2:content alwaysDraw="false" style="" id="content5">
+    						<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group7" style="">
+    							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_houseblList5" id="gr_houseblList5" style=""
+    								visibleRowNum="4" visibleRowNumFix="true" readOnly="false">
+    								<w2:caption id="caption6" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header1" style="">
+    									<w2:row id="row1" style="">
+    										<w2:column displayMode="label" id="chk" inputType="checkbox" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" value="F/Code" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" value="Freight Name"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" value="P/C" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" value="Currency" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" value="Print Amount"
+    											width="150">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="odrNo" inputType="text" value="Order No"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="sellSeq" inputType="text" value="sell Seq"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhpcgb" inputType="text" value="hhpcgb"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="hhactcust" inputType="text" value="hhactcust"
+    											width="40">
+    										</w2:column>
+    										<w2:column displayMode="label" hidden="true" id="autono" inputType="text" value="autono"
+    											width="40">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody1" style="">
+    									<w2:row id="row2" style="">
+    										<w2:column displayMode="label" id="chk" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="fareEngCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="fareEngNm" inputType="text" width="150"></w2:column>
+    										<w2:column displayMode="label" id="ppccCls" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="crcCd" inputType="text" width="100"></w2:column>
+    										<w2:column displayMode="label" id="prtnAmt" inputType="text" textAlign="right" width="150"></w2:column>
+    										<w2:column displayMode="label" id="odrNo" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="sellSeq" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhpcgb" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="hhactcust" inputType="text" width="40"></w2:column>
+    										<w2:column displayMode="label" id="autono" inputType="text" width="40"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style=""
+    											tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</w2:content>
+    				</w2:tabControl>
+    			</xf:group></xf:group><xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn " id="btn_Print6" label="저장" style="" type="button" ev:onclick="scwin.btn_Print6_onclick">
+    						<xf:label>Print 1</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_Print" label="저장" style="" type="button" ev:onclick="scwin.btn_Print_onclick">
+    						<xf:label>Print</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+
+
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

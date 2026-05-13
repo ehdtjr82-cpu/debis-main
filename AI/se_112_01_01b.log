@@ -1,0 +1,26 @@
+se_112_01_01b.log
+
+[2026-02-19 15:38:59.358] 변환 시작
+[2026-02-19 15:38:59.446] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:42:20.723] #1 검증: XML: WebSquareXmlValidator: score=0.40, grade=B, verdict=REVIEW, errors=3, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 199520ms, total 201277ms
+    - [XML] 'lc_hmhno'가 참조하는 데이터 'ds_bl_search'가 dataCollection에 선언되지 않음 — lc_hmhno
+    - [XML] 'lc_mmhno'가 참조하는 데이터 'ds_bl_search'가 dataCollection에 선언되지 않음 — lc_mmhno
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_EnablePopUpObj, scwin.f_DisablePopUpObj → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:42:21.142] #1 검증: 자동수정 4건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:42:22.546] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.40, grade=B, verdict=REVIEW, errors=3, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6
+    - [XML] 'acb_hmhno'가 참조하는 데이터 'ds_bl_search'가 dataCollection에 선언되지 않음 — acb_hmhno
+    - [XML] 'acb_mmhno'가 참조하는 데이터 'ds_bl_search'가 dataCollection에 선언되지 않음 — acb_mmhno
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_EnablePopUpObj, scwin.f_DisablePopUpObj → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: cnd_lc_seaair (LUXECOMBO→w2:autoComplete), cnd_lc_iogb (LUXECOMBO→w2:autoComplete), lc_hmgb (LUXECOMBO→w2:autoComplete)
+[2026-02-19 15:42:22.551] #2 재시도 (에러 3건)
+[2026-02-19 15:42:23.559] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:45:46.868] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 201912ms, total 203309ms
+[2026-02-19 15:45:46.871] 성공 (#2, 6m 47s, confidence:0.85)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

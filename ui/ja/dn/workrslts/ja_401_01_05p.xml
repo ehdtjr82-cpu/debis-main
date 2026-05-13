@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_condition" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="dtlMgntNo" name="상세관리번호" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_results" saveRemovedData="true"
+    				ev:ondataload="scwin.ds_results_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="dtlMgntNo" name="상세관리번호" dataType="text"></w2:column>
+    					<w2:column id="dtlSeq" name="일련" dataType="text"></w2:column>
+    					<w2:column id="dtlAmt" name="상세금액" dataType="text"></w2:column>
+    					<w2:column id="Sum" name="Sum" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_dtlMgntNo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="dtlMgntNo" name="name1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_hidden">
+    				<w2:keyInfo>
+    					<w2:key id="txt_dtlMgntNo" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ja.dn.workrslts.RetrieveDetailAmountCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_results","key":"OUT_DS1"}]' target='data:json,{"id":"ds_results","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ja.dn.workrslts.SaveDetailAmountCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_dtlMgntNo","key":"OUT_DS1"},{"action":"modified","id":"ds_results","key":"IN_DS1"}]' target='data:json,{"id":"ds_dtlMgntNo","key":"OUT_DS1"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : ja_401_01_05p 
+// 이름     : 상세금액등록
+// 경로     : 물류/유통물류/실적관리/운송임및비용등록
+// 작 성 자 : 조성빈
+// 작 업 일 : 2026-02-19
+// 사용계정 : 내부
+// 비고     :  ***
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+scwin.onpageload = function() {
+    scwin.sum = 0;
+    scwin.dtlMgntNo = $c.gus.cfIsNull($c.data.getParameter("dtlMgntNo")) ? "" : $c.data.getParameter("dtlMgntNo");
+    
+    var rowIndex = ds_condition.insertRow();
+    ds_condition.setRowPosition(rowIndex);
+
+    ds_condition.setCellData(rowIndex, "dtlMgntNo", scwin.dtlMgntNo);
+
+    $c.sbm.execute(sbm_retrieve);
+
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        $c.data.setPopupTitle("상세금액등록");
+
+    }, {"delay":50});
+};
+
+//-------------------------------------------------------------------------
+// 저장 버튼 클릭
+//-------------------------------------------------------------------------
+scwin.f_Save = function () {  
+    scwin.sum = 0;	
+    for(var i = 0 ; i < ds_results.getRowCount(); i++){
+        if (!isNaN(parseInt(ds_results.getCellData(i, "dtlAmt")))) {
+            scwin.sum = scwin.sum + parseInt(ds_results.getCellData(i, "dtlAmt"));
+        }
+    }
+    $c.sbm.execute(sbm_save);	   
+};
+
+//-------------------------------------------------------------------------
+// 화면종료시
+//-------------------------------------------------------------------------
+scwin.f_OnUnload = function () {
+
+}	
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    var rowcnt = ds_results.getRowCount();
+    txt_totalRows.setValue(rowcnt);
+	if (rowcnt == 0) {
+		var rowIndex = ds_results.insertRow();
+        ds_results.setRowPosition(rowIndex);
+        ds_results.setCellData(ds_results.getRowPosition(), "dtlAmt", "0");
+        $p.setTimeout(function() {
+            gr_results.setFocusedCell(ds_results.getRowPosition(), "dtlAmt", true);
+        }, {"delay":50});
+        
+	}
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Msg == "FAIL") {
+
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+        
+        if(ds_dtlMgntNo.getRowCount() > 0){
+            ds_hidden.set("txt_dtlMgntNo", ds_dtlMgntNo.getCellData(0, "dtlMgntNo"));
+        }
+
+        var returnObject = new Object();
+        returnObject.rowPosition 	= ds_results.getRowPosition();  	
+        returnObject.totDtlAmt 		= scwin.sum;
+        returnObject.dtlMgntNo 		= ds_hidden.get("txt_dtlMgntNo");
+        $c.win.closePopup(returnObject);   
+    }
+    
+};
+
+scwin.gr_results_onkeydown = function (e) {
+    //alert("<KeyCode :" + keycode + ">" );
+    var keycode = e.keyCode;
+	if (keycode == "13"){
+		var rowIndex = ds_results.insertRow();
+        ds_results.setRowPosition(rowIndex);	
+        ds_results.setCellData(ds_results.getRowPosition(), "dtlAmt", "0");
+        $p.setTimeout(function() {
+            gr_results.setFocusedCell(ds_results.getRowPosition(), "dtlAmt", true);
+        }, {"delay":50});
+	}
+};
+
+scwin.onbeforepageunload = function () {
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onbeforepageunload="scwin.onbeforepageunload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<xf:group class="pgtbox" id="" style="">
+    					<xf:group class="pg-tit" id="">
+    						<xf:group class="tit" id="">
+    							<w2:textbox class="pgt_tit" id="tbx_textbox1" label="상세금액등록" style="" tagname=""></w2:textbox>
+    						</xf:group>
+    						<xf:trigger class="btn ico help" id="" style="" type="button">
+    							<xf:label></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="상세금액정보" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_results"
+    									id="gr_results" style="" ev:onkeydown="scwin.gr_results_onkeydown" rowStatusVisible="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="상세관리번호" width="120"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="일련번호" width="100"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="상세금액" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="Sum" width="70"
+    												hidden="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="dtlMgntNo" inputType="text" width="120" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="dtlSeq" inputType="text" width="100" readOnly="true"></w2:column>
+    											<w2:column displayMode="label" id="dtlAmt" inputType="text" width="100" textAlign="right" displayFormat="#,###" dataType="number" allowChar="0-9" maxLength="13">
+    											</w2:column>
+    											<w2:column displayMode="label" id="Sum" inputType="text" width="70"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row3">
+    											<w2:column width="120" inputType="text" style="" id="column22" value="합계"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column21" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column20" value="" displayMode="label"
+    												textAlign="right" expression="sum('dtlAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column19" value=""
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows" label="0" style="" tagname="span">
+    										</w2:textbox><w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:udc_bottomGrdBtn style="" id="udc_bottomGrdBtn" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="N" btnRowDelYn="N" EngYn="N" gridID="gr_results"></w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

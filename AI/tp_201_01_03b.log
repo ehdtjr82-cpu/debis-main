@@ -1,0 +1,27 @@
+tp_201_01_03b.log
+
+[2026-02-20 15:20:05.495] 변환 시작
+[2026-02-20 15:20:05.645] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 15:25:02.539] #1 검증: XML: WebSquareXmlValidator: score=0.60, grade=B, verdict=REVIEW, errors=1, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=8 | LLM 296249ms, total 296894ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 1건 잔존
+[2026-02-20 15:25:02.699] #1 검증: 자동수정 2건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 15:25:03.420] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.60, grade=B, verdict=REVIEW, errors=1, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=8
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 1건 잔존
+[2026-02-20 15:25:09.843] #2 재시도 (에러 2건)
+[2026-02-20 15:25:10.856] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 15:30:28.747] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=0, warnings=8 | LLM 317339ms, total 317891ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-20 15:30:28.751] #1 검증: 최적 시도 #1 채택 (confidence: 0.77)
+[2026-02-20 15:30:28.751] 실패 (2회 시도, 10m 23s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_clearTabOrderInfo, scwin.f_setTabOrderInfo → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 1건 잔존
+================================================================================

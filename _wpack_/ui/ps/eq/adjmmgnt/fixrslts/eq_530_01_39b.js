@@ -1,0 +1,540 @@
+/*amd /ui/ps/eq/adjmmgnt/fixrslts/eq_530_01_39b.xml 44946 6f8c847f1cc52d8787477cadbd616ea69ba8e8aa015deabbb0c69bcb4ccf8a86 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_wrkPlCd'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'sysCd',dataType:'text',defaultValue:''}},{T:1,N:'w2:key',A:{id:'queryId',name:'queryId',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'param1',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_wrkPlCd',saveRemovedData:'true','ev:ondataload':'scwin.ds_wrkPlCd_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'code',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'termFrom',name:'시작일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'termTo',name:'종료일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'fixWrkPlCd',name:'정비작업장',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eqCd',name:'장비코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'inspKndCd',name:'검사종류',dataType:'text'}},{T:1,N:'w2:key',A:{id:'assgnLobranCd',name:'점소코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eqClssCd',name:'장비분류코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'homeClsCd',name:'사업부문',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_master',saveRemovedData:'true','ev:ondataload':'scwin.ds_master_ondataload','ev:onrowpositionchange':'scwin.ds_master_onrowpositionchange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'assgnLobranCd',name:'배정점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'assgnLobranNm',name:'배정점소',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqCd',name:'장비번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'posnClsCd',name:'소유구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqClssCd',name:'장비분류',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inspKndCd',name:'검사종류',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inspDt',name:'검사시행일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkPlCd',name:'정비작업장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'nextInspDt',name:'다음검사만료일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'passYn',name:'검사결과',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inspCost',name:'검사비',dataType:'number'}},{T:1,N:'w2:column',A:{id:'agencyCost',name:'검사대행료',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rmk',name:'비고',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fileNm',name:'자동차등록증',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fileSiz',name:'파일크기',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fixWrkNo',name:'작업번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqModelCd',name:'장비모델코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqModelNm',name:'장비모델명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqKndCd',name:'장비종류',dataType:'text'}},{T:1,N:'w2:column',A:{id:'firstRegDt',name:'최초등록일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'carAgeYear',name:'차령',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rglintInspExpireDt',name:'정기검사예정일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rglintChkExpireDt',name:'정기점검예정일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mntnInspExpireDt',name:'종합검사예정일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regNm',name:'등록자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modNm',name:'수정자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fileSavePath',name:'첨부파일경로',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_wrkPlCd',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_wrkPlCd","key":"IN_DS1"},{"id":"ds_wrkPlCd","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_wrkPlCd","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_wrkPlCd_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_master',action:'/ps.eq.adjmmgnt.fixrslts.RetrieveLegalInspectionHistoryCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_master","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_masterSave',action:'/ps.eq.adjmmgnt.fixrslts.SaveLegalInspectionHistoryCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_master","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_masterSave_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//-------------------------------------------------------------------------
+// PGM명 : 법적검사이력조회 (eq_530_01_39b)
+// 작성자 : 송정희
+// 최초작성일자 : 2026-01-24
+//------------------------------------------------------------------------
+
+scwin.fromDate_YMD = WebSquare.date.getCurrentServerDate("yyyyMMdd"); // 작업날짜
+scwin.G_userId = "";
+scwin.G_EqHomeClsCd = "";
+scwin.G_acctDeptCd = "";
+scwin.G_fixWrkPlCd = "";
+scwin.isEventRunning = false;
+scwin.memJson = $c.data.getMemInfo($p);
+scwin.retrieveFlag = false; //행추가 시 조회이후 가능하도록 수정
+
+scwin.data1 = {};
+scwin.opts = {};
+scwin.onpageload = function () {
+  console.log("PGM명 : 법적검사이력조회 (eq_530_01_39b)");
+  console.log(scwin.memJson);
+
+  //공통코드값
+  const codeOptions = [{
+    grpCd: "ZZ205",
+    compID: "lc_homeClsCd",
+    opt: {
+      "range": "1,EQ"
+    }
+  },
+  // 정비소속구분(사업부문)
+  {
+    grpCd: "ZZ203",
+    compID: "gr_master:posnClsCd"
+  },
+  // 소유구분
+  {
+    grpCd: "ZZ202",
+    compID: "lc_eqClssCd,gr_master:eqClssCd"
+  },
+  // 장비분류
+  {
+    grpCd: "EQ006",
+    compID: "lc_inspKndCd,gr_master:inspKndCd"
+  },
+  // 검사종류
+  {
+    grpCd: "EQ020",
+    compID: "gr_master:passYn"
+  },
+  // 검사결과
+  {
+    grpCd: "ZZ210",
+    compID: "gr_master:eqKndCd"
+  } // 장비종류
+  ];
+  $c.data.setCommonCode($p, codeOptions, scwin.callBackCommonCode);
+};
+scwin.callBackCommonCode = function () {
+  scwin.G_userId = $c.data.getMemInfo($p, "userId");
+  scwin.G_acctDeptCd = $c.data.getMemInfo($p, "acctDeptCd");
+  scwin.G_EqHomeClsCd = $c.data.getMemInfo($p, "eqHomeClsCd"); // 사용자소속구분코드
+  scwin.G_fixWrkPlCd = $c.data.getMemInfo($p, "fixWrkPlCd"); // fixWrkPlCd  userFixWrkPlCd
+
+  scwin.f_RetrieveLobranCd(); //지점(점소)    
+
+  scwin.f_RetrieveWrkPlCd(scwin.G_EqHomeClsCd); // 작업장
+
+  ed_wrkStDt.focus();
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. onPageLoad 에서 호출 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = async function () {
+  ed_wrkStDt.setValue(scwin.fromDate_YMD.substring(0, 6) + "01");
+  ed_wrkEndDt.setValue(scwin.fromDate_YMD);
+};
+
+//------------------------------------------------------------------------
+// [지점(점소)  콤보 조회
+//------------------------------------------------------------------------
+scwin.f_RetrieveLobranCd = async function () {
+  var param = [{
+    method: "getLuxeComboData",
+    param1: "PsCommonEBC",
+    param2: "retriveBranchCd",
+    compID: "lc_lobranCd"
+  }];
+  await $c.data.setGauceUtil($p, param, scwin.callbackGauceUtil);
+};
+scwin.callbackGauceUtil = function () {};
+
+//------------------------------------------------------------------------
+// [대표정비작업장  콤보 조회] 소속 구분에 따른 작업장 리스트 콤보 변경 ( 조회조건 LuxCombo )
+//------------------------------------------------------------------------
+scwin.f_RetrieveWrkPlCd = function (homeClsCd) {
+  console.log("f_RetrieveWrkPlCd - homeClsCd - " + homeClsCd);
+  // /cm.zz.RetrieveComboCMD.do?sysCd=PsCommonEBC&queryId=retriveWrkplList&param1="+lux_homeClsCd.BindColVal
+  let p_homeClsCd = homeClsCd;
+  dma_wrkPlCd.set("sysCd", "PsCommonEBC");
+  dma_wrkPlCd.set("queryId", "retriveWrkplList");
+  dma_wrkPlCd.set("param1", p_homeClsCd);
+  $c.sbm.execute($p, sbm_wrkPlCd);
+
+  //그리드 콤보
+  scwin.f_RetrieveGridFixWrkPlCd();
+};
+
+//------------------------------------------------------------------------
+// [그리드 대표정비작업장)  콤보 조회
+//------------------------------------------------------------------------
+scwin.f_RetrieveGridFixWrkPlCd = async function () {
+  //GauceUtil.getGridCombo("PsCommonEBC","retriveRepFixWrkPlList",false)
+
+  var param = [{
+    method: "getLuxeComboData",
+    param1: "PsCommonEBC",
+    param2: "retriveRepFixWrkPlList",
+    compID: "gr_master:fixWrkPlCd"
+  }];
+  await $c.data.setGauceUtil($p, param);
+};
+
+//-------------------------------------------------------------------------
+// 초기화
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tb_wrk, null);
+  ed_wrkStDt.setValue(scwin.fromDate_YMD.substring(0, 6) + "01");
+  ed_wrkEndDt.setValue(scwin.fromDate_YMD);
+  lc_homeClsCd.setValue(scwin.G_EqHomeClsCd); // 정비소속구분코드
+
+  if (lc_homeClsCd.getValue() == scwin.G_EqHomeClsCd) {
+    lc_fixWrkPlCd.setValue(scwin.G_fixWrkPlCd); // 정비작업장코드
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  if (!(await $c.gus.cfIsAfterDate($p, ed_wrkStDt.getValue(), ed_wrkEndDt.getValue()))) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+    ed_wrkStDt.focus();
+    return;
+  }
+  if (!(await $c.gus.cfValidate($p, [tb_wrk], null, true))) return;
+  $c.sbm.execute($p, sbm_master);
+  scwin.retrieveFlag = true;
+};
+//-------------------------------------------------------------------------
+// 조회 조건 지우기
+//-------------------------------------------------------------------------
+scwin.btn_Clear_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+  // 변경된 사항이 있는지 확인.
+  if (ds_master.getModifiedIndex().length == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_001, ['법적검사이력조회 그리드']); //"변경된 사항이 없습니다.");
+    return;
+  }
+  var validFlag = await $c.gus.cfValidate($p, [gr_master], null, true);
+  if (validFlag == false) return;
+  if (await $c.win.confirm($p, MSG_CM_CRM_001)) {
+    //저장 확인
+    $c.sbm.execute($p, sbm_masterSave);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  switch (disGubun) {
+    case 2:
+      // 장비 팝업  retrieveEqBasicListInfo
+      udc_eqCd.setSelectId("retrieveEqBasicListInfo");
+      udc_eqCd.cfCommonPopUp(scwin.udc_eqCd_callBackFunc, pCode, pName, pClose // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+      , null // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는 컬럼 지정
+      , lc_homeClsCd.getValue() // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+      , "1200" // POP-UP뛰을때 원도우의 사용자 정의 폭
+      , null // POP-UP뛰을때 윈도우의 사용자 정의 높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearch // 전체검색허용여부	("F")
+      , "장비,장비코드,차량번호" // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+      );
+      break;
+  }
+};
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : 리턴 함수 
+//-------------------------------------------------------------------------
+scwin.udc_eqCd_callBackFunc = function (ret) {
+  console.log("udc_eqCd_callBackFunc ret " + ret);
+  $c.gus.cfSetReturnValue($p, ret, ed_eqCd, ed_eqNm);
+};
+scwin.udc_eqCd_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_eqCd, ed_eqNm, 2);
+};
+scwin.udc_eqCd_onblurNameEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_eqNm, ed_eqCd, 2, false);
+};
+scwin.udc_eqCd_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(2, ed_eqCd.getValue(), ed_eqNm.getValue(), "F", "T");
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) return;
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+  // inObj가 코드명 필드일 경우 팝업
+  else scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 그리드추가 - 코드 적용
+//-------------------------------------------------------------------------
+scwin.f_AddRow = function () {
+  if (!scwin.retrieveFlag) return;
+  var rowIndex = ds_master.insertRow();
+
+  //검사비, 검사대행료
+  ds_master.setCellData(rowIndex, "passYn", 0);
+  ds_master.setCellData(rowIndex, "inspCost", 0);
+  ds_master.setCellData(rowIndex, "agencyCost", 0);
+  gr_master.setFocusedCell(rowIndex, 'vehclNo');
+};
+
+//-------------------------------------------------------------------------
+// 그리드삭제
+//-------------------------------------------------------------------------
+scwin.f_DeleteRow = async function () {
+  if (ds_master.getRowCount() == 0) {
+    await $c.win.alert($p, "삭제할 데이터가 없습니다");
+  } else {
+    var rowIndex = ds_master.getRowPosition();
+    var fixWrkNo = ds_master.getCellData(rowIndex, "fixWrkNo");
+    if (fixWrkNo != "") {
+      await $c.win.alert($p, "작업번호가 존재하는 경우 삭제할 수 없습니다.");
+    } else {
+      var rowStatus = ds_master.getRowStatus(rowIndex);
+      if (rowStatus == "C") {
+        ds_master.removeRow(rowIndex);
+      } else {
+        ds_master.deleteRow(rowIndex);
+      }
+      gr_master.setFocusedCell(rowIndex, 0);
+    }
+  }
+};
+// 행의 상태 숫자값 (초기상태:0, 갱신:1, 삽입:2, 삭제:3, 삽입 후 삭제:4)
+//          As-Is  (normal:0,  insert:1,  delete:2, update:3)
+//-------------------------------------------------------------------------
+//  Edit_Control FUNCTION
+//-------------------------------------------------------------------------	
+scwin.f_EditControl = function (rowIndex) {
+  var rowStatus = ds_master.getRowStatus(rowIndex);
+  if (rowStatus == "C") {
+    // insert 
+    gr_master.setColumnReadOnly("vehclNo", false);
+    gr_master.setColumnReadOnly("inspKndCd", false);
+    gr_master.setColumnReadOnly("inspDt", false);
+    gr_master.setColumnReadOnly("fixWrkPlCd", false);
+    gr_master.setColumnReadOnly("assgnLobranCd", false);
+    gr_master.setColumnReadOnly("eqClssCd", false);
+  } else if (rowStatus == "R" || rowStatus == "U") {
+    // update, normal
+    gr_master.setColumnReadOnly("vehclNo", true);
+    gr_master.setColumnReadOnly("inspKndCd", true);
+    gr_master.setColumnReadOnly("inspDt", true);
+    gr_master.setColumnReadOnly("fixWrkPlCd", true);
+    gr_master.setColumnReadOnly("assgnLobranCd", true);
+    gr_master.setColumnReadOnly("eqClssCd", true);
+  } else {
+    gr_master.setColumnReadOnly("vehclNo", true);
+    gr_master.setColumnReadOnly("inspKndCd", true);
+    gr_master.setColumnReadOnly("inspDt", true);
+    gr_master.setColumnReadOnly("fixWrkPlCd", true);
+    gr_master.setColumnReadOnly("assgnLobranCd", true);
+    gr_master.setColumnReadOnly("eqClssCd", true);
+  }
+};
+//-------------------------------------------------------------------------
+// 그리드 Popup 처리
+//-------------------------------------------------------------------------
+scwin.f_openCommPopUpGrid = function (row, value, pClose) {
+  var pCode = "";
+  var pName = "";
+  pCode = value; //ds_master.getCellData(row,"vehclNo");  
+  pName = '';
+  var pWhere = lc_homeClsCd.getValue() + ",Y";
+  if (scwin.isEventRunning) return;
+  scwin.isEventRunning = true;
+
+  //DATA Init
+  ds_master.setCellData(row, "eqCd", "");
+  ds_master.setCellData(row, "prdyr", "");
+  ds_master.setCellData(row, "assgnLobranNm", "");
+  ds_master.setCellData(row, "rglintInspExpireDt", "");
+  ds_master.setCellData(row, "mntnInspExpireDt", "");
+  ds_master.setCellData(row, "rglintChkExpireDt", "");
+  ds_master.setCellData(row, "eqClssCd", "");
+  udc_eqCd.setSelectId("retrieveVehclListInfo");
+  udc_eqCd.cfCommonPopUp(scwin.udc_grid_eqCd_callBackFunc, pCode, pName, pClose // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+  , 8 // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+  , null // Title순서
+  , null // 보여주는 각 컬럼들의 폭
+  , null // 컬럼중에서 숨기는 컬럼 지정
+  , pWhere // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+  , "1200" // POP-UP뛰을때 원도우의 사용자 정의 폭
+  , null // POP-UP뛰을때 윈도우의 사용자 정의 높이
+  , null // 윈도우 위치 Y좌표
+  , null // 윈도우 위치 X좌표
+  , null // 중복체크여부	("F")
+  , "F" // 전체검색허용여부	("F")
+  , "장비조회,장비번호,장비코드" // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+  );
+  $c.util.setTimeout($p, () => {
+    scwin.isEventRunning = false;
+  }, {
+    delay: 200
+  });
+};
+scwin.gr_master_onafteredit = function (rowIndex, columnIndex, value) {
+  let colId = gr_master.getColumnID(columnIndex);
+  if (colId == "vehclNo" && !$c.gus.cfIsNull($p, value)) {
+    scwin.f_openCommPopUpGrid(rowIndex, value, "T");
+  } else if (colId == "inspCost") {
+    //검사비
+    if ($c.gus.cfIsNull($p, value)) {
+      ds_master.setCellData(rowIndex, colId, 0);
+    }
+  }
+};
+scwin.gr_master_ontextimageclick = function (rowIndex, columnIndex) {
+  let colId = gr_master.getColumnID(columnIndex);
+  if (colId == "vehclNo") {
+    let value = ds_master.getCellData(rowIndex, colId);
+    scwin.f_openCommPopUpGrid(rowIndex, value, "F");
+  } else if (colId == "fileNm") {
+    scwin.f_fileSet(rowIndex);
+  }
+};
+scwin.ds_master_oncelldatachange = function (info) {
+  let colId = info.colID;
+  if (colId == "vehclNo") {
+    if (info.oldValue !== info.newValue) {
+      if (info.newValue != "") {
+        scwin.f_openCommPopUpGrid(info.rowIndex, info.newValue, "T");
+      }
+    }
+  }
+};
+scwin.udc_grid_eqCd_callBackFunc = function (rtnList) {
+  console.log("udc_grid_eqCd_callBackFunc ret " + rtnList);
+  var rowIndex = ds_master.getRowPosition();
+  var rtnList2 = new Array();
+  if (rtnList == null) {
+    rtnList2 = rtnList;
+  } else if (rtnList[0] == "N/A") {
+    rtnList2 = rtnList;
+  } else {
+    rtnList2[0] = rtnList[0];
+    rtnList2[1] = rtnList[1];
+    rtnList2[2] = rtnList[2];
+    rtnList2[3] = rtnList[3];
+    rtnList2[4] = rtnList[4];
+    rtnList2[5] = rtnList[5];
+    rtnList2[6] = rtnList[6];
+    rtnList2[7] = rtnList[8];
+  }
+
+  // 전남98사9499	045367	1997	부산지사	20260203			0	TR	KMEDB18CPVC101585
+  // 0 : 전남98사9499                 vehclNo	차량번호
+  // 1 : 045367                       eqCd	장비코드
+  // 2 : 1997                         prdyr   년식
+  // 3 : 부산지사                     assgnlobranNm   물류점소명
+  // 4 : 20260203                     rglintInspExpireDt  정기검사만료일자
+  // 5 :                              mntnInspExpireDt    정밀검사만료일자
+  // 6 :                              rglintChkExpireDt   정기점검만료일자
+  // 7 : 0                            reqDelYn    장비삭제여부(0^승인완료,1^삭제,2^승인대기)
+  // 8 : TR                           eqClssCd    장비분류코드
+  // 9 : KMEDB18CPVC101585            drcrNo      차대번호
+
+  $c.gus.cfSetGridReturnValue($p, rtnList2, ds_master, rowIndex, "vehclNo", "eqCd", ["prdyr", "assgnLobranNm", "rglintInspExpireDt", "mntnInspExpireDt", "rglintChkExpireDt", "eqClssCd"]);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Download
+//-------------------------------------------------------------------------
+scwin.f_Download = async function () {
+  var row = ds_master.getRowPosition();
+  if (ds_master.getRowCount() < 1) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_056, ["첨부파일 행"]);
+    return;
+  } else {
+    var fileName = ds_master.getCellData(row, "fileNm");
+    var filePath = ds_master.getCellData(row, "fileSavePath");
+    if (filePath.trim().length == 0) {
+      await $c.win.alert($p, "선택하신 " + (row + 1) + "행에 파일이 등록되어 있지 않습니다.");
+    } else {
+      if (filePath.indexOf(".") > 0) {
+        fileName += filePath.substring(filePath.indexOf("."), filePath.indexOf(".") + 4);
+        $c.gus.cfDownloadFile($p, fileName, filePath);
+      }
+    }
+  }
+};
+scwin.btn_Search_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+scwin.btn_Save_onclick = function (e) {
+  scwin.f_Save();
+};
+scwin.gr_master_oncellclick = async function (rowIndex, columnIndex, columnId) {
+  if (ds_master.getRowCount() <= 0) {
+    await $c.win.alert($p, "법적검사이력이 존재하지 않습니다.");
+    return false;
+  }
+
+  // if(columnId=="fileNm" && rowIndex >0){
+  // 	scwin.f_fileSet(rowIndex);
+  // }
+};
+
+//-------------------------------------------------------------------------
+// function desc : 업무 화면 팝업
+scwin.f_fileSet = async function (row) {
+  const vehclNo = ds_master.getCellData(row, "vehclNo");
+  // const displayFileName = $c.gus.cfIsNull(ds_master.getCellData(row, "fileNm")) ? "자동차등록증_" + vehclNo : ds_master.getCellData(row, "fileNm");
+  const displayFileName = "자동차등록증_" + vehclNo;
+  if ($c.gus.cfIsNull($p, vehclNo)) {
+    await $c.win.alert($p, "차량번호를 먼저 입력해주세요");
+    return;
+  }
+  scwin.data1 = {
+    popupTitle: "자동차등록증 업로드",
+    fileNameLabel: "파일명",
+    fileName: displayFileName,
+    filePath: ds_master.getCellData(row, "fileSavePath"),
+    fileSize: ds_master.getCellData(row, "fileSiz"),
+    subDir: "/ps/eq/adjmmgnt/fixrslts",
+    showExistingFileInListYn: "N",
+    uploadRequiredYn: "Y",
+    returnExistingOnCloseYn: "N",
+    returnArrayFields: "filePath,fileName,fileSize,vehclNo",
+    extraReturnData: {
+      vehclNo: vehclNo
+    }
+  };
+  scwin.opts = {
+    id: "popeq5300151pSingle",
+    title: "자동차등록증 업로드",
+    popupName: "자동차등록증 업로드",
+    modal: true,
+    center: "yes",
+    type: "browserPopup",
+    width: "900px",
+    height: "400px",
+    scroll: "yes",
+    resizable: "yes",
+    status: "no"
+  };
+  scwin.url = "/ui/cm/zz/commonSingleFilePopup.xml";
+  let resultList = await $c.win.openPopup($p, scwin.url, scwin.opts, scwin.data1);
+  if (resultList && resultList[0] != "" && resultList[0] != "undefined") {
+    ds_master.setCellData(row, "fileNm", resultList[1]);
+    ds_master.setCellData(row, "fileSavePath", resultList[0]);
+    ds_master.setCellData(row, "fileSiz", resultList[2]);
+    ds_master.setCellData(row, "vehclNo", resultList[3]);
+  }
+};
+scwin.btn_fileDownLoad_onclick = function (e) {
+  scwin.f_Download();
+};
+scwin.lc_homeClsCd_onviewchange = function (info) {
+  var luxIndex = lc_homeClsCd.getValue();
+  // 작업장콤보 조회
+  scwin.f_RetrieveWrkPlCd(luxIndex);
+};
+
+//-----------------------------------------------------------------------------
+//  D A T A C O L L E C T I O N   C O M P O N E N T S   E V E N T
+//-----------------------------------------------------------------------------
+scwin.ds_master_ondataload = async function () {
+  let rowCnt = ds_master.getTotalRow();
+  totalRows.setValue(rowCnt);
+  gr_master.setFocusedCell(0, "assgnLobranNm");
+  if (rowCnt == 0) {
+    if ($c.gus.cfCheckCreateFlag($p) == true) {
+      $c.gus.cfTurnCreateFlag($p, false);
+    } else {
+      await $c.win.alert($p, "조회된 데이터가 없습니다.");
+    }
+    return;
+  }
+};
+scwin.sbm_masterSave_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  await $c.gus.cfAlertMsg($p, MSG_CM_INF_001); // 성공적으로 저장하였습니다;
+  scwin.f_Retrieve();
+};
+scwin.ds_master_onrowpositionchange = function (info) {
+  scwin.f_EditControl(info.newRowIndex);
+};
+scwin.sbm_wrkPlCd_submitdone = function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  if (lc_homeClsCd.getValue() == scwin.G_EqHomeClsCd) {
+    lc_fixWrkPlCd.setValue(scwin.G_fixWrkPlCd); // 정비작업장코드
+  }
+};
+scwin.ds_wrkPlCd_ondataload = function () {
+  lc_fixWrkPlCd.setSelectedIndex(0);
+  if (lc_homeClsCd.getValue() == scwin.G_EqHomeClsCd) {
+    lc_fixWrkPlCd.setValue(scwin.G_fixWrkPlCd); // 정비작업장코드
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'tb_wrk',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:90px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'기간',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_fromToCalendar1',refDataMap:'dma_search',refEdDt:'termTo',refStDt:'termFrom',style:'',edToId:'ed_wrkEndDt',edFromId:'ed_wrkStDt',mandatoryFrom:'true',mandatoryTo:'true',validChkYn:'Y',titleFrom:'일자',titleTo:'일자'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'점소',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_lobranCd',style:'width: 180px;visibility: false',submenuSize:'fixed',ref:'data:dma_search.assgnLobranCd',chooseOptionLabel:'전체',visibleRowNum:'24',sortMethod:'ascending',sortOption:'value'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_lobranCd'},E:[{T:1,N:'xf:label',A:{ref:'NAME'}},{T:1,N:'xf:value',A:{ref:'CODE'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'사업부문',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_homeClsCd',style:'width: 180px;',submenuSize:'fixed',mandatory:'true',ref:'data:dma_search.homeClsCd',visibleRowNum:'5',sortMethod:'ascending',sortOption:'value',chooseOptionLabel:'전체',title:'사업부문',validExp:'사업부문:yes:'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'대표정비작업장',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_fixWrkPlCd',style:'width: 180px;',submenuSize:'fixed',ref:'data:dma_search.fixWrkPlCd',chooseOptionLabel:'전체',visibleRowNum:'20',sortMethod:'ascending',sortOption:'value'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_wrkPlCd'},E:[{T:1,N:'xf:label',A:{ref:'name'}},{T:1,N:'xf:value',A:{ref:'code'}}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'장비',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_eqCd',nameId:'ed_eqNm',popupID:'edCdPopUp',selectID:'retrieveEqBasicListInfo',style:'',validTitle:'',code:'eqCd',name:'eqNm',refDataCollection:'dma_search',btnId:'btn_eqCd',id:'udc_eqCd','ev:onblurCodeEvent':'scwin.udc_eqCd_onblurCodeEvent','ev:onclickEvent':'scwin.udc_eqCd_onclickEvent','ev:onblurNameEvent':'scwin.udc_eqCd_onblurNameEvent',codeWidth:'60',allowCharCode:'0-9',allowCharCodeLength:'6',skipOnBlurCodeValueEmpty:'N',skipOnBlurNameValueEmpty:'N',UpperFlagCode:'1',maxlengthCode:'6'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'검사종류',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_inspKndCd',style:'width: 180px;',submenuSize:'fixed',ref:'data:dma_search.inspKndCd',sortOption:'value',sortMethod:'ascending',chooseOption:'true',chooseOptionLabel:'전체',visibleRowNum:'20'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'장비분류',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_eqClssCd',style:'width: 180px;',submenuSize:'fixed',ref:'data:dma_search.eqClssCd',chooseOptionLabel:'전체',sortMethod:'ascending',sortOption:'value',visibleRowNum:'10'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_Clear',style:'',type:'button','ev:onclick':'scwin.btn_Clear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_Search',style:'',type:'button','ev:onclick':'scwin.btn_Search_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridID:'gr_master',gridUpYn:'N',gridDownUserAuth:'X',grdDownOpts:'{"fileName":"법적검사이력조회.xlsx", "sheetName":"법적검사이력조회", "type":"3"}'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_master',id:'gr_master',style:'',visibleRowNum:'14',visibleRowNumFix:'true','ev:oncellclick':'scwin.gr_master_oncellclick','ev:ontextimageclick':'scwin.gr_master_ontextimageclick',rowStatusVisible:'true',validExp:'vehclNo:차량번호:yes:String&maxlength=9:key,inspKndCd:검사종류:yes::key,inspDt:검사시행일:yes:date=YYYYMMDD&length=8:key,nextInspDt:다음검사만료일:yes:date=YYYYMMDD&length=8,fixWrkPlCd:정비작업장코드:yes,fileNm:자동차등록증:yes',dataName:'법적검사이력조회','ev:onafteredit':'scwin.gr_master_onafteredit'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',style:'',value:'배정점소코드',width:'100',hidden:'true',class:'col-type1'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',style:'',value:'배정점소',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',style:'',value:'장비번호',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',style:'',value:'차량번호',width:'120',class:'col-type1'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',style:'',value:'소유<br/>구분',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',style:'',value:'장비분류',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',style:'',value:'검사종류',width:'80',class:'col-type1'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',style:'',value:'검사<br/>시행일',width:'120',class:'col-type1'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column7',inputType:'text',style:'',value:'정비<br/>작업장',width:'120',class:'col-type1'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',style:'',value:'다음검사<br/>만료일',width:'120',class:'col-type1'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column33',value:'검사<br/>결과',displayMode:'label',class:'col-type2'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column31',value:'검사비',displayMode:'label',class:'col-type2'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column29',value:'검사<br/>대행료',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column27',value:'비고',displayMode:'label',class:'col-type2'}},{T:1,N:'w2:column',A:{width:'200',style:'',inputType:'text',id:'column68',value:'자동차등록증',class:'col-type1',colSpan:'1',rowSpan:''}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column21',value:'파일크기',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column23',value:'작업번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column65',value:'장비모델<br/>코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'170',inputType:'text',style:'',id:'column63',value:'장비모델명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column61',value:'장비종류',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column59',value:'최초등록일',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column57',value:'차령',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column55',value:'정기검사<br/>예정일',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column53',value:'정기점검<br/>예정일',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column51',value:'종합검사<br/>예정일',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column49',value:'등록자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'column47',value:'등록일시',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column45',value:'수정자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'column43',value:'수정일시',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'400',inputType:'text',style:'',id:'column41',value:'첨부파일경로',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'assgnLobranCd',inputType:'text',style:'',value:'',width:'100',allowChar:'a-zA-Z0-9',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'assgnLobranNm',inputType:'text',style:'',value:'',width:'150',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqCd',inputType:'text',style:'',value:'',width:'70',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vehclNo',inputType:'textImage',style:'',value:'',width:'70',editType:'select',maxLength:'12'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'posnClsCd',inputType:'select',style:'',value:'',width:'80',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'eqClssCd',inputType:'select',style:'',value:'',width:'70',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'inspKndCd',inputType:'select',style:'',value:'',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'inspDt',inputType:'calendar',style:'',value:'',width:'70',calendarValueType:'yearMonthDate',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'fixWrkPlCd',inputType:'select',style:'',value:'',width:'70',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_wrkPlCd'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'nextInspDt',inputType:'calendar',style:'',value:'',width:'70',calendarValueType:'yearMonthDate',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'70',inputType:'select',style:'',id:'passYn',value:'',displayMode:'label',emptyItem:'true',selectedData:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'inspCost',value:'',displayMode:'label',textAlign:'right',displayFormat:'#,##0',maxLength:'13',allowChar:'0-9',dataType:'number'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'agencyCost',value:'',displayMode:'label',textAlign:'right',displayFormat:'#,##0',readOnly:'true',allowChar:'0-9'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'rmk',value:'',displayMode:'label',textAlign:'left',maxLength:'200'}},{T:1,N:'w2:column',A:{width:'200',style:'',inputType:'textImage',id:'fileNm',value:'',viewType:'icon',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fileSiz',value:'',displayMode:'label',textAlign:'right',hidden:'true',readOnly:'true',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fixWrkNo',value:'',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'eqModelCd',value:'',displayMode:'label',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'170',inputType:'text',style:'',id:'eqModelNm',value:'',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'select',style:'',id:'eqKndCd',value:'',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'calendar',style:'',id:'firstRegDt',value:'',displayMode:'label',displayFormat:'yyyy/MM/dd',calendarValueType:'yearMonthDate',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'carAgeYear',value:'',displayMode:'label',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'calendar',style:'',id:'rglintInspExpireDt',value:'',displayMode:'label',calendarValueType:'yearMonthDate',displayFormat:'yyyy/MM/dd',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'calendar',style:'',id:'rglintChkExpireDt',value:'',displayMode:'label',calendarValueType:'yearMonthDate',displayFormat:'yyyy/MM/dd',readOnly:'true',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'calendar',style:'',id:'mntnInspExpireDt',value:'',displayMode:'label',calendarValueType:'yearMonthDate',displayFormat:'yyyy/MM/dd',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'regNm',value:'',displayMode:'label',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'regDtm',value:'',displayMode:'label',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'modNm',value:'',displayMode:'label',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'modDtm',value:'',displayMode:'label',readOnly:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'400',inputType:'text',style:'',id:'fileSavePath',value:'',displayMode:'label',readOnly:'true',hidden:'true',textAlign:'right'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{EngYn:'N',btnCancelYn:'Y',btnDelYn:'N',style:'',gridID:'gr_master',rowAddFunction:'scwin.f_AddRow',rowDelFunction:'scwin.f_DeleteRow',rowAddUserAuth:'C',rowDelUserAuth:'D'}}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_fileDownLoad',style:'',type:'button',title:'파일다운로드','ev:onclick':'scwin.btn_fileDownLoad_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'DownLoad'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Save',style:'',type:'button','ev:onclick':'scwin.btn_Save_onclick',objType:'bCreate',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]}]}]}]}]}]}]}]})

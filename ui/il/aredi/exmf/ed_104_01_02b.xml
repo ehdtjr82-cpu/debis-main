@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="ds_search">
+                    <w2:keyInfo>
+                        <w2:key id="kcomcd" name="법인코드" dataType="text"></w2:key>
+                        <w2:key id="mblno" name="MasterBLNo" dataType="text"></w2:key>
+                        <w2:key id="send" name="전송상태구분" dataType="text"></w2:key>
+                        <w2:key id="ondtFrom" name="From출항일" dataType="text"></w2:key>
+                        <w2:key id="ondtTo" name="To출항일" dataType="text"></w2:key>
+                        <w2:key id="fltno" name="편명" dataType="text"></w2:key>
+                        <w2:key id="blno" name="" dataType="text"></w2:key>
+                        <w2:key id="mhno" name="mhno" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_exportMaster" saveRemovedData="true" ev:oncelldatachange="scwin.ds_exportMaster_oncelldatachange">
+                    <w2:columnInfo>
+                        <w2:column id="chk" name="" dataType="text"></w2:column>
+                        <w2:column id="kcomcd" name="Kcomcd" dataType="text"></w2:column>
+                        <w2:column id="mblno" name="Master No" dataType="text"></w2:column>
+                        <w2:column id="mhno" name="" dataType="text"></w2:column>
+                        <w2:column id="srno" name="" dataType="text"></w2:column>
+                        <w2:column id="iogb" name="" dataType="text"></w2:column>
+                        <w2:column id="msn" name="" dataType="text"></w2:column>
+                        <w2:column id="mblgb" name="" dataType="text"></w2:column>
+                        <w2:column id="bltype" name="" dataType="text"></w2:column>
+                        <w2:column id="shipgb" name="" dataType="text"></w2:column>
+                        <w2:column id="voidgb" name="" dataType="text"></w2:column>
+                        <w2:column id="exdt" name="" dataType="text"></w2:column>
+                        <w2:column id="rate" name="" dataType="text"></w2:column>
+                        <w2:column id="exrate" name="" dataType="text"></w2:column>
+                        <w2:column id="stdt" name="" dataType="text"></w2:column>
+                        <w2:column id="ondt" name="Onboard" dataType="text"></w2:column>
+                        <w2:column id="ontm" name="" dataType="text"></w2:column>
+                        <w2:column id="ondt2" name="" dataType="text"></w2:column>
+                        <w2:column id="avdt" name="" dataType="text"></w2:column>
+                        <w2:column id="avtm" name="" dataType="text"></w2:column>
+                        <w2:column id="dvno" name="" dataType="text"></w2:column>
+                        <w2:column id="dvnm" name="" dataType="text"></w2:column>
+                        <w2:column id="dvdt" name="" dataType="text"></w2:column>
+                        <w2:column id="isdt" name="" dataType="text"></w2:column>
+                        <w2:column id="cgtp" name="" dataType="text"></w2:column>
+                        <w2:column id="shcd" name="" dataType="text"></w2:column>
+                        <w2:column id="shnm1" name="Shiper" dataType="text"></w2:column>
+                        <w2:column id="shnm2" name="Shiper Address" dataType="text"></w2:column>
+                        <w2:column id="shnm3" name="" dataType="text"></w2:column>
+                        <w2:column id="shnm4" name="" dataType="text"></w2:column>
+                        <w2:column id="shnm5" name="" dataType="text"></w2:column>
+                        <w2:column id="cncd" name="" dataType="text"></w2:column>
+                        <w2:column id="cnnm1" name="Consignee" dataType="text"></w2:column>
+                        <w2:column id="cnnm2" name="Consignee Address" dataType="text"></w2:column>
+                        <w2:column id="cnnm3" name="" dataType="text"></w2:column>
+                        <w2:column id="cnnm4" name="" dataType="text"></w2:column>
+                        <w2:column id="cnnm5" name="" dataType="text"></w2:column>
+                        <w2:column id="nttg" name="" dataType="text"></w2:column>
+                        <w2:column id="ntcd" name="" dataType="text"></w2:column>
+                        <w2:column id="ntnm1" name="" dataType="text"></w2:column>
+                        <w2:column id="ntnm2" name="" dataType="text"></w2:column>
+                        <w2:column id="ntnm3" name="" dataType="text"></w2:column>
+                        <w2:column id="ntnm4" name="" dataType="text"></w2:column>
+                        <w2:column id="ntnm5" name="" dataType="text"></w2:column>
+                        <w2:column id="cacd" name="" dataType="text"></w2:column>
+                        <w2:column id="canm" name="" dataType="text"></w2:column>
+                        <w2:column id="lecd" name="" dataType="text"></w2:column>
+                        <w2:column id="lenm" name="" dataType="text"></w2:column>
+                        <w2:column id="cocd" name="" dataType="text"></w2:column>
+                        <w2:column id="conm" name="" dataType="text"></w2:column>
+                        <w2:column id="dpcd" name="" dataType="text"></w2:column>
+                        <w2:column id="dpnm" name="" dataType="text"></w2:column>
+                        <w2:column id="fltno" name="Flight No" dataType="text"></w2:column>
+                        <w2:column id="fltno2" name="" dataType="text"></w2:column>
+                        <w2:column id="dscd1" name="" dataType="text"></w2:column>
+                        <w2:column id="ptcd1" name="" dataType="text"></w2:column>
+                        <w2:column id="dscd2" name="" dataType="text"></w2:column>
+                        <w2:column id="ptcd2" name="" dataType="text"></w2:column>
+                        <w2:column id="dscd3" name="" dataType="text"></w2:column>
+                        <w2:column id="ptcd3" name="" dataType="text"></w2:column>
+                        <w2:column id="dstn" name="" dataType="text"></w2:column>
+                        <w2:column id="dsnm1" name="" dataType="text"></w2:column>
+                        <w2:column id="dsnm2" name="" dataType="text"></w2:column>
+                        <w2:column id="acif1" name="" dataType="text"></w2:column>
+                        <w2:column id="acif2" name="" dataType="text"></w2:column>
+                        <w2:column id="cucd" name="" dataType="text"></w2:column>
+                        <w2:column id="frpc" name="" dataType="text"></w2:column>
+                        <w2:column id="otpc" name="" dataType="text"></w2:column>
+                        <w2:column id="dvcr" name="" dataType="text"></w2:column>
+                        <w2:column id="dvct" name="" dataType="text"></w2:column>
+                        <w2:column id="insu" name="" dataType="text"></w2:column>
+                        <w2:column id="hdif1" name="" dataType="text"></w2:column>
+                        <w2:column id="hdif2" name="" dataType="text"></w2:column>
+                        <w2:column id="hdif3" name="" dataType="text"></w2:column>
+                        <w2:column id="pfchg" name="" dataType="text"></w2:column>
+                        <w2:column id="cfchg" name="" dataType="text"></w2:column>
+                        <w2:column id="pvchg" name="" dataType="text"></w2:column>
+                        <w2:column id="cvchg" name="" dataType="text"></w2:column>
+                        <w2:column id="pachg" name="" dataType="text"></w2:column>
+                        <w2:column id="cachg" name="" dataType="text"></w2:column>
+                        <w2:column id="pcchg" name="" dataType="text"></w2:column>
+                        <w2:column id="ccchg" name="" dataType="text"></w2:column>
+                        <w2:column id="ptchg" name="" dataType="text"></w2:column>
+                        <w2:column id="ctchg" name="" dataType="text"></w2:column>
+                        <w2:column id="lrate" name="" dataType="text"></w2:column>
+                        <w2:column id="ulRate" name="" dataType="text"></w2:column>
+                        <w2:column id="lcharge" name="" dataType="text"></w2:column>
+                        <w2:column id="ulCharge" name="" dataType="text"></w2:column>
+                        <w2:column id="comm" name="" dataType="text"></w2:column>
+                        <w2:column id="cchg" name="" dataType="text"></w2:column>
+                        <w2:column id="ucchg" name="" dataType="text"></w2:column>
+                        <w2:column id="cvat" name="" dataType="text"></w2:column>
+                        <w2:column id="ucvat" name="" dataType="text"></w2:column>
+                        <w2:column id="disc" name="" dataType="text"></w2:column>
+                        <w2:column id="dchg" name="" dataType="text"></w2:column>
+                        <w2:column id="udchg" name="" dataType="text"></w2:column>
+                        <w2:column id="nert" name="" dataType="text"></w2:column>
+                        <w2:column id="unert" name="" dataType="text"></w2:column>
+                        <w2:column id="ascd" name="" dataType="text"></w2:column>
+                        <w2:column id="asnm" name="" dataType="text"></w2:column>
+                        <w2:column id="warecd" name="" dataType="text"></w2:column>
+                        <w2:column id="warenm" name="" dataType="text"></w2:column>
+                        <w2:column id="itcd" name="" dataType="text"></w2:column>
+                        <w2:column id="itnm" name="" dataType="text"></w2:column>
+                        <w2:column id="arcd" name="" dataType="text"></w2:column>
+                        <w2:column id="arnm" name="" dataType="text"></w2:column>
+                        <w2:column id="ctcd" name="" dataType="text"></w2:column>
+                        <w2:column id="ctnm" name="" dataType="text"></w2:column>
+                        <w2:column id="locd" name="" dataType="text"></w2:column>
+                        <w2:column id="lonm" name="" dataType="text"></w2:column>
+                        <w2:column id="rqrt" name="" dataType="text"></w2:column>
+                        <w2:column id="rqchg" name="" dataType="text"></w2:column>
+                        <w2:column id="brcd" name="" dataType="text"></w2:column>
+                        <w2:column id="brnm" name="" dataType="text"></w2:column>
+                        <w2:column id="sgcd" name="" dataType="text"></w2:column>
+                        <w2:column id="sgnm" name="" dataType="text"></w2:column>
+                        <w2:column id="rider" name="" dataType="text"></w2:column>
+                        <w2:column id="mftpkg" name="Package" dataType="text"></w2:column>
+                        <w2:column id="mftwht" name="G/Weight" dataType="text"></w2:column>
+                        <w2:column id="tcwht" name="" dataType="text"></w2:column>
+                        <w2:column id="cwht2" name="" dataType="text"></w2:column>
+                        <w2:column id="cbm" name="" dataType="text"></w2:column>
+                        <w2:column id="akggb" name="" dataType="text"></w2:column>
+                        <w2:column id="kggb" name="" dataType="text"></w2:column>
+                        <w2:column id="lcno" name="" dataType="text"></w2:column>
+                        <w2:column id="pono" name="" dataType="text"></w2:column>
+                        <w2:column id="indate" name="" dataType="text"></w2:column>
+                        <w2:column id="endgb" name="" dataType="text"></w2:column>
+                        <w2:column id="attn" name="" dataType="text"></w2:column>
+                        <w2:column id="attnnm" name="" dataType="text"></w2:column>
+                        <w2:column id="invchk" name="" dataType="text"></w2:column>
+                        <w2:column id="dept" name="" dataType="text"></w2:column>
+                        <w2:column id="deptnm" name="" dataType="text"></w2:column>
+                        <w2:column id="cjdt" name="" dataType="text"></w2:column>
+                        <w2:column id="innerPkg" name="" dataType="text"></w2:column>
+                        <w2:column id="exgb" name="" dataType="text"></w2:column>
+                        <w2:column id="commNo" name="" dataType="text"></w2:column>
+                        <w2:column id="mark" name="" dataType="text"></w2:column>
+                        <w2:column id="descnm" name="" dataType="text"></w2:column>
+                        <w2:column id="inpid" name="" dataType="text"></w2:column>
+                        <w2:column id="inpdt" name="" dataType="text"></w2:column>
+                        <w2:column id="updid" name="" dataType="text"></w2:column>
+                        <w2:column id="upddt" name="" dataType="text"></w2:column>
+                        <w2:column id="lrgb" name="" dataType="text"></w2:column>
+                        <w2:column id="inco" name="" dataType="text"></w2:column>
+                        <w2:column id="odrNo" name="" dataType="text"></w2:column>
+                        <w2:column id="cino" name="" dataType="text"></w2:column>
+                        <w2:column id="linenet" name="" dataType="text"></w2:column>
+                        <w2:column id="exCucd" name="" dataType="text"></w2:column>
+                        <w2:column id="ascdPic" name="" dataType="text"></w2:column>
+                        <w2:column id="ascdPicnm" name="" dataType="text"></w2:column>
+                        <w2:column id="pncdPic" name="" dataType="text"></w2:column>
+                        <w2:column id="pncdPicnm" name="" dataType="text"></w2:column>
+                        <w2:column id="shCtcd" name="" dataType="text"></w2:column>
+                        <w2:column id="cnCtcd" name="" dataType="text"></w2:column>
+                        <w2:column id="ediItem" name="Goods" dataType="text"></w2:column>
+                        <w2:column id="sendDt" name="" dataType="text"></w2:column>
+                        <w2:column id="ediCd" name="" dataType="text"></w2:column>
+                        <w2:column id="sendSeq" name="" dataType="text"></w2:column>
+                        <w2:column id="acpsCha" name="" dataType="text"></w2:column>
+                        <w2:column id="exnoCnt" name="" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_houseLicenseInfo" saveRemovedData="true" ev:oncelldatachange="scwin.ds_houseLicenseInfo_oncelldatachange">
+                    <w2:columnInfo>
+                        <w2:column id="kcomcd" name="" dataType="text"></w2:column>
+                        <w2:column id="mhno" name="" dataType="text"></w2:column>
+                        <!-- <w2:column id="blno" name="" dataType="text"></w2:column> -->
+                        <w2:column id="elgbn" name="" dataType="text"></w2:column>
+                        <w2:column id="exno" name="" dataType="text"></w2:column>
+                        <w2:column id="pacd" name="" dataType="text"></w2:column>
+                        <w2:column id="pkgs" name="" dataType="number"></w2:column>
+                        <w2:column id="wht" name="" dataType="number"></w2:column>
+                        <w2:column id="elsplgb" name="" dataType="text"></w2:column>
+                        <w2:column id="elmid" name="" dataType="text"></w2:column>
+                        <w2:column id="elcogb" name="" dataType="text"></w2:column>
+                        <w2:column id="eldpkg" name="" dataType="text"></w2:column>
+                        <w2:column id="eldpkgut" name="" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+            <xf:submission id="sbm_retrieve"
+                action="/il.aredi.exmf.RetrieveAirExportMasterCMD.do"
+                method="post"
+                mediatype="application/json"
+                mode="asynchronous"
+                encoding="UTF-8"
+                ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_exportMaster","key":"OUT_DS1"}]'
+                target='data:json,[{"id":"ds_exportMaster","key":"OUT_DS1"}]'
+                ev:submitdone="scwin.sbm_retrieve_submitdone">
+            </xf:submission>
+
+            <xf:submission id="sbm_save"
+                action="/il.aredi.exmf.SaveAirExportMasterCMD.do"
+                method="post"
+                mediatype="application/json"
+                mode="asynchronous"
+                encoding="UTF-8"
+                ref='data:json,[{"id":"ds_exportMaster","key":"IN_DS1"}]'
+                ev:submitdone="scwin.sbm_save_submitdone">
+            </xf:submission>
+
+            <xf:submission id="sbm_houseLicenseInfo"
+                action="/il.aredi.exmf.RetrieveAirExportHouseLicenseInfoCMD.do"
+                method="post"
+                mediatype="application/json"
+                mode="asynchronous"
+                encoding="UTF-8"
+                ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_houseLicenseInfo","key":"OUT_DS1"}]'
+                target='data:json,[{"id":"ds_houseLicenseInfo","key":"OUT_DS1"}]'
+                ev:submitdone="scwin.sbm_houseLicenseInfo_submitdone">
+            </xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script type="text/javascript"><![CDATA[
+            scwin.hid_kcomcd = "DBEX";
+            
+            scwin.onpageload = function() {
+                scwin.userId = $c.data.getMemInfo("userId");
+
+                scwin.vCurDate = $c.date.getServerDateTime("yyyyMMdd");
+                scwin.strPreDate = $c.date.addDate(scwin.vCurDate, -7);
+
+                ds_search.set("kcomcd", scwin.hid_kcomcd);
+
+                scwin.f_set("INIT");
+            };
+
+            scwin.onUdcCompleted = function() {
+                cnd_lc_send.setSelectedIndex(0);
+                udc_fromToCalendar.setInitDate(scwin.strPreDate, scwin.vCurDate);
+            };
+
+            // 화면세팅
+            scwin.f_set = function(gubun) {
+                switch (gubun) {
+                    case "INIT":
+                        $c.gus.cfDisableBtnOnly([b_save]);
+                        gr_houseLicenseInfo.setReadOnly("grid", true);
+                        break;
+                    case "RETRIEVE":
+                        $c.gus.cfEnableKeyData(); // 실질적으로 적용되진 않지만, 기존과 동일하게 구현
+                        $c.gus.cfEnableBtnOnly([b_save]);
+                        break;
+                    // [CREATE | UPDATE | SAVE | DELETE] 호출하는 경우는 없지만, 기존과 동일하게 구현 및 주석처리
+                    // case "CREATE":
+                    //     $c.gus.cfDisableKey();
+                    //     scwin.f_EnablePopUpObj();
+                    //     $c.gus.cfDisableBtnOnly([b_Create, b_Update, b_Delete]);
+                    //     $c.gus.cfEnableBtnOnly([b_save, b_Cancel]);
+                    //     break;
+                    // case "UPDATE":
+                    //     $c.gus.cfDisableBtnOnly([b_Update, b_Create]);
+                    //     $c.gus.cfEnableBtnOnly([b_save, b_Delete, b_Cancel]);
+                    //     $c.gus.cfDisableKey();
+                    //     scwin.f_EnablePopUpObj();
+                    //     break;
+                    // case "SAVE":
+                    //     $c.gus.cfDisableBtnOnly([b_save, b_Delete, b_Cancel]);
+                    //     $c.gus.cfEnableBtnOnly([b_Update, b_Create]);
+                    //     break;
+                    // case "DELETE":
+                    //     $c.gus.cfDisableBtnOnly([b_save, b_Delete, b_Cancel]);
+                    //     $c.gus.cfEnableBtnOnly([b_Create, b_Update]);
+                    //     break;
+                }
+            };
+
+            //---------------------------------------------------------
+            // Master Information 조회 
+            //---------------------------------------------------------     
+            scwin.f_Retrieve = async function() {
+                let rtn = await $c.gus.cfValidate([cnd_ed_ondtFrom, cnd_ed_ondtTo]);
+                if (!rtn) {
+                    return false;
+                }
+                
+                if (!$c.gus.cfIsAfterDate(cnd_ed_ondtFrom.getValue().trim(), cnd_ed_ondtTo.getValue().trim(), false)) {
+                    $c.win.alert($c.data.getMessage(E_MSG_CM_ERR_039)); // Start date must be before End date.
+                    return;
+                }
+
+                ds_search.set("kcomcd", scwin.hid_kcomcd);
+
+                await $c.sbm.execute(sbm_retrieve);
+            };
+
+            //---------------------------------------------------------
+            // License Information 조회 
+            //---------------------------------------------------------   
+            scwin.f_retrieveHouseLicenseInfo = async function(row) {
+                ds_search.set("kcomcd", ds_exportMaster.getCellData(row, "kcomcd"));
+                // ds_search.set("blno", ds_exportMaster.getCellData(row, "blno"));
+                ds_search.set("mhno", ds_exportMaster.getCellData(row, "mhno"));
+
+                await $c.sbm.execute(sbm_houseLicenseInfo);
+            };
+
+            //---------------------------------------------------------
+            // 저장(EDI Send)
+            //--------------------------------------------------------- 
+            scwin.f_save = async function() {
+                let chk = await scwin.f_reqFieldChk();
+                if (!chk) return;
+
+                let vChkCnt = 0;
+                for (let i = 0; i < ds_exportMaster.getRowCount(); i++) {
+                    let vChkYn  = ds_exportMaster.getCellData(i, "chk");
+                    let vMftpkg = ds_exportMaster.getCellData(i, "mftpkg");
+                    let vExnoCnt = ds_exportMaster.getCellData(i, "exnoCnt");
+                    
+                    let vSendDt = ds_exportMaster.getCellData(i, "sendDt");
+                    
+                    if (vChkYn == "T") {
+                        if (vMftpkg < 1) {
+                            $c.win.alert($c.data.getMessage(MSG_CM_ERR_013, "항공수출 적하목록에 "+(i+1)+"째 데이터에서 Packag", "1"));
+                            return;
+                        }
+
+                        ds_exportMaster.setCellData(i, "updid", scwin.userId);
+
+                        // 기존 sendDt에 따라 나뉜 분기는 하나로 통합
+                        ds_exportMaster.modifyRowStatus(i, "C"); // 서버단 처리시 INSERT행 처리 위해 상태값 "C"로 변경
+
+                        vChkCnt++;
+                    }
+                    
+                    // AS-IS: vChkYn 분기 이전에 updid(=userId)를 모든 행에 세팅하여 rowStatus가 변경되는 부작용이 있었음
+                    // TO-BE: chk=="T"인 행에만 updid 세팅 및 rowStatus "C" 변경으로 수정하여 불필요한 상태 변경 제거
+                    // if (vChkYn == "F") {
+                    //     ds_exportMaster.modifyRowStatus(i, "R");
+                    // }
+                }
+
+                if (vChkCnt < 1) {
+                    $c.win.alert($c.data.getMessage(E_MSG_CM_ERR_056, "Row")); // No @ has been selected.
+                    return;
+                }
+
+                await $c.sbm.execute(sbm_save);
+            };
+
+            //---------------------------------------------------------
+            // 유효성 검사
+            //---------------------------------------------------------   
+            scwin.f_reqFieldChk = async function() {
+                let chk = await $c.gus.cfValidate([gr_exportMaster]);
+                if (!chk) {
+                    return false;
+                }
+                return true;
+            };
+
+            //---------------------------------------------------------
+            // 특수기호 문자를 입력 받지않는 함수
+            // - AS-IS와 동일하게 구현하였으나, 이 페이지는 그리드가 ReadOnly이므로 실질적으로 동작하지 않음
+            //---------------------------------------------------------
+            scwin.f_ChkKeyCode = function(ds, row, colid) {
+                try {
+                    let str = ds.getCellData(row, colid);
+                    let chkStr = "";
+                    let comStr = "";
+                    let badStr = "";
+                    for (let i = 0; i < str.length; i++) {
+                        chkStr = str.charCodeAt(i);
+                        if ((chkStr >= 33) && (chkStr <= 39)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr >= 91) && (chkStr <= 96)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr >= 123) && (chkStr <= 126)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr == 63)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr == 64)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr == 43)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr == 59)) {
+                            badStr += str.charAt(i);
+                        } else if ((chkStr == 0)) {
+                            badStr += str.charAt(i);
+                        } else {
+                            comStr += str.charAt(i);
+                        }
+                    }
+                    ds.setCellData(row, colid, comStr);
+                } catch (e) {
+                }
+            };
+
+            ///////////////////////////////////////////// S U B M I S S I O N    E V E N T /////////////////////////////////////////
+
+            // Master Information 조회
+            scwin.sbm_retrieve_submitdone = function(e) {
+                if (ds_exportMaster.getRowCount() == 0) {
+                    $c.win.alert($c.data.getMessage(E_MSG_CM_WRN_002));
+                }
+                totalRowsExportMaster.setValue(ds_exportMaster.getRowCount());
+
+                scwin.f_set("RETRIEVE");
+            };
+            
+            // License Information 조회
+            scwin.sbm_houseLicenseInfo_submitdone = function(e) {
+                totalRowsHouseLicenseInfo.setValue(ds_houseLicenseInfo.getRowCount());
+            };
+
+            // 저장(EDI Send)
+            scwin.sbm_save_submitdone = function(e) {
+                if (e.responseJSON.resultDataSet[0].Code >= 0) {
+                    $c.win.alert($c.data.getMessage(MSG_CM_INF_001)); // 성공적으로 저장하였습니다.
+                }
+
+                scwin.f_Retrieve();
+            };
+
+            ///////////////////////////////////////////// C O M P O N E N T   E V E N T /////////////////////////////////////////
+
+            // 조회조건 초기화
+            scwin.btn_fieldClear_onclick = function (e) {
+                $c.gus.cfInitObjects(tb_searchCondition);
+            };
+
+            // Save(EDI Send) 버튼 onClick
+            scwin.b_save_onclick = function(e) {
+                scwin.f_save();
+            };
+
+            // Master Information 그리드 행 선택시
+            scwin.gr_exportMaster_oncellclick = function(rowIndex, columnIndex, columnId) {
+                scwin.f_retrieveHouseLicenseInfo(rowIndex);
+            };
+
+            // DataSet ds_exportMaster, ds_houseLicenseInfo onCellDataChange
+            //  - ds_exportMaster, ds_houseLicenseInfo 의 oncelldatachange 이벤트는 기존과 동일하게 구현
+            //  - 단, gr_houseLicenseInfo는 INIT 시 ReadOnly로 설정되어 실질적으로 동작하지 않음
+            scwin.ds_exportMaster_oncelldatachange = function(info) {
+                scwin.f_ChkKeyCode(ds_exportMaster, info.row, info.colId);
+            };
+
+            scwin.ds_houseLicenseInfo_oncelldatachange = function(info) {
+                scwin.f_ChkKeyCode(ds_houseLicenseInfo, info.row, info.colId);
+            };
+        
+            // Flight No 대문자
+            scwin.cnd_ed_fltno_onkeyup = function (e) {
+                this.setValue(e.target.value.toUpperCase());
+            };
+
+            // Master B/L No 대문자
+            scwin.cnd_ed_mblno_onkeyup = function (e) {
+                this.setValue(e.target.value.toUpperCase());
+            };
+
+            // KT Net 접속 버튼
+            scwin.btn_KtNetOpen_onclick = function (e) {
+                let sURL = "http://www.ctradeworld.com/ctwpass/userLoginChk.jsp?userid=FFDBEX0001&userpass=DBE123";
+                window.open(sURL);
+            };
+
+            // uLogishub 접속 버튼
+            scwin.btn_uLogisHubOpen_onclick = function (e) {
+                let sURL = "https://www.ulogishub.com/gate_url.jsp?sid=FFDBEX0001&password=DBE123";
+                window.open(sURL);
+            };
+        ]]></script>
+
+        <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="tb_searchCondition" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Send Status" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 id="cnd_lc_send" chooseOption="false" style="width:150px;" submenuSize="auto" objType="data"
+    								allOption="false" disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled"
+                                    ref="data:ds_search.send" >
+                                    <xf:choices>
+                                        <xf:item>
+											<xf:label><![CDATA[ALL]]></xf:label>
+											<xf:value><![CDATA[1]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[NotSend]]></xf:label>
+											<xf:value><![CDATA[2]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[Send]]></xf:label>
+											<xf:value><![CDATA[3]]></xf:value>
+										</xf:item>
+                                    </xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="OnBoard Date" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_fromToCalendar" edFromId="cnd_ed_ondtFrom" edToId="cnd_ed_ondtTo" style="" titleFrom="OnBoard Date From" titleTo="OnBoard Date To"
+                                    refDataMap="ds_search" refStDt="ondtFrom" refEdDt="ondtTo" mandatoryFrom="true" mandatoryTo="true">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Flight No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="cnd_ed_fltno" style="width: 100px;" ref="data:ds_search.fltno" maxlength="6" ev:onkeyup="scwin.cnd_ed_fltno_onkeyup"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="Master B/L No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="cnd_ed_mblno" style="width: 150px;" ref="data:ds_search.mblno" maxlength="20" ev:onkeyup="scwin.cnd_ed_mblno_onkeyup"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" ev:onclick="scwin.f_Retrieve" style="" type="button" userAuth="R">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="Master Information" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group1" style="">
+    					<w2:gridView id="gr_exportMaster" autoFit="allColumn" class="wq_gvw" dataList="data:ds_exportMaster" style="" visibleRowNum="7" visibleRowNumFix="true" readOnly="true" rowStatusVisible="true" columnMove="false" ev:oncellclick="scwin.gr_exportMaster_oncellclick" gridName="항공수출 적하목록">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50" fixColumnWidth="true"></w2:column>
+    								<w2:column displayMode="label" id="kcomcd" inputType="text" style="" value="kcomcd" width="100" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="mhno" inputType="text" style="" value="mhno" width="70" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="sendDt" inputType="text" style="" value="Send Date" width="130"></w2:column>
+    								<w2:column displayMode="label" id="ediCd" inputType="text" style="" value="EDI" width="70"></w2:column>
+    								<w2:column displayMode="label" id="sendSeq" inputType="text" style="" value="sendSeq" width="100" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="acpsCha" inputType="text" style="" value="acpsCha" width="120" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="ondt" inputType="text" style="" value="Onboard" width="120"></w2:column>
+    								<w2:column displayMode="label" id="mblno" inputType="text" style="" value="Master B/L" width="130" class="txt-red"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="fltno" value="FLT No" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="mftpkg" value="PKG" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="mftwht" value="G/WHT" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="shnm1" value="Shiper" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm2" value="Shiper Address1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm3" value="Shiper Address2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm4" value="Shiper Address3" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm5" value="Shiper Address4" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="cnnm1" value="Consignee" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm2" value="Consignee Address1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm3" value="Consignee Address2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm4" value="Consignee Address3" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm5" value="Consignee Address4" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ediItem" value="Goods" displayMode="label" class="txt-red"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm1" value="Notify Name" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm2" value="Notify Name2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm3" value="Notify Name3" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm4" value="Notify Name4" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm5" value="Notify Name5" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="srno" value="srno" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="iogb" value="iogb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="msn" value="msn" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="mblgb" value="mblgb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="bltype" value="bltype" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="shipgb" value="shipgb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="voidgb" value="voidgb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="exdt" value="exdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="rate" value="rate" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="exrate" value="exrate" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stdt" value="stdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ontm" value="ontm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ondt2" value="ondt2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="avdt" value="avdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="avtm" value="avtm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvno" value="dvno" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvnm" value="dvnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvdt" value="dvdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="isdt" value="isdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cgtp" value="cgtp" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="shcd" value="shcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cncd" value="cncd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="nttg" value="nttg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ntcd" value="ntcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cacd" value="cacd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="canm" value="canm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lecd" value="lecd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lenm" value="lenm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cocd" value="cocd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="conm" value="conm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dpcd" value="dpcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dpnm" value="dpnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="fltno2" value="fltno2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dscd1" value="dscd1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptcd1" value="ptcd1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dscd2" value="dscd2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptcd2" value="ptcd2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dscd3" value="dscd3" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptcd3" value="ptcd3" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dstn" value="dstn" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dsnm1" value="dsnm1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dsnm2" value="dsnm2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="acif1" value="acif1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="acif2" value="acif2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cucd" value="cucd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="frpc" value="frpc" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="otpc" value="otpc" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvcr" value="dvcr" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvct" value="dvct" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="insu" value="insu" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hdif1" value="hdif1" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hdif2" value="hdif2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hdif3" value="hdif3" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pfchg" value="pfchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cfchg" value="cfchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pvchg" value="pvchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cvchg" value="cvchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pachg" value="pachg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cachg" value="cachg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pcchg" value="pcchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ccchg" value="ccchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptchg" value="ptchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ctchg" value="ctchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lrate" value="lrate" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ulRate" value="ulRate" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="lcharge" value="lcharge" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ulCharge" value="ulCharge" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="comm" value="comm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cchg" value="cchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ucchg" value="ucchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cvat" value="cvat" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ucvat" value="ucvat" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="disc" value="disc" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dchg" value="dchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="udchg" value="udchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="nert" value="nert" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="unert" value="unert" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ascd" value="ascd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="asnm" value="asnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="warecd" value="warecd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="warenm" value="warenm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="itcd" value="itcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="itnm" value="itnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="arcd" value="arcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="arnm" value="arnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ctcd" value="ctcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ctnm" value="ctnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="locd" value="locd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lonm" value="lonm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="rqrt" value="rqrt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="rqchg" value="rqchg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="brcd" value="brcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="brnm" value="brnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="sgcd" value="sgcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="sgnm" value="sgnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="rider" value="rider" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="tcwht" value="tcwht" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cwht2" value="cwht2" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cbm" value="cbm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="akggb" value="akggb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="kggb" value="kggb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lcno" value="lcno" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="pono" value="pono" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="indate" value="indate" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="endgb" value="endgb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="attn" value="attn" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="attnnm" value="attnnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="invchk" value="invchk" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dept" value="dept" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="deptnm" value="deptnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cjdt" value="cjdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="innerPkg" value="innerPkg" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="exgb" value="exgb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="commNo" value="commNo" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="inpid" value="inpid" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="inpdt" value="inpdt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="updid" value="updid" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="upddt" value="upddt" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lrgb" value="lrgb" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="inco" value="inco" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="odrNo" value="odrNo" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cino" value="cino" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="linenet" value="linenet" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="exCucd" value="exCucd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ascdPic" value="ascdPic" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="ascdPicnm" value="ascdPicnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pncdPic" value="pncdPic" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="pncdPicnm" value="pncdPicnm" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="shCtcd" value="shCtcd" displayMode="label" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cnCtcd" value="cnCtcd" displayMode="label" hidden="true"></w2:column>
+                                    <!-- 기존에 중복 ID로 사용되고 있어 주석처리 -->
+    								<!-- <w2:column width="100" inputType="text" style="" id="ediItem" value="ediItem" displayMode="label" hidden="true"></w2:column> -->
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="chk" inputType="checkbox" style="" value="" width="50"
+    									fixColumnWidth="true" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false">
+    								</w2:column>
+    								<w2:column displayMode="label" id="kcomcd" inputType="text" style="" value="" width="100" readOnly="true" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="mhno" inputType="text" style="" value="" width="70" readOnly="true" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="sendDt" inputType="text" style="" value="" width="130" readOnly="true" displayFormat="####/##/##"></w2:column>
+    								<w2:column displayMode="label" id="ediCd" inputType="select" style="" value="" width="70" readOnly="true" allOption="" chooseOption="" ref="">
+                                        <w2:choices>
+                                            <w2:item>
+                                                <w2:label><![CDATA[MCFS]]></w2:label>
+                                                <w2:value><![CDATA[K]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[ACPS]]></w2:label>
+                                                <w2:value><![CDATA[A]]></w2:value>
+                                            </w2:item>
+                                        </w2:choices>
+                                    </w2:column>
+    								<w2:column displayMode="label" id="sendSeq" inputType="text" style="" value="" width="100" readOnly="true" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="acpsCha" inputType="text" style="" value="" width="120" readOnly="true" hidden="true"></w2:column>
+    								<w2:column displayMode="label" id="ondt" inputType="text" style="" value="" width="120" readOnly="true" displayFormat="####/##/##"  mandatory="true"></w2:column>
+    								<w2:column displayMode="label" id="mblno" inputType="text" style="" value="" width="130" readOnly="true" textAlign="left" mandatory="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="fltno" value="" displayMode="label" readOnly="true" mandatory="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="mftpkg" value="" displayMode="label" readOnly="true" textAlign="right" mandatory="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="mftwht" value="" displayMode="label" readOnly="true" textAlign="right" hidden="true" mandatory="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="shnm1" value="" displayMode="label" readOnly="true" textAlign="left" mandatory="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm2" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true" mandatory="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm3" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm4" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="shnm5" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="cnnm1" value="" displayMode="label" readOnly="true" textAlign="left" mandatory="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm2" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true" mandatory="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm3" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm4" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="200" inputType="text" style="" id="cnnm5" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ediItem" value="" displayMode="label" readOnly="true" mandatory="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm1" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm2" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm3" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm4" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="150" inputType="text" style="" id="ntnm5" value="" displayMode="label" readOnly="true" textAlign="left" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="srno" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="iogb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="msn" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="mblgb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="bltype" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="shipgb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="voidgb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="exdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="rate" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="exrate" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="stdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ontm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ondt2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="avdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="avtm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvno" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="isdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cgtp" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="shcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cncd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="nttg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ntcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cacd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="canm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lecd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lenm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cocd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="conm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dpcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dpnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="fltno2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dscd1" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptcd1" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dscd2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptcd2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dscd3" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptcd3" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dstn" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dsnm1" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dsnm2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="acif1" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="acif2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cucd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="frpc" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="otpc" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvcr" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dvct" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="insu" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hdif1" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hdif2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="hdif3" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pfchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cfchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pvchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cvchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pachg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cachg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pcchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ccchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ptchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ctchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lrate" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ulRate" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="lcharge" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ulCharge" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="comm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ucchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cvat" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ucvat" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="disc" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="dchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="udchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="nert" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="unert" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ascd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="asnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="warecd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="warenm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="itcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="itnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="arcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="arnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ctcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ctnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="locd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lonm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="rqrt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="rqchg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="brcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="brnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="sgcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="sgnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="rider" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="tcwht" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cwht2" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cbm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="akggb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="kggb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lcno" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="pono" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="indate" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="endgb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="attn" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="attnnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="invchk" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="dept" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="deptnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cjdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="innerPkg" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="exgb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="commNo" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="inpid" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="inpdt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="updid" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="upddt" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="lrgb" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="inco" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="odrNo" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="cino" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="linenet" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="exCucd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="ascdPic" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="ascdPicnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pncdPic" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="130" inputType="text" style="" id="pncdPicnm" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="shCtcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="cnCtcd" value="" displayMode="label" readOnly="true" hidden="true"></w2:column>
+                                    <!-- 기존에 중복 ID로 사용되고 있어 주석처리 -->
+    								<!-- <w2:column width="100" inputType="text" style="" id="ediItem" value="" displayMode="label" readOnly="true" hidden="true"></w2:column> -->
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+                        <!-- AS-IS에서는 totalRows를 표시하고 있지 않으나, 연결은 해둔 상태 -->
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRowsExportMaster" label="0" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="row-gap-8" id="" style="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="License Information" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group2" style="">
+    					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_houseLicenseInfo"
+    						id="gr_houseLicenseInfo" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5" visibleRowNumFix="true" readOnly="false">
+    						<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header2" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column displayMode="label" id="elgbn" inputType="text" style="" value="상태" width="70"></w2:column>
+    								<w2:column displayMode="label" id="exno" inputType="text" style="" value="수출신고번호" width="120"></w2:column>
+    								<w2:column displayMode="label" id="pacd" inputType="text" style="" value="포장단위" width="100"></w2:column>
+    								<w2:column displayMode="label" id="pkgs" inputType="text" style="" value="포장갯수" width="100"></w2:column>
+    								<w2:column displayMode="label" id="wht" inputType="text" style="" value="중량" width="70"></w2:column>
+    								<w2:column displayMode="label" id="elsplgb" inputType="text" style="" value="분할여부" width="100"></w2:column>
+    								<w2:column displayMode="label" id="elmid" inputType="text" style="" value="분할차수" width="100">
+                                        <w2:choices>
+                                            <w2:item><w2:label><![CDATA[1]]></w2:label><w2:value><![CDATA[1]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[2]]></w2:label><w2:value><![CDATA[2]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[3]]></w2:label><w2:value><![CDATA[3]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[4]]></w2:label><w2:value><![CDATA[4]]></w2:value></w2:item>
+                                        </w2:choices>
+                                    </w2:column>
+    								<w2:column displayMode="label" id="elcogb" inputType="text" style="" value="동시포장기호" width="120">
+                                        <w2:choices>
+                                            <w2:item><w2:label><![CDATA[A]]></w2:label><w2:value><![CDATA[A]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[B]]></w2:label><w2:value><![CDATA[B]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[C]]></w2:label><w2:value><![CDATA[C]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[D]]></w2:label><w2:value><![CDATA[D]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[E]]></w2:label><w2:value><![CDATA[E]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[F]]></w2:label><w2:value><![CDATA[F]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[G]]></w2:label><w2:value><![CDATA[G]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[H]]></w2:label><w2:value><![CDATA[H]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[I]]></w2:label><w2:value><![CDATA[I]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[J]]></w2:label><w2:value><![CDATA[J]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[K]]></w2:label><w2:value><![CDATA[K]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[L]]></w2:label><w2:value><![CDATA[L]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[M]]></w2:label><w2:value><![CDATA[M]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[N]]></w2:label><w2:value><![CDATA[N]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[O]]></w2:label><w2:value><![CDATA[O]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[P]]></w2:label><w2:value><![CDATA[P]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[Q]]></w2:label><w2:value><![CDATA[Q]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[R]]></w2:label><w2:value><![CDATA[R]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[S]]></w2:label><w2:value><![CDATA[S]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[T]]></w2:label><w2:value><![CDATA[T]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[U]]></w2:label><w2:value><![CDATA[U]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[V]]></w2:label><w2:value><![CDATA[V]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[W]]></w2:label><w2:value><![CDATA[W]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[X]]></w2:label><w2:value><![CDATA[X]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[Y]]></w2:label><w2:value><![CDATA[Y]]></w2:value></w2:item>
+                                            <w2:item><w2:label><![CDATA[Z]]></w2:label><w2:value><![CDATA[Z]]></w2:value></w2:item>
+                                        </w2:choices>
+                                    </w2:column>
+    								<w2:column displayMode="label" id="eldpkg" inputType="text" style="" value="동시포장수량" width="120"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="eldpkgut" value="동시포장단위" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody2" style="">
+    							<w2:row id="row4" style="">
+    								<w2:column displayMode="label" id="elgbn" inputType="text" style="" value="" width="70"></w2:column>
+    								<w2:column displayMode="label" id="exno" inputType="text" style="" value="" width="120" textAlign="left"></w2:column>
+    								<w2:column displayMode="label" id="pacd" inputType="textImage" style="" value="" width="100" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    								<w2:column displayMode="label" id="pkgs" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="wht" inputType="text" style="" value="" width="70" textAlign="right" displayFormat="#,##0.000"></w2:column>
+    								<w2:column displayMode="label" id="elsplgb" inputType="select" style="" value="" width="100" allOption="" chooseOption="" ref="">
+                                        <w2:choices>
+                                            <w2:item>
+                                                <w2:label><![CDATA[Yes]]></w2:label>
+                                                <w2:value><![CDATA[Y]]></w2:value>
+                                            </w2:item>
+                                            <w2:item>
+                                                <w2:label><![CDATA[No]]></w2:label>
+                                                <w2:value><![CDATA[N]]></w2:value>
+                                            </w2:item>
+                                        </w2:choices>
+                                    </w2:column>
+    								<w2:column displayMode="label" id="elmid" inputType="select" style="" value="" width="100" allOption="" chooseOption="" ref=""></w2:column>
+    								<w2:column displayMode="label" id="elcogb" inputType="select" style="" value="" width="120" allOption="" chooseOption="" ref=""></w2:column>
+    								<w2:column displayMode="label" id="eldpkg" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column width="120" inputType="textImage" style="" id="eldpkgut" value="" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+                        <xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRowsHouseLicenseInfo" label="0" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="left" id="" style="">
+                        <xf:group id="" style="display:flex; flex-direction:column; gap:5px;">
+                            <xf:trigger class="btn link" id="btn_KtNetOpen" style="" type="button" ev:onclick="scwin.btn_KtNetOpen_onclick">
+                                <xf:label><![CDATA[KT Net 접속]]></xf:label>
+                            </xf:trigger>
+                            <xf:trigger class="btn link" id="btn_uLogisHubOpen" style="" type="button" ev:onclick="scwin.btn_uLogisHubOpen_onclick">
+                                <xf:label><![CDATA[uLogishub 접속]]></xf:label>
+                            </xf:trigger>
+                        </xf:group>
+    				</xf:group>
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn white" id="b_save" ev:onclick="scwin.b_save_onclick" style="" type="button" objType="ctrlBtn" userAuth="U">
+    						<xf:label><![CDATA[EDI Send]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

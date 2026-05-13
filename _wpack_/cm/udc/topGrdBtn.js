@@ -1,0 +1,513 @@
+/*amd /cm/udc/topGrdBtn.xml 13041 ca893c02c4af5613644acb58169c506fd2571d190a8f0b55941a01b97d5ca12e */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',A:{},E:[{T:1,N:'w2:type',A:{palette:'support'},E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:'scwin.setGridId,scwin.setDownOpts,scwin.setDisabledBtn,scwin.setHideBtn,scwin.getUpExt,scwin.uploadGridViewExcel'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/**
+ * @component
+ * @componentName udc_topGrdBtn
+ * @pluginName 
+ * @company
+ * @developer
+ * @category /cm/udc
+ * @notSupportBrowser 
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description 그리드 상단 버튼 모음
+ * @width 268
+ * @height 22
+ * @license
+ * @imagePath
+ * @homepage
+ */
+
+/**
+ * @property
+ * @name id
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name class
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name style
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description desc
+ */
+
+/**
+ * @property
+ * @name grp
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description 그리드 를 포함한 그룹 아이디
+ */
+
+/**
+ * @property
+ * @name grdUpOpts
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드 업로드용 옵션
+ */
+
+/**
+ * @property
+ * @name grdDownOpts
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드 다운로드용 옵션
+ */
+
+/**
+ * @property
+ * @name gridID
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description 그리드 아이디 (엑셀업, 다운용)
+ */
+
+/**
+ * @property
+ * @name gridUpYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description 엑셀 업로드 버튼 사용유무
+ */
+
+/**
+ * @property
+ * @name gridDownYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description 엑셀 다운로드 사용유무
+ */
+
+/**
+ * @property
+ * @name templateYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default N
+ * @necessary N
+ * @bindparent
+ * @description 템플릿 다운로드 사용유무
+ */
+
+/**
+ * @property
+ * @name gridUpUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description gridUp 버튼 UserAuth
+ */
+
+/**
+ * @property
+ * @name gridDownUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description gridDown 버튼 UserAuth
+ */
+
+/**
+ * @property
+ * @name templateUserAuth
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description template 버튼 UserAuth
+ */
+
+/**
+ * @property
+ * @name gridUpObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description gridUp 버튼 ObjType
+ */
+
+/**
+ * @property
+ * @name gridDownObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description gridDown 버튼 ObjType
+ */
+
+/**
+ * @property
+ * @name templateObjType
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description template 버튼 ObjType
+ */
+
+/**
+ * @property
+ * @name gridDownFn
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드 다운로드 함수
+ */
+
+/**
+ * @property
+ * @name btnPlusYn
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description +- 버튼 노출 여부
+ */
+
+/**
+ * @property
+ * @name btnUser
+ * @category 05.Design
+ * @type combobox
+ * @option [Y,N]
+ * @default Y
+ * @necessary N
+ * @bindparent
+ * @description 개인화 버튼 사용유무
+ */
+
+/**
+ * @property
+ * @name gridUpFn
+ * @category 09.Grid Settings
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 그리드 업로드 function 명
+ */
+
+scwin.onpageload = function () {
+  scwin.opts = $p.getOptions();
+  scwin.grp = $p.parent().$p.getComponentById(scwin.opts.grp);
+  scwin.grid = $p.parent().$p.getComponentById(scwin.opts.gridID);
+  // scwin.gridDownFn = eval("$p.parent()."+scwin.opts.gridDownFn);
+
+  let parentWin = $p.getParentWindow();
+  let pScwin = parentWin["scwin"];
+  let gridDownFn;
+  if (typeof scwin.opts.gridDownFn !== "undefined") {
+    gridDownFn = scwin.opts.gridDownFn.replace(/scwin./g, "");
+    scwin.gridDownFn = pScwin[gridDownFn];
+  }
+  if (typeof scwin.opts.gridUpFn !== "undefined") {
+    gridUpFn = scwin.opts.gridUpFn.replace(/scwin./g, "");
+    scwin.gridUpFn = pScwin[gridUpFn];
+  }
+  if (scwin.opts.gridUpUserAuth) {
+    btn_excelUp.options.userAuth = scwin.opts.gridUpUserAuth;
+  }
+  if (scwin.opts.gridDownUserAuth) {
+    btn_excelDown.options.userAuth = scwin.opts.gridDownUserAuth;
+  }
+  if (scwin.opts.templateUserAuth) {
+    btn_templateDw.options.userAuth = scwin.opts.templateUserAuth;
+  }
+  if (scwin.opts.gridUpObjType) {
+    btn_excelUp.options.objType = scwin.opts.gridUpObjType;
+  }
+  if (scwin.opts.gridDownObjType) {
+    btn_excelDown.options.objType = scwin.opts.gridDownObjType;
+  }
+  if (scwin.opts.templateObjType) {
+    btn_templateDw.options.objType = scwin.opts.templateObjType;
+  }
+  scwin.requestRefreshUserAuth();
+
+  // 엑셀 업로드 사용유무
+  if (scwin.opts.gridUpYn == 'N') {
+    btn_excelUp.hide();
+    lc_ext.hide();
+  }
+  // 엑셀 다운로드 사용유무
+  if (scwin.opts.gridDownYn == 'N') {
+    btn_excelDown.hide();
+  }
+  // 템플릿 다운로드 사용유무
+  if (scwin.opts.templateYn == 'Y') {
+    btn_templateDw.show("");
+  }
+  // 확대/축소
+  if (scwin.opts.btnPlusYn == 'N') {
+    grpBtnPlus.hide();
+  } else {
+    let vRow = 0;
+    if (typeof scwin.grid !== "undefined") {
+      scwin.grid.options.visibleRowNumFix = "false";
+      vRow = scwin.grid.options.initFixedHeightByRowNum > -1 ? scwin.grid.options.initFixedHeightByRowNum : scwin.grid.options.visibleRowNum;
+      scwin.grid.options.visibleRowNum = "";
+      scwin.grid.options.initFixedHeightByRowNum = vRow;
+      scwin.grid.setVisibleRowNum(vRow);
+    }
+    if (vRow > 0) {
+      scwin.grid.options.initRowNumCnt = parseInt(scwin.grid.options.visibleRowNum);
+    }
+  }
+
+  // 개인화
+  if (scwin.opts.btnUser == 'N') {
+    btn_user.hide();
+    btn_userSave.hide();
+  } else {
+    if (scwin.grid) {
+      $c.win.getGridSetting($p, scwin.grid);
+    }
+  }
+
+  // scwin.grp = eval("$p.parent()."+scwin.opts.grp);
+};
+scwin.requestRefreshUserAuth = function () {
+  let parentWin = $p.getParentWindow();
+  if (!parentWin || !parentWin.scwin || typeof parentWin.scwin.setUserAuth !== "function") {
+    return;
+  }
+  if (parentWin.__topGrdBtnUserAuthTimer) {
+    clearTimeout(parentWin.__topGrdBtnUserAuthTimer);
+  }
+  parentWin.__topGrdBtnUserAuthTimer = setTimeout(function () {
+    parentWin.__topGrdBtnUserAuthTimer = null;
+    parentWin.scwin.setUserAuth();
+  }, 50);
+};
+
+// 확장
+scwin.btn_trigger1_onclick = function (e) {
+  $c.win.extension($p, scwin.grp);
+};
+
+// 축소
+scwin.btn_trigger2_onclick = function (e) {
+  $c.win.reduction($p, scwin.grp);
+};
+
+// 엑셀다운
+scwin.btn_excelDown_onclick = function (e) {
+  try {
+    if (scwin.gridDownFn) {
+      scwin.gridDownFn();
+    } else {
+      let options = "";
+      if (!$c.gus.cfIsNull($p, scwin.opts.grdDownOpts)) {
+        options = JSON.parse(scwin.opts.grdDownOpts) || {};
+      }
+      $c.data.downloadGridViewExcel($p, scwin.grid, options);
+    }
+  } catch (e) {
+    $c.win.alert($p, "그리드 다운로드 옵션을 확인해 주시기 바랍니다.");
+  }
+};
+
+// 엑셀 업로드
+scwin.btn_excelUp_onclick = function (e) {
+  try {
+    if (scwin.gridUpFn) {
+      scwin.gridUpFn();
+    } else {
+      let options = "";
+      if (!$c.gus.cfIsNull($p, scwin.opts.grdUpOpts)) {
+        options = JSON.parse(scwin.opts.grdUpOpts) || {};
+      }
+      if (lc_ext.getValue() == "1") {
+        // csv  일때
+        $c.data.uploadGridViewCSV($p, scwin.grid, options);
+      } else {
+        $c.data.uploadGridViewExcel($p, scwin.grid, options);
+      }
+    }
+  } catch (e) {
+    $c.win.alert($p, "그리드 업로드 옵션을 확인해 주시기 바랍니다.");
+  }
+};
+scwin.btn_templateDw_onclick = function (e) {};
+
+// 개인화
+scwin.btn_user_onclick = function (e) {
+  ;
+  $c.win.gridSetPopUp($p, scwin.grid, this.id);
+};
+
+/**
+ * @method
+ * @name setGridId
+ * @description 그리드 아이디 변경
+ * @param {string} gridID 그리드 아이디
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setGridId = function (gridID) {
+  scwin.grid = $p.parent().$p.getComponentById(gridID);
+  return scwin.grid;
+};
+
+/**
+ * @method
+ * @name setDownOpts
+ * @description 그리드 다운로드 옵션변경
+ * @param {json} jsonData desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setDownOpts = function (jsonData) {
+  if (!$c.gus.cfIsNull($p, jsonData)) {
+    scwin.opts.grdDownOpts = jsonData;
+  }
+};
+
+/**
+ * @method
+ * @name setDisabledBtn
+ * @description 버튼 활성화/비활성화
+ * @param {string} btnId 버튼아이디
+ * @param {boolean} tp 활성화 여부
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setDisabledBtn = function (btnId, tp) {
+  let btn = $p.getComponentById(btnId);
+  btn.setDisabled(tp);
+};
+
+/**
+ * @method
+ * @name setHideBtn
+ * @description 버튼을 show/hide
+ * @param {string} btnId desc
+ * @param {boolean} tp desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.setHideBtn = function (btnId, tp) {
+  let btn = $p.getComponentById(btnId);
+  tp == "true" ? btn.hide() : btn.show("");
+};
+
+/**
+ * @method
+ * @name getUpExt
+ * @description 업로드 확장자
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getUpExt = function () {
+  return lc_ext.getValue();
+};
+
+/**
+ * @method
+ * @name uploadGridViewExcel
+ * @description 업로드
+ * @param {object} grid grid 객체
+ * @param {object} opt 옵션
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.uploadGridViewExcel = function (grid, opt) {
+  opt = typeof opt !== "undefined" ? opt : {};
+  if (lc_ext.getValue() == "1") {
+    // csv  일때
+    $c.data.uploadGridViewCSV($p, grid, opt);
+  } else {
+    $c.data.uploadGridViewExcel($p, grid, opt);
+  }
+};
+
+// 컬럼 저장
+scwin.trigger3_onclick = function (e) {
+  $c.win.gridSetting($p, scwin.grid, undefined, "colMove");
+};
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{id:'',class:'section col-gap-8'},E:[{T:1,N:'xf:group',A:{id:'topBtnGrp',class:'inner'},E:[{T:1,N:'xf:select1',A:{id:'lc_ext',selectedIndex:'0',appearance:'full',style:'',cols:'',rows:'',ref:'',renderType:'radiogroup'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'xlsx'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'0'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'csv'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_excelUp',type:'button',class:'btn excel-up','ev:onclick':'scwin.btn_excelUp_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 업로드'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_excelDown',type:'button',class:'btn excel-down','ev:onclick':'scwin.btn_excelDown_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 다운로드'}]}]},{T:1,N:'xf:trigger',A:{class:'btn template',id:'btn_templateDw',style:'display: none;',title:'템플릿 다운',type:'button','ev:onclick':'scwin.btn_templateDw_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'템플릿 다운로드'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btn_user',type:'button',class:'btn btn_grid_set_item_sel','ev:onclick':'scwin.btn_user_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'개인화'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_userSave',style:'',type:'button','ev:onclick':'scwin.trigger3_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'컬럼저장'}]}]}]},{T:1,N:'xf:group',A:{id:'grpBtnPlus',class:'row-box'},E:[{T:1,N:'xf:trigger',A:{'ev:onclick':'scwin.btn_trigger1_onclick',style:'',id:'btn_trigger1',type:'button',class:'btn ico row-add'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'+'}]}]},{T:1,N:'xf:trigger',A:{'ev:onclick':'scwin.btn_trigger2_onclick',style:'',id:'btn_trigger2',type:'button',class:'btn ico row-del'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'-'}]}]}]}]}]}]}]})

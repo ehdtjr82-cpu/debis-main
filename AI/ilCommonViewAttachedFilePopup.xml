@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_search">
+                <w2:keyInfo>
+                    <w2:key id="houseNo" name="House No" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="fileName" name="파일명" dataType="text"></w2:column>
+                    <w2:column id="filePath" name="파일경로" dataType="text"></w2:column>
+                    <w2:column id="fileSize" name="파일크기" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileDeleteGDS" saveRemovedData="false">
+                <w2:columnInfo>
+                    <w2:column id="houseNo" name="House No" dataType="text"></w2:column>
+                    <w2:column id="fileSeq" name="파일순번" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_create"
+            action="/il.comm.util.cmd.SaveFileMgntCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"fileUploadGDS","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_create_submitdone"
+            ev:submiterror="scwin.sbm_create_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_delete"
+            action="/il.comm.util.cmd.DeleteFileMgntCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"fileDeleteGDS","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_delete_submitdone"
+            ev:submiterror="scwin.sbm_delete_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.houseNo = "";
+        scwin.CREATE_AUTH = "C";
+        scwin.RETRIEVE_AUTH = "R";
+        scwin.UPDATE_AUTH = "U";
+        scwin.DELETE_AUTH = "D";
+        scwin.PRINT_AUTH = "P";
+        scwin.EXCEL_AUTH = "X";
+        scwin.TITLE_NAME = "";
+        scwin.PGM_ID = "ilCommonViewAttachedFilePopup.xml";
+        scwin.CALLER_URL = "/ui/il/common/jsp/ilCommonFilePopup.xml";
+
+        scwin.onpageload = async function() {
+            let params = $c.data.getParameter();
+            if (params != null && params["blno"] != null) {
+                scwin.houseNo = params["blno"];
+            } else {
+                scwin.houseNo = "";
+            }
+            dma_search.set("houseNo", scwin.houseNo);
+        };
+
+        scwin.btn_fileUpLoad_onclick = async function(e) {
+            if (!(await $c.win.confirm("B/L No: " + scwin.houseNo + "\n\n파일을 업로드 하시겠습니까?"))) {
+                return;
+            }
+            scwin.fileSubmit();
+        };
+
+        scwin.fileSubmit = async function() {
+            $c.gus.cfUploadFile(document.frm, fileUploadGDS, "scwin.uploadComplete");
+        };
+
+        scwin.uploadComplete = async function() {
+            await $c.sbm.execute(sbm_create);
+        };
+
+        scwin.btn_fileDelete_onclick = async function(e) {
+            scwin.fileDelete();
+        };
+
+        scwin.btn_excelUp_onclick = async function(e) {
+            scwin.fileDelete();
+        };
+
+        scwin.fileDelete = async function() {
+            if (document.all.checkFile == null || document.all.checkFile == undefined) {
+                await $c.win.alert("삭제 할 파일이 없습니다.");
+                return;
+            }
+
+            let checkboxFile = document.all.checkFile;
+
+            if (checkboxFile.length == undefined) {
+                if (!checkboxFile.checked) {
+                    await $c.win.alert("삭제 할 파일을 선택해야 합니다.");
+                    return;
+                }
+
+                if (await $c.win.confirm("선택하신 파일을 정말로 삭제하시겠습니까?")) {
+                    fileDeleteGDS.removeAll();
+                    let delVal = checkboxFile.value.split("|");
+                    let rowIdx = fileDeleteGDS.insertRow();
+                    fileDeleteGDS.setCellData(rowIdx, "houseNo", delVal[0]);
+                    fileDeleteGDS.setCellData(rowIdx, "fileSeq", delVal[1]);
+                    await $c.sbm.execute(sbm_delete);
+                }
+            } else {
+                let checkedCnt = 0;
+                for (let i = 0; i < checkboxFile.length; i++) {
+                    if (checkboxFile[i].checked) {
+                        checkedCnt += 1;
+                    }
+                }
+
+                if (checkedCnt == 0) {
+                    await $c.win.alert("선택된 파일이 없습니다.");
+                    return;
+                }
+
+                if (await $c.win.confirm("선택하신 파일을 정말로 삭제하시겠습니까?")) {
+                    let cbCnt = checkboxFile.length;
+                    fileDeleteGDS.removeAll();
+                    for (let i = 0; i < cbCnt; i++) {
+                        if (checkboxFile[i].checked) {
+                            let delVal = checkboxFile[i].value.split("|");
+                            let rowIdx = fileDeleteGDS.insertRow();
+                            fileDeleteGDS.setCellData(rowIdx, "houseNo", delVal[0]);
+                            fileDeleteGDS.setCellData(rowIdx, "fileSeq", delVal[1]);
+                        }
+                    }
+                    await $c.sbm.execute(sbm_delete);
+                }
+            }
+        };
+
+        scwin.sbm_delete_submitdone = async function(e) {
+            await $c.win.alert("삭제가 완료 되었습니다.");
+            document.location.reload();
+        };
+
+        scwin.sbm_delete_submiterror = async function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_create_submitdone = async function(e) {
+            await $c.win.alert("업로드가 완료 되었습니다.");
+            document.location.reload();
+            if (parent && parent.scwin && typeof parent.scwin.f_Retrieve === "function") {
+                parent.scwin.f_Retrieve();
+            }
+        };
+
+        scwin.sbm_create_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+    ]]></script>
+
+    <w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe src="/cm/xml/contentHeader.xml" style="" id=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="House No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class=" w200" id="" placeholder="" style=""></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" ev:onclick="scwin.btn_fileUpLoad_onclick" id="btn_fileUpLoad" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" ev:onclick="scwin.btn_fileDelete_onclick" id="btn_fileDelete" style="" type="button">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox">
+    				<xf:group id="" class="file-wrap col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="파일첨부(예정)" class="tit"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+    						maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="">
+    					</w2:udc_fileMultiUpload>
+    				</xf:group>
+    				<xf:group style="" id="" class="file-wrap col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="파일첨부(완료)" class="tit"></w2:textbox>
+    						</xf:group>
+    						<xf:group id="" class="right">
+    							<xf:trigger ev:onclick="scwin.btn_excelUp_onclick" style="" id="btn_trigger4" title="파일업로드" type="button"
+    								class="btn file-del">
+    								<xf:label><![CDATA[파일삭제]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    					<w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+    						maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="">
+    					</w2:udc_fileMultiUpload>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group style="" id="" class="info-list red">
+    				<w2:textbox tagname="p" style="" id="" label="파일명, 파일경로에 특수문자를 입력하실 수 없습니다.(특수문자 종류:'!,+&amp;^%$#@~;)" class=""></w2:textbox>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_trigger5" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

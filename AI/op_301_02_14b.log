@@ -1,0 +1,42 @@
+op_301_02_14b.log
+
+[2026-02-19 14:28:23.774] 변환 시작
+[2026-02-19 14:28:23.811] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:29:49.586] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.82, grade=B, verdict=REVIEW, errors=5, warnings=4 | LLM 85679ms, total 85775ms
+    - [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:574,col:132
+    - [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_srchSelfTransCoCd (EMEDIT→xf:input), ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 2건: ds_recptCls, ds_impExpClsCd
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+    - [적정성] cfSetIMEMode 잔재 — 1건 발견
+[2026-02-19 14:29:49.652] #1 검증: 자동수정 2건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:29:49.743] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.82, grade=B, verdict=REVIEW, errors=5, warnings=4
+    - [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:574,col:132
+    - [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_srchSelfTransCoCd (EMEDIT→xf:input), ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 2건: ds_recptCls, ds_impExpClsCd
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+    - [적정성] cfSetIMEMode 잔재 — 1건 발견
+[2026-02-19 14:29:57.163] #2 재시도 (에러 7건)
+[2026-02-19 14:29:58.166] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:31:28.357] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.85, grade=B, verdict=REVIEW, errors=3, warnings=4 | LLM 90035ms, total 90191ms
+    - [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:602,col:132
+    - [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_srchSelfTransCoCd (EMEDIT→xf:input), ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+[2026-02-19 14:31:28.361] 실패 (2회 시도, 3m 4s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다. — line:602,col:132
+  2. [XML] XML 파싱 실패: 요소 유형 "w2:column"과(와) 연관된 "style" 속성의 값에는 '<' 문자가 포함되지 않아야 합니다.
+  3. [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_srchSelfTransCoCd (EMEDIT→xf:input), ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+  4. [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+  5. [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+================================================================================

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="주유소별 단가 등록" meta_screenId="ja_010_01_05b" meta_subsystem="물류 &gt; 유통물류 &gt; 공통" meta_author="김원빈" meta_type="메인" meta_etc="빈 row가 있을때 저장 에러가 asis, tobe 동일하게 남">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="stDt" name="name1" dataType="text"></w2:key>
+    					<w2:key id="oilStatCd" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_out" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="선택" dataType="text"></w2:column>
+    					<w2:column id="oilStatCd" name="주유소" dataType="text"></w2:column>
+    					<w2:column id="stDt" name="시작일자" dataType="text"></w2:column>
+    					<w2:column id="endDt" name="종료일자" dataType="text"></w2:column>
+    					<w2:column id="adptDdCnt" name="적용일수" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="oilingUpr" name="적용단가" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="sortGub" name="구분" dataType="text"></w2:column>
+    					<w2:column id="oilStatNm" name="name10" dataType="text"></w2:column>
+    					<w2:column id="orgOilStatCd" name="name12" dataType="text"></w2:column>
+    					<w2:column id="orgStDt" name="name13" dataType="text" defaultValue=""></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ja.dn.basisinfomgnt.RetrieveOilUprInfoCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_out","key":"OUT_DS1"},{"id":"dma_condition","key":"IN_DS1"}]'
+    			target='data:json,{"id":"ds_out","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.submitPre" ev:submiterror="scwin.sbm_retrieve_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ja.dn.basisinfomgnt.SaveOilUprInfoCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"ds_out","key":"IN_DS1"}'
+    			target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<w2:historyInfo>
+    		<w2:history meta_no="" meta_desc="최초개발\n" meta_date="2026/01/06" meta_user="김원빈"></w2:history>
+    	</w2:historyInfo>
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * @event 
+ * @name onpageload 
+ * @description 화면 초기화
+ */
+scwin.onpageload = function () {
+
+    scwin.globalVars();
+
+    const codeOptions = [
+        { grpCd: "JA020", compID: "gr_out:oilStatCd", useLocalCache: true },
+        { grpCd: "JA020", compID: "acb_oilStatCd" },
+    ];
+    $c.data.setCommonCode(codeOptions, scwin.f_OnLoad);
+
+};
+
+
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언
+ */
+scwin.globalVars = function () {
+    const strCurDate = $c.date.getServerDateTime('yyyyMMdd');
+    scwin.strQryStDt = strCurDate.slice(0, 6) + "01";  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+
+    // todo - 첫 조회 전엔 행추가 작동 안함
+    scwin.firstRetrieve = false;
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 화면로딩시
+ */
+scwin.f_OnLoad = function () {
+    acb_oilStatCd.addItem('전체', '', '', 0);
+    acb_oilStatCd.setSelectedIndex(0);
+    ica_stDt.setValue(scwin.strQryStDt);
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 조회조기 필드 Clear
+ */
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(portCondtionPart, null);
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 조회
+ */
+scwin.f_Retrieve = function () {
+
+    if (ica_stDt.getValue() == "") {
+        $c.win.alert("년월은 필수조건 입니다.");
+        ica_stDt.focus();
+        return false;
+    };
+
+    // todo - 첫 조회 전엔 행추가 작동 안함
+    scwin.firstRetrieve = true;
+    scwin.submitExcute(sbm_retrieve);
+};
+
+
+
+/**
+ * @method 
+ * @name f_AddRow 
+ * @description 행추가
+ */
+scwin.f_AddRow = function () {
+
+    // todo - 첫 조회 전엔 행추가 작동 안함
+    if (!scwin.firstRetrieve) return;
+
+    let insertIdx = ds_out.insertRow();
+    ds_out.setCellData(insertIdx, "sortGub", "1");
+    scwin.setColumnOptions(gr_out, insertIdx);
+
+    gr_out.setFocusedCell(insertIdx, 0);
+
+};
+
+
+/**
+ * @method 
+ * @name f_Cancel 
+ * @description 취소
+ */
+scwin.f_Cancel = function () {
+
+    let focusIdx = ds_out.getRowPosition();
+    if (ds_out.getRowStatus(focusIdx) == 'C') {
+        ds_out.removeRow(focusIdx);
+        gr_out.setFocusedCell(0, 0);
+    } else {
+        ds_out.undoRow(focusIdx);
+    };
+
+};
+
+
+/**
+ * @method 
+ * @name f_DelRow 
+ * @description 행삭제
+ */
+scwin.f_DelRow = function () {
+
+    let focusIdx = ds_out.getRowPosition();
+    if (ds_out.getRowStatus(focusIdx) == 'C') {
+        ds_out.removeRow(focusIdx);
+    } else {
+        ds_out.deleteRow(focusIdx);
+    };
+
+};
+
+
+
+/**
+ * @method 
+ * @name f_save 
+ * @description 저장
+ */
+scwin.f_save = async function () {
+
+    const retConfirm = await $c.win.confirm(MSG_CM_CRM_001);
+    if (!retConfirm) return;
+
+    scwin.submitExcute(sbm_save);
+
+};
+
+
+
+/**
+ * @method 
+ * @name setColumnOptions 
+ * @description 그리드 데이터 변경 시 컬럼 속성 변경
+ */
+scwin.setColumnOptions = function (grid, rowIndex) {
+
+    let rowData = $p.getComponentById(grid.getDataList()).getRowJSON(rowIndex);
+
+    let columns = ["oilStatCd", "stDt", "endDt", "adptDdCnt", "oilingUpr"];
+
+    for (let i = 0; i < columns.length; i++) {
+        if (rowData.sortGub == '2') {
+            grid.setCellBackgroundColor(rowIndex, columns[i], '#CCFFFF');
+            grid.setCellColor(rowIndex, columns[i], 'red');
+        };
+
+        if (columns[i] == 'adptDdCnt') continue; // 적용일수 제외
+        grid.setCellReadOnly(rowIndex, columns[i], !(rowData.sortGub == '1'));
+
+        if (columns[i] != 'oilStatCd') continue;
+        grid.setCellReadOnly(rowIndex, columns[i], !(rowData.rowStatus == 'C'));
+    };
+
+};
+
+
+
+/**
+ * @method 
+ * @name excelDown 
+ * @description 엑셀 다운로드
+ */
+scwin.f_excelDown = function () {
+
+    let excelName = '주유소별 단가내역';
+
+    let options = {
+        sheetName: excelName,
+        fileName: excelName + ".xlsx",
+    };
+
+    $c.data.downloadGridViewExcel(gr_out, options);
+
+};
+
+
+
+/**
+ * @method 
+ * @name submitExcute 
+ * @description submit 처리
+ */
+scwin.submitExcute = async function (sbmObj) {
+
+    const e = await $c.sbm.execute(sbmObj);
+
+    if (e.responseJSON.resultDataSet[0].Msg == 'SUCC') {
+        await scwin.submitdone(e);
+    };
+
+};
+
+
+
+/**
+ * @method 
+ * @name changeNumFormat 
+ * @description 행 갯수에 따라 컬럼 숫자 표기 포맷 변경
+ */
+scwin.changeNumFormat = function (rowCnt) {
+    
+    const numFormatTargetCol = ['chk', 'adptDdCnt', 'oilingUpr', 'sortGub'];
+    let numFormat = '#,##0';
+    let ignoreChar = '.';
+    if (rowCnt == 0) {
+        numFormat = '#,##0.000000';
+        ignoreChar = '';
+    };
+
+    numFormatTargetCol.forEach(colId => {
+        gr_out.setColumnDisplayFormat(colId, numFormat);
+        gr_out.setIgnoreChar(colId, ignoreChar);
+    })
+};
+
+
+
+
+
+
+//-----------------------------------------------------------------------------
+//   Submission event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name submitPre 
+ * @description submit 요청전
+ */
+scwin.submitPre = function (e) {
+
+    let submitObj = $p.getComponentById(e.id);
+
+    switch (submitObj) {
+        case sbm_retrieve:
+            let jsonData = dma_condition.getJSON();
+            jsonData.stDt = ica_stDt.getValue();
+            jsonData.oilStatCd = acb_oilStatCd.getValue();
+
+            dma_condition.setJSON(jsonData);
+            break;
+        default:
+            break;
+    }
+
+};
+
+
+
+/**
+ * @method 
+ * @name submitdone 
+ * @description submit 정상
+ */
+scwin.submitdone = async function (e) {
+
+    let submitObj = $p.getComponentById(e.id);
+
+    switch (submitObj) {
+        case sbm_retrieve:
+            if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+            let rowCnt = ds_out.getRowCount();
+
+            // todo - asis 조회 시 데이터가 없으면 행 추가시에 자릿수 표기가 달라져서 추가
+            scwin.changeNumFormat(rowCnt);
+
+            if (rowCnt == 0) {
+                $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            };
+
+            totalRows.setValue(rowCnt);
+
+            for (let i = 0; i < rowCnt; i++) {
+                scwin.setColumnOptions(gr_out, i);
+            };
+            break;
+
+        case sbm_save:
+            if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+            $c.gus.cfAlertMsg(MSG_CM_INF_001);
+            scwin.f_Retrieve();
+            break;
+
+        default:
+            break;
+    }
+
+};
+
+
+
+
+//-----------------------------------------------------------------------------
+//   Component event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name gr_out_onyearselect 
+ * @description inputType이 캘린더인 경우 날짜 선택 시 발생
+ * @param {number} rowIndex
+ * @param {number} columnIndex
+ * @param {object} info
+ */
+scwin.gr_out_ondateselect = function (rowIndex, columnIndex, date, dateObject) {
+
+    let colId = this.getColumnID(columnIndex);
+    let rowData = ds_out.getRowJSON(rowIndex);
+    let fromDate, toDate;
+
+    if (!['stDt', 'endDt'].includes(colId)) return;
+
+    switch (colId) {
+        case "stDt":
+            if (date == "" || rowData.endDt == "") return;
+            fromDate = date;
+            toDate = rowData.endDt;
+        case "endDt":
+            if (rowData.stDt == "" || date == "") return;
+            fromDate = rowData.stDt;
+            toDate = date;
+            break;
+        default:
+            break;
+    }
+    
+    ds_out.setCellData(rowIndex, 'adptDdCnt', $c.date.diffDate(fromDate, toDate) + 1);
+
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="portCondtionPart" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="년월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_stDt" pickerType="dynamic"
+    								style="" displayFormat="yyyy/MM">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="주유소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_oilStatCd" search="start" style="width:200px;"
+    								displayMode="value delim label">
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="주유소별 단가" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_out" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownUserAuth="X" gridDownFn="f_excelDown"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_out" id="gr_out" style=""
+    					visibleRowNum="15" visibleRowNumFix="true" focusMode="row" ev:ondateselect="scwin.gr_out_ondateselect" rowStatusVisible="true"
+    					rowStatusWidth="15" columnMove="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="선택" width="70" rowSpan="2"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="주유소" width="150" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="적용기간" width="210" colSpan="3" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="적용단가" width="120" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="구분" width="120" rowSpan="2" hidden="true"></w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="120" inputType="text" id="column28" value="시작일자" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column27" value="종료일자" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column26" value="적용일수" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="chk" inputType="checkbox" width="70" hidden="true" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column id="oilStatCd" inputType="select" width="150" textAlign="left" displayMode="value delim label"
+    								editModeEvent="onclick" selectedData="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="stDt" inputType="calendar" width="120" displayFormat="yyyy/MM/dd"
+    								dataType="date" editModeEvent="onclick">
+    							</w2:column>
+    							<w2:column displayMode="label" id="endDt" inputType="calendar" width="120" displayFormat="yyyy/MM/dd"
+    								dataType="date" editModeEvent="onclick">
+    							</w2:column>
+    							<w2:column displayMode="label" id="adptDdCnt" inputType="text" width="120" textAlign="right" readOnly="true"
+    								dataType="number" displayFormat="#,##0.######" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="oilingUpr" inputType="text" width="120" textAlign="right"
+    								dataType="number" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="sortGub" inputType="text" width="120" hidden="true" readOnly="true" excelCellType="number" dataType="number"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row4">
+    							<w2:column width="70" inputType="text" id="column37" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="column36" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column35" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column34" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column33" displayMode="label" textAlign="right"></w2:column>
+    							<w2:column width="120" inputType="text" id="column32" displayMode="label" textAlign="right"></w2:column>
+    							<w2:column width="120" inputType="text" id="column31" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn style="" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="Y" btnRowDelYn="Y" EngYn="N" rowAddFunction="f_AddRow" rowDelFunction="f_DelRow" btnCancelObj="ctrlBtn" btnRowDelObj="ctrlBtn" btnRowAddObj="ctrlBtn" cancelFunction="f_Cancel"></w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.f_save" userAuth="U">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

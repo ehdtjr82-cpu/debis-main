@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_415List" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column id="privGrpId" name="그룹코드" dataType="text"></w2:column>
+    					<w2:column id="privGrpNm" name="권한그룹명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_grpUserList" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="chk" name="chk" defaultValue="0"></w2:column>
+    					<w2:column dataType="text" id="userId" name="userId"></w2:column>
+    					<w2:column dataType="text" id="userNm" name="userNm"></w2:column>
+    					<w2:column dataType="text" id="privGrpId" name="privGrpId"></w2:column>
+    					<w2:column dataType="" id="wrkClsCd" name="wrkClsCd"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="ds_userList" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="userId" name="사용자ID"></w2:column>
+    					<w2:column dataType="text" id="epId" name="다이렉트아이디"></w2:column>
+    					<w2:column dataType="text" id="empNo" name="사원번호"></w2:column>
+    					<w2:column dataType="text" id="privGrpId" name="권한그룹ID"></w2:column>
+    					<w2:column dataType="text" id="privGrpNm" name="권한그룹명"></w2:column>
+    					<w2:column dataType="text" id="empNm" name="사원번호"></w2:column>
+    					<w2:column dataType="text" id="clntNo" name="거래처번호"></w2:column>
+    					<w2:column dataType="text" id="clntNm" name="거래처번호"></w2:column>
+    					<w2:column dataType="text" id="upperClntNo" name="거래처번호"></w2:column>
+    					<w2:column dataType="text" id="userNm" name="사용자명"></w2:column>
+    					<w2:column dataType="text" id="passwd" name="비밀번호"></w2:column>
+    					<w2:column dataType="text" id="passwdExpdt" name="비밀번호EXP일자"></w2:column>
+    					<w2:column dataType="text" id="passwdExpyn" name="비밀번호EXP여부"></w2:column>
+    					<w2:column dataType="text" id="decPasswd" name="decPasswd"></w2:column>
+    					<w2:column dataType="text" id="finalPasswdChgDt" name="최종비밀번호변경일자"></w2:column>
+    					<w2:column dataType="text" id="email" name="EMAIL"></w2:column>
+    					<w2:column dataType="text" id="zip" name="우편번호"></w2:column>
+    					<w2:column dataType="text" id="addr1" name="주소1"></w2:column>
+    					<w2:column dataType="text" id="addr2" name="주소2"></w2:column>
+    					<w2:column dataType="text" id="userClsCd" name="사용자구분코드"></w2:column>
+    					<w2:column dataType="text" id="userClsCdNm" name="userClsCdNm"></w2:column>
+    					<w2:column dataType="text" id="userHomeClsCd" name="사용자소속구분코드"></w2:column>
+    					<w2:column dataType="text" id="lobranCd" name="물류점소코드"></w2:column>
+    					<w2:column dataType="text" id="lobranNm" name="lobranNm"></w2:column>
+    					<w2:column dataType="text" id="lobranPrivLvl" name="물류점소권한레벨"></w2:column>
+    					<w2:column dataType="text" id="loUpperLobranCd" name="물류상위점소코드"></w2:column>
+    					<w2:column dataType="text" id="loUpperLobranNm" name="물류상위점소코드"></w2:column>
+    					<w2:column dataType="text" id="exprOfcCd" name="고속영업소코드"></w2:column>
+    					<w2:column dataType="text" id="exprOfcNm" name="exprOfcNm"></w2:column>
+    					<w2:column dataType="text" id="exprOfcPrivLvl" name="고속영업소권한레벨"></w2:column>
+    					<w2:column dataType="text" id="rentcarOfcCd" name="렌터카영업소코드"></w2:column>
+    					<w2:column dataType="text" id="rentcarOfcNm" name="rentcarOfcNm"></w2:column>
+    					<w2:column dataType="text" id="rentcarBranchPatternCd" name="렌터카지점유형코드"></w2:column>
+    					<w2:column dataType="text" id="rentcarOfcPrivLvl" name="렌터카영업소권한레벨"></w2:column>
+    					<w2:column dataType="text" id="fixWrkPlCd" name="정비작업장코드"></w2:column>
+    					<w2:column dataType="text" id="fixWrkPlNm" name="fixWrkPlNm"></w2:column>
+    					<w2:column dataType="text" id="eqHomeClsCd" name="정비소속구분코드"></w2:column>
+    					<w2:column dataType="text" id="fixWrkPlPrivLvl" name="정비작업장권한레벨"></w2:column>
+    					<w2:column dataType="text" id="acctDeptNm" name="귀속부서코드명"></w2:column>
+    					<w2:column dataType="text" id="acctDeptCd" name="귀속부서코드"></w2:column>
+    					<w2:column dataType="text" id="acctDeptPrivLvl" name="귀속부서권한레벨"></w2:column>
+    					<w2:column dataType="text" id="useYn" name="사용여부"></w2:column>
+    					<w2:column dataType="text" id="basisMenuClsCd" name="기본메뉴구분코드"></w2:column>
+    					<w2:column dataType="text" id="userMpNo" name="사용자핸드폰번호"></w2:column>
+    					<w2:column dataType="text" id="userMpNo2" name="사용자핸드폰번호2"></w2:column>
+    					<w2:column dataType="text" id="finalConDtm" name="최종접속일시"></w2:column>
+    					<w2:column dataType="text" id="finalConIp" name="최종접속IP"></w2:column>
+    					<w2:column dataType="text" id="regId" name="등록자ID"></w2:column>
+    					<w2:column dataType="text" id="regDtm" name="등록일시"></w2:column>
+    					<w2:column dataType="text" id="modId" name="수정자ID"></w2:column>
+    					<w2:column dataType="text" id="modDtm" name="수정일시"></w2:column>
+    					<w2:column dataType="text" id="userBasisPgmId" name="사용자기본프로그램ID"></w2:column>
+    					<w2:column dataType="text" id="userBasisPgmNm" name="사용자기본프로그램명"></w2:column>
+    					<w2:column dataType="text" id="occpgrdNm" name="직급명"></w2:column>
+    					<w2:column dataType="text" id="passwdChgCycCd" name="패스워드변경주기"></w2:column>
+    					<w2:column dataType="text" id="msgConfirmCycCd" name="메시지갱신주기"></w2:column>
+    					<w2:column dataType="text" id="sysAdminYn" name="시스템 관리자 여부"></w2:column>
+    					<w2:column dataType="text" id="ssoAuthYn" name="SSO 인증 여부"></w2:column>
+    					<w2:column dataType="text" id="deptNm" name="부서명"></w2:column>
+    					<w2:column dataType="text" id="pstNm" name="직위명"></w2:column>
+    					<w2:column dataType="text" id="districtCd" name="노임권역코드"></w2:column>
+    					<w2:column dataType="text" id="occpposNm" name="보직명"></w2:column>
+    					<w2:column dataType="text" id="chk" name="chk"></w2:column>
+    					<w2:column dataType="text" id="coClsCd" name="coClsCd"></w2:column>
+    					<w2:column dataType="text" id="coCd" name="coCd"></w2:column>
+    					<w2:column dataType="text" id="branchAggrDeptCd" name="branchAggrDeptCd"></w2:column>
+    					<w2:column dataType="text" id="branchAggrDeptNm" name="branchAggrDeptNm"></w2:column>
+    					<w2:column dataType="text" id="branchLobranCd" name="branchLobranCd"></w2:column>
+    					<w2:column dataType="text" id="branchLobranNm" name="branchLobranNm"></w2:column>
+    					<w2:column dataType="text" id="viewAcctDeptCd" name="viewAcctDeptCd"></w2:column>
+    					<w2:column dataType="text" id="viewAcctDeptNm" name="viewAcctDeptNm"></w2:column>
+    					<w2:column dataType="text" id="viewLobranCd" name="viewLobranCd"></w2:column>
+    					<w2:column dataType="text" id="viewLobranNm" name="viewLobranNm"></w2:column>
+    					<w2:column dataType="text" id="blockReason" name="blockReason"></w2:column>
+    					<w2:column dataType="text" id="blockDt" name="blockDt"></w2:column>
+    					<w2:column dataType="text" id="blockEtDt" name="blockEtDt"></w2:column>
+    					<w2:column dataType="text" id="blockCancelEtDt" name="blockCancelEtDt"></w2:column>
+    					<w2:column dataType="text" id="authLoginYn" name="authLoginYn"></w2:column>
+    					<w2:column dataType="text" id="empTelNo" name="empTelNo"></w2:column>
+    					<w2:column dataType="text" id="empFaxNo" name="empFaxNo"></w2:column>
+    					<w2:column dataType="text" id="retireDt" name="retireDt"></w2:column>
+    					<w2:column dataType="text" id="mismatchRsn" name="mismatchRsn"></w2:column>
+    					<w2:column dataType="text" id="privAdmin" name="privAdmin"></w2:column>
+    					<w2:column dataType="text" id="decPwd" name="decPwd"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dataList1" saveRemovedData="true">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_415List" action="" method="post"
+    			mediatype="application/json" ref="" target='data:json,{"id":"ds_415List","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_415List_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_grpUserList" action="" method="post"
+    			mediatype="application/json" ref="" target='data:json,{"id":"ds_grpUserList","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_grpUserList_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_userList" action="" method="post"
+    			mediatype="application/json" ref="" target='data:json,{"id":"ds_userList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_userList_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/cm.bc.comnmgnt.privmgnt.SavePrivilegeGroupUserListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"action":"modified", "id":"ds_grpUserList", "key":"IN_DS1"}]' target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// function name : f_OnLoad
+// function desc : 화면로딩시 
+//-------------------------------------------------------------------------   
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "ZZ010", compID : "lc_userClsCdCond,gr_userList:userClsCd" },
+        { grpCd : "ZZ019", compID : "lc_userHomeClsCdCond,gr_userList:userHomeClsCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+/**
+ * UDC 셋팅이 이후..
+ */
+scwin.onUdcCompleted = function() {
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+    ed_searchPrivGrp.focus();
+    if( $p.getAllParameter().paramData.menuInfo.menuId.indexOf("n") > -1){
+        rd_debis.setSelectedIndex(1);
+        rd_debis.setDisabled(true);
+    }    
+};
+
+//-------------------------------------------------------------------------
+// 권한그룹 DataSet 헤더설정
+//-------------------------------------------------------------------------
+function setPrivGrpHeader(){
+};
+
+scwin.init = function() {
+    lc_searchPrivGrpCond.setSelectedIndex(0);
+    ed_searchPrivGrp.setValue("");
+    lc_userClsCdCond.setSelectedIndex(0);
+    lc_userHomeClsCdCond.setSelectedIndex(0);
+    lc_userSearch.setSelectedIndex(0);
+    ed_searchUser.setValue("");
+
+    ds_415List.setJSON([]);
+    ds_grpUserList.setJSON([]);
+    ds_userList.setJSON([]);
+
+    gr_415List_spanTotal.setLabel(0);
+    gr_grpUserList_spanTotal.setLabel(0);
+    gr_userList_spanTotal.setLabel(0);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    ds_grpUserList.setJSON([]);
+    let debis = "";
+    if(rd_debis.getValue() == "N") {
+        debis = "ncall.";
+    }
+	// 권한그룹 조회 
+    var arrJson = { qryCond:lc_searchPrivGrpCond.getValue()
+                  , qryCntn:ed_searchPrivGrp.getValue()
+                  };
+    sbm_415List.action = "/"+debis+"cm.bc.comnmgnt.privmgnt.RetrievePrivilegeGroupListCMD.do";
+    $c.sbm.execute(sbm_415List, arrJson);
+};
+
+scwin.f_RetrieveUser = function() {
+	// 사용자 조회 
+    if( lc_userSearch.getValue() == "0" ) {
+        var arrJson = {
+            "arrJSON": 
+            { 
+                  userNm: ed_searchUser.getValue()
+                , userHomeClsCd: lc_userHomeClsCdCond.getValue()
+                , userClsCd: lc_userClsCdCond.getValue()
+                , useYn: 1
+                , privGrpId: ds_415List.getCellData(ds_415List.getRowPosition(), "privGrpId")
+            },
+            "OUT_DS1":{}
+        };
+    } else {
+        var arrJson = {
+            "arrJSON": 
+            { 
+                  userId: ed_searchUser.getValue()
+                , userHomeClsCd: lc_userHomeClsCdCond.getValue()
+                , userClsCd: lc_userClsCdCond.getValue()
+                , useYn: 1
+                , privGrpId: ds_415List.getCellData(ds_415List.getRowPosition(), "privGrpId")
+            },
+            "OUT_DS1":{}
+        };
+    }
+    let debis = "";
+    if(rd_debis.getValue() == "N") {
+        debis = "ncall.";
+    }
+    sbm_userList.action = "/"+debis+"cm.bc.comnmgnt.privmgnt.RetrieveUserListCMD.do";
+    $c.sbm.execute(sbm_userList, arrJson);
+};
+
+scwin.f_retrieveGrpUser = function() {
+    if(ds_415List.getRowCount() > 0) {
+        let privGrpId = ds_415List.getCellData(ds_415List.getRowPosition(), "privGrpId");
+        let arrJson = { privGrpId:privGrpId };
+        let debis = "";
+        if(rd_debis.getValue() == "N") {
+            debis = "ncall.";
+        }
+        sbm_grpUserList.action = "/"+debis+"cm.bc.comnmgnt.privmgnt.RetrievePrivilegeGroupUserListCMD.do";
+        $c.sbm.execute(sbm_grpUserList, arrJson);
+    }
+};
+
+// AS-IS 시작
+//-------------------------------------------------------------------------
+// function name : f_LMove
+// function desc : 좌이동
+//-------------------------------------------------------------------------
+scwin.f_LMove = function() {
+
+    var vprivGrpId_ds_415List = ds_415List.getCellData(ds_415List.getRowPosition(), "privGrpId");
+	var vprivGrpId_ds_grpUserList = ds_415List.getCellData(0, "privGrpId");
+	var vContinue = 0;
+	
+    for(var i=0; i<ds_userList.getTotalRow(); i++) {
+        var rowJson = ds_userList.getRowJSON(i);
+        if( rowJson.chk == "1" ){
+            for(var j=0; j<ds_grpUserList.getTotalRow(); j++) {
+                var rowJsonG = ds_grpUserList.getRowJSON(j);
+				if( rowJson.userId == rowJsonG.userId ){
+					$c.win.alert("USER ID : "+rowJson.userId+"는 이미 등록되어 있습니다");
+					vContinue = 1;
+					break;
+                }
+            }
+			if( vContinue == 1 ){
+				vContinue = 0;
+				continue;
+			}				
+
+            var rowIndex = ds_grpUserList.getTotalRow();
+            ds_grpUserList.insertRow(rowIndex);
+
+            ds_grpUserList.setCellData(rowIndex, "userId", rowJson.userId);
+            ds_grpUserList.setCellData(rowIndex, "userNm", rowJson.userNm);
+			if( ds_grpUserList.getCellData(0, "privGrpId") != "" ){
+                ds_grpUserList.setCellData(rowIndex, "privGrpId", vprivGrpId_ds_grpUserList);
+			}else{
+                ds_grpUserList.setCellData(rowIndex, "privGrpId", vprivGrpId_ds_415List);
+			}
+            gr_grpUserList.setFocusedCell(rowIndex, 0);
+        }
+	}//for
+};
+
+
+//-------------------------------------------------------------------------
+// function name : f_LMoveForDblClick
+// function desc : 좌이동
+//-------------------------------------------------------------------------
+scwin.f_LMoveForDblClick = function(row) {
+	var usrId = ds_userList.getCellData(row, "userId");
+    for(var i=0; i<ds_grpUserList.getTotalRow(); i++) {
+        var rowJson = ds_grpUserList.getRowJSON(i);
+        if( rowJson.userId == usrId ){
+            $c.win.alert("USER ID : "+usrId+"는 이미 등록되어 있습니다");
+            return false;
+            break;
+        }
+    }
+
+    var rowIndex = ds_grpUserList.getTotalRow();
+    ds_grpUserList.insertRow(rowIndex);
+    ds_grpUserList.setCellData(rowIndex, "userId", ds_userList.getCellData(row, "userId"));
+    ds_grpUserList.setCellData(rowIndex, "userNm", ds_userList.getCellData(row, "userNm"));
+    if( ds_grpUserList.getCellData(0, "privGrpId") != "" ){
+        ds_grpUserList.setCellData(rowIndex, "privGrpId", ds_grpUserList.getCellData(0, "privGrpId"));
+    }else{
+        ds_grpUserList.setCellData(rowIndex, "privGrpId", ds_415List.getCellData(ds_415List.getRowPosition(), "privGrpId"));
+    }
+    gr_grpUserList.setFocusedCell(rowIndex, 0);
+};
+
+
+//-------------------------------------------------------------------------
+// function name : f_RMove
+// function desc : 좌이동
+//-------------------------------------------------------------------------
+scwin.f_RMove = function() {
+    $c.data.deleteRow(ds_grpUserList);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_save
+// function desc : 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    let confirmResult = await $c.win.confirm(MSG_CM_CRM_001);
+    if (confirmResult) {
+        let debis = "";
+        if(rd_debis.getValue() == "N") {
+            debis = "ncall.";
+        }
+        sbm_save.action = "/"+debis+"cm.bc.comnmgnt.privmgnt.SavePrivilegeGroupUserListCMD.do";
+        $c.sbm.execute(sbm_save);
+    }    
+};
+
+scwin.sbm_415List_submitdone = function (e) {
+    var rowCnt = ds_415List.getRowCount();
+    gr_415List_spanTotal.setLabel(rowCnt);
+    if (rowCnt > 0) {
+        ds_415List.sort("privGrpId", 0);
+        gr_415List.setFocusedCell(0, 0);
+        scwin.f_retrieveGrpUser();
+    } else {
+        $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    
+    scwin.f_RetrieveUser(); 
+};
+
+scwin.sbm_grpUserList_submitdone = function (e) {
+    var rowCnt = ds_grpUserList.getRowCount();
+    gr_grpUserList_spanTotal.setLabel(rowCnt);
+    if (rowCnt > 0) {
+        gr_grpUserList.setFocusedCell(0, 0);
+    } else {
+        // $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    //scwin.f_RetrieveUser();
+};
+
+scwin.sbm_userList_submitdone = function (e) {
+    var rowCnt = ds_userList.getRowCount();
+    gr_userList_spanTotal.setLabel(rowCnt);
+
+    if (rowCnt == 0) {
+        $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }else if (rowCnt == 1) {
+        scwin.f_LMoveForDblClick(0);
+        ds_userList.removeAll();
+        ed_searchUser.setValue("");
+        ed_searchUser.focus();
+
+    }else{
+        gr_userList.setFocusedCell(0, 0);
+    }
+};
+
+scwin.gr_415List_oncellclick = function (rowIndex, columnIndex, columnId) {
+    scwin.f_retrieveGrpUser();
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    $c.win.alert(MSG_CM_INF_001);
+    ds_grpUserList.removeAll();
+    ds_userList.removeAll();
+    scwin.f_retrieveGrpUser();
+    scwin.f_RetrieveUser();
+};
+
+scwin.gr_userList_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.f_LMoveForDblClick(rowIndex);
+};
+
+scwin.gr_grpUserList_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    $c.data.deleteRow(ds_grpUserList);
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1, ["ed_searchPrivGrp"]);
+    if( $p.getAllParameter().paramData.menuInfo.menuId.indexOf("n") > -1){
+        rd_debis.setSelectedIndex(1);
+    } else {
+        rd_debis.setSelectedIndex(0);
+    }
+};
+
+scwin.btn_search2_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table2, ["ed_searchUser"]);
+};
+
+scwin.rd_debis_onviewchange = function (info) {
+    scwin.init();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="lybox wfix flex_no" id="" style=""><xf:group id="" class="col"><xf:group style="" id="" class="shbox">
+    						<xf:group style="" id="" class="shbox-inner">
+    							<xf:group tagname="table" style="" id="table1" class="w2tb">
+    								<w2:attributes>
+    									<w2:summary></w2:summary>
+    								</w2:attributes>
+    								<xf:group tagname="colgroup">
+    									<xf:group tagname="col" style=""></xf:group>
+    								</xf:group>
+    								<xf:group tagname="tr" id="">
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group style="" id="" class="form-group">
+    											<xf:select1 appearance="full" class="" cols="" ev:onviewchange="scwin.rd_debis_onviewchange"
+    												id="rd_debis" ref="" renderType="radiogroup" rows="" selectedIndex="0" style="width:150px;">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[DEBIS]]></xf:label>
+    														<xf:value><![CDATA[D]]></xf:value>
+    													</xf:item>
+    													<xf:item>
+    														<xf:label><![CDATA[NCALL]]></xf:label>
+    														<xf:value><![CDATA[N]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select1>
+    											<w2:autoComplete allOption="" class="" displayMode="value delim label" editType="select"
+    												id="lc_searchPrivGrpCond" mandatory="true" ref="" search="start" style="width:150px;" submenuSize="auto">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[권한그룹명]]></w2:label>
+    														<w2:value><![CDATA[0]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[권한그룹ID]]></w2:label>
+    														<w2:value><![CDATA[1]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:autoComplete>
+    											<xf:input class="" id="ed_searchPrivGrp" style="width: 150px;"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group style="" id="" class="btn-shbox">
+    							<xf:trigger style="" id="btn_search1_init" type="button" class="btn ico refresh" ev:onclick="scwin.btn_search1_init_onclick">
+    								<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    							</xf:trigger>
+    							<xf:trigger disabled="" style="" id="btn_PrivGrpRetrieve" type="button" class="btn sch" escape="false" ev:onclick="scwin.f_Retrieve">
+    								<xf:label><![CDATA[조회]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group></xf:group>
+    					
+    				<xf:group id="" class="col" style="width: 800px;"><xf:group style="" id="" class="shbox">
+    						<xf:group style="" id="" class="shbox-inner">
+    							<xf:group tagname="table" style="" id="table2" class="w2tb ">
+    								<w2:attributes>
+    									<w2:summary></w2:summary>
+    								</w2:attributes>
+    								<xf:group tagname="tr" id="">
+    									<xf:group tagname="th" class="w2tb_th">
+    										<w2:attributes>
+    											<w2:scope>row</w2:scope>
+    										</w2:attributes>
+    										<w2:textbox style="" id="" label="사용자구분 " class=""></w2:textbox>
+    									</xf:group>
+    									<xf:group tagname="td" class="w2tb_td">
+    										<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group">
+    											<w2:autoComplete allOption="" class=""
+    												editType="select" id="lc_userClsCdCond" mandatory="true" ref="" search="start" style="width:150px;"
+    												submenuSize="auto" visibleRowNum="20">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[전체]]></w2:label>
+    														<w2:value><![CDATA[00]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[국내 운영 실적]]></w2:label>
+    														<w2:value><![CDATA[AS]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:autoComplete>
+    											<w2:autoComplete class="" editType="select" id="lc_userHomeClsCdCond"
+    												mandatory="true" ref="" search="start" style="width:100px;" submenuSize="auto" visibleRowNum="15" chooseOption="true" chooseOptionLabel="전체">
+    												<w2:choices></w2:choices>
+    											</w2:autoComplete>
+    											<w2:autoComplete allOption="" class="" displayMode="value delim label" editType="select"
+    												id="lc_userSearch" mandatory="true" ref="" search="start" style="width:100px;" submenuSize="auto" chooseOption="">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[사용자명]]></w2:label>
+    														<w2:value><![CDATA[0]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[사용자ID]]></w2:label>
+    														<w2:value><![CDATA[1]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:autoComplete>
+    											<xf:input class="" id="ed_searchUser" style="width: 100px;"></xf:input>
+    										</xf:group></xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group style="" id="" class="btn-shbox">
+    							<xf:trigger style="" id="btn_search2_init" type="button" class="btn ico refresh" ev:onclick="scwin.btn_search2_init_onclick">
+    								<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    							</xf:trigger>
+    							<xf:trigger disabled="" style="" id="btn_trigger5" type="button" class="btn sch" escape="false" ev:onclick="scwin.f_RetrieveUser">
+    								<xf:label><![CDATA[조회]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group></xf:group></xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="lybox col4 wfix" id="" style="height: auto">
+    							<xf:group class="col" id="" style="">
+    								<xf:group class="title-wrap" id="">
+    									<xf:group class="title" id="" style="">
+    										<w2:textbox class="tit" id="" label="권한그룹 " style="" tagname="h3"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    										<w2:gridView autoFit="lastColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_415List" focusMode="cell" id="gr_415List" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" rowStatusWidth="30" readOnly="true" ev:oncellclick="scwin.gr_415List_oncellclick" rowStatusVisible="true" drawType="virtual" sortable="true" sortOrderReverse="true">
+    											<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    											<w2:header id="header2" style="">
+    												<w2:row id="row3" style="">
+    													<w2:column blockSelect="false" class="col-type1" displayMode="label" id="column1" inputType="text" removeBorderStyle="false" value="그룹코드" width="100" sortLabel="false">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="column2" inputType="text" removeBorderStyle="false" value="권한그룹명" width="130" class="col-type1">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody id="gBody2" style="">
+    												<w2:row id="row4" style="">
+    													<w2:column blockSelect="false" displayMode="label" id="privGrpId" inputType="text" removeBorderStyle="false" width="100" dataType="text" sortLabel="true">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="privGrpNm" inputType="text" removeBorderStyle="false" width="130" textAlign="left">
+    													</w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    										<xf:group class="left" id="">
+    											<xf:group class="grid-total" id="">
+    												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="num" id="gr_415List_spanTotal" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							</xf:group>
+    							<xf:group class="col" id="" style="">
+    								<xf:group class="title-wrap" id="">
+    									<xf:group class="title" id="" style="">
+    										<w2:textbox class="tit" id="" label="권한그룹 사용자 " style="" tagname="h3"></w2:textbox>
+    									</xf:group>
+    								</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    										<w2:gridView autoFit="lastColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_grpUserList" focusMode="cell" id="gr_grpUserList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" rowStatusWidth="30" readOnly="true" ev:oncelldblclick="scwin.gr_grpUserList_oncelldblclick" rowStatusVisible="true">
+    											<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+    											<w2:header id="header2" style="">
+    												<w2:row id="row3" style="">
+    													<w2:column blockSelect="false" class="" displayMode="label" id="column1" inputType="checkbox" removeBorderStyle="false" value="코드번호" width="50" fixColumnWidth="true" readOnly="false">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="column2" inputType="text" removeBorderStyle="false" value="ID" width="100" class="col-type1">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="column9" value="이름" displayMode="label">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody id="gBody2" style="">
+    												<w2:row id="row4" style="">
+    													<w2:column blockSelect="false" displayMode="label" id="chk" inputType="checkbox" removeBorderStyle="false" width="50" fixColumnWidth="true" readOnly="false">
+    													</w2:column>
+    													<w2:column blockSelect="false" displayMode="label" id="userId" inputType="text" removeBorderStyle="false" width="70">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="userNm" value="" displayMode="label">
+    													</w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    										<xf:group class="left" id="">
+    											<xf:group class="grid-total" id="">
+    												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="num" id="gr_grpUserList_spanTotal" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="right" id="" style="">
+    											<w2:udc_bottomGrdBtn btnDelYn="N" btnCancelYn="N" style="" btnRowAddYn="N" btnRowDelYn="Y" id="udc_gr_grpUserList" gridID="gr_grpUserList"></w2:udc_bottomGrdBtn>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							</xf:group>
+    							<xf:group id="" class="col vam" style="width: 25px;"><xf:group id="" class="shattle flex-row">
+    								<xf:trigger style="" id="btn_leftMove" type="button" class="btn ico btn-double-left" ev:onclick="scwin.f_LMove">
+    									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    								</xf:trigger>
+    								<xf:trigger style="" id="btn_rightMove" type="button" class="btn ico btn-double-right" ev:onclick="scwin.f_RMove">
+    									<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    								</xf:trigger>
+    							</xf:group></xf:group><xf:group class="col" id="" style="width: 770px;">
+    								<xf:group class="title-wrap" id="">
+    									<xf:group class="title" id="" style="">
+    										<w2:textbox class="tit" id="" label="사용자 " style="" tagname="h3"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    										<w2:gridView autoFit="lastColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_userList" focusMode="cell" id="gr_userList" rowNumVisible="false" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" rowStatusWidth="30" readOnly="true" ev:oncelldblclick="scwin.gr_userList_oncelldblclick" rowStatusVisible="true">
+    											<w2:caption id="caption4" style="" value="this is a grid caption."></w2:caption>
+    											<w2:header id="header2" style="">
+    												<w2:row id="row3" style="">
+    													<w2:column width="50" inputType="checkbox" style="" id="column9" value="" displayMode="label" fixColumnWidth="true" readOnly="false">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="column13" value="ID" displayMode="label" class="col-type1">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="column11" value="이름" displayMode="label">
+    													</w2:column>
+    													<w2:column width="100" inputType="text" style="" id="column7" value="사용자구분" displayMode="label">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="column5" value="소속구분" displayMode="label">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody id="gBody2" style="">
+    												<w2:row id="row4" style="">
+    													<w2:column width="50" inputType="checkbox" style="" id="chk" value="" displayMode="label" fixColumnWidth="true" readOnly="false">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="userId" value="" displayMode="label">
+    													</w2:column>
+    													<w2:column width="70" inputType="text" style="" id="userNm" value="" displayMode="label">
+    													</w2:column>
+    													<w2:column width="100" inputType="select" style="" id="userClsCd" value="" displayMode="label">
+    													</w2:column>
+    													<w2:column width="70" inputType="select" style="" id="userHomeClsCd" value="" displayMode="label">
+    													</w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    										<xf:group class="left" id="">
+    											<xf:group class="grid-total" id="">
+    												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="num" id="gr_userList_spanTotal" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							</xf:group>
+    						</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" id="btn_Save" style="" type="button" ev:onclick="scwin.f_Save" objType="ctrlBtn" userAuth="C">
+    								<xf:label><![CDATA[저장]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

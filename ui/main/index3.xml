@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenId="main" meta_screenName="메인 화면" meta_screenDesc="최초 로그인 시 메인 화면 영역에 로딩되는 컨텐츠입니다.">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_search">
+					<w2:keyInfo>
+						<w2:key id="START_NUM" name="시작 순번" dataType="number" defaultValue="0"></w2:key>
+						<w2:key id="END_NUM" name="끝 순번" dataType="number" defaultValue="5"></w2:key>
+						<w2:key id="TOTAL_YN" name="총건수 조회여부" dataType="number" defaultValue="N"></w2:key>
+						<w2:key id="SORT_COLUMN" name=" 정렬 컬럼 아이디" dataType="text"></w2:key>
+						<w2:key id="SORT_METHOD" name="정렬 방법(ASC, DESC)" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dlt_release" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="SEQ" name="순번" dataType="text"></w2:column>
+						<w2:column id="TITLE" name="제목" dataType="text"></w2:column>
+						<w2:column id="CONTENT" name="내용" dataType="text"></w2:column>
+						<w2:column id="CREATED_DATE" name="작성일" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dataList1" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="col1" name="name1"></w2:column>
+						<w2:column dataType="number" id="col2" name="Item01"></w2:column>
+						<w2:column dataType="number" id="col3" name="Item02"></w2:column>
+						<w2:column dataType="number" id="col4" name="Item03"></w2:column>
+						<w2:column id="col5" name="Item04" dataType="number"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<col2><![CDATA[65]]></col2>
+							<col3><![CDATA[78]]></col3>
+							<col4><![CDATA[47]]></col4>
+							<col1><![CDATA[Item01]]></col1>
+							<col5><![CDATA[38]]></col5>
+						</w2:row>
+						<w2:row>
+							<col2><![CDATA[88]]></col2>
+							<col3><![CDATA[53]]></col3>
+							<col4><![CDATA[63]]></col4>
+							<col1><![CDATA[Item02]]></col1>
+							<col5><![CDATA[24]]></col5>
+						</w2:row>
+						<w2:row>
+							<col2><![CDATA[30]]></col2>
+							<col3><![CDATA[38]]></col3>
+							<col4><![CDATA[71]]></col4>
+							<col1><![CDATA[Item03]]></col1>
+							<col5><![CDATA[78]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item04]]></col1>
+							<col2><![CDATA[47]]></col2>
+							<col3><![CDATA[24]]></col3>
+							<col4><![CDATA[53]]></col4>
+							<col5><![CDATA[18]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item05]]></col1>
+							<col2><![CDATA[58]]></col2>
+							<col3><![CDATA[78]]></col3>
+							<col4><![CDATA[63]]></col4>
+							<col5><![CDATA[98]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item06]]></col1>
+							<col2><![CDATA[68]]></col2>
+							<col3><![CDATA[18]]></col3>
+							<col4><![CDATA[23]]></col4>
+							<col5><![CDATA[58]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item07]]></col1>
+							<col2><![CDATA[58]]></col2>
+							<col3><![CDATA[98]]></col3>
+							<col4><![CDATA[33]]></col4>
+							<col5><![CDATA[42]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item08]]></col1>
+							<col2><![CDATA[42]]></col2>
+							<col3><![CDATA[58]]></col3>
+							<col4><![CDATA[88]]></col4>
+							<col5><![CDATA[30]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item09]]></col1>
+							<col2><![CDATA[30]]></col2>
+							<col3><![CDATA[68]]></col3>
+							<col4><![CDATA[30]]></col4>
+							<col5><![CDATA[20]]></col5>
+						</w2:row>
+						<w2:row>
+							<col1><![CDATA[Item10]]></col1>
+							<col2><![CDATA[20]]></col2>
+							<col3><![CDATA[58]]></col3>
+							<col4><![CDATA[47]]></col4>
+							<col5><![CDATA[47]]></col5>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_selectRelease" ref='data:json,dma_search' target='data:json,{"id":"dlt_Update","key":"data"}' action="/main/selectReleaseForMain" method="post" mediatype="application/json"
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_selectRelease_submitdone" ev:submiterror="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="scwin.sbm_selectRelease_submitdone,scwin.setReleaseInfo" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * 화면 초기화
+ */
+scwin.onpageload = async function () {
+    document.onkeydown = scwin.cfOnKeyDown;
+
+    //await $c.win.openMenu("smp_comp","/ui/sample/fi_201_01_01b.xml","smp_comp");
+    await $c.win.openMenu("fi_100_08_02b","/ui/ac/fi/fixedaset/fi_100_08_02b.xml","fi_100_08_02b");
+}
+
+//  AS-Is 함수 키보드 입력 중 onKeyDown 이벤트에 대한 모든 처리를 담당<br>
+scwin.cfOnKeyDown = function() {
+    if (window.event && window.event.keyCode == 8) {
+        if (window.event.srcElement.tagName.toUpperCase() == "BODY"
+         || window.event.srcElement.tagName.toUpperCase() == "TD") {
+            window.event.cancelBubble = true;
+            window.event.returnValue = false;
+            return false;
+        } else {
+        	return true;
+        }
+    }
+}
+
+scwin.tac_layout_onbeforetabclose = function (tabID, idx) {
+    const tabFrame = this.getFrame(idx);
+    // return main.closeBeforePage(tabFrame);
+    return true;
+};
+
+scwin.btn_tab_allclose_onclick = async function () {
+    // main.pushStateMain();
+    scwin.tabCount = tac_layout.getTabCount();
+    for (let i = scwin.tabCount; i > 0; i--) {
+        await tac_layout.deleteTab(i);
+    }
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+	<xf:group id="grp_group1" class="wrap">
+		<w2:wframe class="header" id="wfm_wframe3" src="/cm/xml/header.xml" style=""></w2:wframe>
+		<xf:group style="" id="" class="section flex-col content-wrap">
+			<w2:wframe src="/cm/xml/side.xml" style="" id="wfm_wframe1" class="side"></w2:wframe>
+			<xf:group style="" id="grp_container" class="container">
+				<xf:group style="" id="" class="contents">
+					<w2:tabControl useTabKeyOnly="true" id="tac_layout" useMoveNextTabFocus="false" useConfirmMessage="false"
+						confirmTrueAction="exist" confirmFalseAction="new" alwaysDraw="false" style="" class="tbc_layout" hiddenTab="" tabPosition=""
+						closable="true" useAccessibilityMenu="false" tableRender="" tabScroll="true" focusOnStart="" preventTabClickEvent="" selectedIndex=""
+						spaAuto="" confirmMessage="" ev:onbeforetabclose="scwin.tac_layout_onbeforetabclose" changeActiveTab="true" windowMaxNum="15">
+					</w2:tabControl>
+                    <w2:anchor outerDiv="false" style="" id="btn_tab_allclose" class="" ev:onclick="scwin.btn_tab_allclose_onclick"
+						title="탭 전체 닫기">
+						<xf:label><![CDATA[탭전체닫기]]></xf:label>
+					</w2:anchor>
+					<!-- <w2:windowContainer id="wdc_main" style="width:100%; height:100%; position:relative; " frameMode="wframe"
+						useStatusMsg="false" changeActiveWindow="true" controlIconPosition="allright" hideTitleOnMaximize="true" stopToggleOnLast="false"
+						toolbarPosition="top" tooltipDisplay="true" useControlIconTitle="false" useCloseButton="true" windowAutoResize="false"
+						fixArrangeFullScreen="true" stopMinimizeOnNameLayer="true" tooltipGroupClass="false" useCustomMsg="false" useFixButton="false"
+						windowMaxNum="15" windowMaximizeAll="false" ev:onbeforecloseall="scwin.wdc_main_onbeforecloseall" useWindowScrollButton="true"
+						useNameContainer="true" closeType="noneFixedWindow">
+						<w2:windowToolbar>
+							<w2:controlIconLayer>
+								<w2:controlIcon></w2:controlIcon>
+								<w2:controlIcon></w2:controlIcon>
+								<w2:controlIcon></w2:controlIcon>
+								<w2:controlIcon></w2:controlIcon>
+								<w2:controlIcon></w2:controlIcon>
+							</w2:controlIconLayer>
+							<w2:nameLayer></w2:nameLayer>
+							<w2:selectedNameLayer></w2:selectedNameLayer>
+						</w2:windowToolbar>
+					</w2:windowContainer> -->
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</xf:group></body>
+</html>

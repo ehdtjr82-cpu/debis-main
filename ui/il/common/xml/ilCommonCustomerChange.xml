@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	scwin.f_FieldClear();
+};
+
+scwin.f_PopUp = function (disGubun, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+
+    var rtnList = new Array();
+    switch (disGubun){
+		case "oldCustomer" :		//거래처 팝업(Search Shipper)
+            udc_oldCustomer.ilCommonPopUp(scwin.udc_oldCustomer_callBackFunc,  
+                                    ed_oldCustCd.getValue().trim(),  
+                                    ed_oldCustNm.getValue(), 
+                                    pWinCloseTF,
+                                    '6',                            // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+									'Customer',                      // Title순서	                                                           
+									'140,300',                      // 보여주는 각 컬럼들의 폭	                                               
+									null,                           // 컬럼중에서 숨기는	컬럼 지정	                                       
+									null,                           // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+									'500',                          // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+									'500',                          // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+									null,                           // 윈도우 위치 Y좌표	                                                   
+									null,                           // 윈도우 위치 X좌표                                                       
+									null,                           // 중복체크여부	("F")                                                      
+									pAllSearchTF,                   // 전체검색허용여부	("F")                                                  
+									null,                            // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")  
+									pNoDataCloseTF);
+            break;										
+		case "newCustomer" :		//거래처 팝업(Search Shipper)
+            udc_newCustomer.ilCommonPopUp(scwin.udc_newCustomer_callBackFunc, 
+                                    ed_newCustCd.getValue().trim(),  
+                                    ed_newCustNm.getValue(), 
+                                    pWinCloseTF,
+                                    '6',                            // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+									'Customer',                      // Title순서	                                                           
+									'140,300',                      // 보여주는 각 컬럼들의 폭	                                               
+									null,                           // 컬럼중에서 숨기는	컬럼 지정	                                       
+									null,                           // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+									'500',                          // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+									'500',                          // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+									null,                           // 윈도우 위치 Y좌표	                                                   
+									null,                           // 윈도우 위치 X좌표                                                       
+									null,                           // 중복체크여부	("F")                                                      
+									pAllSearchTF,                   // 전체검색허용여부	("F")                                                  
+									null,                            // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")  
+									pNoDataCloseTF);
+            break;	
+		default:
+  	break;	
+    }
+};
+
+scwin.udc_oldCustomer_callBackFunc = function (ref) {
+    if (ref == null || ref == "N/A" || ref[0] == "N/A") {
+        if (ed_oldCustCd.getValue() == "N/A") {
+            ed_oldCustCd.setValue("");
+        }
+        ed_oldCustNm.setValue("");
+        return;
+    }
+
+    if (ref != null) {
+        ed_oldCustCd.setValue(ref[0]); 
+        ed_oldCustNm.setValue(ref[1]);
+    }
+};
+
+scwin.udc_newCustomer_callBackFunc = function (ref) {
+    if (ref == null || ref == "N/A" || ref[0] == "N/A") {
+        if (ed_newCustCd.getValue() == "N/A") {
+            ed_newCustCd.setValue("");
+        }
+        ed_newCustNm.setValue("");
+        return;
+    }
+
+    if (ref != null) {
+        ed_newCustCd.setValue(ref[0]); 
+        ed_newCustNm.setValue(ref[1]);
+    }
+};
+
+scwin.udc_oldCustomer_onclickEvent = function (e) {
+    scwin.f_PopUp("oldCustomer","T","F","F");
+};
+
+scwin.udc_newCustomer_onclickEvent = function (e) {
+    scwin.f_PopUp("newCustomer","T","F","F");	
+};
+
+scwin.f_FieldClear = function (e) {
+    // 옵션이 Disable이면 종료
+    // if (bOptDisableTF === "T") return;
+
+    // 포커스 이동
+    // ed_oldCustCd.focus();
+};
+
+scwin.f_WinClose = function (e) {
+
+    var arrRtnVal = [];
+
+    arrRtnVal[0] = "N/A";
+    arrRtnVal[1] = ed_oldCustCd.getValue();
+    arrRtnVal[2] = ed_oldCustNm.getValue();
+
+    arrRtnVal[3] = ed_newCustCd.getValue();
+    arrRtnVal[4] = ed_newCustNm.getValue();
+
+    // WebSquare 팝업 반환
+    $c.win.closePopup(arrRtnVal);
+};
+
+scwin.btn_close_onclick = function (e) {
+    scwin.f_WinClose();
+};
+]]></script>
+		<w2:require as="udc_ilcomCode" type="page" variableClone="" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:120px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="Old Customer" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:udc_ilcomCode codeId="ed_oldCustCd" nameId="ed_oldCustNm" popupID="" selectID="retrieveEngClntInfo" style="" validTitle="" pTitle="Customer" id="udc_oldCustomer" ev:onclickEvent="scwin.udc_oldCustomer_onclickEvent" code="oldCustCd" name="oldCustNm" btnId="btn_oldCustCd" setNameOnBlurCode="Y" UpperFlagCode="1" allowCharCode="a-zA-Z0-9" allowCharCodeLength="0" maxlengthCode="6"></w2:udc_ilcomCode>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="New Customer" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:udc_ilcomCode codeId="ed_newCustCd" nameId="ed_newCustNm" popupID="" selectID="retrieveEngClntInfo" style="" validTitle="" pTitle="Customer" id="udc_newCustomer" ev:onclickEvent="scwin.udc_newCustomer_onclickEvent" code="newCustCd" name="newCustNm" btnId="btn_newCustCd" setNameOnBlurCode="Y" UpperFlagCode="1" allowCharCode="a-zA-Z0-9" allowCharCodeLength="0" maxlengthCode="6"></w2:udc_ilcomCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label><![CDATA[close]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

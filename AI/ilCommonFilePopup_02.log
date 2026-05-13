@@ -1,0 +1,29 @@
+ilCommonFilePopup_02.log
+
+[2026-02-19 02:41:52.111] 변환 시작
+[2026-02-19 02:41:52.125] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 02:42:37.485] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=6 | LLM 45322ms, total 45359ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_evidClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+[2026-02-19 02:42:37.492] #1 검증: 자동수정 1건 적용
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 02:42:37.538] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.88, grade=B, verdict=REVIEW, errors=2, warnings=6
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_evidClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+[2026-02-19 02:42:37.540] #2 재시도 (에러 2건)
+[2026-02-19 02:42:38.546] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 02:43:22.044] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.80, grade=C, verdict=REVIEW, errors=3, warnings=6 | LLM 43462ms, total 43498ms
+    - [XML] 후행 섹션에서는 콘텐츠가 허용되지 않습니다. — line:316,col:1
+    - [XML] XML 파싱 실패: 후행 섹션에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_evidClsCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+    - [적정성] <input type=button> 잔재 — xf:trigger로 변환 필요
+[2026-02-19 02:43:22.047] #1 검증: 최적 시도 #1 채택 (confidence: 0.93)
+[2026-02-19 02:43:22.047] 성공 (#2, 1m 29s, confidence:0.93)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 1건: lc_evidClsCd (LUXECOMBO→w2:autoComplete)
+  2. [적정성] 버튼 변환 — 소스에 input[button] 2건, 출력에 trigger 없음
+================================================================================

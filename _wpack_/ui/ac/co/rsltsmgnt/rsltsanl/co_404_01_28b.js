@@ -1,0 +1,3089 @@
+/*amd /ui/ac/co/rsltsmgnt/rsltsanl/co_404_01_28b.xml 300243 756dd3202ecbf1f28bcaa8c3c7502866c2ac072a82e321a7f8cad312a1a6967e */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'fromDate',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'ver',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bookClsCd',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'closeYm',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'befCloseYm',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'preCloseYm',name:'name6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'preBefCloseYm',name:'name7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'name8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntNo',name:'name9',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cargoClsCd',name:'name10',dataType:'text'}},{T:1,N:'w2:key',A:{id:'routeCd',name:'name11',dataType:'text'}},{T:1,N:'w2:key',A:{id:'routeClsCd',name:'name12',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clsCd',name:'name13',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lowerDeptIncluYn',name:'name14',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptLvl',name:'name15',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntAcctCd',name:'name16',dataType:'text'}},{T:1,N:'w2:key',A:{id:'mgntQtyAcctCd',name:'name17',dataType:'text'}},{T:1,N:'w2:key',A:{id:'commCd',name:'name18',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vsslCd',name:'name19',dataType:'text'}},{T:1,N:'w2:key',A:{id:'displayClsCd',name:'name20',dataType:'text'}},{T:1,N:'w2:key',A:{id:'intrlnsClsCd',name:'name21',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eqClssCd',name:'name22',dataType:'text'}},{T:1,N:'w2:key',A:{id:'variableFixedClsCd',name:'name23',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bizDomCd',name:'name24',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pageNo',name:'name25',dataType:'text'}},{T:1,N:'w2:key',A:{id:'distYn',name:'name26',dataType:'text'}},{T:1,N:'w2:key',A:{id:'aggrDeptYn',name:'name27',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sysCd',name:'name28',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eisAcctDeptCd',name:'name29',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dpctYn',name:'name30',dataType:'text'}},{T:1,N:'w2:key',A:{id:'closeYyMm',name:'name31',dataType:'text'}},{T:1,N:'w2:key',A:{id:'exceptionDeptYn',name:'name32',dataType:'text'}},{T:1,N:'w2:key',A:{id:'closeYmYn',name:'name33',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coCd',name:'name34',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pchsSellClsCd',name:'name35',dataType:'text'}},{T:1,N:'w2:key',A:{id:'sellClsCd',name:'name36',dataType:'text'}},{T:1,N:'w2:key',A:{id:'srchBookClsCd',name:'name37',dataType:'text'}},{T:1,N:'w2:key',A:{id:'incluYn',name:'name38',dataType:'text'}},{T:1,N:'w2:key',A:{id:'postYn',name:'name39',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_master',saveRemovedData:'true','ev:ondataload':'scwin.ds_master_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'ver',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'closeYm',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCdNm',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipProcYn',name:'name5',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgntAcctCd',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntAcctCdNm',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prtPosSeq',name:'name8',dataType:'number'}},{T:1,N:'w2:column',A:{id:'pageNo',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'colNo',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt',name:'name11',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt01',name:'name12',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt02',name:'name13',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt03',name:'name14',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt04',name:'name15',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt05',name:'name16',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt06',name:'name17',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt07',name:'name18',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt08',name:'name19',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt09',name:'name20',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt10',name:'name21',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt11',name:'name22',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt12',name:'name23',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmtYy',name:'name24',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmtYy2',name:'name25',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt01',name:'name26',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt02',name:'name27',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt03',name:'name28',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt04',name:'name29',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt05',name:'name30',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt06',name:'name31',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmtYy',name:'name32',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt07',name:'name33',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt08',name:'name34',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt09',name:'name35',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt10',name:'name36',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt11',name:'name37',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt12',name:'name38',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmtYy2',name:'name39',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt',name:'name40',dataType:'number'}},{T:1,N:'w2:column',A:{id:'yearPlanAmt',name:'name41',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bfyyThisAmt',name:'name42',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisPlanAmt',name:'name43',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisRsltsAmt',name:'name44',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisDiffer',name:'name45',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumBfyyThisAmt',name:'name46',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumPlanAmt',name:'name47',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumRsltsAmt',name:'name48',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumDiffer',name:'name49',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmt',name:'name50',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellSumAmt',name:'name51',dataType:'number'}},{T:1,N:'w2:column',A:{id:'variableCost',name:'name52',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fixedCost',name:'name53',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bizDomCd',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizDomNm',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sortSeq',name:'name56',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumBefDiffer',name:'name57',dataType:'number'}},{T:1,N:'w2:column',A:{id:'befDiffer',name:'name58',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planRslt',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizdivNm',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizdivCd',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy1Prev',name:'name62',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy1',name:'name63',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy1',name:'name64',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy1',name:'name65',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy2Prev',name:'name66',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy2',name:'name67',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy2',name:'name68',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy2',name:'name69',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrUppPrev',name:'name70',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrUpp',name:'name71',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrUpp',name:'name72',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrUpp',name:'name73',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy3Prev',name:'name74',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy3',name:'name75',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy3',name:'name76',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy3',name:'name77',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy4Prev',name:'name78',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy4',name:'name79',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy4',name:'name80',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy4',name:'name81',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrLowPrev',name:'name82',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrLow',name:'name83',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrLow',name:'name84',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrLow',name:'name85',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltYearLowPrev',name:'name86',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planYearLow',name:'name87',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltYearLow',name:'name88',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffYearLow',name:'name89',dataType:'number'}},{T:1,N:'w2:column',A:{id:'amt',name:'name90',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fiCloseAmt',name:'name91',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fiCtrlAmt',name:'name92',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgntCtrlAmt',name:'name93',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgntDistAmt',name:'name94',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisDifferBfyy',name:'name95',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumDifferBfyy',name:'name96',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy1Prev',name:'name97',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy2Prev',name:'name98',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrUppPrev',name:'name99',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy3Prev',name:'name100',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy4Prev',name:'name101',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrLowPrev',name:'name102',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffYearLowPrev',name:'name103',dataType:'number'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'name104',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'name105',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'name106',dataType:'text'}},{T:1,N:'w2:column',A:{id:'corRegNo',name:'name107',dataType:'text'}},{T:1,N:'w2:column',A:{id:'busiNm',name:'name108',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bfyyThisUnAmt',name:'name109',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisUnRsltsAmt',name:'name110',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisUnDiffer',name:'name111',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH1ClntNm',name:'name112',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH1Amt',name:'name113',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH2ClntNm',name:'name114',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH2Amt',name:'name115',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH3ClntNm',name:'name116',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH3Amt',name:'name117',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH4ClntNm',name:'name118',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH4Amt',name:'name119',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH5ClntNm',name:'name120',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH5Amt',name:'name121',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH6ClntNm',name:'name122',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH6Amt',name:'name123',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH7ClntNm',name:'name124',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH7Amt',name:'name125',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH8ClntNm',name:'name126',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH8Amt',name:'name127',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH9ClntNm',name:'name128',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH9Amt',name:'name129',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH10ClntNm',name:'name130',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH10Amt',name:'name131',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH11ClntNm',name:'name132',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH11Amt',name:'name133',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH12ClntNm',name:'name134',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH12Amt',name:'name135',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH13ClntNm',name:'name136',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH13Amt',name:'name137',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH14ClntNm',name:'name138',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH14Amt',name:'name139',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH15ClntNm',name:'name140',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH15Amt',name:'name141',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL1ClntNm',name:'name142',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL1Amt',name:'name143',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL2ClntNm',name:'name144',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL2Amt',name:'name145',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL3ClntNm',name:'name146',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL3Amt',name:'name147',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL4ClntNm',name:'name148',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL4Amt',name:'name149',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL5ClntNm',name:'name150',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL5Amt',name:'name151',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL6ClntNm',name:'name152',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL6Amt',name:'name153',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL7ClntNm',name:'name154',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL7Amt',name:'name155',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL8ClntNm',name:'name156',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL8Amt',name:'name157',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL9ClntNm',name:'name158',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL9Amt',name:'name159',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL10ClntNm',name:'name160',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL10Amt',name:'name161',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL11ClntNm',name:'name162',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL11Amt',name:'name163',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL12ClntNm',name:'name164',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL12Amt',name:'name165',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL13ClntNm',name:'name166',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL13Amt',name:'name167',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL14ClntNm',name:'name168',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL14Amt',name:'name169',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL15ClntNm',name:'name170',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL15Amt',name:'name171',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisHClntSum',name:'name172',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisLClntSum',name:'name173',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisHClnt',name:'name174',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisLClnt',name:'name175',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisHEtcSum',name:'name176',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisLEtcSum',name:'name177',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH1ClntNm',name:'name178',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH1Amt',name:'name179',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH2ClntNm',name:'name180',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH2Amt',name:'name181',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH3ClntNm',name:'name182',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH3Amt',name:'name183',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH4ClntNm',name:'name184',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH4Amt',name:'name185',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH5ClntNm',name:'name186',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH5Amt',name:'name187',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH6ClntNm',name:'name188',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH6Amt',name:'name189',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH7ClntNm',name:'name190',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH7Amt',name:'name191',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH8ClntNm',name:'name192',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH8Amt',name:'name193',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH9ClntNm',name:'name194',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH9Amt',name:'name195',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH10ClntNm',name:'name196',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH10Amt',name:'name197',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH11ClntNm',name:'name198',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH11Amt',name:'name199',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH12ClntNm',name:'name200',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH12Amt',name:'name201',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH13ClntNm',name:'name202',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH13Amt',name:'name203',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH14ClntNm',name:'name204',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH14Amt',name:'name205',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH15ClntNm',name:'name206',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH15Amt',name:'name207',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL1ClntNm',name:'name208',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL1Amt',name:'name209',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL2ClntNm',name:'name210',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL2Amt',name:'name211',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL3ClntNm',name:'name212',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL3Amt',name:'name213',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL4ClntNm',name:'name214',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL4Amt',name:'name215',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL5ClntNm',name:'name216',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL5Amt',name:'name217',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL6ClntNm',name:'name218',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL6Amt',name:'name219',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL7ClntNm',name:'name220',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL7Amt',name:'name221',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL8ClntNm',name:'name222',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL8Amt',name:'name223',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL9ClntNm',name:'name224',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL9Amt',name:'name225',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL10ClntNm',name:'name226',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL10Amt',name:'name227',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL11ClntNm',name:'name228',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL11Amt',name:'name229',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL12ClntNm',name:'name230',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL12Amt',name:'name231',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL13ClntNm',name:'name232',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL13Amt',name:'name233',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL14ClntNm',name:'name234',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL14Amt',name:'name235',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL15ClntNm',name:'name236',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL15Amt',name:'name237',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumHClntSum',name:'name238',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumLClntSum',name:'name239',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumHClnt',name:'name240',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumLClnt',name:'name241',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumHEtcSum',name:'name242',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumLEtcSum',name:'name243',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fiIngAmt',name:'name244',dataType:'number'}},{T:1,N:'w2:column',A:{id:'coCd',name:'name245',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_multipleExcel',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'ver',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'closeYm',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCdNm',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'slipProcYn',name:'name5',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgntAcctCd',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mgntAcctCdNm',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prtPosSeq',name:'name8',dataType:'number'}},{T:1,N:'w2:column',A:{id:'pageNo',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'colNo',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt',name:'name11',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt01',name:'name12',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt02',name:'name13',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt03',name:'name14',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt04',name:'name15',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt05',name:'name16',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt06',name:'name17',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt07',name:'name18',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt08',name:'name19',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt09',name:'name20',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt10',name:'name21',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt11',name:'name22',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmt12',name:'name23',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmtYy',name:'name24',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltsAmtYy2',name:'name25',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt01',name:'name26',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt02',name:'name27',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt03',name:'name28',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt04',name:'name29',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt05',name:'name30',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt06',name:'name31',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmtYy',name:'name32',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt07',name:'name33',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt08',name:'name34',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt09',name:'name35',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt10',name:'name36',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt11',name:'name37',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt12',name:'name38',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmtYy2',name:'name39',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planAmt',name:'name40',dataType:'number'}},{T:1,N:'w2:column',A:{id:'yearPlanAmt',name:'name41',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bfyyThisAmt',name:'name42',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisPlanAmt',name:'name43',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisRsltsAmt',name:'name44',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisDiffer',name:'name45',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumBfyyThisAmt',name:'name46',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumPlanAmt',name:'name47',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumRsltsAmt',name:'name48',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumDiffer',name:'name49',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmt',name:'name50',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellSumAmt',name:'name51',dataType:'number'}},{T:1,N:'w2:column',A:{id:'variableCost',name:'name52',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fixedCost',name:'name53',dataType:'number'}},{T:1,N:'w2:column',A:{id:'bizDomCd',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizDomNm',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sortSeq',name:'name56',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumBefDiffer',name:'name57',dataType:'number'}},{T:1,N:'w2:column',A:{id:'befDiffer',name:'name58',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planRslt',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizdivNm',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bizdivCd',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy1Prev',name:'name62',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy1',name:'name63',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy1',name:'name64',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy1',name:'name65',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy2Prev',name:'name66',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy2',name:'name67',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy2',name:'name68',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy2',name:'name69',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrUppPrev',name:'name70',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrUpp',name:'name71',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrUpp',name:'name72',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrUpp',name:'name73',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy3Prev',name:'name74',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy3',name:'name75',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy3',name:'name76',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy3',name:'name77',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy4Prev',name:'name78',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrYy4',name:'name79',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrYy4',name:'name80',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy4',name:'name81',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrLowPrev',name:'name82',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planQatrLow',name:'name83',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltQatrLow',name:'name84',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrLow',name:'name85',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltYearLowPrev',name:'name86',dataType:'number'}},{T:1,N:'w2:column',A:{id:'planYearLow',name:'name87',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rsltYearLow',name:'name88',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffYearLow',name:'name89',dataType:'number'}},{T:1,N:'w2:column',A:{id:'amt',name:'name90',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fiCloseAmt',name:'name91',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fiCtrlAmt',name:'name92',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgntCtrlAmt',name:'name93',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgntDistAmt',name:'name94',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisDifferBfyy',name:'name95',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumDifferBfyy',name:'name96',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy1Prev',name:'name97',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy2Prev',name:'name98',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrUppPrev',name:'name99',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy3Prev',name:'name100',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrYy4Prev',name:'name101',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffQatrLowPrev',name:'name102',dataType:'number'}},{T:1,N:'w2:column',A:{id:'diffYearLowPrev',name:'name103',dataType:'number'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'name104',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'name105',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'name106',dataType:'text'}},{T:1,N:'w2:column',A:{id:'corRegNo',name:'name107',dataType:'text'}},{T:1,N:'w2:column',A:{id:'busiNm',name:'name108',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bfyyThisUnAmt',name:'name109',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisUnRsltsAmt',name:'name110',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisUnDiffer',name:'name111',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH1ClntNm',name:'name112',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH1Amt',name:'name113',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH2ClntNm',name:'name114',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH2Amt',name:'name115',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH3ClntNm',name:'name116',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH3Amt',name:'name117',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH4ClntNm',name:'name118',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH4Amt',name:'name119',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH5ClntNm',name:'name120',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH5Amt',name:'name121',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH6ClntNm',name:'name122',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH6Amt',name:'name123',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH7ClntNm',name:'name124',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH7Amt',name:'name125',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH8ClntNm',name:'name126',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH8Amt',name:'name127',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH9ClntNm',name:'name128',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH9Amt',name:'name129',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH10ClntNm',name:'name130',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH10Amt',name:'name131',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH11ClntNm',name:'name132',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH11Amt',name:'name133',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH12ClntNm',name:'name134',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH12Amt',name:'name135',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH13ClntNm',name:'name136',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH13Amt',name:'name137',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH14ClntNm',name:'name138',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH14Amt',name:'name139',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisH15ClntNm',name:'name140',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisH15Amt',name:'name141',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL1ClntNm',name:'name142',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL1Amt',name:'name143',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL2ClntNm',name:'name144',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL2Amt',name:'name145',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL3ClntNm',name:'name146',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL3Amt',name:'name147',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL4ClntNm',name:'name148',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL4Amt',name:'name149',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL5ClntNm',name:'name150',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL5Amt',name:'name151',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL6ClntNm',name:'name152',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL6Amt',name:'name153',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL7ClntNm',name:'name154',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL7Amt',name:'name155',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL8ClntNm',name:'name156',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL8Amt',name:'name157',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL9ClntNm',name:'name158',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL9Amt',name:'name159',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL10ClntNm',name:'name160',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL10Amt',name:'name161',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL11ClntNm',name:'name162',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL11Amt',name:'name163',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL12ClntNm',name:'name164',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL12Amt',name:'name165',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL13ClntNm',name:'name166',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL13Amt',name:'name167',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL14ClntNm',name:'name168',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL14Amt',name:'name169',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisL15ClntNm',name:'name170',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisL15Amt',name:'name171',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisHClntSum',name:'name172',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisLClntSum',name:'name173',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisHClnt',name:'name174',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisLClnt',name:'name175',dataType:'text'}},{T:1,N:'w2:column',A:{id:'thisHEtcSum',name:'name176',dataType:'number'}},{T:1,N:'w2:column',A:{id:'thisLEtcSum',name:'name177',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH1ClntNm',name:'name178',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH1Amt',name:'name179',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH2ClntNm',name:'name180',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH2Amt',name:'name181',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH3ClntNm',name:'name182',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH3Amt',name:'name183',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH4ClntNm',name:'name184',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH4Amt',name:'name185',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH5ClntNm',name:'name186',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH5Amt',name:'name187',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH6ClntNm',name:'name188',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH6Amt',name:'name189',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH7ClntNm',name:'name190',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH7Amt',name:'name191',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH8ClntNm',name:'name192',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH8Amt',name:'name193',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH9ClntNm',name:'name194',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH9Amt',name:'name195',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH10ClntNm',name:'name196',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH10Amt',name:'name197',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH11ClntNm',name:'name198',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH11Amt',name:'name199',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH12ClntNm',name:'name200',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH12Amt',name:'name201',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH13ClntNm',name:'name202',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH13Amt',name:'name203',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH14ClntNm',name:'name204',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH14Amt',name:'name205',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumH15ClntNm',name:'name206',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumH15Amt',name:'name207',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL1ClntNm',name:'name208',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL1Amt',name:'name209',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL2ClntNm',name:'name210',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL2Amt',name:'name211',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL3ClntNm',name:'name212',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL3Amt',name:'name213',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL4ClntNm',name:'name214',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL4Amt',name:'name215',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL5ClntNm',name:'name216',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL5Amt',name:'name217',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL6ClntNm',name:'name218',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL6Amt',name:'name219',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL7ClntNm',name:'name220',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL7Amt',name:'name221',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL8ClntNm',name:'name222',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL8Amt',name:'name223',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL9ClntNm',name:'name224',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL9Amt',name:'name225',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL10ClntNm',name:'name226',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL10Amt',name:'name227',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL11ClntNm',name:'name228',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL11Amt',name:'name229',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL12ClntNm',name:'name230',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL12Amt',name:'name231',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL13ClntNm',name:'name232',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL13Amt',name:'name233',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL14ClntNm',name:'name234',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL14Amt',name:'name235',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumL15ClntNm',name:'name236',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumL15Amt',name:'name237',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumHClntSum',name:'name238',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumLClntSum',name:'name239',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumHClnt',name:'name240',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumLClnt',name:'name241',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sumHEtcSum',name:'name242',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sumLEtcSum',name:'name243',dataType:'number'}},{T:1,N:'w2:column',A:{id:'fiIngAmt',name:'name244',dataType:'number'}},{T:1,N:'w2:column',A:{id:'coCd',name:'name245',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_dept_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text',defaultValue:'ManagementProfitAndLossEBC'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text',defaultValue:''}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param4',name:'name6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param5',name:'name7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param6',name:'name8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param7',name:'name9',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_version_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text',defaultValue:''}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text',defaultValue:''}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_version',saveRemovedData:'true','ev:ondataload':'scwin.ds_version_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'name10',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_countRow_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_closeYm_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_closeYm',saveRemovedData:'true','ev:ondataload':'scwin.ds_closeYm_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'name10',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_countRow',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_dept',saveRemovedData:'true','ev:ondataload':'scwin.ds_dept_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_hidden'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'hid_coClsCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'txtCoClsCd',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_unit',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cdDesc',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cd',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdEngNmAbbr',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'grpCd',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperCdNm',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNmAbbr',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fltrCd3',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdEngNm',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperCd',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sortSeq',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fltrCd1',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fltrCd2',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'useYn',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'name20',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_unit_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'grpCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cd',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cdNm',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_tempCount_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_tempCount',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'name10',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_version',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_version_search',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_closeYm',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_closeYm_search',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_countRow',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_countRow","key":"IN_DS1"},{"id":"ds_countRow","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_countRow","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_search',action:'/ac.co.rsltsmgnt.rsltsanl.RetrieveBizDomPlanComparisonResultsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_master","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_search_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_search2',action:'/ac.co.rsltsmgnt.rsltsanl.RetrieveBizDomPlanComparisonResultsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_master","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_dept',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_dept_search',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_unit',action:'/cm.zz.RetrieveCodeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_unit_search',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_tempCount',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,ds_tempCount_search',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/ac/am/constants/ACConstants.js',type:'text/javascript'}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/cm/fw/constants/DGlobalValue.js',type:'text/javascript'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.onpageload = function () {
+  scwin.sDate = $c.date.getServerDateTime($p, "yyyyMMdd");
+  scwin.strFromDate = scwin.sDate.substring(0, 6);
+  scwin.login = $c.data.getMemInfo($p); // 로그인 정보를 가져온다.
+  scwin.privAdmin = scwin.login.privAdmin; // ADMIN 권한 CHK : 'T' : ADMIN , 'F': ADMIN 아님
+
+  scwin.currentPage = "";
+  scwin.closeMm = $c.date.getServerDateTime($p, "YYYYMM").substr(4, 2);
+  scwin.gSrchGb = "0";
+  scwin.vAggrDeptYn = "0";
+  scwin.vLoginCoCd = $c.gus.cfIsNull($p, scwin.login.coCd) ? "" : scwin.login.coCd; // 소속 자회사  
+  scwin.vLoginCoClsCd = $c.gus.cfIsNull($p, scwin.login.coClsCd) ? "" : scwin.login.coClsCd; //회계_회사구분('CO035' : 0:동부 EXPRESS)
+  scwin.vUserHomeClsCd = scwin.login.userHomeClsCd; // 사용자소속구분코드   
+  scwin.isSubCompany = false;
+  ds_search.set("acctDeptLvl", 0);
+  const codeOptions = [{
+    grpCd: "FI010",
+    compID: "lc_srchBookClsCd",
+    opt: {
+      "range": "1,001"
+    }
+  }];
+  $c.data.setCommonCode($p, codeOptions, scwin.setCommonCodeCallBack);
+};
+scwin.setCommonCodeCallBack = async function () {
+  $c.gus.cfDisableKey($p);
+  scwin.f_setCompanyInfo();
+  scwin.f_FieldClear();
+  scwin.f_GetUnit();
+  lc_clntCnt.setSelectedIndex(0);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  $p.setTimeout(function () {
+    // ica_srchCloseYm.setValue("202501");
+    // ed_srchAcctDeptCd.setValue("00050");
+    // ed_srchAcctDeptCd.focus();
+    // ed_srchAcctDeptCd.blur();
+
+    // ica_srchCloseYm.setValue("202501");
+    // ed_srchAcctDeptCd.setValue("01087");
+    // ed_srchAcctDeptCd.focus();
+    // ed_srchAcctDeptCd.blur();
+
+    // ica_srchCloseYm.setValue("202506");
+    // ed_srchAcctDeptCd.setValue("00009");
+    // ed_srchAcctDeptCd.focus();
+    // ed_srchAcctDeptCd.blur();
+
+    // ica_srchCloseYm.setValue("202512");
+    // ed_srchAcctDeptCd.setValue("00047");
+    // ed_srchAcctDeptCd.focus();
+    // ed_srchAcctDeptCd.blur();
+    // chk_lowerDeptIncluYn.setSelectedIndex(0);
+  }, {
+    "delay": 550
+  });
+};
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = async function () {
+  await $c.gus.cfInitObjects($p, tbl_search, [ica_srchCloseYm, lc_version, ed_coCd, ed_coNm]);
+  scwin.f_SetSrchDefault();
+};
+
+//-------------------------------------------------------------------------
+// 조회 기본값 설정
+//-------------------------------------------------------------------------
+scwin.f_SetSrchDefault = async function () {
+  // $c.gus.cfInitHidVal(tbl_search);
+  ed_coCd.options.hidVal = "";
+  ed_bizDomCd.options.hidVal = "";
+  ed_srchAcctDeptCd.options.hidVal = "";
+
+  //ica_srchCloseYm.getValue() = new Date().format("YYYYMM");
+  await scwin.f_CloseYm();
+  await scwin.f_GetVersion();
+  await scwin.f_SetGridFormat();
+  lc_acctDeptCd.setReadOnly(true);
+  if (scwin.vLoginCoCd == "000") {
+    ed_srchAcctDeptCd.setValue('00000');
+    ed_srchAcctDeptNm.setValue('전사');
+  }
+  lc_srchBookClsCd.focus();
+  ds_search.set("dpctYn", 0);
+};
+
+//-------------------------------------------------------------------------
+// 해당월의 실적이 있는지 여부 확인(True:테이타가 있음, False:데이타가 없음)
+// 해당월의 실적이 없을경우 누적으로 해서 보여주므로 당월 마이너스 실적 나오는것을 막기위함 함수.
+//-------------------------------------------------------------------------
+scwin.f_CountRow = async function () {
+  var ebcId = "ManagementProfitAndLossEBC";
+  var queryId = "retrieveManagementProfitAndLossCountBizDom";
+  var param1 = lc_version.getValue(); // 버전
+  var param2 = ica_srchCloseYm.getValue().trim(); // 결산년월
+  var param3 = ed_coCd.getValue().trim(); // 회사코드
+
+  ds_tempCount_search.set("sysCd", ebcId);
+  ds_tempCount_search.set("queryId", queryId);
+  ds_tempCount_search.set("param1", param1);
+  ds_tempCount_search.set("param2", param2);
+  ds_tempCount_search.set("param3", param3);
+  var rs = await $c.sbm.execute($p, sbm_tempCount);
+  if (rs.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    ds_tempCount.setJSON(rs.responseJSON.GAUCE);
+  }
+  ;
+
+  // 해당년월 버전의 데이타가 있음
+  //if (parseInt(ds_tempCount.NameValue(1,"col1")) > 0 ) {
+  //	return true;
+  //}
+  // 해당년월 버전의 데이타가 없음
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 마지막 마감년월를 구한다.
+//-------------------------------------------------------------------------	
+scwin.f_CloseYm = async function () {
+  var ebcId = "ManagementProfitAndLossEBC";
+  var queryId = "retrieveManagementProfitAndLossCloseYm";
+  // ds_closeYm.DataId = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd="+ebcId +
+  //                                         "&queryId="+queryId ;
+  // ds_closeYm.Reset();
+
+  ds_closeYm_search.set("sysCd", ebcId);
+  ds_closeYm_search.set("queryId", queryId);
+  ds_closeYm_search.set("param3", ed_coCd.getValue());
+  var rs = await $c.sbm.execute($p, sbm_closeYm);
+  if (rs.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    ds_closeYm.setJSON(rs.responseJSON.GAUCE);
+    // co_ds_combo1.sort("code", 0);
+    ica_srchCloseYm.setValue(ds_closeYm.getCellData(0, "col1"));
+  }
+  ;
+};
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_Retrieve2 = async function () {
+  // 해당월의 실적이 있는지 여부 확인(True:테이타가 있음, False:데이타가 없음)
+  if (!scwin.f_CountRow()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  if (ds_dept.getRowCount() <= 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  if (ds_search.get("closeYm") < "200600") {
+    ds_search.set("closeYmYn", "1");
+  } else {
+    ds_search.get("closeYmYn", "0");
+  }
+
+  // 버전이 001일경우는 장부구분의 (자산비용)을 조회 하도록 코드값을 변경한다.
+  if (lc_version.getValue() == "001" || lc_version.getValue() == "000") {
+    // 일반일경우
+    if (lc_srchBookClsCd.getValue() == "601") {
+      ds_search.set("bookClsCd", "621");
+      // 요약일경우
+    } else if (lc_srchBookClsCd.getValue() == "602") {
+      ds_search.set("bookClsCd", "622");
+      // 상세일경우
+    } else if (lc_srchBookClsCd.getValue() == "603") {
+      ds_search.set("bookClsCd", "623");
+    }
+  }
+  if (ed_coCd.getValue() == '000') {
+    ds_search.set("incluYn", 0);
+  } else {
+    ds_search.set("incluYn", 1);
+  }
+  await scwin.f_Export2();
+
+  // 조회 완료후 장부구분의 코드값을 원 코드값으로 변경한다.
+  // 일반일경우
+  if (ds_search.get("bookClsCd") == "621") {
+    ds_search.set("bookClsCd", "601");
+    // 요약일경우
+  } else if (ds_search.get("bookClsCd") == "622") {
+    ds_search.set("bookClsCd", "602");
+    // 상세일경우
+  } else if (ds_search.get("bookClsCd") == "623") {
+    ds_search.set("bookClsCd", "603");
+  }
+};
+
+//---------------------------------------------------------------------------------------
+// 엑셀 Download  <하위부서 Excel Down Load : 하위부서포함한 전체 를 excel 파일로 저장 >--2007.04.17
+//---------------------------------------------------------------------------------------
+scwin.f_Export2 = async function () {
+  var dataList = ds_multipleExcel;
+  var dataListNm = "ds_multipleExcel_";
+
+  // 생성할 데이터리스트 컬럼 세팅 
+  var colInfoJSON = [];
+  for (var i = 0; i < dataList.getTotalCol(); i++) {
+    var colid = dataList.getColumnID(i);
+    var colInfo = {
+      "id": dataList.getColumnID(i),
+      "dataType": dataList.getColumnInfo(colid).dataType,
+      "name": dataList.getColumnName(i)
+    };
+    colInfoJSON.push(colInfo);
+  }
+  ;
+
+  // 파일명 : ex) 사업영역별계획대비실적_시화센터운송_202501_ver_200_하위
+  var fileName = "사업영역별계획대비실적_" + lc_acctDeptCd.getText(true) + "_" + ica_srchCloseYm.getValue() + "_ver_" + lc_version.getValue() + "_하위";
+  // 최종 넘길 json
+  var options = {
+    common: {
+      fileName: fileName + ".xlsx",
+      // [default: excel.xls] 다운로드하려는 파일의 이름
+      showProcess: true,
+      // [default: true] 다운로드 시 프로세스 창을 보여줄지 여부
+      multipleSheet: "true" // [default: true] 다운로드시 dataList별 sheet분리 출력유무
+    },
+    // 시트별 정보
+    excelInfo: []
+  };
+  for (var i = 0; i < ds_dept.getRowCount(); i++) {
+    // for (var i = ds_dept.getRowCount() ; i >= 0 ; i-- ){
+    // 동적 생성할 데이터리스트에 담을 데이터 조회
+    ds_search.set("acctDeptCd", ds_dept.getCellData(i, "col1"));
+    var rs = await $c.sbm.execute($p, sbm_search2);
+    if (rs.responseJSON.resultDataSet[0].Msg == "SUCC") {
+      var rowCnt = ds_master.getRowCount();
+      if (rowCnt == 0) {
+        await $c.gus.cfAlertMsg($p, MSG_CM_ERR_003);
+      }
+    }
+    if (ds_master.getRowCount() == 0) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+      continue;
+    }
+
+    // 동적 생성할 데이터 리스트 정보
+    var dsName = dataListNm;
+    var dataListId = dsName + i;
+    var dltObj = $c.util.getComponent($p, dataListId);
+    if (!$c.util.isEmpty($p, dltObj)) {
+      $p.data.remove(dataListId); // 이미생성된 데이터리스트 삭제
+    }
+    var dltOptions = {
+      baseNode: "list",
+      repeatNode: "map",
+      saveRemovedData: "true"
+    };
+    var dataCollectionJSON = {
+      id: dataListId,
+      type: "dataList",
+      option: {
+        "baseNode": dltOptions.baseNode || "list",
+        "repeatNode": dltOptions.repeatNode || "map",
+        "saveRemovedData": dltOptions.saveRemovedData || "true"
+      },
+      columnInfo: colInfoJSON
+    };
+    // 동적생성
+    $p.data.create(dataCollectionJSON);
+    var codeDataObj = $c.util.getComponent($p, dataListId);
+
+    // 동적생성된 데이터리스트에 값 입력
+    codeDataObj.setJSON(ds_master.getAllJSON());
+
+    // 그리드 동적생성
+    var idx = await gen_gridView1.insertChildAsync();
+    var grdObj = $p.getComponentById(gen_gridView1.getChildren()[idx].id);
+    var grdObjId = grdObj.getOriginalID();
+    var gr_target = '<w2:gridView xmlns:w2="http://www.inswave.com/websquare" xmlns:ev="http://www.w3.org/2001/xml-events"';
+    gr_target += '    autoFit="none" checkAllType="false" class="wq_gvw" dataList="data:' + codeDataObj.org_id + '"';
+    gr_target += '    id="' + grdObjId + '" style="" visibleRowNum="13" visibleRowNumFix="true" readOnly="true">';
+    gr_target += '    <w2:caption style="" id="caption3" value="this is a grid caption."></w2:caption>';
+    gr_target += '    <w2:header style="" id="header2">';
+    gr_target += '        <w2:row style="" id="row6">';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2260" value="계정" displayMode="label" rowSpan="2"></w2:column>';
+    gr_target += '            <w2:column width="70" inputType="text" id="column2259" value="계정" displayMode="label" rowSpan="2"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2258" value="년간계획" displayMode="label" rowSpan="2"></w2:column>';
+    gr_target += '            <w2:column width="7810" inputType="text" id="h_thisMm" value="당월" displayMode="label" colSpan="9" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="7840" inputType="text" id="h_cum" value="누계" displayMode="label" colSpan="9" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="620" inputType="text" id="column2115" value="1/4분기" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="600" inputType="text" id="column2110" value="2/4분기" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="620" inputType="text" id="column2105" value="상반기" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="620" inputType="text" id="column2100" value="3/4분기" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="600" inputType="text" id="column2095" value="4/4분기" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="600" inputType="text" id="column2090" value="하반기" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="600" inputType="text" id="column2085" value="년계" displayMode="label" colSpan="5" sortable="false"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column2080" value="계정" displayMode="label" rowSpan="2"></w2:column>';
+    gr_target += '        </w2:row>';
+    gr_target += '        <w2:row style="" id="row4">';
+    gr_target += '            <w2:column width="110" inputType="text" id="column712" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column711" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column710" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column709" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column708" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column707" value="증가액" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column706" value="거래처" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column705" value="감소액" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column704" value="거래처" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column639" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column638" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column637" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column641" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column640" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column636" value="증가액" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column635" value="거래처" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column634" value="감소액" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column633" value="거래처" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column570" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column569" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column568" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column567" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column566" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column1064" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="column1049" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column1052" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column1055" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column1058" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column565" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column564" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column563" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column562" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column561" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column560" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column559" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column558" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column557" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="130" inputType="text" id="column556" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column555" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column554" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column553" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column552" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column551" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column1067" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column1079" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column1076" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column1073" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column1070" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2067" value="전기" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2079" value="계획" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2076" value="실적" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2073" value="전기대비증감" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="column2070" value="계획대비증감" displayMode="label"></w2:column>';
+    gr_target += '        </w2:row>';
+    gr_target += '    </w2:header>';
+    gr_target += '    <w2:gBody style="" id="gBody2">';
+    gr_target += '        <w2:row style="" id="row5">';
+    gr_target += '            <w2:column width="120" inputType="text" id="mgntAcctCdNm" displayMode="label" textAlign="left"></w2:column>';
+    gr_target += '            <w2:column width="70" inputType="text" id="mgntAcctCd" displayMode="label"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="yearPlanAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="bfyyThisAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisPlanAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisRsltsAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisDifferBfyy" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisDiffer" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisHClntSum" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisHClnt" displayMode="label" textAlign="left"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisLClntSum" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="thisLClnt" displayMode="label" textAlign="left"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="sumBfyyThisAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="sumPlanAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="sumRsltsAmt" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="sumDifferBfyy" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="sumDiffer" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="sumHClntSum" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="sumHClnt" displayMode="label" textAlign="left"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="sumLClntSum" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="sumLClnt" displayMode="label" textAlign="left"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy1Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="planQatrYy1" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy1" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy1Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy1" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="rsltQatrYy2Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="planQatrYy2" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy2" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy2Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy2" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrUppPrev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="planQatrUpp" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrUpp" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrUppPrev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrUpp" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy3Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="planQatrYy3" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy3" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy3Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy3" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy4Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="planQatrYy4" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrYy4" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy4Prev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrYy4" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrLowPrev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="planQatrLow" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltQatrLow" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrLowPrev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffQatrLow" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltYearLowPrev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="planYearLow" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="rsltYearLow" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffYearLowPrev" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="120" inputType="text" id="diffYearLow" displayMode="label" textAlign="right" displayFormat="#,##0" dataType="number" excelCellType="number"></w2:column>';
+    gr_target += '            <w2:column width="110" inputType="text" id="slipProcYn" displayMode="label" textAlign="left"></w2:column>';
+    gr_target += '        </w2:row>';
+    gr_target += '    </w2:gBody>';
+    gr_target += '</w2:gridView>';
+    grdObj.setGridStyle(gr_target);
+
+    // 값 포멧 적용
+    var setGrdObj = $p.getComponentById(grdObjId);
+    for (j = 0; j < codeDataObj.getTotalCol(); j++) {
+      var colid = codeDataObj.getColumnID(j);
+      var type = codeDataObj.getColumnInfo(colid).dataType;
+
+      // if (ds_master.ColumnType(j) == 2 || ds_master.ColumnType(j) == 3) {
+      if (type == "number") {
+        var useIndex = setGrdObj.getColumnIndex(colid);
+        if (useIndex >= 0) {
+          setGrdObj.setColumnDisplayFormatter(colid, scwin.unitFormatt);
+        }
+      }
+      ;
+    }
+
+    // 비율을 구한다.
+    await scwin.f_Rate(codeDataObj);
+    //당월 거래처 표기 재설정
+    await scwin.f_SetGridThisClntView(codeDataObj);
+    //누계 거래처 표기 재설정
+    await scwin.f_SetGridSumClntView(codeDataObj);
+
+    // color_underline style
+    var targetArr = ["bfyyThisAmt", "thisRsltsAmt", "thisDifferBfyy", "sumDifferBfyy"];
+    for (var j = 0; j < targetArr.length; j++) {
+      setGrdObj.setColumnStyle(targetArr[j], "text-decoration", "underline");
+      setGrdObj.setColumnStyle(targetArr[j], "color", "blue");
+      setGrdObj.setColumnStyle(targetArr[j], "cursor", "pointer");
+    }
+
+    ////// excel Info
+    var acctDeptCd = ds_dept.getCellData(i, "col2");
+    // 타이틀1 : ex) 시화센터(202501)
+    var title1 = acctDeptCd + "(" + ica_srchCloseYm.getValue() + ")";
+    // 타이틀2 : ex) 단위_천원
+    var title2 = '단위_' + lc_unit.getText(true);
+    // 시트명 : ex) 시화센터
+    var sheetTitle = acctDeptCd.trim().replace('/', '');
+    var json = {
+      gridId: setGrdObj.getID() // [default: 없음] excel의 sheet에 저장한 GridView의 아이디
+      ,
+      sheetName: sheetTitle // [default: sheet] excel의 sheet의 이름
+      ,
+      startRowIndex: 4 // [default: 0] excel파일에서 dataList의 데이터가 시작되는 행의 번호(헤더 포함)
+      ,
+      startColumnIndex: 0 // [default: 0] excel파일에서 dataList의 데이터가 시작되는 열의 번호(헤더 포함)
+      ,
+      headerColor: "#d9d9d9" // [default: #33CCCC] excel파일에서 dataList의 header부분의 색
+      ,
+      headerFontName: "굴림체" // [default: 없음] excel파일에서 dataList의 header부분의 font name
+      ,
+      useDataFormat: true,
+      decimal: "auto",
+      type: "1"
+
+      // , removeColumns     :			            // [default: 없음] 다운로드시 excel에서 삭제하려는 열의 번호(여러 개일 경우 ,로 구분)
+      // , foldColumns       :			            // [default: 없음] 다운로드시 excel에서 fold하려는 열의 번호(여러 개일 경우 ,로 구분)
+      // , pageFrameId       :			            // [default: 현재 pageFrame Id] DataList가 위치한 pageFrame Id 정보
+      ,
+      infoArr: [{
+        rowIndex: 0 // 내용을 표시할 행번호
+        ,
+        colIndex: 0 // 내용을 표시할 열번호
+        ,
+        rowSpan: 1 // 병합할 행의 수
+        ,
+        colSpan: 57 // 병합할 열의 수
+        ,
+        text: title1 // 표시할 내용
+        ,
+        textAlign: "center" // 표시할 내용의 정렬 방법 (left, center, right)
+        ,
+        fontSize: 30 // font size 설정 ( ex) "20px" )
+        ,
+        fontName: "돋움채" // font name 설정
+        ,
+        drawBorder: true // cell의 border 지정 ( ex) true )
+        ,
+        fontWeight: "bold" // font weight 설정 ( ex) "bold" )
+        // , color      : 			// font color 설정 ( ex) "red" )
+        // , wordWrap   : 		    // cell의 줄 바꿈 기능 ( ex) "true" )
+      }, {
+        rowIndex: 3 // 내용을 표시할 행번호
+        ,
+        colIndex: 0 // 내용을 표시할 열번호
+        ,
+        rowSpan: 1 // 병합할 행의 수
+        ,
+        colSpan: 57 // 병합할 열의 수
+        ,
+        text: title2 // 표시할 내용
+        ,
+        textAlign: "right" // 표시할 내용의 정렬 방법 (left, center, right)
+        ,
+        fontSize: 12 // font size 설정 ( ex) "20px" )
+        ,
+        fontName: "돋움채" // font name 설정
+        ,
+        drawBorder: true // cell의 border 지정 ( ex) true )
+        // , color      : 			// font color 설정 ( ex) "red" )
+        // , fontWeight : 	        // font weight 설정 ( ex) "bold" )
+        // , wordWrap   : 		    // cell의 줄 바꿈 기능 ( ex) "true" )
+      }]
+    };
+    options.excelInfo.push(json);
+  }
+  $c.data.downloadMultipleGridView($p, options);
+};
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  // 해당월의 실적이 있는지 여부 확인(True:테이타가 있음, False:데이타가 없음)
+  if (!scwin.f_CountRow()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  scwin.gSrchGb = "1";
+
+  // 버전이 001일경우는 장부구분의 (자산비용)을 조회 하도록 코드값을 변경한다.
+  if (lc_version.getValue() == "001" || lc_version.getValue() == "000") {
+    // 일반일경우
+    if (lc_srchBookClsCd.getValue() == "601") {
+      ds_search.set("bookClsCd", "621");
+      // 요약일경우
+    } else if (lc_srchBookClsCd.getValue() == "602") {
+      ds_search.set("bookClsCd", "622");
+      // 상세일경우
+    } else if (lc_srchBookClsCd.getValue() == "603") {
+      ds_search.set("bookClsCd", "623");
+    }
+  }
+  if (ds_search.get("closeYm") < "200600") {
+    ds_search.set("closeYmYn", "1");
+  } else {
+    ds_search.set("closeYmYn", "0");
+  }
+  ds_search.set("acctDeptCd", lc_acctDeptCd.getValue());
+  ds_search.set("bizDomCd", ed_bizDomCd.getValue());
+  // ds_search.UseChangeInfo = false;
+
+  // await $c.win.alert(ds_search.getValue());
+  if (ed_coCd.getValue() == '000') {
+    ds_search.set("incluYn", 0);
+  } else {
+    ds_search.set("incluYn", 1);
+  }
+  $c.sbm.execute($p, sbm_search);
+
+  // 조회 완료후 장부구분의 코드값을 원 코드값으로 변경한다.
+  // 일반일경우
+  if (ds_search.get("bookClsCd") == "621") {
+    ds_search.set("bookClsCd", "601");
+    // 요약일경우
+  } else if (ds_search.get("bookClsCd") == "622") {
+    ds_search.set("bookClsCd", "602");
+    // 상세일경우
+  } else if (ds_search.get("bookClsCd") == "623") {
+    ds_search.set("bookClsCd", "603");
+  }
+
+  // if (chk_ExcelSheetYn.checked == true )
+  // 	f_Export2()
+};
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUp = async function (udcComp, paramArray) {
+  var codeObj = paramArray.pCode;
+  var nameObj = paramArray.pName;
+  udcComp.setSelectId(paramArray.pSelectID);
+  await udcComp.cfCommonPopUp(async function (rtnList) {
+    if (rtnList != null) {
+      if (rtnList[0] != "N/A") {
+        $c.gus.cfSetValue($p, codeObj, rtnList[0]);
+        $c.gus.cfSetValue($p, nameObj, rtnList[1]);
+        codeObj.options.hidVal = rtnList[0];
+      }
+    } else {
+      $c.gus.cfSetValuecfSetValue($p, codeObj, "");
+      $c.gus.cfSetValuecfSetValue($p, nameObj, "");
+      codeObj.options.hidVal = "";
+    }
+    return rtnList;
+  }, $c.gus.cfGetValue($p, codeObj), "", scwin.f_EventCheck(), paramArray.pDispCnt, paramArray.pTitle, paramArray.pWidth, paramArray.pHidden, paramArray.pWhere, paramArray.pW, paramArray.pH, paramArray.pTop, paramArray.pLeft, paramArray.pExistTF, paramArray.pAllSearchTF, paramArray.pWtitleSearch);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 여부 검사
+//-------------------------------------------------------------------------
+scwin.f_IsPopUp = async function (inObj) {
+  var inValue = $c.gus.cfGetValue($p, inObj);
+  var hidValue = inObj.options.hidVal;
+  if (await $c.gus.cfIsNull($p, inValue)) {
+    inObj.options.hidVal = "";
+    for (var i = 0; i < scwin.f_IsPopUp.arguments.length; i++) {
+      $c.gus.cfSetValue($p, scwin.f_IsPopUp.arguments[i], "");
+    }
+    return false;
+  }
+  if (inValue == hidValue) return false;
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 팝업 이벤트에 따라 팝업창의 자동닫기 여부를 반환
+//-------------------------------------------------------------------------
+scwin.f_EventCheck = function () {
+  if (window.event != null && window.event.srcElement.tagName.toUpperCase() == "IMG") {
+    return 'F';
+  } else {
+    return 'T';
+  }
+};
+
+//-------------------------------------------------------------------------
+// 부서코드팝업
+//-------------------------------------------------------------------------
+scwin.f_deptPopUp = async function () {
+  var paramArray = new Object();
+  //<--<수정_070105_신종민> 귀속변경에 따른 병행처리 수정
+  if (ica_srchCloseYm.getValue().substring(0, 4).trim() == '2006') {
+    paramArray.pSelectID = 'retrieveAcctDeptCdInfoBef';
+  } else {
+    paramArray.pSelectID = 'retrieveAcctDeptCdInfo';
+  }
+  ;
+  //->
+  paramArray.pCode = ed_srchAcctDeptCd;
+  paramArray.pName = ed_srchAcctDeptNm;
+  paramArray.pW = "410";
+  paramArray.pWhere = ds_search.get("closeYm") + ",,,,,,,,," + ed_coCd.getValue();
+
+  // scwin.f_PopUp
+  // var rtnList = await scwin.f_PopUp(udc_srchAcctDept, paramArray);
+  var codeObj = paramArray.pCode;
+  var nameObj = paramArray.pName;
+
+  // udcComp.setSelectId(paramArray.pSelectID);
+  // udcComp.cfCommonPopUp(function(rtnList){
+  udc_srchAcctDept.setSelectId(paramArray.pSelectID);
+  udc_srchAcctDept.cfCommonPopUp(function (rtnList) {
+    if (rtnList != null) {
+      if (rtnList[0] != "N/A") {
+        $c.gus.cfSetValue($p, codeObj, rtnList[0]);
+        $c.gus.cfSetValue($p, nameObj, rtnList[1]);
+        codeObj.options.hidVal = rtnList[0];
+      }
+    } else {
+      $c.gus.cfSetValuecfSetValue($p, codeObj, "");
+      $c.gus.cfSetValuecfSetValue($p, nameObj, "");
+      codeObj.options.hidVal = "";
+    }
+    // return rtnList;
+    if (rtnList != null) {
+      ds_search.set("acctDeptLvl", rtnList[6]);
+      scwin.vAggrDeptYn = rtnList[8];
+    } else {
+      ds_search.set("acctDeptLvl", 0);
+    }
+  }, $c.gus.cfGetValue($p, codeObj), "", scwin.f_EventCheck(), paramArray.pDispCnt, paramArray.pTitle, paramArray.pWidth, paramArray.pHidden, paramArray.pWhere, paramArray.pW, paramArray.pH, paramArray.pTop, paramArray.pLeft, paramArray.pExistTF, paramArray.pAllSearchTF, paramArray.pWtitleSearch);
+};
+
+//-------------------------------------------------------------------------
+// 사업영역코드팝업
+//-------------------------------------------------------------------------
+scwin.f_BizDomPopUp = function () {
+  var paramArray = new Object();
+  paramArray.pSelectID = 'retrieveBizDomCdInfo';
+  paramArray.pCode = ed_bizDomCd;
+  paramArray.pName = ed_bizDomNm;
+  paramArray.pW = "410";
+
+  // scwin.f_PopUp
+  // var rtnList = await scwin.f_PopUp(udc_bizDom, paramArray);
+  var codeObj = paramArray.pCode;
+  var nameObj = paramArray.pName;
+
+  // udcComp.setSelectId(paramArray.pSelectID);
+  // udcComp.cfCommonPopUp(function(rtnList){
+  udc_bizDom.setSelectId(paramArray.pSelectID);
+  udc_bizDom.cfCommonPopUp(function (rtnList) {
+    if (rtnList != null) {
+      if (rtnList[0] != "N/A") {
+        $c.gus.cfSetValue($p, codeObj, rtnList[0]);
+        $c.gus.cfSetValue($p, nameObj, rtnList[1]);
+        codeObj.options.hidVal = rtnList[0];
+      }
+    } else {
+      $c.gus.cfSetValuecfSetValue($p, codeObj, "");
+      $c.gus.cfSetValuecfSetValue($p, nameObj, "");
+      codeObj.options.hidVal = "";
+    }
+    // return rtnList;
+    if (rtnList != null) {
+      ds_search.set("bizDomCd", rtnList[4]);
+    } else {
+      ds_search.set("bizDomCd", 0);
+    }
+  }, $c.gus.cfGetValue($p, codeObj), "", scwin.f_EventCheck(), paramArray.pDispCnt, paramArray.pTitle, paramArray.pWidth, paramArray.pHidden, paramArray.pWhere, paramArray.pW, paramArray.pH, paramArray.pTop, paramArray.pLeft, paramArray.pExistTF, paramArray.pAllSearchTF, paramArray.pWtitleSearch);
+};
+
+//-------------------------------------------------------------------------
+// 버전정보를 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetVersion = async function () {
+  ds_version_search.set("sysCd", "CommonEBC");
+  ds_version_search.set("queryId", "retrieveVersionInfo");
+  ds_version_search.set("param1", ica_srchCloseYm.getValue().trim());
+  var rs = await $c.sbm.execute($p, sbm_version);
+  if (rs.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    ds_version.setJSON(rs.responseJSON.GAUCE);
+    scwin.f_SetFinalVer();
+  }
+  ;
+};
+
+//-------------------------------------------------------------------------
+// 실적부서를 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetRsltsDept = async function () {
+  // ds_dept event=OnLoadCompleted(rowCnt)>
+  if (!(await $c.gus.cfValidate($p, [tbl_search]))) return;
+  if (ed_bizDomCd.getValue() == "") {
+    ds_dept_search.set("sysCd", "ManagementProfitAndLossEBC");
+    ds_dept_search.set("queryId", "retrievePlanComparisonResultsAcctDept");
+    ds_dept_search.set("param1", ed_srchAcctDeptCd.getValue());
+    ds_dept_search.set("param2", ds_search.get("closeYm"));
+    ds_dept_search.set("param3", ds_search.get("lowerDeptIncluYn"));
+    ds_dept_search.set("param4", ds_search.get("acctDeptLvl"));
+    ds_dept_search.set("param5", ds_search.get("ver"));
+    ds_dept_search.set("param6", ds_search.get("dpctYn"));
+    ds_dept_search.set("param7", ed_coCd.getValue());
+  } else {
+    ds_dept_search.set("sysCd", "ManagementProfitAndLossEBC");
+    ds_dept_search.set("queryId", "retrievePlanComparisonResultsBizDom");
+    ds_dept_search.set("param1", ed_srchAcctDeptCd.getValue());
+    ds_dept_search.set("param2", ds_search.get("closeYm"));
+    ds_dept_search.set("param3", ds_search.get("lowerDeptIncluYn"));
+    ds_dept_search.set("param4", ds_search.get("acctDeptLvl"));
+    ds_dept_search.set("param5", ed_bizDomCd.getValue());
+    ds_dept_search.set("param6", ds_search.get("dpctYn"));
+    ds_dept_search.set("param7", ed_coCd.getValue());
+  }
+  var rs = await $c.sbm.execute($p, sbm_dept);
+  if (rs.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    ds_dept.setJSON(rs.responseJSON.GAUCE);
+    var rowCnt = ds_dept.getAllJSON();
+    if (rowCnt < 1) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+      return;
+    }
+    scwin.f_Retrieve();
+  }
+  ;
+};
+
+//-------------------------------------------------------------------------
+// 최종 Ver을 설정
+//-------------------------------------------------------------------------
+scwin.f_SetFinalVer = function () {
+  if (ds_version.getRowCount() < 1) return;
+  for (i = 0; i < ds_version.getRowCount(); i++) {
+    if (ds_version.getCellData(i, "col3") == DGlobalValue.TRUE) {
+      lc_version.setSelectedIndex(i);
+      break;
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 금액단위를 구한다.
+//-------------------------------------------------------------------------
+scwin.f_GetUnit = async function () {
+  ds_unit_search.set("grpCd", "CO012");
+  ds_unit_search.set("cd", "");
+  ds_unit_search.set("cdNm", "");
+  var rs = await $c.sbm.execute($p, sbm_unit);
+  if (rs.responseJSON.resultDataSet[0].Msg == "SUCC") {
+    ds_unit.setJSON(rs.responseJSON.GAUCE);
+    // co_ds_combo1.sort("code", 0);
+    scwin.f_SetDefaultUnit();
+  }
+  ;
+};
+
+//-------------------------------------------------------------------------
+// Default Unit 을 설정
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultUnit = function () {
+  if (ds_unit.getRowCount() < 1) return;
+  var index = 0;
+  for (i = 0; i < ds_unit.getRowCount(); i++) {
+    if (ds_unit.getCellData(i, "fltrCd1") == DGlobalValue.TRUE) {
+      lc_unit.setSelectedIndex(i);
+      break;
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 컬럼의 금액단위를 설정한다.
+//-------------------------------------------------------------------------
+scwin.f_SetGridUnit = async function () {
+  // gr_master.Redraw = "false";
+  for (i = 0; i < ds_master.getTotalCol(); i++) {
+    var colid = ds_master.getColumnID(i);
+    var type = ds_master.getColumnInfo(colid).dataType;
+
+    // if (ds_master.ColumnType(i) == 2 || ds_master.ColumnType(i) == 3) {
+    if (type == "number") {
+      var useIndex = gr_master.getColumnIndex(colid);
+      if (useIndex >= 0) {
+        gr_master.setColumnDisplayFormatter(colid, scwin.unitFormatt);
+      }
+    }
+    ;
+  }
+  // gr_master.Redraw = "true";
+
+  // 비율을 구한다.
+  await scwin.f_Rate(ds_master);
+  //당월 거래처 표기 재설정
+  await scwin.f_SetGridThisClntView(ds_master);
+  //누계 거래처 표기 재설정
+  await scwin.f_SetGridSumClntView(ds_master);
+};
+scwin.unitFormatt = function (dataVal) {
+  if ($c.gus.cfIsNull($p, dataVal) || !$c.num.isNumber($p, dataVal)) {
+    return "0";
+  } else {
+    var setVal = dataVal / lc_unit.getValue();
+    if (dataVal == 0) {
+      return "0";
+    } else {
+      if (Math.round(setVal, 0) == 0 && dataVal < 0) {
+        return "0";
+      } else {
+        return $c.num.formatNumber($p, Math.round(setVal, 0), 0);
+      }
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 Download
+//-------------------------------------------------------------------------
+scwin.f_Export = async function () {
+  if (ds_master.getRowCount() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  if (await $c.win.confirm($p, "Excel로 다운로드 하시겠습니까?")) {
+    //fileName = '사업영역별계획대비실적_' + lc_acctDeptCd.getValue() + "_" + ica_srchCloseYm.getValue() + "_ver" + lc_version.getValue();
+    fileName = '사업영역별계획대비실적';
+
+    // cfGridToExcel(gr_master,fileName,fileName,2+8+16);
+    const infoArr = [];
+    const options = {
+      fileName: "사업영역별계획대비실적.xlsx",
+      //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+      sheetName: "사업영역별계획대비실적",
+      type: "1"
+      // startRowIndex: 2,
+      // removeColumns: "0,21",
+      // hiddenVisible : true,
+      // useSubTotal :"true", 
+      // useSubTotalData  : "true",
+      // oddRowBackgroundColor  : "",                        // excel파일에서 그리드 body의 홀수줄의 배경색
+      // evenRowBackgroundColor : "#F5FFF5"                  // excel파일에서 그리드 body의 짝수줄의 배경색
+    };
+    $c.data.downloadGridViewExcel($p, gr_master, options, infoArr);
+  }
+};
+
+// //---------------------------------------------------------------------------------------
+// // 엑셀 Download  <하위부서 Excel Down Load : 하위부서포함한 전체 를 excel 파일로 저장 >--2007.04.17
+// //---------------------------------------------------------------------------------------
+// function f_Export2(acctDeptCd){
+//     if (ds_master.getRowCount() == 0) {
+//         await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+//         return;
+//     }
+//     var sheetTitle;
+//     sheetTitle = acctDeptCd + "(" + ica_srchCloseYm.getValue() + ")" ;
+//     sheetTitle2 = '단위_' + lc_unit.getValue();
+//     //await $c.win.alert(sheetTitle);
+//     gr_master.SetExcelTitle(0, "");
+//     gr_master.SetExcelTitle(1, "value:"+sheetTitle+";"  // 표시할 타이틀
+//                                     + "font-face:'굴림체';" // 폰트
+//                                     + "font-size:30pt;"    // 폰트 크기
+//                                     + "font-color:black;"  // 폰트 색깔
+//                                     + "font-bold;"
+//                                     + "bgcolor:white;"   // 배경 색깔
+//                                     + "align:center;"      // 정렬
+//                                     + "line-color:black;"  // 타이틀 부분 테두리선 색깔
+//                                     + "line-width:2pt;"    // 타이틀 테두리선 굵기
+//                                     + "skiprow:2;");       // 타이틀 다음 떼는 로우 수
+//     gr_master.SetExcelTitle(1, "value:"+sheetTitle2+";"  // 표시할 타이틀
+//                                     + "font-face:'굴림체';" // 폰트
+//                                     + "font-size:12pt;"    // 폰트 크기
+//                                     + "font-color:black;"  // 폰트 색깔
+//                                     + "bgcolor:#ffffff;"   // 배경 색깔
+//                                     + "align:right;"      // 정렬
+//                                     + "line-color:black;"  // 타이틀 부분 테두리선 색깔
+//                                     + "line-width:1pt;"    // 타이틀 테두리선 굵기
+//                                     + "skiprow:0;");       // 타이틀 다음 떼는 로우 수		
+//     fileName =  "C:\\Debis_관리회계\\사업영역별계획대비실적_" +lc_acctDeptCd.getValue() + "_" +ica_srchCloseYm.getValue() + "_ver_" + lc_version.getValue()+"_하위"+".xls";
+//     if  (ds_dept.NameString(ds_dept.getRowCount(),"COL2") == acctDeptCd)
+//         {
+//             var l_option = 0;
+//                 l_option = 2+8+16;
+//         }
+//         else
+//         {
+//             var l_option = 0;
+//                 l_option = 2+8+32;
+//         }
+//     var sheetTitle_dept;
+//     sheetTitle_dept =  acctDeptCd.trim().replace('/','')
+//     gr_master.GridToExcel(sheetTitle_dept,fileName,l_option);
+// }
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_SetGridFormat = function () {
+  gr_master.setHeaderValue("h_thisMm", ica_srchCloseYm.getValue().substr(4, 6) + " 당월");
+  gr_master.setHeaderValue("h_cum", ica_srchCloseYm.getValue().substr(4, 6) + " 누계");
+};
+
+//-------------------------------------------------------------------------
+// 금액을 재설정한다.
+//-------------------------------------------------------------------------
+scwin.f_Rate = async function (dataList) {
+  // gr_master.Redraw = "false";
+  // 사용변수 선언
+  var sellAmt = 0;
+  var sellAmt1 = 0;
+  var sellAmt2 = 0;
+  var sellAmt3 = 0;
+  var sellAmt4 = 0;
+  var sellAmt5 = 0;
+  var sellAmt6 = 0;
+  var sellAmt7 = 0;
+  var sellAmt8 = 0;
+  var sellAmt9 = 0;
+  var sellAmt10 = 0;
+  var sellAmt10 = 0;
+  var sellAmt11 = 0;
+  var sellAmt12 = 0;
+  var sellAmt13 = 0;
+  var sellAmt14 = 0;
+  var sellAmt15 = 0;
+  var sellAmt16 = 0;
+  var sellAmt17 = 0;
+  var sellAmt18 = 0;
+  var sellAmt19 = 0;
+  var sellAmt20 = 0;
+  var sellAmt21 = 0;
+  var sellAmt22 = 0;
+  var sellAmt23 = 0;
+  var sellAmt24 = 0;
+  var sellAmt25 = 0;
+  var sellAmt26 = 0;
+  var sellAmt27 = 0;
+  var sellAmt28 = 0;
+  var sellAmt29 = 0;
+  var sellAmt30 = 0;
+  var sellAmt31 = 0;
+  var sellAmt32 = 0;
+  var sellAmt33 = 0;
+  var sellAmt34 = 0;
+  var sellAmt35 = 0;
+  var sellAmt36 = 0;
+  var sellAmt37 = 0;
+  var sellCostSum = 0;
+  var sellCost1 = 0;
+  var sellCost2 = 0;
+  var sellCost3 = 0;
+  var sellCost4 = 0;
+  var sellCost5 = 0;
+  var sellCost6 = 0;
+  var sellCost7 = 0;
+  var sellCost8 = 0;
+  var sellCost9 = 0;
+  var sellCost10 = 0;
+  var sellCost10 = 0;
+  var sellCost11 = 0;
+  var sellCost12 = 0;
+  var sellCost13 = 0;
+  var sellCost14 = 0;
+  var sellCost15 = 0;
+  var sellCost16 = 0;
+  var sellCost17 = 0;
+  var sellCost18 = 0;
+  var sellCost19 = 0;
+  var sellCost20 = 0;
+  var sellCost21 = 0;
+  var sellCost22 = 0;
+  var sellCost23 = 0;
+  var sellCost24 = 0;
+  var sellCost25 = 0;
+  var sellCost26 = 0;
+  var sellCost27 = 0;
+  var sellCost28 = 0;
+  var sellCost29 = 0;
+  var sellCost30 = 0;
+  var sellCost31 = 0;
+  var sellCost32 = 0;
+  var sellCost33 = 0;
+  var sellCost34 = 0;
+  var sellCost35 = 0;
+  var sellCost36 = 0;
+  var sellCost37 = 0;
+  var salesCostSum = 0;
+  var salesCost1 = 0;
+  var salesCost2 = 0;
+  var salesCost3 = 0;
+  var salesCost4 = 0;
+  var salesCost5 = 0;
+  var salesCost6 = 0;
+  var salesCost7 = 0;
+  var salesCost8 = 0;
+  var salesCost9 = 0;
+  var salesCost10 = 0;
+  var salesCost11 = 0;
+  var salesCost12 = 0;
+  var salesCost13 = 0;
+  var salesCost14 = 0;
+  var salesCost15 = 0;
+  var salesCost16 = 0;
+  var salesCost17 = 0;
+  var salesCost18 = 0;
+  var salesCost19 = 0;
+  var salesCost20 = 0;
+  var salesCost21 = 0;
+  var salesCost22 = 0;
+  var salesCost23 = 0;
+  var salesCost24 = 0;
+  var salesCost25 = 0;
+  var salesCost26 = 0;
+  var salesCost27 = 0;
+  var salesCost28 = 0;
+  var salesCost29 = 0;
+  var salesCost30 = 0;
+  var salesCost31 = 0;
+  var salesCost32 = 0;
+  var salesCost33 = 0;
+  var salesCost34 = 0;
+  var salesCost35 = 0;
+  var salesCost36 = 0;
+  var salesCost37 = 0;
+  var mwoundSum = 0;
+  var mwound1 = 0;
+  var mwound2 = 0;
+  var mwound3 = 0;
+  var mwound4 = 0;
+  var mwound5 = 0;
+  var mwound6 = 0;
+  var mwound7 = 0;
+  var mwound8 = 0;
+  var mwound9 = 0;
+  var mwound10 = 0;
+  var mwoubd11 = 0;
+  var mwoubd12 = 0;
+  var mwoubd13 = 0;
+  var mwoubd14 = 0;
+  var mwoubd15 = 0;
+  var mwoubd16 = 0;
+  var mwoubd17 = 0;
+  var mwoubd18 = 0;
+  var mwoubd19 = 0;
+  var mwoubd20 = 0;
+  var mwoubd21 = 0;
+  var mwoubd22 = 0;
+  var mwoubd23 = 0;
+  var mwoubd24 = 0;
+  var mwoubd25 = 0;
+  var mwoubd26 = 0;
+  var mwoubd27 = 0;
+  var mwoubd28 = 0;
+  var mwoubd29 = 0;
+  var mwoubd30 = 0;
+  var mwoubd31 = 0;
+  var mwoubd32 = 0;
+  var mwoubd33 = 0;
+  var mwoubd34 = 0;
+  var mwoubd35 = 0;
+  var mwoubd36 = 0;
+  var mwoubd37 = 0;
+  var accountSum = 0;
+  var account1 = 0;
+  var account2 = 0;
+  var account3 = 0;
+  var account4 = 0;
+  var account5 = 0;
+  var account6 = 0;
+  var account7 = 0;
+  var account8 = 0;
+  var account9 = 0;
+  var account10 = 0;
+  var account11 = 0;
+  var account12 = 0;
+  var account13 = 0;
+  var account14 = 0;
+  var account15 = 0;
+  var account16 = 0;
+  var account17 = 0;
+  var account18 = 0;
+  var account19 = 0;
+  var account20 = 0;
+  var account21 = 0;
+  var account22 = 0;
+  var account23 = 0;
+  var account24 = 0;
+  var account25 = 0;
+  var account26 = 0;
+  var account27 = 0;
+  var account28 = 0;
+  var account29 = 0;
+  var account30 = 0;
+  var account31 = 0;
+  var account32 = 0;
+  var account33 = 0;
+  var account34 = 0;
+  var account35 = 0;
+  var account36 = 0;
+  var account37 = 0;
+  var assetSum = 0;
+  var asset1 = 0;
+  var asset2 = 0;
+  var asset3 = 0;
+  var asset4 = 0;
+  var asset5 = 0;
+  var asset6 = 0;
+  var asset7 = 0;
+  var asset8 = 0;
+  var asset9 = 0;
+  var asset10 = 0;
+  var asset11 = 0;
+  var asset12 = 0;
+  var asset13 = 0;
+  var asset14 = 0;
+  var asset15 = 0;
+  var asset16 = 0;
+  var asset17 = 0;
+  var asset18 = 0;
+  var asset19 = 0;
+  var asset20 = 0;
+  var asset21 = 0;
+  var asset22 = 0;
+  var asset23 = 0;
+  var asset24 = 0;
+  var asset25 = 0;
+  var asset26 = 0;
+  var asset27 = 0;
+  var asset28 = 0;
+  var asset29 = 0;
+  var asset30 = 0;
+  var asset31 = 0;
+  var asset32 = 0;
+  var asset33 = 0;
+  var asset34 = 0;
+  var asset35 = 0;
+  var asset36 = 0;
+  var asset37 = 0;
+  var changeSum = 0;
+  var change1 = 0;
+  var change2 = 0;
+  var change3 = 0;
+  var change4 = 0;
+  var change5 = 0;
+  var change6 = 0;
+  var change7 = 0;
+  var change8 = 0;
+  var change9 = 0;
+  var change10 = 0;
+  var change11 = 0;
+  var change12 = 0;
+  var change13 = 0;
+  var change14 = 0;
+  var change15 = 0;
+  var change16 = 0;
+  var change17 = 0;
+  var change18 = 0;
+  var change19 = 0;
+  var change20 = 0;
+  var change21 = 0;
+  var change22 = 0;
+  var change23 = 0;
+  var change24 = 0;
+  var change25 = 0;
+  var change26 = 0;
+  var change27 = 0;
+  var change28 = 0;
+  var change29 = 0;
+  var change30 = 0;
+  var change31 = 0;
+  var change32 = 0;
+  var change33 = 0;
+  var change34 = 0;
+  var change35 = 0;
+  var change36 = 0;
+  var change37 = 0;
+
+  // 매출액, 매출원가, 영업이익, 경상이익을 구한다.
+  for (var i = 0; i < dataList.getRowCount(); i++) {
+    // 매출액
+    if (dataList.getCellData(i, "mgntAcctCd") == "4100000") {
+      sellAmt1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      sellAmt2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      sellAmt3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      sellAmt4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      sellAmt5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      sellAmt6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      sellAmt7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      sellAmt8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      sellAmt9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      sellAmt10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      sellAmt11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      sellAmt12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      sellAmt13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      sellAmt14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      sellAmt15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      sellAmt16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      sellAmt17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      sellAmt18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      sellAmt19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      sellAmt20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      sellAmt21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      sellAmt22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      sellAmt23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      sellAmt24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      sellAmt25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      sellAmt26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      sellAmt27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      sellAmt28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      sellAmt29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      sellAmt30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      sellAmt31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      sellAmt32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      sellAmt33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      sellAmt34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      sellAmt35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      sellAmt36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      sellAmt37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+
+    // 매출원가		
+    if (dataList.getCellData(i, "mgntAcctCd") == "4200000") {
+      sellCost1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      sellCost2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      sellCost3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      sellCost4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      sellCost5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      sellCost6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      sellCost7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      sellCost8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      sellCost9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      sellCost10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      sellCost11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      sellCost12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      sellCost13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      sellCost14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      sellCost15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      sellCost16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      sellCost17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      sellCost18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      sellCost19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      sellCost20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      sellCost21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      sellCost22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      sellCost23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      sellCost24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      sellCost25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      sellCost26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      sellCost27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      sellCost28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      sellCost29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      sellCost30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      sellCost31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      sellCost32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      sellCost33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      sellCost34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      sellCost35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      sellCost36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      sellCost37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+
+    // 영업이익
+    if (dataList.getCellData(i, "mgntAcctCd") == "5900000") {
+      salesCost1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      salesCost2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      salesCost3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      salesCost4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      salesCost5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      salesCost6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      salesCost7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      salesCost8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      salesCost9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      salesCost10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      salesCost11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      salesCost12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      salesCost13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      salesCost14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      salesCost15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      salesCost16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      salesCost17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      salesCost18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      salesCost19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      salesCost20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      salesCost21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      salesCost22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      salesCost23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      salesCost24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      salesCost25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      salesCost26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      salesCost27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      salesCost28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      salesCost29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      salesCost30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      salesCost31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      salesCost32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      salesCost33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      salesCost34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      salesCost35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      salesCost36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      salesCost37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+
+    // 경상이익
+    if (dataList.getCellData(i, "mgntAcctCd") == "6700000") {
+      mwound1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      mwound2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      mwound3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      mwound4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      mwound5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      mwound6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      mwound7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      mwound8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      mwound9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      mwound10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      mwound11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      mwound12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      mwound13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      mwound14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      mwound15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      mwound16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      mwound17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      mwound18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      mwound19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      mwound20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      mwound21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      mwound22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      mwound23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      mwound24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      mwound25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      mwound26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      mwound27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      mwound28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      mwound29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      mwound30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      mwound31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      mwound32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      mwound33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      mwound34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      mwound35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      mwound36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      mwound37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+    // 회계이익
+    if (dataList.getCellData(i, "mgntAcctCd") == "9100017") {
+      account1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      account2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      account3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      account4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      account5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      account6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      account7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      account8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      account9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      account10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      account11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      account12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      account13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      account14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      account15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      account16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      account17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      account18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      account19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      account20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      account21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      account22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      account23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      account24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      account25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      account26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      account27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      account28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      account29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      account30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      account31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      account32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      account33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      account34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      account35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      account36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      account37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+
+    // 자산비용                                                                      
+    if (dataList.getCellData(i, "mgntAcctCd") == "9100018") {
+      asset1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      asset2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      asset3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      asset4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      asset5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      asset6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      asset7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      asset8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      asset9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      asset10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      asset11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      asset12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      asset13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      asset14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      asset15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      asset16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      asset17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      asset18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      asset19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      asset20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      asset21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      asset22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      asset23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      asset24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      asset25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      asset26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      asset27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      asset28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      asset29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      asset30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      asset31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      asset32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      asset33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      asset34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      asset35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      asset36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      asset37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+
+    //변동비용
+    if (dataList.getCellData(i, "mgntAcctCd") == "9400001") {
+      change1 = parseInt(dataList.getCellData(i, "yearPlanAmt"));
+      change2 = parseInt(dataList.getCellData(i, "bfyyThisAmt"));
+      change3 = parseInt(dataList.getCellData(i, "thisPlanAmt"));
+      change4 = parseInt(dataList.getCellData(i, "thisRsltsAmt"));
+      change5 = parseInt(dataList.getCellData(i, "thisDiffer"));
+      change6 = parseInt(dataList.getCellData(i, "sumBfyyThisAmt"));
+      change7 = parseInt(dataList.getCellData(i, "sumPlanAmt"));
+      change8 = parseInt(dataList.getCellData(i, "sumRsltsAmt"));
+      change9 = parseInt(dataList.getCellData(i, "sumDiffer"));
+      change10 = parseInt(dataList.getCellData(i, "rsltQatrYy1Prev"));
+      change11 = parseInt(dataList.getCellData(i, "planQatrYy1"));
+      change12 = parseInt(dataList.getCellData(i, "rsltQatrYy1"));
+      change13 = parseInt(dataList.getCellData(i, "diffQatrYy1"));
+      change14 = parseInt(dataList.getCellData(i, "rsltQatrYy2Prev"));
+      change15 = parseInt(dataList.getCellData(i, "planQatrYy2"));
+      change16 = parseInt(dataList.getCellData(i, "rsltQatrYy2"));
+      change17 = parseInt(dataList.getCellData(i, "diffQatrYy2"));
+      change18 = parseInt(dataList.getCellData(i, "rsltQatrUppPrev"));
+      change19 = parseInt(dataList.getCellData(i, "planQatrUpp"));
+      change20 = parseInt(dataList.getCellData(i, "rsltQatrUpp"));
+      change21 = parseInt(dataList.getCellData(i, "diffQatrUpp"));
+      change22 = parseInt(dataList.getCellData(i, "rsltQatrYy3Prev"));
+      change23 = parseInt(dataList.getCellData(i, "planQatrYy3"));
+      change24 = parseInt(dataList.getCellData(i, "rsltQatrYy3"));
+      change25 = parseInt(dataList.getCellData(i, "diffQatrYy3"));
+      change26 = parseInt(dataList.getCellData(i, "rsltQatrYy4Prev"));
+      change27 = parseInt(dataList.getCellData(i, "planQatrYy4"));
+      change28 = parseInt(dataList.getCellData(i, "rsltQatrYy4"));
+      change29 = parseInt(dataList.getCellData(i, "diffQatrYy4"));
+      change30 = parseInt(dataList.getCellData(i, "rsltQatrLowPrev"));
+      change31 = parseInt(dataList.getCellData(i, "planQatrLow"));
+      change32 = parseInt(dataList.getCellData(i, "rsltQatrLow"));
+      change33 = parseInt(dataList.getCellData(i, "diffQatrLow"));
+      change34 = parseInt(dataList.getCellData(i, "rsltYearLowPrev"));
+      change35 = parseInt(dataList.getCellData(i, "planYearLow"));
+      change36 = parseInt(dataList.getCellData(i, "rsltYearLow"));
+      change37 = parseInt(dataList.getCellData(i, "diffYearLow"));
+    }
+  }
+
+  // 매출원가율, 영업이익율, 경상이익율을 구한다.
+  for (var i = 1; i <= dataList.getRowCount(); i++) {
+    // 매출원가율
+    if (dataList.getCellData(i, "mgntAcctCd") == "9300001") {
+      var d_yearPlanAmt = sellAmt1 == 0 ? 0 : sellCost1 / sellAmt1 * lc_unit.getValue() * 100;
+      var d_bfyyThisAmt = sellAmt2 == 0 ? 0 : sellCost2 / sellAmt2 * lc_unit.getValue() * 100;
+      var d_thisPlanAmt = sellAmt3 == 0 ? 0 : sellCost3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_thisRsltsAmt = sellAmt4 == 0 ? 0 : sellCost4 / sellAmt4 * lc_unit.getValue() * 100;
+      var d_thisDiffer = sellAmt4 == 0 ? 0 : sellCost4 / sellAmt4 * lc_unit.getValue() * 100 - sellCost3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_sumBfyyThisAmt = sellAmt6 == 0 ? 0 : sellCost6 / sellAmt6 * lc_unit.getValue() * 100;
+      var d_sumPlanAmt = sellAmt7 == 0 ? 0 : sellCost7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_sumRsltsAmt = sellAmt8 == 0 ? 0 : sellCost8 / sellAmt8 * lc_unit.getValue() * 100;
+      var d_sumDiffer = sellAmt8 == 0 ? 0 : sellCost8 / sellAmt8 * lc_unit.getValue() * 100 - sellCost7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1Prev = sellAmt10 == 0 ? 0 : sellCost10 / sellAmt10 * lc_unit.getValue() * 100;
+      var d_planQatrYy1 = sellAmt11 == 0 ? 0 : sellCost11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1 = sellAmt12 == 0 ? 0 : sellCost12 / sellAmt12 * lc_unit.getValue() * 100;
+      var d_diffQatrYy1 = sellAmt12 == 0 ? 0 : sellCost12 / sellAmt12 * lc_unit.getValue() * 100 - sellCost11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2Prev = sellAmt14 == 0 ? 0 : sellCost14 / sellAmt14 * lc_unit.getValue() * 100;
+      var d_planQatrYy2 = sellAmt15 == 0 ? 0 : sellCost15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2 = sellAmt16 == 0 ? 0 : sellCost16 / sellAmt16 * lc_unit.getValue() * 100;
+      var d_diffQatrYy2 = sellAmt16 == 0 ? 0 : sellCost16 / sellAmt16 * lc_unit.getValue() * 100 - sellCost15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrUppPrev = sellAmt18 == 0 ? 0 : sellCost18 / sellAmt18 * lc_unit.getValue() * 100;
+      var d_planQatrUpp = sellAmt19 == 0 ? 0 : sellCost19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrUpp = sellAmt20 == 0 ? 0 : sellCost20 / sellAmt20 * lc_unit.getValue() * 100;
+      var d_diffQatrUpp = sellAmt20 == 0 ? 0 : sellCost20 / sellAmt20 * lc_unit.getValue() * 100 - sellCost19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3Prev = sellAmt22 == 0 ? 0 : sellCost22 / sellAmt22 * lc_unit.getValue() * 100;
+      var d_planQatrYy3 = sellAmt23 == 0 ? 0 : sellCost23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3 = sellAmt24 == 0 ? 0 : sellCost24 / sellAmt24 * lc_unit.getValue() * 100;
+      var d_diffQatrYy3 = sellAmt24 == 0 ? 0 : sellCost24 / sellAmt24 * lc_unit.getValue() * 100 - sellCost23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4Prev = sellAmt26 == 0 ? 0 : sellCost26 / sellAmt26 * lc_unit.getValue() * 100;
+      var d_planQatrYy4 = sellAmt27 == 0 ? 0 : sellCost27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4 = sellAmt28 == 0 ? 0 : sellCost28 / sellAmt28 * lc_unit.getValue() * 100;
+      var d_diffQatrYy4 = sellAmt28 == 0 ? 0 : sellCost28 / sellAmt28 * lc_unit.getValue() * 100 - sellCost27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrLowPrev = sellAmt30 == 0 ? 0 : sellCost30 / sellAmt30 * lc_unit.getValue() * 100;
+      var d_planQatrLow = sellAmt31 == 0 ? 0 : sellCost31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltQatrLow = sellAmt32 == 0 ? 0 : sellCost32 / sellAmt32 * lc_unit.getValue() * 100;
+      var d_diffQatrLow = sellAmt32 == 0 ? 0 : sellCost32 / sellAmt32 * lc_unit.getValue() * 100 - sellCost31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltYearLowPrev = sellAmt34 == 0 ? 0 : sellCost34 / sellAmt34 * lc_unit.getValue() * 100;
+      var d_planYearLow = sellAmt35 == 0 ? 0 : sellCost35 / sellAmt35 * lc_unit.getValue() * 100;
+      var d_rsltYearLow = sellAmt36 == 0 ? 0 : sellCost36 / sellAmt36 * lc_unit.getValue() * 100;
+      var d_diffYearLow = sellAmt36 == 0 ? 0 : sellCost36 / sellAmt36 * lc_unit.getValue() * 100 - sellCost35 / sellAmt35 * lc_unit.getValue() * 100;
+      dataList.setCellData(i, "yearPlanAmt", d_yearPlanAmt);
+      dataList.setCellData(i, "bfyyThisAmt", d_bfyyThisAmt);
+      dataList.setCellData(i, "thisPlanAmt", d_thisPlanAmt);
+      dataList.setCellData(i, "thisRsltsAmt", d_thisRsltsAmt);
+      dataList.setCellData(i, "thisDiffer", d_thisDiffer);
+      dataList.setCellData(i, "sumBfyyThisAmt", d_sumBfyyThisAmt);
+      dataList.setCellData(i, "sumPlanAmt", d_sumPlanAmt);
+      dataList.setCellData(i, "sumRsltsAmt", d_sumRsltsAmt);
+      dataList.setCellData(i, "sumDiffer", d_sumDiffer);
+      dataList.setCellData(i, "rsltQatrYy1Prev", d_rsltQatrYy1Prev);
+      dataList.setCellData(i, "planQatrYy1", d_planQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy1", d_rsltQatrYy1);
+      dataList.setCellData(i, "diffQatrYy1", d_diffQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy2Prev", d_rsltQatrYy2Prev);
+      dataList.setCellData(i, "planQatrYy2", d_planQatrYy2);
+      dataList.setCellData(i, "rsltQatrYy2", d_rsltQatrYy2);
+      dataList.setCellData(i, "diffQatrYy2", d_diffQatrYy2);
+      dataList.setCellData(i, "rsltQatrUppPrev", d_rsltQatrUppPrev);
+      dataList.setCellData(i, "planQatrUpp", d_planQatrUpp);
+      dataList.setCellData(i, "rsltQatrUpp", d_rsltQatrUpp);
+      dataList.setCellData(i, "diffQatrUpp", d_diffQatrUpp);
+      dataList.setCellData(i, "rsltQatrYy3Prev", d_rsltQatrYy3Prev);
+      dataList.setCellData(i, "planQatrYy3", d_planQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy3", d_rsltQatrYy3);
+      dataList.setCellData(i, "diffQatrYy3", d_diffQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy4Prev", d_rsltQatrYy4Prev);
+      dataList.setCellData(i, "planQatrYy4", d_planQatrYy4);
+      dataList.setCellData(i, "rsltQatrYy4", d_rsltQatrYy4);
+      dataList.setCellData(i, "diffQatrYy4", d_diffQatrYy4);
+      dataList.setCellData(i, "rsltQatrLowPrev", d_rsltQatrLowPrev);
+      dataList.setCellData(i, "planQatrLow", d_planQatrLow);
+      dataList.setCellData(i, "rsltQatrLow", d_rsltQatrLow);
+      dataList.setCellData(i, "diffQatrLow", d_diffQatrLow);
+      dataList.setCellData(i, "rsltYearLowPrev", d_rsltYearLowPrev);
+      dataList.setCellData(i, "planYearLow", d_planYearLow);
+      dataList.setCellData(i, "rsltYearLow", d_rsltYearLow);
+      dataList.setCellData(i, "diffYearLow", d_diffYearLow);
+    }
+
+    // 영업이익율
+    if (dataList.getCellData(i, "mgntAcctCd") == "9300002") {
+      var d_yearPlanAmt = sellAmt1 == 0 ? 0 : salesCost1 / sellAmt1 * lc_unit.getValue() * 100;
+      var d_bfyyThisAmt = sellAmt2 == 0 ? 0 : salesCost2 / sellAmt2 * lc_unit.getValue() * 100;
+      var d_thisPlanAmt = sellAmt3 == 0 ? 0 : salesCost3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_thisRsltsAmt = sellAmt4 == 0 ? 0 : salesCost4 / sellAmt4 * lc_unit.getValue() * 100;
+      var d_thisDiffer = sellAmt4 == 0 ? 0 : salesCost4 / sellAmt4 * lc_unit.getValue() * 100 - salesCost3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_sumBfyyThisAmt = sellAmt6 == 0 ? 0 : salesCost6 / sellAmt6 * lc_unit.getValue() * 100;
+      var d_sumPlanAmt = sellAmt7 == 0 ? 0 : salesCost7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_sumRsltsAmt = sellAmt8 == 0 ? 0 : salesCost8 / sellAmt8 * lc_unit.getValue() * 100;
+      var d_sumDiffer = sellAmt8 == 0 ? 0 : salesCost8 / sellAmt8 * lc_unit.getValue() * 100 - salesCost7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1Prev = sellAmt10 == 0 ? 0 : salesCost10 / sellAmt10 * lc_unit.getValue() * 100;
+      var d_planQatrYy1 = sellAmt11 == 0 ? 0 : salesCost11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1 = sellAmt12 == 0 ? 0 : salesCost12 / sellAmt12 * lc_unit.getValue() * 100;
+      var d_diffQatrYy1 = sellAmt12 == 0 ? 0 : salesCost12 / sellAmt12 * lc_unit.getValue() * 100 - salesCost11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2Prev = sellAmt14 == 0 ? 0 : salesCost14 / sellAmt14 * lc_unit.getValue() * 100;
+      var d_planQatrYy2 = sellAmt15 == 0 ? 0 : salesCost15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2 = sellAmt16 == 0 ? 0 : salesCost16 / sellAmt16 * lc_unit.getValue() * 100;
+      var d_diffQatrYy2 = sellAmt16 == 0 ? 0 : salesCost16 / sellAmt16 * lc_unit.getValue() * 100 - salesCost15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrUppPrev = sellAmt18 == 0 ? 0 : salesCost18 / sellAmt18 * lc_unit.getValue() * 100;
+      var d_planQatrUpp = sellAmt19 == 0 ? 0 : salesCost19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrUpp = sellAmt20 == 0 ? 0 : salesCost20 / sellAmt20 * lc_unit.getValue() * 100;
+      var d_diffQatrUpp = sellAmt20 == 0 ? 0 : salesCost20 / sellAmt20 * lc_unit.getValue() * 100 - salesCost19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3Prev = sellAmt22 == 0 ? 0 : salesCost22 / sellAmt22 * lc_unit.getValue() * 100;
+      var d_planQatrYy3 = sellAmt23 == 0 ? 0 : salesCost23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3 = sellAmt24 == 0 ? 0 : salesCost24 / sellAmt24 * lc_unit.getValue() * 100;
+      var d_diffQatrYy3 = sellAmt24 == 0 ? 0 : salesCost24 / sellAmt24 * lc_unit.getValue() * 100 - salesCost23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4Prev = sellAmt26 == 0 ? 0 : salesCost26 / sellAmt26 * lc_unit.getValue() * 100;
+      var d_planQatrYy4 = sellAmt27 == 0 ? 0 : salesCost27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4 = sellAmt28 == 0 ? 0 : salesCost28 / sellAmt28 * lc_unit.getValue() * 100;
+      var d_diffQatrYy4 = sellAmt28 == 0 ? 0 : salesCost28 / sellAmt28 * lc_unit.getValue() * 100 - salesCost27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrLowPrev = sellAmt30 == 0 ? 0 : salesCost30 / sellAmt30 * lc_unit.getValue() * 100;
+      var d_planQatrLow = sellAmt31 == 0 ? 0 : salesCost31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltQatrLow = sellAmt32 == 0 ? 0 : salesCost32 / sellAmt32 * lc_unit.getValue() * 100;
+      var d_diffQatrLow = sellAmt32 == 0 ? 0 : salesCost32 / sellAmt32 * lc_unit.getValue() * 100 - salesCost31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltYearLowPrev = sellAmt34 == 0 ? 0 : salesCost34 / sellAmt34 * lc_unit.getValue() * 100;
+      var d_planYearLow = sellAmt35 == 0 ? 0 : salesCost35 / sellAmt35 * lc_unit.getValue() * 100;
+      var d_rsltYearLow = sellAmt36 == 0 ? 0 : salesCost36 / sellAmt36 * lc_unit.getValue() * 100;
+      var d_diffYearLow = sellAmt36 == 0 ? 0 : salesCost36 / sellAmt36 * lc_unit.getValue() * 100 - salesCost35 / sellAmt35 * lc_unit.getValue() * 100;
+      dataList.setCellData(i, "yearPlanAmt", d_yearPlanAmt);
+      dataList.setCellData(i, "bfyyThisAmt", d_bfyyThisAmt);
+      dataList.setCellData(i, "thisPlanAmt", d_thisPlanAmt);
+      dataList.setCellData(i, "thisRsltsAmt", d_thisRsltsAmt);
+      dataList.setCellData(i, "thisDiffer", d_thisDiffer);
+      dataList.setCellData(i, "sumBfyyThisAmt", d_sumBfyyThisAmt);
+      dataList.setCellData(i, "sumPlanAmt", d_sumPlanAmt);
+      dataList.setCellData(i, "sumRsltsAmt", d_sumRsltsAmt);
+      dataList.setCellData(i, "sumDiffer", d_sumDiffer);
+      dataList.setCellData(i, "rsltQatrYy1Prev", d_rsltQatrYy1Prev);
+      dataList.setCellData(i, "planQatrYy1", d_planQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy1", d_rsltQatrYy1);
+      dataList.setCellData(i, "diffQatrYy1", d_diffQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy2Prev", d_rsltQatrYy2Prev);
+      dataList.setCellData(i, "planQatrYy2", d_planQatrYy2);
+      dataList.setCellData(i, "rsltQatrYy2", d_rsltQatrYy2);
+      dataList.setCellData(i, "diffQatrYy2", d_diffQatrYy2);
+      dataList.setCellData(i, "rsltQatrUppPrev", d_rsltQatrUppPrev);
+      dataList.setCellData(i, "planQatrUpp", d_planQatrUpp);
+      dataList.setCellData(i, "rsltQatrUpp", d_rsltQatrUpp);
+      dataList.setCellData(i, "diffQatrUpp", d_diffQatrUpp);
+      dataList.setCellData(i, "rsltQatrYy3Prev", d_rsltQatrYy3Prev);
+      dataList.setCellData(i, "planQatrYy3", d_planQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy3", d_rsltQatrYy3);
+      dataList.setCellData(i, "diffQatrYy3", d_diffQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy4Prev", d_rsltQatrYy4Prev);
+      dataList.setCellData(i, "planQatrYy4", d_planQatrYy4);
+      dataList.setCellData(i, "rsltQatrYy4", d_rsltQatrYy4);
+      dataList.setCellData(i, "diffQatrYy4", d_diffQatrYy4);
+      dataList.setCellData(i, "rsltQatrLowPrev", d_rsltQatrLowPrev);
+      dataList.setCellData(i, "planQatrLow", d_planQatrLow);
+      dataList.setCellData(i, "rsltQatrLow", d_rsltQatrLow);
+      dataList.setCellData(i, "diffQatrLow", d_diffQatrLow);
+      dataList.setCellData(i, "rsltYearLowPrev", d_rsltYearLowPrev);
+      dataList.setCellData(i, "planYearLow", d_planYearLow);
+      dataList.setCellData(i, "rsltYearLow", d_rsltYearLow);
+      dataList.setCellData(i, "diffYearLow", d_diffYearLow);
+    }
+
+    // 경상이익율
+    if (dataList.getCellData(i, "mgntAcctCd") == "9300003") {
+      var d_yearPlanAmt = sellAmt1 == 0 ? 0 : mwound1 / sellAmt1 * lc_unit.getValue() * 100;
+      var d_bfyyThisAmt = sellAmt2 == 0 ? 0 : mwound2 / sellAmt2 * lc_unit.getValue() * 100;
+      var d_thisPlanAmt = sellAmt3 == 0 ? 0 : mwound3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_thisRsltsAmt = sellAmt4 == 0 ? 0 : mwound4 / sellAmt4 * lc_unit.getValue() * 100;
+      var d_thisDiffer = sellAmt4 == 0 ? 0 : mwound4 / sellAmt4 * lc_unit.getValue() * 100 - mwound3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_sumBfyyThisAmt = sellAmt6 == 0 ? 0 : mwound6 / sellAmt6 * lc_unit.getValue() * 100;
+      var d_sumPlanAmt = sellAmt7 == 0 ? 0 : mwound7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_sumRsltsAmt = sellAmt8 == 0 ? 0 : mwound8 / sellAmt8 * lc_unit.getValue() * 100;
+      var d_sumDiffer = sellAmt8 == 0 ? 0 : mwound8 / sellAmt8 * lc_unit.getValue() * 100 - mwound7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1Prev = sellAmt10 == 0 ? 0 : mwound10 / sellAmt10 * lc_unit.getValue() * 100;
+      var d_planQatrYy1 = sellAmt11 == 0 ? 0 : mwound11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1 = sellAmt12 == 0 ? 0 : mwound12 / sellAmt12 * lc_unit.getValue() * 100;
+      var d_diffQatrYy1 = sellAmt12 == 0 ? 0 : mwound12 / sellAmt12 * lc_unit.getValue() * 100 - mwound11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2Prev = sellAmt14 == 0 ? 0 : mwound14 / sellAmt14 * lc_unit.getValue() * 100;
+      var d_planQatrYy2 = sellAmt15 == 0 ? 0 : mwound15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2 = sellAmt16 == 0 ? 0 : mwound16 / sellAmt16 * lc_unit.getValue() * 100;
+      var d_diffQatrYy2 = sellAmt16 == 0 ? 0 : mwound16 / sellAmt16 * lc_unit.getValue() * 100 - mwound15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrUppPrev = sellAmt18 == 0 ? 0 : mwound18 / sellAmt18 * lc_unit.getValue() * 100;
+      var d_planQatrUpp = sellAmt19 == 0 ? 0 : mwound19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrUpp = sellAmt20 == 0 ? 0 : mwound20 / sellAmt20 * lc_unit.getValue() * 100;
+      var d_diffQatrUpp = sellAmt20 == 0 ? 0 : mwound20 / sellAmt20 * lc_unit.getValue() * 100 - mwound19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3Prev = sellAmt22 == 0 ? 0 : mwound22 / sellAmt22 * lc_unit.getValue() * 100;
+      var d_planQatrYy3 = sellAmt23 == 0 ? 0 : mwound23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3 = sellAmt24 == 0 ? 0 : mwound24 / sellAmt24 * lc_unit.getValue() * 100;
+      var d_diffQatrYy3 = sellAmt24 == 0 ? 0 : mwound24 / sellAmt24 * lc_unit.getValue() * 100 - mwound23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4Prev = sellAmt26 == 0 ? 0 : mwound26 / sellAmt26 * lc_unit.getValue() * 100;
+      var d_planQatrYy4 = sellAmt27 == 0 ? 0 : mwound27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4 = sellAmt28 == 0 ? 0 : mwound28 / sellAmt28 * lc_unit.getValue() * 100;
+      var d_diffQatrYy4 = sellAmt28 == 0 ? 0 : mwound28 / sellAmt28 * lc_unit.getValue() * 100 - mwound27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrLowPrev = sellAmt30 == 0 ? 0 : mwound30 / sellAmt30 * lc_unit.getValue() * 100;
+      var d_planQatrLow = sellAmt31 == 0 ? 0 : mwound31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltQatrLow = sellAmt32 == 0 ? 0 : mwound32 / sellAmt32 * lc_unit.getValue() * 100;
+      var d_diffQatrLow = sellAmt32 == 0 ? 0 : mwound32 / sellAmt32 * lc_unit.getValue() * 100 - mwound31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltYearLowPrev = sellAmt34 == 0 ? 0 : mwound34 / sellAmt34 * lc_unit.getValue() * 100;
+      var d_planYearLow = sellAmt35 == 0 ? 0 : mwound35 / sellAmt35 * lc_unit.getValue() * 100;
+      var d_rsltYearLow = sellAmt36 == 0 ? 0 : mwound36 / sellAmt36 * lc_unit.getValue() * 100;
+      var d_diffYearLow = sellAmt36 == 0 ? 0 : mwound36 / sellAmt36 * lc_unit.getValue() * 100 - mwound35 / sellAmt35 * lc_unit.getValue() * 100;
+      dataList.setCellData(i, "yearPlanAmt", d_yearPlanAmt);
+      dataList.setCellData(i, "bfyyThisAmt", d_bfyyThisAmt);
+      dataList.setCellData(i, "thisPlanAmt", d_thisPlanAmt);
+      dataList.setCellData(i, "thisRsltsAmt", d_thisRsltsAmt);
+      dataList.setCellData(i, "thisDiffer", d_thisDiffer);
+      dataList.setCellData(i, "sumBfyyThisAmt", d_sumBfyyThisAmt);
+      dataList.setCellData(i, "sumPlanAmt", d_sumPlanAmt);
+      dataList.setCellData(i, "sumRsltsAmt", d_sumRsltsAmt);
+      dataList.setCellData(i, "sumDiffer", d_sumDiffer);
+      dataList.setCellData(i, "rsltQatrYy1Prev", d_rsltQatrYy1Prev);
+      dataList.setCellData(i, "planQatrYy1", d_planQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy1", d_rsltQatrYy1);
+      dataList.setCellData(i, "diffQatrYy1", d_diffQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy2Prev", d_rsltQatrYy2Prev);
+      dataList.setCellData(i, "planQatrYy2", d_planQatrYy2);
+      dataList.setCellData(i, "rsltQatrYy2", d_rsltQatrYy2);
+      dataList.setCellData(i, "diffQatrYy2", d_diffQatrYy2);
+      dataList.setCellData(i, "rsltQatrUppPrev", d_rsltQatrUppPrev);
+      dataList.setCellData(i, "planQatrUpp", d_planQatrUpp);
+      dataList.setCellData(i, "rsltQatrUpp", d_rsltQatrUpp);
+      dataList.setCellData(i, "diffQatrUpp", d_diffQatrUpp);
+      dataList.setCellData(i, "rsltQatrYy3Prev", d_rsltQatrYy3Prev);
+      dataList.setCellData(i, "planQatrYy3", d_planQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy3", d_rsltQatrYy3);
+      dataList.setCellData(i, "diffQatrYy3", d_diffQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy4Prev", d_rsltQatrYy4Prev);
+      dataList.setCellData(i, "planQatrYy4", d_planQatrYy4);
+      dataList.setCellData(i, "rsltQatrYy4", d_rsltQatrYy4);
+      dataList.setCellData(i, "diffQatrYy4", d_diffQatrYy4);
+      dataList.setCellData(i, "rsltQatrLowPrev", d_rsltQatrLowPrev);
+      dataList.setCellData(i, "planQatrLow", d_planQatrLow);
+      dataList.setCellData(i, "rsltQatrLow", d_rsltQatrLow);
+      dataList.setCellData(i, "diffQatrLow", d_diffQatrLow);
+      dataList.setCellData(i, "rsltYearLowPrev", d_rsltYearLowPrev);
+      dataList.setCellData(i, "planYearLow", d_planYearLow);
+      dataList.setCellData(i, "rsltYearLow", d_rsltYearLow);
+      dataList.setCellData(i, "diffYearLow", d_diffYearLow);
+    }
+
+    // 회계원가율
+    if (dataList.getCellData(i, "mgntAcctCd") == "9300004") {
+      var d_yearPlanAmt = sellAmt1 == 0 ? 0 : account1 / sellAmt1 * lc_unit.getValue() * 100;
+      var d_bfyyThisAmt = sellAmt2 == 0 ? 0 : account2 / sellAmt2 * lc_unit.getValue() * 100;
+      var d_thisPlanAmt = sellAmt3 == 0 ? 0 : account3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_thisRsltsAmt = sellAmt4 == 0 ? 0 : account4 / sellAmt4 * lc_unit.getValue() * 100;
+      var d_thisDiffer = sellAmt4 == 0 ? 0 : account4 / sellAmt4 * lc_unit.getValue() * 100 - account3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_sumBfyyThisAmt = sellAmt6 == 0 ? 0 : account6 / sellAmt6 * lc_unit.getValue() * 100;
+      var d_sumPlanAmt = sellAmt7 == 0 ? 0 : account7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_sumRsltsAmt = sellAmt8 == 0 ? 0 : account8 / sellAmt8 * lc_unit.getValue() * 100;
+      var d_sumDiffer = sellAmt8 == 0 ? 0 : account8 / sellAmt8 * lc_unit.getValue() * 100 - account7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1Prev = sellAmt10 == 0 ? 0 : account10 / sellAmt10 * lc_unit.getValue() * 100;
+      var d_planQatrYy1 = sellAmt11 == 0 ? 0 : account11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1 = sellAmt12 == 0 ? 0 : account12 / sellAmt12 * lc_unit.getValue() * 100;
+      var d_diffQatrYy1 = sellAmt12 == 0 ? 0 : account12 / sellAmt12 * lc_unit.getValue() * 100 - account11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2Prev = sellAmt14 == 0 ? 0 : account14 / sellAmt14 * lc_unit.getValue() * 100;
+      var d_planQatrYy2 = sellAmt15 == 0 ? 0 : account15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2 = sellAmt16 == 0 ? 0 : account16 / sellAmt16 * lc_unit.getValue() * 100;
+      var d_diffQatrYy2 = sellAmt16 == 0 ? 0 : account16 / sellAmt16 * lc_unit.getValue() * 100 - account15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrUppPrev = sellAmt18 == 0 ? 0 : account18 / sellAmt18 * lc_unit.getValue() * 100;
+      var d_planQatrUpp = sellAmt19 == 0 ? 0 : account19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrUpp = sellAmt20 == 0 ? 0 : account20 / sellAmt20 * lc_unit.getValue() * 100;
+      var d_diffQatrUpp = sellAmt20 == 0 ? 0 : account20 / sellAmt20 * lc_unit.getValue() * 100 - account19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3Prev = sellAmt22 == 0 ? 0 : account22 / sellAmt22 * lc_unit.getValue() * 100;
+      var d_planQatrYy3 = sellAmt23 == 0 ? 0 : account23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3 = sellAmt24 == 0 ? 0 : account24 / sellAmt24 * lc_unit.getValue() * 100;
+      var d_diffQatrYy3 = sellAmt24 == 0 ? 0 : account24 / sellAmt24 * lc_unit.getValue() * 100 - account23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4Prev = sellAmt26 == 0 ? 0 : account26 / sellAmt26 * lc_unit.getValue() * 100;
+      var d_planQatrYy4 = sellAmt27 == 0 ? 0 : account27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4 = sellAmt28 == 0 ? 0 : account28 / sellAmt28 * lc_unit.getValue() * 100;
+      var d_diffQatrYy4 = sellAmt28 == 0 ? 0 : account28 / sellAmt28 * lc_unit.getValue() * 100 - account27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrLowPrev = sellAmt30 == 0 ? 0 : account30 / sellAmt30 * lc_unit.getValue() * 100;
+      var d_planQatrLow = sellAmt31 == 0 ? 0 : account31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltQatrLow = sellAmt32 == 0 ? 0 : account32 / sellAmt32 * lc_unit.getValue() * 100;
+      var d_diffQatrLow = sellAmt32 == 0 ? 0 : account32 / sellAmt32 * lc_unit.getValue() * 100 - account31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltYearLowPrev = sellAmt34 == 0 ? 0 : account34 / sellAmt34 * lc_unit.getValue() * 100;
+      var d_planYearLow = sellAmt35 == 0 ? 0 : account35 / sellAmt35 * lc_unit.getValue() * 100;
+      var d_rsltYearLow = sellAmt36 == 0 ? 0 : account36 / sellAmt36 * lc_unit.getValue() * 100;
+      var d_diffYearLow = sellAmt36 == 0 ? 0 : account36 / sellAmt36 * lc_unit.getValue() * 100 - account35 / sellAmt35 * lc_unit.getValue() * 100;
+      dataList.setCellData(i, "yearPlanAmt", d_yearPlanAmt);
+      dataList.setCellData(i, "bfyyThisAmt", d_bfyyThisAmt);
+      dataList.setCellData(i, "thisPlanAmt", d_thisPlanAmt);
+      dataList.setCellData(i, "thisRsltsAmt", d_thisRsltsAmt);
+      dataList.setCellData(i, "thisDiffer", d_thisDiffer);
+      dataList.setCellData(i, "sumBfyyThisAmt", d_sumBfyyThisAmt);
+      dataList.setCellData(i, "sumPlanAmt", d_sumPlanAmt);
+      dataList.setCellData(i, "sumRsltsAmt", d_sumRsltsAmt);
+      dataList.setCellData(i, "sumDiffer", d_sumDiffer);
+      dataList.setCellData(i, "rsltQatrYy1Prev", d_rsltQatrYy1Prev);
+      dataList.setCellData(i, "planQatrYy1", d_planQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy1", d_rsltQatrYy1);
+      dataList.setCellData(i, "diffQatrYy1", d_diffQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy2Prev", d_rsltQatrYy2Prev);
+      dataList.setCellData(i, "planQatrYy2", d_planQatrYy2);
+      dataList.setCellData(i, "rsltQatrYy2", d_rsltQatrYy2);
+      dataList.setCellData(i, "diffQatrYy2", d_diffQatrYy2);
+      dataList.setCellData(i, "rsltQatrUppPrev", d_rsltQatrUppPrev);
+      dataList.setCellData(i, "planQatrUpp", d_planQatrUpp);
+      dataList.setCellData(i, "rsltQatrUpp", d_rsltQatrUpp);
+      dataList.setCellData(i, "diffQatrUpp", d_diffQatrUpp);
+      dataList.setCellData(i, "rsltQatrYy3Prev", d_rsltQatrYy3Prev);
+      dataList.setCellData(i, "planQatrYy3", d_planQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy3", d_rsltQatrYy3);
+      dataList.setCellData(i, "diffQatrYy3", d_diffQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy4Prev", d_rsltQatrYy4Prev);
+      dataList.setCellData(i, "planQatrYy4", d_planQatrYy4);
+      dataList.setCellData(i, "rsltQatrYy4", d_rsltQatrYy4);
+      dataList.setCellData(i, "diffQatrYy4", d_diffQatrYy4);
+      dataList.setCellData(i, "rsltQatrLowPrev", d_rsltQatrLowPrev);
+      dataList.setCellData(i, "planQatrLow", d_planQatrLow);
+      dataList.setCellData(i, "rsltQatrLow", d_rsltQatrLow);
+      dataList.setCellData(i, "diffQatrLow", d_diffQatrLow);
+      dataList.setCellData(i, "rsltYearLowPrev", d_rsltYearLowPrev);
+      dataList.setCellData(i, "planYearLow", d_planYearLow);
+      dataList.setCellData(i, "rsltYearLow", d_rsltYearLow);
+      dataList.setCellData(i, "diffYearLow", d_diffYearLow);
+    }
+
+    // 자산비용율
+    if (dataList.getCellData(i, "mgntAcctCd") == "9300005") {
+      var d_yearPlanAmt = sellAmt1 == 0 ? 0 : asset1 / sellAmt1 * lc_unit.getValue() * 100;
+      var d_bfyyThisAmt = sellAmt2 == 0 ? 0 : asset2 / sellAmt2 * lc_unit.getValue() * 100;
+      var d_thisPlanAmt = sellAmt3 == 0 ? 0 : asset3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_thisRsltsAmt = sellAmt4 == 0 ? 0 : asset4 / sellAmt4 * lc_unit.getValue() * 100;
+      var d_thisDiffer = sellAmt4 == 0 ? 0 : asset4 / sellAmt4 * lc_unit.getValue() * 100 - asset3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_sumBfyyThisAmt = sellAmt6 == 0 ? 0 : asset6 / sellAmt6 * lc_unit.getValue() * 100;
+      var d_sumPlanAmt = sellAmt7 == 0 ? 0 : asset7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_sumRsltsAmt = sellAmt8 == 0 ? 0 : asset8 / sellAmt8 * lc_unit.getValue() * 100;
+      var d_sumDiffer = sellAmt8 == 0 ? 0 : asset8 / sellAmt8 * lc_unit.getValue() * 100 - asset7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1Prev = sellAmt10 == 0 ? 0 : asset10 / sellAmt10 * lc_unit.getValue() * 100;
+      var d_planQatrYy1 = sellAmt11 == 0 ? 0 : asset11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1 = sellAmt12 == 0 ? 0 : asset12 / sellAmt12 * lc_unit.getValue() * 100;
+      var d_diffQatrYy1 = sellAmt12 == 0 ? 0 : asset12 / sellAmt12 * lc_unit.getValue() * 100 - asset11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2Prev = sellAmt14 == 0 ? 0 : asset14 / sellAmt14 * lc_unit.getValue() * 100;
+      var d_planQatrYy2 = sellAmt15 == 0 ? 0 : asset15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2 = sellAmt16 == 0 ? 0 : asset16 / sellAmt16 * lc_unit.getValue() * 100;
+      var d_diffQatrYy2 = sellAmt16 == 0 ? 0 : asset16 / sellAmt16 * lc_unit.getValue() * 100 - asset15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrUppPrev = sellAmt18 == 0 ? 0 : asset18 / sellAmt18 * lc_unit.getValue() * 100;
+      var d_planQatrUpp = sellAmt19 == 0 ? 0 : asset19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrUpp = sellAmt20 == 0 ? 0 : asset20 / sellAmt20 * lc_unit.getValue() * 100;
+      var d_diffQatrUpp = sellAmt20 == 0 ? 0 : asset20 / sellAmt20 * lc_unit.getValue() * 100 - asset19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3Prev = sellAmt22 == 0 ? 0 : asset22 / sellAmt22 * lc_unit.getValue() * 100;
+      var d_planQatrYy3 = sellAmt23 == 0 ? 0 : asset23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3 = sellAmt24 == 0 ? 0 : asset24 / sellAmt24 * lc_unit.getValue() * 100;
+      var d_diffQatrYy3 = sellAmt24 == 0 ? 0 : asset24 / sellAmt24 * lc_unit.getValue() * 100 - asset23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4Prev = sellAmt26 == 0 ? 0 : asset26 / sellAmt26 * lc_unit.getValue() * 100;
+      var d_planQatrYy4 = sellAmt27 == 0 ? 0 : asset27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4 = sellAmt28 == 0 ? 0 : asset28 / sellAmt28 * lc_unit.getValue() * 100;
+      var d_diffQatrYy4 = sellAmt28 == 0 ? 0 : asset28 / sellAmt28 * lc_unit.getValue() * 100 - asset27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrLowPrev = sellAmt30 == 0 ? 0 : asset30 / sellAmt30 * lc_unit.getValue() * 100;
+      var d_planQatrLow = sellAmt31 == 0 ? 0 : asset31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltQatrLow = sellAmt32 == 0 ? 0 : asset32 / sellAmt32 * lc_unit.getValue() * 100;
+      var d_diffQatrLow = sellAmt32 == 0 ? 0 : asset32 / sellAmt32 * lc_unit.getValue() * 100 - asset31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltYearLowPrev = sellAmt34 == 0 ? 0 : asset34 / sellAmt34 * lc_unit.getValue() * 100;
+      var d_planYearLow = sellAmt35 == 0 ? 0 : asset35 / sellAmt35 * lc_unit.getValue() * 100;
+      var d_rsltYearLow = sellAmt36 == 0 ? 0 : asset36 / sellAmt36 * lc_unit.getValue() * 100;
+      var d_diffYearLow = sellAmt36 == 0 ? 0 : asset36 / sellAmt36 * lc_unit.getValue() * 100 - asset35 / sellAmt35 * lc_unit.getValue() * 100;
+      dataList.setCellData(i, "yearPlanAmt", d_yearPlanAmt);
+      dataList.setCellData(i, "bfyyThisAmt", d_bfyyThisAmt);
+      dataList.setCellData(i, "thisPlanAmt", d_thisPlanAmt);
+      dataList.setCellData(i, "thisRsltsAmt", d_thisRsltsAmt);
+      dataList.setCellData(i, "thisDiffer", d_thisDiffer);
+      dataList.setCellData(i, "sumBfyyThisAmt", d_sumBfyyThisAmt);
+      dataList.setCellData(i, "sumPlanAmt", d_sumPlanAmt);
+      dataList.setCellData(i, "sumRsltsAmt", d_sumRsltsAmt);
+      dataList.setCellData(i, "sumDiffer", d_sumDiffer);
+      dataList.setCellData(i, "rsltQatrYy1Prev", d_rsltQatrYy1Prev);
+      dataList.setCellData(i, "planQatrYy1", d_planQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy1", d_rsltQatrYy1);
+      dataList.setCellData(i, "diffQatrYy1", d_diffQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy2Prev", d_rsltQatrYy2Prev);
+      dataList.setCellData(i, "planQatrYy2", d_planQatrYy2);
+      dataList.setCellData(i, "rsltQatrYy2", d_rsltQatrYy2);
+      dataList.setCellData(i, "diffQatrYy2", d_diffQatrYy2);
+      dataList.setCellData(i, "rsltQatrUppPrev", d_rsltQatrUppPrev);
+      dataList.setCellData(i, "planQatrUpp", d_planQatrUpp);
+      dataList.setCellData(i, "rsltQatrUpp", d_rsltQatrUpp);
+      dataList.setCellData(i, "diffQatrUpp", d_diffQatrUpp);
+      dataList.setCellData(i, "rsltQatrYy3Prev", d_rsltQatrYy3Prev);
+      dataList.setCellData(i, "planQatrYy3", d_planQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy3", d_rsltQatrYy3);
+      dataList.setCellData(i, "diffQatrYy3", d_diffQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy4Prev", d_rsltQatrYy4Prev);
+      dataList.setCellData(i, "planQatrYy4", d_planQatrYy4);
+      dataList.setCellData(i, "rsltQatrYy4", d_rsltQatrYy4);
+      dataList.setCellData(i, "diffQatrYy4", d_diffQatrYy4);
+      dataList.setCellData(i, "rsltQatrLowPrev", d_rsltQatrLowPrev);
+      dataList.setCellData(i, "planQatrLow", d_planQatrLow);
+      dataList.setCellData(i, "rsltQatrLow", d_rsltQatrLow);
+      dataList.setCellData(i, "diffQatrLow", d_diffQatrLow);
+      dataList.setCellData(i, "rsltYearLowPrev", d_rsltYearLowPrev);
+      dataList.setCellData(i, "planYearLow", d_planYearLow);
+      dataList.setCellData(i, "rsltYearLow", d_rsltYearLow);
+      dataList.setCellData(i, "diffYearLow", d_diffYearLow);
+    }
+
+    // 변동비율
+    if (dataList.getCellData(i, "mgntAcctCd") == "9300006") {
+      var d_yearPlanAmt = sellAmt1 == 0 ? 0 : change1 / sellAmt1 * lc_unit.getValue() * 100;
+      var d_bfyyThisAmt = sellAmt2 == 0 ? 0 : change2 / sellAmt2 * lc_unit.getValue() * 100;
+      var d_thisPlanAmt = sellAmt3 == 0 ? 0 : change3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_thisRsltsAmt = sellAmt4 == 0 ? 0 : change4 / sellAmt4 * lc_unit.getValue() * 100;
+      var d_thisDiffer = sellAmt4 == 0 ? 0 : change4 / sellAmt4 * lc_unit.getValue() * 100 - change3 / sellAmt3 * lc_unit.getValue() * 100;
+      var d_sumBfyyThisAmt = sellAmt6 == 0 ? 0 : change6 / sellAmt6 * lc_unit.getValue() * 100;
+      var d_sumPlanAmt = sellAmt7 == 0 ? 0 : change7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_sumRsltsAmt = sellAmt8 == 0 ? 0 : change8 / sellAmt8 * lc_unit.getValue() * 100;
+      var d_sumDiffer = sellAmt8 == 0 ? 0 : change8 / sellAmt8 * lc_unit.getValue() * 100 - change7 / sellAmt7 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1Prev = sellAmt10 == 0 ? 0 : change10 / sellAmt10 * lc_unit.getValue() * 100;
+      var d_planQatrYy1 = sellAmt11 == 0 ? 0 : change11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy1 = sellAmt12 == 0 ? 0 : change12 / sellAmt12 * lc_unit.getValue() * 100;
+      var d_diffQatrYy1 = sellAmt12 == 0 ? 0 : change12 / sellAmt12 * lc_unit.getValue() * 100 - change11 / sellAmt11 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2Prev = sellAmt14 == 0 ? 0 : change14 / sellAmt14 * lc_unit.getValue() * 100;
+      var d_planQatrYy2 = sellAmt15 == 0 ? 0 : change15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy2 = sellAmt16 == 0 ? 0 : change16 / sellAmt16 * lc_unit.getValue() * 100;
+      var d_diffQatrYy2 = sellAmt16 == 0 ? 0 : change16 / sellAmt16 * lc_unit.getValue() * 100 - change15 / sellAmt15 * lc_unit.getValue() * 100;
+      var d_rsltQatrUppPrev = sellAmt18 == 0 ? 0 : change18 / sellAmt18 * lc_unit.getValue() * 100;
+      var d_planQatrUpp = sellAmt19 == 0 ? 0 : change19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrUpp = sellAmt20 == 0 ? 0 : change20 / sellAmt20 * lc_unit.getValue() * 100;
+      var d_diffQatrUpp = sellAmt20 == 0 ? 0 : change20 / sellAmt20 * lc_unit.getValue() * 100 - change19 / sellAmt19 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3Prev = sellAmt22 == 0 ? 0 : change22 / sellAmt22 * lc_unit.getValue() * 100;
+      var d_planQatrYy3 = sellAmt23 == 0 ? 0 : change23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy3 = sellAmt24 == 0 ? 0 : change24 / sellAmt24 * lc_unit.getValue() * 100;
+      var d_diffQatrYy3 = sellAmt24 == 0 ? 0 : change24 / sellAmt24 * lc_unit.getValue() * 100 - change23 / sellAmt23 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4Prev = sellAmt26 == 0 ? 0 : change26 / sellAmt26 * lc_unit.getValue() * 100;
+      var d_planQatrYy4 = sellAmt27 == 0 ? 0 : change27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrYy4 = sellAmt28 == 0 ? 0 : change28 / sellAmt28 * lc_unit.getValue() * 100;
+      var d_diffQatrYy4 = sellAmt28 == 0 ? 0 : change28 / sellAmt28 * lc_unit.getValue() * 100 - change27 / sellAmt27 * lc_unit.getValue() * 100;
+      var d_rsltQatrLowPrev = sellAmt30 == 0 ? 0 : change30 / sellAmt30 * lc_unit.getValue() * 100;
+      var d_planQatrLow = sellAmt31 == 0 ? 0 : change31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltQatrLow = sellAmt32 == 0 ? 0 : change32 / sellAmt32 * lc_unit.getValue() * 100;
+      var d_diffQatrLow = sellAmt32 == 0 ? 0 : change32 / sellAmt32 * lc_unit.getValue() * 100 - change31 / sellAmt31 * lc_unit.getValue() * 100;
+      var d_rsltYearLowPrev = sellAmt34 == 0 ? 0 : change34 / sellAmt34 * lc_unit.getValue() * 100;
+      var d_planYearLow = sellAmt35 == 0 ? 0 : change35 / sellAmt35 * lc_unit.getValue() * 100;
+      var d_rsltYearLow = sellAmt36 == 0 ? 0 : change36 / sellAmt36 * lc_unit.getValue() * 100;
+      var d_diffYearLow = sellAmt36 == 0 ? 0 : change36 / sellAmt36 * lc_unit.getValue() * 100 - change35 / sellAmt35 * lc_unit.getValue() * 100;
+      dataList.setCellData(i, "yearPlanAmt", d_yearPlanAmt);
+      dataList.setCellData(i, "bfyyThisAmt", d_bfyyThisAmt);
+      dataList.setCellData(i, "thisPlanAmt", d_thisPlanAmt);
+      dataList.setCellData(i, "thisRsltsAmt", d_thisRsltsAmt);
+      dataList.setCellData(i, "thisDiffer", d_thisDiffer);
+      dataList.setCellData(i, "sumBfyyThisAmt", d_sumBfyyThisAmt);
+      dataList.setCellData(i, "sumPlanAmt", d_sumPlanAmt);
+      dataList.setCellData(i, "sumRsltsAmt", d_sumRsltsAmt);
+      dataList.setCellData(i, "sumDiffer", d_sumDiffer);
+      dataList.setCellData(i, "rsltQatrYy1Prev", d_rsltQatrYy1Prev);
+      dataList.setCellData(i, "planQatrYy1", d_planQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy1", d_rsltQatrYy1);
+      dataList.setCellData(i, "diffQatrYy1", d_diffQatrYy1);
+      dataList.setCellData(i, "rsltQatrYy2Prev", d_rsltQatrYy2Prev);
+      dataList.setCellData(i, "planQatrYy2", d_planQatrYy2);
+      dataList.setCellData(i, "rsltQatrYy2", d_rsltQatrYy2);
+      dataList.setCellData(i, "diffQatrYy2", d_diffQatrYy2);
+      dataList.setCellData(i, "rsltQatrUppPrev", d_rsltQatrUppPrev);
+      dataList.setCellData(i, "planQatrUpp", d_planQatrUpp);
+      dataList.setCellData(i, "rsltQatrUpp", d_rsltQatrUpp);
+      dataList.setCellData(i, "diffQatrUpp", d_diffQatrUpp);
+      dataList.setCellData(i, "rsltQatrYy3Prev", d_rsltQatrYy3Prev);
+      dataList.setCellData(i, "planQatrYy3", d_planQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy3", d_rsltQatrYy3);
+      dataList.setCellData(i, "diffQatrYy3", d_diffQatrYy3);
+      dataList.setCellData(i, "rsltQatrYy4Prev", d_rsltQatrYy4Prev);
+      dataList.setCellData(i, "planQatrYy4", d_planQatrYy4);
+      dataList.setCellData(i, "rsltQatrYy4", d_rsltQatrYy4);
+      dataList.setCellData(i, "diffQatrYy4", d_diffQatrYy4);
+      dataList.setCellData(i, "rsltQatrLowPrev", d_rsltQatrLowPrev);
+      dataList.setCellData(i, "planQatrLow", d_planQatrLow);
+      dataList.setCellData(i, "rsltQatrLow", d_rsltQatrLow);
+      dataList.setCellData(i, "diffQatrLow", d_diffQatrLow);
+      dataList.setCellData(i, "rsltYearLowPrev", d_rsltYearLowPrev);
+      dataList.setCellData(i, "planYearLow", d_planYearLow);
+      dataList.setCellData(i, "rsltYearLow", d_rsltYearLow);
+      dataList.setCellData(i, "diffYearLow", d_diffYearLow);
+    }
+  }
+  // gr_master.Redraw = "true";	
+};
+
+//-------------------------------------------------------------------------
+// popup조회
+//-------------------------------------------------------------------------
+scwin.f_detail = async function () {
+  if (ds_master.getRowCount() <= 0) {
+    await $c.win.alert($p, "사업영역별계획대비실적이 존재하지 않습니다.");
+    return false;
+  }
+  var closeYm = ica_srchCloseYm.getValue();
+  var acctDeptCd = lc_acctDeptCd.getValue();
+  var acctCd = ds_master.getCellData(ds_master.getRowPosition(), "mgntAcctCd");
+  var ver = lc_version.getValue();
+  var bizDomCd = ed_bizDomCd.getValue();
+  var coCd = ed_coCd.getValue();
+  var style = "center:yes; dialogwidth:1000px; dialogheight:730px; scroll:no; resizable:no; status:yes;";
+  // var strPath     = "/ac/co/rsltsmgnt/rsltsanl/co_404_01_28p.jsp?
+  // var returnValue = window.showModalDialog(strPath, ds_master ,style ) ;
+
+  let win_url = "/ui/ac/co/rsltsmgnt/rsltsanl/co_404_01_28p.xml";
+  let data = {
+    "closeYm": closeYm.trim(),
+    "acctDeptCd": acctDeptCd.trim(),
+    "acctCd": acctCd.trim(),
+    "ver": ver.trim(),
+    "bizDomCd": bizDomCd.trim(),
+    "gubun": "0",
+    "coCd": coCd.trim()
+  };
+  let opts = {
+    id: "detailPop",
+    popupName: "상세내역",
+    modal: true,
+    type: "browserPopup",
+    width: 1230,
+    height: 800,
+    title: "상세내역"
+  };
+  await $c.win.openPopup($p, win_url, opts, data);
+};
+
+//-------------------------------------------------------------------------
+// popup조회
+//-------------------------------------------------------------------------
+scwin.f_detail2 = async function () {
+  if (ds_master.getRowCount() <= 0) {
+    await $c.win.alert($p, "사업영역별계획대비실적이 존재하지 않습니다.");
+    return false;
+  }
+  var closeYm = ica_srchCloseYm.getValue().substring(0, 4).trim() - 1 + ica_srchCloseYm.getValue().substring(4, 6).trim();
+  var acctDeptCd = lc_acctDeptCd.getValue();
+  var acctCd = ds_master.getCellData(ds_master.getRowPosition(), "mgntAcctCd");
+  var ver = lc_version.getValue();
+  var bizDomCd = ed_bizDomCd.getValue();
+  var coCd = ed_coCd.getValue();
+  var style = "center:yes; dialogwidth:1000px; dialogheight:730px; scroll:no; resizable:no; status:yes;";
+  // var strPath = "/ac/co/rsltsmgnt/rsltsanl/co_404_01_28p.jsp
+  // ?closeYm="+closeYm.trim()
+  // +"&acctDeptCd="+acctDeptCd.trim()
+  // +"&acctCd="+acctCd.trim()
+  // +"&ver="+ver.trim()
+  // +"&bizDomCd="+bizDomCd.trim()
+  // +"&gubun=0"
+  // +"&coCd="+coCd.trim();
+  // var returnValue = window.showModalDialog(strPath, ds_master ,style ) ;
+
+  let win_url = "/ui/ac/co/rsltsmgnt/rsltsanl/co_404_01_28p.xml";
+  let data = {
+    "closeYm": closeYm.trim(),
+    "acctDeptCd": acctDeptCd.trim(),
+    "acctCd": acctCd.trim(),
+    "ver": ver.trim(),
+    "bizDomCd": bizDomCd.trim(),
+    "gubun": "0",
+    "coCd": coCd.trim()
+  };
+  let opts = {
+    id: "detailPop2",
+    popupName: "상세내역",
+    modal: true,
+    type: "browserPopup",
+    width: 1230,
+    height: 800,
+    title: "상세내역"
+  };
+  await $c.win.openPopup($p, win_url, opts, data);
+};
+
+//-------------------------------------------------------------------------
+// popup조회 (전기대비증감)
+//-------------------------------------------------------------------------
+scwin.f_detail3 = async function () {
+  if (ds_master.getRowCount() <= 0) {
+    await $c.win.alert($p, "사업영역별계획대비실적이 존재하지 않습니다.");
+    return false;
+  }
+  var closeYm = ica_srchCloseYm.getValue().trim();
+  var acctDeptCd = lc_acctDeptCd.getValue();
+  var acctCd = ds_master.getCellData(ds_master.getRowPosition(), "mgntAcctCd");
+  var acctNm = ds_master.getCellData(ds_master.getRowPosition(), "mgntAcctCdNm");
+  var bizDomCd = ed_bizDomCd.getValue();
+  var coNm = ed_coNm.getValue();
+  var coCd = ed_coCd.getValue();
+  var style = "center:yes; dialogwidth:1200px; dialogheight:800px; scroll:no; resizable:no; status:yes;";
+  // var strPath = "/ac/co/rsltsmgnt/rsltsanl/co_404_01_28_01p.jsp?
+  // closeYm="+closeYm.trim()+"
+  // &acctDeptCd="+acctDeptCd.trim()+"
+  // &acctCd="+acctCd.trim()+"
+  // &bizDomCd="+bizDomCd.trim();
+  // var returnValue = window.showModalDialog(strPath, ds_master ,style ) ;
+
+  let win_url = "/ui/ac/co/rsltsmgnt/rsltsanl/co_404_01_28_01p.xml";
+  let data = {
+    "closeYm": closeYm.trim(),
+    "acctDeptCd": acctDeptCd.trim(),
+    "acctCd": acctCd.trim(),
+    "bizDomCd": bizDomCd.trim(),
+    "coNm": coNm.trim(),
+    "coCd": coCd.trim(),
+    "acctNm": acctNm.trim()
+  };
+  let opts = {
+    id: "detailPop3",
+    popupName: "전기대비증감상세",
+    modal: true,
+    type: "browserPopup",
+    width: 1230,
+    height: 800,
+    title: "전기대비증감상세"
+  };
+  await $c.win.openPopup($p, win_url, opts, data);
+};
+
+//-------------------------------------------------------------------------
+// popup조회
+//-------------------------------------------------------------------------
+scwin.f_detail4 = async function () {
+  if (ds_master.getRowCount() <= 0) {
+    await $c.win.alert($p, "사업영역별계획대비실적이 존재하지 않습니다.");
+    return false;
+  }
+  var closeYm = ica_srchCloseYm.getValue().trim();
+  var acctDeptCd = lc_acctDeptCd.getValue();
+  var acctCd = ds_master.getCellData(ds_master.getRowPosition(), "mgntAcctCd");
+  var acctNm = ds_master.getCellData(ds_master.getRowPosition(), "mgntAcctCdNm");
+  var bizDomCd = ed_bizDomCd.getValue();
+  var coCd = ed_coCd.getValue();
+  var coNm = ed_coNm.getValue();
+  // var style = "center:yes; dialogwidth:1200px; dialogheight:800px; scroll:no; resizable:no; status:yes;";
+  // var strPath = "/ac/co/rsltsmgnt/rsltsanl/co_404_01_28_02p.jsp
+  // ?closeYm="+closeYm.trim()+"
+  // &acctDeptCd="+acctDeptCd.trim()+"
+  // &acctCd="+acctCd.trim()+"
+  // &bizDomCd="+bizDomCd.trim();
+  // var returnValue = window.showModalDialog(strPath, ds_master ,style ) ;
+
+  let win_url = "/ui/ac/co/rsltsmgnt/rsltsanl/co_404_01_28_02p.xml";
+  let data = {
+    "closeYm": closeYm.trim(),
+    "acctDeptCd": acctDeptCd.trim(),
+    "acctCd": acctCd.trim(),
+    "bizDomCd": bizDomCd.trim(),
+    "coCd": coCd.trim(),
+    "coNm": coNm.trim(),
+    "acctNm": acctNm.trim()
+  };
+  let opts = {
+    id: "detailPop4",
+    popupName: "누계전기대비증감상세",
+    modal: true,
+    type: "browserPopup",
+    width: 1230,
+    height: 800,
+    title: "누계전기대비증감상세"
+  };
+  await $c.win.openPopup($p, win_url, opts, data);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 증가액/감소액/거래처 내용을 변경한다.
+//-------------------------------------------------------------------------
+scwin.f_SetGridThisClntView = async function (dataList) {
+  // gr_master.Redraw = "false";
+  var clntAmt = 0;
+  var hClnt1 = ""; //상위거래처 1~5
+  var hAmt1 = 0;
+  var _hAmt1 = 0; //단위 변경 후 0보다 클 경우 SUM
+  var hClnt2 = ""; //상위거래처 5~10
+  var hAmt2 = 0;
+  var _hAmt2 = 0;
+  var hClnt3 = ""; //상위거래처 11~15
+  var hAmt3 = 0;
+  var _hAmt3 = 0;
+  var hEtcClntSum = 0;
+  var _thisHClntSum = 0; //단위 변경 후 0보다 클 경우 SUM
+  var lClnt1 = ""; //하위거래처 1~5
+  var lAmt1 = 0;
+  var _lAmt1 = 0; //단위 변경 후 0보다 작을 경우 SUM
+  var lClnt2 = ""; //하위거래처 5~10
+  var lAmt2 = 0;
+  var _lAmt2 = 0;
+  var lClnt3 = ""; //하위거래처 11~15
+  var lAmt3 = 0;
+  var _lAmt1 = 0;
+  var lEtcClntSum = 0;
+  var _thisLClntSum = 0; //단위 변경 후 0보다 작을 경우 SUM
+
+  for (i = 0; i < dataList.getRowCount(); i++) {
+    //상위거래처
+    hAmt1 = parseInt(dataList.getCellData(i, "thisH1Amt")) + parseInt(dataList.getCellData(i, "thisH2Amt")) + parseInt(dataList.getCellData(i, "thisH3Amt")) + parseInt(dataList.getCellData(i, "thisH4Amt")) + parseInt(dataList.getCellData(i, "thisH5Amt"));
+    hAmt2 = parseInt(dataList.getCellData(i, "thisH6Amt")) + parseInt(dataList.getCellData(i, "thisH7Amt")) + parseInt(dataList.getCellData(i, "thisH8Amt")) + parseInt(dataList.getCellData(i, "thisH9Amt")) + parseInt(dataList.getCellData(i, "thisH10Amt"));
+    hAmt3 = parseInt(dataList.getCellData(i, "thisH11Amt")) + parseInt(dataList.getCellData(i, "thisH12Amt")) + parseInt(dataList.getCellData(i, "thisH13Amt")) + parseInt(dataList.getCellData(i, "thisH14Amt")) + parseInt(dataList.getCellData(i, "thisH15Amt"));
+    if (Math.round(parseInt(hAmt1) / lc_unit.getValue()) > 0) {
+      // clntAmt = dataList.VirtualString2(i, "thisH1Amt",1);//Math.round(parseInt(dataList.getCellData(i, "thisH1Amt")) / lc_unit.getValue());
+      clntAmt = dataList.getCellData(i, "thisH1Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // 					hClnt1 = dataList.getCellData(i, "thisH1ClntNm") + " " + clntAmt;
+        // hClnt1 = dataList.getCellData(i, "thisH1ClntNm") + " " + dataList.getCellData(i, "thisH1Amt");
+        hClnt1 = dataList.getCellData(i, "thisH1ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH1Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(dataList.getCellData(i, "thisH1Amt"));
+        _thisHClntSum = clntAmt;
+      } else {
+        hClnt1 = "";
+      }
+      clntAmt = dataList.getCellData(i, "thisH2Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH2ClntNm") + " " + dataList.getCellData(i, "thisH2Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH2ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH2Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "thisH2Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH3Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH3ClntNm") + " " + dataList.getCellData(i, "thisH3Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH3ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH3Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "thisH3Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH4Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH4ClntNm") + " " + dataList.getCellData(i, "thisH4Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH4ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH4Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "thisH4Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH5Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH5ClntNm") + " " + dataList.getCellData(i, "thisH5Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "thisH5ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH5Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "thisH5Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      hEtcClntSum = parseInt(dataList.getCellData(i, "thisHClntSum")) - parseInt(_hAmt1);
+    } else {
+      hClnt1 = "";
+      hEtcClntSum = 0;
+      _thisHClntSum = 0;
+    }
+    if (Math.round(parseInt(hAmt2) / lc_unit.getValue()) > 0 && lc_clntCnt.getValue() != "5") {
+      clntAmt = dataList.getCellData(i, "thisH6Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = " / " + dataList.getCellData(i, "thisH6ClntNm") + " " + dataList.getCellData(i, "thisH6Amt");
+        hClnt2 = " / " + dataList.getCellData(i, "thisH6ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH6Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(dataList.getCellData(i, "thisH6Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH7Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH7ClntNm") + " " + dataList.getCellData(i, "thisH7Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH7ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH7Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "thisH7Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH8Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH8ClntNm") + " " + dataList.getCellData(i, "thisH8Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH8ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH8Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "thisH8Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH9Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH9ClntNm") + " " + dataList.getCellData(i, "thisH9Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH9ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH9Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "thisH9Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH10Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH10ClntNm") + " " + dataList.getCellData(i, "thisH10Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "thisH10ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH10Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "thisH10Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      hEtcClntSum = parseInt(dataList.getCellData(i, "thisHClntSum")) - parseInt(_hAmt1) - parseInt(_hAmt2);
+    } else {
+      hClnt2 = "";
+    }
+    if (Math.round(parseInt(hAmt3) / lc_unit.getValue()) > 0 && lc_clntCnt.getValue() == "15") {
+      clntAmt = dataList.getCellData(i, "thisH11Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = " / " + dataList.getCellData(i, "thisH11ClntNm") + " " + dataList.getCellData(i, "thisH11Amt");
+        hClnt3 = " / " + dataList.getCellData(i, "thisH11ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH11Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(dataList.getCellData(i, "thisH11Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH12Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH12ClntNm") + " " + dataList.getCellData(i, "thisH12Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH12ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH12Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "thisH12Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH13Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH13ClntNm") + " " + dataList.getCellData(i, "thisH13Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH13ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH13Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "thisH13Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH14Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH14ClntNm") + " " + dataList.getCellData(i, "thisH14Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH14ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH14Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "thisH14Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "thisH15Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH15ClntNm") + " " + dataList.getCellData(i, "thisH15Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "thisH15ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisH15Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "thisH15Amt"));
+        _thisHClntSum = parseInt(_thisHClntSum) + parseInt(clntAmt);
+      }
+      hEtcClntSum = parseInt(dataList.getCellData(i, "thisHClntSum")) - parseInt(_hAmt1) - parseInt(_hAmt2) - parseInt(_hAmt3);
+    } else {
+      hClnt3 = "";
+    }
+    lAmt1 = parseInt(dataList.getCellData(i, "thisL1Amt")) + parseInt(dataList.getCellData(i, "thisL2Amt")) + parseInt(dataList.getCellData(i, "thisL3Amt")) + parseInt(dataList.getCellData(i, "thisL4Amt")) + parseInt(dataList.getCellData(i, "thisL5Amt"));
+    lAmt2 = parseInt(dataList.getCellData(i, "thisL6Amt")) + parseInt(dataList.getCellData(i, "thisL7Amt")) + parseInt(dataList.getCellData(i, "thisL8Amt")) + parseInt(dataList.getCellData(i, "thisL9Amt")) + parseInt(dataList.getCellData(i, "thisL10Amt"));
+    lAmt3 = parseInt(dataList.getCellData(i, "thisL11Amt")) + parseInt(dataList.getCellData(i, "thisL12Amt")) + parseInt(dataList.getCellData(i, "thisL13Amt")) + parseInt(dataList.getCellData(i, "thisL14Amt")) + parseInt(dataList.getCellData(i, "thisL15Amt"));
+
+    //하위거래처
+    if (Math.round(parseInt(lAmt1) / lc_unit.getValue()) < 0) {
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL1Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = dataList.getCellData(i, "thisL1ClntNm") + " " + dataList.getCellData(i, "thisL1Amt");
+        lClnt1 = dataList.getCellData(i, "thisL1ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL1Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(dataList.getCellData(i, "thisL1Amt"));
+        _thisLClntSum = clntAmt;
+      } else {
+        lClnt1 = "";
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL2Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL2ClntNm") + " " + dataList.getCellData(i, "thisL2Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL2ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL2Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "thisL2Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL3Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL3ClntNm") + " " + dataList.getCellData(i, "thisL3Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL3ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL3Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "thisL3Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL4Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL4ClntNm") + " " + dataList.getCellData(i, "thisL4Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL4ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL4Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "thisL4Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL5Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL5ClntNm") + " " + dataList.getCellData(i, "thisL5Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "thisL5ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL5Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "thisL5Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      lEtcClntSum = parseInt(dataList.getCellData(i, "thisLClntSum")) - parseInt(_lAmt1);
+    } else {
+      lClnt1 = "";
+      lEtcClntSum = 0;
+      _thisLClntSum = 0;
+    }
+    if (Math.round(parseInt(lAmt2) / lc_unit.getValue()) < 0 && lc_clntCnt.getValue() != "5") {
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL6Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = " / " + dataList.getCellData(i, "thisL6ClntNm") + " " + dataList.getCellData(i, "thisL6Amt") ;
+        lClnt2 = " / " + dataList.getCellData(i, "thisL6ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL6Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(dataList.getCellData(i, "thisL6Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL7Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL7ClntNm") + " " + dataList.getCellData(i, "thisL7Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL7ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL7Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "thisL7Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL8Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL8ClntNm") + " " + dataList.getCellData(i, "thisL8Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL8ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL8Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "thisL8Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL9Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL9ClntNm") + " " + dataList.getCellData(i, "thisL9Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL9ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL9Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "thisL9Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL10Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL10ClntNm") + " " + dataList.getCellData(i, "thisL10Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "thisL10ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL10Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "thisL10Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      lEtcClntSum = parseInt(dataList.getCellData(i, "thisLClntSum")) - parseInt(_lAmt1) - parseInt(_lAmt2);
+    } else {
+      lClnt2 = "";
+    }
+    if (Math.round(parseInt(lAmt3) / lc_unit.getValue()) < 0 && lc_clntCnt.getValue() == "15") {
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL11Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = " / " + dataList.getCellData(i, "thisL11ClntNm") + " " + dataList.getCellData(i, "thisL11Amt");
+        lClnt3 = " / " + dataList.getCellData(i, "thisL11ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL11Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(dataList.getCellData(i, "thisL11Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL12Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL12ClntNm") + " " + dataList.getCellData(i, "thisL12Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL12ClntNm") + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL12Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "thisL12Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL13Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL13ClntNm") + " " + dataList.getCellData(i, "thisL13Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL13ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL13Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "thisL13Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL14Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL14ClntNm") + " " + dataList.getCellData(i, "thisL14Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL14ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL14Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "thisL14Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "thisL15Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL15ClntNm") + " " + dataList.getCellData(i, "thisL15Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "thisL15ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisL15Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "thisL15Amt"));
+        _thisLClntSum = parseInt(_thisLClntSum) + parseInt(clntAmt);
+      }
+      lEtcClntSum = parseInt(dataList.getCellData(i, "thisLClntSum")) - parseInt(_lAmt1) - parseInt(_lAmt2) - parseInt(_lAmt3);
+    } else {
+      lClnt3 = "";
+    }
+
+    // hEtcClntSum = Math.round(parseInt(hEtcClntSum) / lc_unit.getValue());
+    // lEtcClntSum = Math.round(parseInt(lEtcClntSum) / lc_unit.getValue());
+
+    // hEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "thisHClntSum")) / lc_unit.getValue()) - parseInt(_thisHClntSum);
+    // lEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "thisLClntSum")) / lc_unit.getValue()) - parseInt(_thisLClntSum);
+    hEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "thisHClntSum")) / lc_unit.getValue()) - Math.round(parseInt(_thisHClntSum) / lc_unit.getValue());
+    lEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "thisLClntSum")) / lc_unit.getValue()) - Math.round(parseInt(_thisLClntSum) / lc_unit.getValue());
+    if (lc_clntCnt.getValue() == "5") {
+      if (hEtcClntSum > 0) {
+        dataList.setCellData(i, "thisHEtcSum", parseInt(dataList.getCellData(i, "thisHClntSum")) - parseInt(hAmt1));
+        // dataList.setCellData(i, "thisHClnt", hClnt1 + " / 기타 " + dataList.getCellData(i, "thisHEtcSum"));
+        dataList.setCellData(i, "thisHClnt", hClnt1 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisHEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "thisHClnt", hClnt1);
+      }
+      if (lEtcClntSum < 0) {
+        dataList.setCellData(i, "thisLEtcSum", parseInt(dataList.getCellData(i, "thisLClntSum")) - parseInt(lAmt1));
+        // dataList.setCellData(i, "thisLClnt", lClnt1 + " / 기타 " + dataList.getCellData(i, "thisLEtcSum"));
+        dataList.setCellData(i, "thisLClnt", lClnt1 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisLEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "thisLClnt", lClnt1);
+      }
+    } else if (lc_clntCnt.getValue() == "10") {
+      if (hEtcClntSum > 0) {
+        dataList.setCellData(i, "thisHEtcSum", parseInt(dataList.getCellData(i, "thisHClntSum")) - parseInt(hAmt1) - parseInt(hAmt2));
+        // dataList.setCellData(i, "thisHClnt", hClnt1 + hClnt2 + " / 기타 " + dataList.getCellData(i, "thisHEtcSum"));
+        dataList.setCellData(i, "thisHClnt", hClnt1 + hClnt2 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisHEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "thisHClnt", hClnt1 + hClnt2);
+      }
+      if (lEtcClntSum < 0) {
+        dataList.setCellData(i, "thisLEtcSum", parseInt(dataList.getCellData(i, "thisLClntSum")) - parseInt(lAmt1) - parseInt(lAmt2));
+        // dataList.setCellData(i, "thisLClnt", lClnt1 + lClnt2 + " / 기타 " + dataList.getCellData(i, "thisLEtcSum"));
+        dataList.setCellData(i, "thisLClnt", lClnt1 + lClnt2 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisLEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "thisLClnt", lClnt1 + lClnt2);
+      }
+    } else if (lc_clntCnt.getValue() == "15") {
+      if (hEtcClntSum > 0) {
+        dataList.setCellData(i, "thisHEtcSum", parseInt(dataList.getCellData(i, "thisHClntSum")) - parseInt(hAmt1) - parseInt(hAmt2) - parseInt(hAmt3));
+        // dataList.setCellData(i, "thisHClnt", hClnt1 + hClnt2 + hClnt3 + " / 기타 " + dataList.getCellData(i, "thisHEtcSum"));
+        dataList.setCellData(i, "thisHClnt", hClnt1 + hClnt2 + hClnt3 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisHEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "thisHClnt", hClnt1 + hClnt2 + hClnt3);
+      }
+      if (lEtcClntSum < 0) {
+        dataList.setCellData(i, "thisLEtcSum", parseInt(dataList.getCellData(i, "thisLClntSum")) - parseInt(lAmt1) - parseInt(lAmt2) - parseInt(lAmt3));
+        // dataList.setCellData(i, "thisLClnt", lClnt1 + lClnt2 + lClnt3 + " / 기타 " + dataList.getCellData(i, "thisLEtcSum"));
+        dataList.setCellData(i, "thisLClnt", lClnt1 + lClnt2 + lClnt3 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "thisLEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "thisLClnt", lClnt1 + lClnt2 + lClnt3);
+      }
+    }
+    if (Math.round(parseInt(dataList.getCellData(i, "thisHClntSum")) / lc_unit.getValue()) == "0") {
+      dataList.setCellData(i, "thisHClnt", "");
+    }
+    if (Math.round(parseInt(dataList.getCellData(i, "thisLClntSum")) / lc_unit.getValue()) == "0") {
+      dataList.setCellData(i, "thisLClnt", "");
+    }
+  }
+  // gr_master.Redraw = "true";
+};
+
+//-------------------------------------------------------------------------
+// 그리드 증가액/감소액/거래처 내용을 변경한다.
+//-------------------------------------------------------------------------
+scwin.f_SetGridSumClntView = async function (dataList) {
+  // gr_master.Redraw = "false";
+
+  var clntAmt = 0;
+  var hClnt1 = ""; //상위거래처 1~5
+  var hAmt1 = 0;
+  var _hAmt1 = 0; //단위 변경 후 0보다 클 경우 SUM
+  var hClnt2 = ""; //상위거래처 5~10
+  var hAmt2 = 0;
+  var _hAmt2 = 0;
+  var hClnt3 = ""; //상위거래처 11~15
+  var hAmt3 = 0;
+  var _hAmt3 = 0;
+  var hEtcClntSum = 0;
+  var _sumHClntSum = 0; //단위 변경 후 0보다 클 경우 SUM
+
+  var lClnt1 = ""; //하위거래처 1~5
+  var lAmt1 = 0;
+  var _lAmt1 = 0; //단위 변경 후 0보다 작을 경우 SUM
+  var lClnt2 = ""; //하위거래처 5~10
+  var lAmt2 = 0;
+  var _lAmt2 = 0;
+  var lClnt3 = ""; //하위거래처 11~15
+  var lAmt3 = 0;
+  var _lAmt1 = 0;
+  var lEtcClntSum = 0;
+  var _sumLClntSum = 0; //단위 변경 후 0보다 작을 경우 SUM
+
+  for (i = 0; i < dataList.getRowCount(); i++) {
+    //상위거래처
+    hAmt1 = parseInt(dataList.getCellData(i, "sumH1Amt")) + parseInt(dataList.getCellData(i, "sumH2Amt")) + parseInt(dataList.getCellData(i, "sumH3Amt")) + parseInt(dataList.getCellData(i, "sumH4Amt")) + parseInt(dataList.getCellData(i, "sumH5Amt"));
+    hAmt2 = parseInt(dataList.getCellData(i, "sumH6Amt")) + parseInt(dataList.getCellData(i, "sumH7Amt")) + parseInt(dataList.getCellData(i, "sumH8Amt")) + parseInt(dataList.getCellData(i, "sumH9Amt")) + parseInt(dataList.getCellData(i, "sumH10Amt"));
+    hAmt3 = parseInt(dataList.getCellData(i, "sumH11Amt")) + parseInt(dataList.getCellData(i, "sumH12Amt")) + parseInt(dataList.getCellData(i, "sumH13Amt")) + parseInt(dataList.getCellData(i, "sumH14Amt")) + parseInt(dataList.getCellData(i, "sumH15Amt"));
+    if (Math.round(parseInt(hAmt1) / lc_unit.getValue()) > 0) {
+      clntAmt = dataList.getCellData(i, "sumH1Amt"); //Math.round(parseInt(dataList.getCellData(i, "sumH1Amt")) / lc_unit.getValue());
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // 					hClnt1 = dataList.getCellData(i, "sumH1ClntNm") + " " + clntAmt;
+        // hClnt1 = dataList.getCellData(i, "sumH1ClntNm") + " " + dataList.getCellData(i, "sumH1Amt");
+        hClnt1 = dataList.getCellData(i, "sumH1ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH1Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(dataList.getCellData(i, "sumH1Amt"));
+        _sumHClntSum = clntAmt;
+      } else {
+        hClnt1 = "";
+      }
+      clntAmt = dataList.getCellData(i, "sumH2Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH2ClntNm") + " " + dataList.getCellData(i, "sumH2Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH2ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH2Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "sumH2Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH3Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH3ClntNm") + " " + dataList.getCellData(i, "sumH3Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH3ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH3Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "sumH3Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH4Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH4ClntNm") + " " + dataList.getCellData(i, "sumH4Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH4ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH4Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "sumH4Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH5Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH5ClntNm") + " " + dataList.getCellData(i, "sumH5Amt");
+        hClnt1 = hClnt1 + " / " + dataList.getCellData(i, "sumH5ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH5Amt")) / lc_unit.getValue()));
+        _hAmt1 = parseInt(_hAmt1) + parseInt(dataList.getCellData(i, "sumH5Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      hEtcClntSum = parseInt(dataList.getCellData(i, "sumHClntSum")) - parseInt(_hAmt1);
+    } else {
+      hClnt1 = "";
+      hEtcClntSum = 0;
+      _sumHClntSum = 0;
+    }
+    if (Math.round(parseInt(hAmt2) / lc_unit.getValue()) > 0 && lc_clntCnt.getValue() != "5") {
+      clntAmt = dataList.getCellData(i, "sumH6Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = " / " + dataList.getCellData(i, "sumH6ClntNm") + " " + dataList.getCellData(i, "sumH6Amt");
+        hClnt2 = " / " + dataList.getCellData(i, "sumH6ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH6Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(dataList.getCellData(i, "sumH6Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH7Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH7ClntNm") + " " + dataList.getCellData(i, "sumH7Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH7ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH7Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "sumH7Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH8Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH8ClntNm") + " " + dataList.getCellData(i, "sumH8Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH8ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH8Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "sumH8Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH9Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH9ClntNm") + " " + dataList.getCellData(i, "sumH9Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH9ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH9Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "sumH9Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH10Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH10ClntNm") + " " + dataList.getCellData(i, "sumH10Amt");
+        hClnt2 = hClnt2 + " / " + dataList.getCellData(i, "sumH10ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH10Amt")) / lc_unit.getValue()));
+        _hAmt2 = parseInt(_hAmt2) + parseInt(dataList.getCellData(i, "sumH10Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      hEtcClntSum = parseInt(dataList.getCellData(i, "sumHClntSum")) - parseInt(_hAmt1) - parseInt(_hAmt2);
+    } else {
+      hClnt2 = "";
+    }
+    if (Math.round(parseInt(hAmt3) / lc_unit.getValue()) > 0 && lc_clntCnt.getValue() == "15") {
+      clntAmt = dataList.getCellData(i, "sumH11Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = " / " + dataList.getCellData(i, "sumH11ClntNm") + " " + dataList.getCellData(i, "sumH11Amt");
+        hClnt3 = " / " + dataList.getCellData(i, "sumH11ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH11Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(dataList.getCellData(i, "sumH11Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH12Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH12ClntNm") + " " + dataList.getCellData(i, "sumH12Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH12ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH12Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "sumH12Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH13Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH13ClntNm") + " " + dataList.getCellData(i, "sumH13Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH13ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH13Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "sumH13Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH14Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH14ClntNm") + " " + dataList.getCellData(i, "sumH14Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH14ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH14Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "sumH14Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = dataList.getCellData(i, "sumH15Amt");
+      if (Math.round(parseInt(clntAmt) / lc_unit.getValue()) > 0) {
+        // hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH15ClntNm") + " " + dataList.getCellData(i, "sumH15Amt");
+        hClnt3 = hClnt3 + " / " + dataList.getCellData(i, "sumH15ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumH15Amt")) / lc_unit.getValue()));
+        _hAmt3 = parseInt(_hAmt3) + parseInt(dataList.getCellData(i, "sumH15Amt"));
+        _sumHClntSum = parseInt(_sumHClntSum) + parseInt(clntAmt);
+      }
+      hEtcClntSum = parseInt(dataList.getCellData(i, "sumHClntSum")) - parseInt(_hAmt1) - parseInt(_hAmt2) - parseInt(_hAmt3);
+    } else {
+      hClnt3 = "";
+    }
+    lAmt1 = parseInt(dataList.getCellData(i, "sumL1Amt")) + parseInt(dataList.getCellData(i, "sumL2Amt")) + parseInt(dataList.getCellData(i, "sumL3Amt")) + parseInt(dataList.getCellData(i, "sumL4Amt")) + parseInt(dataList.getCellData(i, "sumL5Amt"));
+    lAmt2 = parseInt(dataList.getCellData(i, "sumL6Amt")) + parseInt(dataList.getCellData(i, "sumL7Amt")) + parseInt(dataList.getCellData(i, "sumL8Amt")) + parseInt(dataList.getCellData(i, "sumL9Amt")) + parseInt(dataList.getCellData(i, "sumL10Amt"));
+    lAmt3 = parseInt(dataList.getCellData(i, "sumL11Amt")) + parseInt(dataList.getCellData(i, "sumL12Amt")) + parseInt(dataList.getCellData(i, "sumL13Amt")) + parseInt(dataList.getCellData(i, "sumL14Amt")) + parseInt(dataList.getCellData(i, "sumL15Amt"));
+
+    //하위거래처
+    if (Math.round(parseInt(lAmt1) / lc_unit.getValue()) < 0) {
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL1Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = dataList.getCellData(i, "sumL1ClntNm") + " " + dataList.getCellData(i, "sumL1Amt");
+        lClnt1 = dataList.getCellData(i, "sumL1ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL1Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(dataList.getCellData(i, "sumL1Amt"));
+        _sumLClntSum = clntAmt;
+      } else {
+        lClnt1 = "";
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL2Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL2ClntNm") + " " + dataList.getCellData(i, "sumL2Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL2ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL2Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "sumL2Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL3Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL3ClntNm") + " " + dataList.getCellData(i, "sumL3Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL3ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL3Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "sumL3Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL4Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL4ClntNm") + " " + dataList.getCellData(i, "sumL4Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL4ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL4Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "sumL4Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL5Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL5ClntNm") + " " + dataList.getCellData(i, "sumL5Amt");
+        lClnt1 = lClnt1 + " / " + dataList.getCellData(i, "sumL5ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL5Amt")) / lc_unit.getValue()));
+        _lAmt1 = parseInt(_lAmt1) + parseInt(dataList.getCellData(i, "sumL5Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      lEtcClntSum = parseInt(dataList.getCellData(i, "sumLClntSum")) - parseInt(_lAmt1);
+    } else {
+      lClnt1 = "";
+      lEtcClntSum = 0;
+      _sumLClntSum = 0;
+    }
+    if (Math.round(parseInt(lAmt2) / lc_unit.getValue()) < 0 && lc_clntCnt.getValue() != "5") {
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL6Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = " / " + dataList.getCellData(i, "sumL6ClntNm") + " " + dataList.getCellData(i, "sumL6Amt") ;
+        lClnt2 = " / " + dataList.getCellData(i, "sumL6ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL6Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(dataList.getCellData(i, "sumL6Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL7Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL7ClntNm") + " " + dataList.getCellData(i, "sumL7Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL7ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL7Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "sumL7Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL8Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL8ClntNm") + " " + dataList.getCellData(i, "sumL8Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL8ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL8Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "sumL8Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL9Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL9ClntNm") + " " + dataList.getCellData(i, "sumL9Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL9ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL9Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "sumL9Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL10Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL10ClntNm") + " " + dataList.getCellData(i, "sumL10Amt");
+        lClnt2 = lClnt2 + " / " + dataList.getCellData(i, "sumL10ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL10Amt")) / lc_unit.getValue()));
+        _lAmt2 = parseInt(_lAmt2) + parseInt(dataList.getCellData(i, "sumL10Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      lEtcClntSum = parseInt(dataList.getCellData(i, "sumLClntSum")) - parseInt(_lAmt1) - parseInt(_lAmt2);
+    } else {
+      lClnt2 = "";
+    }
+    if (Math.round(parseInt(lAmt3) / lc_unit.getValue()) < 0 && lc_clntCnt.getValue() == "15") {
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL11Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = " / " + dataList.getCellData(i, "sumL11ClntNm") + " " + dataList.getCellData(i, "sumL11Amt");
+        lClnt3 = " / " + dataList.getCellData(i, "sumL11ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL11Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(dataList.getCellData(i, "sumL11Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL12Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL12ClntNm") + " " + dataList.getCellData(i, "sumL12Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL12ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL12Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "sumL12Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL13Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL13ClntNm") + " " + dataList.getCellData(i, "sumL13Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL13ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL13Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "sumL13Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL14Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL14ClntNm") + " " + dataList.getCellData(i, "sumL14Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL14ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL14Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "sumL14Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      clntAmt = Math.round(parseInt(dataList.getCellData(i, "sumL15Amt")) / lc_unit.getValue());
+      if (clntAmt < 0) {
+        // lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL15ClntNm") + " " + dataList.getCellData(i, "sumL15Amt");
+        lClnt3 = lClnt3 + " / " + dataList.getCellData(i, "sumL15ClntNm") + " " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumL15Amt")) / lc_unit.getValue()));
+        _lAmt3 = parseInt(_lAmt3) + parseInt(dataList.getCellData(i, "sumL15Amt"));
+        _sumLClntSum = parseInt(_sumLClntSum) + parseInt(clntAmt);
+      }
+      lEtcClntSum = parseInt(dataList.getCellData(i, "sumLClntSum")) - parseInt(_lAmt1) - parseInt(_lAmt2) - parseInt(_lAmt3);
+    } else {
+      lClnt3 = "";
+    }
+
+    // hEtcClntSum = Math.round(parseInt(hEtcClntSum) / lc_unit.getValue());
+    // lEtcClntSum = Math.round(parseInt(lEtcClntSum) / lc_unit.getValue());
+
+    // hEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "sumHClntSum")) / lc_unit.getValue()) - parseInt(_sumHClntSum);
+    // lEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "sumLClntSum")) / lc_unit.getValue()) - parseInt(_sumLClntSum);
+
+    hEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "sumHClntSum")) / lc_unit.getValue()) - Math.round(parseInt(_sumHClntSum) / lc_unit.getValue());
+    lEtcClntSum = Math.round(parseInt(dataList.getCellData(i, "sumLClntSum")) / lc_unit.getValue()) - Math.round(parseInt(_sumLClntSum) / lc_unit.getValue());
+    if (lc_clntCnt.getValue() == "5") {
+      if (hEtcClntSum > 0) {
+        dataList.setCellData(i, "sumHEtcSum", parseInt(dataList.getCellData(i, "sumHClntSum")) - parseInt(hAmt1));
+        // dataList.setCellData(i, "sumHClnt", hClnt1 + " / 기타 " + dataList.getCellData(i, "sumHEtcSum"));
+        dataList.setCellData(i, "sumHClnt", hClnt1 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumHEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "sumHClnt", hClnt1);
+      }
+      if (lEtcClntSum < 0) {
+        dataList.setCellData(i, "sumLEtcSum", parseInt(dataList.getCellData(i, "sumLClntSum")) - parseInt(lAmt1));
+        // dataList.setCellData(i, "sumLClnt", lClnt1 + " / 기타 " + dataList.getCellData(i, "sumLEtcSum"));
+        dataList.setCellData(i, "sumLClnt", lClnt1 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumLEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "sumLClnt", lClnt1);
+      }
+    } else if (lc_clntCnt.getValue() == "10") {
+      if (hEtcClntSum > 0) {
+        dataList.setCellData(i, "sumHEtcSum", parseInt(dataList.getCellData(i, "sumHClntSum")) - parseInt(hAmt1) - parseInt(hAmt2));
+        // dataList.setCellData(i, "sumHClnt", hClnt1 + hClnt2 + " / 기타 " + dataList.getCellData(i, "sumHEtcSum"));
+        dataList.setCellData(i, "sumHClnt", hClnt1 + hClnt2 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumHEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "sumHClnt", hClnt1 + hClnt2);
+      }
+      if (lEtcClntSum < 0) {
+        dataList.setCellData(i, "sumLEtcSum", parseInt(dataList.getCellData(i, "sumLClntSum")) - parseInt(lAmt1) - parseInt(lAmt2));
+        // dataList.setCellData(i, "sumLClnt", lClnt1 + lClnt2 + " / 기타 " + dataList.getCellData(i, "sumLEtcSum"));
+        dataList.setCellData(i, "sumLClnt", lClnt1 + lClnt2 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumLEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "sumLClnt", lClnt1 + lClnt2);
+      }
+    } else if (lc_clntCnt.getValue() == "15") {
+      if (hEtcClntSum > 0) {
+        dataList.setCellData(i, "sumHEtcSum", parseInt(dataList.getCellData(i, "sumHClntSum")) - parseInt(hAmt1) - parseInt(hAmt2) - parseInt(hAmt3));
+        // dataList.setCellData(i, "sumHClnt", hClnt1 + hClnt2 + hClnt3 + " / 기타 " + dataList.getCellData(i, "sumHEtcSum"));
+        dataList.setCellData(i, "sumHClnt", hClnt1 + hClnt2 + hClnt3 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumHEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "sumHClnt", hClnt1 + hClnt2 + hClnt3);
+      }
+      if (lEtcClntSum < 0) {
+        dataList.setCellData(i, "sumLEtcSum", parseInt(dataList.getCellData(i, "sumLClntSum")) - parseInt(lAmt1) - parseInt(lAmt2) - parseInt(lAmt3));
+        // dataList.setCellData(i, "sumLClnt", lClnt1 + lClnt2 + lClnt3 + " / 기타 " + dataList.getCellData(i, "sumLEtcSum"));
+        dataList.setCellData(i, "sumLClnt", lClnt1 + lClnt2 + lClnt3 + " / 기타 " + $c.num.formatNumber($p, Math.round(parseInt(dataList.getCellData(i, "sumLEtcSum")) / lc_unit.getValue())));
+      } else {
+        dataList.setCellData(i, "sumLClnt", lClnt1 + lClnt2 + lClnt3);
+      }
+    }
+    if (Math.round(parseInt(dataList.getCellData(i, "sumHClntSum")) / lc_unit.getValue()) == "0") {
+      dataList.setCellData(i, "sumHClnt", "");
+    }
+    if (Math.round(parseInt(dataList.getCellData(i, "sumLClntSum")) / lc_unit.getValue()) == "0") {
+      dataList.setCellData(i, "sumLClnt", "");
+    }
+  }
+  // gr_master.Redraw = "true";
+};
+
+// 자회사 회계 시스템 추가에 따른 설정 
+scwin.f_setCompanyInfo = async function () {
+  // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+  if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+    scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+    scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+  }
+  ed_coCd.setValue(scwin.vLoginCoCd);
+  // await scwin.f_PopUpCompanyInfo('T'); 
+  udc_coCd.setSelectId("retrieveDongbuGroupCompanyInfo");
+  udc_coCd.cfCommonPopUp(function (rtnList) {
+    // SET
+    if (rtnList != null) {
+      if (rtnList[0] == "N/A") return;
+      ed_coCd.setValue(rtnList[0]); // 코드
+      ed_coNm.setValue(rtnList[5]); // 회사명 
+      ds_hidden.set("txtCoClsCd", rtnList[1]); // 회사구분 
+    } else {
+      ed_coCd.setValue("");
+      ed_coNm.setValue("");
+      ds_hidden.set("txtCoClsCd", "");
+    }
+    scwin.f_showLoexDistYn();
+    if (ds_hidden.get("txtCoClsCd") > ACConstants.CO_CLS_CD_DONGBU) {
+      // 자회사 회계 시스템 
+      scwin.isSubCompany = true;
+    } else {
+      scwin.isSubCompany = false;
+    }
+    if ('T' == scwin.privAdmin || !scwin.isSubCompany) {
+      // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우 
+      $c.gus.cfEnableObjects($p, [udc_coCd
+      // ed_coCd,ed_coNm,img_company
+      ]);
+    } else {
+      $c.gus.cfDisableObjects($p, [udc_coCd
+      // ed_coCd,ed_coNm,img_company
+      ]);
+    }
+  }, ed_coCd.getValue(), ed_coNm.getValue(), "T", null, null, null, null, null, null, null, null, null);
+};
+
+// 회사 입력 팝업 
+scwin.f_PopUpCompanyInfo = async function (pWinCloseTF) {
+  udc_coCd.setSelectId("retrieveDongbuGroupCompanyInfo");
+  udc_coCd.cfCommonPopUp(function (rtnList) {
+    // SET
+    if (rtnList != null) {
+      if (rtnList[0] == "N/A") return;
+      ed_coCd.setValue(rtnList[0]); // 코드
+      ed_coNm.setValue(rtnList[5]); // 회사명 
+      ds_hidden.set("txtCoClsCd", rtnList[1]); // 회사구분 
+    } else {
+      ed_coCd.setValue("");
+      ed_coNm.setValue("");
+      ds_hidden.set("txtCoClsCd", "");
+    }
+    scwin.f_showLoexDistYn();
+  }, ed_coCd.getValue(), ed_coNm.getValue(), pWinCloseTF, null, null, null, null, null, null, null, null, null);
+};
+scwin.f_showLoexDistYn = function () {
+  if (ed_coCd.getValue() == "000") {
+    //로엑스의 경우 (로엑스)배부포함 hidden
+    // document.getElementById("td_loexDistYn").style.display = "none";
+    chk_loexDistYn.hide("");
+  } else {
+    // document.getElementById("td_loexDistYn").style.display = "block";
+    chk_loexDistYn.show("");
+  }
+};
+scwin.udc_coCd_onclickEvent = function (e) {
+  scwin.f_PopUpCompanyInfo('F');
+};
+scwin.udc_coCd_onblurCodeEvent = function (e) {
+  ed_coNm.setValue("");
+  scwin.f_PopUpCompanyInfo('T');
+};
+scwin.udc_coCd_onblurNameEvent = function (e) {};
+scwin.ica_srchCloseYm_onblur = function (e) {
+  scwin.f_SetGridFormat();
+};
+scwin.ica_srchCloseYm_onchange = function () {
+  scwin.f_SetGridFormat();
+};
+scwin.udc_srchAcctDept_onclickEvent = function (e) {
+  scwin.f_deptPopUp();
+};
+scwin.udc_srchAcctDept_onblurCodeEvent = async function (e) {
+  // if (await scwin.f_IsPopUp(ed_srchAcctDeptCd, ed_srchAcctDeptNm) == false) return;
+  // scwin.f_IsPopUp = async function (inObj) {
+
+  var inValue = $c.gus.cfGetValue($p, ed_srchAcctDeptCd);
+  var hidValue = ed_srchAcctDeptCd.options.hidVal;
+  if (await $c.gus.cfIsNull($p, inValue)) {
+    ed_srchAcctDeptCd.options.hidVal = "";
+    // for (var i = 0 ; i < scwin.f_IsPopUp.arguments.length; i++) {
+    //     $c.gus.cfSetValue(scwin.f_IsPopUp.arguments[i],"");
+    // }
+    ed_srchAcctDeptCd.setValue("");
+    ed_srchAcctDeptNm.setValue("");
+    return;
+  }
+  if (inValue == hidValue) return;
+  scwin.f_deptPopUp();
+};
+scwin.udc_srchAcctDept_onblurNameEvent = function (e) {};
+scwin.udc_bizDom_onclickEvent = function (e) {
+  scwin.f_BizDomPopUp();
+};
+scwin.udc_bizDom_onblurCodeEvent = async function (e) {
+  // if (await scwin.f_IsPopUp(ed_bizDomCd, ed_bizDomNm) == false) return;
+  // scwin.f_IsPopUp = async function (inObj) {
+  var inValue = $c.gus.cfGetValue($p, ed_bizDomCd);
+  var hidValue = ed_bizDomCd.options.hidVal;
+  if (await $c.gus.cfIsNull($p, inValue)) {
+    ed_bizDomCd.options.hidVal = "";
+    // for (var i = 0 ; i < scwin.f_IsPopUp.arguments.length; i++) {
+    //     $c.gus.cfSetValue(scwin.f_IsPopUp.arguments[i],"");
+    // }
+    ed_bizDomCd.setValue("");
+    ed_bizDomNm.setValue("");
+    return;
+  }
+  if (inValue == hidValue) return;
+  scwin.f_BizDomPopUp();
+};
+scwin.udc_bizDom_onblurNameEvent = function (e) {};
+scwin.btn_Clear_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+scwin.btn_search_onclick = function (e) {
+  scwin.f_GetRsltsDept();
+};
+scwin.excelDown2 = function () {
+  scwin.f_Retrieve2();
+};
+scwin.excelDown1 = function () {
+  scwin.f_Export();
+};
+scwin.sbm_search_submitdone = async function (e) {
+  var rowCnt = ds_master.getRowCount();
+  txt_totalRows.setValue(rowCnt);
+  if (rowCnt == 0) {
+    if ((await $c.gus.cfCheckCreateFlag($p)) == true) {
+      $c.gus.cfTurnCreateFlag($p, false);
+    } else {
+      await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    }
+    lc_acctDeptCd.setReadOnly(true); // Enable = "false";
+  } else {
+    lc_acctDeptCd.setReadOnly(false); // Enable = "true";
+    //ds_master.Filter();
+    await scwin.f_SetGridUnit();
+    gr_master.focus();
+  }
+  // color_underline style
+  var targetArr = ["bfyyThisAmt", "thisRsltsAmt", "thisDifferBfyy", "sumDifferBfyy"];
+  for (var i = 0; i < targetArr.length; i++) {
+    gr_master.setColumnStyle(targetArr[i], "text-decoration", "underline");
+    gr_master.setColumnStyle(targetArr[i], "color", "blue");
+    gr_master.setColumnStyle(targetArr[i], "cursor", "pointer");
+  }
+  scwin.gSrchGb = "0";
+};
+scwin.ds_master_OnFilter = function (row) {
+  // return (lc_acctDeptCd.getValue() == ds_master.NameString(row,"acctDeptCd"));
+  ds_master.clearFilter();
+  var keyVal = lc_acctDeptCd.getValue();
+  ds_master.setColumnFilter({
+    type: 'row',
+    colIndex: 'acctDeptCd',
+    key: keyVal,
+    condition: 'and'
+  });
+};
+scwin.lc_acctDeptCd_onselected = async function () {
+  // if (ds_master.getRowPosition() < 1) return;
+  if (await $c.gus.cfIsNull($p, lc_acctDeptCd.getValue())) return;
+  scwin.f_Retrieve();
+};
+scwin.lc_unit_onselected = function () {
+  scwin.f_SetGridUnit();
+};
+scwin.gr_master_oncellclick = function (Row, columnIndex, columnId) {
+  var ilevel = ds_master.getCellData(Row, "level");
+  var Colid = gr_master.getColumnID(columnIndex);
+  if (ilevel > 0) return;
+  if (Colid == "thisRsltsAmt") {
+    if (ds_master.getCellData(Row, "thisRsltsAmt") != 0) {
+      scwin.f_detail();
+    }
+  }
+  if (Colid == "bfyyThisAmt") {
+    if (ds_master.getCellData(Row, "bfyyThisAmt") != 0) {
+      scwin.f_detail2();
+    }
+  }
+  if (Colid == "thisDifferBfyy") {
+    if (ds_master.getCellData(Row, "thisDifferBfyy") != 0) {
+      scwin.f_detail3();
+    }
+  }
+  if (Colid == "sumDifferBfyy") {
+    if (ds_master.getCellData(Row, "sumDifferBfyy") != 0) {
+      scwin.f_detail4();
+    }
+  }
+};
+scwin.lc_clntCnt_onselected = async function () {
+  await scwin.f_SetGridThisClntView();
+  await scwin.f_SetGridSumClntView();
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'tbl_search',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'회사코드 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'',codeId:'ed_coCd',popupTitle:'',nameId:'ed_coNm',style:'',btnId:'btn_company',id:'udc_coCd',popupGridHeadTitle:'회사코드,회사명',allowCharCode:'0-9',maxlengthCode:'3',validTitle:'회사코드',mandatoryCode:'true','ev:onclickEvent':'scwin.udc_coCd_onclickEvent','ev:onblurCodeEvent':'scwin.udc_coCd_onblurCodeEvent','ev:onblurNameEvent':'scwin.udc_coCd_onblurNameEvent',refDataCollection:'ds_search',code:'coCd',skipOnBlurCodeValueEmpty:'N',skipOnBlurNameValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'장부구분 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:' w200',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_srchBookClsCd',style:'',submenuSize:'auto',mandatory:'true',title:'장부구분',objType:'data',ref:'data:ds_search.bookClsCd'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'결산년월',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonth',class:' cal',id:'ica_srchCloseYm',style:'width:100px;',displayFormat:'yyyy/MM',mandatory:'true',title:'결산년월',objType:'data','ev:onchange':'scwin.ica_srchCloseYm_onchange',ref:'data:ds_search.closeYm','ev:onblur':'scwin.ica_srchCloseYm_onblur'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'버전 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:' w150',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_version',style:'',submenuSize:'auto',ref:'data:ds_search.ver',sortMethod:'ascending',sortOption:'value',mandatory:'true',title:'버전'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_version'},E:[{T:1,N:'xf:label',A:{ref:'col4'}},{T:1,N:'xf:value',A:{ref:'col1'}}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'거래처기준 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:' w80',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_clntCnt',style:'',submenuSize:'auto',ref:'',objType:'data','ev:onselected':'scwin.lc_clntCnt_onselected',displayMode:'value delim label'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'5개'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'5'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'10개'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'10'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'15개'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'15'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'부서 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_srchAcctDeptCd',nameId:'ed_srchAcctDeptNm',popupID:'',popupTitle:'부서검색,부서코드,부서명',selectID:'',style:'',btnId:'btn_dept',id:'udc_srchAcctDept',popupGridHeadTitle:'부서코드,부서명',maxlengthCode:'5',allowCharCode:'0-9',validTitle:'부서',objTypeCode:'data',maxlengthName:'30',objTypeName:'data',mandatoryCode:'true','ev:onclickEvent':'scwin.udc_srchAcctDept_onclickEvent','ev:onblurCodeEvent':'scwin.udc_srchAcctDept_onblurCodeEvent','ev:onblurNameEvent':'scwin.udc_srchAcctDept_onblurNameEvent',skipOnBlurCodeValueEmpty:'N',skipOnBlurNameValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'사업영역 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_bizDomCd',nameId:'ed_bizDomNm',popupID:'',popupTitle:'사업영역검색,사업영역코드,사업영역',selectID:'retrieveBizDomCdInfo',style:'',btnId:'btn_bizDom',id:'udc_bizDom',popupGridHeadTitle:'사업영역코드,사업영역명',allowCharCode:'0-9',maxlengthCode:'3',validTitle:'사업영역',objTypeCode:'data',objTypeName:'data',maxlengthName:'25','ev:onblurNameEvent':'scwin.udc_bizDom_onblurNameEvent','ev:onclickEvent':'scwin.udc_bizDom_onclickEvent','ev:onblurCodeEvent':'scwin.udc_bizDom_onblurCodeEvent',skipOnBlurCodeValueEmpty:'N',skipOnBlurNameValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'chk_lowerDeptIncluYn',ref:'data:ds_search.lowerDeptIncluYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',falseValue:'0',mandatory:'true','ev:oncheckboxclick':'scwin.chk_lowerDeptIncluYn_oncheckboxclick'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'하위부서포함 '}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',id:'chk_distYn',ref:'data:ds_search.distYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',falseValue:'0',mandatory:'true','ev:oncheckboxclick':'scwin.chk_distYn_oncheckboxclick'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'배부포함 '}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'','ev:oncheckboxclick':'scwin.chk_distYn_oncheckboxclick',falseValue:'0',id:'chk_loexDistYn',mandatory:'true',ref:'data:ds_search.loexDistYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'display: none;'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'(로엑스)배부포함'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_Clear',style:'',type:'button','ev:onclick':'scwin.btn_Clear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_search',style:'',type:'button','ev:onclick':'scwin.btn_search_onclick',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'사업영역별계획대비실적 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'하위부서포함 ',class:''}},{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',gridDownUserAuth:'X',gridID:'',id:'udc_topGrd2',btnPlusYn:'N',btnUser:'N',gridDownYn:'Y',templateYn:'N',gridDownFn:'scwin.excelDown2'}},{T:1,N:'xf:select1',A:{submenuSize:'auto',appearance:'minimal',disabledClass:'w2selectbox_disabled',chooseOption:'',disabled:'false',style:'',allOption:'',id:'lc_acctDeptCd',class:' w150',direction:'auto',ref:'','ev:onselected':'scwin.lc_acctDeptCd_onselected'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_dept'},E:[{T:1,N:'xf:label',A:{ref:'col2'}},{T:1,N:'xf:value',A:{ref:'col1'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'inner',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'단위',style:''}},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:' w150',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_unit',style:'',submenuSize:'auto',mandatory:'true',title:'단위',ref:'','ev:onselected':'scwin.lc_unit_onselected',displayMode:'value delim label'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_unit'},E:[{T:1,N:'xf:label',A:{ref:'cdNm'}},{T:1,N:'xf:value',A:{ref:'cdDesc'}}]}]}]}]},{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridID:'gr_master',id:'udc_topGrd',gridDownUserAuth:'X',gridUpYn:'N',gridDownFn:'scwin.excelDown1',btnPlusYn:'Y',gridDownYn:'Y',templateYn:'N',btnUser:'N'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_master',id:'gr_master',style:'',visibleRowNum:'13',visibleRowNumFix:'true',readOnly:'true','ev:oncellclick':'scwin.gr_master_oncellclick'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption3',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row6'},E:[{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2260',value:'계정',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column2259',value:'계정',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2258',value:'년간계획',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'7810',inputType:'text',id:'h_thisMm',value:'당월',displayMode:'label',colSpan:'71',sortable:'false'}},{T:1,N:'w2:column',A:{width:'7840',inputType:'text',id:'h_cum',value:'누계',displayMode:'label',colSpan:'71',sortable:'false'}},{T:1,N:'w2:column',A:{width:'620',inputType:'text',id:'column2115',value:'1/4분기',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'600',inputType:'text',id:'column2110',value:'2/4분기',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'620',inputType:'text',id:'column2105',value:'상반기',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'620',inputType:'text',id:'column2100',value:'3/4분기',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'600',inputType:'text',id:'column2095',value:'4/4분기',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'600',inputType:'text',id:'column2090',value:'하반기',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'600',inputType:'text',id:'column2085',value:'년계',displayMode:'label',colSpan:'5',sortable:'false'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column2080',value:'계정',displayMode:'label',rowSpan:'2'}}]},{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column712',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column711',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column710',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column709',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column708',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column707',value:'증가액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column706',value:'거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column705',value:'감소액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column704',value:'거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column703',value:'h기타',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column702',value:'l기타',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column701',value:'thisH1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column700',value:'h금액1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column699',value:'thisH2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column698',value:'h금액2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column697',value:'thisH3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column696',value:'h금액3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column695',value:'thisH4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column694',value:'h금액4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column693',value:'thisH5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column692',value:'h금액5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column691',value:'thisH6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column690',value:'h금액6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column689',value:'thisH7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column688',value:'h금액7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column687',value:'thisH8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column686',value:'h금액8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column685',value:'thisH9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column684',value:'h금액9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column683',value:'thisH10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column682',value:'h금액10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column681',value:'thisH11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column680',value:'h금액11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column679',value:'thisH12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column678',value:'h금액12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column677',value:'thisH13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column676',value:'h금액13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column675',value:'thisH14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column674',value:'h금액14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column673',value:'thisH15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column672',value:'h금액15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column671',value:'thisL1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column670',value:'l금액1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column669',value:'thisL2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column668',value:'l금액2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column667',value:'thisL3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column666',value:'l금액3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column665',value:'thisL4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column664',value:'l금액4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column663',value:'thisL5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column662',value:'l금액5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column661',value:'thisL6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column660',value:'l금액6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column659',value:'thisL7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column658',value:'l금액7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column657',value:'thisL8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column656',value:'l금액8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column655',value:'thisL9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column654',value:'l금액9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column653',value:'thisL10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column652',value:'l금액10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column651',value:'thisL11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column650',value:'l금액11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column649',value:'thisL12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column648',value:'l금액12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column647',value:'thisL13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column646',value:'l금액13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column645',value:'thisL14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column644',value:'l금액14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column643',value:'thisL15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column642',value:'l금액15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column639',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column638',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column637',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column641',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column640',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column636',value:'증가액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column635',value:'거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column634',value:'감소액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column633',value:'거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column632',value:'h기타',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column631',value:'l기타',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column630',value:'sumH1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column629',value:'h금액1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column628',value:'sumH2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column627',value:'h금액2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column626',value:'sumH3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column625',value:'h금액3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column624',value:'sumH4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column623',value:'h금액4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column622',value:'sumH5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column621',value:'h금액5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column620',value:'sumH6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column619',value:'h금액6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column618',value:'sumH7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column617',value:'h금액7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column616',value:'sumH8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column615',value:'h금액8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column614',value:'sumH9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column613',value:'h금액9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column612',value:'sumH10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column611',value:'h금액10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column610',value:'sumH11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column609',value:'h금액11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column608',value:'sumH12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column607',value:'h금액12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column606',value:'sumH13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column605',value:'h금액13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column604',value:'sumH14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column603',value:'h금액14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column602',value:'sumH15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column601',value:'h금액15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column600',value:'sumL1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column599',value:'l금액1',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column598',value:'sumL2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column597',value:'l금액2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column596',value:'sumL3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column595',value:'l금액3',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column594',value:'sumL4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column593',value:'l금액4',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column592',value:'sumL5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column591',value:'l금액5',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column590',value:'sumL6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column589',value:'l금액6',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column588',value:'sumL7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column587',value:'l금액7',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column586',value:'sumL8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column585',value:'l금액8',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column584',value:'sumL9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column583',value:'l금액9',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column582',value:'sumL10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column581',value:'l금액10',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column580',value:'sumL11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column579',value:'l금액11',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column578',value:'sumL12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column577',value:'l금액12',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column576',value:'sumL13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column575',value:'l금액13',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column574',value:'sumL14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column573',value:'l금액14',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column572',value:'sumL15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column571',value:'l금액15',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column570',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column569',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column568',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column567',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column566',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column1064',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column1049',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1052',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column1055',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column1058',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column565',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column564',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column563',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column562',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column561',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column560',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column559',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column558',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column557',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',id:'column556',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column555',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column554',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column553',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column552',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column551',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1067',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1079',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1076',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1073',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1070',value:'계획대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2067',value:'전기',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2079',value:'계획',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2076',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2073',value:'전기대비증감',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column2070',value:'계획대비증감',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody2'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'mgntAcctCdNm',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'mgntAcctCd',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'yearPlanAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'bfyyThisAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisPlanAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisRsltsAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisDifferBfyy',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisDiffer',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisHClntSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'thisHClnt',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisLClntSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'thisLClnt',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisHEtcSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisLEtcSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH1ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH1Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH2ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH2Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH3ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH3Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH4ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH4Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH5ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH5Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH6ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH6Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hiddenCol:'true',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH7ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hiddenCol:'true',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH7Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hiddenCol:'true',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH8ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hiddenCol:'true',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH8Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH9ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH9Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH10ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH10Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH11ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH11Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH12ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH12Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH13ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH13Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH14ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH14Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH15ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisH15Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL1ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL1Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL2ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL2Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL3ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL3Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL4ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL4Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL5ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL5Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL6ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL6Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL7ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL7Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL8ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL8Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL9ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL9Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL10ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL10Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL11ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL11Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL12ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL12Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL13ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL13Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL14ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL14Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL15ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'thisL15Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sumBfyyThisAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sumPlanAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumRsltsAmt',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sumDifferBfyy',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sumDiffer',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumHClntSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sumHClnt',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumLClntSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sumLClnt',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumHEtcSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumLEtcSum',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH1ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH1Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH2ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH2Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH3ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH3Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH4ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH4Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH5ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH5Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH6ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH6Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH7ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH7Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH8ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH8Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH9ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH9Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH10ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH10Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH11ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'sumH11Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH12ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH12Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH13ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH13Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH14ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH14Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH15ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumH15Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL1ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL1Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL2ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL2Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL3ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL3Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL4ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL4Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL5ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL5Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL6ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL6Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL7ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL7Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL8ClntNm',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL8Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL9ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL9Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL10ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL10Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL11ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL11Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL12ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL12Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL13ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL13Amt',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL14ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL14Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL15ClntNm',displayMode:'label',displayFormat:'#,###',hidden:'true',textAlign:'right',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'sumL15Amt',displayMode:'label',textAlign:'right',displayFormat:'#,###',hidden:'true',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy1Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'planQatrYy1',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy1',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy1Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy1',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'rsltQatrYy2Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'planQatrYy2',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy2',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy2Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy2',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrUppPrev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'planQatrUpp',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrUpp',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrUppPrev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrUpp',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy3Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'planQatrYy3',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy3',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy3Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy3',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy4Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'planQatrYy4',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrYy4',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy4Prev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrYy4',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrLowPrev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'planQatrLow',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltQatrLow',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrLowPrev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffQatrLow',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltYearLowPrev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'planYearLow',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rsltYearLow',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffYearLowPrev',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'diffYearLow',displayMode:'label',textAlign:'right',displayFormat:'#,###',dataType:'number',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'slipProcYn',displayMode:'label',textAlign:'left',hidden:'true'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'txt_totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]},{T:1,N:'xf:group',A:{class:'',id:'grp_generator',style:'display: none;'},E:[{T:1,N:'w2:generator',A:{id:'gen_gridView1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkAllType:'false',class:'wq_gvw',dataList:'',id:'gr_excelGrd',style:'display: none;',readOnly:'true',visibleRowNum:'10',visibleRowNumFix:'true',dynamic:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'info-txt'},E:[{T:1,N:'w2:textbox',A:{style:'',id:'',label:'실적 상세 팝업은 장부구분 상세에서만 조회 가능합니다.',class:''}}]}]}]}]}]}]})

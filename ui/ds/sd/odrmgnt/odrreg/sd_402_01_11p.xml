@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_info" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="sellCommNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="sellItemCd" name="매출항목코드" dataType="text"></w2:column>
+    					<w2:column id="sellItemNm" name="매출항목" dataType="text"></w2:column>
+    					<w2:column id="bilgClntNo" name="청구처번호" dataType="text"></w2:column>
+    					<w2:column id="bilgClntNm" name="청구처" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="test" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="sellCommNo" name="컨테이너번호" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="sellItemCd" name="매출항목코드" dataType="text"></w2:column>
+    					<w2:column id="sellItemNm" name="매출항목" dataType="text"></w2:column>
+    					<w2:column id="bilgClntNo" name="청구처번호" dataType="text"></w2:column>
+    					<w2:column id="bilgClntNm" name="청구처" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<sellCommNo><![CDATA[sellCommNo1]]></sellCommNo>
+    						<odrNo><![CDATA[odrNo1]]></odrNo>
+    						<sellItemCd><![CDATA[sellItemCd1]]></sellItemCd>
+    						<sellItemNm><![CDATA[sellItemNm1]]></sellItemNm>
+    						<bilgClntNo><![CDATA[bilgClntNo1]]></bilgClntNo>
+    						<bilgClntNm><![CDATA[bilgClntNm1]]></bilgClntNm>
+    					</w2:row>
+    					<w2:row>
+                            <sellCommNo><![CDATA[sellCommNo2]]></sellCommNo>
+    						<odrNo><![CDATA[odrNo2]]></odrNo>
+    						<sellItemCd><![CDATA[sellItemCd2]]></sellItemCd>
+    						<sellItemNm><![CDATA[sellItemNm2]]></sellItemNm>
+    						<bilgClntNo><![CDATA[bilgClntNo2]]></bilgClntNo>
+    						<bilgClntNm><![CDATA[bilgClntNm2]]></bilgClntNm>
+                        </w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    console.log("scwin.onpageload");
+    let params = $c.data.getParameter();
+    /*params = {
+        ds_containerAdditionSelling : test      //>추후 삭제 예정
+    }*/
+    //$c.gus.cfCopyDataSet($c.win.getParent().ds_containerAdditionSelling, ds_info, "copyHeader=yes");
+    ds_info.setJSON(params.container);
+    spn_totalRow.setValue(ds_info.getTotalRow());
+};
+
+//취소 버튼
+scwin.btn_close_onclick = function (e) {
+    console.log("scwin.btn_close_onclick");
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_info" id="gr_pop" style="" visibleRowNumFix="true" resize="true" readOnly="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="컨테이너번호" width="130"></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="오더번호" width="130">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="매출항목코드" width="120" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="매출항목" width="170">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="청구처번호" width="100" hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="청구처" width="150"></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="sellCommNo" inputType="text" width="130"></w2:column>
+    											<w2:column displayMode="label" id="odrNo" inputType="text" width="130"></w2:column>
+    											<w2:column displayMode="label" id="sellItemCd" inputType="text" width="120"></w2:column>
+    											<w2:column displayMode="label" id="sellItemNm" inputType="text" width="170" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="bilgClntNo" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="bilgClntNm" inputType="text" width="150" textAlign="left"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="spn_totalRow" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

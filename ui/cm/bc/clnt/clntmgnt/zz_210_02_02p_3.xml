@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="DYNAMIC_FILE" name="name1" dataType="text"></w2:column>
+    					<w2:column id="MAX_SIZE" name="name2" dataType="text"></w2:column>
+    					<w2:column id="DISPLAY_HEIGHT" name="name3" dataType="text"></w2:column>
+    					<w2:column id="filepath" name="name4" dataType="text"></w2:column>
+    					<w2:column id="filename" name="name6" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/cm/fw/constants/DFWConstants.js" scopeVariable="DFWConstants" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// 부모화면 zz_210_02_02b (물류거래처관리)
+// 아래 거래처자료 탭 안에 자료등록 버튼
+// "1G34" == scwin.lobranCd || "1G36" == scwin.lobranCd
+// 243030 (1111)
+
+
+scwin.g_filePath = "";
+scwin.g_fileNm = "";
+scwin.g_fileTypeCd = "";
+scwin.g_fileRegDt = "";
+scwin.g_rmk = "";
+scwin.g_accdNo = "temp";
+scwin.fileNm = "";
+scwin.g_dataYn = "N";
+scwin.vToday = $c.date.getServerDateTime('yyyyMMdd');
+
+
+scwin.onpageload = function () { };
+
+
+// UDC에 값 세팅 방법
+// UDC값 초기화(scwin.onpageload 이후 세팅됨)
+scwin.onUdcCompleted = function () {
+
+    const codeOptions = [{ grpCd: "LO117", compID: "lc_fileTypeCd" }];
+    $c.data.setCommonCode(codeOptions, () => {
+        lc_fileTypeCd.addItem('', '선택', 0);
+
+        //파일 업로드 위치
+        let systemPathKey = DFWConstants.FILE_UPLOAD_SYSTEM_PATH;
+        let systemPathVal = "/cm/bc/clnt/clntmgnt";
+
+        const paramData = $c.data.getParameter();
+        const fileName = paramData.fileNm;
+        scwin.g_fileNm = fileName.slice(0, fileName.indexOf("."))
+        scwin.g_filePath = paramData.filePath;
+        scwin.g_fileTypeCd = paramData.fileTypeCd;
+        scwin.g_fileRegDt = paramData.fileRegDt;
+        scwin.g_rmk = paramData.rmk;
+
+        if (paramData != null) {
+            txt_fileNm.setValue(scwin.g_fileNm);
+            lc_fileTypeCd.setValue(scwin.g_fileTypeCd);
+            fileRegDt.setValue(scwin.g_fileRegDt);
+            txt_rmk.setValue(scwin.g_rmk);
+            txt_filePath.setValue(scwin.g_filePath);
+        };
+
+        if ("" == scwin.g_fileTypeCd) {
+            fileRegDt.setValue(scwin.vToday);
+        };
+
+    });
+
+};
+
+
+scwin.f_Close = function (e) {
+    // tobe - 부모화면 팝업 후에 맞춰 파라미터 변경 (기존: [N/A])
+    $c.win.closePopup();
+};
+
+
+scwin.fileSubmit = async function (e) {
+    if (lc_fileTypeCd.getValue() == "") {
+        await $c.win.alert("구분을 선택하세요");
+        return false;
+    }
+
+    if (fileRegDt.getValue() == "") {
+        await $c.win.alert("등록일자를 입력하세요");
+        return false;
+    }
+
+    if (add_file.getData().length == 0) {
+        await $c.win.alert("파일을 등록하세요");
+        return false;
+    } else if (txt_fileNm.getValue() == "") {
+        await $c.win.alert("파일명을 입력하세요");
+        return false;
+    }
+
+    // scwin.uploadComplete();
+    add_file.startFileUpload();
+};
+
+scwin.uploadComplete = async function () {
+    debugger
+    const uploadData = add_file.getData();
+    let jsonData = [];
+    uploadData.forEach((rowData) => {
+        debugger
+        jsonData.push({
+            "filepath": rowData.FILE_STORED_PATH + rowData.STORED_FILE_NM,
+            "filename": txt_fileNm.getValue(),
+        })
+    });
+    
+    fileUploadGDS.setJSON(jsonData, false);
+    add_file.setGridClear();
+    
+    scwin.g_filePath = fileUploadGDS.getCellData(0, "filepath");
+
+
+    if (fileUploadGDS.getTotalRow() != 0) {
+        txt_filePath.setValue(scwin.g_filePath);
+    }
+    debugger
+    scwin.g_filePath = txt_filePath.getValue() ?? '';
+    scwin.g_fileNm = txt_fileNm.getValue() ?? '';
+
+    scwin.g_fileTypeCd = lc_fileTypeCd.getValue();
+    scwin.g_fileRegDt = fileRegDt.getValue();
+    scwin.g_rmk = txt_rmk.getValue();
+
+    let rtnList = [];
+    rtnList[0] = scwin.g_filePath;
+    rtnList[1] = scwin.g_fileNm;
+    rtnList[2] = scwin.g_fileTypeCd
+    rtnList[3] = scwin.g_fileRegDt
+    rtnList[4] = scwin.g_rmk
+
+    $c.win.closePopup(rtnList);
+
+    // var rtnList = new Array();
+
+    // scwin.g_filePath = fileUploadGDS.getCellData(0, "filepath");
+
+    // if (fileUploadGDS.getTotalRow() != 0) {
+    //     txt_filePath.setValue(scwin.g_filePath);
+    // }
+
+    // if (txt_filePath.getValue() == "") {
+    //     await $c.win.alert("파일을 등록하세요");
+    //     return false;
+    // } else if (txt_fileNm.getValue() == "") {
+    //     await $c.win.alert("파일명을 입력하세요");
+    //     return false;
+    // }
+
+    // // g_fileTypeCd = argObject.fileTypeCd;
+    // // g_fileRegDt = argObject.fileRegDt;
+
+    // scwin.g_filePath = txt_filePath.getValue();
+    // scwin.g_fileNm = txt_fileNm.getValue();
+    // scwin.g_fileTypeCd = lc_fileTypeCd.getValue();
+    // scwin.g_fileRegDt = fileRegDt.getValue();
+    // scwin.g_rmk = txt_rmk.getValue();
+
+    // rtnList[0] = scwin.g_filePath;
+    // rtnList[1] = scwin.g_fileNm;
+    // rtnList[2] = scwin.g_fileTypeCd;
+    // rtnList[3] = scwin.g_fileRegDt;
+    // rtnList[4] = scwin.g_rmk;
+
+    // $c.win.closePopup(rtnList);
+
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    		<xf:group style="" id="" class="tbbox">
+    				<xf:group tagname="table" style="" id="table_bg" class="w2tb tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style="width:120px;"></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							<w2:textbox ref="" style="" userData2="" id="" label="구분" class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<xf:select1 submenuSize="fixed" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption="false" disabled="false" style="width: 200px;" allOption="false" id="lc_fileTypeCd" class="" direction="auto">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th ">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="비고" class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input style="width: 300px;" id="txt_rmk" class=""></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th ">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="일자 " class=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar style="" id="fileRegDt" class="" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd"></w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group><xf:group id="" class="row-gap-8 flex_no"><xf:group style="" id="" class="title-wrap">
+    					<xf:group id="" class="title">
+    						<w2:textbox tagname="h3" style="" id="" label="파일" class="tit"></w2:textbox>
+    					</xf:group>
+    				</xf:group><xf:group style="" id="" class="tbbox">
+    					<xf:group tagname="table" style="" id="" class="w2tb">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group tagname="col" style="width:120px;"></xf:group>
+    							<xf:group tagname="col" style=""></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr" style="">
+    							<xf:group tagname="th" style="" class="w2tb_th">
+    								<w2:textbox ref="" style="" userData2="" id="" label="파일명 " class="req"></w2:textbox>
+    							</xf:group>
+    							<xf:group tagname="td" style="" class="w2tb_td">
+    								<xf:input style="width: 300px;" id="txt_fileNm" class="" mandatory="true"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group></xf:group><xf:group id="" class="file-wrap no-title"><w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="" id="add_file" subDir="/cm/bc/clnt/clntmgnt" saveButtonYn="N" saveFn="scwin.fileSubmit" ev:onFileUploadDone="scwin.uploadComplete">
+    				</w2:udc_fileMultiUpload></xf:group></xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_Close">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.fileSubmit">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    			<xf:input id="txt_filePath" style="display: none;"></xf:input>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

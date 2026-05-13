@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="op_301_02_04p1" meta_screenName="상차요청 및 승인 반출현황" meta_author="김원빈" meta_subsystem="물류 &gt; 작업실적 &gt; 입출고/반출입(자가)" meta_etc="" meta_desc="부모화면 - 수입 상차요청 승인" meta_type="팝업">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_srchCond">
+    				<w2:keyInfo>
+    					<w2:key id="selfTransClntNo" name="자가운송사" dataType="text"></w2:key>
+    					<w2:key id="onReqNo" name="상차요청번호" dataType="text"></w2:key>
+    					<w2:key id="pageId" name="메인 PageID (수입/수출구분)" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_retrieveGoodsPresent" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="nrm" name="name1" dataType="text"></w2:column>
+    					<w2:column id="blQty" name="name2" dataType="text"></w2:column>
+    					<w2:column id="reqQty" name="name3" dataType="text"></w2:column>
+    					<w2:column id="admitQty" name="name4" dataType="text"></w2:column>
+    					<w2:column id="crryinoutIntendQty" name="name5" dataType="text"></w2:column>
+    					<w2:column id="crryinoutQty" name="name6" dataType="text"></w2:column>
+    					<w2:column id="odrQty" name="name8" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieveGoodsPresent" action="/ds.op.wrkrslts.cywrkrslts.RetrieveOnRequestGoodsPresentConditionCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,[{"id":"dma_srchCond","key":"IN_DS1"},{"id":"ds_retrieveGoodsPresent","key":"OUT_DS1"}]' target='data:json,{"id":"ds_retrieveGoodsPresent","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveGoodsPresent_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<w2:historyInfo>
+    		<w2:history meta_no="" meta_desc="최초개발" meta_date="2026/01/15" meta_user=""></w2:history>
+    	</w2:historyInfo>
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * @event 
+ * @name onpageload 
+ * @description 화면 초기화
+ */
+scwin.onpageload = function () { };
+
+
+
+/**
+ * @event 
+ * @name onUdcCompleted 
+ * @description UDC 완료
+ */
+scwin.onUdcCompleted = function () {
+    scwin.globalVars();
+    scwin.f_OnLoad();
+};
+
+
+
+
+/**
+ * @method 
+ * @name globalVars 
+ * @description 전역변수선언
+ */
+scwin.globalVars = function () {
+    scwin.valueObject = $c.data.getParameter('param').split(';');
+};
+
+
+
+/**
+ * @method 
+ * @name f_OnLoad 
+ * @description 화면로딩시
+ */
+scwin.f_OnLoad = function () {
+    scwin.f_Retrieve();
+};
+
+
+
+/**
+ * @method 
+ * @name f_Retrieve 
+ * @description 조회
+ */
+scwin.f_Retrieve = function () {
+
+    dma_srchCond.set('selfTransClntNo', scwin.valueObject[0]);
+    dma_srchCond.set('onReqNo', scwin.valueObject[1]);
+    dma_srchCond.set('pageId', scwin.valueObject[2]);
+
+    if (scwin.valueObject[2] == "op_301_02_05b") {
+        gr_ErrorInfo.setColumnVisible('blQty', false);
+        gr_ErrorInfo.setColumnVisible('odrQty', true);
+    };
+
+    $c.sbm.execute(sbm_retrieveGoodsPresent);
+
+};
+
+
+
+
+
+//-----------------------------------------------------------------------------
+//   Submission event  
+//-----------------------------------------------------------------------------
+
+/**
+ * @event 
+ * @name sbm_retrieveGoodsPresent_submitdone 
+ * @description 조회 TR 정상
+ */
+scwin.sbm_retrieveGoodsPresent_submitdone = function (e) {
+
+    // OnFail
+    if (e.responseJSON.resultDataSet[0].Code == -1) return;
+
+    scwin.ds_retrieveGoodsPresent_OnLoadCompleted();
+
+};
+
+
+
+/**
+ * @method 
+ * @name ds_retrieveGoodsPresent_OnLoadCompleted 
+ * @description 조회 TR ds_retrieveGoodsPresent 관련
+ */
+scwin.ds_retrieveGoodsPresent_OnLoadCompleted = function () {
+
+    let rowCnt = ds_retrieveGoodsPresent.getRowCount();
+
+    totalRows.setValue(rowCnt);
+
+    if (rowCnt == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    };
+
+    gr_ErrorInfo.setFocusedCell(0, 0);
+
+};
+
+
+
+/**
+ * @method 
+ * @name btn_close_onclick 
+ * @description 닫기버튼 클릭 시 발생하는 이벤트
+ */
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<xf:group style="" id="" class="pgtbox">
+    			<xf:group id="" class="pg-tit" style="display: none;">
+    				<xf:group id="" class="tit">
+    					<w2:textbox tagname="" style="" id="textbox1" label="상차요청 및 승인 반출현황" class="pgt_tit"></w2:textbox>
+    				</xf:group>
+    				<xf:trigger style="" id="" type="button" class="btn ico help">
+    					<xf:label></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<w2:wframe id="popupTitle" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_retrieveGoodsPresent"
+    					id="gr_ErrorInfo" style="" dataName="상차요청 및 승인 반출현황" validFeatures="ignoreStatus=no" objType="data"
+    					ev:onaftercolumnmove="scwin.gr_ErrorInfo_onaftercolumnmove" focusMode="row">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="규격" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="BL" width="100"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column28" value="오더" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="요청" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="승인" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="예정" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="상차" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="nrm" inputType="text" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="blQty" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column29" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="reqQty" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="admitQty" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="crryinoutIntendQty" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="crryinoutQty" inputType="text" width="100" readOnly="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style=""
+    								tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

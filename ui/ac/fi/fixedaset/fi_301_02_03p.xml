@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_author="배기원" meta_screenName="자산변경이력조회" meta_screenId="D_fi_301_02_03p" meta_subsystem="" meta_type="팝업">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="fixedAsetNo" name="자산번호" dataType="text"></w2:key>
+    					<w2:key id="fixedAsetNm" name="자산명" dataType="text"></w2:key>
+                        <w2:key id="fixedAsetHistClsCd" name="이력구분" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="false">
+    				<w2:columnInfo>
+    					<w2:column id="fixedAsetNo" name="고정자산번호" dataType="text"></w2:column>
+    					<w2:column id="fixedAsetHistSeq" name="고정자산이력순번" dataType="text"></w2:column>
+    					<w2:column id="fixedAsetHistClsCd" name="고정자산이력구분코드" dataType="text"></w2:column>
+    					<w2:column id="fixedAsetHistClsNm" name="고정자산이력구분명" dataType="text"></w2:column>
+    					<w2:column id="allClsCd" name="전체구분코드" dataType="text"></w2:column>
+    					<w2:column id="capExpdClsCd" name="자본적지출구분코드(FI015)" dataType="text"></w2:column>
+    					<w2:column id="histDt" name="이력일자" dataType="text"></w2:column>
+    					<w2:column id="histQty" name="이력수량" dataType="text"></w2:column>
+    					<w2:column id="asetIncrAmt" name="자산증가금액" dataType="text"></w2:column>
+    					<w2:column id="asetDecrAmt" name="자산감소금액" dataType="text"></w2:column>
+    					<w2:column id="provIncrAmt" name="충당금증가금액" dataType="text"></w2:column>
+    					<w2:column id="provDecrAmt" name="충당금감소금액" dataType="text"></w2:column>
+    					<w2:column id="deprIncrAmt" name="상각증가금액" dataType="text"></w2:column>
+    					<w2:column id="deprDecrAmt" name="상각감소금액" dataType="text"></w2:column>
+    					<w2:column id="dispAmt" name="매각금액" dataType="text"></w2:column>
+    					<w2:column id="capExpdAmt" name="자본적지출금액" dataType="text"></w2:column>
+    					<w2:column id="regTaxAmt" name="등록세금액" dataType="text"></w2:column>
+    					<w2:column id="acqTaxAmt" name="취득세금액" dataType="text"></w2:column>
+    					<w2:column id="prtcCsmTaxAmt" name="특별(개별)소비세금액" dataType="text"></w2:column>
+    					<w2:column id="slipNo" name="DEBIS전표번호" dataType="text"></w2:column>
+    					<w2:column id="postDt" name="회계일자" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+    					<w2:column id="tranBfAcctDeptCd" name="이관전귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="histRate" name="이력비율" dataType="text"></w2:column>
+    					<w2:column id="histArea" name="이력면적" dataType="text"></w2:column>
+    					<w2:column id="histSvcLife" name="이력내용년수" dataType="text"></w2:column>
+    					<w2:column id="histSvcLifeMonth" name="이력내용년개월수" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_retrieve" action="/ac.fi.fixedaset.RetrieveAssetsHistoryCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master", "key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 자산변경이력조회
+ * 메뉴경로 : 회계/재무회계/고정자산/고정자산조회및변경
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/fi/fixedaset/fi_301_02_03p.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-11-14
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ *    5. footer에 값 처리
+ * 참고사항 :
+ * 테스트데이터 : 고정자산조회및변경화면에서 우선 조회 후 변경이력조회 버튼 클릭
+ *    1. 조회조건 : 취득일자[2020/01/01~2026/02/25], 귀속부서[00000], 자산유형[토지]
+ * 수정이력 :
+ *    - 2025-11-14      배기원    최초작성
+ */
+scwin.fixedAsetNo = "";
+scwin.fixedAsetNm = "";
+
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function() {
+     const codeOptions = [
+           { grpCd: "FI014", compID: "acb_srchHistClsCd" }  //고정자산이력구분
+     ];
+    $c.data.setCommonCode(codeOptions, scwin.callBackCommonCode);
+};
+
+/**
+ * $c.data.setCommonCode 함수의 콜백함수
+ */
+scwin.callBackCommonCode = function() {
+    dlt_commonCodeFI014.sort("cd", 0);
+
+    scwin.params = $c.data.getParameter();
+    if (!$c.util.isEmpty(scwin.params["fixedAsetNo"])) {
+        scwin.fixedAsetNo = scwin.params["fixedAsetNo"];
+    }
+    if (!$c.util.isEmpty(scwin.params["fixedAsetNm"])) {
+        scwin.fixedAsetNm = scwin.params["fixedAsetNm"];
+    }
+
+    $c.gus.cfDisableKey();    
+    $c.gus.cfDisableObjects(["ed_srchFixedAsetNo", "ed_srchFixedAsetNm"]);
+
+    dma_search.set("fixedAsetNo", scwin.fixedAsetNo);
+    dma_search.set("fixedAsetNm", scwin.fixedAsetNm );
+
+    //테스트값
+    // dma_search.set("fixedAsetNo", "1000000234");
+    // ed_srchFixedAsetNm.setValue("강내일반산업단지");
+    if(!$c.util.isEmpty(ed_srchFixedAsetNo.getValue())) {
+        scwin.f_Retrieve();
+    }
+};
+
+
+/**
+ * 초기세팅(TOBE 그리드, 총건수)
+ */
+scwin.setInit = function() {
+    gr_master.setNoResultMessageVisible(false);
+    ds_master.reform();
+    ds_master.removeAll();
+    totalRows.setValue("0");
+};
+
+
+/**
+ * 데이터셋 세팅
+ * tobe 사용안함
+ */
+scwin.f_HeaderCreate = function() {
+    // var GAUCE_DATASET_HEADER = "acqDtStDt:STRING"
+    //     + ",acqDtEndDt:STRING"
+    //     + ",fixedAsetNo:STRING"
+    //     + ",acctDeptCd:STRING"
+    //     + ",asetPatternCd:STRING"
+    //     + ",asetKndCd:STRING"
+    //     + ",fixedAsetHistClsCd:STRING"
+    //     + ",procDt:STRING";
+    // ds_search.SetDataHeader(GAUCE_DATASET_HEADER);
+    // ds_search.insertRow();
+};
+
+
+/**
+ * 조회
+ */
+scwin.f_Retrieve = async function () {
+    let ret = await $c.gus.cfValidate([ed_srchFixedAsetNo]);
+    if(!ret) {
+        return false;
+    }
+
+    scwin.setInit();
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    gr_master.setNoResultMessageVisible(true);
+    let rowCnt = ds_master.getRowCount();
+    totalRows.setValue(rowCnt);
+
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        if (rowCnt == 0) {
+            $c.gus.cfAlertMsg(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+        } else {
+            gr_master.setFocusedCell(0, 0);
+        }
+    }
+};
+
+scwin.sbm_retrieve_submiterror = function (e) {
+    $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+};
+
+
+/**
+ * 닫기
+ */
+scwin.f_WinClose = function (e) {
+    let rt = ["N/A"];
+    $c.win.closePopup(rt);
+};
+
+
+/*
+ * 그리드 값 변경(decode 대신 처리)
+ */
+scwin.decodeYnExp = function (data) {
+    let cdIndex = dlt_commonCodeFI014.getMatchedIndex("cd", data);
+    let cdNm = "";
+    if(cdIndex.length > 0) {
+        cdNm = dlt_commonCodeFI014.getCellData(cdIndex[0], "cdNm");
+    }
+    return cdNm;
+};
+
+
+/*##############################################################
+ * 그리드, 트리뷰, 데이터리스트 이벤트
+ *##############################################################*/
+ /**
+  * 그리드 셀 클릭 이벤트
+  */
+scwin.gr_master_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    //전표팝업조회
+    if(columnId == "slipNo") {
+        let slipNo = ds_master.getCellData(rowIndex, "slipNo");
+        if(!$c.gus.cfIsNull(slipNo)) {
+            //cfShowSlipInfo(ds_master.NameString(row,colid));
+            await $c.gus.cfShowSlipInfo(slipNo);
+        } 
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="자산번호" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group w250" id="" style="">
+    										<xf:input class=" w85" id="ed_srchFixedAsetNo" placeholder="" style="" objType="key" editFormat="##########" title="자산번호" ref="data:dma_search.fixedAsetNo" mandatory="true"></xf:input>
+    										<xf:input class="" id="ed_srchFixedAsetNm" placeholder="" style="" objType="key" mandatory="true" maxlength="30" title="자산명" ref="data:dma_search.fixedAsetNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="이력구분" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class=" w150" editType="select" id="acb_srchHistClsCd" search="start" style=""
+    										submenuSize="auto" title="이력구분" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="data:dma_search.fixedAsetHistClsCd" searchTarget="both" visibleRowNum="20">
+    										<w2:choices></w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" ev:onclick="scwin.f_Retrieve" id="btn_search" style="" type="button"
+    							userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+                    </xf:group><xf:group class="round-box" id="">
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    							<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_master" id="gr_master" style=""
+    								readOnly="true" ev:oncellclick="scwin.gr_master_oncellclick" focusMode="cell">
+    								<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    								<w2:header id="header1" style="">
+    									<w2:row id="row1" style="">
+    										<w2:column displayMode="label" id="column1" inputType="text" style="" value="일자" width="100"></w2:column>
+    										<w2:column displayMode="label" id="column17" inputType="text" style="" value="구분" width="70">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column15" inputType="text" style="" value="수량" width="70">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column13" inputType="text" style="" value="자산증가"
+    											width="100">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column11" inputType="text" style="" value="자산감소"
+    											width="100">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column9" inputType="text" style="" value="충당금&lt;br/&gt;증가"
+    											width="100">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column3" inputType="text" style="" value="충당금&lt;br/&gt;감소"
+    											width="100">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column5" inputType="text" style="" value="상각액&lt;br/&gt;증가"
+    											width="100">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column7" inputType="text" style="" value="상각액&lt;br/&gt;감소"
+    											width="100">
+    										</w2:column>
+    										<w2:column displayMode="label" id="column19" inputType="text" style="" value="매각금액"
+    											width="100">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column55" value="전표번호"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column52" value="회계처리&lt;br/&gt;여부"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="150" inputType="text" style="" id="column49" value="이력비고"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column46" value="변경율(%)"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column43" value="변경면적"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column40" value="변경" displayMode="label">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody id="gBody1" style="">
+    									<w2:row id="row2" style="">
+    										<w2:column displayMode="label" id="histDt" inputType="calendar" style="" value=""
+    											width="100" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd">
+    										</w2:column>
+    										<w2:column displayMode="label" id="fixedAsetHistClsCd" inputType="text" style="" value=""
+    											width="70" displayFormatter="scwin.decodeYnExp">
+    										</w2:column>
+    										<w2:column displayMode="label" id="histQty" inputType="text" style="" value=""
+    											width="70" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="asetIncrAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="asetDecrAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="provIncrAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="provDecrAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="deprIncrAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="deprDecrAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column displayMode="label" id="dispAmt" inputType="text" style="" value="" width="100"
+    											textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number" excelFormat="#,##0">
+    										</w2:column>
+    										<w2:column width="100" inputType="link" style="" id="slipNo" value=""
+    											displayMode="label" class="linktype">
+    										</w2:column>
+    										<w2:column width="100" inputType="calendar" style="" id="postDt" value=""
+    											displayMode="label" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd">
+    										</w2:column>
+    										<w2:column width="150" inputType="text" style="" id="rmk" value="" displayMode="label"
+    											textAlign="left">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="histRate" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,###.00" excelCellType="number" excelFormat="#,##0.00">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="histArea" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,###.00" excelCellType="number" excelFormat="#,##0.00">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="histSvcLife" value="" displayMode="label"
+    											textAlign="right">
+    										</w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    								<w2:footer style="" id="footer1">
+    									<w2:row style="" id="row3">
+    										<w2:column width="100" inputType="text" style="" id="column30" value="합계" displayMode="label">
+    										</w2:column>
+    										<w2:column width="70" inputType="text" style="" id="column29" value="" displayMode="label"> 
+    										</w2:column>
+    										<w2:column width="70" inputType="expression" style="" id="column28" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('histQty')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column27" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('asetIncrAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column26" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('asetDecrAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column25" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('provIncrAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column24" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('provDecrAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column23" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('deprIncrAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column22" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('deprDecrAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="expression" style="" id="column21" value="" displayMode="label"
+    											textAlign="right" dataType="number" displayFormat="#,##0" expression="sum('dispAmt')">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column57" value="" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column54" value="" displayMode="label">
+    										</w2:column>
+    										<w2:column width="150" inputType="text" style="" id="column51" value="" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column48" value="" displayMode="label"
+    											textAlign="right">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column45" value="" displayMode="label"
+    											textAlign="right">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column42" value="" displayMode="label"
+    											textAlign="right">
+    										</w2:column>
+    									</w2:row>
+    								</w2:footer>
+    							</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" dataType="text" displayFormat="#,###" id="totalRows" label="0" style=""
+    										tagname="span">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group></xf:group>
+    				</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" ev:onclick="scwin.f_WinClose" id="btn_close" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_queryCondition">
+    				<w2:keyInfo>
+    					<w2:key id="lobranCd" name="물류점소코드" dataType="text"></w2:key>
+    					<w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+    					<w2:key id="cargoClsCd" name="화물구분코드" dataType="text"></w2:key>
+    					<w2:key id="gubun" name="구분" dataType="text"></w2:key>
+    					<w2:key id="eqCd" name="장비코드" dataType="text"></w2:key>
+    					<w2:key id="usblDt" name="가용일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_equipNonUseList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="eqCd" name="장비코드" dataType="text"></w2:column>
+    					<w2:column id="eqNm" name="장비명" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="chassisVehclNo" name="샤시차량번호" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="물류점소명" dataType="text"></w2:column>
+    					<w2:column id="eqDrvNm" name="장비운전자명" dataType="text"></w2:column>
+    					<w2:column id="mp" name="핸드폰" dataType="text"></w2:column>
+    					<w2:column id="vehclShortCd" name="단축코드" dataType="text"></w2:column>
+    					<w2:column id="eqClsCd" name="장비구분코드" dataType="text"></w2:column>
+    					<w2:column id="eqClsNm" name="장비구분명" dataType="text"></w2:column>
+    					<w2:column id="currSts" name="상태" dataType="text"></w2:column>
+    					<w2:column id="eqNrm" name="장비규격" dataType="text"></w2:column>
+    					<w2:column id="eqNrmNm" name="장비규격명" dataType="text"></w2:column>
+    					<w2:column id="wrkIndictNo" name="작업지시번호" dataType="text"></w2:column>
+    					<w2:column id="eqKndCd" name="장비종류코드" dataType="text"></w2:column>
+    					<w2:column id="eqKndNm" name="장비종류명" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="물류점소코드" dataType="text"></w2:column>
+    					<w2:column id="chassisKndCd" name="샤시종류코드" dataType="text"></w2:column>
+    					<w2:column id="cmpstcrgDistrictCd" name="복화권역코드" dataType="text"></w2:column>
+    					<w2:column id="cmpstcrgDistrictCd2" name="복화권역코드2" dataType="text"></w2:column>
+    					<w2:column id="cargoClsCd" name="화물구분코드" dataType="text"></w2:column>
+    					<w2:column id="kcgCd1" name="화종코드1" dataType="text"></w2:column>
+    					<w2:column id="kcgCd2" name="화종코드2" dataType="text"></w2:column>
+    					<w2:column id="kcgNm1" name="화종명1" dataType="text"></w2:column>
+    					<w2:column id="kcgNm2" name="화종명2" dataType="text"></w2:column>
+    					<w2:column id="nonusblStDtm" name="비가용시작일시" dataType="text"></w2:column>
+    					<w2:column id="nonusblEndDtm" name="비가용종료일시" dataType="text"></w2:column>
+    					<w2:column id="logisEqPosWrkPlNm" name="물류장비위치작업장명" dataType="text"></w2:column>
+    					<w2:column id="usblHh" name="가용시간" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_equipUseHistory" saveRemovedData="true" ev:oncelldatachange="scwin.ds_equipUseHistory_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="eqCd" name="장비코드" dataType="text" length="6"></w2:column>
+    					<w2:column id="usblDt" name="가용일자" dataType="text" length="8"></w2:column>
+    					<w2:column id="usblHh" name="가용시간" dataType="text" length="2"></w2:column>
+    					<w2:column id="copCoClntNo" name="협력업체거래처번호" dataType="text" length="6"></w2:column>
+    					<w2:column id="lobranCd" name="물류점소코드" dataType="text" length="4"></w2:column>
+    					<w2:column id="chassisKndCd" name="샤시종류코드" dataType="text" length="2"></w2:column>
+    					<w2:column id="chassisNrmCd" name="샤시규격코드" dataType="text" length="3"></w2:column>
+    					<w2:column id="cmpstcrgDistrictCd" name="복화권역코드" dataType="text" length="7"></w2:column>
+    					<w2:column id="cmpstcrgDistrictCd2" name="복화권역코드2" dataType="text" length="7"></w2:column>
+    					<w2:column id="cargoClsCd" name="화물구분코드" dataType="text" length="1"></w2:column>
+    					<w2:column id="kcgCd1" name="화종코드1" dataType="text" length="4"></w2:column>
+    					<w2:column id="kcgCd2" name="화종코드2" dataType="text" length="4"></w2:column>
+    					<w2:column id="kcgNm1" name="화종명1" dataType="text" length="50"></w2:column>
+    					<w2:column id="kcgNm2" name="화종명2" dataType="text" length="50"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text" length="8"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text" length="14"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text" length="8"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text" length="14"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text" length="12"></w2:column>
+    					<w2:column id="eqKndCd" name="장비종류코드" dataType="text" length="2"></w2:column>
+    					<w2:column id="eqKndNm" name="장비종류명" dataType="text" length="255"></w2:column>
+    					<w2:column id="eqNrmCd" name="장비규격코드" dataType="text" length="3"></w2:column>
+    					<w2:column id="eqNrmNm" name="장비규격명" dataType="text" length="255"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text" length="70"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_equipPrecedingSaveList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="eqCd" name="장비코드" dataType="text"></w2:column>
+    					<w2:column id="usblDt" name="가용일자" dataType="text"></w2:column>
+    					<w2:column id="usblHh" name="가용시간" dataType="text"></w2:column>
+    					<w2:column id="copCoClntNo" name="협력업체거래처번호" dataType="text"></w2:column>
+    					<w2:column id="lobranCd" name="물류점소코드" dataType="text"></w2:column>
+    					<w2:column id="chassisKndCd" name="샤시종류코드" dataType="text"></w2:column>
+    					<w2:column id="chassisNrmCd" name="샤시규격코드" dataType="text"></w2:column>
+    					<w2:column id="cmpstcrgDistrictCd" name="복화권역코드" dataType="text"></w2:column>
+    					<w2:column id="cmpstcrgDistrictCd2" name="복화권역코드2" dataType="text"></w2:column>
+    					<w2:column id="cargoClsCd" name="화물구분코드" dataType="text"></w2:column>
+    					<w2:column id="kcgCd1" name="화종코드1" dataType="text"></w2:column>
+    					<w2:column id="kcgCd2" name="화종코드2" dataType="text"></w2:column>
+    					<w2:column id="kcgNm1" name="화종명1" dataType="text"></w2:column>
+    					<w2:column id="kcgNm2" name="화종명2" dataType="text"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+    					<w2:column id="eqKndCd" name="장비종류코드" dataType="text"></w2:column>
+    					<w2:column id="eqKndNm" name="장비종류명" dataType="text"></w2:column>
+    					<w2:column id="eqNrmCd" name="장비규격코드" dataType="text"></w2:column>
+    					<w2:column id="eqNrmNm" name="장비규격명" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_conCombo">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="시스템코드" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="쿼리ID" dataType="text"></w2:key>
+    					<w2:key id="param1" name="파라미터1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_chassis" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="코드" dataType="text"></w2:column>
+    					<w2:column id="name" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_district" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="districtCd" name="권역코드" dataType="text"></w2:column>
+    					<w2:column id="districtNm" name="권역명" dataType="text"></w2:column>
+    					<w2:column id="upperDistrictCd" name="상위권역코드" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:linkedDataList bind="ds_district" id="dlt_district">
+    				<w2:condition type="filter"><![CDATA[]]></w2:condition>
+    				<w2:condition type="sort"><![CDATA[]]></w2:condition>
+    			</w2:linkedDataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.rscconfirm.transrscconfirm.RetrieveEquipmentListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_queryCondition","key":"IN_DS1"},{"id":"ds_equipNonUseList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_equipNonUseList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve2" action="/ds.op.rscconfirm.transrscconfirm.RetrieveCooperationCompanyUsableVehiclesCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_queryCondition","key":"IN_DS1"},{"id":"ds_equipUseHistory","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_equipUseHistory","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve2_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve3" action="/ds.op.rscconfirm.transrscconfirm.RetrieveCooperationCompanyUsableVehiclesCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"ds_queryCondition","key":"IN_DS1"},{"id":"ds_equipPrecedingSaveList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_equipPrecedingSaveList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve3_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.rscconfirm.transrscconfirm.SaveCooperationCompanyUsableVehiclesCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_equipUseHistory","key":"IN_DS1"}' target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_getChassis" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_conCombo" target='data:json,{"id":"ds_chassis","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_getDistrict" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_conCombo" target='data:json,{"id":"ds_district","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.userClsCd = $c.data.getMemInfo("userClsCd");	// 사용자 구분코드
+scwin.loginClntNo = $c.data.getMemInfo("clntNo");
+scwin.loginClntNm = $c.data.getMemInfo("clntNm");
+scwin.loUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd");
+
+scwin.dateStr = $c.date.getServerDateTime("yyyyMMdd"); //현재일자
+scwin.searchFlag = 0;
+//scwin.isPreceding = false;// 전일 등록 차량 불러오기
+
+//-------------------------------------------------------------------------
+// 페이지로드
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+
+    //-----------------------------------------------------------------------------
+    // 사용자가 협력업체일경우 거래처에 협력업체 셋팅 후 입력 불가능하게 한다.
+    //-----------------------------------------------------------------------------
+    if (scwin.userClsCd != "01") { //사용자가 협력업체 일때
+        ed_clntNo.setValue(scwin.loginClntNo);
+        ed_clntNm.setValue(scwin.loginClntNm);
+
+        $c.gus.cfDisableObjects([ed_clntNo, ed_clntNm, btn_clntNo]);
+    }
+
+    const codeOptions = [
+        { grpCd: "OP190", compID: "acb_con_cargoClsCd,gr_subWorkImplement:cargoClsCd" } //가용차량등록 그리드 : 화물구분
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    //-------------------------------------------------------------------------
+    // 사용자의 상위물류점소코드 계약점소에 셋팅(그리드 점소 추가해야 함!!)
+    //-------------------------------------------------------------------------
+    const codeOptions2 = [
+        {
+            method: "getLuxeComboData",
+            param1: "WorkImplementEBC",
+            param2: "retriveLobran2CodeList",
+            compID: "acb_con_logisticsBranch"
+        },
+        {
+            method: "getGridCombo",
+            param1: "WorkImplementEBC",
+            param2: "retriveLobran2CodeList",
+            compID: "gr_subWorkImplement:lobranCd"
+        }
+    ];
+
+    $c.data.setGauceUtil(codeOptions2, function () {
+        const list = dlt_gauceUtil_gr_subWorkImplement_lobranCd.getAllJSON();
+        dlt_gauceUtil_gr_subWorkImplement_lobranCd.setJSON(list.map(item => ({
+            ...item, 
+            name: item.name.replace(/^\[.*?\]/, "") 
+        })));
+        if (scwin.loUpperLobranCd) {
+            acb_con_logisticsBranch.setValue(scwin.loUpperLobranCd);
+        }
+    });
+
+    //가용차량등록 그리드 - 샤시종류 콤보박스 조회
+    scwin.f_RetrieveChassis();
+
+    //화종구분1
+    //ds_whajong1.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=EquipmentNonUsableEBC&queryId=retriveKcgClsCdCombo&param1=1";
+    //ds_whajong1.Reset();
+
+    //화종구분2
+    //ds_whajong2.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=EquipmentNonUsableEBC&queryId=retriveKcgClsCdCombo&param1=1";
+    //ds_whajong2.Reset();
+
+    //가용차량등록 그리드 - 복화권역 콤보박스 조회
+    scwin.f_RetrieveArea();
+};
+
+//-------------------------------------------------------------------------
+// UDC Completed
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    $p.setTimeout(function () {
+        //소스
+        ica_con_usblDt.setValue(scwin.dateStr);
+
+        //테스트 데이터        
+        // ds_queryCondition.set("clntNo", "101343");
+        // ds_queryCondition.set("lobranCd", "6AA");
+
+    }, { "delay": 50 });
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    scwin.searchFlag = 0;
+
+    let ret = await $c.gus.cfValidate([tbl_searchCond]);
+    if (!ret) {
+        return;
+    }
+
+    ds_queryCondition.set("gubun", "A"); // 협력업체 가용차량 등록
+
+    ds_equipNonUseList.setJSON([]);
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 전일 등록 차량 불러오기 조회 
+//-------------------------------------------------------------------------
+scwin.f_retrievePrecedingSavedVehicles = async function () {
+    let ret = await $c.gus.cfValidate([tbl_searchCond]);
+    if (!ret) {
+        return;
+    }
+
+    if (acb_con_logisticsBranch.getValue() == "") {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["계약점소"]); //선택된 @이(가) 없습니다.
+        return;
+    }
+
+    scwin.searchFlag = 0;
+    ds_queryCondition.set("gubun", "P"); // 전일등록 차량 불러오기 구분값 (P: Preceding)
+
+    ds_equipPrecedingSaveList.setJSON([]);
+    $c.sbm.execute(sbm_retrieve3);
+}
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+    //if (ds_equipUseHistory.getModifiedIndex().length == 0) {
+    if (ds_equipUseHistory.getModifiedJSON().length == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["협력업체 가용차량"]); //변경된 정보가 없습니다.
+        return;
+    }
+
+    // Grid의 필수 입력 항목에 대해서 Check 한다.
+    let ret = await $c.gus.cfValidate([gr_subWorkImplement])
+    if (!ret) return;
+
+    ret = await scwin.f_CheckSaveOverLap()
+    if (!ret) return;
+
+    for (i = 0; i < ds_equipUseHistory.getRowCount(); i++) {
+        ds_equipUseHistory.setCellData(i, "usblDt", ica_con_usblDt.getValue());
+    }
+
+    for (i = 0; i < ds_equipUseHistory.getRowCount(); i++) {
+        if (ds_equipUseHistory.getCellData(i, "usblHh") < 10) {
+            if (ds_equipUseHistory.getCellData(i, "usblHh").length != 2) {
+                $c.win.alert(i + " 번째 행의 가용시간은 0" + ds_equipUseHistory.getCellData(i, "usblHh") + " 형식으로 입력하세요.");
+                return;
+            }
+        }
+
+        if (parseInt(ds_equipUseHistory.getCellData(i, 'usblHh')) > 24) {
+            $c.win.alert(i + " 번째 행의 가용시간은 25보다 작은 수를 입력하세요.");
+            return;
+        }
+    }
+
+    ret = await $c.win.confirm("저장하시겠습니까?");
+    if (ret) {
+        $c.sbm.execute(sbm_save);
+    }
+}
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+        return;
+
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+
+    // 검색어 세팅
+    var pVal = $c.gus.cfGetValue(inObj);
+
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+    else
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+}
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+
+    switch (disGubun) {
+        case 1:
+            pWhere = "01,";
+            // 조회 협력업체조회 pSelectID, pCode, pName, pWinCloseTF, pDispCnt, pTitle, pWidth, pHidden, pWhere, pW, pH, pTop, pLeft
+            udc_clntNo.setSelectId("retrieveCarKindClntInfo");
+            udc_clntNo.cfCommonPopUp(scwin.udc_clntNo_callBackFunc // 콜백 함수
+                , ed_clntNo.getValue().trim()
+                , ed_clntNm.getValue()
+                , 'T'
+                , '5'
+                , null
+                , null
+                , null
+                , pWhere
+                , '440'
+                , '500'
+                , null
+                , null
+            );
+    }
+}
+
+//--------------------------------------------------------
+// 오른쪽 데이터를 왼쪽으로 이동
+//--------------------------------------------------------
+scwin.ln_RightMove = function () {debugger;
+    // 선택된 ROWS index를 배열로 가져오기
+    var focusedRows = gr_subWorkImplement.getAllFocusedRowIndex()
+
+    for (var i = 0; i < focusedRows.length; i++) {
+        var originRow = focusedRows[i];
+        var newRow = ds_equipNonUseList.insertRow();
+        ds_equipNonUseList.setRowPosition(newRow);
+        ds_equipNonUseList.setCellData(newRow, 'eqCd', ds_equipUseHistory.getCellData(originRow, 'eqCd'));
+        ds_equipNonUseList.setCellData(newRow, 'eqNm', ds_equipUseHistory.getCellData(originRow, 'eqNm'));
+        ds_equipNonUseList.setCellData(newRow, 'vehclNo', ds_equipUseHistory.getCellData(originRow, 'vehclNo'));
+        ds_equipNonUseList.setCellData(newRow, 'chassisVehclNo', ds_equipUseHistory.getCellData(originRow, 'chassisVehclNo'));
+        ds_equipNonUseList.setCellData(newRow, 'lobranCd', ds_equipUseHistory.getCellData(originRow, 'lobranCd'));
+        ds_equipNonUseList.setCellData(newRow, 'lobranNm', ds_equipUseHistory.getCellData(originRow, 'lobranNm'));
+        ds_equipNonUseList.setCellData(newRow, 'eqDrvNm', ds_equipUseHistory.getCellData(originRow, 'eqDrvNm'));
+        ds_equipNonUseList.setCellData(newRow, 'mp', ds_equipUseHistory.getCellData(originRow, 'mp'));
+        ds_equipNonUseList.setCellData(newRow, 'vehclShortCd', ds_equipUseHistory.getCellData(originRow, 'vehclShortCd'));
+        ds_equipNonUseList.setCellData(newRow, 'eqClsCd', ds_equipUseHistory.getCellData(originRow, 'eqClsCd'));
+        ds_equipNonUseList.setCellData(newRow, 'eqClsNm', ds_equipUseHistory.getCellData(originRow, 'eqClsNm'));
+        ds_equipNonUseList.setCellData(newRow, 'currSts', ds_equipUseHistory.getCellData(originRow, 'currSts'));
+        ds_equipNonUseList.setCellData(newRow, 'eqNrm', ds_equipUseHistory.getCellData(originRow, 'eqNrmCd'));
+        ds_equipNonUseList.setCellData(newRow, 'eqNrmNm', ds_equipUseHistory.getCellData(originRow, 'eqNrmNm'));
+        ds_equipNonUseList.setCellData(newRow, 'wrkIndictNo', ds_equipUseHistory.getCellData(originRow, 'wrkIndictNo'));
+        ds_equipNonUseList.setCellData(newRow, 'eqKndCd', ds_equipUseHistory.getCellData(originRow, 'eqKndCd'));
+        ds_equipNonUseList.setCellData(newRow, 'eqKndNm', ds_equipUseHistory.getCellData(originRow, 'eqKndNm'));
+        ds_equipNonUseList.setCellData(newRow, 'clntNm', ds_equipUseHistory.getCellData(originRow, 'clntNm'));
+        ds_equipNonUseList.setCellData(newRow, 'chassisKndCd', ds_equipUseHistory.getCellData(originRow, 'chassisKndCd'));
+        ds_equipNonUseList.setCellData(newRow, 'cmpstcrgDistrictCd', ds_equipUseHistory.getCellData(originRow, 'cmpstcrgDistrictCd'));
+        ds_equipNonUseList.setCellData(newRow, 'cmpstcrgDistrictCd2', ds_equipUseHistory.getCellData(originRow, 'cmpstcrgDistrictCd2'));
+        ds_equipNonUseList.setCellData(newRow, 'cargoClsCd', ds_equipUseHistory.getCellData(originRow, 'cargoClsCd'));
+        ds_equipNonUseList.setCellData(newRow, 'kcgCd1', ds_equipUseHistory.getCellData(originRow, 'kcgCd1'));
+        ds_equipNonUseList.setCellData(newRow, 'kcgCd2', ds_equipUseHistory.getCellData(originRow, 'kcgCd2'));
+        ds_equipNonUseList.setCellData(newRow, 'kcgNm1', ds_equipUseHistory.getCellData(originRow, 'kcgNm1'));
+        ds_equipNonUseList.setCellData(newRow, 'kcgNm2', ds_equipUseHistory.getCellData(originRow, 'kcgNm2'));
+        ds_equipNonUseList.setCellData(newRow, 'nonusblStDtm', ds_equipUseHistory.getCellData(originRow, 'nonusblStDtm'));
+        ds_equipNonUseList.setCellData(newRow, 'nonusblEndDtm', ds_equipUseHistory.getCellData(originRow, 'nonusblEndDtm'));
+        ds_equipNonUseList.setCellData(newRow, 'logisEqPosWrkPlNm', ds_equipUseHistory.getCellData(originRow, 'logisEqPosWrkPlNm'));
+        ds_equipNonUseList.setCellData(newRow, 'usblDt', ds_equipUseHistory.getCellData(originRow, 'usblDt'));
+        ds_equipNonUseList.setCellData(newRow, 'usblHh', ds_equipUseHistory.getCellData(originRow, 'usblHh'));
+        ds_equipNonUseList.setCellData(newRow, 'chassisNrmCd', ds_equipUseHistory.getCellData(originRow, 'chassisNrmCd'));
+        ds_equipNonUseList.setCellData(newRow, 'clntNo', ds_equipUseHistory.getCellData(originRow, 'copCoClntNo'));
+    }
+
+    // 복사한 후 삭제
+    for (var i = focusedRows.length - 1; i >= 0; i--) {
+        ds_equipUseHistory.removeRow(focusedRows[i]);
+    }
+    ds_equipNonUseList.setEventPause("onrowpositionchange", true);
+    // 다중포커스가 남아있어서 다시 SET
+    if (ds_equipUseHistory.getRowCount() > 0) {
+    //    gr_subWorkImplement.setFocusedCell(ds_equipUseHistory.getRowCount() - 1, 0, false); //edit : true
+    }
+    ds_equipNonUseList.setEventPause("onrowpositionchange", false);
+    
+    if(focusedRows[focusedRows.length-1] >= ds_equipUseHistory.getRowCount()) {
+        gr_subWorkImplement.removeFocusedCell();
+    } else {
+        gr_subWorkImplement.setFocusedCell(0, 0);
+    }
+    gr_workImplement.setFocusedCell(newRow, 0);
+};
+
+//--------------------------------------------------------
+// 왼쪽 데이터를 오른쪽으로 이동
+//--------------------------------------------------------
+scwin.ln_LeftMove = function () {
+    // 선택된 ROWS index를 배열로 가져오기
+    var focusedRows = gr_workImplement.getAllFocusedRowIndex()
+
+    for (var i = 0; i < focusedRows.length; i++) {
+        var originRow = focusedRows[i];
+        var newRow = ds_equipUseHistory.insertRow();
+        ds_equipUseHistory.setRowPosition(newRow);
+        ds_equipUseHistory.setCellData(newRow, 'eqCd', ds_equipNonUseList.getCellData(originRow, 'eqCd'));
+        ds_equipUseHistory.setCellData(newRow, 'eqNm', ds_equipNonUseList.getCellData(originRow, 'eqNm'));
+        ds_equipUseHistory.setCellData(newRow, 'vehclNo', ds_equipNonUseList.getCellData(originRow, 'vehclNo'));
+        ds_equipUseHistory.setCellData(newRow, 'chassisVehclNo', ds_equipNonUseList.getCellData(originRow, 'chassisVehclNo'));
+        ds_equipUseHistory.setCellData(newRow, 'lobranCd', ds_equipNonUseList.getCellData(originRow, 'lobranCd'));
+        ds_equipUseHistory.setCellData(newRow, 'lobranNm', ds_equipNonUseList.getCellData(originRow, 'lobranNm'));
+        ds_equipUseHistory.setCellData(newRow, 'eqDrvNm', ds_equipNonUseList.getCellData(originRow, 'eqDrvNm'));
+        ds_equipUseHistory.setCellData(newRow, 'mp', ds_equipNonUseList.getCellData(originRow, 'mp'));
+        ds_equipUseHistory.setCellData(newRow, 'vehclShortCd', ds_equipNonUseList.getCellData(originRow, 'vehclShortCd'));
+        ds_equipUseHistory.setCellData(newRow, 'eqClsCd', ds_equipNonUseList.getCellData(originRow, 'eqClsCd'));
+        ds_equipUseHistory.setCellData(newRow, 'eqClsNm', ds_equipNonUseList.getCellData(originRow, 'eqClsNm'));
+        ds_equipUseHistory.setCellData(newRow, 'currSts', ds_equipNonUseList.getCellData(originRow, 'currSts'));
+        ds_equipUseHistory.setCellData(newRow, 'eqNrmCd', ds_equipNonUseList.getCellData(originRow, 'eqNrm'));
+        ds_equipUseHistory.setCellData(newRow, 'eqNrmNm', ds_equipNonUseList.getCellData(originRow, 'eqNrmNm'));
+        ds_equipUseHistory.setCellData(newRow, 'wrkIndictNo', ds_equipNonUseList.getCellData(originRow, 'wrkIndictNo'));
+        ds_equipUseHistory.setCellData(newRow, 'eqKndCd', ds_equipNonUseList.getCellData(originRow, 'eqKndCd'));
+        ds_equipUseHistory.setCellData(newRow, 'eqKndNm', ds_equipNonUseList.getCellData(originRow, 'eqKndNm'));
+        ds_equipUseHistory.setCellData(newRow, 'clntNm', ds_equipNonUseList.getCellData(originRow, 'clntNm'));
+        ds_equipUseHistory.setCellData(newRow, 'chassisKndCd', ds_equipNonUseList.getCellData(originRow, 'chassisKndCd'));
+        ds_equipUseHistory.setCellData(newRow, 'cmpstcrgDistrictCd', ds_equipNonUseList.getCellData(originRow, 'cmpstcrgDistrictCd'));
+        ds_equipUseHistory.setCellData(newRow, 'cmpstcrgDistrictCd2', ds_equipNonUseList.getCellData(originRow, 'cmpstcrgDistrictCd2'));
+        ds_equipUseHistory.setCellData(newRow, 'cargoClsCd', ds_equipNonUseList.getCellData(originRow, 'cargoClsCd'));
+        ds_equipUseHistory.setCellData(newRow, 'kcgCd1', ds_equipNonUseList.getCellData(originRow, 'kcgCd1'));
+        ds_equipUseHistory.setCellData(newRow, 'kcgCd2', ds_equipNonUseList.getCellData(originRow, 'kcgCd2'));
+        ds_equipUseHistory.setCellData(newRow, 'kcgNm1', ds_equipNonUseList.getCellData(originRow, 'kcgNm1'));
+        ds_equipUseHistory.setCellData(newRow, 'kcgNm2', ds_equipNonUseList.getCellData(originRow, 'kcgNm2'));
+        ds_equipUseHistory.setCellData(newRow, 'nonusblStDtm', ds_equipNonUseList.getCellData(originRow, 'nonusblStDtm'));
+        ds_equipUseHistory.setCellData(newRow, 'nonusblEndDtm', ds_equipNonUseList.getCellData(originRow, 'nonusblEndDtm'));
+        ds_equipUseHistory.setCellData(newRow, 'logisEqPosWrkPlNm', ds_equipNonUseList.getCellData(originRow, 'logisEqPosWrkPlNm'));
+        ds_equipUseHistory.setCellData(newRow, 'usblDt', ds_equipNonUseList.getCellData(originRow, 'usblDt'));
+
+        if (ica_con_usblDt.getValue() == scwin.dateStr) {
+            ds_equipUseHistory.setCellData(newRow, 'usblHh', $c.date.getServerDateTime("HH") + "");
+
+        } else {
+            ds_equipUseHistory.setCellData(newRow, 'usblHh', "09");
+        }
+
+        ds_equipUseHistory.setCellData(newRow, 'chassisNrmCd', ds_equipNonUseList.getCellData(originRow, 'chassisNrmCd'));
+        ds_equipUseHistory.setCellData(newRow, 'copCoClntNo', ds_equipNonUseList.getCellData(originRow, 'clntNo'));
+    }
+
+    gr_subWorkImplement.setFocusedCell(newRow, 0);
+    // 복사한 후 삭제
+    for (var i = focusedRows.length - 1; i >= 0; i--) {
+        ds_equipNonUseList.removeRow(focusedRows[i]);
+    }
+
+    if(focusedRows[focusedRows.length-1] >= ds_equipNonUseList.getRowCount()) {
+        gr_workImplement.removeFocusedCell();
+    } else {
+        gr_workImplement.setFocusedCell(0, 0);
+    }
+  //  gr_workImplement.setFocusedCell(0, 0);
+
+    // 다중포커스가 남아있어서 다시 SET
+  //  if (ds_equipNonUseList.getRowCount() > 0) {
+     //   gr_workImplement.setFocusedCell(ds_equipNonUseList.getRowCount() - 1, 0, false); //edit : true
+   //}
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 - 복화권역 콤보박스 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveArea = function () {
+    //가용차량등록 그리드 - 복화권역 콤보박스 조회
+    dma_conCombo.set("sysCd", "EquipmentNonUsableEBC");
+    dma_conCombo.set("queryId", "retrivecComboDistrictList");
+    dma_conCombo.set("param1", "");
+    $c.sbm.execute(sbm_getDistrict);
+
+    //ds_district.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=EquipmentNonUsableEBC&queryId=retrivecComboDistrictList";
+    //ds_district.Reset();
+
+    //ds_district2.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=EquipmentNonUsableEBC&queryId=retrivecComboDistrictList";
+    //ds_district2.Reset();
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 - 샤시종류 콤보박스 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveChassis = function () {
+    dma_conCombo.set("sysCd", "EquipmentNonUsableEBC");
+    dma_conCombo.set("queryId", "retriveChassisCombo");
+    dma_conCombo.set("param1", "");
+    $c.sbm.execute(sbm_getChassis);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드
+//------------------------------------------------------------------------- 
+scwin.f_runExcel = async function (varGrNm) {
+    var totCnt = 0;
+    var sheetTitle = "";
+
+    if (varGrNm == "gr_workImplement") {
+        totCnt = gr_workImplement.getTotalRow();
+        sheetTitle = '가용차량현황';
+    } else {
+        totCnt = gr_subWorkImplement.getTotalRow();
+        sheetTitle = '가용차량등록';
+    }
+
+    if (totCnt != "0") {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+        if (cfrm) {
+            const options = {
+                fileName: sheetTitle + ".xlsx" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+                , sheetName: sheetTitle //엑셀내 시트명 지정필요시
+            };
+
+            const infoArr = [];
+            if (varGrNm == "gr_workImplement") {
+                $c.data.downloadGridViewExcel(gr_workImplement, options, infoArr);
+            } else {
+                $c.data.downloadGridViewExcel(gr_subWorkImplement, options, infoArr);
+            }
+        }
+    } else {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+
+}
+
+//-------------------------------------------------------------------------
+// 화종구분 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUpHwajongInfo = function (row, colid) {
+    
+    if(scwin._oncelldatachange) {
+        scwin._oncelldatachange = false;
+        return;
+    }
+
+    if (colid == "kcgNm1" || colid == "kcgNm2") {
+        if (colid == "kcgNm1") {
+            //화종구분1 검색
+            udc_comCode1.setSelectId("retrieveHwajongInfo");
+            udc_comCode1.cfCommonPopUp(scwin.udc_kcgNm1_callBackFunc
+                , ''
+                , ds_equipUseHistory.getCellData(row, 'kcgNm1')
+                , 'T'
+                , '5'
+                , null
+                , null
+                , null
+                , '2'
+                , '440'
+                , '500'
+                , null
+                , null
+            );
+        } else if (colid == "kcgNm2") {
+            //화종구분2 검색
+            udc_comCode1.setSelectId("retrieveHwajongInfo");
+            udc_comCode1.cfCommonPopUp(scwin.udc_kcgNm2_callBackFunc
+                , ''
+                , ds_equipUseHistory.getCellData(row, 'kcgNm2')
+                , 'T'
+                , '5'
+                , null
+                , null
+                , null
+                , '2'
+                , '440'
+                , '500'
+                , null
+                , null
+            );
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 초기화
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+
+    if (scwin.userClsCd != "01") { //사용자가 협력업체 일때
+        $c.gus.cfInitObjects(tbl_searchCond, [ica_con_usblDt, ed_clntNo, ed_clntNm]);
+    } else {
+        $c.gus.cfInitObjects(tbl_searchCond, [ica_con_usblDt]);
+    }
+
+}
+
+//-------------------------------------------------------------------------
+// 중복 Check
+//-------------------------------------------------------------------------
+scwin.f_CheckSaveOverLap = async function () {
+    var rowCnt = ds_equipUseHistory.getRowCount();
+
+    for (i = 0; i < rowCnt; i++) {
+        var vehclNo = ds_equipUseHistory.getCellData(i, "vehclNo");
+        var lobranCd = ds_equipUseHistory.getCellData(i, "lobranCd");
+
+        for (j = i + 1; j < rowCnt; j++) {
+            var vehclNoNext = ds_equipUseHistory.getCellData(j, "vehclNo");
+            var lobranCdNext = ds_equipUseHistory.getCellData(j, "lobranCd");
+
+            if (vehclNo == vehclNoNext && lobranCd == lobranCdNext) {
+                if (vehclNo == vehclNoNext) {
+                    $c.gus.cfAlertMsg(j + "번째 행의 차량번호가 중복됩니다.");
+                    ds_equipUseHistory.deleteRow(j);
+                    return false;
+                }
+                if (lobranCd == lobranCdNext) {
+                    $c.gus.cfAlertMsg(j + "번째 행의 요청점소가 중복됩니다.");
+                    ds_equipUseHistory.deleteRow(j);
+                    return false;
+                }
+            }
+
+        } // for
+
+    } // for
+
+    return true;
+}
+
+//-------------------------------------------------------------------------
+// 장비리스트조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if (ds_equipNonUseList.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    } else {
+        gr_workImplement.setFocusedCell(0, 0, false); //edit : true
+    }
+    $c.sbm.execute(sbm_retrieve2);
+    tbx_totalRows1.setValue(ds_equipNonUseList.getRowCount());
+
+    // if ($c.gus.cfCheckCreateFlag() == true) { //사용안해도 될듯
+    //     $c.gus.cfTurnCreateFlag(false);
+    // }
+};
+
+//-------------------------------------------------------------------------
+// 협력업체가용차량리스트조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve2_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if (ds_equipUseHistory.getRowCount() > 0) {        
+        gr_subWorkImplement.setFocusedCell(0, 0, false); //edit : true
+    }
+
+    tbx_totalRows2.setValue(ds_equipUseHistory.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 전일 등록 차량리스트조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve3_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if (ds_equipPrecedingSaveList.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        return;
+    }
+    //var totCnt = parseInt(ds_equipUseHistory.getRowCount()) + parseInt(ds_equipPrecedingSaveList.getRowCount());
+    var totCnt = parseInt(ds_equipUseHistory.getRowCount());
+    //ds_equipUseHistory.ImportData(ds_equipPrecedingSaveList.ExportData(1, rowCnt, true));
+    //$c.gus.copy(ds_equipPrecedingSaveList, ds_equipUseHistory, false, "rowFrom=0,rowCnt="+totCnt); // 데이터셋 복사    
+    //$c.gus.cfCopyDataSet(ds_equipPrecedingSaveList, ds_equipUseHistory, "rowFrom=0,rowCnt=" + totCnt); // 데이터셋 복사
+
+    ds_equipUseHistory.setJSON(ds_equipPrecedingSaveList.getAllJSON(), true);
+    ds_equipUseHistory.modifyRangeStatus(totCnt, ds_equipUseHistory.getRowCount()-1, "C"); // 전일등록 차량만 insert 상태로 수정
+
+    if (totCnt == 0) {
+        gr_subWorkImplement.setFocusedCell(0, 0, false); //edit : true
+    }
+
+    tbx_totalRows2.setValue(ds_equipUseHistory.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// 저장 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001); // 성공적으로 저장하였습니다.
+
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 협력업체 UDC START
+//-------------------------------------------------------------------------
+scwin.udc_clntNo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_clntNo.getValue(), ed_clntNm.getValue(), 'F', 'T');
+};
+
+scwin.udc_clntNo_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_clntNo, ed_clntNm, 1);
+};
+
+scwin.udc_clntNo_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_clntNm, ed_clntNo, 1, false);
+};
+
+scwin.udc_clntNo_callBackFunc = function (ret) {
+    $c.gus.cfSetReturnValue(ret, ed_clntNo, ed_clntNm);
+};
+//-------------------------------------------------------------------------
+// 협력업체 UDC END
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 : 화종구분1 콜백
+//-------------------------------------------------------------------------
+scwin.udc_kcgNm1_callBackFunc = function (ret) {
+    ds_equipUseHistory.setEventPause("oncelldatachange", true);
+    if (ret != null) {
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgCd1', ret[0]); //화종코드
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm1', ret[1]); //화종명명
+
+        if (ds_equipUseHistory.getCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm1') == "undefined") {
+            ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgCd1', "");
+            ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm1', "");
+        }
+    } else {
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgCd1', "");
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm1', "");
+    }
+    ds_equipUseHistory.setEventPause("oncelldatachange", false);
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 : 화종구분2 콜백
+//-------------------------------------------------------------------------
+scwin.udc_kcgNm2_callBackFunc = function (ret) {
+    ds_equipUseHistory.setEventPause("oncelldatachange", true);
+    if (ret != null) {
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgCd2', ret[0]);	//화종코드
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm2', ret[1]);	//화종명명
+
+        if (ds_equipUseHistory.getCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm2') == "undefined") {
+            ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgCd2', "");
+            ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm2', "");
+        }
+    } else {
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgCd2', "");
+        ds_equipUseHistory.setCellData(ds_equipUseHistory.getRowPosition(), 'kcgNm2', "");
+    }
+    ds_equipUseHistory.setEventPause("oncelldatachange", false);
+};
+
+//-------------------------------------------------------------------------
+// 가용차량현황 dataList onrowpositionchange
+//-------------------------------------------------------------------------
+scwin.ds_equipNonUseList_onrowpositionchange = function (info) {
+
+    if (scwin.searchFlag == 0) { //처음 한번만 실행되게 하는듯
+        //ds_queryCondition.set('gubun', ""); // 협력업체 가용차량 등록
+
+        ds_equipUseHistory.setJSON([]);
+        $c.sbm.execute(sbm_retrieve2);
+    }
+
+    scwin.searchFlag = 1;
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 검색 클릭
+// ASIS : gr_subWorkImplement OnPopup(row,colid,data)
+//-------------------------------------------------------------------------
+scwin.gr_subWorkImplement_ontextimageclick = function (rowIndex, columnIndex) {
+    var colid = "";
+    if (columnIndex == 8) {
+        colid = "kcgNm1";
+    } else {
+        colid = "kcgNm2";
+    }
+
+    scwin.f_PopUpHwajongInfo(rowIndex, colid);
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 검색 클릭
+// ASIS : gr_subWorkImplement OnDropDown(row,colid)
+//-------------------------------------------------------------------------
+scwin.gr_subWorkImplement_onbeforeedit = function (rowIndex, columnIndex, value) {
+    if (columnIndex == 3) { //화물구분(cargoClsCd)
+        ds_equipUseHistory.setCellData(rowIndex, "cmpstcrgDistrictCd", "");
+        ds_equipUseHistory.setCellData(rowIndex, "cmpstcrgDistrictCd2", "");
+    }
+
+    if (columnIndex == 4 || columnIndex == 5) { //4:cmpstcrgDistrictCd, 5:cmpstcrgDistrictCd2
+        var v_val = '';
+        if (ds_equipUseHistory.getCellData(ds_equipUseHistory.getRowPosition(), 'cargoClsCd') == "B")
+            v_val = 'BWK';
+        else
+            v_val = 'CMP';
+
+        dlt_district.removeColumnFilterAll();
+        $c.data.dataListFilter(dlt_district, "upperDistrictCd=='" + v_val + "'");
+
+        // dlt_district2.removeColumnFilterAll(); //복화권역은 같은 데이터기 때문에 하나만 사용해도됨
+        // $c.data.dataListFilter(dlt_district2, "upperDistrictCd=='" + v_val + "'");
+    }
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 dataList 값변경
+// ASIS : gr_subWorkImplement OnExit(row,colid,olddata)
+//-------------------------------------------------------------------------
+scwin.ds_equipUseHistory_oncelldatachange = function (info) {
+    if (info.newValue == info.oldValue) {
+        return;
+    } else {
+        scwin._oncelldatachange = true;
+        if (info.colID == "kcgNm1") {
+            //화종구분1 검색
+            udc_comCode1.setSelectId("retrieveHwajongInfo");
+            udc_comCode1.cfCommonPopUp(scwin.udc_kcgNm1_callBackFunc, '', ds_equipUseHistory.getCellData(info.rowIndex, 'kcgNm1'), 'T', '5', null, null, null, '2', '440', '500', null, null);
+        } else if (info.colID == "kcgNm2") {
+            //화종구분2 검색
+            udc_comCode1.setSelectId("retrieveHwajongInfo");
+            udc_comCode1.cfCommonPopUp(scwin.udc_kcgNm2_callBackFunc, '', ds_equipUseHistory.getCellData(info.rowIndex, 'kcgNm2'), 'T', '5', null, null, null, '2', '440', '500', null, null);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 가용차량현황 그리드 더블 클릭
+// ASIS : gr_workImplement OnDblClick(row,colid)
+//-------------------------------------------------------------------------
+scwin.gr_workImplement_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.ln_LeftMove();
+};
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 더블 클릭
+// ASIS : gr_subWorkImplement OnDblClick(row,colid)
+//-------------------------------------------------------------------------
+scwin.gr_subWorkImplement_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    scwin.ln_RightMove();
+};
+
+//-------------------------------------------------------------------------
+// 가용차량현황 그리드 엑셀 다운로드
+//-------------------------------------------------------------------------
+scwin.downExcel1 = function () {
+    scwin.f_runExcel('gr_workImplement')
+};
+
+
+//-------------------------------------------------------------------------
+// 가용차량등록 그리드 엑셀 다운로드
+//-------------------------------------------------------------------------
+scwin.downExcel2 = function () {
+    scwin.f_runExcel('gr_subWorkImplement')
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_searchCond" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="협력업체" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_clntNo" maxlengthCode="6" nameId="ed_clntNm" id="udc_clntNo" btnId="btn_clntNo" validTitle="협력업체" mandatoryCode="true" refDataCollection="ds_queryCondition" code="clntNo" ev:onclickEvent="scwin.udc_clntNo_onclickEvent" ev:onblurCodeEvent="scwin.udc_clntNo_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_clntNo_onviewchangeNameEvent" allowCharCode="a-zA-Z0-9"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="계약점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_con_logisticsBranch" search="start" style="width:200px;"
+    								submenuSize="auto" ref="data:ds_queryCondition.lobranCd" ev:onviewchange="scwin.acb_con_logisticsBranch_onviewchange"
+    								allOption="" chooseOption="true" chooseOptionLabel="전체">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="가용일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_con_usblDt" pickerType="dynamic"
+    								style="" mandatory="true" ref="data:ds_queryCondition.usblDt" calendarDisplayFormat="yyyy/MM/dd" displayFormat="yyyy/MM/dd" title="가용일자">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="화물구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_con_cargoClsCd" search="start" style="width:150px;"
+    								submenuSize="auto" ref="data:ds_queryCondition.cargoClsCd" allOption="" chooseOption="true" chooseOptionLabel="전체">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox wfix flex_no col3" style="">
+    				<xf:group id="" class="col" style="width: 35%;">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="가용차량현황" class="tit"></w2:textbox>
+    						</xf:group>
+    						<xf:group id="" class="right">
+    							<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.downExcel1"
+    								gridID="gr_workImplement" gridUpYn="N" templateYn="N" gridDownYn="Y" gridDownUserAuth="X">
+    							</w2:udc_topGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_equipNonUseList" style=""
+    							autoFit="allColumn" id="gr_workImplement" visibleRowNum="16" class="wq_gvw" readOnly="true" rowStatusVisible="true"
+    							focusMode="both" ev:oncelldblclick="scwin.gr_workImplement_oncelldblclick" columnMove="false">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="100" inputType="text" id="column1" value="차량번호" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column17" value="차량종류" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" id="column15" value="규격" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column13" value="협력업체" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="100" inputType="text" id="vehclNo" displayMode="label" textAlign="right"></w2:column>
+    									<w2:column width="100" inputType="text" id="eqKndNm" displayMode="label" textAlign="left"></w2:column>
+    									<w2:column width="70" inputType="text" id="eqNrmNm" displayMode="label" textAlign="left"></w2:column>
+    									<w2:column width="100" inputType="text" id="clntNm" displayMode="label" textAlign="left"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="tbx_totalRows1"
+    										label="0" class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="shattle  flex-row" id="" style="">
+    					<xf:trigger class="btn ico btn-right" id="btn_leftMove" style="" type="button" ev:onclick="scwin.ln_LeftMove">
+    						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn ico btn-left" id="btn_rightMove" style="" type="button" ev:onclick="scwin.ln_RightMove">
+    						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    					</xf:trigger>
+
+    				</xf:group>
+    				<xf:group class="col" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="가용차량등록" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    						<xf:group id="" class="left">
+    							<xf:trigger style="" id="btn_precedingSavedVehiclesRetrieve" type="button" class="btn"
+    								ev:onclick="scwin.f_retrievePrecedingSavedVehicles" userAuth="C">
+    								<xf:label><![CDATA[전일등록 차량 불러오기]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    						<xf:group class="right" id="">
+    							<w2:udc_topGrdBtn grp="grd_section2" style="" gridDownFn="scwin.downExcel2"
+    								gridID="gr_subWorkImplement" gridUpYn="N" gridDownYn="Y" templateYn="N" gridDownUserAuth="X">
+    							</w2:udc_topGrdBtn>
+    						</xf:group>
+
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section2" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_equipUseHistory"
+    							id="gr_subWorkImplement" style="" visibleRowNum="16" visibleRowNumFix="true" rowStatusVisible="true" focusMode="both"
+    							ev:ontextimageclick="scwin.gr_subWorkImplement_ontextimageclick" ev:onbeforeedit="scwin.gr_subWorkImplement_onbeforeedit"
+    							ev:oncelldblclick="scwin.gr_subWorkImplement_oncelldblclick" editModeEvent="onclick">
+    							<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" value="차량번호" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column17" inputType="text" value="가용시간" width="100"
+    										class="txt-red">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column15" inputType="text" value="요청점소" width="100"
+    										class="txt-red">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column13" inputType="text" value="화물구분" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column11" inputType="text" value="복화권역" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column9" inputType="text" value="복화권역2" width="100"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column26" value="&amp;nbsp;" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column24" value="&amp;nbsp;" displayMode="label"></w2:column>
+    									<w2:column displayMode="label" id="column7" inputType="text" value="화종구분1" width="100"></w2:column>
+    									<w2:column displayMode="label" id="column19" inputType="text" width="100" value="화종구분2"></w2:column>
+    									<w2:column width="100" inputType="text" id="column21" value="샤시종류" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="vehclNo" inputType="text" width="70" readOnly="true"
+    										mandatory="true" class="inputType">
+    									</w2:column>
+    									<w2:column displayMode="label" id="usblHh" inputType="text" width="70" mandatory="true" maxLength="2" allowChar="0-9" dataType="number"></w2:column>
+    									<w2:column id="lobranCd" inputType="select" width="70" textAlign="left"
+    										mandatory="true" visibleRowNum="10" emptyItem="true" displayMode="value delim label">
+    									</w2:column>
+    									<w2:column id="cargoClsCd" inputType="select" width="70" visibleRowNum="10" emptyItem="true" displayMode="value delim label"></w2:column>
+    									<w2:column id="cmpstcrgDistrictCd" inputType="select" width="70"
+    										chooseOption="true" chooseOptionLabel="$blank" visibleRowNum="10" emptyItem="true" displayMode="value delim label">
+    										<w2:choices>
+    											<w2:itemset nodeset="data:dlt_district">
+    												<w2:label ref="districtNm"></w2:label>
+    												<w2:value ref="districtCd"></w2:value>
+    											</w2:itemset>
+    										</w2:choices>
+    									</w2:column>
+    									<w2:column id="cmpstcrgDistrictCd2" inputType="select" width="70"
+    										chooseOption="true" chooseOptionLabel="$blank" allOption="" ref="" visibleRowNum="10" emptyItem="true" displayMode="value delim label">
+    										<w2:choices>
+    											<w2:itemset nodeset="data:dlt_district">
+    												<w2:label ref="districtNm"></w2:label>
+    												<w2:value ref="districtCd"></w2:value>
+    											</w2:itemset>
+    										</w2:choices>
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="kcgCd1" value="" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="kcgCd2" value="" displayMode="label" hidden="true" readOnly="true"></w2:column>
+    									<w2:column displayMode="label" id="kcgNm1" inputType="textImage" width="100"></w2:column>
+    									<w2:column displayMode="label" id="kcgNm2" inputType="textImage" width="100"></w2:column>
+    									<w2:column width="100" inputType="select" id="chassisKndCd" textAlign="left" visibleRowNum="10" emptyItem="true" displayMode="value delim label">
+    										<w2:choices>
+    											<w2:itemset nodeset="data:ds_chassis">
+    												<w2:label ref="name"></w2:label>
+    												<w2:value ref="code"></w2:value>
+    											</w2:itemset>
+    										</w2:choices>
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalRows2" label="0"
+    										style="" tagname="span">
+    									</w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+
+    			<w2:udc_comCode allowCharCode="a-zA-Z0-9" codeId="" id="udc_comCode1" nameId="" popupID="" style="display:none"></w2:udc_comCode>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

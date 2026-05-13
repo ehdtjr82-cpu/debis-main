@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_houseList" saveRemovedData="true">
+					<w2:columnInfo></w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.strCurDate = "";
+scwin.strPreDate = "";
+scwin.sUserId = "";
+scwin.hd_kcomcd = "DBEX";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.strCurDate = $c.date.getServerDateTime("yyyyMMdd");
+    scwin.strPreDate = $c.date.addDate($c.date.getServerDateTime("yyyyMMdd"), -2, "yyyyMMdd");
+    scwin.sUserId = $c.data.getMemInfo("userId");
+};
+
+scwin.onUdcCompleted = function () {
+    cnd_txt_hhactcustnm.setReadOnly(true);
+    cnd_txt_hhlinernm.setReadOnly(true);
+    cnd_txt_hhsalesnm.setReadOnly(true);
+
+    cnd_rd_hhio.setValue("I");
+    cnd_ed_hhetaFrom.setValue(scwin.strPreDate);
+    cnd_ed_hhetaTo.setValue(scwin.strCurDate);
+    cnd_lc_prttype.setValue("");
+};
+
+//---------------------------------------------------------
+// 공통팝업 열기
+//--------------------------------------------------------- 
+scwin.f_PopUp = function (disGubun, chgGubun) {
+    switch (disGubun) {
+        case "Customer":
+            udc_comCodeHhatcust.ilCommonPopUp(function (rtnList) {
+                $c.gus.cfSetReturnValue(rtnList, cnd_ed_hhactcust, cnd_txt_hhactcustnm);
+            },    		// XML상의 SELECT ID	                                                   							
+                cnd_ed_hhactcust.getValue().trim(),        // 화면에서의 ??? Code Element의	Value                                  
+                cnd_txt_hhactcustnm.getValue(),             // 화면에서의 ??? Name Element의	Value                                  
+                chgGubun,                       // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)         
+                "10",                            // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                "Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN",  // Title순서	                                                           
+                "140,300,100,100,100,100,100,,,100",                      // 보여주는 각 컬럼들의 폭	                                               
+                "8,9",                          // 컬럼중에서 숨기는	컬럼 지정	                                       
+                null,                           // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+                "500",                          // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+                "500",                          // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+                null,                           // 윈도우 위치 Y좌표	                                                   
+                null,                           // 윈도우 위치 X좌표                                                       
+                null,                           // 중복체크여부	("F")                                                      
+                "F",                            // 전체검색허용여부	("F")                                                  
+                "Customer search,Customer Code,Customer Name");
+
+            break;
+        case "Liner":
+            udc_comCodeHhliner.ilCommonPopUp(function (rtnList) {
+                $c.gus.cfSetReturnValue(rtnList, cnd_ed_hhliner, cnd_txt_hhlinernm);
+            },    		// XML상의 SELECT ID	                                                   							
+                cnd_ed_hhliner.getValue().trim(),        // 화면에서의 ??? Code Element의	Value                                  
+                cnd_txt_hhlinernm.getValue(),             // 화면에서의 ??? Name Element의	Value                                  
+                chgGubun,                       // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)         
+                "10",                            // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                "Liner Code,Liner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",  // Title순서	                                                           
+                "140,300,100,100,100,100,100,,,100",                      // 보여주는 각 컬럼들의 폭	                                               
+                "8,9",                          // 컬럼중에서 숨기는	컬럼 지정	                                       
+                null,                           // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+                "500",                          // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+                "500",                          // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+                null,                           // 윈도우 위치 Y좌표	                                                   
+                null,                           // 윈도우 위치 X좌표                                                       
+                null,                           // 중복체크여부	("F")                                                      
+                "F",                            // 전체검색허용여부	("F")                                                  
+                "Liner search,Liner Code,Liner Name");
+
+            break;
+    }
+};
+
+//---------------------------------------------------------
+// 공통팝업 열기
+//---------------------------------------------------------  
+scwin.f_OpenCommonPopUp = function (gubun1, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+    switch (gubun1) {
+        case "Salesman":
+            udc_comCodeHhsales.ilCommonPopUp(function (rtnList) {
+                $c.gus.cfSetReturnValue(rtnList, cnd_ed_hhsales, cnd_txt_hhsalesnm);
+            }
+                , cnd_ed_hhsales.getValue().trim()
+                , cnd_txt_hhsalesnm.getValue()
+                , pWinCloseTF
+                , "2"
+                , "Code, Name"
+                , "80,230"
+                , "3,4,5,6,7,8,9,10"
+                , null, null, null, null, null, null
+                , pAllSearchTF
+                , "Salesman,Code,Name"
+                , pNoDataCloseTF
+            );
+
+            break;
+    }
+};
+
+//-------------------------------------------------------------------------
+// print
+//-------------------------------------------------------------------------		
+scwin.f_Print = async function () {
+    if (cnd_ed_hhetaFrom.getValue() == "") {
+        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["ETA From"]); //@는 필수입력항목입니다.				
+        cnd_ed_hhetaFrom.focus();
+        return false;
+    }
+
+    if (cnd_ed_hhetaTo.getValue() == "") {
+        await $c.gus.cfAlertMsg(E_MSG_CM_ERR_002, ["ETA To"]); //@는 필수입력항목입니다.			
+        cnd_ed_hhetaTo.focus();
+        return false;
+    }
+
+    let data = {
+        odiName: "se_110_01_01",
+        reportName: "/il/seaout/se_110_01_01.ozr",
+        odiParam: {
+            KCOMCD: scwin.hd_kcomcd,
+            IOGB: cnd_rd_hhio.getValue(),
+            FROM_DATE: cnd_ed_hhetaFrom.getValue(),
+            TO_DATE: cnd_ed_hhetaTo.getValue(),
+            TYPE: cnd_lc_prttype.getValue(),
+            CUSTOMER: cnd_ed_hhactcust.getValue(),
+            LINER: cnd_ed_hhliner.getValue(),
+            SALES: cnd_ed_hhsales.getValue(),
+            USERID: scwin.sUserId
+        },
+
+        viewerParam: {
+            useprogressbar: true, // 프로그레스바 쓸지 말지
+            zoom: 100, // 배율 설정
+            mode: "preview"
+        },
+
+        formParam: {
+        }
+    };
+
+    scwin.openPopup(data);
+};
+
+scwin.openPopup = function (data) {
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 1000,
+        height: 880,
+        title: "오즈 리포트"
+    };
+
+    $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+
+scwin.udc_comCodeHhatcust_onblurCodeEvent = function (e) {
+    if (cnd_ed_hhactcust.originalValue == cnd_ed_hhactcust.getValue()) {
+        return;
+    }
+
+    let strClntNo = cnd_ed_hhactcust.getValue().trim();
+
+    cnd_txt_hhactcustnm.setValue("");
+
+    if (strClntNo.length > 0) {
+        scwin.f_PopUp("Customer", "T");
+    }
+};
+
+scwin.udc_comCodeHhliner_onblurCodeEvent = function (e) {
+    if (cnd_ed_hhliner.originalValue == cnd_ed_hhliner.getValue()) {
+        return;
+    }
+
+    let strClntNo = cnd_ed_hhliner.getValue();
+
+    cnd_txt_hhlinernm.setValue("");
+
+    if (strClntNo.length > 0) {
+        scwin.f_PopUp("Liner", "T");
+    }
+};
+
+scwin.udc_comCodeHhsales_onblurCodeEvent = function (e) {
+    if (cnd_ed_hhsales.originalValue == cnd_ed_hhsales.getValue()) {
+        return;
+    }
+
+    let strClntNo = cnd_ed_hhsales.getValue();
+
+    cnd_txt_hhsalesnm.setValue("");
+
+    if (strClntNo.length > 0) {
+        scwin.f_OpenCommonPopUp("Salesman", "T", "F", "F");
+    }
+};
+
+scwin.udc_comCodeHhatcust_onclickEvent = function (e) {
+    scwin.f_PopUp("Customer", "F");
+};
+
+scwin.udc_comCodeHhliner_onclickEvent = function (e) {
+    scwin.f_PopUp("Liner", "F");
+};
+
+scwin.udc_comCodeHhsales_onclickEvent = function (e) {
+    scwin.f_OpenCommonPopUp("Salesman", "F", "F", "F");
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="tbbox" id="tb_retrieve" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:120px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="width: 120px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:attributes>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:select1 appearance="full" class="" cols="" id="cnd_rd_hhio" ref="" renderType="radiogroup" rows="" selectedIndex="-1"
+									style="">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[Export]]></xf:label>
+											<xf:value><![CDATA[E]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[Import]]></xf:label>
+											<xf:value><![CDATA[I]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="req" id="" label="ETA" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_fromToCalendar edFromId="cnd_ed_hhetaFrom" edToId="cnd_ed_hhetaTo" id="udc_fromToCalendar"
+									mandatoryFrom="true" objTypeFrom="data" objTypeTo="data" refDataMap="" refEdDt="" refStDt="" style="" titleFrom="ETA From"
+									mandatoryTo="true" titleTo="ETA To">
+								</w2:udc_fromToCalendar>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Type" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:autoComplete allOption="" class="" editType="select" id="cnd_lc_prttype" ref="" search="none" style=""
+									submenuSize="auto" chooseOption="" validExp="Type:yes" objType="Data" emptyItem="true" hideListOnFocus="true">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[ALL]]></w2:label>
+											<w2:value><![CDATA[]]>
+											</w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[House]]></w2:label>
+											<w2:value><![CDATA[H]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[Direct]]></w2:label>
+											<w2:value><![CDATA[D]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[Bulk]]></w2:label>
+											<w2:value><![CDATA[B]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="Customer" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_ilcomCode allowCharCode="0-9" codeId="cnd_ed_hhactcust" id="udc_comCodeHhatcust" maxlengthCode="6"
+									nameId="cnd_txt_hhactcustnm" objTypeCode="data" objTypeName="data" popupID="" selectID="retrieveEngClntInfo" style="" validTitle=""
+									ev:onclickEvent="scwin.udc_comCodeHhatcust_onclickEvent" UpperFlagCode="1"
+									ev:onblurCodeEvent="scwin.udc_comCodeHhatcust_onblurCodeEvent" validExpCode=" Customer:no" validExpName=" Customer Name:no">
+								</w2:udc_ilcomCode>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Liner" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_ilcomCode allowCharCode="0-9" codeId="cnd_ed_hhliner"
+									ev:onclickEvent="scwin.udc_comCodeHhliner_onclickEvent" id="udc_comCodeHhliner" maxlengthCode="6" nameId="cnd_txt_hhlinernm"
+									objTypeCode="data" objTypeName="data" popupID="" selectID="retrieveEngClntInfo" style="" validTitle="" validExpCode=" Liner:no"
+									validExpName=" Liner Name:no" ev:onblurCodeEvent="scwin.udc_comCodeHhliner_onblurCodeEvent">
+								</w2:udc_ilcomCode>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="Salesman" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_ilcomCode allowCharCode="0-9" codeId="cnd_ed_hhsales"
+									ev:onclickEvent="scwin.udc_comCodeHhsales_onclickEvent" id="udc_comCodeHhsales" maxlengthCode="8" nameId="cnd_txt_hhsalesnm"
+									objTypeCode="data" objTypeName="data" popupID="" selectID="retrieveEmpInfo" style="" validTitle="" validExpCode=" Salesman:no"
+									validExpName=" Salesman Name:no" ev:onblurCodeEvent="scwin.udc_comCodeHhsales_onblurCodeEvent">
+								</w2:udc_ilcomCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="">
+					<xf:group class="right" id="">
+						<xf:trigger class="btn" id="btn_Print" label="저장" style="" type="button" userAuth="P" ev:onclick="scwin.f_Print">
+							<xf:label>Print</xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

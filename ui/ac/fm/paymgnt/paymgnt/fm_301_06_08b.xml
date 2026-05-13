@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="ds_electronic">
+					<w2:keyInfo>
+						<w2:key id="dcsnDt" name="지급일자" dataType="text"></w2:key>
+						<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_cont" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="payMthdCd" name="지급방법코드" dataType="text"></w2:column>
+						<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+						<w2:column id="crn" name="거래처사업자번호" dataType="text"></w2:column>
+						<w2:column id="payBankCd" name="지급은행코드" dataType="text"></w2:column>
+						<w2:column id="payBankAcntNo" name="지급계좌번호" dataType="text"></w2:column>
+						<w2:column id="dcsnDt" name="확정일시" dataType="text"></w2:column>
+						<w2:column id="wrkDt" name="작업일자" dataType="text"></w2:column>
+						<w2:column id="dueDt" name="만기일자" dataType="text"></w2:column>
+						<w2:column id="payAmt" name="금액" dataType="number"></w2:column>
+						<w2:column id="spplyDt" name="공급일자" dataType="text"></w2:column>
+						<w2:column id="draftCheckNo" name="어음수표번호" dataType="text"></w2:column>
+						<w2:column id="sndNo" name="발신번호" dataType="number"></w2:column>
+						<w2:column id="payNo" name="지급번호" dataType="text"></w2:column>
+						<w2:column id="taxinvcDt" name="세금계산서 일자" dataType="text"></w2:column>
+						<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+						<w2:column id="bnkClntNo" name="거래처등록번호" dataType="text"></w2:column>
+						<w2:column id="taxAmt" name="세금계산서금액" dataType="number"></w2:column>
+						<w2:column id="outbrSummary" name="발생적요" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+            <xf:submission id="sbm_save" action="" method="post" mediatype="application/json" ref='data:json,[{"action":"modified","id":"ds_electronic","key":"IN_DS1"},{"id":"ds_cont","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_cont","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[scwin.memJson = $c.data.getMemInfo();
+scwin.privAdmin = $c.data.getMemInfo("privAdmin");
+
+scwin.vUserHomeClsCd = $c.data.getMemInfo("userHomeClsCd");// 사용자소속구분코드 
+scwin.loginCoCd = "'"+$c.data.getMemInfo("coCd")+"'";
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.loginCoCd)?'':"'"+ scwin.loginCoCd+"'"; // 소속 자회사
+scwin.loginCoClsCd = $c.data.getMemInfo("coClsCd");
+scwin.vLoginCoClsCd =$c.gus.cfIsNull(scwin.loginCoClsCd)?'': "'"+scwin.loginCoClsCd+"'";  ;//회계_회사구분('CO035' : 0:동부 EXPRESS)	
+scwin.isSubCompany = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	
+};
+
+//-------------------------------------------------------------------------
+//scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        ed_dcsnDt.focus();
+    }, {"delay":50});
+    scwin.f_Setting();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Setting(
+// function desc : 날짜셋팅
+//-------------------------------------------------------------------------
+scwin.f_Setting = function() {
+	ds_electronic.set("dcsnDt", $c.date.getServerDateTime("yyyyMMdd"));
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Save
+// function desc : 저장버튼 클릭
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    try {
+        /*
+        if (!scwin.f_Validation())
+		    return;   
+        async 처리문제로 로직위치변경
+        */
+        let ret = await $c.gus.cfValidate([ed_dcsnDt]);
+        if (!ret) {
+            return false;
+        }
+
+        if (!$c.gus.cfIsAfterDate($c.date.getServerDateTime("yyyyMMdd"), ed_dcsnDt.getValue().trim())) {
+            let MSG_CM_ERR_061   =  "%1은(는) %2이어야 합니다."
+            await $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_061,"지급일자","현재일자보다 이후 "));
+            ed_dcsnDt.focus();
+		    return false;
+        }
+
+        if(await $c.win.confirm($c.data.getMessage(MSG_CM_CRM_009,"전자결제파일생성-하나은행")) ) {
+            ds_cont.removeAll();
+            sbm_save.action = "/ac.fm.paymgnt.paymgnt.CreateHnbFileCMD.do";
+            $c.sbm.execute(sbm_save);
+        }    
+
+    } catch (e) {
+       console.log("f_Save : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitdone = function(e) {
+    try{
+        
+        if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+        if (ds_cont.getRowCount() > 0){
+            scwin.f_createFile();
+            $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_INF_012,"전자결제파일생성-하나은행"));
+        }else{
+            $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+        }
+        
+    } catch (e) {
+       console.log("sbm_save_submitdone : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 파일생성
+//-------------------------------------------------------------------------
+scwin.f_createFile = function() {
+    // 파일제목생성
+	let title = "(하나)" + $c.date.getServerDateTime("yyyyMMdd");
+    const options = {
+        fileName : title +".xlsx" ,//[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName : "전자결재파일"
+    };
+    const infoArr = [];
+    $c.data.downloadGridViewExcel(gr_file, options, infoArr);
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group id="" class="round-box">
+				<xf:group style="" id="" class="tbbox">
+					<xf:group tagname="table" style="" id="" class="w2tb">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group tagname="col" style="width:120px;"></xf:group>
+							<xf:group tagname="col" style=""></xf:group>
+						</xf:group>
+						<xf:group tagname="tr" style="">
+							<xf:group tagname="th" style="" class="w2tb_th">
+								<w2:textbox ref="" style="" userData2="" id="" label="지급일자" class="req"></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" style="" class="w2tb_td">
+								<w2:inputCalendar style="" id="ed_dcsnDt" class="" calendarValueType="yearMonthDate" mandatory="true"
+									objType="data" title="지급일자" ref="data:ds_electronic.dcsnDt" displayFormat="yyyy/MM/dd">
+								</w2:inputCalendar>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group style="" id="" class="btnbox">
+					<xf:group style="" id="" class="right">
+						<xf:trigger class="btn" id="btn_Save" style="" type="button" userAuth="U" ev:onclick="scwin.f_Save">
+							<xf:label><![CDATA[생성]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+
+                <w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" columnMove="true"
+					dataList="data:ds_cont" id="gr_file" readOnly="true" style=";display:none;">
+					<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+					<w2:header id="header2" style="">
+						<w2:row id="row3" style="">
+							<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="거래처" width="200"></w2:column>
+							<w2:column displayMode="label" id="crn" inputType="text" style="" value="거래처사업자번호" width="200"></w2:column>
+							<w2:column displayMode="label" id="payAmt" inputType="text" style="" value="금액" width="200"></w2:column>
+							<w2:column displayMode="label" id="dueDt" inputType="text" style="" value="만기일자" width="200"></w2:column>
+                            <w2:column displayMode="label" id="bnkClntNo" inputType="text" style="" value="거래처등록번호" width="200"></w2:column>
+                            <w2:column displayMode="label" id="taxinvcDt" inputType="text" style="" value="세금계산서일자" width="200"></w2:column>
+                            <w2:column displayMode="label" id="taxAmt" inputType="text" style="" value="세금계산서금액" width="200"></w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody2" style="">
+						<w2:row id="row4" style="">
+                            <w2:column displayMode="label" id="clntNm" inputType="text" text="" textAlign="left" value="" width="200"></w2:column>
+                            <w2:column displayMode="label" id="crn" inputType="text" text="" textAlign="left" value="" width="200"></w2:column>
+                            <w2:column displayMode="label" id="payAmt" inputType="text" text="" textAlign="left" value="" width="200" displayFormat="#,##0"></w2:column>
+                            <w2:column displayMode="label" id="dueDt" inputType="text" text="" textAlign="left" value="" width="200"></w2:column>
+                            <w2:column displayMode="label" id="bnkClntNo" inputType="text" text="" textAlign="left" value="" width="200"></w2:column>
+                            <w2:column displayMode="label" id="taxinvcDt" inputType="text" text="" textAlign="left" value="" width="200"></w2:column>
+                            <w2:column displayMode="label" id="taxAmt" inputType="text" text="" textAlign="left" value="" width="200" displayFormat="#,##0"></w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_author="배기원" meta_screenName="신용정보이력조회" meta_screenId="D_fi_100_02_01p" meta_subsystem="" meta_type="팝업">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="crn" name="사업자등록번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_List1" saveRemovedData="false">
+    				<w2:columnInfo>
+    					<w2:column id="crn" name="사업자등록번호" dataType="text"></w2:column>
+    					<w2:column id="histSeq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="confInfoMgntClsCd" name="관리구분" dataType="text"></w2:column>
+    					<w2:column id="busiClsCd" name="사업자구분" dataType="text"></w2:column>
+    					<w2:column id="busiNm" name="사업자명" dataType="text"></w2:column>
+    					<w2:column id="repstNm" name="대표자명" dataType="text"></w2:column>
+    					<w2:column id="corRegNo" name="법인등록번호" dataType="text"></w2:column>
+    					<w2:column id="txnEntrCd" name="거래기업" dataType="text"></w2:column>
+    					<w2:column id="delayClsCd" name="연체구분" dataType="text"></w2:column>
+    					<w2:column id="regDt" name="등록일자" dataType="text"></w2:column>
+    					<w2:column id="errCntn" name="에러내용" dataType="text"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_List2" saveRemovedData="false">
+    				<w2:columnInfo>
+    					<w2:column id="crn" name="사업자등록번호" dataType="text"></w2:column>
+    					<w2:column id="histSeq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="sndErrCd" name="전송오류코드" dataType="text"></w2:column>
+    					<w2:column id="reportDt" name="통보일자" dataType="text"></w2:column>
+    					<w2:column id="userId" name="사용자ID" dataType="text"></w2:column>
+    					<w2:column id="busiClsCd" name="사업자구분" dataType="text"></w2:column>
+    					<w2:column id="busiNm" name="사업자명" dataType="text"></w2:column>
+    					<w2:column id="repstNm" name="대표자명" dataType="text"></w2:column>
+    					<w2:column id="badInfoShapeCd" name="불량정보형태" dataType="text"></w2:column>
+    					<w2:column id="delaySeq" name="연체순번" dataType="text"></w2:column>
+    					<w2:column id="regAmt" name="등록금액" dataType="text"></w2:column>
+    					<w2:column id="delayAmt" name="연체금액" dataType="text"></w2:column>
+    					<w2:column id="cntlPattern" name="통제유형" dataType="text"></w2:column>
+    					<w2:column id="regRsn" name="등록사유" dataType="text"></w2:column>
+    					<w2:column id="fncInstNm" name="금융기관명" dataType="text"></w2:column>
+    					<w2:column id="outbrDt" name="발생일자" dataType="text"></w2:column>
+    					<w2:column id="regDt" name="등록일자" dataType="text"></w2:column>
+    					<w2:column id="tmnDt" name="해지일자" dataType="text"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_cb_busiClsCd" saveRemovedData="false">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="코드" dataType="text"></w2:column>
+    					<w2:column id="name" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<code><![CDATA[1]]></code>
+    						<name><![CDATA[주민번호]]></name>
+    					</w2:row>
+    					<w2:row>
+    						<code><![CDATA[2]]></code>
+    						<name><![CDATA[사업자번호]]></name>
+    					</w2:row>
+    					<w2:row>
+    						<code><![CDATA[3]]></code>
+    						<name><![CDATA[법인번호]]></name>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_queryCompanyHistory" action="/ac.fi.stdinfomgnt.RetrieveCompanyHistListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search", "key":"IN_DS1"},{"id":"ds_List1","key":"OUT_DS1"}]' target='data:json,{"id":"ds_List1", "key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_queryCompanyHistory_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_queryDefaultHistory" action="/ac.fi.stdinfomgnt.RetrieveDefaultHistListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_search", "key":"IN_DS1"},{"id":"ds_List2","key":"OUT_DS1"}]' target='data:json,{"id":"ds_List2", "key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_queryDefaultHistory_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 신용정보이력조회
+ * 메뉴경로 : 회계/재무회계/기준정보/사업자번호
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/fi/stdinfomgnt/fi_100_02_01p.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-09-30
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ *    5. footer에 값 없음(asis도 없음)
+ *    ☞ 삭제해도 됨(한승준PM님 확인 2025-10-15)
+ * 참고사항 :
+ *    1. "hiddenVisible":true 되어 있는 항목 일단 false 처리[hiddenCol="true" => hiddenCol="false"]
+ * 테스트데이터 
+ *    1. 사업자번호[6218500916]
+ * 수정이력 :
+ *    - 2025-09-30      배기원    최초작성
+ */
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    if (!$c.util.isEmpty(scwin.params["crn"])) {
+        dma_search.set("crn", scwin.params["crn"]);
+    }
+
+    scwin.setInit();
+
+    scwin.f_RetrieveCompanyHistory();
+    scwin.f_RetrieveDefaultHistory();
+};
+
+/**
+ * 초기세팅(TOBE 그리드, 총건수)
+ */
+scwin.setInit = function() {
+    ds_List1.removeAll();
+    ds_List2.removeAll();
+    totalRows1.setValue("0");
+    totalRows2.setValue("0");
+};
+
+/**
+ *  DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+ */
+scwin.f_SetDataHeader = function() {
+    // 조회조건용 DataSet Header 초기화
+    // var GAUCE_DATASET_HEADER = "crn:STRING";
+
+    // ds_condition.SetDataHeader(GAUCE_DATASET_HEADER);
+    // ds_condition.AddRow();
+};
+
+/**
+ * 신용정보관리거래처 이력조회
+ */
+scwin.f_RetrieveCompanyHistory = function() {
+    $c.sbm.execute(sbm_queryCompanyHistory);
+};
+
+scwin.sbm_queryCompanyHistory_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        let rowCnt = ds_List1.getRowCount();
+        totalRows1.setValue(rowCnt);
+        if (rowCnt > 0) {
+            gr_List1.setFocusedCell(0, 0);
+        }
+    }
+};
+
+/**
+ * 채무불이행정보 이력조회
+ */
+scwin.f_RetrieveDefaultHistory = function() {
+    //dma_search.set("crn", "6218500916");
+    $c.sbm.execute(sbm_queryDefaultHistory);
+};
+
+scwin.sbm_queryDefaultHistory_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        let rowCnt = ds_List2.getRowCount();
+        totalRows2.setValue(rowCnt);
+        if (rowCnt > 0) {
+            gr_List2.setFocusedCell(0, 0);
+        }
+    }
+};
+
+
+/**
+ * 닫기
+ */
+scwin.f_WinClose = function (e) {
+    let rt = ["N/A"];
+    $c.win.closePopup(rt);
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="section row-gap-8" id="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="신용정보관리거래처 이력현황" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_List1" templateYn="N" grdDownOpts='{"fileName":"신용정보관리거래처이력.xlsx", "sheetName":"신용정보관리거래처이력", "type":"1" }' gridDownUserAuth="X">
+    								</w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    								<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_List1"
+    									focusMode="cell" id="gr_List1" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="3"
+    									visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    												removeBorderStyle="false" width="120" value="사업자등록번호" sortable="false">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text"
+    												removeBorderStyle="false" width="50" value="순번">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text"
+    												removeBorderStyle="false" width="80" value="관리구분" sortable="true">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text"
+    												removeBorderStyle="false" width="90" value="사업자구분" sortable="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column8" inputType="text" style="" value="사업자명"
+    												width="100" sortable="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column88" inputType="text" style="" value="대표자명"
+    												width="100" sortable="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="법인등록번호"
+    												width="100" sortable="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="거래기업"
+    												width="80" sortable="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="연체구분"
+    												width="80" sortable="true">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column32" value="등록일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="280" inputType="text" style="" id="column35" value="에러내용"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column89" value="등록자ID"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column91" value="등록일시"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column93" value="수정자ID"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column95" value="수정일시"
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="crn" inputType="text"
+    												removeBorderStyle="false" width="120">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="histSeq" inputType="text"
+    												removeBorderStyle="false" width="70" excelCellType="number" excelFormat="#,##0">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="confInfoMgntClsCd" inputType="text"
+    												removeBorderStyle="false" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="busiClsCd" inputType="select"
+    												removeBorderStyle="false" width="100" allOption="" chooseOption="" ref="">
+    												<w2:choices>
+    													<w2:itemset nodeset="data:ds_cb_busiClsCd">
+    														<w2:label ref="name"></w2:label>
+    														<w2:value ref="code"></w2:value>
+    													</w2:itemset>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column displayMode="label" id="busiNm" inputType="text" style="" value="" width="100"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="repstNm" inputType="text" style="" value=""
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="corRegNo" inputType="text" style="" value=""
+    												width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="txnEntrCd" inputType="text" style="" value="" width="100"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="delayClsCd" inputType="select" style="" value=""
+    												width="100" allOption="" chooseOption="" ref="">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[정상]]></w2:label>
+    														<w2:value><![CDATA[01]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[연체]]></w2:label>
+    														<w2:value><![CDATA[02]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="100" inputType="calendar" style="" id="regDt" value="" displayMode="label"
+    												calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column width="280" inputType="text" style="" id="errCntn" value="" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="regId" value=""
+    												displayMode="label" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="calendar" style="" id="regDtm" value=""
+    												displayMode="label" displayFormat="yyyy/MM/dd" calendarValueType="yearMonthDate" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="modId" value=""
+    												displayMode="label" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="calendar" style="" id="modDtm" value=""
+    												displayMode="label" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd" hidden="true" hiddenCol="false">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows1" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					</xf:group>
+    					<xf:group class="section row-gap-8" id="" style="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="채무불이행정보 이력현황" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section2" style="" gridUpYn="N" gridID="gr_List2" templateYn="N" grdDownOpts='{"fileName":"채무불이행이력.xlsx", "sheetName":"채무불이행이력", "type":"1" }' gridDownUserAuth="X">
+    								</w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section2" style="">
+    								<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_List2"
+    									focusMode="cell" id="gr_List2" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15"
+    									visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    												removeBorderStyle="false" width="120" value="사업자등록번호" sortable="false">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text"
+    												removeBorderStyle="false" width="50" value="순번">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text"
+    												removeBorderStyle="false" width="100" value="전송오류코드">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text"
+    												removeBorderStyle="false" width="100" value="통보일자">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column21" inputType="text" style="" value="사용자ID"
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" style="" value="사업자구분"
+    												width="120" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="사업자명"
+    												width="100" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="대표자명"
+    												width="100" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="불량정보형태"
+    												width="100">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column44" value="연체순번"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column41" value="등록금액"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column32" value="연체금액"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column35" value="통제유형"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="column38" value="등록사유"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="column47" value="금융기관명"
+    												displayMode="label" sortable="false">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" style="" id="column48" value="발생일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" style="" id="column50" value="등록일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" style="" id="column52" value="해지일자"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column53" value="등록자ID"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column55" value="등록일시"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column57" value="수정자ID"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="column59" value="수정일시"
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="crn" inputType="text"
+    												removeBorderStyle="false" width="120">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="histSeq" inputType="text"
+    												removeBorderStyle="false" width="50" excelCellType="number" excelFormat="#,##0">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="sndErrCd" inputType="text"
+    												removeBorderStyle="false" width="100" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="reportDt" inputType="calendar"
+    												removeBorderStyle="false" width="100" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd" hiddenCol="false"
+    												hidden="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="userId" inputType="text" style="" value="" width="100"
+    												textAlign="left" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="busiClsCd" inputType="select" style="" value=""
+    												width="120" allOption="" chooseOption="" ref="">
+    												<w2:choices>
+    													<w2:itemset nodeset="data:ds_cb_busiClsCd">
+    														<w2:label ref="name"></w2:label>
+    														<w2:value ref="code"></w2:value>
+    													</w2:itemset>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column displayMode="label" id="busiNm" inputType="text" style="" value="" width="100"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column displayMode="label" id="repstNm" inputType="text" style="" value=""
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="badInfoShapeCd" inputType="select" style="" value=""
+    												width="100" allOption="" chooseOption="" ref="">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[신규]]></w2:label>
+    														<w2:value><![CDATA[1]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[변경]]></w2:label>
+    														<w2:value><![CDATA[3]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[삭제]]></w2:label>
+    														<w2:value><![CDATA[5]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="delaySeq" value="" displayMode="label"
+    												excelCellType="number" excelFormat="#,##0">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="regAmt" value="" displayMode="label"
+    												textAlign="right" displayFormat="#,###.00[floor]" dataType="number" excelCellType="number" excelFormat="#,##0.00">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="delayAmt" value="" displayMode="label"
+    												textAlign="right" displayFormat="#,###.00[floor]" dataType="number" excelCellType="number" excelFormat="#,##0.00">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="cntlPattern" value=""
+    												displayMode="label" textAlign="left">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="regRsn" value="" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="fncInstNm" value="" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column width="70" inputType="calendar" style="" id="outbrDt" value=""
+    												displayMode="label" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column width="70" inputType="calendar" style="" id="regDt" value="" displayMode="label"
+    												displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column width="90" inputType="calendar" style="" id="tmnDt" value="" displayMode="label"
+    												displayFormat="yyyy/MM/dd">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="regId" value=""
+    												displayMode="label" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="calendar" style="" id="regDtm" value=""
+    												displayMode="label" displayFormat="yyyy/MM/dd" calendarValueType="yearMonthDate" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" style="" id="modId" value=""
+    												displayMode="label" hidden="true" hiddenCol="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="calendar" style="" id="modDtm" value=""
+    												displayMode="label" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd" hidden="true" hiddenCol="false">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows2" label="0" style="" tagname="span" displayFormat="#,##0" dataType="number">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					</xf:group>
+    				</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" ev:onclick="scwin.f_WinClose" id="btn_close" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

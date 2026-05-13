@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_queryCondition">
+                <w2:keyInfo>
+                    <w2:key id="crn" name="사업자번호" dataType="text"></w2:key>
+                    <w2:key id="busiNm" name="사업자명" dataType="text"></w2:key>
+                    <w2:key id="repstNm" name="대표자성명" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_img" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="crn" name="사업자번호" dataType="text"></w2:column>
+                    <w2:column id="fileSeq" name="이미지순번" dataType="text"></w2:column>
+                    <w2:column id="fileNm" name="파일명" dataType="text"></w2:column>
+                    <w2:column id="fileSavePath" name="첨부파일경로" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+                    <w2:column id="busiNm" name="사업자명" dataType="text"></w2:column>
+                    <w2:column id="repstNm" name="대표자성명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS">
+                <w2:columnInfo>
+                    <w2:column id="fileId" name="파일ID" dataType="text"></w2:column>
+                    <w2:column id="filename" name="파일명" dataType="text"></w2:column>
+                    <w2:column id="filepath" name="파일경로" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieveDocumentImageList"
+            action="/ac.fi.stdinfomgnt.RetrieveDocumentImageListCrnCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_queryCondition","key":"IN_DS1"},{"id":"ds_img","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_img","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieveDocumentImageList_submitdone"
+            ev:submiterror="scwin.sbm_retrieveDocumentImageList_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_insertImg"
+            action="/ac.fi.stdinfomgnt.RegistDocumentImageListCrnCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_img","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_insertImg_submitdone"
+            ev:submiterror="scwin.sbm_insertImg_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_deleteImg"
+            action="/ac.fi.stdinfomgnt.DeleteDocumentImageListCrnCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_img","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_deleteImg_submitdone"
+            ev:submiterror="scwin.sbm_deleteImg_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.selectedBeforeSize = 1;
+
+        scwin.f_EventSearch = function() {
+            $c.gus.cfDisableKeyData();
+            $c.gus.cfDisableBtn([btn_save, btn_cancel]);
+        };
+
+        scwin.f_EventNew = function() {
+            $c.gus.cfDisableKey();
+            $c.gus.cfDisableBtn([btn_trigger1, btn_del]);
+
+            ds_img.insertRow(ds_img.getRowCount());
+            let newRowIdx = ds_img.getRowCount() - 1;
+            ds_img.setCellData(newRowIdx, "crn", txt_crn.getValue());
+            ds_img.setCellData(newRowIdx, "busiNm", txt_busiNm.getValue());
+            ds_img.setCellData(newRowIdx, "repstNm", txt_repstNm.getValue());
+        };
+
+        scwin.f_EventSave = function() {
+            scwin.f_EventSearch();
+        };
+
+        scwin.f_EventDel = function() {
+            scwin.f_EventSearch();
+        };
+
+        scwin.onpageload = function() {
+            $c.gus.cfDisableKeyData();
+
+            scwin.f_defaultValue();
+            $c.gus.cfDisableObjects([txt_crn, txt_busiNm, txt_repstNm]);
+            scwin.f_Retrieve();
+            scwin.f_previewImg(1);
+        };
+
+        scwin.f_defaultValue = function() {
+            let oCtrtObject = $c.data.getParameter();
+
+            txt_crn.setValue(oCtrtObject.crnNo || "");
+            txt_busiNm.setValue(oCtrtObject.busiNm || "");
+            txt_repstNm.setValue(oCtrtObject.repstNm || "");
+        };
+
+        scwin.f_Retrieve = async function() {
+            dma_queryCondition.set("crn", txt_crn.getValue());
+            dma_queryCondition.set("busiNm", txt_busiNm.getValue());
+            dma_queryCondition.set("repstNm", txt_repstNm.getValue());
+            await $c.sbm.execute(sbm_retrieveDocumentImageList);
+        };
+
+        scwin.f_Save = async function() {
+            let chk = await $c.gus.cfValidate([txt_fileNm]);
+            if (!chk) {
+                return;
+            }
+
+            if (ds_img.getUpdatedIndex().length == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["[이미지 저장작업]"]);
+            } else {
+                await $c.sbm.execute(sbm_insertImg);
+            }
+        };
+
+        scwin.f_Delete = async function() {
+            let chk = await $c.win.confirm(MSG_CM_CRM_004);
+            if (chk == true) {
+                let rowPos = ds_img.getRowPosition();
+                if (rowPos >= 0) {
+                    ds_img.removeRow(rowPos);
+                }
+                await $c.sbm.execute(sbm_deleteImg);
+            }
+        };
+
+        scwin.f_Cancel = async function() {
+            let chk = await $c.win.confirm(MSG_CM_CRM_011);
+            if (chk == true) {
+                scwin.f_EventSearch();
+                // TODO: txt_fileNm은 BIND로 ds_img.fileNm에 연결되어 있으므로 dataList undo로 처리
+                ds_img.undoAll();
+            }
+        };
+
+        scwin.f_winClose = function() {
+            if (ds_img.getRowCount() > 0) {
+                $c.win.closePopup("Y");
+            } else {
+                $c.win.closePopup("N");
+            }
+        };
+
+        scwin.fileSubmit = async function() {
+            // TODO: 파일 업로드는 udc_fileMultiUpload UDC를 통해 처리됩니다. 기존 cfUploadFile 로직을 UDC 콜백으로 대체 필요.
+            scwin.uploadComplete();
+        };
+
+        scwin.uploadComplete = async function() {
+            fileUploadGDS.sort("fileId", "asc");
+
+            for (let i = 0; i < fileUploadGDS.getRowCount(); i++) {
+                let lastRowIdx = ds_img.getRowCount() - 1;
+
+                if (ds_img.getRowCount() != 1) {
+                    let fltNxtSeq = parseFloat(ds_img.getCellData(lastRowIdx - 1, "fileSeq")) + 1;
+                    ds_img.setCellData(lastRowIdx, "fileSeq", fltNxtSeq);
+                } else {
+                    ds_img.setCellData(lastRowIdx, "fileSeq", 1);
+                }
+
+                let fullFileName = fileUploadGDS.getCellData(i, "filename");
+                let strFileExeName = fullFileName.substr(fullFileName.length - 4, fullFileName.length);
+
+                ds_img.setCellData(lastRowIdx, "fileNm", txt_fileNm.getValue() + strFileExeName);
+                ds_img.setCellData(lastRowIdx, "fileSavePath", fileUploadGDS.getCellData(i, "filepath"));
+            }
+            await scwin.f_Save();
+            scwin.f_previewImg(ds_img.getRowCount());
+        };
+
+        scwin.f_previewImg = function(rowNum) {
+            let rowPos = ds_img.getRowPosition();
+            if (rowPos >= 0) {
+                let fileName = ds_img.getCellData(rowPos, "fileSavePath");
+                if (fileName != "") {
+                    // TODO: 이미지 미리보기 - preView 이미지 src 설정 (cfGetFileURL 대체 필요)
+                    // preView.src = $c.gus.cfGetFileURL("", fileName);
+                }
+            }
+        };
+
+        scwin.f_ZoomIn = async function() {
+            let rowPos = ds_img.getRowPosition();
+            if (rowPos >= 0) {
+                let fileName = ds_img.getCellData(rowPos, "fileSavePath");
+                if (fileName != "") {
+                    let strUrl = "/ui/ac/fi/stdinfomgnt/zoom.xml";
+                    let strParam = $c.gus.cfGetFileURL("", fileName);
+                    await $c.win.openPopup(strUrl, {
+                        width: 840,
+                        height: 660,
+                        modal: true,
+                        data: { imgUrl: strParam }
+                    });
+                }
+            }
+        };
+
+        scwin.f_Download = async function() {
+            let row = ds_img.getRowPosition();
+            if (row < 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["첨부파일 행"]);
+                return;
+            } else {
+                let fileName = ds_img.getCellData(row, "fileNm");
+                let fileSavePath = ds_img.getCellData(row, "fileSavePath");
+
+                if (fileSavePath.trim().length == 0) {
+                    await $c.win.alert("선택하신 " + (row + 1) + "행에 파일이 등록되어 있지 않습니다.");
+                } else {
+                    if (fileSavePath.indexOf(".") > 0) {
+                        fileName += fileSavePath.substring(fileSavePath.indexOf("."), fileSavePath.indexOf(".") + 4);
+                        $c.gus.cfDownloadFile(fileName, fileSavePath);
+                    }
+                }
+            }
+        };
+
+        scwin.sbm_retrieveDocumentImageList_submitdone = async function(e) {
+            let rowCnt = ds_img.getRowCount();
+            totalRows.setValue(rowCnt);
+
+            scwin.f_EventSearch();
+
+            if (rowCnt == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            }
+        };
+
+        scwin.sbm_retrieveDocumentImageList_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_insertImg_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_002);
+            scwin.f_EventSave();
+            await scwin.f_Retrieve();
+        };
+
+        scwin.sbm_insertImg_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_deleteImg_submitdone = async function(e) {
+            await $c.gus.cfAlertMsg(MSG_CM_INF_004);
+            scwin.f_EventDel();
+            await scwin.f_Retrieve();
+        };
+
+        scwin.sbm_deleteImg_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.gr_img_oncellclick = function(rowIndex, columnIndex, columnId) {
+            scwin.f_previewImg(rowIndex);
+        };
+
+        scwin.btn_trigger21_onclick = function(e) {
+            scwin.f_Download();
+        };
+
+        scwin.btn_trigger1_onclick = function(e) {
+            scwin.f_EventNew();
+        };
+
+        scwin.btn_cancel_onclick = function(e) {
+            scwin.f_Cancel();
+        };
+
+        scwin.btn_save_onclick = function(e) {
+            scwin.fileSubmit();
+        };
+
+        scwin.btn_del_onclick = function(e) {
+            scwin.f_Delete();
+        };
+
+        scwin.btn_trigger2_onclick = function(e) {
+            scwin.f_winClose();
+        };
+    ]]></script>
+
+    <w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group id="" class="round-box">
+				<xf:group style="" id="" class="shbox ">
+					<xf:group style="" id="" class="shbox-inner">
+						<xf:group tagname="table" style="" id="" class="w2tb ">
+							<w2:attributes>
+								<w2:summary></w2:summary>
+							</w2:attributes>
+							<xf:group tagname="colgroup">
+								<xf:group tagname="col" style=""></xf:group>
+								<xf:group tagname="col" style=""></xf:group>
+								<xf:group tagname="col" style=""></xf:group>
+								<xf:group tagname="col" style=""></xf:group>
+								<xf:group tagname="col" style=""></xf:group>
+								<xf:group tagname="col" style=""></xf:group>
+							</xf:group>
+							<xf:group tagname="tr" id="">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox style="" id="" label="사업자등록번호" class=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:input style="" id="txt_crn" class="" disabled="true"></xf:input>
+								</xf:group>
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox style="" id="" label="사업자명" class=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" id="" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:input style="" id="txt_busiNm" class="" disabled="true"></xf:input>
+								</xf:group>
+								<xf:group tagname="th" id="" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox style="" id="" label="대표자성명" class=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" id="" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:input style="" id="txt_repstNm" class="" disabled="true"></xf:input>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group style="" id="" class="lybox wfix ">
+					<xf:group id="" class="col" style="width: 400px;">
+						<xf:group style="" id="" class="title-wrap">
+							<xf:group id="" class="title">
+								<w2:textbox tagname="h3" style="" id="" label="이미지파일 목록" class="tit"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" style="" id="" class="gvwbox">
+							<w2:gridView scrollByColumnAdaptive="false" focusMode="row" visibleRowNumFix="true" dataList="data:ds_img"
+								scrollByColumn="false" style="" autoFit="allColumn" id="gr_img" visibleRowNum="11" class="wq_gvw " checkReadOnlyOnPasteEnable="">
+								<w2:caption style="" id="caption10" value="this is a grid caption."></w2:caption>
+								<w2:header style="" id="header2">
+									<w2:row style="" id="row3">
+										<w2:column removeBorderStyle="false" width="150" inputType="text" id="fileNm" value="파일명" blockSelect="false"
+											displayMode="label">
+										</w2:column>
+										<w2:column removeBorderStyle="false" width="70" inputType="text" id="regDtm" value="등록일자" blockSelect="false"
+											displayMode="label">
+										</w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody style="" id="gBody2">
+									<w2:row style="" id="row4">
+										<w2:column removeBorderStyle="false" width="150" inputType="text" id="fileNm" blockSelect="false" displayMode="label">
+										</w2:column>
+										<w2:column removeBorderStyle="false" width="70" inputType="text" id="regDtm" blockSelect="false" displayMode="label">
+										</w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group style="" id="" class="grid-bottom ">
+								<xf:group class="left" id="" style="">
+									<xf:group class="grid-total" id="" style="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group id="" class="col">
+						<xf:group style="" id="" class="title-wrap">
+							<xf:group id="" class="title">
+								<w2:textbox tagname="h3" style="" id="" label="이미지 내용" class="tit"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group style="" id="" class="tbbox flex-full">
+							<xf:group tagname="table" style="height: 100%" id="" class="w2tb ">
+								<w2:attributes>
+									<w2:summary></w2:summary>
+								</w2:attributes>
+								<xf:group tagname="colgroup">
+									<xf:group tagname="col" style="width:120px;"></xf:group>
+									<xf:group tagname="col" style=""></xf:group>
+								</xf:group>
+								<xf:group tagname="tr" style="">
+									<xf:group tagname="th" style="" class="w2tb_th">
+										<w2:textbox ref="" style="" userData2="" id="" label="이미지 미리보기" class=""></w2:textbox>
+									</xf:group>
+									<xf:group tagname="td" style="" class="w2tb_td">
+										<xf:group id="" style="width: 100%;height:100%;overflow: auto;" class="tac vam"></xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+						<xf:group style="" id="" class="file-wrap">
+							<xf:group style="" id="" class="title-wrap">
+								<xf:group id="" class="title">
+									<w2:textbox tagname="h3" style="" id="" label="첨부파일 업로드" class="tit"></w2:textbox>
+								</xf:group>
+							</xf:group>
+							<w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+								maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="">
+							</w2:udc_fileMultiUpload>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group style="" id="" class="row-gap-8">
+					<xf:group id="" class="form-group">
+						<xf:select ref="" appearance="full" style="" id="chb_printCheck" renderType="checkboxgroup" rows="" selectedindex="-1" class="chk-grp"
+							cols="">
+							<xf:choices>
+								<xf:item>
+									<xf:label><![CDATA[인쇄옵션]]></xf:label>
+									<xf:value><![CDATA[]]>
+									</xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[미리보기]]></xf:label>
+									<xf:value><![CDATA[]]>
+									</xf:value>
+								</xf:item>
+							</xf:choices>
+						</xf:select>
+						<xf:trigger style="" id="btn_trigger21" type="button" class="btn sm">
+							<xf:label><![CDATA[다운로드]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<w2:textbox tagname="p" style="" id="" label="첨부파일 미리보기 기능은 jpg, gif, bmp 파일만 지원됩니다" class=" txt-dot  txt-red mt0"></w2:textbox>
+				</xf:group>
+				<xf:group style="" id="" class="pop-btnbox">
+					<xf:trigger style="" id="btn_trigger2" type="button" class="btn">
+						<xf:label><![CDATA[닫기]]></xf:label>
+					</xf:trigger>
+					<xf:trigger style="" id="btn_trigger1" type="button" class="btn">
+						<xf:label><![CDATA[신규]]></xf:label>
+					</xf:trigger>
+					<xf:trigger style="" id="btn_cancel" type="button" class="btn">
+						<xf:label><![CDATA[취소]]></xf:label>
+					</xf:trigger>
+					<xf:trigger style="" id="btn_save" type="button" class="btn">
+						<xf:label><![CDATA[저장]]></xf:label>
+					</xf:trigger>
+					<xf:trigger style="" id="btn_del" type="button" class="btn">
+						<xf:label><![CDATA[삭제]]></xf:label>
+					</xf:trigger>
+
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:group class="right" id="" style=""></xf:group>
+			</xf:group>
+			
+		</xf:group>
+
+	</body>
+</html>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate />
+        <w2:MSA />
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_fileUploadGDS" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="filepath" name="name1" dataType="text"></w2:column>
+                        <w2:column id="fileName" name="name2" dataType="text"></w2:column>
+                        <w2:column id="fileSize" name="name3" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection />
+        </xf:model>
+        <w2:layoutInfo />
+        <w2:publicInfo method="" />
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.systemPathVal = "/tn/cs/clntmgnt";
+scwin.argObject = null;
+scwin.g_filePath = "";
+scwin.g_fileName = "";
+scwin.g_fileSiz = "";
+scwin.g_fixWrkPlCd = "";
+scwin.g_fixWrkNo = "temp";
+
+scwin.onpageload = function() {
+    scwin.argObject = $c.data.getParameter() || {};
+    scwin.g_filePath = scwin.argObject.filePath || "";
+    scwin.g_fileName = scwin.argObject.fileName || "";
+    scwin.g_fileSiz = scwin.argObject.fileSize || "";
+    scwin.g_fixWrkPlCd = scwin.argObject.fileWrkPlCd || "";
+    scwin.g_fixWrkNo = scwin.argObject.fileWrkNo || "temp";
+
+    scwin.applyInitialFileData();
+};
+
+scwin.getExtension = function(fileName) {
+    if ($c.util.isEmpty(fileName)) {
+        return "";
+    }
+
+    const lastDot = fileName.lastIndexOf(".");
+    return lastDot > -1 ? fileName.substring(lastDot) : "";
+};
+
+scwin.stripExtension = function(fileName) {
+    if ($c.util.isEmpty(fileName)) {
+        return "";
+    }
+
+    const lastDot = fileName.lastIndexOf(".");
+    return lastDot > -1 ? fileName.substring(0, lastDot) : fileName;
+};
+
+scwin.buildStoredFilePath = function(storedPath, storedFileName) {
+    if ($c.util.isEmpty(storedPath)) {
+        return storedFileName || "";
+    }
+
+    if ($c.util.isEmpty(storedFileName) || storedPath.endsWith(storedFileName)) {
+        return storedPath;
+    }
+
+    if (storedPath.endsWith("/")) {
+        return storedPath + storedFileName;
+    }
+
+    return storedPath + "/" + storedFileName;
+};
+
+scwin.splitStoredFilePath = function(filePath) {
+    if ($c.util.isEmpty(filePath)) {
+        return {
+            storedPath: "",
+            storedFileName: ""
+        };
+    }
+
+    const lastSlash = filePath.lastIndexOf("/");
+    if (lastSlash < 0) {
+        return {
+            storedPath: "",
+            storedFileName: filePath
+        };
+    }
+
+    return {
+        storedPath: filePath.substring(0, lastSlash + 1),
+        storedFileName: filePath.substring(lastSlash + 1)
+    };
+};
+
+scwin.normalizeOriginFileName = function(fileName, filePath) {
+    if ($c.util.isEmpty(fileName)) {
+        return filePath ? scwin.splitStoredFilePath(filePath).storedFileName : "";
+    }
+
+    if (scwin.getExtension(fileName) !== "") {
+        return fileName;
+    }
+
+    return fileName + scwin.getExtension(filePath);
+};
+
+scwin.toReturnFileName = function(originFileName, filePath) {
+    if ($c.util.isEmpty(originFileName)) {
+        return scwin.stripExtension(scwin.splitStoredFilePath(filePath).storedFileName);
+    }
+
+    return scwin.stripExtension(originFileName);
+};
+
+scwin.buildInitialFileRow = function() {
+    if ($c.util.isEmpty(scwin.g_filePath)) {
+        return null;
+    }
+
+    const storedFileInfo = scwin.splitStoredFilePath(scwin.g_filePath);
+    const originFileName = scwin.normalizeOriginFileName(scwin.g_fileName, scwin.g_filePath);
+
+    return {
+        FILE_STORED_PATH: storedFileInfo.storedPath,
+        STORED_FILE_NM: storedFileInfo.storedFileName,
+        ORIGIN_FILE_NM: originFileName,
+        FILE_SIZE: scwin.g_fileSiz || "",
+        rowStatus: "R",
+        status: "Completed"
+    };
+};
+
+scwin.applyInitialFileData = function() {
+    if (typeof udc_fielUpload === "undefined" || typeof udc_fielUpload.setData !== "function") {
+        return;
+    }
+
+    const initialFileRow = scwin.buildInitialFileRow();
+    if (!initialFileRow) {
+        return;
+    }
+
+    udc_fielUpload.setData([initialFileRow]);
+};
+
+scwin.getActiveFileRows = function() {
+    const fileList = (typeof udc_fielUpload !== "undefined" && typeof udc_fielUpload.getData === "function")
+        ? (udc_fielUpload.getData() || [])
+        : [];
+
+    return fileList.filter(function(fileRow) {
+        const rowStatus = fileRow.rowStatus || "";
+        const hasFileInfo = !$c.util.isEmpty(fileRow.ORIGIN_FILE_NM)
+            || !$c.util.isEmpty(fileRow.STORED_FILE_NM)
+            || !$c.util.isEmpty(fileRow.FILE_STORED_PATH);
+
+        return rowStatus !== "D" && hasFileInfo;
+    });
+};
+
+scwin.hasPendingUploadFile = function() {
+    const activeFileRows = scwin.getActiveFileRows();
+
+    return activeFileRows.some(function(fileRow) {
+        const hasStoredFile = !$c.util.isEmpty(fileRow.FILE_STORED_PATH) || !$c.util.isEmpty(fileRow.STORED_FILE_NM);
+        return !hasStoredFile && !$c.util.isEmpty(fileRow.ORIGIN_FILE_NM);
+    });
+};
+
+scwin.getReturnFileInfo = function() {
+    const fileList = scwin.getActiveFileRows();
+
+    for (let idx = 0; idx < fileList.length; idx++) {
+        const fileRow = fileList[idx];
+        const rowStatus = fileRow.rowStatus || "";
+        const hasStoredFile = !$c.util.isEmpty(fileRow.FILE_STORED_PATH) || !$c.util.isEmpty(fileRow.STORED_FILE_NM);
+
+        if (rowStatus === "D" || !hasStoredFile) {
+            continue;
+        }
+
+        const fullPath = scwin.buildStoredFilePath(fileRow.FILE_STORED_PATH, fileRow.STORED_FILE_NM);
+        const originFileName = fileRow.ORIGIN_FILE_NM || fileRow.STORED_FILE_NM || "";
+
+        if ($c.util.isEmpty(fullPath)) {
+            continue;
+        }
+
+        return {
+            filePath: fullPath,
+            fileName: scwin.toReturnFileName(originFileName, fullPath),
+            fileSize: fileRow.FILE_SIZE || ""
+        };
+    }
+
+    if ($c.util.isEmpty(scwin.g_filePath)) {
+        return null;
+    }
+
+    return {
+        filePath: scwin.g_filePath,
+        fileName: scwin.g_fileName,
+        fileSize: scwin.g_fileSiz || ""
+    };
+};
+
+scwin.f_Close = function() {
+    const fileInfo = scwin.getReturnFileInfo();
+
+    if (!fileInfo) {
+        $c.win.closePopup(["", "", ""]);
+        return;
+    }
+
+    $c.win.closePopup([fileInfo.filePath, fileInfo.fileName, fileInfo.fileSize]);
+};
+
+scwin.fileSubmit = async function() {
+    const activeFileRows = scwin.getActiveFileRows();
+
+    if (activeFileRows.length === 0 && $c.util.isEmpty(scwin.g_filePath)) {
+        await $c.win.alert("파일을 선택하세요.");
+        return;
+    }
+
+    if (!await $c.win.confirm("저장하시겠습니까?")) {
+        return;
+    }
+
+    if (scwin.hasPendingUploadFile()) {
+        udc_fielUpload.setSubDir(scwin.systemPathVal);
+        udc_fielUpload.startFileUpload();
+        return;
+    }
+
+    scwin.f_Close();
+};
+
+scwin.uploadComplete = function() {
+    scwin.f_Close();
+};
+
+scwin.udc_fielUpload_onFileUploadDone = function(isSuccess) {
+    if (!isSuccess) {
+        return;
+    }
+
+    $c.gus.cfAlertMsg(MSG_CM_INF_002);
+    scwin.f_Close();
+};
+]]></script>
+        <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+        <w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+            <w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+            <xf:group class="round-box" id="">
+                <xf:group id="" class="file-wrap no-title">
+                    <w2:udc_fileMultiUpload id="udc_fielUpload" fileGrpSeq=""
+                        filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+                        maxFileCount="1" maxFileSize="536870912" style="" totalFileSize="2009715200"
+                        subDir="/tn/cs/clntmgnt" saveFn="scwin.fileSubmit" saveButtonYn="N"
+                        ev:onFileUploadDone="scwin.udc_fielUpload_onFileUploadDone">
+                    </w2:udc_fileMultiUpload>
+                </xf:group>
+            </xf:group>
+            <xf:group class="pop-btnbox" id="" style="">
+                <xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.f_Close">
+                    <xf:label>&#45803;&#44592;</xf:label>
+                </xf:trigger>
+                <xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.fileSubmit">
+                    <xf:label>&#51200;&#51109;</xf:label>
+                </xf:trigger>
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

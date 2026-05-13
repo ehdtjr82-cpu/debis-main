@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_lobran" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="점소명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_vesselMng" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="shpCoPortcnt" name="선사항차" dataType="text"></w2:column>
+                    <w2:column id="arvIntendDtm" name="입항일자" dataType="text"></w2:column>
+                    <w2:column id="cvsslMgntNo" name="본선관리번호" dataType="text"></w2:column>
+                    <w2:column id="impExpClsCd" name="수출입구분" dataType="text"></w2:column>
+                    <w2:column id="lobranCd" name="점소코드" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+                    <w2:column id="lobranNm" name="점소명" dataType="text"></w2:column>
+                    <w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+                    <w2:column id="vsslPurpsNm" name="선박용도" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="LINE코드" dataType="text"></w2:column>
+                    <w2:column id="planPrscond" name="본선계획현황" dataType="text"></w2:column>
+                    <w2:column id="odrCreateYn" name="오더여부" dataType="text"></w2:column>
+                    <w2:column id="closeDt" name="마감일자" dataType="text"></w2:column>
+                    <w2:column id="closeHh" name="마감시간" dataType="text"></w2:column>
+                    <w2:column id="arvDt" name="도착일자" dataType="text"></w2:column>
+                    <w2:column id="arvHh" name="도착시간" dataType="text"></w2:column>
+                    <w2:column id="dptDt" name="출발일자" dataType="text"></w2:column>
+                    <w2:column id="dptHh" name="출발시간" dataType="text"></w2:column>
+                    <w2:column id="portCd" name="항구코드" dataType="text"></w2:column>
+                    <w2:column id="pierCd" name="부두코드" dataType="text"></w2:column>
+                    <w2:column id="pierNm" name="부두코드명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_lobran"
+            action="/ds.co.RetreiveLoBranCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_lobran","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_lobran","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_lobran_submitdone"
+            ev:submiterror="scwin.sbm_lobran_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.op.rscconfirm.transrscconfirm.RetrieveTerminalCarryingVesselManagementNumberCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_vesselMng","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_vesselMng","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.loUpperLobranCd = "4AA";
+        scwin.cvsslMgntNo = "";
+        scwin.impExpClsCd = "";
+        scwin.vCurDate = "";
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            if (scwin.params != null) {
+                if (scwin.params["cvsslMgntNo"] != null) {
+                    scwin.cvsslMgntNo = scwin.params["cvsslMgntNo"].trim();
+                }
+                if (scwin.params["impExpClsCd"] != null) {
+                    scwin.impExpClsCd = scwin.params["impExpClsCd"];
+                }
+            }
+
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+
+            scwin.f_loadLobran();
+        };
+
+        scwin.onUdcCompleted = function() {
+            scwin.f_setDate();
+        };
+
+        scwin.f_loadLobran = async function() {
+            await $c.sbm.execute(sbm_lobran);
+        };
+
+        scwin.sbm_lobran_submitdone = function(e) {
+            let rowCnt = ds_lobran.getRowCount();
+            if (rowCnt == 0) return;
+
+            ds_lobran.insertRow(0);
+            ds_lobran.setCellData(0, "lobranCd", "");
+            ds_lobran.setCellData(0, "lobranNm", "전체");
+
+            lc_lobran.setNodeSet("data:ds_lobran", "lobranNm", "lobranCd");
+
+            if (scwin.cvsslMgntNo == "") {
+                let idx = scwin.f_findLobranIndex(scwin.loUpperLobranCd);
+                if (idx >= 0) {
+                    lc_lobran.setSelectedIndex(idx);
+                } else {
+                    lc_lobran.setSelectedIndex(0);
+                }
+            } else {
+                lc_lobran.setSelectedIndex(0);
+            }
+
+            em_cvsslMgntNo.setValue(scwin.cvsslMgntNo);
+            scwin.f_setImpExpClsCd(scwin.impExpClsCd);
+
+            scwin.f_setDate();
+            lc_lobran.setFocus();
+
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_lobran_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_findLobranIndex = function(lobranCd) {
+            for (let i = 0; i < ds_lobran.getRowCount(); i++) {
+                if (ds_lobran.getCellData(i, "lobranCd") == lobranCd) {
+                    return i;
+                }
+            }
+            return -1;
+        };
+
+        scwin.f_setImpExpClsCd = function(impExpClsCd) {
+            if (impExpClsCd == "") {
+                lc_impExpClsCd.setSelectedIndex(0);
+            } else {
+                lc_impExpClsCd.setValue(impExpClsCd);
+            }
+        };
+
+        scwin.f_setDate = function() {
+            let dateStr = scwin.vCurDate.substring(0, 6);
+
+            if (scwin.cvsslMgntNo != "" && scwin.cvsslMgntNo.length > 4) {
+                dateStr = dateStr.substring(0, 2) + scwin.cvsslMgntNo.substring(1, 5);
+            }
+
+            let firstDate = dateStr + "01";
+            let year = parseInt(firstDate.substring(0, 4), 10);
+            let month = parseInt(firstDate.substring(4, 6), 10);
+
+            let nextMonth = month + 1;
+            let nextYear = year;
+            if (nextMonth > 12) {
+                nextMonth = 1;
+                nextYear = year + 1;
+            }
+            let nextMonthStr = String(nextYear) + $c.str.lpad(String(nextMonth), 2, "0") + "01";
+            let endDt = $c.date.addDate(nextMonthStr, -1);
+
+            let startDt = firstDate;
+
+            udc_qryDt.setInitDate(startDt, endDt);
+        };
+
+        scwin.f_Retrieve = async function() {
+            let stDt = udc_qryDt.getFromValue();
+            let edDt = udc_qryDt.getToValue();
+
+            if (stDt == "" || edDt == "") {
+                await $c.gus.cfAlertMsg("MSG_CM_ERR_002", ["입항예정일자"]);
+                return;
+            }
+
+            if (stDt > edDt) {
+                await $c.gus.cfAlertMsg("MSG_CM_ERR_039");
+                udc_qryDt.setFocusTo();
+                return;
+            }
+
+            let lobranCd = lc_lobran.getValue();
+            let cvsslMgntNoVal = em_cvsslMgntNo.getValue().trim();
+            let impExpClsCdVal = lc_impExpClsCd.getValue();
+            let mrnVal = ed_mrn.getValue().trim();
+
+            sbm_retrieve.action = "/ds.op.rscconfirm.transrscconfirm.RetrieveTerminalCarryingVesselManagementNumberCMD.do"
+                + "?lobranCd=" + lobranCd
+                + "&shpCoClntNo="
+                + "&vsslCd="
+                + "&qryStDt=" + stDt
+                + "&qyrEndDt=" + edDt
+                + "&cvsslMgntNo=" + cvsslMgntNoVal
+                + "&impExpClsCd=" + impExpClsCdVal
+                + "&mrn=" + mrnVal;
+
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            let rowCnt = ds_vesselMng.getRowCount();
+            if (rowCnt == 0) {
+                await $c.win.alert(MSG_CM_WRN_002);
+            } else if (rowCnt == 1 && scwin.cvsslMgntNo == ds_vesselMng.getCellData(0, "cvsslMgntNo")) {
+                let rtnValues = [];
+
+                rtnValues[0]  = ds_vesselMng.getCellData(0, "cvsslMgntNo");
+                rtnValues[1]  = ds_vesselMng.getCellData(0, "vsslCd");
+                rtnValues[2]  = ds_vesselMng.getCellData(0, "vsslNm");
+                rtnValues[3]  = ds_vesselMng.getCellData(0, "closeDt");
+                rtnValues[4]  = ds_vesselMng.getCellData(0, "closeHh");
+                rtnValues[5]  = ds_vesselMng.getCellData(0, "arvDt");
+                rtnValues[6]  = ds_vesselMng.getCellData(0, "arvHh");
+                rtnValues[7]  = ds_vesselMng.getCellData(0, "dptDt");
+                rtnValues[8]  = ds_vesselMng.getCellData(0, "dptHh");
+                rtnValues[9]  = ds_vesselMng.getCellData(0, "shpCoPortcnt");
+                rtnValues[10] = "";
+                rtnValues[11] = ds_vesselMng.getCellData(0, "portCd");
+                rtnValues[12] = ds_vesselMng.getCellData(0, "pierCd");
+                rtnValues[13] = ds_vesselMng.getCellData(0, "pierNm");
+                rtnValues[14] = ds_vesselMng.getCellData(0, "lineCd");
+
+                $c.win.closePopup(rtnValues);
+            }
+        };
+
+        scwin.sbm_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.gr_vesselMng_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+            if (rowIndex < 0) return;
+            let rtnValues = [];
+
+            rtnValues[0]  = ds_vesselMng.getCellData(rowIndex, "cvsslMgntNo");
+            rtnValues[1]  = ds_vesselMng.getCellData(rowIndex, "vsslCd");
+            rtnValues[2]  = ds_vesselMng.getCellData(rowIndex, "vsslNm");
+            rtnValues[3]  = ds_vesselMng.getCellData(rowIndex, "closeDt");
+            rtnValues[4]  = ds_vesselMng.getCellData(rowIndex, "closeHh");
+            rtnValues[5]  = ds_vesselMng.getCellData(rowIndex, "arvDt");
+            rtnValues[6]  = ds_vesselMng.getCellData(rowIndex, "arvHh");
+            rtnValues[7]  = ds_vesselMng.getCellData(rowIndex, "dptDt");
+            rtnValues[8]  = ds_vesselMng.getCellData(rowIndex, "dptHh");
+            rtnValues[9]  = ds_vesselMng.getCellData(rowIndex, "shpCoPortcnt");
+            rtnValues[10] = "";
+            rtnValues[11] = ds_vesselMng.getCellData(rowIndex, "portCd");
+            rtnValues[12] = ds_vesselMng.getCellData(rowIndex, "pierCd");
+            rtnValues[13] = ds_vesselMng.getCellData(rowIndex, "pierNm");
+            rtnValues[14] = ds_vesselMng.getCellData(rowIndex, "lineCd");
+
+            $c.win.closePopup(rtnValues);
+        };
+
+        scwin.f_chkOpenCommonPopUpEmEdit = function(gubun, chkObj, txtObj, disGubun, pAllSearch) {
+            let pCode = "";
+            let pName = "";
+
+            if (gubun == 1) {
+                txtObj.setValue("");
+                if (chkObj.getValue() == "") return;
+            }
+
+            pCode = chkObj.getValue().replace(/^\s*/, '');
+            pName = txtObj.getValue();
+
+            scwin.f_openCommonPopUp(disGubun, pCode, pName, 'T', pAllSearch);
+        };
+
+        scwin.btn_fieldClear_onclick = function(e) {
+            scwin.f_FieldClear();
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects([lc_lobran, lc_impExpClsCd]);
+
+            if (scwin.cvsslMgntNo == "") {
+                let idx = scwin.f_findLobranIndex(scwin.loUpperLobranCd);
+                if (idx >= 0) {
+                    lc_lobran.setSelectedIndex(idx);
+                } else {
+                    lc_lobran.setSelectedIndex(0);
+                }
+            } else {
+                lc_lobran.setSelectedIndex(0);
+            }
+
+            scwin.f_setDate();
+            lc_lobran.setFocus();
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.closeBtn_onclick = function(e) {
+            $c.win.closePopup();
+        };
+    ]]></script>
+
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_lobran" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="본선관리번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="em_cvsslMgntNo" placeholder="" style="width:85px;" mandatory="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="MRN" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mrn" placeholder="" style="width:85px;" mandatory="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="수출입구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="lc_impExpClsCd" search="start" style="width:150px;"
+    								submenuSize="auto">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="입항예정일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_qryDt" refDataMap="" refEdDt="ica_qryEndDt" refStDt="ica_qryStDt" style=""></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_vesselMng" id="gr_vesselMng" style="" readOnly="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="cvsslMgntNo" inputType="text" value="본선&lt;br/&gt;관리번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="vsslNm" inputType="text" value="선박명" width="100"></w2:column>
+    							<w2:column displayMode="label" id="mrn" inputType="text" value="MRN" width="100"></w2:column>
+    							<w2:column displayMode="label" id="vsslPurpsNm" inputType="text" value="선박용도" width="100"></w2:column>
+    							<w2:column displayMode="label" id="lineCd" inputType="text" value="LINE" width="70"></w2:column>
+    							<w2:column displayMode="label" id="shpCoPortcnt" inputType="text" value="항차" width="70"></w2:column>
+    							<w2:column displayMode="label" id="arvIntendDtm" inputType="text" value="입항일자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="lobranNm" inputType="text" value="관리&lt;br/&gt;점소" width="70"></w2:column>
+    							<w2:column displayMode="label" id="impExpClsCd" inputType="text" value="수출입&lt;br/&gt;구분" width="80"></w2:column>
+    							<w2:column displayMode="label" id="planPrscond" inputType="text" value="본선&lt;br/&gt;계획현황" width="100"></w2:column>
+    							<w2:column width="100" inputType="text" id="odrCreateYn" value="오더여부&lt;br/&gt;(수입/수출)" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="cvsslMgntNo" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="vsslNm" inputType="text" width="100" textAlign="left" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="mrn" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="vsslPurpsNm" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="lineCd" inputType="text" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="shpCoPortcnt" inputType="text" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="arvIntendDtm" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="lobranNm" inputType="text" width="70" textAlign="left" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="impExpClsCd" inputType="select" width="80" readOnly="true" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[수입]]></w2:label>
+        <w2:value><![CDATA[I/]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[수출]]></w2:label>
+        <w2:value><![CDATA[/O]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[수입/수출]]></w2:label>
+        <w2:value><![CDATA[I/O]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column displayMode="label" id="planPrscond" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="odrCreateYn" displayMode="label" readOnly="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="closeBtn" style="" type="button">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

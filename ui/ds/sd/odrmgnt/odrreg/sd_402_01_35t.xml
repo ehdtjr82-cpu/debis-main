@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map"/>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+// 화면 - Id: sd_402_01_35t.jsp,v 1.17 2006/03/02 13:40:49 이상유 Exp 
+// 설명 - 오더요청등록 Dynamic Tab 화면
+scwin.repClntNo = $c.data.getParameter("repClntNo") == null ? "" : $c.data.getParameter("repClntNo");
+scwin.clntNo = $c.data.getParameter("clntNo") == null ? "" : $c.data.getParameter("clntNo");
+scwin.clntNm = $c.data.getParameter("clntNm") == null ? "" : $c.data.getParameter("clntNm");
+scwin.mchtOdrKndCd = $c.data.getParameter("mchtOdrKndCd") == null ? "" : $c.data.getParameter("mchtOdrKndCd");
+scwin.mchtOdrKndNm = $c.data.getParameter("mchtOdrKndNm") == null ? "" : $c.data.getParameter("mchtOdrKndNm");
+scwin.mchtOdrNo = $c.data.getParameter("mchtOdrNo") == null ? "" : $c.data.getParameter("mchtOdrNo");
+scwin.mcomOdrNo = $c.data.getParameter("mcomOdrNo") == null ? "" : $c.data.getParameter("mcomOdrNo");
+scwin.logSeq = $c.data.getParameter("logSeq") == null ? "" : $c.data.getParameter("logSeq");
+scwin.type = $c.data.getParameter("type") == null ? "" : $c.data.getParameter("type");
+scwin.menuType = $c.data.getParameter("menuType") == null ? "" : $c.data.getParameter("menuType");
+
+scwin.tab1Url = "/ui/ds/sd/odrmgnt/odrreg/sd_402_01_35b.xml";
+scwin.tab2Url = "/ui/ds/sd/odrmgnt/odrreg/sd_402_01_40b.xml";
+
+// hidden 
+scwin.hid_odrNo = "";
+scwin.hid_repClntNo = "";
+scwin.hid_clntNo = "";
+scwin.hid_clntNm = "";
+scwin.hid_mchtOdrKndCd = "";
+scwin.hid_mchtOdrKndNm = "";
+scwin.hid_mchtOdrNo = "";
+scwin.hid_mcomOdrNo = "";
+scwin.hid_logSeq = "";
+scwin.hid_chkReterieve = "";
+scwin.hid_frameLoad = "";
+scwin.hid_orderCommodityCnt = "";
+scwin.hid_odrDelYn = "";
+
+scwin.onpageload = function() {
+    scwin.repClntNo = $c.data.getParameter("repClntNo") == null ? "" : $c.data.getParameter("repClntNo");
+    scwin.clntNo = $c.data.getParameter("clntNo") == null ? "" : $c.data.getParameter("clntNo");
+    scwin.clntNm = $c.data.getParameter("clntNm") == null ? "" : $c.data.getParameter("clntNm");
+    scwin.mchtOdrKndCd = $c.data.getParameter("mchtOdrKndCd") == null ? "" : $c.data.getParameter("mchtOdrKndCd");
+    scwin.mchtOdrKndNm = $c.data.getParameter("mchtOdrKndNm") == null ? "" : $c.data.getParameter("mchtOdrKndNm");
+    scwin.mchtOdrNo = $c.data.getParameter("mchtOdrNo") == null ? "" : $c.data.getParameter("mchtOdrNo");
+    scwin.mcomOdrNo = $c.data.getParameter("mcomOdrNo") == null ? "" : $c.data.getParameter("mcomOdrNo");
+    scwin.logSeq = $c.data.getParameter("logSeq") == null ? "" : $c.data.getParameter("logSeq");
+    scwin.type = $c.data.getParameter("type") == null ? "" : $c.data.getParameter("type");
+
+    scwin.hid_odrNo = scwin.mcomOdrNo;
+    scwin.hid_repClntNo = scwin.repClntNo;
+    scwin.hid_clntNo = scwin.clntNo;
+    scwin.hid_clntNm = scwin.clntNm;
+    scwin.hid_mchtOdrKndCd = scwin.mchtOdrKndCd;
+    scwin.hid_mchtOdrKndNm = scwin.mchtOdrKndNm;
+    scwin.hid_mchtOdrNo = scwin.mchtOdrNo;
+    scwin.hid_mcomOdrNo = scwin.mcomOdrNo;
+    scwin.hid_logSeq = scwin.logSeq;
+    scwin.hid_chkReterieve = scwin.type;
+};
+
+//-------------------------------------------------------------------------
+// Tab Menu 선택시 처리
+//-------------------------------------------------------------------------
+scwin.f_selectTabMenu = async function (idx) { 
+    if (scwin.menuType != "ncall")
+        return;
+
+    if ($c.gus.cfIsNull(scwin.hid_odrNo.trim()))	scwin.hid_odrNo = scwin.mcomOdrNo;
+    if ($c.gus.cfIsNull(scwin.hid_repClntNo.trim()))	scwin.hid_repClntNo = scwin.repClntNo;
+    if ($c.gus.cfIsNull(scwin.hid_clntNo.trim()))	scwin.hid_clntNo = scwin.clntNo;
+    if ($c.gus.cfIsNull(scwin.hid_clntNm.trim()))	scwin.hid_clntNm = scwin.clntNm;
+    if ($c.gus.cfIsNull(scwin.hid_mchtOdrKndCd.trim()))	scwin.hid_mchtOdrKndCd = scwin.mchtOdrKndCd;
+    if ($c.gus.cfIsNull(scwin.hid_mchtOdrKndNm.trim()))	scwin.hid_mchtOdrKndNm = scwin.mchtOdrKndNm;
+    if ($c.gus.cfIsNull(scwin.hid_mchtOdrNo.trim()))	scwin.hid_mchtOdrNo = scwin.mchtOdrNo;
+    if ($c.gus.cfIsNull(scwin.hid_mcomOdrNo.trim()))	scwin.hid_mcomOdrNo = scwin.mcomOdrNo;
+    if ($c.gus.cfIsNull(scwin.hid_logSeq.trim()))	scwin.hid_logSeq = scwin.logSeq;
+    if ($c.gus.cfIsNull(scwin.hid_chkReterieve.trim()))	scwin.hid_chkReterieve = scwin.type;
+
+    if ($c.gus.cfIsNull(idx)) 	idx = 0;
+    if (idx > 1)	$c.win.alert("현재개발중입니다.");
+
+    switch (idx) {
+        case 0:
+            if (!$c.gus.cfIsNull(scwin.hid_odrNo.trim())) {
+                // 당사 오더 번호 설정시 조회
+                if (scwin.hid_chkReterieve.trim() == "retrieve" && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() != "retrieveIn") {
+                    tab_main.getWindow(idx).ed_mcomOdrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                } else if (tab_main.getWindow(idx).scwin.hid_chkReterieve != "retrieveIn") {
+                    tab_main.getWindow(idx).ed_mcomOdrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                } else if (scwin.hid_odrNo.trim() != tab_main.getWindow(idx).ed_mcomOdrNo.getValue().trim() && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() == "retrieveIn") {
+                    tab_main.getWindow(idx).ed_mcomOdrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                }
+                
+            } else if (!$c.gus.cfIsNull(scwin.hid_clntNo.trim()) && !$c.gus.cfIsNull(scwin.hid_mchtOdrKndCd.trim()) && !$c.gus.cfIsNull(scwin.hid_mchtOdrNo.trim())) {
+                // 거래처, 화주어더종류, 화주오더번호 설정시 조회
+                await scwin.f_setFrameOrderSearchQueryCondition(tab_main.getWindow(idx));
+                
+                if (scwin.hid_chkReterieve.trim() == "retrieve" && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() != "retrieveIn") {
+                    tab_main.getWindow(idx).scwin.hid_ctrtRepClntNo = scwin.hid_repClntNo;
+                    tab_main.getWindow(idx).ed_clntNo.setValue(scwin.hid_clntNo);
+                    tab_main.getWindow(idx).ed_txt_clntNm.setValue(scwin.hid_clntNm);
+                    tab_main.getWindow(idx).acb_mchtOdrKndCd.setValue(scwin.hid_mchtOdrKndCd);
+                    tab_main.getWindow(idx).ed_mchtOdrNo.setValue(scwin.hid_mchtOdrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 거래처번호, 화주오더종류, 화주오더번호 존재시 조회 
+                } else if (tab_main.getWindow(idx).scwin.hid_chkReterieve != "retrieveIn") {
+                    tab_main.getWindow(idx).scwin.hid_ctrtRepClntNo = scwin.hid_repClntNo;
+                    tab_main.getWindow(idx).ed_clntNo.setValue(scwin.hid_clntNo);
+                    tab_main.getWindow(idx).ed_txt_clntNm.setValue(scwin.hid_clntNm);
+                    tab_main.getWindow(idx).acb_mchtOdrKndCd.setValue(scwin.hid_mchtOdrKndCd);
+                    tab_main.getWindow(idx).ed_mchtOdrNo.setValue(scwin.hid_mchtOdrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 거래처번호, 화주오더종류, 화주오더번호 존재시 조회 
+                } else if (scwin.hid_odrNo.trim() != tab_main.getWindow(idx).ed_mcomOdrNo.getValue().trim() && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() == "retrieveIn") {
+                    tab_main.getWindow(idx).scwin.hid_ctrtRepClntNo = scwin.hid_repClntNo;
+                    tab_main.getWindow(idx).ed_clntNo.setValue(scwin.hid_clntNo);
+                    tab_main.getWindow(idx).ed_txt_clntNm.setValue(scwin.hid_clntNm);
+                    tab_main.getWindow(idx).acb_mchtOdrKndCd.setValue(scwin.hid_mchtOdrKndCd);
+                    tab_main.getWindow(idx).ed_mchtOdrNo.setValue(scwin.hid_mchtOdrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 거래처번호, 화주오더종류, 화주오더번호 존재시 조회 
+                }
+            }		
+            
+            if (tab_main.getWindow(idx).ds_mchtOdrKndCd.getRowCount() > 0) {
+                tab_main.getWindow(idx).acb_mchtOdrKndCd.setValue(scwin.hid_mchtOdrKndCd);
+            } else {
+                tab_main.getWindow(idx).ds_mchtOdrKndCd.insertRow();
+                tab_main.getWindow(idx).ds_mchtOdrKndCd.setCellData(0, "osideCd", scwin.hid_mchtOdrKndCd);
+                tab_main.getWindow(idx).ds_mchtOdrKndCd.setCellData(0,"osideCdNm", scwin.hid_mchtOdrKndNm);
+            }
+            
+            if (tab_main.getWindow(idx).ds_shipmentIndicationOrder.getRowCount() > 0) {
+                tab_main.getWindow(idx).acb_logSeq.setValue(scwin.hid_logSeq);
+            }
+            
+            scwin.cfViewTab(idx);
+            
+            // scwin.f_TabFrameResize( 'iFrame0', tab_main.getWindow(idx).document.body.scrollHeight );
+            //tab_main.getWindow(0).ed_clntNo.focus();
+            tab_main.getWindow(0).ed_mcomOdrNo.focus(); // onBlur 이벤트로 특정 컴포넌트로 변경되서 처리
+        break;
+
+        case 1:
+            if (!$c.gus.cfIsNull(scwin.hid_odrNo.trim())) {				
+                if (scwin.hid_chkReterieve.trim() == "retrieve" && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() != "retrieveIn") {
+                    tab_main.getWindow(idx).ed_odrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                } else if (tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() != "retrieveIn") {
+                    tab_main.getWindow(idx).ed_odrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                } else if (scwin.hid_odrNo.trim() != tab_main.getWindow(idx).ed_odrNo.getValue().trim() && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() == "retrieveIn") {
+                    tab_main.getWindow(idx).ed_odrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                }
+            }
+
+            scwin.cfViewTab(idx);
+            // scwin.f_TabFrameResize( 'iFrame1', tab_main.getWindow(idx).document.body.scrollHeight );
+            tab_main.getWindow(1).ed_odrNo.focus();
+        break;
+
+        case 2:
+            
+            if (!$c.gus.cfIsNull(scwin.hid_odrNo.trim())) {
+                if (scwin.hid_chkReterieve.trim() == "retrieve" && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() != "retrieveIn") {
+                    tab_main.getWindow(idx).ed_odrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                } else if (tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() != "retrieveIn") {
+                    tab_main.getWindow(idx).ed_odrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                } else if (scwin.hid_odrNo.trim() != tab_main.getWindow(idx).ed_odrNo.getValue().trim() && tab_main.getWindow(idx).scwin.hid_chkReterieve.trim() == "retrieveIn") {
+                    tab_main.getWindow(idx).ed_odrNo.setValue(scwin.hid_odrNo);
+                    tab_main.getWindow(idx).scwin.f_Retrieve();	// 오더 번호 존재시 조회 
+                }
+            }	
+
+            scwin.cfViewTab(idx);
+            // f_TabFrameResize( 'iFrame2', tab_main.getWindow(idx).document.body.scrollHeight );
+            tab_main.getWindow(2).ed_odrNo.focus();
+        break;
+    } 
+
+}
+
+
+scwin.f_TabMenuUpdate = function ( strUrl , strTitle ) {
+    if (strUrl != "" && strTitle != "") {
+        cfTabMenuUpdate( strUrl , strTitle ) ;
+    }
+}
+
+//-------------------------------------------------------------------------
+// 오더요청 조회 조건 설정
+//-------------------------------------------------------------------------
+scwin.f_setFrameOrderSearchQueryCondition = async function (t_frame) { 
+    t_frame.scwin.hid_ctrtRepClntNo = scwin.hid_repClntNo;
+    t_frame.ed_clntNo.setValue(scwin.hid_clntNo);
+    t_frame.ed_txt_clntNm.setValue(scwin.hid_clntNm);
+        
+    if (!$c.gus.cfIsNull(scwin.hid_mchtOdrKndCd) && scwin.hid_chkReterieve == "retrieve") {
+        if (t_frame.scwin.hid_chkReterieve != "retrieveIn")	
+            //tr_reterieveMchtOdrKnd.post();
+            t_frame.ds_ediMappingSearch.set("clntNo", scwin.hid_repClntNo);
+            if (await t_frame.scwin.sbm_reterieveMchtOdrKnd2()) {
+                if (t_frame.ds_mchtOdrKndCd.getRowCount() > 0) {
+                    t_frame.acb_mchtOdrKndCd.setValue(scwin.hid_mchtOdrKndCd);
+                } else {
+                    t_frame.ds_mchtOdrKndCd.insertRow();
+                    t_frame.ds_mchtOdrKndCd.setCellData(0,"osideCd", scwin.hid_mchtOdrKndCd);
+                    t_frame.ds_mchtOdrKndCd.setCellData(0,"osideCdNm", scwin.hid_mchtOdrKndNm);
+                }
+            }
+    } else {
+        t_frame.acb_mchtOdrKndCd.setValue("");
+    }
+
+    t_frame.ed_mchtOdrNo.setValue(scwin.hid_mchtOdrNo);
+    t_frame.ed_mcomOdrNo.setValue(scwin.hid_mcomOdrNo);
+};
+
+scwin.f_TabFrameResize = function ( frameId, strHeight ) {
+    var iFrameObj = document.all(frameId);
+    tab_mxTab_page(0).style.height = strHeight + 15;
+    iFrameObj.style.height = strHeight;
+}
+
+scwin.cfViewTab = function(idx) { 
+    tab_main.setSelectedTabIndex(idx); 
+};
+
+scwin.tab_main_onchange = function (tabId, index, userTabId) {
+    scwin.f_selectTabMenu(index);
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group style="" id="" class="tabbox">
+    					<w2:tabControl alwaysDraw="false" style="" id="tab_main" class="wq_tab" ev:onchange="scwin.tab_main_onchange">
+    							<w2:tabs disabled="false" style="" id="tabs1" label="오더요청등록"></w2:tabs>
+    							<w2:tabs disabled="false" style="" id="tabs2" label="작업경로상세등록"></w2:tabs>
+    							<w2:content src="/ui/ds/sd/odrmgnt/odrreg/sd_402_01_35b.xml" alwaysDraw="false" style="" id="content1">
+    							</w2:content>
+    							<w2:content src="/ui/ds/sd/odrmgnt/odrreg/sd_402_01_40b.xml" alwaysDraw="false" style="" id="content2"></w2:content>
+    						</w2:tabControl>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

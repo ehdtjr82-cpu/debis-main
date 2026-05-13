@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_trusteePurchaseCustomer" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="busiNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="name2" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="name3" dataType="text"></w2:column>
+    					<w2:column id="costItemCd" name="name4" dataType="text"></w2:column>
+    					<w2:column id="costItemNm" name="name5" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_queryCondition">
+    				<w2:keyInfo>
+    					<w2:key id="clntNo" name="name1" dataType="text"></w2:key>
+    					<w2:key id="trusteeClntNm" name="name2" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.fs.consignmgnt.trusteecostselladjm.RetrieveTrusteePurchaseCustomerListCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,[{"id":"dma_queryCondition","key":"IN_DS1"},{"id":"ds_trusteePurchaseCustomer","key":"OUT_DS1"}]' target='data:json,{"id":"ds_trusteePurchaseCustomer","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 수탁자 매입거래처 조회 팝업
+//-------------------------------------------------------------------------
+scwin.headTitle;
+scwin.arrOptCnd;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.params = $c.data.getParameter();
+
+    ed_clntNo.setValue(scwin.params.param1);
+    ed_clntNm.setValue(scwin.params.param2);
+
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 화면종료시 (닫기 버튼)
+//-------------------------------------------------------------------------
+scwin.btn_close_onclick = function (e) {
+
+    var rowIndex = ds_trusteePurchaseCustomer.getRowPosition();
+    f_closeWithData(rowIndex);
+};
+
+scwin.f_Retrieve = function () {
+    /*Map setting   */
+    dma_queryCondition.set("clntNo", ed_clntNo.getValue());
+    dma_queryCondition.set("trusteeClntNm", ed_clntNm.getValue());
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onclick = (e) => scwin.f_Retrieve();
+
+// 조회 callback 
+scwin.sbm_retrieve_submitdone = function () {
+
+    let nRow = ds_trusteePurchaseCustomer.getRowCount();
+
+    if (nRow == 0) {
+
+        $c.win.alert(MSG_CM_WRN_002);
+        return;
+    } else if (nRow == 1){
+        f_closeWithData(0);
+    }
+
+    // 그리드 객체 가져오기 - 첫째 행 선택 (인덱스 0)
+    gr_trusteePurchaseCustomer.setFocusedCell(0, 0);
+
+    let nCnt = ds_trusteePurchaseCustomer.getRowCount();
+    total.setValue(nCnt);
+}
+
+//팝업 데이타 dbclick
+scwin.gr_trusteePurchaseCustomer_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+
+    f_closeWithData(rowIndex);
+};
+
+// -----------------------------------------------
+// 공통 함수로 분리
+// -----------------------------------------------
+function f_getReturnData(rowIndex) {
+    return [
+        ds_trusteePurchaseCustomer.getCellData(rowIndex, "busiNo"),
+        ds_trusteePurchaseCustomer.getCellData(rowIndex, "clntNo"),
+        ds_trusteePurchaseCustomer.getCellData(rowIndex, "clntNm"),
+        ds_trusteePurchaseCustomer.getCellData(rowIndex, "costItemCd"),
+        ds_trusteePurchaseCustomer.getCellData(rowIndex, "costItemNm")
+    ];
+}
+
+function f_closeWithData(rowIndex) {
+    var ret = f_getReturnData(rowIndex);
+    $c.win.closePopup(ret);
+}
+
+// 대문자 변환
+scwin.capitalMask = function (value) {
+    return value.toUpperCase();
+}
+
+// 사업자번호 표시 포맷 적용 
+scwin.f_formatCrn = function(value) {
+    if (!value) return "";
+
+    var str = value.toString();
+
+    if (str.length < 10) return str;
+
+    return str.substring(0, 3) + "-"
+         + str.substring(3, 5) + "-"
+         + str.substring(5, 10);
+}
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="거래처번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_clntNo" style="width:150px;" mandatory="true" maxlength="6" allowChar="a-zA-Z0-9" applyFormat="all" displayFormatter="scwin.capitalMask"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="사업자명 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_clntNm" style="width:150px;" mandatory="false"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+    					ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_trusteePurchaseCustomer"
+    					id="gr_trusteePurchaseCustomer" style="" visibleRowNum="10" visibleRowNumFix="true" focusMode="cell"
+    					ev:oncelldblclick="scwin.gr_trusteePurchaseCustomer_oncelldblclick" autoFit="allColumn" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="사업자번호" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="사업자코드" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="사업자명" width="250"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="비용코드" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="비용항목명" width="100"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="busiNo" inputType="text" width="150" textAlign="center" displayFormatter="scwin.f_formatCrn"></w2:column>
+    							<w2:column displayMode="label" id="clntNo" inputType="text" width="150" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" width="250" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="costItemCd" inputType="text" width="100" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="costItemNm" inputType="text" width="100" textAlign="left"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="total" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,786 @@
+/*amd /ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_19b.xml 59230 a832cacf4fefc09f824336dccead315c597dd242c772d57849f50f95e2cab18e */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_vesselPortCountList',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkPlNm',name:'작업장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cvsslMgntNo',name:'본선관리; 번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslNm',name:'선박',dataType:'text'}},{T:1,N:'w2:column',A:{id:'portcnt',name:'항차',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expimpClsNm',name:'수출입',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',name:'작업일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lunionOrgCd',name:'반',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chiefNm',name:'반장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchItemNm',name:'노임항목',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageSellGoodsNm',name:'품목',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ton',name:'수량/톤',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsAmtSum',name:'작업단계; 합계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arrvlportDt',name:'입/출항일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsClntNo',name:'지급거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsClntNm',name:'지급거래처명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlCd',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vsslCd',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'expimpClsCd',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchItemCd',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageSellGoodsCd',name:'name21',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_queryConditionDTO'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'branCd',name:'점소코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'작업장',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStYmDd',name:'작업월일시작',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkEndYmDd',name:'작업월일종료',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cvsslMgntNo',name:'본선관리번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vsslCd',name:'선박',dataType:'text'}},{T:1,N:'w2:key',A:{id:'portcnt',name:'항차',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageAdptPatternCd',name:'노임적용유형코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'expimpClsCd',name:'수출입구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'districtCd',name:'권역코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageItemCd',name:'노임항목코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageRetroactYn:STRING',name:'미확정 소급분 포함',dataType:'text'}}]},{T:1,N:'w2:data',A:{use:'false'}}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_detailQueryConditionDTO'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'작업장코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vsslCd',name:'선박',dataType:'text'}},{T:1,N:'w2:key',A:{id:'portcnt',name:'항차',dataType:'text'}},{T:1,N:'w2:key',A:{id:'expimpClsCd',name:'수출입구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lunionOrgCd',name:'노조조직코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'selpchItemCd',name:'매출입항목코드(노임항목)',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageSellGoodsCd',name:'노임매출품목코드(품목)',dataType:'text'}},{T:1,N:'w2:key',A:{id:'rsltsStdDt',name:'실적기준일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageRetroactYn',name:'미확정소급분포함여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_vesselPortCountDetailList',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkStpNm',name:'작업단계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pchsAmt',name:'금액',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_portcntList',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_portcntList'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text',defaultValue:'WorkPlaceEachGoodsEBC'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text',defaultValue:'retrivecPortcntList'}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_queryConditionDTO',action:'/ds.op.wrkrslts.wagewrkrslts.RetrieveVesselPortCountEachWagesAggregationCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_queryConditionDTO","key":"IN_DS1"},{"id":"ds_vesselPortCountList","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_vesselPortCountList","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous','ev:submit':'','ev:submitdone':'scwin.sbm_queryConditionDTO_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_detailQueryConditionDTO',action:'/ds.op.wrkrslts.wagewrkrslts.RetrieveVesselPortCountEachWagesAggregationDetailCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_detailQueryConditionDTO","key":"IN_DS1"},{"id":"ds_vesselPortCountDetailList","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_vesselPortCountDetailList","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_detailQueryConditionDTO_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_portcntList',action:'/cm.zz.RetrieveComboCMD.do?',method:'post',mediatype:'application/json',ref:'data:json,dma_portcntList',target:'data:json,{"id":"ds_portcntList","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){// 물류/작업실적/노임/ - 선박/항차별 노임집계표
+
+scwin.memJson = $c.data.getMemInfo($p); // 공통 세션 변수
+scwin.vCurDate = $c.date.getServerDateTime($p, "yyyyMMdd"); // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDateOfMonth($p, scwin.vCurDate); // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+
+scwin.frontMonth = $c.date.addMonth($p, scwin.vCurDate, -1); //전월일 
+scwin.frontDay = $c.date.getLastDateOfMonth($p, scwin.frontMonth.substring(0, 6)); //전달의 마지막일자
+
+scwin.openFlag = true;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  const param1 = [{
+    method: "getLuxeComboData",
+    param1: "GoodsSurchargeWorkStepEBC",
+    param2: "retriveDistrictCodeList",
+    compID: "acb_districtCd"
+  }];
+  $c.data.setGauceUtil($p, param1, function () {
+    if (scwin.openFlag == true) {
+      acb_districtCd.setSelectedIndex(-1);
+      scwin.openFlag = false;
+    }
+  });
+  const param2 = [{
+    method: "getLuxeComboData",
+    param1: "DsCommonEBC",
+    param2: "retrieveWageItemCd",
+    compID: "lc_wageItemCd"
+  }];
+  $c.data.setGauceUtil($p, param2);
+  const codeOptions = [{
+    grpCd: "OP255",
+    compID: "lc_wageAdptPatternCd"
+  }, {
+    grpCd: "SD060",
+    compID: "lc_expimpClsCd"
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+  scwin.f_SetDefaultData();
+
+  //권역별 날짜 자동 셋팅
+  scwin.f_changeSearchDate();
+};
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function () {
+  lc_branCd.setSelectedIndex(-1); // 점소코드
+
+  ds_queryConditionDTO.set("wrkStYmDd", scwin.vQryStDt); // ed_wrkStYmDd.Text = "<%= vQryStDt %>";  // 작업일자시작
+  ds_queryConditionDTO.set("wrkEndYmDd", scwin.vQryEndDt); // ed_wrkEndYmDd.Text = "<%= vQryEndDt %>";  // 작업일자종료
+
+  lc_expimpClsCd.setMaxLength("1");
+  // lc_expimpClsCd.Index = 0;  // 수출입구분코드
+
+  // cfSetIMEModeActiveObjects([txt_wrkPlNm, txt_vsslNm]);  // IME 한글입력
+
+  lc_branCd.setValue($c.gus.cfIsNull($p, scwin.memJson.lobranCd) ? '' : scwin.memJson.lobranCd);
+  lc_branCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 선박항차별노임집계 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveVesselPortCount = async function () {
+  if (lc_branCd.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_002, ["점소"]);
+    return;
+  }
+
+  // if (!await $c.gus.cfValidate([lc_branCd, ed_wrkStYmDd, ed_wrkEndYmDd])) {
+  if (!(await $c.gus.cfValidate($p, [ed_wrkStYmDd, ed_wrkEndYmDd]))) {
+    return;
+  }
+  if (!$c.gus.cfIsAfterDate($p, ed_wrkStYmDd.getValue(), ed_wrkEndYmDd.getValue())) {
+    await $c.gus.cfAlertMsg($p, "조회 시작일자는 종료일자 보다 이전 날짜 이어야 합니다.");
+    ed_wrkStYmDd.focus();
+    return;
+  }
+  if (chb_wageRetroactYn.getValue() != "1") {
+    //false
+    ds_queryConditionDTO.set("wageRetroactYn", "Y");
+  } else {
+    ds_queryConditionDTO.set("wageRetroactYn", "N");
+  }
+
+  //tr_queryConditionDTO.post();
+  $c.sbm.execute($p, sbm_queryConditionDTO);
+};
+
+//-------------------------------------------------------------------------
+// 선박항차별노임집계상세 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveVesselPortCountDetail = function (rowIndex) {
+  ds_detailQueryConditionDTO.set("wrkPlCd", ds_vesselPortCountList.getCellData(rowIndex, "wrkPlCd"));
+  ds_detailQueryConditionDTO.set("vsslCd", ds_vesselPortCountList.getCellData(rowIndex, "vsslCd"));
+  ds_detailQueryConditionDTO.set("portcnt", ds_vesselPortCountList.getCellData(rowIndex, "portcnt"));
+  ds_detailQueryConditionDTO.set("expimpClsCd", ds_vesselPortCountList.getCellData(rowIndex, "expimpClsCd"));
+  ds_detailQueryConditionDTO.set("lunionOrgCd", ds_vesselPortCountList.getCellData(rowIndex, "lunionOrgCd"));
+  ds_detailQueryConditionDTO.set("selpchItemCd", ds_vesselPortCountList.getCellData(rowIndex, "selpchItemCd"));
+  ds_detailQueryConditionDTO.set("wageSellGoodsCd", ds_vesselPortCountList.getCellData(rowIndex, "wageSellGoodsCd"));
+  ds_detailQueryConditionDTO.set("rsltsStdDt", ds_vesselPortCountList.getCellData(rowIndex, "rsltsStdDt"));
+  if (chb_wageRetroactYn.getValue() != "1") {
+    //false
+    ds_detailQueryConditionDTO.set("wageRetroactYn", "Y");
+  } else {
+    ds_detailQueryConditionDTO.set("wageRetroactYn", "N");
+  }
+
+  // tr_detailQueryConditionDTO.post();
+  $c.sbm.execute($p, sbm_detailQueryConditionDTO);
+};
+
+//-------------------------------------------------------------------------
+// 항차 조회(선박 선택시)
+//-------------------------------------------------------------------------
+scwin.f_RetrievePortCount = function () {
+  // ds_portcntList.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=WorkPlaceEachGoodsEBC&queryId=retrivecPortcntList&param1=" + ed_vsslCd.text;
+  // ds_portcntList.Reset();
+
+  dma_portcntList.set("param1", ed_vsslCd.getValue());
+  $c.sbm.execute($p, sbm_portcntList); //TODO
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드
+//-------------------------------------------------------------------------
+scwin.f_RunExcelA = async function (value) {
+  //노임집계표
+  var countA = ds_vesselPortCountList.getTotalRow();
+  if (!(countA > 0)) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다.
+    return;
+  }
+  var sheetName = "노임집계표";
+  if (await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?")) {
+    await $c.data.downloadGridViewExcel($p, gr_vesselPortCountList, {
+      fileName: sheetName + ".xlsx",
+      sheetName: sheetName
+    });
+  }
+};
+scwin.f_RunExcelB = async function (value) {
+  //작업단계
+  var countB = ds_vesselPortCountDetailList.getTotalRow();
+  if (!(countB > 0)) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다.
+    return;
+  }
+  var sheetName = "작업단계별금액";
+  if (await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?")) {
+    await $c.data.downloadGridViewExcel($p, gr_vesselPortCountDetailList, {
+      fileName: sheetName + ".xlsx",
+      sheetName: sheetName
+    });
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  // 선언부
+  var rtnList = new Array(); // 공통POP-UP -> 요청화면 
+
+  switch (disGubun) {
+    case 1:
+      // 작업장 팝업
+      udc_wrkPlCd.cfCommonPopUp(scwin.udc_wrkPlCd_callBackFunc, pCode, pName, pClose, null, null, null, null, ',' + lc_branCd.getValue() + '', null, null, null, null, null, pAllSearch, null);
+
+      // $c.gus.cfSetReturnValue(rtnList, ed_wrkPlCd, txt_wrkPlNm);  // 작업장코드, 작업장명
+      break;
+    case 2:
+      // 선박 팝업
+      udc_vsslCd.cfCommonPopUp(scwin.udc_vsslCd_callBackFunc, pCode, pName, pClose, null, null, null, null, null, null, null, null, null, null, pAllSearch, null);
+
+      // $c.gus.cfSetReturnValue(rtnList, ed_vsslCd, txt_vsslNm);  // 선박코드, 선박명
+      break;
+    default:
+      break;
+  }
+};
+scwin.udc_wrkPlCd_callBackFunc = function (rtnList) {
+  if (rtnList != null && rtnList[0] != "N/A") {
+    ed_wrkPlCd.setValue(rtnList[0]); // 코드
+    txt_wrkPlNm.setValue(rtnList[1]); // 명
+  }
+};
+scwin.udc_vsslCd_callBackFunc = function (rtnList) {
+  if (rtnList != null && rtnList[0] != "N/A") {
+    ed_vsslCd.setValue(rtnList[0]); // 코드
+    txt_vsslNm.setValue(rtnList[1]); // 명
+  }
+  scwin.f_RetrievePortCount(); // 항차 조회
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  debugger;
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) {
+    return;
+  }
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) {
+    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+  } else {
+    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+  }
+};
+
+//-------------------------------------------------------------------------
+// 검색영역 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function () {
+  $c.gus.cfInitObjects($p, tb_mainData);
+
+  // 콤보 데이터 삭제
+  ds_portcntList.removeAll();
+  lc_portcnt.removeAll();
+  scwin.f_SetDefaultData();
+};
+
+//-------------------------------------------------------------------------
+// 출력 (오즈레포트)
+//-------------------------------------------------------------------------
+
+scwin.openPopup = function (data) {
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "오즈 리포트"
+  };
+  $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+scwin.f_OzReport = async function () {
+  var rowPstn = ds_vesselPortCountList.getRowPosition();
+  if (rowPstn < 0) {
+    await $c.gus.cfAlertMsg($p, " 출력 하고자 하는 항목을 선택 하세요.");
+    return;
+  }
+  var ordNo = ds_vesselPortCountList.getCellData(rowPstn, "odrNo");
+  var check = ordNo.substring(1, 3);
+  if (check != "L3") {
+    await $c.gus.cfAlertMsg($p, "해당 오더번호는 출력 대상이 아닙니다.");
+    return;
+  }
+  var data = {
+    reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19r.ozr",
+    odiParam: {
+      ordCd: ds_vesselPortCountList.getCellData(rowPstn, "odrNo")
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.f_OzReport01 = async function () {
+  var odrNo = ds_vesselPortCountList.getCellData(ds_vesselPortCountList.getRowPosition(), "odrNo");
+  odrNo = odrNo.substring(1, 3);
+  if (odrNo != "L5") {
+    await $c.gus.cfAlertMsg($p, " 타창고 노임 지급 명세서는 오더구분이 타창고[L5]일 경우에만 출력 가능 합니다.");
+    return;
+  }
+  var check = ed_wrkStYmDd.getValue();
+  if (check == "") {
+    await $c.gus.cfAlertMsg($p, "시작년월을 입력 하세요.");
+    return;
+  }
+  check = "";
+  check = ed_wrkEndYmDd.getValue();
+  if (check == "") {
+    await $c.gus.cfAlertMsg($p, "종료년월을 입력 하세요.");
+    return;
+  }
+  var data = {
+    reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_1.ozr",
+    odiParam: {
+      lunionOrgCd: ds_vesselPortCountList.getCellData(ds_vesselPortCountList.getRowPosition(), "lunionOrgCd"),
+      stDt: ed_wrkStYmDd.getValue(),
+      edDt: ed_wrkEndYmDd.getValue()
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.f_OzReport02 = async function () {
+  var odrNo = ds_vesselPortCountList.getCellData(ds_vesselPortCountList.getRowPosition(), "odrNo");
+  odrNo = odrNo.substring(1, 3);
+  if (odrNo != "L5") {
+    await $c.gus.cfAlertMsg($p, " 타창고 노임 지급 명세서는 오더구분이 타창고[L5]일 경우에만 출력 가능 합니다.");
+    return;
+  }
+  var check = ed_wrkStYmDd.getValue();
+  if (check == "") {
+    await $c.gus.cfAlertMsg($p, "시작년월을 입력 하세요.");
+    return;
+  }
+  check = "";
+  check = ed_wrkEndYmDd.getValue();
+  if (check == "") {
+    await $c.gus.cfAlertMsg($p, "종료년월을 입력 하세요.");
+    return;
+  }
+  var data = {
+    reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_2.ozr",
+    odiParam: {
+      lunionOrgCd: ds_vesselPortCountList.getCellData(ds_vesselPortCountList.getRowPosition(), "lunionOrgCd"),
+      stDt: ed_wrkStYmDd.getValue(),
+      edDt: ed_wrkEndYmDd.getValue()
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.f_OzReport03 = async function () {
+  var check = ds_vesselPortCountList.getRowPosition();
+  if (check < 0) {
+    await $c.gus.cfAlertMsg($p, "노임 집계표에서 항목을 선택 하세요.");
+    return;
+  }
+
+  /* 조회된 노임 출력 */
+  var odrNo = ds_vesselPortCountList.getCellData(check, "odrNo");
+  var lunionOrgCd = ds_vesselPortCountList.getCellData(check, "lunionOrgCd");
+  odrNo = odrNo.substring(1, 3);
+  var wrkPlCd = "";
+  var wrkPlNm = "";
+  if (odrNo == "L2") {
+    wrkPlCd = ds_vesselPortCountList.getCellData(check, "wrkPlCd");
+    wrkPlNm = ds_vesselPortCountList.getCellData(check, "wrkPlNm");
+  } else {
+    wrkPlCd = "";
+    wrkPlNm = "";
+  }
+
+  // L1 이나  L2 만 출력..
+  if (!(odrNo == "L1" || odrNo == "L2")) {
+    await $c.gus.cfAlertMsg($p, " 작업일보 및 노임지불 명세서는 오더구분이 부두노임[L1]이거나 장치장노임[L2]일 경우에만 출력 가능 합니다.");
+    return;
+  }
+  var orgCd = ds_vesselPortCountList.getCellData(check, "lunionOrgCd");
+  var portCnt = ds_vesselPortCountList.getCellData(check, "portcnt");
+  var vsslCd = ds_vesselPortCountList.getCellData(check, "vsslCd");
+  var chiefNo = ds_vesselPortCountList.getCellData(check, "chiefNo");
+  var cvsslMgntNo = ds_vesselPortCountList.getCellData(check, "cvsslMgntNo");
+  var impExpClsCd = ds_vesselPortCountList.getCellData(check, "expimpClsCd");
+  var odrKndCd = odrNo;
+  odrNo = ds_vesselPortCountList.getCellData(check, "odrNo");
+  var data = {
+    reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_3.ozr",
+    odiParam: {
+      orgCd: orgCd,
+      portCnt: portCnt,
+      vsslCd: vsslCd,
+      cvsslMgntNo: cvsslMgntNo,
+      odrNo: "",
+      odrKndCd: odrKndCd,
+      wrkStYmDd: ed_wrkStYmDd.getValue(),
+      wrkEndYmDd: ed_wrkEndYmDd.getValue(),
+      wrkPlCd: wrkPlCd,
+      wrkPlNm: wrkPlNm,
+      impExpClsCd: impExpClsCd,
+      rsltsStDt: ed_wrkStYmDd.getValue(),
+      rsltsEndDt: ed_wrkEndYmDd.getValue(),
+      wageRetroactYn: "5",
+      chiefNo: chiefNo
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.f_OzReport03_1 = function () {
+  if (!$c.win.confirm($p, "작업일보 및 노임지불 명세서를 일괄 출력하시겠습니까?")) {
+    return;
+  }
+
+  /* 조회된 노임 전체 출력 */
+  OZStartBatch();
+  for (var check = 0; check < ds_vesselPortCountList.getTotalRow(); check++) {
+    var odrNo = ds_vesselPortCountList.getCellData(check, "odrNo").trim();
+    var lunionOrgCd = ds_vesselPortCountList.getCellData(check, "lunionOrgCd").trim();
+    if (lunionOrgCd == "" || ds_vesselPortCountList.getCellData(check, "selpchItemNm").trim() == "소계" || ds_vesselPortCountList.getCellData(check, "selpchItemNm").trim() == "합계") {
+      continue;
+    }
+    if (check > 1 && odrNo == ds_vesselPortCountList.getCellData(check, "odrNo") && lunionOrgCd == ds_vesselPortCountList.getCellData(check, "lunionOrgCd")) {
+      continue;
+    }
+    odrNo = odrNo.substring(1, 3);
+    var wrkPlCd = "";
+    var wrkPlNm = "";
+    if (odrNo == "L2") {
+      wrkPlCd = ds_vesselPortCountList.getCellData(check, "wrkPlCd");
+      wrkPlNm = ds_vesselPortCountList.getCellData(check, "wrkPlNm");
+    } else {
+      wrkPlCd = "";
+      wrkPlNm = "";
+    }
+
+    // L1 이나  L2 만 출력..
+    if (!(odrNo == "L1" || odrNo == "L2")) {
+      //cfAlertMsg(" 작업일보 및 노임지불 명세서는 오더구분이 부두노임[L1]이거나 장치장노임[L2]일 경우에만 출력 가능 합니다.");
+      //return;
+      continue;
+    }
+    var orgCd = ds_vesselPortCountList.getCellData(check, "lunionOrgCd");
+    var portCnt = ds_vesselPortCountList.getCellData(check, "portcnt");
+    var vsslCd = ds_vesselPortCountList.getCellData(check, "vsslCd");
+    var chiefNo = ds_vesselPortCountList.getCellData(check, "chiefNo");
+    var cvsslMgntNo = ds_vesselPortCountList.getCellData(check, "cvsslMgntNo");
+    var impExpClsCd = ds_vesselPortCountList.getCellData(check, "expimpClsCd");
+    var odrKndCd = odrNo;
+    odrNo = ds_vesselPortCountList.getCellData(check, "odrNo");
+    var data = {
+      reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_3.ozr",
+      odiParam: {
+        orgCd: orgCd,
+        portCnt: portCnt,
+        vsslCd: vsslCd,
+        cvsslMgntNo: cvsslMgntNo,
+        odrNo: odrNo,
+        odrKndCd: odrKndCd,
+        wrkStYmDd: ed_wrkStYmDd.getValue(),
+        wrkEndYmDd: ed_wrkEndYmDd.getValue(),
+        wrkPlCd: wrkPlCd,
+        wrkPlNm: wrkPlNm,
+        impExpClsCd: impExpClsCd,
+        rsltsStDt: ed_wrkStYmDd.getValue(),
+        rsltsEndDt: ed_wrkEndYmDd.getValue(),
+        wageRetroactYn: "5",
+        chiefNo: chiefNo
+      },
+      viewerParam: {
+        useprogressbar: false,
+        // 프로그레스바 쓸지 말지
+        zoom: 90 // 배율 설정
+      },
+      formParam: {}
+    };
+    scwin.openPopup(data);
+  }
+  OZExecuteBatch();
+};
+scwin.f_OzReport04 = async function () {
+  if (ed_wrkStYmDd.getValue() == "") {
+    await $c.win.alert($p, "작업월일을 입력하십시요.");
+    ed_wrkStYmDd.focus();
+    return;
+  } else if (ed_wrkEndYmDd.Text == "") {
+    await $c.win.alert($p, "작업월일을 입력하십시요.");
+    ed_wrkEndYmDd.focus();
+    return;
+  }
+  var check = ds_vesselPortCountList.getRowPosition();
+  if (check < 0) {
+    await $c.gus.cfAlertMsg($p, "노임 집계표에서 항목을 선택 하세요.");
+    return;
+  }
+  var odrNo = ds_vesselPortCountList.getCellData(check, "odrNo");
+  odrNo = odrNo.substring(1, 3);
+  if (odrNo != "L1") {
+    await $c.gus.cfAlertMsg($p, " 모선별 노임 집계표는 오더구분이 부두노임[L1]일 경우에만 출력 가능 합니다.");
+    return;
+  }
+  var vsslNm = ds_vesselPortCountList.getCellData(check, "vsslNm");
+  var cvsslMgntNo = ds_vesselPortCountList.getCellData(check, "cvsslMgntNo");
+  var arrvlportDt = ds_vesselPortCountList.getCellData(check, "arrvlportDt");
+  var wrkStYmDd = ed_wrkStYmDd.getValue();
+  var wrkEndYmDd = ed_wrkEndYmDd.getValue();
+  var data = {
+    reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_4.ozr",
+    odiParam: {
+      vsslNm: vsslNm,
+      cvsslMgntNo: cvsslMgntNo,
+      arrvlportDt: arrvlportDt,
+      odrNo: ds_vesselPortCountList.getCellData(check, "odrNo"),
+      wrkStYmDd: wrkStYmDd,
+      wrkEndYmDd: wrkEndYmDd
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.f_OzReport05 = async function () {
+  var check = ds_vesselPortCountList.getRowPosition();
+  if (check <= 0) {
+    await $c.gus.cfAlertMsg($p, "노임 집계표에서 항목을 선택 하세요.");
+    return;
+  }
+  var odrNo = ds_vesselPortCountList.getCellData(check, "odrNo");
+  odrNo = odrNo.substring(1, 3);
+  if (odrNo != "L1") {
+    await $c.gus.cfAlertMsg($p, " 작업노임일보는 오더구분이 부두노임[L1]일 경우에만 출력 가능 합니다.");
+    return;
+  }
+  var rsltsStdDt = ds_vesselPortCountList.getCellData(check, "rsltsStdDt");
+  var cvsslMgntNo = ds_vesselPortCountList.getCellData(check, "cvsslMgntNo");
+  var expimpClsCd = ds_vesselPortCountList.getCellData(check, "expimpClsCd");
+  var wageSellGoodsCd = ds_vesselPortCountList.getCellData(check, "wageSellGoodsCd");
+  var data = {
+    reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_5.ozr",
+    odiParam: {
+      rsltsStdDt: rsltsStdDt,
+      cvsslMgntNo: cvsslMgntNo,
+      expimpClsCd: expimpClsCd,
+      wageSellGoodsCd: wageSellGoodsCd
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+scwin.f_OzReport05_1 = async function () {
+  if (!$c.win.confirm($p, "작업노임일보를 일괄 출력하시겠습니까?")) {
+    return;
+  }
+
+  /* 조회된 노임 전체 출력 */
+  OZStartBatch();
+  for (var check = 0; check < ds_vesselPortCountList.getTotalRow(); check++) {
+    var odrNo = ds_vesselPortCountList.getCellData(check, "odrNo").trim();
+    if (ds_vesselPortCountList.getCellData(check, "selpchItemNm").trim() == "소계" || ds_vesselPortCountList.getCellData(check, "selpchItemNm").trim() == "합계") {
+      continue;
+    }
+    var odrNoType = odrNo.substring(1, 3);
+
+    // 작업노임일보는 오더구분이 부두노임[L1]일 경우에만 출력 가능 합니다
+    if (odrNoType != "L1") {
+      continue;
+    }
+    if (check > 0 && odrNo == ds_vesselPortCountList.getCellData(check, "odrNo")) {
+      continue;
+    }
+    var rsltsStdDt = ds_vesselPortCountList.getCellData(check, "rsltsStdDt");
+    var cvsslMgntNo = ds_vesselPortCountList.getCellData(check, "cvsslMgntNo");
+    var expimpClsCd = ds_vesselPortCountList.getCellData(check, "expimpClsCd");
+    var wageSellGoodsCd = ds_vesselPortCountList.getCellData(check, "wageSellGoodsCd");
+    var data = {
+      reportName: "ds/op/wrkrslts/wagewrkrslts/op_307_01_19_5.ozr",
+      odiParam: {
+        rsltsStdDt: rsltsStdDt,
+        cvsslMgntNo: cvsslMgntNo,
+        expimpClsCd: expimpClsCd,
+        wageSellGoodsCd: wageSellGoodsCd
+      },
+      viewerParam: {
+        useprogressbar: false,
+        // 프로그레스바 쓸지 말지
+        // viewerParam.add("print.mode","silent"); // 인쇄 옵션창 표시 없이 바로 출력 
+        zoom: 90 // 배율 설정
+      },
+      formParam: {}
+    };
+    scwin.openPopup(data);
+  }
+  OZExecuteBatch();
+};
+
+//-------------------------------------------------------------------------
+// 작업장 정보 수정 팝업창 띄우기 > 화면 삭제
+//-------------------------------------------------------------------------
+// scwin.f_openPopUp = async function() {
+//     if (ds_vesselPortCountList.getRowPosition() < 0 ) {
+//         await $c.gus.cfAlertMsg(" 변경할 데이타를 선택 하세요. ");	
+//         return;
+//     }
+
+//     var args = new Array();
+//     args[0] = ds_vesselPortCountList.getCellData(ds_vesselPortCountList.getRowPosition(), "odrNo"); //오더번호
+//     args[1] = ds_vesselPortCountList.getCellData(ds_vesselPortCountList.getRowPosition(), "wrkPlNm"); //작업장 이름
+//     args[2] = lc_branCd.getValue();  //지점코드
+
+//     var opts = {
+//           id : "smpPop"
+//         , popupName : "작업장정보수정"
+//         , modal : true
+//         , type : "browserPopup"  //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+//         , title : "Win pop"  //Layer pop
+//         , width : 630
+//         , height : 150
+//     };
+
+//     $c.win.openPopup("/ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_19p.xml", opts, args);
+
+//     scwin.f_RetrieveVesselPortCount();
+// };
+
+//-------------------------------------------------------------------------
+// 본선관리번호검색 팝업창 띄우기
+//-------------------------------------------------------------------------
+scwin.f_openPopUp1 = async function () {
+  var args = new Array();
+  args[0] = ed_cvsslMgntNo.getValue(); //본선관리번호
+  args[1] = ""; //수출입구분코드
+
+  var opts = {
+    id: "smpPop",
+    popupName: "본선관리번호검색팝업",
+    modal: true,
+    type: "browserPopup" //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+    ,
+    title: "Win pop" //Layer pop
+    ,
+    width: 1000,
+    height: 500
+  };
+  var rtnValues = await $c.win.openPopup($p, "/ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_20p.xml", opts, args);
+  if (rtnValues != null) {
+    ed_cvsslMgntNo.setValue(rtnValues[0]); //본선관리번호
+    //lux_impExpClsCd.index   = lux_impExpClsCd.IndexOfColumn("code", rtnValues[1]);  //수출입구분
+    //em_wrkDt.Text       = rtnValues[2]; //작업일자
+  }
+};
+
+//-------------------------------------------------------------------------
+// 인천항일 경우와 인천항이 아닐경우 검색 날짜 셋팅
+//-------------------------------------------------------------------------
+scwin.f_changeSearchDate = function () {
+  var portDistrict = acb_districtCd.getValue();
+  if (portDistrict.length > 0) {
+    portDistrict = portDistrict.substring(0, 2);
+  } else {
+    return;
+  }
+  if (portDistrict == "WI") {
+    var check = scwin.vCurDate;
+    var intCheck = 0;
+    intCheck = check.substring(6);
+    intCheck = parseInt(intCheck, 10);
+    if (intCheck >= 1 && intCheck <= 10) {
+      ed_wrkStYmDd.setValue(scwin.vQryStDt.substring(0, 4) + scwin.frontMonth.substring(4, 6) + "01");
+      ed_wrkEndYmDd.setValue(STDT.substring(0, 4) + scwin.frontMonth.substring(4, 6) + "15");
+    } else if (intCheck >= 11 && intCheck <= scwin.frontDay) {
+      ed_wrkStYmDd.setValue(scwin.vQryStDt.substring(0, 4) + scwin.frontMonth.substring(4, 6) + "16");
+      ed_wrkEndYmDd.setValue(scwin.vQryStDt.substring(0, 4) + scwin.frontMonth.substring(4, 6) + scwin.frontDay);
+    } else {}
+  } else {
+    ed_wrkStYmDd.setValue(scwin.vQryStDt.substring(0, 4) + scwin.frontMonth.substring(4, 6) + "01");
+    ed_wrkEndYmDd.setValue(scwin.vQryStDt.substring(0, 4) + scwin.frontMonth.substring(4, 6) + scwin.frontDay);
+  }
+};
+
+// 노임집계표 그리드 조회 후 발생하는 이벤트
+scwin.sbm_queryConditionDTO_submitdone = function (e) {
+  var rowCnt = ds_vesselPortCountList.getTotalRow();
+  totalRowsMst.setValue(rowCnt);
+  var vol = 0; // 수량/톤(물량) 합계
+  for (var i = 0; i < rowCnt; i++) {
+    if (ds_vesselPortCountList.getCellData(i, "selpchItemCd") == "0119" ||
+    // 하역기본노임
+    ds_vesselPortCountList.getCellData(i, "selpchItemCd") == "0129" ||
+    // 상용기본노임
+    ds_vesselPortCountList.getCellData(i, "selpchItemCd") == "0214") {
+      // 일용기본노임
+      vol += Number(ds_vesselPortCountList.getCellData(i, "ton"));
+    }
+  }
+  ds_vesselPortCountList.setColumnDefaultValue("ton", $c.gus.cfInsertComma($p, vol));
+  //gr_vesselPortCountList.ColumnProp("ton", "SumTextAlign") = "Right";
+
+  // scwin.f_RetrieveVesselPortCountDetail(0); //조회후 rowIndex 0 작업단계 자동조회
+  gr_vesselPortCountList.setFocusedCell(0, 0);
+
+  // 데이터 없을 때 알럿 메시지
+  if (rowCnt == 0) {
+    ds_vesselPortCountDetailList.removeAll();
+    totalRowsDtl.setValue("0");
+    $c.gus.cfAlertMsg($p, MSG_CM_ERR_003); // 해당되는 자료가 존재하지 않습니다
+  }
+};
+
+// 작업단계 그리드 조회 후 발생하는 이벤트
+scwin.sbm_detailQueryConditionDTO_submitdone = function (e) {
+  // 총 조회건수 표시
+  totalRowsDtl.setValue(ds_vesselPortCountDetailList.getTotalRow());
+};
+
+// <!-- 선박항차별노임집계상세 조회 -->
+// 해당 Row의 위치가 변경되었을 때 발생
+scwin.gr_vesselPortCountList_onrowindexchange = function (rowIndex, oldRow) {
+  if (ds_vesselPortCountList.getTotalRow() > 0 && ds_vesselPortCountList.getCellData(rowIndex, "wrkPlCd") != "") {
+    scwin.f_RetrieveVesselPortCountDetail(rowIndex);
+  } else {
+    ds_vesselPortCountDetailList.removeAll();
+    totalRowsDtl.setValue("0");
+  }
+};
+
+// <!-- 작업장 공통POP-UP -->
+scwin.udc_wrkPlCd_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_wrkPlCd, txt_wrkPlNm, 1);
+};
+
+// <!-- 모선 공통POP-UP -->
+scwin.udc_vsslCd_onblurCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp(ed_vsslCd, txt_wrkPlNm, 2);
+};
+
+// <!-- 항차 콤보 DataSet 전체 추가 -->
+scwin.sbm_portcntList_submitdone = function (e) {
+  ds_portcntList.insertRow(0);
+  ds_portcntList.setCellData(0, "name", "전체");
+  ds_portcntList.setCellData(0, "code", "");
+  // lc_portcnt.index = 0;
+};
+
+// event=OnSelChange2()
+scwin.acb_districtCd_onselected = function () {
+  scwin.f_changeSearchDate();
+};
+scwin.udc_vsslCd_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(txt_vsslNm, ed_vsslCd, 2);
+};
+scwin.udc_vsslCd_onclickEvent = function (e) {
+  // scwin.f_openCommonPopUp(2, ed_vsslCd.getValue(), txt_vsslNm.getValue(), 'F', 'T');
+
+  if (ed_vsslCd.getValue() != "") {
+    pClose = "T";
+  } else {
+    pClose = "F";
+  }
+  scwin.f_openCommonPopUp(2, ed_vsslCd.getValue(), txt_vsslNm.getValue(), pClose, "T");
+};
+scwin.udc_wrkPlCd_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(txt_wrkPlNm, ed_wrkPlCd, 1);
+};
+scwin.udc_wrkPlCd_onclickEvent = function (e) {
+  // scwin.f_openCommonPopUp(1, ed_wrkPlCd.getValue(), txt_wrkPlNm.getValue(), 'F', 'T');
+
+  if (ed_wrkPlCd.getValue() != "") {
+    pClose = "T";
+  } else {
+    pClose = "F";
+  }
+  scwin.f_openCommonPopUp(1, ed_wrkPlCd.getValue(), txt_wrkPlNm.getValue(), pClose, "T");
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'tb_mainData',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'지점',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_branCd',search:'start',style:'width: 182px;',submenuSize:'auto',mandatory:'true',allOption:'',chooseOption:'',ref:'data:ds_queryConditionDTO.branCd',emptyItem:'true',validExp:'점소:yes'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'부산지사'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'6AA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'인천지사'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4AA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'울산지사'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'6BB'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'충남지사'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'3AA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'전남지사'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'5AA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'동해지점'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'2AA'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'권역',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_districtCd',search:'start',style:'width: 230px;',submenuSize:'auto',ref:'data:ds_queryConditionDTO.districtCd','ev:onselected':'scwin.acb_districtCd_onselected',emptyIndex:'-1',emptyItem:'true',visibleRowNum:'15'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업월일',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_fromToCalendar',A:{id:'udc_wrkYmDd',refDataMap:'ds_queryConditionDTO',refEdDt:'wrkEndYmDd',refStDt:'wrkStYmDd',style:'',mandatoryFrom:'true',mandatoryTo:'true',edToId:'ed_wrkEndYmDd',edFromId:'ed_wrkStYmDd',class:''}}]}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'본선관리번호',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{id:'ed_cvsslMgntNo',style:'',ref:'data:ds_queryConditionDTO.cvsslMgntNo',allowChar:'A-Z0-9'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch',id:'btn_cvsslMgntNo',style:'',type:'button','ev:onclick':'scwin.f_openPopUp1'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'돋보기'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'선박',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_vsslCd',id:'udc_vsslCd',nameId:'txt_vsslNm',btnId:'btn_vsslCd',validTitle:'선박',refDataCollection:'ds_queryConditionDTO',code:'vsslCd','ev:onclickEvent':'scwin.udc_vsslCd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_vsslCd_onviewchangeNameEvent',selectID:'retrieveVsslCdInfo',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',validExpCode:'선박:yes',UpperFlagCode:'1',objTypeName:'data',maxlengthName:'50','ev:onblurCodeEvent':'scwin.udc_vsslCd_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'항차',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_portcnt',search:'start',style:'width:208px;',submenuSize:'auto',ref:'data:ds_queryConditionDTO.portcnt',allOption:'',chooseOption:'true',sortOption:'value',chooseOptionLabel:'전체'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_portcntList'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'노임항목',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_wageItemCd',search:'start',style:'width: 230px;',submenuSize:'auto',ref:'data:ds_queryConditionDTO.wageItemCd',chooseOption:'true',chooseOptionLabel:'전체',visibleRowNum:'15'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'노임적용유형',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_wageAdptPatternCd',search:'start',style:'width: 182px;',submenuSize:'auto',ref:'data:ds_queryConditionDTO.wageAdptPatternCd',chooseOptionLabel:'전체',chooseOption:'true'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'수출입구분',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_expimpClsCd',search:'start',style:'width: 230px;',submenuSize:'auto',ref:'data:ds_queryConditionDTO.expimpClsCd',chooseOption:'true',chooseOptionLabel:'전체'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_wageRetroactYn',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'미확정 소급분 포함'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업장',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',id:'udc_wrkPlCd',codeId:'ed_wrkPlCd',btnId:'btn_wrkPlCd',nameId:'txt_wrkPlNm',refDataCollection:'ds_queryConditionDTO',code:'wrkPlCd','ev:onviewchangeNameEvent':'scwin.udc_wrkPlCd_onviewchangeNameEvent','ev:onclickEvent':'scwin.udc_wrkPlCd_onclickEvent',selectID:'retrieveWrkPlInfo',allowCharCode:'a-zA-Z0-9',objTypeCode:'data',UpperFlagCode:'1',validExpCode:'작업장:yes',objTypeName:'data','ev:onblurCodeEvent':'scwin.udc_wrkPlCd_onblurCodeEvent'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.f_InitObjects'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.f_RetrieveVesselPortCount',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'lybox wfix flex_no',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'col',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'노임집계표',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridDownFn:'scwin.f_RunExcelA',btnUser:'Y',gridDownYn:'Y',gridUpYn:'N',templateYn:'N',gridID:'gr_vesselPortCountList'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_vesselPortCountList',id:'gr_vesselPortCountList',style:'','ev:onrowindexchange':'scwin.gr_vesselPortCountList_onrowindexchange',visibleRowNumFix:'true',initFixedHeightByRowNum:'10',readOnly:'true',sortable:'false',showSortableImage:'false'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',value:'작업장',width:'100',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'오더번호',width:'110',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'본선관리<br/>번호',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'선박',width:'70',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'항차',width:'65',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',value:'수출입',width:'60',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',value:'작업일자',width:'90',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',value:'반',width:'140',colSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'노임항목',width:'95',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',id:'column65',value:'노임품목',displayMode:'label',colSpan:'2'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',id:'column57',value:'작업단계<br/>합계',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',id:'column53',value:'입/출항일자',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column49',value:'지급거래처번호',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'170',inputType:'text',id:'column41',value:'지급거래처명',displayMode:'label',rowSpan:'2'}}]},{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'60',inputType:'text',id:'column33',value:'반',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column32',value:'반장',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column66',value:'품목',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'75',inputType:'text',id:'column62',value:'수량/톤',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkPlNm',inputType:'text',width:'100',textAlign:'left',colMerge:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'odrNo',inputType:'text',width:'110',colMerge:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'cvsslMgntNo',inputType:'text',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vsslNm',inputType:'text',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'portcnt',inputType:'text',width:'65'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'expimpClsNm',inputType:'text',width:'60'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'rsltsStdDt',inputType:'text',width:'90',dataType:'date',colMerge:'true',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'lunionOrgCd',inputType:'text',width:'60'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'chiefNm',inputType:'text',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'selpchItemNm',inputType:'text',width:'95'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'wageSellGoodsNm',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'75',inputType:'text',id:'ton',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',excelFormat:'#,###',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',id:'pchsAmtSum',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',excelCellType:'number',excelFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',id:'arrvlportDt',displayMode:'label',dataType:'date',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'pchsClntNo',displayMode:'label',readOnly:'false',editModeEvent:'onclick'}},{T:1,N:'w2:column',A:{width:'170',inputType:'text',id:'pchsClntNm',displayMode:'label',textAlign:'left'}}]}]},{T:1,N:'w2:subTotal',A:{targetColumnID:'odrNo',style:'',id:'subTotal1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column84',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',style:'',id:'column83',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column82',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column81',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'65',inputType:'text',style:'',id:'column80',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'60',inputType:'text',style:'',id:'column79',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',style:'',id:'column78',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'60',inputType:'text',style:'',id:'column77',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column76',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'column75',value:'소계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column74',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'75',inputType:'text',style:'',id:'column73',value:'',displayMode:'label',excelCellType:'number',excelFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'90',inputType:'expression',style:'',id:'column72',value:'',displayMode:'label',expression:'sum("pchsAmtSum")',dataType:'number',displayFormat:'#,##0',textAlign:'right',excelCellType:'number',excelFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',style:'',id:'column71',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',style:'',id:'column70',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'170',inputType:'text',style:'',id:'column69',value:'',displayMode:'label'}}]}]},{T:1,N:'w2:footer',A:{id:'footer1',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column29',inputType:'text',width:'110'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column27',inputType:'text',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',width:'65'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column25',inputType:'text',width:'60'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',width:'90'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column23',inputType:'text',width:'60'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column21',inputType:'text',value:'합계',width:'95'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column68',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'75',inputType:'expression',id:'column64',value:'0',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("ton")',excelCellType:'number',excelFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'90',inputType:'expression',id:'column60',value:'0',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,##0',expression:'sum("pchsAmtSum")',excelCellType:'number',excelFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'90',inputType:'text',id:'column56',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'column52',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'170',inputType:'text',id:'column44',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRowsMst',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:'',style:'width: 400px;'},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'작업단계',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section2',style:'',templateYn:'N',gridUpYn:'N',gridDownYn:'Y',btnUser:'Y',btnPlusYn:'Y',gridDownFn:'scwin.f_RunExcelB',gridID:'gr_vesselPortCountDetailList'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section2',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_vesselPortCountDetailList',id:'gr_vesselPortCountDetailList',style:'',visibleRowNum:'12',visibleRowNumFix:'true',sortable:'false',showSortableImage:'false'},E:[{T:1,N:'w2:caption',A:{id:'caption3',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',value:'작업단계',width:'66'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'금액',width:'68'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpNm',inputType:'text',width:'66'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'pchsAmt',inputType:'text',width:'68',textAlign:'right',dataType:'number',displayFormat:'#,##0',excelCellType:'number',excelFormat:'#,###'}}]}]},{T:1,N:'w2:footer',A:{id:'footer1',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'text',value:'합계',width:'66'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column29',inputType:'expression',width:'68',textAlign:'right',expression:'sum("pchsAmt")',dataType:'number',displayFormat:'#,##0',excelFormat:'#,###',excelCellType:'number'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRowsDtl',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'trigger3',type:'button',class:'btn','ev:onclick':'scwin.f_OzReport03',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'작업일보및노임지불명세서'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'trigger4',type:'button',class:'btn','ev:onclick':'scwin.f_OzReport03_1',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'작업일보및노임지불명세서(일괄)'}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'inner'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'trigger5',type:'button',class:'btn','ev:onclick':'scwin.f_OzReport04',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'모선별노임집계표'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'trigger6',type:'button',class:'btn','ev:onclick':'scwin.f_OzReport05',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'작업노임일보'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'trigger12',type:'button',class:'btn','ev:onclick':'scwin.f_OzReport05_1',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'작업노임일보(일괄)'}]}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'trigger11',style:'display: none;',type:'button','ev:onclick':'scwin.f_openPopUp',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'작업장변경'}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn link',id:'trigger21',style:'',type:'button','ev:onclick':'scwin.f_OzReport',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'노무자근무사항발행'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link',id:'trigger22',style:'',type:'button','ev:onclick':'scwin.f_OzReport01',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'타창고노임지급명세서발행'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link',id:'trigger23',style:'',type:'button','ev:onclick':'scwin.f_OzReport02',userAuth:'P'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'타창고노임집계표발행'}]}]}]}]}]}]}]}]}]})

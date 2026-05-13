@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_search_con" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업장" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode popupID="" style="" codeId="ed_con_wrkPlCd" nameId="ed_con_wrkPlNm" btnId="btn_con_wrkPlCd"
+    								id="udc_con_wrkPlCd" ev:onclickEvent="scwin.udc_con_wrkPlCd_onclickEvent"
+    								ev:onblurCodeEvent="scwin.udc_con_wrkPlCd_onblurCodeEvent"
+    								ev:onviewchangeNameEvent="scwin.udc_con_wrkPlCd_onviewchangeNameEvent" validTitle="작업장" mandatoryCode="true" maxlengthCode="6"
+    								allowCharCode="a-zA-Z0-9" UpperFlagCode="1" refDataCollection="dma_cond" code="wrkPlCd">
+    							</w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve"
+    					userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="lybox flex_no">
+    				<xf:group id="" class="col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="작업장별 BLOCK 정보" class="tit"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="data:ds_workPlaceInfo" style=""
+    							autoFit="allColumn" id="gr_workPlaceInfo" visibleRowNum="15" class="wq_gvw" ev:oneditkeyup="scwin.gr_workPlaceInfo_oneditkeyup"
+    							ev:oneditend="scwin.gr_workPlaceInfo_oneditend" rowStatusVisible="true">
+    							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header1">
+    								<w2:row style="" id="row1">
+    									<w2:column width="80" inputType="text" id="column1" value="작업장" displayMode="label"
+    										class="txt-red">
+    									</w2:column>
+    									<w2:column width="80" inputType="text" id="column15" value="BLOCK" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="column13" value="CAPA" displayMode="label"
+    										class="txt-red">
+    									</w2:column>
+    									<w2:column width="200" inputType="text" id="column11" value="특기사항" displayMode="label"
+    										class="txt-blue">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="column18" value="구역" displayMode="label" class="txt-blue"></w2:column>
+    									<w2:column width="100" inputType="text" id="column24" value="DMG여부" displayMode="label" class="txt-blue"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody1">
+    								<w2:row style="" id="row2">
+    									<w2:column width="80" inputType="text" id="wrkPlCd" displayMode="label" readOnly="true"></w2:column>
+    									<w2:column width="80" inputType="text" id="blckCd" displayMode="label" readOnly="false"
+    										mandatory="true">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" id="usblPyCnt" displayMode="label" textAlign="right"
+    										dataType="number" displayFormat="#,###.0">
+    									</w2:column>
+    									<w2:column width="200" inputType="text" id="rmk" displayMode="label" textAlign="left"></w2:column>
+    									<w2:column width="100" inputType="text" id="regId" displayMode="label"></w2:column>
+    									<w2:column width="100" inputType="text" id="regDtm" displayMode="label"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="tbx_totalRows1"
+    										label="0" class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:udc_bottomGrdBtn style="" rowAddFunction="scwin.f_AddRowMain" btnRowAddObj="btn_pathAdd"
+    									rowAddUserAuth="C" rowDelFunction="scwin.f_DelRowMain" gridID="gr_workPlaceInfo" btnCancelYn="Y" btnDelYn="N" btnRowAddYn="Y"
+    									btnRowDelYn="Y" cancelFunction="scwin.f_Undo" rowDelUserAuth="D" btnRowDelObj="btn_pathDel" btnCancelObj="btn_pathCls">
+    								</w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="col">
+    					<xf:group style="" id="" class="title-wrap">
+    						<xf:group id="" class="title">
+    							<w2:textbox tagname="h3" style="" id="" label="BLOCK별 세부 구획 정보" class="tit"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" style="" id="grp_group3" class="gvwbox">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="" id="gr_gridView2" style=""
+    							visibleRowNum="15" visibleRowNumFix="true" rowStatusVisible="true">
+    							<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" value="BLOCK" width="80"></w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column15" inputType="text" value="시작BAY(CELL)"
+    										width="120">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column11" inputType="text" value="종료BAY(CELL)"
+    										width="120">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column9" inputType="text" value="ROW"
+    										width="70">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column3" inputType="text" value="TIER"
+    										width="70">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column31" inputType="text" value="RF가능여부" width="100" class="txt-blue">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" id="column2" inputType="text" width="80"></w2:column>
+    									<w2:column displayMode="label" id="column16" inputType="text" width="120"></w2:column>
+    									<w2:column displayMode="label" id="column12" inputType="text" width="120"></w2:column>
+    									<w2:column displayMode="label" id="column10" inputType="text" width="70"></w2:column>
+    									<w2:column displayMode="label" id="column4" inputType="text" textAlign="left" width="70"></w2:column>
+    									<w2:column displayMode="label" id="column32" inputType="text" width="100"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group style="" id="" class="grid-bottom ">
+    							<xf:group id="" class="left">
+    								<xf:group id="" class="grid-total">
+    									<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    									<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="tbx_totalRows2"
+    										label="0" class="num">
+    									</w2:textbox>
+    									<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="right">
+    								<w2:udc_bottomGrdBtn style="" rowAddFunction="scwin.f_AddRowSub" rowAddUserAuth="C" rowDelUserAuth="D"
+    									rowDelFunction="scwin.f_DelRowSub" btnRowDelYn="Y" btnRowAddYn="Y" btnDelYn="N" btnCancelYn="Y" btnRowAddObj="btn_subAdd"
+    									btnRowDelObj="btn_subDel" btnCancelObj="btn_subCls" gridID="gr_workPlaceInfoDetail">
+    								</w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.f_Save" userAuth="U">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+
+    			<w2:udc_comCode allowCharCode="a-zA-Z0-9" codeId="" id="udc_comCode1" nameId="" popupID="" style="display:none"></w2:udc_comCode>
+    		</xf:group>
+    	</xf:group>
+    	<w2:udc_comCode allowCharCode="a-zA-Z0-9" codeId="" id="udc_comCode2" nameId="" popupID="" style="display:none"></w2:udc_comCode>
+    </body>
+</html>

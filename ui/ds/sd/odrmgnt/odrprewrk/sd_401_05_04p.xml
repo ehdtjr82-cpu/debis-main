@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="docCd" name="문서코드" dataType="text" length="20"></w2:key>
+    					<w2:key id="declarNo" name="신고번호" dataType="text" length="20"></w2:key>
+    					<w2:key id="deg" name="차수" dataType="text" length="3"></w2:key>
+    					<w2:key id="procClsCd" name="처리구분코드" dataType="text" length="2"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="docCd" name="문서코드" dataType="text" length="20"></w2:column>
+    					<w2:column id="declarNo" name="신고번호" dataType="text" length="25"></w2:column>
+    					<w2:column id="deg" name="차수" dataType="text" length="4"></w2:column>
+    					<w2:column id="seqNo" name="SEQ 번호" dataType="number" length="3"></w2:column>
+    					<w2:column id="errCont" name="오류내역" dataType="text" length="250"></w2:column>
+    					<w2:column id="errOutbrPos" name="오류발생위치" dataType="text" length="3"></w2:column>
+    					<w2:column id="errOutbrDocKey2" name="오류발생문서키2" dataType="text" length="20"></w2:column>
+    					<w2:column id="errOutbrDocKey3" name="오류발생문서키3" dataType="text" length="20"></w2:column>
+    					<w2:column id="errOutbrDocKey4" name="오류발생문서키4" dataType="text" length="20"></w2:column>
+    					<w2:column id="reportDtm" name="통보일시" dataType="text" length="14"></w2:column>
+    					<w2:column id="reportCstm" name="통보세관" dataType="text" length="3"></w2:column>
+    					<w2:column id="reportSec" name="통보과" dataType="text" length="2"></w2:column>
+    					<w2:column id="rcvDtm" name="수신일시" dataType="text" length="12"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/ds.sd.odrmgnt.odrprewrk.RetrieveBondedTransErrorDetailContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    /*scwin.params = {
+        docCd : "031"
+        , declarNo : "03082010007020000579"
+        , deg : "0" 
+        , procclsCd : "E"
+    }*/
+    debugger;
+    //공통코드 설정
+    const codeOptions = [
+        { grpCd : "SD152", compID : "lc_docCd" }
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    scwin.f_fieldClear();
+	$c.gus.cfDisableKey();
+};
+
+//-------------------------------------------------------------------------
+// 조회 기본값 설정
+//-------------------------------------------------------------------------
+scwin.f_setSrchDefault = function() {
+    console.log("scwin.f_setSrchDefault");
+    $c.gus.cfInitHidVal(tbl_search);
+
+    lc_docCd.setValue(scwin.params.docCd);
+    ed_declarNo.setValue(scwin.params.declarNo);
+    ed_deg.setValue(scwin.params.deg);
+}
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_fieldClear = function() {
+	console.log("scwin.f_fieldClear");
+	$c.gus.cfInitObjects(tbl_search);
+	scwin.f_setSrchDefault();
+
+    scwin.f_retrieve();
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function() { 
+	console.log("scwin.f_retrieve");    
+
+    let chkVal = await $c.gus.cfValidate([tbl_search]);
+	if (!chkVal) return;
+	
+    dma_search.set("procClsCd", scwin.params.procClsCd);
+    $c.sbm.execute(sbm_search);
+}
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+//조회 완료
+scwin.sbm_search_submitdone = function(e) {
+    console.log("scwin.sbm_search_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    var rowCnt = ds_master.getTotalRow();
+    spn_totalRow.setValue(rowCnt);
+	
+    if( rowCnt == 0 ){
+	   if($c.gus.cfCheckCreateFlag() == true)   $c.gus.cfTurnCreateFlag(false);
+	   else                                     $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+	} else {
+        ds_master.sort("seqNo", 1);
+        gr_master.setFocusedCell(0, 0);
+	}	
+};
+
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+//조회조건 clear 버튼
+scwin.btn_clear_onclick = function (e) {
+    console.log("scwin.btn_clear_onclick");
+    scwin.f_fieldClear();
+};
+
+//조회 버튼
+scwin.btn_search_onclick = function (e) {
+    console.log("scwin.btn_search_onclick");
+    scwin.f_retrieve();
+};
+
+//닫기 버튼
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb tb" id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:35px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:85px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:35px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_docCd" style="width: 200px;" submenuSize="fixed" objType="key" validExp="처리구분:no" ref="data:dma_search.docCd" data-length="20">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="세관신고번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class=" " id="ed_declarNo" placeholder="" style="" ref="data:dma_search.declarNo" data-length="20" maxByteLength="20" objType="key" validExp="세관신고번호:no"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="차수" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class=" w50 tac" id="ed_deg" placeholder="" style="" allowChar="0-9" maxlength="3" ref="data:dma_search.deg" data-length="3" maxByteLength="3" objType="key" validExp="차수:no"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    						<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_master"
+    							focusMode="row" id="gr_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="8"
+    							visibleRowNumFix="true" rowNumHeaderValue="No" rowNumWidth="50" readOnly="true" resize="true" dataDragDrop="true" sortOrderReverse="true">
+    							<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header2" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column width="70" inputType="text" style="" id="seqHeader" value="순번" displayMode="label"></w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text"
+    										removeBorderStyle="false" width="70" value="키2">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text"
+    										removeBorderStyle="false" width="70" value="키3">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text"
+    										removeBorderStyle="false" width="70" value="키4">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text"
+    										removeBorderStyle="false" width="300" value="오류내역">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column21" inputType="text" style="" value="통보일시" width="100">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column19" inputType="text" style="" value="수신일시" width="100">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody2" style="">
+    								<w2:row id="row4" style="">
+    									<w2:column width="70" inputType="text" style="" id="seqNo" value="" displayMode="label" dataType="number"></w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="errOutbrDocKey2" inputType="text"
+    										removeBorderStyle="false" width="70">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="errOutbrDocKey3" inputType="text"
+    										removeBorderStyle="false" width="70">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="errOutbrDocKey4" inputType="text"
+    										removeBorderStyle="false" width="70">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="errCont" inputType="text"
+    										removeBorderStyle="false" width="300" textAlign="left">
+    									</w2:column>
+    									<w2:column displayMode="label" id="reportDtm" inputType="text" style="" value="" width="100">
+    									</w2:column>
+    									<w2:column displayMode="label" id="rcvDtm" inputType="text" style="" value="" width="100">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    							<w2:footer style="" id="footer1">
+    								<w2:row style="" id="row5">
+    									<w2:column width="70" inputType="text" style="" id="column34" value="" displayMode="label"></w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column31" value="" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column30" value="" displayMode="label">
+    									</w2:column>
+    									<w2:column width="70" inputType="text" style="" id="column29" value="" displayMode="label">
+    									</w2:column>
+    									<w2:column width="300" inputType="text" style="" id="column28" value="" displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column27" value="" displayMode="label">
+    									</w2:column>
+    									<w2:column width="100" inputType="text" style="" id="column26" value="" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:footer>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" id="spn_totalRow" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group></xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_menuList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="menuId" name="메뉴코드" dataType="text"></w2:column>
+						<w2:column id="menuNm" name="메뉴명" dataType="text"></w2:column>
+						<w2:column id="useYn" name="사용유무" dataType="text"></w2:column>
+						<w2:column id="actPgmScrPath" name="메뉴경로" dataType="text"></w2:column>
+						<w2:column id="upperMenuId" name="부모메뉴코드" dataType="text"></w2:column>
+						<w2:column id="lvl" name="메뉴레벨" dataType="text"></w2:column>
+						<w2:column id="sortSeq" name="정렬순서" dataType="text"></w2:column>
+						<w2:column id="programCd" name="프로그램코드" dataType="text"></w2:column>
+						<w2:column id="engNm" name="영문명" dataType="text"></w2:column>
+						<w2:column id="menuDesc" name="name10" dataType="text"></w2:column>
+						<w2:column id="menuStsCd" name="name11" dataType="text"></w2:column>
+						<w2:column id="sysCd" name="name12" dataType="text"></w2:column>
+						<w2:column id="actPgmId" name="파일명" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_menuList2" saveRemovedData="true"
+					ev:ondataload="scwin.ds_menuList2_ondataload">
+					<w2:columnInfo>
+						<w2:column id="menuId" name="메뉴코드" dataType="text"></w2:column>
+						<w2:column id="menuNm" name="메뉴명" dataType="text"></w2:column>
+						<w2:column id="actPgmScrPath" name="메뉴경로" dataType="text"></w2:column>
+						<w2:column id="actPgmId" name="파일명" dataType="text"></w2:column>
+						<w2:column id="sortSeq" name="sortSeq" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="ds_fav">
+					<w2:keyInfo>
+						<w2:key id="method" name="name1" dataType="text"></w2:key>
+						<w2:key id="data" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_search">
+					<w2:keyInfo>
+						<w2:key id="coCd" name="coCd" dataType="text"></w2:key>
+						<w2:key id="menuNm" name="menuNm" dataType="text"></w2:key>
+						<w2:key id="sysCd" name="sysCd" dataType="text"></w2:key>
+						<w2:key id="userId" name="userId" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_menuList" action="/cm.bc.comnmgnt.menumgnt.cmd.RetrieveAllActiveMenuListCMD.do" method="post"
+				mediatype="application/json" ref="data:json,dma_search" target='data:json,{"id":"ds_menuList","key":"GAUCE"}' encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_menuList_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_saveInitPage" action="/FavorMenuService" method="post" mediatype="application/json" ref="data:json,ds_fav" target=""
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_saveInitPage_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getInitPage" action="/FavorMenuService" method="post" mediatype="application/json" ref="data:json,ds_fav" target=""
+				encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_getInitPage_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+/**********************************************************************************
+* 초기화면 설정
+* @date 2025-12-08 
+* @author 김팔수
+* @description 
+* 초기화면을 등록하는 페이지로 등록이 되어 있지 않으면, 해당 페이지가 메인로딩시 호출
+* 등록된 화면이 있으면 등록된 페이지가 메인페이지 호출시 출력이 된다.
+***********************************************************************************/
+
+scwin.onpageload = function() {	
+    scwin.alignAllMenuTreeOptions();
+    scwin.getAllMenu();
+    ds_fav.set("method", "list");
+    $c.sbm.execute(sbm_getInitPage);
+
+};
+
+scwin.alignAllMenuTreeOptions = function() {
+    try {
+        tv_allMenu.options.hierarchy = true;
+        tv_allMenu.options.showTreeDepth = "0";
+        tv_allMenu.options.toggleEvent = "onclick";
+    } catch (e) {
+    }
+};
+
+scwin.filterSubCompanyNcallMenu = function(menuList) {
+    const coClsCd = scwin.getMemValue("coClsCd");
+
+    if (coClsCd == "0" || coClsCd == "") {
+        return menuList || [];
+    }
+
+    return (menuList || []).filter(function(menu) {
+        const menuId = ((menu && menu.menuId) || "").toLowerCase();
+        const menuNm = (menu && menu.menuNm) || "";
+
+        return menuId.indexOf("n") === -1
+            && menuNm.indexOf("엔콜") === -1;
+    });
+};
+
+scwin.allMenuSearchSnapshot = [];
+scwin.allMenuSearchInProgress = false;
+
+scwin.cloneAllMenuList = function(menuList) {
+    try {
+        return JSON.parse(JSON.stringify(menuList || []));
+    } catch (e) {
+        return (menuList || []).slice();
+    }
+};
+
+scwin.setAllMenuSearchSource = function(menuList) {
+    scwin.allMenuSearchSnapshot = scwin.cloneAllMenuList(menuList);
+};
+
+scwin.normalizeAllMenuSearchText = function(value) {
+    return String(value || "").replace(/\s+/g, "").toLowerCase();
+};
+
+scwin.getAllMenuSearchSource = function() {
+    if ((scwin.allMenuSearchSnapshot || []).length > 0) {
+        return scwin.allMenuSearchSnapshot;
+    }
+
+    return ds_menuList.getAllJSON() || [];
+};
+
+scwin.searchAllMenuLocal = function(keyword) {
+    const sourceMenuList = scwin.getAllMenuSearchSource();
+    const normalizedKeyword = scwin.normalizeAllMenuSearchText(keyword);
+
+    if (!normalizedKeyword || sourceMenuList.length === 0) {
+        return [];
+    }
+
+    const menuMap = {};
+    const includedMenuMap = {};
+
+    for (const row of sourceMenuList) {
+        menuMap[row.menuId] = row;
+    }
+
+    const includeAncestors = function(menuId) {
+        let currentMenuId = menuId;
+
+        while (currentMenuId && menuMap[currentMenuId]) {
+            if (includedMenuMap[currentMenuId]) {
+                break;
+            }
+
+            includedMenuMap[currentMenuId] = true;
+            currentMenuId = menuMap[currentMenuId].upperMenuId || "";
+        }
+    };
+
+    for (let index = 0; index < sourceMenuList.length; index++) {
+        const row = sourceMenuList[index];
+        const actPgmId = String(row.actPgmId || "").trim();
+
+        if (!actPgmId) {
+            continue;
+        }
+
+        const searchTarget = scwin.normalizeAllMenuSearchText([row.menuNm, row.actPgmId, row.actPgmScrPath].join(" "));
+
+        if (searchTarget.indexOf(normalizedKeyword) > -1) {
+            includedMenuMap[row.menuId] = true;
+            includeAncestors(row.menuId);
+        }
+    }
+
+    return sourceMenuList.filter(function(row) {
+        return !!includedMenuMap[row.menuId];
+    });
+};
+
+scwin.applyAllMenuSearchResult = function(menuList) {
+    ds_menuList.setJSON(menuList || []);
+
+    try {
+        scwin.alignAllMenuTreeOptions();
+        tv_allMenu.spanAll(true);
+    } catch (e) {
+    }
+};
+
+scwin.normalizeRetrievedAllMenuList = function(menuArray) {
+    menuArray = scwin.cloneAllMenuList(menuArray);
+
+    for (const row of menuArray) {
+        switch (row.actPgmId) {
+            case "op_304_01_01b.jsp":
+                row.actPgmScrPath = "/ds/op/wrkrslts/transwrkrslts/";
+                break;
+            case "op_304_01_02b.jsp":
+                row.actPgmScrPath = "/ds/op/wrkrslts/transwrkrslts/";
+                break;
+            case "as_102_01_02b.jsp":
+                row.actPgmScrPath = "/ds/as/cstmrsrvc/coafmgnt/";
+                break;
+            case "as_102_01_03b.jsp":
+                row.actPgmScrPath = "/ds/as/cstmrsrvc/coafmgnt/";
+                break;
+            case "op_301_01_05b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmId = "op_301_01_19b.jsp";
+                }
+                break;
+            case "op_301_01_06b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmId = "op_301_01_09b.jsp";
+                }
+                break;
+            case "op_304_01_06b.jsp":
+                row.actPgmScrPath = "/ds/op/wrkrslts/transwrkrslts/";
+                break;
+            case "fs_103_03_01b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmId = "fs_103_03_02b.jsp";
+                }
+                break;
+            case "op_204_04_01b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmScrPath = "/tn/op/transwrkindict/cntr/";
+                    row.actPgmId = "tn_304_03_09b.jsp";
+                }
+                break;
+            case "op_301_01_17b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmId = "op_301_01_20b.jsp";
+                }
+                break;
+            case "op_304_01_65b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmScrPath = "/tn/op/transwrkindict/cntr/";
+                    row.actPgmId = "tn_304_01_12b.jsp";
+                }
+                break;
+            case "op_202_02_07b.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmId = "op_202_02_08b.jsp";
+                }
+                break;
+            case "sd_402_01_35t.jsp":
+                if (row.menuId.indexOf("n") !== -1) {
+                    row.actPgmId = "sd_402_01_35b.jsp";
+                }
+                break;
+        }
+    }
+
+    return scwin.filterSubCompanyNcallMenu(menuArray);
+};
+
+scwin.resolveSearchCoCd = function() {
+    const coCd = scwin.getMemValue("coCd");
+
+    if (coCd === "000") {
+        return "tobe";
+    }
+    if (coCd === "") {
+        return coCd;
+    }
+    if (coCd === "017") {
+        return "tobe017";
+    }
+
+    return "tobeCompany";
+};
+
+scwin.restoreAllMenuSearchResult = function() {
+    ds_menuList.setJSON(scwin.getAllMenuSearchSource());
+};
+
+scwin.searchAllMenu = async function(value) {
+    const searchKeyword = String(value || "").trim();
+
+    if (!searchKeyword) {
+        scwin.restoreAllMenuSearchResult();
+        return;
+    }
+
+    dma_search.set("coCd", scwin.resolveSearchCoCd());
+    dma_search.set("sysCd", "");
+    dma_search.set("userId", scwin.getMemValue("userId"));
+    dma_search.set("menuNm", searchKeyword);
+    scwin.allMenuSearchInProgress = true;
+    $c.sbm.execute(sbm_menuList);
+};
+
+scwin.ibx_allMenuSearch_oneditkeyup = function(info) {
+    if (info.keyCode == 13) {
+        scwin.searchAllMenu(info.newValue);
+    }
+};
+
+scwin.btn_allMenuSearch_onclick = function() {
+    scwin.searchAllMenu(ibx_allMenuSearch.getValue());
+};
+
+scwin.getMemValue = function(key) {
+    var value = "";
+
+    try {
+        if ($c.data && typeof $c.data.getMemInfo === "function") {
+            value = $c.data.getMemInfo(key) || "";
+        }
+    } catch (e) {
+    }
+
+    try {
+        if (!value && $p.top().dma_memInfo) {
+            value = $p.top().dma_memInfo.get(key) || "";
+        }
+    } catch (e) {
+    }
+
+    try {
+        if (!value && WebSquare.localStorage) {
+            value = WebSquare.localStorage.getItem(key) || "";
+        }
+    } catch (e) {
+    }
+
+    return value;
+};
+
+scwin.isInternalUser = function() {
+    return scwin.getMemValue("userClsCd") == "01";
+};
+
+scwin.getSideWorkMenuList = function() {
+    try {
+        var sideWin = $p.top().wfm_side && $p.top().wfm_side.getWindow ? $p.top().wfm_side.getWindow() : null;
+
+        if (!sideWin) {
+            return [];
+        }
+
+        if (sideWin.ds_originTrvMenu && sideWin.ds_originTrvMenu.getRowCount() > 0) {
+            return sideWin.ds_originTrvMenu.getAllJSON() || [];
+        }
+
+        if (sideWin.ds_trvMenu && sideWin.ds_trvMenu.getRowCount() > 0) {
+            return sideWin.ds_trvMenu.getAllJSON() || [];
+        }
+    } catch (e) {
+    }
+
+    return [];
+};
+
+scwin.getInternalAllMenuList = function() {
+    var allMenuList = [];
+
+    try {
+        allMenuList = $p.top().ds_allMenuList.getAllJSON() || [];
+    } catch (e) {
+    }
+
+    scwin.coClsCd = scwin.getMemValue("coClsCd");
+    scwin.privAdmin = scwin.getMemValue("privAdmin");
+
+    if (scwin.coClsCd != "0" && scwin.coClsCd != "") {
+        allMenuList = allMenuList.filter(function(menu) {
+            return (menu.menuId || "").indexOf("n") === -1
+                && (menu.menuNm || "").indexOf("엔콜") === -1;
+        });
+    }
+
+    return allMenuList;
+};
+
+// 전체 메뉴 가져오기
+scwin.getAllMenu = function() {
+    let maxCnt = 0;
+    $p.setInterval(function() {
+        let menuList = scwin.isInternalUser() ? scwin.getInternalAllMenuList() : scwin.getSideWorkMenuList();
+
+        if(menuList.length > 0) {
+            ds_menuList.setJSON(menuList);
+            scwin.setAllMenuSearchSource(ds_menuList.getAllJSON());
+            $p.clearInterval("getAllMenu");
+            return;
+        }
+
+        maxCnt++;
+
+        // 무한루프 방지를 위해 20번 이상 실행안되게 처리
+        if(maxCnt > 20) {
+            $c.win.alert("메뉴데이터를 불러오지 못했습니다.<br>잠시후에 다시 호출해 주세요");
+            $p.clearInterval("getAllMenu");
+        }
+    }, {"key" : "getAllMenu", "delay":300});
+
+}
+
+scwin.sbm_menuList_submitdone = async function (e) {
+    const menuArray = scwin.normalizeRetrievedAllMenuList((e.responseJSON && e.responseJSON.GAUCE) || []);
+
+    if (scwin.allMenuSearchInProgress) {
+        scwin.allMenuSearchInProgress = false;
+        dma_search.set("menuNm", "");
+
+        if (menuArray.length === 0) {
+            const localMenuList = scwin.searchAllMenuLocal(ibx_allMenuSearch.getValue());
+
+            if (localMenuList.length > 0) {
+                scwin.applyAllMenuSearchResult(localMenuList);
+                return;
+            }
+
+            await $c.win.alert("조회된 데이터가 없습니다.");
+            scwin.restoreAllMenuSearchResult();
+            return;
+        }
+
+        scwin.applyAllMenuSearchResult(menuArray);
+    }
+};
+
+scwin.ds_menuList2_ondataload = function () {
+    // 초기화면 그리드 하단에 count 처리
+    txb_tCount.setValue(ds_menuList2.getRowCount());
+};
+
+// 초기화면에서 제거 아이콘
+scwin.btn_trigger2_onclick = function (e) {
+    let rowIdx = grd_stMenu.getFocusedRowIndex(); // 그리드에 선택된 rowIdx
+    ds_menuList2.removeRow(rowIdx); // 초기화면에서 제거
+
+    // 그리드 하단 count 반영
+    txb_tCount.setValue(ds_menuList2.getRowCount());
+};
+
+// 초기화면에 추가 아이콘
+scwin.btn_trigger1_onclick = function (e) {
+    let selectedMenuId = tv_allMenu.getSelectedValue(); // 현재 선택된 tree menuId
+    let rowIdxList = ds_menuList.getMatchedIndex("menuId", selectedMenuId, true);
+    let rowJson = rowIdxList.length > 0 ? ds_menuList.getRowJSON(rowIdxList[0]) : null;
+
+    if(!rowJson) {
+        $c.win.alert("메뉴를 선택하세요.");
+        return;
+    }
+
+    ds_menuList.setRowPosition(rowIdxList[0]);
+
+    // 화면만 등록처리
+    if(String(rowJson.actPgmId || "").trim() == "") {
+        $c.win.alert("화면만 등록이 가능합니다.");
+        return;
+    }
+
+    if(ds_menuList2.getRowCount() > 4) {
+        $c.win.alert("초기화면은 5개까지 저장이 가능합니다.");
+        return;
+    }
+
+    // 중복 체크
+    let dupCnt = ds_menuList2.getMatchedIndex("menuId", rowJson.menuId).length;
+    if(dupCnt > 0) { // 이미 등록되어 있으면 
+        $c.win.alert("이미 등록된 화면입니다.");
+        return;
+    } else {
+        ds_menuList2.setJSON([rowJson],true); // 그리드에 붙혀넣기
+    }
+};
+
+// 저장
+scwin.btn_trigger3_onclick = function (e) {
+
+    for(let i=0; i<ds_menuList2.getRowCount(); i++) {
+        ds_menuList2.setCellData(i, "sortSeq", i+1);
+    }
+   
+    ds_fav.set("method", "merge");
+    ds_fav.set("data",ds_menuList2.getAllJSON());
+
+    $c.sbm.execute(sbm_saveInitPage);
+};
+
+// 저장 콜백
+scwin.sbm_saveInitPage_submitdone = async function (e) {
+	await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다 
+};
+
+// 조회 콜백
+scwin.sbm_getInitPage_submitdone = function (e) {
+    if(e.responseJSON.length > 0) {
+        ds_menuList2.setJSON(e.responseJSON);
+    }
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="round-box" id="" style="">
+			<xf:group class="lybox col3 wfix" id="" style="">
+				<xf:group class="col" id="">
+					<xf:group class="title-wrap" id="" style="">
+						<xf:group class="title" id="">
+							<w2:textbox class="tit" id="" label="초기화면설정" style="" tagname="h3"></w2:textbox>
+						</xf:group>
+						<xf:group class="right" id="">
+							<xf:group id="" class="form-grp section flex-col">
+								<xf:input style="" id="ibx_allMenuSearch" class="form-control" ev:oneditkeyup="scwin.ibx_allMenuSearch_oneditkeyup"></xf:input>
+								<xf:trigger style="" id="btn_allMenuSearch" title="Search" type="button" class="btn ico sch" ev:onclick="scwin.btn_allMenuSearch_onclick">
+									<xf:label><![CDATA[검색]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group class="tvw-wrap" id="" style="">
+						<w2:treeview dataType="listed" id="tv_allMenu" renderType="virtual" style="" tooltipGroupClass="false"
+							class="flex-full" hierarchy="true" showTreeDepth="0" toggleEvent="onclick">
+							<w2:itemset nodeset="data:ds_menuList">
+								<w2:label ref="menuNm"></w2:label>
+								<w2:value ref="menuId"></w2:value>
+								<w2:depth ref="lvl"></w2:depth>
+								<w2:folder ref=""></w2:folder>
+								<w2:checkbox ref=""></w2:checkbox>
+								<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+								<w2:image ref=""></w2:image>
+								<w2:iconImage ref=""></w2:iconImage>
+								<w2:selectedImage ref=""></w2:selectedImage>
+								<w2:expandedImage ref=""></w2:expandedImage>
+								<w2:leafImage ref=""></w2:leafImage>
+							</w2:itemset>
+						</w2:treeview>
+					</xf:group>
+				</xf:group>
+				<xf:group class="shattle flex-row" id="" style="">
+					<xf:trigger class="btn ico btn-right" id="btn_trigger1" style="" type="button" ev:onclick="scwin.btn_trigger1_onclick">
+						<xf:label><![CDATA[왼쪽이동]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn ico btn-left" id="btn_trigger2" style="" type="button" ev:onclick="scwin.btn_trigger2_onclick">
+						<xf:label><![CDATA[오른쪽이동]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<xf:group class="col" id="" style="">
+					<xf:group adaptiveThreshold="" class="gvwbox gvwflex" id="group1" style="">
+						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_menuList2" id="grd_stMenu" style=""
+							visibleRowNum="10" visibleRowNumFix="true" dataDragDrop="true" useFilterList="false" sortable="false" noSelect="true">
+							<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column17" inputType="text" style="" value="메뉴명" width="200" sortable="false"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="menuNm" inputType="text" style="" value="" width="200" readOnly="true"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+						<xf:group class="grid-bottom " id="" style="">
+							<xf:group class="left" id="">
+								<xf:group class="grid-total" id="">
+									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+									<w2:textbox class="num" id="txb_tCount" label="0" style="" tagname="span"></w2:textbox>
+									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="btnbox" id="" style="">
+				<xf:group class="right" id="">
+					<xf:trigger class="btn" id="btn_trigger3" style="" type="button" ev:onclick="scwin.btn_trigger3_onclick">
+						<xf:label><![CDATA[저장]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

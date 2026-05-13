@@ -1,0 +1,1327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="commonCombo" meta_screenName="commonCombo" meta_desc="공통 형태의 UDC">
+        <w2:type palette="support">COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+                <w2:aliasDataMap scope="" id="aliasDataMap"></w2:aliasDataMap>
+        		<w2:aliasDataList scope="" id="aliasDataList"></w2:aliasDataList>
+        		<w2:dataMap baseNode="map" id="ds_search">
+        			<w2:keyInfo>
+        				<w2:key id="cond" name="cond" dataType="text"></w2:key>
+        				<w2:key id="userId" name="userId" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_commonCombo" saveRemovedData="true" ev:ondataload="scwin.ds_commonCombo_ondataload">
+        			<w2:columnInfo>
+        				<w2:column id="code" name="code" dataType="text"></w2:column>
+        				<w2:column id="name" name="name" dataType="text"></w2:column>
+        				<w2:column id="sub" name="sub" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method="scwin.setValue,scwin.getValue,scwin.getSelectedIndex,scwin.setSelectedIndex,scwin.syncSelection"/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * @component
+ * @componentName udc_commonCombo
+ * @pluginName 
+ * @company
+ * @developer
+ * @category /cm/udc
+ * @notSupportBrowser 
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description
+ * @width %
+ * @height px
+ * @license
+ * @imagePath
+ * @homepage
+ */
+
+/**
+ * @property
+ * @name id
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description UDC 컴포넌트 id
+ */
+
+/**
+ * @property
+ * @name class
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description UDC 컴포넌트 class
+ */
+
+/**
+ * @property
+ * @name style
+ * @category 01.Basic & ETC
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description UDC 컴포넌트 style
+ */
+
+/**
+ * @property
+ * @name code
+ * @category 02.컬럼id, 데이터리스트
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 콤보박스 값 bindColumn ID
+ */
+
+/**
+ * @property
+ * @name name
+ * @category 02.컬럼id, 데이터리스트
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 라벨 bindColumn ID(필요할지 모르겠음)
+ */
+
+/**
+ * @property
+ * @name refDataCollection
+ * @category 02.컬럼id, 데이터리스트
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 데이터컬렉션의 DataMap의 아이디
+ */
+
+/**
+ * @property
+ * @name refHiddenDataCollection
+ * @category 02.컬럼id, 데이터리스트
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description hdoIdx, bhoIdx, offIdx 담아 줄 hidden DataMap의 아이디(cond가 HOFC면 필수)
+ */
+
+/**
+ * @property
+ * @name cond
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary Y
+ * @bindparent
+ * @description CommonComboUtil.getComboDTOArray에 조회할 조건 값(필수값)
+ * ex) String[] commCombo = {"HOFC","ez112Idx","150",""};에 HOFC
+ */
+
+
+/**
+ * @property
+ * @name cascadeTargetId
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 연계할 콤보박스 ID
+ * ex) <%commCombo[0]="fCost";commCombo[1]="vehclFcostAcnt";commCombo[3]="uncollNypay";%> 이 케이스만 있는 것으로 확인 됨
+ */
+
+/**
+ * @property
+ * @name initIndex
+ * @category 03.Data
+ * @type number
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description commonCombo 안의 코드를 조회 후 셋팅할 첫 index가 있다면 index를 입력
+ */
+
+/**
+ * @property
+ * @name initFunction
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description commonCombo 안의 코드가 셋팅되고 최초 조회할 function이 있다면 function을 입력
+ */
+
+/**
+ * @property
+ * @name parentDataListId
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 부모 화면에 생성할 DataList ID
+ */
+
+/**
+ * @property
+ * @name chooseOption
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description 부모 화면에 생성할 DataList ID
+ */
+
+/**
+ * @property
+ * @name placeholder
+ * @category 03.Data
+ * @type string
+ * @option
+ * @default
+ * @necessary N
+ * @bindparent
+ * @description commonCombo placeholder
+ */
+
+// 전역변수
+scwin.userId = $c.data.getMemInfo().userId; // 사용자ID
+scwin.options = $p.getOptions(); // 업무화면으로부터 받은 속성 값
+scwin.pFrame = $p.parent();
+
+//-------------------------------------------------------------------------
+// 화면 로딩
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.init(); // UDC 초기 셋팅 + 속성 필수값 체크
+    scwin.f_search().catch(function () {
+        // 요청 실패는 f_search 내부에서 로깅한다.
+    }); // 조회
+};
+
+//-------------------------------------------------------------------------
+// UDC 초기 셋팅
+//-------------------------------------------------------------------------
+scwin.getRefDataCollection = function () {
+    if (!scwin.options.refDataCollection) {
+        return null;
+    }
+
+    const refDataCollection = scwin.pFrame?.[scwin.options.refDataCollection];
+    if (!refDataCollection) {
+        console.warn("[commonCombo] refDataCollection(" + scwin.options.refDataCollection + ")를 찾을 수 없습니다.");
+        return null;
+    }
+
+    return refDataCollection;
+};
+
+scwin.ensureParentDataList = function () {
+    if (!scwin.options.parentDataListId) {
+        return null;
+    }
+
+    const parentScope = scwin.pFrame;
+    const dltId = scwin.options.parentDataListId;
+
+    let parentDataList = parentScope?.[dltId];
+    if (!parentDataList) {
+        const dataListOption = {
+            id: dltId,
+            type: "dataList",
+            option: {
+                baseNode: "list",
+                repeatNode: "map"
+            },
+            columnInfo: [
+                { id: "code", dataType: "text" },
+                { id: "name", dataType: "text" },
+                { id: "sub", dataType: "text" }
+            ]
+        };
+
+        parentScope.$p.data.create(dataListOption);
+        parentDataList = parentScope[dltId] || parentScope.$p.getComponentById(dltId);
+    }
+
+    return parentDataList || null;
+};
+
+scwin.getParentComponent = function (componentId) {
+    if (!componentId) {
+        return null;
+    }
+
+    return scwin.pFrame?.[componentId] || scwin.pFrame?.$p?.getComponentById(componentId) || null;
+};
+
+scwin.registerRefDataCollectionEvents = function () {
+    const refDataCollection = scwin.getRefDataCollection();
+    if (!refDataCollection || refDataCollection.options?.pluginName !== "dataList") {
+        return;
+    }
+
+    if (scwin._refDataCollectionEventBound || typeof refDataCollection.bind !== "function") {
+        return;
+    }
+
+    scwin._refDataCollectionEventBound = true;
+    refDataCollection.bind("onrowpositionchange", function () {
+        scwin.deferRefreshSelectionFromRef();
+    });
+};
+
+scwin.isTrueOption = function (value) {
+    if (value === true) {
+        return true;
+    }
+
+    if (value === false || value === undefined || value === null) {
+        return false;
+    }
+
+    const normalizedValue = value.toString().trim().toLowerCase();
+
+    if (normalizedValue === "") {
+        return false;
+    }
+
+    if (["false", "n", "no", "0", "off"].indexOf(normalizedValue) > -1) {
+        return false;
+    }
+
+    return ["true", "y", "yes", "1", "on"].indexOf(normalizedValue) > -1;
+};
+
+scwin.getChooseOptionLabel = function () {
+    const label = scwin.options.chooseOptionLabel;
+
+    if (label === undefined || label === null || label === "") {
+        return "선택해주세요";
+    }
+
+    return label === "$blank" ? "" : label;
+};
+
+scwin.getPlaceholderOptionValue = function () {
+    if (scwin.options.placeholder !== undefined && scwin.options.placeholder !== null) {
+        return scwin.options.placeholder;
+    }
+
+    if (scwin.options.placeHolder !== undefined && scwin.options.placeHolder !== null) {
+        return scwin.options.placeHolder;
+    }
+
+    return null;
+};
+
+scwin.hasPlaceholder = function () {
+    const placeholderValue = scwin.getPlaceholderOptionValue();
+
+    if (placeholderValue === null) {
+        return false;
+    }
+
+    if (placeholderValue === "$blank") {
+        return true;
+    }
+
+    return placeholderValue.toString().trim() !== "";
+};
+
+scwin.getPlaceholderLabel = function () {
+    const placeholderValue = scwin.getPlaceholderOptionValue();
+
+    if (placeholderValue === null) {
+        return "";
+    }
+
+    return placeholderValue === "$blank" ? "" : placeholderValue.toString();
+};
+
+scwin.applyPlaceholder = function () {
+    const placeholder = scwin.hasPlaceholder() ? scwin.getPlaceholderLabel() : "";
+
+    if (typeof lc_commonCombo.setPlaceholder === "function") {
+        lc_commonCombo.setPlaceholder(placeholder);
+        return;
+    }
+
+    if (lc_commonCombo?.options) {
+        lc_commonCombo.options.placeholder = placeholder;
+    }
+
+    const labelElement = typeof document !== "undefined"
+        ? document.getElementById(lc_commonCombo.id + "_label")
+        : null;
+
+    if (!labelElement) {
+        return;
+    }
+
+    labelElement.className = (labelElement.className || "")
+        .replace(/\bw2autoComplete_placeholder\b/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    if (placeholder === "") {
+        labelElement.removeAttribute("data-placeholder");
+        return;
+    }
+
+    labelElement.setAttribute("data-placeholder", placeholder);
+    labelElement.className = (labelElement.className + " w2autoComplete_placeholder").trim();
+};
+
+scwin.normalizeComboItem = function (item) {
+    const code = (item?.code ?? "").toString();
+    const name = (item?.name ?? "").toString();
+    const sub = (item?.sub ?? "").toString();
+    const rawSubParts = Array.isArray(item?.subParts) ? item.subParts : sub === "" ? [] : sub.split("/");
+
+    return {
+        code: code,
+        name: name,
+        sub: sub,
+        subParts: rawSubParts.map(function (value) {
+            return (value ?? "").toString();
+        })
+    };
+};
+
+scwin.isChooseOptionItem = function (item) {
+    return ((item?.code ?? "").toString().trim() === "");
+};
+
+scwin.getBoundSelectionName = function (selection) {
+    if (!selection) {
+        return "";
+    }
+
+    if (scwin.isTrueOption(scwin.options.chooseOption) && scwin.isChooseOptionItem(selection)) {
+        return "";
+    }
+
+    return (selection.name ?? "").toString();
+};
+
+scwin.decorateComboData = function (resultData) {
+    if (!Array.isArray(resultData)) {
+        return [];
+    }
+
+    const normalizedData = resultData.map(scwin.normalizeComboItem);
+
+    if (scwin.hasPlaceholder()) {
+        return normalizedData.filter(function (item) {
+            return !scwin.isChooseOptionItem(item);
+        });
+    }
+
+    if (!scwin.isTrueOption(scwin.options.chooseOption)) {
+        return normalizedData;
+    }
+
+    const normalItems = [];
+    let chooseItem = null;
+
+    normalizedData.forEach(function (item) {
+        if (!scwin.isChooseOptionItem(item)) {
+            normalItems.push(item);
+            return;
+        }
+
+        if (!chooseItem) {
+            chooseItem = {
+                code: "",
+                name: item.name !== "" ? item.name : scwin.getChooseOptionLabel(),
+                sub: "",
+                subParts: []
+            };
+        }
+    });
+
+    if (!chooseItem) {
+        chooseItem = {
+            code: "",
+            name: scwin.getChooseOptionLabel(),
+            sub: "",
+            subParts: []
+        };
+    }
+
+    return [chooseItem].concat(normalItems);
+};
+
+scwin.syncLegacyMirrorFields = function (name) {
+    const udcId = scwin.getHostUdcId();
+    const baseId = udcId.indexOf("udc_") === 0 ? udcId.substring(4) : udcId;
+
+    if (!/^unitVal\d*$/.test(baseId)) {
+        return;
+    }
+
+    ["ed_" + baseId + "_1", "ed_" + baseId + "_2"].forEach(function (componentId) {
+        const target = scwin.getParentComponent(componentId);
+        if (target && typeof target.setValue === "function") {
+            target.setValue(name || "");
+        }
+    });
+};
+
+scwin.getHostUdcId = function () {
+    const candidates = [
+        scwin.options.id,
+        typeof lc_commonCombo !== "undefined" ? lc_commonCombo.id : "",
+        typeof grp_commonCombo !== "undefined" ? grp_commonCombo.id : "",
+        typeof $p.getFrame === "function" ? $p.getFrame()?.id : ""
+    ];
+
+    for (let i = 0; i < candidates.length; i++) {
+        const candidate = (candidates[i] ?? "").toString().trim();
+        if (!candidate) {
+            continue;
+        }
+
+        if (candidate.indexOf("udc_") === 0) {
+            return candidate;
+        }
+
+        const match = candidate.match(/(udc_[A-Za-z0-9]+)(?:_(?:lc_commonCombo|grp_commonCombo))?$/);
+        if (match && match[1]) {
+            return match[1];
+        }
+    }
+
+    return "";
+};
+
+scwin.syncCascadeTarget = function (sub) {
+    const target = scwin.getParentComponent(scwin.options.cascadeTargetId);
+    const trimmedSub = (sub ?? "").toString().trim();
+
+    if (!target) {
+        return;
+    }
+
+    if (typeof target.setValue === "function") {
+        target.setValue(trimmedSub);
+
+        if (typeof target.getValue === "function"
+            && (target.getValue() ?? "").toString().trim() === trimmedSub) {
+            return;
+        }
+    }
+
+    if (/^-?\d+$/.test(trimmedSub) && typeof target.setSelectedIndex === "function") {
+        target.setSelectedIndex(Number(trimmedSub));
+    }
+};
+
+scwin.syncRefDataCollection = function (code, name) {
+    const refDataCollection = scwin.getRefDataCollection();
+    if (!refDataCollection) {
+        return;
+    }
+
+    switch (refDataCollection.options.pluginName) {
+        case "dataMap":
+            refDataCollection.set(scwin.options.code, code);
+            if (scwin.options.name) {
+                refDataCollection.set(scwin.options.name, name);
+            }
+            break;
+
+        case "dataList":
+            let rowIndex = typeof refDataCollection.getRowPosition === "function"
+                ? refDataCollection.getRowPosition()
+                : refDataCollection.rowPosition;
+
+            if ((rowIndex === undefined || rowIndex === null || rowIndex < 0)
+                && typeof refDataCollection.getRowCount === "function"
+                && refDataCollection.getRowCount() === 1) {
+                rowIndex = 0;
+            }
+
+            if (rowIndex === undefined || rowIndex === null || rowIndex < 0) {
+                return;
+            }
+
+            refDataCollection.setCellData(rowIndex, scwin.options.code, code);
+            if (scwin.options.name) {
+                refDataCollection.setCellData(rowIndex, scwin.options.name, name);
+            }
+            break;
+    }
+};
+
+scwin.getRefBoundCode = function () {
+    const refDataCollection = scwin.getRefDataCollection();
+    if (!refDataCollection || !scwin.options.code) {
+        return "";
+    }
+
+    switch (refDataCollection.options.pluginName) {
+        case "dataMap":
+            return (refDataCollection.get(scwin.options.code) ?? "").toString().trim();
+
+        case "dataList":
+            let rowIndex = typeof refDataCollection.getRowPosition === "function"
+                ? refDataCollection.getRowPosition()
+                : refDataCollection.rowPosition;
+
+            if ((rowIndex === undefined || rowIndex === null || rowIndex < 0)
+                && typeof refDataCollection.getRowCount === "function"
+                && refDataCollection.getRowCount() === 1) {
+                rowIndex = 0;
+            }
+
+            if (rowIndex === undefined || rowIndex === null || rowIndex < 0) {
+                return "";
+            }
+
+            return (refDataCollection.getCellData(rowIndex, scwin.options.code) ?? "").toString().trim();
+    }
+
+    return "";
+};
+
+scwin.findComboIndexByCode = function (code) {
+    const normalizedCode = (code ?? "").toString().trim();
+    const rowCount = typeof ds_commonCombo.getRowCount === "function" ? ds_commonCombo.getRowCount() : 0;
+
+    for (let rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        const currentCode = (ds_commonCombo.getCellData(rowIndex, "code") ?? "").toString().trim();
+        if (currentCode === normalizedCode) {
+            return rowIndex;
+        }
+    }
+
+    return -1;
+};
+
+scwin.getCurrentSelection = function () {
+    const idx = lc_commonCombo.getSelectedIndex();
+    if (idx === undefined || idx === null || idx < 0) {
+        return null;
+    }
+
+    return {
+        idx: idx,
+        code: ds_commonCombo.getCellData(idx, "code") || "",
+        name: ds_commonCombo.getCellData(idx, "name") || "",
+        sub: ds_commonCombo.getCellData(idx, "sub") || ""
+    };
+};
+
+scwin.applySelectionEffects = function (selection, options) {
+    const applyOptions = options || {};
+    if (!selection) {
+        return false;
+    }
+
+    const boundName = scwin.getBoundSelectionName(selection);
+
+    if (applyOptions.writeRef !== false) {
+        scwin.syncRefDataCollection(selection.code, boundName);
+    }
+
+    ed_commonComboName.setValue(boundName);
+    scwin.syncLegacyMirrorFields(boundName);
+
+    if (scwin.options.cascadeTargetId) {
+        scwin.syncCascadeTarget(selection.sub);
+    } else if (scwin.options.cond == "HOFC") {
+        const offIdxs = selection.sub.split("/");
+
+        if (!scwin.options.refHiddenDataCollection) {
+            console.warn("[commonCombo] cond가 HOFC인 경우 refHiddenDataCollection은 필수 속성 입니다.");
+        }
+
+        const hiddenDataMap = scwin.getParentComponent(scwin.options.refHiddenDataCollection);
+        if (hiddenDataMap) {
+            hiddenDataMap.set("hdoIdx", offIdxs[0]);
+            hiddenDataMap.set("bhoIdx", offIdxs[1]);
+            hiddenDataMap.set("offIdx", offIdxs[2]);
+        }
+    } else if (scwin.options.cond == "carType") {
+        const carTypeCallbackFn = scwin.pFrame?.scwin?.f_vehclNrm;
+        if (typeof carTypeCallbackFn === "function") {
+            carTypeCallbackFn(lc_commonCombo.getValue());
+        }
+    }
+
+    return true;
+};
+
+scwin.applyCurrentSelection = function (options) {
+    const selection = scwin.getCurrentSelection();
+    return scwin.applySelectionEffects(selection, options);
+};
+
+scwin.clearSelectionEffects = function (options) {
+    const applyOptions = options || {};
+
+    if (applyOptions.writeRef !== false) {
+        scwin.syncRefDataCollection("", "");
+    }
+
+    ed_commonComboName.setValue("");
+    scwin.syncLegacyMirrorFields("");
+
+    if (scwin.options.cascadeTargetId) {
+        scwin.syncCascadeTarget("");
+    } else if (scwin.options.cond == "HOFC") {
+        const hiddenDataMap = scwin.getParentComponent(scwin.options.refHiddenDataCollection);
+        if (hiddenDataMap) {
+            hiddenDataMap.set("hdoIdx", "");
+            hiddenDataMap.set("bhoIdx", "");
+            hiddenDataMap.set("offIdx", "");
+        }
+    }
+
+    return true;
+};
+
+scwin.refreshSelectionFromRef = function () {
+    const boundCode = scwin.getRefBoundCode();
+    const selectedIndex = scwin.findComboIndexByCode(boundCode);
+    if (selectedIndex < 0) {
+        if (boundCode === "" && scwin.hasPlaceholder()) {
+            lc_commonCombo.setSelectedIndex(-1);
+            return scwin.clearSelectionEffects({ writeRef: false });
+        }
+
+        return false;
+    }
+
+    lc_commonCombo.setSelectedIndex(selectedIndex);
+    return scwin.applyCurrentSelection({ writeRef: false });
+};
+
+scwin.syncSelection = function () {
+    return scwin.applyCurrentSelection();
+};
+
+scwin.deferSyncSelection = function () {
+    if (scwin._syncSelectionTimer) {
+        clearTimeout(scwin._syncSelectionTimer);
+    }
+
+    scwin._syncSelectionTimer = setTimeout(function () {
+        scwin._syncSelectionTimer = null;
+        scwin.applyCurrentSelection();
+    }, 0);
+};
+
+scwin.deferRefreshSelectionFromRef = function () {
+    if (scwin._syncSelectionTimer) {
+        clearTimeout(scwin._syncSelectionTimer);
+    }
+
+    scwin._syncSelectionTimer = setTimeout(function () {
+        scwin._syncSelectionTimer = null;
+        scwin.refreshSelectionFromRef();
+    }, 0);
+};
+
+scwin.init = function() {
+    if ($c.gus.cfIsNull(scwin.options.cond)) {
+        debugger;
+        console.warn("[commonCombo] cond속성은 필수 값 입니다.");
+        return;
+    }
+
+    // DataMap이나 DataList 연동
+    if (scwin.options.refDataCollection) {
+        const refDataCollection = scwin.getRefDataCollection();
+        if (!refDataCollection) {
+            return;
+        }
+
+        let alias, aliasId;
+        switch (refDataCollection.options.pluginName)
+        {
+            case "dataMap":
+                alias = aliasDataMap;
+                aliasId = aliasDataMap.org_id + ".";
+                break;
+            case "dataList":
+                alias = aliasDataList;
+                aliasId = aliasDataList.org_id + ".";
+                break;
+        }
+        
+        alias.setScope("../" + scwin.options.refDataCollection);
+        lc_commonCombo.setRef("data:" + aliasId + scwin.options.code);
+        if (scwin.options.name) {
+            ed_commonComboName.setRef("data:" + aliasId + scwin.options.name);
+        }
+    }
+
+    scwin.ensureParentDataList();
+    scwin.registerRefDataCollectionEvents();
+    scwin.applyPlaceholder();
+
+};
+
+scwin.getRequestQueueHost = function () { 
+    try {
+        return window.top || window;
+    } catch (ex) {
+        return window;
+    }
+};
+
+scwin.getRequestQueueState = function () {
+    const host = scwin.getRequestQueueHost();
+    if (!host.__commonComboRequestQueueState) {
+        host.__commonComboRequestQueueState = {
+            queue: [],
+            running: false
+        };
+    }
+
+    return host.__commonComboRequestQueueState;
+};
+
+scwin.getRequestCacheState = function () {
+    const host = scwin.getRequestQueueHost();
+    if (!host.__commonComboRequestCacheState) {
+        host.__commonComboRequestCacheState = {
+            data: {},
+            inflight: {}
+        };
+    }
+
+    return host.__commonComboRequestCacheState;
+};
+
+scwin.getRequestKey = function (requestData) {
+    return JSON.stringify({
+        cond: requestData?.cond ?? "",
+        userId: requestData?.userId ?? ""
+    });
+};
+
+scwin.cloneComboData = function (data) {
+    return JSON.parse(JSON.stringify(Array.isArray(data) ? data : []));
+};
+
+scwin.getErrorResponseText = function (e) {
+    if (typeof e?.responseText === "string" && e.responseText !== "") {
+        return e.responseText;
+    }
+
+    if (typeof e?.responseBody === "string" && e.responseBody !== "") {
+        return e.responseBody;
+    }
+
+    if (e?.responseJSON) {
+        try {
+            return JSON.stringify(e.responseJSON);
+        } catch (ex) {
+        }
+    }
+
+    if (typeof e?.message === "string" && e.message !== "") {
+        return e.message;
+    }
+
+    return "";
+};
+
+scwin.dequeueRequest = function () {
+    const state = scwin.getRequestQueueState();
+    if (state.running) {
+        return;
+    }
+
+    const nextJob = state.queue.shift();
+    if (!nextJob) {
+        return;
+    }
+
+    state.running = true;
+
+    Promise.resolve()
+        .then(nextJob.run)
+        .then(nextJob.resolve, nextJob.reject)
+        .finally(function () {
+            state.running = false;
+            scwin.dequeueRequest();
+        });
+};
+
+scwin.enqueueRequest = function (run) {
+    return new Promise(function (resolve, reject) {
+        const state = scwin.getRequestQueueState();
+        state.queue.push({
+            run: run,
+            resolve: resolve,
+            reject: reject
+        });
+        scwin.dequeueRequest();
+    });
+};
+
+scwin.requestCommonCombo = function (requestData) {
+    return new Promise(function (resolve, reject) {
+        WebSquare.net.ajax({
+            action: "/CommonComboUtil",
+            method: "POST",
+            mediatype: "application/json; charset=UTF-8",
+            requestData: JSON.stringify(requestData),
+
+            success: function (e) {
+                resolve(scwin.parseCbData(e.responseText));
+            },
+
+            error: function (e) {
+                reject(e);
+            }
+        });
+    });
+};
+
+scwin.fetchCommonComboData = function (requestData) {
+    const cacheState = scwin.getRequestCacheState();
+    const requestKey = scwin.getRequestKey(requestData);
+
+    if (cacheState.data[requestKey]) {
+        return Promise.resolve(scwin.cloneComboData(cacheState.data[requestKey]));
+    }
+
+    if (cacheState.inflight[requestKey]) {
+        return cacheState.inflight[requestKey].then(scwin.cloneComboData);
+    }
+
+    cacheState.inflight[requestKey] = scwin.enqueueRequest(function () {
+        return scwin.requestCommonCombo(requestData);
+    }).then(function (rawData) {
+        cacheState.data[requestKey] = scwin.cloneComboData(rawData);
+        return scwin.cloneComboData(rawData);
+    }).finally(function () {
+        delete cacheState.inflight[requestKey];
+    });
+
+    return cacheState.inflight[requestKey].then(scwin.cloneComboData);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_search = async function () {
+    ds_search.set("cond", scwin.options.cond);
+    ds_search.set("userId", scwin.userId);
+    const requestData = ds_search.getJSON();
+
+    return scwin.fetchCommonComboData(requestData)
+        .then(function (rawData) {
+            let resultData = scwin.decorateComboData(rawData);
+
+            // UDC 내부 콤보
+            ds_commonCombo.setJSON(resultData, false);
+
+            // ------------------------------------
+            // 부모 DataList 생성 및 데이터 전달
+            // ------------------------------------
+            if (scwin.options.parentDataListId) {
+
+                let parentScope = scwin.pFrame;
+                let dltId = scwin.options.parentDataListId;
+
+                // DataList 없으면 생성
+                if (!parentScope[dltId]) {
+
+                    let dataListOption = {
+                        id: dltId,
+                        type: "dataList",
+                        option: {
+                            baseNode: "list",
+                            repeatNode: "map"
+                        },
+                        columnInfo: [
+                            { id: "code", dataType: "text" },
+                            { id: "name", dataType: "text" },
+                            { id: "sub", dataType: "text" }
+                        ]
+                    };
+
+                    parentScope.$p.data.create(dataListOption);
+                }
+
+                // 데이터 세팅
+                scwin.ensureParentDataList()?.setJSON(resultData, false);
+            }
+        })
+        .catch(function (e) {
+            console.error("[commonCombo] request failed", {
+                cond: scwin.options.cond,
+                status: e?.responseStatusCode,
+                responseText: scwin.getErrorResponseText(e)
+            });
+            throw e;
+        });
+};
+
+//-------------------------------------------------------------------------
+// 조회해 온 raw 데이터 parsing
+//-------------------------------------------------------------------------
+scwin.parseCbData = function (raw) {
+    raw = (raw ?? "").toString().trim();
+    if (!raw) return [];
+
+    return raw
+        .split(",")
+        .map(s => s.trim())
+        .filter(Boolean)
+        .map(item => {
+            const [code = "", name = "", sub = ""] = item.split("^");
+
+            const parts = (sub || "").split("/");
+            return {
+                code: code.trim(),
+                name: name.trim(),
+                sub: sub.trim(),
+                subParts: parts.map(v => (v ?? "").trim()) // ["100000.0","0.0","0.0"] 같은 형태
+            };
+        });
+}
+
+//-------------------------------------------------------------------------
+// 공통콤보 onchange
+//-------------------------------------------------------------------------
+scwin.lc_commonCombo_onviewchange = function (info) {
+    // 1) 현재 선택 idx 가져오기
+    const idx = lc_commonCombo.getSelectedIndex();              
+    const code = ds_commonCombo.getCellData(idx, "code") || "";
+    const name = ds_commonCombo.getCellData(idx, "name") || "";
+    const sub  = ds_commonCombo.getCellData(idx, "sub")  || "";
+    scwin.syncRefDataCollection(code, name);
+    
+    ed_commonComboName.setValue(name); // 코드명 dataMap/dataList에 연동 할 수도 있어서
+
+    // 2) 받은 속성별로 처리
+    if (scwin.options.cascadeTargetId) {
+        let target = scwin.pFrame[scwin.options.cascadeTargetId];
+        target.setValue(sub);   // 또는 setSelectedIndex
+
+    } else if (scwin.options.cond == "HOFC") {
+        let offIdxs = sub.split("/");
+        
+        if (!scwin.options.refHiddenDataCollection) {
+            console.warn("[commonCombo] cond가 HOFC일 경우 refHiddenDataCollection은 필수 속성 입니다.");
+        }
+
+        // 업무화면의 hidden용 DataMap에 셋팅
+        let hiddenDataMap = scwin.pFrame[`${scwin.options.refHiddenDataCollection}`];
+        hiddenDataMap.set("hdoIdx", offIdxs[0]);
+        hiddenDataMap.set("bhoIdx", offIdxs[1]);
+        hiddenDataMap.set("offIdx", offIdxs[2]);
+
+    } else if (scwin.options.cond == "carType") {
+        let carTypeCallbackFn = scwin.pFrame?.scwin?.f_vehclNrm;
+        if (typeof carTypeCallbackFn === "function") {
+            carTypeCallbackFn(lc_commonCombo.getValue());
+        } 
+    }
+
+    if (scwin.init) {
+        scwin.init = false;
+        const fn = scwin.options.initFunction;
+        const parentScwin = scwin.pFrame?.scwin;
+
+        if (fn && typeof parentScwin?.[fn] === "function") {
+            parentScwin[fn]();
+        }
+    }
+};
+
+/**
+ * @method
+ * @name setSelectedIndex
+ * @description commonCombo의 index를 셋팅
+ * @param {number} index 셋팅할 index
+ * @hidden Y
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.setSelectedIndex = function (index) {
+    lc_commonCombo.setSelectedIndex(index);
+};
+
+//-------------------------------------------------------------------------
+// 공통콤보 dataList ondataload
+//-------------------------------------------------------------------------
+scwin.ds_commonCombo_ondataload = function () {
+    if (scwin.options.initIndex !== undefined || scwin.options.initIndex !== null) {
+        lc_commonCombo.setSelectedIndex(scwin.options.initIndex);
+        // DataMap이나 DataList 연동
+        if (scwin.options.refDataCollection) {   
+            scwin.syncRefDataCollection(
+                lc_commonCombo.getValue(),
+                ds_commonCombo.getCellData(lc_commonCombo.getSelectedIndex(), "name") || ""
+            );
+        }
+
+        scwin.init = true;
+        scwin.lc_commonCombo_onviewchange();
+    }
+};
+
+/**
+ * @method UDC 값 셋팅
+ * @name setValue
+ * @description desc
+ * @param {string} value desc
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.setValue = function (value) {
+    lc_commonCombo.setValue(value);
+}
+
+/**
+ * @method UDC 값 가져오기
+ * @name getValue
+ * @description desc
+ * @param
+ * @return lc_commonCombo.getValue()
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.getValue = function () {
+    return lc_commonCombo.getValue();
+}
+
+/**
+ * @method UDC 값 셋팅
+ * @name getSelectedIndex
+ * @description desc
+ * @param {string} value desc
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */ 
+scwin.getSelectedIndex = function () {
+    return lc_commonCombo.getSelectedIndex()
+}
+
+// ASIS 호환 동작은 하단에서 한 번 더 재정의한다.
+scwin.lc_commonCombo_onviewchange = function (info) {
+    const idx = lc_commonCombo.getSelectedIndex();
+    if (idx === undefined || idx === null || idx < 0) {
+        return;
+    }
+
+    const code = ds_commonCombo.getCellData(idx, "code") || "";
+    const name = ds_commonCombo.getCellData(idx, "name") || "";
+    const sub = ds_commonCombo.getCellData(idx, "sub") || "";
+
+    scwin.syncRefDataCollection(code, name);
+    ed_commonComboName.setValue(name);
+    scwin.syncLegacyMirrorFields(name);
+
+    if (scwin.options.cascadeTargetId) {
+        scwin.syncCascadeTarget(sub);
+    } else if (scwin.options.cond == "HOFC") {
+        const offIdxs = sub.split("/");
+
+        if (!scwin.options.refHiddenDataCollection) {
+            console.warn("[commonCombo] cond가 HOFC일 경우 refHiddenDataCollection은 필수 속성 입니다.");
+        }
+
+        const hiddenDataMap = scwin.getParentComponent(scwin.options.refHiddenDataCollection);
+        if (hiddenDataMap) {
+            hiddenDataMap.set("hdoIdx", offIdxs[0]);
+            hiddenDataMap.set("bhoIdx", offIdxs[1]);
+            hiddenDataMap.set("offIdx", offIdxs[2]);
+        }
+    } else if (scwin.options.cond == "carType") {
+        const carTypeCallbackFn = scwin.pFrame?.scwin?.f_vehclNrm;
+        if (typeof carTypeCallbackFn === "function") {
+            carTypeCallbackFn(lc_commonCombo.getValue());
+        }
+    }
+
+    if (scwin.init) {
+        scwin.init = false;
+        const fn = scwin.options.initFunction;
+        const parentScwin = scwin.pFrame?.scwin;
+
+        if (fn && typeof parentScwin?.[fn] === "function") {
+            parentScwin[fn]();
+        }
+    }
+};
+
+scwin.ds_commonCombo_ondataload = function () {
+    const rowCount = typeof ds_commonCombo.getRowCount === "function" ? ds_commonCombo.getRowCount() : 0;
+    if (rowCount < 1) {
+        return;
+    }
+
+    const hasInitIndex = scwin.options.initIndex !== undefined
+        && scwin.options.initIndex !== null
+        && scwin.options.initIndex !== "";
+    const requestedIndex = hasInitIndex ? Number(scwin.options.initIndex) : 0;
+    const selectedIndex = Number.isInteger(requestedIndex) && requestedIndex >= 0 && requestedIndex < rowCount
+        ? requestedIndex
+        : 0;
+
+    lc_commonCombo.setSelectedIndex(selectedIndex);
+    scwin.init = true;
+    scwin.lc_commonCombo_onviewchange();
+};
+
+// 최종 override: 선택값 반영 시점을 공통으로 맞춘다.
+scwin.setSelectIndex = function (index) {
+    lc_commonCombo.setSelectedIndex(index);
+    scwin.syncSelection();
+};
+
+scwin.setValue = function (value) {
+    lc_commonCombo.setValue(value);
+    scwin.syncSelection();
+};
+
+scwin.lc_commonCombo_onviewchange = function (info) {
+    if (!scwin.syncSelection()) {
+        return;
+    }
+
+    if (scwin.init) {
+        scwin.init = false;
+        const fn = scwin.options.initFunction;
+        const parentScwin = scwin.pFrame?.scwin;
+
+        if (fn && typeof parentScwin?.[fn] === "function") {
+            parentScwin[fn]();
+        }
+    }
+};
+
+scwin.ds_commonCombo_ondataload = function () {
+    const rowCount = typeof ds_commonCombo.getRowCount === "function" ? ds_commonCombo.getRowCount() : 0;
+    if (rowCount < 1) {
+        return;
+    }
+
+    const boundCode = scwin.getRefBoundCode();
+    let selectedIndex = boundCode !== "" ? scwin.findComboIndexByCode(boundCode) : -1;
+
+    const hasInitIndex = scwin.options.initIndex !== undefined
+        && scwin.options.initIndex !== null
+        && scwin.options.initIndex !== "";
+    if (selectedIndex < 0 && hasInitIndex) {
+        const requestedIndex = Number(scwin.options.initIndex);
+        if (Number.isInteger(requestedIndex) && requestedIndex >= 0 && requestedIndex < rowCount) {
+            selectedIndex = requestedIndex;
+        }
+    }
+
+    if (selectedIndex < 0) {
+        const currentValue = ((typeof lc_commonCombo.getValue === "function" ? lc_commonCombo.getValue() : "") ?? "").toString().trim();
+        if (currentValue !== "") {
+            selectedIndex = scwin.findComboIndexByCode(currentValue);
+        }
+    }
+
+    if (selectedIndex < 0) {
+        if (scwin.hasPlaceholder()) {
+            lc_commonCombo.setSelectedIndex(-1);
+            scwin.clearSelectionEffects({ writeRef: false });
+            return;
+        }
+
+        selectedIndex = 0;
+    }
+
+    lc_commonCombo.setSelectedIndex(selectedIndex);
+    scwin.init = true;
+    scwin.lc_commonCombo_onviewchange();
+    scwin.deferRefreshSelectionFromRef();
+};
+
+
+
+/**
+ * @event
+ * @name onafteredit
+ * @description 사용자가 선택한 항목을 변경하고 해당변경이 완전히 끝난 후
+ * 발생하는 event
+ * @param
+ * @migrationStatus
+ * @example
+ */
+scwin.emit_onafteredit = function () {
+	$p.emit("onafteredit");
+};
+
+/**
+ * @event
+ * @name onblur
+ * @description commonCombo blur 발생 시 호출되는 event
+ * @param
+ * @migrationStatus
+ * @example
+ */
+scwin.emit_onblur = function () {
+    $p.emit("onblur");
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="grp_commonCombo" class="sch-box" style="height: 22px;">
+            <w2:autoComplete class="" editType="select" id="lc_commonCombo" search="start" style="" submenuSize="fixed" allOption=""
+            	chooseOption="false" ref="" chooseOptionLabel="선택해주세요" ev:onviewchange="scwin.lc_commonCombo_onviewchange" ev:onafteredit="scwin.emit_onafteredit" ev:onblur="scwin.emit_onblur" emptyItem="true">
+            	<w2:choices>
+            		<w2:itemset nodeset="data:ds_commonCombo">
+            			<w2:label ref="name"></w2:label>
+            			<w2:value ref="code"></w2:value>
+            		</w2:itemset>
+            	</w2:choices>
+            </w2:autoComplete>
+            <xf:input id="ed_commonComboName" style="display:none;"></xf:input>
+    	</xf:group>
+    </body>
+</html>

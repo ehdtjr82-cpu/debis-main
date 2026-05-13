@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_master">
+    				<w2:keyInfo>
+    					<w2:key id="standardBudgetYr" name="name1" dataType="text"></w2:key>
+    					<w2:key id="targetBudgetYr" name="name2" dataType="text"></w2:key>
+    					<w2:key id="deleteYn" name="name3" dataType="text"></w2:key>
+    					<w2:key id="coCd" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="deleteYn" name="name1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_master" action="/ac.co.stdinfomgnt.CreateVarfixedClassificationAutoCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_master","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_master_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" scopeVariable="ACConstants" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역 변수
+scwin.memJson = $c.data.getMemInfo();
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd;
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd;
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd;
+scwin.vCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd;
+scwin.isSubCompany = false;
+scwin.privAdmin = scwin.memJson.privAdmin;
+scwin.txtCoClsCd = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+};
+
+/**
+ * UDC값
+ */
+scwin.onUdcCompleted = function() {
+    if(!$c.util.isEmpty(scwin.params["standardBudgetYr"])) {
+            ica_standardBudgetYr.setValue(scwin.params["standardBudgetYr"]);
+    }
+
+    if(!$c.util.isEmpty(scwin.params["coCd"])) {
+            ed_coCd.setValue(scwin.params["coCd"]);
+    }
+    ica_targetBudgetYr.focus();
+    scwin.f_PopUpCompanyInfo('T');
+    $c.gus.cfDisableObjects([ed_coCd, ed_coNm]);
+};
+
+//-------------------------------------------------------------------------
+// 생성 : 
+//-------------------------------------------------------------------------
+scwin.f_Create = async function() {
+    //생성조건 입력여부 및 형식 체크
+    let ret = await $c.gus.cfValidate([ica_standardBudgetYr,ica_targetBudgetYr]);
+    if (!ret) {
+        return false;
+    }
+
+    //반영할 년도와 기준년도가 같은 지 체크
+    if (ica_standardBudgetYr.getValue().trim() == ica_targetBudgetYr.getValue().trim()) {
+        await $c.win.alert("기준년도와 반영할 년도가 같습니다.");
+        ica_targetBudgetYr.focus();
+        return;
+    }
+
+    if (await $c.win.confirm("자동생성하시겠습니까?")) {
+        dma_master.set("standardBudgetYr", ica_standardBudgetYr.getValue());
+        dma_master.set("targetBudgetYr", ica_targetBudgetYr.getValue());
+        dma_master.set("deleteYn", 0);
+        dma_master.set("coCd", ed_coCd.getValue());
+
+        $c.sbm.execute(sbm_master);
+    }
+};
+
+// -------------------------------------------------------------------------
+// 회사 입력 팝업 
+// -------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = async function(pWinCloseTF) {
+	await udc_dongbuGroupCompanyInfo.cfCommonPopUp(scwin.udc_dongbuGroupCompanyInfo_callBackFunc,
+							ed_coCd.getValue(), ""
+							,pWinCloseTF,null,null,null,null
+							,null,null,null,null,null);   
+}
+
+scwin.udc_dongbuGroupCompanyInfo_callBackFunc = function(rtnList) {
+	// SET	 
+	if(rtnList != null ) { 
+		if (rtnList[0] == "N/A") return; 
+	   
+		ed_coCd.setValue(rtnList[0]);	// 코드
+		ed_coNm.setValue(rtnList[5]); // 회사명  		
+	}else{
+        ed_coCd.setValue("");
+        ed_coNm.setValue("");
+	}
+	
+	if(scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {  	// 자회사 회계 시스템 
+		scwin.isSubCompany = true;
+	}else{
+		scwin.isSubCompany = false;
+	}
+};
+
+scwin.sbm_master_submitdone = async function (e) {
+    if(ds_result.getCellData(0,"deleteYn") == 1) {
+    	await $c.win.alert(MSG_CM_INF_002);
+
+        $c.win.closePopup();
+    } else {
+        if(await $c.win.confirm("반영할 년도에 기존 데이터가 존재합니다.\n 삭제하시고 자동생성하시겠습니까?")==true){
+		  	dma_master.set("standardBudgetYr",ica_standardBudgetYr.getValue());
+		  	dma_master.set("targetBudgetYr",ica_targetBudgetYr.getValue());
+		  	dma_master.set("deleteYn",1);
+		  	dma_master.set("coCd",ed_coCd.getValue());
+
+		  	$c.sbm.execute(sbm_master);
+        }
+ 	}
+};
+
+scwin.ed_coCd_onblur = function (e) {
+    scwin.f_PopUpCompanyInfo();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group id="" class="round-box">
+    			<xf:group style="" id="" class="tbbox">
+    				<xf:group  tagname="table" style="" id="" class="w2tb tb">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group tagname="col" style="width:120px;"></xf:group>
+    						<xf:group tagname="col" style=""></xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr" style="">
+    						<xf:group tagname="th" style="" class="w2tb_th">
+    							<w2:textbox ref="" style="" userData2="" id="" label="회사코드" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" style="" class="w2tb_td">
+    							<xf:group class="form-group col7" id="" style="">
+    								<xf:input class="form-control w85" id="ed_coCd" placeholder="" style="" mandatory="true"
+    									validExp="회사코드:yes" allowChar="0-9" maxlength="3" ev:onblur="scwin.ed_coCd_onblur" readOnly="true" title="회사코드">
+    								</xf:input>
+    								<xf:input class="form-control" id="ed_coNm" placeholder="" style="" readOnly="true"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="기준년도" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<w2:inputCalendar calendarValueType="year" class="form-control cal" id="ica_standardBudgetYr" style=""
+    								objType="key" mandatory="true" validExp="기준년도:yes:date=YYYY" displayFormat="yyyy" validateOnInput="true" title="기준년도">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox ref="" style="" userData2="" id="" label="반영할 년도" class="req"></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="year" class="form-control cal" id="ica_targetBudgetYr" style=""
+    								objType="data" validExp="반영할 년도:yes:date=YYYY" mandatory="true" displayFormat="yyyy" validateOnInput="true" title="반영할 년도">
+    							</w2:inputCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+
+    			<w2:udc_comCode popupID="" selectID="retrieveDongbuGroupCompanyInfo" codeId="ed_udcCoCd" validTitle="" nameId="ed_udcCoNm" style="width:%; height:px; ;visibility:hidden;" id="udc_dongbuGroupCompanyInfo" btnId="btn_udcCoCd"></w2:udc_comCode>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+
+    					<xf:trigger class="btn" id="" style="" type="button" objType="bSave" userAuth="C" ev:onclick="scwin.f_Create">
+    						<xf:label><![CDATA[생성]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_close" style="" title="엑셀 UP" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

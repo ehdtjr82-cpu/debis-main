@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dataList1">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dataList2">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dataList3">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="dataList4">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="code" name="code" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_hiddenMap">
+    				<w2:keyInfo>
+    					<w2:key id="hdoIdx" name="hdoIdx" dataType="text"></w2:key>
+    					<w2:key id="bhoIdx" name="bhoIdx" dataType="text"></w2:key>
+    					<w2:key id="offIdx" name="offIdx" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_test1" action="" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"dataList2","key":"OUT_DS1"}' target='data:json,{"id":"dataList2","key":"OUT_DS1"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_test1_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_test2" action="" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dataList3","key":"OUT_DS1"},{"id":"dataList4","key":"OUT_DS2"}]'
+    			target='data:json,[{"id":"dataList3","key":"OUT_DS1"},{"id":"dataList4","key":"OUT_DS2"}]' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_test2_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/sample/bind_create.js" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.pgmId = "ez_202_01_01b.jsp";
+scwin.onpageload = function() {
+    let pAdvcdGrpCd = "20200115003";
+    let pSeq = "1";
+	sbm_test1.action = "/ac.fm.paymgnt.paymgnt.RetreiveAdvancedPaymentAttachFileListCMD.do?advcdGrpCd="+pAdvcdGrpCd+"&seq="+pSeq;
+    $c.sbm.execute(sbm_test1);
+
+    let pClntNo = "255321";
+    let pSeq2 = "2";
+    sbm_test2.action = "/ac.fi.electaxinvc.RetreiveElecTaxinvcClntInfoAttachFileListCMD.do?clntNo="+pClntNo+"&seq="+pSeq2;
+    $c.sbm.execute(sbm_test2);
+
+    const codeOptions = [ 
+        {
+            method: "getGridComboNcall", 
+            param1: "OP199", 
+            param2: 2,
+            param3: "1",
+            param4: true,
+            compID: "lc_test1" 
+        },
+        {
+            method: "getGridComboByUpperCdNcall", 
+            param1: "OP199", 
+            param2: "J",
+            param3: true,
+            compID: "lc_test2" 
+        }
+    ];
+    $c.data.setGauceUtil(codeOptions); 
+
+    $c.data.cfAutoPopUpRun("810","530","1","retrieveExpireContractCnt","/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_52b.xml",$c.data.getMemInfo().userId);
+    //계약변경팝업_아래꺼 사용할꺼임
+    $c.data.cfAutoPopUpRun("810","530","1","retrieveExpireContractCnt","/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_53b.xml",$c.data.getMemInfo().userId);
+    
+
+    //계약만료 알림
+    WebSquare.cookie.setCookie("retrieveExpireContractCnt2", "false");
+    $c.data.cfAutoPopUpRun("810","530","1","retrieveExpireContractCnt2","/ui/cm/bc/rentloan/zz_900_01_09b.xml",$c.data.getMemInfo().userId);
+};
+
+//--------------------------------
+// 변환 onclick
+//--------------------------------
+scwin.btn_con_onclick = function (e) {
+    console.log(scwin.strCurDate);
+    let xmlText = txa_asis.getValue();
+    const bindObjects = scwin.extractObjectBlocks(xmlText).filter((obj) =>
+        /classid\s*=\s*["']?<%=\s*DGauceCLSID\.BIND\s*%>["']?/i.test(obj)
+    );
+    
+    const outputs = [];
+    
+    for (const objXml of bindObjects) {
+        const datasetId = scwin.extractParamValueLoose(objXml, "DataID"); // DataID 대소문자 무시
+        
+        console.log("[scwin.btn_con_onclick] datasetId: ", datasetId);
+
+        if (!datasetId) {
+            // datasetId 없으면 변환 불가 -> 그냥 스킵(원하면 throw로 바꿔도 됨)
+            continue;
+        }
+
+        const bindInfoRaw = scwin.extractParamValueLoose(objXml, "BindInfo");
+
+        console.log("[scwin.btn_con_onclick] bindInfoRaw: ", bindInfoRaw);
+
+        if (!bindInfoRaw) continue;
+
+        const cTags = scwin.extractCTags(bindInfoRaw);
+
+        console.log("[scwin.btn_con_onclick] cTags: ", cTags);
+
+        for (const cTag of cTags) {
+            const col = scwin.extractAttrFromCTag(cTag, "Col");
+            const ctrl = scwin.extractAttrFromCTag(cTag, "Ctrl");
+
+            console.log("[scwin.btn_con_onclick] col: ", col);
+            console.log("[scwin.btn_con_onclick] ctrl: ", ctrl);
+
+            if (!col || !ctrl) continue;
+
+            outputs.push(`${ctrl}.setRef("data:${datasetId}.${col}");`);
+        }
+    }
+    console.log("[scwin.btn_con_onclick] outputs: ", outputs);
+
+    txa_tobe.setValue(outputs.join("\n"));
+
+    // 복사
+    navigator.clipboard.writeText(txa_tobe.getValue())
+        .then(() => {
+            console.log('복사 완료');
+        })
+        .catch(err => {
+            console.error('복사 실패', err);
+        });
+}
+
+//--------------------------------
+// <object ...>...</object> 블록 추출 (대소문자 무시)
+//--------------------------------
+scwin.extractObjectBlocks = function (xmlText) {
+    const re = /<object\b[\s\S]*?<\/object>/gi;
+    const out = [];
+    let m;
+    while ((m = re.exec(xmlText)) !== null) out.push(m[0]);
+    return out;
+};
+
+//--------------------------------
+// <param name=DataID value=ds_srchCond> 같은 형태를 다 받아주는 파서
+// - name/value 모두 따옴표 유무 허용
+// - value가 따옴표로 감싸진 멀티라인도 허용 (BindInfo 케이스)
+//--------------------------------
+scwin.extractParamValueLoose = function (objectXml, wantedName) {
+    // <param ... name=... ... value=...> 를 name/value 기준으로 직접 찾는다.
+    // value가 '...' / "..." 로 감싸져 있으면 내부에 >, <, 줄바꿈이 있어도 안전하게 캡처됨.
+    const re = /<param\b[\s\S]*?\bname\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))[\s\S]*?\bvalue\s*=\s*(?:"([\s\S]*?)"|'([\s\S]*?)'|([^\s>]+))/gi;
+
+    let m;
+    while ((m = re.exec(objectXml)) !== null) {
+        const name = (m[1] ?? m[2] ?? m[3] ?? "").trim();
+        if (!name || name.toLowerCase() !== wantedName.toLowerCase()) continue;
+
+        const value = (m[4] ?? m[5] ?? m[6] ?? "").trim();
+        return value;
+    }
+    return "";
+};
+
+//--------------------------------
+// <param ...> 같은 단일 태그 문자열에서 attr 추출 (따옴표/무따옴표 모두)
+//--------------------------------
+scwin.extractAttrLooseFromTag = function (tagXml, attrName) {
+    // 1) "..." 2) '...' 3) 무따옴표(공백/ > 전까지)
+    // 단, BindInfo는 value=' ... ' 처럼 멀티라인이므로 '...' / "..."를 우선으로 잡는다.
+    const quotedRe = new RegExp(
+        `\\b${attrName}\\s*=\\s*(?:"([\\s\\S]*?)"|'([\\s\\S]*?)')`,
+        "i"
+    );
+    const qm = tagXml.match(quotedRe);
+    if (qm) return (qm[1] ?? qm[2] ?? "").trim();
+
+    const bareRe = new RegExp(`\\b${attrName}\\s*=\\s*([^\\s>]+)`, "i");
+    const bm = tagXml.match(bareRe);
+    if (bm) return (bm[1] ?? "").trim();
+
+    return "";
+}
+
+//--------------------------------
+// BindInfo 안에서 <C ...> ... </C> 조각들을 전부 추출
+// - C 태그 대소문자 무시
+// - 내부에 공백/줄바꿈 있어도 OK
+//--------------------------------
+scwin.extractCTags = function (bindInfoText) {
+    const re = /<\s*c\b[\s\S]*?<\/\s*c\s*>/gi;
+    const out = [];
+    let m;
+    while ((m = re.exec(bindInfoText)) !== null) out.push(m[0]);
+    return out;
+}
+
+//--------------------------------
+// <C> 내부에서 Col=... Ctrl=... 같은 속성 뽑기
+// - Col="lobranCd" / Col=lobranCd / col='lobranCd' 모두 OK
+//--------------------------------
+scwin.extractAttrFromCTag = function (cTagXml, attrName) {
+    // C 태그는 "속성"이 아니라 텍스트 형태로 들어있는 경우가 많아서
+    // 그냥 전체 문자열에서 attrName=... 패턴을 찾는다.
+    const re = new RegExp(
+        `\\b${attrName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s"'>]+))`,
+        "i"
+    );
+    const m = cTagXml.match(re);
+    return (m?.[1] ?? m?.[2] ?? m?.[3] ?? "").trim();
+}
+
+scwin.sbm_test1_submitdone = function (e) {
+    console.log("[sbm_test1_submitdone] : ", e);
+};
+
+scwin.sbm_test2_submitdone = function (e) {
+    console.log("[sbm_test2_submitdone] : ", e);
+};
+
+// commonCombo UDC carType일 시 callback 함수
+scwin.f_vehclNrm = function (value) {
+    console.log("[bind_create f_vehclNrm] value: ", value);
+};]]></script>
+    	<w2:require as="udc_commonCombo" type="page" variableClone="" src="/cm/udc/commonCombo.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="sub_contents" id="ss" style="">
+            <xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox id="" label="AS-IS" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td " style="" tagname="td">
+    							<xf:textarea id="txa_asis" style="width:1000px; height: 400px" tabIndex="1"></xf:textarea>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox id="" label="TO-BE" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td " style="" tagname="td">
+    							<xf:textarea id="txa_tobe" style="width:1000px; height: 400px" tabIndex="2"></xf:textarea>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="btn-shbox" id="" style="">
+    					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_con" style="" type="button"
+    						ev:onclick="scwin.btn_con_onclick">
+    						<xf:label><![CDATA[변환]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_tst" style="" type="button"
+    						ev:onclick="scwin.btn_tst_onclick">
+    						<xf:label><![CDATA[test]]></xf:label>
+    					</xf:trigger>
+
+    				</xf:group>
+    				<xf:select appearance="full" class="chk-grp" cols="" id="chb_functionYn" ref="" renderType="checkboxgroup" rows=""
+    					selectedindex="0" style="" ev:onchange="" ev:onviewchange="" tabIndex="3">
+    					<xf:choices>
+    						<xf:item>
+    							<xf:label><![CDATA[금액계산]]></xf:label>
+    							<xf:value><![CDATA[1]]></xf:value>
+    						</xf:item>
+    					</xf:choices>
+    				</xf:select>
+    				<w2:autoComplete editType="select" id="lc_test1" style="width:148px; height:21px; " submenuSize="auto" search="start"></w2:autoComplete>
+    				<w2:autoComplete editType="select" id="lc_test2" style="width:148px; height:21px; " submenuSize="auto" search="start"></w2:autoComplete>
+    				<w2:udc_commonCombo style="width:%; height:px; " cond="HOFC" code="code" refDataCollection="ds_search" refHiddenDataCollection="ds_hiddenMap"></w2:udc_commonCombo>
+                    <w2:udc_commonCombo style="width:%; height:px; " cond="carType" code="" refDataCollection="" refHiddenDataCollection=""></w2:udc_commonCombo>
+                    <w2:udc_commonCombo style="width:%; height:px; " cond="fCost" code="" refDataCollection="" refHiddenDataCollection="" cascadeTargetId="uncollNypay"></w2:udc_commonCombo>
+                    <w2:autoComplete editType="select" id="uncollNypay" style="width:148px; height:21px; " submenuSize="auto" search="start"
+                    	allOption="" chooseOption="" ref="">
+                    	<w2:choices>
+                    		<w2:item>
+                    			<w2:label><![CDATA[미수]]></w2:label>
+                    			<w2:value><![CDATA[0]]></w2:value>
+                    		</w2:item>
+                    		<w2:item>
+                    			<w2:label><![CDATA[미지급]]></w2:label>
+                    			<w2:value><![CDATA[1]]></w2:value>
+                    		</w2:item>
+                    	</w2:choices>
+                    </w2:autoComplete>
+    			</xf:group>
+
+            </xf:group>
+    	</xf:group>
+    </body>
+</html>

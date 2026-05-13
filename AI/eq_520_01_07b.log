@@ -1,0 +1,27 @@
+eq_520_01_07b.log
+
+[2026-02-18 23:08:30.376] 변환 시작
+[2026-02-18 23:08:30.386] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 23:09:20.315] #1 검증: XML: WebSquareXmlValidator: score=0.14, grade=C, verdict=REVIEW, errors=4, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=7 | LLM 49896ms, total 49929ms
+    - [XML] 'lc_homeClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_homeClsCd
+    - [XML] 'lc_fixWrkPlCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — lc_fixWrkPlCd
+    - [XML] scwin.ds_eq430_onloadcompleted에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.ds_eq430_onloadcompleted
+    - [XML] scwin.ds_eq430_onloadcompleted이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.ds_eq430_onloadcompleted
+    - [적정성] async 선언 누락 — scwin.ds_eq430_onloadcompleted (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.ds_eq430_onloadcompleted → $c.gus.cfAlertMsg
+[2026-02-18 23:09:20.347] #1 검증: 자동수정 3건 적용
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 23:09:20.383] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.23, grade=B, verdict=REVIEW, errors=2, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=7
+    - [XML] 'acb_homeClsCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — acb_homeClsCd
+    - [XML] 'acb_fixWrkPlCd'가 참조하는 데이터 'ds_search'가 dataCollection에 선언되지 않음 — acb_fixWrkPlCd
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_homeClsCd (LUXECOMBO→w2:autoComplete), lc_fixWrkPlCd (LUXECOMBO→w2:autoComplete)
+[2026-02-18 23:09:20.385] #2 재시도 (에러 6건)
+[2026-02-18 23:09:21.390] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 23:10:12.939] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A_PLUS, verdict=PASS, errors=0, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=0, warnings=7 | LLM 51515ms, total 51549ms
+[2026-02-18 23:10:12.941] 성공 (#2, 1m 42s, confidence:0.84)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

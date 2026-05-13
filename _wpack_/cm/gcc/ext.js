@@ -1,0 +1,363 @@
+/*amd /cm/gcc/ext.xml 17001 b10126b4cef416cc61f7fa995234c7077842a7496ca64c1cd1cb0f4216322f06 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',A:{},E:[{T:1,N:'w2:type',E:[{T:3,text:'COMMON'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:'scwin.downloadOzReport,scwin.openMultiOzReport,scwin.openMultiOzReport,scwin.openOzReport,scwin.printOzReport,scwin.runOzAgent,scwin.openBatchOzReport'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/**
+ * @component
+ * @componentName udc_ext
+ * @pluginName
+ * @company
+ * @developer
+ * @category /cm/gcc
+ * @notSupportBrowser
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description
+ * @width
+ * @height
+ * @license
+ * @imagePath
+ * @homepage
+ */
+scwin.getBaseOrigin = function ($p) {
+  var host = window.location.hostname;
+  if (host === 'localhost' || host === '127.0.0.1') return 'https://newdevdebis.dongwon.com';else if (host === 'newtestdebis.dongwon.com') return 'https://newdebis.dongwon.com';
+  return window.location.origin;
+};
+scwin.BASE_ORIGIN = scwin.getBaseOrigin($p);
+scwin.OZ_BASE = scwin.BASE_ORIGIN + "/oz90";
+scwin.SERVER_URL = scwin.OZ_BASE + "/server";
+
+/**
+ * @method
+ * @name openOzReport
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.openOzReport = function ($p, data, opts) {
+  //scwin.runOzAgent(data,opts);
+  scwin.runOzAgent2($p, data, opts);
+};
+
+/**
+ * @method
+ * @name openMultiOzReport
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.openMultiOzReport = function ($p, data, opts) {
+  opts.type = 'multi';
+  scwin.runOzAgent2($p, data, opts);
+};
+
+/**
+ * @method
+ * @name openBatchOzReport
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.openBatchOzReport = function ($p, data, opts) {
+  opts.type = 'sequential';
+  scwin.runOzAgent2($p, data, opts);
+};
+
+/**
+ * @method
+ * @name printOzReport
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.printOzReport = function ($p, data, opts) {
+  if (typeof opts == 'undefined') opts = {};
+  opts.type = 'print';
+  scwin.runOzAgent($p, data, opts);
+};
+
+/**
+ * @method
+ * @name downloadOzReport
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.downloadOzReport = function ($p, data, opts) {
+  if (typeof opts == 'undefined') opts = {};
+  opts.type = 'download';
+  scwin.runOzAgent($p, data, opts);
+};
+var setOzParamForm = function (OZUtil, formParam, cld) {
+  console.log('setOzParamForm', formParam, !cld ? cld = '' : '');
+  if (!formParam) formParam = {};
+  if (!formParam.pgmId) {
+    formParam.pgmId = $p.parent().tac_layout.contentsArr[$p.parent().tac_layout.getSelectedTabIndex()].dataObject.data.menuInfo.pgmId;
+  }
+  if (!formParam.reportTime) {
+    now = new Date();
+    formParam.reportTime = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')}` + ` ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  }
+  var keys = Object.keys(formParam);
+  OZUtil.setParameter(cld + 'connection.pcount', String(keys.length));
+  console.log('OZUtil.setParameter("' + cld + 'connection.pcount","' + keys.length + '");');
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var value = formParam[key];
+    var paramString = key + '=' + (value || '');
+    OZUtil.setParameter(cld + 'connection.args' + (i + 1), paramString);
+    console.log('OZUtil.setParameter("' + cld + 'connection.args' + (i + 1) + '","' + paramString + '");');
+  }
+};
+var setOzParam = function (OZUtil, data) {
+  var cnt = 'connection.';
+  var odi = 'odi.';
+  if (!data.odiName || data.odiName == '') data.odiName = data.reportName.substring(data.reportName.lastIndexOf('/') + 1).replace('.ozr', '');
+  if (data.displayName) OZUtil.setParameter(cnt + 'displayname', data.displayName);
+  console.log('OZUtil.setParameter(' + cnt + 'displayname,' + data.displayName + ');');
+  if (data.reportName) OZUtil.setParameter(cnt + "reportname", data.reportName);
+  console.log('OZUtil.setParameter(' + cnt + 'reportname,' + data.reportName + ');');
+  OZUtil.setParameter(odi + 'odinames', data.odiName);
+  console.log('OZUtil.setParameter(' + odi + 'odinames,' + data.odiName + ');');
+  OZUtil.setParameter(odi + data.odiName + '.pcount', Object.keys(data.odiParam).length.toString());
+  console.log('OZUtil.setParameter(' + odi + data.odiName + '.pcount,' + Object.keys(data.odiParam).length.toString() + ');');
+  if (data.odiParam) {
+    var odiKeys = Object.keys(data.odiParam);
+    odiKeys.forEach(function (key, idx) {
+      OZUtil.setParameter(odi + data.odiName + ".args" + (idx + 1), key + "=" + data.odiParam[key].toString());
+      console.log("OZUtil.setParameter(" + odi + data.odiName + ".args" + (idx + 1) + "," + key + "=" + data.odiParam[key] + ");");
+    });
+  }
+  if (data.formParam) setOzParamForm(OZUtil, data.formParam);
+};
+scwin.currentIndex = 0;
+scwin.runOzAgent2 = function ($p, data, opts) {
+  console.log('runOzAgent2', scwin.OZ_BASE, data, opts);
+  scwin.appendScript($p, scwin.OZ_BASE + '/exeviewer/ozwa.js', function () {
+    var OZUtil = start_OZUtil;
+    OZUtil.setOption({
+      host: 'localhost',
+      port: 25725,
+      protocol: 'https'
+    });
+    OZUtil.installViewer(1005, ztParam, installOZWebLauncher, function () {
+      OZUtil.setParameter('connection.servlet', scwin.OZ_BASE + '/server');
+      OZUtil.setParameter('information.debug', opts.informationDebug || 'true');
+      for (var key in opts) {
+        if (opts.hasOwnProperty(key)) {
+          var ozKey = key.replace(/([A-Z])/g, ".$1").toLowerCase();
+          var value = Array.isArray(opts[key]) ? opts[key][scwin.currentIndex] : opts[key];
+          OZUtil.setParameter(ozKey, value);
+          console.log('OZUtil.setParameter("' + ozKey + '","' + value + '");');
+        }
+      }
+      //if(!opts.viewerMode) OZUtil.setParameter('viewer.mode','export');
+      if (!opts.viewerUseprogressbar) OZUtil.setParameter('viewer.useprogressbar', 'true');
+      if (!opts.printMode) OZUtil.setParameter('print.mode', 'silent');
+      if (!opts.printPrintername) OZUtil.setParameter('print.printername', 'DEFAULT_PRINTER');
+      if (!opts.printSize) OZUtil.setParameter('print.size', 'A4');
+      if (!opts.printCopies) OZUtil.setParameter('print.copies', '1');
+      //if(!opts.exportFilename) OZUtil.setParameter('export.filename',''); // 다운로드 파일명
+      if (!opts.exportPath) OZUtil.setParameter('export.path', 'C:\\OZExport'); // 다운로드 경로
+      if (!opts.exportFormat) OZUtil.setParameter("export.format", 'pdf'); // 다운로드 파일타입
+      if (!opts.exportMode) OZUtil.setParameter('export.mode', 'silent'); // 미리보기 없이 저장
+      if (!opts.exportConfirmsave) OZUtil.setParameter('export.confirmsave', 'false'); // 파일저장확인메시지 출력여부
+
+      if (opts.type === 'sequential') {
+        OZUtil.setParameter('viewer.childcount', 1);
+        setOzParam(OZUtil, data[scwin.currentIndex]);
+      } else {
+        OZUtil.setParameter('viewer.childcount', data.length - 1); // 전체 리포트 개수 - 1
+        if (!opts.viewerFocus_doc_index) OZUtil.setParameter('viewer.focus_doc_index', 0); // 처음 보여지는 보고서 번호(0부터 시작)
+        if (!opts.viewerShowtree && data.length > 1) OZUtil.setParameter('viewer.showtree', 'true'); // 트리창 표시
+        if (!opts.viewerShowtree && data.length <= 1) OZUtil.setParameter('viewer.showtree', 'false'); // 트리창 표시
+        if (!opts.printAlldocument) OZUtil.setParameter('print.alldocument', 'true'); // 멀티 보고서 한번에 인쇄
+        if (!opts.globalConcatpage) OZUtil.setParameter('global.concatpage', 'true'); // 멀티 보고서를 하나의 보고서처럼 보여줌. 페이지 이어짐
+        if (!opts.globalInheritparameter) OZUtil.setParameter('global.inheritparameter', 'true'); // 첫번째 보고서의 파라미터 값을 상속 받음
+        if (!Array.isArray(data)) data = [data];
+        var cld = Array.from({
+          length: data.length
+        }, (v, i) => i === 0 ? '' : 'child' + i + '.');
+        var cnt = 'connection.';
+        var odi = 'odi.';
+        data.forEach(function (item, i) {
+          if (!item.odiName || item.odiName == '') item.odiName = item.reportName.substring(item.reportName.lastIndexOf('/') + 1).replace('.ozr', '');
+          if (item.displayName) OZUtil.setParameter(cld[i] + cnt + "displayname", item.displayName);
+          console.log("OZUtil.setParameter(" + cld[i] + cnt + "displayname," + item.displayName + ");");
+          if (item.reportName) OZUtil.setParameter(cld[i] + cnt + "reportname", item.reportName);
+          console.log("OZUtil.setParameter(" + cld[i] + cnt + "reportname," + item.reportName + ");");
+          OZUtil.setParameter(cld[i] + odi + "odinames", item.odiName);
+          console.log("OZUtil.setParameter(" + cld[i] + odi + "odinames," + item.odiName + ");");
+          OZUtil.setParameter(cld[i] + odi + item.odiName + ".pcount", Object.keys(item.odiParam).length.toString());
+          console.log('OZUtil.setParameter(' + cld[i] + odi + item.odiName + '.pcount,' + Object.keys(item.odiParam).length.toString() + ');');
+          if (item.odiParam) {
+            var odiKeys = Object.keys(item.odiParam);
+            odiKeys.forEach(function (key, idx) {
+              OZUtil.setParameter(cld[i] + odi + item.odiName + ".args" + (idx + 1), key + "=" + item.odiParam[key].toString());
+              console.log("OZUtil.setParameter(" + cld[i] + odi + item.odiName + ".args" + (idx + 1) + "," + key + "=" + item.odiParam[key] + ");");
+            });
+          }
+          if (item.formParam) setOzParamForm(OZUtil, item.formParam, cld[i]);
+        });
+      }
+      OZUtil.setOption({
+        "namespace": "debis"
+      });
+      OZUtil.setParameter("viewer.printcommand", true);
+      OZUtil.addEventListener("OZPrintCommand", function (msg, code, reportname, printername, printcopy, printpages, printrange, username, printerdrivername, printpagesrange) {
+        //console.log('OZProgressCommand',msg, code, reportname, printername, printcopy, printpages, printrange,username, printerdrivername, printpagesrange);
+      }, 'OZViewer');
+      OZUtil.setParameter("viewer.exportcommand", true);
+      OZUtil.addEventListener("OZExportCommand", function (code, path, filename, pagecount, filepaths) {
+        //console.log('OZProgressCommand',code, path, filename, pagecount, filepaths);
+      }, 'OZViewer');
+      OZUtil.setParameter("viewer.progresscommand", true);
+      OZUtil.addEventListener("OZProgressCommand", function (step, state, reportname) {
+        //console.log('OZProgressCommand',step,state,reportname);
+      }, 'OZViewer');
+      OZUtil.setParameter("viewer.exitcommand", true);
+      OZUtil.addEventListener("OZExitCommand", function () {
+        console.log('OZExitCommand', scwin.currentIndex, data.length);
+        if (opts.type != 'sequential') return;
+        scwin.currentIndex++;
+        if (scwin.currentIndex >= data.length) {
+          scwin.currentIndex = 0;
+          return;
+        }
+        scwin.runOzAgent2($p, data, opts);
+      }, 'OZViewer');
+      OZUtil.createViewer('OZViewer', function () {
+        console.log('OZUtil.createViewer()');
+      });
+    });
+  });
+};
+
+/**
+ * @method
+ * @name runOzAgent
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.runOzAgent = function ($p, data, opts) {
+  console.log('runOzAgent', data.odiName, scwin.OZ_BASE, data, opts);
+  scwin.appendScript($p, scwin.OZ_BASE + "/exeviewer/ozwa.js", function () {
+    var OZUtil = start_OZUtil;
+    OZUtil.setOption({
+      host: 'localhost',
+      port: 25725,
+      protocol: 'https'
+    });
+    if (opts.filename && !opts.exportFilename) opts.exportFilename = opts.filename;
+    var createOZViewer = function () {
+      OZUtil.setParameter('viewer.mode', 'preview');
+      OZUtil.setParameter('export.mode', '');
+      OZUtil.setParameter('export.confirmsave', 'true'); // 파일저장확인메시지 출력여부
+
+      if (opts.type == 'download') {
+        OZUtil.setParameter('viewer.useprogressbar', opts.viewerUseprogressbar || 'false');
+        OZUtil.setParameter('viewer.mode', opts.viewerMode ?? 'export'); // 미리보기 없이 저장
+      } else if (opts.type == 'print') {
+        OZUtil.setParameter('viewer.useprogressbar', opts.viewerUseprogressbar || 'false');
+        OZUtil.setParameter('viewer.mode', opts.viewerMode ?? 'print'); // 미리보기 없이 인쇄
+      }
+      if (opts.printMode && opts.printMode == 'view') {
+        // 설정창표시 sielnt, view
+        OZUtil.setParameter('print.mode', ''); // 인쇄설정창 silent, view
+        OZUtil.setParameter('print.printername', opts.printPrintername ?? ''); // 인쇄할 프린터
+      } else {
+        OZUtil.setParameter('print.mode', 'silent'); // 인쇄설정창 silent, view
+        OZUtil.setParameter('print.printername', opts.printPrintername ?? 'DEFAULT_PRINTER'); // 인쇄할 프린터
+      }
+      OZUtil.setParameter('print.copies', opts.printCopies || '1'); // 인쇄매수 1, 2, 3 ...
+      OZUtil.setParameter('print.size', opts.printSize || 'A4'); // 용지크기 A4, A5 ...
+
+      OZUtil.setParameter('export.filename', opts.exportFilename || ''); // 다운로드 파일명
+      OZUtil.setParameter('export.path', opts.exportPath ?? 'C:\\OZExport'); // 다운로드 경로
+      OZUtil.setParameter("export.format", opts.exportFormat || 'pdf'); // 다운로드 파일타입
+      OZUtil.setParameter('export.mode', opts.exportMode || 'silent'); // 미리보기 없이 저장
+      OZUtil.setParameter('export.confirmsave', opts.exportConfirmsave || 'false'); // 파일저장확인메시지 출력여부
+
+      OZUtil.setParameter('viewer.progresscommand', opts.viewerProgresscommand || 'false');
+      OZUtil.setParameter('viewer.printcommand', opts.viewerPrintcommand || 'false');
+      OZUtil.setParameter('viewer.exportcommand', opts.viewerExportcommand || 'false');
+      OZUtil.setParameter("connection.servlet", scwin.OZ_BASE + "/server");
+      var reportName = data.reportName || "";
+      OZUtil.setParameter("connection.reportname", reportName);
+      var odiParams = data.odiParam || {};
+      if (!data.odiName || data.odiName == '') data.odiName = reportName.substring(reportName.lastIndexOf("/") + 1).replace(".ozr", "");
+      var odiKeys = Object.keys(odiParams);
+      OZUtil.setParameter("odi.odinames", data.odiName);
+      console.log("OZUtil.setParameter(\"odi.odinames\", \"" + data.odiName + "\");");
+      OZUtil.setParameter("odi." + data.odiName + ".pcount", odiKeys.length.toString());
+      console.log("OZUtil.setParameter(\"odi." + data.odiName + ".pcount, \"" + odiKeys.length.toString() + "\");");
+      odiKeys.forEach(function (key, idx) {
+        OZUtil.setParameter("odi." + data.odiName + ".args" + (idx + 1), key + "=" + odiParams[key]);
+        console.log("OZUtil.setParameter(\"odi." + data.odiName + ".args" + (idx + 1) + "\", \"" + key + "=" + odiParams[key] + "\");");
+      });
+      OZUtil.setParameter("information.debug", "true");
+      if (data.formParam) setOzParamForm(OZUtil, data.formParam);
+      OZUtil.setOption({
+        "namespace": "debis"
+      });
+      OZUtil.createViewer("OZViewer", function () {
+        console.log('OZUtil.createViewer()');
+      });
+    };
+    OZUtil.installViewer(1005, ztParam, installOZWebLauncher, createOZViewer);
+  });
+};
+scwin.appendScript = function ($p, src, callback) {
+  var head = document.getElementsByTagName("head")[0];
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = src;
+  script.onload = function () {
+    if (typeof callback === "function") {
+      callback();
+    }
+  };
+  script.onerror = function () {
+    console.error("스크립트 로드 실패:", src);
+  };
+  head.appendChild(script);
+};
+var installOZWebLauncher = function () {
+  if (confirm('OZ 프로그램 설치가 필요합니다.\n프로그램 설치 후 다시 시도 하십시오.')) {
+    window.location.href = scwin.OZ_BASE + "/exeviewer/OZWebAgent/OffLine_Install_Dialog_UI_SSL.exe";
+  }
+};
+var ztParam = {
+  "InstallBase": "<PROGRAMS>/Forcs",
+  "InstallNamespace": "debis",
+  "DownloadServer": scwin.OZ_BASE + "/exeviewer/viewer/",
+  "DownloadPort": "443",
+  "DownloadInstruction": "ozrviewer.idf"
+};
+scwin.onpageload = function ($p) {};
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'}}]}]})

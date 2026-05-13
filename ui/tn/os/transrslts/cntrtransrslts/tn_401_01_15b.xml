@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="rsltDt" name="실적일자" dataType="text"></w2:key>
+    					<w2:key id="loBranchCd" name="배차지사" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="assgnLobranCd" name="소속지사코드" dataType="text"></w2:column>
+    					<w2:column id="assgnLobranNm" name="소속지사명" dataType="text"></w2:column>
+    					<w2:column id="vehCntPda" name="스마트폰장착" dataType="text"></w2:column>
+    					<w2:column id="vehCntNoPda" name="스마트폰미착" dataType="text"></w2:column>
+    					<w2:column id="vehTotCnt" name="총대수" dataType="text"></w2:column>
+    					<w2:column id="vehPdaRate" name="장착율" dataType="text"></w2:column>
+    					<w2:column id="indictCntPda" name="스마트폰지시" dataType="text"></w2:column>
+    					<w2:column id="indictCntNoPda" name="스마트미지시" dataType="text"></w2:column>
+    					<w2:column id="indictTotCnt" name="총건수" dataType="text"></w2:column>
+    					<w2:column id="indictPdaRate" name="스마트폰활용율" dataType="text"></w2:column>
+    					<w2:column id="returnPda" name="배차확인" dataType="text"></w2:column>
+    					<w2:column id="returnPdaRate" name="확인률" dataType="text"></w2:column>
+    					<w2:column id="dptRepo" name="출발보고" dataType="text"></w2:column>
+    					<w2:column id="dptRepoRate" name="출발보고율" dataType="text"></w2:column>
+    					<w2:column id="arvRepo" name="도착보고" dataType="text"></w2:column>
+    					<w2:column id="arvRepoRate" name="도착보고율" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ncall.tn.os.transrslts.cntrtransrslts.RetreiveVehclUsePrscondCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면 로딩
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.vCurDate = $c.date.getServerDateTime();
+    scwin.loUpperLobranCd = $c.gus.cfIsNull($c.data.getMemInfo("loUpperLobranCd"))? "" : $c.data.getMemInfo("loUpperLobranCd");
+
+	//공통코드 조회
+	const comboOptions = [
+        {
+            method : "getLuxeComboData", 
+            param1 : "WorkImplementEBC", 
+            param2 : "retriveLobran2CodeList",
+            param3 : ["1"],
+            compID : "acb_srchLobranCd" 
+        }
+    ];
+    $c.data.setGauceUtil(comboOptions);
+
+    ica_endDt.setValue(scwin.vCurDate);
+    
+};
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_fieldClear = function() {
+	console.log("scwin.f_fieldClear");
+	$c.gus.cfInitObjects(tbl_search);
+    ica_endDt.setValue(scwin.vCurDate);
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function() {
+	console.log("scwin.f_retrieve");
+    let chkVal = await $c.gus.cfValidate([tbl_search]);
+	if(!chkVal)         return ;
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 스마트폰활용현황 상세화면 페이지로 이동
+//-------------------------------------------------------------------------
+scwin.f_retrieveDetail = function(arg1, arg2) {
+    var data = {
+          assgnLobranCd : arg1
+        , endDt : arg2
+    };
+
+    var opts = {
+          id : "tn_401_01_15p"
+        , popupName : "스마트폰 활용현황 상세화면"
+        , type : "browserPopup" 
+        , title : "스마트폰활용상세현황"  
+        , width : 1200
+        , height : 600
+        , resizable : true
+    };
+
+  	$c.win.openPopup("/ui/tn/os/transrslts/cntrtransrslts/tn_401_01_15p.xml", opts, data);
+}
+
+//-------------------------------------------------------------------------
+// Formatter > 강제 값 설정
+//-------------------------------------------------------------------------
+scwin.f_displayFormatter = function (data) {
+    if(ds_master.getTotalRow() == 0)        return "";
+    else if(data == "NaN" || data == "0")   return "0";
+    else {
+        if(WebSquare.util.isInteger(data)) data = data+".00";
+        else                               data = String($c.num.round(data, 3))
+
+        let chk = data.split(".");
+        if(chk[1].length == 3) data = chk[0]+"."+chk[1].substring(0, 2);
+        
+        return data;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+//조회 완료
+scwin.sbm_retrieve_submitdone = function(e) {
+    console.log("scwin.sbm_retrieve_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    var rowCnt = ds_master.getTotalRow();
+	spn_totalRow.setValue(rowCnt);
+	
+    if(rowCnt == 0) {
+        $c.win.alert("조회된 데이터가 없습니다.");
+	    return;
+	}	
+};
+
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+//조회조건 clear 버튼
+scwin.btn_clear_onclick = function (e) {
+    console.log("scwin.btn_clear_onclick");
+    scwin.f_fieldClear();
+};
+
+//조회 버튼
+scwin.btn_search_onclick = function (e) {
+    console.log("scwin.btn_search_onclick");
+    scwin.f_retrieve(); 
+};
+
+//그리드 더블 클릭 > 팝업 호출 
+scwin.gr_master_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    if(rowIndex < 0) return;
+
+    if(columnId == "indictTotCnt") {
+        scwin.f_retrieveDetail(ds_master.getCellData(rowIndex, "assgnLobranCd"), ica_endDt.getValue());
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="실적일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_endDt" pickerType="dynamic"
+    								style="" ref="data:dma_search.rsltDt" mandatory="true" title="실적일자">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="배차지사" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_srchLobranCd" search="start" style="width:200px;"
+    								submenuSize="auto" searchTarget="value" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="data:dma_search.loBranchCd" visibleRowNum="20">
+    								<w2:choices></w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="차량운영 현황" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_master" grdDownOpts='{"fileName" : "스마트폰활용현황.xlsx", "sheetName" : "스마트폰활용현황", "type":"4+8+16", "useSubTotal":"true", "useSubTotalData" : "true"}' gridDownUserAuth="X" btnUser="Y"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_master" id="gr_master" style=""
+    					visibleRowNum="15" visibleRowNumFix="true" dataDragDrop="true" dataDragSelect="true" dataDragSelectAutoScroll="true"
+    					ev:oncelldblclick="scwin.gr_master_oncelldblclick" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="소속지사코드" width="150" colSpan=""
+    								rowSpan="2" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="소속지사명" width="100" colSpan=""
+    								rowSpan="2" sortable="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="장착현황" width="350" colSpan="4"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" style="" value="배차지시현황" width="280" colSpan="4"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="490" inputType="text" style="" id="column43" value="응답현황" displayMode="label" colSpan="6"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row4">
+    							<w2:column width="120" inputType="text" style="" id="column58" value="스마트폰장착" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column57" value="스마트폰미착" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column56" value="총대수" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column69" value="장착율(%)" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column54" value="스마트폰지시" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column53" value="스마트미지시" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column52" value="총건수" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column51" value="스마트폰활용율" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column50" value="배차확인" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column49" value="확인률" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column48" value="출발보고" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column47" value="출발보고율" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column46" value="도착보고" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column62" value="도착보고율" displayMode="label"
+    								sortable="false">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="assgnLobranCd" inputType="text" style="" value="" width="150"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="assgnLobranNm" inputType="text" style="" value="" width="100"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="vehCntPda" inputType="text" style="" value="" width="120"
+    								dataType="number" excelCellType="number" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column displayMode="label" id="vehCntNoPda" inputType="text" style="" value="" width="120" excelCellType="number" dataType="number"></w2:column>
+    							<w2:column displayMode="label" id="vehTotCnt" inputType="text" style="" value="" width="70" excelCellType="number" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="vehPdaRate" value="" displayMode="label"
+    								dataType="number" displayFormat="#,##0.#0" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="indictCntPda" inputType="text" style="" value="" width="120" excelCellType="number" dataType="number" displayFormatter="#,###"></w2:column>
+    							<w2:column displayMode="label" id="indictCntNoPda" inputType="text" style="" value="" width="120" excelCellType="number" displayFormatter="#,###" dataType="number"></w2:column>
+    							<w2:column displayMode="label" id="indictTotCnt" inputType="link" style="" value="" width="70"
+    								class="linktype" excelCellType="number" dataType="number" displayFormatter="#,###">
+    							</w2:column>
+    							<w2:column displayMode="label" id="indictPdaRate" inputType="text" style="" value="" width="120"
+    								dataType="number" displayFormat="#,##0.#0" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="returnPda" value="" displayMode="label" excelCellType="number" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="returnPdaRate" value="" displayMode="label"
+    								dataType="number" displayFormat="#,##0.#0" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="dptRepo" value="" displayMode="label" excelCellType="number" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="dptRepoRate" value="" displayMode="label"
+    								dataType="number" displayFormat="#,##0.#0" excelCellType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="arvRepo" value="" displayMode="label" excelCellType="number" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="arvRepoRate" value="" displayMode="label"
+    								dataType="number" displayFormat="#,##0.#0" excelCellType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row3">
+    							<w2:column width="150" inputType="text" style="" id="column28" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column29" value="합계" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="expression" style="" id="vehCntPdaSum" value="" displayMode="label"
+    								expression="sum('vehCntPda')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="120" inputType="expression" style="" id="column31" value="" displayMode="label"
+    								expression="sum('vehCntNoPda')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="vehTotCntSum" value="" displayMode="label"
+    								expression="sum('vehTotCnt')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column71" value="" displayMode="label"
+    								expression="Number(sum('vehCntPda')/sum('vehTotCnt')*100)"
+    								dataType="number" displayFormatter="scwin.f_displayFormatter">
+    							</w2:column>
+    							<w2:column width="120" inputType="expression" style="" id="column34" value="" displayMode="label"
+    								expression="sum('indictCntPda')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="120" inputType="expression" style="" id="column35" value="" displayMode="label"
+    								expression="sum('indictCntNoPda')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column36" value="" displayMode="label"
+    								expression="sum('indictTotCnt')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column37" value="" displayMode="label" dataType="number" 
+                                    expression="Number(sum('indictCntPda')/sum('indictTotCnt')*100)" displayFormatter="scwin.f_displayFormatter">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column38" value="" displayMode="label"
+    								expression="sum('returnPda')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column39" value="" displayMode="label"
+    								dataType="number" expression="Number(sum('returnPda')/sum('indictCntPda')*100)" displayFormatter="scwin.f_displayFormatter">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column40" value="" displayMode="label"
+    								expression="sum('dptRepo')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column41" value="" displayMode="label"
+    								dataType="number" expression="Number(sum('dptRepo')/sum('indictCntPda')*100)" displayFormatter="scwin.f_displayFormatter">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column42" value="" displayMode="label"
+    								expression="sum('arvRepo')" displayFormat="#,###">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column43" value="" displayMode="label"
+    								dataType="number" expression="Number(sum('arvRepo')/sum('indictCntPda')*100)" displayFormat="#,##0.#0" displayFormatter="scwin.f_displayFormatter">
+    							</w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spn_totalRow" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

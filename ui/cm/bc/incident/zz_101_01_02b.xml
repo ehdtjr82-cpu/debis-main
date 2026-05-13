@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_searchDayMst">
+    				<w2:keyInfo>
+    					<w2:key id="sndDttmFrom" name="sndDttmFrom" dataType="text"></w2:key>
+    					<w2:key id="sndDttmTo" name="sndDttmTo" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_searchMonthly">
+    				<w2:keyInfo>
+    					<w2:key id="sndMonthlyFrom" name="sndMonthlyFrom" dataType="text"></w2:key>
+    					<w2:key id="sndMonthlyTo" name="sndMonthlyTo" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_searchDayDtl">
+    				<w2:keyInfo>
+    					<w2:key id="schGb" name="schGb" dataType="text"></w2:key>
+    					<w2:key id="requestTime" name="requestTime" dataType="text"></w2:key>
+    					<w2:key id="valueCheck" name="valueCheck" dataType="text"></w2:key>
+    					<w2:key id="toSendNumber" name="toSendNumber" dataType="text"></w2:key>
+    					<w2:key id="kTemplateCode" name="kTemplateCode" dataType="text"></w2:key>
+    					<w2:key id="msgText" name="msgText" dataType="text"></w2:key>
+    					<w2:key id="msgType" name="msgType" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_searchQueue">
+    				<w2:keyInfo>
+    					<w2:key id="schGb" name="schGb" dataType="text"></w2:key>
+    					<w2:key id="requestTime" name="requestTime" dataType="text"></w2:key>
+    					<w2:key id="valueCheck" name="valueCheck" dataType="text"></w2:key>
+    					<w2:key id="toSendNumber" name="toSendNumber" dataType="text"></w2:key>
+    					<w2:key id="kTemplateCode" name="kTemplateCode" dataType="text"></w2:key>
+    					<w2:key id="msgText" name="msgText" dataType="text"></w2:key>
+    					<w2:key id="msgType" name="msgType" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ListDayMst" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="requestTime" name="requestTime" dataType="text"></w2:column>
+    					<w2:column id="sucSms" name="sucSms" dataType="text"></w2:column>
+    					<w2:column id="failSms" name="failSms" dataType="text"></w2:column>
+    					<w2:column id="sumSms" name="sumSms" dataType="text"></w2:column>
+    					<w2:column id="sucMms" name="sucMms" dataType="text"></w2:column>
+    					<w2:column id="failMms" name="failMms" dataType="text"></w2:column>
+    					<w2:column id="sumMms" name="sumMms" dataType="text"></w2:column>
+    					<w2:column id="sucTalk" name="sucTalk" dataType="text"></w2:column>
+    					<w2:column id="failTalk" name="failTalk" dataType="text"></w2:column>
+    					<w2:column id="sumTalk" name="sumTalk" dataType="text"></w2:column>
+    					<w2:column id="totalCnt" name="totalCnt" dataType="text"></w2:column>
+    					<w2:column id="chkCnt" name="chkCnt" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ListDayDtl" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="requestTime" name="requestTime" dataType="text"></w2:column>
+    					<w2:column id="msgType" name="msgType" dataType="text"></w2:column>
+    					<w2:column id="stat" name="stat" dataType="text"></w2:column>
+    					<w2:column id="result" name="result" dataType="text"></w2:column>
+    					<w2:column id="codeDesc" name="codeDesc" dataType="text"></w2:column>
+    					<w2:column id="sendTime" name="sendTime" dataType="text"></w2:column>
+    					<w2:column id="reportTime" name="reportTime" dataType="text"></w2:column>
+    					<w2:column id="tcprecvTime" name="tcprecvTime" dataType="text"></w2:column>
+    					<w2:column id="kTemplateCode" name="kTemplateCode" dataType="text"></w2:column>
+    					<w2:column id="dstaddr" name="dstaddr" dataType="text"></w2:column>
+    					<w2:column id="callback" name="callback" dataType="text"></w2:column>
+    					<w2:column id="text" name="text" dataType="text"></w2:column>
+    					<w2:column id="telecom" name="telecom" dataType="text"></w2:column>
+    					<w2:column id="mseq" name="mseq" dataType="text"></w2:column>
+    					<w2:column id="pseq" name="pseq" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ListMonthly" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="requestTime" name="requestTime" dataType="text"></w2:column>
+    					<w2:column id="sucSms" name="sucSms" dataType="text"></w2:column>
+    					<w2:column id="failSms" name="failSms" dataType="text"></w2:column>
+    					<w2:column id="sumSms" name="sumSms" dataType="text"></w2:column>
+    					<w2:column id="sucMms" name="sucMms" dataType="text"></w2:column>
+    					<w2:column id="failMms" name="failMms" dataType="text"></w2:column>
+    					<w2:column id="sumMms" name="sumMms" dataType="text"></w2:column>
+    					<w2:column id="sucTalk" name="sucTalk" dataType="text"></w2:column>
+    					<w2:column id="failTalk" name="failTalk" dataType="text"></w2:column>
+    					<w2:column id="sumTalk" name="sumTalk" dataType="text"></w2:column>
+    					<w2:column id="totalCnt" name="totalCnt" dataType="text"></w2:column>
+    					<w2:column id="chkCnt" name="chkCnt" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ListQueue" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="requestTime" name="requestTime" dataType="text"></w2:column>
+    					<w2:column id="msgType" name="msgType" dataType="text"></w2:column>
+    					<w2:column id="stat" name="stat" dataType="text"></w2:column>
+    					<w2:column id="result" name="result" dataType="text"></w2:column>
+    					<w2:column id="codeDesc" name="codeDesc" dataType="text"></w2:column>
+    					<w2:column id="sendTime" name="sendTime" dataType="text"></w2:column>
+    					<w2:column id="reportTime" name="reportTime" dataType="text"></w2:column>
+    					<w2:column id="tcprecvTime" name="tcprecvTime" dataType="text"></w2:column>
+    					<w2:column id="kTemplateCode" name="kTemplateCode" dataType="text"></w2:column>
+    					<w2:column id="dstaddr" name="dstaddr" dataType="text"></w2:column>
+    					<w2:column id="callback" name="callback" dataType="text"></w2:column>
+    					<w2:column id="text" name="text" dataType="text"></w2:column>
+    					<w2:column id="telecom" name="telecom" dataType="text"></w2:column>
+    					<w2:column id="mseq" name="mseq" dataType="text"></w2:column>
+    					<w2:column id="pseq" name="pseq" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchDayMst" action="/cm.bc.incident.RetrieveSMSDailyStaticsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_searchDayMst","key":"IN_DS1"},{"id":"ds_ListDayMst","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_ListDayMst","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchDayMst_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchDayDtl" action="/cm.bc.incident.TransmissionHistoryCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_searchDayDtl","key":"IN_DS1"},{"id":"ds_ListDayDtl","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_ListDayDtl","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchDayDtl_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchMonthly" action="/cm.bc.incident.RetrieveSMSMonthlyStaticsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_searchMonthly","key":"IN_DS1"},{"id":"ds_ListMonthly","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_ListMonthly","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchMonthly_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchQueue" action="/cm.bc.incident.TransmissionHistoryCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_searchQueue","key":"IN_DS1"},{"id":"ds_ListQueue","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_ListQueue","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchQueue_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// scwin.memJson = $c.data.getMemInfo();
+// scwin.userId = scwin.memJson.userId;
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+scwin.monthDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMM");
+
+scwin.onpageload = function() {
+    scwin.f_initSetTab(); //tab세팅
+
+    // setQueryConditionHeader();
+
+};
+
+const codeOptions1 = [
+    { method: "getLuxeComboData"
+    , param1: "SMSstaticsEBC"
+    , param2: "retriveTemplateCodeList"
+    , param3: [""]
+    , compID: "lc_kTemplateCode, lc_queue_kTemplateCode" 
+    },
+];
+$c.data.setGauceUtil(codeOptions1);
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+    ica_sndDttmFrom.setValue(scwin.currDate);
+    ica_sndDttmTo.setValue(scwin.currDate);
+};
+
+// Tab 초기화
+scwin.f_initSetTab = function() {
+    // $c.gus.cfEnableObjects([tr_tab_center0, tr_tab_center1, tr_tab_center2]);
+    // $c.gus.cfViewTab(0);
+};
+
+// 일자별 조회
+scwin.f_RetrieveDay = function() {
+    // ed_msgText.getValue();
+    var vsndDttmFrom = ica_sndDttmFrom.getValue();
+    var vsndDttmTo = ica_sndDttmTo.getValue();
+    
+    if (vsndDttmFrom == "" || vsndDttmFrom.length < 1) {
+        // ica_sndDttmFrom.Text = fromdate;
+        ica_sndDttmFrom.setValue(scwin.currDate);
+    }
+    if (vsndDttmTo == "" || vsndDttmTo.length < 1) {
+        // ica_sndDttmTo.Text = todate;
+        ica_sndDttmTo.setValue(scwin.currDate);
+    }
+
+    if (vsndDttmFrom != "" && vsndDttmTo != "") {
+        if (vsndDttmFrom > vsndDttmTo) {
+            $c.win.alert("날짜를 다시 확인하세요");
+            return false;
+        }
+    }
+    
+    // ds_ListDayDtl.ClearData();
+    // tr_searchDayMst.Post();
+    ds_ListDayDtl.setJSON([]);
+    $c.sbm.execute(sbm_searchDayMst);
+};
+
+// 월별 조회
+scwin.f_RetrieveMonthly = async function() {
+
+    // scwin.fromdate = scwin.currDate;
+    // scwin.todate = scwin.currDate;
+    // scwin.monthfromdate = scwin.monthDate;
+
+    var vsndDttmFrom = ica_sndMonthlyFrom.getValue();
+    var vsndDttmTo = ica_sndMonthlyTo.getValue();
+    
+    if (vsndDttmFrom == "" || vsndDttmFrom.length < 1) {
+        await $c.win.alert("요청월을 다시 확인하세요");
+        return ;
+    }
+    if (vsndDttmTo == "" || vsndDttmTo.length < 1) {
+        await $c.win.alert("요청월을 다시 확인하세요");
+        return ;
+    }
+
+    if (vsndDttmFrom != "" && vsndDttmTo != "") {
+        if (vsndDttmFrom > vsndDttmTo) {
+            await $c.win.alert("날짜를 다시 확인하세요");
+            return false;
+        }
+    }
+
+    dma_searchMonthly.set("sndMonthlyFrom", vsndDttmFrom + "01");
+    dma_searchMonthly.set("sndMonthlyTo", vsndDttmTo + "01");
+
+    $c.sbm.execute(sbm_searchMonthly);
+};
+
+scwin.f_RetrieveToSendNumber = function() {
+
+    // if (ds_ListDayDtl.CountRow == 0 && dma_searchDayDtl.set( "valueCheck") == "") {
+    if (ds_ListDayDtl.getRowCount() == 0 && dma_searchDayDtl.get("valueCheck") == "") {
+        return;
+    }
+    
+    // dma_searchDayDtl.set("toSendNumber", ed_toSendNumber.getValue());
+    // dma_searchDayDtl.set("kTemplateCode", lc_kTemplateCode.getValue());
+    // tr_searchDayDtl.post();
+    $c.sbm.execute(sbm_searchDayDtl);
+}
+
+//MSG_QUEUE 조회
+scwin.f_RetrieveQueue = function() {
+    // ds_searchQueue.set("schGb") = "2";//1:전송상세내역 2:MSG_QUEUE조회
+    // tr_searchQueue.post();
+    dma_searchQueue.set("schGb", "2");
+    $c.sbm.execute(sbm_searchQueue);
+}
+
+//-------------------------------------------------------------------------
+// 그룹코드 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel1 = async function(pGrid,pSheetNm,pXlsFileNm,pDate) {
+    //excel 1
+    let cntRow = ds_ListDayMst.getRowCount();
+    if(cntRow == 0)
+        return;
+
+    let fileName = "일자별 전송 통계 현황";
+    let options = 
+    {
+        fileName : fileName+".xlsx",
+        sheetName : fileName,
+        useSubTotal: "true", 
+        useSubTotalData : "true",
+        startRowIndex : 3,
+        startColumnIndex : 0,
+        type :1
+    };
+
+    var infoArr = 
+    [{
+        rowIndex : 0, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 12, 
+        text : fileName , 
+        textAlign : "center",
+        fontSize : 12,
+        drawBorder:false
+    },
+    {
+        rowIndex : 2, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 12, 
+        text : "(기간 "+ ica_sndDttmFrom.getValue() + "-" + ica_sndDttmTo.getValue() + ")" , 
+        textAlign : "left",
+        fontSize : 12,
+        drawBorder:false
+    }];
+    await $c.data.downloadGridViewExcel(gr_ListDayMst, options, infoArr);    
+};
+
+scwin.f_toExcel2 = async function(pGrid,pSheetNm,pXlsFileNm,pDate) {
+    let cntRow = ds_ListDayDtl.getRowCount();
+    if(cntRow == 0)
+        return;
+
+    let fileName = "전송 내역 현황";
+    let options = 
+    {
+        fileName : fileName+".xlsx",
+        sheetName : fileName,
+        useSubTotal: "true", 
+        useSubTotalData : "true",
+        startRowIndex : 2,
+        startColumnIndex : 0,
+        type :1
+    };
+
+    var infoArr = 
+    [{
+        rowIndex : 0, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 8, 
+        text : fileName , 
+        textAlign : "center",
+        fontSize : 12,
+        drawBorder:false
+    }];
+    await $c.data.downloadGridViewExcel(gr_ListDayDtl, options, infoArr);    
+};
+
+scwin.f_toExcel3 = async function(pGrid,pSheetNm,pXlsFileNm,pDate) {
+    let cntRow = ds_ListMonthly.getRowCount();
+    if(cntRow == 0)
+        return;
+
+    let fileName = "월별  전송 통계 현황";
+    let options = 
+    {
+        fileName : fileName+".xlsx",
+        sheetName : fileName,
+        useSubTotal: "true", 
+        useSubTotalData : "true",
+        startRowIndex : 3,
+        startColumnIndex : 0,
+        type :1
+    };
+    let infoArr = 
+    [{
+        rowIndex : 0, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 12, 
+        text : fileName , 
+        textAlign : "center",
+        fontSize : 12,
+        drawBorder:false
+    },
+    {
+        rowIndex : 2, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 12, 
+        text : "(기간 "+ica_sndMonthlyFrom.getValue() +"-"+ica_sndMonthlyTo.getValue() +")", 
+        textAlign : "left",
+        fontSize : 12,
+        drawBorder:false
+    }];
+    await $c.data.downloadGridViewExcel(gr_ListMonthly, options, infoArr);    
+};
+
+scwin.f_toExcel4 = async function() {
+    let cntRow = ds_ListQueue.getRowCount();
+    if(cntRow == 0)
+        return;
+
+    let fileName = "MSS_GUEUE 현황";
+    let options = 
+    {
+        fileName : fileName+".xlsx",
+        sheetName : fileName,
+        useSubTotal: "true", 
+        useSubTotalData : "true",
+        startRowIndex : 2,
+        startColumnIndex : 0,
+        type :1
+    };
+
+    let infoArr = 
+    [{
+        rowIndex : 0, 
+        colIndex : 0, 
+        rowSpan : 1,
+        colSpan : 12, 
+        text : fileName , 
+        textAlign : "center",
+        fontSize : 12,
+        drawBorder:false
+    }];
+    await $c.data.downloadGridViewExcel(gr_ListQueue, options, infoArr);    
+};
+
+scwin.dataSetDebug = function(dataSet, isDebug) {
+    if (isDebug == true) {
+        var obj = dataSet;
+        var str = "[[[[" + obj.id + "]]]]]\n";
+        for (var dsRow = 1; dsRow <= obj.CountRow; dsRow++) {
+            for (var dsCol = 1; dsCol <= obj.CountColumn; dsCol++) {
+                str += "[" + obj.ColumnId(dsCol) + "] "
+                        + obj.NameValue(dsRow, obj.ColumnId(dsCol)) + ", "
+            }
+            str += "\n\n";
+        }
+        alert(str);
+    }
+};
+
+
+scwin.tab_sms_ontabclick = function (tabId, index) {
+
+};
+
+scwin.tab_sms_ontabload = function (tabId, index, userId) {
+    if(index == 1) {
+        ica_sndMonthlyFrom.setValue(scwin.monthDate);
+        ica_sndMonthlyTo.setValue(scwin.monthDate);
+    }
+};
+
+scwin.gr_searchDayMst_oncelldblclick = function (rowIndex, columnIndex, colid) {
+	dma_searchDayDtl.set("requestTime", ds_ListDayMst.getCellAllData(rowIndex,"requestTime"));
+	dma_searchDayDtl.set("schGb", "1");
+	
+	if (colid == "requestTime") {
+		return;
+	}
+			
+	if (ds_ListDayMst.getCellAllData(rowIndex,colid) < 1) {
+		return;
+	}
+    
+	if (colid == "sucSms" || colid == "failSms" || colid == "sumSms") {
+		dma_searchDayDtl.set( "msgType","1");
+	} else if (colid == "sucMms" || colid == "failMms" || colid == "sumMms") {
+		dma_searchDayDtl.set( "msgType","3");
+	} else if (colid == "sucTalk" || colid == "failTalk" || colid == "sumTalk") {
+		dma_searchDayDtl.set( "msgType","6");
+	} else if (colid == "totalCnt" || colid == "chkCnt") {
+		dma_searchDayDtl.set( "msgType","");
+		if (colid == "totalCnt") {
+			dma_searchDayDtl.set("valueCheck","TOT");
+		} else if(colid == "chkCnt") {
+			dma_searchDayDtl.set("valueCheck","CHK");
+		}
+	}
+	if (colid == "sucSms" || colid == "sucMms" || colid == "sucTalk") {
+		dma_searchDayDtl.set( "valueCheck","S");
+	} else if (colid == "failSms" || colid == "failMms" || colid == "failTalk") {
+		dma_searchDayDtl.set( "valueCheck","F");
+	} else if (colid == "sumSms" || colid == "sumMms" || colid == "sumTalk") {
+		dma_searchDayDtl.set( "valueCheck","");
+	}
+    $c.sbm.execute(sbm_searchDayDtl);
+};
+
+scwin.sbm_searchDayMst_submitdone = function (e) {
+    var rowCnt = ds_ListDayMst.getRowCount();
+	spanTotal1.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_ListDayMst.setFocusedCell(0, 0);
+};
+
+scwin.sbm_searchDayDtl_submitdone = function (e) {
+    var rowCnt = ds_ListDayDtl.getRowCount();
+	spanTotal2.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_ListDayDtl.setFocusedCell(0, 0);
+};
+
+scwin.sbm_searchMonthly_submitdone = function (e) {
+    var rowCnt = ds_ListMonthly.getRowCount();
+	spanTotal3.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_ListMonthly.setFocusedCell(0, 0);
+};
+
+scwin.sbm_searchQueue_submitdone = function (e) {
+    var rowCnt = ds_ListQueue.getRowCount();
+	spanTotal4.setLabel(rowCnt);
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    }
+    gr_ListQueue.setFocusedCell(0, 0);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="tabbox" id="" style="">
+    			<xf:group class="wq_tab" id="">
+    				<w2:tabControl alwaysDraw="false" class="" id="tab_sms" style="" ev:ontabclick="scwin.tab_sms_ontabclick" ev:ontabload="scwin.tab_sms_ontabload">
+    					<w2:tabs disabled="false" id="tabs1" label="일별 전송 통계 현황" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs2" label="월별 전송 통계 현황" style=""></w2:tabs>
+    					<w2:tabs disabled="false" id="tabs3" label="MSG_QUEUE" style=""></w2:tabs>
+    					<w2:content alwaysDraw="false" id="content1" style="">
+    					<xf:group id="" class="round-box "><xf:group style="" id="" class="shbox">
+    								<xf:group style="" id="" class="shbox-inner">
+    									<xf:group tagname="table" style="" id="" class="w2tb ">
+    										<w2:attributes>
+    											<w2:summary></w2:summary>
+    										</w2:attributes>
+    										<xf:group tagname="colgroup">
+    											<xf:group tagname="col" style="width:70px;"></xf:group>
+    											<xf:group tagname="col" style=""></xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr" style="" id="" class="">
+    											<xf:group tagname="th" style="" class="w2tb_th ">
+    												<w2:textbox style="" id="" label="요청일자 " class=""></w2:textbox>
+    											</xf:group>
+    											<xf:group tagname="td" style="" class="w2tb_td">
+    												<w2:udc_fromToCalendar refStDt="sndDttmFrom" refDataMap="dma_searchDayMst" style="" id="udc_fromToCalendar2" refEdDt="sndDttmTo" edFromId="ica_sndDttmFrom" edToId="ica_sndDttmTo">
+    												</w2:udc_fromToCalendar>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group style="" id="" class="btn-shbox">
+    									<xf:trigger disabled="" style="" id="btn_RetrieveDay" type="button" class="btn sch" escape="false" ev:onclick="scwin.f_RetrieveDay">
+    										<xf:label><![CDATA[조회]]></xf:label>
+    									</xf:trigger>
+    								</xf:group>
+    							</xf:group><xf:group style="" id="" class="title-wrap">
+    								<xf:group style="" id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="" label="일별 전송 통계 현황" class="tit"></w2:textbox>
+    								</xf:group>
+    								<xf:group id="" class="right">
+    									<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_toExcel1" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_ListDayMst" id="udc_ListDayMst"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+	<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox ">
+    								<w2:gridView scrollByColumnAdaptive="false" focusMode="cell" visibleRowNumFix="true"
+    									dataList="data:ds_ListDayMst" scrollByColumn="false" style="" id="gr_ListDayMst" sortable="false"
+    									visibleRowNum="6" class="wq_gvw" checkReadOnlyOnPasteEnable="" ev:oncelldblclick="scwin.gr_searchDayMst_oncelldblclick" readOnly="true">
+    									<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    									<w2:header style="" id="header2">
+    										<w2:row style="" id="row6">
+    											<w2:column rowSpan="2" colSpan="" width="150" inputType="text" style="" id="column62"
+    												value="요청일자" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column rowSpan="" colSpan="3" width="210" inputType="text" style="" id="column61"
+    												value="SMS" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column rowSpan="" colSpan="3" width="210" inputType="text" style="" id="column58"
+    												value="MMS" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column rowSpan="" colSpan="3" width="210" inputType="text" style="" id="column55"
+    												value="알림톡" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column rowSpan="2" colSpan="" width="150" inputType="text" style="" id="column52"
+    												value="총건수" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column rowSpan="2" colSpan="" width="170" inputType="text" style="" id="column51"
+    												value="전송일다른경우" displayMode="label" sortable="true">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    											<w2:column removeBorderStyle="false" width="120" inputType="text" id="column11" value="성공"
+    												blockSelect="false" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="120" inputType="text" id="column10" value="실패"
+    												blockSelect="false" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="120" inputType="text" id="column9" value="합계"
+    												blockSelect="false" displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="column21" value="성공" displayMode="label" sortable="true"></w2:column>
+    											<w2:column width="120" inputType="text" id="column19" value="실패" displayMode="label" sortable="true"></w2:column>
+    											<w2:column width="120" inputType="text" id="column17" value="합계" displayMode="label" sortable="true"></w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column44" value="성공"
+    												displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column41" value="실패"
+    												displayMode="label" sortable="true">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column38" value="합계"
+    												displayMode="label" sortable="true">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody style="" id="gBody2">
+    										<w2:row style="" id="row4">
+    											<w2:column removeBorderStyle="false" width="150" inputType="text" id="requestTime"
+    												blockSelect="false" displayMode="label" dataType="date" displayFormat="yyyy.MM.dd">
+    											</w2:column>
+    											<w2:column textAlign="center" removeBorderStyle="false" width="120" inputType="text"
+    												id="sucSms" blockSelect="false" displayMode="label" class="underline" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="120" inputType="text" id="failSms"
+    												blockSelect="false" displayMode="label" class="underline" textAlign="center" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column textAlign="center" removeBorderStyle="false" width="120" inputType="text"
+    												id="sumSms" blockSelect="false" displayMode="label" class="underline" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column textAlign="center" width="120" inputType="text" id="sucMms" displayMode="label" class="underline" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    											<w2:column textAlign="center" width="120" inputType="text" id="failMms" displayMode="label" class="underline" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    											<w2:column textAlign="center" width="120" inputType="text" id="sumMms" displayMode="label" class="underline" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    											<w2:column width="120" inputType="text" style="" id="sucTalk" value="" displayMode="label" class="underline" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    											<w2:column width="120" inputType="text" style="" id="failTalk" value=""
+    												displayMode="label" class="underline" textAlign="center" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="sumTalk" value="" displayMode="label" class="underline" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    											<w2:column width="150" inputType="text" style="" id="totalCnt" value=""
+    												displayMode="label" class="underline" textAlign="center" displayFormat="#,###,###,###" excelCellType="number">
+    											</w2:column>
+    											<w2:column width="170" inputType="text" style="" id="chkCnt" value="" displayMode="label" class="underline" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row5">
+    											<w2:column width="150" inputType="text" id="column31" value="계" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="expression" id="column30" value="" displayMode="label" displayFormat="#,###,###,###" dataType="number" expression="sum('sucSms')"></w2:column>
+    											<w2:column width="120" inputType="expression" id="column29" value="" displayMode="label" displayFormat="#,###,###,###" dataType="number" expression="sum('failSms')"></w2:column>
+    											<w2:column width="120" inputType="expression" id="column28" displayMode="label" displayFormat="#,###,###,###" expression="sum('sumSms')" dataType="number"></w2:column>
+    											<w2:column textAlign="center" width="120" inputType="expression" id="column27" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('sucMms')" dataType="number">
+    											</w2:column>
+    											<w2:column textAlign="center" width="120" inputType="expression" id="column26" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('failMms')" dataType="number">
+    											</w2:column>
+    											<w2:column textAlign="center" width="120" inputType="expression" id="column25"
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('sumMms')" dataType="number">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column46" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('sucTalk')" dataType="number" textAlign="center">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column43" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('failTalk')" dataType="number" textAlign="center">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column40" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('sumTalk')" dataType="number" textAlign="center">
+    											</w2:column>
+    											<w2:column width="150" inputType="expression" style="" id="column34" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('totalCnt')" dataType="number" textAlign="center">
+    											</w2:column>
+    											<w2:column width="170" inputType="expression" style="" id="column37" value=""
+    												displayMode="label" displayFormat="#,###,###,###" expression="sum('chkCnt')" dataType="number" textAlign="center">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    								<xf:group style="" id="" class="grid-bottom ">
+    									<xf:group id="" class="left">
+    										<xf:group id="" class="grid-total">
+    											<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    											<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="spanTotal1" label="0" class="num">
+    											</w2:textbox>
+    											<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group></xf:group><xf:group id="" class="round-box mt8"><xf:group style="" id="" class="shbox">
+    							<xf:group style="" id="" class="shbox-inner">
+    								<xf:group tagname="table" style="" id="" class="w2tb ">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:70px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    										<xf:group tagname="col" style="width:105px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    										<xf:group tagname="col" style="width:60px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr" style="" id="" class="">
+    										<xf:group tagname="th" style="" class="w2tb_th ">
+    											<w2:textbox style="" id="" label="템플릿 " class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" style="" class="w2tb_td">
+    											<w2:autoComplete allOption="false" chooseOption="true" chooseOptionLabel="전체" chooseOptionValue="$blank" class="" editType="select" id="lc_kTemplateCode" mandatory="true" ref="data:dma_searchDayDtl.kTemplateCode" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15">
+    												<w2:choices></w2:choices>
+    											</w2:autoComplete>
+    										</xf:group>
+    										<xf:group tagname="th" style="" class="w2tb_th">
+    											<w2:textbox style="" id="" label="받는사람 " class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" style="" id="" class="w2tb_td">
+    											<xf:input class="" id="ed_toSendNumber" style="width: 150px" ref="data:dma_searchDayDtl.toSendNumber"></xf:input>
+    										</xf:group>
+    										<xf:group tagname="th" id="" class="w2tb_th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox style="" id="" label="전송내용 " class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" id="" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_msgText" style="width: 180px;" ref="data:dma_searchDayDtl.msgText"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="btn-shbox">
+    								<xf:trigger disabled="" style="" id="btn_RetrieveToSendNumber" type="button" class="btn sch" escape="false" ev:onclick="scwin.f_RetrieveToSendNumber">
+    									<xf:label><![CDATA[조회]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group><xf:group style="" id="" class="title-wrap">
+    							<xf:group style="" id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label="전송 내역" class="tit"></w2:textbox>
+    							</xf:group>
+    							<xf:group id="" class="right">
+    								<w2:udc_topGrdBtn grp="grd_section2" style="" gridDownFn="scwin.f_toExcel2" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_ListDayDtl" id="udc_ListDayDtl"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section2" class="gvwbox ">
+    							<w2:gridView scrollByColumnAdaptive="false" focusMode="cell" visibleRowNumFix="true"
+    								dataList="data:ds_ListDayDtl" scrollByColumn="false" style="" id="gr_ListDayDtl" sortable="true"
+    								visibleRowNum="6" class="wq_gvw" checkReadOnlyOnPasteEnable="" readOnly="true">
+    								<w2:caption style="" id="caption3" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header2">
+    									<w2:row style="" id="row3">
+    										<w2:column removeBorderStyle="false" width="180" inputType="text" id="column12" value="요청일시"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="150" inputType="text" id="column11" value="받는사람"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="150" inputType="text" id="column10" value="템플릿명"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="150" inputType="text" id="column9" value="보내는사람"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column width="500" inputType="text" id="column21" value="전송내용" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="150" inputType="text" id="column19" value="처리결과" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="150" inputType="text" id="column17" value="전송일시" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="120" inputType="text" id="column44" value="통신사" displayMode="label" sortable="true">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody2">
+    									<w2:row style="" id="row4">
+    										<w2:column removeBorderStyle="false" width="180" inputType="text" id="requestTime"
+    											blockSelect="false" displayMode="label" calendarValueType="yearMonthDateTime" dataType="date" displayFormat="yyyy.MM.dd HH:mm" ioFormat="yyyyMMdd HH:mm:SS">
+    										</w2:column>
+    										<w2:column textAlign="center" removeBorderStyle="false" width="150" inputType="text" id="dstaddr"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="150" inputType="text" id="kTemplateCode"
+    											blockSelect="false" displayMode="label" textAlign="left">
+    										</w2:column>
+    										<w2:column textAlign="center" removeBorderStyle="false" width="150" inputType="text" id="callback"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column width="500" inputType="text" id="text" displayMode="label" textAlign="left"></w2:column>
+    										<w2:column textAlign="left" width="150" inputType="text" id="codeDesc" displayMode="label"></w2:column>
+    										<w2:column textAlign="center" width="150" inputType="text" id="sendTime" displayMode="label" dataType="date" displayFormat="yyyy.MM.dd HH:mm" ioFormat="yyyyMMdd HH:mm:SS"></w2:column>
+    										<w2:column width="120" inputType="text" id="telecom" displayMode="label"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="spanTotal2" label="0" class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group></xf:group></w2:content>
+    					<w2:content alwaysDraw="false" id="content2" style="">
+    					<xf:group id="" class="round-box">
+    						
+    						<xf:group class="shbox" id="" style="">
+    							<xf:group class="shbox-inner" id="" style="">
+    								<xf:group class="w2tb " id="" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:70px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group class="" id="" style="" tagname="tr">
+    										<xf:group class="w2tb_th " style="" tagname="th">
+    											<w2:textbox class="" id="" label="요청월 " style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:udc_fromToYearMon edFromId="ica_sndMonthlyFrom" edToId="ica_sndMonthlyTo" id="udc_fromToYearMon1" refDataMap="" refEdDt="" refStDt="" style=" ">
+    											</w2:udc_fromToYearMon>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="btn-shbox" id="" style="">
+    								<xf:trigger class="btn sch" disabled="" escape="false" id="btn_RetrieveMonthly" style="" type="button" ev:onclick="scwin.f_RetrieveMonthly">
+    									<xf:label><![CDATA[조회]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group><xf:group style="" id="" class="title-wrap">
+    							<xf:group style="" id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label="월별 전송 통계 현황 " class="tit"></w2:textbox>
+    							</xf:group>
+    							<xf:group id="" class="right">
+    								<w2:udc_topGrdBtn grp="grd_section3" style="" gridDownFn="scwin.f_toExcel3" gridID="gr_ListMonthly" gridDownYn="Y" gridUpYn="N" templateYn="N" id="udc_ListMonthly"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group adaptiveThreshold="" style="" id="grd_section3" class="gvwbox ">
+    							<w2:gridView scrollByColumnAdaptive="false" focusMode="cell" visibleRowNumFix="true"
+    								dataList="data:ds_ListMonthly" scrollByColumn="false" style="" id="gr_ListMonthly" sortable="true"
+    								visibleRowNum="14" class="wq_gvw" checkReadOnlyOnPasteEnable="" readOnly="true">
+    								<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header2">
+    									<w2:row style="" id="row6">
+    										<w2:column rowSpan="2" colSpan="" width="150" inputType="text" style="" id="column62"
+    											value="요청일자" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column rowSpan="" colSpan="3" width="210" inputType="text" style="" id="column61"
+    											value="SMS" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column rowSpan="" colSpan="3" width="210" inputType="text" style="" id="column58"
+    											value="MMS" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column rowSpan="" colSpan="3" width="210" inputType="text" style="" id="column55"
+    											value="알림톡" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column rowSpan="2" colSpan="" width="150" inputType="text" style="" id="column52"
+    											value="총건수" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column rowSpan="2" colSpan="" width="190" inputType="text" style="" id="column51"
+    											value="전송일다른경우" displayMode="label" sortable="true">
+    										</w2:column>
+    									</w2:row>
+    									<w2:row style="" id="row3">
+    										<w2:column removeBorderStyle="false" width="120" inputType="text" id="column11" value="성공"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="120" inputType="text" id="column10" value="실패"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="120" inputType="text" id="column9" value="합계"
+    											blockSelect="false" displayMode="label" sortable="true">
+    										</w2:column>
+    										<w2:column width="120" inputType="text" id="column21" value="성공" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="120" inputType="text" id="column19" value="실패" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="120" inputType="text" id="column17" value="합계" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column44" value="성공" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column41" value="실패" displayMode="label" sortable="true"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column38" value="합계" displayMode="label" sortable="true"></w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody2">
+    									<w2:row style="" id="row4">
+    										<w2:column removeBorderStyle="false" width="150" inputType="" id="requestTime"
+    											blockSelect="false" displayMode="label" dataType="text" displayFormat="####.##" calendarValueType="yearMonth">
+    										</w2:column>
+    										<w2:column textAlign="center" removeBorderStyle="false" width="120" inputType="text" id="sucSms"
+    											blockSelect="false" displayMode="label" displayFormat="#,###,###,###" excelCellType="number">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="120" inputType="text" id="failSms"
+    											blockSelect="false" displayMode="label" displayFormat="#,###,###,###" excelCellType="number">
+    										</w2:column>
+    										<w2:column textAlign="center" removeBorderStyle="false" width="120" inputType="text" id="sumSms"
+    											blockSelect="false" displayMode="label" displayFormat="#,###,###,###" excelCellType="number">
+    										</w2:column>
+    										<w2:column textAlign="center" width="120" inputType="text" id="sucMms" displayMode="label" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column textAlign="center" width="120" inputType="text" id="failMms" displayMode="label" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column textAlign="center" width="120" inputType="text" id="sumMms" displayMode="label" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="sucTalk" value="" displayMode="label" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="failTalk" value="" displayMode="label" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column width="120" inputType="text" style="" id="sumTalk" value="" displayMode="label" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column width="150" inputType="text" style="" id="totalCnt" value="" displayMode="label" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column width="190" inputType="text" style="" id="chkCnt" value="" displayMode="label" textAlign="center" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    								<w2:footer style="" id="footer1">
+    									<w2:row style="" id="row5">
+    										<w2:column width="150" inputType="text" id="column31" value="계" displayMode="label"></w2:column>
+    										<w2:column width="120" inputType="expression" id="column30" value="0" displayMode="label" dataType="number" expression="sum('sucSms')" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="120" inputType="expression" id="column29" value="0" displayMode="label" dataType="number" expression="sum('failSms')" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="120" inputType="expression" id="column28" displayMode="label" dataType="number" expression="sum('sumSms')" textAlign="center" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column textAlign="center" width="120" inputType="expression" id="column27" value="0"
+    											displayMode="label" dataType="number" expression="sum('sucMms')" displayFormat="#,###,###,###">
+    										</w2:column>
+    										<w2:column textAlign="center" width="120" inputType="expression" id="column26" value="0"
+    											displayMode="label" dataType="number" expression="sum('failMms')" displayFormat="#,###,###,###">
+    										</w2:column>
+    										<w2:column textAlign="center" width="120" inputType="expression" id="column25" displayMode="label" dataType="number" expression="sum('sumMms')" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="120" inputType="expression" style="" id="column46" value="0" displayMode="label" dataType="number" expression="sum('sucTalk')" textAlign="center" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="120" inputType="expression" style="" id="column43" value="0" displayMode="label" dataType="number" expression="sum('failTalk')" textAlign="center" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="120" inputType="expression" style="" id="column40" value="" displayMode="label" dataType="number" expression="sum('sumTalk')" textAlign="center" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="150" inputType="expression" style="" id="column34" value="0" displayMode="label" dataType="number" expression="sum('totalCnt')" textAlign="center" displayFormat="#,###,###,###"></w2:column>
+    										<w2:column width="190" inputType="expression" style="" id="column37" value="" displayMode="label" dataType="number" expression="sum('chkCnt')" textAlign="center" displayFormat="#,###,###,###"></w2:column>
+    									</w2:row>
+    								</w2:footer>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="spanTotal3" label="0"
+    											class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group></w2:content>
+    					<w2:content alwaysDraw="false" id="content3" style="">
+    					<xf:group id="" class="round-box"><xf:group style="" id="" class="shbox">
+    							<xf:group style="" id="" class="shbox-inner">
+    								<xf:group tagname="table" style="" id="" class="w2tb ">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group tagname="col" style="width:70px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    										<xf:group tagname="col" style="width:105px;"></xf:group>
+    										<xf:group tagname="col" style=""></xf:group>
+    										<xf:group tagname="col" style="width:60.00px;"></xf:group>
+    										<xf:group tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr" style="" id="" class="">
+    										<xf:group tagname="th" style="" class="w2tb_th ">
+    											<w2:textbox style="" id="" label="구분 " class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" style="" class="w2tb_td">
+    											<w2:autoComplete allOption="" chooseOption="true" chooseOptionLabel="전체" chooseOptionValue="$blank" class="" editType="select" id="lc_queue_msgType" mandatory="true" ref="data:dma_searchQueue.msgType" search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[SMS]]></w2:label>
+    														<w2:value><![CDATA[1]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[MMS]]></w2:label>
+    														<w2:value><![CDATA[3]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[알림톡]]></w2:label>
+    														<w2:value><![CDATA[6]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:autoComplete>
+    										</xf:group>
+    										<xf:group tagname="th" style="" class="w2tb_th">
+    											<w2:textbox style="" id="" label="템플릿 " class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" style="" id="" class="w2tb_td">
+    											<w2:autoComplete allOption="false" chooseOption="true" chooseOptionLabel="전체" chooseOptionValue="$blank" class="" editType="select" id="lc_queue_kTemplateCode" mandatory="true" ref="data:dma_searchQueue.kTemplateCode" search="start" style="width:280px;" submenuSize="auto" visibleRowNum="15">
+    												<w2:choices></w2:choices>
+    											</w2:autoComplete>
+    										</xf:group>
+    										<xf:group tagname="th" id="" class="w2tb_th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox style="" id="" label="받는사람 " class=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" id="" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:input style="width: 150px;" id="ed_queue_toSendNumber" class="" ref="data:dma_searchQueue.toSendNumber"></xf:input>
+    										</xf:group>
+    										<xf:group class="w2tb_th" id="" tagname="th" style="">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="전송내용" style=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" id="" tagname="td" style="">
+    											<w2:attributes></w2:attributes>
+    											<xf:input class="" id="ed_queue_msgText" style="width: 180px;" ref="data:dma_searchQueue.msgText"></xf:input>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group style="" id="" class="btn-shbox">
+    								<xf:trigger disabled="" style="" id="btn_trigger5" type="button" class="btn sch" escape="false" ev:onclick="scwin.f_RetrieveQueue">
+    									<xf:label><![CDATA[조회]]></xf:label>
+    								</xf:trigger>
+    							</xf:group>
+    						</xf:group><xf:group style="" id="" class="title-wrap">
+    							<xf:group style="" id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label="MSG_QUEUE " class="tit"></w2:textbox>
+    							</xf:group>
+    							<xf:group id="" class="right">
+    								<w2:udc_topGrdBtn grp="grd_section4" style="" gridDownFn="scwin.f_toExcel4" gridID="gr_ListQueue" id="udc_ListQueue" gridDownYn="Y" gridUpYn="N" templateYn="N"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section4" class="gvwbox ">
+    							<w2:gridView scrollByColumnAdaptive="false" focusMode="cell" visibleRowNumFix="true"
+    								dataList="data:ds_ListQueue" scrollByColumn="false" style="" id="gr_ListQueue" sortable="true"
+    								visibleRowNum="16" class="wq_gvw" checkReadOnlyOnPasteEnable="" readOnly="true">
+    								<w2:caption style="" id="caption6" value="this is a grid caption."></w2:caption>
+    								<w2:header style="" id="header2">
+    									<w2:row style="" id="row3">
+    										<w2:column removeBorderStyle="false" width="120" inputType="text" id="column12" value="요청일시"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="80" inputType="text" id="column11" value="전송유형"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="80" inputType="text" id="column10" value="상태"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="100" inputType="text" id="column9" value="받는사람"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" id="column21" value="보내는사람" displayMode="label"></w2:column>
+    										<w2:column width="140" inputType="text" id="column19" value="처리결과" displayMode="label"></w2:column>
+    										<w2:column width="140" inputType="text" id="column17" value="템플릿명" displayMode="label"></w2:column>
+    										<w2:column width="340" inputType="text" style="" id="column44" value="전송내용"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="120" inputType="text" style="" id="column41" value="전송일시"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="250" inputType="text" style="" id="column51" value="메시지가휴대폰으로전달된 시간"
+    											displayMode="label" hidden="true">
+    										</w2:column>
+    										<w2:column width="150" inputType="text" style="" id="column49" value="결과를받은시간"
+    											displayMode="label" hidden="true">
+    										</w2:column>
+    										<w2:column width="80" inputType="text" style="" id="column45" value="통신사"
+    											displayMode="label">
+    										</w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column47" value="순번" displayMode="label"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="column53" value="재전송순번"
+    											displayMode="label">
+    										</w2:column>
+    									</w2:row>
+    								</w2:header>
+    								<w2:gBody style="" id="gBody2">
+    									<w2:row style="" id="row4">
+    										<w2:column removeBorderStyle="false" width="120" inputType="" id="requestTime"
+    											blockSelect="false" displayMode="label" displayFormat="yyyy.MM.dd HH:mm" calendarValueType="yearMonthDateTime" dataType="date" textAlign="center" ioFormat="yyyyMMdd HH:mm:SS">
+    										</w2:column>
+    										<w2:column textAlign="left" removeBorderStyle="false" width="80" inputType="text" id="msgType"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column removeBorderStyle="false" width="80" inputType="text" id="stat" blockSelect="false"
+    											displayMode="label" textAlign="left">
+    										</w2:column>
+    										<w2:column textAlign="center" removeBorderStyle="false" width="100" inputType="text" id="dstaddr"
+    											blockSelect="false" displayMode="label">
+    										</w2:column>
+    										<w2:column textAlign="center" width="100" inputType="text" id="callback" displayMode="label"></w2:column>
+    										<w2:column textAlign="left" width="140" inputType="text" id="codeDesc" displayMode="label"></w2:column>
+    										<w2:column textAlign="left" width="140" inputType="text" id="kTemplateCode" displayMode="label"></w2:column>
+    										<w2:column width="340" inputType="text" style="" id="text" value=""
+    											displayMode="label" textAlign="left">
+    										</w2:column>
+    										<w2:column width="120" inputType="" style="" id="sendTime" value=""
+    											displayMode="label" textAlign="center" displayFormat="yyyy.MM.dd HH:mm" dataType="date" ioFormat="yyyyMMdd HH:mm:SS">
+    										</w2:column>
+    										<w2:column width="250" inputType="text" style="" id="reportTime" value="" displayMode="label" hidden="true"></w2:column>
+    										<w2:column width="150" inputType="text" style="" id="tcprecvTime" value="" displayMode="label" hidden="true"></w2:column>
+    										<w2:column width="80" inputType="text" style="" id="telecom" value="" displayMode="label" textAlign="center"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="mseq" value="" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###,###,###" excelCellType="number"></w2:column>
+    										<w2:column width="100" inputType="text" style="" id="pseq" value="" displayMode="label" textAlign="center"></w2:column>
+    									</w2:row>
+    								</w2:gBody>
+    							</w2:gridView>
+    							<xf:group style="" id="" class="grid-bottom ">
+    								<xf:group id="" class="left">
+    									<xf:group id="" class="grid-total">
+    										<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    										<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="spanTotal4" label="0" class="num">
+    										</w2:textbox>
+    										<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group></xf:group></w2:content>
+    				</w2:tabControl>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

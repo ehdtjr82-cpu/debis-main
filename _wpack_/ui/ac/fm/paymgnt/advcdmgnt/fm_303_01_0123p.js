@@ -1,0 +1,14 @@
+/*amd /ui/ac/fm/paymgnt/advcdmgnt/fm_303_01_0123p.xml 2004 d061d24b1765d646406ecf13fe303fbed9ee477cdcc3a5c0557033080ca17ad2 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.onpageload = function () {};
+scwin.f_WinClose = function (num) {
+  var rtnVal = "";
+  rtnVal = num;
+  $c.win.closePopup($p, rtnVal);
+};
+scwin.btn_id1_onclick = function (e) {
+  scwin.f_WinClose(1);
+};
+scwin.btn_id2_onclick = function (e) {
+  scwin.f_WinClose(2);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fileMultiUpload',type:'page',variableClone:'',src:'/cm/udc/fileMultiUpload.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'pop_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'round-box vam',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'tac fs14',id:'',label:'선택한 전도금을 일괄이체 하시겠습니까?',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'pop-btnbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_id1',style:'',type:'button','ev:onclick':'scwin.btn_id1_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'예'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_id2',style:'',type:'button','ev:onclick':'scwin.btn_id2_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'아니오'}]}]}]}]}]}]}]})

@@ -1,0 +1,41 @@
+/*amd /AI/fm_603_01_03p.xml 8393 77cb2c9695e25e409d151ebff88741e1daef9926d7aa6a95fc0b4f7efd3eb7aa */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_searchOrd90Dd'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'stdDt',name:'기준일',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bilgAcctDeptCd',name:'청구귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntNo',name:'거래처번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntKnd',name:'거래처종류',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_overDay90Dd',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'bilgAcctDeptCd',name:'청구귀속',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgAcctDeptNm',name:'청구귀속명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'거래처',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'거래처명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntKndNm',name:'거래처종류',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ovr90Dd',name:'90일초과',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ovr120Dd',name:'120일초과',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ovr150Dd',name:'150일초과',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ovr180Dd',name:'180일초과',dataType:'number'}},{T:1,N:'w2:column',A:{id:'ovr210Dd',name:'210일초과',dataType:'number'}},{T:1,N:'w2:column',A:{id:'overSum',name:'누계',dataType:'number'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_overDay90Dd',action:'/ac.fm.acctrecvmgnt.acctrecvcontmgnt.RetrieveAccountReceivableOverDayEachPresentConditionDetailCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"dma_searchOrd90Dd","key":"IN_DS1"},{"id":"ds_overDay90Dd","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_overDay90Dd","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_overDay90Dd_submitdone','ev:submiterror':'scwin.sbm_overDay90Dd_submiterror'}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.stdDt = "";
+scwin.bilgAcctDeptCd = "";
+scwin.clntNo = "";
+scwin.clntKnd = "";
+scwin.onpageload = async function () {
+  scwin.params = $c.data.getParameter($p);
+  if (scwin.params != null) {
+    scwin.stdDt = scwin.params.stdDt || "";
+    scwin.bilgAcctDeptCd = scwin.params.bilgAcctDeptCd || "";
+    scwin.clntNo = scwin.params.clntNo || "";
+    scwin.clntKnd = scwin.params.clntKnd || "";
+  }
+  scwin.f_createHeader();
+  await $c.sbm.execute($p, sbm_overDay90Dd);
+};
+scwin.f_createHeader = function () {
+  dma_searchOrd90Dd.set("stdDt", scwin.stdDt.trim());
+  dma_searchOrd90Dd.set("bilgAcctDeptCd", scwin.bilgAcctDeptCd.trim());
+  dma_searchOrd90Dd.set("clntNo", scwin.clntNo.trim());
+  dma_searchOrd90Dd.set("clntKnd", scwin.clntKnd.trim());
+};
+scwin.f_Excel = async function () {
+  let chk = await $c.win.confirm($p, "Excel로 다운로드 하시겠습니까?");
+  if (chk) {
+    $c.data.downloadGridViewExcel($p, gr_overDayAcctRecv, {
+      fileName: "90일초과일별채권현황조회.xlsx",
+      sheetName: "90일초과일별채권현황"
+    });
+  }
+};
+scwin.sbm_overDay90Dd_submitdone = function (e) {
+  tbx_totalRows.setValue(ds_overDay90Dd.getTotalRow());
+};
+scwin.sbm_overDay90Dd_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.btn_close_onclick = function (e) {
+  $c.win.closePopup($p);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'pop_contents',id:'grp_popContents',style:''},E:[{T:1,N:'w2:wframe',A:{id:'wfm_contentHeader',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'round-box',id:'grp_roundBox1'},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'grp_titleWrap1',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'grp_right1'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_overDay90Dd',focusMode:'row',id:'gr_overDayAcctRecv',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'5',visibleRowNumFix:'true',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'bilgAcctDeptCd',inputType:'text',style:'',value:'청구귀속',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'bilgAcctDeptNm',inputType:'text',style:'',value:'청구귀속명',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'text',style:'',value:'거래처',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNm',inputType:'text',style:'',value:'거래처명',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntKndNm',inputType:'text',style:'',value:'거래처종류',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'ovr90Dd',inputType:'text',style:'',value:'90일초과 ',width:'120'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr120Dd',value:'120일초과',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr150Dd',value:'150일초과',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr180Dd',value:'180일초과',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr210Dd',value:'210일초과',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'overSum',value:'누계',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'bilgAcctDeptCd',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'bilgAcctDeptNm',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNm',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntKndNm',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'ovr90Dd',inputType:'text',style:'',value:'',width:'120',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr120Dd',value:'',displayMode:'label',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr150Dd',value:'',displayMode:'label',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr180Dd',value:'',displayMode:'label',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'ovr210Dd',value:'',displayMode:'label',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'overSum',value:'',displayMode:'label',dataType:'number',displayFormat:'#,###'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'grp_gridBottom1',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'grp_left1'},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'grp_gridTotal1'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'tbx_totalLabel',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'tbx_totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'tbx_totalUnit',label:'건',style:'',tagname:'span'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'pop-btnbox',id:'grp_popBtnBox',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_close',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'닫기'}]}]}]}]}]}]}]})

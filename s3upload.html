@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    body { font-family: sans-serif; padding:0; margin:10px 20px; color: #333; }
+    h2 { margin:10px 0; padding:0; }
+    #status { margin: 15px 0; font-weight: bold; word-break: break-all; white-space: pre-wrap; }
+    .explorer-container { display: flex; gap: 10px;}
+    .dir-pane { width: 450px;padding-top:1px; }
+    .dir-item { cursor: pointer; border-bottom: 1px solid #eee; font-size: 14px; padding:2px; }
+    .dir-item:hover { background: #eee; }
+    .dir-item.active { background: #666; color: white; }
+    
+    .file-pane {
+        /*width: 50%; overflow-y: auto;*/
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 2px; border-bottom: 2px solid #ddd; background: #f4f4f4; position: sticky; top: 0; }
+    td { padding: 2px; border-bottom: 1px solid #eee; font-size: 14px; }
+
+    .file-link { color: #0066cc; text-decoration: none; cursor: pointer; }
+    .file-link:hover { text-decoration: underline; }
+    .file-size { color: #888; font-size: 0.85em; }
+    .file-date { color: #aaa; font-size: 0.85em; }
+
+    .input-group { margin-bottom: 10px; }
+    .input-group label { display: inline-block; width: 120px; font-weight: bold; }
+    .error-box { color: #cc0000; font-size: 12px; background: #fff1f1; padding: 10px; border: 1px solid #ffa3a3; border-radius: 4px; }
+    
+input{font-size:20px;}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: left;
+    gap: 6px;
+    padding: 4px 12px;
+    background-color: #eeeeee;
+    border: 1px solid #999999;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.2s;
+    min-width:100px;
+    vertical-align:bottom;
+}
+.btn:hover {
+    background-color: #f9fafb;
+    border-color: #38bdf8;
+}
+.btn svg {
+    width: 1.1em;
+    height: 1.1em;
+    stroke: #38bdf8;
+    flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<h2>S3 파일 업로드</h2>
+<div class="input-group">
+    <label>디렉토리:</label>
+    <input type="text" id="subDir" name="subDir" value="/ds/as/" style="width: 200px;">
+</div>
+<div class="input-group">
+    <label>파일 선택:</label>
+    <input type="file" id="fileInput" name="uploadFile">
+    <button class="btn" onclick="uploadFile()">
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Upload--Streamline-Outlined-Material" height="24" width="24">
+	  <path fill="#22aadd" d="M11.25 16.175V6.9l-3 3 -1.075 -1.075L12 4l4.825 4.825 -1.075 1.075 -3 -3v9.275h-1.5ZM5.5 20c-0.4 0 -0.75 -0.15 -1.05 -0.45 -0.3 -0.3 -0.45 -0.65 -0.45 -1.05v-3.575h1.5V18.5h13v-3.575h1.5V18.5c0 0.4 -0.15 0.75 -0.45 1.05 -0.3 0.3 -0.65 0.45 -1.05 0.45H5.5Z" stroke-width="0.5"></path>
+	</svg>
+    <span>업로드</span>
+</button>
+</div>
+<div id="status"></div>
+
+<hr><br/>
+
+<h2 style="display:inline;margin-right:327px;">S3 파일 정보</h2>
+
+<div class="explorer-container">
+    <div class="dir-pane" id="dirList">
+        <div style="padding: 20px; text-align: center; color: #999;">경로 로딩 중...</div>
+    </div>
+
+    <div class="file-pane">
+
+<div class="input-group" style="display: inline;position: absolute;margin:-33px 0 0 4px;">
+    <label>다운로드파일명:</label>
+    <input type="text" id="fileName" name="fileName" value="" style="width: 200px;">
+<button class="btn" onclick="loadFileList()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4"></path>
+        <path d="M4 13a8.1 8.1 0 0 0 15.5 2m0.5 4v-4h-4"></path>
+    </svg>
+    <span>새로고침</span>
+</button>
+</div>
+        <table>
+            <tbody id="fileList">
+                <tr><td colspan="3" style="text-align: center; padding: 40px; color: #999;"></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    loadDirList(); 
+});
+
+function getFileIcon(fileName) {
+    const ext = fileName.split('.').pop().toLowerCase();
+    switch (ext) {
+        case 'jpg': case 'jpeg': case 'png': case 'gif': case 'svg':
+            return '🖼️'; // 이미지
+        case 'pdf':
+            return '📕'; // PDF
+        case 'zip': case 'rar': case '7z': case 'gz':
+            return '📦'; // 압축파일
+        case 'txt': case 'log':
+            return '📄'; // 문서
+        case 'xlsx': case 'xls': case 'csv':
+            return '📊'; // 엑셀/데이터
+        case 'mp4': case 'avi': case 'mkv':
+            return '🎬'; // 영상
+        default:
+            return '📄'; // 기본 파일
+    }
+}
+
+function loadDirList() {
+    $("#dirList").html("<div style='text-align:center; padding:20px;'>불러오는 중...</div>");
+    $.ajax({
+        url: '/s3upload.do',
+        type: 'GET',
+        dataType: 'json',
+        data: { type: 'list' },
+        success: function(data) {
+            var html="";
+            if (!data || data.length === 0) {
+                html = "<div class='dir-item'>생성된 디렉토리가 없습니다.</div>";
+            } else {
+                data.forEach(function(path) {
+                    html += "<div class='dir-item' onclick='loadFiles(\"" + path + "\")'>📁 " + path + "</div>";
+                });
+            }
+            $("#dirList").html(html);
+        },
+        error: function(xhr) {
+            var errorMsg = xhr.responseText || "디렉토리 리스팅 오류";
+            $("#dirList").html("<div class='error-box'><strong>[디렉토리 에러]</strong><br>" + errorMsg + "</div>");
+        }
+    });
+}
+
+function loadFiles(path) {
+    $(".dir-item").removeClass("active");
+    if(event && event.currentTarget) {
+        $(event.currentTarget).addClass("active");
+    }
+
+    $("#fileList").html("<tr><td colspan='3' style='text-align:center; padding:20px;'></td></tr>");
+
+    $.ajax({
+        url: '/s3upload.do',
+        type: 'GET',
+        dataType: 'json',
+        data: { type: 'files', path: path },
+        success: function(data) {
+            var html = "";
+            if (!data || data.length === 0) {
+                html = "<tr><td style='padding:6px;border-bottom:0;'>파일이 없습니다.</td></tr>";
+            } else {
+                data.forEach(function(file) {
+                    var fileNameOnly = file.key.split('/').pop();
+                    var icon = getFileIcon(fileNameOnly);
+                    html+="<tr><td><a class='file-link' onclick='downloadFile(\"" + file.key + "\")'>"+icon+" "+fileNameOnly+"</a> "+
+						(file.size / 1024).toFixed(2) + "kb " + (file.lastModified || "-")+" <a class='file-link' onclick='removeFile(\"" + file.key + "\")'>❌</a></td></tr>";
+                });
+            }
+            $("#fileList").html(html);
+        },
+        error: function(xhr) {
+            var errorMsg = xhr.responseText || "파일 리스팅 오류";
+            $("#fileList").html("<tr><td colspan='3' class='error-box'><strong>[LISTING ERROR]</strong><br>" + errorMsg + "</td></tr>");
+        }
+    });
+}
+
+function uploadFile() {
+    var fileInput = $('#fileInput')[0];
+    var subDir = $('#subDir').val();
+    if (fileInput.files.length === 0) { alert("파일을 선택해주세요."); return; }
+
+    var formData = new FormData();
+    formData.append("Filename", fileInput.files[0].name);
+    formData.append("FileData", fileInput.files[0]);
+    formData.append("subDir", subDir);
+    formData.append("subSize", "AC");
+    formData.append("rename", "N");
+
+    $('#status').text("업로드 중...").css("color", "blue");
+
+    $.ajax({
+        url: '/s3upload.do',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+            $('#status').text("결과: " + response).css("color", "green");
+            alert("업로드 완료!");
+            loadDirList(); // 업로드 후 경로가 새로 생겼을 수 있으므로 갱신
+        },
+        error: function(xhr) {
+            var errorMsg = xhr.responseText || "업로드 중 오류 발생";
+            $('#status').html("<div class='error-box'><strong>[업로드 에러]</strong><br>" + errorMsg + "</div>").css("color", "red");
+        }
+    });
+}
+
+function downloadFile(path) {
+    var fileName = $('#fileName').val();
+    $.ajax({
+        url: '/s3upload.do',
+        type: 'GET',
+        data: { path: path, fileName: fileName },
+        success: function(res) {
+            if(res.downloadUrl) window.open(res.downloadUrl);
+        },
+        error: function(xhr) {
+            alert("다운로드 URL 생성 실패");
+        }
+    });
+}
+
+function removeFile(path){
+    if(!confirm('DELETE '+path)) return;
+    $.ajax({
+        url: '/s3upload.do',
+        type: 'GET',
+        dataType: 'json',
+        data: { type: 'remove', path: path },
+        success: function(res) {
+            if(res.success){
+                alert("삭제 완료");
+                loadDirList(); // 폴더 갱신
+                $("#fileList").html(""); // 파일 목록 초기화
+            } else {
+                alert("삭제 실패: " + res.message);
+            }
+        },
+        error: function(xhr) {
+            alert("삭제 요청 실패");
+        }
+    });
+}
+
+</script>
+</body>
+</html>

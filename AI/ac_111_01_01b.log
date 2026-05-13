@@ -1,0 +1,29 @@
+ac_111_01_01b.log
+
+[2026-02-18 22:07:35.678] 변환 시작
+[2026-02-18 22:07:35.699] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-18 22:12:37.085] #1 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=7 | LLM 301274ms, total 301386ms
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-18 22:12:37.167] #1 검증: 자동수정 2건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-18 22:12:37.293] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=1, warnings=7
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-18 22:12:37.306] #2 재시도 (에러 1건)
+[2026-02-18 22:12:38.306] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-18 22:17:47.657] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=5, warnings=7 | LLM 309252ms, total 309351ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] JSP 스크립틀릿 (<%...%>) 잔재 — '<%' 발견
+    - [적정성] JSP 스크립틀릿 종료 (%>) 잔재 — '%>' 발견
+    - [적정성] ActiveX classid 잔재 — 'classid' 발견
+    - [적정성] GAUCE CLSID 참조 잔재 — 'DGauceCLSID' 발견
+    - [적정성] <object classid=...> ActiveX 잔재 — 제거 필요
+[2026-02-18 22:17:47.659] #1 검증: 최적 시도 #1 채택 (confidence: 0.81)
+[2026-02-18 22:17:47.659] 성공 (#2, 10m 11s, confidence:0.81)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+================================================================================

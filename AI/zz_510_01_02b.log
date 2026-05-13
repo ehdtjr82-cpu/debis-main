@@ -1,0 +1,29 @@
+zz_510_01_02b.log
+
+[2026-02-19 16:18:01.202] 변환 시작
+[2026-02-19 16:18:01.287] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 16:21:05.406] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=3, warnings=6 | LLM 183389ms, total 184119ms
+    - [XML] scwin.f_openCommPopUpGrid에서 $c.win.alert를 await 없이 호출 — script:scwin.f_openCommPopUpGrid
+    - [XML] scwin.f_openCommPopUpGrid이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.f_openCommPopUpGrid
+    - [적정성] DATASET 전환 — 누락 2건: ds_getMaxCloseYm, ds_search2
+    - [적정성] async 선언 누락 — scwin.f_openCommPopUpGrid (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.f_openCommPopUpGrid → $c.win.alert
+[2026-02-19 16:21:05.645] #1 검증: 자동수정 5건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 16:21:06.362] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=6
+    - [적정성] DATASET 전환 — 누락 2건: ds_getMaxCloseYm, ds_search2
+[2026-02-19 16:21:13.707] #2 재시도 (에러 5건)
+[2026-02-19 16:21:14.712] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 16:24:24.098] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A_PLUS, verdict=PASS, errors=0, warnings=1 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 188552ms, total 189385ms
+[2026-02-19 16:24:24.119] #1 검증: 최적 시도 #1 채택 (confidence: 0.95)
+[2026-02-19 16:24:24.119] 성공 (#2, 6m 22s, confidence:0.95)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] DATASET 전환 — 누락 2건: ds_getMaxCloseYm, ds_search2
+================================================================================

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_closeLog" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="seq" name="순번" dataType="text"></w2:column>
+    					<w2:column id="closeStDtm" name="시작일시" dataType="text"></w2:column>
+    					<w2:column id="closeEndDtm" name="종료일시" dataType="text"></w2:column>
+    					<w2:column id="wrkId" name="작업자ID" dataType="text"></w2:column>
+    					<w2:column id="wrkNm" name="작업자명" dataType="text"></w2:column>
+    					<w2:column id="errNo" name="오류번호" dataType="text"></w2:column>
+    					<w2:column id="wrkDesc" name="작업설명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_closeLog">
+    				<w2:keyInfo>
+    					<w2:key id="coCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="closeYm" name="name2" dataType="text"></w2:key>
+    					<w2:key id="closeDd" name="name3" dataType="text"></w2:key>
+    					<w2:key id="wrkNo" name="name4" dataType="text"></w2:key>
+    					<w2:key id="mgntNo" name="name5" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_closeLog" action="/cm.bc.comnmgnt.closemgnt.RetrieveCloseLogListCMD.do?coCd=&amp;closeYm=&amp;closeDd=00&amp;wrkNo=&amp;mgntNo=0" method="post" mediatype="application/json" ref="data:json,dma_closeLog
+" target='data:json,{"id":"ds_closeLog","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_closeLog_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.f_Retrieve();
+};
+
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+    const paramData = $p.getParameter("wframeParam");
+
+    if($c.gus.cfIsNull(paramData))
+        return;
+
+    const data = JSON.stringify(paramData);
+
+    let parsedData = JSON.parse(data);
+
+    scwin.coCd = parsedData.coCd;
+    scwin.closeYm = parsedData.closeYm;
+    scwin.closeDd = parsedData.closeDd;
+    scwin.wrkNo = parsedData.wrkNo;
+    scwin.mgntNo = parsedData.mgntNo;
+
+    dma_closeLog.set("coCd", scwin.coCd)
+    dma_closeLog.set("closeYm", scwin.closeYm)
+    dma_closeLog.set("closeDd", scwin.closeDd)
+    dma_closeLog.set("wrkNo", scwin.wrkNo)
+    dma_closeLog.set("mgntNo", scwin.mgntNo)
+
+
+    $c.sbm.execute(sbm_closeLog);
+}
+
+//-------------------------------------------------------------------------
+// 그리드 높이 늘리기
+//-------------------------------------------------------------------------
+scwin.f_grdHeiht = function (size) {
+
+    var objGrd = "gr_closeLog";
+
+    var objGrd = $p.getComponentById(objGrd);
+    var strHeight = objGrd.style.height;
+    var intHeight = parseInt(strHeight.replace("px", ""));
+    intHeight = intHeight + size;
+    if (intHeight > 0) {
+        objGrd.style.height = intHeight + "px";
+    }
+}
+
+scwin.f_downExcelSheet = async function () {
+
+    var vObjGrd = "gr_closeLog";
+    var sheetTitle = "마감로그목록";
+
+    if (ds_closeLog.getTotalRow() < 1) {
+        $c.win.alert("마감로그 목록이 없습니다.");
+        return false;
+    }
+
+    var objGrd =  $p.getComponentById(vObjGrd);
+    cfrm = await $c.win.confirm("마감로그목록을 EXCEL로 다운로드 받으시겠습니까?");
+
+    if (cfrm) {
+        // cfGridToExcel(objGrd, sheetTitle, sheetTitle, 2 + 4 + 8 + 16);
+
+        const grdObj = objGrd;
+        const infoArr = [];
+        const options = {
+            fileName: sheetTitle //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        };
+        $c.data.downloadGridViewExcel(gr_closeLog, options, infoArr);
+
+    }
+}
+
+// for="ds_closeLog" event="OnLoadCompleted(rowcnt)"
+scwin.sbm_closeLog_submitdone = function (e) {
+    let rowcnt = gr_closeLog.getTotalRow();
+    totalRows.setValue(rowcnt);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="title-wrap" id="" style="">
+    		<xf:group class="title" id="">
+    			<w2:textbox class="tit" id="" label="마감로그 " style="" tagname="h3"></w2:textbox>
+    		</xf:group>
+    		<xf:group class="right" id="">
+    			<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_downExcelSheet" btnPlusYn="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" btnUser="Y" gridID="gr_closeLog"></w2:udc_topGrdBtn>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    		<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_closeLog" id="gr_closeLog"
+    			scrollByColumnAdaptive="false" style="" visibleRowNum="7" visibleRowNumFix="true" sortable="true" columnMove="true" readOnly="true">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header2" style="">
+    				<w2:row id="row3" style="">
+    					<w2:column displayMode="label" id="column30" inputType="text" style="" value="순번" width="70" class="txt-red"></w2:column>
+    					<w2:column displayMode="label" id="column38" inputType="text" style="" value="시작일시" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column36" inputType="text" style="" value="종료일시" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column34" inputType="text" style="" value="작업자ID" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column32" inputType="text" style="" value="작업자명" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column28" inputType="text" style="" value="오류번호" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column26" inputType="text" style="" value="작업설명" width="250"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody2" style="">
+    				<w2:row id="row4" style="">
+    					<w2:column displayMode="label" id="seq" inputType="text" style="" value="" width="70" mandatory="true"></w2:column>
+    					<w2:column displayMode="label" id="closeStDtm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    					<w2:column displayMode="label" id="closeEndDtm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    					<w2:column displayMode="label" id="wrkId" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    					<w2:column displayMode="label" id="wrkNm" inputType="text" style="" value="" width="100"></w2:column>
+    					<w2:column displayMode="label" id="errNo" inputType="text" style="" value="" width="100"></w2:column>
+    					<w2:column displayMode="label" id="wrkDesc" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<xf:group class="grid-bottom " id="" style="">
+    			<xf:group class="left" id="" style="">
+    				<xf:group class="grid-total" id="">
+    					<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

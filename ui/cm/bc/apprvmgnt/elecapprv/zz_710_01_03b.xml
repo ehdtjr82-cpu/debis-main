@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="fromApprvReqDt" name="fromApprvReqDt" dataType="text"></w2:key>
+    					<w2:key id="toApprvReqDt" name="toApprvReqDt" dataType="text"></w2:key>
+    					<w2:key id="drawAcctDeptCd" name="drawAcctDeptCd" dataType="text"></w2:key>
+    					<w2:key id="apprvStsCd" name="apprvStsCd" dataType="text"></w2:key>
+    					<w2:key id="apprvDocKndCd" name="apprvDocKndCd" dataType="text"></w2:key>
+    					<w2:key id="slipNo" name="slipNo" dataType="text"></w2:key>
+    					<w2:key id="reqNo" name="reqNo" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_approveStsList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="apprvReqNo" name="결재요청번호" dataType="text"></w2:column>
+    					<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+    					<w2:column id="apprvSts" name="결재상태코드" dataType="text"></w2:column>
+    					<w2:column id="postReqDt" name="회계요청일자" dataType="text"></w2:column>
+    					<w2:column id="regDt" name="상신일자" dataType="text"></w2:column>
+    					<w2:column id="delYn" name="삭제여부" dataType="text"></w2:column>
+    					<w2:column id="slipKndCd" name="전표종류" dataType="text"></w2:column>
+    					<w2:column id="slipKnd" name="전표종류" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="전표일자" dataType="text"></w2:column>
+    					<w2:column id="mgntClntNm" name="관리거래처명" dataType="text"></w2:column>
+    					<w2:column id="drcrCls" name="차대구분코드" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+    					<w2:column id="drAmt" name="차변금액" dataType="number"></w2:column>
+    					<w2:column id="crAmt" name="대변금액" dataType="number"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    					<w2:column id="apprvReqrId" name="전표요청자ID" dataType="text"></w2:column>
+    					<w2:column id="apprvReqrNm" name="전표요청자성명" dataType="text"></w2:column>
+    					<w2:column id="apprvGbn" name="전결위임구분" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_approveStsList" action="/cm.bc.apprvmgnt.elecapprv.RetrieveSlipApprovePresentConditionCMD.do"
+    			method="post" mediatype="application/json" ref="data:json,dma_search" target='data:json,{"id":"ds_approveStsList","key":"GAUCE"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_approveStsList_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMMdd");
+
+scwin.onpageload = function() {
+    console.log("===========scwin.onpageload==========");
+    const codeOptions = [ 
+        { grpCd : "ZZ022", compID : "lc_apprvDocKndCd", opt : {'range': '1,01'}},
+        { grpCd : "ZZ021", compID : "lc_apprvStsCd", opt : {'range': '1,C'}},
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    //value="^전체,<%=GauceUtil.getLuxeComboData("AccountDepartmentEBC", "retrieveAccountDepartmentAllComboDTO")%>">
+    const codeOptions2 = [ 
+        { method: "getLuxeComboData"
+        , param1: "AccountDepartmentEBC"
+        , param2: "retrieveAccountDepartmentAllComboDTO"
+        , param3: [""]
+        , compID: "lc_drawAcctDeptCd" 
+        },
+    ];
+    $c.data.setGauceUtil(codeOptions2);
+
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+    console.log("===========scwin.ondataload==========");
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+    console.log("===========scwin.onUdcCompleted==========");
+    
+    var vBeforeAWeekDay = scwin.f_SetDate("2", 7);
+	var vToday = scwin.f_SetDate("1", 0);
+
+    ica_fromApprvReqDt.setValue(vBeforeAWeekDay);
+    ica_toApprvReqDt.setValue(vToday);
+};
+
+//-------------------------------------------------------------------------
+// 날짜설정
+//-------------------------------------------------------------------------
+scwin.f_SetDate = function(pSetType, pDayCnt) {  
+    //유형 1:현재일, 2:이전일, 3:이후일
+    var vReturnDate = "";
+
+    if(pSetType=="1"){
+        vReturnDate = scwin.currDate;
+    }else if(pSetType=="2"){
+        vReturnDate = WebSquare.date.dateAdd(scwin.currDate, -pDayCnt);
+    }else if(pSetType=="3"){
+        vReturnDate = WebSquare.date.dateAdd(scwin.currDate, pDayCnt);
+    }
+
+    return vReturnDate;
+}; 
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+
+    var vFromApprvReqDt = ica_fromApprvReqDt.getValue().trim(); // From결재요청일자
+    var vToApprvReqDt = ica_toApprvReqDt.getValue().trim();  // To결재요청일자
+
+    if(vFromApprvReqDt!="" && vFromApprvReqDt.length<8){
+        await $c.win.alert("요청시작일자를 정확하게 입력해 주십시오.");
+        ica_fromApprvReqDt.focus();
+        return false;
+    }
+
+    if(vToApprvReqDt!="" && vToApprvReqDt.length<8){
+        await $c.win.alert("요청종료일자를 정확하게 입력해 주십시오.");
+        ica_toApprvReqDt.focus();
+        return false;
+    }
+
+    if(vFromApprvReqDt!="" && vToApprvReqDt!="" && vFromApprvReqDt>vToApprvReqDt){
+        await $c.win.alert("요청일 종료일자가 시작일자보다 이전입니다.");
+        ica_toApprvReqDt.focus();
+        return false;
+    }
+
+    // var vDrawAcctDeptCd = drawAcctDeptCd.valueOfIndex("code",drawAcctDeptCd.Index);  // 작성귀속부서코드
+    // var vApprvDocKndCd = apprvDocKndCd.valueOfIndex("code",apprvDocKndCd.Index);  // 결재요청구분
+    // var vApprvStsCd = apprvStsCd.valueOfIndex("code",apprvStsCd.Index);  // 결재상태코드
+    // var vSlipNo = searchSlipNo.value; // 전표번호
+    // var vReqNo = searchReqNo.value; // 요청번호
+
+    dma_search.set("fromApprvReqDt", ica_fromApprvReqDt.getValue());
+    dma_search.set("toApprvReqDt", ica_toApprvReqDt.getValue());
+    dma_search.set("drawAcctDeptCd", lc_drawAcctDeptCd.getValue());
+    dma_search.set("apprvStsCd", lc_apprvStsCd.getValue());
+    dma_search.set("apprvDocKndCd", lc_apprvDocKndCd.getValue());
+    dma_search.set("slipNo", ed_searchSlipNo.getValue());
+    dma_search.set("reqNo", ed_searchReqNo.getValue());
+
+    $c.sbm.execute(sbm_approveStsList);
+};
+
+//-------------------------------------------------------------------------
+// 전자결재요청 Tray Component에서 EP 사용자 ID가져오기
+//-------------------------------------------------------------------------
+scwin.f_getSSOInfo = function() {
+    var EXIST_YN = 0 ;
+
+    if(vSabun != ""){
+        EXIST_YN = 1;
+    }else{
+        try { 
+            EXIST_YN = SSOCheck.IsExist("GROUP") ;
+        } catch ( exception ) { 
+            EXIST_YN = 0 ;
+        }
+    }
+
+    if(EXIST_YN==1) {  
+        SSO_LOGIN_YN = true ;
+        vSabun
+        vEpUserId = SSOCheck.GetETC("GROUP","F18");	// EP사용자ID  
+    }  
+
+    if(vEpUserId == ""){
+        vEpUserId = vSabun;
+    }
+    
+};
+
+//-------------------------------------------------------------------------
+//그리드 높이 늘리기
+//-------------------------------------------------------------------------
+
+//-----------------------------
+// 그리드 데이터 엑셀로 다운
+//-------------------------------------------
+scwin.f_runExcel = function(varGrNm) {
+    let sheetTitle = "전표결재현황";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_approveStsList, options);
+};
+    
+
+scwin.sbm_approveStsList_submitdone = function (e) {
+    let rowCnt = ds_approveStsList.getRowCount();
+    let vRealCount = 0;
+    //gr_approveStsList.setFocusedCell(0, 0);
+    if (rowCnt == 0) {
+        spanTotal.setLabel(rowCnt);
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    } else {
+		let vTmpApprvReqNo = "";
+
+		for(let i=0;i<rowCnt;i++){
+			let vApprvReqNo =  ds_approveStsList.getCellData(i, "apprvReqNo");
+		
+			if(vTmpApprvReqNo!=vApprvReqNo){
+				vTmpApprvReqNo = vApprvReqNo;
+				vRealCount++;
+			}		
+		}
+
+		spanTotal.setLabel(vRealCount);
+    }
+};
+
+scwin.gr_approveStsList_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    switch (columnId) {
+        case "slipNo" :
+            var vslipNo = gr_approveStsList.getCellData(rowIndex, "slipNo");
+            let result = await $c.gus.cfShowSlipInfo(vslipNo);
+		break;
+		}
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="상신일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar edFromId="ica_fromApprvReqDt" edToId="ica_toApprvReqDt" id="udc_fromToCalendar" mandatoryFrom="true"
+    								mandatoryTo="true" refDataMap="" refEdDt="" refStDt="" style="">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="작성부서 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete allOption="" chooseOption="true" class="" editType="select" id="lc_drawAcctDeptCd" mandatory="true"
+    								ref="" search="start" style="width:200px;" submenuSize="fixed" visibleRowNum="15" chooseOptionLabel="전체" sortOption="value">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[00]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[국내 운영 실적]]></w2:label>
+    										<w2:value><![CDATA[AS]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[관리회계]]></w2:label>
+    										<w2:value><![CDATA[CO]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="결재요청구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_apprvDocKndCd" style="width: 150px;" submenuSize="fixed" sortOption="value">
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="결재상태 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="true" class="" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_apprvStsCd" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="전체" sortOption="value">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="전표번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_searchSlipNo" style="width: 208px;" maxlength="10"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="요청번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_searchReqNo" style="width: 200px;" maxByteLength="15"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="전표결재현황 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" id="udc_approveStsList" gridID="gr_approveStsList" gridDownYn="Y" gridUpYn="N" gridDownFn="scwin.f_runExcel"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_approveStsList"
+    					id="gr_approveStsList" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="14"
+    					visibleRowNumFix="true" readOnly="true" ev:oncellclick="scwin.gr_approveStsList_oncellclick" fixedColumn="7" fixedColumnNoMove="false" fixedColumnWithHidden="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row style="" id="row5">
+    							<w2:column width="70" inputType="text" style="" id="column68" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column48" value="요청번호" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column61" value="상신일자" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column58" value="전표번호" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column55" value="결재상태" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column52" value="삭제여부" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column49" value="전표종류" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column47" value="전표일자" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column46" value="결재&lt;/br&gt;요청자" displayMode="label"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column45" value="회계&lt;/br&gt;요청일자" displayMode="label"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="180" inputType="text" style="" id="column44" value="거래처명" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="140" inputType="text" style="" id="column43" value="금액(단위 :원)" displayMode="label"
+    								colSpan="2" rowSpan="">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column41" value="구분" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="180" inputType="text" style="" id="column40" value="계정명" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="180" inputType="text" style="" id="column64" value="적요사항" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column67" value="전결위임구분" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row id="row3" style="">
+    							<w2:column width="70" inputType="text" style="" id="column69" value="" displayMode="label"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" style="" value="차변" width="110"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" style="" value="대변" width="110"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column width="70" inputType="expression" style="" id="mergeStd" value="" displayMode="label" expression="display('apprvReqNo')+display('regDt')+display('slipNo')+display('apprvSts')+display('delYn')+display('slipKnd')" hidden="true" hiddenCol="true"></w2:column>
+    							<w2:column displayMode="label" id="apprvReqNo" inputType="text" style="" value="" width="100"
+    								colMerge="true" upperColumn="mergeStd">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="regDt" value="" displayMode="label" dataType="date"
+    								displayFormat="yyyy/MM/dd" colMerge="true" upperColumn="mergeStd">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="color:blue;" id="slipNo" value="" displayMode="label"
+    								class="underline" colMerge="true" upperColumn="mergeStd">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="apprvSts" value="" displayMode="label" colMerge="true"
+    								upperColumn="mergeStd">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="delYn" value="" displayMode="label" colMerge="true" upperColumn="mergeStd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="slipKnd" value="" displayMode="label" textAlign="left"
+    								colMerge="true" upperColumn="mergeStd">
+    							</w2:column>
+    							<w2:column displayMode="label" id="slipDt" inputType="text" style="" value="" width="100" dataType="date"
+    								displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column displayMode="label" id="apprvReqrNm" inputType="text" style="" value="" width="100"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="postReqDt" inputType="text" style="" value="" width="100" dataType="date"
+    								displayFormat="yyyy/MM/dd">
+    							</w2:column>
+    							<w2:column displayMode="label" id="mgntClntNm" inputType="text" style="" value="" width="180"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="drAmt" inputType="text" style="" value="" width="110" textAlign="right"
+    								dataType="number" displayFormat="#,###,###,###" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="crAmt" inputType="text" style="" value="" width="110" textAlign="right"
+    								dataType="number" displayFormat="#,###,###,###" excelCellType="number">
+    							</w2:column>
+    							<w2:column displayMode="label" id="drcrCls" inputType="text" style="" value="" width="70"></w2:column>
+    							<w2:column displayMode="label" id="acctNm" inputType="text" style="" value="" width="180"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column width="180" inputType="text" style="" id="summary" value="" displayMode="label"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="apprvGbn" value="" displayMode="label"
+    								textAlign="left">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spanTotal" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<w2:textbox class="txt-dot txt-blue" id="" label="조회결과에 보이는 내용은(승인과 승인취소에 대하여) 상신,반려,중간승인,최종승인을 보여줍니다. " style=""></w2:textbox>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+op_302_01_38b.log
+
+[2026-02-19 14:34:17.362] 변환 시작
+[2026-02-19 14:34:17.424] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:35:08.478] #1 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=1, warnings=9 | LLM 50894ms, total 51053ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_crryinDtFrom (EMEDIT→xf:input), ed_crryinDtTo (EMEDIT→xf:input), ed_overDay (EMEDIT→xf:input)
+[2026-02-19 14:35:08.546] #1 검증: 자동수정 4건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:35:08.753] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.84, grade=B, verdict=REVIEW, errors=1, warnings=9
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: lc_sendYn (LUXECOMBO→w2:autoComplete), ed_crryinDtFrom (EMEDIT→xf:input), ed_crryinDtTo (EMEDIT→xf:input), ed_overDay (EMEDIT→xf:input)
+[2026-02-19 14:35:08.757] #2 재시도 (에러 1건)
+[2026-02-19 14:35:09.765] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:36:14.300] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=0, warnings=8 | LLM 64278ms, total 64535ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-19 14:36:14.308] #1 검증: 최적 시도 #1 채택 (confidence: 0.91)
+[2026-02-19 14:36:14.309] 성공 (#2, 1m 56s, confidence:0.91)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 3건: ed_crryinDtFrom (EMEDIT→xf:input), ed_crryinDtTo (EMEDIT→xf:input), ed_overDay (EMEDIT→xf:input)
+================================================================================

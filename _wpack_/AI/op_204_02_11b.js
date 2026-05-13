@@ -1,0 +1,952 @@
+/*amd /AI/op_204_02_11b.xml 67455 3fec18c972923c8cf389bd74cd300e866bd4c8a1ecd353352ecea200b4b59659 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'wrkIndictNo',name:'하역작업지시번호',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_main6',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkIndictNo',name:'하역작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqCd',name:'장비코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclShortCd',name:'차량단축코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqNm',name:'장비명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqKndCd',name:'장비종류코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqKndNm',name:'장비종류명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqNrmCd',name:'장비규격코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqNrmNm',name:'장비규격명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'nesEqNrmCd',name:'필요규격',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'협력업체거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'협력업체거래처명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tformEqKndCd',name:'변형장비',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd',name:'작업단계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'작업시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'작업시작시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'작업종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'작업종료시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvStaffNo1',name:'기사인원번호1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvStaffNm1',name:'기사명1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvStaffNo2',name:'기사인원번호2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvStaffNm2',name:'기사명2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvStaffNo3',name:'기사인원번호3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drvStaffNm3',name:'기사명3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'existRow',name:'신규입력여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'assgnSeq',name:'배정순번',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_main7',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkIndictNo',name:'하역작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqKndCd',name:'장비종류코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqKndNm',name:'장비종류명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'nesEqNrmCd',name:'필요규격코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'nesEqNrmNm',name:'필요규격명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'작업시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'작업시작시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'작업종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'작업종료시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'협력업체거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'협력업체거래처명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'assgnSeq',name:'배정순번',dataType:'number'}},{T:1,N:'w2:column',A:{id:'assgnSeqa',name:'배정순번a',dataType:'text'}},{T:1,N:'w2:column',A:{id:'reqHveqCnt',name:'요청중기수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inputHveqCnt',name:'투입중기수',dataType:'number'}},{T:1,N:'w2:column',A:{id:'wrkStpCd',name:'작업단계코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tformWrkImpleKndCd',name:'변형장비',dataType:'text'}},{T:1,N:'w2:column',A:{id:'existRow',name:'신규입력여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_main8',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkIndictNo',name:'작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkImpleKndCd',name:'작업도구종류코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkImpleNrmCd',name:'작업도구규격코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkImpleInputCnt',name:'작업도구투입수',dataType:'number'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_wrkStpCd'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkStpCd',name:'작업단계코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpNm',name:'작업단계명',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_LkStepNo'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'명칭',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cd',name:'cd',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'cdNm',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperCd',name:'상위코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_LkStepNo2'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'명칭',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cd',name:'cd',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'cdNm',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperCd',name:'상위코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_LkStepNo3'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'명칭',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cd',name:'cd',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'cdNm',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperCd',name:'상위코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'co_ds_combo1'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'명칭',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_main6',action:'/ds.op.wrkplan.stvwrkplan.SaveCarryingVesselHeavyEquipInputPlanCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_main6","key":"IN_DS1"},{"id":"ds_main7","key":"IN_DS2"},{"id":"ds_main8","key":"IN_DS3"}]',target:'','ev:submitdone':'scwin.sbm_main6_submitdone','ev:submiterror':'scwin.sbm_main6_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.wrkplan.stvwrkplan.RetrieveDayShiftCarryingVesselHeavyEquipInputPlanCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_main6","key":"OUT_DS6"},{"id":"ds_main7","key":"OUT_DS7"},{"id":"ds_main8","key":"OUT_DS8"}]',target:'data:json,[{"id":"ds_main6","key":"OUT_DS6"},{"id":"ds_main7","key":"OUT_DS7"},{"id":"ds_main8","key":"OUT_DS8"}]','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'scwin.sbm_retrieve_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_search',action:'/ds.op.wrkplan.stvwrkplan.RetrieveDayShiftCarryingVesselHeavyEquipInputPlanCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_main6","key":"OUT_DS6"},{"id":"ds_main7","key":"OUT_DS7"},{"id":"ds_main8","key":"OUT_DS8"}]',target:'data:json,[{"id":"ds_main6","key":"OUT_DS6"},{"id":"ds_main7","key":"OUT_DS7"},{"id":"ds_main8","key":"OUT_DS8"}]','ev:submitdone':'scwin.sbm_search_submitdone','ev:submiterror':'scwin.sbm_search_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_wrkStpCd',action:'/ds.lo.comninfomgnt.RetrieveWorkStepListCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_wrkStpCd","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_wrkStpCd","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_wrkStpCd_submitdone','ev:submiterror':'scwin.sbm_wrkStpCd_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_LkStepNo',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_LkStepNo","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_LkStepNo","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_LkStepNo_submitdone','ev:submiterror':'scwin.sbm_LkStepNo_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_LkStepNo2',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_LkStepNo2","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_LkStepNo2","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_LkStepNo2_submitdone','ev:submiterror':'scwin.sbm_LkStepNo2_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_LkStepNo3',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_LkStepNo3","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_LkStepNo3","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_LkStepNo3_submitdone','ev:submiterror':'scwin.sbm_LkStepNo3_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_combo1',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"co_ds_combo1","key":"OUT_DS1"}]',target:'data:json,[{"id":"co_ds_combo1","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_combo1_submitdone','ev:submiterror':'scwin.sbm_combo1_submiterror'}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.gv_rowPos6 = 0;
+scwin.gv_rowPos7 = 0;
+scwin.txt_wrkIndictNo = "";
+scwin.txt_hveqDuseCnt = "";
+scwin.txt_hcvsslMgntNo = "";
+scwin.txt_hwrkDt = "";
+scwin.txt_hshiftClsCd = "";
+scwin.txt_hfocus = "";
+scwin.txtShiftYN = "";
+scwin.onpageload = function () {
+  scwin.f_comboWrkStpCd();
+  scwin.f_defaultValue();
+  scwin.f_defaultValue2();
+  scwin.f_defaultValue3();
+  $c.gus.cfEnableObj($p, lux_wrkIndictNo, false);
+  $c.gus.cfEnableObj($p, button_no1, false);
+  if (parent.PcvsslMgntNo != "" && parent.PwrkDt != "" && parent.PshiftClsCd != "") {
+    parent.f_Retrieve();
+  }
+};
+scwin.f_comboWrkStpCd = async function () {
+  // TODO: sbm_wrkStpCd에 upperWrkStpCd=01&lvl=3&wrkPlanTrgtYn=1 파라미터 전달 필요
+  await $c.sbm.execute($p, sbm_wrkStpCd);
+};
+scwin.sbm_wrkStpCd_submitdone = function (e) {};
+scwin.sbm_wrkStpCd_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_defaultValue = async function () {
+  // TODO: sbm_LkStepNo에 sysCd=CommonEBC&queryId=retrieveSysCdTest_eqCode&param1=OP200 파라미터 전달 필요
+  await $c.sbm.execute($p, sbm_LkStepNo);
+};
+scwin.sbm_LkStepNo_submitdone = function (e) {};
+scwin.sbm_LkStepNo_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_defaultValue2 = async function () {
+  // TODO: sbm_LkStepNo2에 sysCd=CommonEBC&queryId=retrieveSysCdTest_eqCode&param1=ZZ208 파라미터 전달 필요
+  await $c.sbm.execute($p, sbm_LkStepNo2);
+};
+scwin.sbm_LkStepNo2_submitdone = function (e) {};
+scwin.sbm_LkStepNo2_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_defaultValue3 = async function () {
+  // TODO: sbm_LkStepNo3에 sysCd=CommonEBC&queryId=retrieveSysCdTest_eqCode&param1=ZZ208 파라미터 전달 필요
+  await $c.sbm.execute($p, sbm_LkStepNo3);
+};
+scwin.sbm_LkStepNo3_submitdone = function (e) {};
+scwin.sbm_LkStepNo3_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_main6Save = async function () {
+  if (!ds_main6.isUpdated() && !ds_main7.isUpdated() && !ds_main8.isUpdated()) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_001, ["중기투입계획"]);
+    return;
+  }
+  let chk = await $c.gus.cfValidate($p, [gr_main6, gr_main7, gr_main8]);
+  if (!chk) {
+    return;
+  }
+  for (let i = 0; i < ds_main6.getRowCount(); i++) {
+    if ("자사" != ds_main6.getCellData(i, "clntNm")) {
+      if (ds_main6.getCellData(i, "clntNo") == "") {
+        await $c.gus.cfAlertMsg($p, "협력업체가 '자사'가 아닐 경우 거래처번호는 필수 입력 입니다.");
+        ds_main6.setRowPosition(i);
+        gr_main6.setFocusedCell(i, "clntNo");
+        gr_main6.setFocus();
+        return;
+      }
+    } else {
+      if (ds_main6.getCellData(i, "drvStaffNo1") == "") {
+        await $c.gus.cfAlertMsg($p, "협력업체가 '자사'일 경우 기사인원번호1은 필수 입력 입니다.");
+        ds_main6.setRowPosition(i);
+        gr_main6.setFocusedCell(i, "drvStaffNo1");
+        gr_main6.setFocus();
+        return;
+      }
+      if (ds_main6.getCellData(i, "drvStaffNm1") == "") {
+        await $c.gus.cfAlertMsg($p, "협력업체가 '자사'일 경우 성명1은 필수 입력 입니다.");
+        ds_main6.setRowPosition(i);
+        gr_main6.setFocusedCell(i, "drvStaffNo1");
+        gr_main6.setFocus();
+        return;
+      }
+    }
+  }
+  for (let i = 0; i < ds_main7.getRowCount(); i++) {
+    if (ds_main7.getCellData(i, "clntNo").trim() == "" || ds_main7.getCellData(i, "clntNm").trim() == "") {
+      await $c.gus.cfAlertMsg($p, "협력업체를 입력하시오.");
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "clntNm");
+      gr_main7.setFocus();
+      return;
+    }
+    if (1 > ds_main7.getCellData(i, "reqHveqCnt")) {
+      await $c.gus.cfAlertMsg($p, "협력업체의 배정대수를 입력하시오.");
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "reqHveqCnt");
+      gr_main7.setFocus();
+      return;
+    }
+    if (ds_main7.getCellData(i, "wrkStpCd").trim() == "") {
+      await $c.gus.cfAlertMsg($p, "작업단계를 입력하시오.");
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkStpCd");
+      gr_main7.setFocus();
+      return;
+    }
+  }
+  for (let i = 0; i < ds_main8.getRowCount(); i++) {
+    if (ds_main8.getCellData(i, "wrkImpleNrmCd") == "") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_002, ["작업도구규격"]);
+      ds_main8.setRowPosition(i);
+      gr_main8.setFocusedCell(i, "wrkImpleNrmCd");
+      gr_main8.setFocus();
+      return;
+    }
+    if (1 > ds_main8.getCellData(i, "wrkImpleInputCnt")) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_002, ["투입수량"]);
+      ds_main8.setRowPosition(i);
+      gr_main8.setFocusedCell(i, "wrkImpleInputCnt");
+      gr_main8.setFocus();
+      return;
+    }
+  }
+  if (!(await scwin.f_validateWrkTime())) {
+    if ("gr_main6" == scwin.txt_hfocus) {
+      gr_main6.setFocus();
+    } else {
+      gr_main7.setFocus();
+    }
+    return false;
+  }
+  await $c.sbm.execute($p, sbm_main6);
+};
+scwin.f_Retrieve = async function () {
+  dma_search.set("wrkIndictNo", parent.scwin.txtWrkIndictNo);
+  await $c.sbm.execute($p, sbm_retrieve);
+};
+scwin.f_search = async function () {
+  if (scwin.txt_wrkIndictNo == "") {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_018, ["작업지시번호", "작업지시번호 생성"]);
+    return;
+  }
+  let selectedIdx = lux_wrkIndictNo.getSelectedIndex();
+  let wrkIndictNo = co_ds_combo1.getCellData(selectedIdx, "code");
+  dma_search.set("wrkIndictNo", wrkIndictNo);
+  await $c.sbm.execute($p, sbm_search);
+};
+scwin.sbm_search_submitdone = function (e) {
+  for (let i = 0; i < ds_main6.getRowCount(); i++) {
+    scwin.txt_wrkIndictNo = parent.scwin.txtWrkIndictNo;
+    ds_main6.setCellData(i, "wrkIndictNo", scwin.txt_wrkIndictNo);
+    ds_main6.setCellData(i, "wrkStDt", parent.em_wrkStDt.getValue());
+    ds_main6.setCellData(i, "wrkStHh", parent.em_wrkStHh.getValue());
+    ds_main6.setCellData(i, "wrkEndDt", parent.em_wrkEndDt.getValue());
+    ds_main6.setCellData(i, "wrkEndHh", parent.em_wrkEndHh.getValue());
+  }
+  // TODO: ExportData/ImportData 패턴은 WebSquare에서 직접 지원하지 않음. 상태 초기화 로직 수동 처리 필요
+
+  for (let i = 0; i < ds_main7.getRowCount(); i++) {
+    scwin.txt_wrkIndictNo = parent.scwin.txtWrkIndictNo;
+    ds_main7.setCellData(i, "wrkIndictNo", scwin.txt_wrkIndictNo);
+    ds_main7.setCellData(i, "wrkStDt", parent.em_wrkStDt.getValue());
+    ds_main7.setCellData(i, "wrkStHh", parent.em_wrkStHh.getValue());
+    ds_main7.setCellData(i, "wrkEndDt", parent.em_wrkEndDt.getValue());
+    ds_main7.setCellData(i, "wrkEndHh", parent.em_wrkEndHh.getValue());
+  }
+  for (let i = 0; i < ds_main8.getRowCount(); i++) {
+    scwin.txt_wrkIndictNo = parent.scwin.txtWrkIndictNo;
+    ds_main8.setCellData(i, "wrkIndictNo", scwin.txt_wrkIndictNo);
+  }
+  if (ds_main6.getRowCount() > 0) {
+    scwin.f_defaultCall();
+  }
+  if (ds_main7.getRowCount() > 0) {
+    scwin.f_defaultCallMain7();
+  }
+  if (ds_main8.getRowCount() > 0) {
+    scwin.f_defaultCallMain8();
+  }
+};
+scwin.sbm_search_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.sbm_main6_submitdone = async function (e) {
+  await $c.gus.cfAlertMsg($p, MSG_CM_INF_001);
+  scwin.f_Retrieve();
+};
+scwin.sbm_main6_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.sbm_retrieve_submitdone = function (e) {};
+scwin.sbm_retrieve_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.f_AddRow = async function (no) {
+  if (scwin.txt_wrkIndictNo == "") {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_018, ["작업지시번호", "작업지시번호 생성"]);
+    return;
+  }
+  if (no == 6) {
+    let newIdx = ds_main6.insertRow();
+    ds_main6.setRowPosition(newIdx);
+    ds_main6.setCellData(newIdx, "wrkIndictNo", scwin.txt_wrkIndictNo);
+    ds_main6.setCellData(newIdx, "wrkStDt", parent.em_wrkStDt.getValue());
+    ds_main6.setCellData(newIdx, "wrkStHh", parent.em_wrkStHh.getValue());
+    ds_main6.setCellData(newIdx, "wrkEndDt", parent.em_wrkEndDt.getValue());
+    ds_main6.setCellData(newIdx, "wrkEndHh", parent.em_wrkEndHh.getValue());
+    if ("자사" == ds_main6.getCellData(newIdx, "clntNm")) {
+      gr_main6.setColumnReadOnly("clntNm", true);
+      gr_main6.setColumnReadOnly("clntNo", true);
+    } else {
+      gr_main6.setColumnReadOnly("clntNm", false);
+      gr_main6.setColumnReadOnly("clntNo", false);
+    }
+    scwin.f_defaultCall();
+  } else if (no == 7) {
+    let newIdx = ds_main7.insertRow();
+    ds_main7.setRowPosition(newIdx);
+    ds_main7.setCellData(newIdx, "wrkIndictNo", scwin.txt_wrkIndictNo);
+    ds_main7.setCellData(newIdx, "wrkStDt", parent.em_wrkStDt.getValue());
+    ds_main7.setCellData(newIdx, "wrkStHh", parent.em_wrkStHh.getValue());
+    ds_main7.setCellData(newIdx, "wrkEndDt", parent.em_wrkEndDt.getValue());
+    ds_main7.setCellData(newIdx, "wrkEndHh", parent.em_wrkEndHh.getValue());
+    scwin.f_defaultCallMain7();
+  } else if (no == 8) {
+    let newIdx = ds_main8.insertRow();
+    ds_main8.setRowPosition(newIdx);
+    ds_main8.setCellData(newIdx, "wrkIndictNo", scwin.txt_wrkIndictNo);
+    gr_main8.setFocusedCell(newIdx, "wrkImpleKndCd");
+    gr_main8.setFocus();
+    scwin.f_defaultCallMain8();
+  }
+};
+scwin.f_delete = async function (gubun) {
+  if (gubun == 6) {
+    let row = ds_main6.getRowPosition();
+    if (ds_main6.getCellData(row, "assgnSeq") != 0) {
+      await $c.gus.cfAlertMsg($p, "해당 배정데이터에 대해 협력업체에서 이미 중기투입 등록하였으므로 삭제할 수 없습니다.");
+      return;
+    } else {
+      ds_main6.removeRow(row);
+    }
+  } else if (gubun == 7) {
+    let row = ds_main7.getRowPosition();
+    let yncheck = 0;
+    for (let i = 0; i < ds_main6.getRowCount(); i++) {
+      if (ds_main6.getCellData(i, "clntNo") == ds_main7.getCellData(row, "clntNo") && ds_main6.getCellData(i, "assgnSeq") == ds_main7.getCellData(row, "assgnSeq")) {
+        yncheck = 1;
+        break;
+      }
+    }
+    if (yncheck == 1) {
+      await $c.gus.cfAlertMsg($p, "해당 배정데이터에 대해 협력업체에서 이미 중기투입 등록하였으므로 삭제할 수 없습니다.");
+      return;
+    } else {
+      ds_main7.removeRow(row);
+    }
+  }
+};
+scwin.f_openCommCdPopUp = async function (row, colid, gubun) {
+  let colidNm = "";
+  let pCode = "";
+  let pName = "";
+  let arrParam = {};
+  if (colid == "drvStaffNo1") {
+    colidNm = "drvStaffNm1";
+  } else if (colid == "drvStaffNo2") {
+    colidNm = "drvStaffNm2";
+  } else if (colid == "drvStaffNo3") {
+    colidNm = "drvStaffNm3";
+  } else if (colid == "drvStaffNm1") {
+    colidNm = "drvStaffNo1";
+  } else if (colid == "drvStaffNm2") {
+    colidNm = "drvStaffNo2";
+  } else if (colid == "drvStaffNm3") {
+    colidNm = "drvStaffNo3";
+  }
+  if (gubun == 1) {
+    pCode = ds_main6.getCellData(ds_main6.getRowPosition(), colid);
+  } else {
+    pName = ds_main6.getCellData(ds_main6.getRowPosition(), colid);
+  }
+  ds_main6.setCellData(ds_main6.getRowPosition(), colidNm, "");
+  arrParam.pCode = pCode;
+  arrParam.pName = pName;
+  arrParam.lobranCd = parent.scwin.txt_hlobranCd;
+  arrParam.lobranNm = parent.scwin.txt_hlobranNm;
+  arrParam.wrkPlCd = "";
+  arrParam.jobType = "00,E";
+  arrParam.detailJobType = "01,D";
+  arrParam.rank = "";
+  arrParam.wrkDt = parent.em_wrkStDt.getValue();
+  arrParam.usblYn = "Y";
+  arrParam.closeFlag = "T";
+  let rtnList = await $c.win.openPopup($p, "/ui/ds/op/rscconfirm/manpwrrscconfirm/op_103_01_10p.xml", {
+    width: 530,
+    height: 450,
+    modal: true,
+    data: arrParam
+  });
+  if (rtnList != null && rtnList[1] != undefined) {
+    if (gubun == 1) {
+      ds_main6.setCellData(ds_main6.getRowPosition(), colid, rtnList[2]);
+      ds_main6.setCellData(ds_main6.getRowPosition(), colidNm, rtnList[3]);
+    } else {
+      ds_main6.setCellData(ds_main6.getRowPosition(), colidNm, rtnList[2]);
+      ds_main6.setCellData(ds_main6.getRowPosition(), colid, rtnList[3]);
+    }
+  }
+};
+scwin.f_defaultCall = function () {
+  if (ds_main6.getRowCount() > 0 && ds_main6.getRowPosition() >= 0) {
+    if (ds_main6.getRowStatus(ds_main6.getRowPosition()) == "C") {
+      gr_main6.setCellReadOnly(ds_main6.getRowPosition(), "vehclShortCd", false);
+    } else {
+      gr_main6.setCellReadOnly(ds_main6.getRowPosition(), "vehclShortCd", true);
+    }
+    if (ds_main6.getCellData(ds_main6.getRowPosition(), "assgnSeq") == 1) {
+      gr_main6.setCellReadOnly(ds_main6.getRowPosition(), "clntNm", true);
+      gr_main6.setCellReadOnly(ds_main6.getRowPosition(), "clntNo", true);
+    } else {
+      gr_main6.setCellReadOnly(ds_main6.getRowPosition(), "clntNm", false);
+      gr_main6.setCellReadOnly(ds_main6.getRowPosition(), "clntNo", false);
+    }
+  }
+};
+scwin.f_defaultCallMain7 = function () {
+  if (ds_main7.getRowCount() > 0 && ds_main7.getRowPosition() >= 0) {
+    if ("C" == ds_main7.getRowStatus(ds_main7.getRowPosition())) {
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "eqKndCd", false);
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "nesEqNrmCd", false);
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "clntNm", false);
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "clntNo", false);
+    } else {
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "eqKndCd", true);
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "nesEqNrmCd", true);
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "clntNm", true);
+      gr_main7.setCellReadOnly(ds_main7.getRowPosition(), "clntNo", true);
+    }
+  }
+};
+scwin.f_defaultCallMain8 = function () {
+  if (ds_main8.getRowCount() > 0 && ds_main8.getRowPosition() >= 0) {
+    if ("C" == ds_main8.getRowStatus(ds_main8.getRowPosition())) {
+      gr_main8.setCellReadOnly(ds_main8.getRowPosition(), "wrkImpleKndCd", false);
+      gr_main8.setCellReadOnly(ds_main8.getRowPosition(), "wrkImpleNrmCd", false);
+    } else {
+      gr_main8.setCellReadOnly(ds_main8.getRowPosition(), "wrkImpleKndCd", true);
+      gr_main8.setCellReadOnly(ds_main8.getRowPosition(), "wrkImpleNrmCd", true);
+    }
+  }
+};
+scwin.f_RetrievePierCd = async function (param1, param2) {
+  // TODO: sbm_combo1에 sysCd=DailyStevedoringWorkIndicationEBC&queryId=retrieveWorkPlanListCombo&param1=xxx&param2=yyy 파라미터 전달 필요
+  await $c.sbm.execute($p, sbm_combo1);
+};
+scwin.f_RetrievePierCdCall = function () {
+  scwin.f_RetrievePierCd(parent.scwin.txt_hcvsslMgntNo, parent.ds_main2.getCellData(0, "wrkIndictNo"));
+};
+scwin.f_onPopupMain6 = async function (row, colid, data) {
+  let rtnList = null;
+  if (colid == "vehclShortCd") {
+    let arrParam = {};
+    let pCode = ds_main6.getCellData(row, "vehclShortCd");
+    let pName = ds_main6.getCellData(row, "eqNm");
+    let pDate = parent.em_wrkStDt.getValue();
+    arrParam.assgnLobranCd = "";
+    arrParam.eqKndCd = "";
+    arrParam.clntCd = "";
+    arrParam.usblDt = pDate;
+    arrParam.eqNo = pCode;
+    arrParam.eqNm = "";
+    arrParam.flag1 = "T";
+    arrParam.flag2 = "T";
+    rtnList = await $c.win.openPopup($p, "/ui/ds/op/rscconfirm/transrscconfirm/op_101_01_12p.xml", {
+      width: 600,
+      height: 430,
+      modal: true,
+      data: arrParam
+    });
+    if (rtnList != null && rtnList[1] != undefined) {
+      ds_main6.setCellData(row, "vehclShortCd", rtnList[0]);
+      ds_main6.setCellData(row, "eqCd", rtnList[12]);
+      ds_main6.setCellData(row, "eqNm", rtnList[10]);
+      ds_main6.setCellData(row, "vehclNo", rtnList[1]);
+      ds_main6.setCellData(row, "eqKndCd", rtnList[15]);
+      ds_main6.setCellData(row, "eqKndNm", rtnList[2]);
+      ds_main6.setCellData(row, "eqNrmCd", rtnList[11]);
+      ds_main6.setCellData(row, "eqNrmNm", rtnList[3]);
+      ds_main6.setCellData(row, "clntNo", rtnList[29]);
+      ds_main6.setCellData(row, "clntNm", rtnList[5]);
+      ds_main6.setCellData(row, "drvStaffNo1", rtnList[16]);
+      ds_main6.setCellData(row, "drvStaffNm1", rtnList[7]);
+      ds_main6.setCellData(row, "drvStaffNo2", rtnList[17]);
+      ds_main6.setCellData(row, "drvStaffNm2", rtnList[8]);
+      ds_main6.setCellData(row, "drvStaffNo3", rtnList[18]);
+      ds_main6.setCellData(row, "drvStaffNm3", rtnList[9]);
+      if (rtnList[31] == 1) {
+        ds_main6.setCellData(row, "clntNm", "자사");
+      }
+      gr_main6.setFocusedCell(row, "nesEqNrmCd");
+      gr_main6.setFocus();
+      if ("자사" == ds_main6.getCellData(row, "clntNm")) {
+        gr_main6.setCellReadOnly(row, "clntNm", true);
+        gr_main6.setCellReadOnly(row, "clntNo", true);
+        // TODO: headColor 변경은 WebSquare에서 별도 CSS 처리 필요
+      } else {
+        gr_main6.setCellReadOnly(row, "clntNm", false);
+        gr_main6.setCellReadOnly(row, "clntNo", false);
+      }
+    }
+  } else if (colid == "clntNm") {
+    let param1 = "";
+    let param2 = ds_main6.getCellData(row, "clntNm");
+    rtnList = $c.gus.cfCommonPopUp($p, "retrieveHeavyMachineryClntInfo", param1, param2, "F", null, null, null, null, null, 450, 500, null, null);
+    $c.gus.cfSetGridReturnValue($p, rtnList, ds_main6, row, "clntNo", "clntNm");
+  } else if (colid == "clntNo") {
+    let param1 = ds_main6.getCellData(row, "clntNo");
+    let param2 = "";
+    rtnList = $c.gus.cfCommonPopUp($p, "retrieveHeavyMachineryClntInfo", param1, param2, "F", null, null, null, null, null, 450, 500, null, null);
+    $c.gus.cfSetGridReturnValue($p, rtnList, ds_main6, row, "clntNo", "clntNm");
+  } else if (colid == "drvStaffNo1" || colid == "drvStaffNo2" || colid == "drvStaffNo3") {
+    scwin.f_openCommCdPopUp(row, colid, 1);
+  } else if (colid == "drvStaffNm1" || colid == "drvStaffNm2" || colid == "drvStaffNm3") {
+    scwin.f_openCommCdPopUp(row, colid, 2);
+  } else if (colid == "wrkStDt" || colid == "wrkEndDt") {
+    // TODO: cfOpenCalendar(gr_main6, row, colid) — calendar inputType으로 대체됨
+  }
+};
+scwin.f_validateWrkTime = async function () {
+  for (let i = 0; i < ds_main6.getRowCount(); i++) {
+    if (ds_main6.getCellData(i, "wrkStDt").length > 0 && ds_main6.getCellData(i, "wrkStDt") != parent.em_wrkStDt.getValue().trim()) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_030 + "작업지시번호의 작업시작일자와 동일한 날만 가능합니다", ["작업시작일자"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkStDt");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkStDt").length != 8 || ds_main6.getCellData(i, "wrkEndDt").length != 8 || !$c.gus.cfIsAfterDate($p, ds_main6.getCellData(i, "wrkStDt"), ds_main6.getCellData(i, "wrkEndDt"), false)) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkStDt");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkEndDt").length > 0) {
+      let parentWrkStDt = parent.em_wrkStDt.getValue().trim();
+      let nextDay = $c.date.addDate($p, parentWrkStDt, 1);
+      if (ds_main6.getCellData(i, "wrkEndDt") < parentWrkStDt || ds_main6.getCellData(i, "wrkEndDt") > nextDay) {
+        await $c.gus.cfAlertMsg($p, MSG_CM_ERR_030 + "작업일자 하루이후까지만 가능합니다", ["작업종료일자"]);
+        ds_main6.setRowPosition(i);
+        gr_main6.setFocusedCell(i, "wrkEndDt");
+        gr_main6.setFocus();
+        scwin.txt_hfocus = "gr_main6";
+        return false;
+      }
+    }
+    if (ds_main6.getCellData(i, "wrkStDt").length != 8 || ds_main6.getCellData(i, "wrkEndDt").length != 8 || !$c.gus.cfIsAfterDate($p, ds_main6.getCellData(i, "wrkStDt"), ds_main6.getCellData(i, "wrkEndDt"), false)) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkEndDt");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkStHh").length != 4) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_055, ["시간형식"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkStHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkEndHh").length != 4) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_055, ["시간형식"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkEndHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkStHh").substr(0, 2) > "23") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_021, ["작업시간"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkStHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkStHh").substr(2, 2) > "59") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkStHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkEndHh").substr(0, 2) > "24") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkEndHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkEndHh").substr(0, 2) == "00" && ds_main6.getCellData(i, "wrkEndHh").substr(2, 2) == "00") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkEndHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkEndHh").substr(0, 2) == "24" && ds_main6.getCellData(i, "wrkEndHh").substr(2, 2) > "00") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkEndHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkEndHh").substr(2, 2) > "59") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main6.setRowPosition(i);
+      gr_main6.setFocusedCell(i, "wrkEndHh");
+      gr_main6.setFocus();
+      scwin.txt_hfocus = "gr_main6";
+      return false;
+    }
+    if (ds_main6.getCellData(i, "wrkStDt") == ds_main6.getCellData(i, "wrkEndDt")) {
+      if (ds_main6.getCellData(i, "wrkStHh") >= ds_main6.getCellData(i, "wrkEndHh")) {
+        await $c.gus.cfAlertMsg($p, "시작시간을 종료시간보다 이전으로 입력하여 주십시오.");
+        ds_main6.setRowPosition(i);
+        gr_main6.setFocusedCell(i, "wrkStHh");
+        gr_main6.setFocus();
+        scwin.txt_hfocus = "gr_main6";
+        return false;
+      }
+    }
+  }
+  for (let i = 0; i < ds_main7.getRowCount(); i++) {
+    if (ds_main7.getCellData(i, "wrkStDt").length > 0 && ds_main7.getCellData(i, "wrkStDt") != parent.em_wrkStDt.getValue()) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_030 + "작업지시번호의 작업시작일자와 동일한 날만 가능합니다", ["작업시작일자"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkStDt");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkStDt").length != 8 || ds_main7.getCellData(i, "wrkEndDt").length != 8 || !$c.gus.cfIsAfterDate($p, ds_main7.getCellData(i, "wrkStDt"), ds_main7.getCellData(i, "wrkEndDt"), false)) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkStDt");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkEndDt").length > 0) {
+      let parentWrkStDt = parent.em_wrkStDt.getValue().trim();
+      let nextDay = $c.date.addDate($p, parentWrkStDt, 1);
+      if (ds_main7.getCellData(i, "wrkEndDt") < parentWrkStDt || ds_main7.getCellData(i, "wrkEndDt") > nextDay) {
+        await $c.gus.cfAlertMsg($p, MSG_CM_ERR_030 + "작업지시번호의 작업시작일자 하루 이후까지만 가능합니다", ["작업종료일자"]);
+        ds_main7.setRowPosition(i);
+        gr_main7.setFocusedCell(i, "wrkEndDt");
+        gr_main7.setFocus();
+        scwin.txt_hfocus = "gr_main7";
+        return false;
+      }
+    }
+    if (ds_main7.getCellData(i, "wrkStDt").length != 8 || ds_main7.getCellData(i, "wrkEndDt").length != 8 || !$c.gus.cfIsAfterDate($p, ds_main7.getCellData(i, "wrkStDt"), ds_main7.getCellData(i, "wrkEndDt"), false)) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_039);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkEndDt");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkStHh").length != 4) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_055, ["시간형식"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkStHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkEndHh").length != 4) {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_055, ["시간형식"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkEndHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkStHh").substr(0, 2) > "23") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_021, ["작업시간"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkStHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkStHh").substr(2, 2) > "59") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkStHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkEndHh").substr(0, 2) > "24") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkEndHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkEndHh").substr(0, 2) == "00" && ds_main7.getCellData(i, "wrkEndHh").substr(2, 2) == "00") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkEndHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkEndHh").substr(0, 2) == "24" && ds_main7.getCellData(i, "wrkEndHh").substr(2, 2) > "00") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkEndHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkEndHh").substr(2, 2) > "59") {
+      await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, ["작업시간"]);
+      ds_main7.setRowPosition(i);
+      gr_main7.setFocusedCell(i, "wrkEndHh");
+      gr_main7.setFocus();
+      scwin.txt_hfocus = "gr_main7";
+      return false;
+    }
+    if (ds_main7.getCellData(i, "wrkStDt") == ds_main7.getCellData(i, "wrkEndDt")) {
+      if (ds_main7.getCellData(i, "wrkStHh") >= ds_main7.getCellData(i, "wrkEndHh")) {
+        await $c.gus.cfAlertMsg($p, "시작시간을 종료시간보다 작게 입력하여 주십시오.");
+        ds_main7.setRowPosition(i);
+        gr_main7.setFocusedCell(i, "wrkStHh");
+        gr_main7.setFocus();
+        scwin.txt_hfocus = "gr_main7";
+        return false;
+      }
+    }
+  }
+  return true;
+};
+scwin.sbm_combo1_submitdone = function (e) {
+  if (co_ds_combo1.getRowCount() > 0) {
+    $c.gus.cfEnableObj($p, lux_wrkIndictNo, true);
+    $c.gus.cfEnableObj($p, button_no1, true);
+  } else {
+    $c.gus.cfEnableObj($p, lux_wrkIndictNo, false);
+    $c.gus.cfEnableObj($p, button_no1, false);
+  }
+  if (parent.ds_main2.getRowCount() > 0) {
+    if (parent.ds_main2.getCellData(0, "completeProcYn") == 1) {
+      $c.gus.cfEnableObj($p, button_no1, false);
+    } else {
+      $c.gus.cfEnableObj($p, button_no1, true);
+    }
+  }
+};
+scwin.sbm_combo1_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.ds_main6_onrowpositionchange = function (rowIndex, oldRowIndex) {
+  if (rowIndex >= 0 && ds_main6.getRowCount() > rowIndex) {
+    if ("자사" == ds_main6.getCellData(rowIndex, "clntNm")) {
+      gr_main6.setCellReadOnly(rowIndex, "clntNm", true);
+      gr_main6.setCellReadOnly(rowIndex, "clntNo", true);
+    } else {
+      gr_main6.setCellReadOnly(rowIndex, "clntNm", false);
+      gr_main6.setCellReadOnly(rowIndex, "clntNo", false);
+    }
+    if (rowIndex != scwin.gv_rowPos6) {
+      scwin.gv_rowPos6 = rowIndex;
+      scwin.f_defaultCall();
+    }
+  }
+};
+scwin.gr_main6_oneditend = function (rowIndex, columnIndex, columnId, value, oldValue) {
+  let row = rowIndex;
+  let colid = columnId;
+  let olddata = oldValue;
+  switch (colid) {
+    case "vehclShortCd":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "vehclShortCd", "");
+        ds_main6.setCellData(row, "eqCd", "");
+        ds_main6.setCellData(row, "eqNm", "");
+        ds_main6.setCellData(row, "vehclNo", "");
+        ds_main6.setCellData(row, "eqKndCd", "");
+        ds_main6.setCellData(row, "eqKndNm", "");
+        ds_main6.setCellData(row, "eqNrmCd", "");
+        ds_main6.setCellData(row, "eqNrmNm", "");
+        ds_main6.setCellData(row, "clntNo", "");
+        ds_main6.setCellData(row, "clntNm", "");
+        ds_main6.setCellData(row, "drvStaffNo1", "");
+        ds_main6.setCellData(row, "drvStaffNm1", "");
+        ds_main6.setCellData(row, "drvStaffNo2", "");
+        ds_main6.setCellData(row, "drvStaffNm2", "");
+        ds_main6.setCellData(row, "drvStaffNo3", "");
+        ds_main6.setCellData(row, "drvStaffNm3", "");
+      }
+      break;
+    case "drvStaffNo1":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "drvStaffNo1", "");
+        ds_main6.setCellData(row, "drvStaffNm1", "");
+      }
+      break;
+    case "drvStaffNm1":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "drvStaffNo1", "");
+        ds_main6.setCellData(row, "drvStaffNm1", "");
+      }
+      break;
+    case "drvStaffNo2":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "drvStaffNo2", "");
+        ds_main6.setCellData(row, "drvStaffNm2", "");
+      }
+      break;
+    case "drvStaffNm2":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "drvStaffNo2", "");
+        ds_main6.setCellData(row, "drvStaffNm2", "");
+      }
+      break;
+    case "drvStaffNo3":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "drvStaffNo3", "");
+        ds_main6.setCellData(row, "drvStaffNm3", "");
+      }
+      break;
+    case "drvStaffNm3":
+      if (ds_main6.getCellData(row, colid) != olddata && ds_main6.getCellData(row, colid) != "") {
+        scwin.f_onPopupMain6(row, colid, ds_main6.getCellData(row, colid));
+      } else if (ds_main6.getCellData(row, colid) == "") {
+        ds_main6.setCellData(row, "drvStaffNo3", "");
+        ds_main6.setCellData(row, "drvStaffNm3", "");
+      }
+      break;
+  }
+  if ("자사" == ds_main6.getCellData(row, "clntNm")) {
+    gr_main6.setCellReadOnly(row, "clntNm", true);
+    gr_main6.setCellReadOnly(row, "clntNo", true);
+    scwin.f_defaultCall();
+  } else {
+    gr_main6.setCellReadOnly(row, "clntNm", false);
+    gr_main6.setCellReadOnly(row, "clntNo", false);
+    scwin.f_defaultCall();
+  }
+};
+scwin.gr_main7_oneditend = function (rowIndex, columnIndex, columnId, value, oldValue) {
+  let row = rowIndex;
+  let colid = columnId;
+  let olddata = oldValue;
+  let rtnList = null;
+  switch (colid) {
+    case "eqKndCd":
+      if (ds_main7.getCellData(row, colid) != olddata && ds_main7.getCellData(row, colid) != "") {
+        let param1 = ds_main7.getCellData(row, "eqKndCd");
+        let param2 = "";
+        rtnList = $c.gus.cfCommonPopUp($p, "retrieveClntHeavyMachineryInfo", param1, param2, "T", null, null, null, null, null, 420, 500, null, null);
+        if (rtnList != null && rtnList[1] != undefined) {
+          ds_main7.setCellData(row, "eqKndCd", rtnList[0]);
+          ds_main7.setCellData(row, "eqKndNm", rtnList[1]);
+          ds_main7.setCellData(row, "eqNrmCd", rtnList[2]);
+          ds_main7.setCellData(row, "eqNrmNm", rtnList[3]);
+          gr_main7.setFocusedCell(row, "nesEqNrmCd");
+          gr_main7.setFocus();
+        }
+        if ("N/" == ds_main7.getCellData(row, "eqKndCd")) {
+          ds_main7.setCellData(row, "eqKndCd", "");
+        }
+      } else if (ds_main7.getCellData(row, colid) == "") {
+        ds_main7.setCellData(row, "eqKndCd", "");
+        ds_main7.setCellData(row, "eqKndNm", "");
+        ds_main7.setCellData(row, "eqNrmCd", "");
+        ds_main7.setCellData(row, "eqNrmNm", "");
+      }
+      break;
+    case "clntNm":
+      if (ds_main7.getCellData(row, colid) != olddata && ds_main7.getCellData(row, colid) != "") {
+        let param1 = "";
+        let param2 = ds_main7.getCellData(row, "clntNm");
+        rtnList = $c.gus.cfCommonPopUp($p, "retrieveHeavyMachineryClntInfo", param1, param2, "T", null, null, null, null, null, 450, 500, null, null);
+        $c.gus.cfSetGridReturnValue($p, rtnList, ds_main7, row, "clntNo", "clntNm");
+      } else if (ds_main7.getCellData(row, colid) == "") {
+        ds_main7.setCellData(row, "clntNo", "");
+        ds_main7.setCellData(row, "clntNm", "");
+      }
+      break;
+    case "clntNo":
+      if (ds_main7.getCellData(row, colid) != olddata && ds_main7.getCellData(row, colid) != "") {
+        let param1 = ds_main7.getCellData(row, "clntNo");
+        let param2 = "";
+        rtnList = $c.gus.cfCommonPopUp($p, "retrieveHeavyMachineryClntInfo", param1, param2, "T", null, null, null, null, null, 450, 500, null, null);
+        $c.gus.cfSetGridReturnValue($p, rtnList, ds_main7, row, "clntNo", "clntNm");
+      } else if (ds_main7.getCellData(row, colid) == "") {
+        ds_main7.setCellData(row, "clntNo", "");
+        ds_main7.setCellData(row, "clntNm", "");
+      }
+      break;
+  }
+};
+scwin.gr_main6_ontextimageclick = function (rowIndex, columnIndex, columnId) {
+  scwin.f_onPopupMain6(rowIndex, columnId, ds_main6.getCellData(rowIndex, columnId));
+};
+scwin.gr_main7_ontextimageclick = function (rowIndex, columnIndex, columnId) {
+  let row = rowIndex;
+  let colid = columnId;
+  let rtnList = null;
+  if (colid == "eqKndCd") {
+    let param1 = ds_main7.getCellData(row, "eqKndCd");
+    let param2 = "";
+    rtnList = $c.gus.cfCommonPopUp($p, "retrieveClntHeavyMachineryInfo", param1, param2, "F", null, null, null, null, null, 420, 500, null, null);
+    if (rtnList != null) {
+      ds_main7.setCellData(row, "eqKndCd", rtnList[0]);
+      ds_main7.setCellData(row, "eqKndNm", rtnList[1]);
+      ds_main7.setCellData(row, "eqNrmCd", rtnList[2]);
+      ds_main7.setCellData(row, "eqNrmNm", rtnList[3]);
+      gr_main7.setFocusedCell(row, "nesEqNrmCd");
+      gr_main7.setFocus();
+    }
+    if ("N/" == ds_main7.getCellData(row, "eqKndCd")) {
+      ds_main7.setCellData(row, "eqKndCd", "");
+    }
+  } else if (colid == "clntNm") {
+    let param1 = "";
+    let param2 = ds_main7.getCellData(row, "clntNm");
+    rtnList = $c.gus.cfCommonPopUp($p, "retrieveHeavyMachineryClntInfo", param1, param2, "F", null, null, null, null, null, 450, 500, null, null);
+    $c.gus.cfSetGridReturnValue($p, rtnList, ds_main7, row, "clntNo", "clntNm");
+  } else if (colid == "clntNo") {
+    let param1 = ds_main7.getCellData(row, "clntNo");
+    let param2 = "";
+    rtnList = $c.gus.cfCommonPopUp($p, "retrieveHeavyMachineryClntInfo", param1, param2, "F", null, null, null, null, null, 450, 500, null, null);
+    $c.gus.cfSetGridReturnValue($p, rtnList, ds_main7, row, "clntNo", "clntNm");
+  }
+};
+scwin.ds_main7_onrowpositionchange = function (rowIndex, oldRowIndex) {
+  if (rowIndex != scwin.gv_rowPos7) {
+    scwin.gv_rowPos7 = rowIndex;
+    scwin.f_defaultCallMain7();
+  }
+};
+scwin.ds_main8_onrowpositionchange = function (rowIndex, oldRowIndex) {
+  if (rowIndex < 0) return;
+  scwin.f_defaultCallMain8();
+};
+scwin.ds_main6_oncelldatachange = function (info) {
+  let row = info.row;
+  let colid = info.colId;
+  if (colid == "eqKndCd") {
+    ds_main6.setCellData(row, "nesEqNrmCd", "");
+    // TODO: ds_LkStepNo2 Filter 처리 — WebSquare에서 DataList filter API 사용 필요
+  }
+};
+scwin.ds_main7_oncelldatachange = function (info) {
+  let row = info.row;
+  let colid = info.colId;
+  if (colid == "eqKndCd") {
+    // TODO: ds_LkStepNo3 Filter 처리 — WebSquare에서 DataList filter API 사용 필요
+  }
+};
+scwin.ds_main8_oncelldatachange = function (info) {
+  let row = info.row;
+  let colid = info.colId;
+  if (colid == "wrkImpleKndCd") {
+    ds_main8.setCellData(row, "wrkImpleNrmCd", "");
+    // TODO: ds_LkStepNo Filter 처리 — WebSquare에서 DataList filter API 사용 필요
+    if (ds_LkStepNo.getRowCount() == 0) {
+      ds_main8.setCellData(row, "wrkImpleNrmCd", " ");
+    }
+  }
+};
+scwin.button_no1_onclick = function (e) {
+  scwin.f_search();
+};
+scwin.button_no11_onclick = function (e) {
+  scwin.f_main6Save();
+};
+scwin.f_addRow6 = function () {
+  scwin.f_AddRow(6);
+};
+scwin.f_deleteRow6 = function () {
+  scwin.f_delete(6);
+};
+scwin.f_undoRow6 = function () {
+  let row = ds_main6.getRowPosition();
+  if (row >= 0) {
+    ds_main6.undoRow(row);
+  }
+};
+scwin.f_addRow7 = function () {
+  scwin.f_AddRow(7);
+};
+scwin.f_deleteRow7 = function () {
+  scwin.f_delete(7);
+};
+scwin.f_undoRow7 = function () {
+  let row = ds_main7.getRowPosition();
+  if (row >= 0) {
+    ds_main7.undoRow(row);
+  }
+};
+scwin.f_addRow8 = function () {
+  scwin.f_AddRow(8);
+};
+scwin.f_deleteRow8 = function () {
+  let row = ds_main8.getRowPosition();
+  if (row >= 0) {
+    ds_main8.removeRow(row);
+  }
+};
+scwin.f_undoRow8 = function () {
+  let row = ds_main8.getRowPosition();
+  if (row >= 0) {
+    ds_main8.undoRow(row);
+  }
+};
+scwin.decode_assgnSeq = function (data) {
+  return $c.gus.decode($p, data, "0", "NO", "YES");
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'중기투입계획',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lux_wrkIndictNo',search:'start',style:'width:150px;',submenuSize:'auto'}},{T:1,N:'xf:trigger',A:{class:'btn',id:'button_no1',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Shift 계획 불러오기'}]}]},{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{checkAllType:'false',class:'wq_gvw',dataList:'ds_main6',id:'gr_main6',style:'',visibleRowNum:'3',visibleRowNumFix:'true',readOnly:'false'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkIndictNo',inputType:'text',value:'하역작업지시번호',width:'150',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqCd',inputType:'text',value:'장비코드',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vehclShortCd',inputType:'text',value:'단축번호',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vehclNo',inputType:'text',value:'중기번호',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqNm',inputType:'text',value:'중기명',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndCd',inputType:'text',value:'중기종류코드',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndNm',inputType:'text',value:'중기종류',width:'140'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqNrmCd',inputType:'text',value:'장비규격코드',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqNrmNm',inputType:'text',value:'규격',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'nesEqNrmCd',inputType:'text',value:'필요규격',width:'100',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStpCd',value:'작업단계',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',id:'assgnSeq',value:'협력업체배정여부',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',id:'clntNm',value:'협력업체거래처명',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',id:'clntNo',value:'협력업체거래처번호',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'180',inputType:'text',id:'TformEqKndCd',value:'변형장비',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkStDt',value:'작업시작일자',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStHh',value:'시작시간',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkEndDt',value:'작업종료일자',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkEndHh',value:'종료시간',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'drvStaffNo1',value:'기사인원번호1',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'drvStaffNm1',value:'성명1',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'drvStaffNo2',value:'기사인원번호2',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'drvStaffNm2',value:'성명2',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'drvStaffNo3',value:'기사인원번호3',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'drvStaffNm3',value:'성명3',displayMode:'label',class:'txt-blue'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkIndictNo',inputType:'text',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqCd',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vehclShortCd',inputType:'textImage',width:'100',allowChar:'0-9',displayFormat:'######',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vehclNo',inputType:'text',width:'100',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqNm',inputType:'text',width:'120',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndCd',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndNm',inputType:'text',width:'140',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqNrmCd',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqNrmNm',inputType:'text',width:'100',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'nesEqNrmCd',inputType:'text',width:'100'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'cd:cdNm'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ds_LkStepNo2'}]}]}]}]},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStpCd',displayMode:'label'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'wrkStpCd:wrkStpNm'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ds_wrkStpCd'}]}]}]}]},{T:1,N:'w2:column',A:{width:'140',inputType:'select',id:'assgnSeq',displayMode:'label',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'0'}]}]}]}]},{T:1,N:'w2:column',A:{width:'140',inputType:'textImage',id:'clntNm',displayMode:'label',textAlign:'left',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'140',inputType:'textImage',id:'clntNo',displayMode:'label',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'180',inputType:'select',id:'TformEqKndCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'calendar',id:'wrkStDt',displayMode:'label',allowChar:'0-9',dataType:'date',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStHh',displayMode:'label',allowChar:'0-9',displayFormat:'##:##'}},{T:1,N:'w2:column',A:{width:'120',inputType:'calendar',id:'wrkEndDt',displayMode:'label',allowChar:'0-9',dataType:'date',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkEndHh',displayMode:'label',allowChar:'0-9',displayFormat:'##:##'}},{T:1,N:'w2:column',A:{width:'120',inputType:'textImage',id:'drvStaffNo1',displayMode:'label',displayFormat:'######',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'70',inputType:'textImage',id:'drvStaffNm1',displayMode:'label',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'120',inputType:'textImage',id:'drvStaffNo2',displayMode:'label',displayFormat:'######',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'70',inputType:'textImage',id:'drvStaffNm2',displayMode:'label',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'120',inputType:'textImage',id:'drvStaffNo3',displayMode:'label',displayFormat:'######',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{width:'70',inputType:'textImage',id:'drvStaffNm3',displayMode:'label',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{style:''}}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'협력업체 배정',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section2',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section2',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'ds_main7',id:'gr_main7',style:'',visibleRowNum:'3',visibleRowNumFix:'true',readOnly:'false'},E:[{T:1,N:'w2:caption',A:{id:'caption3',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkIndictNo',inputType:'text',value:'하역작업지시번호',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndCd',inputType:'text',value:'중기종류',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndNm',inputType:'text',value:'중기종류명',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'nesEqNrmCd',inputType:'text',value:'규격',width:'70',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNm',inputType:'text',value:'협력업체명',width:'120',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'text',value:'협력업체',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'assgnSeqa',inputType:'text',value:'배정순번',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'reqHveqCnt',inputType:'text',value:'배정대수',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'nesEqNrmNm',inputType:'text',value:'장비규격명',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd',inputType:'text',value:'작업단계',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'180',inputType:'text',id:'tformWrkImpleKndCd',value:'변형장비',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkStDt',value:'작업시작일자',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStHh',value:'시작시간',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkEndDt',value:'작업종료일자',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkEndHh',value:'종료시간',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'inputHveqCnt',value:'투입대수',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'existRow',value:'신규입력여부',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkIndictNo',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndCd',inputType:'textImage',width:'100',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqKndNm',inputType:'text',width:'120',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'nesEqNrmCd',inputType:'text',width:'70',textAlign:'right'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'cd:cdNm'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ds_LkStepNo3'}]}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNm',inputType:'textImage',width:'120',textAlign:'left',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'textImage',width:'100',editModeEvent:'onclick',editModeEventIcon:'onclick',viewType:'default'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'assgnSeqa',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'reqHveqCnt',inputType:'text',width:'100',textAlign:'right',allowChar:'0-9',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'nesEqNrmNm',inputType:'text',width:'100',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd',inputType:'text',width:'100'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'wrkStpCd:wrkStpNm'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ds_wrkStpCd'}]}]}]}]},{T:1,N:'w2:column',A:{width:'180',inputType:'select',id:'tformWrkImpleKndCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'calendar',id:'wrkStDt',displayMode:'label',allowChar:'0-9',dataType:'date',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkStHh',displayMode:'label',allowChar:'0-9',displayFormat:'##:##'}},{T:1,N:'w2:column',A:{width:'120',inputType:'calendar',id:'wrkEndDt',displayMode:'label',allowChar:'0-9',dataType:'date',displayFormat:'yyyy/MM/dd'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkEndHh',displayMode:'label',allowChar:'0-9',displayFormat:'##:##'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'inputHveqCnt',displayMode:'label',textAlign:'right',readOnly:'true',dataType:'number',displayFormat:'#,###'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'existRow',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{style:''}}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'작업도구투입계획',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section3',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section3',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'ds_main8',id:'gr_main8',style:'',visibleRowNum:'3',visibleRowNumFix:'true',readOnly:'false'},E:[{T:1,N:'w2:caption',A:{id:'caption4',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkIndictNo',inputType:'text',value:'작업지시번호',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkImpleKndCd',inputType:'text',value:'작업도구종류',width:'160',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkImpleNrmCd',inputType:'text',value:'작업도구규격',width:'120',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkImpleInputCnt',inputType:'text',value:'투입수량',width:'100',class:'txt-red'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkIndictNo',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkImpleKndCd',inputType:'select',width:'160',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkImpleNrmCd',inputType:'text',width:'120',textAlign:'right'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'cd:cdNm'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ds_LkStepNo'}]}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkImpleInputCnt',inputType:'text',width:'100',textAlign:'right',allowChar:'0-9'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{style:''}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'button_no11',label:'저장',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:3,text:'저장'}]}]}]}]}]}]}]})

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataMap baseNode="map" id="dma_condition">
+        			<w2:keyInfo>
+        				<w2:key id="postDtSt" name="시작일자" dataType="text"></w2:key>
+        				<w2:key id="postDtEnd" name="종료일자" dataType="text"></w2:key>
+        				<w2:key id="slipAcctDeptCdSt" name="귀속부서" dataType="text"></w2:key>
+        				<w2:key id="acctCd" name="계정코드" dataType="text"></w2:key>
+        				<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_slipDetail" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="ctrlSlipNo" name="전표번호" dataType="text"></w2:column>
+        				<w2:column id="postDt" name="전표일자" dataType="text"></w2:column>
+        				<w2:column id="slipKndNm" name="전표종류" dataType="text"></w2:column>
+        				<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+        				<w2:column id="damt" name="차변" dataType="text"></w2:column>
+        				<w2:column id="camt" name="대변" dataType="text"></w2:column>
+        				<w2:column id="acctDeptNm" name="귀속부서" dataType="text"></w2:column>
+        				<w2:column id="summary" name="적요" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrieveSlipDetail" action="/ac.fi.gnrlaccount.settmgnt.RetrieveControlSlipDetailCMD.do" method="post"
+        		mediatype="application/json" ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_slipDetail","key":"OUT_DS1"}]' target='data:json,{"id":"ds_slipDetail","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+        		mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveSlipDetail_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript" scopeVariable="ACConstants"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[// 전역 변수
+scwin.memJson = $c.data.getMemInfo(); // 로그인 정보를 가져온다.
+scwin.privAdmin = scwin.memJson.privAdmin; // ADMIN 권한 CHK : 'T' : ADMIN , 'F': ADMIN 아님
+
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd; // 소속 자회사
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd; // 회계_회사구분
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd; // 사용자소속구분코드
+scwin.isSubCompany = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+
+    scwin.closeYm = scwin.params["closeYm"];
+    scwin.acctDeptCd = scwin.params["acctDeptCd"];
+    scwin.acctDeptNm = scwin.params["acctDeptNm"];
+    scwin.acctCd = scwin.params["acctCd"];
+    scwin.acctNm = scwin.params["acctNm"];
+
+    // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+    if (scwin.vUserHomeClsCd !== ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+        scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+        scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+    }
+    let coCd = scwin.vLoginCoCd;
+
+    $c.gus.cfDisableObjects([ica_closeYm]);
+    $c.gus.cfDisableObjects([ed_acctDeptCd]);
+    $c.gus.cfDisableObjects([ed_acctCd]);
+    $c.gus.cfDisableObjects([ed_acctDeptNm]);
+    $c.gus.cfDisableObjects([ed_acctNm]);
+
+    dma_condition.set("postDtSt", scwin.closeYm + "01");
+    dma_condition.set("postDtEnd", scwin.closeYm+$c.date.getLastDateOfMonth(scwin.closeYm));
+    dma_condition.set("slipAcctDeptCdSt", scwin.acctDeptCd);
+    dma_condition.set("acctCd", scwin.acctCd);
+    dma_condition.set("coCd", coCd);
+
+    ica_closeYm.setValue(scwin.closeYm);
+    ed_acctDeptNm.setValue(scwin.acctDeptNm);
+    ed_acctNm.setValue(scwin.acctNm);
+
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    $c.sbm.execute(sbm_retrieveSlipDetail);
+};
+
+scwin.btn_Division_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.sbm_retrieveSlipDetail_submitdone = async function (e) {
+    if ($c.gus.cfCheckCreateFlag() === true) {
+        $c.gus.cfTurnCreateFlag(false);
+    } else {
+        if (ds_slipDetail.getRowCount() === 0) {
+            await $c.win.alert("조회된 데이터가 없습니다");
+        } else {
+            totalRows.setValue(ds_slipDetail.getRowCount());
+        }
+    }
+};
+
+scwin.gr_slipDetail_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    if (columnId === "clntNo") {
+        
+        if (!(ds_slipDetail.getCellData(rowIndex, columnId) == null && ds_slipDetail.getCellData(rowIndex, columnId) == "")) {
+            await $c.gus.cfViewClntInfo(ds_slipDetail.getCellData(rowIndex, columnId));
+        }
+    }
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="년월 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_closeYm" style="" displayFormat="yyyy/MM" editType="focus" title="년월"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="부서 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input id="ed_acctDeptCd" style="width:80px;" objType="data" mandatory="false" allowChar="0-9" maxlength="5" editType="select" ref="data:dma_condition.slipAcctDeptCdSt" title="부서코드"></xf:input>
+    								<xf:input id="ed_acctDeptNm" style="width:150px;" objType="data" title="부서명"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="계정 " ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input id="ed_acctCd" style="width:80px;" objType="data" mandatory="false" allowChar="0-9" maxlength="7" editType="select" ref="data:dma_condition.acctCd" title="계정코드"></xf:input>
+    								<xf:input id="ed_acctNm" style="width:150px;" objType="data" title="계정명"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_slipDetail"
+    					 id="gr_slipDetail" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="5"
+    					visibleRowNumFix="true" columnMove="true" ev:oncellclick="scwin.gr_slipDetail_oncellclick" columnMoveWithFooter="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column23" inputType="text" value="전표번호" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column21" inputType="text" value="전표일자" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="전표종류" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="계정명" width="100"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="차변" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="대변" width="70"></w2:column>
+    							<w2:column width="100" inputType="text" id="column31" value="귀속부서" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column34" value="적요" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="ctrlSlipNo" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="postDt" inputType="text" width="100" displayFormat="yyyy/MM/dd"
+    								dataType="date" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="slipKndNm" inputType="text" width="100" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="acctNm" inputType="text" width="100" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column displayMode="label" id="damt" inputType="text" width="70" textAlign="right" dataType="number"
+    								displayFormat="#,##0" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="camt" inputType="text" width="70" textAlign="right" displayFormat="#,##0"
+    								dataType="number" readOnly="true">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="acctDeptNm" displayMode="label" readOnly="true" textAlign="left"></w2:column>
+    							<w2:column width="70" inputType="text" id="summary" displayMode="label" readOnly="true" textAlign="left"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="100" inputType="text" id="column30" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column27" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column26" value="0" displayMode="label" textAlign="right"
+    								dataType="number" displayFormat="#,##0" expression='sum("damt")'>
+    							</w2:column>
+    							<w2:column width="70" inputType="expression" id="column25" value="0" displayMode="label" textAlign="right"
+    								dataType="number" displayFormat="#,##0" expression='sum("camt")'>
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column33" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="column36" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_Division" style="" type="button" objType="bSave" ev:onclick="scwin.btn_Division_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

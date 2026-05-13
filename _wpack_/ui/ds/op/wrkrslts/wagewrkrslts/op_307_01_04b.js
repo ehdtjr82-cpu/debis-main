@@ -1,0 +1,1745 @@
+/*amd /ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_04b.xml 184514 59b46a20149e83cdf05e4ceda0b308da1939ac5846189ff91417b98d8368b4e7 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_condition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'lobranCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkDt',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'shiftClsCd',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'co_ds_LoBran',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'lobranCd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveResult2_grouping_sum',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'rtlOdrNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsCd',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkQty',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkWt',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCbm',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_conditionAuto'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'odrNo',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkDt',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'upperWageRsltsSeq',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageGoodsCd',name:'name5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eqClssCd',name:'name6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'expimpClsCd',name:'name7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wtTenfrAdptSt',name:'name8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wtTenfrAdptEnd',name:'name9',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkMthdCd',name:'name10',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStpCd1',name:'name11',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStpCd2',name:'name12',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStpCd3',name:'name13',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkStpCd4',name:'name14',dataType:'text'}},{T:1,N:'w2:key',A:{id:'shiftClsCd',name:'name15',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageVol',name:'name16',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkQty',name:'name17',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wageVolUnit',name:'name18',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_SelpchItemCd'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_SelpchItemCd',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'name',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'code',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveResult1',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'odrNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlNm',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cvsslMgntNo',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveResult2',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageRsltsSeq',name:'노임실적순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperOdrNo',name:'상위오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchItemCd',name:'매출입항목코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkMthdCd',name:'작업방법',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scDtlSeqNo',name:'할증상세일련번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stvWrkIndictNo',name:'하역작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shiftClsCd',name:'Shift',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lunionOrgCd',name:'반코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chiefNm',name:'반장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chiefExceptStaffCnt',name:'반장외;인원수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commCd',name:'품목;코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commNm',name:'품명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsCd',name:'품목;코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsNm',name:'노임;품명/품명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkQty',name:'수량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkWt',name:'중량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCbm',name:'CBM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageVol',name:'노임;물량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageVolUnit',name:'노임;단위',dataType:'text'}},{T:1,N:'w2:column',A:{id:'retireRsrvProvYn',name:'퇴충금;지급여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqClssCd',name:'장비종류',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cvsslMgntNo',name:'본선번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impExpClsCd',name:'수출입;구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rtlOdrNo',name:'관련;오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd1',name:'작업단계1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd2',name:'작업단계2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd3',name:'작업단계3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd4',name:'작업단계4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'시작시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'종료시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageCreatYn',name:'노임생성',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wagePayClsCd',name:'지급구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlCd',name:'작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageUnitClsCd',name:'노임단위구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageAmt',name:'노임금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageRsltsYn',name:'노임실적여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scAmt',name:'할증금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scRt',name:'할증율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scWtAdptStd',name:'할증중량적용기준',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellCommCd',name:'매출품명코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'adptGoodsCd',name:'적용품목코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wholeWrkStpYn',name:'일괄작업단계여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkDt',name:'작업일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntUnionMember',name:'노임편성멤버수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperWageRsltsSeq',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'realWageVol',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lunionPartySeq',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inputWrkStp',name:'name51',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveResult3',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wageRsltsSeq',name:'실적순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperOdrNo',name:'upperOdrNo',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperWageRsltsSeq',name:'상위실적',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commCd',name:'commCd',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commNm',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsNm',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkMthdCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lunionOrgCd',name:'lunionOrgCd',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stvWrkIndictNo',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cvsslMgntNo',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rtlOdrNo',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impExpClsCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'holdNo',name:'홀드번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shiftClsCd',name:'시프트구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd1',name:'wrkStpCd1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd2',name:'wrkStpCd2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd3',name:'wrkStpCd3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd4',name:'wrkStpCd4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlCd',name:'작업장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageVol',name:'wageVol',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageVolUnit',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageUnitClsCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wagePayClsCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageAmt',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageRsltsYn',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageCreatYn',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scWtAdptStd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkQty',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkWt',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCbm',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellCommCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'adptGoodsCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqClssCd',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wholeWrkStpYn',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkDt',name:'컬럼헤더명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'districtCd',name:'권역코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scDtlSeqNo',name:'상세;일련;번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchItemCd',name:'노임;항목',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewSelpchItemNm',name:'노임;항목',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewDtlItemNm',name:'상세항목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewGoodsCd',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewGoodsNm',name:'품목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scRt',name:'%',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scAmt',name:'금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewEqClssCd',name:'기력',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewWrkMthdCd',name:'작업방법',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewAdptTermStDt',name:'From',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewAdptTermEndDt',name:'To',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewWtTenfrAdptSt',name:'From',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewWtTenfrAdptEnd',name:'To',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewWrkPl',name:'작업장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewadptTonCnt',name:'적용톤수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewExpimpClsCd',name:'수출입;구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewCvsslWharfPartyCnt',name:'선창반수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewSeaWrkYn',name:'해상작업',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewScWtAdptStd',name:'중량할증;기준(Kg)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewAdptStdGoods',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewAdptStdGoodsNm',name:'품목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewAdptStDt',name:'적용시작일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewAdptEndDt',name:'적용종료일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'viewWageAgrmntDt',name:'노임협약일',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveResult4',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wageRsltsSeq',name:'실적순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperOdrNo',name:'상위오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperWageRsltsSeq',name:'상위실적순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commCd',name:'품목코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commNm',name:'품목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsCd',name:'노임품목코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageGoodsNm',name:'노임품목명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkMthdCd',name:'작업방법',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lunionOrgCd',name:'반코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stvWrkIndictNo',name:'하역작업지시번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cvsslMgntNo',name:'본선번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impExpClsCd',name:'수출입구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'holdNo',name:'홀드번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shiftClsCd',name:'시프트구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd1',name:'작업단계1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd2',name:'작업단계2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd3',name:'작업단계3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpCd4',name:'작업단계4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlCd',name:'작업장',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStDt',name:'작업시작일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStHh',name:'작업시작시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndDt',name:'작업종료일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkEndHh',name:'작업종료시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'realWageVol',name:'실제노임물량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageUnitClsCd',name:'노임단위구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wagePayClsCd',name:'지급구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageAmt',name:'노임금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageRsltsYn',name:'노임실적여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scWtAdptStd',name:'할증중량기준',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkQty',name:'수량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkWt',name:'중량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCbm',name:'CBM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'sellCommCd',name:'매출품목코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'adptGoodsCd',name:'적용품목코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqClssCd',name:'장비종류',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wholeWrkStpYn',name:'일괄작업여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkDt',name:'작업일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchItemNm',name:'일용코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageVol',name:'인원수',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageVolUnit',name:'노임단위',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wageCreatYn',name:'노임생성여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'retireRsrvProvYn',name:'퇴충금지급여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inputWrkStp',name:'name44',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selpchItemCd',name:'name45',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveResultAuto',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'selpchItemCd',dataType:'text',name:'name1'}},{T:1,N:'w2:column',A:{id:'districtCd',dataType:'text',name:'name2'}},{T:1,N:'w2:column',A:{id:'selpchItemNm',dataType:'text',name:'name3'}},{T:1,N:'w2:column',A:{id:'adptStDt',dataType:'text',name:'name4'}},{T:1,N:'w2:column',A:{id:'dtlItemNm',dataType:'text',name:'name5'}},{T:1,N:'w2:column',A:{id:'goodsCd',dataType:'text',name:'name6'}},{T:1,N:'w2:column',A:{id:'goodsNm',dataType:'text',name:'name7'}},{T:1,N:'w2:column',A:{id:'adptStdGoods',dataType:'text',name:'name8'}},{T:1,N:'w2:column',A:{id:'adptStdGoodsNm',dataType:'text',name:'name9'}},{T:1,N:'w2:column',A:{id:'eqClssCd',dataType:'text',name:'name10'}},{T:1,N:'w2:column',A:{id:'wtTenfrAdptSt',dataType:'text',name:'name11'}},{T:1,N:'w2:column',A:{id:'wtTenfrAdptEnd',dataType:'text',name:'name12'}},{T:1,N:'w2:column',A:{id:'expimpClsCd',dataType:'text',name:'name13'}},{T:1,N:'w2:column',A:{id:'wrkMthdCd',dataType:'text',name:'name14'}},{T:1,N:'w2:column',A:{id:'cvsslWharfPartyCnt',dataType:'text',name:'name15'}},{T:1,N:'w2:column',A:{id:'seaWrkYn',dataType:'text',name:'name16'}},{T:1,N:'w2:column',A:{id:'scWtAdptStd',dataType:'text',name:'name17'}},{T:1,N:'w2:column',A:{id:'adptTermSprtYn',dataType:'text',name:'name18'}},{T:1,N:'w2:column',A:{id:'adptTermStDt',dataType:'text',name:'name19'}},{T:1,N:'w2:column',A:{id:'adptTermEndDt',dataType:'text',name:'name20'}},{T:1,N:'w2:column',A:{id:'adptEndDt',dataType:'text',name:'name21'}},{T:1,N:'w2:column',A:{id:'wageAgrmntDt',dataType:'text',name:'name22'}},{T:1,N:'w2:column',A:{id:'wrkPl',dataType:'text',name:'name23'}},{T:1,N:'w2:column',A:{id:'adptTonCnt',dataType:'text',name:'name24'}},{T:1,N:'w2:column',A:{id:'scAmt',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scRt',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'scDtlSeqNo',name:'name27',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieveOrderNoData',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'odrNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'commCd',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkQty',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkWt',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkCbm',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_wkrStp',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'wageOdrNo',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo'}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_co_ds_LoBran',action:'/ds.co.RetreiveLoBranCMD.do',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"co_ds_LoBran","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_co_ds_LoBran_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.wrkrslts.wagewrkrslts.RetrieveYardOtherWarehouseWagesResultsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_retrieveResult1","key":"OUT_DS1"},{"id":"ds_retrieveResult2","key":"OUT_DS2"},{"id":"ds_retrieveResult3","key":"OUT_DS3"},{"id":"ds_retrieveResult4","key":"OUT_DS4"}]',target:'data:json,[{"id":"ds_retrieveResult1","key":"OUT_DS1"},{"id":"ds_retrieveResult2","key":"OUT_DS2"},{"id":"ds_retrieveResult3","key":"OUT_DS3"},{"id":"ds_retrieveResult4","key":"OUT_DS4"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ds.op.wrkrslts.wagewrkrslts.SaveYardOtherWarehouseWagesResultsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_retrieveResult2","key":"IN_DS1"},{"id":"ds_retrieveResult3","key":"IN_DS2"},{"id":"ds_retrieveResult4","key":"IN_DS3"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveAuto',action:'/ds.op.wrkrslts.wagewrkrslts.RetrieveStevedoringWagesSurchargeAutoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_conditionAuto","key":"IN_DS1"},{"id":"ds_retrieveResultAuto","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_retrieveResultAuto","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_selpchItemCd',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_SelpchItemCd","key":"IN_DS1"},{"id":"ds_SelpchItemCd","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_SelpchItemCd","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrievOrderNoData',action:'/ds.op.wrkrslts.wagewrkrslts.RetrieveYardOtherWarehouseOrderNoDataResultsCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_retrieveOrderNoData","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_retrieveOrderNoData","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){// 물류/작업실적/노임 >> 부두장치장/타창고 노임실적 등록
+// 테스트 데이터
+// lc_lobranCd.BindColVal = "부산지사";
+// ed_wrkPlCd.Text = "6W007";
+// ed_wrkDt.Text = "20070215"; 
+
+scwin.memJson = $c.data.getMemInfo($p);
+scwin.loUpperLobranCd = scwin.memJson.loUpperLobranCd; //물류상위점소코드
+if (scwin.loUpperLobranCd == null) {
+  scwin.loUpperLobranCd = "";
+}
+
+//현재일자
+scwin.toDay = $c.date.getServerDateTime($p, "yyyyMMdd");
+scwin.rFlag = 1;
+scwin.retrieve2 = 0;
+scwin.otherWarehouseYn = ''; //타창고 여부 
+
+scwin.buffer_ed_wrkPlCd = "";
+scwin.buffer_lc_lobranCd = "";
+scwin.buffer_ed_wrkDt = "";
+scwin.other_warehouse_save_Wanning_message = "";
+scwin.ds_retrieveResult3_UseFilter = false;
+scwin.ds_retrieveResult4_UseFilter = false;
+scwin.popupOpen = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = async function () {
+  // 페이지 온로드시 전체 데이터셋을 클리어 한다. 
+  scwin.f_DatasetClearAll();
+
+  // 입력 Object 중 한글입력 항목의 IME Mode를 설정한다.
+  // $c.gus.cfSetIMEModeActiveObjects([txt_wrkPlNm]);
+
+  lc_shiftCd.setSelectedIndex(0);
+  ed_wrkDt.setValue(scwin.toDay);
+  const codeOptions = [{
+    grpCd: "OP117",
+    compID: "lc_shiftCd, gr_retrieveResult2:shiftClsCd"
+  }, {
+    grpCd: "OP241",
+    compID: "gr_retrieveResult2:wrkMthdCd, gr_retrieveResult3:viewWrkMthdCd"
+  }, {
+    grpCd: "LO102",
+    compID: "gr_retrieveResult2:wageVolUnit, gr_retrieveResult4:wageVolUnit",
+    opt: {
+      "range": "2,L"
+    }
+  }, {
+    grpCd: "OP283",
+    compID: "gr_retrieveResult2:eqClssCd"
+  }, {
+    grpCd: "SD060",
+    compID: "gr_retrieveResult2:impExpClsCd, gr_retrieveResult3:viewExpimpClsCd"
+  }, {
+    grpCd: "OP265",
+    compID: "gr_retrieveResult2:wagePayClsCd",
+    opt: {
+      "range": "3,2"
+    }
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+  const codeOptions2 = [{
+    method: "getLuxeComboData",
+    param1: "StevedoringWagesResultsEBC",
+    param2: "retriveWrkStpList",
+    compID: "gr_retrieveResult2:wrkStpCd1, gr_retrieveResult2:wrkStpCd2, gr_retrieveResult2:wrkStpCd3"
+  }, {
+    method: "getLuxeComboData",
+    param1: "StevedoringWagesResultsEBC",
+    param2: "retriveHKindList",
+    compID: "gr_retrieveResult3:viewEqClssCd"
+  }];
+  $c.data.setGauceUtil($p, codeOptions2);
+  await $c.sbm.execute($p, sbm_co_ds_LoBran); //지점 autoComplete
+};
+
+//-------------------------------------------------------------------------
+// 조회조건이 타창고인 경우만 아래  지점이 6AA 부산지사이고, 
+// 작업장코드 앞두자리가 6W인경우 아래 로직이 수행된다.
+//------------------------------------------------------------------------- 
+scwin.confirm_Grid2_Data_when_condition_is_other_whare_house = async function (row, colid) {
+  var str = ed_wrkPlCd.getValue();
+  if (lc_lobranCd.getValue() == "6AA" && str.substr(0, 2) == "6W") {
+    // 그리드 데이터 검증 처리 함수     
+    switch (colid) {
+      case 'commCd':
+      case 'wrkQty':
+      case 'wrkWt':
+      case 'wrkCbm':
+      case 'wageVol':
+        var cursor = -1;
+        for (var i = 0; i < ds_retrieveOrderNoData.getRowCount(); i++) {
+          if (ds_retrieveOrderNoData.getCellData(i, 'odrNo') == ds_retrieveResult2.getCellData(row, 'rtlOdrNo')) {
+            cursor = i;
+            break;
+          }
+        }
+        if (cursor == -1) {
+          return;
+        }
+
+        // 타창고 품명코드와, 노임품명코드가 다를경우 
+        if (ds_retrieveResult2.getCellData(row, 'wageGoodsCd') != ds_retrieveOrderNoData.getCellData(cursor, 'commCd')) {
+          other_warehouse_save_Wanning_message = "타창고 매출품명코드와 노임품명코드가 상의합니다." + "\n저장은 가능하오니 확인 후 저장하십시오." + "\n타창고 매출품명코드 => " + ds_retrieveResult2.getCellData(row, 'wageGoodsCd');
+          +"\n       노임품명코드 => " + ds_retrieveOrderNoData.getCellData(cursor, 'commCd');
+          await $c.win.alert($p, other_warehouse_save_Wanning_message);
+          // ds_retrieveResult2.NameValue(row, 'rtlOdrNo') = "";	                	
+        }
+
+        // 노임수량이 타창고 매출 수량을 초과할 경우 
+        if (ds_retrieveResult2.getCellData(row, 'wrkQty') > ds_retrieveOrderNoData.getCellData(cursor, 'wrkQty')) {
+          other_warehouse_save_Wanning_message = "노임수량이 타창고매출수량을 초과합니다." + "\n매출수량을 확인 후 관련오더번호를 다시 선택해 주십시오." + "\n타창고 매출수량 => " + ds_retrieveResult2.getCellData(row, 'wrkQty');
+          +"\n       노임수량 => " + ds_retrieveOrderNoData.getCellData(cursor, 'wrkQty');
+          await $c.win.alert($p, other_warehouse_save_Wanning_message);
+          ds_retrieveResult2.setCellData(row, 'rtlOdrNo', "");
+          ds_retrieveResult2.setCellData(row, 'wrkQty', "");
+          return false;
+        }
+
+        // 노임중량이 타창고 매출중량을 초과할 경우 
+        if (ds_retrieveResult2.getCellData(row, 'wrkWt') > ds_retrieveOrderNoData.getCellData(cursor, 'wrkWt')) {
+          other_warehouse_save_Wanning_message = "노임중량이 타창고매출중량을 초과합니다." + "\n노임중량을 확인 후 관련오더번호를 다시 선택해 주십시오." + "\n타창고 매출중량 => " + ds_retrieveResult2.getCellData(row, 'wrkWt');
+          +"\n       노임중량 => " + ds_retrieveOrderNoData.getCellData(cursor, 'wrkWt');
+          await $c.win.alert($p, other_warehouse_save_Wanning_message);
+          ds_retrieveResult2.setCellData(row, 'rtlOdrNo', "");
+          ds_retrieveResult2.setCellData(row, 'wrkWt', "");
+          return false;
+        }
+
+        // 노임 CBM이 타창고 CBM을 초과할 경우 
+        if (ds_retrieveResult2.getCellData(row, 'wrkCbm') > ds_retrieveOrderNoData.getCellData(cursor, 'wrkCbm')) {
+          other_warehouse_save_Wanning_message = "노임CBM이 타창고매출CBM을 초과합니다." + "\n노임CBM을 확인 후 관련오더번호를 다시 선택해 주십시오." + "\n타창고 매출CBM => " + ds_retrieveResult2.getCellData(row, 'wrkCbm');
+          +"\n       노임CBM => " + ds_retrieveOrderNoData.getCellData(cursor, 'wrkCbm');
+          await $c.win.alert($p, other_warehouse_save_Wanning_message);
+          ds_retrieveResult2.setCellData(row, 'rtlOdrNo', "");
+          ds_retrieveResult2.setCellData(row, 'wrkCbm', "");
+          return false;
+        }
+        break;
+      default:
+        other_warehouse_save_Wanning_message = "";
+        break;
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 데이터셋 AllClear()
+//-------------------------------------------------------------------------
+scwin.f_DatasetClearAll = function () {
+  ds_retrieveResult1.removeAll();
+  ds_retrieveResult2.removeAll();
+  ds_retrieveResult3.removeAll();
+  ds_retrieveResult4.removeAll();
+  ds_retrieveResultAuto.removeAll();
+  ds_retrieveOrderNoData.removeAll();
+};
+
+//-------------------------------------------------------------------------
+// 조회조건이 타창고에 해당될경우 
+// 하역노임실적 그리드에 관련오더번호 헤드칼러 필수 색으로 변경 
+//-------------------------------------------------------------------------
+scwin.make_mandatory_related_orderNo_from_condition = function () {
+  // var MANDATORY_COLOR = '<%=DCSS.MANDATORY_COLOR%>' ;
+  // var OPTIONAL_COLOR  = '<%=DCSS.OPTIONAL_COLOR%>' ;
+
+  var str = ed_wrkPlCd.getValue();
+  if (lc_lobranCd.getValue() == "6AA" && str.substr(0, 2) == "6W") {
+    // gr_retrieveResult2.ColumnProp('rtlOdrNo', 'HeadColor' ) = MANDATORY_COLOR;
+    gr_retrieveResult2.setHeaderColor("rtlOdrNoHeader", "red");
+  } else {
+    // gr_retrieveResult2.ColumnProp('rtlOdrNo', 'HeadColor' ) = OPTIONAL_COLOR;
+    gr_retrieveResult2.setHeaderColor("rtlOdrNoHeader", "blue");
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  // 검색조건 필수 입력 체크
+  if (!(await $c.gus.cfValidate($p, [ed_wrkPlCd, ed_wrkDt]))) {
+    return;
+  }
+  await scwin.f_RetrieveSelpchItemCd();
+  let e = await $c.sbm.execute($p, sbm_retrieve);
+  if (e.responseJSON.OUT_DS1.length > 0) {
+    await scwin.sbm_retrieve_submitdone(e);
+  }
+
+  // 타창고작업오더실적등록 화면에서 입력되는 오더번호 조회 
+  // 지점, 작업장, 작업일자, Shift를 기준으로 데이터를 조회해온다. 
+  scwin.f_RetrieveWageOdrNo();
+};
+scwin.confirm_Grid2_Data_when_save_is_other_whare_house = async function () {
+  ds_retrieveResult2_grouping_sum.removeAll();
+
+  // f_save()의 타창고데이터 저장시, 노임실적의 관련오더번호(CK오더)/품목코드별 수량/중량/CBM 데이터와, 
+  //                                 하역노임실적의 오더번호/품목코드별 수량/중량/CBM ds_retrieveResult2_grouping_sum 헤더설정
+  // 데이터의 총합이 초과 하지 않는지 검증 하는데 사용 되는 데이터셋 >> ds_retrieveResult2_grouping_sum
+
+  var str = ed_wrkPlCd.getValue();
+  var row = 0;
+  var row2 = 0;
+
+  // 조회조건이 타창고인 경우 [지점이 6AA 부산지사이고, 작업장코드 앞두자리가 6W인경우]		
+  if (lc_lobranCd.getValue() == "6AA" && str.substr(0, 2) == "6W") {
+    for (row = 0; row < ds_retrieveResult2.getRowCount(); row++) {
+      // 관련오더번호 필수 체크를 한다.          	
+      if (ds_retrieveResult2.getCellData(row, 'rtlOdrNo') == "" || ds_retrieveResult2.getCellData(row, 'rtlOdrNo') == null) {
+        await $c.win.alert($p, row + 1 + "행의 관련오더번호(필수)를 누락하셨습니다.\n%타창고의 경우 필수입력사항%");
+        return true;
+      }
+
+      // 저장시 관련오더번호, 품목코드별, 입력데이터 확인 처리
+      // 부두내 장치장/타창고 노임실적 등록 입력된 수량,중량,CBM의 전체 합이 
+      // 타창고 작업오더 실적등록 프로그램에 입력된 데이터를 초과 하는지 검증하는 데이터 로직            
+      // 관련오더번와, 품목코드가 일치하는 데이터가 있을경우, 수랑/중량/CBM을 합산한다 			      	    
+      for (row2 = 0; row2 < ds_retrieveResult2_grouping_sum.getRowCount; row2++) {
+        if (ds_retrieveResult2_grouping_sum.getCellData(row2, 'rtlOdrNo') == ds_retrieveResult2.getCellData(row, 'rtlOdrNo') && ds_retrieveResult2_grouping_sum.getCellData(row2, 'wageGoodsCd') == ds_retrieveResult2.getCellData(row, 'wageGoodsCd')) {
+          var sum1 = Number(ds_retrieveResult2_grouping_sum.getCellData(row2, 'wrkQty')) + Number(ds_retrieveResult2.getCellData(row, 'wrkQty'));
+          var sum2 = Number(ds_retrieveResult2_grouping_sum.getCellData(row2, 'wrkWt')) + Number(ds_retrieveResult2.getCellData(row, 'wrkWt'));
+          var sum3 = Number(ds_retrieveResult2_grouping_sum.getCellData(row2, 'wrkCbm')) + Number(ds_retrieveResult2.getCellData(row, 'wrkCbm'));
+          ds_retrieveResult2_grouping_sum.setCellData(row2, 'wrkQty', sum1);
+          ds_retrieveResult2_grouping_sum.setCellData(row2, 'wrkWt', sum2);
+          ds_retrieveResult2_grouping_sum.setCellData(row2, 'wrkCbm', sum3);
+          break;
+        }
+      }
+
+      // 일치하는 데이터가 없을경우, 신규데이터 이므로, 새로운 행을 추가하고, 입력
+      if (ds_retrieveResult2_grouping_sum.getRowCount() == 0 || row2 == ds_retrieveResult2_grouping_sum.getRowCount() + 1) {
+        ds_retrieveResult2_grouping_sum.insertRow();
+        var rtlOdrNoVal = ds_retrieveResult2.getCellData(row, 'rtlOdrNo');
+        var wageGoodsCdVal = ds_retrieveResult2.getCellData(row, 'wageGoodsCd');
+        var wrkQtyVal = ds_retrieveResult2.getCellData(row, 'wrkQty');
+        var wrkWtVal = ds_retrieveResult2.getCellData(row, 'wrkWt');
+        var Val = ds_retrieveResult2.getCellData(row, 'wrkCbm');
+        ds_retrieveResult2_grouping_sum.setCellData(ds_retrieveResult2_grouping_sum.getRowCount(), 'rtlOdrNo', rtlOdrNoVal);
+        ds_retrieveResult2_grouping_sum.setCellData(ds_retrieveResult2_grouping_sum.getRowCount(), 'wageGoodsCd', wageGoodsCdVal);
+        ds_retrieveResult2_grouping_sum.setCellData(ds_retrieveResult2_grouping_sum.getRowCount(), 'wrkQty', wrkQtyVal);
+        ds_retrieveResult2_grouping_sum.setCellData(ds_retrieveResult2_grouping_sum.getRowCount(), 'wrkWt', wrkWtVal);
+        ds_retrieveResult2_grouping_sum.setCellData(ds_retrieveResult2_grouping_sum.getRowCount(), 'wrkCbm', Val);
+      }
+    }
+  }
+
+  // 다 세팅된 데이터 
+  // 1.하역노임실적그리드에서 관련오더번호/품목코드로 그룹핑된 데이터 수량/중량/CBM과 
+  // 2.차탕고 작업오더 정보에 입력된 CK오더 수량/중량/CBM을 비교하여, 
+  // 1이 2를 초과하면 경고메세지 출력후 프로그램 종료 
+  var signal = "";
+  for (var row3 = 0; row3 < ds_retrieveOrderNoData.getRowCount(); row3++) {
+    for (var row4 = 0; row4 < ds_retrieveResult2_grouping_sum.getRowCount(); row4++) {
+      if (ds_retrieveOrderNoData.getCellData(row3, 'odrNo') == ds_retrieveResult2_grouping_sum.getCellData(row4, 'rtlOdrNo')) {
+        if (ds_retrieveOrderNoData.getCellData(row3, 'wrkQty') < ds_retrieveResult2_grouping_sum.getCellData(row4, 'wrkQty')) {
+          signal = "wrkQty";
+        }
+        // 중량은 DB에 KG단위로 입력되어 있고, 화면그리드에서 TON단위로 사용된다. 
+        if (ds_retrieveOrderNoData.getCellData(row3, 'wrkWt') / 1000 < ds_retrieveResult2_grouping_sum.getCellData(row4, 'wrkWt')) {
+          signal = "wrkWt";
+        }
+        if (ds_retrieveOrderNoData.getCellData(row3, 'wrkCbm') < ds_retrieveResult2_grouping_sum.getCellData(row4, 'wrkCbm')) {
+          signal = "wrkCbm";
+        }
+        switch (signal) {
+          case "wrkQty":
+            await $c.win.alert($p, "입력하신 데이터중, 관련오더번호[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'rtlOdrNo') + "]와" + " 품목코드[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'wageGoodsCd') + "] 에" + "\n입력하신 총 수량의 값이, 노임수량을 초과합니다." + "\n입력수량총합[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'wrkQty') + "]" + "\n    노임수량[" + ds_retrieveOrderNoData.getCellData(row3, 'wrkQty') + "]");
+            return false;
+          case "wrkWt":
+            await $c.win.alert($p, "입력하신 데이터중, 관련오더번호[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'rtlOdrNo') + "]와" + " 품목코드[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'wageGoodsCd') + "] 에" + "\n입력하신 총 중량의 값이, 노임중량을 초과합니다." + "\n입력중량총합[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'wrkWt') + "]" + "\n    노임중량[" + ds_retrieveOrderNoData.getCellData(row3, 'wrkWt') / 1000 + "]");
+            return false;
+          case "wrkCbm":
+            alert("입력하신 데이터중, 관련오더번호[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'rtlOdrNo') + "]와" + " 품목코드[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'wageGoodsCd') + "] 에" + "\n입력하신 총 CBM의 값이, 노임CBM을 초과합니다." + "\n입력CBM총합[" + ds_retrieveResult2_grouping_sum.getCellData(row4, 'wrkCbm') + "]" + "\n    노임CBM[" + ds_retrieveOrderNoData.getCellData(row3, 'wrkCbm') + "]");
+            return false;
+          default:
+            break;
+        }
+      }
+    }
+  }
+  return true;
+};
+
+//저장
+scwin.f_Save = async function () {
+  if (!(await scwin.confirm_Grid2_Data_when_save_is_other_whare_house())) {
+    return;
+  }
+  if (!(await scwin.f_checkVal())) {
+    return;
+  }
+  if (!(await $c.gus.cfValidate($p, [gr_retrieveResult2], null, true))) {
+    return;
+  }
+  var count = 0;
+  if ((await $c.win.confirm($p, "저장하시겠습니까?")) == true) {
+    let e = await $c.sbm.execute($p, sbm_save);
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; // OnFail
+    await $c.gus.cfAlertMsg($p, MSG_CM_INF_001);
+    await scwin.f_Retrieve();
+    await scwin.f_RetrieveWageOdrNo();
+  }
+};
+scwin.f_checkVal = async function () {
+  var row = ds_retrieveResult2.getRowCount();
+  var row3 = ds_retrieveResult3.getRowCount();
+  for (i = 0; i < row; i++) {
+    var wrkStDt = ds_retrieveResult2.getCellData(row, "wrkStDt");
+    var wrkStHh = ds_retrieveResult2.getCellData(row, "wrkStHh");
+    var wrkEndDt = ds_retrieveResult2.getCellData(row, "wrkEndDt");
+    var wrkEndHh = ds_retrieveResult2.getCellData(row, "wrkEndHh");
+    var sDate = wrkStDt + wrkStHh + "00";
+    var eDate = wrkEndDt + wrkEndHh + "00";
+    var start = sDate.toDate("YYYYMMDDHHMISS");
+    var end = eDate.toDate("YYYYMMDDHHMISS");
+    if (start > end) {
+      await $c.gus.cfAlertMsg($p, i + "번째 Row의 종료시간을 시작시간보다 이후로 입력하십시오");
+      return false;
+    }
+    return true;
+  }
+
+  // for (j=1; j<=row3; j++) {
+  //     ds_retrieveResult3.UseFilter = "false";
+  // }
+  scwin.ds_retrieveResult3_UseFilter = false;
+};
+scwin.f_AddRow = function () {
+  var nowRow = ds_retrieveResult2.getRowPosition();
+  var upperOdrNo = ds_retrieveResult2.getCellData(nowRow, "upperOdrNo");
+  var upperWageRsltsSeq = ds_retrieveResult2.getCellData(nowRow, "upperWageRsltsSeq");
+  var selpchItemCd = ds_retrieveResult2.getCellData(nowRow, "selpchItemCd");
+  var wageGoodsCd = ds_retrieveResult2.getCellData(nowRow, "wageGoodsCd");
+  var wrkMthdCd = ds_retrieveResult2.getCellData(nowRow, "wrkMthdCd");
+  var scDtlSeqNo = ds_retrieveResult2.getCellData(nowRow, "scDtlSeqNo");
+  var lunionOrgCd = ds_retrieveResult2.getCellData(nowRow, "lunionOrgCd");
+  var stvWrkIndictNo = ds_retrieveResult2.getCellData(nowRow, "stvWrkIndictNo");
+  var cvsslMgntNo = ds_retrieveResult2.getCellData(nowRow, "cvsslMgntNo");
+  var impExpClsCd = ds_retrieveResult2.getCellData(nowRow, "impExpClsCd");
+  var rtlOdrNo = ds_retrieveResult2.getCellData(nowRow, "rtlOdrNo");
+  var holdNo = ds_retrieveResult2.getCellData(nowRow, "holdNo");
+  var shiftClsCd = ds_retrieveResult2.getCellData(nowRow, "shiftClsCd");
+  var wrkStpCd1 = "";
+  var wrkStpCd2 = "";
+  var wrkStpCd3 = "";
+  var wrkStpCd4 = "";
+  var wrkStDt = ds_retrieveResult2.getCellData(nowRow, "wrkStDt");
+  var wrkStHh = ds_retrieveResult2.getCellData(nowRow, "wrkStHh");
+  var wrkEndDt = ds_retrieveResult2.getCellData(nowRow, "wrkEndDt");
+  var wrkEndHh = ds_retrieveResult2.getCellData(nowRow, "wrkEndHh");
+  var wageVol = ds_retrieveResult2.getCellData(nowRow, "realWageVol") || "0"; //노임물량
+  var wageUnitClsCd = ds_retrieveResult2.getCellData(nowRow, "wageUnitClsCd");
+  var wagePayClsCd = ds_retrieveResult2.getCellData(nowRow, "wagePayClsCd");
+  var wageAmt = ds_retrieveResult2.getCellData(nowRow, "wageAmt");
+  var wageRsltsYn = ds_retrieveResult2.getCellData(nowRow, "wageRsltsYn");
+  var wageCreatYn = ds_retrieveResult2.getCellData(nowRow, "wageCreatYn");
+  var scAmt = ds_retrieveResult2.getCellData(nowRow, "scAmt");
+  var scRt = ds_retrieveResult2.getCellData(nowRow, "scRt");
+  var scWtAdptStd = ds_retrieveResult2.getCellData(nowRow, "scWtAdptStd");
+  var wrkQty = ds_retrieveResult2.getCellData(nowRow, "wrkQty") || "0"; //수량
+  var wrkWt = ds_retrieveResult2.getCellData(nowRow, "wrkWt") || "0"; //중량
+  var wrkCbm = ds_retrieveResult2.getCellData(nowRow, "wrkCbm") || "0"; //CBM
+  var sellCommCd = ds_retrieveResult2.getCellData(nowRow, "sellCommCd");
+  var adptGoodsCd = ds_retrieveResult2.getCellData(nowRow, "adptGoodsCd");
+  var eqClssCd = ds_retrieveResult2.getCellData(nowRow, "eqClssCd");
+  var wholeWrkStpYn = ds_retrieveResult2.getCellData(nowRow, "wholeWrkStpYn");
+  var commCd = ds_retrieveResult2.getCellData(nowRow, "commCd");
+  var commNm = ds_retrieveResult2.getCellData(nowRow, "commNm");
+  var wageGoodsNm = ds_retrieveResult2.getCellData(nowRow, "wageGoodsNm");
+  var chiefNm = ds_retrieveResult2.getCellData(nowRow, "chiefNm");
+  var chiefExceptStaffCnt = ds_retrieveResult2.getCellData(nowRow, "chiefExceptStaffCnt") || "0";
+  var lunionPartySeq = ds_retrieveResult2.getCellData(nowRow, "lunionPartySeq");
+  if (wagePayClsCd == "" || nowRow < 0 || nowRow == null) {
+    wagePayClsCd = "3";
+  }
+  if (nowRow < 0 || nowRow == null) {
+    wrkStDt = ed_wrkDt.getValue();
+    wrkStHh = "0800";
+    wrkEndDt = ed_wrkDt.getValue();
+    wrkEndHh = "1800";
+  }
+
+  //----------------------------------------------------------//
+  // 작업장이  6W로 시작하는 경우, 작업단계1 은  '하차입고', 작업단계2는 '적출' 로 Default set 한다. 
+  var workPlCd = ed_wrkPlCd.getValue();
+  if (workPlCd != '' && workPlCd.length > 3) {
+    workPlCd = workPlCd.substring(0, 2);
+    if ('6W' == workPlCd) {
+      wrkStpCd1 = '0030'; // '0030 : 하차입고'
+      wrkStpCd2 = '0025'; // '0029 : 적     출 '
+    }
+  }
+  //----------------------------------------------------------//  
+
+  if (scwin.ds_retrieveResult3_UseFilter == true) {
+    var cnt = ds_retrieveResult2.getRowCount();
+    ds_retrieveResult2.insertRow(cnt);
+    gr_retrieveResult2.setFocusedCell(cnt, 0);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "odrNo", ds_retrieveResult1.getCellData(0, "odrNo"));
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsSeq", 0);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "upperOdrNo", upperOdrNo);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "upperWageRsltsSeq", upperWageRsltsSeq);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "selpchItemCd", selpchItemCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsCd", wageGoodsCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkMthdCd", wrkMthdCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "scDtlSeqNo", scDtlSeqNo);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "lunionOrgCd", lunionOrgCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "stvWrkIndictNo", stvWrkIndictNo);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "cvsslMgntNo", cvsslMgntNo);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "rtlOdrNo", rtlOdrNo);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "impExpClsCd", impExpClsCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "holdNo", holdNo);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "shiftClsCd", shiftClsCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd1", wrkStpCd1);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd2", wrkStpCd2);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd3", wrkStpCd3);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd4", wrkStpCd4);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkPlCd", ed_wrkPlCd.getValue());
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkStDt", wrkStDt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkStHh", wrkStHh);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkEndDt", wrkEndDt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkEndHh", wrkEndHh);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageVol", wageVol);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageVolUnit", "TON");
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageUnitClsCd", wageUnitClsCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wagePayClsCd", wagePayClsCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageAmt", wageAmt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsYn", wageRsltsYn);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageCreatYn", wageCreatYn);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "scAmt", scAmt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "scRt", scRt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "scWtAdptStd", scWtAdptStd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkQty", wrkQty);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkWt", wrkWt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkCbm", wrkCbm);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "sellCommCd", sellCommCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "adptGoodsCd", adptGoodsCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "eqClssCd", eqClssCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wholeWrkStpYn", wholeWrkStpYn);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wrkDt", ed_wrkDt.getValue());
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "commCd", commCd);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "commNm", commNm);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsNm", wageGoodsNm);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "chiefNm", chiefNm);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "chiefExceptStaffCnt", chiefExceptStaffCnt);
+    ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "lunionPartySeq", lunionPartySeq);
+    if (scwin.otherWarehouseYn == 'W') {
+      // 타창고 노임인 경우, 퇴충금 지급여부 '1'로 set 
+      ds_retrieveResult2.setCellData(ds_retrieveResult2.getRowPosition(), "retireRsrvProvYn", "1");
+    }
+
+    //alert('행추가  wageVol:' +  wageVol +' rowPosition :' + ds_retrieveResult2.RowPosition);  
+    scwin.f_applyRTon(ds_retrieveResult2.getRowPosition());
+  }
+};
+scwin.f_AddRow2 = function (resultAdd) {
+  scwin.ds_retrieveResult3_UseFilter = false;
+  var cnt = resultAdd.length;
+  for (var i = 0; i < cnt; i++) {
+    let row = ds_retrieveResult3.insertRow();
+    ds_retrieveResult3.setCellData(row, "goodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "goodsCd"));
+    ds_retrieveResult3.setCellData(row, "scAmt", resultAdd[i][21]); //ds_retrieveResult2.NameValue(ds_retrieveResult2.RowPosition, "scAmt"  ));
+    ds_retrieveResult3.setCellData(row, "scRt", resultAdd[i][22]); //ds_retrieveResult2.NameValue(ds_retrieveResult2.RowPosition, "scRt"  ));
+    ds_retrieveResult3.setCellData(row, "wageRsltsSeq", "");
+    ds_retrieveResult3.setCellData(row, "odrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo"));
+    ds_retrieveResult3.setCellData(row, "upperOdrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo"));
+    ds_retrieveResult3.setCellData(row, "upperWageRsltsSeq", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsSeq"));
+    ds_retrieveResult3.setCellData(row, "commCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "commCd"));
+    ds_retrieveResult3.setCellData(row, "commNm", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "commNm"));
+    ds_retrieveResult3.setCellData(row, "wageGoodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsCd"));
+    ds_retrieveResult3.setCellData(row, "wageGoodsNm", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsNm"));
+    ds_retrieveResult3.setCellData(row, "wrkMthdCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkMthdCd"));
+    ds_retrieveResult3.setCellData(row, "lunionOrgCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "lunionOrgCd"));
+    ds_retrieveResult3.setCellData(row, "stvWrkIndictNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "stvWrkIndictNo"));
+    ds_retrieveResult3.setCellData(row, "cvsslMgntNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "cvsslMgntNo"));
+    ds_retrieveResult3.setCellData(row, "rtlOdrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "rtlOdrNo"));
+    ds_retrieveResult3.setCellData(row, "impExpClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "impExpClsCd"));
+    ds_retrieveResult3.setCellData(row, "holdNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "holdNo"));
+    ds_retrieveResult3.setCellData(row, "shiftClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "shiftClsCd"));
+    ds_retrieveResult3.setCellData(row, "wrkStpCd1", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd1"));
+    ds_retrieveResult3.setCellData(row, "wrkStpCd2", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd2"));
+    ds_retrieveResult3.setCellData(row, "wrkStpCd3", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd3"));
+    ds_retrieveResult3.setCellData(row, "wrkStpCd4", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd4"));
+    ds_retrieveResult3.setCellData(row, "wrkPlCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkPlCd"));
+    ds_retrieveResult3.setCellData(row, "wrkStDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStDt"));
+    ds_retrieveResult3.setCellData(row, "wrkStHh", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStHh"));
+    ds_retrieveResult3.setCellData(row, "wrkEndDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkEndDt"));
+    ds_retrieveResult3.setCellData(row, "wrkEndHh", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkEndHh"));
+    ds_retrieveResult3.setCellData(row, "wageVol", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVol"));
+    ds_retrieveResult3.setCellData(row, "wageVolUnit", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVolUnit"));
+    ds_retrieveResult3.setCellData(row, "wageUnitClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageUnitClsCd"));
+    ds_retrieveResult3.setCellData(row, "wagePayClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wagePayClsCd"));
+    ds_retrieveResult3.setCellData(row, "wageAmt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageAmt"));
+    ds_retrieveResult3.setCellData(row, "wageRsltsYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsYn"));
+    ds_retrieveResult3.setCellData(row, "wageCreatYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageCreatYn"));
+    ds_retrieveResult3.setCellData(row, "scWtAdptStd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "scWtAdptStd"));
+    ds_retrieveResult3.setCellData(row, "wrkQty", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkQty"));
+    ds_retrieveResult3.setCellData(row, "wrkWt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkWt"));
+    ds_retrieveResult3.setCellData(row, "wrkCbm", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkCbm"));
+    ds_retrieveResult3.setCellData(row, "sellCommCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "sellCommCd"));
+    ds_retrieveResult3.setCellData(row, "adptGoodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "adptGoodsCd"));
+    ds_retrieveResult3.setCellData(row, "eqClssCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "eqClssCd"));
+    ds_retrieveResult3.setCellData(row, "wholeWrkStpYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wholeWrkStpYn"));
+    ds_retrieveResult3.setCellData(row, "wrkDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkDt"));
+    ds_retrieveResult3.setCellData(row, "scDtlSeqNo", resultAdd[i][3]);
+    ds_retrieveResult3.setCellData(row, "selpchItemCd", resultAdd[i][1]);
+    ds_retrieveResult3.setCellData(row, "viewDistrictCd", resultAdd[i][0]);
+    ds_retrieveResult3.setCellData(row, "viewSelpchItemNm", resultAdd[i][2]);
+    ds_retrieveResult3.setCellData(row, "viewAdptStDt", resultAdd[i][4]);
+    ds_retrieveResult3.setCellData(row, "viewDtlItemNm", resultAdd[i][5]);
+    ds_retrieveResult3.setCellData(row, "viewGoodsCd", resultAdd[i][6]);
+    ds_retrieveResult3.setCellData(row, "viewGoodsNm", resultAdd[i][7]);
+    ds_retrieveResult3.setCellData(row, "viewAdptStdGoods", resultAdd[i][8]);
+    ds_retrieveResult3.setCellData(row, "viewAdptStdGoodsNm", resultAdd[i][9]);
+    ds_retrieveResult3.setCellData(row, "viewEqClssCd", resultAdd[i][10]);
+    ds_retrieveResult3.setCellData(row, "viewWtTenfrAdptSt", resultAdd[i][11]);
+    ds_retrieveResult3.setCellData(row, "viewWtTenfrAdptEnd", resultAdd[i][12]);
+    ds_retrieveResult3.setCellData(row, "viewExpimpClsCd", resultAdd[i][13]);
+    ds_retrieveResult3.setCellData(row, "viewWrkMthdCd", resultAdd[i][14]);
+    ds_retrieveResult3.setCellData(row, "viewCvsslWharfPartyCnt", resultAdd[i][15]);
+    ds_retrieveResult3.setCellData(row, "viewSeaWrkYn", resultAdd[i][16]);
+    ds_retrieveResult3.setCellData(row, "viewScWtAdptStd", resultAdd[i][17]);
+    ds_retrieveResult3.setCellData(row, "viewAdptTermSprtYn", resultAdd[i][18]);
+    ds_retrieveResult3.setCellData(row, "viewAdptTermStDt", resultAdd[i][19]);
+    ds_retrieveResult3.setCellData(row, "viewAdptTermEndDt", resultAdd[i][20]);
+    ds_retrieveResult3.setCellData(row, "viewAdptEndDt", resultAdd[i][23]);
+    ds_retrieveResult3.setCellData(row, "viewWageAgrmntDt", resultAdd[i][24]);
+    ds_retrieveResult3.setCellData(row, "viewWrkPl", resultAdd[i][25]);
+    ds_retrieveResult3.setCellData(row, "viewadptTonCnt", resultAdd[i][26]);
+  }
+  scwin.ds_retrieveResult3_UseFilter = true;
+  var rowcnt = ds_retrieveResult3.getRowCount();
+  // cfShowTotalRows(totalRows, rowcnt);
+  totalRows.setValue(rowcnt);
+};
+
+//-------------------------------------------------------------------------
+// 일용할증 행추가 버튼 클릭 이벤트
+//-------------------------------------------------------------------------
+scwin.f_ds_Result_AddRow = function () {
+  var row = ds_retrieveResult2.getRowPosition();
+  if (row >= 0 && scwin.ds_retrieveResult4_UseFilter == true) {
+    scwin.ds_retrieveResult4_UseFilter = false;
+    var cnt = ds_retrieveResult4.getRowCount();
+    ds_retrieveResult4.insertRow(cnt); // 행추가
+    gr_retrieveResult4.setFocusedCell(cnt, 0);
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "odrNo", ds_retrieveResult1.getCellData(0, "odrNo"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wageRsltsSeq", 0);
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "lunionOrgCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "lunionOrgCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "inputWrkStp", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "inputWrkStp"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "upperOdrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "stvWrkIndictNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "stvWrkIndictNo"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "cvsslMgntNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "cvsslMgntNo"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "rtlOdrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "rtlOdrNo"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "impExpClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "impExpClsCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "shiftClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "shiftClsCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkPlCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkPlCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkDt"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wageVolUnit", "E/A");
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wageUnitClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageUnitClsCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wagePayClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wagePayClsCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wageRsltsYn", 0);
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wageVol", 0);
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "realWageVol", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVol"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkMthdCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkMthdCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkStpCd1", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd1"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkStpCd2", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd2"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkStpCd3", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd3"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkStpCd4", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd4"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkStDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStDt"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkStHh", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStHh"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkEndDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkEndDt"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wrkEndHh", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkEndHh"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "wageGoodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "sellCommCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "sellCommCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "adptGoodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "adptGoodsCd"));
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "eqClssCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "eqClssCd"));
+    scwin.ds_retrieveResult4_UseFilter = true;
+  }
+};
+scwin.f_DeleteRow = async function () {
+  var cntMember = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "cntUnionMember");
+  if (cntMember > 0) {
+    await $c.win.alert($p, '해당 노임편성내역을 먼저 삭제 한 후  반 정보를 삭제할 수 있습니다.');
+    return false;
+  }
+
+  // ds_retrieveResult2.DeleteMarked();
+  var row = ds_retrieveResult2.getRowPosition();
+  if (ds_retrieveResult2.getRowStatus(row) == "C") {
+    ds_retrieveResult2.removeRow(row);
+  } else {
+    ds_retrieveResult2.deleteRow(row);
+  }
+  for (i = 0; i < ds_retrieveResult3.getRowCount(); i++) {
+    ds_retrieveResult3.deleteRow(i);
+  }
+  for (i = 0; i < ds_retrieveResult4.getRowCount(); i++) {
+    ds_retrieveResult4.deleteRow(i);
+  }
+};
+scwin.f_Undo = function () {
+  $c.data.undoRow($p, ds_retrieveResult2, "Y");
+  $c.data.undoRow($p, ds_retrieveResult3, "Y");
+  $c.data.undoRow($p, ds_retrieveResult4, "Y");
+
+  // ds_retrieveResult2.UndoMarked();
+  // ds_retrieveResult3.UndoAll();
+  // ds_retrieveResult4.UndoAll();
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, search_cond, null);
+  lc_lobranCd.setValue(scwin.loUpperLobranCd);
+  ds_condition.set("wrkDt", scwin.toDay);
+  ed_wrkDt.setValue(scwin.toDay);
+};
+
+//-------------------------------------------------------------------------
+// function name : f_grdHeiht
+// function desc : Tree Height 조정에 따른 그리드 Height 조정
+//-------------------------------------------------------------------------
+scwin.f_grdHeiht = function (objGrd, size) {
+  // var objGrd = eval(objGrd);
+  // var strHeight = objGrd.style.height ;
+  // var intHeight = parseInt(strHeight.replace("px",""));
+  // intHeight = intHeight + size;
+  // if (intHeight > 0 ) {
+  //     objGrd.style.height = intHeight + "px";
+  // }
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_commCdPopup = async function (row, disGubun) {
+  var pCode = "";
+  var pName = "";
+
+  // 선언부
+  switch (disGubun) {
+    case 1:
+      pCode = ds_retrieveResult2.getCellData(row, "commCd");
+      pName = ds_retrieveResult2.getCellData(row, "commNm");
+      ds_retrieveResult2.setCellData(row, "commCd", "");
+      ds_retrieveResult2.setCellData(row, "commNm", "");
+      udc_gr2.setSelectId("retrieveCommInfo");
+      await udc_gr2.cfCommonPopUpAsync(scwin.udc_gr2_callBackFun1 // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의    Value
+      , pName // 화면에서의 ??? Name Element의    Value
+      , "T" // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+      , null // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는    컬럼 지정
+      , ",,,T3" // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의    사용자 정의 폭
+      , null // POP-UP뛰을때 우도우의    사용자 정의 높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부 ("F")
+      , "T" // 전체검색허용여부 ("F")
+      , "품목,품목코드,품목" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    case 2:
+      pCode = ds_retrieveResult2.getCellData(row, "wageGoodsCd");
+      pName = ds_retrieveResult2.getCellData(row, "wageGoodsNm");
+      ds_retrieveResult2.setCellData(row, "wageGoodsCd", "");
+      ds_retrieveResult2.setCellData(row, "wageGoodsNm", "");
+      udc_gr2.setSelectId("retrieveCommInfo");
+      await udc_gr2.cfCommonPopUpAsync(scwin.udc_gr2_callBackFun2 // XML상의 SELECT ID
+      , pCode // 화면에서의 ??? Code Element의    Value
+      , pName // 화면에서의 ??? Name Element의    Value
+      , "T" // 결과가 1건 일때  원도우를    AutoClose 여부  (T:Close,F:Opened)
+      , null // 검색 결과    컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+      , null // Title순서
+      , null // 보여주는 각 컬럼들의 폭
+      , null // 컬럼중에서 숨기는    컬럼 지정
+      , ",,,T3" // SQL절의 WHERE절에    원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때 원도우의    사용자 정의 폭
+      , null // POP-UP뛰을때 우도우의    사용자 정의 높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부 ("F")
+      , "F" // 전체검색허용여부 ("F")
+      , "품목,품목코드,품목" // POP-UP Window Title 검색어1,2     ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      );
+      break;
+    default:
+      break;
+  }
+};
+scwin.udc_gr2_callBackFun1 = function (rtnList) {
+  scwin.popupOpen = false;
+  var row = gr_retrieveResult2.getFocusedRowIndex();
+  if (rtnList == null || rtnList[0] == "N/A") {
+    return;
+  }
+  $c.gus.cfSetGridReturnValue($p, rtnList, ds_retrieveResult2, row, "commCd", "commNm");
+};
+scwin.udc_gr2_callBackFun2 = function (rtnList) {
+  scwin.popupOpen = false;
+  var row = gr_retrieveResult2.getFocusedRowIndex();
+  if (rtnList == null || rtnList[0] == "N/A") {
+    return;
+  }
+  $c.gus.cfSetGridReturnValue($p, rtnList, ds_retrieveResult2, row, "wageGoodsCd", "wageGoodsNm");
+  //cfSetGridReturnValue(rtnList, ds_retrieveResult2, row,"commCd", "commNm");
+  $c.gus.cfSetGridReturnValue($p, rtnList, ds_retrieveResult2, row, "sellCommCd", "sellCommNm");
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+  switch (disGubun) {
+    case 1:
+      // 작업장 팝업
+      udc_wrkPlCd.cfCommonPopUp(scwin.udc_wrkPlCd_callBackFun, pCode, pName, pClose, null, null, null, null, ',' + lc_lobranCd.getValue() + ',,,,3', null, null, null, null, null, 'F', null);
+      break;
+    default:
+      break;
+  }
+};
+scwin.udc_wrkPlCd_callBackFun = async function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_wrkPlCd, txt_wrkPlNm); // 작업장코드, 작업장명
+  if (!$c.gus.cfIsNull($p, rtnList)) {
+    // 타창고 여부 Check
+    scwin.otherWarehouseYn = rtnList[2]; //타창고 여부('W': 타창고 ) 
+  }
+};
+
+//-------------------------------------------------------------------------
+// 본선관리번호검색 팝업창 띄우기
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function () {
+  var row = ds_retrieveResult2.getRowPosition();
+  var args = new Array();
+  args[0] = ds_retrieveResult2.getCellData(row, "cvsslMgntNo"); //본선관리번호
+
+  var opts = {
+    id: "smpPop",
+    popupName: "본선관리번호검색팝업",
+    modal: true,
+    type: "browserPopup" //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+    ,
+
+    title: "Win pop" //Layer pop
+    ,
+
+    width: 1100,
+    height: 600
+  };
+  var rtnValues = await $c.win.openPopup($p, "/ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_20p.xml", opts);
+  if (rtnValues != null) {
+    ds_retrieveResult2.setCellData(row, "cvsslMgntNo", rtnValues[0]); //본선관리번호
+  }
+};
+
+//-------------------------------------------------------------------------
+// 하역실적물량 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_StevedoringVolumeResultsExcel = async function () {
+  var fileName = "하역실적물량조회";
+  await $c.data.downloadGridViewExcel($p, gr_StevedoringVolumeResults, {
+    fileName: fileName + ".xlsx",
+    sheetName: fileName
+  });
+};
+
+//-------------------------------------------------------------------------
+// shifting실적물량 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_ShiftStevedoringVolumeResultsExcel = async function () {
+  var fileName = "shifting실적물량조회";
+  await $c.data.downloadGridViewExcel($p, gr_ShiftStevedoringVolumeResults, {
+    fileName: fileName + ".xlsx",
+    sheetName: fileName
+  });
+};
+scwin.udc_gr2_lunionOrgCd_callBackFun = async function (rtnList) {
+  scwin.popupOpen = false;
+  var row = gr_retrieveResult2.getFocusedRowIndex();
+  var colid = "lunionOrgCd";
+  if (rtnList == null || rtnList[0] == 'N/A') {
+    ds_retrieveResult2.setCellData(row, colid, "");
+    ds_retrieveResult2.setCellData(row, "chiefNm", "");
+    ds_retrieveResult2.setCellData(row, "chiefExceptStaffCnt", 0);
+  } else {
+    ds_retrieveResult2.setCellData(row, colid, rtnList[2]);
+    ds_retrieveResult2.setCellData(row, "chiefNm", rtnList[4]);
+    ds_retrieveResult2.setCellData(row, "chiefExceptStaffCnt", rtnList[5]);
+  }
+  var cntRow = ds_retrieveResult2.getRowCount();
+  var realShift = ds_retrieveResult2.getCellData(row, "shiftClsCd");
+  var realOrgCd = ds_retrieveResult2.getCellData(row, "lunionOrgCd");
+  for (i = 0; i < cntRow; i++) {
+    var overShift = ds_retrieveResult2.getCellData(i, "shiftClsCd");
+    var overOrgCd = ds_retrieveResult2.getCellData(i, "lunionOrgCd");
+    if (row != i) {
+      if (realShift == overShift && realOrgCd == overOrgCd) {
+        await $c.gus.cfAlertMsg($p, i + "번째 Row의 반코드와 중복됩니다.");
+        ds_retrieveResult2.setCellData(row, colid, "");
+        ds_retrieveResult2.setCellData(row, "chiefNm", "");
+      }
+    }
+  }
+};
+scwin.f_changeWrkStpCd = function (row, colid) {
+  var rows = ds_retrieveResult3.getRowCount();
+  var value = ds_retrieveResult2.getCellData(row, colid);
+  for (i = 0; i < rows; i++) {
+    ds_retrieveResult3.setcellData(i, colid, value);
+  }
+  rows = ds_retrieveResult4.getRowCount();
+  for (i = 0; i < rows; i++) {
+    if (colid == "wageVol") {
+      ds_retrieveResult2.setCellData(row, "realWageVol", value);
+      ds_retrieveResult4.setCellData(i, "realWageVol", value);
+    } else {
+      ds_retrieveResult4.setCellData(i, colid, value);
+    }
+  }
+};
+scwin.f_CheckOverLap = async function (row, colid) {
+  var rowCnt = ds_retrieveResult2.getRowCount();
+  for (i = 0; i < rowCnt; i++) {
+    var wrkMthdCd = ds_retrieveResult2.getCellData(i, "wrkMthdCd");
+    var shiftClsCd = ds_retrieveResult2.getCellData(i, "shiftClsCd");
+    var lunionOrgCd = ds_retrieveResult2.getCellData(i, "lunionOrgCd");
+    var commCd = ds_retrieveResult2.getCellData(i, "commCd");
+    var wageGoodsCd = ds_retrieveResult2.getCellData(i, "wageGoodsCd");
+    var wrkQty = ds_retrieveResult2.getCellData(i, "wrkQty");
+    var wrkWt = ds_retrieveResult2.getCellData(i, "wrkWt");
+    var wrkCbm = ds_retrieveResult2.getCellData(i, "wrkCbm");
+    var wageVol = ds_retrieveResult2.getCellData(i, "wageVol");
+    var wageVolUnit = ds_retrieveResult2.getCellData(i, "wageVolUnit");
+    var eqClssCd = ds_retrieveResult2.getCellData(i, "eqClssCd");
+    var wrkStpCd1 = ds_retrieveResult2.getCellData(i, "wrkStpCd1");
+    var wrkStpCd2 = ds_retrieveResult2.getCellData(i, "wrkStpCd2");
+    var wrkStpCd3 = ds_retrieveResult2.getCellData(i, "wrkStpCd3");
+    var wrkStpCd4 = ds_retrieveResult2.getCellData(i, "wrkStpCd4");
+    for (j = i + 1; j < rowCnt; j++) {
+      var wrkMthdCdNext = ds_retrieveResult2.getCellData(j, "wrkMthdCd");
+      var shiftClsCdNext = ds_retrieveResult2.getCellData(j, "shiftClsCd");
+      var lunionOrgCdNext = ds_retrieveResult2.getCellData(j, "lunionOrgCd");
+      var commCdNext = ds_retrieveResult2.getCellData(j, "commCd");
+      var wageGoodsCdNext = ds_retrieveResult2.getCellData(j, "wageGoodsCd");
+      var wrkQtyNext = ds_retrieveResult2.getCellData(j, "wrkQty");
+      var wrkWtNext = ds_retrieveResult2.getCellData(j, "wrkWt");
+      var wrkCbmNext = ds_retrieveResult2.getCellData(j, "wrkCbm");
+      var wageVolNext = ds_retrieveResult2.getCellData(j, "wageVol");
+      var wageVolUnitNext = ds_retrieveResult2.getCellData(j, "wageVolUnit");
+      var eqClssCdNext = ds_retrieveResult2.getCellData(j, "eqClssCd");
+      var wrkStpCd1Next = ds_retrieveResult2.getCellData(j, "wrkStpCd1");
+      var wrkStpCd2Next = ds_retrieveResult2.getCellData(j, "wrkStpCd2");
+      var wrkStpCd3Next = ds_retrieveResult2.getCellData(j, "wrkStpCd3");
+      var wrkStpCd4Next = ds_retrieveResult2.getCellData(j, "wrkStpCd4");
+      if (wrkMthdCd == wrkMthdCdNext && shiftClsCd == shiftClsCdNext && lunionOrgCd == lunionOrgCdNext && commCd == commCdNext && wageGoodsCd == wageGoodsCdNext && wrkQty == wrkQtyNext && wrkWt == wrkWtNext && wrkCbm == wrkCbmNext && wageVol == wageVolNext && wageVolUnit == wageVolUnitNext && eqClssCd == eqClssCdNext) {
+        if (wrkStpCd1 == wrkStpCd1Next && wrkStpCd2 == wrkStpCd2Next && wrkStpCd3 == wrkStpCd3Next && wrkStpCd4 == wrkStpCd4Next) {
+          await $c.gus.cfAlertMsg($p, i + "번째 행의 " + gr_retrieveResult2.ColumnProp(colid, 'Name') + "와 " + j + "번째 행의 " + gr_retrieveResult2.ColumnProp(colid, 'Name') + "가 중복됩니다.");
+          ds_retrieveResult2.setCellData(j, colid, "");
+          gr_retrieveResult2.setFocusedCell(j, 0);
+          // gr_retrieveResult2.SetColumn(colid);
+          // gr_retrieveResult2.Focus();
+
+          return false;
+        }
+      }
+    } // for
+  } // for
+
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 그리드에서 달력팝업 & 품목팝업 호출
+//-------------------------------------------------------------------------
+scwin.f_AutoPopup = async function (row, colid, olddata) {
+  if (colid == "commCd" || colid == "commNm") {
+    if (ds_retrieveResult2.getCellData(row, colid) != "" && ds_retrieveResult2.getCellData(row, colid) != olddata) {
+      scwin.popupOpen = true;
+      await scwin.f_commCdPopup(row, 1);
+    } else if (ds_retrieveResult2.getCellData(row, colid) == "") {
+      //asis버그?
+      ds_retrieveResult2.setCellData(row, "wageGoodsCd", "");
+      ds_retrieveResult2.setCellData(row, "wageGoodsNm", "");
+    }
+  }
+  if (colid == "wageGoodsCd" || colid == "wageGoodsNm") {
+    if (ds_retrieveResult2.getCellData(row, colid) != "" && ds_retrieveResult2.getCellData(row, colid) != olddata) {
+      scwin.popupOpen = true;
+      await scwin.f_commCdPopup(row, 2);
+    } else if (ds_retrieveResult2.getCellData(row, colid) == "") {
+      ds_retrieveResult2.setCellData(row, "wageGoodsCd", "");
+      ds_retrieveResult2.setCellData(row, "wageGoodsNm", "");
+    }
+    scwin.f_changeWrkStpCd(row, "wageGoodsCd");
+    scwin.f_changeWrkStpCd(row, "wageGoodsNm");
+  }
+  if (colid == "wageVol") {
+    scwin.f_changeWrkStpCd(row, colid);
+  }
+  if (colid == "wrkStDt") {
+    scwin.f_changeWrkStpCd(row, colid);
+  }
+  if (colid == "wrkStHh") {
+    scwin.f_changeWrkStpCd(row, colid);
+  }
+  if (colid == "wrkEndDt") {
+    scwin.f_changeWrkStpCd(row, colid);
+  }
+  if (colid == "wrkEndHh") {
+    scwin.f_changeWrkStpCd(row, colid);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 작업단계 체크
+//-------------------------------------------------------------------------
+scwin.f_wrkPlCdCheck = function (row, colid) {
+  if (colid == "wrkStpCd2") {
+    if (ds_retrieveResult2.getCellData(row, "wrkStpCd1") == "") {
+      gr_retrieveResult2.setCellReadOnly(row, "wrkStpCd2", true); // gr_retrieveResult2.ColumnProp('wrkStpCd2', 'Edit') = "NONE";
+    } else if (ds_retrieveResult2.getCellData(row, "wrkStpCd1") != "") {
+      gr_retrieveResult2.setCellReadOnly(row, "wrkStpCd2", false); // gr_retrieveResult2.ColumnProp('wrkStpCd2', 'Edit') = "ANY";
+    }
+  }
+  if (colid == "wrkStpCd3") {
+    if (ds_retrieveResult2.getCellData(row, "wrkStpCd2") == "") {
+      gr_retrieveResult2.setCellReadOnly(row, "wrkStpCd3", true);
+    } else if (ds_retrieveResult2.getCellData(row, "wrkStpCd1") != "") {
+      gr_retrieveResult2.setCellReadOnly(row, "wrkStpCd3", false);
+    }
+  }
+  if (colid == "wrkStpCd4") {
+    if (ds_retrieveResult2.getCellData(row, "wrkStpCd3") == "") {
+      gr_retrieveResult2.setCellReadOnly(row, "wrkStpCd4", true);
+    } else if (ds_retrieveResult2.getCellData(row, "wrkStpCd1") != "") {
+      gr_retrieveResult2.setCellReadOnly(row, "wrkStpCd4", false);
+    }
+  }
+  if (colid == "shiftClsCd") {
+    var status = ds_retrieveResult2.getRowStatus(row);
+    if (status == "R") {
+      // status == 0
+      gr_retrieveResult2.setCellReadOnly(row, "shiftClsCd", true);
+    } else if (status != "R") {
+      gr_retrieveResult2.setCellReadOnly(row, "shiftClsCd", false);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 할증항목 추가 팝업
+//-------------------------------------------------------------------------
+scwin.f_addItem = async function () {
+  var rows = ds_retrieveResult2.getRowCount();
+  if (rows == 0) {
+    return;
+  }
+  var i = 0;
+  var args = new Array();
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsSeq");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkPlCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkDt");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "shiftClsCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "holdNo");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "commCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd1");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd2");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd3");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd4");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkMthdCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkQty");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVol");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "impExpClsCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "eqClssCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsCd");
+  args[i++] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVolUnit");
+  var opts = {
+    id: "smpPop",
+    popupName: "작업장별 할증요율 조회",
+    modal: true,
+    type: "browserPopup" //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+    ,
+
+    title: "Win pop" //Layer pop
+    ,
+
+    width: 900,
+    height: 740
+  };
+
+  // var data = {
+  //     args: args
+  // };
+
+  var resultAdd = await $c.win.openPopup($p, "/ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_18p.xml", opts, args);
+  if (resultAdd != null) {
+    scwin.f_AddRow2(resultAdd);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 할증항목 자동 불러오기
+//-------------------------------------------------------------------------
+scwin.f_AutoLoad = async function () {
+  var wrkPlCd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkPlCd");
+  var odrNo = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo");
+  var wrkDt = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkDt");
+  var upperWageRsltsSeq = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "upperWageRsltsSeq");
+  var wageGoodsCd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsCd");
+  var eqClssCd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "eqClssCd");
+  var expimpClsCd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "impExpClsCd");
+  var wtTenfrAdptSt = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wtTenfrAdptSt");
+  var wtTenfrAdptEnd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wtTenfrAdptEnd");
+  var wrkMthdCd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkMthdCd");
+  var wrkStpCd1 = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd1");
+  var wrkStpCd2 = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd2");
+  var wrkStpCd3 = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd3");
+  var wrkStpCd4 = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd4");
+  var wageVol = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVol");
+  var wrkQty = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkQty");
+  var shiftClsCd = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "shiftClsCd");
+  var wageVolUnit = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVolUnit");
+  ds_conditionAuto.set("wrkPlCd", wrkPlCd);
+  ds_conditionAuto.set("odrNo", odrNo);
+  ds_conditionAuto.set("wrkDt", wrkDt);
+  ds_conditionAuto.set("upperWageRsltsSeq", upperWageRsltsSeq);
+  ds_conditionAuto.set("wageGoodsCd", wageGoodsCd);
+  ds_conditionAuto.set("eqClssCd", eqClssCd);
+  ds_conditionAuto.set("expimpClsCd", expimpClsCd);
+  ds_conditionAuto.set("wtTenfrAdptSt", wtTenfrAdptSt);
+  ds_conditionAuto.set("wtTenfrAdptEnd", wtTenfrAdptEnd);
+  ds_conditionAuto.set("wrkMthdCd", wrkMthdCd);
+  ds_conditionAuto.set("wrkStpCd1", wrkStpCd1);
+  ds_conditionAuto.set("wrkStpCd2", wrkStpCd2);
+  ds_conditionAuto.set("wrkStpCd3", wrkStpCd3);
+  ds_conditionAuto.set("wrkStpCd4", wrkStpCd4);
+  ds_conditionAuto.set("shiftClsCd", shiftClsCd);
+  ds_conditionAuto.set("wageVol", wageVol);
+  ds_conditionAuto.set("wrkQty", wrkQty);
+  ds_conditionAuto.set("wageVolUnit", wageVolUnit);
+  let e = await $c.sbm.execute($p, sbm_retrieveAuto);
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; // OnFail
+
+  var cnt = ds_retrieveResultAuto.getRowCount();
+  var rowCount = ds_retrieveResult3.getRowCount();
+  if (cnt == 0) {
+    await $c.gus.cfAlertMsg($p, "실적에 대한 할증이 존재하지 않습니다.");
+    return;
+  }
+  if (cnt > 0) {
+    for (var i = 0; i < cnt; i++) {
+      var over = ds_retrieveResult3.getMatchedIndex("scDtlSeqNo", ds_retrieveResultAuto.getCellData(i, "scDtlSeqNo"));
+      if (over < 0) {
+        scwin.ds_retrieveResult3_UseFilter = false;
+        ds_retrieveResult3.insertRow();
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "goodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "goodsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "scAmt", ds_retrieveResultAuto.getCellData(i, "scAmt")); //ds_retrieveResult2.NameValue(ds_retrieveResult2.RowPosition, "scAmt"  );
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "scRt", ds_retrieveResultAuto.getCellData(i, "scRt")); //ds_retrieveResult2.NameValue(ds_retrieveResult2.RowPosition, "scRt"  );
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageRsltsSeq", "");
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "odrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "upperOdrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "upperWageRsltsSeq", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsSeq"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "commCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "commCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "commNm", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "commNm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageGoodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageGoodsNm", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageGoodsNm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkMthdCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkMthdCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "lunionOrgCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "lunionOrgCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "stvWrkIndictNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "stvWrkIndictNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "cvsslMgntNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "cvsslMgntNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "rtlOdrNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "rtlOdrNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "impExpClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "impExpClsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "holdNo", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "holdNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "shiftClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "shiftClsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkStpCd1", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd1"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkStpCd2", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd2"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkStpCd3", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd3"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkStpCd4", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStpCd4"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkPlCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkPlCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkStDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkStHh", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkStHh"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkEndDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkEndDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkEndHh", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkEndHh"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageVol", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "realWageVol"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageVolUnit", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageVolUnit"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageUnitClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageUnitClsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wagePayClsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wagePayClsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageAmt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageAmt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageRsltsYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageRsltsYn"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wageCreatYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wageCreatYn"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "scWtAdptStd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "scWtAdptStd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkQty", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkQty"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkWt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkWt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkCbm", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkCbm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "sellCommCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "sellCommCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "adptGoodsCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "adptGoodsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "eqClssCd", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "eqClssCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wholeWrkStpYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wholeWrkStpYn"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "wrkDt", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "wrkDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "scDtlSeqNo", ds_retrieveResultAuto.getCellData(i, "scDtlSeqNo"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "selpchItemCd", ds_retrieveResultAuto.getCellData(i, "selpchItemCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewDistrictCd", ds_retrieveResultAuto.getCellData(i, "districtCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewSelpchItemNm", ds_retrieveResultAuto.getCellData(i, "selpchItemNm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptStDt", ds_retrieveResultAuto.getCellData(i, "adptStDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewDtlItemNm", ds_retrieveResultAuto.getCellData(i, "dtlItemNm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewGoodsCd", ds_retrieveResultAuto.getCellData(i, "goodsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewGoodsNm", ds_retrieveResultAuto.getCellData(i, "goodsNm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptStdGoods", ds_retrieveResultAuto.getCellData(i, "adptStdGoods"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptStdGoodsNm", ds_retrieveResultAuto.getCellData(i, "adptStdGoodsNm"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewEqClssCd", ds_retrieveResultAuto.getCellData(i, "eqClssCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewWtTenfrAdptSt", ds_retrieveResultAuto.getCellData(i, "wtTenfrAdptSt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewWtTenfrAdptEnd", ds_retrieveResultAuto.getCellData(i, "wtTenfrAdptEnd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewExpimpClsCd", ds_retrieveResultAuto.getCellData(i, "expimpClsCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewWrkMthdCd", ds_retrieveResultAuto.getCellData(i, "wrkMthdCd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewCvsslWharfPartyCnt", ds_retrieveResultAuto.getCellData(i, "cvsslWharfPartyCnt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewSeaWrkYn", ds_retrieveResultAuto.getCellData(i, "seaWrkYn"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewScWtAdptStd", ds_retrieveResultAuto.getCellData(i, "scWtAdptStd"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptTermSprtYn", ds_retrieveResultAuto.getCellData(i, "adptTermSprtYn"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptTermStDt", ds_retrieveResultAuto.getCellData(i, "adptTermStDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptTermEndDt", ds_retrieveResultAuto.getCellData(i, "adptTermEndDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewAdptEndDt", ds_retrieveResultAuto.getCellData(i, "adptEndDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewWageAgrmntDt", ds_retrieveResultAuto.getCellData(i, "wageAgrmntDt"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewWrkPl", ds_retrieveResultAuto.getCellData(i, "wrkPl"));
+        ds_retrieveResult3.setCellData(ds_retrieveResult3.getRowPosition(), "viewadptTonCnt", ds_retrieveResultAuto.getCellData(i, "adptTonCnt"));
+      } // if
+    } // for Auto
+
+    scwin.ds_retrieveResult3_UseFilter = true;
+    var rowcnt = ds_retrieveResult3.getRowCount();
+    totalRows2.setValue(rowcnt);
+  }
+};
+scwin.f_checkLunion = async function () {
+  var row = ds_retrieveResult2.getRowCount();
+  for (i = 0; i < row; i++) {
+    var lunion = ds_retrieveResult2.getCellData(i, "lunionOrgCd");
+    if (lunion == "") {
+      await $c.gus.cfAlertMsg($p, "하역투입반원등록 작업을 먼저 실행하십시오.");
+      ds_retrieveResult2.removeAll();
+      return false;
+    }
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function (inObj, pairObj, disGubun, isCode) {
+  // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  if (!$c.gus.cfCanOpenPopup($p, inObj, pairObj)) {
+    return;
+  }
+
+  // 짝이 되는 오브젝트의 값 제거
+  $c.gus.cfClearPairObj($p, pairObj);
+
+  // 검색어 세팅
+  var pVal = $c.gus.cfGetValue($p, inObj);
+
+  // inObj가 코드 필드일 경우 팝업
+  if (isCode == null || isCode == true) {
+    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+  } else {
+    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+  }
+  scwin.make_mandatory_related_orderNo_from_condition();
+};
+
+//-------------------------------------------------------------------------
+// 일용코드 조회.
+//-------------------------------------------------------------------------
+scwin.f_RetrieveSelpchItemCd = async function () {
+  dma_SelpchItemCd.set("sysCd", "YardOtherWarehouseWagesResultsEBC");
+  dma_SelpchItemCd.set("queryId", "retrivecYardSelpchItemCd");
+  dma_SelpchItemCd.set("param1", ed_wrkPlCd.getValue());
+  dma_SelpchItemCd.set("param2", ed_wrkDt.getValue());
+  let e = await $c.sbm.execute($p, sbm_selpchItemCd);
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; // OnFail
+};
+
+//-------------------------------------------------------------------------
+// 오더번호 조회.
+//-------------------------------------------------------------------------
+scwin.f_RetrieveWageOdrNo = function () {
+  // 이전버전 
+  // 공통쪽의 RetrieveComboCMD를 이용하여, Order 번호만 불러온다. 
+  // wageOdrNo.DataID = "/cm.zz.RetrieveComboCMD.do?sysCd=YardOtherWarehouseWagesResultsEBC&queryId=retrieveWageOdrNo&param1="+lc_shiftCd.BindColVal+"&param2="+ed_wrkDt.text+"&param3="+ed_wrkPlCd.Text;
+  // wageOdrNo.Reset();
+
+  // 신버전 20110929 김석 
+  // 신규 개별 CMD 제작 
+  // 신규 : CMD : "/ds.op.wrkrslts.wagewrkrslts.RetrieveYardOtherWarehouseOrderNoDataResultsCMD.do"
+  // 신규 : BD  :  dbl.ds.op.wrkrslts.wagewrkrslts.bd.RetrieveYardOtherWarehouseOrderNoDataResultsBD
+
+  $c.sbm.execute($p, sbm_retrievOrderNoData);
+};
+
+//-------------------------------------------------------------------------
+// 노조 편성내역 조정팝업창 띄우기
+//-------------------------------------------------------------------------
+scwin.f_openUnionPopUp = async function () {
+  if (ds_retrieveResult2.getModifiedIndex().length != 0) {
+    if (await $c.win.confirm($p, MSG_CM_CRM_015)) {
+      await scwin.f_Save();
+    } else {
+      return;
+    }
+  }
+  if (ds_retrieveResult2.getRowPosition() >= 0) {
+    var args = new Array();
+    args[0] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "odrNo");
+    args[1] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "lunionOrgCd");
+    args[2] = ed_wrkDt.getValue();
+    args[3] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "stvWrkIndictNo");
+    args[4] = "I";
+    args[5] = lc_shiftCd.getValue();
+    args[6] = ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "lunionPartySeq");
+    args[7] = ds_retrieveResult1.getCellData(0, "wrkPlNm");
+    args[8] = ds_retrieveResult1.getCellData(0, "cvsslMgntNo");
+    args[9] = "T";
+    args[10] = "OK";
+    args[11] = ds_retrieveResult2.getCellData(0, "wrkPlCd");
+    args[12] = 0; // HoldNo 
+
+    var opts = {
+      id: "smpPop",
+      popupName: "노조 편성내역 조정팝업",
+      modal: true,
+      type: "browserPopup" //화면 오픈 타입 ("pageFramePopup", "browserPopup")
+      ,
+
+      title: "Win pop" //Layer pop
+      ,
+
+      width: 500,
+      height: 800
+    };
+    var data = {
+      args: args,
+      check: "T"
+    };
+    var rtnValues = await $c.win.openPopup($p, "/ui/ds/op/wrkrslts/wagewrkrslts/op_307_01_03p.xml", opts, args);
+    if (rtnValues != null) {
+      await scwin.f_Retrieve();
+    }
+  } else {
+    await $c.gus.cfAlertMsg($p, "하역노임실적 목록에서 해당 항목을 선택 하세요.");
+  }
+};
+
+//-------------------------------------------------------------------------
+// List 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel1 = async function () {
+  var fileName = "하역노임실적";
+  await $c.data.downloadGridViewExcel($p, gr_retrieveResult2, {
+    fileName: fileName + ".xlsx",
+    sheetName: fileName
+  });
+};
+scwin.f_toExcel2 = async function () {
+  var fileName = "할증코드";
+  await $c.data.downloadGridViewExcel($p, gr_retrieveResult3, {
+    fileName: fileName + ".xlsx",
+    sheetName: fileName
+  });
+};
+scwin.f_toExcel3 = async function () {
+  var fileName = "일용할증";
+  await $c.data.downloadGridViewExcel($p, gr_retrieveResult4, {
+    fileName: fileName + ".xlsx",
+    sheetName: fileName
+  });
+};
+
+/* 노임물량 이 조건에 따라 달라짐 -  work by ChoiSeungEun , order by HongJungSuk
+    * 1. 중량이나 CBM 값이 들어온 경우, 중량과 (CBM*0.883) 을 비교하여  큰 값으로  노임물량 set, 
+    *    그리고, 작업장  코드가 '6W073' 인경우에는  위에서 계산된  노임 물량에  65% 를 적용  //20071205 - ITSM(C_13442) 
+    *    작업장  코드 '6W073' 인경우,   노임 물량  65% -> 100%로 변경  //20230321 - 주성현
+    *    중량과  CBM 값 모두 없는 경우, 입력된 노임 물량이 그대로 적용됨. 
+    */
+scwin.f_applyRTon = function (row) {
+  var CBM_TARIFF = 0.883; /*CBM 적용  고정 비율 */
+
+  var vWrkWt = ds_retrieveResult2.getCellData(row, "wrkWt");
+  var vWrkCbm = ds_retrieveResult2.getCellData(row, "wrkCbm");
+  var vWageVol = ds_retrieveResult2.getCellData(row, "wageVol");
+  var vTempCBM = 0;
+  if (vWrkWt > 0 && vWrkCbm > 0) {
+    // 중량 ,CBM 모두 값이  있는 경우,
+    vTempCBM = vWrkCbm * CBM_TARIFF;
+    if (vWrkWt > vTempCBM) {
+      vWageVol = vWrkWt;
+    } else {
+      vWageVol = vTempCBM;
+    }
+  } else if (vWrkWt > 0) {
+    vWageVol = vWrkWt; //중량
+  } else if (vWrkCbm > 0) {
+    vWageVol = vWrkCbm; //CBM
+  }
+  ds_retrieveResult2.setCellData(row, "wageVol", vWageVol);
+};
+
+//-------------------------------------------------------------------------
+// 하역노임 실적  Record Edit protect set
+//-------------------------------------------------------------------------
+scwin.f_setEditProtect = function (rowIndex) {
+  if (ds_retrieveResult3.getRowCount() > 0) {
+    gr_retrieveResult2.setCellReadOnly(rowIndex, "wrkMthdCd", true); //작업방법  
+    gr_retrieveResult2.setCellReadOnly(rowIndex, "shiftClsCd", true); //Shift
+    gr_retrieveResult2.setCellReadOnly(rowIndex, "lunionOrgCd", true); //반
+    gr_retrieveResult2.setCellReadOnly(rowIndex, "chiefNm", true); //반장
+    gr_retrieveResult2.setCellReadOnly(rowIndex, "chiefExceptStaffCnt", true); //반장외;인원수
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'commCd', true); //품목;코드    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'commNm', true); //품명                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageGoodsCd', true); //품목;코드        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageGoodsNm', true); //노임;품목/품명
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkQty', true); //수량                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkWt', true); //중량                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkCbm', true); //CBM                   
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageVol', false); //노일 물량  
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageVolUnit', true); //노임;단위        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'eqClssCd', true); //장비종류  
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'cvsslMgntNo', true); //본선번호        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'impExpClsCd', true); //수출입;구분코드  
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'rtlOdrNo', true); //관련;오더번호   
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd1', true); //작업단계1         
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd2', true); //작업단계2         
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd3', true); //작업단계3         
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd4', true); //작업단계4 
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStDt	', true); //시작일자            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStHh', true); //시작시간            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkEndDt', true); //종료일자            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkEndHh', true); //종료시간            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageCreatYn', true); //노임생성            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wagePayClsCd', true); //지급구분
+  } else {
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkMthdCd', false); //작업방법            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'shiftClsCd', false); //Shift                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'lunionOrgCd', false); //반    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'chiefNm', false); //반장                      
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'chiefExceptStaffCnt', false); //반장외;인원수      
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'commCd', false); //품목;코드        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'commNm', false); //품명                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageGoodsCd', false); //품목;코드        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageGoodsNm', false); //노임;품목/품명
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkQty', false); //수량                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkWt', false); //중량                    
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkCbm', false); //CBM                   
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageVol', false); //노일 물량 
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageVolUnit', false); //노임;단위        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'eqClssCd', false); //장비종류           
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'cvsslMgntNo', false); //본선번호        
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'impExpClsCd', false); //수출입;구분코드  
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'rtlOdrNo', false); //관련;오더번호   
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd1', false); //작업단계1         
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd2', false); //작업단계2         
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd3', false); //작업단계3         
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStpCd4', false); //작업단계4     
+
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStDt	', false); //시작일자            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkStHh', false); //시작시간            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkEndDt', false); //종료일자            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wrkEndHh', false); //종료시간            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wageCreatYn', false); //노임생성            
+    gr_retrieveResult2.setCellReadOnly(rowIndex, 'wagePayClsCd', false); //지급구분       	 
+  }
+};
+
+// 타창고 오더이고,'지급구분' 이 단독일용('4')이고, 항목이  중기일용(0009) 인 경우 '퇴충금 지급여부 Chk'
+scwin.f_setRetireRsrvProvYn = function () {
+  var selpchItemCd = "";
+  var wagePayClsCd = ""; // 지급구분 (3:실적+일용,4:단독일용)
+
+  selpchItemCd = ds_retrieveResult4.getCellData(ds_retrieveResult4.getRowPosition(), 'selpchItemCd');
+  if (scwin.otherWarehouseYn == 'W' && selpchItemCd == '0009') {
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "retireRsrvProvYn", ds_retrieveResult2.getCellData(ds_retrieveResult2.getRowPosition(), "retireRsrvProvYn"));
+  } else {
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), "retireRsrvProvYn", 0);
+  }
+};
+scwin.sbm_retrieve_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return; // OnFail
+
+  await scwin.ds_retrieveResult2_OnLoadCompleted();
+  scwin.ds_retrieveResult3_OnLoadCompleted();
+  scwin.ds_retrieveResult4_OnLoadCompleted();
+  console.log(scwin.ds_retrieveResult3_UseFilter);
+  console.log(scwin.ds_retrieveResult4_UseFilter);
+};
+
+//-------------------------------------------------------------------------
+// scwin.sbm_retrieve_submitdone에서 호출
+//-------------------------------------------------------------------------
+scwin.ds_retrieveResult2_OnLoadCompleted = async function () {
+  // for=ds_retrieveResult2 event=OnLoadCompleted(rowcnt)
+  if (!(await scwin.f_checkLunion())) {
+    return;
+  }
+  var rowcnt = ds_retrieveResult2.getRowCount();
+  totalRows.setValue(rowcnt);
+  if (rowcnt == 0) {
+    await $c.gus.cfAlertMsg($p, "해당하는 하역노임실적이 없습니다.");
+    return;
+  }
+
+  // 타창고 작업장인 경우에만  퇴직충당금 지급여부 보여줌. 
+  if (scwin.otherWarehouseYn == 'W') {
+    gr_retrieveResult2.setColumnVisible("retireRsrvProvYn", true);
+  } else {
+    gr_retrieveResult2.setColumnVisible("retireRsrvProvYn", false);
+  }
+  gr_retrieveResult2.setFocusedCell(0, 0);
+};
+
+//-------------------------------------------------------------------------
+// scwin.sbm_retrieve_submitdone에서 호출
+//-------------------------------------------------------------------------
+scwin.ds_retrieveResult3_OnLoadCompleted = function () {
+  scwin.rFlag = 0;
+  scwin.ds_retrieveResult3_UseFilter = true;
+  scwin.ds_retrieveResult3_OnFilter();
+};
+
+//-------------------------------------------------------------------------
+// 지점 autocomplete
+//-------------------------------------------------------------------------
+scwin.sbm_co_ds_LoBran_submitdone = function (e) {
+  lc_lobranCd.setValue(scwin.loUpperLobranCd);
+};
+scwin.ds_retrieveResult3_OnFilter = function () {
+  var rowIdx2 = ds_retrieveResult2.getRowPosition();
+  var shift = ds_retrieveResult2.getCellData(rowIdx2, "shiftClsCd");
+  var commCd = ds_retrieveResult2.getCellData(rowIdx2, "wageGoodsCd");
+  var wrkStpCd1 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd1");
+  var wrkStpCd2 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd2");
+  var wrkStpCd3 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd3");
+  var wrkStpCd4 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd4");
+  var wrkMthdCd = ds_retrieveResult2.getCellData(rowIdx2, "wrkMthdCd");
+  var wageVol = ds_retrieveResult2.getCellData(rowIdx2, "wageVol");
+  var wageVolUnit = ds_retrieveResult2.getCellData(rowIdx2, "wageVolUnit");
+  ds_retrieveResult3.removeColumnFilterAll();
+  $c.data.dataListFilter($p, ds_retrieveResult3, "shiftClsCd == '" + shift + "'" + " && wageGoodsCd == '" + commCd + "'" + " && wrkStpCd1 == '" + wrkStpCd1 + "'" + " && wrkStpCd2 == '" + wrkStpCd2 + "'" + " && wrkStpCd3 == '" + wrkStpCd3 + "'" + " && wrkStpCd4 == '" + wrkStpCd4 + "'" + " && wrkMthdCd == '" + wrkMthdCd + "'" + " && wageVol == '" + wageVol + "'" + " && wageVolUnit == '" + wageVolUnit + "'");
+  var rowcnt = ds_retrieveResult3.getRowCount();
+  totalRows2.setValue(rowcnt);
+};
+
+//-------------------------------------------------------------------------
+// scwin.sbm_retrieve_submitdone에서 호출
+//-------------------------------------------------------------------------
+scwin.ds_retrieveResult4_OnLoadCompleted = function () {
+  scwin.ds_retrieveResult4_UseFilter = true;
+  scwin.ds_retrieveResult4_OnFilter();
+};
+scwin.ds_retrieveResult4_OnFilter = function () {
+  var rowIdx2 = ds_retrieveResult2.getRowPosition();
+  var lunionOrgCd = ds_retrieveResult2.getCellData(rowIdx2, "lunionOrgCd");
+  var inputWrkStp = ds_retrieveResult2.getCellData(rowIdx2, "inputWrkStp");
+  var odrNo = ds_retrieveResult2.getCellData(rowIdx2, "odrNo");
+  var stvWrkIndictNo = ds_retrieveResult2.getCellData(rowIdx2, "stvWrkIndictNo");
+  var cvsslMgntNo = ds_retrieveResult2.getCellData(rowIdx2, "cvsslMgntNo");
+  var impExpClsCd = ds_retrieveResult2.getCellData(rowIdx2, "impExpClsCd");
+  var shiftClsCd = ds_retrieveResult2.getCellData(rowIdx2, "shiftClsCd");
+  var wrkPlCd = ds_retrieveResult2.getCellData(rowIdx2, "wrkPlCd");
+  var wrkDt = ds_retrieveResult2.getCellData(rowIdx2, "wrkDt");
+  var wageUnitClsCd = ds_retrieveResult2.getCellData(rowIdx2, "wageUnitClsCd");
+  var wagePayClsCd = ds_retrieveResult2.getCellData(rowIdx2, "wagePayClsCd");
+  var realWageVol = ds_retrieveResult2.getCellData(rowIdx2, "realWageVol");
+  var wrkMthdCd = ds_retrieveResult2.getCellData(rowIdx2, "wrkMthdCd");
+  var wrkStpCd1 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd1");
+  var wrkStpCd2 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd2");
+  var wrkStpCd3 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd3");
+  var wrkStpCd4 = ds_retrieveResult2.getCellData(rowIdx2, "wrkStpCd4");
+  var wrkStDt = ds_retrieveResult2.getCellData(rowIdx2, "wrkStDt");
+  var wrkStHh = ds_retrieveResult2.getCellData(rowIdx2, "wrkStHh");
+  var wrkEndDt = ds_retrieveResult2.getCellData(rowIdx2, "wrkEndDt");
+  var wrkEndHh = ds_retrieveResult2.getCellData(rowIdx2, "wrkEndHh");
+  var wageGoodsCd = ds_retrieveResult2.getCellData(rowIdx2, "wageGoodsCd");
+  var sellCommCd = ds_retrieveResult2.getCellData(rowIdx2, "sellCommCd");
+  var adptGoodsCd = ds_retrieveResult2.getCellData(rowIdx2, "adptGoodsCd");
+  var eqClssCd = ds_retrieveResult2.getCellData(rowIdx2, "eqClssCd");
+  ds_retrieveResult4.removeColumnFilterAll();
+  $c.data.dataListFilter($p, ds_retrieveResult4, "lunionOrgCd == '" + lunionOrgCd + "'" + " && inputWrkStp == '" + inputWrkStp + "'" + " && odrNo == '" + odrNo + "'" + " && shiftClsCd == '" + shiftClsCd + "'" + " && wrkPlCd == '" + wrkPlCd + "'" + " && wrkDt == '" + wrkDt + "'" + " && wagePayClsCd == '" + wagePayClsCd + "'" + " && realWageVol == '" + realWageVol + "'" + " && wrkMthdCd == '" + wrkMthdCd + "'" + " && wrkStpCd1 == '" + wrkStpCd1 + "'" + " && wrkStpCd2 == '" + wrkStpCd2 + "'" + " && wrkStpCd3 == '" + wrkStpCd3 + "'" + " && wrkStpCd4 == '" + wrkStpCd4 + "'" + " && wrkStDt == '" + wrkStDt + "'" + " && wrkStHh == '" + wrkStHh + "'" + " && wrkEndDt == '" + wrkEndDt + "'" + " && wrkEndHh == '" + wrkEndHh + "'" + " && wageGoodsCd == '" + wageGoodsCd + "'" + " && eqClssCd == '" + eqClssCd + "'");
+  var cnt = ds_retrieveResult4.getRowCount();
+  totalRows3.setValue(cnt);
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=ds_retrieveResult2 event=OnRowPosChanged(row)
+//-------------------------------------------------------------------------
+scwin.gr_retrieveResult2_onrowindexchange = function (rowIndex, oldRow) {
+  if (scwin.rFlag == 0) {
+    scwin.ds_retrieveResult3_UseFilter = true;
+    scwin.ds_retrieveResult3_OnFilter();
+    scwin.ds_retrieveResult4_UseFilter = true;
+    scwin.ds_retrieveResult4_OnFilter();
+  }
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=gr_retrieveResult2 event=OnClick(row,colid)
+//-------------------------------------------------------------------------
+scwin.gr_retrieveResult2_oncellclick = async function (rowIndex, columnIndex, columnId) {
+  /*Start :: 할증코드 리스트가 없는 경우 수정 막기 위해  */
+  scwin.f_setEditProtect(rowIndex);
+  if (columnId != 'wageVol' && ds_retrieveResult3.getRowCount() > 0) {
+    if (columnId == "wageCreatYn") {
+      ds_retrieveResult2.setCellData(rowIndex, "wageCreatYn", "0");
+    }
+    await $c.win.alert($p, '할증코드 리스트가 존재하는 경우에는 노임물량만 수정을 할  수 있습니다.  ');
+    return;
+  }
+  if (columnId == 'lunionOrgCd' || columnId == 'holdNo') {
+    // 반, HOLD_NO
+    var cntMember = ds_retrieveResult2.getCellData(rowIndex, "cntUnionMember");
+    if (cntMember > 0) {
+      await $c.win.alert($p, '해당 노임편성내역을 먼저 삭제 한 후  반 정보를 수정할 수 있습니다.');
+      return false;
+    }
+  }
+  /*--------------------:: End */
+
+  scwin.f_wrkPlCdCheck(rowIndex, columnId);
+  if (columnId == 'retireRsrvProvYn') {
+    /*퇴직충당금 지급여부인 경우 */
+    scwin.f_setRetireRsrvProvYn();
+  }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 셀 속성 inputType =textImage (팝업 오픈)
+// lunionOrgCd(반코드), commNm(품명), wageGoodsNm(노임품명), cvsslMgntNo(본선번호)
+//-------------------------------------------------------------------------
+scwin.gr_retrieveResult2_onPopup = async function (row, colid, nowValue) {
+  if (scwin.popupOpen) {
+    // onafteredit 이벤트랑 중복발생방지
+    return;
+  }
+
+  // for=gr_retrieveResult2 event=OnPopup(row,colid,data)
+  // f_OpenCommPopup(row, colid); > 코드 옮김
+  var pCode = "";
+  if (colid == "commNm") {//품명
+    // await scwin.f_commCdPopup(row, 1);
+  }
+  if (colid == "wageGoodsNm") {
+    // 노임;품명/품명
+    await scwin.f_commCdPopup(row, 2);
+  }
+  if (colid == "lunionOrgCd") {
+    // 반코드
+    var strParam = "";
+    var strData = ds_retrieveResult2.getCellData(row, "wrkPlCd");
+    strParam = "" + "," + strData;
+    pCode = ds_retrieveResult2.getCellData(row, colid);
+    ds_retrieveResult2.setCellData(row, "lunionOrgCd", ""); //반코드
+    ds_retrieveResult2.setCellData(row, "chiefNm", ""); // 반장
+
+    udc_gr2_lunionOrgCd.setSelectId("wageLunionOrgCdLevel3");
+    await udc_gr2_lunionOrgCd.cfCommonPopUpAsync(scwin.udc_gr2_lunionOrgCd_callBackFun, pCode, '', "F", null, null, null, null, strParam, 550, null, null, null, null, "T", "노조조직코드조회(반),반코드,반명"); // 노임(반)
+    return;
+  }
+  if (colid == "cvsslMgntNo") {
+    // 본선번호
+    await scwin.f_openPopUp();
+    scwin.f_changeWrkStpCd(row, "cvsslMgntNo");
+  }
+  if (colid == "wrkStpCd1" || colid == "wrkStpCd2" || colid == "wrkStpCd3" || colid == "wrkStpCd4" || colid == "wrkMthdCd" || colid == "wageVolUnit" || colid == "shiftClsCd" || colid == "lunionOrgCd" || colid == "wageGoodsNm" || colid == "wagePayClsCd" || colid == "eqClssCd" || colid == "wrkStDt" || colid == "wrkStHh" || colid == "wrkEndDt" || colid == "wrkEndHh" || colid == "wagePayClsCd") {
+    if (!(await scwin.f_CheckOverLap(row, colid))) {
+      return;
+    }
+    scwin.f_changeWrkStpCd(row, colid);
+  }
+};
+scwin.gr_retrieveResult2_onbeforeedit = function (rowIndex, columnIndex, value) {
+  scwin.gr2_oldData = value;
+};
+scwin.gr_retrieveResult2_onafteredit = async function (row, columnIndex, value) {
+  var colid = gr_retrieveResult2.getFocusedColumnID();
+  if ((colid == "chiefExceptStaffCnt" || colid == "wrkQty" || colid == "wrkWt" || colid == "wrkCbm" || colid == "wageVol") && value == "") {
+    ds_retrieveResult2.setCellData(row, colid, "0");
+  } else {
+    ds_retrieveResult2.setCellData(row, colid, value);
+  }
+  if (colid == "lunionOrgCd") {
+    // 반코드
+    if (value != scwin.gr2_oldData) {
+      scwin.popupOpen = true;
+      var strParam = "";
+      strParam = "" + "," + ds_retrieveResult2.getCellData(row, "wrkPlCd");
+      ds_retrieveResult2.setCellData(row, "lunionOrgCd", "");
+      ds_retrieveResult2.setCellData(row, "chiefNm", "");
+      await udc_gr2_lunionOrgCd.cfCommonPopUpAsync(scwin.udc_gr2_lunionOrgCd_callBackFun, value, '', "T", null, null, null, null, strParam, 550, null, null, null); // 노임(반)
+    }
+  } else if (colid == "cvsslMgntNo") {
+    // 본선번호
+    scwin.f_changeWrkStpCd(row, colid);
+  } else {
+    // commCd commNm wageGoodsCd wageGoodsNm wageVol wrkStDt wrkStHh wrkEndDt wrkEndHh
+    scwin.f_AutoPopup(row, colid, scwin.gr2_oldData);
+  }
+  if (colid == "wrkWt" || colid == "wrkCbm" || colid == "wageVol") {
+    scwin.f_applyRTon(row);
+  }
+
+  // ASIS: event=OnColumnPosChanged(row,colid), event=onKillFocus(), event=OnCloseUp(row,colid)
+  await scwin.confirm_Grid2_Data_when_condition_is_other_whare_house(row, colid);
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=ed_wrkPlCd event=onKillFocus()
+//-------------------------------------------------------------------------
+scwin.udc_wrkPlCd_onblurCodeEvent = function (e) {
+  scwin.make_mandatory_related_orderNo_from_condition();
+
+  // 에디터 박스의 데이터를 변경했다면, 전체 그리드의 데이서셋을 클리어한다. 
+  if (scwin.buffer_ed_wrkPlCd != ed_wrkPlCd.getValue()) {
+    scwin.f_DatasetClearAll();
+  }
+  scwin.f_chkOpenCommonPopUp(ed_wrkPlCd, txt_wrkPlNm, 1);
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=ed_wrkPlCd event=onSetFocus()
+//-------------------------------------------------------------------------
+scwin.udc_wrkPlCd_onviewchangeCodeEvent = function (info) {
+  scwin.buffer_ed_wrkPlCd = ed_wrkPlCd.getValue();
+};
+
+//-------------------------------------------------------------------------
+// ASIS: txt_wrkPlNm onChange
+//-------------------------------------------------------------------------
+scwin.udc_wrkPlCd_onviewchangeNameEvent = function (info) {
+  scwin.f_chkOpenCommonPopUp(txt_wrkPlNm, ed_wrkPlCd, 1, false);
+};
+
+//-------------------------------------------------------------------------
+// 작업장 onClick 이벤트
+//-------------------------------------------------------------------------
+scwin.udc_wrkPlCd_onclickEvent = function (e) {
+  scwin.f_openCommonPopUp(1, ed_wrkPlCd.getValue(), txt_wrkPlNm.getValue(), 'F', 'T');
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=ed_wrkDt event=onKillFocus()
+//-------------------------------------------------------------------------
+scwin.ed_wrkDt_onblur = function (e) {
+  // 에디터 박스의 데이터를 변경했다면, 전체 그리드의 데이서셋을 클리어한다. 
+  if (scwin.buffer_ed_wrkDt != ed_wrkDt.getValue()) {
+    scwin.f_DatasetClearAll();
+  }
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=ed_wrkDt event=onSetFocus()
+//-------------------------------------------------------------------------
+scwin.ed_wrkDt_onfocus = function (e) {
+  scwin.buffer_ed_wrkDt = ed_wrkDt.getValue();
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for= lc_lobranCd event=OnSelChange()
+//-------------------------------------------------------------------------
+scwin.lc_lobranCd_onchange = function (info) {
+  scwin.make_mandatory_related_orderNo_from_condition();
+  scwin.f_DatasetClearAll();
+};
+
+//-------------------------------------------------------------------------
+// ASIS: for=gr_retrieveResult4 event=OnCloseUp(row,colid)
+//-------------------------------------------------------------------------
+scwin.gr_retrieveResult4_onafteredit = function (rowIndex, columnIndex, value) {
+  var colid = gr_retrieveResult4.getFocusedColumnID();
+  if (colid == "wageVol" && value == "") {
+    ds_retrieveResult4.setCellData(rowIndex, colid, "0");
+  } else {
+    ds_retrieveResult4.setCellData(rowIndex, colid, value);
+  }
+  if (colid == "selpchItemNm") {
+    var strData = ds_SelpchItemCd.getCellData(ds_SelpchItemCd.getMatchedIndex('name', ds_retrieveResult4.getCellData(rowIndex, "selpchItemNm")), "code");
+    ds_retrieveResult4.setCellData(ds_retrieveResult4.getRowPosition(), 'selpchItemCd', strData);
+    scwin.f_setRetireRsrvProvYn();
+  }
+};
+
+//-------------------------------------------------------------------------
+// 할증코드 그리드 행삭제
+//-------------------------------------------------------------------------
+scwin.rowDel_gr3 = function () {
+  // ds_retrieveResult3.DeleteMarked()
+  var row = ds_retrieveResult3.getRowPosition();
+  ds_retrieveResult3.deleteRow(row);
+};
+
+//-------------------------------------------------------------------------
+// 할증코드 그리드 취소
+//-------------------------------------------------------------------------
+scwin.cancel_gr3 = function () {
+  // ds_retrieveResult3.UndoMarked()
+  $c.data.undoRow($p, ds_retrieveResult3);
+};
+
+//-------------------------------------------------------------------------
+// 일용할증 그리드 행삭제
+//-------------------------------------------------------------------------
+scwin.rowDel_gr4 = function () {
+  // ds_retrieveResult4.DeleteMarked()
+  var row = ds_retrieveResult4.getRowPosition();
+  ds_retrieveResult4.removeRow(row);
+};
+
+//-------------------------------------------------------------------------
+// 일용할증 그리드 취소
+//-------------------------------------------------------------------------
+scwin.cancel_gr4 = function () {
+  // ds_retrieveResult4.UndoMarked()
+  $c.data.undoRow($p, ds_retrieveResult4);
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_schInput',type:'page',variableClone:'true',src:'/cm/udc/schInput.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYearMon',type:'page',variableClone:'true',src:'/cm/udc/fromToYearMon.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendarTime',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendarTime.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToYear',type:'page',variableClone:'true',src:'/cm/udc/fromToYear.xml'}},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'search_cond',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'지점 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_lobranCd',search:'start',style:'width: 200px;',submenuSize:'fixed',allOption:'',chooseOption:'',ref:'data:ds_condition.lobranCd','ev:onchange':'scwin.lc_lobranCd_onchange',visibleRowNum:'15'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:co_ds_LoBran'},E:[{T:1,N:'w2:label',A:{ref:'lobranNm'}},{T:1,N:'w2:value',A:{ref:'lobranCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업장 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',codeId:'ed_wrkPlCd',id:'udc_wrkPlCd',btnId:'btn_wrkPlCd',nameId:'txt_wrkPlNm',refDataCollection:'ds_condition',code:'wrkPlCd',selectID:'retrieveWrkPlInfo','ev:onblurCodeEvent':'scwin.udc_wrkPlCd_onblurCodeEvent','ev:onviewchangeCodeEvent':'scwin.udc_wrkPlCd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_wrkPlCd_onviewchangeNameEvent','ev:onclickEvent':'scwin.udc_wrkPlCd_onclickEvent',UpperFlagCode:'1',objTypeCode:'data',objTypeName:'data',allowCharCode:'a-zA-Z0-9',maxlengthCode:'5',validTitle:'작업장',mandatoryCode:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업일자 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ed_wrkDt',style:'',ref:'data:ds_condition.wrkDt','ev:onblur':'scwin.ed_wrkDt_onblur','ev:onfocus':'scwin.ed_wrkDt_onfocus',mandatory:'true',objType:'data',title:'작업일자'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Shift 구분 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_shiftCd',search:'start',style:'width: 120px;',submenuSize:'fixed',ref:'data:ds_condition.shiftClsCd',sortOption:'label',sortMethod:'descending'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'trigger7',style:'',type:'button','ev:onclick':'scwin.f_FieldClear'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'retrieveButton',style:'',type:'button','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'하역노임실적 ',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridDownFn:'scwin.f_toExcel1',gridID:'gr_retrieveResult2',btnPlusYn:'Y',btnUser:'N',gridDownYn:'Y',gridUpYn:'N',templateYn:'N'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'group1',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{visibleRowNumFix:'true',checkAllType:'false',dataList:'data:ds_retrieveResult2',style:'',autoFit:'none',id:'gr_retrieveResult2',visibleRowNum:'7',class:'wq_gvw',rowStatusVisible:'true','ev:onrowindexchange':'scwin.gr_retrieveResult2_onrowindexchange','ev:oncellclick':'scwin.gr_retrieveResult2_oncellclick','ev:onafteredit':'scwin.gr_retrieveResult2_onafteredit','ev:onbeforeedit':'scwin.gr_retrieveResult2_onbeforeedit',dataName:'하역노임실적',validFeatures:'ignoreStatus=yes',validExp:'shiftClsCd:shift:yes,wageGoodsCd:노임품목코드:yes,wageVolUnit:노임물량단위:yes,chiefNm:반장명:yes,wrkStHh:시작시간:yes:date=HHmm,wrkEndHh:종료시간:yes:date=HHmm,wrkStpCd1:작업단계1:yes,lunionOrgCd:반코드:yes,wrkMthdCd:작업방법:yes,wageVol:노임물량:yes:minNumber=0.001'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption1',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{hidden:'true',width:'100',inputType:'text',id:'column1',value:'오더번호',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column17',value:'노임실적순번',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column15',value:'상위오더번호',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column13',value:'매출입항목코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column11',value:'작업방법',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column9',value:'할증상세일련번호',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column3',value:'하역작업지시번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column5',value:'Shift',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column7',value:'반코드',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column19',value:'반장',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column148',value:'반장외<br>인원수',class:'txt-blue',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column145',value:'품목<br>코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'180',inputType:'text',id:'column142',value:'품명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column139',value:'품목<br>코드',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'180',inputType:'text',id:'column136',value:'노임<br>품명/품명',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column133',value:'수량',class:'txt-blue',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column130',value:'중량',class:'txt-blue',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column127',value:'CBM',class:'txt-blue',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column124',value:'노임<br>물량',class:'txt-red',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column121',value:'노임<br>단위',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column118',value:'퇴충금<br>지급여부',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column115',value:'장비종류',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column112',value:'본선번호',class:'txt-blue',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column109',value:'수출입<br>구분코드',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column106',value:'관련<br>오더번호',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'rtlOdrNoHeader',value:'관련<br>오더번호',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column100',value:'작업단계1',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column97',value:'작업단계2',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column94',value:'작업단계3',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column91',value:'작업단계4',displayMode:'label',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column88',value:'시작일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column85',value:'시작시간',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column82',value:'종료일자',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column79',value:'종료시간',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column76',value:'노임생성',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column73',value:'지급구분',class:'txt-blue',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column70',value:'작업장코드',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column67',value:'작업시작일자',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column64',value:'작업종료일자',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column61',value:'노임단위구분코드',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column58',value:'노임금액',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column55',value:'노임실적여부',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column52',value:'할증금액',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column49',value:'할증율',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column46',value:'할증중량적용기준',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column43',value:'매출품명코드',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column40',value:'적용품목코드',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column37',value:'일괄작업단계여부',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column34',value:'작업일자',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'120',inputType:'text',id:'column31',value:'노임편성멤버수',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row2'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'odrNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wageRsltsSeq',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'upperOdrNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'selpchItemCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wrkMthdCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'scDtlSeqNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'stvWrkIndictNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'shiftClsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'textImage',id:'lunionOrgCd',displayMode:'label',imageClickFunction:'scwin.gr_retrieveResult2_onPopup'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'chiefNm',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'chiefExceptStaffCnt',displayMode:'label',dataType:'number',displayFormat:'#,###',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'commCd',displayMode:'label',imageClickFunction:'scwin.f_AutoPopup'}},{T:1,N:'w2:column',A:{width:'180',inputType:'textImage',id:'commNm',displayMode:'label',imageClickFunction:'scwin.gr_retrieveResult2_onPopup'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wageGoodsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'180',inputType:'textImage',id:'wageGoodsNm',displayMode:'label',imageClickFunction:'scwin.gr_retrieveResult2_onPopup'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'text',id:'wrkQty',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'text',id:'wrkWt',displayMode:'label',dataType:'number',displayFormat:'#,###.##0',excelCellType:'number',excelFormat:'#,##0.##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'text',id:'wrkCbm',displayMode:'label',dataType:'number',displayFormat:'#,##0',excelCellType:'number',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'wageVol',displayMode:'label',dataType:'number',displayFormat:'#,###.##0',excelCellType:'number',excelFormat:'#,##0.##0'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wageVolUnit',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'checkbox',id:'retireRsrvProvYn',displayMode:'label',hidden:'true',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'eqClssCd',displayMode:'label',emptyItem:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'textImage',id:'cvsslMgntNo',displayMode:'label',imageClickFunction:'scwin.gr_retrieveResult2_onPopup'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'impExpClsCd',displayMode:'label',emptyItem:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column107',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'rtlOdrNo',displayMode:'label',allOption:'',chooseOption:'',ref:'',emptyItem:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_retrieveOrderNoData'},E:[{T:1,N:'w2:label',A:{ref:'odrNo'}},{T:1,N:'w2:value',A:{ref:'odrNo'}}]}]}]},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wrkStpCd1',displayMode:'label',emptyItem:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wrkStpCd2',displayMode:'label',emptyItem:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wrkStpCd3',displayMode:'label',emptyItem:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wrkStpCd4',displayMode:'label',emptyItem:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'calendar',id:'wrkStDt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkStHh',displayMode:'label',displayFormat:'##:##'}},{T:1,N:'w2:column',A:{width:'120',inputType:'calendar',id:'wrkEndDt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkEndHh',displayMode:'label',displayFormat:'##:##'}},{T:1,N:'w2:column',A:{width:'120',inputType:'checkbox',id:'wageCreatYn',displayMode:'label',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wagePayClsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkPlCd',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'col123',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'col1234',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wageUnitClsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'wageAmt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wageRsltsYn',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'scAmt',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'scRt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'scWtAdptStd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'sellCommCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'adptGoodsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wholeWrkStpYn',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkDt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'cntUnionMember',displayMode:'label'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column23',value:'합계',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column150',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column147',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'180',inputType:'text',id:'column144',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column141',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'180',inputType:'text',id:'column138',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'expression',id:'column135',displayMode:'label',dataType:'number',displayFormat:'#,##0',expression:'sum(\'wrkQty\')',excelCellType:'number',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'expression',id:'column132',displayMode:'label',displayFormat:'#,###.##0',expression:'sum(\'wrkWt\')',dataType:'number',excelCellType:'number',excelFormat:'#,##0.##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'100',inputType:'expression',id:'column129',displayMode:'label',dataType:'number',displayFormat:'#,##0',expression:'sum(\'wrkCbm\')',excelCellType:'number',excelFormat:'#,##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'expression',id:'column126',displayMode:'label',dataType:'number',displayFormat:'#,###.##0',expression:'sum(\'wageVol\')',excelCellType:'number',excelFormat:'#,##0.##0'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'column123',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column120',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column117',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column114',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column111',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column108',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column105',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column102',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column99',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column96',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column93',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column90',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column87',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column84',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column81',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column78',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column75',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column72',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column69',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column66',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column63',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'column60',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column57',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'column54',displayMode:'label'}},{T:1,N:'w2:column',A:{textAlign:'right',width:'120',inputType:'text',id:'column51',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column48',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column45',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column42',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column39',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column36',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column33',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',dataType:'number',displayFormat:'#,##0',style:'',id:'totalRows',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{btnCancelYn:'Y',style:'',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelYn:'Y',EngYn:'N',gridID:'gr_retrieveResult2',rowAddFunction:'scwin.f_AddRow',rowDelFunction:'scwin.f_DeleteRow',cancelFunction:'scwin.f_Undo'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'할증코드',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section2',style:'',gridDownFn:'scwin.f_toExcel2',gridID:'gr_retrieveResult3',btnPlusYn:'Y',btnUser:'Y',gridDownYn:'Y',gridUpYn:'N',templateYn:'N'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section2',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'none',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_retrieveResult3',id:'gr_retrieveResult3',style:'',visibleRowNum:'4',visibleRowNumFix:'true',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption5',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column1',inputType:'text',value:'실적순번',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column17',inputType:'text',value:'컬럼헤더명',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column15',inputType:'text',value:'upperOdrNo',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column13',inputType:'text',value:'상위실적',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'commCd',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column9',inputType:'text',value:'컬럼헤더명',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column3',inputType:'text',value:'컬럼헤더명',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column7',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'lunionOrgCd',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column148',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column145',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column142',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column139',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column136',inputType:'text',value:'홀드번호',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column133',inputType:'text',value:'시프트구분',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column130',inputType:'text',value:'wrkStpCd1',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column127',inputType:'text',value:'wrkStpCd2',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column124',inputType:'text',value:'wrkStpCd3',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column121',inputType:'text',value:'wrkStpCd4',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column118',inputType:'text',value:'작업장',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column115',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column112',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column109',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column106',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column247',value:'wageVol',displayMode:'label',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column103',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column100',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column97',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column94',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column91',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column88',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column85',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column82',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column79',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column250',value:'컬럼헤더명',displayMode:'label',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column253',value:'컬럼헤더명',displayMode:'label',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column256',value:'컬럼헤더명',displayMode:'label',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column259',value:'컬럼헤더명',displayMode:'label',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column76',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column73',inputType:'text',value:'컬럼헤더명',width:'80',hidden:'true',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column70',inputType:'text',value:'권역코드',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column67',inputType:'text',value:'상세<br>일련<br>번호',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column64',inputType:'text',value:'노임<br>항목',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column61',inputType:'text',value:'노임<br>항목',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column58',inputType:'text',value:'상세항목명',width:'120',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column55',inputType:'text',value:'품목',width:'160',colSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column49',inputType:'text',value:'할증요율',width:'160',colSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column43',inputType:'text',value:'기력',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column40',inputType:'text',value:'작업방법',width:'80',rowSpan:'2'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column37',inputType:'text',value:'적용기간',width:'120',colSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column31',inputType:'text',value:'중량구간',width:'120',colSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column241',value:'작업장',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column237',value:'적용톤수',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column233',value:'수출입<br/>구분',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column229',value:'선창반수',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column225',value:'해상작업',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column221',value:'중량할증<br/>기준(Kg)',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column217',value:'적용품목',displayMode:'label',colSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column209',value:'적용시작일',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column201',value:'적용종료일',displayMode:'label',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column205',value:'노임협약일',displayMode:'label',rowSpan:'2'}}]},{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column159',value:'코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column158',value:'품목명',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column157',value:'% ',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column156',value:'금액',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column153',value:'From',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column152',value:'To',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column151',value:'From',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column246',value:'To',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column218',value:'코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column214',value:'품목명',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wageRsltsSeq',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'odrNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'upperOdrNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'upperWageRsltsSeq',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'commCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'commNm',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageGoodsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageGoodsNm',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkMthdCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'lunionOrgCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'stvWrkIndictNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'cvsslMgntNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'rtlOdrNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'impExpClsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'holdNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'shiftClsCd',inputType:'text',textAlign:'right',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd1',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd2',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd3',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd4',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkPlCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStDt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStHh',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkEndDt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkEndHh',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'wageVol',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageVolUnit',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageUnitClsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wagePayClsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageAmt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageRsltsYn',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageCreatYn',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'scWtAdptStd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkQty',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkWt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'wrkCbm',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'sellCommCd',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'adptGoodsCd',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'eqClssCd',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wholeWrkStpYn',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkDt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'districtCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'scDtlSeqNo',inputType:'text',width:'80',dataType:'number',displayFormat:'#,###',excelCellType:'number',textAlign:'right',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'selpchItemCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewSelpchItemNm',inputType:'text',width:'80',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewDtlItemNm',inputType:'text',textAlign:'center',width:'120',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewGoodsCd',inputType:'text',width:'100',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewGoodsNm',inputType:'text',width:'150',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'scRt',inputType:'text',textAlign:'right',width:'80',dataType:'float',displayFormat:'#,##0.0',excelCellType:'number',excelFormat:'#,##0.0',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'scAmt',inputType:'text',width:'80',textAlign:'right',dataType:'float',displayFormat:'#,##0.##0',excelCellType:'number',excelFormat:'#,##0.000',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewEqClssCd',inputType:'text',width:'80',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewWrkMthdCd',inputType:'text',width:'80',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewAdptTermStDt',inputType:'text',width:'80',dataType:'date',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewAdptTermEndDt',inputType:'text',width:'80',dataType:'date',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'viewWtTenfrAdptSt',inputType:'text',width:'80',dataType:'float',displayFormat:'#,##0.##0',excelCellType:'number',excelFormat:'#,##0.000',textAlign:'right',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'viewWtTenfrAdptEnd',displayMode:'label',dataType:'float',displayFormat:'#,##0.##0',excelCellType:'number',excelFormat:'#,##0.000',textAlign:'right',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'viewWrkPl',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'viewadptTonCnt',displayMode:'label',textAlign:'right',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'viewExpimpClsCd',displayMode:'label',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewCvsslWharfPartyCnt',displayMode:'label',dataType:'number',excelCellType:'number',textAlign:'right',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewSeaWrkYn',displayMode:'label',dataType:'number',excelCellType:'number',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewScWtAdptStd',displayMode:'label',textAlign:'right',dataType:'number',displayFormat:'#,###',excelCellType:'number',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewAdptStdGoods',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'viewAdptStdGoodsNm',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewAdptStDt',displayMode:'label',dataType:'date',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewAdptEndDt',displayMode:'label',dataType:'date',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'viewWageAgrmntDt',displayMode:'label',dataType:'date',textAlign:'left',readOnly:'true'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRows2',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_openUnionPopUp',style:'',type:'button','ev:onclick':'scwin.f_openUnionPopUp'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'노조편성내역'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_AutoLoad',style:'',type:'button','ev:onclick':'scwin.f_AutoLoad'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'할증자동불러오기'}]}]},{T:1,N:'w2:udc_bottomGrdBtn',A:{btnCancelYn:'Y',btnDelYn:'N',style:'',rowAddFunction:'scwin.f_addItem',gridID:'gr_retrieveResult3',cancelFunction:'scwin.cancel_gr3'}}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_save',style:'',type:'button','ev:onclick':'scwin.f_Save',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'일용할증 ',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section3',style:'',gridDownFn:'scwin.f_toExcel3',gridID:'gr_retrieveResult4',btnPlusYn:'Y',btnUser:'Y',gridDownYn:'Y',gridUpYn:'N',templateYn:'N'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section3',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_retrieveResult4',id:'gr_retrieveResult4',style:'',visibleRowNum:'4',visibleRowNumFix:'true',rowStatusVisible:'true','ev:onafteredit':'scwin.gr_retrieveResult4_onafteredit'},E:[{T:1,N:'w2:caption',A:{id:'caption6',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column1',inputType:'text',value:'실적순번',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column17',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column15',inputType:'text',value:'upperOdrNo',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column13',inputType:'text',value:'상위실적',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column11',inputType:'text',value:'commCd',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column9',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column3',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column5',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column7',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column19',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column148',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column145',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column142',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column136',inputType:'text',value:'홀드번호',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column133',inputType:'text',value:'시프트구분',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column130',inputType:'text',value:'wrkStpCd1',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column127',inputType:'text',value:'wrkStpCd2',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column124',inputType:'text',value:'wrkStpCd3',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column121',inputType:'text',value:'wrkStpCd4',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column118',inputType:'text',value:'작업장',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column115',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column112',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column109',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column106',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column103',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column100',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column97',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column94',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column91',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column88',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column85',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column82',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column79',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column76',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',hidden:'true',id:'column73',inputType:'text',value:'컬럼헤더명',width:'80'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column291',value:'컬럼헤더명',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column288',value:'컬럼헤더명',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column285',value:'컬럼헤더명',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column61',inputType:'text',value:'일용코드',width:'100',class:'txt-red'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column58',inputType:'text',value:'인원수',width:'100',class:'txt-blue'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column302',value:'노임<br/>단위',displayMode:'label',class:'txt-red'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column299',value:'노임<br/>생성',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'column296',value:'퇴충금<br/>지급여부',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wageRsltsSeq',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'odrNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'upperOdrNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'upperWageRsltsSeq',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'commCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'commNm',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageGoodsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageGoodsNm',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkMthdCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'lunionOrgCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'stvWrkIndictNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'cvsslMgntNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'impExpClsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'holdNo',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'shiftClsCd',inputType:'text',textAlign:'right',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd1',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd2',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd3',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStpCd4',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkPlCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStDt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkStHh',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkEndDt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkEndHh',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'realWageVol',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageUnitClsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wagePayClsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageAmt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageRsltsYn',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'scWtAdptStd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkQty',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkWt',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkCbm',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'sellCommCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'adptGoodsCd',inputType:'text',width:'80',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'eqClssCd',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'wholeWrkStpYn',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'wrkDt',displayMode:'label',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'selpchItemNm',inputType:'select',width:'100',allOption:'',chooseOption:'',ref:'',selectedData:'false',emptyItem:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_SelpchItemCd'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'name'}}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'wageVol',inputType:'text',textAlign:'center',width:'100',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{width:'120',inputType:'select',id:'wageVolUnit',displayMode:'label',editModeEvent:'onclick'}},{T:1,N:'w2:column',A:{width:'120',inputType:'checkbox',id:'wageCreatYn',displayMode:'label',excelCellType:'number',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'150',inputType:'checkbox',id:'retireRsrvProvYn',displayMode:'label',hidden:'true'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRows3',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{btnCancelYn:'Y',btnDelYn:'N',style:'',rowAddFunction:'scwin.f_ds_Result_AddRow',gridID:'gr_retrieveResult4',cancelFunction:'scwin.cancel_gr4',rowDelObjType:'D',rowAddObjType:'C'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'width:200px; height:200px;display: none;',id:''},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'wageLunionOrgCdLevel3',codeId:'',validTitle:'',nameId:'',style:'',id:'udc_gr2_lunionOrgCd'}},{T:1,N:'w2:udc_comCode',A:{codeId:'',id:'udc_gr2',nameId:'',popupID:'',selectID:'retrieveCommInfo',style:'',validTitle:''}}]}]}]}]})

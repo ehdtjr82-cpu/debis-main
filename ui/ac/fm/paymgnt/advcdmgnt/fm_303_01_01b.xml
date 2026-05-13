@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_condition">
+    				<w2:keyInfo>
+    					<w2:key id="stDt" name="시작일자" dataType="text"></w2:key>
+    					<w2:key id="scClsCd" name="조회구분코드(1:전도금신청,2:전도금승인)" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="종료일자" dataType="text"></w2:key>
+    					<w2:key id="dtClsCd" name="날짜구분코드" dataType="text"></w2:key>
+    					<w2:key id="appDept" name="신청부서" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_condition2">
+    				<w2:keyInfo>
+    					<w2:key id="stDt" name="시작일자" dataType="text"></w2:key>
+    					<w2:key id="scClsCd" name="조회구분코드(1:전도금신청,2:전도금승인)" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="종료일자" dataType="text"></w2:key>
+    					<w2:key id="dtClsCd" name="날짜구분코드" dataType="text"></w2:key>
+    					<w2:key id="appDept" name="신청부서" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_advanced" saveRemovedData="true" ev:oncelldatachange="scwin.ds_advanced_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="advcdNo" name="전도금번호" dataType="text"></w2:column>
+    					<w2:column id="appDt" name="신청일자" dataType="text"></w2:column>
+    					<w2:column id="appAcctDeptCd" name="신청귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="appAcctDeptNm" name="신청귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="appAmt" name="신청금액" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="admitAmt" name="승인금액" dataType="number"></w2:column>
+    					<w2:column id="admitDt" name="승인일자" dataType="text"></w2:column>
+    					<w2:column id="admitSlipNo" name="승인전표번호" dataType="text"></w2:column>
+    					<w2:column id="admitBankbookNo" name="승인통장번호" dataType="text"></w2:column>
+    					<w2:column id="advcdPayStsCd" name="전도금지급상태코드" dataType="text"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    					<w2:column id="payPossibleAmt" name="지급가능금액" dataType="number"></w2:column>
+    					<w2:column id="payYn" name="지급여부" dataType="number"></w2:column>
+    					<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+    					<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+    					<w2:column id="delYn" name="삭제여부" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_advancedLimit" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="limitAmt" name="한도금액" dataType="number"></w2:column>
+    					<w2:column id="caryFwrdRamt" name="이월잔액" dataType="text"></w2:column>
+    					<w2:column id="payAmt" name="결제원금" dataType="text"></w2:column>
+    					<w2:column id="useAmt" name="사용금액" dataType="text"></w2:column>
+    					<w2:column id="advcdRamt" name="ADVCD_RAMT" dataType="text"></w2:column>
+    					<w2:column id="reqPsblAmt" name="REQ_PSBL_AMT" dataType="text"></w2:column>
+    					<w2:column id="thisPayAmt" name="THIS_PAY_AMT" dataType="text"></w2:column>
+    					<w2:column id="reqAmt" name="요청금액" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+            <xf:submission id="sbm_retrieveAdvancedLimit" action="/ac.fm.paymgnt.advcdmgnt.RetrieveAdvancedPresentConditionCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_condition2","key":"IN_DS1"},{"id":"ds_advancedLimit","key":"OUT_DS1"}]' target='data:json,{"id":"ds_advancedLimit","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveAdvancedLimit_submitdone" ev:submiterror=""
+    			abortTrigger="">
+            </xf:submission>
+            <xf:submission id="sbm_retrieveAdvanced" action="/ac.fm.paymgnt.advcdmgnt.RetrieveAdvancedApplyContentsCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_condition","key":"IN_DS1"},{"id":"ds_advanced","key":"OUT_DS1"}]' target='data:json,{"id":"ds_advanced","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveAdvanced_submitdone" ev:submiterror=""
+    			abortTrigger="">
+            </xf:submission>
+            <xf:submission id="sbm_saveAdvanced" action="" method="post" mediatype="application/json"
+    			ref='data:json,{"action":"modified","id":"ds_advanced","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveAdvanced_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.PAYMENTREQ      = "01";  //지급요청  
+scwin.PAYMENTADMIT    = "02";	 //지급승인  
+scwin.PAYMENTCOMPLETE = "03";	 //지급완료  
+scwin.PAYMENTRFSL     = "04";	 //지급거부  
+
+scwin.memJson = $c.data.getMemInfo();
+scwin.g_sCurrDate = $c.date.getServerDateTime("yyyyMMdd");
+scwin.sAcctDeptCd = $c.data.getMemInfo("acctDeptCd");
+scwin.sAppDeptNm = $c.data.getMemInfo("acctDeptNm");
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	//공통코드 적용
+    const codeOptions = [
+        { grpCd: "FM034", compID: "gr_advanced:advcdPayStsCd"},
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+//-------------------------------------------------------------------------
+// TOBE scwin.onpageload 후 UDC관련 처리
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    ed_stDt.setValue(scwin.g_sCurrDate.substring(0,6) + "01");
+    ed_endDt.setValue(scwin.g_sCurrDate);
+
+    ed_appDept.setValue(scwin.sAcctDeptCd);
+    ed_txt_appDeptNm.setValue(scwin.sAppDeptNm);
+    ed_appAcctDeptCd.setValue(scwin.sAcctDeptCd);
+    ed_txt_appAcctDeptNm .setValue(scwin.sAppDeptNm);
+    scwin.f_disable(); // 수정불가
+
+    scwin.f_LimitRetrieve();
+};
+
+//-------------------------------------------------------------------------
+// 한도조회
+//-------------------------------------------------------------------------
+scwin.f_LimitRetrieve = function() {
+    
+    const params = {
+        stDt    : scwin.g_sCurrDate.substring(0,6) + "01", 
+        endDt   : scwin.g_sCurrDate.toDate().lastDate().format("YYYYMMDD") ,
+        appDept : ed_appDept.getValue() ,
+    };
+
+    //데이터셋에 정보설정
+    ds_condition2.setJSON(params);
+    $c.sbm.execute(sbm_retrieveAdvancedLimit);
+};
+
+//-------------------------------------------------------------------------
+// 한도조회 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieveAdvancedLimit_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+
+    if( ds_advancedLimit.getRowCount() == 0 ){
+		ed_limitAmt.setValue(0);
+		ed_reqAmt.setValue(0);
+	}else{
+        //한도금액, 요청가능금액 한도조회정보에 맞춰서 설정
+        ds_advancedLimit.sort("advcdNo", 0)//[0,1,2] 정렬 옵션 (0: 오름차순, 1: 내림차순, 2: 정렬 취소)
+        ed_limitAmt.setValue(ds_advancedLimit.getCellData(0, "limitAmt"));
+        ed_reqAmt.setValue(ds_advancedLimit.getCellData(0, "reqAmt"));
+    }
+};
+
+//-------------------------------------------------------------------------
+// 데이타셋 enable 처리
+//-------------------------------------------------------------------------
+scwin.f_Enable = function(e) {
+    $c.gus.cfEnableKeyData();
+    $c.gus.cfDisableObjects([ed_advcdNo,ed_txt_appAcctDeptNm ,ed_admitAmt,ed_txt_appDeptNm]);//
+    $c.gus.cfEnableObjects([ed_appDt,ed_appAcctDeptCd, btn_appAcctDeptCd]);//
+};
+
+//-------------------------------------------------------------------------
+// 데이타셋 disable 처리
+//-------------------------------------------------------------------------
+scwin.f_disable = function(e) {
+    $c.gus.cfDisableKeyData();
+    //$c.gus.cfDisableObjects([ed_limitAmt,ed_reqAmt,img_calendar,img_appAcctDeptCd]);//TODO 달력찾기, 부서찾기 클릭불가되도록 확인필요
+    $c.gus.cfDisableObjects([ed_limitAmt,ed_reqAmt,ed_appDt,btn_appAcctDeptCd]);//
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    if (!$c.gus.cfIsAfterDate(ed_stDt.getValue(),ed_endDt.getValue())){
+        $c.win.alert(MSG_CM_ERR_039);
+		return false;; 
+    }
+
+    let ret = await $c.gus.cfValidate([ed_stDt,ed_appDept]);
+    if (!ret){
+        return false;
+    }
+    let ret2 = await $c.gus.cfValidate([ed_endDt]);
+    if (!ret2){
+        return false;
+    }
+
+    if (ret && ret2) {
+        const params = {
+            scClsCd    : 1 ,
+            dtClsCd    : 1 ,
+        };
+        //데이터셋에 정보설정
+        ds_condition.setJSON(params);
+        ds_advanced.removeAll();//데이터초기화
+        $c.sbm.execute(sbm_retrieveAdvanced);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회 콜백
+//-------------------------------------------------------------------------
+scwin.sbm_retrieveAdvanced_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+
+    tbx_totalRows.setValue($c.gus.cfInsertComma(ds_advanced.getRowCount()));
+    if( ds_advanced.getRowCount() == 0 ){
+            $c.win.alert("조회된 데이터가 없습니다.");
+            $c.gus.cfDisableKeyData();
+            scwin.f_disable();
+            return false;
+    }else{
+        ds_advanced.sort("advcdNo", 0)//[0,1,2] 정렬 옵션 (0: 오름차순, 1: 내림차순, 2: 정렬 취소)
+        $c.gus.cfGoPrevPosition(gr_advanced, 0);
+        scwin.f_LimitRetrieve();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 인덱스 정보가 변경시 
+//-------------------------------------------------------------------------
+scwin.gr_advanced_onrowindexchange = function (rowIndex, oldRow) {
+    ds_advanced.setRowPosition(rowIndex);
+
+    if (ds_advanced.getCellData(rowIndex, "advcdPayStsCd") != scwin.PAYMENTREQ   )
+    {
+        if ( !(ds_advanced.getCellData(rowIndex, "advcdPayStsCd") == null || ds_advanced.getCellData(rowIndex, "advcdPayStsCd") == "")){
+			scwin.f_disable();
+		} else {
+			scwin.f_Enable();
+		}
+    } else {
+        scwin.f_Enable(); 
+        scwin.sAcctDeptCd = ds_advanced.getCellData(rowIndex,"appAcctDeptCd");
+        scwin.f_LimitRetrieve();
+    }
+};
+//-------------------------------------------------------------------------
+// 입력
+//-------------------------------------------------------------------------
+scwin.f_AddRow = async function () {
+    try{
+        let i=0;
+        let count=0;
+        //let ret = await $c.gus.cfValidate([gr_advanced]); TOBE 처리대체
+        if (ds_advanced.getRowCount() > 0){
+            for (i=0; i< ds_advanced.getRowCount(); i++){
+                count= count + 1;
+                if(ds_advanced.getRowStatus(i)=="C"){
+                    if (ds_advanced.getCellData(i, "appAmt") == "0"){
+                        await $c.gus.cfAlertMsg("전도금신청의 "+count+"번째 데이터에서 신청금액은(는)  1이상으로 입력하십시오.");
+                        ds_advanced.setRowPosition(i);
+                        $c.gus.cfGoPrevPosition(gr_advanced, i); // row 포지션이동
+                        return false;
+                    }
+                }
+            }
+        }
+    
+        let row = $c.data.insertRow($p.getComponentById("gr_advanced"));
+        ds_advanced.setCellData(row, "appDt", scwin.g_sCurrDate);
+        ds_advanced.setCellData(row, "appAcctDeptCd", scwin.sAcctDeptCd);
+        ds_advanced.setCellData(row, "appAcctDeptNm", scwin.sAppDeptNm);
+        ds_advanced.setCellData(row, "appAmt", 0);
+        ds_advanced.setRowPosition(row);
+        $c.gus.cfGoPrevPosition(gr_advanced, row); //포커스이동
+        scwin.f_Enable();
+
+    }catch (e){
+        console.log("f_AddRow : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_DeleteRow = async function () {
+    let sAdvcdPayStsCd = ds_advanced.getCellData(ds_advanced.getRowPosition(),"advcdPayStsCd");
+    if (!(sAdvcdPayStsCd == null || sAdvcdPayStsCd == "" ) )
+	{
+        if (ds_advanced.getCellData(ds_advanced.getRowPosition(),"advcdPayStsCd") != scwin.PAYMENTREQ)
+		{
+            await $c.win.alert("상태가 지급요청일 경우에만 삭제할 수 있습니다.");
+            return false;
+        }else{
+            //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+            if (ds_advanced.getRowStatus(ds_advanced.getRowPosition())=="C"){
+                ds_advanced.removeRow(ds_advanced.getRowPosition())
+            }else{
+                let delRow1 = ds_advanced.getRowPosition();
+                ds_advanced.deleteRow(ds_advanced.getRowPosition());    
+                $c.gus.cfGoPrevPosition(gr_advanced, delRow1);
+            }
+        }
+    }  else {
+        //추가등록정보는 삭제, 나머지는 상태값 삭제가 됨
+        if (ds_advanced.getRowStatus(ds_advanced.getRowPosition())=="C"){
+            ds_advanced.removeRow(ds_advanced.getRowPosition())
+        }else{
+            let delRow2 = ds_advanced.getRowPosition();
+            ds_advanced.deleteRow(ds_advanced.getRowPosition());
+            $c.gus.cfGoPrevPosition(gr_advanced, delRow2);    
+        }
+    }    
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_UndoAll = function () {
+    if(ds_advanced.getRowStatus(ds_advanced.getRowPosition())=="C"){
+        ds_advanced.removeRow(ds_advanced.getRowPosition());
+    }else{
+        $c.data.undoRow(ds_advanced, "Y");
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    if(ds_advanced.getModifiedIndex().length==0){
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return false;
+    }else{
+        // 필수 입력 항목 중 빈 내용이 있다면
+        let ret = await $c.gus.cfValidate([ed_appAcctDeptCd,ed_appDt,ed_appAmt]);
+        if (!ret) {
+            return false;
+        }
+
+        if (ds_advanced.getRowStatus(ds_advanced.getRowPosition())!="D"){
+            let sAdvcdPayStsCd = ds_advanced.getCellData(ds_advanced.getRowPosition(),"advcdPayStsCd");
+            if (!(sAdvcdPayStsCd == null || sAdvcdPayStsCd == "" ) )
+			{
+                if (ds_advanced.getCellData(ds_advanced.getRowPosition(),"advcdPayStsCd") != scwin.PAYMENTREQ)
+                {
+                    await $c.win.alert("상태가 지급요청일 경우에만 수정할 수 있습니다.");
+                    return false;
+                }
+            }    
+            if ( ds_advanced.getCellData(ds_advanced.getRowPosition(),"appAmt") == null || ds_advanced.getCellData(ds_advanced.getRowPosition(),"appAmt") == 0 )
+            {
+                await $c.win.alert("신청금액은(는) 1 이상으로 입력하십시오."); //TOBE 메시지처리문구 상이하여 변경함. 
+                //await $c.win.alert($c.data.getMessage(MSG_CM_ERR_057,"지급액", "0"));
+                return false;
+            }
+            //TOBE parseInt추가
+            if ( parseInt(ed_reqAmt.getValue()) < parseInt(ds_advanced.getCellData(ds_advanced.getRowPosition(),"appAmt")))
+            {
+                await $c.win.alert("신청금액이 요청가능금액을 초과할 수 없습니다.");
+                return false;
+            }
+
+            
+        }
+        
+        let i=0;
+        for (i=0; i< ds_advanced.getRowCount(); i++){
+            if(ds_advanced.getRowStatus(i)!="R" && ds_advanced.getRowStatus(i)!="D"){
+                if (ds_advanced.getCellData(i, "appAmt") == "0"){
+                    await $c.gus.cfAlertMsg("신청금액은(는)  1이상으로 입력하십시오.");
+                    ed_appAmt.focus();
+                    return false;
+                }
+            }
+        }    
+
+        let ret2 = await $c.gus.cfValidate([ed_appAmt]);
+        let ret3 = await $c.gus.cfValidate([ed_appDt]);
+        if (ret2 && ret3){
+            if(await $c.win.confirm("저장하시겠습니까?")) {
+                sbm_saveAdvanced.action = "/ac.fm.paymgnt.advcdmgnt.SaveAdvancedApplyCMD.do";
+                $c.sbm.execute(sbm_saveAdvanced);
+            }
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장콜백
+//-------------------------------------------------------------------------
+scwin.sbm_saveAdvanced_submitdone = async function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);// 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 신청일자 입력정보 체크
+//-------------------------------------------------------------------------
+scwin.ed_appDt_onblur = function (e) {
+    if (ds_advanced.getRowStatus(ds_advanced.getRowPosition())=="C"){
+        
+        if ( ds_advanced.getCellData(ds_advanced.getRowPosition(),"appDt") < scwin.g_sCurrDate )	{
+            $c.win.alert("신청일자는 현재일 이전일수 없습니다.");
+            
+            if (ds_advanced.getOriginalCellData(ds_advanced.getRowPosition(),"appDt") > scwin.g_sCurrDate )	{
+                ed_appDt.setValue(ds_advanced.getOriginalCellData(ds_advanced.getRowPosition(),"appDt"));
+            }else{
+                ed_appDt.setValue(scwin.g_sCurrDate);
+            }
+            return false;
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 데이터셋 정보 변경시 ASIS : for=ds_advanced event=OnColumnChanged
+//-------------------------------------------------------------------------
+scwin.ds_advanced_oncelldatachange = async function (info) {
+    try{
+        let colid = info.colID;
+        let row = info.rowIndex;
+
+        if ( colid == "appAmt" ){
+            if ( ds_advanced.getCellData(row,colid) == null || ds_advanced.getCellData(row,colid) == 0 ) {
+                await $c.gus.cfAlertMsg($c.data.getMessage(MSG_CM_ERR_057,"지급액", "0"));
+                let i=0;
+                for(i=ds_advanced.getRowCount(); i>=0; --i){
+                    //상태가 신규인경우 데이터를 지우고 아닌경우 이전데이터로 돌아간다.
+                    if (ds_advanced.getRowStatus(i)=="C"){
+                        ds_advanced.removeRow(i);
+                    }else{
+                        ds_advanced.undoRow(i); //ds_advanced.UndoAll();
+                    }
+                }
+                return false;
+            }
+        }
+     
+    } catch (e) {
+       console.log("ds_billRecvDue_oncelldatachange" + e);
+    }    
+};
+
+//-------------------------------------------------------------------------
+// 부서코드
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_onblurCodeEvent = function (e) {
+    scwin.f_CheckPopUp(ed_appDept, ed_txt_appDeptNm,'1','S')
+};
+
+//-------------------------------------------------------------------------
+// 부서코드찾기
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_onclickEvent = function (e) {
+    scwin.f_openPopUp('1',ed_appDept,ed_txt_appDeptNm,'F','S');
+};
+
+//-------------------------------------------------------------------------
+// 부서코드(입력/수정)
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCdIn_onblurCodeEvent = function (e) {
+    scwin.f_CheckPopUp(ed_appAcctDeptCd, ed_txt_appAcctDeptNm,'1','I');
+};
+
+//-------------------------------------------------------------------------
+// 부서코드찾기(입력/수정)
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCdIn_onclickEvent = function (e) {
+    scwin.f_openPopUp('1',ed_appAcctDeptCd,ed_txt_appAcctDeptNm,'F','I');
+};
+
+//-------------------------------------------------------------------------
+// PopUp창에서 사용되는 각 Cd,Nm에 대해서 POPUP표시 및 해당 값이 없을경우는 코드와 이름을 초기화 시킨다.
+// TODO flag값으로 조회정보, 입력정보를 구분한다.
+//-------------------------------------------------------------------------
+scwin.f_CheckPopUp = function (orgObjCd, orgObjNm, select_code, flag) {
+    try{
+        if (orgObjCd.getValue() != orgObjCd.hidVal) {
+            orgObjNm.setValue("");
+        }
+        
+        if (orgObjCd.getValue().trim() != "") {
+            scwin.f_openPopUp(select_code,orgObjCd,orgObjNm,"T",flag);
+        }else{
+            if (!orgObjNm == null){
+                orgObjNm.setValue("");
+            }
+            orgObjCd.setValue("");
+            orgObjCd.hidVal = "";
+        }
+    } catch (e) {
+       console.log("f_CheckPopUp : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 각 Argument에 따른 PopUp을 호출 한다.
+// 1:검색->관리부서 , 2:검색->거래처
+// code변수는 각 항목별 검색요청 값이다.
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function (select_code,txtCode,txtName,sPopupCls,flag) {
+    try {
+        let code ='';
+        let name ='';
+        let param ='';
+        let callBackFuncInf = "";
+
+        code = txtCode.getValue();
+        if ( txtName == null )
+        {
+            name = "";
+        }else{
+            name = txtName.getValue();
+        }
+       
+        switch (select_code) {
+            // 부서 PopUp 호출
+  		    case '1' :
+                udc_acctDeptCd.setSelectId('retrieveAcctDeptCdInfo');
+                //rtnList = cfCommonPopUp(sCmdName,code,name,sPopupCls,null,null,null,null,null,null,null,null,null,null,null,null,null); // 관리부서
+                if (flag =="S"){//조회부 팝업 (콜백이 변수처리 되지않아 if로 분기)
+                udc_acctDeptCd.cfCommonPopUp(scwin.udc_acctDeptCd_callBackFunc // 콜백 함수
+                        , code                            // 화면에서의  Code Element의 Value
+                        , name                            // 화면에서의  Name Element의 Value
+                        , sPopupCls                       // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                        , null                            // Title순서
+                        , null                            // 보여주는 각 컬럼들의 폭
+                        , null                            // 컬럼중에서 숨기는 컬럼 지정
+                        , null                            // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+                        , null                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+                        , null                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+                        , null                            // 윈도우 위치 Y좌표
+                        , null                            // 윈도우 위치 X좌표
+                        , null                            // 중복체크여부	("F")
+                        , null                            // 전체검색허용여부	("F")
+                        , null                            // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+                        );
+                     break;    
+                }else if (flag =="I"){//입력부팝업    
+                udc_acctDeptCdIn.setSelectId('retrieveAcctDeptCdInfo');
+                udc_acctDeptCdIn.cfCommonPopUp(scwin.udc_acctDeptCdIn_callBackFunc // 콜백 함수
+                        , code                            // 화면에서의  Code Element의 Value
+                        , name                            // 화면에서의  Name Element의 Value
+                        , sPopupCls                       // 결과가 1건 일때 원도우를	AutoClose 여부(T:Close,F:Opened)
+                        , null                            // 검색 결과 컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+                        , null                            // Title순서
+                        , null                            // 보여주는 각 컬럼들의 폭
+                        , null                            // 컬럼중에서 숨기는 컬럼 지정
+                        , null                            // SQL절의 WHERE절에 원하는 조건을 선택함 MAX:8개까지 가능
+                        , null                            // POP-UP뛰을때 원도우의 사용자 정의 폭
+                        , null                            // POP-UP뛰을때 윈도우의 사용자 정의 높이
+                        , null                            // 윈도우 위치 Y좌표
+                        , null                            // 윈도우 위치 X좌표
+                        , null                            // 중복체크여부	("F")
+                        , null                            // 전체검색허용여부	("F")
+                        , null                            // POP-UP Window Title 검색어1,2 ("Win타이틀,첫번검색Nm,두번검색Nm")
+                        );    
+                    break;
+                }    
+                
+               
+        }       
+      
+    } catch (e) {
+       console.log("f_openPopUp : " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 부서 PopUp 콜백 (조회부)
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCd_callBackFunc = function (ret) {
+    try{
+        // 선언부
+        let rtnList = new Array();  // 공통POP-UP -> 요청화면
+        rtnList = ret ;
+
+        if (rtnList != null ) {
+			if (rtnList[0] == "N/A") return;
+			ed_appDept.setValue(rtnList[0]);	// 코드값
+			ed_txt_appDeptNm.setValue(rtnList[1]);	// 코드명
+            ed_appDept.hidVal = rtnList[0];	// HIDDEN 코드값
+		} else {
+			ed_appDept.setValue("");
+			ed_txt_appDeptNm.setValue("");
+            ed_appDept.hidVal = "";
+		}
+
+    } catch (e) {
+       console.log("udc_acctDeptCd_callBackFunc " + e);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 부서 PopUp 콜백 (입력부)
+//-------------------------------------------------------------------------
+scwin.udc_acctDeptCdIn_callBackFunc = function (ret) {
+    try{
+        // 선언부
+        let rtnList = new Array();  // 공통POP-UP -> 요청화면
+        rtnList = ret ;
+
+        if (rtnList != null ) {
+			if (rtnList[0] == "N/A") return;
+			ed_appAcctDeptCd.setValue(rtnList[0]);	// 코드값
+			ed_txt_appAcctDeptNm.setValue(rtnList[1]);	// 코드명
+            ed_appAcctDeptCd.hidVal = rtnList[0];	// HIDDEN 코드값
+            scwin.f_LimitRetrieve();
+		} else {
+			ed_appAcctDeptCd.setValue("");
+			ed_txt_appAcctDeptNm.setValue("");
+            ed_appAcctDeptCd.hidVal = "";
+		}
+
+    } catch (e) {
+       console.log("udc_acctDeptCd_callBackFunc " + e);
+    }
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="신청부서 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode class="" popupID="" style="" codeId="ed_appDept" nameId="ed_txt_appDeptNm"  maxlengthCode="5"
+                                        allowCharCode="0-9" code="appDept" selectID="retrieveAcctDeptCdInfo" id="udc_acctDeptCd" validTitle="신청부서" ev:onblurCodeEvent="scwin.udc_acctDeptCd_onblurCodeEvent" ev:onclickEvent="scwin.udc_acctDeptCd_onclickEvent" mandatoryName="true" mandatoryCode="true" refDataCollection="ds_condition" btnId="btn_appAcctDeptCdS" objTypeName="data" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N">
+                                    </w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="신청일자 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_fromToCalendar refStDt="stDt" refDataMap="ds_condition" style="" id="udc_fromToCalendar1" refEdDt="endDt" mandatoryFrom="true" edFromId="ed_stDt" edToId="ed_endDt" titleFrom="신청일자" titleTo="신청일자" mandatoryTo="true">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="lybox" id="">
+    							<xf:group class="col" id="">
+    								<xf:group class="title-wrap" id="" style="">
+    									<xf:group class="right" id="">
+    										<w2:udc_topGrdBtn grp="grp_group1" style="" gridUpYn="N" id="udc_topGrd" gridID="gr_advanced" gridDownFn="scwin.f_Excel" gridDownYn="N">
+    										</w2:udc_topGrdBtn>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group adaptiveThreshold="" class="gvwbox" id="grp_group1" style="">
+    										<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_advanced" id="gr_advanced" style="" visibleRowNum="15" visibleRowNumFix="true" resize="true" columnMove="true" sortable="true" readOnly="true" ev:onrowindexchange="scwin.gr_advanced_onrowindexchange" rowStatusVisible="true">
+    											<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    											<w2:header id="header1" style="">
+    												<w2:row id="row1" style="">
+    													<w2:column displayMode="label" id="column1" inputType="text" style="" value="신청번호" width="100">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column17" inputType="text" style="" value="신청일자" width="100">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column15" inputType="text" style="" value="진행상태" width="100" sortable="false">
+    													</w2:column>
+    													<w2:column displayMode="label" id="column13" inputType="text" style="" value="신청금액" width="100" sortable="false">
+    													</w2:column>
+    												</w2:row>
+    											</w2:header>
+    											<w2:gBody id="gBody1" style="">
+    												<w2:row id="row2" style="">
+    													<w2:column displayMode="label" id="advcdNo" inputType="text" style="" value="" width="100">
+    													</w2:column>
+    													<w2:column displayMode="label" id="appDt" inputType="text" style="" value="" width="100" displayFormat="####/##/##" textAlign="center">
+    													</w2:column>
+    													<w2:column displayMode="label" id="advcdPayStsCd" inputType="select" style="" value="" width="100" textAlign="right">
+    													</w2:column>
+    													<w2:column displayMode="label" id="appAmt" inputType="text" style="" value="" width="100" textAlign="right" displayFormat="#,##0">
+    													</w2:column>
+    												</w2:row>
+    											</w2:gBody>
+    										</w2:gridView>
+    									<xf:group class="grid-bottom " id="" style="">
+    										<xf:group class="left" id="">
+    											<xf:group class="grid-total" id="">
+    												<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    												<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0">
+    												</w2:textbox>
+    												<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="right" id="" style="">
+    											<w2:udc_bottomGrdBtn style="" rowAddFunction="scwin.f_AddRow" cancelFunctoion="scwin.f_UndoAll" btnDelYn="N" btnCancelYn="Y" btnRowAddYn="Y" btnRowDelYn="Y" id="udc_gridAddDel" cancelFunction="scwin.f_UndoAll" rowDelFunction="scwin.f_DeleteRow">
+    											</w2:udc_bottomGrdBtn>
+    										</xf:group>
+    									</xf:group></xf:group>
+    							</xf:group>
+    							<xf:group class="col row-gap-8" id="">
+    								<xf:group class="tbbox mt32" id="" style="">
+    									<xf:group class="w2tb" id="" style="" tagname="table">
+    										<w2:attributes>
+    											<w2:summary></w2:summary>
+    										</w2:attributes>
+    										<xf:group tagname="colgroup">
+    											<xf:group style="width:120px;" tagname="col"></xf:group>
+    											<xf:group style="" tagname="col"></xf:group>
+    										</xf:group>
+    										<xf:group style="" tagname="tr">
+    											<xf:group class="w2tb_th" style="" tagname="th">
+    												<w2:textbox class="" id="" label="신청번호" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" style="" tagname="td">
+    												<xf:input class="" id="ed_advcdNo" style="width:150px;" title="신청번호" allowChar="0-9" maxlength="10" objType="data" ref="data:ds_advanced.advcdNo">
+    												</xf:input><!--ASIS ReadOnly true -> disable 처리 문제로 objType data로 변경-->
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="" id="" label="신청부서" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes>
+    													<w2:colspan>1</w2:colspan>
+    													<w2:rowspan>1</w2:rowspan>
+    												</w2:attributes>
+    												<w2:udc_comCode class="" popupID="" style="" codeId="ed_appAcctDeptCd" nameId="ed_txt_appAcctDeptNm"  maxlengthCode="5"
+                                                        allowCharCode="0-9" code="appAcctDeptCd" selectID="retrieveAcctDeptCdInfo" id="udc_acctDeptCdIn" validTitle="신청부서" ev:onblurCodeEvent="scwin.udc_acctDeptCdIn_onblurCodeEvent" ev:onclickEvent="scwin.udc_acctDeptCdIn_onclickEvent" mandatoryName="true" mandatoryCode="true" maxlengthName="20" refDataCollection="ds_advanced" name="appAcctDeptNm" objTypeCode="data" objTypeName="data" btnId="btn_appAcctDeptCd" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N">
+                                                    </w2:udc_comCode>  
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="req" id="" label="신청일자" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes></w2:attributes>
+    												<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_appDt" style="" objType="data" mandatory="true" title="신청일자" ev:onblur="scwin.ed_appDt_onblur" ref="data:ds_advanced.appDt">
+    												</w2:inputCalendar>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group tagname="th" class="w2tb_th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="req" id="" label="신청금액" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group tagname="td" class="w2tb_td">
+    												<w2:attributes></w2:attributes>
+    												<xf:input class="tar" id="ed_appAmt" style="width:150px;" objType="data" mandatory="true" title="신청금액" minNumber="1" maxlength="13" allowChar="0-9" ref="data:ds_advanced.appAmt" dataType="number" displayFormat="#,##0">
+    												</xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group tagname="th" class="w2tb_th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="" id="" label="승인금액" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group tagname="td" class="w2tb_td">
+    												<w2:attributes></w2:attributes>
+    												<xf:input class="tar" id="ed_admitAmt" style="width:150px;" objType="data" allowChar="0-9" displayFormat="#,##0" dataType="number" ref="data:ds_advanced.admitAmt" title="승인금액">
+    												</xf:input>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="tbbox" id="" style="">
+    									<xf:group class="w2tb tb" id="" style="" tagname="table">
+    										<w2:attributes>
+    											<w2:summary></w2:summary>
+    										</w2:attributes>
+    										<xf:group tagname="colgroup">
+    											<xf:group style="width:120px;" tagname="col"></xf:group>
+    											<xf:group style="" tagname="col"></xf:group>
+    										</xf:group>
+    										<xf:group style="" tagname="tr">
+    											<xf:group class="w2tb_th" style="" tagname="th">
+    												<w2:textbox class="" id="" label="한도금액" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" style="" tagname="td">
+    												<xf:input class="tar" id="ed_limitAmt" style="width:250px;" mandatory="true" title="한도금액" minNumber="1" maxlength="13" allowChar="0-9" displayFormat="#,###" dataType="number">
+    												</xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="" id="" label="요청가능금액" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes>
+    													<w2:colspan>1</w2:colspan>
+    													<w2:rowspan>1</w2:rowspan>
+    												</w2:attributes>
+    												<xf:input class="tar" id="ed_reqAmt" style="width:250px;" mandatory="true" title="요청가능금액" minNumber="1" maxlength="13" allowChar="0-9" displayFormat="#,###" dataType="number">
+    												</xf:input>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" id="btn_trigger3" style="" type="button" ev:onclick="scwin.f_Save">
+    								<xf:label><![CDATA[저장]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

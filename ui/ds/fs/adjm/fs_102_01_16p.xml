@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_searchCertiNumberList">
+    				<w2:keyInfo>
+    					<w2:key id="pchsDeptCd" name="매입점소" dataType="text"></w2:key>
+    					<w2:key id="pchsClntNo" name="매입거래처" dataType="text"></w2:key>
+    					<w2:key id="selpchItemCd" name="매출입항목코드" dataType="text"></w2:key>
+    					<w2:key id="pchsGoodsPatternCd" name="매입품목유형코드" dataType="text"></w2:key>
+    					<w2:key id="pchsIntendDtSt" name="매입예정일자시작" dataType="text"></w2:key>
+    					<w2:key id="pchsIntendDtEnd" name="매입예정일자종료" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_certiNumberList" saveRemovedData="true" ev:ondataload="scwin.ds_certiNumberList_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+    					<w2:column id="pchsIntendDt" name="매입예정일자" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchCertiNumberList" action="/ds.fs.adjm.pchscerticoll.RetrieveCertiNumberCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_searchCertiNumberList","key":"IN_DS1"},{"id":"ds_certiNumberList","key":"OUT_DS1"}]' target='data:json,{"id":"ds_certiNumberList","key":"OUT_DS1"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_searchCertiNumberList_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fs_102_01_16p 
+// 이름     : 거래명세서번호 조회
+// 경로     : 물류/정산/매입승인/철송비용 매입 승인/
+// 작 성 자 : 조성빈
+// 작 업 일 : 2026-02-26
+// 사용계정 : 내부
+// 비고     :  ***
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//==================================================================================================================
+scwin.onpageload = async function() {
+
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+        ica_pchsIntendDtSt.setValue($c.data.getParameter("pchsIntendDtSt"));  // 매입예정일자시작
+		ica_pchsIntendDtEnd.setValue($c.data.getParameter("pchsIntendDtEnd"));  // 매입예정일자종료		
+		scwin.f_RetrieveCertiNumberList();
+					
+		ica_pchsIntendDtSt.focus();
+        
+    }, {"delay":50});
+};
+
+//-------------------------------------------------------------------------
+// 거래명세서번호 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveCertiNumberList = async function () {
+    // 검색조건 필수 입력 체크
+    if (!await $c.gus.cfValidate([ica_pchsIntendDtSt, ica_pchsIntendDtEnd])) {
+        return;
+    }
+            
+    if (!await $c.gus.cfIsAfterDate(ica_pchsIntendDtSt.getValue(), ica_pchsIntendDtEnd.getValue())) {
+        await $c.gus.cfAlertMsg("조회 시작일자는 종료일자 보다 이전 날짜 이어야 합니다.");
+        ica_pchsIntendDtSt.focus();
+        return;
+    }
+
+    ds_searchCertiNumberList.set("pchsDeptCd", $c.data.getParameter("pchsDeptCd")); // 매입점소
+    ds_searchCertiNumberList.set("pchsClntNo", $c.data.getParameter("pchsClntNo"));  // 매입거래처
+    ds_searchCertiNumberList.set("selpchItemCd", $c.data.getParameter("selpchItemCd"));  // 매출입항목코드
+    ds_searchCertiNumberList.set("pchsGoodsPatternCd", $c.data.getParameter("pchsGoodsPatternCd"));  // 매입품목유형코드				
+        
+    $c.sbm.execute(sbm_searchCertiNumberList)
+};	
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.f_WinClose = function () {
+    $c.win.closePopup();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_RetrieveCertiNumberList();
+};
+
+scwin.btn_close_onclick = function (e) {
+    scwin.f_WinClose();
+};
+
+scwin.sbm_searchCertiNumberList_submitdone = async function (e) {
+    // 총 조회건수 표시
+    var rowCnt = ds_certiNumberList.getRowCount();
+    txt_totalRows.setValue(rowCnt);
+    if (rowCnt == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);  // 해당되는 자료가 존재하지 않습니다
+    } 
+};
+
+scwin.gr_certiNumberList_oncelldblclick = function (row, columnIndex, columnId) {
+    // 객체를 생성하고, 그 안의 변수에 값을 설정해 리턴
+    var objReturn = new Object();
+    objReturn.certiNo = ds_certiNumberList.getCellData(row, 'certiNo');  // 거래명세서번호
+    objReturn.rmk = ds_certiNumberList.getCellData(row, 'rmk');  // 비고
+    
+    $c.win.closePopup(objReturn);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="매입예정일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_pchsIntend" refDataMap="ds_searchCertiNumberList" refEdDt="pchsIntendDtEnd"
+    								refStDt="pchsIntendDtSt" style="" edFromId="ica_pchsIntendDtSt" edToId="ica_pchsIntendDtEnd" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data" objTypeTo="data" titleFrom="거래명세서 시작일자" titleTo="거래명세서 종료일자" objTypeBtn="data">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_certiNumberList"
+    					id="gr_certiNumberList" style="" visibleRowNumFix="true" ev:oncelldblclick="scwin.gr_certiNumberList_oncelldblclick">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="거래명세서번호" width="120">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="매입예정일자" width="120">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="비고" width="250"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="certiNo" inputType="text" style="" value="" width="120" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="pchsIntendDt" inputType="" style="" value="" width="120"
+    								displayFormat="yyyy/MM/dd" dataType="date" readOnly="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="rmk" inputType="text" style="" value="" width="250" textAlign="left" readOnly="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="txt_totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

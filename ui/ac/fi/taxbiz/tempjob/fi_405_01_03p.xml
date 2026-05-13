@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="stdYm" name="name1" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="payGbn" name="name3" dataType="text"></w2:key>
+    					<w2:key id="staffNo" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_create" action="/ac.fi.taxbiz.tempjob.cmd.CreateTempJobAdjmCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"dma_search","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_create_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.valueObject;	
+scwin.ds_parent;	
+scwin.UserDeptCd;	// 부모창에서 넘어온 Data Set
+scwin.UserDeptNm;
+scwin.UserCoCd;
+scwin.UserCoNm;
+scwin.UserCoClsCd;
+scwin.PayYm;
+scwin.txtCoClsCd;
+
+
+scwin.onpageload = function() {
+
+    scwin.valueObject = $c.data.getParameter();	
+    scwin.ds_parent = $c.data.getParameter("prov");	
+    scwin.UserDeptCd = $c.data.getParameter("UserDeptCd");	// 부모창에서 넘어온 Data Set
+    scwin.UserDeptNm = $c.data.getParameter("UserDeptNm");
+    scwin.UserCoCd = $c.data.getParameter("UserCoCd");
+    scwin.UserCoNm = $c.data.getParameter("UserCoNm");
+    scwin.UserCoClsCd = $c.data.getParameter("UserCoClsCd");
+    scwin.PayYm = $c.data.getParameter("PayYm");
+};
+
+scwin.onUdcCompleted = async function() {
+
+    const codeOptions = [
+        { grpCd : "FI115", compID : "acb_payGbn"},
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    ed_coCd.setValue(scwin.UserCoCd);
+    ed_coNm.setValue(scwin.UserCoNm);
+    scwin.txtCoClsCd = scwin.UserCoClsCd;
+    $c.gus.cfDisableObjects([ed_coCd,ed_coNm]);
+    
+    ed_acctDeptCd.setValue(scwin.UserDeptCd);
+    ed_acctDeptNm.setValue(scwin.UserDeptNm);
+    
+    // 동원로엑스 - HR팀, 재경팀은 모든 귀속부서 조회가능
+    // 넥스트로 - 기획관리팀(넥스트로) 모든 귀속부서 조회가능
+    if (scwin.UserDeptCd == "00006" || scwin.UserDeptCd == "00009" || scwin.UserDeptCd == "01387") {
+        $c.gus.cfEnableObjects([ed_acctDeptCd, ed_acctDeptNm, btn_PopUp3]);
+        ed_acctDeptCd.focus();
+    } else {
+        $c.gus.cfDisableObjects([ed_acctDeptCd, ed_acctDeptNm, btn_PopUp3]);
+    }
+    
+    ica_stdDt.setValue(scwin.PayYm);
+    
+//  f_DefultSetting();	// 조회조건 기본값 셋팅
+}
+
+// 조회조건 기본값 셋팅
+scwin.f_DefultSetting = function() {
+		dma_search.set("stdYm",ds_parent.getCellData(0,"payYm"));
+		dma_search.set("payGbn",ds_parent.getCellData(0,"payGbn"));
+}
+
+// 생성
+scwin.f_Create = async function() {
+    //생성조건 입력여부 및 형식 체크
+    if (!await $c.gus.cfValidate([ ica_stdDt, ed_acctDeptCd])) return;
+    debugger;
+    $c.sbm.execute(sbm_create);
+}
+
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+    if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+    
+    // 짝이 되는 오브젝트의 값 제거
+    $c.gus.cfClearPairObj(pairObj);
+    
+    // 검색어 세팅
+    var pVal = $c.gus.cfGetValue(inObj);
+    
+    // inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true) {
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+    } else {
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+    }
+}
+
+scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+    var rtnList = "";
+    
+    switch (disGubun) {
+        case 1: // 성명
+            var param = ","+ed_coCd.getValue();
+            rtnList = udc_StaffList.cfCommonPopUp(scwin.udc_StaffList_callBack,pCode,pName,pClose,null,null,null,null,param,null,null,null,null); //직원
+            // cfSetReturnValue(rtnList, ed_staffNo, txt_staffNm);
+        break;
+        case 2: // 부서
+            var param = ","+ed_coCd.getValue()+","+scwin.txtCoClsCd+",";
+            rtnList = udc_retrieveAcctDept.cfCommonPopUp(scwin.udc_retrieveAcctDept_callBack,pCode,pName,pClose,null,null,null,null,param,null,null,null,null); // 부서
+            // cfSetReturnValue(rtnList, ed_acctDeptCd, txt_acctDeptNm);
+            break;
+        default:
+            return;
+    }
+}
+
+scwin.udc_StaffList_callBack = function(rtnList){
+    $c.gus.cfSetReturnValue(rtnList, ed_staffNo, ed_staffNm);
+}
+
+scwin.udc_retrieveAcctDept_callBack = function(rtnList){
+    $c.gus.cfSetReturnValue(rtnList, ed_acctDeptCd, ed_acctDeptNm);
+}
+
+scwin.btn_create_onclick = function (e) {
+    scwin.f_Create();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.udc_retrieveAcctDept_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_acctDeptCd.getValue(), ed_acctDeptNm.getValue(),'F','F');
+};
+
+scwin.udc_retrieveAcctDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_acctDeptCd, ed_acctDeptNm, 2);
+};
+
+scwin.udc_retrieveAcctDept_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_acctDeptNm, ed_acctDeptCd, 33, false);
+};
+
+scwin.udc_StaffList_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_staffNo.getValue(), ed_staffNm.getValue(),'F','F')
+};
+
+scwin.udc_StaffList_onblurCodeEvent = function (e) {    
+    scwin.f_chkOpenCommonPopUp(ed_staffNo, ed_staffNm, 1);
+};
+
+scwin.udc_StaffList_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_staffNm, ed_staffNo, 1, false);
+};
+
+scwin.sbm_create_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Msg != "FAIL"){
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    }
+};
+]]></script>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb" id="" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th" style="" tagname="th">
+    								<w2:textbox class="req" id="" label="급여년월" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" style="" tagname="td">
+    								<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_stdDt" style="" mandatory="true" title="급여년월" ref="data:dma_search.stdYm" displayFormat="yyyy/MM"></w2:inputCalendar>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="req" id="" label="회사" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes>
+    									<w2:colspan>1</w2:colspan>
+    									<w2:rowspan>1</w2:rowspan>
+    								</w2:attributes>
+    							<xf:group id="" class="form-group"><xf:input style="width: 100px;" id="ed_coCd" class="" mandatory="true" title="회사코드"></xf:input><xf:input style="width: 150px;" id="ed_coNm" class=""></xf:input></xf:group></xf:group>
+    						</xf:group>
+    						<xf:group tagname="tr">
+    							<xf:group class="w2tb_th" tagname="th">
+    								<w2:attributes>
+    									<w2:scope>row</w2:scope>
+    								</w2:attributes>
+    								<w2:textbox class="req" id="" label="귀속부서" ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" tagname="td">
+    								<w2:attributes></w2:attributes>
+    								<w2:udc_comCode popupID="" selectID="retrieveAcctDeptCdInfo6" codeId="ed_acctDeptCd" validTitle="" nameId="ed_acctDeptNm"
+                                        style="" objTypeCode="key" allowCharCode="0-9" maxlengthCode="6" id="udc_retrieveAcctDept"
+                                        refDataCollection="dma_search" maxlengthName="30" code="acctDeptCd" ev:onclickEvent="scwin.udc_retrieveAcctDept_onclickEvent" btnId="btn_PopUp3" mandatoryCode="true" objTypeName="key" ev:onblurCodeEvent="scwin.udc_retrieveAcctDept_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_retrieveAcctDept_onviewchangeNameEvent" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N">
+                                    </w2:udc_comCode>
+    							</xf:group>
+    						</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="급여구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="acb_payGbn" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="전체" ref="data:dma_search.payGbn">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="사원" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<w2:udc_comCode popupID="" selectID="retrieveStaffListForDayLaborers" codeId="ed_staffNo" validTitle="" nameId="ed_staffNm"
+            style="" allowCharCode="0-9" maxlengthCode="6" id="udc_StaffList"
+            refDataCollection="dma_search" maxlengthName="30" code="staffNo" mandatoryCode="true" btnId="btn_PopUp1" ev:onclickEvent="scwin.udc_StaffList_onclickEvent" ev:onblurCodeEvent="scwin.udc_StaffList_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_StaffList_onviewchangeNameEvent" skipOnBlurCodeValueEmpty="N" skipOnBlurNameValueEmpty="N">
+        </w2:udc_comCode>
+	</xf:group></xf:group></xf:group>
+    				</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_create" style="" type="button" ev:onclick="scwin.btn_create_onclick" userAuth="C">
+    				<xf:label><![CDATA[생성]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

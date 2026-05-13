@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_menuList">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="col1" name="chk"></w2:column>
+						<w2:column dataType="text" id="col2" name="Customer"></w2:column>
+						<w2:column dataType="text" id="col3" name="Customer"></w2:column>
+						<w2:column dataType="text" id="col4" name="Address1"></w2:column>
+						<w2:column dataType="text" id="col5" name="Address2"></w2:column>
+						<w2:column dataType="text" id="col6" name="Address3"></w2:column>
+						<w2:column dataType="text" id="col7" name="Address4"></w2:column>
+						<w2:column dataType="text" id="col8" name="Tel"></w2:column>
+						<w2:column dataType="text" id="col10" name="CRN"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_mymenuList">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="seq" name="seq"></w2:column>
+						<w2:column dataType="text" id="userId" name="사용자ID"></w2:column>
+						<w2:column dataType="text" id="customerGrpNm" name="즐겨찾기그룹명"></w2:column>
+						<w2:column dataType="text" id="customerCd" name="거래처번호"></w2:column>
+						<w2:column dataType="text" id="customerNm" name="거래처명"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_menuList" action="" method="post" mediatype="application/json" ref=""
+				target='data:json,{"id":"ds_menuList","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_menuList_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_mymenuList" action="" method="post" mediatype="application/json" ref=""
+				target='data:json,{"id":"ds_mymenuList","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_mymenuList_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_save" action="/cm.bc.clnt.clntmgnt.SaveMyCustomerListCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"ds_mymenuList","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+				replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// function name : scwin.onpageload
+// function desc : 화면로딩시 
+//-------------------------------------------------------------------------  
+scwin.onpageload = function() {
+    // 세션 정보
+    scwin.sessionInfo =  $c.data.getMemInfo();
+    scwin.userId = scwin.sessionInfo.userId;
+    scwin.userType = scwin.sessionInfo.userType;
+    scwin.userHomeClsCd = scwin.sessionInfo.userHomeClsCd;
+    scwin.coCd = scwin.sessionInfo.coCd;
+	scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_Retrieve
+// function desc : 등록한 거래처 조회 
+//-------------------------------------------------------------------------  
+scwin.f_Retrieve = function () {
+    sbm_mymenuList.action = "/cm.bc.clnt.clntmgnt.RetrieveMyCustomerListCMD.do?userId="+scwin.userId;
+    $c.sbm.execute(sbm_mymenuList);
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.sbm_mymenuList_submitdone
+// function desc : 등록한 거래처 조회 완료
+//-------------------------------------------------------------------------  
+scwin.sbm_mymenuList_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    gr_mymenuList.setFocusedCell(0, "customerGrpNm", false);
+    tbx_totalMyMenuRows.setValue(ds_mymenuList.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_RetrieveEngClntInfo
+// function desc : 거래처 조회
+//-------------------------------------------------------------------------  
+scwin.f_RetrieveEngClntInfo = function () {
+    if (ed_Condition1.getValue() == ""	&& ed_Condition2.getValue()	== "") {
+		$c.win.alert("전체검색이 허용되지 않았습니다.<br/><br/>검색어를 입력하세요..");
+		ed_Condition2.focus();
+		return ;
+	}
+	
+    sbm_menuList.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=ilCommonEBC" +
+                                    "&queryId=retrieveEngClntInfo3" +
+                                    "&param1=" + ed_Condition1.getValue() +
+                                    "&param2=" + ed_Condition2.getValue();
+	$c.sbm.execute(sbm_menuList);
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_Retrieve
+// function desc : 거래처 조회 완료
+//-------------------------------------------------------------------------  
+scwin.sbm_menuList_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    gr_menuList.setFocusedCell(0, "col2", false);
+    tbx_totalMenuRows.setValue(ds_menuList.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.gr_mymenuList_addrow
+// function desc : 거래처 그리드 하단 행추가 버튼 이벤트
+//-------------------------------------------------------------------------  
+scwin.gr_mymenuList_addrow = function (e) {
+    console.log("[co_110_01_01b scwin.gr_mymenuList_addrow]");
+    let rows = ds_menuList.getMatchedIndex("col1", "1");    
+    let row;
+
+    if (rows.length == 0) {
+        $c.win.alert("거래처를 먼저 선택해주세요.");
+        return;
+    }
+
+    for (let i = 0; i < rows.length; i++) {
+        ds_mymenuList.insertRow();
+        row = ds_mymenuList.getRowCount() - 1;
+        ds_mymenuList.setCellData(row, "userId", scwin.userId);
+        ds_mymenuList.setCellData(row, "customerCd", ds_menuList.getCellData(rows[i], "col2"));
+        ds_mymenuList.setCellData(row, "customerNm", ds_menuList.getCellData(rows[i], "col3"));
+    }
+
+    tbx_totalMyMenuRows.setValue(ds_mymenuList.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.gr_mymenuList_deleterow
+// function desc : 즐겨찾기 그리드 하단 행삭제 버튼 이벤트
+//-------------------------------------------------------------------------  
+scwin.gr_mymenuList_deleterow = function (e) {
+    console.log("[co_110_01_01b scwin.gr_mymenuList_deleterow]");
+    let rowStatus = ds_mymenuList.getRowStatus(ds_mymenuList.getRowPosition());
+    if (rowStatus == "C") {
+        ds_mymenuList.removeRow(ds_mymenuList.getRowPosition());
+    } else {
+        ds_mymenuList.deleteRow(ds_mymenuList.getRowPosition());
+    }
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.gr_mymenuList_cancelrow
+// function desc : 즐겨찾기 그리드 하단 취소 버튼 이벤트
+//-------------------------------------------------------------------------  
+scwin.gr_mymenuList_cancelrow = function (e) {
+    $c.data.undoAll(ds_mymenuList);
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_Save
+// function desc : 저장 버튼 onclick
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+    if (ds_mymenuList.getModifiedIndex().length < 1) {
+		$c.gus.cfAlertMsg(MSG_CM_ERR_001, ["거래처"]);
+		return;
+	}
+
+    let validArry = [
+        { id: "customerGrpNm", name: "즐겨찾기그룹명", mandatory: true }
+    ];
+    let gridName = "즐겨찾기";
+
+    if (await $c.gus.cfValidateGrid(gr_mymenuList, null, null, validArry, gridName)) {
+        $c.sbm.execute(sbm_save);
+    }	
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.sbm_save_submitdone
+// function desc : 저장 성공
+//-------------------------------------------------------------------------  
+scwin.sbm_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.btn_fieldClear_onclick
+// function desc : 검색 조건 clear
+//-------------------------------------------------------------------------  
+scwin.btn_fieldClear_onclick = function (e) {
+    $c.gus.cfInitObjects(tbl_search);
+	ed_Condition2.focus();
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.ed_Condition_onkeyup
+// function desc : 거래처코드/거래처명 onkeyup
+//-------------------------------------------------------------------------  
+scwin.ed_Condition_onkeyup = function (e) {
+    if (e.key === "Enter" || e.keyCode === 13) {
+        scwin.f_RetrieveEngClntInfo();
+    }
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.btn_close_onclick
+// function desc : 닫기 버튼 onclick
+//-------------------------------------------------------------------------  
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="lybox flex_no" id="" style="">
+					<xf:group class="col" id="">
+						<xf:group class="title-wrap" id="" style="">
+							<xf:group class="title" id="">
+								<w2:textbox class="tit" id="" label="거래처" style="" tagname="h3"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group class="shbox" id="" style="">
+							<xf:group class="shbox-inner" id="tbl_search" style="">
+								<xf:group class="w2tb " id="" style="" tagname="table">
+									<w2:attributes>
+										<w2:summary></w2:summary>
+									</w2:attributes>
+									<xf:group tagname="colgroup">
+										<xf:group style="width:70px;" tagname="col"></xf:group>
+										<xf:group style="" tagname="col"></xf:group>
+										<xf:group style="width:105px;" tagname="col"></xf:group>
+										<xf:group style="" tagname="col"></xf:group>
+									</xf:group>
+									<xf:group class="" id="" style="" tagname="tr">
+										<xf:group class="w2tb_th" style="" tagname="th">
+											<w2:textbox class="" id="" label="Customer Code" style=""></w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_td" style="" tagname="td">
+											<xf:input class="" id="ed_Condition1" placeholder="" style="" ev:onkeyup="scwin.ed_Condition_onkeyup"></xf:input>
+										</xf:group>
+										<xf:group class="w2tb_th" style="" tagname="th">
+											<w2:textbox class="" id="" label="Customer Name" style=""></w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_td" id="" style="" tagname="td">
+											<w2:attributes></w2:attributes>
+											<xf:input class="" id="ed_Condition2" placeholder="" style="" ev:onkeyup="scwin.ed_Condition_onkeyup"></xf:input>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group class="btn-shbox" id="" style="">
+								<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+									<xf:label><![CDATA[새로고침]]></xf:label>
+								</xf:trigger>
+								<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_RetrieveEngClntInfo">
+									<xf:label><![CDATA[Search]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" class="gvwbox" id="group2" style="">
+							<w2:gridView autoFit="none" checkAllType="false" class="wq_gvw" dataList="data:ds_menuList" id="gr_menuList" style=""
+								visibleRowNum="15" visibleRowNumFix="true" autoFitMinWidth="800">
+								<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label" id="column1" inputType="text" style="" value="chk" width="80"></w2:column>
+										<w2:column displayMode="label" id="column17" inputType="text" style="" value="Customer Code" width="70"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" style="" value="Customer Name" width="100"></w2:column>
+										<w2:column displayMode="label" id="column13" inputType="text" style="" value="Address1" width="100"></w2:column>
+										<w2:column displayMode="label" id="column11" inputType="text" style="" value="Address2" width="150"></w2:column>
+										<w2:column displayMode="label" id="column9" inputType="text" style="" value="Address3" width="70"></w2:column>
+										<w2:column displayMode="label" id="column3" inputType="text" style="" value="Address4" width="70"></w2:column>
+										<w2:column displayMode="label" id="column5" inputType="text" style="" value="Tel" width="100"></w2:column>
+										<w2:column displayMode="label" id="column7" inputType="text" style="" value="CRN" width="100"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label" id="col1" inputType="checkbox" falseValue="F" trueValue="T"></w2:column>
+                                        <w2:column displayMode="label" id="col2" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col3" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col4" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col5" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col6" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col7" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col8" inputType="text" textAlign="left" readOnly="true"></w2:column>
+                                        <w2:column displayMode="label" id="col10" inputType="text" textAlign="left" readOnly="true"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="">
+									<xf:group class="grid-total" id="" style="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalMenuRows" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group class="right" id="" style="">
+									<w2:udc_bottomGrdBtn btnCancelYn="N" btnDelYn="N" style="" btnRowAddYn="Y" btnRowDelYn="N" rowAddFunction="scwin.gr_mymenuList_addrow"></w2:udc_bottomGrdBtn>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group class="col" id="" style="">
+						<xf:group class="title-wrap" id="" style="">
+							<xf:group class="title" id="">
+								<w2:textbox class="tit" id="" label="즐겨찾기" style="" tagname="h3"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group adaptiveThreshold="" class="gvwbox" id="group3" style="">
+							<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_mymenuList" id="gr_mymenuList" style=""
+								visibleRowNum="18" visibleRowNumFix="true" rowStatusVisible="true" rowStatusWidth="20">
+								<w2:caption id="caption3" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label" id="column1" inputType="text" style="" value="그룹명" width="70"></w2:column>
+										<w2:column displayMode="label" id="column17" inputType="text" style="" value="거래처번호" width="70"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" style="" value="거래처명" width="100"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label" id="customerGrpNm" inputType="text" style="" value="" width="70" textAlign="left" readOnly="false" mandatory="true" maxByteLength="100">
+										</w2:column>
+										<w2:column displayMode="label" id="customerCd" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+										<w2:column displayMode="label" id="customerNm" inputType="text" style="" value="" width="100" textAlign="left" readOnly="true">
+										</w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+							<xf:group class="grid-bottom " id="" style="">
+								<xf:group class="left" id="">
+									<xf:group class="grid-total" id="" style="">
+										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="tbx_totalMyMenuRows" label="0" style="" tagname="span">
+										</w2:textbox>
+										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group class="right" id="" style="">
+									<w2:udc_bottomGrdBtn btnDelYn="N" style="" btnCancelYn="Y" btnRowAddYn="N" btnRowDelYn="Y" rowDelFunction="scwin.gr_mymenuList_deleterow" cancelFunction="scwin.gr_mymenuList_cancelrow"></w2:udc_bottomGrdBtn>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+                <xf:group class="btnbox" id="" style="">
+                    <xf:group id="" class="right"><xf:trigger ev:onclick="scwin.f_Save" style="" id="btn_save" type="button" class="btn" userAuth="C">
+                        <xf:label><![CDATA[저장]]></xf:label>
+                    </xf:trigger></xf:group></xf:group>
+                </xf:group>
+			</xf:group>
+
+	</body>
+</html>

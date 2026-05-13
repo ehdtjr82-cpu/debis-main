@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_author="배기원" meta_screenName="이자율등록자동생성" meta_screenId="co_403_01_04p" meta_subsystem="" meta_type="팝업">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_master">
+    				<w2:keyInfo>
+    					<w2:key id="stdYm" name="기준년월" dataType="text"></w2:key>
+    					<w2:key id="ymFrom" name="반영할기간From" dataType="text"></w2:key>
+    					<w2:key id="ymTo" name="반영할기간To" dataType="text"></w2:key>
+    					<w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+    					<w2:key id="planRsltsClsCd" name="계획실적구분" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<xf:submission id="sbm_master" action="/ac.co.rsltsmgnt.rsltsaggr.CreateInterestRateAutoCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"dma_master","key":"IN_DS1"}' target='' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="" ev:submitdone="scwin.sbm_master_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 이자율등록자동생성
+ * 메뉴경로 : 회계/관리회계/실적관리/실적집계/자산비용관리/이자율등록
+ * ASIS경로 : /debis/dongwon-debis-engine/src/main/webapp/ac/co/rsltsmgnt/rsltsaggr/co_403_01_04p.jsp
+ * 작 성 자 : 배기원
+ * 작 업 일 : 2025-10-13
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항 :
+ * 수정이력 :
+ *    - 2025-10-13      배기원    최초작성
+ */
+
+//부모창에서 받은 파라메터
+scwin.params;
+
+/**
+ * TOBE : 초기로드(UDC 있으면 scwin.onUdcCompleted 초기값 세팅)
+ */
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+};
+
+/**
+ * UDC값 초기화(scwin.onpageload 이후 세팅됨)
+ */
+scwin.onUdcCompleted = function() {
+    //      $p.setTimeout(function() {
+    scwin.f_SetDsetHeader();
+    //      }, {"delay":50});
+};
+
+/**
+ * 데이터셋의 헤더를 설정
+ */
+scwin.f_SetDsetHeader = function() {
+    if (!$c.util.isEmpty(scwin.params["stdYm"])) {
+        dma_master.set("stdYm", scwin.params["stdYm"]);
+    }
+};
+
+/**
+ * 생성
+ */
+scwin.f_Create = async function () {
+    //생성조건 입력여부 및 형식 체크
+    if (! await $c.gus.cfValidate([ed_stdYm, ed_YmFrom, ed_YmTo])) {
+        return;
+    }
+
+    //반영할 기간의 시작년월이 기준년월과 같은 지 체크
+    if (ed_stdYm.getValue() == ed_YmFrom.getValue()) {
+        await $c.win.alert("기준년월과 반영할 기간의 시작년월이 같습니다.");
+        ed_YmFrom.focus();
+        return;
+    }
+
+    //반영할 기간의 종료년월이 기준년월과 같은 지 체크
+    if (ed_stdYm.getValue() == ed_YmTo.getValue()) {
+        await $c.win.alert("기준년월과 반영할 기간의 종료년월이 같습니다.");
+        ed_YmTo.focus();
+        return;
+    }
+    //기준년월이 반영할 기간의 사이에 있는 지 체크
+    if (ed_stdYm.getValue() > ed_YmFrom.getValue()
+        && ed_stdYm.getValue() < ed_YmTo.getValue()) {
+        await $c.win.alert("기준년월이 반영할 기간의 사이에 있습니다.");
+        ed_YmFrom.focus();
+        return;
+    }
+    //반영할 기간의 시작과 끝을 비교
+    if (ed_YmFrom.getValue() > ed_YmTo.getValue()) {
+        await $c.win.alert("반영할 기간의 범위가 잘못되었습니다.");
+        ed_YmFrom.focus();
+        return;
+    }
+
+    if (await $c.win.confirm("반영할 기간의 기존 자료는 삭제됩니다.<BR>계속하시겠습니까?")) {
+        // cfShowWaitMsg();
+        dma_master.set("planRsltsClsCd", scwin.params["planRsltsClsCd"]);
+        dma_master.set("coCd", scwin.params["coCd"]);
+
+        $c.sbm.execute(sbm_master);
+    }
+};
+
+scwin.sbm_master_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if (e.responseJSON.resultDataSet[0].Msg != "FAIL") {
+        $c.gus.f_cfAlertMsg("자동생성 되었습니다.");
+    }
+};
+
+scwin.sbm_master_submiterror = function (e) {
+    $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+};
+
+/**
+ * 닫기
+ */
+scwin.f_WinClose = function (e) {
+    let rt = ["N/A"];
+    $c.win.closePopup(rt);
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group   class="w2tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="기준년월" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:inputCalendar calendarValueType="yearMonth" class="form-control cal w80 " id="ed_stdYm" style="" objType="key" mandatory="true" validExp="기준년월:yes:date=YYYYMM" displayFormat="yyyy/MM" editType="select" ref="data:dma_master.stdYm" title="기준년월">
+    									</w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="반영할 기간" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:udc_fromToYearMon id="udc_fromToYearMon" refDataMap="dma_master" refEdDt="ymTo" refStDt="ymFrom" style="" mandatory="true" edToId="ed_YmTo" edFromId="ed_YmFrom" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data" objTypeTo="data" titleFrom="반영할 기간" titleTo="반영할 기간">
+    									</w2:udc_fromToYearMon>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="">
+    					<xf:trigger class="btn" id="btn_create" style="" type="button" objType="bSave" userAuth="C" ev:onclick="scwin.f_Create">
+    						<xf:label><![CDATA[생성]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" ev:onclick="scwin.f_WinClose" id="btn_close" style="" type="button">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

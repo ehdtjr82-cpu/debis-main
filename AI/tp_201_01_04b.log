@@ -1,0 +1,45 @@
+tp_201_01_04b.log
+
+[2026-02-19 16:06:56.038] 변환 시작
+[2026-02-19 16:06:56.121] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 16:09:33.835] #1 검증: XML: WebSquareXmlValidator: score=0.32, grade=C, verdict=REVIEW, errors=7, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=3, warnings=5 | LLM 157081ms, total 157714ms
+    - [XML] 'ed_mchtOdrFromDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrFromDt
+    - [XML] 'ed_mchtOdrToDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrToDt
+    - [XML] 'ed_arvIntendDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_arvIntendDt
+    - [XML] 'ed_bizLongCd'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_bizLongCd
+    - [XML] scwin.f_openCommonPopUp에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.f_openCommonPopUp
+    - [XML] scwin.f_openCommonPopUp이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.f_openCommonPopUp
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.gr_shipmentIndicationOrderList_oncelldblclick, scwin.ds_shipmentIndicationOrderList_onrowpositionchange → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 8건: lc_dateQueryCond (LUXECOMBO→w2:autoComplete), lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete), lc_odrCreatCls (LUXECOMBO→w2:autoComplete), lc_odrDcsnYn (LUXECOMBO→w2:autoComplete), lc_odrCompleteYn (LUXECOMBO→w2:autoComplete)
+    - [적정성] async 선언 누락 — scwin.f_openCommonPopUp (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.f_openCommonPopUp → $c.gus.cfAlertMsg
+[2026-02-19 16:09:34.079] #1 검증: 자동수정 3건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U22: submission ref에 누락된 O(출력) 엔트리 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 16:09:34.656] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.38, grade=C, verdict=REVIEW, errors=5, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=5
+    - [XML] 'ed_mchtOdrFromDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrFromDt
+    - [XML] 'ed_mchtOdrToDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrToDt
+    - [XML] 'ed_arvIntendDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_arvIntendDt
+    - [XML] 'ed_bizLongCd'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_bizLongCd
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.gr_shipmentIndicationOrderList_oncelldblclick, scwin.ds_shipmentIndicationOrderList_onrowpositionchange → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 8건: lc_dateQueryCond (LUXECOMBO→w2:autoComplete), lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete), lc_odrCreatCls (LUXECOMBO→w2:autoComplete), lc_odrDcsnYn (LUXECOMBO→w2:autoComplete), lc_odrCompleteYn (LUXECOMBO→w2:autoComplete)
+[2026-02-19 16:09:41.667] #2 재시도 (에러 10건)
+[2026-02-19 16:09:42.681] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 16:12:24.495] #2 검증: XML: WebSquareXmlValidator: score=0.42, grade=C, verdict=REVIEW, errors=4, warnings=6 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 160885ms, total 161814ms
+    - [XML] 'ed_mchtOdrFromDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrFromDt
+    - [XML] 'ed_mchtOdrToDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrToDt
+    - [XML] 'ed_arvIntendDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_arvIntendDt
+    - [XML] 'ed_bizLongCd'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_bizLongCd
+    - [적정성] 컴포넌트 ID 유지 — 누락 8건: lc_dateQueryCond (LUXECOMBO→w2:autoComplete), lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete), lc_odrCreatCls (LUXECOMBO→w2:autoComplete), lc_odrDcsnYn (LUXECOMBO→w2:autoComplete), lc_odrCompleteYn (LUXECOMBO→w2:autoComplete)
+[2026-02-19 16:12:24.499] 실패 (2회 시도, 5m 28s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 'ed_mchtOdrFromDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrFromDt
+  2. [XML] 'ed_mchtOdrToDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_mchtOdrToDt
+  3. [XML] 'ed_arvIntendDt'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_arvIntendDt
+  4. [XML] 'ed_bizLongCd'가 참조하는 데이터 'ds_orderSearch'가 dataCollection에 선언되지 않음 — ed_bizLongCd
+  5. [적정성] 컴포넌트 ID 유지 — 누락 8건: lc_dateQueryCond (LUXECOMBO→w2:autoComplete), lc_mchtOdrKndCd (LUXECOMBO→w2:autoComplete), lc_odrCreatCls (LUXECOMBO→w2:autoComplete), lc_odrDcsnYn (LUXECOMBO→w2:autoComplete), lc_odrCompleteYn (LUXECOMBO→w2:autoComplete)
+================================================================================

@@ -1,0 +1,820 @@
+/*amd /ui/ds/op/stvwrk/op_210_03_09b.xml 159424 8153adf65a40301339c023b2eb285ee026b6afbeb94442247a8e013506a081e0 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_condition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'lobranCd',name:'물류점소코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'stdYm',name:'계획년월',dataType:'text'}},{T:1,N:'w2:key',A:{id:'endYm',name:'종료년월',dataType:'text'}},{T:1,N:'w2:key',A:{id:'wrkPlClsCd',name:'작업장구분코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_wrkList',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'staffNo',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'staffNm',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlClsCd',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlClsNm',name:'name302',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranCd',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'retireDt',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'occptypeCd',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'occpgrdCd',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'occpgrdNm',name:'name303',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dtlOccptypeCd',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'occptypeClsCd',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'occptypeClsNm',name:'name304',dataType:'text'}},{T:1,N:'w2:column',A:{id:'SortGroup',name:'name305',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chiefYn',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'asistYn',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'managerYn',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'adptStDt',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftAllCnt',name:'name14',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftAllCnt',name:'name15',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftAllCnt',name:'name16',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftAllCnt',name:'name17',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubAllCnt',name:'name18',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftAllCnt',name:'name19',dataType:'number'}},{T:1,N:'w2:column',A:{id:'allMonthMealCnt',name:'name20',dataType:'number'}},{T:1,N:'w2:column',A:{id:'allMonthVacaCnt',name:'name21',dataType:'number'}},{T:1,N:'w2:column',A:{id:'allMonthSumCnt',name:'name22',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt1',name:'name23',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt2',name:'name24',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt3',name:'name25',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt4',name:'name26',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt5',name:'name27',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt6',name:'name28',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt7',name:'name29',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt8',name:'name30',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt9',name:'name31',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt10',name:'name32',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt11',name:'name33',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt12',name:'name34',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt13',name:'name35',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt14',name:'name36',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt15',name:'name37',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt16',name:'name38',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt17',name:'name39',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt18',name:'name40',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt19',name:'name41',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt20',name:'name42',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt21',name:'name43',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt22',name:'name44',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt23',name:'name45',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt24',name:'name46',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt25',name:'name47',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt26',name:'name48',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt27',name:'name49',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt28',name:'name50',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt29',name:'name51',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt30',name:'name52',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayEarlyShiftCnt31',name:'name53',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt1',name:'name54',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt2',name:'name55',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt3',name:'name56',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt4',name:'name57',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt5',name:'name58',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt6',name:'name59',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt7',name:'name60',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt8',name:'name61',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt9',name:'name62',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt10',name:'name63',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt11',name:'name64',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt12',name:'name65',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt13',name:'name66',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt14',name:'name67',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt15',name:'name68',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt16',name:'name69',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt17',name:'name70',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt18',name:'name71',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt19',name:'name72',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt20',name:'name73',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt21',name:'name74',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt22',name:'name75',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt23',name:'name76',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt24',name:'name77',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt25',name:'name78',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt26',name:'name79',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt27',name:'name80',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt28',name:'name81',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt29',name:'name82',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt30',name:'name83',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayExtdShiftCnt31',name:'name84',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt1',name:'name85',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt2',name:'name86',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt3',name:'name87',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt4',name:'name88',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt5',name:'name89',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt6',name:'name90',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt7',name:'name91',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt8',name:'name92',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt9',name:'name93',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt10',name:'name94',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt11',name:'name95',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt12',name:'name96',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt13',name:'name97',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt14',name:'name98',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt15',name:'name99',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt16',name:'name100',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt17',name:'name101',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt18',name:'name102',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt19',name:'name103',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt20',name:'name104',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt21',name:'name105',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt22',name:'name106',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt23',name:'name107',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt24',name:'name108',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt25',name:'name109',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt26',name:'name110',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt27',name:'name111',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt28',name:'name112',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt29',name:'name113',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt30',name:'name114',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliShiftCnt31',name:'name115',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt1',name:'name116',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt2',name:'name117',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt3',name:'name118',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt4',name:'name119',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt5',name:'name120',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt6',name:'name121',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt7',name:'name122',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt8',name:'name123',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt9',name:'name124',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt10',name:'name125',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt11',name:'name126',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt12',name:'name127',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt13',name:'name128',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt14',name:'name129',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt15',name:'name130',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt16',name:'name131',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt17',name:'name132',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt18',name:'name133',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt19',name:'name134',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt20',name:'name135',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt21',name:'name136',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt22',name:'name137',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt23',name:'name138',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt24',name:'name139',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt25',name:'name140',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt26',name:'name141',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt27',name:'name142',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt28',name:'name143',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt29',name:'name144',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt30',name:'name145',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliNightShiftCnt31',name:'name146',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt1',name:'name147',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt2',name:'name148',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt3',name:'name149',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt4',name:'name150',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt5',name:'name151',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt6',name:'name152',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt7',name:'name153',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt8',name:'name154',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt9',name:'name155',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt10',name:'name156',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt11',name:'name157',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt12',name:'name158',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt13',name:'name159',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt14',name:'name160',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt15',name:'name161',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt16',name:'name162',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt17',name:'name163',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt18',name:'name164',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt19',name:'name165',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt20',name:'name166',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt21',name:'name167',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt22',name:'name168',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt23',name:'name169',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt24',name:'name170',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt25',name:'name171',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt26',name:'name172',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt27',name:'name173',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt28',name:'name174',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt29',name:'name175',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt30',name:'name176',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayHoliExtdShiftCnt31',name:'name177',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt1',name:'name178',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt2',name:'name179',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt3',name:'name180',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt4',name:'name181',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt5',name:'name182',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt6',name:'name183',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt7',name:'name184',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt8',name:'name185',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt9',name:'name186',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt10',name:'name187',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt11',name:'name188',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt12',name:'name189',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt13',name:'name190',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt14',name:'name191',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt15',name:'name192',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt16',name:'name193',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt17',name:'name194',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt18',name:'name195',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt19',name:'name196',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt20',name:'name197',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt21',name:'name198',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt22',name:'name199',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt23',name:'name200',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt24',name:'name201',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt25',name:'name202',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt26',name:'name203',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt27',name:'name204',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt28',name:'name205',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt29',name:'name206',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt30',name:'name207',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayDailyJobSubCnt31',name:'name208',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt1',name:'name209',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt2',name:'name210',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt3',name:'name211',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt4',name:'name212',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt5',name:'name213',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt6',name:'name214',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt7',name:'name215',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt8',name:'name216',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt9',name:'name217',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt10',name:'name218',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt11',name:'name219',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt12',name:'name220',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt13',name:'name221',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt14',name:'name222',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt15',name:'name223',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt16',name:'name224',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt17',name:'name225',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt18',name:'name226',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt19',name:'name227',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt20',name:'name228',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt21',name:'name229',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt22',name:'name230',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt23',name:'name231',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt24',name:'name232',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt25',name:'name233',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt26',name:'name234',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt27',name:'name235',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt28',name:'name236',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt29',name:'name237',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt30',name:'name238',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayLunCnt31',name:'name239',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt1',name:'name240',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt2',name:'name241',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt3',name:'name242',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt4',name:'name243',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt5',name:'name244',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt6',name:'name245',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt7',name:'name246',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt8',name:'name247',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt9',name:'name248',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt10',name:'name249',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt11',name:'name250',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt12',name:'name251',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt13',name:'name252',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt14',name:'name253',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt15',name:'name254',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt16',name:'name255',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt17',name:'name256',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt18',name:'name257',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt19',name:'name258',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt20',name:'name259',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt21',name:'name260',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt22',name:'name261',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt23',name:'name262',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt24',name:'name263',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt25',name:'name264',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt26',name:'name265',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt27',name:'name266',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt28',name:'name267',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt29',name:'name268',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt30',name:'name269',dataType:'number'}},{T:1,N:'w2:column',A:{id:'daySumShiftCnt31',name:'name270',dataType:'number'}},{T:1,N:'w2:column',A:{id:'dayVacationCd1',name:'name271',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd2',name:'name272',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd3',name:'name273',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd4',name:'name274',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd5',name:'name275',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd6',name:'name276',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd7',name:'name277',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd8',name:'name278',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd9',name:'name279',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd10',name:'name280',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd11',name:'name281',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd12',name:'name282',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd13',name:'name283',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd14',name:'name284',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd15',name:'name285',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd16',name:'name286',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd17',name:'name287',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd18',name:'name288',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd19',name:'name289',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd20',name:'name290',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd21',name:'name291',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd22',name:'name292',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd23',name:'name293',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd24',name:'name294',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd25',name:'name295',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd26',name:'name296',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd27',name:'name297',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd28',name:'name298',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd29',name:'name299',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd30',name:'name300',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dayVacationCd31',name:'name301',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_lobran',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'lobranCd',name:'물류점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranNm',name:'물류점소명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lobranClsCd',name:'물류점소구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upperLobranCd',name:'상위물류점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctDeptCd',name:'회계부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fixWrkPlCd',name:'정비작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'useYn',name:'사용여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ds.op.stvwrk.RetrieveStvWrkUnlodingListCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_wrkList","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_wrkList","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve2',action:'/ds.op.stvwrk.RetrieveDayJobWrkCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_dayList","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_dayList","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_lobran',action:'/ds.co.RetreiveLoBranCMD.do',method:'post',mediatype:'application/json',ref:'',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_lobran_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/*
+신규 화면인데 로직 이상함. 정상적으로 구현된 화면인지 확인 필요
+*/
+
+scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd"); // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + new Date(scwin.vCurDate.substring(0, 4), scwin.vCurDate.substring(4, 6), 0).getDate(); // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+
+scwin.v_workClsCd = "";
+scwin.bOnPopUp = false;
+scwin.onpageload = function () {
+  let memJson = $c.data.getMemInfo($p);
+  console.log(memJson);
+  scwin.lobranCd = memJson.lobranCd;
+  scwin.loUpperLobranCd = memJson.loUpperLobranCd;
+  //scwin.loUpperLobranNm = memJson.loUpperLobranNm;
+
+  const codeOptions = [{
+    grpCd: "OP316",
+    compID: "lc_wrkPlClsCd",
+    opt: {
+      "range": "1,1"
+    }
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+  $c.gus.cfDisableObjects($p, [lc_wrkPlClsCd]);
+};
+scwin.onUdcCompleted = function () {
+  $p.setTimeout(function () {
+    ///임시
+
+    ///임시
+    scwin.f_SetDefaultData();
+    $c.sbm.execute($p, sbm_lobran);
+  }, {
+    "delay": 50
+  });
+};
+
+// Default Data Setting
+scwin.f_SetDefaultData = function () {
+  ica_stdYm.setValue(scwin.vQryStDt);
+  ica_endYm.setValue(scwin.vCurDate);
+  lc_lobranCd.setValue(scwin.lobranCd);
+  lc_lobranCd.focus();
+};
+
+// 검색영역 Field Clear함.
+scwin.f_InitObjects = function () {
+  $c.gus.cfInitObjects($p, tb_mainData);
+  scwin.f_SetDefaultData();
+};
+
+// 상용직 근태현황 조회
+scwin.f_Retrieve = function () {
+  // 검색조출건 필수 입력 체크
+  var chk = $c.gus.cfValidate($p, [lc_lobranCd, ica_stdYm]);
+  if (!chk) {
+    return;
+  }
+  var dateCheck = "";
+  var dateCheck = ica_stdYm.getValue();
+  var enddate_Check = ica_endYm.getValue();
+  var dateSearchCheck = dateCheck.slice(-2);
+  var monthSearchCheck_std = dateCheck.substring(0, 6);
+  var monthSearchCheck_end = enddate_Check.substring(0, 8);
+  dma_condition.set("lobranCd", lc_lobranCd.getValue());
+  dma_condition.set("stdYm", monthSearchCheck_std);
+  dma_condition.set("endYm", monthSearchCheck_end);
+  dma_condition.set("wrkPlClsCd", lc_wrkPlClsCd.getValue());
+  if (dateSearchCheck !== "01") {
+    $c.win.alert($p, "작업시작일용 1일용부터 조회하실 수 있습니다.");
+  } else if (monthSearchCheck_std != monthSearchCheck_end.substring(0, 6)) {
+    $c.win.alert($p, "작업시작일용과 작업 종료일용의 연장도와 월이 같아휴야합니다.");
+  } else {
+    $c.sbm.execute($p, sbm_retrieve);
+  }
+};
+scwin.sbm_lobran_submitdone = function (e) {
+  if (e.responseJSON.GAUCE) {
+    ds_lobran.setJSON(e.responseJSON.GAUCE);
+    var cnt = ds_lobran.getRowCount();
+    if (cnt == 0) {
+      $c.win.alert($p, "점소 자료 조회에 실패하였습니다");
+      return;
+    } else {
+      lc_lobranCd.setValue(scwin.lobranCd);
+    }
+  }
+};
+scwin.sbm_retrieve_submitdone = function (e) {
+  for (var i = 0; i < ds_wrkList.getRowCount(); i++) {
+    var wrkPlClsCd = ds_wrkList.getCellData(i, "wrkPlClsCd");
+    var wrkPlClsNm = $c.gus.decode($p, wrkPlClsCd, "03", "평택유통기지", wrkPlClsCd);
+    var occpgrdCd = ds_wrkList.getCellData(i, "occpgrdCd");
+    var occpgrdNm = $c.gus.decode($p, occpgrdCd, "MN", "소장(총괄)", "91", "원치", "92", "홀드", "93", "장비", "97", "장비(BTC조정)", "98", "장비(TTCAR운전)", occpgrdCd);
+    ds_wrkList.setCellData(i, "wrkPlClsNm", wrkPlClsNm);
+    ds_wrkList.setCellData(i, "occpgrdNm", occpgrdNm);
+    for (var j = 1; j < 32; j++) {
+      var dayVacationSeq = dayVacationCd + j;
+      var dayVacationCd = ds_wrkList.getCellData(i, dayVacationSeq);
+      var dayVacationNm = $c.gus.decode($p, dayVacationSeq, "A2", "연차", "A4", "휴가", "C1", "경조", "G2", "하계", "F1", "교육", dayVacationSeq);
+      ds_wrkList.setCellData(i, dayVacationSeq, dayVacationNm);
+    }
+  }
+  spa_cnt.setValue(ds_wrkList.getRowCount());
+  scwin.ds_wrkListLoad();
+};
+scwin.btn_fieldClear_onclick = function (e) {
+  scwin.f_InitObjects();
+};
+scwin.btn_retrieve_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+scwin.ds_wrkListLoad = function () {
+  var sumEarlyShiftCnt = new Array(32);
+  var sumExtdShiftCnt = new Array(32);
+  var sumHoliShiftCnt = new Array(32);
+  var sumHoliExtdShiftCnt = new Array(32);
+  var sumHoliNightShiftCnt = new Array(32);
+  var sumSumShiftCnt = new Array(32);
+  var sumDailyJobSubCnt = new Array(32);
+  var sumLunCnt = new Array(32);
+  var sumVacationCd = new Array(32);
+  for (var i = 0; i <= 32; i++) {
+    sumEarlyShiftCnt[i] = 0;
+    sumExtdShiftCnt[i] = 0;
+    sumHoliShiftCnt[i] = 0;
+    sumHoliExtdShiftCnt[i] = 0;
+    sumHoliNightShiftCnt[i] = 0;
+    sumSumShiftCnt[i] = 0;
+    sumDailyJobSubCnt[i] = 0;
+    sumLunCnt[i] = 0;
+    sumVacationCd[i] = 0;
+  }
+  ds_wrkList.insertRow();
+  ds_wrkList.setRowPosition(ds_wrkList.getRowCount() - 1);
+  /*
+      ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"dayEarlyShiftAllCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"dayExtdShiftAllCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"dayHoliShiftAllCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"dayHoliExtdShiftAllCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"dayHoliNightShiftAllCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"allMonthSumCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"dayDailyJobSubAllCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"allMonthMealCnt", 0);
+  	ds_wrkList.setCellData(ds_wrkList.getRowPosition(),"allMonthVacaCnt", 0);
+  */
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "staffNm", "일합계");
+  for (var i = 0; i < ds_wrkList.getRowCount() - 1; i++) {
+    sumEarlyShiftCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt1"));
+    sumEarlyShiftCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt2"));
+    sumEarlyShiftCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt3"));
+    sumEarlyShiftCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt4"));
+    sumEarlyShiftCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt5"));
+    sumEarlyShiftCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt6"));
+    sumEarlyShiftCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt7"));
+    sumEarlyShiftCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt8"));
+    sumEarlyShiftCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt9"));
+    sumEarlyShiftCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt10"));
+    sumEarlyShiftCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt11"));
+    sumEarlyShiftCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt12"));
+    sumEarlyShiftCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt13"));
+    sumEarlyShiftCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt14"));
+    sumEarlyShiftCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt15"));
+    sumEarlyShiftCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt16"));
+    sumEarlyShiftCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt17"));
+    sumEarlyShiftCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt18"));
+    sumEarlyShiftCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt19"));
+    sumEarlyShiftCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt20"));
+    sumEarlyShiftCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt21"));
+    sumEarlyShiftCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt22"));
+    sumEarlyShiftCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt23"));
+    sumEarlyShiftCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt24"));
+    sumEarlyShiftCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt25"));
+    sumEarlyShiftCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt26"));
+    sumEarlyShiftCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt27"));
+    sumEarlyShiftCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt28"));
+    sumEarlyShiftCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt29"));
+    sumEarlyShiftCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt30"));
+    sumEarlyShiftCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftCnt31"));
+    sumExtdShiftCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt1"));
+    sumExtdShiftCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt2"));
+    sumExtdShiftCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt3"));
+    sumExtdShiftCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt4"));
+    sumExtdShiftCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt5"));
+    sumExtdShiftCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt6"));
+    sumExtdShiftCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt7"));
+    sumExtdShiftCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt8"));
+    sumExtdShiftCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt9"));
+    sumExtdShiftCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt10"));
+    sumExtdShiftCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt11"));
+    sumExtdShiftCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt12"));
+    sumExtdShiftCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt13"));
+    sumExtdShiftCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt14"));
+    sumExtdShiftCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt15"));
+    sumExtdShiftCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt16"));
+    sumExtdShiftCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt17"));
+    sumExtdShiftCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt18"));
+    sumExtdShiftCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt19"));
+    sumExtdShiftCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt20"));
+    sumExtdShiftCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt21"));
+    sumExtdShiftCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt22"));
+    sumExtdShiftCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt23"));
+    sumExtdShiftCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt24"));
+    sumExtdShiftCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt25"));
+    sumExtdShiftCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt26"));
+    sumExtdShiftCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt27"));
+    sumExtdShiftCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt28"));
+    sumExtdShiftCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt29"));
+    sumExtdShiftCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt30"));
+    sumExtdShiftCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftCnt31"));
+    sumHoliShiftCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt1"));
+    sumHoliShiftCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt2"));
+    sumHoliShiftCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt3"));
+    sumHoliShiftCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt4"));
+    sumHoliShiftCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt5"));
+    sumHoliShiftCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt6"));
+    sumHoliShiftCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt7"));
+    sumHoliShiftCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt8"));
+    sumHoliShiftCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt9"));
+    sumHoliShiftCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt10"));
+    sumHoliShiftCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt11"));
+    sumHoliShiftCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt12"));
+    sumHoliShiftCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt13"));
+    sumHoliShiftCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt14"));
+    sumHoliShiftCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt15"));
+    sumHoliShiftCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt16"));
+    sumHoliShiftCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt17"));
+    sumHoliShiftCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt18"));
+    sumHoliShiftCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt19"));
+    sumHoliShiftCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt20"));
+    sumHoliShiftCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt21"));
+    sumHoliShiftCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt22"));
+    sumHoliShiftCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt23"));
+    sumHoliShiftCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt24"));
+    sumHoliShiftCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt25"));
+    sumHoliShiftCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt26"));
+    sumHoliShiftCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt27"));
+    sumHoliShiftCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt28"));
+    sumHoliShiftCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt29"));
+    sumHoliShiftCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt30"));
+    sumHoliShiftCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt31"));
+    sumHoliExtdShiftCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftCnt1"));
+    sumHoliExtdShiftCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt2"));
+    sumHoliExtdShiftCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt3"));
+    sumHoliExtdShiftCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt4"));
+    sumHoliExtdShiftCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt5"));
+    sumHoliExtdShiftCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt6"));
+    sumHoliExtdShiftCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt7"));
+    sumHoliExtdShiftCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt8"));
+    sumHoliExtdShiftCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt9"));
+    sumHoliExtdShiftCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt10"));
+    sumHoliExtdShiftCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt11"));
+    sumHoliExtdShiftCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt12"));
+    sumHoliExtdShiftCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt13"));
+    sumHoliExtdShiftCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt14"));
+    sumHoliExtdShiftCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt15"));
+    sumHoliExtdShiftCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt16"));
+    sumHoliExtdShiftCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt17"));
+    sumHoliExtdShiftCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt18"));
+    sumHoliExtdShiftCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt19"));
+    sumHoliExtdShiftCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt20"));
+    sumHoliExtdShiftCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt21"));
+    sumHoliExtdShiftCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt22"));
+    sumHoliExtdShiftCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt23"));
+    sumHoliExtdShiftCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt24"));
+    sumHoliExtdShiftCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt25"));
+    sumHoliExtdShiftCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt26"));
+    sumHoliExtdShiftCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt27"));
+    sumHoliExtdShiftCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt28"));
+    sumHoliExtdShiftCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt29"));
+    sumHoliExtdShiftCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt30"));
+    sumHoliExtdShiftCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftCnt31"));
+    sumHoliNightShiftCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt1"));
+    sumHoliNightShiftCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt2"));
+    sumHoliNightShiftCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt3"));
+    sumHoliNightShiftCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt4"));
+    sumHoliNightShiftCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt5"));
+    sumHoliNightShiftCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt6"));
+    sumHoliNightShiftCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt7"));
+    sumHoliNightShiftCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt8"));
+    sumHoliNightShiftCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt9"));
+    sumHoliNightShiftCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt10"));
+    sumHoliNightShiftCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt11"));
+    sumHoliNightShiftCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt12"));
+    sumHoliNightShiftCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt13"));
+    sumHoliNightShiftCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt14"));
+    sumHoliNightShiftCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt15"));
+    sumHoliNightShiftCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt16"));
+    sumHoliNightShiftCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt17"));
+    sumHoliNightShiftCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt18"));
+    sumHoliNightShiftCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt19"));
+    sumHoliNightShiftCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt20"));
+    sumHoliNightShiftCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt21"));
+    sumHoliNightShiftCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt22"));
+    sumHoliNightShiftCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt23"));
+    sumHoliNightShiftCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt24"));
+    sumHoliNightShiftCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt25"));
+    sumHoliNightShiftCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt26"));
+    sumHoliNightShiftCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt27"));
+    sumHoliNightShiftCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt28"));
+    sumHoliNightShiftCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt29"));
+    sumHoliNightShiftCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt30"));
+    sumHoliNightShiftCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftCnt31"));
+    sumSumShiftCnt[1] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt1"));
+    sumSumShiftCnt[2] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt2"));
+    sumSumShiftCnt[3] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt3"));
+    sumSumShiftCnt[4] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt4"));
+    sumSumShiftCnt[5] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt5"));
+    sumSumShiftCnt[6] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt6"));
+    sumSumShiftCnt[7] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt7"));
+    sumSumShiftCnt[8] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt8"));
+    sumSumShiftCnt[9] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt9"));
+    sumSumShiftCnt[10] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt10"));
+    sumSumShiftCnt[11] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt11"));
+    sumSumShiftCnt[12] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt12"));
+    sumSumShiftCnt[13] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt13"));
+    sumSumShiftCnt[14] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt14"));
+    sumSumShiftCnt[15] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt15"));
+    sumSumShiftCnt[16] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt16"));
+    sumSumShiftCnt[17] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt17"));
+    sumSumShiftCnt[18] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt18"));
+    sumSumShiftCnt[19] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt19"));
+    sumSumShiftCnt[20] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt20"));
+    sumSumShiftCnt[21] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt21"));
+    sumSumShiftCnt[22] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt22"));
+    sumSumShiftCnt[23] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt23"));
+    sumSumShiftCnt[24] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt24"));
+    sumSumShiftCnt[25] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt25"));
+    sumSumShiftCnt[26] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt26"));
+    sumSumShiftCnt[27] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt27"));
+    sumSumShiftCnt[28] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt28"));
+    sumSumShiftCnt[29] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt29"));
+    sumSumShiftCnt[30] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt30"));
+    sumSumShiftCnt[31] += parseInt(ds_wrkList.getCellData(i, "daySumShiftCnt31"));
+    sumDailyJobSubCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt1"));
+    sumDailyJobSubCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt2"));
+    sumDailyJobSubCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt3"));
+    sumDailyJobSubCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt4"));
+    sumDailyJobSubCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt5"));
+    sumDailyJobSubCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt6"));
+    sumDailyJobSubCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt7"));
+    sumDailyJobSubCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt8"));
+    sumDailyJobSubCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt9"));
+    sumDailyJobSubCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt10"));
+    sumDailyJobSubCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt11"));
+    sumDailyJobSubCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt12"));
+    sumDailyJobSubCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt13"));
+    sumDailyJobSubCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt14"));
+    sumDailyJobSubCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt15"));
+    sumDailyJobSubCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt16"));
+    sumDailyJobSubCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt17"));
+    sumDailyJobSubCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt18"));
+    sumDailyJobSubCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt19"));
+    sumDailyJobSubCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt20"));
+    sumDailyJobSubCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt21"));
+    sumDailyJobSubCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt22"));
+    sumDailyJobSubCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt23"));
+    sumDailyJobSubCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt24"));
+    sumDailyJobSubCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt25"));
+    sumDailyJobSubCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt26"));
+    sumDailyJobSubCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt27"));
+    sumDailyJobSubCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt28"));
+    sumDailyJobSubCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt29"));
+    sumDailyJobSubCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt30"));
+    sumDailyJobSubCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubCnt31"));
+    sumLunCnt[1] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt1"));
+    sumLunCnt[2] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt2"));
+    sumLunCnt[3] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt3"));
+    sumLunCnt[4] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt4"));
+    sumLunCnt[5] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt5"));
+    sumLunCnt[6] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt6"));
+    sumLunCnt[7] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt7"));
+    sumLunCnt[8] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt8"));
+    sumLunCnt[9] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt9"));
+    sumLunCnt[10] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt10"));
+    sumLunCnt[11] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt11"));
+    sumLunCnt[12] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt12"));
+    sumLunCnt[13] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt13"));
+    sumLunCnt[14] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt14"));
+    sumLunCnt[15] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt15"));
+    sumLunCnt[16] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt16"));
+    sumLunCnt[17] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt17"));
+    sumLunCnt[18] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt18"));
+    sumLunCnt[19] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt19"));
+    sumLunCnt[20] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt20"));
+    sumLunCnt[21] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt21"));
+    sumLunCnt[22] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt22"));
+    sumLunCnt[23] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt23"));
+    sumLunCnt[24] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt24"));
+    sumLunCnt[25] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt25"));
+    sumLunCnt[26] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt26"));
+    sumLunCnt[27] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt27"));
+    sumLunCnt[28] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt28"));
+    sumLunCnt[29] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt29"));
+    sumLunCnt[30] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt30"));
+    sumLunCnt[31] += parseInt(ds_wrkList.getCellData(i, "dayLunCnt31"));
+    if (ds_wrkList.getCellData(i, "dayVacationCd1") != "") {
+      sumVacationCd[1] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd2") != "") {
+      sumVacationCd[2] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd3") != "") {
+      sumVacationCd[3] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd4") != "") {
+      sumVacationCd[4] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd5") != "") {
+      sumVacationCd[5] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd6") != "") {
+      sumVacationCd[6] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd7") != "") {
+      sumVacationCd[7] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd8") != "") {
+      sumVacationCd[8] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd9") != "") {
+      sumVacationCd[9] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd10") != "") {
+      sumVacationCd[10] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd11") != "") {
+      sumVacationCd[11] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd12") != "") {
+      sumVacationCd[12] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd13") != "") {
+      sumVacationCd[13] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd14") != "") {
+      sumVacationCd[14] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd15") != "") {
+      sumVacationCd[15] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd16") != "") {
+      sumVacationCd[16] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd17") != "") {
+      sumVacationCd[17] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd18") != "") {
+      sumVacationCd[18] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd19") != "") {
+      sumVacationCd[19] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd20") != "") {
+      sumVacationCd[20] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd21") != "") {
+      sumVacationCd[21] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd22") != "") {
+      sumVacationCd[22] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd23") != "") {
+      sumVacationCd[23] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd24") != "") {
+      sumVacationCd[24] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd25") != "") {
+      sumVacationCd[25] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd26") != "") {
+      sumVacationCd[26] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd27") != "") {
+      sumVacationCd[27] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd28") != "") {
+      sumVacationCd[28] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd29") != "") {
+      sumVacationCd[29] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd30") != "") {
+      sumVacationCd[30] += 1;
+    }
+    if (ds_wrkList.getCellData(i, "dayVacationCd31") != "") {
+      sumVacationCd[31] += 1;
+    }
+    console.log(i + "번 : " + ds_wrkList.getCellData(i, "dayEarlyShiftAllCnt"));
+    sumEarlyShiftCnt[32] += parseInt(ds_wrkList.getCellData(i, "dayEarlyShiftAllCnt"));
+    sumExtdShiftCnt[32] += parseInt(ds_wrkList.getCellData(i, "dayExtdShiftAllCnt"));
+    sumHoliShiftCnt[32] += parseInt(ds_wrkList.getCellData(i, "dayHoliShiftAllCnt"));
+    sumHoliExtdShiftCnt[32] += parseInt(ds_wrkList.getCellData(i, "dayHoliExtdShiftAllCnt"));
+    sumHoliNightShiftCnt[32] += parseInt(ds_wrkList.getCellData(i, "dayHoliNightShiftAllCnt"));
+    sumSumShiftCnt[32] += parseInt(ds_wrkList.getCellData(i, "allMonthSumCnt"));
+    sumDailyJobSubCnt[32] += parseInt(ds_wrkList.getCellData(i, "dayDailyJobSubAllCnt"));
+    sumLunCnt[32] += parseInt(ds_wrkList.getCellData(i, "allMonthMealCnt"));
+    sumVacationCd[32] += parseInt(ds_wrkList.getCellData(i, "allMonthVacaCnt"));
+  }
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt1", sumEarlyShiftCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt2", sumEarlyShiftCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt3", sumEarlyShiftCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt4", sumEarlyShiftCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt5", sumEarlyShiftCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt6", sumEarlyShiftCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt7", sumEarlyShiftCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt8", sumEarlyShiftCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt9", sumEarlyShiftCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt10", sumEarlyShiftCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt11", sumEarlyShiftCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt12", sumEarlyShiftCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt13", sumEarlyShiftCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt14", sumEarlyShiftCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt15", sumEarlyShiftCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt16", sumEarlyShiftCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt17", sumEarlyShiftCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt18", sumEarlyShiftCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt19", sumEarlyShiftCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt20", sumEarlyShiftCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt21", sumEarlyShiftCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt22", sumEarlyShiftCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt23", sumEarlyShiftCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt24", sumEarlyShiftCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt25", sumEarlyShiftCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt26", sumEarlyShiftCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt27", sumEarlyShiftCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt28", sumEarlyShiftCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt29", sumEarlyShiftCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt30", sumEarlyShiftCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftCnt31", sumEarlyShiftCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt1", sumExtdShiftCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt2", sumExtdShiftCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt3", sumExtdShiftCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt4", sumExtdShiftCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt5", sumExtdShiftCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt6", sumExtdShiftCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt7", sumExtdShiftCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt8", sumExtdShiftCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt9", sumExtdShiftCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt10", sumExtdShiftCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt11", sumExtdShiftCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt12", sumExtdShiftCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt13", sumExtdShiftCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt14", sumExtdShiftCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt15", sumExtdShiftCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt16", sumExtdShiftCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt17", sumExtdShiftCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt18", sumExtdShiftCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt19", sumExtdShiftCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt20", sumExtdShiftCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt21", sumExtdShiftCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt22", sumExtdShiftCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt23", sumExtdShiftCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt24", sumExtdShiftCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt25", sumExtdShiftCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt26", sumExtdShiftCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt27", sumExtdShiftCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt28", sumExtdShiftCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt29", sumExtdShiftCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt30", sumExtdShiftCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftCnt31", sumExtdShiftCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt1", sumHoliShiftCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt2", sumHoliShiftCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt3", sumHoliShiftCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt4", sumHoliShiftCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt5", sumHoliShiftCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt6", sumHoliShiftCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt7", sumHoliShiftCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt8", sumHoliShiftCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt9", sumHoliShiftCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt10", sumHoliShiftCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt11", sumHoliShiftCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt12", sumHoliShiftCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt13", sumHoliShiftCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt14", sumHoliShiftCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt15", sumHoliShiftCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt16", sumHoliShiftCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt17", sumHoliShiftCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt18", sumHoliShiftCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt19", sumHoliShiftCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt20", sumHoliShiftCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt21", sumHoliShiftCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt22", sumHoliShiftCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt23", sumHoliShiftCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt24", sumHoliShiftCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt25", sumHoliShiftCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt26", sumHoliShiftCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt27", sumHoliShiftCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt28", sumHoliShiftCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt29", sumHoliShiftCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt30", sumHoliShiftCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftCnt31", sumHoliShiftCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt1", sumHoliExtdShiftCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt2", sumHoliExtdShiftCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt3", sumHoliExtdShiftCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt4", sumHoliExtdShiftCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt5", sumHoliExtdShiftCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt6", sumHoliExtdShiftCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt7", sumHoliExtdShiftCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt8", sumHoliExtdShiftCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt9", sumHoliExtdShiftCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt10", sumHoliExtdShiftCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt11", sumHoliExtdShiftCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt12", sumHoliExtdShiftCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt13", sumHoliExtdShiftCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt14", sumHoliExtdShiftCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt15", sumHoliExtdShiftCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt16", sumHoliExtdShiftCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt17", sumHoliExtdShiftCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt18", sumHoliExtdShiftCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt19", sumHoliExtdShiftCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt20", sumHoliExtdShiftCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt21", sumHoliExtdShiftCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt22", sumHoliExtdShiftCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt23", sumHoliExtdShiftCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt24", sumHoliExtdShiftCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt25", sumHoliExtdShiftCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt26", sumHoliExtdShiftCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt27", sumHoliExtdShiftCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt28", sumHoliExtdShiftCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt29", sumHoliExtdShiftCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt30", sumHoliExtdShiftCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftCnt31", sumHoliExtdShiftCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt1", sumHoliNightShiftCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt2", sumHoliNightShiftCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt3", sumHoliNightShiftCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt4", sumHoliNightShiftCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt5", sumHoliNightShiftCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt6", sumHoliNightShiftCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt7", sumHoliNightShiftCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt8", sumHoliNightShiftCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt9", sumHoliNightShiftCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt10", sumHoliNightShiftCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt11", sumHoliNightShiftCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt12", sumHoliNightShiftCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt13", sumHoliNightShiftCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt14", sumHoliNightShiftCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt15", sumHoliNightShiftCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt16", sumHoliNightShiftCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt17", sumHoliNightShiftCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt18", sumHoliNightShiftCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt19", sumHoliNightShiftCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt20", sumHoliNightShiftCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt21", sumHoliNightShiftCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt22", sumHoliNightShiftCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt23", sumHoliNightShiftCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt24", sumHoliNightShiftCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt25", sumHoliNightShiftCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt26", sumHoliNightShiftCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt27", sumHoliNightShiftCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt28", sumHoliNightShiftCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt29", sumHoliNightShiftCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt30", sumHoliNightShiftCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftCnt31", sumHoliNightShiftCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt1", sumSumShiftCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt2", sumSumShiftCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt3", sumSumShiftCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt4", sumSumShiftCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt5", sumSumShiftCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt6", sumSumShiftCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt7", sumSumShiftCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt8", sumSumShiftCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt9", sumSumShiftCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt10", sumSumShiftCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt11", sumSumShiftCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt12", sumSumShiftCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt13", sumSumShiftCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt14", sumSumShiftCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt15", sumSumShiftCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt16", sumSumShiftCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt17", sumSumShiftCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt18", sumSumShiftCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt19", sumSumShiftCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt20", sumSumShiftCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt21", sumSumShiftCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt22", sumSumShiftCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt23", sumSumShiftCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt24", sumSumShiftCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt25", sumSumShiftCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt26", sumSumShiftCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt27", sumSumShiftCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt28", sumSumShiftCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt29", sumSumShiftCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt30", sumSumShiftCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "daySumShiftCnt31", sumSumShiftCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt1", sumDailyJobSubCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt2", sumDailyJobSubCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt3", sumDailyJobSubCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt4", sumDailyJobSubCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt5", sumDailyJobSubCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt6", sumDailyJobSubCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt7", sumDailyJobSubCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt8", sumDailyJobSubCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt9", sumDailyJobSubCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt10", sumDailyJobSubCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt11", sumDailyJobSubCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt12", sumDailyJobSubCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt13", sumDailyJobSubCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt14", sumDailyJobSubCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt15", sumDailyJobSubCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt16", sumDailyJobSubCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt17", sumDailyJobSubCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt18", sumDailyJobSubCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt19", sumDailyJobSubCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt20", sumDailyJobSubCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt21", sumDailyJobSubCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt22", sumDailyJobSubCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt23", sumDailyJobSubCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt24", sumDailyJobSubCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt25", sumDailyJobSubCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt26", sumDailyJobSubCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt27", sumDailyJobSubCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt28", sumDailyJobSubCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt29", sumDailyJobSubCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt30", sumDailyJobSubCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubCnt31", sumDailyJobSubCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt1", sumLunCnt[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt2", sumLunCnt[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt3", sumLunCnt[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt4", sumLunCnt[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt5", sumLunCnt[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt6", sumLunCnt[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt7", sumLunCnt[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt8", sumLunCnt[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt9", sumLunCnt[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt10", sumLunCnt[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt11", sumLunCnt[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt12", sumLunCnt[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt13", sumLunCnt[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt14", sumLunCnt[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt15", sumLunCnt[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt16", sumLunCnt[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt17", sumLunCnt[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt18", sumLunCnt[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt19", sumLunCnt[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt20", sumLunCnt[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt21", sumLunCnt[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt22", sumLunCnt[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt23", sumLunCnt[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt24", sumLunCnt[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt25", sumLunCnt[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt26", sumLunCnt[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt27", sumLunCnt[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt28", sumLunCnt[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt29", sumLunCnt[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt30", sumLunCnt[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayLunCnt31", sumLunCnt[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd1", sumVacationCd[1]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd2", sumVacationCd[2]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd3", sumVacationCd[3]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd4", sumVacationCd[4]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd5", sumVacationCd[5]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd6", sumVacationCd[6]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd7", sumVacationCd[7]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd8", sumVacationCd[8]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd9", sumVacationCd[9]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd10", sumVacationCd[10]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd11", sumVacationCd[11]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd12", sumVacationCd[12]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd13", sumVacationCd[13]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd14", sumVacationCd[14]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd15", sumVacationCd[15]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd16", sumVacationCd[16]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd17", sumVacationCd[17]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd18", sumVacationCd[18]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd19", sumVacationCd[19]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd20", sumVacationCd[20]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd21", sumVacationCd[21]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd22", sumVacationCd[22]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd23", sumVacationCd[23]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd24", sumVacationCd[24]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd25", sumVacationCd[25]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd26", sumVacationCd[26]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd27", sumVacationCd[27]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd28", sumVacationCd[28]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd29", sumVacationCd[29]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd30", sumVacationCd[30]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayVacationCd31", sumVacationCd[31]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayEarlyShiftAllCnt", sumEarlyShiftCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayExtdShiftAllCnt", sumExtdShiftCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliShiftAllCnt", sumHoliShiftCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliExtdShiftAllCnt", sumHoliExtdShiftCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayHoliNightShiftAllCnt", sumHoliNightShiftCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "allMonthSumCnt", sumSumShiftCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "dayDailyJobSubAllCnt", sumDailyJobSubCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "allMonthMealCnt", sumLunCnt[32]);
+  ds_wrkList.setCellData(ds_wrkList.getRowPosition(), "allMonthVacaCnt", sumVacationCd[32]);
+};
+/*
+scwin.excelDown = function () {
+    var vDay = "창고 | " + ed_con_wrkPlNm.getValue() + " | "
+        + "품명 | " + ed_con_commNm.getValue() + " | "
+        + "재고상태 | " + acb_con_stockSts.getText()
+        ;
+
+    const options = {
+        fileName : "크나우프재고현황.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName : "크나우프재고현황",
+        startRowIndex : 3,
+        startColumnIndex : 0,
+    };
+
+    // 타이틀
+    const infoArr = [{
+                    rowIndex : 0, colIndex : 0, rowSpan : 1, colSpan : 9, text : "크나우프재고현황", textAlign : "center", 
+                    drawBorder : false, fontSize : "18px"
+                },
+                {
+                    rowIndex : 2, colIndex : 0, rowSpan : 1, colSpan : 9, text : vDay, textAlign : "left", drawBorder : false
+                }];
+
+
+    $c.data.downloadGridViewExcel(gr_retrieveWorkPlaceEachGoods, options, infoArr);    
+}
+*/
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'tb_mainData',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'점소',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_lobranCd',search:'start',style:'width:200px;',submenuSize:'auto',allOption:'',chooseOption:'',ref:'',mandatory:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_lobran'},E:[{T:1,N:'w2:label',A:{ref:'lobranNm'}},{T:1,N:'w2:value',A:{ref:'lobranCd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작업월',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{id:'',refDataMap:'',refEdDt:'',refStDt:'',style:'',edFromId:'ica_stdYm',edToId:'ica_endYm',mandatoryFrom:'true',mandatoryTo:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'lc_wrkPlClsCd',search:'start',style:'width:150px;',submenuSize:'auto'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'근태현황',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',grdDownOpts:'{"fileName":"평택 근태현황.xlsx","sheetName" : "평택 근태현황", "type":"4+8+16"}',gridID:'gr_wrkList'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{checkAllType:'false',class:'wq_gvw',dataList:'data:ds_wrkList',id:'gr_wrkList',style:'',visibleRowNum:'15',visibleRowNumFix:'true',fixedColumn:'7',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',value:'소속',width:'70',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'소속',width:'100',rowSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'직종',width:'70',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'직책정렬',width:'100',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'직책',width:'70',rowSpan:'2',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',value:'직책',width:'120',rowSpan:'2',sortable:'false'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',value:'성명',width:'70',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'700',inputType:'text',style:'',id:'column1839',value:'1일',displayMode:'label',colSpan:'9',rowSpan:'',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column166',displayMode:'label',colSpan:'9',value:'2일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column139',displayMode:'label',colSpan:'9',value:'3일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column112',displayMode:'label',colSpan:'9',value:'4일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column85',displayMode:'label',colSpan:'9',value:'5일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column58',displayMode:'label',colSpan:'9',value:'6일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column259',displayMode:'label',colSpan:'9',value:'7일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column232',displayMode:'label',colSpan:'9',value:'8일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column205',displayMode:'label',colSpan:'9',value:'9일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column172',displayMode:'label',colSpan:'9',value:'10일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column385',displayMode:'label',colSpan:'9',value:'11일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column358',displayMode:'label',colSpan:'9',value:'12일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column331',displayMode:'label',colSpan:'9',value:'13일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column304',displayMode:'label',colSpan:'9',value:'14일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1372',displayMode:'label',colSpan:'9',value:'15일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column394',displayMode:'label',colSpan:'9',value:'16일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1552',displayMode:'label',colSpan:'9',value:'17일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1525',displayMode:'label',colSpan:'9',value:'18일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1498',displayMode:'label',colSpan:'9',value:'19일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1471',displayMode:'label',colSpan:'9',value:'20일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1444',displayMode:'label',colSpan:'9',value:'21일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1417',displayMode:'label',colSpan:'9',value:'22일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1396',displayMode:'label',colSpan:'9',value:'23일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1690',displayMode:'label',colSpan:'9',value:'24일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1663',displayMode:'label',colSpan:'9',value:'25일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1636',displayMode:'label',colSpan:'9',value:'26일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1609',displayMode:'label',colSpan:'9',value:'27일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1582',displayMode:'label',colSpan:'9',value:'28일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1747',displayMode:'label',colSpan:'9',value:'29일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1816',displayMode:'label',colSpan:'9',value:'30일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1789',displayMode:'label',colSpan:'9',value:'31일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'630',inputType:'text',id:'column1762',displayMode:'label',colSpan:'9',value:'월합계',rowSpan:'',sortable:'false'}}]},{T:1,N:'w2:row',A:{style:'',id:'row3'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column23',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column22',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column21',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column44',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1840',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column38',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column32',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column35',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column170',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column167',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column164',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column161',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column158',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column155',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column152',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column149',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column146',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column143',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column140',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column137',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column134',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column131',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column128',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column125',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column122',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column119',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column116',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column113',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column110',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column107',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column104',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column101',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column98',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column95',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column92',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column89',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column86',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column83',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column80',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column77',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column74',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column71',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column68',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column65',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column62',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column59',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column56',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column53',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column47',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column50',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column272',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column269',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column266',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column263',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column260',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column257',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column254',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column251',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column248',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column245',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column242',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column239',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column236',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column233',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column230',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column227',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column224',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column221',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column218',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column215',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column212',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column209',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column206',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column203',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column200',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column197',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column194',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column191',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column188',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column185',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column182',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column173',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column176',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column275',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column287',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column290',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column293',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column296',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column392',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column389',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column386',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column383',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column380',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column377',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column374',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column371',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column368',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column365',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column362',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column359',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column356',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column353',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column350',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column347',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column344',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column341',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column338',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column335',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column332',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column329',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column326',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column323',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column320',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column317',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column314',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column311',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column308',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column305',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column302',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column299',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column278',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1388',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1385',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1382',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1379',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1376',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1373',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1370',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1367',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1364',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1361',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1358',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1355',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1352',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column398',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column395',displayMode:'label',value:'연장',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column281',displayMode:'label',value:'휴일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column284',displayMode:'label',value:'휴연',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1571',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1568',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1565',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1562',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1559',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1556',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1553',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1550',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1547',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1544',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1541',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1538',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1535',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1532',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1529',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1526',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1523',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1520',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1517',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1514',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1511',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1508',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1505',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1502',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1499',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1496',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1493',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1490',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1487',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1484',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1481',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1478',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1475',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1472',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1469',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1466',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1463',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1460',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1457',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1454',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1451',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1448',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1445',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1442',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1439',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1436',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1433',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1430',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1427',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1424',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1421',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1418',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1415',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1412',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1409',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1406',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1403',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1400',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1391',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1394',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1397',displayMode:'label',value:'연장',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1715',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1712',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1709',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1706',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1703',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1700',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1697',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1694',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1691',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1688',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1685',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1682',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1679',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1676',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1673',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1670',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1667',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1664',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1661',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1658',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1655',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1652',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1649',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1646',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1643',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1640',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1637',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1634',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1631',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1628',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1625',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1622',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1619',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1616',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1613',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1610',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1607',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1604',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1601',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1598',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1595',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1592',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1589',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1586',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1583',displayMode:'label',value:'연장',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1574',displayMode:'label',value:'휴일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1577',displayMode:'label',value:'휴연',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1580',displayMode:'label',value:'휴야',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1727',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1724',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1718',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1721',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1751',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1748',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1745',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1742',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1739',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1736',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1730',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1733',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1823',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1820',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1817',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1814',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1811',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1808',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1805',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1802',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1799',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1796',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1793',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1790',value:'연장',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1787',value:'휴일',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1784',value:'휴연',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1781',value:'휴야',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1778',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1775',value:'일계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1772',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1769',value:'중식',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1766',value:'휴무',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1763',displayMode:'label',value:'연장',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1760',displayMode:'label',value:'휴일',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1754',displayMode:'label',value:'휴연',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1757',displayMode:'label',value:'휴야',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1835',value:'조출',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1832',value:'월계',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1826',value:'일용',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1829',value:'식사',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column1838',value:'휴무',displayMode:'label',sortable:'false'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkPlClsCd',inputType:'text',width:'70',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkPlClsNm',inputType:'text',width:'100',colMerge:'true',class:'bg-white'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'occptypeClsNm',inputType:'text',width:'70',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'SortGroup',inputType:'text',width:'100',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'occpgrdCd',inputType:'text',width:'70',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'occpgrdNm',inputType:'text',width:'120',colMerge:'true',class:'bg-white'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'staffNm',inputType:'text',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliShiftCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliExtdShiftCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliNightShiftCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliShiftCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliExtdShiftCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliNightShiftCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliShiftCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliExtdShiftCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliNightShiftCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt3',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd3',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliShiftCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliExtdShiftCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliNightShiftCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt4',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd4',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliShiftCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliExtdShiftCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliNightShiftCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt5',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd5',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliShiftCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliExtdShiftCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{inputType:'text',id:'dayHoliNightShiftCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt6',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd6',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd7',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd8',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd9',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd10',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd11',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd12',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd13',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd14',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd15',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd16',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd17',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd18',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd19',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd20',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd21',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd22',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd23',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd24',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd25',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd26',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd27',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd28',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd29',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd30',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'daySumShiftCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayLunCnt31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayVacationCd31',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayExtdShiftAllCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliShiftAllCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliExtdShiftAllCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayHoliNightShiftAllCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayEarlyShiftAllCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'allMonthSumCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'dayDailyJobSubAllCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'allMonthMealCnt',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'allMonthVacaCnt',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'spa_cnt',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]}]}]}]}]})

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_HouseDimensionSearch">
+    				<w2:keyInfo>
+    					<w2:key id="kcomcd" name="법인코드" dataType="text"></w2:key>
+    					<w2:key id="mhno" name="Consol No" dataType="text"></w2:key>
+    					<w2:key id="blno" name="B/L번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_HouseDimensionInfo" saveRemovedData="true" ev:oncelldatachange="scwin.ds_HouseDimensionInfo_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+    					<w2:column id="blno" name="B/L번호" dataType="text"></w2:column>
+    					<w2:column id="mhno" name="Consol No" dataType="text"></w2:column>
+    					<w2:column id="seq" name="일련번호" dataType="text"></w2:column>
+    					<w2:column id="widt" name="" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="leng" name="" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="heig" name="" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="pkgs" name="" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="vwht" name="" dataType="number" defaultValue="0"></w2:column>
+    					<w2:column id="inpid" name="입력자ID" dataType="text"></w2:column>
+    					<w2:column id="inpdt" name="입력일" dataType="text"></w2:column>
+    					<w2:column id="updid" name="수정자ID" dataType="text"></w2:column>
+    					<w2:column id="upddt" name="0" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/il.airout.aobl.RetrieveAirExpHouseDimensionCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_HouseDimensionSearch","key":"IN_DS1"},{"id":"ds_HouseDimensionInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_HouseDimensionInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/il.airout.aobl.SaveAirExpHouseDimensionCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_HouseDimensionInfo","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + new Date(scwin.vCurDate.substring(0, 4), scwin.vCurDate.substring(4, 6) , 0).getDate();  // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+//scwin.strPreDate = WebSquare.date.dateAdd(scwin.vCurDate, -2);
+scwin.strPreDate = $c.date.addMonth(scwin.vCurDate, -1);
+
+scwin.hid_kcomcd = "DBEX";
+scwin.hid_mhno = "DBEX";
+scwin.userId = "";
+scwin.blno = "";
+scwin.mhno = "";
+
+scwin.onpageload = function() {
+    console.log($c.data.getParameter());
+    scwin.params = $c.data.getParameter();
+    scwin.blno = scwin.params.blno;
+    scwin.mhno = scwin.params.mhno;
+
+	let memJson = $c.data.getMemInfo();
+    console.log(memJson);
+    scwin.userId = memJson.userId;
+
+    cnd_ed_blno.setValue(scwin.blno);
+    //임시
+    //test houst b/l : DBE0011480
+    //test scwin.mhno = "DBE0011480";
+    //임시
+    scwin.f_Set("Init"); 
+};
+
+scwin.btn_search_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.ds_HouseDimensionInfo_oncelldatachange = function (info) {
+    // {realRowIndex: 2, rowIndex: 2, colID: 'leng', oldValue: '4', newValue: '5'}
+    console.log(info);
+    var row = ds_HouseDimensionInfo.getRowPosition();
+    var varWidt =  ds_HouseDimensionInfo.getCellData(row,"widt");
+    var varHeig =  ds_HouseDimensionInfo.getCellData(row,"heig");
+    var varLeng =  ds_HouseDimensionInfo.getCellData(row,"leng");
+    var varPkgs =  ds_HouseDimensionInfo.getCellData(row,"pkgs");
+    console.log(varWidt + "    " +  varHeig+ "    " + varLeng + "    " + varPkgs);
+    console.log(parseFloat(varWidt*varHeig*varLeng*varPkgs)/6000);
+    ds_HouseDimensionInfo.setCellData(row,"vwht", parseFloat(varWidt*varHeig*varLeng*varPkgs)/6000);
+};
+
+//---------------------------------------------------------
+// 화면세팅
+//---------------------------------------------------------
+scwin.f_Set = function (gubun) {
+    switch (gubun) {    
+        case "Init" :	   //초기화,신규            	
+            //$c.gus.cfDisableBtnOnly([btn_Save, btn_AddRow, btn_DeleteRow, btn_UndoRow]);
+            $c.gus.cfEnableBtnOnly([btn_Save, udc_row]);
+            cnd_ed_blno.focus();
+            break;
+        
+        case "Retrieve" :  //조회모드	
+            $c.gus.cfDisableBtnOnly([btn_Save, btn_AddRow, btn_DeleteRow, btn_UndoRow]);            	
+            break;
+        
+        case "Save" :            	
+            $c.gus.cfEnableBtnOnly([btn_Save, btn_AddRow, btn_DeleteRow, btn_UndoRow]);             
+        break;    
+    }   	
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {    	
+    // HBLTEST0032
+    dma_HouseDimensionSearch.set("kcomcd", scwin.hid_kcomcd);
+    dma_HouseDimensionSearch.set("blno", cnd_ed_blno.getValue().trim());
+    //ds.NameValue(ds.RowPosition,"mhno") = hid_mhno.value.trim();
+    //tr_retrieve.post();
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//---------------------------------------------------------
+// 저장
+//---------------------------------------------------------  
+scwin.f_Save = async function () {						
+    //scwin.f_Retrieve();
+    var chk = await scwin.f_ReqFieldChk();
+    if (chk) {
+        //tr_save.Post();
+        $c.sbm.execute(sbm_save);
+        //$c.win.alert(E_MSG_CM_INF_001);   //성공적으로 저장했습니다.
+        //$c.win.alert("Data was saved successfully.");
+    }	
+    
+    
+}
+
+//-------------------------------------------------------------------------
+// Validate check
+//-------------------------------------------------------------------------
+scwin.f_ReqFieldChk = async function () {
+    var chk = await $c.gus.cfValidate([tb_retrieve]);
+    if (!chk) {
+        return false;
+    } 
+    return true;
+}
+
+//행추가
+scwin.f_AddRow = function () {
+    ds_HouseDimensionInfo.insertRow();
+    gr_masterList.setFocusedCell(ds_HouseDimensionInfo.getRowCount()-1, 0);
+    ds_HouseDimensionInfo.setCellData(ds_HouseDimensionInfo.getRowPosition(), "kcomcd", scwin.hid_kcomcd);
+    ds_HouseDimensionInfo.setCellData(ds_HouseDimensionInfo.getRowPosition(), "blno", cnd_ed_blno.getValue());
+    ds_HouseDimensionInfo.setCellData(ds_HouseDimensionInfo.getRowPosition(), "mhno", scwin.mhno);
+    ds_HouseDimensionInfo.setCellData(ds_HouseDimensionInfo.getRowPosition(), "updid", scwin.userId);	
+}
+
+//-------------------------------------------------------------------------
+// function name : f_DelRow
+// function desc : 그리드  행삭제
+//-------------------------------------------------------------------------
+scwin.f_DeleteRow = function () {
+    if(ds_HouseDimensionInfo.getRowStatus(ds_HouseDimensionInfo.getRowPosition()) == "C"){
+        ds_HouseDimensionInfo.removeRow(ds_HouseDimensionInfo.getRowPosition());
+        ds_HouseDimensionInfo.setRowPosition(ds_HouseDimensionInfo.getRowCount()-1);
+    } else {
+        var row = ds_HouseDimensionInfo.getRowPosition();
+        ds_HouseDimensionInfo.deleteRow(ds_HouseDimensionInfo.getRowPosition());
+        ds_HouseDimensionInfo.setRowPosition(row);
+    }
+}  	
+
+//행취소
+scwin.f_UndoRow = function () {
+    if(ds_HouseDimensionInfo.getRowStatus(ds_HouseDimensionInfo.getRowPosition()) == "C"){
+        ds_HouseDimensionInfo.removeRow(ds_HouseDimensionInfo.getRowPosition());
+    } else {
+        ds_HouseDimensionInfo.undoRow(ds_HouseDimensionInfo.getRowPosition());
+    }
+}  
+scwin.btn_Save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+//-------------------------------------------------------------------------
+// 대문자 입력
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    spa_cnt.setValue(ds_HouseDimensionInfo.getRowCount());
+};
+
+scwin.sbm_save_submitdone = function (e) {
+    console.log(e.responseJSON.resultDataSet);
+    if(e.responseJSON.resultDataSet[0].Code == 0) {
+   	    $c.win.alert(E_MSG_CM_INF_001);   //성공적으로 저장했습니다.
+	    scwin.f_Retrieve();
+    } 
+    
+};
+
+scwin.excelDown = async function () {
+
+    const options = {
+        fileName : "프로그램목록.xlsx", //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+        sheetName : "프로그램목록",
+        startRowIndex : 0,
+        startColumnIndex : 0,
+        rowNumVisible : true
+    };
+
+    // 타이틀
+    const infoArr = [];
+
+    var chk = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+    if(chk){
+        $c.data.downloadGridViewExcel(gr_masterList, options, infoArr);
+    }
+}
+scwin.btn_trigger1_onclick = function (e) {
+    cnd_ed_blno.setValue("");
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_retrieve" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="House B/L No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="" id="cnd_ed_blno" placeholder="" style="width:150px;" ev:onkeyup="scwin.onkeyup" allowChar="0-9.A-Z,a-z" maxlength="20"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_trigger1" style="" type="button" ev:onclick="scwin.btn_trigger1_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="Dimension" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_masterList" gridDownFn="scwin.excelDown"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_HouseDimensionInfo"
+    					id="gr_masterList" style="" visibleRowNum="8" visibleRowNumFix="true" rowNumVisible="true" rowNumHeaderValue="SEQ" rowStatusVisible="true" rowStatusWidth="30">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column17" inputType="text" value="Width" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="Length" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="Height" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="Quantity" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="Weight" width="140"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="widt" inputType="text" width="120" dataType="float" maxLength="4.1" textAlign="right" allowChar="0-9,." displayFormat="#,##0.0"></w2:column>
+    							<w2:column displayMode="label" id="leng" inputType="text" width="120" dataType="float" maxLength="4.1" textAlign="right" allowChar="0-9,." displayFormat="#,##0.0"></w2:column>
+    							<w2:column displayMode="label" id="heig" inputType="text" width="120" dataType="float" maxLength="4.1" textAlign="right" allowChar="0-9,." displayFormat="#,##0.0"></w2:column>
+    							<w2:column displayMode="label" id="pkgs" inputType="text" width="120" dataType="float" maxLength="4.1" textAlign="right" allowChar="0-9,." displayFormat="#,##0.0"></w2:column>
+    							<w2:column displayMode="label" id="vwht" inputType="text" width="140" dataType="float" maxLength="13.3" textAlign="right" displayFormat="#,##0.000" allowChar="0-9,."></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row3">
+    							<w2:column width="120" inputType="text" id="column29" displayMode="label" value="Total"></w2:column>
+    							<w2:column width="120" inputType="text" id="column28" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column27" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column26" displayMode="label"></w2:column>
+    							<w2:column width="140" inputType="expression" id="column25" displayMode="label" class="" expression="sum('vwht')" textAlign="right" displayFormat="#,##0.000"></w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spa_cnt" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn style="" EngYn="Y" gridID="gr_masterList" btnCancelYn="Y" btnDelYn="N" rowAddFunction="scwin.f_AddRow" rowDelFunction="scwin.f_DeleteRow" cancelFunction="scwin.f_UndoRow" id="udc_row" btnRowAddObj="btn_AddRow" btnRowDelObj="btn_DeleteRow" btnCancelObj="btn_UndoRow"></w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_Save" label="저장" style="" type="button" ev:onclick="scwin.btn_Save_onclick">
+    						<xf:label>Save</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

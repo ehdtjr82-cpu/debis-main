@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_holiday" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="holiday" name="공휴일" dataType="text" defaultValue=""></w2:column>
+    					<w2:column id="saturdayYn" name="토요일여부" dataType="text" defaultValue="0" encYN="false" valueType="boolean"></w2:column>
+    					<w2:column id="ddDowYn" name="일요일여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="vacaDdYn" name="휴무일여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="dsgVacaDdYn" name="지정휴무일여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="icnHoliDdYn" name="지정휴무일여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="holidayNm" name="공휴일명" dataType="text" defaultValue=""></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_holidayCon">
+    				<w2:keyInfo>
+    					<w2:key id="mm" name="lux_mm" dataType="text"></w2:key>
+    					<w2:key id="yr" name="yr" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retriveHoliday" action="/cm.bc.comnmgnt.holidaymgnt.RetrieveHolidayCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_holidayCon","key":"IN_DS1"},{"id":"ds_holiday","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_holiday","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retriveHoliday_submitdone" ev:submiterror="scwin.sbm_retriveHoliday_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveHoliday" action="/cm.bc.comnmgnt.holidaymgnt.SaveHolidayCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"action":"modified", "id":"ds_holiday", "key":"IN_DS1"}]' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveHoliday_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_createHoliday" action="/cm.bc.comnmgnt.holidaymgnt.CreateSaturdaySundayCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_holidayCon", "key":"IN_DS1"}]' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_createHoliday_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.prevRow = 0;
+scwin.vYr = WebSquare.date.getFormattedDate (new Date(), "yyyy") ;
+
+scwin.mm ="0";
+scwin.txt_countRow ="0";
+scwin.txt_retrieveYn ="0";
+scwin.txt_saveType ="0";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+// function : f_OnLoad
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    // setHolidayHeader();
+
+    ica_yr.setValue(scwin.vYr);
+    ica_yr.focus();
+};
+
+//-------------------------------------------------------------------------
+// 공휴일 조회
+// function : f_Retrieve
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {      
+
+    var vYear = ica_yr.getValue();
+    if(vYear==""||vYear.length<1){
+        // yr.value=vYr;
+        ica_yr.setValue(scwin.vYr);
+    } 
+
+    if(!$c.gus.cfValidate([ica_yr])){
+        return false;
+    }
+
+    scwin.txt_retrieveYn = "1";
+    $c.sbm.execute(sbm_retriveHoliday);			
+};
+
+//-------------------------------------------------------------------------
+// 공휴일조회조건 DataSet 헤더설정
+// function : setHolidayHeader
+//-------------------------------------------------------------------------
+scwin.setHolidayHeader = function() {
+    //헤더정보 생성
+    // str_holidayHeader =    "yr : String(4),"+ //연도
+    //     "mm : String(2)," + // 월
+    //     "rtn :INT(1)";
+    // ds_holidayCon.SetDataHeader(str_holidayHeader);
+    // ds_holidayCon.AddRow();		
+};
+
+//-------------------------------------------------------------------------
+// 공휴일목록 DataSet 헤더설정
+// function : setHolidayListHeader
+//-------------------------------------------------------------------------
+scwin.setHolidayListHeader = function() {
+    //헤더정보 생성
+    str_holidayListHeader =    "holiday : String(8),"+ 
+            "holidayNm : String(20),"+
+            "saturdayYn : INT(1),"+
+            "ddDowYn : INT(1),"+
+            "vacaDdYn : INT(1),"+ 
+            "dsgVacaDdYn : INT(1)"; 
+    ds_holiday.SetDataHeader(str_holidayListHeader);
+};
+
+//-------------------------------------------------------------------------
+// 행추가
+// function : f_AddRow
+//-------------------------------------------------------------------------
+scwin.f_AddRow = function() {
+    var rowIndex = ds_holiday.getTotalRow();
+    ds_holiday.insertRow(rowIndex);
+    gr_holiday.setFocusedCell(rowIndex, 0);
+};
+
+//-------------------------------------------------------------------------
+// 행삭제
+// function : f_delRow
+//-------------------------------------------------------------------------
+scwin.f_delRow = function() {
+    let row = ds_holiday.getRowPosition();
+    if (ds_holiday.getRowStatus(row) == "C") {
+        ds_holiday.removeRow(row);
+    } else {
+        ds_holiday.deleteRow(row);
+    }
+    gr_holiday.setFocusedCell(row, "holiday", true);
+};
+
+//-------------------------------------------------------------------------
+// 행취소
+// function : f_Undo
+//-------------------------------------------------------------------------
+scwin.f_Undo = function() {
+    console.log("============");
+    // ds_holiday.Undo(ds_holiday.RowPosition);
+    $c.data.undoRow(ds_holiday, "Y");
+};
+
+//-------------------------------------------------------------------------
+// 공휴일 저장
+// function : f_Save
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+
+    if( ds_holiday.getModifiedIndex().length == 0 ){
+        await $c.win.alert("변경된 사항이 없습니다.");
+        return false;
+    }
+
+    let validArry = [
+        {id:"holiday", name: "일자", mandatory:true}
+    ];
+    let gridName = "공휴일";
+    if(!await $c.gus.cfValidateGrid(gr_holiday, null, null, validArry, gridName)){
+        return false;
+    }
+
+    // 마감통제 필수항목 체크  
+    let ret = await $c.gus.cfValidate([gr_holiday])
+    if (!ret) {
+        return false;
+    }
+
+    var rowIndex = ds_holiday.getRowPosition();
+    var vType = scwin.txt_saveType;
+    if( vType == "1" ){
+        // if (ds_holiday.NameValue(row,"saturdayYn") == 1 || ds_holiday.NameValue(row,"ddDowYn") == 1){
+        // if ( ds_holiday.getCellData(rowIndex, "saturdayYn") == 1 || ds_holiday.getCellData(rowIndex, "ddDowYn") == 1){
+        //     await $c.win.alert("토요일과 일요일은 삭제할 수 없습니다.");
+        //     return false;
+        // }
+
+        for(let i=0; i<ds_holiday.getRowCount(); i++){
+            if("D" == ds_holiday.getRowStatus(i) ) {
+                if(ds_holiday.getCellData(i, "saturdayYn") == "1" || ds_holiday.getCellData(i, "ddDowYn") == "1"){
+                    await $c.win.alert("토요일과 일요일은 삭제할 수 없습니다.");
+                    gr_holiday.setFocusedCell(i, 0);
+                    return ;
+                }
+            }
+        }
+    }
+
+    let confirmResult = await $c.win.confirm(MSG_CM_CRM_001);
+    if (confirmResult) {
+        scwin.prevRow = ds_holiday.getRowPosition();
+        $c.sbm.execute(sbm_saveHoliday);
+    }
+
+};
+
+//-------------------------------------------------------------------------
+// 토요일,일요일 생성
+// function : f_CreateHoliday
+//-------------------------------------------------------------------------
+scwin.f_CreateHoliday = async function() {
+    if( "" == ica_yr.getValue() ) return false;
+    $c.sbm.execute(sbm_createHoliday);
+};
+
+//-------------------------------------------------------------------------
+// 바이트 크기 체크
+// function : bytelength/f_grdHeiht/f_downExcelSheet
+//-------------------------------------------------------------------------
+
+scwin.bytelength = function(bstr) {
+    len = bstr.length;
+    for (ii=0; ii<bstr.length; ii++)
+    {
+    xx = bstr.substr(ii,1).charCodeAt(0);
+    if (xx > 127) { len++; }
+    }
+    return len;
+};
+
+//그리드 높이 늘리기
+scwin.f_grdHeiht = function(size) {
+    objGrd = "gr_holiday";		
+
+    var objGrd = eval(objGrd);
+    var strHeight = objGrd.style.height ;
+    var intHeight = parseInt(strHeight.replace("px",""));
+    intHeight = intHeight + size;
+    if (intHeight > 0 ) {
+        objGrd.style.height = intHeight + "px";
+    }
+};
+
+
+scwin.f_downExcelSheet = function() {
+    let sheetTitle = "공휴일";
+    const options = {
+        fileName: sheetTitle + ".xlsx",
+        sheetName: sheetTitle
+    };
+    $c.data.downloadGridViewExcel(gr_holiday, options);
+};
+
+scwin.sbm_retriveHoliday_submitdone = function (e) {
+    var rowCnt = ds_holiday.getRowCount();
+    gr_holiday_spanTotal.setLabel(rowCnt);
+    scwin.txt_countRow = rowCnt;
+    scwin.txt_retrieveYn = "1";	
+    if (rowCnt == 0) {
+        $c.win.alert(MSG_CM_WRN_002); // 조회결과가 존재하지 않습니다
+    } else {
+        //gr_holiday.setFocusedCell(0, 0);
+        // color={Decode(holidayNm,"토요일","Blue","일요일","Red")}
+        for(var i=0; i<ds_holiday.getRowCount(); i++) {
+            var rowJson = ds_holiday.getRowJSON(i);
+
+            if(rowJson.holidayNm=="토요일"){
+                gr_holiday.setCellColor(i, "holidayNm", "blue");
+            } else if(rowJson.holidayNm=="일요일"){
+                gr_holiday.setCellColor(i, "holidayNm", "red");
+            }
+        }
+    }
+	// $c.gus.cfGoPrevPosition(ds_holiday, scwin.prevRow);	
+};
+
+scwin.sbm_retriveHoliday_submiterror = function (e) {
+
+};
+
+scwin.sbm_saveHoliday_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_createHoliday_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    await $c.win.alert("성공적으로 생성하였습니다.");
+    scwin.f_Retrieve();
+};
+
+scwin.btn_search1_init_onclick = function (e) {
+    $c.gus.cfInitObjects(table1);
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="table1" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="년도 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="year" class="" id="ica_yr" style="" ref="data:dma_holidayCon.yr" delimiter="/"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete allOption="" chooseOption="" class="" editType="select" id="lc_mm" mandatory="true" ref="data:dma_holidayCon.mm"
+    								search="start" style="width:150px;" submenuSize="auto" visibleRowNum="15">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[1월]]></w2:label>
+    										<w2:value><![CDATA[01]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[2월]]></w2:label>
+    										<w2:value><![CDATA[02]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[3월]]></w2:label>
+    										<w2:value><![CDATA[03]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[4월]]></w2:label>
+    										<w2:value><![CDATA[04]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[5월]]></w2:label>
+    										<w2:value><![CDATA[05]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[6월]]></w2:label>
+    										<w2:value><![CDATA[06]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[7월]]></w2:label>
+    										<w2:value><![CDATA[07]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[8월]]></w2:label>
+    										<w2:value><![CDATA[08]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[9월]]></w2:label>
+    										<w2:value><![CDATA[09]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[10월]]></w2:label>
+    										<w2:value><![CDATA[10]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[11월]]></w2:label>
+    										<w2:value><![CDATA[11]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[12월]]></w2:label>
+    										<w2:value><![CDATA[12]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_search1_init" style="" type="button" ev:onclick="scwin.btn_search1_init_onclick">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="scwin.f_Save" style="" objType="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="공휴일 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridDownFn="scwin.f_downExcelSheet" gridID="gr_holiday"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_holiday" focusMode="cell"
+    					id="gr_holiday" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="16" visibleRowNumFix="true" rowStatusVisible="true" rowStatusWidth="30">
+    					<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column width="70" inputType="text" style="" id="column34" value="일자" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column48" value="공휴일명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column46" value="토요일여부" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column44" value="일요일여부" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column42" value="휴무일여부" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column40" value="지정휴무일여부" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column38" value="특휴여부" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column width="70" inputType="calendar" style="" id="holiday" value="" displayMode="label" mandatory="true" delimiter="/" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="holidayNm" value="" displayMode="label" maxLength="20" mandatory="true"></w2:column>
+    							<w2:column width="100" inputType="checkbox" style="" id="saturdayYn" value="" displayMode="label" checkAlways="false" valueType="binary" falseValue="0" readOnly="true"></w2:column>
+    							<w2:column width="120" inputType="checkbox" style="" id="ddDowYn" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="120" inputType="checkbox" style="" id="vacaDdYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="checkbox" style="" id="dsgVacaDdYn" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="checkbox" style="" id="icnHoliDdYn" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="gr_holiday_spanTotal" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" class="right">
+    						<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" btnRowAddYn="Y" btnDelYn="N" EngYn="N" btnRowDelYn="Y" rowAddFunction="scwin.f_AddRow" rowDelFunction="scwin.f_delRow" gridID="gr_holiday" cancelFunction="scwin.f_Undo">
+    						</w2:udc_bottomGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    			<xf:group id="" class="right"><xf:trigger style="" id="btn_CreateHoliday" type="button" class="btn white" objType="ctrlBtn" ev:onclick="scwin.f_CreateHoliday">
+    					<xf:label><![CDATA[토/일생성]]></xf:label>
+    				</xf:trigger><xf:trigger style="" id="btn_Save" type="button" class="btn" objType="ctrlBtn" userAuth="U" ev:onclick="scwin.f_Save">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger></xf:group></xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

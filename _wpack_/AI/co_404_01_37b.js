@@ -1,0 +1,901 @@
+/*amd /AI/co_404_01_37b.xml 84328 f602818f0d0851a11a9e1b90b9c73be875760174b9267765645fa971b8db91f7 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'closeYear',name:'조회년도',dataType:'text'}},{T:1,N:'w2:key',A:{id:'ver',name:'버전',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bookClsCd',name:'장부구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bizDomCd',name:'사업영역코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eisAcctDeptCd',name:'손익조회구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'lowerDeptIncluYn',name:'하위부서포함여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'distYn',name:'배부포함여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dpctYn',name:'타법인포함여부',dataType:'text'}},{T:1,N:'w2:key',A:{id:'preCloseYear',name:'이전년도',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coCd',name:'법인코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_master',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'coCd',name:'법인코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'acctCd',name:'계정코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftAcctDeptCd',name:'하위부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'coNm',name:'법인명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftAcctDeptNm',name:'하위부서명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'prtAcctNm',name:'계정과목',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultTotamt',name:'전년연계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanTotamt',name:'계획연계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultTotamt',name:'실적연계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt01',name:'전년1월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt01',name:'계획1월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt01',name:'실적1월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt02',name:'전년2월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt02',name:'계획2월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt02',name:'실적2월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt03',name:'전년3월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt03',name:'계획3월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt03',name:'실적3월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt04',name:'전년4월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt04',name:'계획4월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt04',name:'실적4월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt05',name:'전년5월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt05',name:'계획5월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt05',name:'실적5월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt06',name:'전년6월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt06',name:'계획6월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt06',name:'실적6월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt07',name:'전년7월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt07',name:'계획7월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt07',name:'실적7월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt08',name:'전년8월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt08',name:'계획8월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt08',name:'실적8월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt09',name:'전년9월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt09',name:'계획9월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt09',name:'실적9월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt10',name:'전년10월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt10',name:'계획10월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt10',name:'실적10월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt11',name:'전년11월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt11',name:'계획11월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt11',name:'실적11월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befResultAmt12',name:'전년12월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftBizplanAmt12',name:'계획12월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'aftResultAmt12',name:'실적12월',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt',name:'실적합계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt01',name:'실적01',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt02',name:'실적02',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt03',name:'실적03',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt04',name:'실적04',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt05',name:'실적05',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt06',name:'실적06',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt07',name:'실적07',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt08',name:'실적08',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt09',name:'실적09',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt10',name:'실적10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt11',name:'실적11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rsltsAmt12',name:'실적12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt',name:'계획합계',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt01',name:'계획01',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt02',name:'계획02',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt03',name:'계획03',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt04',name:'계획04',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt05',name:'계획05',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt06',name:'계획06',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt07',name:'계획07',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt08',name:'계획08',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt09',name:'계획09',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt10',name:'계획10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt11',name:'계획11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'planAmt12',name:'계획12',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_unit'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cd',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'코드명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdDesc',name:'코드설명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fltrCd1',name:'필터코드1',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_search',action:'/ac.co.rsltsmgnt.rsltsanl.RetrieveBizPrflosPrgsCMD.do',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_master","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_search_submitdone','ev:submiterror':'scwin.sbm_search_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_unit',action:'/cm.zz.RetrieveCodeCMD.do?grpCd=CO012&cd=&cdNm=',method:'post',mediatype:'application/json',mode:'asynchronous',encoding:'UTF-8',ref:'data:json,[{"id":"ds_unit","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_unit","key":"OUT_DS1"}]','ev:submitdone':'scwin.sbm_unit_submitdone','ev:submiterror':'scwin.sbm_unit_submiterror'}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.vCoCd = "";
+scwin.vAcctCd = "";
+scwin.vAcctCd2 = "";
+scwin.vAcctCd3 = "";
+scwin.vAcctCd4 = "";
+scwin.vAcctCd5 = "";
+scwin.hid_PreYear = "";
+scwin.txtCoCd = "";
+scwin.onpageload = function () {
+  scwin.vCoCd = $c.gus.cfIsNull($p, $c.ses.getCoCd()) ? '' : $c.ses.getCoCd();
+  scwin.f_OnLoad();
+};
+scwin.f_OnLoad = function () {
+  scwin.f_FieldClear();
+  scwin.f_GetUnit();
+};
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, tbl_search, [ed_srchCloseYear]);
+  $c.gus.cfInitHidVal($p, tbl_search);
+  ds_search.set("eisAcctDeptCd", "2");
+  let curYear = WebSquare.date.getCurrentServerDate("yyyy");
+  ed_srchCloseYear.setValue(curYear);
+  scwin.txtCoCd = scwin.vCoCd;
+  lc_srchBookClsCd.setFocus();
+};
+scwin.f_Retrieve = async function () {
+  let chk = await $c.gus.cfValidate($p, [tbl_search]);
+  if (!chk) return;
+  scwin.f_SetGridFormat();
+  if (chk_lowerDeptIncluYn.getValue() == "") {
+    gr_master.setColumnVisible("aftAcctDeptNm", false);
+  } else {
+    gr_master.setColumnVisible("aftAcctDeptNm", true);
+  }
+  scwin.hid_PreYear = String(parseInt(ed_srchCloseYear.getValue()) - 1);
+  ds_search.set("preCloseYear", scwin.hid_PreYear);
+  ds_search.set("coCd", scwin.txtCoCd);
+  await $c.sbm.execute($p, sbm_search);
+};
+scwin.f_BizDomPopUp = function () {
+  let paramArray = {};
+  paramArray.pSelectID = 'retrieveBizDomCdInfo';
+  paramArray.pCode = ed_bizDomCd;
+  paramArray.pName = txt_bizDomNm;
+  paramArray.pW = "410";
+  let rtnList = scwin.f_PopUp(paramArray);
+};
+scwin.f_PopUp = function (paramArray) {
+  let codeObj = paramArray.pCode;
+  let nameObj = paramArray.pName;
+  let rtnList = $c.gus.cfCommonPopUp($p, paramArray.pSelectID, $c.gus.cfGetValue($p, codeObj), "", scwin.f_EventCheck(), paramArray.pDispCnt, paramArray.pTitle, paramArray.pWidth, paramArray.pHidden, paramArray.pWhere, paramArray.pW, paramArray.pH, paramArray.pTop, paramArray.pLeft, paramArray.pExistTF, paramArray.pAllSearchTF, paramArray.pWtitleSearch);
+  if (rtnList != null) {
+    if (rtnList[0] != "N/A") {
+      $c.gus.cfSetValue($p, codeObj, rtnList[0]);
+      codeObj.hidVal = rtnList[0];
+      $c.gus.cfSetValue($p, nameObj, rtnList[1]);
+    }
+  } else {
+    $c.gus.cfSetValue($p, codeObj, "");
+    codeObj.hidVal = "";
+    $c.gus.cfSetValue($p, nameObj, "");
+  }
+  return rtnList;
+};
+scwin.f_IsPopUp = function () {
+  let inObj = arguments[0];
+  let inValue = $c.gus.cfGetValue($p, inObj);
+  let hidValue = inObj.hidVal;
+  if ($c.gus.cfIsNull($p, inValue)) {
+    inObj.hidVal = "";
+    for (let i = 1; i < arguments.length; i++) {
+      $c.gus.cfSetValue($p, arguments[i], "");
+    }
+    return false;
+  }
+  if (inValue == hidValue) return false;
+  return true;
+};
+scwin.f_EventCheck = function () {
+  return 'T';
+};
+scwin.f_deptPopUp = function () {
+  let paramArray = {};
+  if (ed_srchCloseYear.getValue().substring(0, 4).trim() == '2006') {
+    paramArray.pSelectID = 'retrieveAcctDeptCdInfoBef';
+  } else {
+    paramArray.pSelectID = 'retrieveAcctDeptCdInfo';
+  }
+  paramArray.pCode = ed_srchAcctDeptCd;
+  paramArray.pName = txt_srchAcctDeptNm;
+  paramArray.pW = "410";
+  paramArray.pWhere = ds_search.get("closeYm");
+  let rtnList = scwin.f_PopUp(paramArray);
+  if (rtnList != null) {
+    ds_search.set("acctDeptLvl", rtnList[6]);
+  } else {
+    ds_search.set("acctDeptLvl", "0");
+  }
+};
+scwin.f_SetGridFormat = function () {
+  let bookClsCd = lc_srchBookClsCd.getValue();
+  if (bookClsCd == "931") {
+    gr_master.setColumnVisible("coCd", false);
+    gr_master.setColumnVisible("acctCd", false);
+    gr_master.setColumnVisible("aftAcctDeptCd", false);
+    gr_master.setColumnVisible("coNm", true);
+    gr_master.setColumnVisible("aftAcctDeptNm", false);
+    gr_master.setColumnVisible("prtAcctNm", true);
+  } else if (bookClsCd == "930") {
+    gr_master.setColumnVisible("coCd", false);
+    gr_master.setColumnVisible("acctCd", false);
+    gr_master.setColumnVisible("aftAcctDeptCd", false);
+    gr_master.setColumnVisible("coNm", true);
+    gr_master.setColumnVisible("aftAcctDeptNm", false);
+    gr_master.setColumnVisible("prtAcctNm", true);
+  }
+};
+scwin.f_GetUnit = async function () {
+  await $c.sbm.execute($p, sbm_unit);
+};
+scwin.f_SetDefaultUnit = function () {
+  if (ds_unit.getRowCount() < 1) return;
+  let index = 0;
+  for (let i = 0; i < ds_unit.getRowCount(); i++) {
+    if (ds_unit.getCellData(i, "fltrCd1") == "1") {
+      index = i;
+      break;
+    }
+  }
+  lc_unit.setSelectedIndex(index);
+};
+scwin.f_SetGridUnit = function () {
+  let bookClsCd = lc_srchBookClsCd.getValue();
+  if (bookClsCd == "931") {
+    scwin.vAcctCd = "9400001";
+    scwin.vAcctCd2 = "5900000";
+  } else if (bookClsCd == "930") {
+    scwin.vAcctCd = "9300006";
+    scwin.vAcctCd2 = "9300002";
+  }
+  let colid;
+  let unitVal = parseFloat(lc_unit.getValue());
+  for (let i = 0; i < ds_master.getRowCount(); i++) {
+    if (ds_master.getCellData(i, "acctCd") != scwin.vAcctCd && ds_master.getCellData(i, "acctCd") != scwin.vAcctCd2 && ds_master.getCellData(i, "acctCd") != "9300001" && ds_master.getCellData(i, "acctCd") != "9300003" && ds_master.getCellData(i, "acctCd") != "9300007") {
+      let colIds = ds_master.getColumnIDs();
+      for (let j = 0; j < colIds.length; j++) {
+        colid = colIds[j];
+        let orgVal = ds_master.getOriginalCellData(i, colid);
+        if (orgVal !== "" && !isNaN(orgVal)) {
+          ds_master.setCellData(i, colid, parseFloat(orgVal) / unitVal);
+        }
+      }
+    }
+  }
+  gr_master.refresh();
+};
+scwin.f_Export = async function () {
+  if (ds_master.getRowCount() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  let sheetTitle = "법인별 손익추이(" + ed_srchCloseYear.getValue() + ")";
+  let fileName = "법인별 손익추이_" + ed_srchCloseYear.getValue() + ".xlsx";
+  $c.data.downloadGridViewExcel($p, gr_master, {
+    "fileName": fileName,
+    "sheetName": sheetTitle
+  });
+};
+scwin.f_Rate = function () {
+  let bookClsCd = lc_srchBookClsCd.getValue();
+  if (bookClsCd == "931") {
+    scwin.vAcctCd = "9400001";
+    scwin.vAcctCd2 = "5900000";
+  } else if (bookClsCd == "930") {
+    scwin.vAcctCd = "9300006";
+    scwin.vAcctCd2 = "9300002";
+  }
+  lc_unit.setSelectedIndex(0);
+  let sellAmtTot = 0;
+  let sellAmt1 = 0,
+    sellAmt2 = 0,
+    sellAmt3 = 0,
+    sellAmt4 = 0,
+    sellAmt5 = 0,
+    sellAmt6 = 0;
+  let sellAmt7 = 0,
+    sellAmt8 = 0,
+    sellAmt9 = 0,
+    sellAmt10 = 0,
+    sellAmt11 = 0,
+    sellAmt12 = 0;
+  let sellPlanAmtTot = 0;
+  let sellPlanAmt1 = 0,
+    sellPlanAmt2 = 0,
+    sellPlanAmt3 = 0,
+    sellPlanAmt4 = 0,
+    sellPlanAmt5 = 0,
+    sellPlanAmt6 = 0;
+  let sellPlanAmt7 = 0,
+    sellPlanAmt8 = 0,
+    sellPlanAmt9 = 0,
+    sellPlanAmt10 = 0,
+    sellPlanAmt11 = 0,
+    sellPlanAmt12 = 0;
+  let sellRsltAmtTot = 0;
+  let sellRsltAmt1 = 0,
+    sellRsltAmt2 = 0,
+    sellRsltAmt3 = 0,
+    sellRsltAmt4 = 0,
+    sellRsltAmt5 = 0,
+    sellRsltAmt6 = 0;
+  let sellRsltAmt7 = 0,
+    sellRsltAmt8 = 0,
+    sellRsltAmt9 = 0,
+    sellRsltAmt10 = 0,
+    sellRsltAmt11 = 0,
+    sellRsltAmt12 = 0;
+  let salesCostTot = 0;
+  let salesCost1 = 0,
+    salesCost2 = 0,
+    salesCost3 = 0,
+    salesCost4 = 0,
+    salesCost5 = 0,
+    salesCost6 = 0;
+  let salesCost7 = 0,
+    salesCost8 = 0,
+    salesCost9 = 0,
+    salesCost10 = 0,
+    salesCost11 = 0,
+    salesCost12 = 0;
+  let salesPlanCostTot = 0;
+  let salesPlanCost1 = 0,
+    salesPlanCost2 = 0,
+    salesPlanCost3 = 0,
+    salesPlanCost4 = 0,
+    salesPlanCost5 = 0,
+    salesPlanCost6 = 0;
+  let salesPlanCost7 = 0,
+    salesPlanCost8 = 0,
+    salesPlanCost9 = 0,
+    salesPlanCost10 = 0,
+    salesPlanCost11 = 0,
+    salesPlanCost12 = 0;
+  let salesRsltCostTot = 0;
+  let salesRsltCost1 = 0,
+    salesRsltCost2 = 0,
+    salesRsltCost3 = 0,
+    salesRsltCost4 = 0,
+    salesRsltCost5 = 0,
+    salesRsltCost6 = 0;
+  let salesRsltCost7 = 0,
+    salesRsltCost8 = 0,
+    salesRsltCost9 = 0,
+    salesRsltCost10 = 0,
+    salesRsltCost11 = 0,
+    salesRsltCost12 = 0;
+  let changeTot = 0;
+  let change1 = 0,
+    change2 = 0,
+    change3 = 0,
+    change4 = 0,
+    change5 = 0,
+    change6 = 0;
+  let change7 = 0,
+    change8 = 0,
+    change9 = 0,
+    change10 = 0,
+    change11 = 0,
+    change12 = 0;
+  let changePlanTot = 0;
+  let changePlan1 = 0,
+    changePlan2 = 0,
+    changePlan3 = 0,
+    changePlan4 = 0,
+    changePlan5 = 0,
+    changePlan6 = 0;
+  let changePlan7 = 0,
+    changePlan8 = 0,
+    changePlan9 = 0,
+    changePlan10 = 0,
+    changePlan11 = 0,
+    changePlan12 = 0;
+  let changeRsltTot = 0;
+  let changeRslt1 = 0,
+    changeRslt2 = 0,
+    changeRslt3 = 0,
+    changeRslt4 = 0,
+    changeRslt5 = 0,
+    changeRslt6 = 0;
+  let changeRslt7 = 0,
+    changeRslt8 = 0,
+    changeRslt9 = 0,
+    changeRslt10 = 0,
+    changeRslt11 = 0,
+    changeRslt12 = 0;
+  let orgnSalesTot = 0;
+  let orgnSales1 = 0,
+    orgnSales2 = 0,
+    orgnSales3 = 0,
+    orgnSales4 = 0,
+    orgnSales5 = 0,
+    orgnSales6 = 0;
+  let orgnSales7 = 0,
+    orgnSales8 = 0,
+    orgnSales9 = 0,
+    orgnSales10 = 0,
+    orgnSales11 = 0,
+    orgnSales12 = 0;
+  let orgnSalesPlanTot = 0;
+  let orgnSalesPlan1 = 0,
+    orgnSalesPlan2 = 0,
+    orgnSalesPlan3 = 0,
+    orgnSalesPlan4 = 0,
+    orgnSalesPlan5 = 0,
+    orgnSalesPlan6 = 0;
+  let orgnSalesPlan7 = 0,
+    orgnSalesPlan8 = 0,
+    orgnSalesPlan9 = 0,
+    orgnSalesPlan10 = 0,
+    orgnSalesPlan11 = 0,
+    orgnSalesPlan12 = 0;
+  let orgnSalesRsltTot = 0;
+  let orgnSalesRslt1 = 0,
+    orgnSalesRslt2 = 0,
+    orgnSalesRslt3 = 0,
+    orgnSalesRslt4 = 0,
+    orgnSalesRslt5 = 0,
+    orgnSalesRslt6 = 0;
+  let orgnSalesRslt7 = 0,
+    orgnSalesRslt8 = 0,
+    orgnSalesRslt9 = 0,
+    orgnSalesRslt10 = 0,
+    orgnSalesRslt11 = 0,
+    orgnSalesRslt12 = 0;
+  let gsProfitTot = 0;
+  let gsProfit1 = 0,
+    gsProfit2 = 0,
+    gsProfit3 = 0,
+    gsProfit4 = 0,
+    gsProfit5 = 0,
+    gsProfit6 = 0;
+  let gsProfit7 = 0,
+    gsProfit8 = 0,
+    gsProfit9 = 0,
+    gsProfit10 = 0,
+    gsProfit11 = 0,
+    gsProfit12 = 0;
+  let gsProfitPlanTot = 0;
+  let gsProfitPlan1 = 0,
+    gsProfitPlan2 = 0,
+    gsProfitPlan3 = 0,
+    gsProfitPlan4 = 0,
+    gsProfitPlan5 = 0,
+    gsProfitPlan6 = 0;
+  let gsProfitPlan7 = 0,
+    gsProfitPlan8 = 0,
+    gsProfitPlan9 = 0,
+    gsProfitPlan10 = 0,
+    gsProfitPlan11 = 0,
+    gsProfitPlan12 = 0;
+  let gsProfitRsltTot = 0;
+  let gsProfitRslt1 = 0,
+    gsProfitRslt2 = 0,
+    gsProfitRslt3 = 0,
+    gsProfitRslt4 = 0,
+    gsProfitRslt5 = 0,
+    gsProfitRslt6 = 0;
+  let gsProfitRslt7 = 0,
+    gsProfitRslt8 = 0,
+    gsProfitRslt9 = 0,
+    gsProfitRslt10 = 0,
+    gsProfitRslt11 = 0,
+    gsProfitRslt12 = 0;
+  let fixedCostTot = 0;
+  let fixedCost1 = 0,
+    fixedCost2 = 0,
+    fixedCost3 = 0,
+    fixedCost4 = 0,
+    fixedCost5 = 0,
+    fixedCost6 = 0;
+  let fixedCost7 = 0,
+    fixedCost8 = 0,
+    fixedCost9 = 0,
+    fixedCost10 = 0,
+    fixedCost11 = 0,
+    fixedCost12 = 0;
+  let fixedCostPlanTot = 0;
+  let fixedCostPlan1 = 0,
+    fixedCostPlan2 = 0,
+    fixedCostPlan3 = 0,
+    fixedCostPlan4 = 0,
+    fixedCostPlan5 = 0,
+    fixedCostPlan6 = 0;
+  let fixedCostPlan7 = 0,
+    fixedCostPlan8 = 0,
+    fixedCostPlan9 = 0,
+    fixedCostPlan10 = 0,
+    fixedCostPlan11 = 0,
+    fixedCostPlan12 = 0;
+  let fixedCostRsltTot = 0;
+  let fixedCostRslt1 = 0,
+    fixedCostRslt2 = 0,
+    fixedCostRslt3 = 0,
+    fixedCostRslt4 = 0,
+    fixedCostRslt5 = 0,
+    fixedCostRslt6 = 0;
+  let fixedCostRslt7 = 0,
+    fixedCostRslt8 = 0,
+    fixedCostRslt9 = 0,
+    fixedCostRslt10 = 0,
+    fixedCostRslt11 = 0,
+    fixedCostRslt12 = 0;
+  let unitVal = parseFloat(lc_unit.getValue());
+  for (let i = 0; i < ds_master.getRowCount(); i++) {
+    if (ds_master.getCellData(i, "acctCd") == "4100000") {
+      sellAmtTot = parseInt(ds_master.getCellData(i, "befResultTotamt"));
+      sellAmt1 = parseInt(ds_master.getCellData(i, "befResultAmt01"));
+      sellAmt2 = parseInt(ds_master.getCellData(i, "befResultAmt02"));
+      sellAmt3 = parseInt(ds_master.getCellData(i, "befResultAmt03"));
+      sellAmt4 = parseInt(ds_master.getCellData(i, "befResultAmt04"));
+      sellAmt5 = parseInt(ds_master.getCellData(i, "befResultAmt05"));
+      sellAmt6 = parseInt(ds_master.getCellData(i, "befResultAmt06"));
+      sellAmt7 = parseInt(ds_master.getCellData(i, "befResultAmt07"));
+      sellAmt8 = parseInt(ds_master.getCellData(i, "befResultAmt08"));
+      sellAmt9 = parseInt(ds_master.getCellData(i, "befResultAmt09"));
+      sellAmt10 = parseInt(ds_master.getCellData(i, "befResultAmt10"));
+      sellAmt11 = parseInt(ds_master.getCellData(i, "befResultAmt11"));
+      sellAmt12 = parseInt(ds_master.getCellData(i, "befResultAmt12"));
+      sellPlanAmtTot = parseInt(ds_master.getCellData(i, "aftBizplanTotamt"));
+      sellPlanAmt1 = parseInt(ds_master.getCellData(i, "aftBizplanAmt01"));
+      sellPlanAmt2 = parseInt(ds_master.getCellData(i, "aftBizplanAmt02"));
+      sellPlanAmt3 = parseInt(ds_master.getCellData(i, "aftBizplanAmt03"));
+      sellPlanAmt4 = parseInt(ds_master.getCellData(i, "aftBizplanAmt04"));
+      sellPlanAmt5 = parseInt(ds_master.getCellData(i, "aftBizplanAmt05"));
+      sellPlanAmt6 = parseInt(ds_master.getCellData(i, "aftBizplanAmt06"));
+      sellPlanAmt7 = parseInt(ds_master.getCellData(i, "aftBizplanAmt07"));
+      sellPlanAmt8 = parseInt(ds_master.getCellData(i, "aftBizplanAmt08"));
+      sellPlanAmt9 = parseInt(ds_master.getCellData(i, "aftBizplanAmt09"));
+      sellPlanAmt10 = parseInt(ds_master.getCellData(i, "aftBizplanAmt10"));
+      sellPlanAmt11 = parseInt(ds_master.getCellData(i, "aftBizplanAmt11"));
+      sellPlanAmt12 = parseInt(ds_master.getCellData(i, "aftBizplanAmt12"));
+      sellRsltAmtTot = parseInt(ds_master.getCellData(i, "aftResultTotamt"));
+      sellRsltAmt1 = parseInt(ds_master.getCellData(i, "aftResultAmt01"));
+      sellRsltAmt2 = parseInt(ds_master.getCellData(i, "aftResultAmt02"));
+      sellRsltAmt3 = parseInt(ds_master.getCellData(i, "aftResultAmt03"));
+      sellRsltAmt4 = parseInt(ds_master.getCellData(i, "aftResultAmt04"));
+      sellRsltAmt5 = parseInt(ds_master.getCellData(i, "aftResultAmt05"));
+      sellRsltAmt6 = parseInt(ds_master.getCellData(i, "aftResultAmt06"));
+      sellRsltAmt7 = parseInt(ds_master.getCellData(i, "aftResultAmt07"));
+      sellRsltAmt8 = parseInt(ds_master.getCellData(i, "aftResultAmt08"));
+      sellRsltAmt9 = parseInt(ds_master.getCellData(i, "aftResultAmt09"));
+      sellRsltAmt10 = parseInt(ds_master.getCellData(i, "aftResultAmt10"));
+      sellRsltAmt11 = parseInt(ds_master.getCellData(i, "aftResultAmt11"));
+      sellRsltAmt12 = parseInt(ds_master.getCellData(i, "aftResultAmt12"));
+    }
+    if (ds_master.getCellData(i, "acctCd") == "5900000") {
+      salesCostTot = parseInt(ds_master.getCellData(i, "rsltsAmt"));
+      salesCost1 = parseInt(ds_master.getCellData(i, "rsltsAmt01"));
+      salesCost2 = parseInt(ds_master.getCellData(i, "rsltsAmt02"));
+      salesCost3 = parseInt(ds_master.getCellData(i, "rsltsAmt03"));
+      salesCost4 = parseInt(ds_master.getCellData(i, "rsltsAmt04"));
+      salesCost5 = parseInt(ds_master.getCellData(i, "rsltsAmt05"));
+      salesCost6 = parseInt(ds_master.getCellData(i, "rsltsAmt06"));
+      salesCost7 = parseInt(ds_master.getCellData(i, "rsltsAmt07"));
+      salesCost8 = parseInt(ds_master.getCellData(i, "rsltsAmt08"));
+      salesCost9 = parseInt(ds_master.getCellData(i, "rsltsAmt09"));
+      salesCost10 = parseInt(ds_master.getCellData(i, "rsltsAmt10"));
+      salesCost11 = parseInt(ds_master.getCellData(i, "rsltsAmt11"));
+      salesCost12 = parseInt(ds_master.getCellData(i, "rsltsAmt12"));
+      salesPlanCostTot = parseInt(ds_master.getCellData(i, "planAmt"));
+      salesPlanCost1 = parseInt(ds_master.getCellData(i, "planAmt01"));
+      salesPlanCost2 = parseInt(ds_master.getCellData(i, "planAmt02"));
+      salesPlanCost3 = parseInt(ds_master.getCellData(i, "planAmt03"));
+      salesPlanCost4 = parseInt(ds_master.getCellData(i, "planAmt04"));
+      salesPlanCost5 = parseInt(ds_master.getCellData(i, "planAmt05"));
+      salesPlanCost6 = parseInt(ds_master.getCellData(i, "planAmt06"));
+      salesPlanCost7 = parseInt(ds_master.getCellData(i, "planAmt07"));
+      salesPlanCost8 = parseInt(ds_master.getCellData(i, "planAmt08"));
+      salesPlanCost9 = parseInt(ds_master.getCellData(i, "planAmt09"));
+      salesPlanCost10 = parseInt(ds_master.getCellData(i, "planAmt10"));
+      salesPlanCost11 = parseInt(ds_master.getCellData(i, "planAmt11"));
+      salesPlanCost12 = parseInt(ds_master.getCellData(i, "planAmt12"));
+      salesRsltCostTot = parseInt(ds_master.getCellData(i, "planAmt"));
+      salesRsltCost1 = parseInt(ds_master.getCellData(i, "planAmt01"));
+      salesRsltCost2 = parseInt(ds_master.getCellData(i, "planAmt02"));
+      salesRsltCost3 = parseInt(ds_master.getCellData(i, "planAmt03"));
+      salesRsltCost4 = parseInt(ds_master.getCellData(i, "planAmt04"));
+      salesRsltCost5 = parseInt(ds_master.getCellData(i, "planAmt05"));
+      salesRsltCost6 = parseInt(ds_master.getCellData(i, "planAmt06"));
+      salesRsltCost7 = parseInt(ds_master.getCellData(i, "planAmt07"));
+      salesRsltCost8 = parseInt(ds_master.getCellData(i, "planAmt08"));
+      salesRsltCost9 = parseInt(ds_master.getCellData(i, "planAmt09"));
+      salesRsltCost10 = parseInt(ds_master.getCellData(i, "planAmt10"));
+      salesRsltCost11 = parseInt(ds_master.getCellData(i, "planAmt11"));
+      salesRsltCost12 = parseInt(ds_master.getCellData(i, "planAmt12"));
+    }
+    if (ds_master.getCellData(i, "acctCd") == "9400001") {
+      changeTot = parseInt(ds_master.getCellData(i, "befResultTotamt"));
+      change1 = parseInt(ds_master.getCellData(i, "befResultAmt01"));
+      change2 = parseInt(ds_master.getCellData(i, "befResultAmt02"));
+      change3 = parseInt(ds_master.getCellData(i, "befResultAmt03"));
+      change4 = parseInt(ds_master.getCellData(i, "befResultAmt04"));
+      change5 = parseInt(ds_master.getCellData(i, "befResultAmt05"));
+      change6 = parseInt(ds_master.getCellData(i, "befResultAmt06"));
+      change7 = parseInt(ds_master.getCellData(i, "befResultAmt07"));
+      change8 = parseInt(ds_master.getCellData(i, "befResultAmt08"));
+      change9 = parseInt(ds_master.getCellData(i, "befResultAmt09"));
+      change10 = parseInt(ds_master.getCellData(i, "befResultAmt10"));
+      change11 = parseInt(ds_master.getCellData(i, "befResultAmt11"));
+      change12 = parseInt(ds_master.getCellData(i, "befResultAmt12"));
+      changePlanTot = parseInt(ds_master.getCellData(i, "aftBizplanTotamt"));
+      changePlan1 = parseInt(ds_master.getCellData(i, "aftBizplanAmt01"));
+      changePlan2 = parseInt(ds_master.getCellData(i, "aftBizplanAmt02"));
+      changePlan3 = parseInt(ds_master.getCellData(i, "aftBizplanAmt03"));
+      changePlan4 = parseInt(ds_master.getCellData(i, "aftBizplanAmt04"));
+      changePlan5 = parseInt(ds_master.getCellData(i, "aftBizplanAmt05"));
+      changePlan6 = parseInt(ds_master.getCellData(i, "aftBizplanAmt06"));
+      changePlan7 = parseInt(ds_master.getCellData(i, "aftBizplanAmt07"));
+      changePlan8 = parseInt(ds_master.getCellData(i, "aftBizplanAmt08"));
+      changePlan9 = parseInt(ds_master.getCellData(i, "aftBizplanAmt09"));
+      changePlan10 = parseInt(ds_master.getCellData(i, "aftBizplanAmt10"));
+      changePlan11 = parseInt(ds_master.getCellData(i, "aftBizplanAmt11"));
+      changePlan12 = parseInt(ds_master.getCellData(i, "aftBizplanAmt12"));
+      changeRsltTot = parseInt(ds_master.getCellData(i, "aftResultTotamt"));
+      changeRslt1 = parseInt(ds_master.getCellData(i, "aftResultAmt01"));
+      changeRslt2 = parseInt(ds_master.getCellData(i, "aftResultAmt02"));
+      changeRslt3 = parseInt(ds_master.getCellData(i, "aftResultAmt03"));
+      changeRslt4 = parseInt(ds_master.getCellData(i, "aftResultAmt04"));
+      changeRslt5 = parseInt(ds_master.getCellData(i, "aftResultAmt05"));
+      changeRslt6 = parseInt(ds_master.getCellData(i, "aftResultAmt06"));
+      changeRslt7 = parseInt(ds_master.getCellData(i, "aftResultAmt07"));
+      changeRslt8 = parseInt(ds_master.getCellData(i, "aftResultAmt08"));
+      changeRslt9 = parseInt(ds_master.getCellData(i, "aftResultAmt09"));
+      changeRslt10 = parseInt(ds_master.getCellData(i, "aftResultAmt10"));
+      changeRslt11 = parseInt(ds_master.getCellData(i, "aftResultAmt11"));
+      changeRslt12 = parseInt(ds_master.getCellData(i, "aftResultAmt12"));
+    }
+    if (ds_master.getCellData(i, "acctCd") == "4200000") {
+      orgnSalesTot = parseInt(ds_master.getCellData(i, "befResultTotamt"));
+      orgnSales1 = parseInt(ds_master.getCellData(i, "befResultAmt01"));
+      orgnSales2 = parseInt(ds_master.getCellData(i, "befResultAmt02"));
+      orgnSales3 = parseInt(ds_master.getCellData(i, "befResultAmt03"));
+      orgnSales4 = parseInt(ds_master.getCellData(i, "befResultAmt04"));
+      orgnSales5 = parseInt(ds_master.getCellData(i, "befResultAmt05"));
+      orgnSales6 = parseInt(ds_master.getCellData(i, "befResultAmt06"));
+      orgnSales7 = parseInt(ds_master.getCellData(i, "befResultAmt07"));
+      orgnSales8 = parseInt(ds_master.getCellData(i, "befResultAmt08"));
+      orgnSales9 = parseInt(ds_master.getCellData(i, "befResultAmt09"));
+      orgnSales10 = parseInt(ds_master.getCellData(i, "befResultAmt10"));
+      orgnSales11 = parseInt(ds_master.getCellData(i, "befResultAmt11"));
+      orgnSales12 = parseInt(ds_master.getCellData(i, "befResultAmt12"));
+      orgnSalesPlanTot = parseInt(ds_master.getCellData(i, "aftBizplanTotamt"));
+      orgnSalesPlan1 = parseInt(ds_master.getCellData(i, "aftBizplanAmt01"));
+      orgnSalesPlan2 = parseInt(ds_master.getCellData(i, "aftBizplanAmt02"));
+      orgnSalesPlan3 = parseInt(ds_master.getCellData(i, "aftBizplanAmt03"));
+      orgnSalesPlan4 = parseInt(ds_master.getCellData(i, "aftBizplanAmt04"));
+      orgnSalesPlan5 = parseInt(ds_master.getCellData(i, "aftBizplanAmt05"));
+      orgnSalesPlan6 = parseInt(ds_master.getCellData(i, "aftBizplanAmt06"));
+      orgnSalesPlan7 = parseInt(ds_master.getCellData(i, "aftBizplanAmt07"));
+      orgnSalesPlan8 = parseInt(ds_master.getCellData(i, "aftBizplanAmt08"));
+      orgnSalesPlan9 = parseInt(ds_master.getCellData(i, "aftBizplanAmt09"));
+      orgnSalesPlan10 = parseInt(ds_master.getCellData(i, "aftBizplanAmt10"));
+      orgnSalesPlan11 = parseInt(ds_master.getCellData(i, "aftBizplanAmt11"));
+      orgnSalesPlan12 = parseInt(ds_master.getCellData(i, "aftBizplanAmt12"));
+      orgnSalesRsltTot = parseInt(ds_master.getCellData(i, "aftResultTotamt"));
+      orgnSalesRslt1 = parseInt(ds_master.getCellData(i, "aftResultAmt01"));
+      orgnSalesRslt2 = parseInt(ds_master.getCellData(i, "aftResultAmt02"));
+      orgnSalesRslt3 = parseInt(ds_master.getCellData(i, "aftResultAmt03"));
+      orgnSalesRslt4 = parseInt(ds_master.getCellData(i, "aftResultAmt04"));
+      orgnSalesRslt5 = parseInt(ds_master.getCellData(i, "aftResultAmt05"));
+      orgnSalesRslt6 = parseInt(ds_master.getCellData(i, "aftResultAmt06"));
+      orgnSalesRslt7 = parseInt(ds_master.getCellData(i, "aftResultAmt07"));
+      orgnSalesRslt8 = parseInt(ds_master.getCellData(i, "aftResultAmt08"));
+      orgnSalesRslt9 = parseInt(ds_master.getCellData(i, "aftResultAmt09"));
+      orgnSalesRslt10 = parseInt(ds_master.getCellData(i, "aftResultAmt10"));
+      orgnSalesRslt11 = parseInt(ds_master.getCellData(i, "aftResultAmt11"));
+      orgnSalesRslt12 = parseInt(ds_master.getCellData(i, "aftResultAmt12"));
+    }
+    if (ds_master.getCellData(i, "acctCd") == "6700000") {
+      gsProfitTot = parseInt(ds_master.getCellData(i, "befResultTotamt"));
+      gsProfit1 = parseInt(ds_master.getCellData(i, "befResultAmt01"));
+      gsProfit2 = parseInt(ds_master.getCellData(i, "befResultAmt02"));
+      gsProfit3 = parseInt(ds_master.getCellData(i, "befResultAmt03"));
+      gsProfit4 = parseInt(ds_master.getCellData(i, "befResultAmt04"));
+      gsProfit5 = parseInt(ds_master.getCellData(i, "befResultAmt05"));
+      gsProfit6 = parseInt(ds_master.getCellData(i, "befResultAmt06"));
+      gsProfit7 = parseInt(ds_master.getCellData(i, "befResultAmt07"));
+      gsProfit8 = parseInt(ds_master.getCellData(i, "befResultAmt08"));
+      gsProfit9 = parseInt(ds_master.getCellData(i, "befResultAmt09"));
+      gsProfit10 = parseInt(ds_master.getCellData(i, "befResultAmt10"));
+      gsProfit11 = parseInt(ds_master.getCellData(i, "befResultAmt11"));
+      gsProfit12 = parseInt(ds_master.getCellData(i, "befResultAmt12"));
+      gsProfitPlanTot = parseInt(ds_master.getCellData(i, "aftBizplanTotamt"));
+      gsProfitPlan1 = parseInt(ds_master.getCellData(i, "aftBizplanAmt01"));
+      gsProfitPlan2 = parseInt(ds_master.getCellData(i, "aftBizplanAmt02"));
+      gsProfitPlan3 = parseInt(ds_master.getCellData(i, "aftBizplanAmt03"));
+      gsProfitPlan4 = parseInt(ds_master.getCellData(i, "aftBizplanAmt04"));
+      gsProfitPlan5 = parseInt(ds_master.getCellData(i, "aftBizplanAmt05"));
+      gsProfitPlan6 = parseInt(ds_master.getCellData(i, "aftBizplanAmt06"));
+      gsProfitPlan7 = parseInt(ds_master.getCellData(i, "aftBizplanAmt07"));
+      gsProfitPlan8 = parseInt(ds_master.getCellData(i, "aftBizplanAmt08"));
+      gsProfitPlan9 = parseInt(ds_master.getCellData(i, "aftBizplanAmt09"));
+      gsProfitPlan10 = parseInt(ds_master.getCellData(i, "aftBizplanAmt10"));
+      gsProfitPlan11 = parseInt(ds_master.getCellData(i, "aftBizplanAmt11"));
+      gsProfitPlan12 = parseInt(ds_master.getCellData(i, "aftBizplanAmt12"));
+      gsProfitRsltTot = parseInt(ds_master.getCellData(i, "aftResultTotamt"));
+      gsProfitRslt1 = parseInt(ds_master.getCellData(i, "aftResultAmt01"));
+      gsProfitRslt2 = parseInt(ds_master.getCellData(i, "aftResultAmt02"));
+      gsProfitRslt3 = parseInt(ds_master.getCellData(i, "aftResultAmt03"));
+      gsProfitRslt4 = parseInt(ds_master.getCellData(i, "aftResultAmt04"));
+      gsProfitRslt5 = parseInt(ds_master.getCellData(i, "aftResultAmt05"));
+      gsProfitRslt6 = parseInt(ds_master.getCellData(i, "aftResultAmt06"));
+      gsProfitRslt7 = parseInt(ds_master.getCellData(i, "aftResultAmt07"));
+      gsProfitRslt8 = parseInt(ds_master.getCellData(i, "aftResultAmt08"));
+      gsProfitRslt9 = parseInt(ds_master.getCellData(i, "aftResultAmt09"));
+      gsProfitRslt10 = parseInt(ds_master.getCellData(i, "aftResultAmt10"));
+      gsProfitRslt11 = parseInt(ds_master.getCellData(i, "aftResultAmt11"));
+      gsProfitRslt12 = parseInt(ds_master.getCellData(i, "aftResultAmt12"));
+    }
+    if (ds_master.getCellData(i, "acctCd") == "9400002") {
+      fixedCostTot = parseInt(ds_master.getCellData(i, "befResultTotamt"));
+      fixedCost1 = parseInt(ds_master.getCellData(i, "befResultAmt01"));
+      fixedCost2 = parseInt(ds_master.getCellData(i, "befResultAmt02"));
+      fixedCost3 = parseInt(ds_master.getCellData(i, "befResultAmt03"));
+      fixedCost4 = parseInt(ds_master.getCellData(i, "befResultAmt04"));
+      fixedCost5 = parseInt(ds_master.getCellData(i, "befResultAmt05"));
+      fixedCost6 = parseInt(ds_master.getCellData(i, "befResultAmt06"));
+      fixedCost7 = parseInt(ds_master.getCellData(i, "befResultAmt07"));
+      fixedCost8 = parseInt(ds_master.getCellData(i, "befResultAmt08"));
+      fixedCost9 = parseInt(ds_master.getCellData(i, "befResultAmt09"));
+      fixedCost10 = parseInt(ds_master.getCellData(i, "befResultAmt10"));
+      fixedCost11 = parseInt(ds_master.getCellData(i, "befResultAmt11"));
+      fixedCost12 = parseInt(ds_master.getCellData(i, "befResultAmt12"));
+      fixedCostPlanTot = parseInt(ds_master.getCellData(i, "aftBizplanTotamt"));
+      fixedCostPlan1 = parseInt(ds_master.getCellData(i, "aftBizplanAmt01"));
+      fixedCostPlan2 = parseInt(ds_master.getCellData(i, "aftBizplanAmt02"));
+      fixedCostPlan3 = parseInt(ds_master.getCellData(i, "aftBizplanAmt03"));
+      fixedCostPlan4 = parseInt(ds_master.getCellData(i, "aftBizplanAmt04"));
+      fixedCostPlan5 = parseInt(ds_master.getCellData(i, "aftBizplanAmt05"));
+      fixedCostPlan6 = parseInt(ds_master.getCellData(i, "aftBizplanAmt06"));
+      fixedCostPlan7 = parseInt(ds_master.getCellData(i, "aftBizplanAmt07"));
+      fixedCostPlan8 = parseInt(ds_master.getCellData(i, "aftBizplanAmt08"));
+      fixedCostPlan9 = parseInt(ds_master.getCellData(i, "aftBizplanAmt09"));
+      fixedCostPlan10 = parseInt(ds_master.getCellData(i, "aftBizplanAmt10"));
+      fixedCostPlan11 = parseInt(ds_master.getCellData(i, "aftBizplanAmt11"));
+      fixedCostPlan12 = parseInt(ds_master.getCellData(i, "aftBizplanAmt12"));
+      fixedCostRsltTot = parseInt(ds_master.getCellData(i, "aftResultTotamt"));
+      fixedCostRslt1 = parseInt(ds_master.getCellData(i, "aftResultAmt01"));
+      fixedCostRslt2 = parseInt(ds_master.getCellData(i, "aftResultAmt02"));
+      fixedCostRslt3 = parseInt(ds_master.getCellData(i, "aftResultAmt03"));
+      fixedCostRslt4 = parseInt(ds_master.getCellData(i, "aftResultAmt04"));
+      fixedCostRslt5 = parseInt(ds_master.getCellData(i, "aftResultAmt05"));
+      fixedCostRslt6 = parseInt(ds_master.getCellData(i, "aftResultAmt06"));
+      fixedCostRslt7 = parseInt(ds_master.getCellData(i, "aftResultAmt07"));
+      fixedCostRslt8 = parseInt(ds_master.getCellData(i, "aftResultAmt08"));
+      fixedCostRslt9 = parseInt(ds_master.getCellData(i, "aftResultAmt09"));
+      fixedCostRslt10 = parseInt(ds_master.getCellData(i, "aftResultAmt10"));
+      fixedCostRslt11 = parseInt(ds_master.getCellData(i, "aftResultAmt11"));
+      fixedCostRslt12 = parseInt(ds_master.getCellData(i, "aftResultAmt12"));
+    }
+    if (ds_master.getCellData(i, "acctCd") == scwin.vAcctCd) {
+      ds_master.setCellData(i, "befResultTotamt", sellAmtTot < 1 ? 0 : Math.round(changeTot / sellAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt01", sellAmt1 < 1 ? 0 : Math.round(change1 / sellAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt02", sellAmt2 < 1 ? 0 : Math.round(change2 / sellAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt03", sellAmt3 < 1 ? 0 : Math.round(change3 / sellAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt04", sellAmt4 < 1 ? 0 : Math.round(change4 / sellAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt05", sellAmt5 < 1 ? 0 : Math.round(change5 / sellAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt06", sellAmt6 < 1 ? 0 : Math.round(change6 / sellAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt07", sellAmt7 < 1 ? 0 : Math.round(change7 / sellAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt08", sellAmt8 < 1 ? 0 : Math.round(change8 / sellAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt09", sellAmt9 < 1 ? 0 : Math.round(change9 / sellAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt10", sellAmt10 < 1 ? 0 : Math.round(change10 / sellAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt11", sellAmt11 < 1 ? 0 : Math.round(change11 / sellAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt12", sellAmt12 < 1 ? 0 : Math.round(change12 / sellAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanTotamt", sellPlanAmtTot < 1 ? 0 : Math.round(changePlanTot / sellPlanAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt01", sellPlanAmt1 < 1 ? 0 : Math.round(changePlan1 / sellPlanAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt02", sellPlanAmt2 < 1 ? 0 : Math.round(changePlan2 / sellPlanAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt03", sellPlanAmt3 < 1 ? 0 : Math.round(changePlan3 / sellPlanAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt04", sellPlanAmt4 < 1 ? 0 : Math.round(changePlan4 / sellPlanAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt05", sellPlanAmt5 < 1 ? 0 : Math.round(changePlan5 / sellPlanAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt06", sellPlanAmt6 < 1 ? 0 : Math.round(changePlan6 / sellPlanAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt07", sellPlanAmt7 < 1 ? 0 : Math.round(changePlan7 / sellPlanAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt08", sellPlanAmt8 < 1 ? 0 : Math.round(changePlan8 / sellPlanAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt09", sellPlanAmt9 < 1 ? 0 : Math.round(changePlan9 / sellPlanAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt10", sellPlanAmt10 < 1 ? 0 : Math.round(changePlan10 / sellPlanAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt11", sellPlanAmt11 < 1 ? 0 : Math.round(changePlan11 / sellPlanAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt12", sellPlanAmt12 < 1 ? 0 : Math.round(changePlan12 / sellPlanAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultTotamt", sellRsltAmtTot < 1 ? 0 : Math.round(changeRsltTot / sellRsltAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt01", sellRsltAmt1 < 1 ? 0 : Math.round(changeRslt1 / sellRsltAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt02", sellRsltAmt2 < 1 ? 0 : Math.round(changeRslt2 / sellRsltAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt03", sellRsltAmt3 < 1 ? 0 : Math.round(changeRslt3 / sellRsltAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt04", sellRsltAmt4 < 1 ? 0 : Math.round(changeRslt4 / sellRsltAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt05", sellRsltAmt5 < 1 ? 0 : Math.round(changeRslt5 / sellRsltAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt06", sellRsltAmt6 < 1 ? 0 : Math.round(changeRslt6 / sellRsltAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt07", sellRsltAmt7 < 1 ? 0 : Math.round(changeRslt7 / sellRsltAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt08", sellRsltAmt8 < 1 ? 0 : Math.round(changeRslt8 / sellRsltAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt09", sellRsltAmt9 < 1 ? 0 : Math.round(changeRslt9 / sellRsltAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt10", sellRsltAmt10 < 1 ? 0 : Math.round(changeRslt10 / sellRsltAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt11", sellRsltAmt11 < 1 ? 0 : Math.round(changeRslt11 / sellRsltAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt12", sellRsltAmt12 < 1 ? 0 : Math.round(changeRslt12 / sellRsltAmt12 * unitVal * 1000) / 10);
+    }
+    if (ds_master.getCellData(i, "acctCd") == scwin.vAcctCd2) {
+      ds_master.setCellData(i, "befResultTotamt", sellAmtTot < 1 ? 0 : Math.round(salesCostTot / sellAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt01", sellAmt1 < 1 ? 0 : Math.round(salesCost1 / sellAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt02", sellAmt2 < 1 ? 0 : Math.round(salesCost2 / sellAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt03", sellAmt3 < 1 ? 0 : Math.round(salesCost3 / sellAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt04", sellAmt4 < 1 ? 0 : Math.round(salesCost4 / sellAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt05", sellAmt5 < 1 ? 0 : Math.round(salesCost5 / sellAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt06", sellAmt6 < 1 ? 0 : Math.round(salesCost6 / sellAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt07", sellAmt7 < 1 ? 0 : Math.round(salesCost7 / sellAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt08", sellAmt8 < 1 ? 0 : Math.round(salesCost8 / sellAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt09", sellAmt9 < 1 ? 0 : Math.round(salesCost9 / sellAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt10", sellAmt10 < 1 ? 0 : Math.round(salesCost10 / sellAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt11", sellAmt11 < 1 ? 0 : Math.round(salesCost11 / sellAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt12", sellAmt12 < 1 ? 0 : Math.round(salesCost12 / sellAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanTotamt", sellPlanAmtTot < 1 ? 0 : Math.round(salesPlanCostTot / sellPlanAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt01", sellPlanAmt1 < 1 ? 0 : Math.round(salesPlanCost1 / sellPlanAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt02", sellPlanAmt2 < 1 ? 0 : Math.round(salesPlanCost2 / sellPlanAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt03", sellPlanAmt3 < 1 ? 0 : Math.round(salesPlanCost3 / sellPlanAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt04", sellPlanAmt4 < 1 ? 0 : Math.round(salesPlanCost4 / sellPlanAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt05", sellPlanAmt5 < 1 ? 0 : Math.round(salesPlanCost5 / sellPlanAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt06", sellPlanAmt6 < 1 ? 0 : Math.round(salesPlanCost6 / sellPlanAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt07", sellPlanAmt7 < 1 ? 0 : Math.round(salesPlanCost7 / sellPlanAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt08", sellPlanAmt8 < 1 ? 0 : Math.round(salesPlanCost8 / sellPlanAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt09", sellPlanAmt9 < 1 ? 0 : Math.round(salesPlanCost9 / sellPlanAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt10", sellPlanAmt10 < 1 ? 0 : Math.round(salesPlanCost10 / sellPlanAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt11", sellPlanAmt11 < 1 ? 0 : Math.round(salesPlanCost11 / sellPlanAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt12", sellPlanAmt12 < 1 ? 0 : Math.round(salesPlanCost12 / sellPlanAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultTotamt", sellRsltAmtTot < 1 ? 0 : Math.round(salesRsltCostTot / sellRsltAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt01", sellRsltAmt1 < 1 ? 0 : Math.round(salesRsltCost1 / sellRsltAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt02", sellRsltAmt2 < 1 ? 0 : Math.round(salesRsltCost2 / sellRsltAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt03", sellRsltAmt3 < 1 ? 0 : Math.round(salesRsltCost3 / sellRsltAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt04", sellRsltAmt4 < 1 ? 0 : Math.round(salesRsltCost4 / sellRsltAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt05", sellRsltAmt5 < 1 ? 0 : Math.round(salesRsltCost5 / sellRsltAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt06", sellRsltAmt6 < 1 ? 0 : Math.round(salesRsltCost6 / sellRsltAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt07", sellRsltAmt7 < 1 ? 0 : Math.round(salesRsltCost7 / sellRsltAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt08", sellRsltAmt8 < 1 ? 0 : Math.round(salesRsltCost8 / sellRsltAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt09", sellRsltAmt9 < 1 ? 0 : Math.round(salesRsltCost9 / sellRsltAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt10", sellRsltAmt10 < 1 ? 0 : Math.round(salesRsltCost10 / sellRsltAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt11", sellRsltAmt11 < 1 ? 0 : Math.round(salesRsltCost11 / sellRsltAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt12", sellRsltAmt12 < 1 ? 0 : Math.round(salesRsltCost12 / sellRsltAmt12 * unitVal * 1000) / 10);
+    }
+    if (ds_master.getCellData(i, "acctCd") == "9300001") {
+      ds_master.setCellData(i, "befResultTotamt", sellAmtTot < 1 ? 0 : Math.round(orgnSalesTot / sellAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt01", sellAmt1 < 1 ? 0 : Math.round(orgnSales1 / sellAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt02", sellAmt2 < 1 ? 0 : Math.round(orgnSales2 / sellAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt03", sellAmt3 < 1 ? 0 : Math.round(orgnSales3 / sellAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt04", sellAmt4 < 1 ? 0 : Math.round(orgnSales4 / sellAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt05", sellAmt5 < 1 ? 0 : Math.round(orgnSales5 / sellAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt06", sellAmt6 < 1 ? 0 : Math.round(orgnSales6 / sellAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt07", sellAmt7 < 1 ? 0 : Math.round(orgnSales7 / sellAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt08", sellAmt8 < 1 ? 0 : Math.round(orgnSales8 / sellAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt09", sellAmt9 < 1 ? 0 : Math.round(orgnSales9 / sellAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt10", sellAmt10 < 1 ? 0 : Math.round(orgnSales10 / sellAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt11", sellAmt11 < 1 ? 0 : Math.round(orgnSales11 / sellAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt12", sellAmt12 < 1 ? 0 : Math.round(orgnSales12 / sellAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanTotamt", sellPlanAmtTot < 1 ? 0 : Math.round(orgnSalesPlanTot / sellPlanAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt01", sellPlanAmt1 < 1 ? 0 : Math.round(orgnSalesPlan1 / sellPlanAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt02", sellPlanAmt2 < 1 ? 0 : Math.round(orgnSalesPlan2 / sellPlanAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt03", sellPlanAmt3 < 1 ? 0 : Math.round(orgnSalesPlan3 / sellPlanAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt04", sellPlanAmt4 < 1 ? 0 : Math.round(orgnSalesPlan4 / sellPlanAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt05", sellPlanAmt5 < 1 ? 0 : Math.round(orgnSalesPlan5 / sellPlanAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt06", sellPlanAmt6 < 1 ? 0 : Math.round(orgnSalesPlan6 / sellPlanAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt07", sellPlanAmt7 < 1 ? 0 : Math.round(orgnSalesPlan7 / sellPlanAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt08", sellPlanAmt8 < 1 ? 0 : Math.round(orgnSalesPlan8 / sellPlanAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt09", sellPlanAmt9 < 1 ? 0 : Math.round(orgnSalesPlan9 / sellPlanAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt10", sellPlanAmt10 < 1 ? 0 : Math.round(orgnSalesPlan10 / sellPlanAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt11", sellPlanAmt11 < 1 ? 0 : Math.round(orgnSalesPlan11 / sellPlanAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt12", sellPlanAmt12 < 1 ? 0 : Math.round(orgnSalesPlan12 / sellPlanAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultTotamt", sellRsltAmtTot < 1 ? 0 : Math.round(orgnSalesRsltTot / sellRsltAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt01", sellRsltAmt1 < 1 ? 0 : Math.round(orgnSalesRslt1 / sellRsltAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt02", sellRsltAmt2 < 1 ? 0 : Math.round(orgnSalesRslt2 / sellRsltAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt03", sellRsltAmt3 < 1 ? 0 : Math.round(orgnSalesRslt3 / sellRsltAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt04", sellRsltAmt4 < 1 ? 0 : Math.round(orgnSalesRslt4 / sellRsltAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt05", sellRsltAmt5 < 1 ? 0 : Math.round(orgnSalesRslt5 / sellRsltAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt06", sellRsltAmt6 < 1 ? 0 : Math.round(orgnSalesRslt6 / sellRsltAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt07", sellRsltAmt7 < 1 ? 0 : Math.round(orgnSalesRslt7 / sellRsltAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt08", sellRsltAmt8 < 1 ? 0 : Math.round(orgnSalesRslt8 / sellRsltAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt09", sellRsltAmt9 < 1 ? 0 : Math.round(orgnSalesRslt9 / sellRsltAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt10", sellRsltAmt10 < 1 ? 0 : Math.round(orgnSalesRslt10 / sellRsltAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt11", sellRsltAmt11 < 1 ? 0 : Math.round(orgnSalesRslt11 / sellRsltAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt12", sellRsltAmt12 < 1 ? 0 : Math.round(orgnSalesRslt12 / sellRsltAmt12 * unitVal * 1000) / 10);
+    }
+    if (ds_master.getCellData(i, "acctCd") == "9300003") {
+      ds_master.setCellData(i, "befResultTotamt", sellAmtTot < 1 ? 0 : Math.round(gsProfitTot / sellAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt01", sellAmt1 < 1 ? 0 : Math.round(gsProfit1 / sellAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt02", sellAmt2 < 1 ? 0 : Math.round(gsProfit2 / sellAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt03", sellAmt3 < 1 ? 0 : Math.round(gsProfit3 / sellAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt04", sellAmt4 < 1 ? 0 : Math.round(gsProfit4 / sellAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt05", sellAmt5 < 1 ? 0 : Math.round(gsProfit5 / sellAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt06", sellAmt6 < 1 ? 0 : Math.round(gsProfit6 / sellAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt07", sellAmt7 < 1 ? 0 : Math.round(gsProfit7 / sellAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt08", sellAmt8 < 1 ? 0 : Math.round(gsProfit8 / sellAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt09", sellAmt9 < 1 ? 0 : Math.round(gsProfit9 / sellAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt10", sellAmt10 < 1 ? 0 : Math.round(gsProfit10 / sellAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt11", sellAmt11 < 1 ? 0 : Math.round(gsProfit11 / sellAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt12", sellAmt12 < 1 ? 0 : Math.round(gsProfit12 / sellAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanTotamt", sellPlanAmtTot < 1 ? 0 : Math.round(gsProfitPlanTot / sellPlanAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt01", sellPlanAmt1 < 1 ? 0 : Math.round(gsProfitPlan1 / sellPlanAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt02", sellPlanAmt2 < 1 ? 0 : Math.round(gsProfitPlan2 / sellPlanAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt03", sellPlanAmt3 < 1 ? 0 : Math.round(gsProfitPlan3 / sellPlanAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt04", sellPlanAmt4 < 1 ? 0 : Math.round(gsProfitPlan4 / sellPlanAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt05", sellPlanAmt5 < 1 ? 0 : Math.round(gsProfitPlan5 / sellPlanAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt06", sellPlanAmt6 < 1 ? 0 : Math.round(gsProfitPlan6 / sellPlanAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt07", sellPlanAmt7 < 1 ? 0 : Math.round(gsProfitPlan7 / sellPlanAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt08", sellPlanAmt8 < 1 ? 0 : Math.round(gsProfitPlan8 / sellPlanAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt09", sellPlanAmt9 < 1 ? 0 : Math.round(gsProfitPlan9 / sellPlanAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt10", sellPlanAmt10 < 1 ? 0 : Math.round(gsProfitPlan10 / sellPlanAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt11", sellPlanAmt11 < 1 ? 0 : Math.round(gsProfitPlan11 / sellPlanAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt12", sellPlanAmt12 < 1 ? 0 : Math.round(gsProfitPlan12 / sellPlanAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultTotamt", sellRsltAmtTot < 1 ? 0 : Math.round(gsProfitRsltTot / sellRsltAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt01", sellRsltAmt1 < 1 ? 0 : Math.round(gsProfitRslt1 / sellRsltAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt02", sellRsltAmt2 < 1 ? 0 : Math.round(gsProfitRslt2 / sellRsltAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt03", sellRsltAmt3 < 1 ? 0 : Math.round(gsProfitRslt3 / sellRsltAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt04", sellRsltAmt4 < 1 ? 0 : Math.round(gsProfitRslt4 / sellRsltAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt05", sellRsltAmt5 < 1 ? 0 : Math.round(gsProfitRslt5 / sellRsltAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt06", sellRsltAmt6 < 1 ? 0 : Math.round(gsProfitRslt6 / sellRsltAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt07", sellRsltAmt7 < 1 ? 0 : Math.round(gsProfitRslt7 / sellRsltAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt08", sellRsltAmt8 < 1 ? 0 : Math.round(gsProfitRslt8 / sellRsltAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt09", sellRsltAmt9 < 1 ? 0 : Math.round(gsProfitRslt9 / sellRsltAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt10", sellRsltAmt10 < 1 ? 0 : Math.round(gsProfitRslt10 / sellRsltAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt11", sellRsltAmt11 < 1 ? 0 : Math.round(gsProfitRslt11 / sellRsltAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt12", sellRsltAmt12 < 1 ? 0 : Math.round(gsProfitRslt12 / sellRsltAmt12 * unitVal * 1000) / 10);
+    }
+    if (ds_master.getCellData(i, "acctCd") == "9300007") {
+      ds_master.setCellData(i, "befResultTotamt", sellAmtTot < 1 ? 0 : Math.round(fixedCostTot / sellAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt01", sellAmt1 < 1 ? 0 : Math.round(fixedCost1 / sellAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt02", sellAmt2 < 1 ? 0 : Math.round(fixedCost2 / sellAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt03", sellAmt3 < 1 ? 0 : Math.round(fixedCost3 / sellAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt04", sellAmt4 < 1 ? 0 : Math.round(fixedCost4 / sellAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt05", sellAmt5 < 1 ? 0 : Math.round(fixedCost5 / sellAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt06", sellAmt6 < 1 ? 0 : Math.round(fixedCost6 / sellAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt07", sellAmt7 < 1 ? 0 : Math.round(fixedCost7 / sellAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt08", sellAmt8 < 1 ? 0 : Math.round(fixedCost8 / sellAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt09", sellAmt9 < 1 ? 0 : Math.round(fixedCost9 / sellAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt10", sellAmt10 < 1 ? 0 : Math.round(fixedCost10 / sellAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt11", sellAmt11 < 1 ? 0 : Math.round(fixedCost11 / sellAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "befResultAmt12", sellAmt12 < 1 ? 0 : Math.round(fixedCost12 / sellAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanTotamt", sellPlanAmtTot < 1 ? 0 : Math.round(fixedCostPlanTot / sellPlanAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt01", sellPlanAmt1 < 1 ? 0 : Math.round(fixedCostPlan1 / sellPlanAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt02", sellPlanAmt2 < 1 ? 0 : Math.round(fixedCostPlan2 / sellPlanAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt03", sellPlanAmt3 < 1 ? 0 : Math.round(fixedCostPlan3 / sellPlanAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt04", sellPlanAmt4 < 1 ? 0 : Math.round(fixedCostPlan4 / sellPlanAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt05", sellPlanAmt5 < 1 ? 0 : Math.round(fixedCostPlan5 / sellPlanAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt06", sellPlanAmt6 < 1 ? 0 : Math.round(fixedCostPlan6 / sellPlanAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt07", sellPlanAmt7 < 1 ? 0 : Math.round(fixedCostPlan7 / sellPlanAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt08", sellPlanAmt8 < 1 ? 0 : Math.round(fixedCostPlan8 / sellPlanAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt09", sellPlanAmt9 < 1 ? 0 : Math.round(fixedCostPlan9 / sellPlanAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt10", sellPlanAmt10 < 1 ? 0 : Math.round(fixedCostPlan10 / sellPlanAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt11", sellPlanAmt11 < 1 ? 0 : Math.round(fixedCostPlan11 / sellPlanAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftBizplanAmt12", sellPlanAmt12 < 1 ? 0 : Math.round(fixedCostPlan12 / sellPlanAmt12 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultTotamt", sellRsltAmtTot < 1 ? 0 : Math.round(fixedCostRsltTot / sellRsltAmtTot * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt01", sellRsltAmt1 < 1 ? 0 : Math.round(fixedCostRslt1 / sellRsltAmt1 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt02", sellRsltAmt2 < 1 ? 0 : Math.round(fixedCostRslt2 / sellRsltAmt2 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt03", sellRsltAmt3 < 1 ? 0 : Math.round(fixedCostRslt3 / sellRsltAmt3 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt04", sellRsltAmt4 < 1 ? 0 : Math.round(fixedCostRslt4 / sellRsltAmt4 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt05", sellRsltAmt5 < 1 ? 0 : Math.round(fixedCostRslt5 / sellRsltAmt5 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt06", sellRsltAmt6 < 1 ? 0 : Math.round(fixedCostRslt6 / sellRsltAmt6 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt07", sellRsltAmt7 < 1 ? 0 : Math.round(fixedCostRslt7 / sellRsltAmt7 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt08", sellRsltAmt8 < 1 ? 0 : Math.round(fixedCostRslt8 / sellRsltAmt8 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt09", sellRsltAmt9 < 1 ? 0 : Math.round(fixedCostRslt9 / sellRsltAmt9 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt10", sellRsltAmt10 < 1 ? 0 : Math.round(fixedCostRslt10 / sellRsltAmt10 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt11", sellRsltAmt11 < 1 ? 0 : Math.round(fixedCostRslt11 / sellRsltAmt11 * unitVal * 1000) / 10);
+      ds_master.setCellData(i, "aftResultAmt12", sellRsltAmt12 < 1 ? 0 : Math.round(fixedCostRslt12 / sellRsltAmt12 * unitVal * 1000) / 10);
+    }
+  }
+  ds_master.resetStatus();
+  gr_master.refresh();
+};
+scwin.sbm_search_submitdone = async function (e) {
+  let rowCnt = ds_master.getRowCount();
+  totalRows.setValue(rowCnt);
+  if (rowCnt == 0) {
+    if ($c.gus.cfCheckCreateFlag($p) == true) {
+      $c.gus.cfTurnCreateFlag($p, false);
+    } else {
+      await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    }
+  } else {
+    scwin.f_Rate();
+    gr_master.setFocusedCell(0, "coNm");
+  }
+};
+scwin.sbm_search_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.sbm_unit_submitdone = function (e) {};
+scwin.sbm_unit_submiterror = function (e) {
+  $c.gus.cfShowError($p, e);
+};
+scwin.lc_unit_onchange = function (e) {
+  scwin.f_SetGridUnit();
+};
+scwin.trigger1_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+scwin.trigger2_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'장부구분',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_srchBookClsCd',style:'width: 120px;',submenuSize:'auto',ref:'data:ds_search.bookClsCd',mandatory:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'조회년도',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'year',class:'',id:'ed_srchCloseYear',style:'',pickerType:'dynamic',ref:'data:ds_search.closeYear',mandatory:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'버전',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_version',style:'width: 80px;',submenuSize:'auto',ref:'data:ds_search.ver',mandatory:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chk_lowerDeptIncluYn',ref:'data:ds_search.lowerDeptIncluYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'하위부서포함'}]},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chk_distYn',ref:'data:ds_search.distYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'배부포함'}]},{T:1,N:'xf:value'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chk_dpctYn',ref:'data:ds_search.dpctYn',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'타법인포함'}]},{T:1,N:'xf:value'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'trigger1',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'trigger2',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'법인별 손익추이',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:group',A:{class:'inner',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'단위',ref:'',style:'',userData2:''}},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:' w85',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_unit',style:'',submenuSize:'auto',mandatory:'true'}}]},{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'ds_master',focusMode:'row',id:'gr_master',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'18',visibleRowNumFix:'true',autoFit:'none',readOnly:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption10',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'coCd',value:'법인코드',displayMode:'label',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'acctCd',value:'계정코드',displayMode:'label',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'aftAcctDeptCd',value:'하위부서코드',displayMode:'label',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{blockSelect:'false',colSpan:'',displayMode:'label',id:'coNm',inputType:'text',removeBorderStyle:'false',rowSpan:'2',value:'법인명',width:'170'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'aftAcctDeptNm',value:'하위부서명',displayMode:'label',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'prtAcctNm',value:'계정과목',displayMode:'label',colSpan:'',rowSpan:'2'}},{T:1,N:'w2:column',A:{blockSelect:'false',colSpan:'3',displayMode:'label',id:'amt_total',inputType:'text',removeBorderStyle:'false',rowSpan:'',value:'연계',width:'260'}},{T:1,N:'w2:column',A:{blockSelect:'false',colSpan:'3',displayMode:'label',id:'amt_01',inputType:'text',removeBorderStyle:'false',rowSpan:'',value:'1월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_02',inputType:'text',rowSpan:'',style:'',value:'2월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_03',inputType:'text',rowSpan:'',style:'',value:'3월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_04',inputType:'text',rowSpan:'',style:'',value:'4월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_05',inputType:'text',rowSpan:'',style:'',value:'5월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_06',inputType:'text',rowSpan:'',style:'',value:'6월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'column50',inputType:'text',rowSpan:'',style:'',value:'상반기계',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_07',inputType:'text',rowSpan:'',style:'',value:'7월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_08',inputType:'text',rowSpan:'',style:'',value:'8월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_09',inputType:'text',rowSpan:'',style:'',value:'9월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_10',inputType:'text',rowSpan:'',style:'',value:'10월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_11',inputType:'text',rowSpan:'',style:'',value:'11월',width:'210'}},{T:1,N:'w2:column',A:{colSpan:'3',displayMode:'label',id:'amt_12',inputType:'text',rowSpan:'',style:'',value:'12월',width:'210'}}]},{T:1,N:'w2:row',A:{id:'row5',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultTotamt',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanTotamt',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultTotamt',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt01',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt01',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt01',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt02',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt02',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt02',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt03',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt03',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt03',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt04',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt04',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt04',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt05',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt05',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt05',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt06',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt06',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt06',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column51',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column48',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'column136',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt07',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt07',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt07',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt08',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt08',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt08',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt09',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt09',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt09',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt10',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt10',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt10',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt11',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt11',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt11',value:'실적',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt12',inputType:'text',style:'',value:'전년',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt12',inputType:'text',style:'',value:'계획',width:'95'}},{T:1,N:'w2:column',A:{width:'95',inputType:'text',style:'',id:'aftResultAmt12',value:'실적',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'coCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'acctCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'aftAcctDeptCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'coNm',inputType:'text',removeBorderStyle:'false',textAlign:'left',width:'170'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'aftAcctDeptNm',value:'',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'prtAcctNm',value:'',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'befResultTotamt',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'95'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'aftBizplanTotamt',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'95'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultTotamt',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'befResultAmt01',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt01',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt01',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt02',inputType:'text',style:'',textAlign:'right',value:'',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt02',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt02',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt03',inputType:'text',style:'',textAlign:'right',value:'',width:'95'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt03',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt03',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt04',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt04',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt04',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt05',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt05',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt05',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt06',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt06',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt06',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column52',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column49',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column137',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt07',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt07',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt07',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt08',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt08',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt08',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt09',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt09',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt09',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt10',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt10',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt10',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt11',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt11',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt11',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'befResultAmt12',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'aftBizplanAmt12',inputType:'text',style:'',textAlign:'right',value:'',width:'70'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'aftResultAmt12',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]}]}]}]}]}]})

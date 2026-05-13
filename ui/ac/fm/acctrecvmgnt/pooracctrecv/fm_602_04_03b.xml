@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_mgntCustTarget" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="adptStDt" name="name1" dataType="text"></w2:column>
+						<w2:column id="seq" name="name2" dataType="text"></w2:column>
+						<w2:column id="mgntTrgtClntYn" name="name3" dataType="text"></w2:column>
+						<w2:column id="cdNm" name="name4" dataType="text"></w2:column>
+						<w2:column id="userNm" name="name5" dataType="text"></w2:column>
+						<w2:column id="regDtm" name="name6" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_mgntCustTarget">
+					<w2:keyInfo>
+						<w2:key id="clntNo" name="name1" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_mgntCustTarget" action="/ac.fm.acctrecvmgnt.pooracctrecv.RetrieveManagementCustomerHistoryCMD.do" method="post" mediatype="application/json"
+				ref='data:json,[{"id":"dma_mgntCustTarget","key":"IN_DS1"}]' target='data:json,{"id":"ds_mgntCustTarget","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_mgntCustTarget_submitdone" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+//전역변수
+scwin.params;
+
+scwin.onpageload = function() { 
+	$c.gus.cfDisableKey();
+
+    //공통코드
+    // const codeOptions = [
+    //     { grpCd : "ZZ524", compID : "gr_mgntCustTarget:cdNm" } 
+    // ];
+    // $c.data.setCommonCode(codeOptions);
+
+    if($c.gus.cfIsNull(scwin.params)){
+        dma_mgntCustTarget.set("clntNo", "");
+    }else {
+        dma_mgntCustTarget.set("clntNo" , scwin.params.clntNo);
+    }
+    $c.sbm.execute(sbm_mgntCustTarget);
+};
+
+scwin.sbm_mgntCustTarget_submitdone = function(e){
+    if(e.responseJSON.resultDataSet[0].Msg != 'FAIL'){ 
+        // 조회된 건수를 Grid 왼쪽 하단에 표시한다.
+        var rowCnt = ds_mgntCustTarget.getRowCount();
+        totalRows.setValue(rowCnt);
+
+         //포커스
+        if(rowCnt > 0){
+            gr_mgntCustTarget.setFocusedCell(0, 0);
+        }
+    };
+};]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+			<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_mgntCustTarget" id="gr_mgntCustTarget" style="" visibleRowNum="5"
+				visibleRowNumFix="true" readOnly="true">
+				<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+				<w2:header id="header1" style="">
+					<w2:row id="row1" style="">
+						<w2:column displayMode="label" id="column1" inputType="text" style="" value="적용시작일자" width="120"></w2:column>
+						<w2:column displayMode="label" id="column17" inputType="text" style="" value="순번" width="70"></w2:column>
+						<w2:column displayMode="label" id="column15" inputType="text" style="" value="관리대상거래처여부" width="200"></w2:column>
+						<w2:column displayMode="label" id="column13" inputType="text" style="" value="사유" width="70"></w2:column>
+						<w2:column displayMode="label" id="column11" inputType="text" style="" value="등록자" width="100"></w2:column>
+						<w2:column displayMode="label" id="column9" inputType="text" style="" value="등록일시" width="100"></w2:column>
+					</w2:row>
+				</w2:header>
+				<w2:gBody id="gBody1" style="">
+					<w2:row id="row2" style="">
+						<w2:column displayMode="label" id="adptStDt" inputType="text" style="" value="" width="120" displayFormat="####/##/##"></w2:column>
+						<w2:column displayMode="label" id="seq" inputType="text" style="" value="" width="70"></w2:column>
+						<w2:column displayMode="label" id="mgntTrgtClntYn" inputType="select" style="" value="" width="200" allOption=""
+							chooseOption="" ref="">
+							<w2:choices>
+								<w2:item>
+									<w2:label><![CDATA[아니오]]></w2:label>
+									<w2:value><![CDATA[0]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[예]]></w2:label>
+									<w2:value><![CDATA[1]]></w2:value>
+								</w2:item>
+							</w2:choices>
+						</w2:column>
+						<w2:column displayMode="label" id="cdNm" inputType="text" style="" value="" width="70"></w2:column>
+						<w2:column displayMode="label" id="userNm" inputType="text" style="" value="" width="100"></w2:column>
+						<w2:column displayMode="label" id="regDtm" inputType="text" style="" value="" width="100" displayFormat="####/##/##"></w2:column>
+					</w2:row>
+				</w2:gBody>
+			</w2:gridView>
+			<xf:group class="grid-bottom " id="" style="">
+				<xf:group class="left" id="">
+					<xf:group class="grid-total" id="" style="">
+						<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+						<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+						<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

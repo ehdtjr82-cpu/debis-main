@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_oilList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="oilOilStatNo" name='주유소번호' dataType="text"></w2:column>
+    					<w2:column id="oilStatNm" name="주유소명" dataType="text"></w2:column>
+    					<w2:column id="dsaleYn" name="직판여부" dataType="text"></w2:column>
+    					<w2:column id="upperOilStrPlcNo" name="상위주유소번호" dataType="text"></w2:column>
+    					<w2:column id="upperOilStrPlcNm" name="상위주유소명" dataType="text"></w2:column>
+    					<w2:column id="oilStatLvlClsCd" name='주유소레벨구분' dataType="text"></w2:column>
+    					<w2:column id="oilSelfClsCd" name='유류자가구분' dataType="text"></w2:column>
+    					<w2:column id="clntNo" name='거래처번호' dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="telNo" name="전화번호" dataType="text"></w2:column>
+    					<w2:column id="picNm" name="담당자명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_oilList_con">
+    				<w2:keyInfo>
+    					<w2:key id="oilStationPatternCd" name="구분" dataType="text"></w2:key>
+    					<w2:key id="oilOilStatNo" name="주유소코드" dataType="text"></w2:key>
+    					<w2:key id="oilStatNm" name="주유소명" dataType="text"></w2:key>
+    					<w2:key id="dsaleYn" name="직판여부" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_oilList_retrieve" action="/ps.eq.fmsmgnt.fmsoilmgnt.RetrieveFmsOilStationCodeListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_oilList_con","key":"IN_DS1"},{"id":"ds_oilList","key":"OUT_DS1"}]' target='data:json,{"id":"ds_oilList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_oilList_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// 전역 변수
+scwin.p_dsaleYn = "전체";
+scwin.p_oilStationPatternCd = "전체";
+scwin.p_oilStatNo = "";
+scwin.p_oilStatNm = "";
+scwin.p_isCdYn = "";
+scwin.p_isEnable = "";
+//-------------------------------------------------------------------------
+// String 값 trim
+//-------------------------------------------------------------------------
+String.prototype.trim = function() {
+    return this.replace(/(^\s*)|(\s*$)/g, "");
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	scwin.valueObject = $c.data.getParameter();
+    if (scwin.valueObject != "" && scwin.valueObject != undefined) {
+        scwin.p_oilStationPatternCd = !scwin.valueObject.oilStationPatternCd ? scwin.valueObject.param.oilStationPatternCd : scwin.valueObject.oilStationPatternCd;
+        scwin.p_oilStatNo = !scwin.valueObject.oilOilStatNo ? scwin.valueObject.param.oilOilStatNo : scwin.valueObject.oilOilStatNo;
+        scwin.p_oilStatNm = !scwin.valueObject.oilStatNm ? scwin.valueObject.param.oilStatNm : scwin.valueObject.oilStatNm;
+        scwin.p_isCdYn = !scwin.valueObject.isCdYn ? scwin.valueObject.param.isCdYn : scwin.valueObject.isCdYn;
+        scwin.p_isEnable = !scwin.valueObject.isEnable ? scwin.valueObject.param.isEnable : scwin.valueObject.isEnable;
+    }
+
+    acb_oilStationPatternCd.focus();
+
+    acb_oilStationPatternCd.setValue(scwin.p_oilStationPatternCd);
+    acb_dsaleYn.setValue(scwin.p_dsaleYn);
+    ed_oilStatNo.setValue(scwin.p_oilStatNo);
+    ed_oilStatNm.setValue(scwin.p_oilStatNm);
+
+
+    if (scwin.p_dsaleYn != "") {
+        scwin.f_Retrieve();
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+
+    //validation check
+    let ret = await $c.gus.cfValidate([acb_oilStationPatternCd, acb_dsaleYn]);
+    if (!ret) {
+        return false;
+    }
+
+    await $c.sbm.execute(sbm_oilList_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 결과값 리턴
+//-------------------------------------------------------------------------
+scwin.f_OnDblClk = function() {
+    let returnObject = {};
+    let currentRow = ds_oilList.getRowPosition();
+
+    returnObject.oilStationPatternCd = ds_oilList.getCellData(currentRow, "oilStationPatternCd");
+    returnObject.oilOilStatNo = ds_oilList.getCellData(currentRow, "oilOilStatNo");
+    returnObject.oilStatNm = ds_oilList.getCellData(currentRow, "oilStatNm");
+    returnObject.dsaleYn = ds_oilList.getCellData(currentRow, "dsaleYn");
+    returnObject.sellClntNo = ds_oilList.getCellData(currentRow, "clntNo");
+    returnObject.sellClntNm = ds_oilList.getCellData(currentRow, "clntNm");
+    
+    $c.win.closePopup(returnObject);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {
+    let count = ds_oilList.getRowCount();
+    if (!(count > 0)) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_WRN_008, ['주유소정보 ']));
+        return;
+    }
+
+    const options = {
+        fileName: '주유소정보.xlsx',
+        sheetName: '주유소정보',
+    };
+    await $c.data.downloadGridViewExcel(gr_oilList, options);
+
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tbl_search, [acb_oilStationPatternCd, acb_dsaleYn]);
+    ed_oilStatNo.setValue("");
+    ed_oilStatNm.setValue("");
+};
+
+scwin.f_enterKey = function(keycode) {
+    if (keycode == 13) {
+        if (ed_oilStatNo.getValue() + ed_oilStatNm.getValue() != "") {
+            scwin.f_Retrieve();
+        }
+    }
+};
+
+scwin.dsaleYnFm = function(data) {
+    return $c.gus.decode(data,1,"Yes","No");
+}
+
+scwin.oilStatLvlClsCdFm = function(data) {
+    return $c.gus.decode(data,"S","본사","J","지사","O","주유소");
+}
+
+scwin.oilSelfClsCdCdFm = function(data) {
+    return $c.gus.decode(data,"S","본사","J","지사","O","주유소");
+}
+
+scwin.sbm_oilList_retrieve_submitdone = async function (e) {
+    let rowCnt = ds_oilList.getRowCount();
+    totalRows.setValue(rowCnt);
+
+    if (rowCnt == 0) {
+        await $c.win.alert(MSG_CM_WRN_002);
+    }
+};
+
+scwin.gr_oilList_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    if (rowIndex > -1) {
+        scwin.f_OnDblClk();
+        $c.win.closePopup();
+    }
+};
+
+scwin.ed_oilStatNm_onkeyup = function (e) {
+    if(e.keyCode == 13) {
+        scwin.f_enterKey(e.keyCode);
+    }
+};
+
+scwin.btn_clear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+
+scwin.ed_oilStatNo_onkeyup = function (e) {
+    if(e.keyCode >=65 && e.keyCode <= 90){
+        let data = e.target.value.toUpperCase();
+        ed_oilStatNo.setValue(data);
+    }
+    if(e.keyCode == 13) {
+        scwin.f_enterKey(e.keyCode);
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="sp_title" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group><xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_oilStationPatternCd" search="start" style="width:100px;"
+    								submenuSize="fixed" mandatory="true" allOption="" chooseOption="" chooseOptionLabel="전체"
+    								ref="data:dma_oilList_con.oilStationPatternCd" title="구분">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[전체]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[지사]]></w2:label>
+    										<w2:value><![CDATA[J]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[주유소]]></w2:label>
+    										<w2:value><![CDATA[O]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="직판여부 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete allOption="" chooseOption="" chooseOptionLabel="전체" class="" editType="select"
+    								id="acb_dsaleYn" mandatory="true" ref="data:dma_oilList_con.dsaleYn" search="start" style="width:100px;" submenuSize="fixed" title="직판여부">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[전체]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[직판]]></w2:label>
+    										<w2:value><![CDATA[1]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[보관]]></w2:label>
+    										<w2:value><![CDATA[0]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group tagname="th" class="w2tb_th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="주유소 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group tagname="td" id="" class="w2tb_td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="" style="">
+    								<xf:input id="ed_oilStatNo" style="width: 80px;" editType="select" maxlength="4"
+    									validateOnInput="true" allowChar="a-zA-Z0-9" ref="data:dma_oilList_con.oilOilStatNo" objType="data" title="주유소코드" ev:onkeyup="scwin.ed_oilStatNo_onkeyup">
+    								</xf:input>
+    								<w2:searchbox id="ed_oilStatNm" style="" objType="key" mandatory="false" ref="data:dma_oilList_con.oilStatNm" ev:onkeyup="scwin.ed_oilStatNm_onkeyup" title="주유소명"></w2:searchbox>
+    							</xf:group>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownUserAuth="X" gridID="gr_oilList" btnUser="Y" gridUpYn="N" gridDownFn="scwin.f_Excel"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    				<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_oilList" id="gr_oilList"
+    					scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" columnMove="true"
+    					 readOnly="true" ev:oncelldblclick="scwin.gr_oilList_oncelldblclick">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false"
+    								value="주유소&lt;/br&gt;번호 " width="100">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false"
+    								value="주유소명" width="100">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column23" value="직판여부" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" id="column21" value="상위주유소번호" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="column19" value="상위주유소명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column13" value="주유소&lt;/br&gt;레벨구분" displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column15" value="유류&lt;/br&gt;자가구분" displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column17" value="거래처&lt;/br&gt;번호" displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column29" value="거래처명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column25" value="전화번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="column27" value="담당자명" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column blockSelect="false" displayMode="label" id="oilOilStatNo" inputType="text"
+    								removeBorderStyle="false" width="100">
+    							</w2:column>
+    							<w2:column blockSelect="false" displayMode="label" id="oilStatNm" inputType="text" removeBorderStyle="false"
+    								textAlign="left" width="100">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="dsaleYn" displayMode="label"
+    								displayFormatter="scwin.dsaleYnFm">
+    							</w2:column>
+    							<w2:column width="130" inputType="text" id="upperOilStrPlcNo" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="upperOilStrPlcNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="oilStatLvlClsCd" displayMode="label"
+    								displayFormatter="scwin.oilStatLvlClsCdFm">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="oilSelfClsCd" displayMode="label"
+    								displayFormatter="scwin.oilSelfClsCdCdFm">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="clntNo" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="clntNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="telNo" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="picNm" displayMode="label" textAlign="left"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

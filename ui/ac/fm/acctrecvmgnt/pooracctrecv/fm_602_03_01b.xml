@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_searchPoorAcctRecv">
+					<w2:keyInfo>
+						<w2:key id="clntKnd" name="name1" dataType="text"></w2:key>
+						<w2:key id="useYn" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_poorAcctRecv" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="clntKnd" name="name1" dataType="text"></w2:column>
+						<w2:column id="bilgCntAbove" name="name2" dataType="text"></w2:column>
+						<w2:column id="bilgCntUnder" name="name3" dataType="text"></w2:column>
+						<w2:column id="stdDdCnt" name="name4" dataType="text"></w2:column>
+						<w2:column id="useYn" name="name5" dataType="text"></w2:column>
+						<w2:column id="oldClntKnd" name="name6" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_poorAcctRecv"
+				action="/ac.fm.acctrecvmgnt.pooracctrecv.RegistManagementCustomerStandardCMD.do" method="post" mediatype="application/json"
+				ref='data:json,{"action":"modified","id":"ds_poorAcctRecv","key":"IN_DS1"}'
+				target='' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_poorAcctRecv_submitdone" ev:submiterror="scwin.sbm_poorAcctRecv_submiterror" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_searchPoorAcctRecv"
+				action="/ac.fm.acctrecvmgnt.pooracctrecv.RetrieveManagementCustomerStandardListCMD.do" method="post" mediatype="application/json"
+				ref='data:json,[{"id":"dma_searchPoorAcctRecv","key":"IN_DS1"},{"id":"ds_poorAcctRecv","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_poorAcctRecv","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_searchPoorAcctRecv_submitdone" ev:submiterror="scwin.sbm_searchPoorAcctRecv_submiterror" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+
+    var codeOptions = [
+        { grpCd : "FM050", compID: "acb_clntKnd,gr_poorAcctRecv:clntKnd"},
+        { grpCd : "FM051", compID : "gr_poorAcctRecv:useYn" }
+    ];
+    $c.data.setCommonCode(codeOptions);
+    
+    // scwin.f_Header();
+	scwin.f_Reset();
+
+    
+}; 
+
+//-------------------------------------------------------------------------
+// Header 초기화
+//-------------------------------------------------------------------------
+// function f_Header() {
+
+//     var GAUCE_DATASET_HEADER = "clntKnd:STRING(2)"					// 거래처종류
+//                                 + ",useYn:DECIMAL(1)";					// 관리처래처여부
+                                
+//     ds_searchPoorAcctRecv.SetDataHeader(GAUCE_DATASET_HEADER);
+//     ds_searchPoorAcctRecv.AddRow();
+
+// }
+
+//-------------------------------------------------------------------------
+// 저장 완료후 화면 Reset시 사용하는 함수 
+//-------------------------------------------------------------------------
+scwin.f_Reset = function() {
+
+    acb_useYn.setSelectedIndex(0);
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    dma_searchPoorAcctRecv.set("clntKnd", acb_clntKnd.getValue());
+    dma_searchPoorAcctRecv.set("useYn", acb_useYn.getValue());
+    // dma_searchPoorAcctRecv.set("clntKnd", "");
+    // dma_searchPoorAcctRecv.set("useYn", -1.0);
+
+    $c.sbm.execute(sbm_searchPoorAcctRecv);
+}
+
+scwin.onUdcCompleted = async function () {
+
+}
+
+//-------------------------------------------------------------------------
+// 관리채권등록 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+
+    // 변경여부 확인
+    if ( ds_poorAcctRecv.getModifiedIndex().length < 1 ) {
+        await $c.gus.cfAlertMsg("변경된 사항이 없습니다.");
+        return;
+    }
+
+    // 필수 입력사항 체크
+    if (!await $c.gus.cfValidate([gr_poorAcctRecv])) {
+        return;
+    }
+
+    for (var i=0; i<ds_poorAcctRecv.getTotalRow(); i++) {
+        if(ds_poorAcctRecv.getCellData(i,"bilgCntAbove").length > 6){
+            await $c.gus.cfAlertMsg("관리거래처기준등록의 " + (i+1) + "번째 데이터의 횟수이상은 6자 이하로 입력하십시오.");
+            ds_poorAcctRecv.setRowPosition(i);
+            gr_poorAcctRecv.setFocusedCell(i, 1, true);
+            return;
+        }
+
+        if(ds_poorAcctRecv.getCellData(i,"bilgCntUnder").length > 6){
+            await $c.gus.cfAlertMsg("관리거래처기준등록의 " + (i+1) + "번째 데이터의 횟수이하는 6자 이하로 입력하십시오.");
+            ds_poorAcctRecv.setRowPosition(i);
+            gr_poorAcctRecv.setFocusedCell(i, 2, true);
+            return;
+        }
+
+
+        if ( !$c.num.isNumber(gr_poorAcctRecv.getCellDisplayData(i, "bilgCntAbove")) ) {
+            await $c.gus.cfAlertMsg("관리거래처기준등록의 " + (i+1) + "번째 데이터의 횟수이상은 숫자만을 입력하십시오.");
+            ds_poorAcctRecv.setRowPosition(i);
+            gr_poorAcctRecv.setFocusedCell(i, 1, true);
+            return;
+        }
+
+        if ( !$c.num.isNumber(gr_poorAcctRecv.getCellDisplayData(i, "bilgCntUnder")) ) {
+            await $c.gus.cfAlertMsg("관리거래처기준등록의 " + (i+1) + "번째 데이터의 횟수이하는 숫자만을 입력하십시오.");
+            ds_poorAcctRecv.setRowPosition(i);
+            gr_poorAcctRecv.setFocusedCell(i, 2, true);
+            return;
+        }
+
+        if ( parseInt(ds_poorAcctRecv.getCellData(i,"bilgCntAbove")) > parseInt(ds_poorAcctRecv.getCellData(i,"bilgCntUnder")) ) {
+            await $c.gus.cfAlertMsg((i+1) + "행번째의 횟수이상값은 횟수이하값보다 작아야 합니다. 확인하시기 바랍니다.");
+            ds_poorAcctRecv.setRowPosition(i);
+            gr_poorAcctRecv.setFocusedCell(i, 1, true);
+            return;
+        }
+
+        if (i != 0 && parseInt(ds_poorAcctRecv.getCellData(i,"bilgCntAbove")) < parseInt(ds_poorAcctRecv.getCellData((i-1),"bilgCntUnder")) ) {
+            await $c.gus.cfAlertMsg((i+1) + "행번째의 횟수이상은 " + (i) +"행번째의 횟수이하  값보다 커야합니다. 확인하시기 바랍니다.");
+            ds_poorAcctRecv.setRowPosition(i);
+            gr_poorAcctRecv.setFocusedCell(i, 1, true);
+            return;
+        }
+
+        if(ds_poorAcctRecv.getCellData(i,"stdDdCnt") <= 0){
+            await $c.gus.cfAlertMsg("관리거래처기준등록의 " + i + "번째 데이터에서 기준일수는 1 이상으로 입력하십시오.");
+            gr_poorAcctRecv.setFocusedCell(i, 3, true);
+            return;
+        }
+
+        if(ds_poorAcctRecv.getRowStatusValue(i) == 2){
+            for(let k=0; k<ds_poorAcctRecv.getTotalRow(); k++){
+                if(k == i){
+                    continue;
+                } else {
+                    if(ds_poorAcctRecv.getCellData(i,"clntKnd") == ds_poorAcctRecv.getCellData(k,"clntKnd")){
+                        await $c.gus.cfAlertMsg("관리거래처기준등록의 " + (i+1) + "번째 데이터에서 거래처종류는 중복될 수 없습니다.");
+                        gr_poorAcctRecv.setFocusedCell(i, 0, true);
+                        return;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        
+    }
+
+    if(await $c.win.confirm(MSG_CM_CRM_001)==true){
+        $c.sbm.execute(sbm_poorAcctRecv);
+    }
+}
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_AddRow = function() {
+    var newRow = ds_poorAcctRecv.insertRow();
+    gr_poorAcctRecv.setFocusedCell(newRow, 0, true);
+    ds_poorAcctRecv.setCellData(newRow, "useYn", "0");
+    ds_poorAcctRecv.setCellData(newRow,"clntKnd","01");
+    ds_poorAcctRecv.setCellData(newRow,"stdDdCnt","0");
+}
+
+scwin.sbm_poorAcctRecv_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Msg != "FAIL"){
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        scwin.f_Retrieve();
+    }
+};  
+
+scwin.sbm_poorAcctRecv_submiterror = async function (e) {
+    await $c.gus.cfShowError(sbm_poorAcctRecv);
+};
+
+scwin.sbm_searchPoorAcctRecv_submitdone = async function (e) {
+    var rowCount = ds_poorAcctRecv.getTotalRow();
+    ed_totalRow.setValue(rowCount);
+    if(rowCount == 0){
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+    }
+};
+
+scwin.sbm_searchPoorAcctRecv_submiterror = async function (e) {
+    await $c.gus.cfShowError(sbm_searchPoorAcctRecv);
+};
+
+scwin.btn_clear_onclick = function (e) {
+    $c.gus.cfInitObjects(table1,[]);
+};
+
+scwin.btn_search_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+]]></script>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="table1" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="거래처종류 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="acb_clntKnd" style="width: 150px;" submenuSize="fixed" displayMode="value delim label"
+									chooseOptionLabel="전체" ref="">
+									<xf:choices></xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="사용여부 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="acb_useYn" style="width: 100px;" submenuSize="fixed" ref=""
+									displayMode="value delim label">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[전체]]></xf:label>
+											<xf:value><![CDATA[-1]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[미사용]]></xf:label>
+											<xf:value><![CDATA[0]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[사용]]></xf:label>
+											<xf:value><![CDATA[1]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick" userAuth="R">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox gvwflex">
+					<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_poorAcctRecv" style="" autoFit="allColumn" id="gr_poorAcctRecv"
+						visibleRowNum="10" class="wq_gvw" validExp="clntKnd:거래처종류:yes:number&amp;length=2:key,bilgCntAbove:횟수이상:no:number&amp;maxLength=6,bilgCntUnder:횟수이하:no:number&amp;maxLength=6,stdDdCnt:기준일수:yes:number&amp;minNumber=1,useYn:사용여부:yes:number&amp;maxLength=2" validFeatures="ignoreStatus=no" rowStatusVisible="true">
+						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+						<w2:header style="" id="header1">
+							<w2:row style="" id="row1">
+								<w2:column width="200" inputType="text" id="column17" value="거래처종류" displayMode="label" class="txt-red"></w2:column>
+								<w2:column width="200" inputType="text" id="column15" value="횟수이상" displayMode="label" class="txt-blue"></w2:column>
+								<w2:column width="200" inputType="text" id="column13" value="횟수이하" displayMode="label" class="txt-blue"></w2:column>
+								<w2:column width="150" inputType="text" id="column11" value="기준일수" displayMode="label" class="txt-red"></w2:column>
+								<w2:column width="150" inputType="text" id="column9" value="사용여부" displayMode="label" class="txt-red"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody style="" id="gBody1">
+							<w2:row style="" id="row2">
+								<w2:column width="200" inputType="select" id="clntKnd" displayMode="label" textAlign="center"></w2:column>
+								<w2:column width="200" inputType="text" id="bilgCntAbove" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" id="bilgCntUnder" displayMode="label"></w2:column>
+								<w2:column width="150" inputType="text" id="stdDdCnt" displayMode="label" validateOnInput="true" dataType="number" allowChar="0-9" maxLength="3"></w2:column>
+								<w2:column textAlign="center" width="150" inputType="select" id="useYn" displayMode="label" viewType="icon" editModeEvent="onclick"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group style="" id="" class="grid-bottom ">
+						<xf:group id="" class="left">
+							<xf:group style="" id="" class="grid-total">
+								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+								<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="ed_totalRow" label="0" class="num">
+								</w2:textbox>
+								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group class="right" id="" style="">
+							<w2:udc_bottomGrdBtn btnCancelYn="Y" btnDelYn="N" style="" btnRowAddYn="Y" btnRowDelYn="N" gridID="gr_poorAcctRecv" rowAddFunction="scwin.f_AddRow" rowAddUserAuth="C" id="udc_bottom" btnRowAddObj="btn_AddRow"></w2:udc_bottomGrdBtn>
+						</xf:group>
+					</xf:group>
+					<xf:group class="right" id="" style="">
+					</xf:group>
+				</xf:group>
+				<xf:group style="" id="" class="btnbox">
+					<xf:group id="" class="right">
+						<xf:trigger style="" id="btn_save" label="저장" type="button" class="btn" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+							<xf:label>저장</xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

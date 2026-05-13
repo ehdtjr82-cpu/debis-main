@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" id="ds_customer" repeatNode="map" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+        				<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+        				<w2:column id="crn" name="사업자등록번호" dataType="text"></w2:column>
+        				<w2:column id="clntBusiClsNm" name="거래처사업자구분" dataType="text"></w2:column>
+        				<w2:column id="intrlnsClsNm" name="계열구분" dataType="text"></w2:column>
+        				<w2:column id="bilgClntNo" name="청구거래처번호" dataType="text"></w2:column>
+        				<w2:column id="sellClntYn" name="매출거래처여부" dataType="text"></w2:column>
+        				<w2:column id="pchsClntYn" name="매입거래처여부" dataType="text"></w2:column>
+        				<w2:column id="transBizYn" name="운송사업여부" dataType="text"></w2:column>
+        				<w2:column id="transIntcdBizYn" name="운송주선사업여부" dataType="text"></w2:column>
+        				<w2:column id="sellClntClsCd" name="매출거래처구분코드" dataType="text"></w2:column>
+        				<w2:column id="clntDelYn" name="거래처삭제여부" dataType="text"></w2:column>
+        				<w2:column id="clntKndCd" name="거래처종류코드" dataType="text"></w2:column>
+        				<w2:column id="clntKndNm" name="거래처종류명" dataType="text"></w2:column>
+        				<w2:column id="zip" name="우편번호" dataType="text"></w2:column>
+        				<w2:column id="addr1" name="주소1" dataType="text"></w2:column>
+        				<w2:column id="addr2" name="주소2" dataType="text"></w2:column>
+        				<w2:column id="clntTelNo" name="거래처전화번호" dataType="text"></w2:column>
+        				<w2:column id="clntMpNo" name="거래처핸드폰번호" dataType="text"></w2:column>
+        				<w2:column id="clntEmail" name="거래처EMAIL" dataType="text"></w2:column>
+        				<w2:column id="clntFaxNo" name="거래처팩스번호" dataType="text"></w2:column>
+        				<w2:column id="clntDeptNm" name="거래처부서명" dataType="text"></w2:column>
+        				<w2:column id="clntPersPstNm" name="거래처직원직위명" dataType="text"></w2:column>
+        				<w2:column id="clntPersNm" name="거래처직원명" dataType="text"></w2:column>
+        				<w2:column id="picEmpNm" name="담당사원명" dataType="text"></w2:column>
+        				<w2:column id="picPstNm" name="담당사원 직위명" dataType="text"></w2:column>
+        				<w2:column id="picDeptNm" name="담당사원 부서명" dataType="text"></w2:column>
+        				<w2:column id="regId" name="등록자ID" dataType="text"></w2:column>
+        				<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+        				<w2:column id="modId" name="수정자ID" dataType="text"></w2:column>
+        				<w2:column id="modDtm" name="수정일시" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="dma_search">
+        			<w2:keyInfo>
+        				<w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        		<w2:dataMap baseNode="map" id="dma_customer" style="">
+        			<w2:keyInfo>
+        				<w2:key dataType="text" id="clntNo" name="거래처번호"></w2:key>
+        				<w2:key dataType="text" id="clntNm" name="거래처명"></w2:key>
+        				<w2:key dataType="text" id="crn" name="사업자등록번호"></w2:key>
+        				<w2:key dataType="text" id="clntBusiClsNm" name="거래처사업자구분"></w2:key>
+        				<w2:key dataType="text" id="intrlnsClsNm" name="계열구분"></w2:key>
+        				<w2:key dataType="text" id="bilgClntNo" name="청구거래처번호"></w2:key>
+        				<w2:key dataType="text" id="sellClntYn" name="매출거래처여부"></w2:key>
+        				<w2:key dataType="text" id="pchsClntYn" name="매입거래처여부"></w2:key>
+        				<w2:key dataType="text" id="transBizYn" name="운송사업여부"></w2:key>
+        				<w2:key dataType="text" id="transIntcdBizYn" name="운송주선사업여부"></w2:key>
+        				<w2:key dataType="text" id="sellClntClsCd" name="매출거래처구분코드"></w2:key>
+        				<w2:key dataType="text" id="clntDelYn" name="거래처삭제여부"></w2:key>
+        				<w2:key dataType="text" id="clntKndCd" name="거래처종류코드"></w2:key>
+        				<w2:key dataType="text" id="clntKndNm" name="거래처종류명"></w2:key>
+        				<w2:key dataType="text" id="zip" name="우편번호"></w2:key>
+        				<w2:key dataType="text" id="addr1" name="주소1"></w2:key>
+        				<w2:key dataType="text" id="addr2" name="주소2"></w2:key>
+        				<w2:key dataType="text" id="clntTelNo" name="거래처전화번호"></w2:key>
+        				<w2:key dataType="text" id="clntMpNo" name="거래처핸드폰번호"></w2:key>
+        				<w2:key dataType="text" id="clntEmail" name="거래처EMAIL"></w2:key>
+        				<w2:key dataType="text" id="clntFaxNo" name="거래처팩스번호"></w2:key>
+        				<w2:key dataType="text" id="clntDeptNm" name="거래처부서명"></w2:key>
+        				<w2:key dataType="text" id="clntPersPstNm" name="거래처직원직위명"></w2:key>
+        				<w2:key dataType="text" id="clntPersNm" name="거래처직원명"></w2:key>
+        				<w2:key dataType="text" id="picEmpNm" name="담당사원명"></w2:key>
+        				<w2:key dataType="text" id="picPstNm" name="담당사원 직위명"></w2:key>
+        				<w2:key dataType="text" id="picDeptNm" name="담당사원 부서명"></w2:key>
+        				<w2:key dataType="text" id="regId" name="등록자ID"></w2:key>
+        				<w2:key dataType="text" id="regDtm" name="등록일시"></w2:key>
+        				<w2:key dataType="text" id="modId" name="수정자ID"></w2:key>
+        				<w2:key dataType="text" id="modDtm" name="수정일시"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_customer" action="/cm.bc.clnt.clntmgnt.RetrieveCustomerInformationCMD.do" method="post"
+        		mediatype="application/json" ref="data:json,dma_search" target='data:json,{"id":"ds_customer","key":"GAUCE"}' encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.sbm_customer_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+
+
+scwin.onpageload = function() {
+    scwin.params = $c.data.getParameter();
+    if ( scwin.params != "" && scwin.params != undefined ) { 
+        scwin.clntNo = scwin.params["clntNo"] == null ? "" : scwin.params["clntNo"];
+    }
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 거래처 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    // scwin.clntNo = "112905";
+    dma_search.set("clntNo", scwin.clntNo);
+    $c.sbm.execute(sbm_customer);
+}
+
+scwin.sbm_customer_submitdone = function (e) {
+    var json = e.responseJSON;
+    dma_customer.setJSON(json["GAUCE"][0]);
+};
+
+scwin.btn_Close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    						<xf:group style="width: 120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="거래처번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:group id="" class="form-group"><xf:input style="width: 100px;" id="ed_clntNo" class="" ref="data:ds_customer.clntNo" disabled="true" readOnly="true"></xf:input><w2:textbox ref="" style="" userData2="" id="" label=" (자동부여)" class=""></w2:textbox></xf:group></xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="거래처명" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_clntNm" style="width: 200px;" ref="data:dma_customer.clntNm" readOnly="true" disabled="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="사업자번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes>
+    								<w2:colspan>1</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+    							<xf:input class="" id="ed_crn" style="width: 200px;" ref="data:dma_customer.crn" readOnly="true" disabled="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="사업자구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_clntBusiClsNm" style="width: 200px;" ref="data:dma_customer.clntBusiClsNm" disabled="true" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="거래처종류" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_clntKndNm" style="width: 200px;" ref="data:dma_customer.clntKndNm" readOnly="true" disabled="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="계열구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_intrlnsClsNm" style="width: 200px;" ref="data:dma_customer.intrlnsClsNm" disabled="true" readOnly="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="거래처부서" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_clntDeptNm" style="width: 200px;" ref="data:dma_customer.clntDeptNm" readOnly="true" disabled="true"></xf:input>
+    					</xf:group>
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="거래처직원직위" ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ed_clntPersPstNm" style="width: 200px;" ref="data:dma_customer.clntPersPstNm" disabled="true" readOnly="true"></xf:input>
+    					</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="거래처직원명" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_clntPersNm" style="width: 200px;" ref="data:dma_customer.clntPersNm" readOnly="true" disabled="true"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="E-mail" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_clntEmail" style="width: 200px;" ref="data:dma_customer.clntEmail" readOnly="true" disabled="true"></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="휴대전화번호" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_clntMpNo" style="width: 150px;" ref="data:dma_customer.clntMpNo" editFormat="999-9999-9999" readOnly="true" disabled="true"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="유선전화번호" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_clntTelNo" style="width: 150px;" ref="data:dma_customer.clntTelNo" readOnly="true" disabled="true"></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="FAX번호" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_clntFaxNo" style="width: 150px;" ref="data:dma_customer.clntFaxNo" readOnly="true" disabled="true"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="담당자부서" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_picDeptNm" style="width: 200px;" ref="data:dma_customer.picDeptNm" readOnly="true" disabled="true"></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="담당자직위" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_picPstNm" style="width: 200px;" ref="data:dma_customer.picPstNm" readOnly="true" disabled="true"></xf:input>
+	</xf:group>
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="담당자명" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class="" id="ed_picEmpNm" style="width: 200px;" ref="data:dma_customer.picEmpNm" readOnly="true" disabled="true"></xf:input>
+	</xf:group></xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="주소" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes>
+			<w2:colspan>3</w2:colspan>
+			<w2:rowspan>1</w2:rowspan>
+		</w2:attributes>
+	<xf:group id="" class="form-group"><xf:input style="width: 100px;" id="ed_zip" class="" ref="data:dma_customer.zip" editFormat="999-999" readOnly="true" disabled="true"></xf:input><xf:input style="width: 200px;" id="ed_addr1" class="" ref="data:dma_customer.addr1" readOnly="true" disabled="true"></xf:input><xf:input style="width: 200px;" id="ed_addr2" class="" ref="data:dma_customer.addr2" readOnly="true" disabled="true"></xf:input></xf:group></xf:group></xf:group></xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_Close" style="" type="button" objType="ctrlBtn" ev:onclick="scwin.btn_Close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+        
+                <w2:dataMap baseNode="map" id="fileUploadGDS">
+    				<w2:keyInfo>
+    					<w2:key id="filepath" name="filepath" dataType="text"></w2:key>
+    					<w2:key id="filename" name="filename" dataType="text"></w2:key>
+    					<w2:key id="fileSize" name="fileSize" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			
+
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="true" src="/ui/cm/fw/constants/DFWConstants.js" type="text/javascript"
+    		scopeVariable="DFWConstants">
+    	</script>
+    	<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : zz_210_02_02p_2
+// 이름     : 계약서 파일 등록
+// 경로     : 공통/거래처/거래처관리/물류거래처관리
+// 작 성 자 : 오영재
+// 작 업 일 : 2025-11-28
+// 사용계정 : 내부
+// 비고     :
+//
+// 업로드   :
+// 다운로드 : 
+// 레포트   :
+// 호출     : 물류거래처관리 탭에서 호출 
+//==================================================================================================================
+
+//파일 업로드 위치
+//scwin.systemPathKey =  DFWConstants.D.FILE_UPLOAD_SYSTEM_PATH ;
+scwin.systemPathKey = "FILE_UPLOAD_SYSTEM_PATH";
+//scwin.systemPathVal =  "/cm/bc/clnt/clntmgnt";
+scwin.systemPathVal = "/fileUpload";
+
+//var argObject = window.dialogArguments;
+scwin.params = $c.data.getParameter();
+
+scwin.g_filePath = "";
+scwin.g_fileName = "";
+scwin.g_ctrtClsCd = "";
+scwin.g_ctrtType = "";
+scwin.g_ctrtFromDt = "";
+scwin.g_ctrtEndDt = "";
+scwin.g_rmk = "";
+scwin.g_accdNo = "temp";
+scwin.fileName = "";
+scwin.g_dataYn = "N";
+scwin.txt_filePath = "";
+scwin.onpageload = function () {
+    scwin.params = $c.data.getParameter();
+    btn_save.hide();
+
+    if (scwin.params != null && scwin.params.contractCtrtClsCd != null) {
+        scwin.fileName = scwin.params.contractFileNm;
+        scwin.g_dataYn = "Y";
+        scwin.g_filePath = scwin.params.contractFilePath;
+        scwin.g_fileName = scwin.fileName.substring(0, scwin.fileName.indexOf("."));
+        scwin.g_ctrtClsCd = scwin.params.contractCtrtClsCd;
+        scwin.g_ctrtType = scwin.params.contractCtrtType;
+        scwin.g_ctrtFromDt = scwin.params.contractCtrtFromDt;
+        scwin.g_ctrtEndDt = scwin.params.contractCtrtEndDt;
+        scwin.g_rmk = scwin.params.contractRmk;
+        ed_rmk.setValue(scwin.g_rmk);
+    }
+    const codeOptions = [
+        { grpCd: "LO113", compID: "lc_ctrtClsCd" }
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+
+};
+
+scwin.onUdcCompleted = function () {
+
+}
+
+
+scwin.ondataload = function () {
+
+    /*
+    lc_ctrtClsCd : 계약서 구분
+    ctrtType : 계약서 종류
+    */
+    var value = scwin.g_ctrtClsCd;
+    lc_ctrtClsCd.setValue(value); // complete에서 안됨
+    console.log(lc_ctrtClsCd.getValue());
+
+    ed_fileNm.setValue(scwin.g_fileName);
+	ctrtType.setValue(scwin.g_ctrtType);
+    ctrtFromDt.setValue(scwin.g_ctrtFromDt);
+    ctrtEndDt.setValue(scwin.g_ctrtEndDt);
+	ed_rmk.setValue(scwin.g_rmk); 
+	scwin.txt_filePath = scwin.g_filePath;
+
+
+    if (lc_ctrtClsCd.getValue() == "01" ) {
+        ed_rmk.setValue("");
+        $c.gus.cfEnableObj(ed_rmk, false);
+        $c.gus.cfEnableObj(ctrtType, true);
+        $c.gus.cfEnableObj(ed_fileNm, true);
+        $c.gus.cfEnableObj([udc_fromToCalendar1]);
+        $c.gus.cfEnableObj(ed_fileNm, true);
+    } else if (lc_ctrtClsCd.getValue() == "03" || lc_ctrtClsCd.getValue() == "04") {
+        ctrtType.setValue("");
+        fileUploadGDS.set("filepath", "");
+        ctrtFromDt.setValue("");
+        ctrtEndDt.setValue("");
+        ed_fileNm.setValue("");
+        $c.gus.cfEnableObj(ed_rmk, true);
+        $c.gus.cfEnableObj(ctrtType, false);
+        $c.gus.cfDisableObjects([udc_fromToCalendar1]); // 버튼 까지 다루려면 각각이 아닌 udc에 먹여야함
+        $c.gus.cfEnableObj(ed_fileNm, false);
+        btn_save.show();
+    } else if (lc_ctrtClsCd.getValue() == "02") {
+        ed_fileNm.setValue(scwin.g_fileName);
+        ed_rmk.setValue("");
+        ctrtType.setValue("");
+        ctrtFromDt.setValue("");
+        ctrtEndDt.setValue("");
+        $c.gus.cfEnableObj(ed_rmk, false);
+        $c.gus.cfEnableObj(ctrtType, false);
+        $c.gus.cfEnableObj(ed_fileNm, true);
+        $c.gus.cfDisableObjects([udc_fromToCalendar1]);
+    }
+
+    //팝업 타이틀 변경 프레임 밖(옵션으로 안됨)
+
+
+    $c.data.setPopupTitle('계약서 파일 등록');
+}
+
+
+
+scwin.btn_close_onclick = function (e) {
+    scwin.f_Close();
+};
+
+scwin.f_Close = function (e) {
+    $c.win.closePopup();
+}
+
+//-------------------------------------------------------------------------
+// function name : fileSubmit
+// function desc : File Upload 
+//-------------------------------------------------------------------------
+scwin.fileSubmit = async function () {
+    //var rtnList = new Array();	
+    //var formObj = document.frm ;	
+
+    if (lc_ctrtClsCd.getValue() == "") {
+        $c.win.alert("계약서 구분을 선택하세요");
+        return false;
+    }
+
+    if (lc_ctrtClsCd.BindColVal == "01") {
+        if (ctrtType.getValue() == "") {
+            $c.win.alert("계약서종류를 선택하세요");
+            return false;
+        }
+    }
+
+    if (ctrtType.getValue() != "") {
+        if (ctrtFromDt.getValue() == "" && ctrtEndDt.getValue() == "") {
+            $c.win.alert("계약일자를 입력하세요");
+            return false;
+        }
+
+        var fromDt = ctrtFromDt.getValue();
+        var endDt = ctrtEndDt.getValue();
+
+        //날짜가 올바로 입력되었는지 체크
+        //if (!cfValidateValue(fromDt, "date=YYYYMMDD") ){
+        //alert("cfValidateValue 전환에서 제외 ...isDate 로 날짜데이터 형식인지 확인");
+        if (!$c.date.isDate(fromDt)) {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_018, ["계약시작일자"]);  //은(는) 유효한 날자가 아님니다.
+            ctrtFromDt.focus();
+            return;
+        }
+
+        if (!$c.date.isDate(endDt)) {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_018, ["계약종료일자"]);  //은(는) 유효한 날자가 아님니다.
+            ctrtEndDt.focus();
+            return;
+        }
+        if (fromDt > endDt) {
+            $c.gus.cfAlertMsg(MSG_CM_ERR_039);  //시작일자를 종료일자 이전으로 선택[입력]하여 주십시요..
+            return;
+        }
+
+    }
+
+
+    if (lc_ctrtClsCd.getValue() == "03" || lc_ctrtClsCd.getValue() == "04") {
+        if (ed_rmk.getValue() == "") {
+            $c.win.alert("사유를 입력하세요");
+            return false;
+        }
+    }
+
+
+    if (lc_ctrtClsCd.getValue() == "01" || lc_ctrtClsCd.getValue() == "02") {
+        //cfUploadFile 임시주석 1126
+        //alert("여기서 업로드 하고 결과 반환 ... 인듯 아랫줄 임시주석");
+        //cfUploadFile( formObj , fileUploadGDS, "uploadComplete" , true);
+        let res = udc_fileUpload.startFileUpload();
+    } else {
+        //alert("scwin.uploadComplete");
+        scwin.uploadComplete();
+    }
+
+}
+
+scwin.btn_save_onclick = function (e) {
+    //scwin.fileSubmit();
+    var rtnList = new Array();
+    scwin.g_rmk = ed_rmk.getValue();
+    rtnList[0] = "";
+    rtnList[1] = "";
+    rtnList[2] = lc_ctrtClsCd.getValue();
+    rtnList[3] = "";
+    rtnList[4] = "";
+    rtnList[5] = "";
+    rtnList[6] = scwin.g_rmk;
+
+    //alert("window.returnValue 아랫부분 고민");
+    console.log(rtnList);
+    //window.returnValue = rtnList;
+    $c.win.closePopup(rtnList);
+
+};
+
+//-------------------------------------------------------------------------
+// function name : uploadComplete
+// function desc : Upload File complete 
+//-------------------------------------------------------------------------
+scwin.uploadComplete = function () {
+    var rtnList = new Array();
+    // 업로드 후처리
+    var lastIdx = -1;
+    var fileList = new Array();
+    console.log('scwin.uploadComplete');
+    console.log(udc_fileUpload.getData().length);
+    if (udc_fileUpload.getData().length > 0) {
+        lastIdx = udc_fileUpload.getData().length - 1;
+        fileList = udc_fileUpload.getData();
+        scwin.txt_filePath = fileList[lastIdx].FILE_STORED_PATH;
+    }
+
+    //HDG scwin.g_filePath = fileUploadGDS.get("filepath");
+    //if(fileUploadGDS.CountRow != 0){
+    //scwin.txt_filePath = scwin.g_filePath;
+    //}
+
+    // 계약서 첨부 파일 체크
+    if (lc_ctrtClsCd.getValue() == "01" || lc_ctrtClsCd.getValue() == "02") {
+        if (scwin.txt_filePath == "") {
+            $c.win.alert("파일을 등록하세요");
+            return false;
+        } else if (ed_fileNm.getValue() == "") {
+            $c.win.alert("파일명을 입력하세요");
+            return false;
+        }
+    }
+    if (fileList.length > 0) {
+        scwin.g_filePath = fileList[lastIdx].FILE_STORED_PATH+fileList[lastIdx].STORED_FILE_NM;//ToBe는 따로옴
+        scwin.g_fileName = ed_fileNm.getValue();
+        scwin.g_ctrtClsCd = lc_ctrtClsCd.getValue();
+        scwin.g_ctrtType = ctrtType.getValue();
+        scwin.g_ctrtFromDt = ctrtFromDt.getValue();
+        scwin.g_ctrtEndDt = ctrtEndDt.getValue();
+    }
+    scwin.g_rmk = ed_rmk.getValue();
+    
+    rtnList[0] = scwin.g_filePath;
+    rtnList[1] = scwin.g_fileName;
+    rtnList[2] = scwin.g_ctrtClsCd;
+    rtnList[3] = scwin.g_ctrtType;
+    rtnList[4] = scwin.g_ctrtFromDt;
+    rtnList[5] = scwin.g_ctrtEndDt;
+    rtnList[6] = scwin.g_rmk;
+
+    //alert("window.returnValue 아랫부분 고민");
+    console.log(rtnList);
+    //window.returnValue = rtnList;
+    $c.win.closePopup(rtnList);
+    //window.close(rtnList);
+}
+
+/*
+<script language=JavaScript for="lc_ctrtClsCd" event=onSelChange()>
+*/
+scwin.lc_ctrtClsCd_onchange = function (info) {
+    btn_save.hide();
+
+    if (lc_ctrtClsCd.getValue() == "01") {
+        ed_rmk.setValue("");
+        scwin.txt_filePath = "";
+        $c.gus.cfEnableObj(ed_rmk, false);
+        $c.gus.cfEnableObj(ctrtType, true);
+        $c.gus.cfEnableObj(ed_fileNm, true);
+        $c.gus.cfDisableObjects([udc_fromToCalendar1]);
+        $c.gus.cfEnableObj(udc_fileUpload, true);
+    } else if (lc_ctrtClsCd.getValue() == "03" || lc_ctrtClsCd.getValue() == "04") {
+
+        ctrtType.setValue("");
+        scwin.txt_filePath = "";
+        ctrtFromDt.setValue("");
+        ctrtEndDt.setValue("");
+        ed_fileNm.setValue("");
+        $c.gus.cfEnableObj(ed_rmk, true);
+        $c.gus.cfEnableObj(ctrtType, false);
+        $c.gus.cfDisableObjects([udc_fromToCalendar1]);
+        $c.gus.cfEnableObj(ed_fileNm, false);
+        $c.gus.cfEnableObj(udc_fileUpload, false);
+        btn_save.show();
+
+    } else if (lc_ctrtClsCd.getValue() == "02") {
+        scwin.txt_filePath = "";
+        ed_fileNm.setValue("");
+        ed_rmk.setValue("");
+        ctrtType.setValue("");
+        ctrtFromDt.setValue("");
+        ctrtEndDt.setValue("");
+        $c.gus.cfEnableObj(ed_rmk, false);
+        $c.gus.cfEnableObj(ctrtType, false);
+        $c.gus.cfEnableObj(ed_fileNm, true);
+        $c.gus.cfDisableObjects([udc_fromToCalendar1]);
+        debugger;
+        $c.gus.cfEnableObj(ed_fileNm, true);
+        $c.gus.cfEnableObj(udc_fileUpload, true);
+        debugger;
+    }
+};
+
+//계약서 종류 선택시
+scwin.ctrtType_onchange = function (info) {
+    if (info.newValue == "1" || info.newValue == "0") {
+        $c.gus.cfEnableObjects([udc_fromToCalendar1]);
+    }
+};
+
+]]></script>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="lc_ctrtClsCd" style="width: 150px;" submenuSize="fixed" chooseOptionLabel="선택"
+    								ref="" ev:onchange="scwin.lc_ctrtClsCd_onchange">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="사유" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_rmk" style="width: 200px;"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="계약서종류" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 appearance="full" class="" cols="" id="ctrtType" ref="" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="" ev:onchange="scwin.ctrtType_onchange">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[갱신대상]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[자동연장]]></xf:label>
+    										<xf:value><![CDATA[0]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr">
+    					<xf:group tagname="th" class="w2tb_th ">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="계약일자 " ref="" style="" userData2=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_fromToCalendar1"
+    							refEdDt="" edFromId="ctrtFromDt" edToId="ctrtEndDt">
+    						</w2:udc_fromToCalendar>
+    					</xf:group></xf:group></xf:group>
+    			</xf:group>
+    			<xf:group class="row-gap-8 flex_no" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="title" id="">
+    						<w2:textbox class="tit" id="" label="계약서 파일" style="" tagname="h3"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="tbbox" id="" style="">
+    					<xf:group class="w2tb" id="" style="" tagname="table">
+    						<w2:attributes>
+    							<w2:summary></w2:summary>
+    						</w2:attributes>
+    						<xf:group tagname="colgroup">
+    							<xf:group style="width:120px;" tagname="col"></xf:group>
+    							<xf:group style="" tagname="col"></xf:group>
+    						</xf:group>
+    						<xf:group style="" tagname="tr">
+    							<xf:group class="w2tb_th" style="" tagname="th">
+    								<w2:textbox class="req" id="" label="파일명 " ref="" style="" userData2=""></w2:textbox>
+    							</xf:group>
+    							<xf:group class="w2tb_td" style="" tagname="td">
+    								<xf:input class="" id="ed_fileNm" style="width: 300px;"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="file-wrap no-title" id="">
+    				<w2:udc_fileMultiUpload fileGrpSeq=""
+    					filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" maxFileSize="536870912"
+    					style="" totalFileSize="2009715200" id="udc_fileUpload" saveFn="scwin.fileSubmit" ev:onFileUploadDone="scwin.uploadComplete" subDir="/cm/bc/clnt/clntmgnt">
+    				</w2:udc_fileMultiUpload>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+    				<xf:label><![CDATA[저장]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

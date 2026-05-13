@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_condition">
+    				<w2:keyInfo>
+    					<w2:key id="depositSavingAccountNumber" name="depositSavingAccountNumber" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_UncollectedProfit" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="closeYm" name="closeYm" dataType="text"></w2:column>
+    					<w2:column id="thisMmUncollPrf" name="thisMmUncollPrf" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_UncollectedProfit" action="/ac.fm.fundemploy.dpsitsaveacctmgnt.RetrieveUncollectedProfitCMD.do"
+    			method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_UncollectedProfit","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_UncollectedProfit","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_UncollectedProfit_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//전역변수
+scwin.userInfo = $c.data.getMemInfo();
+scwin.parentFrame = $c.win.getParent();
+
+scwin.onpageload = function() {
+    $c.gus.cfDisableKeyData();
+    // scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    // var condition = "?depositSavingAccountNumber="+parent.hidDpsitSaveAcctNo.value;
+    // tr_UncollectedProfit.Action = "/ac.fm.fundemploy.dpsitsaveacctmgnt.RetrieveUncollectedProfitCMD.do"+condition;  //개발시 정정영역    
+    // tr_UncollectedProfit.Post();
+    dma_condition.set("depositSavingAccountNumber", scwin.parentFrame.scwin.hidDpsitSaveAcctNo);
+    $c.sbm.execute(sbm_UncollectedProfit);
+};
+
+//-------------------------------------------------------------------------
+// 수금등록 저장시
+//-------------------------------------------------------------------------
+scwin.f_Cancel = function() {
+
+};
+
+scwin.sbm_UncollectedProfit_submitdone = function (e) {
+    var rowCnt = ds_UncollectedProfit.getRowCount();
+	spanTotal.setLabel(rowCnt);
+    gr_UncollectedProfit.setFocusedCell(0, 0);
+};
+
+]]></script>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="title-wrap" id="" style="">
+    		<xf:group class="right" id="">
+    			<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="N" gridUpYn="N" templateYn="N" id="udc_gr_UncollectedProfit" gridID="gr_UncollectedProfit"></w2:udc_topGrdBtn>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    		<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_UncollectedProfit" id="gr_UncollectedProfit" style="" visibleRowNum="4"
+    			visibleRowNumFix="true" sortable="false" readOnly="true">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header1" style="">
+    				<w2:row id="row1" style="">
+    					<w2:column displayMode="label" id="column1" inputType="text" style="" value="년월" width="70" sortable="true"></w2:column>
+    					<w2:column displayMode="label" id="column17" inputType="text" style="" value="당월미수수익" width="130" sortable="true"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody1" style="">
+    				<w2:row id="row2" style="">
+    					<w2:column displayMode="label" id="closeYm" inputType="" style="" value="" width="70" dataType="text" calendarValueType="yearMonth" displayFormat="####/##"></w2:column>
+    					<w2:column displayMode="label" id="thisMmUncollPrf" inputType="text" style="" value="" width="130" displayFormat="#,##0" dataType="number" textAlign="right"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    		<xf:group class="grid-bottom " id="" style="">
+    			<xf:group class="left" id="">
+    				<xf:group class="grid-total" id="" style="">
+    					<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spanTotal" label="0" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group id="" class="right">
+    				<w2:udc_bottomGrdBtn btnCancelYn="N" style="" btnRowAddYn="N" EngYn="N" btnDelYn="N" btnRowDelYn="N">
+    				</w2:udc_bottomGrdBtn>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

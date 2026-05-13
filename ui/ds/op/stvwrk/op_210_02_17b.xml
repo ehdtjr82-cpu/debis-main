@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_Query">
+					<w2:keyInfo>
+						<w2:key id="lobranCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="lodeptCd" name="name2" dataType="text"></w2:key>
+						<w2:key id="vacaDt" name="name3" dataType="text"></w2:key>
+						<w2:key id="vacaMonth" name="name4" dataType="text"></w2:key>
+						<w2:key id="staffNo" name="name5" dataType="text"></w2:key>
+						<w2:key id="wrkPlClsCd" name="name6" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_emp" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="staffNo" name="name1" dataType="text"></w2:column>
+						<w2:column id="staffNm" name="name2" dataType="text"></w2:column>
+						<w2:column id="lodeptCd" name="name3" dataType="text"></w2:column>
+						<w2:column id="lodeptNm" name="name4" dataType="text"></w2:column>
+						<w2:column id="occptypeCd" name="name5" dataType="text"></w2:column>
+						<w2:column id="occptypeNm" name="name6" dataType="text"></w2:column>
+						<w2:column id="occpgrdCd" name="name7" dataType="text"></w2:column>
+						<w2:column id="occpgrdNm" name="name8" dataType="text"></w2:column>
+						<w2:column id="dtlOccptypeCd" name="name9" dataType="text"></w2:column>
+						<w2:column id="dtlOccptypeNm" name="name10" dataType="text"></w2:column>
+						<w2:column id="vacaRsnCd" name="name11" dataType="text"></w2:column>
+						<w2:column id="vacaRsnNm" name="name12" dataType="text"></w2:column>
+						<w2:column id="vacaStDt" name="name13" dataType="text"></w2:column>
+						<w2:column id="vacaEndDt" name="name14" dataType="text"></w2:column>
+						<w2:column id="remainVacaCnt" name="name15" dataType="text"></w2:column>
+						<w2:column id="vacaCnt" name="name16" dataType="text"></w2:column>
+						<w2:column id="monthVacaCnt" name="name17" dataType="text"></w2:column>
+						<w2:column id="totalVacaCnt" name="name18" dataType="text"></w2:column>
+						<w2:column id="entDt" name="name19" dataType="text"></w2:column>
+						<w2:column id="wrkPlClsCd" name="wrkPlClsCd" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="co_ds_combo1" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="name1" dataType="text"></w2:column>
+						<w2:column id="name" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/ds.op.stvwrk.RetrieveTempVacationListCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"dma_Query","key":"IN_DS1"},{"id":"ds_emp","key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_emp","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="조회 중입니다..." ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_co_ds_combo1"
+				action="/cm.zz.RetrieveComboCMD.do?sysCd=BerthNonUsableEBC&amp;queryId=retriveLobranCodeList" method="post" mediatype="application/json"
+				ref="" target='data:json,{"id":"co_ds_combo1","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_co_ds_combo1_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.loginDTO = $c.data.getMemInfo();
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    $c.sbm.execute(sbm_co_ds_combo1);
+
+    ed_vacaMonth.setValue($c.date.getServerDateTime("yyyyMM"));
+};
+
+scwin.sbm_co_ds_combo1_submitdone = function (e) {
+    lc_lobranCd.setValue(scwin.loginDTO.lobranCd);
+
+    lc_lobranCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    if (ed_vacaMonth.getValue() == "") {
+        await $c.win.alert("휴무월을 입력하세요");
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tb_mainData); //공통부재
+
+    ed_vacaMonth.setValue($c.date.getServerDateTime("yyyyMM"));
+    lc_lobranCd.setValue(scwin.loginDTO.lobranCd);
+
+    lc_lobranCd.focus();
+};
+
+//-------------------------------------------------------------------------
+// List 엑셀파일로 저장
+//-------------------------------------------------------------------------
+scwin.f_toExcel1 = function () {
+    let options = {
+        fileName: "상용직연차현황" + ".xlsx",
+        sheetName: "상용직연차현황"
+    };
+
+    $c.data.downloadGridViewExcel(gr_emp, options);
+};
+
+//-------------------------------------------------------------------------
+// 연차등록 화면 조회
+//-------------------------------------------------------------------------
+scwin.f_detail = function (row, colid) {
+    let rowJson = ds_emp.getRowJSON(row);
+    let vacaMonth = ed_vacaMonth.getValue();
+    let staffNo = rowJson.staffNo;
+    let staffNm = rowJson.staffNm;
+    let lobranCd = lc_lobranCd.getValue();
+    let url = "/ui/ds/op/stvwrk/op_210_03_03b.xml";
+    let param = {
+        pop_flag: "Detail",
+        staffNo: staffNo,
+        staffNm: staffNm,
+        vacaMonth: vacaMonth,
+        lobranCd: lobranCd
+    };
+
+    $c.win.openMenu("상용칙 연차등록", url, "op_210_03_03b.xml", param, {});
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    if (ds_emp.getRowCount() == 0) {
+        await $c.win.alert("조회된 데이터가 없습니다.");
+    }
+
+    totalRows.setValue(ds_emp.getRowCount());
+};
+
+scwin.gr_emp_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    // 상세내역 팝업 조회
+    if (columnId == "monthVacaCnt") {
+        if (ds_emp.getCellData(rowIndex, columnId) != 0) {
+            scwin.f_detail(rowIndex, columnId);
+        }
+    }
+};
+
+scwin.gr_emp_onsubtotaldblclick = function (info) {
+    /* if (info.colID == "column43") {
+        let value = $c.num.parseInt(info.element.innerText, 0);
+
+        if (value != 0) {
+            scwin.f_detail(-1, "subTotal");
+        }
+    } */
+};
+
+scwin.customFormatter = function (data, formattedData, rowIndex, colIndex) {
+    let colId = this.getColumnID(colIndex);
+
+    if (colId == "wrkPlClsCd") {
+        return $c.gus.decode(data, "01", "내항", "02", "북항", "기타");
+    } else if (colId == "monthVacaCnt") {
+        if (data != "0") {
+            gr_emp.setCellClass(rowIndex, colId, "linktype");
+        }
+
+        return data;
+    }
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="tb_mainData" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:40px;" tagname="col"></xf:group>
+							<xf:group style="width:200px;" tagname="col"></xf:group>
+							<xf:group style="width:60px;" tagname="col"></xf:group>
+							<xf:group style="width:150px;" tagname="col"></xf:group>
+							<xf:group style="width:45px;" tagname="col"></xf:group>
+							<xf:group tagname="col" style="width:200px;"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="점소 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="lc_lobranCd" search="none" style="width:200px;" submenuSize="auto"
+									ref="data:dma_Query.lobranCd" allOption="" chooseOption="" visibleRowNum="11" sortOption="value" validExp="점소:yes" objType="key"
+									selectedData="false" emptyItem="true">
+									<w2:choices>
+										<w2:itemset nodeset="data:co_ds_combo1">
+											<w2:label ref="name"></w2:label>
+											<w2:value ref="code"></w2:value>
+										</w2:itemset>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="조회월 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:inputCalendar calendarValueType="yearMonth" class="" id="ed_vacaMonth" style="" objType="data"
+									validExp="기간(To):yes:date=YYYYMM" mandatory="true" displayFormat="yyyy/MM" ref="data:dma_Query.vacaMonth"></w2:inputCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="소속 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="lc_wrkPlClsCd" search="none" style="width:150px;" submenuSize="auto"
+									ref="data:dma_Query.wrkPlClsCd" displayModeSync="label" allOption="" chooseOption="" sortOption="value" emptyItem="true"
+									selectedData="false">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[전체]]></w2:label>
+											<w2:value><![CDATA[]]>
+											</w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[내항]]></w2:label>
+											<w2:value><![CDATA[01]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[북항]]></w2:label>
+											<w2:value><![CDATA[02]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_refresh" style="" type="button" ev:onclick="scwin.f_FieldClear">
+						<xf:label><![CDATA[]]>
+						</xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+						ev:onclick="scwin.f_Retrieve" userAuth="R">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="연차내역" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownUserAuth="X" gridDownYn="Y" gridID="gr_emp"
+							btnPlusYn="Y" templateYn="N" id="udc_top" gridDownFn="scwin.f_toExcel1" btnUser="Y"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_emp" id="gr_emp" style=""
+						visibleRowNum="15" visibleRowNumFix="true" dataName="상용직 연차내역" validExp="staffNo:인원번호:yes" validFeatures="ignoreStatus=no"
+						columnMove="true" sortable="true" readOnly="true" editModeEvent="onclick" editModeEventIcon="onclick"
+						ev:oncelldblclick="scwin.gr_emp_oncelldblclick" columnMoveWithFooter="true" ev:onsubtotaldblclick="scwin.gr_emp_onsubtotaldblclick">
+						<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header2" style="">
+							<w2:row id="row3" style="">
+								<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false" width="80"
+									value="소속">
+								</w2:column>
+								<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false" width="80"
+									value="구분">
+								</w2:column>
+								<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false" width="100"
+									value="인원번호">
+								</w2:column>
+								<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false" width="90"
+									value="성명">
+								</w2:column>
+								<w2:column displayMode="label" id="column21" inputType="text" value="입사일자" width="110">
+								</w2:column>
+								<w2:column displayMode="label" id="column19" inputType="text" value="총연차" width="110">
+								</w2:column>
+								<w2:column displayMode="label" id="column17" inputType="text" value="사용연차(당월)" width="120">
+								</w2:column>
+								<w2:column displayMode="label" id="column13" inputType="text" value="사용연차(연간)" width="120">
+								</w2:column>
+								<w2:column displayMode="label" id="column15" inputType="text" value="잔여연차" width="110">
+								</w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody2" style="">
+							<w2:row id="row4" style="">
+								<w2:column blockSelect="false" displayMode="label" id="wrkPlClsCd" inputType="text" removeBorderStyle="false" width="80"
+									colMerge="true" textAlign="center" customFormatter="scwin.customFormatter">
+								</w2:column>
+								<w2:column blockSelect="false" displayMode="label" id="occpgrdNm" inputType="text" removeBorderStyle="false" width="80"
+									readOnly="true" textAlign="center">
+								</w2:column>
+								<w2:column blockSelect="false" displayMode="label" id="staffNo" inputType="" removeBorderStyle="false" width="100"
+									textAlign="center">
+								</w2:column>
+								<w2:column blockSelect="false" displayMode="label" id="staffNm" inputType="" removeBorderStyle="false" width="90"
+									textAlign="center">
+								</w2:column>
+								<w2:column displayMode="label" id="entDt" inputType="text" width="110" displayFormat="####/##/##" textAlign="center">
+								</w2:column>
+								<w2:column displayMode="label" id="totalVacaCnt" inputType="text" width="110" textAlign="center" dataType="number">
+								</w2:column>
+								<w2:column displayMode="label" id="monthVacaCnt" inputType="text" width="120" textAlign="center"
+									customFormatter="scwin.customFormatter" dataType="number">
+								</w2:column>
+								<w2:column displayMode="label" id="vacaCnt" inputType="" width="120" textAlign="center" dataType="number">
+								</w2:column>
+								<w2:column displayMode="label" id="remainVacaCnt" inputType="text" width="110" textAlign="center" dataType="number">
+								</w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:subTotal targetColumnID="wrkPlClsCd" style="" id="subTotal2">
+							<w2:row style="" id="row7">
+								<w2:column width="80" inputType="text" style="" id="column49" value="계" displayMode="label" textAlign="center">
+								</w2:column>
+								<w2:column width="80" inputType="text" style="" id="column48" value="" displayMode="label" textAlign="center">
+								</w2:column>
+								<w2:column width="100" inputType="text" style="" id="column47" value="" displayMode="label" textAlign="center">
+								</w2:column>
+								<w2:column width="90" inputType="text" style="" id="column46" value="" displayMode="label" textAlign="center">
+								</w2:column>
+								<w2:column width="110" inputType="text" style="" id="column45" value="" displayMode="label" textAlign="center">
+								</w2:column>
+								<w2:column width="110" inputType="expression" style="" id="column44" value="" textAlign="center" dataType="number"
+									expression='SUM("totalVacaCnt")'>
+								</w2:column>
+								<w2:column width="120" inputType="expression" style="" id="column43" value="" textAlign="center" dataType="number"
+									expression='SUM("monthVacaCnt")'>
+								</w2:column>
+								<w2:column width="120" inputType="expression" style="" id="column42" value="" textAlign="center" dataType="number"
+									expression='SUM("vacaCnt")'>
+								</w2:column>
+								<w2:column width="110" inputType="expression" style="" id="column41" value="" displayMode="label" dataType="number"
+									expression="SUM('remainVacaCnt')" textAlign="center">
+								</w2:column>
+							</w2:row>
+						</w2:subTotal>
+						<w2:footer style="" id="footer1">
+							<w2:row style="" id="row5">
+								<w2:column width="80" inputType="text" id="column31" value="합계" displayMode="label" textAlign="center">
+								</w2:column>
+								<w2:column width="80" inputType="text" id="column30" displayMode="label" textAlign="center"></w2:column>
+								<w2:column width="100" inputType="text" id="column29" displayMode="label" textAlign="center"></w2:column>
+								<w2:column width="90" inputType="text" id="column28" displayMode="label" textAlign="center"></w2:column>
+								<w2:column width="110" inputType="text" id="column27" displayMode="label" textAlign="center"></w2:column>
+								<w2:column width="110" inputType="expression" id="column26" displayMode="label" textAlign="center"
+									expression="SUM('totalVacaCnt')" displayFormat="#,###">
+								</w2:column>
+								<w2:column width="120" inputType="expression" id="column25" displayMode="label" textAlign="center"
+									expression="SUM('monthVacaCnt')" displayFormat="#,###">
+								</w2:column>
+								<w2:column width="120" inputType="expression" id="column24" displayMode="label" textAlign="center"
+									expression="SUM('vacaCnt')" displayFormat="#,###">
+								</w2:column>
+								<w2:column width="110" inputType="expression" id="column23" displayMode="label" textAlign="center"
+									expression="SUM('remainVacaCnt')" displayFormat="#,###">
+								</w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

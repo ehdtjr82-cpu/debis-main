@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="ds_printCondition">
+					<w2:keyInfo>
+						<w2:key id="kcomcd" name="name1" dataType="text"></w2:key>
+						<w2:key id="blno" name="name2" dataType="text"></w2:key>
+						<w2:key id="mhno" name="name3" dataType="text"></w2:key>
+						<w2:key id="seaAirCls" name="name4" dataType="text"></w2:key>
+						<w2:key id="mblHblCls" name="name5" dataType="text"></w2:key>
+						<w2:key id="issueYn" name="name6" dataType="text"></w2:key>
+						<w2:key id="inpid" name="name7" dataType="text"></w2:key>
+						<w2:key id="inpdt" name="name7" dataType="text"></w2:key>
+						<w2:key id="updid" name="name7" dataType="text"></w2:key>
+						<w2:key id="upddt" name="name7" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" id="ds_printResult" repeatNode="map" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="kcomcd" name="name1" dataType="text"></w2:column>
+						<w2:column id="blno" name="name2" dataType="text"></w2:column>
+						<w2:column id="mhno" name="name3" dataType="text"></w2:column>
+						<w2:column id="seaAirCls" name="name4" dataType="text"></w2:column>
+						<w2:column id="mblHblCls" name="name5" dataType="text"></w2:column>
+						<w2:column id="issueYn" name="name6" dataType="text"></w2:column>
+						<w2:column id="inpid" name="name7" dataType="text"></w2:column>
+						<w2:column id="inpdt" name="name7" dataType="text"></w2:column>
+						<w2:column id="updid" name="name7" dataType="text"></w2:column>
+						<w2:column id="upddt" name="name7" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="ds_mhno">
+					<w2:keyInfo>
+						<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+						<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+						<w2:key id="param1" name="name3" dataType="text"></w2:key>
+						<w2:key id="param2" name="name4" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_codeList" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="code" name="name1" dataType="text"></w2:column>
+						<w2:column id="name" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_RetrieveBlPrintAdmission" action="/il.airout.aobl.RetrieveAirBlPrintAdmissionCMD.do" method="post"
+				mediatype="application/json" ref='data:json,[{"id":"ds_printCondition", "key":"IN_DS1"}, {"id":"ds_printResult", "key":"OUT_DS1"}]'
+				target='data:json,{"id":"ds_printResult","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_RetrieveBlPrintAdmission_submitdone" ev:submiterror=""
+				abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_mhno" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json"
+				ref="data:json,ds_mhno" target='data:json,{"id":"ds_mhno","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+				customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.mhno_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+//---------------------------------------------------------
+// 전역변수
+//---------------------------------------------------------    
+scwin.p_kcomcd = $c.data.getParameter("kcomcd");
+scwin.p_blno = $c.data.getParameter("blno");
+scwin.p_mhno = $c.data.getParameter("mhno");
+scwin.p_clntNo = "";
+scwin.p_clntNm = "";
+scwin.userClsCd = "";
+// scwin.airexgbim = $c.data.getMemInfo(""); // 미사용
+
+scwin.onpageload = function () {
+    hd_kcomcd.setValue("DBEX");
+    lc_blgb.setSelectedIndex(0);
+    lc_regb.setSelectedIndex(0);
+    scwin.f_getParametrSetting();
+};
+
+//---------------------------------------------------------
+// UDC
+//---------------------------------------------------------    
+scwin.onUdcCompleted = function () {
+    let memJson = $c.data.getMemInfo();
+
+    const resData = $c.gus.dsCommonUtil('getCompanyInfoDTO', memJson.lobranCd || " ")[0].value.split('\n');
+
+    const commDTO = resData.reduce((acc, curr) => {
+        const match = curr.match(/^\s*\w+\s+(\w+)\s+=\s+\[(.*)\]/);
+
+        if (match) {
+            const key = match[1];
+            let value = match[2];
+
+            if (value == 'null') value = null;
+            acc[key] = value;
+        };
+        return acc;
+
+    }, {});
+
+    scwin.p_clntNo = commDTO.clntNo;
+    scwin.p_clntNm = commDTO.name1;
+    scwin.userClsCd = memJson.userClsCd;
+    ed_custcd.setValue(scwin.p_clntNo || "NULL");
+    txt_custnm.setValue(scwin.p_clntNm || "null");
+}
+
+//---------------------------------------------------------
+// 사용자 이벤트
+//---------------------------------------------------------    
+scwin.f_getParametrSetting = function () {
+    if (scwin.p_blno == "") return false;
+
+    hd_kcomcd.setValue(scwin.p_kcomcd);
+    ed_mblno.setValue(scwin.p_blno);
+    scwin.f_MhnoLoading();
+}
+
+scwin.f_MhnoLoading = function () {
+    var strClntNo = "";
+    strClntNo = ed_mblno.getValue().trim();
+    if (strClntNo.length > 0) {
+        ds_mhno.set("sysCd", "ilCommonEBC");
+        ds_mhno.set("queryId", "retriveAirMasterMhnoListCombo");
+        ds_mhno.set("param1", strClntNo);
+        ds_mhno.set("param2", hd_iogb.getValue());
+
+        $c.sbm.execute(sbm_mhno);
+    } else {
+        lc_mhno.removeAll();
+    }
+}
+
+scwin.f_FieldClear = function () {
+
+    // cfInitObjects([tb_searchCondition]);
+    ed_mblno.setValue("");
+    lc_mhno.removeAll();
+    lc_blgb.setSelectedIndex(0);
+    lc_regb.setSelectedIndex(0);
+    chb_as.setValue("N");
+    chb_agreed.setValue("N");
+    ed_custcd.setValue(scwin.p_clntNo || "NULL");
+    txt_custnm.setValue(scwin.p_clntNm || "null");
+    ed_mblno.focus();
+}
+
+scwin.f_print = async function () {
+    if (scwin.userClsCd != "01") {
+
+        ds_printCondition.set("kcomcd", hd_kcomcd.getValue());
+        ds_printCondition.set("blno", ed_mblno.getValue());
+        ds_printCondition.set("mhno", lc_mhno.getValue());
+        ds_printCondition.set("seaAirCls", "A");
+        ds_printCondition.set("mblHblCls", "M");
+
+        $c.sbm.execute(sbm_RetrieveBlPrintAdmission);
+
+        if (ds_printResult.getTotalRow() == 0 || ds_printResult.getCellData(0, "issueYn") == 0) {
+            await $c.win.alert("해당 B/L은 발행 승인이 되지 않은 B/L입니다. \n"
+                + "Export Master B/L 화면에서 발행 승인 후 Print가 가능합니다.");
+            return;
+        } else {
+            var as = chb_as.getValue();
+            var as_agreed = chb_agreed.getValue();
+            var blType = "1";
+            // if (chb_agreed.checked == true) {
+            //     as_agreed = "Y";
+            // } else {
+            //     as_agreed = "N";
+            // }
+            // if (chb_as.checked == true) {
+            //     as = "Y";
+            // } else {
+            //     as = "N";
+            // }
+
+            if (lc_regb.getSelectedIndex() == 0) {
+                blType = "1";
+            } else if (lc_regb.getSelectedIndex() == 1) {
+                blType = "2";
+            } else if (lc_regb.getSelectedIndex() == 2) {
+                blType = "3";
+            } else {
+                blType = "4";
+            }
+
+            if (lc_blgb.getSelectedIndex() == 0) { //Neutral b/l
+                // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+                var data = {
+                    odiName: "ar_103_01_05",
+                    reportName: "/il/airout/ar_103_01_06.ozr",
+                    odiParam: {
+                        KCOMCD: hd_kcomcd.getValue()
+                        , BLNO: ed_mblno.getValue()
+                        , MHNO: lc_mhno.getValue()
+                        , COMP_NM: txt_custnm.getValue()
+                        , AS_AGREED: as_agreed
+                        , AS: as
+                        , OTH_PRT_YN: blType
+                    },
+                    viewerParam: {
+                        useprogressbar: true, // 프로그레스바 쓸지 말지
+                        zoom: 100, // 배율 설정
+                        mode: "preview"
+                    },
+                    formParam: {
+                    }
+                };
+                scwin.openOzPopup(data);
+            } else {//Check b/l
+                // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+                var data = {
+                    odiName: "ar_103_01_05",
+                    reportName: "/il/airout/ar_103_01_05.ozr",
+                    odiParam: {
+                        KCOMCD: hd_kcomcd.getValue()
+                        , BLNO: ed_mblno.getValue()
+                        , MHNO: lc_mhno.getValue()
+                        , COMP_NM: txt_custnm.getValue()
+                        , AS_AGREED: as_agreed
+                        , AS: as
+                        , OTH_PRT_YN: blType
+                    },
+                    viewerParam: {
+                        useprogressbar: true, // 프로그레스바 쓸지 말지
+                        zoom: 100, // 배율 설정
+                        mode: "preview"
+                    },
+                    formParam: {
+                    }
+                };
+                scwin.openOzPopup(data);
+            }
+        }
+    } else if (scwin.userClsCd == "01") {
+        var as = chb_as.getValue();
+        var as_agreed = chb_agreed.getValue();
+        var blType = "1";
+
+        if (lc_regb.getSelectedIndex() == 0) {
+            blType = "1";
+        } else if (lc_regb.getSelectedIndex() == 1) {
+            blType = "2";
+        } else if (lc_regb.getSelectedIndex() == 2) {
+            blType = "3";
+        } else {
+            blType = "4";
+        }
+
+        if (lc_blgb.getSelectedIndex() == 0) { //Neutral b/l
+            // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+            var data = {
+                odiName: "ar_103_01_05",
+                reportName: "/il/airout/ar_103_01_06.ozr",
+                odiParam: {
+                    KCOMCD: hd_kcomcd.getValue()
+                    , BLNO: ed_mblno.getValue()
+                    , MHNO: lc_mhno.getValue()
+                    , COMP_NM: txt_custnm.getValue()
+                    , AS_AGREED: as_agreed
+                    , AS: as
+                    , OTH_PRT_YN: blType
+                },
+                viewerParam: {
+                    useprogressbar: false
+                }
+            };
+            scwin.openOzPopup(data);
+        } else {//Check b/l
+            var data = {
+                odiName: "ar_103_01_05",
+                reportName: "/il/airout/ar_103_01_05.ozr",
+                odiParam: {
+                    KCOMCD: hd_kcomcd.getValue()
+                    , BLNO: ed_mblno.getValue()
+                    , MHNO: lc_mhno.getValue()
+                    , COMP_NM: txt_custnm.getValue()
+                    , AS_AGREED: as_agreed
+                    , AS: as
+                    , OTH_PRT_YN: blType
+                },
+                viewerParam: {
+                    useprogressbar: false
+                    , mode: "preview"
+                    // viewerParam.add("print.mode", "print");
+                    // viewerParam.add("export.filename", ed_mblno.getValue());
+                    // viewerParam.add("export.format", "pdf");
+                    // viewerParam.add("export.path", "C:\\OZExport");
+                }
+            };
+            scwin.openOzPopup(data);
+        }
+    }
+}
+
+scwin.f_print2 = async function () {
+    if (scwin.userClsCd != "01") {
+        ds_printCondition.set("kcomcd", hd_kcomcd.getValue());
+        ds_printCondition.set("blno", ed_mblno.getValue());
+        ds_printCondition.set("mhno", lc_mhno.getValue());
+        ds_printCondition.set("seaAirCls", "A");
+        ds_printCondition.set("mblHblCls", "M");
+
+        $c.sbm.execute(sbm_RetrieveBlPrintAdmission);
+
+        if (ds_printResult.getTotalRow() == 0 || ds_printResult.getCellData(0, "issueYn") == 0) {
+            await $c.win.alert("해당 B/L은 발행 승인이 되지 않은 B/L입니다. \n"
+                + "Export Master B/L 화면에서 발행 승인 후 Print가 가능합니다.");
+            return;
+        } else {
+
+            var as = chb_as.getValue();
+            var as_agreed = chb_agreed.getValue();
+            var blType = "1";
+            // if (chb_agreed.checked == true) {
+            //     as_agreed = "Y";
+            // } else {
+            //     as_agreed = "N";
+            // }
+
+            // if (chb_as.checked == true) {
+            //     as = "Y";
+            // } else {
+            //     as = "N";
+            // }
+
+            if (lc_regb.getSelectedIndex() == 0) {
+                blType = "1";
+            } else if (lc_regb.getSelectedIndex() == 1) {
+                blType = "2";
+            } else if (lc_regb.getSelectedIndex() == 2) {
+                blType = "3";
+            } else {
+                blType = "4";
+            }
+
+            if (lc_blgb.getSelectedIndex() == 0) { //Neutral b/l
+                // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+                var data = {
+                    odiName: "ar_103_01_05",
+                    reportName: "/il/airout/ar_103_01_06.ozr",
+                    odiParam: {
+                        KCOMCD: hd_kcomcd.getValue()
+                        , BLNO: ed_mblno.getValue()
+                        , MHNO: lc_mhno.getValue()
+                        , COMP_NM: txt_custnm.getValue()
+                        , AS_AGREED: as_agreed
+                        , AS: as
+                        , OTH_PRT_YN: blType
+                    },
+                    viewerParam: {
+                        useprogressbar: false
+                    }
+                };
+                scwin.openOzPopup(data);
+            } else {//Check b/l
+
+                var data = {
+                    odiName: "ar_103_01_05",
+                    reportName: "/il/airout/ar_103_01_05_01.ozr",
+                    odiParam: {
+                        KCOMCD: hd_kcomcd.getValue()
+                        , BLNO: ed_mblno.getValue()
+                        , MHNO: lc_mhno.getValue()
+                        , COMP_NM: txt_custnm.getValue()
+                        , AS_AGREED: as_agreed
+                        , AS: as
+                        , OTH_PRT_YN: blType
+                    },
+                    viewerParam: {
+                        useprogressbar: false
+                        , mode: "preview"
+                        // viewerParam.add("print.mode", "print");
+                        // viewerParam.add("export.filename", ed_mblno.getValue());
+                        // viewerParam.add("export.format", "pdf");
+                        // viewerParam.add("export.path", "C:\\OZExport");
+                    }
+                };
+                scwin.openOzPopup(data);
+            }
+        }
+
+
+    } else if (scwin.userClsCd == "01") {
+        var as = chb_as.getValue();
+        var as_agreed = chb_agreed.getValue();
+        var blType = "1";
+        // if (chb_agreed.checked == true) {
+        //     as_agreed = "Y";
+        // } else {
+        //     as_agreed = "N";
+        // }
+
+        // if (chb_as.checked == true) {
+        //     as = "Y";
+        // } else {
+        //     as = "N";
+        // }
+
+        if (lc_regb.getSelectedIndex() == 0) {
+            blType = "1";
+        } else if (lc_regb.getSelectedIndex() == 1) {
+            blType = "2";
+        } else if (lc_regb.getSelectedIndex() == 2) {
+            blType = "3";
+        } else {
+            blType = "4";
+        }
+
+        if (lc_blgb.getSelectedIndex() == 0) { //Neutral b/l
+
+            var data = {
+                odiName: "ar_103_01_05",
+                reportName: "/il/airout/ar_103_01_06.ozr",
+                odiParam: {
+                    KCOMCD: hd_kcomcd.getValue()
+                    , BLNO: ed_mblno.getValue()
+                    , MHNO: lc_mhno.getValue()
+                    , COMP_NM: txt_custnm.getValue()
+                    , AS_AGREED: as_agreed
+                    , AS: as
+                    , OTH_PRT_YN: blType
+                },
+                viewerParam: {
+                    useprogressbar: false
+                    , mode: "preview"
+                    // viewerParam.add("print.mode", "print");
+                    // viewerParam.add("export.filename", ed_mblno.getValue());
+                    // viewerParam.add("export.format", "pdf");
+                    // viewerParam.add("export.path", "C:\\OZExport");
+                }
+            };
+            scwin.openOzPopup(data);
+        } else {//Check b/l
+            var data = {
+                odiName: "ar_103_01_05",
+                reportName: "/il/airout/ar_103_01_05_01.ozr",
+                odiParam: {
+                    KCOMCD: hd_kcomcd.getValue()
+                    , BLNO: ed_mblno.getValue()
+                    , MHNO: lc_mhno.getValue()
+                    , COMP_NM: txt_custnm.getValue()
+                    , AS_AGREED: as_agreed
+                    , AS: as
+                    , OTH_PRT_YN: blType
+                },
+                viewerParam: {
+                    useprogressbar: false
+                    , mode: "preview"
+                    // viewerParam.add("print.mode", "print");
+                    // viewerParam.add("export.filename", ed_mblno.getValue());
+                    // viewerParam.add("export.format", "pdf");
+                    // viewerParam.add("export.path", "C:\\OZExport");
+                }
+            };
+            scwin.openOzPopup(data);
+        }
+    }
+}
+
+scwin.f_PopUp = function (disGubun, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+    switch (disGubun) {
+        case "Consolidator":
+            udc_cust.setSelectId("retrieveEngClntInfo"); // XML상의 SELECT ID	
+            udc_cust.ilCommonPopUp(scwin.udc_cust_callBackFunc, // 콜백 함수                     
+                ed_custcd.getValue().trim(),
+                txt_custnm.getValue(),
+                pWinCloseTF,
+                '2',
+                'Consolidator',
+                '140,300',
+                "3,4,5,6,7,8,9,10",
+                null,
+                '500', '500',
+                null, null, null,
+                pAllSearchTF,
+                null,
+                pNoDataCloseTF
+            );
+            break;
+    }
+}
+
+scwin.udc_cust_callBackFunc = function (rtnList) {
+    $c.gus.cfSetReturnValue(rtnList, ed_custcd, txt_custnm);
+}
+
+
+scwin.openOzPopup = async function (data) {
+    let opts = {
+        id: "ozReportPopup",
+        popupName: "오즈 리포트",
+        modal: true,
+        type: "browserPopup",
+        width: 800,
+        height: 900,
+        title: "오즈 리포트"
+    };
+    await $c.win.openPopup("/ui/cm/zz/ozreportPopup.xml", opts, data);
+}
+//---------------------------------------------------------
+// 컴포넌트 이벤트
+//---------------------------------------------------------    
+scwin.udc_cust_onclickEvent = function (e) {
+    scwin.f_PopUp('Consolidator', 'F', 'F', 'F');
+};
+
+scwin.udc_cust_onblurCodeEvent = function (e) {
+    var strClntNo = ed_custcd.getValue().trim();
+
+    if (strClntNo.length > 0) {
+        txt_custnm.setValue("");
+        scwin.f_PopUp("Consolidator", "T", "F", "F");
+    } else {
+        txt_custnm.setValue("");
+    }
+};
+
+scwin.ed_mblno_onblur = function (e) {
+    scwin.f_MhnoLoading();
+};
+
+scwin.mhno_submitdone = function (e) {
+    ds_codeList.setJSON(e.responseJSON.GAUCE);
+}
+
+scwin.ed_mblno_onkeyup = function (e) {
+    let replaceValue = e.target.value.replace("-", "");
+    this.setValue(replaceValue.toUpperCase());
+};]]></script>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_ilcomCode" type="page" variableClone="true" src="/ui/il/common/udc/ilcomCode.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="right" id="">
+						<xf:trigger class="btn ico refresh" id="trigger12" style="" type="button" ev:onclick="scwin.f_FieldClear">
+							<xf:label><![CDATA[새로고침]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="trigger11" style="" type="button" ev:onclick="scwin.f_print">
+							<xf:label><![CDATA[Print]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="trigger10" style="" type="button" ev:onclick="scwin.f_print2">
+							<xf:label><![CDATA[Print(New)]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:180px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="width:180px;" tagname="col"></xf:group>
+							<xf:group tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="B/L Type" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_blgb" style="" submenuSize="fixed" ref="">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[Neutral]]></xf:label>
+											<xf:value><![CDATA[L]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[Check B/L]]></xf:label>
+											<xf:value><![CDATA[C]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="Print Type" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td br0" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_regb" style="" submenuSize="fixed" ref="">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[Normal]]></xf:label>
+											<xf:value><![CDATA[1]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[Charge not print]]></xf:label>
+											<xf:value><![CDATA[2]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[Other charge not print]]></xf:label>
+											<xf:value><![CDATA[3]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[Air Freight charge not print]]></xf:label>
+											<xf:value><![CDATA[4]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td bl0">
+								<w2:attributes></w2:attributes>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Master B/L No" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:input class="" id="ed_mblno" style="" maxlength="21" displayFormat="###-#################" ev:onblur="scwin.ed_mblno_onblur" editFormat="XXX-XXXXXXXXXXXXXXXXX" ev:onkeyup="scwin.ed_mblno_onkeyup"></xf:input>
+								<xf:input id="hd_iogb" style="display:none;width: 144px;height: 21px;" initValue="O"></xf:input>
+								<xf:input id="hd_kcomcd" style="display:none;width: 144px;height: 21px;"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="Consol No" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_mhno" style="" submenuSize="fixed" ref="" displayMode="label">
+									<xf:choices>
+										<xf:itemset nodeset="data:ds_codeList">
+											<xf:label ref="name"></xf:label>
+											<xf:value ref="code"></xf:value>
+										</xf:itemset>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes></w2:attributes>
+								<xf:select appearance="full" class="" cols="" id="chb_as" ref="" renderType="checkboxgroup" rows=""
+									selectedindex="-1" style="margin-left: 10px;" falseValue="N">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[AS PRINT ]]></xf:label>
+											<xf:value><![CDATA[Y]]>
+											</xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+								<xf:select appearance="full" class="" cols="" id="chb_agreed" ref="" renderType="checkboxgroup" rows=""
+									selectedindex="-1" style="margin-left : 10px;" falseValue="N">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[AS AGREED]]></xf:label>
+											<xf:value><![CDATA[Y]]>
+											</xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group tagname="th" class="w2tb_th vat">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Consolidator" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group tagname="td" class="w2tb_td">
+								<w2:attributes>
+									<w2:colspan>4</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+                                <w2:udc_ilcomCode codeId="ed_custcd" nameId="txt_custnm" popupID="" selectID="" style="" validTitle="" 
+                                    id="udc_cust" ev:onclickEvent="scwin.udc_cust_onclickEvent" ev:onblurCodeEvent="scwin.udc_cust_onblurCodeEvent" btnId="img_cust" allowCharCode="0-9|a-z|A-Z" UpperFlagCode="1"></w2:udc_ilcomCode>    
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

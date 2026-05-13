@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+/**
+ * 화면 로딩
+ */
+scwin.onpageload = async function() {
+
+    scwin.strCurrDate = $c.date.getServerDateTime(); // 서버를 기준으로 현재 날짜 반환
+
+	// 세션정보
+    scwin.gv_loabranCd = $c.data.getMemInfo("loUpperLobranCd");
+
+    var jsonParams = $c.data.getParameter();
+    scwin.gv_odrNo = jsonParams.odrNo;  //파라메터로 받은 원본오더
+
+    scwin.listOdrNo = scwin.gv_odrNo.split(",");        //배열로 변환한 오더
+    scwin.txtValue = scwin.gv_odrNo.replace(/,/g,"\n"); //textarea에 표시하기 위한 오더
+    scwin.evalRegVal = '/'+scwin.listOdrNo[0]+'/g';
+
+    ed_orderNo.setValue(scwin.listOdrNo[0]);
+
+	const codeOptions = [
+        { grpCd: "OP482", compID: "acb_lc_sortCd" }  // 발행순서
+    ];
+    await $c.data.setCommonCode(codeOptions, function() {
+        //작업구분
+        acb_lc_sortCd.setValue("6");
+    });
+
+    if( scwin.listOdrNo.length == 1 ) {
+        tr_addOdr.setStyle("display", "none"); //hide();
+    } else {
+        tr_addOdr.setStyle("display", "table-row"); //show();
+        txt_ta_odrList.setValue(scwin.txtValue.replace(scwin.listOdrNo[0]+"\n", ""));
+        $c.gus.cfEnableObj(txt_ta_odrList, "false");
+    }
+
+    cb_printCheck.checkAll(true);
+    cb_previewCheck.checkAll(true);
+};
+
+/**
+ * 보고서발행
+ */
+scwin.btn_print_onclick = async function (e) {
+    //validation check
+    let ret = await $c.gus.cfValidate([tb_srchCond]);
+    if(!ret) {
+        return;
+    }
+    
+    let lenListOdrNo = scwin.listOdrNo.length;
+
+    if(lenListOdrNo == 1) {
+        
+        //개별print(viewer 띄운다)
+        let data = {
+                odiName:"op_202_02_05r",
+                reportName: "/ds/op/wrkplan/transwrkplan/op_202_02_05r.ozr",
+                odiParam : {
+                    odrNo : ed_orderNo.getValue()
+                  , sortCd : acb_lc_sortCd.getValue()
+                },
+                viewerParam : {
+                    useprogressbar : true   // 프로그레스바 쓸지 말지
+                },
+                formParam : {
+                }
+            };
+        let opts = {
+			type: 'viewer'
+			, printMode: 'view'
+			, exportFilename: ''
+			, exportMode: 'view'
+		};
+
+        if (cb_printCheck.getValue() == "1" && cb_previewCheck.getValue() == "1") { // 인쇄옵션, 미리보기 둘다 체크된 경우
+			data.viewerParam.mode = "preview";
+			$c.ext.openOzReport(data, opts);
+		} else if (cb_printCheck.getValue() == "1") { // 인쇄옵션만 체크된 경우
+			$c.ext.printOzReport(data, opts);
+		} else if (cb_previewCheck.getValue() == "1") { // 미리보기만 체크된 경우
+			opts.printMode = 'silent';
+			$c.ext.openOzReport(data, opts);
+		} else {
+			opts.type = "";
+			opts.printMode = "";
+			opts.exportFormat = "";
+			opts.exportMode = "";
+
+			$c.ext.printOzReport(data, opts);
+		}
+        
+    } else {    
+        
+        //일괄print (viewer안띄운다)
+
+        //OZStartBatch(); 
+        var printCnt = 0;
+        var firstOdrNo = "";
+        var chkOdrNo = "";
+        var v_odrNo = "";
+
+        for(var i = 0; i < lenListOdrNo; i++ ) {
+            v_odrNo = scwin.listOdrNo[i];
+            
+            if(printCnt == 0) firstOdrNo = v_odrNo;
+            if(chkOdrNo == v_odrNo) continue;
+            if(chkOdrNo !== v_odrNo) chkOdrNo = v_odrNo;
+
+            // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+            const data = {
+                odiName:"op_202_02_05r",
+                reportName: "/ds/op/wrkplan/transwrkplan/op_202_02_05r.ozr",
+                odiParam: {
+                    odrNo : v_odrNo
+                  , sortCd : acb_lc_sortCd.getValue()
+                },
+                viewerParam: {
+                    useprogressbar: false
+                },
+                formParam: {}
+            };
+
+            $c.ext.printOzReport(data, {});
+
+            printCnt++;
+        }
+
+        //OZExecuteBatch();
+        if(printCnt == 1) $c.win.alert(firstOdrNo+"의 오더Sheet를 프린터로 전송했습니다.");
+        if(printCnt > 1) $c.win.alert(firstOdrNo+"외에 "+(printCnt-1)+"건의 오더Sheet를 프린터로 전송했습니다.");
+
+    }
+};
+
+
+/**
+ * Windows Close
+ */
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<xf:group class="pgtbox" id="" style="">
+				<xf:group class="pg-tit" id="">
+					<xf:group class="tit" id="">
+						<w2:textbox class="pgt_tit" id="tbx_textbox1" label="셔틀운송작업물량차량조회 팝업1" style="" tagname=""></w2:textbox>
+					</xf:group>
+					<xf:trigger class="btn ico help" id="" style="" type="button">
+						<xf:label></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="">
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb tb" id="tb_srchCond" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:120px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="ORDER NO" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<xf:input class=" w150" id="ed_orderNo" placeholder="" style="text-transform: uppercase;" mandatory="true" title="ORDER NO"
+									allowChar="a-zA-Z0-9" maxlength="13" validateOnInput="true"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="발행순서" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<w2:autoComplete class=" w250" editType="select" id="acb_lc_sortCd" search="start" style="" submenuSize="auto">
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+						<xf:group tagname="tr" style="" id="tr_addOdr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="그외 오더" ref="" style="" userData2=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:colspan>1</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:textarea id="txt_ta_odrList" style="width:300px; height:100px; "></xf:textarea>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" class="btnbox">
+					<xf:group id="" class="right">
+						<xf:group id="" class="col-gap-14">
+							<xf:select ref="" appearance="full" style="" id="cb_printCheck" renderType="checkboxgroup" rows="" selectedindex="-1"
+								class="chk-grp" cols="">
+								<xf:choices>
+									<xf:item>
+										<xf:label><![CDATA[인쇄옵션]]></xf:label>
+										<xf:value><![CDATA[1]]>
+										</xf:value>
+									</xf:item>
+								</xf:choices>
+							</xf:select>
+							<xf:select ref="" appearance="full" style="" id="cb_previewCheck" renderType="checkboxgroup" rows=""
+								selectedindex="-1" class="chk-grp" cols="">
+								<xf:choices>
+									<xf:item>
+										<xf:label><![CDATA[미리보기]]></xf:label>
+										<xf:value><![CDATA[1]]>
+										</xf:value>
+									</xf:item>
+								</xf:choices>
+							</xf:select>
+                            <xf:trigger class="btn" disabled="" escape="false" id="btn_print" style="" type="button" userAuth="P" ev:onclick="scwin.btn_print_onclick">
+                                <xf:label><![CDATA[발행]]></xf:label>
+                            </xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

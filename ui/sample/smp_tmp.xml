@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="comp 관련" meta_screenId="comp" meta_author="palsu kim">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_OtherTariff" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="Currow" name="SEQ" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="cust" name="Code" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="custnm" name="Name" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="iogb" name="Export/Import" dataType=""></w2:column>
+    					<w2:column id="locCd" name="Code" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="locCdNm" name="Name" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="type" name="Unit" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="fcode" name="Code" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="fcodenm" name="Name" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="selpchItemCd" name="매출입항목코드" dataType=""></w2:column>
+    					<w2:column id="fromDt" name="FromDate" dataType=""></w2:column>
+    					<w2:column id="curr" name="CURR" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="amount" name="Rate" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="sellYn" name="Sell" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="buyYn" name="Buy" dataType="" defaultValue=""></w2:column>
+    					<w2:column id="blank" name="End" dataType=""></w2:column>
+    					<w2:column id="kcomcd" name="name17" dataType="text"></w2:column>
+    					<w2:column id="sellYnTemp" name="name18" dataType="text"></w2:column>
+    					<w2:column id="buyYnTemp" name="name19" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+   
+};
+
+scwin.upFn = function() {debugger;
+    if(udc_topGrd.getUpExt() == "1") {    //ASIS csv 는 헤더가 2줄이다.
+        options = {
+            "header": 1,
+            "type": "1"
+        };
+    } else {
+
+        options = {
+            "status": "C",
+            "headerExist": 1,
+            "type": "1",
+            "startRowIndex": 0,
+            "footerExist": 0,
+        };
+    }
+
+    udc_topGrd.uploadGridViewExcel(gr_gridView4, options);
+}
+scwin.upFn1 = function() {debugger;
+    if(udc_topGrd1.getUpExt() == "1") {    //ASIS csv 는 헤더가 2줄이다.
+        options = {
+            "header": 1,
+            "type": "1"
+        };
+    } else {
+
+        options = {
+            "status": "C",
+            "headerExist": 1,
+            "type": "1",
+            "startRowIndex": 0,
+            "footerExist": 0,
+        };
+    }
+
+    udc_topGrd1.uploadGridViewExcel(gr_gridView4, options);
+}
+scwin.upFn2 = function() {debugger;
+    if(udc_topGrd2.getUpExt() == "1") {    //ASIS csv 는 헤더가 2줄이다.
+        options = {
+            "header": 1,
+            "type": "1"
+        };
+    } else {
+
+        options = {
+            "status": "C",
+            "headerExist": 1,
+            "type": "1",
+            "startRowIndex": 0,
+            "footerExist": 0,
+        };
+    }
+
+    udc_topGrd2.uploadGridViewExcel(gr_gridView5, options);
+}
+
+]]></script>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="" src="/cm/udc/fromToYear.xml"></w2:require>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_schInput" type="page" variableClone="" src="/cm/udc/schInput.xml"></w2:require>
+    	<w2:require as="udc_common_textbox" type="page" variableClone="" src="/cm/udc/common_textbox.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group id="" class="sub_contents" style="">
+    			<xf:group style="" id="grp_group25" class="content">
+
+    				<xf:group style="" id="" class="round-box">
+    					<xf:group id="" class="title-wrap">
+    						<xf:group id="" class="right">
+    							<w2:udc_topGrdBtn grdDownOpts='{"fileName" : "다운로드엑셀.xlsx" }' grp="grp_group25" style=""
+    								gridID="gr_OtherTariff" id="udc_topGrd" gridUpFn="scwin.upFn" btnUser="N">
+    							</w2:udc_topGrdBtn>
+    						</xf:group>
+                        </xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_OtherTariff" id="gr_OtherTariff"
+    					style="" visibleRowNum="15" focusMove="true" rowStatusVisible="true"
+    					ev:onrowindexchange="scwin.gr_OtherTariff_onrowindexchange" ev:oncellclick="scwin.gr_OtherTariff_oncellclick" columnMove="false" visibleRowNumFix="true" ev:onafteredit="scwin.gr_OtherTariff_onafteredit" ev:onfilereadend="scwin.gr_OtherTariff_onfilereadend" ev:oncellindexchange="scwin.gr_OtherTariff_oncellindexchange" ev:oneditkeyup="scwin.gr_OtherTariff_oneditkeyup">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="SEQ" width="60" rowSpan="2" sortable="false"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="Customer" width="140" colSpan="2"
+    								class="txt-blue" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="Export&lt;br&gt;Import" width="80"
+    								rowSpan="2" class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="Area" width="140" colSpan="2"
+    								class="txt-red" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" value="Unit" width="80" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="Freight" width="140" colSpan="2"
+    								class="txt-red" sortable="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="매출입항목코드" width="120" rowSpan="2"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="column52" value="FromDate" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column49" value="CURR" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column46" value="Rate" displayMode="label" rowSpan="2">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column43" value="Sell" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column40" value="Buy" displayMode="label" rowSpan="2"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="column31" value="End" displayMode="label" rowSpan="2"
+    								hidden="true">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="80" inputType="text" id="column29" value="Code" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="80" inputType="text" id="column28" value="Name" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="80" inputType="text" id="column26" value="Code" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="80" inputType="text" id="column25" value="Name" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="80" inputType="text" id="column23" value="Code" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="80" inputType="text" id="column22" value="Name" displayMode="label" class="txt-blue"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="Currow" inputType="text" width="60"></w2:column>
+    							<w2:column displayMode="label" id="cust" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" allowChar="0-9a-zA-Z" maxLength="6">
+    							</w2:column>
+    							<w2:column displayMode="label" id="custnm" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="iogb" inputType="select" width="80" allOption="" chooseOption="true"
+    								mandatory="true" chooseOptionLabel="$blank" ref="">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[Export]]></w2:label>
+    										<w2:value><![CDATA[O]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[Import]]></w2:label>
+    										<w2:value><![CDATA[I]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="locCd" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" allowChar="0-9a-zA-Z" maxLength="6">
+    							</w2:column>
+    							<w2:column displayMode="label" id="locCdNm" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="type" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" maxLength="4" allowChar="0-9a-zA-Z">
+    							</w2:column>
+    							<w2:column displayMode="label" id="fcode" inputType="textImage" width="80" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" allowChar="0-9a-zA-Z" maxLength="4">
+    							</w2:column>
+    							<w2:column displayMode="label" id="fcodenm" inputType="text" width="80" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="selpchItemCd" inputType="text" width="120"></w2:column>
+    							<w2:column width="120" inputType="calendar" id="fromDt" displayMode="label" displayFormat="yyyy/MM/dd" mandatory="true"></w2:column>
+    							<w2:column width="80" inputType="textImage" id="curr" displayMode="label" viewType="default"
+    								imageClickFunction="scwin.grid_popup" mandatory="true" maxLength="3" allowChar="0-9a-zA-Z">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" id="amount" displayMode="label" dataType="float"
+    								displayFormat="#,##0.00" textAlign="right" excelCellType="number" allowChar="0-9." validateOnInput="true" maxLength="8.2">
+    							</w2:column>
+    							<w2:column width="80" inputType="checkbox" id="sellYn" displayMode="label" falseValue="0" trueValue="1" valueType="other"></w2:column>
+    							<w2:column width="80" inputType="checkbox" id="buyYn" displayMode="label" valueType="other" falseValue="0" trueValue="1"></w2:column>
+    							<w2:column width="80" inputType="text" id="blank" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+
+    						<w2:udc_topGrdBtn grdDownOpts='' grp="grp_group25" style="" gridID="gr_gridView4" id="udc_topGrd1"
+    							gridUpFn="scwin.upFn1" btnUser="N">
+    						</w2:udc_topGrdBtn>
+
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" columnMove="false"
+    							dataList="data:ds_OtherTariff" ev:onafteredit="scwin.gr_OtherTariff_onafteredit"
+    							ev:onfilereadend=""
+    							focusMove="true" id="gr_gridView4" rowStatusVisible="true" style=""
+    							visibleRowNum="15" visibleRowNumFix="true">
+    							<w2:caption id="caption5" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column class="txt-blue" colSpan="2" displayMode="label" id="column17" inputType="text"
+    										sortable="false" value="Customer" width="140">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column13" inputType="text" rowSpan="2"
+    										value="Export&lt;br&gt;Import" width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" colSpan="2" displayMode="label" id="column11" inputType="text"
+    										sortable="false" value="Area" width="140">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column3" inputType="text" rowSpan="2"
+    										value="Unit" width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" colSpan="2" displayMode="label" id="column5" inputType="text"
+    										sortable="false" value="Freight" width="140">
+    									</w2:column>
+    									<w2:column displayMode="label" hidden="" id="column19" inputType="text" rowSpan="2"
+    										value="매출입항목코드" width="120">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column52" inputType="text" rowSpan="2"
+    										value="FromDate" width="120">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column49" inputType="text" rowSpan="2"
+    										value="CURR" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column46" inputType="text" rowSpan="2" value="Rate" width="80"></w2:column>
+    									<w2:column displayMode="label" hidden="" id="column31" inputType="text" rowSpan="2" value="End"
+    										width="80">
+    									</w2:column>
+    								</w2:row>
+    								<w2:row id="row3" style="">
+    									<w2:column class="txt-blue" displayMode="label" id="column29" inputType="text" value="Code"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-blue" displayMode="label" id="column28" inputType="text" value="Name"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column26" inputType="text" value="Code"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-blue" displayMode="label" id="column25" inputType="text" value="Name"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column23" inputType="text" value="Code"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-blue" displayMode="label" id="column22" inputType="text" value="Name"
+    										width="80">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="cust" imageClickFunction="scwin.grid_popup"
+    										inputType="textImage" maxLength="6" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="custnm" inputType="text" readOnly="true" width="80"></w2:column>
+    									<w2:column allOption="" chooseOption="true" chooseOptionLabel="$blank" displayMode="label" id="iogb"
+    										inputType="select" mandatory="true" ref="" width="80">
+    										<w2:choices>
+    											<w2:item>
+    												<w2:label><![CDATA[Export]]></w2:label>
+    												<w2:value><![CDATA[O]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[Import]]></w2:label>
+    												<w2:value><![CDATA[I]]></w2:value>
+    											</w2:item>
+    										</w2:choices>
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="locCd"
+    										imageClickFunction="scwin.grid_popup" inputType="textImage" mandatory="true" maxLength="6" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="locCdNm" inputType="text" readOnly="true" width="80"></w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="sellYnTemp"
+    										imageClickFunction="scwin.grid_popup" inputType="textImage" mandatory="true" maxLength="4" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="fcode"
+    										imageClickFunction="scwin.grid_popup" inputType="textImage" mandatory="true" maxLength="4" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="fcodenm" inputType="text" readOnly="true" width="80"></w2:column>
+    									<w2:column displayMode="label" id="selpchItemCd" inputType="text" width="120"></w2:column>
+    									<w2:column displayFormat="yyyy/MM/dd" displayMode="label" id="fromDt" inputType="calendar"
+    										mandatory="true" width="120">
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="curr" imageClickFunction="scwin.grid_popup"
+    										inputType="textImage" mandatory="true" maxLength="3" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column allowChar="0-9." dataType="float" displayFormat="#,##0.00" displayMode="label"
+    										excelCellType="number" id="amount" inputType="text" maxLength="8.2" textAlign="right" validateOnInput="true" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="kcomcd" inputType="text" width="80"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+                            
+    						<w2:udc_topGrdBtn grdDownOpts='' grp="grp_group25" style="" gridID="gr_gridView5" id="udc_topGrd2"
+    							gridUpFn="scwin.upFn2" btnUser="N">
+    						</w2:udc_topGrdBtn>
+    						<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" columnMove="false"
+    							dataList="data:ds_OtherTariff"
+    							 ev:onfilereadend=""
+    							focusMove="true" id="gr_gridView5" rowStatusVisible="true" style=""
+    							visibleRowNum="15" visibleRowNumFix="true">
+    							<w2:caption id="caption6" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header1" style="">
+    								<w2:row id="row1" style="">
+    									<w2:column displayMode="label" id="column1" inputType="text" sortable="false"
+    										value="SEQ" width="60">
+    									</w2:column>
+    									 <w2:column class="txt-blue" displayMode="label" id="column29" inputType="text" value="Code"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-blue" displayMode="label" id="column28" inputType="text" value="Name"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column13" inputType="text" 
+    										value="Export&lt;br&gt;Import" width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column26" inputType="text" value="Code"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-blue" displayMode="label" id="column25" inputType="text" value="Name"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column3" inputType="text"
+    										value="Unit" width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column23" inputType="text" value="Code"
+    										width="80">
+    									</w2:column>
+    									<w2:column class="txt-blue" displayMode="label" id="column22" inputType="text" value="Name"
+    										width="80">
+    									</w2:column>
+    									<w2:column displayMode="label"  id="column19" inputType="text" 
+    										value="매출입항목코드" width="120">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column52" inputType="text" 
+    										value="FromDate" width="120">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column49" inputType="text"
+    										value="CURR" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column46" inputType="text" value="Rate" width="80"></w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column43" inputType="text" 
+    										value="Sell" width="80">
+    									</w2:column>
+    									<w2:column class="txt-red" displayMode="label" id="column40" inputType="text" 
+    										value="Buy" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="column31" inputType="text" value="End"
+    										width="80">
+    									</w2:column>
+    								</w2:row>
+    								
+    							</w2:header>
+    							<w2:gBody id="gBody1" style="">
+    								<w2:row id="row2" style="">
+    									<w2:column displayMode="label" expression="rowindex() + 1" id="Currow" inputType="expression"
+    										width="60">
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="cust" imageClickFunction="scwin.grid_popup"
+    										inputType="textImage" maxLength="6" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="custnm" inputType="text" readOnly="true" width="80"></w2:column>
+    									<w2:column allOption="" chooseOption="true" chooseOptionLabel="$blank" displayMode="label" id="iogb"
+    										inputType="select" mandatory="true" ref="" width="80">
+    										<w2:choices>
+    											<w2:item>
+    												<w2:label><![CDATA[Export]]></w2:label>
+    												<w2:value><![CDATA[O]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[Import]]></w2:label>
+    												<w2:value><![CDATA[I]]></w2:value>
+    											</w2:item>
+    										</w2:choices>
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="locCd"
+    										imageClickFunction="scwin.grid_popup" inputType="textImage" mandatory="true" maxLength="6" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="locCdNm" inputType="text" readOnly="true" width="80"></w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="sellYnTemp"
+    										imageClickFunction="scwin.grid_popup" inputType="textImage" mandatory="true" maxLength="4" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="fcode"
+    										imageClickFunction="scwin.grid_popup" inputType="textImage" mandatory="true" maxLength="4" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="fcodenm" inputType="text" readOnly="true" width="80"></w2:column>
+    									<w2:column displayMode="label" id="selpchItemCd" inputType="text" width="120"></w2:column>
+    									<w2:column displayFormat="yyyy/MM/dd" displayMode="label" id="fromDt" inputType="calendar"
+    										mandatory="true" width="120">
+    									</w2:column>
+    									<w2:column allowChar="0-9a-zA-Z" displayMode="label" id="curr" imageClickFunction="scwin.grid_popup"
+    										inputType="textImage" mandatory="true" maxLength="3" viewType="default" width="80">
+    									</w2:column>
+    									<w2:column allowChar="0-9." dataType="float" displayFormat="#,##0.00" displayMode="label"
+    										excelCellType="number" id="amount" inputType="text" maxLength="8.2" textAlign="right" validateOnInput="true" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" falseValue="0" id="sellYn" inputType="checkbox" trueValue="1"
+    										valueType="other" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" falseValue="0" id="buyYn" inputType="checkbox" trueValue="1"
+    										valueType="other" width="80">
+    									</w2:column>
+    									<w2:column displayMode="label" id="kcomcd" inputType="text" width="80"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    					</xf:group>
+
+    					<w2:udc_bottomGrdBtn ev:onRemoveRow="scwin.udcGrdBottomBtn_onRemoveRow" grdID="grd_gridView1" style=""
+    						id="udcGrdBottomBtn" gridID="gr_gridView2">
+    					</w2:udc_bottomGrdBtn>
+                    </xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

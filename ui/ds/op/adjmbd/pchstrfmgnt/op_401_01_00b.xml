@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenId="op_401_01_00b" meta_screenName="철송매입요율" meta_subsystem="물류/공통(통합)/매입요율/운송/" meta_author="김원빈" meta_type="메인" meta_desc="" meta_etc="받은 상태로 완성되어 있는 듯함">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<w2:historyInfo>
+    		<w2:history meta_no="" meta_desc="개발완료" meta_date="2026/04/09" meta_user="김원빈"></w2:history>
+    	</w2:historyInfo>
+    	<script lazy="false" type="text/javascript"><![CDATA[// 회원정보를 json 데이터로 모두 받음
+let memJson = $c.data.getMemInfo();
+// 로그인 정보 추출
+let userHomeClsCd = $c.data.getMemInfo("userHomeClsCd");  // 사용자소속구분코드
+let userId     = $c.data.getMemInfo("userId");
+let empNo      = $c.data.getMemInfo("empNo");
+
+
+scwin.onpageload = function() {
+	
+};
+
+/*tab 초기화 처리(init)*/
+scwin.tac_tabControl1_onchange = function (tabId, index, userTabId) {
+
+    let currentFrame1 = tac_tabControl1.getFrame(0);
+    let currentFrame2 = tac_tabControl1.getFrame(1);
+    let currentFrame3 = tac_tabControl1.getFrame(2);
+    let currentFrame5 = tac_tabControl1.getFrame(3);
+    let currentFrame6 = tac_tabControl1.getFrame(4);
+
+    if (userTabId == "tabs1") {
+        currentFrame1.reload();
+    } else if (userTabId == "tabs2") {
+        currentFrame2.reload();
+    } else if (userTabId == "tabs3") {
+        currentFrame3.reload();
+    } else if (userTabId == "tabs5") {
+        currentFrame5.reload();
+    } else if (userTabId == "tabs6") {
+        currentFrame6.reload();
+    } else {
+        return;
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onbeforepageunload="scwin.onbeforepageunload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="tabbox" id="" style="">
+    					<w2:tabControl alwaysDraw="false" class="wq_tab" id="tac_tabControl1" style="" ev:onchange="scwin.tac_tabControl1_onchange">
+    						<w2:tabs disabled="false" id="tabs1" label="철송임률" style=""></w2:tabs>
+    						<w2:tabs disabled="false" id="tabs2" label="전용화차율" style=""></w2:tabs>
+    						<w2:tabs disabled="false" id="tabs3" label="전용화차량" style=""></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs5" label="철송임저감률"></w2:tabs>
+    						<w2:tabs disabled="false" style="" id="tabs6" label="역별조작료"></w2:tabs>
+    						<w2:content alwaysDraw="false" id="content1" style="" src="/ui/ds/op/adjmbd/pchstrfmgnt/op_401_02_04b.xml"></w2:content>
+    						<w2:content alwaysDraw="false" id="content2" style="" src="/ui/ds/op/adjmbd/pchstrfmgnt/op_401_02_10b.xml"></w2:content>
+    						<w2:content alwaysDraw="false" id="content3" style="" src="/ui/ds/op/adjmbd/pchstrfmgnt/op_401_02_11b.xml"></w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content5" src="/ui/ds/op/adjmbd/pchstrfmgnt/op_401_02_08b.xml"></w2:content>
+    						<w2:content alwaysDraw="false" style="" id="content6" src="/ui/ds/op/adjmbd/pchstrfmgnt/op_401_02_06b.xml"></w2:content>
+    					</w2:tabControl>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

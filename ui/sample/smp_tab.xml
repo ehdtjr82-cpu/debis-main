@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="smp_tab" meta_screenId="smp_tab">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dmMain">
+					<w2:keyInfo>
+						<w2:key id="key1" name="name1" dataType="text"></w2:key>
+						<w2:key dataType="text" name="name2" id="key2"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataMap baseNode="map" id="dma_dataMap1">
+					<w2:keyInfo>
+						<w2:key id="key1" name="name1" dataType="text"></w2:key>
+						<w2:key id="key2" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">x
+						<key1><![CDATA[a]]></key1>
+						<key2><![CDATA[b]]></key2>
+					</w2:data>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+		scwin.onpageload = function() {
+		
+		};
+		
+		scwin.onpageunload = function() {
+			
+		};
+		
+
+// 탭 동적 생성        
+scwin.btn_trigger1_onclick = function (e) {
+    let opts = {
+        url : "/ui/sample/smp_tab2.xml",
+        menuNm : "tab2",
+        tabId : "tab2",
+        data : dmMain.getJSON()
+    };
+    $c.win.setAddTab(tabCont, opts)
+};
+
+scwin.btn_trigger2_onclick = function (e) {
+    tabCont.deleteTab("tab2");
+};
+
+scwin.btn_trigger3_onclick = function (e) {
+
+};
+
+scwin.tabCont_ontabclick = function (tabId, index) {debugger;
+    if(index ==0) { // 첫번째 탭 선택시
+        // 부모의 dataMap 을 셋팅한다.
+        tabCont.getWindow().dma_dataMap1.setJSON(dmMain.getJSON());
+    }
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="wrap" id="" style="">
+            <w2:wframe style="" id="wfm_wframe1" src="/cm/xml/contentHeader.xml"></w2:wframe>
+			<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="caption"></xf:group>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:170px;" tagname="col"></xf:group>
+							<xf:group style="width:170px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">tab&amp;nbsp;동적생성<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes></xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:trigger type="button" id="btn_trigger1" style="width:80px; height:23px; " ev:onclick="scwin.btn_trigger1_onclick">
+									<xf:label><![CDATA[탭생성]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input id="ibx_input1" style="width:144px; height:21px; " ref="data:dmMain.key1"></xf:input>
+								<xf:input id="ibx_input167" style="width:144px; height:21px; " ref="data:dmMain.key2"></xf:input>
+							</xf:group>
+						</xf:group>
+						<xf:group style="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">tab&amp;nbsp;삭제<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes></xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:trigger type="button" id="btn_trigger2" style="width:80px; height:23px; " ev:onclick="scwin.btn_trigger2_onclick">
+									<xf:label><![CDATA[탭삭제]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								
+							</xf:group>
+						</xf:group>
+						
+						
+					</xf:group>
+			<xf:group class="flex tabbox" id="" style="">
+				<w2:textbox class="" id="" label="Tab" style="" tagname="h2"></w2:textbox>
+				<xf:group class="tab-flex wq_tab" id="" style="">
+					<w2:tabControl alwaysDraw="false" class="wq_tab_sub" confirmFalseAction="new" confirmTrueAction="exist" id="tabCont"
+						style="" useConfirmMessage="false" useMoveNextTabFocus="false" useTabKeyOnly="true" ev:ontabclick="scwin.tabCont_ontabclick">
+						<w2:tabs disabled="false" id="tabs4" label="Tab1" style=""></w2:tabs>
+						<w2:content alwaysDraw="false" id="content4" style="" frameMode="wframe" scope="true" src="/ui/sample/smp_tab1.xml"></w2:content>
+					</w2:tabControl>
+				</xf:group>
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

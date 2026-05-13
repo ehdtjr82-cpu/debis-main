@@ -1,0 +1,1988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_search">
+                <w2:keyInfo>
+                    <w2:key id="acqDtStDt" name="취득일자시작" dataType="text"></w2:key>
+                    <w2:key id="acqDtEndDt" name="취득일자종료" dataType="text"></w2:key>
+                    <w2:key id="fixedAsetNo" name="자산번호" dataType="text"></w2:key>
+                    <w2:key id="orgFixedAsetNo" name="최초자산번호" dataType="text"></w2:key>
+                    <w2:key id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:key>
+                    <w2:key id="acctDeptNm" name="귀속부서명" dataType="text"></w2:key>
+                    <w2:key id="asetPatternCd" name="자산유형코드" dataType="text"></w2:key>
+                    <w2:key id="asetKndCd" name="자산종류코드" dataType="text"></w2:key>
+                    <w2:key id="deprCompleteYn" name="상각완료여부" dataType="number"></w2:key>
+                    <w2:key id="procDt" name="매각일자" dataType="text"></w2:key>
+                    <w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+                    <w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+                    <w2:key id="lowerDeptIncluYn" name="하위부서포함여부" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataMap baseNode="map" id="ds_evidence">
+                <w2:keyInfo>
+                    <w2:key id="spplyDt" name="공급일자" dataType="text"></w2:key>
+                    <w2:key id="evidClsCd" name="증빙구분코드" dataType="text"></w2:key>
+                    <w2:key id="evidClsNm" name="증빙구분명" dataType="text"></w2:key>
+                    <w2:key id="deductClsCd" name="공제구분코드" dataType="text"></w2:key>
+                    <w2:key id="zeroTaxClsCd" name="영세구분코드" dataType="text"></w2:key>
+                    <w2:key id="taxOfficeCd" name="세무서코드" dataType="text"></w2:key>
+                    <w2:key id="recverCrn" name="공급자사업자등록번호" dataType="text"></w2:key>
+                    <w2:key id="spplyAmt" name="공급금액" dataType="text"></w2:key>
+                    <w2:key id="initamt" name="선수금" dataType="text"></w2:key>
+                    <w2:key id="vat" name="부가세" dataType="text"></w2:key>
+                    <w2:key id="slipNo" name="전표번호" dataType="text"></w2:key>
+                    <w2:key id="rmk" name="적요" dataType="text"></w2:key>
+                    <w2:key id="cardNo" name="카드번호" dataType="text"></w2:key>
+                    <w2:key id="cardNm" name="카드이름" dataType="text"></w2:key>
+                    <w2:key id="vatDeclarAcctDeptCd" name="부가세관리부서" dataType="text"></w2:key>
+                    <w2:key id="vatDeclarAcctDeptNm" name="부가세관리부서명" dataType="text"></w2:key>
+                    <w2:key id="clntNo" name="거래처번호" dataType="text"></w2:key>
+                    <w2:key id="clntNm" name="거래처명" dataType="text"></w2:key>
+                    <w2:key id="vatSpplierCrn" name="부가세사업자등록" dataType="text"></w2:key>
+                    <w2:key id="coCd" name="회사코드" dataType="text"></w2:key>
+                    <w2:key id="coClsCd" name="회사구분코드" dataType="text"></w2:key>
+                    <w2:key id="email" name="이메일" dataType="text"></w2:key>
+                    <w2:key id="declarExceptYn" name="신고제외여부" dataType="number"></w2:key>
+                    <w2:key id="evidFileClsCd" name="증빙파일종류" dataType="text"></w2:key>
+                    <w2:key id="gbn" name="매각구분" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="procYn" name="처리여부" dataType="text"></w2:column>
+                    <w2:column id="asetPatternCd" name="자산유형코드" dataType="text"></w2:column>
+                    <w2:column id="asetPatternNm" name="자산유형명" dataType="text"></w2:column>
+                    <w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="acctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="deprCompleteYn" name="상각완료여부" dataType="text"></w2:column>
+                    <w2:column id="fixedAsetNo" name="자산번호" dataType="text"></w2:column>
+                    <w2:column id="orgFixedAsetNo" name="최초자산번호" dataType="text"></w2:column>
+                    <w2:column id="fixedAsetNm" name="자산명" dataType="text"></w2:column>
+                    <w2:column id="acqDt" name="취득일자" dataType="text"></w2:column>
+                    <w2:column id="svcLife" name="내용연수" dataType="text"></w2:column>
+                    <w2:column id="svcLifeMonth" name="내용월수" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="number"></w2:column>
+                    <w2:column id="procQty" name="매각수량" dataType="text"></w2:column>
+                    <w2:column id="procRate" name="매각비율" dataType="text"></w2:column>
+                    <w2:column id="area" name="면적" dataType="text"></w2:column>
+                    <w2:column id="procArea" name="매각면적" dataType="text"></w2:column>
+                    <w2:column id="lentYn" name="임대여부" dataType="text"></w2:column>
+                    <w2:column id="lentArea" name="임대면적" dataType="text"></w2:column>
+                    <w2:column id="reappraiseAmt" name="재평가금액" dataType="number"></w2:column>
+                    <w2:column id="procAmt" name="매각액" dataType="number"></w2:column>
+                    <w2:column id="acqAmt" name="취득가액" dataType="number"></w2:column>
+                    <w2:column id="procAcqAmt" name="매각취득가액" dataType="number"></w2:column>
+                    <w2:column id="befYyProvAmt" name="전기누계액" dataType="number"></w2:column>
+                    <w2:column id="procBefYyProvAmt" name="매각전기누계액" dataType="number"></w2:column>
+                    <w2:column id="thisYyProvAmt" name="당기누계액" dataType="number"></w2:column>
+                    <w2:column id="procThisYyProvAmt" name="매각당기누계액" dataType="number"></w2:column>
+                    <w2:column id="bookAmt" name="장부가액" dataType="number"></w2:column>
+                    <w2:column id="procBookAmt" name="매각장부가액" dataType="number"></w2:column>
+                    <w2:column id="procDifferAmt" name="매각손익" dataType="number"></w2:column>
+                    <w2:column id="procDt" name="매각일자" dataType="text"></w2:column>
+                    <w2:column id="clntNo1" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="CrcCd" name="통화코드" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_master_temp" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="procYn" name="처리여부" dataType="text"></w2:column>
+                    <w2:column id="asetPatternCd" name="자산유형코드" dataType="text"></w2:column>
+                    <w2:column id="asetPatternNm" name="자산유형명" dataType="text"></w2:column>
+                    <w2:column id="acctDeptCd" name="귀속부서코드" dataType="text"></w2:column>
+                    <w2:column id="acctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+                    <w2:column id="deprCompleteYn" name="상각완료여부" dataType="text"></w2:column>
+                    <w2:column id="fixedAsetNo" name="자산번호" dataType="text"></w2:column>
+                    <w2:column id="orgFixedAsetNo" name="최초자산번호" dataType="text"></w2:column>
+                    <w2:column id="fixedAsetNm" name="자산명" dataType="text"></w2:column>
+                    <w2:column id="acqDt" name="취득일자" dataType="text"></w2:column>
+                    <w2:column id="svcLife" name="내용연수" dataType="text"></w2:column>
+                    <w2:column id="svcLifeMonth" name="내용월수" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="number"></w2:column>
+                    <w2:column id="procQty" name="매각수량" dataType="text"></w2:column>
+                    <w2:column id="procRate" name="매각비율" dataType="text"></w2:column>
+                    <w2:column id="area" name="면적" dataType="text"></w2:column>
+                    <w2:column id="procArea" name="매각면적" dataType="text"></w2:column>
+                    <w2:column id="lentYn" name="임대여부" dataType="text"></w2:column>
+                    <w2:column id="lentArea" name="임대면적" dataType="text"></w2:column>
+                    <w2:column id="reappraiseAmt" name="재평가금액" dataType="number"></w2:column>
+                    <w2:column id="procAmt" name="매각액" dataType="number"></w2:column>
+                    <w2:column id="acqAmt" name="취득가액" dataType="number"></w2:column>
+                    <w2:column id="procAcqAmt" name="매각취득가액" dataType="number"></w2:column>
+                    <w2:column id="befYyProvAmt" name="전기누계액" dataType="number"></w2:column>
+                    <w2:column id="procBefYyProvAmt" name="매각전기누계액" dataType="number"></w2:column>
+                    <w2:column id="thisYyProvAmt" name="당기누계액" dataType="number"></w2:column>
+                    <w2:column id="procThisYyProvAmt" name="매각당기누계액" dataType="number"></w2:column>
+                    <w2:column id="bookAmt" name="장부가액" dataType="number"></w2:column>
+                    <w2:column id="procBookAmt" name="매각장부가액" dataType="number"></w2:column>
+                    <w2:column id="procDifferAmt" name="매각손익" dataType="number"></w2:column>
+                    <w2:column id="procDt" name="매각일자" dataType="text"></w2:column>
+                    <w2:column id="clntNo1" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="bizDomCd" name="사업영역코드" dataType="text"></w2:column>
+                    <w2:column id="CrcCd" name="통화코드" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_asetPattern">
+                <w2:columnInfo>
+                    <w2:column id="asetPatternCd" name="자산유형코드" dataType="text"></w2:column>
+                    <w2:column id="asetPatternNm" name="자산유형명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_evidClsCd">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="코드" dataType="text"></w2:column>
+                    <w2:column id="COL2" name="명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_clntNo">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="거래처번호" dataType="text"></w2:column>
+                    <w2:column id="COL2" name="거래처명" dataType="text"></w2:column>
+                    <w2:column id="COL3" name="" dataType="text"></w2:column>
+                    <w2:column id="COL4" name="" dataType="text"></w2:column>
+                    <w2:column id="COL5" name="사업자번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_collMoney" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="remainAmt" name="잔여금액" dataType="number"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_slipNo">
+                <w2:columnInfo>
+                    <w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_closeControl">
+                <w2:columnInfo>
+                    <w2:column id="closePrgsStsCd" name="마감진행상태코드" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_evidClsCdExistsZeroTax">
+                <w2:columnInfo>
+                    <w2:column id="COL1" name="코드" dataType="text"></w2:column>
+                    <w2:column id="COL2" name="명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="fileUploadGDS">
+                <w2:columnInfo>
+                    <w2:column id="fileName" name="파일명" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_search"
+            action="/ac.fi.fixedaset.RetrieveAssetsInformationCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_master","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_search_submitdone"
+            ev:submiterror="scwin.sbm_search_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_addSearch"
+            action="/ac.fi.fixedaset.RetrieveAssetsInformationCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_master_temp","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_master_temp","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_addSearch_submitdone"
+            ev:submiterror="scwin.sbm_addSearch_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_master"
+            action="/ac.fi.fixedaset.CreateAssetsDispositionSlipCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_evidence","key":"IN_DS1"},{"id":"ds_master","key":"IN_DS2"},{"id":"ds_collMoney","key":"IN_DS3"},{"id":"fileUploadGDS","key":"IN_DS4"},{"id":"ds_slipNo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_slipNo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_master_submitdone"
+            ev:submiterror="scwin.sbm_master_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_asetPattern"
+            action="/ac.fi.fixedaset.RetreiveFixedAsetPatternListCMD.do?useYn=1"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[,{"id":"ds_asetPattern","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_asetPattern","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_asetPattern_submitdone">
+        </xf:submission>
+
+        <xf:submission id="sbm_evidClsCd"
+            action="/cm.zz.RetrieveCommonPopupCMD.do?sysCd=CommonEBC&amp;queryId=retrieveEvidInfo"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[,{"id":"ds_evidClsCd","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_evidClsCd","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_evidClsCd_submitdone">
+        </xf:submission>
+
+        <xf:submission id="sbm_closeControl"
+            action="/cm.bc.comnmgnt.closemgnt.RetrieveCloseControlListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_closeControl","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_closeControl","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_closeControl_submitdone">
+        </xf:submission>
+
+        <xf:submission id="sbm_clntNo"
+            action="/cm.zz.RetrieveCommonPopupCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_clntNo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_clntNo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_clntNo_submitdone"
+            ev:submiterror="scwin.sbm_clntNo_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+    scwin.vLoginCoCd = "";
+    scwin.vLoginCoClsCd = "";
+    scwin.vUserHomeClsCd = "";
+    scwin.isSubCompany = false;
+    scwin.user_id = "";
+    scwin.SUBSIDIARY_USER_HOME_CLS_CD = "SA";
+    scwin.CO_CD_DONGBU = "";
+    scwin.CO_CLS_CD_DONGBU = "0";
+    scwin.KOREA_WON = "KRW";
+    scwin.privAdmin = "F";
+    scwin.checkUser = false;
+    scwin.txtCoClsCd = "";
+    scwin.txtCoCd = "";
+    scwin.hid_recverCrnNm = "";
+    scwin.txt_evidClsNm = "";
+    scwin.closeControlResult = true;
+
+    scwin.onpageload = async function() {
+        scwin.vLoginCoCd = $c.ses.getCoCd() || "";
+        scwin.vLoginCoClsCd = $c.ses.getCoClsCd() || "";
+        scwin.vUserHomeClsCd = $c.ses.getUserHomeClsCd() || "";
+        scwin.user_id = $c.ses.getUserId() || "";
+        scwin.privAdmin = $c.ses.getPrivAdmin() || "F";
+        scwin.CO_CD_DONGBU = $c.ses.getCoDongbu() || "";
+        scwin.CO_CLS_CD_DONGBU = $c.ses.getCoClsCdDongbu() || "0";
+        scwin.KOREA_WON = "KRW";
+
+        if (scwin.user_id == "050262" || scwin.user_id == "110722" || scwin.user_id == "090466" || scwin.user_id == "120010") {
+            scwin.checkUser = true;
+        }
+
+        scwin.f_OnLoad();
+    };
+
+    scwin.onUdcCompleted = async function() {
+        let curDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+        udc_acqDt.setInitDate(curDate.substring(0, 6) + "01", curDate);
+    };
+
+    scwin.dataSetDebug = async function(dataList, isDebug) {
+        if (isDebug == true) {
+            let obj = dataList;
+            let str = "[[[[" + obj.id + "]]]]]\n";
+            let colIds = obj.getColumnIds();
+            for (let dsRow = 0; dsRow < obj.getRowCount(); dsRow++) {
+                for (let dsCol = 0; dsCol < colIds.length; dsCol++) {
+                    str += "[" + colIds[dsCol] + "] " + obj.getCellData(dsRow, colIds[dsCol]) + ", ";
+                }
+                str += "\n\n";
+            }
+            await $c.win.alert(str);
+        }
+    };
+
+    scwin.f_OnLoad = async function() {
+        $c.gus.cfDisableKey();
+
+        await $c.sbm.execute(sbm_asetPattern);
+        await $c.sbm.execute(sbm_evidClsCd);
+
+        $c.gus.cfDisableObjects([tbl_evidence, ed_email]);
+
+        scwin.f_FieldClear();
+        scwin.f_setCompanyInfo();
+    };
+
+    scwin.f_setCompanyInfo = async function() {
+        if (scwin.vUserHomeClsCd != scwin.SUBSIDIARY_USER_HOME_CLS_CD) {
+            scwin.vLoginCoCd = scwin.CO_CD_DONGBU;
+            scwin.vLoginCoClsCd = scwin.CO_CLS_CD_DONGBU;
+        }
+
+        ed_coCd.setValue(scwin.vLoginCoCd);
+        scwin.f_PopUpCompanyInfo("T");
+
+        if ("T" == scwin.privAdmin || !scwin.isSubCompany) {
+            $c.gus.cfEnableObjects([ed_coCd, txt_coNm, img_company, img_initAmt]);
+        } else {
+            $c.gus.cfDisableObjects([ed_coCd, txt_coNm, img_company, img_initAmt]);
+        }
+    };
+
+    scwin.f_FieldClear = async function() {
+        $c.gus.cfInitObjects(tbl_search, [ica_acqDtStDt, ica_acqDtEndDt, ica_procDt]);
+        scwin.f_SetSrchDefault();
+    };
+
+    scwin.f_SetSrchDefault = async function() {
+        let curDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+        ica_acqDtStDt.setValue(curDate.substring(0, 6) + "01");
+        ica_acqDtEndDt.setValue(curDate);
+        ica_acqDtStDt.setFocus();
+    };
+
+    scwin.f_Retrieve = async function() {
+        if (!(await scwin.f_RetrieveValidate())) {
+            return false;
+        }
+
+        gr_master.setColumnProp("procYn", "headCheck", false);
+        ds_evidence.undo();
+        ds_collMoney.removeAll();
+
+        if (chk_lowerDeptIncluYn.getValue() == "1" || chk_lowerDeptIncluYn.getValue() == "true") {
+            if (ed_srchAcctDeptCd.getValue() == "") {
+                await $c.win.alert("하위부서포함여부 체크시에는 귀속부서를 입력해주세요.");
+                ed_srchAcctDeptCd.setFocus();
+                return;
+            } else {
+                ds_search.set("lowerDeptIncluYn", "1");
+            }
+        } else {
+            ds_search.set("lowerDeptIncluYn", "");
+        }
+        await $c.sbm.execute(sbm_search);
+    };
+
+    scwin.f_Retrieve1 = async function() {
+        if (ed_srchFixedAsetNo.getValue() == "") {
+            return false;
+        }
+
+        if (ds_master.getRowCount() == 0) {
+            await scwin.f_Retrieve();
+            ed_srchFixedAsetNo.setValue("");
+            return;
+        }
+
+        gr_master.setColumnProp("procYn", "headCheck", false);
+
+        await $c.sbm.execute(sbm_addSearch);
+    };
+
+    scwin.f_OpenCalendar = async function() {
+        ica_procDt.setFocus();
+        scwin.f_checkProcDt();
+    };
+
+    scwin.f_checkProcDt = async function() {
+        let input_procDt = ica_procDt.getValue();
+        let output_procDt = ica_procDt.getValue();
+
+        if (ds_master.getRowCount() > 0) {
+            output_procDt = ds_master.getCellData(0, "procDt");
+        }
+        if (input_procDt != output_procDt) {
+            await $c.win.alert("매각일자가 변경되어 재조회 됩니다.");
+            scwin.f_Retrieve();
+        }
+    };
+
+    scwin.f_RetrieveValidate = async function() {
+        if ($c.gus.cfIsNull(ica_acqDtStDt.getValue()) && $c.gus.cfIsNull(ica_acqDtEndDt.getValue())
+                && $c.gus.cfIsNull(acb_asetPatternCd.getValue())
+                && $c.gus.cfIsNull(ed_srchAcctDeptCd.getValue()) && $c.gus.cfIsNull(txt_srchAcctDeptNm.getValue())
+                && $c.gus.cfIsNull(ed_srchFixedAsetNo.getValue())) {
+            await $c.gus.cfAlertMsg("조회조건을 하나 이상 입력해 주세요.");
+            ica_acqDtStDt.setFocus();
+            return false;
+        }
+
+        let chk = await $c.gus.cfValidate([tbl_search]);
+        if (!chk) {
+            return false;
+        }
+
+        if ($c.gus.cfIsNull(ica_acqDtStDt.getValue()) && !$c.gus.cfIsNull(ica_acqDtEndDt.getValue())) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["취득일자"]);
+            ica_acqDtStDt.setFocus();
+            return false;
+        }
+
+        if (!$c.gus.cfIsNull(ica_acqDtStDt.getValue()) && $c.gus.cfIsNull(ica_acqDtEndDt.getValue())) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["취득일자"]);
+            ica_acqDtEndDt.setFocus();
+            return false;
+        }
+
+        if (!$c.gus.cfIsNull(ica_acqDtStDt.getValue()) && !$c.gus.cfIsNull(ica_acqDtEndDt.getValue())) {
+            if (!$c.gus.cfValidateValue(ica_acqDtEndDt.getValue(), "minDate=" + ica_acqDtStDt.getValue())) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+                ica_acqDtStDt.setFocus();
+                return false;
+            }
+        }
+
+        return true;
+    };
+
+    scwin.f_WholeProc = async function() {
+        let temp = 0;
+        for (let i = 0; i < ds_master.getRowCount(); i++) {
+            if (ds_master.getCellData(i, "procYn") == "1") {
+                if ((ds_master.getCellData(i, "asetPatternNm") == "토지") || (ds_master.getCellData(i, "asetPatternNm") == "건물")) {
+                    ds_master.setCellData(i, "procArea", ds_master.getCellData(i, "area"));
+                    ds_master.setCellData(i, "procAmt", ds_master.getCellData(i, "bookAmt"));
+                } else {
+                    ds_master.setCellData(i, "procQty", ds_master.getCellData(i, "qty"));
+                    ds_master.setCellData(i, "procAmt", ds_master.getCellData(i, "bookAmt"));
+                }
+            } else {
+                temp++;
+            }
+        }
+        if (temp == ds_master.getRowCount()) {
+            await $c.win.alert("선택된 행이 없습니다.");
+            return;
+        }
+    };
+
+    scwin.f_CloseControlRetrieve = async function() {
+        let coCd = ed_coCd.getValue();
+        let qryStdt = ica_spplyDt.getValue().substring(0, 6);
+        let wrkNo = "FI05";
+
+        // TODO: sbm_closeControl에 동적 파라미터 전달 필요
+        scwin.closeControlResult = true;
+        await $c.sbm.execute(sbm_closeControl);
+
+        if (ds_closeControl.getRowCount() > 0) {
+            if (ds_closeControl.getCellData(0, "closePrgsStsCd") == "0") {
+                await $c.win.alert("[" + qryStdt + "] 월에 감가삼각마감이 진행중입니다.\n매각처리가 불가능합니다. 재경팀의 문의하세요.");
+                scwin.closeControlResult = false;
+                return false;
+            }
+            if (ds_closeControl.getCellData(0, "closePrgsStsCd") == "2") {
+                await $c.win.alert("[" + qryStdt + "] 월에 감가삼각마감이 마감완료되었습니다.\n매각처리가 불가능합니다. 재경팀의 문의하세요.");
+                scwin.closeControlResult = false;
+                return false;
+            } else {
+                scwin.closeControlResult = true;
+                return true;
+            }
+        } else {
+            scwin.closeControlResult = true;
+            return true;
+        }
+    };
+
+    scwin.f_Save = async function() {
+        // TODO: cfUploadFile 파일업로드 처리 후 uploadComplete 콜백
+        scwin.uploadComplete();
+    };
+
+    scwin.uploadComplete = async function() {
+        scwin.f_SaveProc();
+    };
+
+    scwin.f_SaveProc = async function() {
+        if (ds_master.getUpdatedIndex().length == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["매각자산"]);
+            return;
+        } else {
+            let evidFileClsCd = ds_evidence.get("evidFileClsCd");
+            if (fileUploadGDS.getRowCount() > 0) {
+                if (evidFileClsCd == "" || evidFileClsCd == "00") {
+                    await $c.win.alert("증빙파일구분을 선택하세요");
+                    return;
+                }
+            }
+
+            if (chk_declarExceptYn.getValue() != "1" && chk_declarExceptYn.getValue() != "true") {
+                if (ed_email.getValue() == "") {
+                    await $c.win.alert("이메일을 입력하세요");
+                    return;
+                }
+            }
+
+            let chkProcDt = await $c.gus.cfValidate([ica_procDt]);
+            if (!chkProcDt) return;
+
+            if (!(await scwin.f_ValidateAset())) return;
+
+            let chkEvid = await $c.gus.cfValidate([tbl_evidence]);
+            if (!chkEvid) return;
+
+            if ($c.gus.cfIsNull(ed_clntNo.getValue())) {
+                await $c.gus.cfAlertMsg(MSG_CM_WRN_018, ["거래처번호", "사업자번호 확인"]);
+                ed_clntNo.setFocus();
+                return;
+            }
+
+            if (!(await scwin.f_ValidateInitamt())) return;
+
+            let rentCheck = 0;
+            for (let i = 0; i < ds_master.getRowCount(); i++) {
+                if (ds_master.getCellData(i, "procYn") == "1" || ds_master.getRowStatus(i) == "D") {
+                    if (ds_master.getCellData(i, "asetPatternCd") == "30") {
+                        if (ds_master.getCellData(i, "bizDomCd") == "220") {
+                            for (let j = 0; j < ds_master.getRowCount(); j++) {
+                                if (ds_master.getCellData(j, "procYn") == "1" || ds_master.getRowStatus(j) == "D") {
+                                    if (ds_master.getCellData(j, "bizDomCd") != "220") {
+                                        rentCheck++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (rentCheck > 0) {
+                await $c.win.alert("렌터차량 매각은 사업영역이 렌터차량인 차량만 가능합니다.");
+                return;
+            }
+
+            let chkDeptCd = "";
+            let chkRow = 0;
+            let chkDeptNm = "";
+            if (scwin.vUserHomeClsCd != scwin.SUBSIDIARY_USER_HOME_CLS_CD) {
+                for (let i = 0; i < ds_master.getRowCount(); i++) {
+                    if (ds_master.getCellData(i, "procYn") == "1") {
+                        if (chkDeptCd == "") {
+                            chkRow = i;
+                            chkDeptCd = ds_master.getCellData(i, "acctDeptCd");
+                            chkDeptNm = ds_master.getCellData(i, "acctDeptNm");
+                        } else {
+                            if (chkDeptCd != ds_master.getCellData(i, "acctDeptCd")) {
+                                await $c.win.alert("자산의 귀속부서가 서로 다른 자산들은 매각처리가 불가능합니다.(" + (chkRow + 1) + "행:" + chkDeptNm + "," + (i + 1) + "행:" + ds_master.getCellData(i, "acctDeptNm") + ")");
+                                ds_master.setRowPosition(i);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!(await scwin.f_CloseControlRetrieve())) {
+                return;
+            }
+
+            let confirmResult = await $c.gus.cfConfirmMsg(MSG_CM_CRM_001);
+            if (confirmResult) {
+                for (let i = 0; i < ds_master.getRowCount(); i++) {
+                    if (ds_master.getCellData(i, "procYn") == "1" || ds_master.getRowStatus(i) == "D") {
+                        ds_master.setCellData(i, "procDt", ica_procDt.getValue());
+                    }
+                }
+                ds_evidence.set("coCd", ed_coCd.getValue());
+                ds_evidence.set("coClsCd", scwin.txtCoClsCd);
+                await $c.sbm.execute(sbm_master);
+            }
+        }
+    };
+
+    scwin.f_ValidateAset = async function() {
+        for (let i = 0; i < ds_master.getRowCount(); i++) {
+            if (ds_master.getCellData(i, "procYn") == "1" || ds_master.getRowStatus(i) == "D") {
+                if (parseFloat(ds_master.getCellData(i, "procQty")) <= 0) {
+                    await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["매각수량"]);
+                    gr_master.setFocusedCell(i, "procQty");
+                    return false;
+                }
+                if (parseFloat(ds_master.getCellData(i, "procQty")) > parseFloat(ds_master.getCellData(i, "qty"))) {
+                    await $c.gus.cfAlertMsg("매각수량이 수량을 초과하였습니다.");
+                    gr_master.setFocusedCell(i, "procQty");
+                    return false;
+                }
+
+                if (parseFloat(ds_master.getCellData(i, "procAmt")) <= 0) {
+                    await $c.gus.cfAlertMsg(MSG_CM_WRN_003, ["매각액"]);
+                    gr_master.setFocusedCell(i, "procQty");
+                    return false;
+                }
+
+                if (ds_master.getCellData(i, "procRate") == "100") {
+                    if (ds_master.getCellData(i, "procQty") != ds_master.getCellData(i, "qty")) {
+                        await $c.gus.cfAlertMsg("매각비율이 100(%)인경우 수량과 매각수량은 일치해야합니다.");
+                        gr_master.setFocusedCell(i, "procQty");
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    };
+
+    scwin.f_ValidateInitamt = async function() {
+        let initAmt = parseFloat(ds_evidence.get("initamt")) || 0;
+        let settleAmtSum = scwin.f_GetSettleAmt();
+
+        if (initAmt < 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_057, ["선수금액", "0"]);
+            ed_initamt.setFocus();
+            return false;
+        }
+
+        if (initAmt != settleAmtSum) {
+            await $c.gus.cfAlertMsg("입력한 선수금 금액과 정리금액이 다릅니다.\n\n정리금액 = " + $c.gus.cfInsertComma(settleAmtSum));
+            ed_initamt.setFocus();
+            return false;
+        }
+
+        let refundAmt = parseInt(ed_spplyAmt.getValue().trim() || "0") + parseInt(ed_vat.getValue().trim() || "0") - parseInt(initAmt);
+        if (refundAmt < 0) {
+            await $c.gus.cfAlertMsg("미수금은 0보다 작을 수 없습니다.\n\n미수금 = " + refundAmt);
+            gr_master.setFocusedCell(ds_master.getRowPosition(), "procAmt");
+            return false;
+        }
+
+        return true;
+    };
+
+    scwin.f_GetSettleAmt = async function() {
+        let settleAmtSum = 0;
+
+        if (ds_collMoney.getRowCount() > 0) {
+            for (let i = 0; i < ds_collMoney.getRowCount(); i++) {
+                settleAmtSum += parseFloat(ds_collMoney.getCellData(i, "remainAmt")) || 0;
+            }
+        }
+        return settleAmtSum;
+    };
+
+    scwin.f_GetObjValue = async function(inObj) {
+        if (inObj && typeof inObj.getValue === "function") {
+            return inObj.getValue();
+        }
+        return "";
+    };
+
+    scwin.f_SetObjValue = async function(inObj, val) {
+        if (inObj && typeof inObj.setValue === "function") {
+            inObj.setValue(val);
+        }
+    };
+
+    scwin.f_PopUp = async function(codeObj, nameObj, sQueryID, sWhere, sWidth) {
+        let rtnList = $c.gus.cfCommonPopUp(sQueryID, scwin.f_GetObjValue(codeObj), ""
+                                    , scwin.f_EventCheck(), null, null, null, null
+                                    , sWhere, sWidth, null, null, null);
+
+        if (rtnList != null) {
+            if (rtnList[0] != "N/A") {
+                scwin.f_SetObjValue(codeObj, rtnList[0]);
+                scwin.f_SetObjValue(nameObj, rtnList[1]);
+            }
+        } else {
+            scwin.f_SetObjValue(codeObj, "");
+            scwin.f_SetObjValue(nameObj, "");
+        }
+
+        return rtnList;
+    };
+
+    scwin.f_GridPopUp = async function(inValue, sIsEvent, sQueryID, sWhere, sWidth) {
+        let rtnList = $c.gus.cfCommonPopUp(sQueryID, inValue, ""
+                                    , sIsEvent, null, null, null, null
+                                    , sWhere, sWidth, null, null, null);
+
+        return rtnList;
+    };
+
+    scwin.f_IsPopUp = async function() {
+        let inObj = arguments[0];
+        let inValue = scwin.f_GetObjValue(inObj);
+
+        if ($c.gus.cfIsNull(inValue)) {
+            for (let i = 1; i < arguments.length; i++) {
+                scwin.f_SetObjValue(arguments[i], "");
+            }
+            return false;
+        }
+
+        return true;
+    };
+
+    scwin.f_EventCheck = async function() {
+        return "F";
+    };
+
+    scwin.f_srchDeptPopUp = async function() {
+        let param = "," + ed_coCd.getValue() + "," + scwin.txtCoClsCd;
+        let rtnList = scwin.f_PopUp(ed_srchAcctDeptCd, txt_srchAcctDeptNm, "retrieveAcctDeptCdInfo6", param, "410");
+    };
+
+    scwin.f_crnPopUp = async function() {
+        let selectID = "retrieveCrnInfo";
+        let param = "";
+
+        if (scwin.isSubCompany) {
+            selectID = "retrieveCrnClntInfo";
+            param = "," + ed_coCd.getValue();
+        }
+        let rtnList = scwin.f_PopUp(ed_recverCrn, { setValue: function(v) { scwin.hid_recverCrnNm = v; }, getValue: function() { return scwin.hid_recverCrnNm; } }, selectID, param, null);
+        if (rtnList != null) {
+            if (rtnList[0] != "" && rtnList[0] != "N/A") {
+                // TODO: sbm_clntNo에 동적 파라미터 전달 필요
+                await $c.sbm.execute(sbm_clntNo);
+            }
+        }
+    };
+
+    scwin.f_checkPopEd = async function(strCdObj, strNmObj, flag) {
+        if (strCdObj.getValue() == "") {
+            if (strNmObj.getValue().trim() != "") {
+                scwin.f_openPopUp(flag, "T");
+            }
+        } else {
+            strNmObj.setValue("");
+            if (strCdObj.getValue().trim() != "") {
+                scwin.f_openPopUp(flag, "T");
+            }
+        }
+    };
+
+    scwin.f_resultPopEd = async function(strCdObj, strNmObj, strCrnObj, rtnList) {
+        if (rtnList != null) {
+            if (rtnList[0] == "N/A") {
+                return;
+            }
+            strCdObj.setValue(rtnList[0]);
+            strNmObj.setValue(rtnList[1]);
+            strCrnObj.setValue(rtnList[4]);
+        } else {
+            strCdObj.setValue("");
+            strNmObj.setValue("");
+            strCrnObj.setValue("");
+        }
+    };
+
+    scwin.f_vatDeclarDeptPopUp = async function() {
+        let param = ",,," + ed_coCd.getValue() + "," + scwin.txtCoClsCd + "," + ica_spplyDt.getValue().substring(0, 4);
+
+        let rtnList = $c.gus.cfCommonPopUp("retrieveVatDeclarAcctDeptCd"
+                                    , ed_vatDeclarAcctDeptCd.getValue()
+                                    , ""
+                                    , scwin.f_EventCheck()
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+                                    , param
+                                    , "410"
+                                    , null
+                                    , null
+                                    , null
+        );
+
+        if (rtnList != null) {
+            if (rtnList[0] == "N/A") return;
+            scwin.f_SetObjValue(ed_vatDeclarAcctDeptCd, rtnList[2]);
+            scwin.f_SetObjValue(txt_vatDeclarAcctDeptNm, rtnList[3]);
+            scwin.f_SetObjValue(ed_vatSpplierCrn, rtnList[5]);
+        } else {
+            scwin.f_SetObjValue(ed_vatDeclarAcctDeptCd, "");
+            scwin.f_SetObjValue(txt_vatDeclarAcctDeptNm, "");
+            scwin.f_SetObjValue(ed_vatSpplierCrn, "");
+        }
+    };
+
+    scwin.f_CheckComboData = async function(objCombo, comboTitle) {
+        if (objCombo.getSelectedIndex() == -1 && $c.gus.cfIsNull(objCombo.getValue()) == false) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_038, [comboTitle + "코드"]);
+            objCombo.setFocus();
+        }
+    };
+
+    scwin.f_initAmtPopUp = async function() {
+        let sUrl = "/ui/ac/fm/collmoneymgnt/rcptmgnt/fm_502_03_00p.xml";
+        let valueObject = {};
+        valueObject.prov = ds_collMoney;
+
+        if (ica_procDt.getValue() == "") {
+            valueObject.fromDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+        } else {
+            valueObject.fromDate = $c.date.addMonth(ica_procDt.getValue(), -1);
+        }
+
+        valueObject.toDate = ica_procDt.getValue();
+        valueObject.clsCd = "2";
+
+        let returnValue = await $c.win.openPopup(sUrl, {
+            width: 825,
+            height: 560,
+            modal: true,
+            data: valueObject
+        });
+        ed_initamt.setValue(scwin.f_GetSettleAmt());
+    };
+
+    scwin.f_PopUpCompanyInfo = async function(pWinCloseTF) {
+        let rtnList = $c.gus.cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+                                    , ed_coCd.getValue()
+                                    , txt_coNm.getValue()
+                                    , pWinCloseTF
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+                                    , null
+        );
+
+        if (rtnList != null) {
+            if (rtnList[0] == "N/A") {
+                return;
+            }
+            ed_coCd.setValue(rtnList[0]);
+            txt_coNm.setValue(rtnList[5]);
+            scwin.txtCoClsCd = rtnList[1];
+
+            $c.gus.cfInitObjects([ed_srchAcctDeptCd, txt_srchAcctDeptNm]);
+        } else {
+            ed_coCd.setValue("");
+            txt_coNm.setValue("");
+            scwin.txtCoClsCd = "";
+        }
+
+        if (scwin.txtCoClsCd > scwin.CO_CLS_CD_DONGBU) {
+            scwin.isSubCompany = true;
+        } else {
+            scwin.isSubCompany = false;
+        }
+    };
+
+    scwin.f_openPopUp = async function(flag, check, isCdYn) {
+        let rtnList = [];
+        switch (flag) {
+            case "1":
+                let where = "";
+                rtnList = $c.gus.cfCommonPopUp("retrieveClntEmail", ed_clntNo.getValue().trim(), ed_email.getValue().trim(), check, null, null, null, null, where, null, null, null, null);
+                if (rtnList != null) {
+                    if (rtnList[0] == "N/A") {
+                        return;
+                    }
+                    ed_email.setValue(rtnList[0]);
+                } else {
+                    ed_email.setValue("");
+                }
+                break;
+
+            case "10":
+                let param = ",,," + ed_coCd.getValue();
+
+                rtnList = $c.gus.cfCommonPopUp("retrieveClntList", ed_clntNo.getValue().trim(), txt_clntNm.getValue(), check, null, null, null, null, param, null, null, null, null);
+                scwin.f_resultPopEd(ed_clntNo, txt_clntNm, ed_recverCrn, rtnList);
+                break;
+
+            default:
+                break;
+        }
+    };
+
+    scwin.f_chkClick = async function() {
+        if (chk_declarExceptYn.getValue() == "1" || chk_declarExceptYn.getValue() == "true") {
+            ed_email.setValue("");
+            $c.gus.cfEnableObj(img_email, false);
+        } else {
+            $c.gus.cfEnableObj(img_email, true);
+        }
+    };
+
+    scwin.f_EvidClsCd = async function() {
+        if (acb_evidClsCd.getValue() == "20") {
+            $c.gus.cfEnableObjects([acb_zeroTaxCls]);
+            acb_zeroTaxCls.setSelectedIndex(1);
+            ed_vat.setValue("0");
+            $c.gus.cfDisableObjects([ed_vat]);
+        } else {
+            acb_zeroTaxCls.setSelectedIndex(-1);
+            $c.gus.cfDisableObjects([acb_zeroTaxCls]);
+            $c.gus.cfEnableObjects([ed_vat]);
+
+            ed_vat.setValue(Math.round(parseFloat(ed_spplyAmt.getValue().trim() || "0") * 0.1));
+        }
+
+        if (ds_master.getCellData(ds_master.getRowPosition(), "procYn") == "1") {
+            ed_spplyAmt.setValue(ds_master.getCellData(ds_master.getRowPosition(), "procAmt"));
+        }
+    };
+
+    scwin.sbm_search_submitdone = async function(e) {
+        let rowCnt = ds_master.getRowCount();
+        totalRows.setValue(rowCnt);
+
+        if (rowCnt == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+            $c.gus.cfDisableObjects([tbl_evidence]);
+
+            acb_evidClsCd.setSelectedIndex(-1);
+            acb_deductClsCd.setSelectedIndex(-1);
+        } else {
+            scwin.f_EvidHeaderCreate();
+            $c.gus.cfEnableObjects([tbl_evidence]);
+            $c.gus.cfDisableKey();
+            gr_master.setFocus();
+
+            $c.gus.cfDisableObjects([ed_email]);
+
+            acb_evidClsCd.setValue("10");
+            scwin.f_EvidClsCd();
+            acb_deductClsCd.setValue("1");
+        }
+    };
+
+    scwin.sbm_search_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_addSearch_submitdone = async function(e) {
+        let rowCnt = ds_master_temp.getRowCount();
+
+        if (rowCnt == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        } else {
+            for (let i = 0; i < ds_master_temp.getRowCount(); i++) {
+                let newRow = ds_master.insertRow();
+                let colIds = ds_master_temp.getColumnIds();
+                for (let c = 0; c < colIds.length; c++) {
+                    ds_master.setCellData(newRow, colIds[c], ds_master_temp.getCellData(i, colIds[c]));
+                }
+            }
+            ed_srchFixedAsetNo.setValue("");
+        }
+    };
+
+    scwin.sbm_addSearch_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_master_submitdone = async function(e) {
+        if (ds_slipNo.getRowCount() > 0 && ds_slipNo.getCellData(0, "slipNo") != "") {
+            $c.gus.cfShowSlipInfo(ds_slipNo.getCellData(0, "slipNo"));
+        }
+        await scwin.f_Retrieve();
+    };
+
+    scwin.sbm_master_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.sbm_asetPattern_submitdone = async function(e) {
+        let items = [];
+        for (let i = 0; i < ds_asetPattern.getRowCount(); i++) {
+            items.push({
+                label: ds_asetPattern.getCellData(i, "asetPatternNm"),
+                value: ds_asetPattern.getCellData(i, "asetPatternCd")
+            });
+        }
+        // TODO: acb_asetPatternCd에 동적 아이템 세팅
+    };
+
+    scwin.sbm_evidClsCd_submitdone = async function(e) {
+        let items = [];
+        for (let i = 0; i < ds_evidClsCd.getRowCount(); i++) {
+            items.push({
+                label: ds_evidClsCd.getCellData(i, "COL2"),
+                value: ds_evidClsCd.getCellData(i, "COL1")
+            });
+        }
+        // TODO: acb_evidClsCd에 동적 아이템 세팅
+    };
+
+    scwin.sbm_closeControl_submitdone = async function(e) {
+    };
+
+    scwin.sbm_clntNo_submitdone = async function(e) {
+        let rowCnt = ds_clntNo.getRowCount();
+        if (rowCnt == 0) {
+            await $c.gus.cfAlertMsg(MSG_CM_ERR_052, ["거래처"]);
+            ed_clntNo.setValue("");
+            txt_clntNm.setValue("");
+        } else {
+            ed_clntNo.setValue(ds_clntNo.getCellData(0, "COL1"));
+            txt_clntNm.setValue(ds_clntNo.getCellData(0, "COL2"));
+        }
+    };
+
+    scwin.sbm_clntNo_submiterror = async function(e) {
+        $c.gus.cfShowError(e);
+    };
+
+    scwin.f_EvidHeaderCreate = async function() {
+        ds_evidence.undo();
+        ds_evidence.set("evidFileClsCd", "00");
+        ds_evidence.set("gbn", "1");
+    };
+
+    scwin.ed_srchAcctDeptCd_onblur = async function(e) {
+        if (scwin.f_IsPopUp(ed_srchAcctDeptCd, txt_srchAcctDeptNm)) {
+            scwin.f_srchDeptPopUp();
+        }
+    };
+
+    scwin.ed_srchFixedAsetNo_onblur = async function(e) {
+        if ($c.gus.cfIsNull(ed_srchFixedAsetNo.getValue())) return;
+        ed_srchFixedAsetNo.setValue($c.gus.cfGetLeftPad(ed_srchFixedAsetNo.getValue(), 10));
+    };
+
+    scwin.ed_srchOrgFixedAsetNo_onblur = async function(e) {
+        if ($c.gus.cfIsNull(ed_srchOrgFixedAsetNo.getValue())) return;
+        ed_srchOrgFixedAsetNo.setValue($c.gus.cfGetLeftPad(ed_srchOrgFixedAsetNo.getValue(), 10));
+    };
+
+    scwin.ica_procDt_onblur = async function(e) {
+        scwin.f_checkProcDt();
+    };
+
+    scwin.ed_recverCrn_onblur = async function(e) {
+        if (scwin.f_IsPopUp(ed_recverCrn, ed_clntNo, txt_clntNm)) {
+            scwin.f_crnPopUp();
+        }
+    };
+
+    scwin.ed_clntNo_onblur = async function(e) {
+        scwin.f_checkPopEd(ed_clntNo, txt_clntNm, "10");
+    };
+
+    scwin.ed_vatDeclarAcctDeptCd_onblur = async function(e) {
+        if (scwin.f_IsPopUp(ed_vatDeclarAcctDeptCd, txt_vatDeclarAcctDeptNm)) {
+            scwin.f_vatDeclarDeptPopUp();
+        }
+    };
+
+    scwin.acb_evidClsCd_onchange = async function(e) {
+        scwin.f_EvidClsCd();
+    };
+
+    scwin.acb_asetPatternCd_onblur = async function(e) {
+        scwin.f_CheckComboData(acb_asetPatternCd, "자산유형");
+    };
+
+    scwin.ed_coCd_onblur = async function(e) {
+        txt_coNm.setValue("");
+        scwin.f_PopUpCompanyInfo("T");
+    };
+
+    scwin.ica_spplyDt_onblur = async function(e) {
+        if (ed_vatDeclarAcctDeptCd.getValue() == null || ed_vatDeclarAcctDeptCd.getValue() == "") {
+            ed_vatDeclarAcctDeptCd.setValue("");
+            txt_vatDeclarAcctDeptNm.setValue("");
+            ed_vatSpplierCrn.setValue("");
+        } else {
+            scwin.f_vatDeclarDeptPopUp();
+        }
+    };
+
+    scwin.ds_evidence_oncelldatachange = async function(info) {
+        let row = info.row;
+        let colid = info.colId;
+        if (colid == "spplyDt" && (ds_evidence.get("spplyDt") || "").length == 8) {
+            if (ed_vatDeclarAcctDeptCd.getValue() == null || ed_vatDeclarAcctDeptCd.getValue() == "") {
+                ed_vatDeclarAcctDeptCd.setValue("");
+                txt_vatDeclarAcctDeptNm.setValue("");
+                ed_vatSpplierCrn.setValue("");
+            } else {
+                scwin.f_vatDeclarDeptPopUp();
+            }
+        }
+    };
+
+    scwin.ds_master_onrowpositionchange = async function(rowIndex, oldRow) {
+        let row = rowIndex;
+        if (row < 0) return;
+
+        if (ds_master.getCellData(row, "procYn") == "1") {
+            if (parseFloat(ds_master.getCellData(row, "qty")) == 1) {
+                gr_master.setColumnProp("procQty", "readOnly", false);
+                gr_master.setColumnProp("procRate", "readOnly", false);
+            } else {
+                gr_master.setColumnProp("procQty", "readOnly", false);
+                gr_master.setColumnProp("procRate", "readOnly", false);
+            }
+            gr_master.setColumnProp("procAmt", "readOnly", false);
+            gr_master.setColumnProp("reappraiseAmt", "readOnly", false);
+            gr_master.setColumnProp("procArea", "readOnly", false);
+        } else {
+            gr_master.setColumnProp("procQty", "readOnly", true);
+            gr_master.setColumnProp("procAmt", "readOnly", true);
+            gr_master.setColumnProp("procRate", "readOnly", true);
+            gr_master.setColumnProp("reappraiseAmt", "readOnly", true);
+            gr_master.setColumnProp("procArea", "readOnly", true);
+        }
+    };
+
+    scwin.ds_master_oncelldatachange = async function(info) {
+        let row = info.row;
+        let colid = info.colId;
+
+        if (colid == "procYn" && ds_master.getCellData(row, "procYn") == "0") {
+            ds_master.setCellData(row, "procQty", 0);
+            ds_master.setCellData(row, "procAmt", 0);
+            ds_master.setCellData(row, "procAcqAmt", 0);
+            ds_master.setCellData(row, "procRate", 0);
+            ds_master.setCellData(row, "procBefYyProvAmt", 0);
+            ds_master.setCellData(row, "procThisYyProvAmt", 0);
+            ds_master.setCellData(row, "procBookAmt", 0);
+            ds_master.setCellData(row, "procDifferAmt", 0);
+            ds_master.setCellData(row, "reappraiseAmt", 0);
+            return;
+        }
+        if (colid == "procYn" && ds_master.getCellData(row, "procYn") == "1" && ds_master.getCellData(row, "lentYn") == "1") {
+            ds_master.setCellData(row, "procYn", "0");
+            await $c.gus.cfAlertMsg("임대중인 자산은 처리할 수 없습니다.");
+            return;
+        }
+
+        if ((ds_master.getCellData(row, "asetPatternNm") == "토지") || (ds_master.getCellData(row, "asetPatternNm") == "건물")) {
+            if (colid == "procArea") {
+                ds_master.setCellData(row, "procRate", (parseFloat(ds_master.getCellData(row, "procArea")) / parseFloat(ds_master.getCellData(row, "area"))) * 100);
+                let procRate = parseFloat(ds_master.getCellData(row, "procRate")) / 100;
+                ds_master.setCellData(row, "procQty", parseFloat(ds_master.getCellData(row, "qty")) * procRate);
+            }
+        } else {
+            if (colid == "procQty") {
+                ds_master.setCellData(row, "procRate", (parseFloat(ds_master.getCellData(row, "procQty")) / parseFloat(ds_master.getCellData(row, "qty"))) * 100);
+                let procRate = parseFloat(ds_master.getCellData(row, "procRate")) / 100;
+            }
+        }
+
+        if (colid == "procRate" && parseFloat(ds_master.getCellData(row, "qty")) == 1) {
+            ds_master.setCellData(row, "procQty", (parseFloat(ds_master.getCellData(row, "procRate")) * parseFloat(ds_master.getCellData(row, "qty"))) / 100);
+            let procQty = parseFloat(ds_master.getCellData(row, "procQty"));
+        }
+
+        if (colid == "procRate") {
+            let procRate = parseFloat(ds_master.getCellData(row, "procRate")) / 100;
+            ds_master.setCellData(row, "procAcqAmt", Math.round(parseFloat(ds_master.getCellData(row, "acqAmt")) * procRate));
+
+            ds_master.setCellData(row, "procBefYyProvAmt", Math.round(parseFloat(ds_master.getCellData(row, "befYyProvAmt")) * procRate));
+            ds_master.setCellData(row, "procThisYyProvAmt", Math.round(parseFloat(ds_master.getCellData(row, "thisYyProvAmt")) * procRate));
+            ds_master.setCellData(row, "procBookAmt", parseFloat(ds_master.getCellData(row, "procAcqAmt"))
+                    - (parseFloat(ds_master.getCellData(row, "procBefYyProvAmt")) + parseFloat(ds_master.getCellData(row, "procThisYyProvAmt"))));
+            ds_master.setCellData(row, "procDifferAmt", Math.round(parseFloat(ds_master.getCellData(row, "procAmt")) - parseFloat(ds_master.getCellData(row, "procBookAmt"))));
+
+            let spplyAmtSum = 0;
+            for (let si = 0; si < ds_master.getRowCount(); si++) {
+                spplyAmtSum += parseFloat(ds_master.getCellData(si, "procAmt")) || 0;
+            }
+            ed_spplyAmt.setValue(spplyAmtSum);
+            ed_vat.setValue(Math.round(parseFloat(ed_spplyAmt.getValue().trim() || "0") * 0.1));
+
+            if (ds_master.getCellData(row, "CrcCd") != scwin.KOREA_WON) {
+                if (parseFloat(ds_master.getCellData(row, colid)) != 100 && parseFloat(ds_master.getCellData(row, colid)) != 0) {
+                    await $c.win.alert("외화 자산의 경우 부분매각을 할 수 없습니다.");
+                    ds_master.setCellData(row, colid, 0);
+                }
+            }
+
+            if (colid == "procQty") {
+                if (ds_master.getCellData(row, "CrcCd") != scwin.KOREA_WON) {
+                    if (parseFloat(ds_master.getCellData(row, colid)) != parseFloat(ds_master.getCellData(row, "qty")) && parseFloat(ds_master.getCellData(row, colid)) != 0) {
+                        await $c.win.alert("외화 자산의 경우 부분매각을 할 수 없습니다.");
+                        ds_master.setCellData(row, colid, 0);
+                    }
+                }
+            }
+        }
+
+        if (colid == "procAmt") {
+            ds_master.setCellData(row, "procDifferAmt", parseFloat(ds_master.getCellData(row, "procAmt")) - parseFloat(ds_master.getCellData(row, "procBookAmt")));
+            let spplyAmtSum2 = 0;
+            for (let si2 = 0; si2 < ds_master.getRowCount(); si2++) {
+                spplyAmtSum2 += parseFloat(ds_master.getCellData(si2, "procAmt")) || 0;
+            }
+            ed_spplyAmt.setValue(spplyAmtSum2);
+            ed_vat.setValue(Math.round(parseFloat(ed_spplyAmt.getValue().trim() || "0") * 0.1));
+        }
+    };
+
+    scwin.gr_master_oncellclick = async function(rowIndex, columnIndex, columnId) {
+        let row = rowIndex;
+        let colid = columnId;
+
+        if ((ds_master.getCellData(row, "asetPatternNm") == "토지") || (ds_master.getCellData(row, "asetPatternNm") == "건물")) {
+            if (colid == "procQty" || colid == "procRate") {
+                gr_master.setColumnProp(colid, "readOnly", true);
+            }
+
+            if (colid == "procAmt" || colid == "procArea" || colid == "reappraiseAmt") {
+                if (ds_master.getCellData(row, "procYn") == "1") {
+                    gr_master.setColumnProp(colid, "readOnly", false);
+                } else {
+                    gr_master.setColumnProp(colid, "readOnly", true);
+                    ds_master.setCellData(row, "procQty", 0);
+                    ds_master.setCellData(row, "procAmt", 0);
+                    ds_master.setCellData(row, "procRate", 0);
+                    ds_master.setCellData(row, "reappraiseAmt", 0);
+                    ds_master.setCellData(row, "procArea", 0);
+                }
+            }
+        } else {
+            if (colid == "procArea") {
+                gr_master.setColumnProp(colid, "readOnly", true);
+            }
+
+            if (colid == "procQty" || colid == "procAmt" || colid == "procRate" || colid == "reappraiseAmt") {
+                if (ds_master.getCellData(row, "procYn") == "1") {
+                    gr_master.setColumnProp(colid, "readOnly", false);
+                } else {
+                    gr_master.setColumnProp(colid, "readOnly", true);
+                    ds_master.setCellData(row, "procQty", 0);
+                    ds_master.setCellData(row, "procAmt", 0);
+                    ds_master.setCellData(row, "procRate", 0);
+                    ds_master.setCellData(row, "reappraiseAmt", 0);
+                    ds_master.setCellData(row, "procArea", 0);
+                }
+            }
+        }
+    };
+
+    scwin.gr_master_oneditend = async function(rowIndex, columnIndex, columnId, oldValue, newValue) {
+        let row = rowIndex;
+        let colid = columnId;
+
+        if (colid == "procQty") {
+            if (parseFloat(ds_master.getCellData(row, colid)) > parseFloat(ds_master.getCellData(row, "qty"))) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_014, ["매각수량", "수량"]);
+            }
+        }
+    };
+
+    scwin.gr_master_onheaderclick = function(columnIndex, columnId) {
+        let colid = columnId;
+        if (colid == "procYn") {
+            let bCheck = gr_master.getColumnProp("procYn", "headCheck");
+            for (let i = 0; i < ds_master.getRowCount(); i++) {
+                if (ds_master.getCellData(i, "lentYn") != "Yes") {
+                    ds_master.setCellData(i, "procYn", bCheck ? "1" : "0");
+                }
+            }
+        }
+    };
+
+    scwin.chk_declarExceptYn_onchange = function(e) {
+        scwin.f_chkClick();
+    };
+
+    scwin.img_initAmt_onclick = function(e) {
+        scwin.f_initAmtPopUp();
+    };
+    ]]></script>
+
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    			<xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:110px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:70px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:90px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="회사코드" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:group class="sch-box " id="" style="">
+    										<xf:input class=" num" id="ed_coCd" placeholder="" style="" ref="data:ds_search.coCd" mandatory="true"></xf:input>
+    										<xf:trigger class="btn ico sch" id="img_company" style="" type="button">
+    											<xf:label><![CDATA[버튼]]></xf:label>
+    										</xf:trigger>
+    										<xf:input class="" id="txt_coNm" placeholder="" style=""></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="취득일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_fromToCalendar refStDt="" style="" id="udc_acqDt" refEdDt=""
+    										refDataMap="" edFromId="ica_acqDtStDt" edToId="ica_acqDtEndDt">
+    									</w2:udc_fromToCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="자산유형" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes><w2:autoComplete submenuSize="auto" chooseOption="false" style="width: 120px;" allOption="false" id="acb_asetPatternCd" class="" ref="data:ds_search.asetPatternCd" editType="select">
+    									</w2:autoComplete></xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="상각진행여부" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								<w2:autoComplete submenuSize="auto" chooseOption="false" style="width: 110px;" allOption="false" id="acb_deprCompleteYn" class="" ref="data:ds_search.deprCompleteYn" editType="select">
+    									</w2:autoComplete></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="최초자산번호" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    								<xf:group id="" class="form-group"><xf:input style="" id="ed_srchOrgFixedAsetNo" placeholder="" class="" ref="data:ds_search.orgFixedAsetNo"></xf:input></xf:group></xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="자산번호" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    								<xf:input style="width: 120px;" id="ed_srchFixedAsetNo" placeholder="" class="" ref="data:ds_search.fixedAsetNo"></xf:input></xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="매각일자" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class=" cal" id="ica_procDt" style="" ref="data:ds_search.procDt" mandatory="true"></w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="귀속부서" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="sch-box " id="" style="">
+    										<xf:input class=" num" id="ed_srchAcctDeptCd" placeholder="" style="" ref="data:ds_search.acctDeptCd"></xf:input>
+    										<xf:trigger class="btn ico sch" id="" style="" type="button">
+    											<xf:label><![CDATA[버튼]]></xf:label>
+    										</xf:trigger>
+    										<xf:input class="" id="txt_srchAcctDeptNm" placeholder="" style="" ref="data:ds_search.acctDeptNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group id="" tagname="tr">
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="하위부서포함여부" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select appearance="full" class="chk-grp" cols="" id="chk_lowerDeptIncluYn" ref="" renderType="checkboxgroup" rows=""
+    										selectedindex="-1" style="">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[]]></xf:label>
+    												<xf:value><![CDATA[]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select>
+    								</xf:group>
+    								<xf:group class="w2tb_th" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="" style="" type="button">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn" disabled="" escape="false" id="" style="" type="button">
+    							<xf:label><![CDATA[자산추가]]></xf:label>
+    						</xf:trigger><xf:trigger class="btn sch" disabled="" escape="false" id="" style="" type="button">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    						
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="round-box" id="">
+    					<xf:group class="section row-gap-24" id="">
+    						<xf:group id="" class="grid-wrap">
+    							<xf:group adaptiveThreshold="" style="" id="" class="gvwbox">
+    								<w2:gridView scrollByColumnAdaptive="false" focusMode="row" dataList="data:ds_master"
+    									scrollByColumn="false" style="" id="gr_master" visibleRowNum="3" class="wq_gvw" checkReadOnlyOnPasteEnable="" readOnly="false">
+    									<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    									<w2:header style="" id="header2">
+    										<w2:row style="" id="row3">
+    											<w2:column removeBorderStyle="false" width="60" inputType="checkbox" id="procYn"
+    												value="타이틀" blockSelect="false" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="asetPatternCd" value="자산유형"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="acctDeptNm" value="귀속부서"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="deprCompleteYn" value="상각여부"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="fixedAsetNo" value="자산번호"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="120" inputType="text" id="orgFixedAsetNo" value="최초자산번호"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="fixedAsetNm" value="자산명"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="acqDt" value="취득일자"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="svcLife" value="내용연수"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="svcLifeMonth" value="내용월수"
+    												blockSelect="false" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" style="" id="qty" value="수량"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procQty" value="매각수량"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procRate" value="매각비율(%)"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="area" value="면적"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procArea" value="매각면적"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="lentYn" value="임대여부"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="lentArea" value="임대면적"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="reappraiseAmt" value="재평가금액"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procAmt" value="매각액"
+    												displayMode="label" class="txt-red">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="acqAmt" value="취득가액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procAcqAmt" value="매각취득가액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="befYyProvAmt" value="전기누계액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procBefYyProvAmt" value="매각전기누계액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="thisYyProvAmt" value="당기누계액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procThisYyProvAmt" value="매각당기누계액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="bookAmt" value="장부가액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procBookAmt" value="매각장부가액"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procDifferAmt" value="매각손익"
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody style="" id="gBody2">
+    										<w2:row style="" id="row4">
+    											<w2:column removeBorderStyle="false" width="50" inputType="checkbox" id="procYn"
+    												blockSelect="false" displayMode="label" trueValue="T" falseValue="F" defaultValue="F" emptyValue="F" valueType="other" readOnly="false">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="asetPatternCd"
+    												blockSelect="false" displayMode="label" readOnly="true">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[asetPatternCd:asetPatternNm]]></w2:label>
+        <w2:value><![CDATA[ds_asetPattern]]></w2:value>
+    </w2:item>
+</w2:choices>
+
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="acctDeptNm"
+    												blockSelect="false" displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="deprCompleteYn"
+    												blockSelect="false" displayMode="label" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="fixedAsetNo"
+    												blockSelect="false" displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="120" inputType="text" id="orgFixedAsetNo"
+    												blockSelect="false" displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="fixedAsetNm"
+    												blockSelect="false" displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="acqDt"
+    												blockSelect="false" displayMode="label" readOnly="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="svcLife"
+    												blockSelect="false" displayMode="label" textAlign="right" readOnly="true">
+    											</w2:column>
+    											<w2:column removeBorderStyle="false" width="100" inputType="text" id="svcLifeMonth"
+    												blockSelect="false" displayMode="label" textAlign="right" readOnly="true">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" style="" id="qty" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procQty" value=""
+    												displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procRate" value=""
+    												displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="area" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="float" maxLength="0.3" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procArea" value=""
+    												displayMode="label" textAlign="right" dataType="float" maxLength="0.3" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="lentYn" value=""
+    												displayMode="label" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="lentArea" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="float" maxLength="0.3" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="reappraiseAmt" value=""
+    												displayMode="label" textAlign="right" allowChar="0-9" maxLength="13" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procAmt" value=""
+    												displayMode="label" textAlign="right" allowChar="0-9" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="acqAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procAcqAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="befYyProvAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procBefYyProvAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="thisYyProvAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procThisYyProvAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="bookAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="procBookAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="procDifferAmt" value=""
+    												displayMode="label" textAlign="right" readOnly="true" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    									<w2:footer style="" id="footer1">
+    										<w2:row style="" id="row5">
+    											<w2:column width="50" inputType="text" style="" id="column88" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column87" value="합계"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column86" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column85" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column84" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="column83" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column82" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column81" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column80" value=""
+    												displayMode="label" textAlign="right">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column79" value=""
+    												displayMode="label" textAlign="right">
+    											</w2:column>
+    											<w2:column width="60" inputType="expression" style="" id="column78" value=""
+    												displayMode="label" textAlign="right" expression="sum('qty')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column77" value=""
+    												displayMode="label" textAlign="right" expression="sum('procQty')" dataType="float" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column76" value=""
+    												displayMode="label" textAlign="right" expression="sum('procRate')" dataType="float" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="70" inputType="expression" style="" id="column75" value=""
+    												displayMode="label" textAlign="right" expression="sum('area')" dataType="float" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column74" value=""
+    												displayMode="label" textAlign="right" expression="sum('procArea')" dataType="float" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column73" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column72" value=""
+    												displayMode="label" textAlign="right" expression="sum('lentArea')" dataType="float" displayFormat="#,##0.000">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column71" value=""
+    												displayMode="label" textAlign="right" expression="sum('reappraiseAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column70" value=""
+    												displayMode="label" textAlign="right" expression="sum('procAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column69" value=""
+    												displayMode="label" textAlign="right" expression="sum('acqAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column68" value=""
+    												displayMode="label" textAlign="right" expression="sum('procAcqAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column67" value=""
+    												displayMode="label" textAlign="right" expression="sum('befYyProvAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column66" value=""
+    												displayMode="label" textAlign="right" expression="sum('procBefYyProvAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column65" value=""
+    												displayMode="label" textAlign="right" expression="sum('thisYyProvAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column64" value=""
+    												displayMode="label" textAlign="right" expression="sum('procThisYyProvAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column63" value=""
+    												displayMode="label" textAlign="right" expression="sum('bookAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="120" inputType="expression" style="" id="column62" value=""
+    												displayMode="label" textAlign="right" expression="sum('procBookAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    											<w2:column width="100" inputType="expression" style="" id="column61" value=""
+    												displayMode="label" textAlign="right" expression="sum('procDifferAmt')" dataType="number" displayFormat="#,###">
+    											</w2:column>
+    										</w2:row>
+    									</w2:footer>
+    								</w2:gridView>
+    							</xf:group>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="section row-gap-8" id="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="매출증빙내역" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="tbbox" id="" style="">
+    								<xf:group   class="w2tb" id="tbl_evidence" style="" tagname="table">
+    									<w2:attributes>
+    										<w2:summary></w2:summary>
+    									</w2:attributes>
+    									<xf:group tagname="colgroup">
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    										<xf:group style="width:120px;" tagname="col"></xf:group>
+    										<xf:group style="" tagname="col"></xf:group>
+    									</xf:group>
+    									<xf:group style="" tagname="tr">
+    										<xf:group class="w2tb_th" style="" tagname="th">
+    											<w2:textbox class="req" id="" label="증빙일자" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" style="" tagname="td">
+    											<w2:inputCalendar calendarValueType="yearMonthDate" class=" cal" id="ica_spplyDt"
+    												style="" ref="data:ds_evidence.spplyDt" mandatory="true">
+    											</w2:inputCalendar>
+    										</xf:group>
+    										<xf:group class="w2tb_th " tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="req" id="" label="거래처" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+
+
+    											<xf:group id="" class="sch-box col6"><xf:input style="" id="ed_clntNo" placeholder="" class=" num" ref="data:ds_evidence.clntNo" mandatory="true"></xf:input><xf:trigger style="" id="" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger><xf:input style="width: 100px;" id="ed_recverCrn" placeholder="" class="" ref="data:ds_evidence.recverCrn" mandatory="true"></xf:input><xf:trigger style="" id="" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger><xf:input style="" id="txt_clntNm" placeholder="" class=" " ref="data:ds_evidence.clntNm"></xf:input></xf:group></xf:group>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th " tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="선수금액" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes>
+    												<w2:colspan>1</w2:colspan>
+    												<w2:rowspan>1</w2:rowspan>
+    											</w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    												<xf:group class="sch-box col3" id="">
+    													<xf:input class=" tar" id="ed_initamt" placeholder="" style="" ref="data:ds_evidence.initamt"></xf:input>
+    													<xf:trigger class="btn ico sch" id="img_initAmt" style="" type="button">
+    														<xf:label><![CDATA[버튼]]></xf:label>
+    													</xf:trigger>
+    												</xf:group>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group class="w2tb_th " tagname="th">
+    											<w2:attributes></w2:attributes>
+    											<w2:textbox class="req" id="" label="증빙종류" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group"><xf:group id="" class="form-group col6">
+    											<w2:autoComplete ref="data:ds_evidence.evidClsCd" submenuSize="auto" chooseOption="" style="" allOption="true" id="acb_evidClsCd" renderType="" class="" mandatory="true" editType="select" search="start">
+    													<w2:choices>
+    														<w2:item>
+    															<w2:label><![CDATA[new row]]></w2:label>
+    															<w2:value></w2:value>
+    														</w2:item>
+    														<w2:item>
+    															<w2:label><![CDATA[new row]]></w2:label>
+    															<w2:value></w2:value>
+    														</w2:item>
+    													</w2:choices>
+    												</w2:autoComplete><w2:autoComplete ref="data:ds_evidence.deductClsCd" submenuSize="auto" chooseOption="" style="width: 110px;" allOption="true" id="acb_deductClsCd" renderType="" class="shrink" editType="select" search="start">
+    													<w2:choices>
+    														<w2:item>
+    															<w2:label><![CDATA[new row]]></w2:label>
+    															<w2:value></w2:value>
+    														</w2:item>
+    														<w2:item>
+    															<w2:label><![CDATA[new row]]></w2:label>
+    															<w2:value></w2:value>
+    														</w2:item>
+    													</w2:choices>
+    												</w2:autoComplete><w2:autoComplete ref="data:ds_evidence.zeroTaxClsCd" submenuSize="auto" chooseOption="" style="width: 85px;" allOption="true" id="acb_zeroTaxCls" renderType="" class="shrink" editType="select" search="start">
+    													<w2:choices>
+    														<w2:item>
+    															<w2:label><![CDATA[new row]]></w2:label>
+    															<w2:value></w2:value>
+    														</w2:item>
+    														<w2:item>
+    															<w2:label><![CDATA[new row]]></w2:label>
+    															<w2:value></w2:value>
+    														</w2:item>
+    													</w2:choices>
+    												</w2:autoComplete></xf:group></xf:group></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group class="w2tb_th " tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="부가세관리부서" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    											<xf:group class="form-group" id="" style="">
+    											<xf:group id="" class="sch-box col6"><xf:input style="" id="ed_vatDeclarAcctDeptCd" placeholder="" class=" num" ref="data:ds_evidence.vatDeclarAcctDeptCd" mandatory="true"></xf:input><xf:trigger style="" id="" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger><xf:input style="" id="txt_vatDeclarAcctDeptNm" placeholder="" class=" " ref="data:ds_evidence.vatDeclarAcctDeptNm"></xf:input><xf:input style="width: 100px;" id="ed_vatSpplierCrn" placeholder="" class="" ref="data:ds_evidence.vatSpplierCrn"></xf:input></xf:group></xf:group>
+    										</xf:group>
+    										<xf:group class="w2tb_th " tagname="th">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="공급금액" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group class="w2tb_td" tagname="td">
+    											<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group"><xf:input style="" id="ed_spplyAmt" placeholder="" class=" col2 tar" ref="data:ds_evidence.spplyAmt"></xf:input></xf:group></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th ">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="E-mail" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group"><xf:group id="" class="sch-box col6"><xf:input style="" id="ed_email" placeholder="" class=" " ref="data:ds_evidence.email"></xf:input><xf:trigger style="" id="img_email" type="button" class="btn ico sch">
+    													<xf:label><![CDATA[버튼]]></xf:label>
+    												</xf:trigger></xf:group></xf:group></xf:group>
+    										<xf:group tagname="th" class="w2tb_th ">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="부가세액" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group"><xf:input style="" id="ed_vat" placeholder="" class=" col2 tar" ref="data:ds_evidence.vat" mandatory="true"></xf:input></xf:group></xf:group>
+    									</xf:group>
+    									<xf:group tagname="tr">
+    										<xf:group tagname="th" class="w2tb_th ">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="req" id="" label="비고" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    										<xf:group id="" class="form-group"><xf:input style="" id="txt_rmk" placeholder="" class="" ref="data:ds_evidence.rmk"></xf:input></xf:group></xf:group>
+    										<xf:group tagname="th" class="w2tb_th ">
+    											<w2:attributes>
+    												<w2:scope>row</w2:scope>
+    											</w2:attributes>
+    											<w2:textbox class="" id="" label="신고제외여부" ref="" style="" userData2=""></w2:textbox>
+    										</xf:group>
+    										<xf:group tagname="td" class="w2tb_td">
+    											<w2:attributes></w2:attributes>
+    											<xf:select appearance="full" class="chk-grp" cols="" id="chk_declarExceptYn" ref="data:ds_evidence.declarExceptYn" renderType="checkboxgroup"
+    												rows="" selectedindex="-1" style="">
+    												<xf:choices>
+    													<xf:item>
+    														<xf:label><![CDATA[]]></xf:label>
+    														<xf:value><![CDATA[]]></xf:value>
+    													</xf:item>
+    												</xf:choices>
+    											</xf:select>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group id="" class="section row-gap-8">
+    							<xf:group id="" class="udc-wrap">
+    								<xf:group style="" id="" class="title-wrap">
+    									<xf:group id="" class="title">
+    										<w2:textbox tagname="span" style="" id="" label="첨부파일업로드" class="tit"></w2:textbox>
+    									</xf:group>
+    									<xf:group id="" class="right">
+    										<xf:group id="" class="inner">
+    											<w2:textbox tagname="span" style="" id="" label="증빙파일종류" class=""></w2:textbox>
+    											<w2:autoComplete submenuSize="auto"
+    												chooseOption="false" style="width: 200px;" allOption="false" id="acb_evidFileClsCd" class="" ref="data:ds_evidence.evidFileClsCd" editType="select" search="start">
+    											</w2:autoComplete>
+    										</xf:group>
+    									</xf:group>
+
+    								</xf:group>
+    								<w2:udc_fileMultiUpload
+    									filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" style=""
+    									totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="">
+    								</w2:udc_fileMultiUpload>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="left" id="" style="">
+    						<xf:group id="" class="section row-gap-2"><w2:textbox ref="" style="" userData2="" id="" label="※ 렌터카 차량 매각은 렌터카 귀속부서끼리만 가능합니다." class="txt-red"></w2:textbox><w2:textbox ref="" style="" userData2="" id="" label="※ 물류부문은 유형별 담당자 승인 후 전자결재 화면에서 전표조회가 가능함 (IT자산 : IT전략팀, 기타 : 구매팀)" class="txt-red"></w2:textbox></xf:group></xf:group>
+    						<xf:group class="right" id="" style="">
+    							<w2:autoComplete allOption="" chooseOption="" class="" id="acb_gbn" style="width: 100px;" submenuSize="auto" ref="data:ds_evidence.gbn" editType="select" search="start">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[렌터카매각]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    							<w2:button class="btn" id="" label="매각처리" style=""></w2:button>
+    							
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		
+    	
+    </body>
+</html>

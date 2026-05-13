@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_Query">
+					<w2:keyInfo>
+						<w2:key id="bizLongCd" name="사업장코드" dataType="text"></w2:key>
+						<w2:key id="regDtFrom" name="등록시작일" dataType="text"></w2:key>
+						<w2:key id="regDtTo" name="등록종료일" dataType="text"></w2:key>
+						<w2:key id="messageNo" name="메시지번호" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_Fatigue" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+						<w2:column id="vehclShortCd" name="차량단축번호" dataType="text"></w2:column>
+						<w2:column id="vehclNo" name="차량번호" dataType="text"></w2:column>
+						<w2:column id="message" name="메세지" dataType="text"></w2:column>
+						<w2:column id="commCd" name="품명코드" dataType="text"></w2:column>
+						<w2:column id="commNm" name="품명" dataType="text"></w2:column>
+						<w2:column id="qty" name="수량" dataType="text"></w2:column>
+						<w2:column id="coshippingNo" name="합적번호" dataType="text"></w2:column>
+						<w2:column id="dptWrkPlCd" name="출발코드" dataType="text"></w2:column>
+						<w2:column id="dptWrkPlNm" name="출발지명" dataType="text"></w2:column>
+						<w2:column id="arvWrkPlCd" name="도착코드" dataType="text"></w2:column>
+						<w2:column id="arvWrkPlNm" name="도착지명" dataType="text"></w2:column>
+						<w2:column id="regDtm" name="등록일시" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.transwrkrslts.RetrieveLafargeDriverFatigueCMD.do" method="post"
+				mediatype="application/json" mode="asynchronous" encoding="UTF-8"
+				ref='data:json,[{"id":"dma_Query","key":"IN_DS1"},{"id":"ds_Fatigue","key":"OUT_DS1"}]'
+				target='data:json,[{"id":"ds_Fatigue","key":"OUT_DS1"}]' ev:submitdone="scwin.sbm_retrieve_submitdone">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo></w2:layoutInfo>
+		<w2:publicInfo method=""></w2:publicInfo>
+		<script type="text/javascript"><![CDATA[
+scwin.strDate = "";
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    scwin.strDate = $c.date.getServerDateTime("yyyyMMdd");
+};
+
+scwin.onUdcCompleted = function () {
+    ed_regStDt.setValue(scwin.strDate);
+    ed_regEndDt.setValue(scwin.strDate);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    let chk1 = await $c.gus.cfValidate([ed_regStDt, ed_regEndDt]);
+
+    if (!chk1) {
+        return;
+    }
+
+    let chk2 = await $c.gus.cfIsAfterDate(ed_regStDt.getValue(), ed_regEndDt.getValue());
+
+    if (!chk2) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+        ed_regStDt.focus();
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------
+// 그리드 데이터 엑셀로 다운
+//-------------------------------------------
+scwin.f_runExcel = async function () {
+    let totCnt = ds_Fatigue.getRowCount();
+    let sheetTitle = "크나우프운전자피로도이력관리";
+
+    if (totCnt != 0) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+
+        if (cfrm) {
+            $c.data.downloadGridViewExcel(gr_Fatigue, { fileName: sheetTitle + ".xlsx", sheetName: sheetTitle });
+        }
+    } else {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+//-------------------------------------------
+// 조회조건 초기화
+//-------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects(tb_mainData);
+
+    ed_regStDt.setValue(scwin.strDate);
+    ed_regEndDt.setValue(scwin.strDate);
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    let rowCnt = ds_Fatigue.getRowCount();
+
+    if (rowCnt == 0) {
+        await $c.win.alert("조회된 데이터가 없습니다.");
+    }
+
+    totalRows.setValue(ds_Fatigue.getTotalRow());
+};]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="tb_mainData" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="" id="" label="사업장" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:autoComplete class="" editType="select" id="lc_bizLongCd" search="none" style="width:150px;" submenuSize="auto"
+									ref="data:dma_Query.bizLongCd" allOption="" chooseOption="" emptyItem="true" hideListOnFocus="true">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[전체]]></w2:label>
+											<w2:value><![CDATA[]]>
+											</w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[당진공장]]></w2:label>
+											<w2:value><![CDATA[5600]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[여수공장]]></w2:label>
+											<w2:value><![CDATA[600]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[당진창고]]></w2:label>
+											<w2:value><![CDATA[3333]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="req" id="" label="등록일자 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<w2:udc_fromToCalendar id="udc_regDt" refDataMap="dma_Query" refEdDt="regDtTo" refStDt="regDtFrom" style=""
+									edFromId="ed_regStDt" edToId="ed_regEndDt" mandatoryFrom="true" mandatoryTo="true" titleFrom="작업 조회 시작일자" titleTo="작업 조회 종료일자"></w2:udc_fromToCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes></w2:attributes>
+								<w2:textbox class="" id="" label="message" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class="" editType="select" id="lc_message" search="none" style="width:230px;" submenuSize="auto"
+									ref="data:dma_Query.messageNo" allOption="" chooseOption="" emptyItem="true" hideListOnFocus="true" sortOption="value">
+									<w2:choices>
+										<w2:item>
+											<w2:label><![CDATA[전체]]></w2:label>
+											<w2:value><![CDATA[]]>
+											</w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[전일 3회전 이상 운행 차량]]></w2:label>
+											<w2:value><![CDATA[001]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[장거리 운행 후 금일 2회 이상 배차]]></w2:label>
+											<w2:value><![CDATA[002]]></w2:value>
+										</w2:item>
+										<w2:item>
+											<w2:label><![CDATA[용차 차량 금일 2회 이상 배차]]></w2:label>
+											<w2:value><![CDATA[003]]></w2:value>
+										</w2:item>
+									</w2:choices>
+								</w2:autoComplete>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_FieldClear">
+						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button"
+						ev:onclick="scwin.f_Retrieve">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="크나우프 운전자피로도이력관리조회" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N"
+							gridID="gr_Fatigue" gridDownFn="scwin.f_runExcel" id="udc_top" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="ds_Fatigue" id="gr_Fatigue" style=""
+						visibleRowNum="15" visibleRowNumFix="true" readOnly="true" columnMove="true">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column displayMode="label" id="odrNo" inputType="text" value="오더번호" width="100"></w2:column>
+								<w2:column displayMode="label" id="vehclShortCd" inputType="text" value="차량단축번호" width="100"></w2:column>
+								<w2:column displayMode="label" id="vehclNo" inputType="text" value="차량번호" width="100"></w2:column>
+								<w2:column displayMode="label" id="message" inputType="text" value="메세지" width="200"></w2:column>
+								<w2:column displayMode="label" id="commCd" inputType="text" value="품명코드" width="100"></w2:column>
+								<w2:column displayMode="label" id="commNm" inputType="text" value="품명" width="200"></w2:column>
+								<w2:column displayMode="label" id="qty" inputType="text" value="수량" width="70"></w2:column>
+								<w2:column displayMode="label" id="coshippingNo" inputType="text" value="합적번호" width="100"></w2:column>
+								<w2:column displayMode="label" id="dptWrkPlCd" inputType="text" value="출발코드" width="100"></w2:column>
+								<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" value="출발지명" width="100"></w2:column>
+								<w2:column width="100" inputType="text" id="arvWrkPlCd" value="도착코드" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="arvWrkPlNm" value="도착지명" displayMode="label"></w2:column>
+								<w2:column width="140" inputType="text" id="regDtm" value="등록일시" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column displayMode="label" id="odrNo" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="vehclShortCd" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="vehclNo" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="message" inputType="text" width="200" textAlign="left"></w2:column>
+								<w2:column displayMode="label" id="commCd" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="commNm" inputType="text" width="200" textAlign="left"></w2:column>
+								<w2:column displayMode="label" id="qty" inputType="text" width="70" textAlign="center" dataType="number"
+									excelCellType="number" displayFormat="#,##0"></w2:column>
+								<w2:column displayMode="label" id="coshippingNo" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="dptWrkPlCd" inputType="text" width="100"></w2:column>
+								<w2:column displayMode="label" id="dptWrkPlNm" inputType="text" width="100" textAlign="left"></w2:column>
+								<w2:column width="100" inputType="text" id="arvWrkPlCd" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="arvWrkPlNm" displayMode="label" textAlign="left"></w2:column>
+								<w2:column width="140" inputType="text" id="regDtm" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:footer style="" id="footer1">
+							<w2:row style="" id="row3">
+								<w2:column width="100" inputType="text" id="column30" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column29" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column28" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" id="column27" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column26" displayMode="label"></w2:column>
+								<w2:column width="200" inputType="text" id="column25" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" id="column24" displayMode="label" textAlign="right"></w2:column>
+								<w2:column width="100" inputType="text" id="column23" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column22" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column21" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column45" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" id="column42" displayMode="label"></w2:column>
+								<w2:column width="140" inputType="text" id="column33" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,9572 @@
+/*amd /ui/il/seaout/sobl/se_105_01_05b.xml 618441 17336f5b56d4449e03ffba9db7bedea51ab6efca98e9c4f1fcc83c34c2fc13c9 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{id:'ds_retrieve'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhetd',name:'ETD (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieve_freight'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhetd',name:'ETD (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'odrNo',name:'order no(13)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'tabIndex',name:'tab Index',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno2',name:'HOUSE NO (CND) (16) 하단 개별검색에 사용',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_comCode'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'시스템구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'SQL ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'파라메터1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'파라메터2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'파라메터3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param4',name:'파라메터4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param5',name:'파라메터5',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param6',name:'파라메터6',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param7',name:'파라메터7',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param8',name:'파라메터8',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param9',name:'파라메터9',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param10',name:'파라메터10',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param11',name:'파라메터11',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param12',name:'파라메터12',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param13',name:'파라메터13',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param14',name:'파라메터14',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_houseblList','ev:ondataload':'scwin.ds_houseblList_ondataload',saveRemovedData:'false','ev:oncelldatachange':'scwin.ds_houseblList_oncelldatachange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chk',name:'check',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'autono',name:'B/L',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmblno',name:'MASTER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhio',name:'IN/OUT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbkgno',name:'BOOKING',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbkgseq',name:'BOOKING',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhscd',name:'SHIPPER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhclosing',name:'CLOSED',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs1',name:'SHIPPER1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs2',name:'SHIPPER2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs3',name:'SHIPPER3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs4',name:'SHIPPER4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs5',name:'SHIPPER5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhccd',name:'CONSIGNEE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc1',name:'CONSIGNEE1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc2',name:'CONSIGNEE2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc3',name:'CONSIGNEE3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc4',name:'CONSIGNEE4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc5',name:'CONSIGNEE5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhncd',name:'NOTIFY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn1',name:'NOTIFY1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn2',name:'NOTIFY2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn3',name:'NOTIFY3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn4',name:'NOTIFY4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn5',name:'NOTIFY5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhvslcd',name:'VESSEL',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhvsl',name:'VESSEL',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhvyg',name:'VOYAGE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlodcd',name:'LOADING',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlodnm',name:'LOADING',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdisccd',name:'DISCHARGE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdiscnm',name:'DISCHARGE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpkg',name:'FACKAGE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunitcd',name:'UNIT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunit',name:'UNIT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhnwgt',name:'WEIGHT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhgwgt',name:'WEIGHT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmsr',name:'MEASURE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhetd',name:'ETD',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhondt',name:'ONBOARD',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hheta',name:'ETA',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhisudt',name:'ISSUED',dataType:'text'}},{T:1,N:'w2:column',A:{id:'creadyDt',name:'RESULT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lcDt',name:'lcDt',dataType:'text'}},{T:1,N:'w2:column',A:{id:'srDt',name:'srDt',dataType:'text'}},{T:1,N:'w2:column',A:{id:'elDt',name:'elDt',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bliDt',name:'bliDt',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bloDt',name:'bloDt',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdanggb',name:'DANGEROUS',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpcgb',name:'PP/CC',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbltype',name:'CARGO',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhisunm',name:'ISSUED',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpaynm',name:'PAYABLE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhprenm',name:'FREIGHT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhstype',name:'SERVICE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhincoterm',name:'INCOTERMS',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt1type',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt2type',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt3type',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt4type',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt1',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt2',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt3',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt4',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagent',name:'PARTNER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagentnm',name:'PARTNER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagentattn',name:'PARTNER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagentattnnm',name:'PARTNER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactcust',name:'CUSTOMER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactcustnm',name:'CUSTOMER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactattn',name:'CUSTOMER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactattnnm',name:'CUSTOMER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsales',name:'SALESMAN',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsalesnm',name:'SALESMAN',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhliner',name:'LINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlinernm',name:'LINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlinerattn',name:'LINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlinerattnnm',name:'LINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbuyer',name:'DEPT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbuyernm',name:'DEPT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hharea',name:'AREA',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhareanm',name:'AREA',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhtriange',name:'TRIANGLE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhnomi',name:'NOMI',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhobl',name:'OLD',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcoload',name:'CO-LOAD',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsubpkg',name:'NUMBER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunit2',name:'NUMBER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mark',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'descnm',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp1',name:'SAID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp2',name:'SHIPPERS',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp3',name:'CONTAINER',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp4',name:'TERM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp5',name:'RECIPT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp6',name:'ONBOARD',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsay',name:'SAY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhitem',name:'ITEM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmitem1',name:'ITEM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmitem2',name:'ITEM',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk1',name:'REMARK1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk2',name:'REMARK2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk3',name:'REMARK3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk4',name:'REMARK4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk5',name:'REMARK5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmnfgb',name:'SHIPMENT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfvsl',name:'PRE-VESSEL/VOYAGE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrcvcd',name:'PLACE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrcvnm',name:'PLACE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdlvcd',name:'PLACE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdlvnm',name:'PLACE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfdcd',name:'FINAL',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfdnm',name:'FINAL',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpono',name:'PURCHASE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcustvalue',name:'INVOICE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlcno',name:'L/C',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcustno',name:'-20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcustnoseq',name:'-2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcontInfo',name:'-70',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpnm',name:'이름',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mccntno',name:'OC_CONT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfaccd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfacnm',name:'OC_CONT',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcur',name:'CURRENCY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexgb',name:'CURRENCY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurdt',name:'DATE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexrate',name:'EX',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhuexrate',name:'EX',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oblno',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcoloadbl',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnrggb',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnrgno',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhntrggb',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhntrgno',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhwarecd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhwarenm',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhwaregb',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'no(13)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNoM',name:'no(13)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhcur',name:'통화단위',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhcurdt',name:'환율일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mexgb',name:'환율구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhexrate',name:'환율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhusdrate',name:'USD환율',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spRtn',name:'에러리턴값',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mwarecd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mwareEngCd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ucrNo',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pathCd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trYn',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'status',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fromCd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'printChk',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pic',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hscode',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunit3',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexgbPar',name:'CURRENCY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurdtPar',name:'DATE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexratePar',name:'EX',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhuexratePar',name:'EX',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurBuy',name:'CURRENCY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexgbBuy',name:'CURRENCY',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurdtBuy',name:'DATE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexrateBuy',name:'EX',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhuexrateBuy',name:'EX',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmsrrate',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntyCd',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cino',name:'name176',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shipMgntNo',name:'name177',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mwarenm',name:'name178',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurPar',name:'name179',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_ocContList',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mchblno',name:'BL NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mccntno',name:'CONTAINER  (11)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mctype',name:'TYPE  (4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcseal1',name:'SEAL NO1 (20)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcseal2',name:'SEAL NO2 (20)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcpkg',name:'PKG (N10)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'mcpkgcd',name:'UNIT (2)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcwgt',name:'WEIGHT (N12,3)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'mcmsr',name:'MEASURE (N11,3)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'mcpart',name:'part',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_ocElList',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'BL NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'elno',name:'수출신고번호 (19)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pkg',name:'PACKAGE (N14)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'unit',name:'UNIT (7)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'wgt',name:'WEIGHT (N14,3)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mgb',name:'포장기호 (3)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mpkg',name:'PACKAGE (N14)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mut',name:'UNIT (3)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pgb',name:'분할 (3)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pseq',name:'분할선적차수 (N14)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_retrieveNo'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}}]},{T:1,N:'w2:data',A:{use:'true'}}]},{T:1,N:'w2:dataList',A:{id:'ds_bookingNo',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{id:'dma_bookingContainer',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{id:'ds_bkseq'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'Mhno code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'Mhno name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_hmhno','ev:ondataload':'scwin.ds_hmhno_onLoad'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'Mhno code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'Mhno name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_hmhno2','ev:ondataload':'scwin.ds_hmhno_onLoad'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'Mhno code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'Mhno name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_slipTax'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'hhio',name:'IN/OUT',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE B/L',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'MHNO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'ORDER NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'CUSTOMER',dataType:'string'}},{T:1,N:'w2:column',A:{id:'intendDt',name:'BILLING DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spplyDt',name:'TAX DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'slipNo',name:'SLIP NO',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_ocProfitList'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'selling',name:'usd',dataType:'number'}},{T:1,N:'w2:column',A:{id:'buying',name:'krw',dataType:'number'}},{T:1,N:'w2:column',A:{id:'profit',name:'krw',dataType:'number'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_carrierBkNo'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'carrierBkNo',name:'carrierBkNo',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_clntNo'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'hhactcust',name:'hhactcust',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_mgntYn'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'mgntYn',name:'mgntYn',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_tmp'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'mccntno',name:'CONTAINER  (11)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mctype',name:'TYPE  (4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcseal1',name:'SEAL NO1 (20)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcseal2',name:'SEAL NO2 (20)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcpkg',name:'PKG (N10)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mcpkgcd',name:'UNIT (2)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcwgt',name:'WEIGHT (N12,3)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mcmsr',name:'MEASURE (N11,3)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'mcpart',name:'part',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_retrieve_freight',baseNode:'list',repeatNode:'map','ev:oncelldatachange':'scwin.ds_retrieve_freight_oncelldatachange'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{id:'ds_houseblList_freight','ev:ondataload':'scwin.ds_houseblList_freight_onLoad',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'chk',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'autono',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhno',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmblno',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhio',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbkgno',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbkgseq',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhscd',name:'name10',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhclosing',name:'name11',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs1',name:'name12',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs2',name:'name13',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs3',name:'name14',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs4',name:'name15',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhs5',name:'name16',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhccd',name:'name17',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc1',name:'name18',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc2',name:'name19',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc3',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc4',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhc5',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhncd',name:'name23',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn1',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn2',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn3',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn4',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhn5',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhvslcd',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhvsl',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhvyg',name:'name31',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlodcd',name:'name32',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlodnm',name:'name33',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdisccd',name:'name34',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdiscnm',name:'name35',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpkg',name:'name36',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunitcd',name:'name37',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunit',name:'name38',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhnwgt',name:'name39',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhgwgt',name:'name40',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmsr',name:'name41',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhetd',name:'name42',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhondt',name:'name43',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hheta',name:'name44',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhisudt',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'creadyDt',name:'name46',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lcDt',name:'name47',dataType:'text'}},{T:1,N:'w2:column',A:{id:'srDt',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'elDt',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bliDt',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bloDt',name:'name51',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdanggb',name:'name52',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpcgb',name:'name53',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbltype',name:'name54',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhisunm',name:'name55',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpaynm',name:'name56',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhprenm',name:'name57',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhstype',name:'name58',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhincoterm',name:'name59',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt1type',name:'name60',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt2type',name:'name61',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt3type',name:'name62',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt4type',name:'name63',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt1',name:'name64',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt2',name:'name65',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt3',name:'name66',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnt4',name:'name67',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagent',name:'name68',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagentnm',name:'name69',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagentattn',name:'name70',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhagentattnnm',name:'name71',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactcust',name:'name72',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactcustnm',name:'name73',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactattn',name:'name74',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhactattnnm',name:'name75',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsales',name:'name76',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsalesnm',name:'name77',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhliner',name:'name78',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlinernm',name:'name79',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlinerattn',name:'name80',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlinerattnnm',name:'name81',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbuyer',name:'name82',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhbuyernm',name:'name83',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hharea',name:'name84',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhareanm',name:'name85',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhtriange',name:'name86',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhnomi',name:'name87',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhobl',name:'name88',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcoload',name:'name89',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsubpkg',name:'name90',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunit2',name:'name91',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mark',name:'name92',dataType:'text'}},{T:1,N:'w2:column',A:{id:'descnm',name:'name93',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp1',name:'name94',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp2',name:'name95',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp3',name:'name96',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp4',name:'name97',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp5',name:'name98',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhp6',name:'name99',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhsay',name:'name100',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhitem',name:'name101',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmitem1',name:'name102',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmitem2',name:'name103',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk1',name:'name104',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk2',name:'name105',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk3',name:'name106',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk4',name:'name107',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrmk5',name:'name108',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmnfgb',name:'name109',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfvsl',name:'name110',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrcvcd',name:'name111',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhrcvnm',name:'name112',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdlvcd',name:'name113',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhdlvnm',name:'name114',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfdcd',name:'name115',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfdnm',name:'name116',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhpono',name:'name117',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcustvalue',name:'name118',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhlcno',name:'name119',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcustno',name:'name120',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcustnoseq',name:'name121',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcontInfo',name:'name122',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpid',name:'name123',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpnm',name:'name124',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'name125',dataType:'text'}},{T:1,N:'w2:column',A:{id:'updid',name:'name126',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upddt',name:'name127',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mccntno',name:'name128',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfaccd',name:'name129',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhfacnm',name:'name130',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcur',name:'name131',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexgb',name:'name132',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurdt',name:'name133',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexrate',name:'name134',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhuexrate',name:'name135',dataType:'text'}},{T:1,N:'w2:column',A:{id:'oblno',name:'name136',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcoloadbl',name:'name137',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnrggb',name:'name138',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcnrgno',name:'name139',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhntrggb',name:'name140',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhntrgno',name:'name141',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhwarecd',name:'name142',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhwarenm',name:'name143',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhwaregb',name:'name144',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'name145',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNoM',name:'name146',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhcur',name:'name147',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhcurdt',name:'name148',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mexgb',name:'name149',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhexrate',name:'name150',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhusdrate',name:'name151',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'name152',dataType:'text'}},{T:1,N:'w2:column',A:{id:'spRtn',name:'name153',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mwarecd',name:'name154',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mwarenm',name:'name155',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mwareEngCd',name:'name156',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ucrNo',name:'name157',dataType:'text'}},{T:1,N:'w2:column',A:{id:'shipMgntNo',name:'name158',dataType:'text'}},{T:1,N:'w2:column',A:{id:'srno',name:'name159',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pathCd',name:'name160',dataType:'text'}},{T:1,N:'w2:column',A:{id:'trYn',name:'name161',dataType:'text'}},{T:1,N:'w2:column',A:{id:'status',name:'name162',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fromCd',name:'name163',dataType:'text'}},{T:1,N:'w2:column',A:{id:'printChk',name:'name164',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pic',name:'name165',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hscode',name:'name166',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhunit3',name:'name167',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurPar',name:'name168',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexgbPar',name:'name169',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurdtPar',name:'name170',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexratePar',name:'name171',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhuexratePar',name:'name172',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurBuy',name:'name173',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexgbBuy',name:'name174',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhcurdtBuy',name:'name175',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhexrateBuy',name:'name176',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhuexrateBuy',name:'name177',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmsrrate',name:'name178',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntyCd',name:'name179',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cino',name:'name180',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_selling_freight','ev:oncelldatachange':'scwin.ds_selling_freight_oncelldatachange','ev:ondataload':'scwin.ds_selling_freight_onLoad',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'chk',dataType:'string'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'sellSeq',name:'매출순번',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'kcomcd',name:'법인코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'seaAirCls',name:'해운(S)/항공(A) 구분',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',name:'청구처 코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bilgClntNm',name:'청구처명',dataType:'string'}},{T:1,N:'w2:column',A:{id:'blNo',name:'비엘번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'CONSOL번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'sellItemCd',name:'매출입항목코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngCd',name:'영문운임코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngNm',name:'영문 운임명',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareGrpCd',name:'운임그룹코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareUnit',name:'운임UNIT',dataType:'string'}},{T:1,N:'w2:column',A:{id:'locPtnCls',name:'국내해외매출구분(국내:1 해외:2)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mblHblCls',name:'MASTER/HOUSE구분 (M/H)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'drcrCls',name:'매출(D)/매입(C)구분 (DEBIT/CREDIT구분)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ppccCls',name:'PREPAID/COLLECT구분 (P/C)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'qty',name:'수량',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'grossWt',name:'GROSS WEIGHT',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'chgWt',name:'CHARGEABLE WEIGHT',dataType:'number'}},{T:1,N:'w2:column',A:{id:'trfUpr',name:'TARIFF 단가',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellUpr',name:'단가',dataType:'number'}},{T:1,N:'w2:column',A:{id:'usdAmt',name:'US$ 금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exRate',name:'환율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exRateTyp',name:'적용환율 TYPE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'rateCls',name:'RATE CLASS',dataType:'string'}},{T:1,N:'w2:column',A:{id:'commItem',name:'COMMODITY ITEM',dataType:'string'}},{T:1,N:'w2:column',A:{id:'prtnGrpNo',name:'거래명세서 그룹번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'prtnUpr',name:'출력용 단가',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'prtnAmt',name:'출력용 금액',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellAmtFcrc',name:'소급매출금액외화',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmt',name:'Amount (W)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'VAT',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',name:'Result Date',dataType:'string'}},{T:1,N:'w2:column',A:{id:'certiNo',name:'Invoice No',dataType:'string'}},{T:1,N:'w2:column',A:{id:'jobType',name:'type',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'delYn',name:'삭제여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'vatYn',name:'부가세여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'rmk',name:'비고',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'inpid',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spRtn',name:'//결과코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'//결과메시지',dataType:'string'}},{T:1,N:'w2:column',A:{id:'currrow',name:'name45',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tabIndex',name:'name46',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regName',name:'name47',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'name48',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclYn',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fareUnit_org',name:'name51',dataType:'text'}}]},{T:1,N:'w2:data',A:{use:'false'}}]},{T:1,N:'w2:dataList',A:{id:'ds_partner_freight','ev:oncelldatachange':'scwin.ds_partner_freight_oncelldatachange',saveRemovedData:'false','ev:ondataload':'scwin.ds_partner_freight_onLoad'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'chk',dataType:'string'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'sellSeq',name:'매출순번',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'kcomcd',name:'법인코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'seaAirCls',name:'해운(S)/항공(A) 구분',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',name:'청구처 코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bilgClntNm',name:'청구처명',dataType:'string'}},{T:1,N:'w2:column',A:{id:'blNo',name:'비엘번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'CONSOL번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'sellItemCd',name:'매출입항목코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngCd',name:'영문운임코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngNm',name:'영문 운임명',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareGrpCd',name:'운임그룹코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareUnit',name:'운임UNIT',dataType:'string'}},{T:1,N:'w2:column',A:{id:'locPtnCls',name:'국내해외매출구분(국내:1 해외:2)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mblHblCls',name:'MASTER/HOUSE구분 (M/H)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'drcrCls',name:'매출(D)/매입(C)구분 (DEBIT/CREDIT구분)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ppccCls',name:'PREPAID/COLLECT구분 (P/C)',dataType:'string',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'qty',name:'수량',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'grossWt',name:'GROSS WEIGHT',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'chgWt',name:'CHARGEABLE WEIGHT',dataType:'number'}},{T:1,N:'w2:column',A:{id:'trfUpr',name:'TARIFF 단가',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellUpr',name:'단가',dataType:'number'}},{T:1,N:'w2:column',A:{id:'usdAmt',name:'US$ 금액',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exRate',name:'환율',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exRateTyp',name:'적용환율 TYPE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'rateCls',name:'RATE CLASS',dataType:'string'}},{T:1,N:'w2:column',A:{id:'commItem',name:'COMMODITY ITEM',dataType:'string'}},{T:1,N:'w2:column',A:{id:'prtnGrpNo',name:'거래명세서 그룹번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'prtnUpr',name:'출력용 단가',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'prtnAmt',name:'출력용 금액',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellAmtFcrc',name:'소급매출금액외화',dataType:'number'}},{T:1,N:'w2:column',A:{id:'sellAmt',name:'Amount (W)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'vatAmt',name:'VAT',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',name:'Result Date',dataType:'string'}},{T:1,N:'w2:column',A:{id:'certiNo',name:'Invoice No',dataType:'string'}},{T:1,N:'w2:column',A:{id:'jobType',name:'type',dataType:'number',defaultValue:''}},{T:1,N:'w2:column',A:{id:'delYn',name:'삭제여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'vatYn',name:'부가세여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'rmk',name:'비고',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'inpid',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spRtn',name:'//결과코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'//결과메시지',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vehclYn',name:'화물운송실적대상코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',name:'dcsnClsCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'regName',name:'등록 담당자 이름',dataType:'string'}},{T:1,N:'w2:column',A:{id:'currrow',name:'name49',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tabIndex',name:'name50',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fareUnit_org',name:'name51',dataType:'text'}}]},{T:1,N:'w2:data',A:{use:'false'}}]},{T:1,N:'w2:dataList',A:{id:'ds_buying_freight','ev:oncelldatachange':'scwin.ds_buying_freight_oncelldatachange','ev:ondataload':'scwin.ds_buying_freight_onLoad',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'chk',dataType:'string'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pchsSeq',name:'매입순번(5)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'kcomcd',name:'법인코드(6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'seaAirCls',name:'해운(S)/항공(A) 구분(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pchsClntNo',name:'매입거래처코드(6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pchsClntNm',name:'매입거래처명(70)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'blNo',name:'비엘번호(16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'CONSOL번호(16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'selpchItemCd',name:'매출입항목코드(4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngCd',name:'영문운임코드(4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngNm',name:'영문운임명(50)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareGrpCd',name:'운임그룹코드(3)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareUnit',name:'운임UNIT(2)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'locPtnCls',name:'국내해외매출구분(국내:1 해외:2)(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mblHblCls',name:'MASTER/HOUSE구분 (M/H)(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'drcrCls',name:'매출(D)/매입(C)구분 (DEBIT/CREDIT구분)(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ppccCls',name:'PREPAID/COLLECT구분 (P/C)(1)',dataType:'string',defaultValue:''}},{T:1,N:'w2:column',A:{id:'crcCd',name:'통화코드(3)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'qty',name:'수량(15)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'grossWt',name:'GROSS WEIGHT(15.1)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'chgWt',name:'CHARGEABLE WEIGHT(15.3)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'trfUpr',name:'TARIFF 단가(15.2)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'pchsUpr',name:'단가(15.2)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'usdAmt',name:'US$ 금액(15.2)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exRate',name:'환율(15.2)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'exRateTyp',name:'적용환율 TYPE(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'rateCls',name:'RATE CLASS(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'commItem',name:'COMMODITY ITEM(8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'prtnGrpNo',name:'거래명세서 그룹번호(18)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'prtnUpr',name:'출력용 단가(15.2)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'prtnAmt',name:'출력용 금액(15.2)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'sellDeptCd',name:'매출부서코드(내부거래시)(4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'sellDeptNm',name:'매출부서명(내부거래시)(50)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pchsTyp',name:'운임 TYPE(1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',name:'실적일자(8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pchsAmtFcrc',name:'매입금액외화(15.2)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'pchsAmt',name:'매입금액(13)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'vat',name:'부가세(13)',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'pchsCertiNo',name:'매입거래명세서번호(12)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'jobType',name:'type',dataType:'number'}},{T:1,N:'w2:column',A:{id:'delYn',name:'삭제여부',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'vatYn',name:'부가세여부',dataType:'number'}},{T:1,N:'w2:column',A:{id:'rmk',name:'비고',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'inpid',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spRtn',name:'//결과코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'//결과메시지',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vehclYn',name:'화물운송실적대상코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',name:'dcsnClsCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'regName',name:'등록 담당자 이름',dataType:'string'}},{T:1,N:'w2:column',A:{id:'currrow',name:'name52',dataType:'text'}},{T:1,N:'w2:column',A:{id:'tabIndex',name:'name53',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fareUnit_org',name:'name54',dataType:'text'}}]},{T:1,N:'w2:data',A:{use:'false'}}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieveTariff_freight'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'fgubn',name:'SELLING : 1 , BUYING : 2 , PARTNER : 3',dataType:'string'}},{T:1,N:'w2:key',A:{id:'kcomcd',name:'KCOMCD',dataType:'string'}},{T:1,N:'w2:key',A:{id:'apdt',name:'ETD, ETA',dataType:'string'}},{T:1,N:'w2:key',A:{id:'customer',name:'CUSTSOMER',dataType:'string'}},{T:1,N:'w2:key',A:{id:'partner',name:'PARTNER',dataType:'string'}},{T:1,N:'w2:key',A:{id:'liner',name:'LINER',dataType:'string'}},{T:1,N:'w2:key',A:{id:'loading',name:'LOADING',dataType:'string'}},{T:1,N:'w2:key',A:{id:'discharge',name:'DISCHARGE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'item',name:'ITEM',dataType:'string'}},{T:1,N:'w2:key',A:{id:'container1',name:'CONTAINER TYPE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'container2',name:'CONTAINER TYPE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'container3',name:'CONTAINER TYPE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'container4',name:'CONTAINER TYPE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'cbgubn',name:'CONTAINER OR BULK GUBN (C:B)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'incoterm',name:'INCOTERM (FIO, FIBT ,BTFO ,BTBT )',dataType:'string'}},{T:1,N:'w2:key',A:{id:'userid',name:'USER ID',dataType:'string'}},{T:1,N:'w2:key',A:{id:'dangerous',name:'DANGEROUS',dataType:'string'}},{T:1,N:'w2:key',A:{id:'commcustomer',name:'공통CUSTSOMER',dataType:'string'}},{T:1,N:'w2:key',A:{id:'fcode',name:'FCODE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'currency',name:'CURRENCY',dataType:'string'}},{T:1,N:'w2:key',A:{id:'funit',name:'FUNIT',dataType:'string'}},{T:1,N:'w2:key',A:{id:'flag',name:'tariff : 1, TariffRate : 2',dataType:'string'}},{T:1,N:'w2:key',A:{id:'transTariffYn',name:'TRANS TARIFF YN',dataType:'string'}},{T:1,N:'w2:key',A:{id:'blNo',name:'BLNO',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'MHNO',dataType:'string'}},{T:1,N:'w2:key',A:{id:'spRtn',name:'//결과코드',dataType:'string'}},{T:1,N:'w2:key',A:{id:'spMsg',name:'//결과메시지',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_resultTariff_freight'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'customer',name:'CUSTSOMER',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareEngCd',name:'FCODE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fareUnit',name:'FUNIT',dataType:'string'}},{T:1,N:'w2:column',A:{id:'crcCd',name:'CURRENCY',dataType:'string'}},{T:1,N:'w2:column',A:{id:'blgb',name:'BLGB',dataType:'string'}},{T:1,N:'w2:column',A:{id:'amount',name:'AMOUNT(10.2)',dataType:'number'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_linecode_freight'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cdNm',name:'cdNm',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_frtMapping_freight'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'fromCd',name:'fromCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'toCd',name:'toCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'description',name:'description',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dtlCd1',name:'dtlCd1',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dtlCd2',name:'dtlCd2',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dtlCd3',name:'dtlCd3',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_line_condition_freight'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'fromCd',name:'fromCd',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhliner',name:'hhliner',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_retrieve_booking',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{id:'ds_containerBookingList_booking','ev:ondataload':'scwin.ds_containerBookingList_booking_onLoad',saveRemovedData:'false','ev:oncelldatachange':'scwin.ds_containerBookingList_booking_oncelldatachange','ev:oninsertrow':'scwin.ds_containerBookingList_booking_oninsertrow'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkNo',name:'BOOKING NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'carrierBkNo',name:'CARRIER BOOKING NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'reDt',name:'REQUEST DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'etRsltsDt',name:'RESULT DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'groupNo',name:'GROUP NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docCd',name:'SHIPPER',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docCust',name:'SHIPPER NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docTel',name:'SHIPPER TEL',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docSeq',name:'SHIPPER PIC',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docMan',name:'SHIPPER PIC NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custCd',name:'CUSTOMER',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custNm',name:'CUSTOMER NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custTel',name:'CUSTOMER TEL',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custSeq',name:'CUSTOMER PIC',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custMan',name:'CUSTOMER PIC NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'contractno',name:'CONTRACT NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'facCd',name:'FACTORY',dataType:'string'}},{T:1,N:'w2:column',A:{id:'facNm',name:'FACTORY NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'facTel',name:'FACTORY TEL',dataType:'string'}},{T:1,N:'w2:column',A:{id:'facAttn',name:'FACTORY PIC',dataType:'string'}},{T:1,N:'w2:column',A:{id:'facMan',name:'FACTORY PIC NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'liner',name:'LINER',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linernm',name:'LINER NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linerTel',name:'LINER TEL',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linerattn',name:'LINER PIC',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linerattnnm',name:'LINER PIC NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vslCd',name:'VESSEL',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vslNm',name:'VESSEL NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'voy',name:'VOYAGE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'salesCd',name:'SALESMAN',dataType:'string'}},{T:1,N:'w2:column',A:{id:'salesNm',name:'SALESMAN NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'lodCd',name:'LOADMING',dataType:'string'}},{T:1,N:'w2:column',A:{id:'lodNm',name:'LOADING NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'disCd',name:'DISCHARGE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'disNm',name:'DISCHARGE NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dlvCd',name:'DELIVERY',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dlvNm',name:'DELIVERY NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkArea',name:'AREA',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkAreanm',name:'AREA NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dept',name:'Department',dataType:'string'}},{T:1,N:'w2:column',A:{id:'deptnm',name:'Department NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkEtd',name:'ETD',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkEta',name:'ETA',dataType:'string'}},{T:1,N:'w2:column',A:{id:'payTerm',name:'FREIGHT TERM',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cfs',name:'CARGO TYPE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'svcType',name:'SERVICE TERM',dataType:'string'}},{T:1,N:'w2:column',A:{id:'itemCd',name:'ITEM',dataType:'string'}},{T:1,N:'w2:column',A:{id:'itemNm',name:'ITEM NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mark',name:'MARK',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pkg',name:'PACKAGE',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'unit',name:'UNIT',dataType:'string'}},{T:1,N:'w2:column',A:{id:'unitnm',name:'UNIT NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'wgt',name:'WEIGHT',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'msr',name:'MEASURE',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'bkbltype',name:'Bltype',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype1',name:'CONTAINER TYPE1',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype2',name:'CONTAINER TYPE2',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype3',name:'CONTAINER TYPE3',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype4',name:'CONTAINER TYPE4',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntqty1',name:'CONTAINER QTY1',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'cntqty2',name:'CONTAINER QTY2',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'cntqty3',name:'CONTAINER QTY3',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'cntqty4',name:'CONTAINER QTY4',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'remark1',name:'REMARK1',dataType:'string'}},{T:1,N:'w2:column',A:{id:'remark2',name:'REMARK2',dataType:'string'}},{T:1,N:'w2:column',A:{id:'remark3',name:'REMARK3',dataType:'string'}},{T:1,N:'w2:column',A:{id:'remarkMaster',name:'REMARKMaster',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'등록자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'등록일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'iptYn',name:'iptYn',dataType:'string'}},{T:1,N:'w2:column',A:{id:'refNo',name:'refNo',dataType:'string'}},{T:1,N:'w2:column',A:{id:'triYn',name:'triYn',dataType:'string'}},{T:1,N:'w2:column',A:{id:'triItemType',name:'triItemType',dataType:'string'}},{T:1,N:'w2:column',A:{id:'triWrkDesc',name:'triWrkDesc',dataType:'string'}},{T:1,N:'w2:column',A:{id:'freeDay',name:'freeDay',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'custTeam',name:'custTeam',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cfsNm',name:'cfsNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'shrNm',name:'shrNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docClosingDt',name:'docClosingDt',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docClosingTime',name:'docClosingTime',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docPic',name:'docPic',dataType:'string'}},{T:1,N:'w2:column',A:{id:'docPicNm',name:'docPicNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cargoClosingDt',name:'cargoClosingDt',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cargoClosingTime',name:'cargoClosingTime',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cargoPic',name:'cargoPic',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cargoPicNm',name:'cargoPicNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1VsslCd',name:'ts1VsslCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1VsslNm',name:'ts1VsslNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1Voy',name:'ts1Voy',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1PortCd',name:'ts1PortCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1PortNm',name:'ts1PortNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1Eta',name:'ts1Eta',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts1Etd',name:'ts1Etd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2VsslCd',name:'ts2VsslCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2VsslNm',name:'ts2VsslNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2Voy',name:'ts2Voy',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2PortCd',name:'ts2PortCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2PortNm',name:'ts2PortNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2Eta',name:'ts2Eta',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ts2Etd',name:'ts2Etd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'refBuyingAmt',name:'refBuyingAmt',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'refSellingAmt',name:'refSellingAmt',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'wrkPlNm',name:'wrkPlNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custTeamPic',name:'custTeamPic',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mgntYn',name:'mgntYn',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkIncoterm',name:'bkIncoterm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkAgent',name:'bkAgent',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkAgentnm',name:'bkAgentnm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkPicNm',name:'bkPicNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkPic',name:'bkPic',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_containerDoorOrder_booking',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'groupNo',name:'GROUP NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'chk',name:'check (1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'doordt',name:'ORDER DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkNo',name:'BOOKING NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkdoorseq',name:'ORDER SEQ',dataType:'string'}},{T:1,N:'w2:column',A:{id:'internalTyp',name:'1:내부부서,2:거래처.',dataType:'string'}},{T:1,N:'w2:column',A:{id:'transcd',name:'운송사 CODE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'transnm',name:'운송사 NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fcity',name:'출발지 CODE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fcitynm',name:'출발지 NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'doorcd',name:'DOOR',dataType:'string'}},{T:1,N:'w2:column',A:{id:'doornm',name:'DOOR NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'fdt',name:'출발지 도착일시',dataType:'string'}},{T:1,N:'w2:column',A:{id:'tcity',name:'도착지 CODE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'tcitynm',name:'도착지 NAME',dataType:'string'}},{T:1,N:'w2:column',A:{id:'tdt',name:'도착지 도착일시',dataType:'string'}},{T:1,N:'w2:column',A:{id:'closingdt',name:'CLOSE DATE mcomOdrNo',dataType:'string'}},{T:1,N:'w2:column',A:{id:'remark',name:'REMARK',dataType:'string'}},{T:1,N:'w2:column',A:{id:'sendDt',name:'SEND DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mcomOdrNo',name:'REMARK',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'등록자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'등록일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'orderType',name:'Order Send : 1, Odrer Send del :2',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'spRtn',name:'//결과코드',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'//결과메시지',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_containerDoorOrderQty_booking',saveRemovedData:'false','ev:oncelldatachange':'scwin.ds_containerDoorOrderQty_booking_oncelldatachange','ev:ondataload':'scwin.ds_containerDoorOrderQty_booking_ondataload','ev:oninsertrow':'scwin.ds_containerDoorOrderQty_booking_oninsertrow'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkNo',name:'BOOKING NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkdoorseq',name:'ORDER SEQ',dataType:'string'}},{T:1,N:'w2:column',A:{id:'qtytype',name:'CONTAINER TYPE OR LCL',dataType:'string'}},{T:1,N:'w2:column',A:{id:'qty',name:'QTY',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inpid',name:'등록자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'등록일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'transCondCd',name:'transCondCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'carCondCd',name:'carCondCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'doorDate',name:'doorDate',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vehclQty',name:'vehclQty',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'realQtytype',name:'realQtytype',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_containerBookingCont_booking',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkNo',name:'BOOKING NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkdoorseq',name:'DOOR ORDER SEQ',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntno',name:'CONTAINER NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype',name:'CONTAINER TYPE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntseal1',name:'CONTAINER NO1',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntseal2',name:'CONTAINER NO2',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntpkg',name:'CONTAINER PKG',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntwgt',name:'WEIGHT',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntmsrt',name:'MEASUREMENT',dataType:'number'}},{T:1,N:'w2:column',A:{id:'inpid',name:'등록자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'등록일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntrDate',name:'cntrDate',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cfsInDate',name:'cfsInDate',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cfsWrkDate',name:'cfsWrkDate',dataType:'string'}},{T:1,N:'w2:column',A:{id:'realCntrNo',name:'realCntrNo',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_bookingHbl_booking'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkNo',name:'BOOKING NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'seq',name:'BOOKING SEQ',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hblno',name:'HOUSE B/L NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'CONSOL NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'groupNo',name:'BOOKING GROUP NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'oblno',name:'B/L NO',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자 ID',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자 ID',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_houseblList_booking'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhbkgno',name:'BOOKING  NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhbkgseq',name:'BOOKING SEQ (2)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhc1',name:'CONSIGNEE (6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhpkg',name:'FACKAGE (N10)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'hhgwgt',name:'WEIGHT (N13,3)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'hhmsr',name:'MEASURE (N11,3)',dataType:'number'}},{T:1,N:'w2:column',A:{id:'hhetd',name:'ETD (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hheta',name:'ETA (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhcnt1type',name:'CONTAINER TYPE1 (4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhcnt2type',name:'CONTAINER TYPE2 (4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhcnt3type',name:'CONTAINER TYPE3 (4)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hhcnt4type',name:'CONTAINER TYPE4 (4)',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_retrieveCtrtClnt_booking',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{id:'ds_ctrtNo_booking','ev:onremoverow':'scwin.ds_ctrtNo_booking_onremoverow'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'ctrtNo',name:'계약번호',dataType:'string'}},{T:1,N:'w2:column',A:{id:'clntPicNm',name:'거래처담당자명',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ctrtStDt',name:'계약시작일자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ctrtEndDt',name:'계약시작일자',dataType:'string'}},{T:1,N:'w2:column',A:{id:'empNm',name:'계약담당자 사원명',dataType:'string'}},{T:1,N:'w2:column',A:{id:'rmk',name:'비고',dataType:'string'}},{T:1,N:'w2:column',A:{id:'regBranNm',name:'계약등록점소',dataType:'string'}},{T:1,N:'w2:column',A:{id:'ctrNm',name:'name8',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_containerType_freight',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_containerType',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_currencyCode_freight',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_ExRate',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'name',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieve_direct'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhetd',name:'ETD (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_createBlNo_direct'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_createMhno_direct'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'mhno',name:'DOC NO (CND) (16)',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieve2_direct'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhetd',name:'ETD (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_checkMasterBl_direct'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'chk',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_ocDirectMblno_direct',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'hblno',name:'HOUSE NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT NO (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'oblno',name:'MASTER B/L (16)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_partnerInfo',baseNode:'list',repeatNode:'map',initRowPosition:'0',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'agentCode',name:'agentCode',dataType:'string'}},{T:1,N:'w2:column',A:{id:'blno',name:'blno',dataType:'string'}},{T:1,N:'w2:column',A:{id:'partnerAddr1',name:'partnerAddr1',dataType:'string'}},{T:1,N:'w2:column',A:{id:'partnerAddr2',name:'partnerAddr2',dataType:'string'}},{T:1,N:'w2:column',A:{id:'partnerAddr3',name:'partnerAddr3',dataType:'string'}},{T:1,N:'w2:column',A:{id:'partnerAddr4',name:'partnerAddr4',dataType:'string'}},{T:1,N:'w2:column',A:{id:'partnerAddr5',name:'partnerAddr5',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_bookingNo'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bkNo',name:'BOOKING  NO (16)',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieve_freight'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhetd',name:'ETD (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpid',name:'입력자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpdt',name:'입력일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'updid',name:'수정자 ID (8)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'upddt',name:'수정일 DATE',dataType:'string'}},{T:1,N:'w2:key',A:{id:'odrNo',name:'order no(13)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'tabIndex',name:'tab Index',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhblno2',name:'HOUSE NO (CND) (16) 하단 개별검색에 사용',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieve_booking'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bkNo',name:'BOOKING NO',dataType:'string'}},{T:1,N:'w2:key',A:{id:'seq',name:'BOOKING SEQ',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bkEtd',name:'ETD',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bkbltype',name:'Bltype',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpid',name:'등록자',dataType:'string'}},{T:1,N:'w2:key',A:{id:'inpdt',name:'등록일',dataType:'string'}},{T:1,N:'w2:key',A:{id:'updid',name:'수정자',dataType:'string'}},{T:1,N:'w2:key',A:{id:'upddt',name:'수정일',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_retrieveCtrtClnt_booking'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'odrKndCd',name:'오더종류코드',dataType:'string'}},{T:1,N:'w2:key',A:{id:'ctrtClntNo',name:'거래처',dataType:'string'}},{T:1,N:'w2:key',A:{id:'ctrtDtYn',name:'ctrtDtYn default :1',dataType:'string'}},{T:1,N:'w2:key',A:{id:'scDate',name:'ETD',dataType:'string'}},{T:1,N:'w2:key',A:{id:'ctrtNo',name:'계약번호',dataType:'string'}},{T:1,N:'w2:key',A:{id:'ctrtDistrictCd',name:'계약권역코드',dataType:'string'}},{T:1,N:'w2:key',A:{id:'impExpDomesticClsCd',name:'impExpDomesticClsCd',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bizDivCntrYn',name:'bizDivCntrYn',dataType:'string',defaultValue:'0'}},{T:1,N:'w2:key',A:{id:'bizDivBulkYn',name:'bizDivBulkYn',dataType:'string',defaultValue:'0'}},{T:1,N:'w2:key',A:{id:'bizDomInatYn',name:'국제 여부',dataType:'string',defaultValue:'0'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_condition_path'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'hhactcust',name:'시스템구분',dataType:'text'}},{T:1,N:'w2:key',A:{id:'path',name:'SQL ID',dataType:'text'}},{T:1,N:'w2:key',A:{id:'hhblno',name:'hhblno',dataType:'text'}},{T:1,N:'w2:key',A:{id:'parhhblnoam1',name:'파라메터1',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_profit_freight',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'sellAmt',dataType:'decimal'}},{T:1,N:'w2:column',A:{id:'pchsAmt',dataType:'decimal'}},{T:1,N:'w2:column',A:{id:'profit',dataType:'decimal'}},{T:1,N:'w2:column',A:{id:'profitRate',dataType:'decimal'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_retrieveNo_booking'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'bkNo',name:'bkNo',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_result_path',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'pathCd',name:'pathCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pathNm',name:'pathNm',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_booking',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'docCd',name:'docCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custCd',name:'custCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custNm',name:'custNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custSeq',name:'custSeq',dataType:'string'}},{T:1,N:'w2:column',A:{id:'custMan',name:'custMan',dataType:'string'}},{T:1,N:'w2:column',A:{id:'liner',name:'liner',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linernm',name:'linernm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linerattn',name:'linerattn',dataType:'string'}},{T:1,N:'w2:column',A:{id:'linerattnnm',name:'linerattnnm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dept',name:'dept',dataType:'string'}},{T:1,N:'w2:column',A:{id:'deptnm',name:'deptnm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vslCd',name:'vslCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'vslNm',name:'vslNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'voy',name:'voy',dataType:'string'}},{T:1,N:'w2:column',A:{id:'salesCd',name:'salesCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'salesNm',name:'salesNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'lodCd',name:'lodCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'lodNm',name:'lodNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'disCd',name:'disCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'disNm',name:'disNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dlvCd',name:'dlvCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'dlvNm',name:'dlvNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkArea',name:'bkArea',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkAreanm',name:'bkAreanm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkEtd',name:'bkEtd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkEta',name:'bkEta',dataType:'string'}},{T:1,N:'w2:column',A:{id:'etRsltsDt',name:'etRsltsDt',dataType:'string'}},{T:1,N:'w2:column',A:{id:'payTerm',name:'payTerm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cfs',name:'cfs',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkIncoterm',name:'bkIncoterm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkAgent',name:'bkAgent',dataType:'string'}},{T:1,N:'w2:column',A:{id:'bkAgentnm',name:'bkAgentnm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'svcType',name:'svcType',dataType:'string'}},{T:1,N:'w2:column',A:{id:'itemCd',name:'itemCd',dataType:'string'}},{T:1,N:'w2:column',A:{id:'itemNm',name:'itemNm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'pkg',name:'pkg',dataType:'number'}},{T:1,N:'w2:column',A:{id:'unit',name:'unit',dataType:'string'}},{T:1,N:'w2:column',A:{id:'unitnm',name:'unitnm',dataType:'string'}},{T:1,N:'w2:column',A:{id:'wgt',name:'wgt',dataType:'number'}},{T:1,N:'w2:column',A:{id:'msr',name:'msr',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cnttype1',name:'cnttype1',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype2',name:'cnttype2',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype3',name:'cnttype3',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cnttype4',name:'cnttype4',dataType:'string'}},{T:1,N:'w2:column',A:{id:'cntqty1',name:'cntqty1',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntqty2',name:'cntqty2',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntqty3',name:'cntqty3',dataType:'number'}},{T:1,N:'w2:column',A:{id:'cntqty4',name:'cntqty4',dataType:'number'}},{T:1,N:'w2:column',A:{id:'carrierBkNo',name:'carrierBkNo',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_invoiceCheck'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'Mhno code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'Mhno name',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_autono'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'Mhno code',dataType:'string'}},{T:1,N:'w2:column',A:{id:'name',name:'Mhno name',dataType:'string'}}]},{T:1,N:'w2:data',A:{use:'true'},E:[{T:1,N:'w2:row',E:[{T:1,N:'code',E:[{T:4,cdata:'ORIGINAL'}]},{T:1,N:'name',E:[{T:4,cdata:'Original'}]}]},{T:1,N:'w2:row',E:[{T:1,N:'code',E:[{T:4,cdata:'SURRENDER'}]},{T:1,N:'name',E:[{T:4,cdata:'Surrender'}]}]},{T:1,N:'w2:row',E:[{T:1,N:'code',E:[{T:4,cdata:'DIRECT'}]},{T:1,N:'name',E:[{T:4,cdata:'Direct'}]}]}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_DeptChangeParam'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'modrNo',name:'modrNo',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hodrNo',name:'hodrNo',dataType:'string'}},{T:1,N:'w2:key',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bulkGb',name:'bulkGb',dataType:'string'}},{T:1,N:'w2:key',A:{id:'dept',name:'dept',dataType:'string'}},{T:1,N:'w2:key',A:{id:'deptnm',name:'deptnm',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_DeptChangeResult',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'spRtn',name:'spRtn',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'spMsg',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_HblNoChangeParam'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'odrNo',name:'odrNo',dataType:'string'}},{T:1,N:'w2:key',A:{id:'kcomcd',name:'kcomcd',dataType:'string'}},{T:1,N:'w2:key',A:{id:'blNo',name:'blNo',dataType:'string'}},{T:1,N:'w2:key',A:{id:'newblNo',name:'newblNo',dataType:'string'}},{T:1,N:'w2:key',A:{id:'mhno',name:'mhno',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{id:'ds_HblNoChangeResult',baseNode:'list',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'spRtn',name:'spRtn',dataType:'string'}},{T:1,N:'w2:column',A:{id:'spMsg',name:'spMsg',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_bookingContainer'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'bkNo',name:'BOOKING  NO (16)',dataType:'string'}},{T:1,N:'w2:key',A:{id:'hhbkgseq',name:'BOOKING SEQ (2)',dataType:'string'}}]}]},{T:1,N:'w2:dataMap',A:{id:'dma_liner'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'grpCd',name:'그룹cd',dataType:'string'}},{T:1,N:'w2:key',A:{id:'cd',name:'코드',dataType:'string'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_sellingUnit_freight',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fareUnit',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_buyingUnit_freight',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'dataList2',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo'}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_partnerUnit_freight',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_liner',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_customerInfo',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'name10',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_closeYn',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'name10',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'dataList3',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhetd',name:'ETD (8)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자 ID (8)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일 DATE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자 ID (8)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일 DATE',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retrieve_bk',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'대표 거래처 코드 (6)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhblno',name:'HOUSE NO (CND) (16)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'autono',name:'B/L TYPE (CND) (10)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhno',name:'DOCUMENT NO (CND) (16)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhmblno',name:'MASTER B/L (CND) (16)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhio',name:'IN/OUT 구분 (1)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'hhetd',name:'ETD (8)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자 ID (8)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일 DATE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자 ID (8)',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upddt',name:'수정일 DATE',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_exHouseRate_freight',saveRemovedData:'false'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'CODE',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'NAME',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_combo'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'sysCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'queryId',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param1',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param2',name:'name4',dataType:'text'}},{T:1,N:'w2:key',A:{id:'param3',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_exRateSellingGrid_freight',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',id:'ds_exRateBuyingGrid_freight',repeatNode:'map',saveRemovedData:'true',style:''},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{dataType:'text',id:'code',name:'name1'}},{T:1,N:'w2:column',A:{dataType:'text',id:'name',name:'name2'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_PostDtDataSet',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col6',name:'name6',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col7',name:'name7',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col8',name:'name8',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col9',name:'name9',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col10',name:'name10',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_exRatePartnerGrid',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'name',name:'name2',dataType:'text'}}]}]}]},{T:1,N:'xf:submission',A:{id:'sbm_popup',action:'/cm.zz.RetrieveCommonPopupCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_comCode","key":"IN_DS1"}',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'$blank','ev:submit':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_comCode',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_comCode","key":"IN_DS1"}',target:'data:json,GAUCE',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'$blank','ev:submit':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_liner',action:'/cm.zz.RetrieveCodeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"dma_liner","key":"IN_DS1"}',target:'data:json,{"id":"ds_liner","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'','ev:submit':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/il.seaout.sobl.RetrieveSeaExportHouseBlNewCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_retrieve", "key": "IN_DS1"}, {"id": "ds_houseblList", "key": "OUT_DS1"}, {"id": "ds_ocContList", "key": "OUT_DS2"}, {"id": "ds_ocElList", "key": "OUT_DS3"}, {"id": "ds_slipTax", "key": "OUT_DS4"}, {"id": "ds_ocProfitList", "key": "OUT_DS5"}, {"id": "ds_partnerInfo", "key": "OUT_DS6"}]',target:'data:json,[{"id": "ds_houseblList", "key": "OUT_DS1"}, {"id": "ds_ocContList", "key": "OUT_DS2"}, {"id": "ds_ocElList", "key": "OUT_DS3"}, {"id": "ds_slipTax", "key": "OUT_DS4"}, {"id": "ds_ocProfitList", "key": "OUT_DS5"}, {"id": "ds_partnerInfo", "key": "OUT_DS6"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submiterror':'scwin.sbm_retrieve_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_houseBlNo',action:'/il.seaout.sobl.RetrieveHouseBlNoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_retrieve", "key": "IN_DS1"}, {"id": "ds_retrieveNo", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_retrieveNo", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveBooking',action:'/il.seaout.sobl.RetrieveBookingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_bookingNo", "key": "IN_DS1"}, {"id": "ds_booking", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_booking", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveContainer',action:'/il.seaout.sobl.RetrieveBookingContainerCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_bookingContainer", "key": "IN_DS1"}, {"id": "ds_ocContList", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_ocContList", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/il.seaout.sobl.SaveBookingHouseBlFreightCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"action":"modified","id":"ds_houseblList","key":"IN_DS1"},{"action":"modified","id":"ds_ocContList","key":"IN_DS2"},{"action":"modified","id":"ds_ocElList","key":"IN_DS3"},{"action":"modified","id":"ds_houseblList_freight","key":"IN_DS4"},{"action":"modified","id":"ds_selling_freight","key":"IN_DS5"},{"action":"modified","id":"ds_partner_freight","key":"IN_DS6"},{"action":"modified","id":"ds_buying_freight","key":"IN_DS7"},{"action":"modified","id":"ds_containerBookingList_booking","key":"IN_DS8"},{"action":"modified","id":"ds_containerDoorOrder_booking","key":"IN_DS9"},{"action":"modified","id":"ds_containerDoorOrderQty_booking","key":"IN_DS10"},{"action":"modified","id":"ds_containerBookingCont_booking","key":"IN_DS11"},{"action":"modified","id":"ds_ocDirectMblno_direct","key":"IN_DS12"},{"action":"modified","id":"ds_partnerInfo","key":"IN_DS13"}]',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'scwin.sbm_save_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_delete',action:'/il.seaout.sobl.DeleteBookingHouseBlFreightCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"action":"modified","id": "ds_houseblList", "key": "IN_DS1"}, {"action":"modified","id": "ds_containerBookingList_booking", "key": "IN_DS5"}, {"action":"modified","id": "ds_selling_freight", "key": "IN_DS2"}, {"action":"modified","id": "ds_partner_freight", "key": "IN_DS3"}, {"action":"modified","id": "ds_buying_freight", "key": "IN_DS4"}]  ',target:'data:json,[]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_DeptChange',action:'/il.comm.util.CoSeaDeptChangeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_DeptChangeParam", "key": "IN_DS1"}, {"id": "ds_DeptChangeResult", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_DeptChangeResult", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveCarrierBkNo',action:'/il.seaout.sobl.RetrieveSeaExportCarrierBkNoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_bookingNo", "key": "IN_DS1"}, {"id": "ds_carrierBkNo", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_carrierBkNo", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_path',action:'/il.seaout.sobl.RetrievePathCdByHblnoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition_path","key":"IN_DS1"},{"id":"ds_result_path","key":"OUT_DS1"}]',target:'data:json,[{"id":"ds_result_path","key":"OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveMgntClnt',action:'/il.seaout.sobl.RetrieveSeaExportMgntClntCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_clntNo", "key": "IN_DS1"}, {"id": "ds_mgntYn", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_mgntYn", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_HblNoChange',action:'/il.comm.util.CoSeaHblNoChangeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_HblNoChangeParam", "key": "IN_DS1"}, {"id": "ds_HblNoChangeResult", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_HblNoChangeResult", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_freight',action:'/il.seaout.sobl.RetrieveSeaExportHouseBlFreightCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_freight", "key": "IN_DS1"}, {"id": "ds_houseblList_freight", "key": "OUT_DS1"}, {"id": "ds_selling_freight", "key": "OUT_DS2"}, {"id": "ds_partner_freight", "key": "OUT_DS3"}, {"id": "ds_buying_freight", "key": "OUT_DS4"}]',target:'data:json,[{"id": "ds_houseblList_freight", "key": "OUT_DS1"}, {"id": "ds_selling_freight", "key": "OUT_DS2"}, {"id": "ds_partner_freight", "key": "OUT_DS3"}, {"id": "ds_buying_freight", "key": "OUT_DS4"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_freight_submitdone','ev:submiterror':'scwin.sbm_retrieve_freight_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_save_freight',action:'/il.seaout.sobl.SaveHouseBlFreightCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_houseblList_freight", "key": "IN_DS1"}, {"id": "ds_selling_freight", "key": "IN_DS2"}, {"id": "ds_partner_freight", "key": "IN_DS3"}, {"id": "ds_buying_freight", "key": "IN_DS4"}]',target:'data:json,[]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_delete_freight',action:'/il.seaout.sobl.DeleteHouseBlFreightCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_selling_freight", "key": "IN_DS1"}, {"id": "ds_partner_freight", "key": "IN_DS2"}, {"id": "ds_buying_freight", "key": "IN_DS3"}]',target:'data:json,[]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveTariff_freight',action:'/il.seaout.sobl.RetrieveSeaExportTariffCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieveTariff_freight", "key": "IN_DS1"}, {"id": "ds_resultTariff_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_resultTariff_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveSelling_freight',action:'/il.seaout.sobl.RetrieveSeaExportHouseBlFreightSellingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_freight", "key": "IN_DS1"}, {"id": "ds_selling_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_selling_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrievePartner_freight',action:'/il.seaout.sobl.RetrieveSeaExportHouseBlFreightPartnerCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_freight", "key": "IN_DS1"}, {"id": "ds_partner_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_partner_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveBuying_freight',action:'/il.seaout.sobl.RetrieveSeaExportHouseBlFreightBuyingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_freight", "key": "IN_DS1"}, {"id": "ds_buying_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_buying_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_linecode_freight',action:'/il.seaout.sobl.RetrieveDirectBlLinecodeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_line_condition_freight", "key": "IN_DS1"}, {"id": "ds_linecode_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_linecode_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_frtMapping_freight',action:'/il.seaout.sobl.RetrieveAPIFreightMappingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_line_condition_freight", "key": "IN_DS1"}, {"id": "ds_frtMapping_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_frtMapping_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submitdone':'','ev:submiterror':''}},{T:1,N:'xf:submission',A:{id:'sbm_RetrieveProfit_freight',action:'/il.seainb.sibl.RetrieveSeaHouseFreightProfitCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_freight", "key": "IN_DS1"}, {"id": "ds_profit_freight", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_profit_freight", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submitdone':'scwin.sbm_RetrieveProfit_freight_submitdone','ev:submiterror':'scwin.sbm_RetrieveProfit_freight_submiterror'}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve_booking',action:'/il.seaout.sobk.RetrieveContainerBookingCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_booking", "key": "IN_DS1"}, {"id": "ds_containerBookingList_booking", "key": "OUT_DS1"}, {"id": "ds_containerDoorOrder_booking", "key": "OUT_DS2"}, {"id": "ds_houseblList_booking", "key": "OUT_DS3"}]',target:'data:json,[{"id": "ds_containerBookingList_booking", "key": "OUT_DS1"}, {"id": "ds_containerDoorOrder_booking", "key": "OUT_DS2"}, {"id": "ds_houseblList_booking", "key": "OUT_DS3"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveOrder_booking',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_containerDoorOrderQty_booking", "key": "OUT_DS1"}, {"id": "ds_containerBookingCont_booking", "key": "OUT_DS2"}]',target:'data:json,[{"id": "ds_containerDoorOrderQty_booking", "key": "OUT_DS1"}, {"id": "ds_containerBookingCont_booking", "key": "OUT_DS2"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrievebookingNo_booking',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_booking", "key": "IN_DS1"}, {"id": "ds_retrieveNo_booking", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_retrieveNo_booking", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submitdone':'','ev:submiterror':''}},{T:1,N:'xf:submission',A:{id:'sbm_retrievebookingHbl_booking',action:'/il.seaout.sobk.RetrieveBookingHblCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_booking", "key": "IN_DS1"}, {"id": "ds_bookingHbl_booking", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_bookingHbl_booking", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':'','ev:submitdone':'','ev:submiterror':''}},{T:1,N:'xf:submission',A:{id:'sbm_save_booking',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_containerBookingList_booking", "key": "IN_DS1"}, {"id": "ds_containerDoorOrder_booking", "key": "IN_DS2"}, {"id": "ds_containerDoorOrderQty_booking", "key": "IN_DS3"}, {"id": "ds_containerBookingCont_booking", "key": "IN_DS4"}]',target:'data:json,[]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_delete_booking',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_containerBookingList_booking", "key": "IN_DS1"}]',target:'data:json,[]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieveCtrtClnt_booking',action:'/il.comm.code.RetrieveInternationalContractNumberCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieveCtrtClnt_booking", "key": "IN_DS1"}, {"id": "ds_ctrtNo_booking", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_ctrtNo_booking", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_saveOrderSend_booking',action:'',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "ds_containerDoorOrder_booking", "key": "IN_DS1"}]',target:'data:json,[]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_createMhno_direct',action:'/il.seaout.sobl.RetrieveMhnoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_direct", "key": "IN_DS1"}, {"id": "ds_createMhno_direct", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_createMhno_direct", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_checkMasterBl_direct',action:'/il.seaout.sobl.CheckDirectBlMasterBlCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve2_direct", "key": "IN_DS1"}, {"id": "ds_checkMasterBl_direct", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_checkMasterBl_direct", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'xf:submission',A:{id:'sbm_createHouseBlNo_direct',action:'/il.seaout.sobl.RetrieveHouseBlNoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id": "dma_retrieve_direct", "key": "IN_DS1"}, {"id": "ds_createBlNo_direct", "key": "OUT_DS1"}]',target:'data:json,[{"id": "ds_createBlNo_direct", "key": "OUT_DS1"}]',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'',abortTrigger:'','ev:submit':''}},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_etc',action:'',method:'post',mediatype:'application/json',ref:'',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_etc_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_combo',action:'/cm.zz.RetrieveComboCMD.do',method:'post',mediatype:'application/json',ref:'',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'synchronous',processMsg:'$blank','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//==
+// id       : se_105_01_06b
+// 이름     :
+// 경로     :
+// 사용계정 :
+// 파라미터 :
+//            IN  : 
+//            OUT :
+// 
+// 비고     :
+//
+// 레포트   : 
+// 업로드   :
+// 다운로드 :
+// 호출     :
+//==
+//------------------------------------------------------------------------------
+// JSP 전역 변수 → scwin 네임스페이스
+//------------------------------------------------------------------------------
+scwin.MSG_LO_WRN_007 = "Customer와 Dept가 일치하지 않습니다. <br>거래처별 매출귀속 정의 화면에서 정보를 확인하세요.";
+scwin.MSG_LO_WRN_008 = "이미 전표가 발행  되어 변경 불가능 합니다.";
+scwin.MSG_LO_WRN_009 = "Department 가 변경 되었습니다.";
+scwin.statusFlag = ""; // C/U/I
+scwin.processFlag = "";
+scwin.invoiceCheck = "0";
+scwin.mhnoFlag = "0";
+scwin.v_linkcheck = "0";
+scwin.v_kcomcd = "";
+scwin.v_blno = "";
+scwin.v_mhno = "";
+scwin.v_bkno = "";
+scwin.v_carrierBkno = "";
+scwin.p_no = "";
+scwin.p_row_cnt = "";
+scwin.p_data = "";
+scwin.p_hblno = "";
+scwin.p_docuno = "";
+scwin.p_clntNo = "";
+scwin.p_clntNm = "";
+scwin.p_seaExgbEx = "";
+
+// freight
+scwin.exRate1 = "0";
+scwin.exRate2 = "0";
+scwin.crc = "";
+scwin.tabNo = 0;
+scwin.exRateCheck = "1";
+
+// booking
+scwin.v_contractno = "";
+scwin.vLobranCd = "";
+scwin.vLobranNm = "";
+
+// GPT
+scwin.popUpResult = null;
+scwin.gptYn = false;
+
+// JSP 의 DDate.getDate("") → 서버일자
+scwin.strCurDate = "";
+scwin.currentTime = "";
+scwin.vUserId = "";
+
+//Hidden
+scwin.ed_hhactattn = "";
+scwin.ed_hhagentattn = "";
+scwin.ed_hharea = "";
+scwin.ed_hhlinerattn = "";
+scwin.txt_hhactattnnm = "";
+scwin.txt_hhagentattnnm = "";
+scwin.txt_hhareanm = "";
+scwin.txt_hhlinerattnnm = "";
+scwin.hd_kcomcd = "DBEX";
+scwin.hd_hhio = "O";
+scwin.txt_hhmitem1 = "";
+scwin.ed_carrierBkNo = "";
+scwin.hd_hhitem_freight = "";
+scwin.hd_creadyDt_freight = "";
+scwin.hd_hhpcgb_freight = "";
+scwin.hd_hhdanggb_freight = "";
+scwin.hd_commcustomer_freight = "999999";
+scwin.onpageload = function () {
+  scwin.v_linkcheck = $c.data.getParameter($p, "linkcheck") || "0";
+  scwin.v_kcomcd = $c.data.getParameter($p, "kcomcd") || "";
+  scwin.v_blno = $c.data.getParameter($p, "blno") || "";
+  scwin.v_mhno = $c.data.getParameter($p, "mhno") || "";
+  scwin.v_bkno = $c.data.getParameter($p, "bkno") || "";
+  scwin.v_carrierBkno = $c.data.getParameter($p, "carrierBkno") || "";
+  scwin.p_no = $c.data.getParameter($p, "no") || "";
+  scwin.p_row_cnt = $c.data.getParameter($p, "row_cnt") || "";
+  scwin.p_data = $c.data.getParameter($p, "data") || "";
+  scwin.p_hblno = $c.data.getParameter($p, "hblno") || "";
+  scwin.p_docuno = $c.data.getParameter($p, "docuno") || "";
+  scwin.p_clntNo = $c.data.getMemInfo($p, "clntNo");
+  scwin.p_clntNm = $c.data.getMemInfo($p, "name1");
+  scwin.p_seaExgbEx = $c.data.getMemInfo($p, "seaExgbEx");
+  scwin.vLobranCd = $c.data.getMemInfo($p, "lobranCd") || "";
+  scwin.vLobranNm = $c.data.getMemInfo($p, "lobranNm") || "";
+  scwin.vUserId = $c.data.getMemInfo($p, "userId") || "";
+
+  // JSP 의 DDate.getDate("") → 서버일자
+  scwin.strCurDate = $c.date.getServerDateTime($p, "yyyyMMdd");
+  scwin.currentTime = $c.date.getServerDateTime($p, "HHmm");
+};
+
+//---------------------------------------------------------
+// 화면로딩시
+//---------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  scwin.f_initSetTab(); //tab세팅
+  scwin.f_DefaultValue();
+  scwin.f_Check();
+  scwin.f_ContainerTypeLoading(); // Container Type 정보
+  scwin.f_getParametrSetting(scwin.v_linkcheck); // link처리
+  scwin.f_header();
+  scwin.f_ContainerTypeLoading_freight(); // Container Type 정보
+  scwin.f_CurrencyLoading_freight();
+  const codeOptions = [{
+    grpCd: "IL005",
+    compID: "lc_hhincoterm"
+  }];
+  $c.data.setCommonCode($p, codeOptions);
+  cnd_lc_autono.setSelectedIndex(1);
+  scwin.initComp();
+};
+scwin.initComp = function () {
+  var objGrid = [gr_ocContList, gr_ocElList, gr_buying_freight, gr_partner_freight, gr_selling_freight];
+
+  // Grid ExcelFormat
+  var dataTypeNum = ['number', 'float', 'bigDecimal'];
+  var dataType, displayFormat;
+  for (var i = 0; i < objGrid.length; i++) {
+    var column = objGrid[i].element.getElementsByTagName('w2:gBody')[0].getElementsByTagName('w2:column');
+    for (var j = 0; j < column.length; j++) {
+      dataType = column[j].getAttribute('dataType');
+      if (dataTypeNum.includes(dataType)) {
+        if (!column[j].getAttribute('excelCellType')) {
+          column[j].setAttribute('excelCellType', 'number');
+        }
+        if (!column[j].getAttribute('excelFormat')) {
+          displayFormat = column[j].getAttribute('displayFormat');
+          if (displayFormat) {
+            var temp = displayFormat.split('.');
+            if (temp.length == 2) {
+              if (temp[1].endsWith('0')) {
+                displayFormat = temp[0] + '.' + '0'.padEnd(temp[1].length, '0');
+              } else {
+                displayFormat = temp[0] + '.' + temp[1].substring(0, temp[1].length - 1) + '0';
+              }
+            }
+            column[j].setAttribute('excelFormat', displayFormat);
+          }
+        }
+      }
+    }
+  }
+  gr_selling_freight.getCellInfo('currrow').options.expressionFunc = function (rowIndex) {
+    return rowIndex + 1;
+  };
+  gr_partner_freight.getCellInfo('currrow').options.expressionFunc = function (rowIndex) {
+    return rowIndex + 1;
+  };
+  gr_buying_freight.getCellInfo('currrow').options.expressionFunc = function (rowIndex) {
+    return rowIndex + 1;
+  };
+  var upperObj = [ed_hhvslcd, ed_hhlodcd, ed_hhdisccd, ed_hhdlvcd, ed_hhfdcd, ed_hhbuyer, ed_hhunitcd, ed_mwarecd, ed_hhrcvcd, txt_hhvsl, txt_hhlodnm, ed_hhdisccd, txt_hhdiscnm, txt_hhfdnm, txt_hhbuyernm, txt_hhunit, txt_mwarenm, txt_hhrcvnm, txt_hhdlvnm, txt_ucrNo, txt_mwareEngCd, txt_cino, txt_hhsubpkg, txt_hhunit2, txt_hhunit3, txt_hhsay, txt_hhmitem2, txt_hhhscode, txt_hhvyg];
+  for (var i = 0; i < upperObj.length; i++) {
+    if (!upperObj) console.log('=============');
+    upperObj[i].unbind('onkeyup');
+    upperObj[i].bind('onkeyup', scwin.upperCase);
+  }
+};
+
+/**
+* @type   : function
+* @access : public
+* @desc   : 컨테이너번호 유효성 체크.<br>
+* <pre>사용예 :
+*
+* 1. $c.gus.cf_CheckCntrNo( 'CAXU2520345' );
+* </pre>
+* @sig    :
+* @param  : 컨테이너번호
+* @author : 최수빈
+*/
+scwin.f_checkCntrNo = function (parCntrNo) {
+  var tempData = "1012131415161718192021232425262728293031323435363738";
+  var cntrNo = parCntrNo.trim();
+  if (cntrNo == "" || cntrNo.length != 11) {
+    //await $c.gus.cfAlertMsg(MSG_CM_ERR_038, ["컨테이너"]); //유효한 @가 아닙니다
+    return false;
+  } else {
+    var re = /[A-Z]{4}[0-9]{7}/;
+    if (!re.test(cntrNo)) {
+      //await $c.gus.cfAlertMsg(MSG_CM_ERR_038, ["컨테이너"]); //유효한 @가 아닙니다
+      return false;
+    }
+    var tempPos1 = tempData.substring((cntrNo.charCodeAt(0) - 65) * 2, (cntrNo.charCodeAt(0) - 65) * 2 + 2) * 1;
+    var tempPos2 = tempData.substring((cntrNo.charCodeAt(1) - 65) * 2, (cntrNo.charCodeAt(1) - 65) * 2 + 2) * 2;
+    var tempPos3 = tempData.substring((cntrNo.charCodeAt(2) - 65) * 2, (cntrNo.charCodeAt(2) - 65) * 2 + 2) * 4;
+    var tempPos4 = tempData.substring((cntrNo.charCodeAt(3) - 65) * 2, (cntrNo.charCodeAt(3) - 65) * 2 + 2) * 8;
+    var tempSum = tempPos1 + tempPos2 + tempPos3 + tempPos4 + cntrNo.substring(4, 5) * 16 + cntrNo.substring(5, 6) * 32 + cntrNo.substring(6, 7) * 64 + cntrNo.substring(7, 8) * 128 + cntrNo.substring(8, 9) * 256 + cntrNo.substring(9, 10) * 512;
+    var tempMod = tempSum % 11 + "";
+    if (cntrNo.substring(10, 11) != tempMod.charAt(tempMod.length - 1)) {
+      // await $c.gus.cfAlertMsg(MSG_CM_ERR_038, ["컨테이너"]); //유효한 @가 아닙니다
+      return false;
+    }
+  }
+  return true;
+};
+scwin.f_header = function () {
+  scwin.f_Set("INIT");
+  cnd_ed_hhblno.focus();
+};
+
+//---------------------------------------------------------
+// Parameter Setting
+// 다른 화면에서 들어올때 각 화면별 조건을 받아서 조회한다.
+//---------------------------------------------------------
+scwin.f_getParametrSetting = function (gubun) {
+  switch (gubun) {
+    case "0":
+      break;
+    case "1":
+      // Booking에서 Search Grid
+      scwin.mhnoFlag = "1";
+      if (scwin.v_blno == 'null') {
+        cnd_ed_hhblno.setValue("");
+        cnd_ed_hhblno.focus();
+        return false;
+      }
+      scwin.hd_kcomcd = scwin.v_kcomcd;
+      cnd_ed_hhblno.setValue(scwin.v_blno);
+      if (ds_hmhno.getRowCount() == "0") {
+        ds_hmhno.insertRow(0);
+        ds_hmhno.setRowPosition(0);
+      }
+      ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", scwin.v_mhno);
+      ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", scwin.v_mhno);
+      cnd_lc_mhno.focus();
+      break;
+    case "2":
+      // House Search
+      scwin.mhnoFlag = "1";
+      if (scwin.v_blno == 'null') {
+        cnd_ed_hhblno.setValue("");
+        cnd_ed_hhblno.focus();
+        return false;
+      }
+      scwin.hd_kcomcd = scwin.v_kcomcd;
+      cnd_ed_hhblno.setValue(scwin.v_blno);
+      if (ds_hmhno.getRowCount() == "0") {
+        ds_hmhno.insertRow(0);
+        ds_hmhno.setRowPosition(0);
+      }
+      ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", scwin.v_mhno);
+      ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", scwin.v_mhno);
+      cnd_lc_mhno.focus();
+      break;
+    case "4":
+      // Booking 에서 h b/l버튼 (create)
+      scwin.f_Create();
+      ed_hhbkgno.setValue(scwin.v_bkno);
+      cnd_ed_hhblno.focus(); //mhno를 보여주기위해서.
+
+      tac_tabMain.setSelectedTabIndex(0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+      ed_hhbkgno.focus(); // 값 넣어주기 위해.
+      ed_hhetd.focus(); // etd값 반영.
+      lc_hhbkgseq.focus();
+
+      //2020.03.02 국제영업3팀 개선사항 : 부킹에 등록된 ITEM 없을 경우 자동으로 30000000 (일반화물) 으로 기입 처리
+      if (scwin.txt_hhmitem1 == "") {
+        //부킹정보에 아이템 코드없이 아이템 명으로 등록 된 경우가 있으므로 코드값이 아닌 명으로 체크
+        ed_hhitem.setValue("30000000");
+        scwin.f_chkOpenCommonPopUp('CODE', "Item", ed_hhitem, txt_hhmitem1, "T", "F", "F");
+      }
+      txt_blpic.setValue("");
+      //기본으로 등록자 ID 기입 처리
+      if (ed_blpic.getValue() == "") {
+        ed_blpic.setValue(scwin.vUserId);
+        scwin.f_PopUp("B/L PIC", "T");
+      }
+      break;
+  }
+};
+
+//---------------------------------------------------------
+// Object Check
+//---------------------------------------------------------
+scwin.f_Check = function () {
+  if (scwin.statusFlag == "I") {
+    // 초기화시.
+    cnd_lc_autono.setSelectedIndex(1);
+    cnd_lc_mhno.setSelectedIndex(0);
+    lc_hhbltype.setSelectedIndex(0);
+    lc_hhpcgb.setSelectedIndex(0);
+    lc_hhisunm.setSelectedIndex(1);
+    lc_hhstype.setSelectedIndex(0);
+    lc_hhcoload.setSelectedIndex(0);
+    ed_hhcnt1type.setValue("22GP");
+    ed_hhcnt2type.setValue("42GP");
+    ed_hhcnt3type.setValue("42RE");
+    ed_hhcnt4type.setValue("45GP");
+    ed_hhobl.setValue("0");
+    chb_hhtriange.checkAll(false);
+    chb_hhnomi.checkAll(false);
+    chb_hhp1.setValue("1");
+    chb_hhp2.setValue("0");
+    chb_hhp3.setValue("0");
+    chb_hhp4.setValue("1");
+    chb_hhp5.setValue("0");
+    chb_hhp6.setValue("1");
+    rd_hhdanggb.setValue("N");
+    rd_hhmnfgb.setValue("E");
+    ta_hhs.setValue("");
+    ta_hhc.setValue("");
+    ta_hhn.setValue("");
+    txa_agentAdress.setValue("");
+    ed_hhmt.setValue("");
+
+    // 	    	booking
+    chb_iptYn_booking.checkAll(false);
+    // 	    	booking
+  } else if (scwin.statusFlag == "C") {
+    // create시
+    cnd_lc_autono.setSelectedIndex(1);
+    cnd_lc_mhno.setSelectedIndex(0);
+    lc_hhbltype.setSelectedIndex(0);
+    lc_hhpcgb.setSelectedIndex(0);
+    lc_hhisunm.setSelectedIndex(1);
+    lc_hhstype.setSelectedIndex(0);
+    lc_hhcoload.setSelectedIndex(0);
+    ed_hhcnt1type.setValue("22GP");
+    ed_hhcnt2type.setValue("42GP");
+    ed_hhcnt3type.setValue("42RE");
+    ed_hhcnt4type.setValue("45GP");
+    ed_hhcnt1.setValue("0");
+    ed_hhcnt2.setValue("0");
+    ed_hhcnt3.setValue("0");
+    ed_hhcnt4.setValue("0");
+    ed_hhobl.setValue("0");
+    chb_hhtriange.checkAll(false);
+    chb_hhnomi.checkAll(false);
+    chb_hhp1.setValue("1");
+    chb_hhp2.setValue("0");
+    chb_hhp3.setValue("0");
+    chb_hhp4.setValue("1");
+    chb_hhp5.setValue("0");
+    chb_hhp6.setValue("1");
+    rd_hhdanggb.setValue("N");
+    rd_hhmnfgb.setValue("E");
+    ta_hhs.setValue("");
+    ta_hhc.setValue("");
+    ta_hhn.setValue("");
+    txa_agentAdress.setValue("");
+    ed_hhmt.setValue("");
+    chb_iptYn_booking.checkAll(false);
+    if (lc_hhbltype.getValue() != "B") {
+      $c.gus.cfDisableObjects($p, [ed_hhmt]); //cargo type bulk일때만 M/T칸 활성화
+    } else {
+      $c.gus.cfEnableObjects($p, [ed_hhmt]);
+      $c.gus.cfDisableObjects($p, [lc_hhbltype]); //처음 생성한 cargo type bulk일때는 cargo type 변경 못하게
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 초기화
+// B/L전화면은 조회조건은 항상 HEADER를 ADDROW상태로 ON LOAD되어있음.
+//-------------------------------------------------------------------------
+scwin.f_DefaultValue = function () {
+  // ds_retrieve, ds_houseblList 등은 dataList 정의로 컬럼이 이미 있음
+  // JSP f_setDSHeader 에서 ADDROW 하던 부분만 반영
+  // if (ds_retrieveNo.getRowCount() == 0) ds_retrieveNo.insertRow(0);
+  // if (ds_bookingNo.getRowCount() == 0) ds_bookingNo.insertRow(0);
+  // if (ds_bookingContainer.getRowCount() == 0) ds_bookingContainer.insertRow(0);
+  // if (ds_hmhno.getRowCount() == 0) ds_hmhno.insertRow(0);
+  // if (ds_clntNo.getRowCount() == 0) ds_clntNo.insertRow(0);
+  scwin.f_Set("INIT");
+  cnd_ed_hhblno.focus();
+};
+
+//---------------------------------------------------------
+// Tab 초기화
+//---------------------------------------------------------
+scwin.f_initSetTab = function () {
+  // $c.gus.cfEnableObjects([tac_tabMain.tabs1, tac_tabMain.tabs2,tac_tabMain.tabs3]);
+  tac_tabMain.setSelectedTabIndex(0);
+};
+
+//---------------------------------------------------------
+// Tab Menu 선택시 처리
+//---------------------------------------------------------
+scwin.f_selectTabMenu = function (idx) {
+  tac_tabMain.setSelectedTabIndex(idx);
+  if (idx == 0) {
+    buttonTable1.visible(true);
+    buttonTable2.visible(true);
+    buttonTable3.visible(true);
+  } else if (idx == 1) {
+    buttonTable1.visible(true);
+    buttonTable2.visible(true);
+    buttonTable3.visible(true);
+  } else {
+    buttonTable1.visible(false);
+    buttonTable2.visible(false);
+    buttonTable3.visible(false);
+  }
+};
+
+//---------------------------------------------------------
+//화면세팅
+//---------------------------------------------------------
+scwin.f_Set = function (gubun) {
+  switch (gubun) {
+    case "INIT":
+      //초기화
+      $c.gus.cfDisableKeyData($p); // Key와 Data를 모두 disable(non-editable) 상태로 변경한다.
+      $c.gus.cfDisableBtnOnly($p, [btn_Copy, btn_Copy2, btn_Cancel, btn_Save, btn_Delete, btn_Update, btn_FileDownload, btn_HNoChg, btn_Copy_1, btn_Copy2_1, btn_Cancel_1, btn_Save_1, btn_Delete_1, btn_Update_1, btn_FileDownload_1, btn_HNoChg_1, grpBtn1, grpBtn2, btn_1, btn_2, btn_4, btn_4_1, btn_5_freight, btn_6_freight, btn_8, btn_8_1, btn_CntrReceive, pu_departmentChange, btn_AddCntr1, btn_AddCntr2]);
+      scwin.f_DisablePopUpObj();
+      $c.gus.cfEnableBtnOnly($p, [btn_Create, btn_Create_1, btn_9_freight]);
+      $c.gus.cfEnableObjects($p, [cnd_ed_hhblno, cnd_lc_autono, cnd_lc_mhno]); // 조회조건.
+      $c.gus.cfDisableObjects($p, [cnd_ed_hhmblno]);
+      $c.gus.cfEnableObjects($p, [tbl_Search]); // 조회조건.
+      scwin.statusFlag = "I";
+      break;
+    case "RETRIEVE":
+      //조회모드
+      $c.gus.cfDisableKeyData($p);
+      scwin.f_DisablePopUpObj();
+      $c.gus.cfDisableBtnOnly($p, [btn_Save, btn_Cancel, btn_Save_1, btn_Cancel_1, btn_CntrReceive, grpBtn1, grpBtn2, grpBtn3, grpBtn4, grpBtn5, btn_AddCntr1, btn_AddCntr2]);
+      $c.gus.cfEnableBtnOnly($p, [btn_Copy, btn_Copy2, btn_Create, btn_Delete, btn_FileDownload, btn_HNoChg, btn_Copy_1, btn_Copy2_1, btn_Create_1, btn_Delete_1, btn_FileDownload_1, btn_HNoChg_1, btn_4, btn_4_1, btn_5_freight, btn_6_freight, btn_8, btn_8_1, btn_9_freight, pu_departmentChange, grpBtn3, grpBtn4, grpBtn5]);
+      gr_ocContList.setGridReadOnly(true);
+      gr_ocElList.setGridReadOnly(true);
+      gr_selling_freight.setGridReadOnly(true);
+      gr_partner_freight.setGridReadOnly(true);
+      gr_buying_freight.setGridReadOnly(true);
+      if (scwin.statusFlag == "C") {
+        $c.gus.cfDisableBtnOnly($p, [btn_Update, btn_Update_1]);
+      } else {
+        $c.gus.cfEnableBtnOnly($p, [btn_Update, btn_Update_1]);
+      }
+      $c.gus.cfEnableObjects($p, [cnd_ed_hhblno, cnd_lc_autono, cnd_lc_mhno]); // 조회조건 활성화
+      $c.gus.cfDisableObjects($p, [cnd_ed_hhmblno]); // 조회조건 비활성화
+
+      $c.gus.cfEnableObjects($p, [tbl_Search]); // 조회조건.
+      scwin.statusFlag = ""; // flag null
+      //Direct BL 생성시 Master BL 자동으로 생성되는 기능 때문에 Direct BL을 바꾸거나, Direct BL로 변경 불가능하도록 수정
+      if (cnd_lc_autono.getValue() == "DIRECT") {
+        $c.gus.cfDisableObjects($p, [cnd_lc_autono]);
+      } else {
+        ds_autono.deleteRow(2);
+      }
+      break;
+    case "CREATE":
+      //신규
+      $c.gus.cfEnableKeyData($p);
+      scwin.f_EnablePopUpObj();
+      $c.gus.cfDisableBtnOnly($p, [btn_Copy, btn_Copy2, btn_Create, btn_Update, btn_HNoChg, btn_Copy_1, btn_Copy2_1, btn_Create_1, btn_Update_1, btn_HNoChg_1, btn_Delete, btn_4, btn_4_1, btn_5_freight, btn_6_freight, btn_8, btn_8_1, pu_departmentChange]);
+      $c.gus.cfEnableBtnOnly($p, [btn_Save, btn_Cancel, btn_FileDownload, btn_Save_1, btn_Cancel_1, btn_Update_1, btn_FileDownload_1, btn_1, btn_2_freight1, btn_2_freight2, pu_ResultdateChange1, pu_ResultdateChange2, pu_ResultdateChange3, btn_2, btn_9_freight, btn_Update, btn_FileDownload, btn_CntrReceive, grpBtn1, grpBtn2, grpBtn3, grpBtn4, grpBtn5, btn_AddCntr1, btn_AddCntr2]);
+      gr_ocContList.setGridReadOnly(false);
+      gr_ocElList.setGridReadOnly(false);
+      gr_selling_freight.setGridReadOnly(false);
+      gr_partner_freight.setGridReadOnly(false);
+      gr_buying_freight.setGridReadOnly(false);
+      $c.gus.cfEnableObjects($p, [cnd_ed_hhblno, cnd_lc_autono]); // 조회조건 활성화
+      $c.gus.cfDisableObjects($p, [cnd_lc_mhno, cnd_ed_hhmblno, ed_hhmt]); // 조회조건 비활성화
+      ds_autono.insertRow(2);
+      ds_autono.setCellAllData(2, "code", "DIRECT");
+      ds_autono.setCellAllData(2, "name", "Direct");
+      $c.gus.cfDisableObjects($p, [tbl_Search, ed_hhmt, ed_agent]); // 조회조건.
+      $c.gus.cfEnableObjects($p, [cnd_ed_hhblno, cnd_lc_autono]); // 조회조건.
+
+      scwin.statusFlag = "C";
+      break;
+    case "UPDATE":
+      $c.gus.cfDisableBtnOnly($p, [btn_Copy, btn_Copy2, btn_Update, btn_Create, btn_Delete, btn_HNoChg, btn_Copy_1, btn_Copy2_1, btn_Update_1, btn_Create_1, btn_Delete_1, btn_HNoChg_1, btn_4, btn_4_1, btn_5_freight, btn_6_freight, btn_8, btn_8_1, pu_departmentChange]);
+      $c.gus.cfEnableBtnOnly($p, [btn_Cancel, btn_Save, btn_FileDownload, btn_Cancel_1, btn_Save_1, btn_FileDownload_1, grpBtn1, grpBtn2, grpBtn3, grpBtn4, grpBtn5, btn_1, btn_2_freight1, btn_2_freight2, btn_2_freight3, btn_2, btn_9_freight, pu_ResultdateChange1, pu_ResultdateChange2, pu_ResultdateChange3, btn_CntrReceive, btn_AddCntr1, btn_AddCntr2]);
+      $c.gus.cfDisableKey($p);
+      scwin.f_EnablePopUpObj();
+      gr_ocContList.setGridReadOnly(false);
+      gr_ocElList.setGridReadOnly(false);
+      gr_selling_freight.setGridReadOnly(false);
+      gr_partner_freight.setGridReadOnly(false);
+      gr_buying_freight.setGridReadOnly(false);
+      $c.gus.cfDisableObjects($p, [tbl_Search]); // 조회조건.
+
+      scwin.statusFlag = "U";
+      break;
+    case "SAVE":
+      $c.gus.cfDisableBtnOnly($p, [btn_Save, btn_Delete, btn_Cancel, btn_Save_1, btn_Delete_1, btn_Cancel_1]);
+      $c.gus.cfEnableBtnOnly($p, [btn_Update, btn_Create, btn_FileDownload, btn_HNoChg, btn_Update_1, btn_Create_1, btn_FileDownload_1, btn_HNoChg_1]);
+      scwin.f_Set("RETRIEVE");
+      break;
+  }
+
+  // 하단 버튼 상단버튼과 동일하게 처리
+  btn_Cancel_freight.setDisabled(btn_Cancel.getDisabled());
+  btn_Update_freight.setDisabled(btn_Update.getDisabled());
+  btn_Save_freight.setDisabled(btn_Save.getDisabled());
+  btn_Delete_freight.setDisabled(btn_Delete.getDisabled());
+};
+
+//-------------------------------------------------------------------------
+// PopUp 이미지를 활성화 시킨다.
+//-------------------------------------------------------------------------
+scwin.f_EnablePopUpObj = function () {
+  $c.gus.cfEnableObjects($p, [img_PopUp21, img_PopUp22, img_PopUp23, img_PopUp24]);
+  $c.gus.cfEnableObjects($p, [udc_hhvslcd, udc_hhlodcd, udc_hhdisccd, udc_hhdlvcd, udc_hhfdcd, udc_hhunitcd, udc_mwarecd, udc_blpic, udc_hhagent, udc_hhactcust, udc_hhsales, udc_hhliner, udc_hhrcvcd, udc_hhagentattn, udc_hhccd, udc_hhncd, udc_hhbuyer, udc_agent, ed_odrNo]);
+};
+
+//-------------------------------------------------------------------------
+// PopUp 이미지를 비활성화 시킨다.
+//-------------------------------------------------------------------------
+scwin.f_DisablePopUpObj = function () {
+  $c.gus.cfDisableObjects($p, [img_PopUp21, img_PopUp22, img_PopUp23, img_PopUp24]);
+  $c.gus.cfDisableObjects($p, [udc_hhvslcd, udc_hhlodcd, udc_hhdisccd, udc_hhdlvcd, udc_hhfdcd, udc_hhunitcd, udc_mwarecd, udc_blpic, udc_hhagent, udc_hhactcust, udc_hhsales, udc_hhliner, udc_hhrcvcd, udc_hhagentattn, udc_hhccd, udc_hhncd, udc_hhbuyer, udc_agent, ed_odrNo]);
+};
+
+//---------------------------------------------------------
+// function name : f_setDSHeader
+// function desc : Grid Header정보 Settin//---------------------------------------------------------
+scwin.f_setDSHeader = function (ds, gubun) {};
+
+//---------------------------------------------------------
+// 조회
+//---------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  if (cnd_ed_hhblno.getValue().trim() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["House No"]); // @은(는) 필수 입력 항목입니다.
+    return;
+  }
+
+  // cnd_lc_mhno.focus(); // B/L No 빠져나올때 event처리 .
+  ds_retrieve.set("kcomcd", scwin.hd_kcomcd);
+  ds_retrieve.set("mhno", cnd_lc_mhno.getValue());
+  ds_retrieve.set("hhio", scwin.hd_hhio);
+  txa_agentAdress.setValue("");
+  ed_hhmt.setValue("");
+  await $c.sbm.execute($p, sbm_retrieve);
+  await scwin.sbm_retrieve_submitdone();
+  ds_retrieve.set("hhblno", cnd_ed_hhblno.getValue());
+  ds_retrieve.set("autono", cnd_lc_autono.getValue());
+  ds_retrieve.set("hhmblno", cnd_ed_hhmblno.getValue());
+
+  //Booking Seq 넣어 주기.
+  ds_bkseq.removeAll();
+  ed_hhmt.setValue("");
+
+  // 이벤트 발생 중지
+  lc_hhincoterm.setEventPause(null, true);
+};
+
+//---------------------------------------------------------
+// 조회 Callback (refactor + 안정화)
+//  - DataList 0-base 기준 유지
+//  - cf~ => $c.gus.cf~
+//  - 합계 계산 유틸로 분리
+//  - bkseq/콤보 세팅 로직 정리
+//---------------------------------------------------------
+
+/** DataList 컬럼 합계 */
+scwin._sumCol = function (dl, colId) {
+  var sum = 0;
+  var rc = dl.getRowCount();
+  for (var i = 0; i < rc; i++) {
+    sum += scwin._n(dl.getCellData(i, colId));
+  }
+  return sum;
+};
+
+/** for="tr_retrieve" event="OnSuccess()"*/
+scwin.sbm_retrieve_submitdone = async function (e) {
+  // 이벤트 발생
+  lc_hhincoterm.setEventPause(null, false);
+  scwin.gptYn = false;
+
+  // 조회 결과 없음
+  if (ds_houseblList.getRowCount() === 0) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003); // 해당되는 자료가 존재하지 않습니다
+    scwin.f_Set("INIT");
+    scwin.f_Check(); // Object Check
+
+    ds_retrieve_bk.removeAll();
+    return false;
+  }
+  ds_retrieve_bk.setJSON([ds_retrieve.getJSON()]);
+
+  // 대표 row 포지션 0으로
+  ds_houseblList.setRowPosition(0);
+
+  // trim 처리 (빈문자열이 넘어옴)
+  scwin.f_removeNullString(txa_descnm);
+
+  // 합계 계산
+  var v_totPkg = scwin._sumCol(ds_ocContList, "mcpkg");
+  var v_totWgt = scwin._sumCol(ds_ocContList, "mcwgt");
+  var v_totMsr = scwin._sumCol(ds_ocContList, "mcmsr");
+  var v_eltotPkg = scwin._sumCol(ds_ocElList, "pkg");
+  var v_eltotWgt = scwin._sumCol(ds_ocElList, "wgt");
+
+  // 결과 세팅
+  ed_totpkg.setValue(v_totPkg);
+  ed_totwgt.setValue(v_totWgt);
+  ed_totmsr.setValue(v_totMsr);
+  ed_eltotpkg.setValue(v_eltotPkg);
+  ed_eltotwgt.setValue(v_eltotWgt);
+
+  // 후속 처리
+  scwin.f_invoiceCheck(); // invoice Check
+  await scwin.f_ContractInfo_booking();
+  await scwin.f_retrieveCarrierBkNo();
+  scwin.f_Set("RETRIEVE");
+
+  // Booking Seq 동기화
+  var hhbkgseq = ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhbkgseq");
+  ds_bkseq.removeAll();
+  ds_bkseq.insertJSON(0, [{
+    code: hhbkgseq
+  }]);
+  lc_hhbkgseq.setSelectedIndex(0);
+  str1 = "";
+  str2 = "";
+  str3 = "";
+  str4 = "";
+  for (var i = 0; i < 5; i++) {
+    str1 += ds_houseblList.getCellData(0, "hhs" + (i + 1)) + "\n";
+    str2 += ds_houseblList.getCellData(0, "hhn" + (i + 1)) + "\n";
+    str3 += ds_houseblList.getCellData(0, "hhc" + (i + 1)) + "\n";
+    str4 += ds_partnerInfo.getCellData(0, "partnerAddr" + (i + 1)) + "\n";
+  }
+  if (ds_houseblList.getRowCount() != 0) {
+    ta_hhs.setValue(str1);
+    ta_hhn.setValue(str2);
+    ta_hhc.setValue(str3);
+  }
+  if (ds_partnerInfo.getRowCount() != 0) {
+    txa_agentAdress.setValue(str4);
+  }
+
+  // cmd enable
+  $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+  $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+
+  // B/L PIC 처리
+  if (ed_blpic.getValue() != "") {
+    txt_blpic.setValue("");
+    scwin.f_PopUp("B/L PIC", "T");
+  }
+
+  // freight DMA 세팅 + 실행
+  dma_retrieve_freight.set("kcomcd", scwin.hd_kcomcd);
+  dma_retrieve_freight.set("mhno", cnd_lc_mhno.getValue());
+  dma_retrieve_freight.set("hhio", scwin.hd_hhio);
+  dma_retrieve_freight.set("hhblno", cnd_ed_hhblno.getValue());
+
+  // 공통코드 조회
+  await scwin.f_sellingUnitLoading_freight();
+  await scwin.f_partnerUnitLoading_freight();
+  await scwin.f_buyingUnitLoading_freight();
+  await $c.sbm.execute($p, sbm_retrieve_freight);
+};
+scwin.sbm_retrieve_freight_submitdone = async function (e) {
+  // -----------------------------
+  // 1) 합계 계산부
+  // -----------------------------
+  if (ds_houseblList_freight.getRowCount() == 0) {
+    // 필요 시:
+    // await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    // scwin.f_Set("INIT");
+    // scwin.f_Check_freight();
+  } else {
+    scwin.f_SellingSum_freight();
+    scwin.f_PartnerSum_freight();
+    scwin.f_BuyingSum_freight();
+  }
+
+  // -----------------------------
+  // 2) 링크 데이터 반영(scwin.v_linkcheck == 9)
+  // -----------------------------
+  if (scwin.v_linkcheck == 9) {
+    var no = scwin.p_no;
+    var row_cnt = Number(scwin.p_row_cnt) || 0;
+    var data = scwin.p_data;
+    if (!data) return false;
+
+    // "$" 단위 레코드, "_" 단위 필드
+    // rtnValues[t] = [fromCd, crcCd, pchsAmtFcrc, exRate, pchsAmt, chgWt, pchsUpr]
+    var rows = data.split("$").filter(function (s) {
+      return s != null && s != "";
+    }).map(function (s) {
+      return s.split("_");
+    });
+    if (!rows || rows.length == 0) return false;
+
+    // 기존 buying row count
+    var baseIndex = ds_buying_freight.getRowCount(); // (0-base 기준 count)
+    // GAUCE의 k=CountRow 와 동일 의미
+
+    // row 추가 + 값 세팅
+    for (var r = 0; r < rows.length; r++) {
+      // ? 행 추가 (프로젝트 표준 함수로 교체 가능)
+      // 기존 GAUCE: f_addRow(3)
+      // WebSquare에서 addRow를 직접 쓰거나 기존 공통함수(scwin.f_addRow_freight 등)로 통일
+      // 여기서는 "buying 탭" 의미로 3을 유지한다고 가정
+      scwin.f_addRow(3);
+
+      // 현재 row 위치(0-base)
+      var curRow = ds_buying_freight.getRowPosition();
+      var prevRow = curRow - 1;
+
+      // pchsSeq 자동 증가(이전행 + 1)
+      if (prevRow >= 0) {
+        var prevSeq = Number(ds_buying_freight.getCellData(prevRow, "pchsSeq")) || 0;
+        ds_buying_freight.setCellData(curRow, "pchsSeq", prevSeq + 1);
+      }
+
+      // fromCd = rows[r][0]
+      // 라인 조건 세팅 (DataList라면 row index 0)
+      dma_line_condition_freight.set("hhliner", ed_hhliner.getValue());
+      dma_line_condition_freight.set("fromCd", rows[r][0]);
+
+      // ? 매핑 조회 TR (비동기 안전 처리)
+      await $c.sbm.execute($p, sbm_retrieve_frtMapping_freight);
+
+      // 매핑 결과(DataList 기준 row 0)
+      ds_buying_freight.setCellData(curRow, "fareEngCd", ds_frtMapping_freight.getCellData(0, "toCd"));
+      ds_buying_freight.setCellData(curRow, "fareEngNm", ds_frtMapping_freight.getCellData(0, "description"));
+      ds_buying_freight.setCellData(curRow, "selpchItemCd", ds_frtMapping_freight.getCellData(0, "dtlCd1"));
+      ds_buying_freight.setCellData(curRow, "fareGrpCd", ds_frtMapping_freight.getCellData(0, "dtlCd2"));
+      ds_buying_freight.setCellData(curRow, "vatYn", ds_frtMapping_freight.getCellData(0, "dtlCd3"));
+
+      // 원본 데이터 세팅
+      ds_buying_freight.setCellData(curRow, "crcCd", rows[r][1] || "");
+      ds_buying_freight.setCellData(curRow, "pchsAmtFcrc", rows[r][2] || "");
+      ds_buying_freight.setCellData(curRow, "exRate", rows[r][3] || "");
+      ds_buying_freight.setCellData(curRow, "pchsAmt", rows[r][4] || "");
+      ds_buying_freight.setCellData(curRow, "chgWt", rows[r][5] || "");
+      ds_buying_freight.setCellData(curRow, "pchsUpr", rows[r][6] || "");
+
+      // USD면 usdAmt = pchsAmtFcrc
+      if ((rows[r][1] || "") == "USD") {
+        ds_buying_freight.setCellData(curRow, "usdAmt", rows[r][2] || "");
+      }
+    }
+  }
+  scwin.f_FreightTotalCnt();
+  ds_profit_freight.removeAll();
+  $c.sbm.execute($p, sbm_RetrieveProfit_freight);
+};
+scwin.sbm_RetrieveProfit_freight_submitdone = function (e) {
+  ds_profit_freight.setRowPosition(0);
+  cnd_ed_hhblno.focus();
+  gr_buying_freight.setHeaderDisabled('chk', true);
+  gr_partner_freight.setHeaderDisabled('chk', true);
+  gr_selling_freight.setHeaderDisabled('chk', true);
+  ed_totcnt.setValue(ds_ocContList.getRowCount());
+  ed_eltotcnt.setValue(ds_ocElList.getRowCount());
+
+  // 초기 상태로 설정함.
+  ds_houseblList.initRowStatus();
+  ds_ocContList.initRowStatus();
+  ds_ocElList.initRowStatus();
+  ds_selling_freight.initRowStatus();
+  ds_partner_freight.initRowStatus();
+  ds_buying_freight.initRowStatus();
+  ds_partnerInfo.initRowStatus();
+};
+
+//---------------------------------------------------------
+// 조회 조건 지우기
+//---------------------------------------------------------
+scwin.f_FieldClear = function () {
+  $c.gus.cfInitObjects($p, [cnd_ed_hhblno, cnd_ed_hhmblno, cnd_lc_autono, cnd_lc_mhno]);
+  cnd_lc_autono.setSelectedIndex(1); //입력 COMBO
+  ds_hmhno.removeAll(); // DATASET COMBO
+};
+
+//-------------------------------------------------------------------------
+// 신규
+//-------------------------------------------------------------------------
+scwin.f_Create = function () {
+  // 1) 필드 초기화
+  scwin.f_FieldClear();
+  ds_retrieve_bk.removeAll();
+
+  // 2) DataList 초기화
+  var r = ds_hmhno.insertRow(ds_hmhno.getRowCount());
+  ds_hmhno.removeAll();
+  ds_hmhno.insertRow(r);
+  ds_houseblList.removeAll();
+  ds_houseblList.insertRow(0);
+  ds_houseblList.setRowPosition(0);
+  ds_ocContList.removeAll();
+  ds_ocElList.removeAll();
+  ds_slipTax.removeAll();
+  ds_ocProfitList.removeAll();
+
+  // 3) freight 초기화
+  ds_houseblList_freight.removeAll();
+  ds_houseblList_freight.insertRow(0);
+  ds_houseblList_freight.setRowPosition(0);
+  ds_selling_freight.removeAll();
+  ds_partner_freight.removeAll();
+  ds_buying_freight.removeAll();
+
+  // 4) booking 초기화
+  ds_retrieveNo_booking.removeAll();
+  ds_retrieveNo_booking.insertRow(0);
+  ds_retrieveNo_booking.setRowPosition(0);
+  ds_ctrtNo_booking.removeAll();
+  ds_ctrtNo_booking.insertRow(0);
+  ds_ctrtNo_booking.setRowPosition(0);
+  ds_partnerInfo.removeAll();
+  ds_partnerInfo.insertRow(0);
+  ds_ctrtNo_booking.setRowPosition(0);
+  scwin.f_Create_booking();
+
+  // 5) 조회조건 Enable
+  $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+  $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+
+  // 6) 상태 전환
+  scwin.f_Set("CREATE");
+  scwin.f_Check();
+
+  // 7) ITEM 기본값 + 팝업
+  ed_hhitem.setValue("30000000");
+  scwin.f_chkOpenCommonPopUp('CODE', "Item", ed_hhitem, txt_hhmitem1, "T", "F", "F");
+
+  // 8) BL PIC 기본 세팅
+  txt_blpic.setValue("");
+  if (txt_blpic.getValue().trim() == "") {
+    ed_blpic.setValue(scwin.vUserId);
+    scwin.f_PopUp("B/L PIC", "T");
+  }
+
+  // 9) Partner Address 자동 처리
+  if (ed_hhagent.getValue().trim() != "" && ed_agent.getValue().trim() == "") {
+    ed_agent.setValue(ed_hhagent.getValue());
+    scwin.f_PopUp("Partner Address", "T");
+  }
+
+  // 10) BLNO / MHNO 기본값
+  ed_hhpkg.setValue("0");
+  ed_hhgwgt.setValue("0");
+  ed_hhmsr.setValue("0");
+  ds_hmhno.setCellData(0, "code", "NONE");
+  ds_hmhno.setCellData(0, "name", "NONE");
+  cnd_ed_hhblno.setValue("DBEX");
+
+  //==
+  // 11) MHNO 콤보 선택
+  //==
+
+  // 추가 처리
+  ed_hhetd.setValue('');
+  lc_hhcoload.setDisabled(true);
+  ed_hhgwgt_freight.setValue('0');
+  ed_selling_hhcurdt_freight.setValue('');
+  ed_selling_hhexrate_freight.setValue('0');
+  ed_selling_hhuexrate_freight.setValue('0');
+  ed_partner_hhexrate_freight.setValue('0');
+  ed_partner_hhuexrate_freight.setValue('0');
+  ed_buying_hhexrate_freight.setValue('0');
+  ed_buying_hhuexrate_freight.setValue('0');
+
+  //==
+  // 12) 포커스
+  //==
+  cnd_ed_hhblno.focus();
+};
+
+//-------------------------------------------------------------------------
+// 수정
+//-------------------------------------------------------------------------
+scwin.f_Update = async function () {
+  if (ed_hhetd.getValue() == "") {
+    // 등록 화면에 필수인 ETD를 기준으로 잡았음.
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003); //  해당되는 자료가 존재하지 않습니다 (영어)
+    return;
+  } else {
+    scwin.f_Set("UPDATE");
+
+    // invoice check
+    await scwin.f_invoiceCheck(); // invoice Check
+    $c.gus.cfDisableObjects($p, [ed_hhbuyer, txt_hhbuyernm, ed_agent]);
+    if ("" != ed_hhagent.getValue().trim() && ed_agent.getValue().trim() == "") {
+      ed_agent.setValue(ed_hhagent.getValue());
+      scwin.f_PopUp("Partner Address", "T");
+    }
+    if (lc_selling_hhexgb_freight.getValue() == "") {
+      lc_selling_hhexgb_freight.setValue(scwin.p_seaExgbEx); // TO-DO scwin.p_seaExgbEx undefind
+      lc_partner_hhexgb_freight.setValue(scwin.p_seaExgbEx);
+      lc_buying_hhexgb_freight.setValue(scwin.p_seaExgbEx);
+    }
+    if (ed_selling_hhcurdt_freight.getValue() == "") {
+      ed_selling_hhcurdt_freight.setValue(ed_hhetd.getValue());
+      ed_partner_hhcurdt_freight.setValue(ed_hhetd.getValue());
+      ed_buying_hhcurdt_freight.setValue(ed_hhetd.getValue());
+    }
+  }
+};
+scwin.f_Save2 = function (e) {
+  if (scwin.statusFlag = "I") {
+    scwin.f_Save(e, true);
+  } else {
+    scwin.f_Save(e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// Save (WebSquare) - GAUCE -> DataList 리팩토링 반영본
+// - IsUpdated => getModifiedIndex().length != 0
+// - GAUCE 1-based loop => 0-based loop
+// - modifyRowStatus 오타/인덱스 수정
+// - 존재여부 체크(if(ds_xxx)) 제거(무조건 존재 가정)
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e, isForce) {
+  scwin.f_TextareaSave();
+
+  // 변경 여부 체크 (DataList 기준)
+  function isModified(ds) {
+    return ds.getModifiedIndex && ds.getModifiedIndex().length != 0;
+  }
+  if (isForce || isModified(ds_houseblList) || isModified(ds_ocContList) || isModified(ds_ocElList) || isModified(ds_selling_freight) || isModified(ds_partner_freight) || isModified(ds_buying_freight) || isModified(ds_partnerInfo)) {
+    if ((await scwin.f_validate()) && (await scwin.f_Save_freight())) {
+      if (await $c.win.confirm($p, E_MSG_CM_CRM_001)) {
+        // 저장하시겠습니까?
+
+        // 기존에 동일한 B/L이 존재할 경우
+        if (scwin.popUpResult != null && scwin.popUpResult[2] == "Y" && cnd_ed_hhblno.getValue().trim() == scwin.popUpResult[0] && gptYn) {
+          if (!(await $c.win.confirm($p, "기존에 동일한 이름의 B/L이 존재합니다. 새로운 내용으로 덮어 씌우시겠습니까?"))) {
+            return;
+          }
+        }
+
+        // DIRECT 입력
+        if (cnd_lc_autono.getValue() == "DIRECT") {
+          if (!(await scwin.f_Save_direct())) return false;
+        }
+        if (scwin.statusFlag == "C") {
+          // booking부터 입력
+          await scwin.f_Save_booking();
+
+          // DBEX: House B/L NO 자동 생성
+          if (cnd_ed_hhblno.getValue().length == 4 && cnd_ed_hhblno.getValue() == "DBEX") {
+            ds_retrieve.set("hhetd", ds_houseblList.getCellData(0, "creadyDt"));
+            await $c.sbm.execute($p, sbm_retrieve_houseBlNo);
+            cnd_ed_hhblno.setValue(ds_retrieveNo.getCellData(0, "hhblno"));
+          }
+
+          // hblno 자동생성 시 freight에 bl/mh 번호 입력
+          for (var i = 0; i < ds_selling_freight.getRowCount(); i++) {
+            ds_selling_freight.setCellData(i, "blNo", cnd_ed_hhblno.getValue());
+            ds_selling_freight.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+          }
+          for (var i = 0; i < ds_partner_freight.getRowCount(); i++) {
+            ds_partner_freight.setCellData(i, "blNo", cnd_ed_hhblno.getValue());
+            ds_partner_freight.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+          }
+          for (var i = 0; i < ds_buying_freight.getRowCount(); i++) {
+            ds_buying_freight.setCellData(i, "blNo", cnd_ed_hhblno.getValue());
+            ds_buying_freight.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+          }
+
+          // direct start: master b/l 확인용 데이터 구성
+          ds_ocDirectMblno_direct.removeAll();
+          if (cnd_lc_autono.getValue() == "DIRECT") {
+            ds_ocDirectMblno_direct.insertRow(0);
+            ds_ocDirectMblno_direct.setRowPosition(0);
+            ds_ocDirectMblno_direct.setCellData(0, "kcomcd", scwin.hd_kcomcd);
+            ds_ocDirectMblno_direct.setCellData(0, "hblno", cnd_ed_hhblno.getValue());
+            ds_ocDirectMblno_direct.setCellData(0, "mhno", cnd_lc_mhno.getValue());
+            ds_ocDirectMblno_direct.setCellData(0, "inpid", scwin.vUserId);
+            ds_ocDirectMblno_direct.setCellData(0, "oblno", cnd_ed_hhmblno.getValue());
+          }
+          // direct end
+
+          // HouseBL 저장 전 필수값 세팅
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "kcomcd", scwin.hd_kcomcd);
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhblno", cnd_ed_hhblno.getValue());
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhbkgseq", lc_hhbkgseq.getValue());
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "mhno", cnd_lc_mhno.getValue());
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhisunm", lc_hhisunm.getValue());
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhpaynm", lc_hhpaynm.getValue());
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhio", scwin.hd_hhio);
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "inpid", scwin.vUserId);
+          ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhmitem1", "일반화물");
+
+          // Freight 헤더
+          ds_houseblList_freight.setCellData(ds_houseblList_freight.getRowPosition(), "kcomcd", scwin.hd_kcomcd);
+          ds_houseblList_freight.setCellData(ds_houseblList_freight.getRowPosition(), "hhblno", cnd_ed_hhblno.getValue());
+          ds_houseblList_freight.setCellData(ds_houseblList_freight.getRowPosition(), "mhno", cnd_lc_mhno.getValue());
+          ds_houseblList_freight.setCellData(ds_houseblList_freight.getRowPosition(), "hhio", scwin.hd_hhio);
+
+          // Container List
+          for (var i = 0; i < ds_ocContList.getRowCount(); i++) {
+            ds_ocContList.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+            ds_ocContList.setCellData(i, "mchblno", cnd_ed_hhblno.getValue());
+            ds_ocContList.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+            ds_ocContList.setCellData(i, "inpid", scwin.vUserId);
+            ds_ocContList.modifyRowStatus(i, "C");
+          }
+
+          // EL List
+          for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+            ds_ocElList.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+            ds_ocElList.setCellData(i, "hhblno", cnd_ed_hhblno.getValue());
+            ds_ocElList.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+            ds_ocElList.setCellData(i, "inpid", scwin.vUserId);
+            ds_ocElList.modifyRowStatus(i, "C");
+          }
+
+          // PartnerInfo (0행)
+          ds_partnerInfo.setCellData(0, "blno", cnd_ed_hhblno.getValue());
+          ds_partnerInfo.setCellData(0, "inpid", scwin.vUserId);
+        }
+
+        // 길이 체크(EDI)
+        if (txt_hhs1.getValue().length > 100) {
+          await $c.win.alert($p, "Shipper명을 100자리를 초과하여 입력하면 EDI전송이 안됩니다. 100자리 이하로 맞춰주세요 <br> 현재 자리수 : " + txt_hhs1.getValue().length);
+          txt_hhs1.focus();
+          return false;
+        }
+        if (txt_hhc1.getValue().length > 100) {
+          await $c.win.alert($p, "Consignee명을 100자리를 초과하여 입력하면 EDI전송이 안됩니다. 100자리 이하로 맞춰주세요 <br> 현재 자리수 : " + txt_hhc1.getValue().length);
+          txt_hhc1.getValue().focus();
+          return false;
+        }
+        if (txt_hhn1.getValue().length > 100) {
+          await $c.win.alert($p, "Notify명을 100자리를 초과하여 입력하면 EDI전송이 안됩니다. 100자리 이하로 맞춰주세요 <br> 현재 자리수 : " + txt_hhn1.getValue().length);
+          txt_hhn1.getValue().focus();
+          return false;
+        }
+
+        // 관리거래처 체크
+        dma_clntNo.set("hhactcust", ed_hhactcust.getValue());
+        await $c.sbm.execute($p, sbm_retrieveMgntClnt);
+        if (ds_mgntYn.getCellData(0, "mgntYn") == "Y") {
+          await $c.win.alert($p, "해당 Customer는 관리거래처이므로 B/L 발급을 불허합니다.");
+          return false;
+        }
+
+        // PIC값이 없을때 등록자 ID로 세팅
+        if (ed_blpic.getValue() == "") {
+          txt_blpic.setValue("");
+          ds_houseblList.setCellData(0, "pic", scwin.vUserId);
+        }
+
+        // CURRENCY 미입력 시 기본값
+        if (ds_houseblList_freight.getCellData(ds_houseblList_freight.getRowPosition(), "hhcur") == "") {
+          ds_houseblList_freight.setCellData(ds_houseblList_freight.getRowPosition(), "hhcur", "KRW");
+        }
+        if (ds_houseblList_freight.getCellData(ds_houseblList_freight.getRowPosition(), "hhcurdt") == "") {
+          ds_houseblList_freight.setCellData(ds_houseblList_freight.getRowPosition(), "hhcurdt", ed_hhetd.getValue());
+        }
+
+        // Shipping Type 기본값
+        if (rd_hhmnfgb.getValue() == "") {
+          rd_hhmnfgb.setValue("E");
+        }
+        scwin.f_chkDataLength();
+        $c.sbm.execute($p, sbm_save);
+      }
+    }
+  } else {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_001, ["House B/L"]); // 변경된 사항 없음
+  }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+// - All Copy : 편집상태
+//  - B/L Copy : 
+//-------------------------------------------------------------------------
+scwin.f_Cancel = async function () {
+  //cmd anable
+  $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+  $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+  cnd_ed_hhblno.focus();
+  if (scwin.statusFlag == "C") {
+    scwin.f_Set("INIT");
+    ds_houseblList.removeAll();
+    ds_ocContList.removeAll();
+    ds_ocElList.removeAll();
+    ds_selling_freight.removeAll();
+    ds_partner_freight.removeAll();
+    ds_buying_freight.removeAll();
+    ds_partnerInfo.removeAll();
+    ds_ctrtNo_booking.removeAll();
+  } else {
+    scwin.f_Set("RETRIEVE");
+    $c.data.undoRow($p, ds_houseblList, "Y");
+    $c.data.undoRow($p, ds_partnerInfo, "Y");
+    scwin.f_cancelRow(1);
+    scwin.f_cancelRow(2);
+    chb_hhp1.setValue("1");
+    chb_hhp2.setValue("0");
+    chb_hhp3.setValue("0");
+    chb_hhp4.setValue("1");
+    chb_hhp5.setValue("0");
+    chb_hhp6.setValue("1");
+  }
+  scwin.f_Cancel_freight();
+  scwin.f_Cancel_booking();
+  if (ds_retrieve_bk.getRowCount() != 0) {
+    ds_retrieve.setJSON(ds_retrieve_bk.getRowJSON(0));
+
+    // 검색
+    //await scwin.cnd_ed_hhblno_onblur();
+
+    scwin.f_Retrieve();
+  }
+};
+
+//-------------------------------------------------------------------------------
+//  Copy
+// 기존의 조회된 HOUSE HEADER정보만을 COPY한다. 저장시 HOUSE NO만 바뀌는 결과.
+//-------------------------------------------------------------------------------
+scwin.f_Copy = function () {
+  // dataset초기화
+  scwin.f_FieldClear();
+  ds_hmhno.insertRow(0);
+  ds_hmhno.setRowPosition(0);
+
+  //cmd anable
+  $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+  $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+  scwin.f_Set("CREATE");
+
+  //scwin.f_Check();   // 2011.04.04scwin.statusFlag = C:Create 경우와 다른 Check 조건이므로 Block
+
+  cnd_ed_hhblno.setValue("DBEX");
+  cnd_ed_hhmblno.setValue("");
+  ed_odrNo.setValue("");
+  // 2011.04.04scwin.statusFlag = C:Create 경우와 다른 조건 부여
+  cnd_lc_autono.setSelectedIndex(1);
+  ed_creadyDt.setValue(""); // 22.04.25 Result Date 공란처리
+  txt_hhmitem2.setValue(""); // 22.11.29 EDI ITEM 공란처리
+
+  ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", "NONE");
+  ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", "NONE");
+  cnd_lc_mhno.setSelectedIndex(0);
+  //-----------------------------------------------
+
+  if (ds_houseblList.getRowCount() != "0") ds_houseblList.modifyRowStatus(ds_houseblList.getRowPosition(), 'C'); // insert 로 변경.
+
+  ds_ocContList.removeAll();
+  ds_ocElList.removeAll();
+  dma_retrieve_booking.setArray([]);
+  ds_retrieveNo_booking.removeAll();
+  for (var i = 0; i < ds_selling_freight.getRowCount(); i++) {
+    ds_selling_freight.setCellData(i, "blNo", "");
+    ds_selling_freight.setCellData(i, "certiNo", "");
+    ds_selling_freight.setCellData(i, "odrNo", "");
+    ds_selling_freight.setCellData(i, "mhno", "NONE");
+    ds_selling_freight.setCellData(i, "prtnGrpNo", "");
+    ds_selling_freight.setCellData(i, "dcsnClsCd", "");
+    ds_selling_freight.setCellData(i, "rsltsStdDt", scwin.strCurDate);
+    ds_selling_freight.modifyRowStatus(i, 'C'); // insert 로 변경.
+  }
+  for (var i = 0; i < ds_partner_freight.getRowCount(); i++) {
+    ds_partner_freight.setCellData(i, "blNo", "");
+    ds_partner_freight.setCellData(i, "certiNo", "");
+    ds_partner_freight.setCellData(i, "odrNo", "");
+    ds_partner_freight.setCellData(i, "mhno", "NONE");
+    ds_partner_freight.setCellData(i, "prtnGrpNo", "");
+    ds_partner_freight.setCellData(i, "dcsnClsCd", "");
+    ds_partner_freight.setCellData(i, "rsltsStdDt", scwin.strCurDate);
+    ds_partner_freight.modifyRowStatus(i, 'C'); // insert 로 변경.
+  }
+  for (var i = 0; i < ds_buying_freight.getRowCount(); i++) {
+    ds_buying_freight.setCellData(i, "blNo", "");
+    ds_buying_freight.setCellData(i, "pchsCertiNo", "");
+    ds_buying_freight.setCellData(i, "odrNo", "");
+    ds_buying_freight.setCellData(i, "mhno", "NONE");
+    ds_buying_freight.setCellData(i, "prtnGrpNo", "");
+    ds_buying_freight.setCellData(i, "dcsnClsCd", "");
+    ds_buying_freight.setCellData(i, "rsltsStdDt", scwin.strCurDate);
+    ds_buying_freight.modifyRowStatus(i, 'C'); // insert 로 변경.
+  }
+  cnd_ed_hhblno.focus();
+
+  //COPY Consignee -> Customer 복사 기능 추가
+  if ("" != ed_hhccd.getValue().trim()) {
+    ed_hhactcust.setValue(ed_hhccd.getValue().trim());
+    txt_hhactcustnm.setValue(txt_hhc1.getValue().trim());
+  } else if ("" != ed_hhncd.getValue().trim()) {
+    ed_hhactcust.setValue(ed_hhncd.getValue().trim());
+    txt_hhactcustnm.setValue(txt_hhn1.getValue().trim());
+  }
+
+  //Partner 코드가 입력되어있을 때, Agent Info를 자동으로 불러오기 위해 추가
+  if ("" != ed_hhagent.getValue().trim() && ed_agent.getValue().trim() == "") {
+    ed_agent.setValue(ed_hhagent.getValue());
+    scwin.f_PopUp("Partner Address", "T");
+  }
+
+  //기본으로 등록자 ID 기입 처리
+  if (ed_blpic.getValue() == "") {
+    ed_blpic.setValue(scwin.vUserId);
+    scwin.f_PopUp("B/L PIC", "T");
+  }
+};
+scwin.f_Copy2 = function () {
+  // dataset초기화
+  scwin.f_FieldClear();
+  ds_hmhno.insertRow(0);
+  ds_hmhno.setRowPosition(0);
+
+  //cmd anable
+  $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+  $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+  scwin.f_Set("CREATE");
+
+  //scwin.f_Check();   // 2011.04.04scwin.statusFlag = C:Create 경우와 다른 Check 조건이므로 Block
+
+  cnd_ed_hhblno.setValue("DBEX");
+  cnd_ed_hhmblno.setValue("");
+  ed_odrNo.setValue("");
+  // 2011.04.04scwin.statusFlag = C:Create 경우와 다른 조건 부여
+  cnd_lc_autono.setSelectedIndex(1);
+  // 		cnd_lc_mhno.setValue("NONE");
+  // 		$c.gus.cfEnableObj(cnd_lc_mhno, true);
+  ed_creadyDt.setValue(""); // 22.04.25 Result Date 공란처리
+  txt_hhmitem2.setValue(""); // 22.11.29 EDI ITEM 공란처리
+
+  ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", "NONE");
+  ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", "NONE");
+  cnd_lc_mhno.setSelectedIndex(0);
+  //-----------------------------------------------
+
+  if (ds_houseblList.getRowCount() != "0") {
+    ds_houseblList.modifyRowStatus(ds_houseblList.getRowPosition(), 'C'); // insert 로 변경.
+  }
+  ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "hhblno", cnd_ed_hhblno.getValue());
+  ds_houseblList.setCellData(ds_houseblList.getRowPosition(), "mhno", cnd_lc_mhno.getValue());
+  ds_ocContList.removeAll();
+  ds_ocElList.removeAll();
+  ds_selling_freight.removeAll();
+  ds_partner_freight.removeAll();
+  ds_buying_freight.removeAll();
+  dma_retrieve_booking.setArray([]);
+  ds_retrieveNo_booking.removeAll();
+  if ("" != ed_hhscd.getValue().trim()) {
+    ed_hhactcust.setValue(ed_hhscd.getValue().trim());
+    txt_hhactcustnm.setValue("");
+    scwin.f_PopUp("Customer", "T");
+  }
+
+  //Partner 코드가 입력되어있을 때, Agent Info를 자동으로 불러오기 위해 추가
+  if ("" != ed_hhagent.getValue().trim() && ed_agent.getValue().trim() == "") {
+    ed_agent.setValue(ed_hhagent.getValue());
+    scwin.f_PopUp("Partner Address", "T");
+  }
+
+  //기본으로 등록자 ID 기입 처리
+  if (ed_blpic.getValue() == "") {
+    ed_blpic.setValue(scwin.vUserId);
+    scwin.f_PopUp("B/L PIC", "T");
+  }
+};
+
+//---------------------------------------------------------
+// 삭제
+// 삭제는 저장의 역순으로 지워진다.
+//---------------------------------------------------------
+
+scwin.f_Delete = async function () {
+  // invoice check
+  await scwin.f_invoiceCheck(); // invoice Check
+  if (scwin.invoiceCheck == "1") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_041, ["Invoice No", "delete"]); // @은(는) @할 수 없습니다. (영어)
+    return;
+  }
+
+  // Mhno 존재
+  if (cnd_lc_mhno.getValue() != "NONE" && "DIRECT" != cnd_lc_autono.getValue()) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_WRN_011, ["Document No"]); // 이미 존재하는 @입니다. (영어)
+    return;
+  }
+  if (await $c.win.confirm($p, E_MSG_CM_CRM_004)) {
+    //삭제하시겠습니까?
+
+    scwin._deleteAll(ds_houseblList);
+    scwin._deleteAll(ds_containerBookingList_booking); //booking
+    scwin._deleteAll(ds_partnerInfo);
+    scwin._deleteAll(ds_selling_freight); //freight
+    scwin._deleteAll(ds_partner_freight); //freight
+    scwin._deleteAll(ds_buying_freight); //freight
+
+    sbm_delete.action = "/il.seaout.sobl.DeleteBookingHouseBlFreightCMD.do?autono=" + cnd_lc_autono.getValue();
+    await $c.sbm.execute($p, sbm_delete);
+    await scwin.sbm_delete_submitdone();
+    cnd_ed_hhblno.setValue("");
+    ds_houseblList.removeAll();
+    ds_ocContList.removeAll();
+    ds_ocElList.removeAll();
+    ds_slipTax.removeAll();
+    ds_ocProfitList.removeAll();
+    ds_partnerInfo.removeAll();
+    ta_hhs.setValue("");
+    ta_hhn.setValue("");
+    ta_hhc.setValue("");
+    txa_agentAdress.setValue("");
+
+    //booking
+    ds_containerBookingList_booking.removeAll();
+    ds_containerDoorOrder_booking.removeAll();
+    ds_containerDoorOrderQty_booking.removeAll();
+    ds_containerBookingCont_booking.removeAll();
+
+    //freight
+    // dataset초기화
+    ds_selling_freight.removeAll();
+    ds_partner_freight.removeAll();
+    ds_buying_freight.removeAll();
+
+    //cmd anable
+    $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+    $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+    cnd_ed_hhblno.focus();
+    scwin.f_Set("INIT");
+  }
+};
+
+// Marks/Description - Container 그리드
+scwin.f_AddRow1 = function () {
+  scwin.f_addRow(1);
+};
+scwin.f_DeleteRow1 = function () {
+  scwin.f_deleteRow(1);
+};
+scwin.f_CancelRow1 = function () {
+  scwin.f_cancelRow(1);
+};
+
+// Marks/Description - 수출신고 그리드
+scwin.f_AddRow2 = function () {
+  scwin.f_addRow(2);
+};
+scwin.f_DeleteRow2 = function () {
+  scwin.f_deleteRow(2);
+};
+scwin.f_CancelRow2 = function () {
+  scwin.f_cancelRow(2);
+};
+
+// Freight - Selling List 그리드
+scwin.f_AddRow3 = function () {
+  scwin.f_FaddRowMulti(1);
+};
+scwin.f_DeleteRow3 = function () {
+  scwin.f_FdeleteRow(1);
+};
+scwin.f_CancelRow3 = function () {
+  scwin.f_FcancelRow(1);
+};
+
+// Freight - Partner List 그리드
+scwin.f_AddRow4 = function () {
+  scwin.f_FaddRowMulti(2);
+};
+scwin.f_DeleteRow4 = function () {
+  scwin.f_FdeleteRow(2);
+};
+scwin.f_CancelRow4 = function () {
+  scwin.f_FcancelRow(2);
+};
+
+// Freight - Buying List 그리드
+scwin.f_AddRow5 = function () {
+  scwin.f_FaddRowMulti(3);
+};
+scwin.f_DeleteRow5 = function () {
+  scwin.f_FdeleteRow(3);
+};
+scwin.f_CancelRow5 = function () {
+  scwin.f_FcancelRow(3);
+};
+
+//---------------------------------------------------------
+//행추가
+//---------------------------------------------------------
+scwin.isEmpty = function (value) {
+  if (value == null || value.length === 0) {
+    return parseFloat(0);
+  } else {
+    return parseFloat(value);
+  }
+};
+// f_addCntr
+scwin.f_addCntr = async function () {
+  var gubun = this.getUserData('userData1');
+  var hhcnt1 = scwin.isEmpty(ed_hhcnt1.getValue());
+  var hhcnt2 = scwin.isEmpty(ed_hhcnt2.getValue());
+  var hhcnt3 = scwin.isEmpty(ed_hhcnt3.getValue());
+  var hhcnt4 = scwin.isEmpty(ed_hhcnt4.getValue());
+  var hhcnt = parseInt(hhcnt1) + parseInt(hhcnt2) + parseInt(hhcnt3) + parseInt(hhcnt4);
+  var hhcnt1type = ed_hhcnt1type.getValue();
+  var hhcnt2type = ed_hhcnt2type.getValue();
+  var hhcnt3type = ed_hhcnt3type.getValue();
+  var hhcnt4type = ed_hhcnt4type.getValue();
+  var hhpkg = parseInt(scwin.isEmpty(ed_hhpkg.getValue()) / hhcnt);
+  var hhgwgt = (scwin.isEmpty(ed_hhgwgt.getValue()) / hhcnt).toFixed(3);
+  var hhmsr = (scwin.isEmpty(ed_hhmsr.getValue()) / hhcnt).toFixed(3);
+  var hhpkgSum = 0;
+  var hhgwgtSum = 0;
+  var hhmsrSum = 0;
+  var cntSum = 1;
+
+  //컨테이너 리스트 초기화
+  ds_ocContList.removeAll();
+  var inRowIdx = -1;
+  for (var i = 1; i <= hhcnt1; i++) {
+    inRowIdx = ds_ocContList.insertRow();
+    ds_ocContList.setCellData(inRowIdx, "kcomcd", scwin.hd_kcomcd);
+    ds_ocContList.setCellData(inRowIdx, "mchblno", cnd_ed_hhblno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "mhno", cnd_lc_mhno.getValue()); //update일때. (TO-DO AS-IS 값 확인)
+    ds_ocContList.setCellData(inRowIdx, "inpid", scwin.vUserId); // TO-DO (scwin.vUserId  확인)
+    ds_ocContList.setCellData(inRowIdx, "mctype", hhcnt1type);
+    if (gubun == "2") {
+      ds_ocContList.setCellData(inRowIdx, "mcpkg", hhpkg);
+      ds_ocContList.setCellData(inRowIdx, "mcwgt", hhgwgt);
+      ds_ocContList.setCellData(inRowIdx, "mcmsr", hhmsr);
+      ds_ocContList.setCellData(inRowIdx, "mcpkgcd", ed_hhunitcd.getValue());
+      if (cntSum != hhcnt) {
+        hhpkgSum = scwin.isEmpty(hhpkgSum) + scwin.isEmpty(hhpkg);
+        hhgwgtSum = scwin.isEmpty(hhgwgtSum) + scwin.isEmpty(hhgwgt);
+        hhmsrSum = scwin.isEmpty(hhmsrSum) + scwin.isEmpty(hhmsr);
+      }
+      cntSum++;
+    }
+  }
+  for (var i = 1; i <= hhcnt2; i++) {
+    inRowIdx = ds_ocContList.insertRow();
+    ds_ocContList.setCellData(inRowIdx, "kcomcd", scwin.hd_kcomcd);
+    ds_ocContList.setCellData(inRowIdx, "mchblno", cnd_ed_hhblno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "mhno", cnd_lc_mhno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "inpid", scwin.vUserId);
+    ds_ocContList.setCellData(inRowIdx, "mctype", hhcnt2type);
+    if (gubun == "2") {
+      ds_ocContList.setCellData(inRowIdx, "mcpkgcd", ed_hhunitcd.getValue());
+      ds_ocContList.setCellData(inRowIdx, "mcpkg", hhpkg);
+      ds_ocContList.setCellData(inRowIdx, "mcwgt", hhgwgt);
+      ds_ocContList.setCellData(inRowIdx, "mcmsr", hhmsr);
+      if (cntSum != hhcnt) {
+        hhpkgSum = scwin.isEmpty(hhpkgSum) + scwin.isEmpty(hhpkg);
+        hhgwgtSum = scwin.isEmpty(hhgwgtSum) + scwin.isEmpty(hhgwgt);
+        hhmsrSum = scwin.isEmpty(hhmsrSum) + scwin.isEmpty(hhmsr);
+      }
+      cntSum++;
+    }
+  }
+  for (var i = 1; i <= hhcnt3; i++) {
+    inRowIdx = ds_ocContList.insertRow();
+    ds_ocContList.setCellData(inRowIdx, "kcomcd", scwin.hd_kcomcd);
+    ds_ocContList.setCellData(inRowIdx, "mchblno", cnd_ed_hhblno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "mhno", cnd_lc_mhno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "inpid", scwin.vUserId);
+    ds_ocContList.setCellData(inRowIdx, "mctype", hhcnt3type);
+    if (gubun == "2") {
+      ds_ocContList.setCellData(inRowIdx, "mcpkgcd", ed_hhunitcd.getValue());
+      ds_ocContList.setCellData(inRowIdx, "mcpkg", hhpkg);
+      ds_ocContList.setCellData(inRowIdx, "mcwgt", hhgwgt);
+      ds_ocContList.setCellData(inRowIdx, "mcmsr", hhmsr);
+      if (cntSum != hhcnt) {
+        hhpkgSum = scwin.isEmpty(hhpkgSum) + scwin.isEmpty(hhpkg);
+        hhgwgtSum = scwin.isEmpty(hhgwgtSum) + scwin.isEmpty(hhgwgt);
+        hhmsrSum = scwin.isEmpty(hhmsrSum) + scwin.isEmpty(hhmsr);
+      }
+      cntSum++;
+    }
+  }
+  for (var i = 1; i <= hhcnt4; i++) {
+    inRowIdx = ds_ocContList.insertRow();
+    ds_ocContList.setCellData(inRowIdx, "kcomcd", scwin.hd_kcomcd);
+    ds_ocContList.setCellData(inRowIdx, "mchblno", cnd_ed_hhblno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "mhno", cnd_lc_mhno.getValue()); //update일때.
+    ds_ocContList.setCellData(inRowIdx, "inpid", scwin.vUserId);
+    ds_ocContList.setCellData(inRowIdx, "mctype", hhcnt4type);
+    if (gubun == "2") {
+      ds_ocContList.setCellData(inRowIdx, "mcpkgcd", ed_hhunitcd.getValue());
+      ds_ocContList.setCellData(inRowIdx, "mcpkg", hhpkg);
+      ds_ocContList.setCellData(inRowIdx, "mcwgt", hhgwgt);
+      ds_ocContList.setCellData(inRowIdx, "mcmsr", hhmsr);
+      if (cntSum != hhcnt) {
+        hhpkgSum = scwin.isEmpty(hhpkgSum) + scwin.isEmpty(hhpkg);
+        hhgwgtSum = scwin.isEmpty(hhgwgtSum) + scwin.isEmpty(hhgwgt);
+        hhmsrSum = scwin.isEmpty(hhmsrSum) + scwin.isEmpty(hhmsr);
+      }
+      cntSum++;
+    }
+  }
+  if (gubun == "2") {
+    var rowPos = ds_ocContList.getRowCount() - 1;
+    ds_ocContList.setCellData(rowPos, "mcpkg", scwin.isEmpty(ed_hhpkg.getValue()) - hhpkgSum);
+    ds_ocContList.setCellData(rowPos, "mcwgt", scwin.isEmpty(ed_hhgwgt.getValue()) - hhgwgtSum);
+    ds_ocContList.setCellData(rowPos, "mcmsr", scwin.isEmpty(ed_hhmsr.getValue()) - hhmsrSum);
+  }
+};
+scwin.f_MarketTotCnt = function () {
+  ed_totcnt.setValue(ds_ocContList.getRowCount());
+  ed_eltotcnt.setValue(ds_ocElList.getRowCount());
+};
+scwin.f_addRow = async function (disGubun) {
+  var inRow = -1;
+  switch (disGubun) {
+    case 1:
+      // Container
+      if (cnd_ed_hhblno.getValue() == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003); //  해당되는 자료가 존재하지 않습니다
+      } else {
+        inRow = ds_ocContList.insertRow();
+        ds_ocContList.setCellData(inRow, "kcomcd", scwin.hd_kcomcd);
+        ds_ocContList.setCellData(inRow, "mchblno", cnd_ed_hhblno.getValue()); //update일때.
+        ds_ocContList.setCellData(inRow, "mhno", cnd_lc_mhno.getValue()); //update일때.
+        ds_ocContList.setCellData(inRow, "inpid", scwin.vUserId);
+        ds_ocContList.setCellData(inRow, "mcpart", "N");
+        gr_ocContList.setFocusedCell(inRow, "mccntno"); // forcus
+      }
+      break;
+    case 2:
+      // El (수출신고)
+      if (cnd_ed_hhblno.getValue() == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003); //  해당되는 자료가 존재하지 않습니다
+      } else {
+        inRow = ds_ocElList.insertRow();
+        ds_ocElList.setCellData(inRow, "kcomcd", scwin.hd_kcomcd);
+        ds_ocElList.setCellData(inRow, "hhblno", cnd_ed_hhblno.getValue()); //update일때.
+        ds_ocElList.setCellData(inRow, "mhno", cnd_lc_mhno.getValue()); //update일때.
+        ds_ocElList.setCellData(inRow, "inpid", scwin.vUserId);
+        ds_ocElList.setCellData(inRow, "pgb", "N");
+        ds_ocElList.setCellData(inRow, "pkg", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhpkg"));
+        ds_ocElList.setCellData(inRow, "unit", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhunitcd"));
+        ds_ocElList.setCellData(inRow, "wgt", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhgwgt"));
+        gr_ocElList.setFocusedCell(inRow, "elno"); // forcus
+      }
+      break;
+    default:
+      break;
+  }
+  scwin.f_MarketTotCnt();
+};
+
+//---------------------------------------------------------
+// 행삭제
+//---------------------------------------------------------
+scwin.f_deleteRow = function (disGubun) {
+  switch (disGubun) {
+    case 1:
+      // Container
+      if (ds_ocContList.getRowStatus(ds_ocContList.getRowPosition()) == "C") {
+        ds_ocContList.removeRow(ds_ocContList.getRowPosition());
+      } else {
+        ds_ocContList.deleteRow(ds_ocContList.getRowPosition());
+      }
+      break;
+    case 2:
+      // // El
+      if (ds_ocElList.getRowStatus(ds_ocElList.getRowPosition()) == "C") {
+        ds_ocElList.removeRow(ds_ocElList.getRowPosition());
+      } else {
+        ds_ocElList.deleteRow(ds_ocElList.getRowPosition());
+      }
+      break;
+    default:
+      break;
+  }
+  scwin.f_MarketTotCnt();
+};
+
+//---------------------------------------------------------
+// 행취소
+//---------------------------------------------------------
+scwin.f_cancelRow = function (disGubun) {
+  switch (disGubun) {
+    case 1:
+      // Container
+      $c.data.undoAll($p, ds_ocContList);
+      ds_ocContList.setRowPosition(0);
+      break;
+    case 2:
+      // El
+      $c.data.undoAll($p, ds_ocElList);
+      ds_ocElList.setRowPosition(0);
+      break;
+    default:
+      break;
+  }
+  scwin.f_MarketTotCnt();
+};
+
+//---------------------------------------------------------
+// Freight 다중행추가 (f_addRowMulti_freight)
+//---------------------------------------------------------
+scwin.f_FaddRowMulti = async function (disGubun) {
+  var row = 0;
+  var rowMake_selling = ed_rowMake_selling.getValue().trim() == "" ? 1 : parseInt(ed_rowMake_selling.getValue().trim());
+  var rowMake_partner = ed_rowMake_partner.getValue().trim() == "" ? 1 : parseInt(ed_rowMake_partner.getValue().trim());
+  var rowMake_buying = ed_rowMake_buying.getValue().trim() == "" ? 1 : parseInt(ed_rowMake_buying.getValue().trim());
+  switch (disGubun) {
+    case 1:
+      // Selling
+      if (cnd_ed_hhblno.getValue() == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003);
+        return;
+      }
+      var g_Vat = 0;
+      var g_Rate = 0;
+      var g_Ex_Rate = 0;
+      var g_Amount = 0;
+      var g_Amount_W = 0;
+      var g_Amount_US = 0;
+      for (var i = 0; i < rowMake_selling; i++) {
+        if (ds_selling_freight.getRowCount() == 0) {
+          row = ds_selling_freight.insertRow();
+        } else {
+          row = ds_selling_freight.insertRow(ds_selling_freight.getRowPosition() + 1);
+          g_Vat = ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "vatAmt");
+          g_Rate = ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "sellUpr");
+          g_Ex_Rate = ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "exRate");
+          g_Amount = ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "sellAmtFcrc");
+          g_Amount_W = ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "sellAmt");
+          g_Amount_US = ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "usdAmt");
+        }
+        ds_selling_freight.setCellData(row, "kcomcd", scwin.hd_kcomcd);
+        ds_selling_freight.setCellData(row, "blNo", cnd_ed_hhblno.getValue());
+        ds_selling_freight.setCellData(row, "mhno", cnd_lc_mhno.getValue());
+        ds_selling_freight.setCellData(row, "odrNo", ds_houseblList.getCellData(0, "odrNo"));
+        ds_selling_freight.setCellData(row, "drcrCls", "D");
+        ds_selling_freight.setCellData(row, "locPtnCls", "1");
+        ds_selling_freight.setCellData(row, "mblHblCls", "H");
+        ds_selling_freight.setCellData(row, "seaAirCls", "S");
+        ds_selling_freight.setCellData(row, "ppccCls", scwin.hd_hhpcgb);
+        ds_selling_freight.setCellData(row, "inpid", scwin.vUserId);
+        ds_selling_freight.setCellData(row, "bilgClntNo", ed_hhactcust.getValue());
+        ds_selling_freight.setCellData(row, "bilgClntNm", txt_hhactcustnm.getValue());
+        ds_selling_freight.setCellData(row, "rsltsStdDt", ed_creadyDt.getValue());
+        ds_selling_freight.setCellData(row, "exRateTyp", lc_selling_hhexgb_freight.getValue());
+        ds_selling_freight.setCellData(row, "vatAmt", g_Vat);
+        ds_selling_freight.setCellData(row, "sellUpr", g_Rate);
+        ds_selling_freight.setCellData(row, "exRate", g_Ex_Rate);
+        ds_selling_freight.setCellData(row, "sellAmtFcrc", g_Amount);
+        ds_selling_freight.setCellData(row, "sellAmt", g_Amount_W);
+        ds_selling_freight.setCellData(row, "usdAmt", g_Amount_US);
+        await scwin.f_sellingUnitLoading_freight();
+        if (ds_sellingUnit_freight.getRowCount() > 0) {
+          ds_selling_freight.setCellData(row, "fareUnit", ds_sellingUnit_freight.getCellData(0, "code"));
+        }
+        gr_selling_freight.setFocusedCell(row, "fareEngCd");
+        scwin.f_packageRateSellingLoading_freight(row, "");
+      }
+      break;
+    case 2:
+      // Partner
+      if (cnd_ed_hhblno.getValue() == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003);
+        return;
+      }
+      var g_Rate = 0;
+      var g_Ex_Rate = 0;
+      var g_Amount = 0;
+      var g_Amount_W = 0;
+      var g_Amount_US = 0;
+      for (var i = 0; i < rowMake_partner; i++) {
+        if (ds_partner_freight.getRowCount() == 0) {
+          row = ds_partner_freight.insertRow();
+        } else {
+          row = ds_partner_freight.insertRow(ds_partner_freight.getRowPosition() + 1);
+          g_Rate = ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "sellUpr");
+          g_Ex_Rate = ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "exRate");
+          g_Amount = ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "sellAmtFcrc");
+          g_Amount_W = ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "sellAmt");
+          g_Amount_US = ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "usdAmt");
+        }
+        ds_partner_freight.setCellData(row, "kcomcd", scwin.hd_kcomcd);
+        ds_partner_freight.setCellData(row, "blNo", cnd_ed_hhblno.getValue());
+        ds_partner_freight.setCellData(row, "mhno", cnd_lc_mhno.getValue());
+        ds_partner_freight.setCellData(row, "odrNo", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "odrNo"));
+        ds_partner_freight.setCellData(row, "drcrCls", "D");
+        ds_partner_freight.setCellData(row, "locPtnCls", "2");
+        ds_partner_freight.setCellData(row, "mblHblCls", "H");
+        ds_partner_freight.setCellData(row, "seaAirCls", "S");
+        ds_partner_freight.setCellData(row, "ppccCls", scwin.hd_hhpcgb);
+        ds_partner_freight.setCellData(row, "inpid", scwin.vUserId);
+        ds_partner_freight.setCellData(row, "bilgClntNo", ed_hhagent.getValue());
+        ds_partner_freight.setCellData(row, "bilgClntNm", txt_hhagentnm.getValue());
+        ds_partner_freight.setCellData(row, "rsltsStdDt", ed_creadyDt.getValue());
+        ds_partner_freight.setCellData(row, "exRateTyp", lc_selling_hhexgb_freight.getValue());
+        ds_partner_freight.setCellData(row, "sellUpr", g_Rate);
+        ds_partner_freight.setCellData(row, "exRate", g_Ex_Rate);
+        ds_partner_freight.setCellData(row, "sellAmtFcrc", g_Amount);
+        ds_partner_freight.setCellData(row, "sellAmt", g_Amount_W);
+        ds_partner_freight.setCellData(row, "usdAmt", g_Amount_US);
+        await scwin.f_partnerUnitLoading_freight();
+        if (ds_partnerUnit_freight.getRowCount() > 0) {
+          ds_partner_freight.setCellData(row, "fareUnit", ds_partnerUnit_freight.getCellData(0, "code"));
+        }
+        gr_partner_freight.setFocusedCell(row, "bilgClntNo");
+        scwin.f_packageRatePartnerLoading_freight(row, "");
+      }
+      break;
+    case 3:
+      // Buying            
+      if (cnd_ed_hhblno.getValue() == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003);
+        return;
+      }
+      var g_Vat = 0;
+      var g_Rate = 0;
+      var g_Ex_Rate = 0;
+      var g_Amount = 0;
+      var g_Amount_W = 0;
+      var g_Amount_US = 0;
+      for (var i = 0; i < rowMake_buying; i++) {
+        if (ds_buying_freight.getRowCount() == 0) {
+          row = ds_buying_freight.insertRow();
+        } else {
+          row = ds_buying_freight.insertRow(ds_buying_freight.getRowPosition() + 1);
+          g_Vat = ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "vat");
+          g_Rate = ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "pchsUpr");
+          g_Ex_Rate = ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "exRate");
+          g_Amount = ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "pchsAmtFcrc");
+          g_Amount_W = ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "pchsAmt");
+          g_Amount_US = ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "usdAmt");
+        }
+        ds_buying_freight.setCellData(row, "kcomcd", scwin.hd_kcomcd);
+        ds_buying_freight.setCellData(row, "blNo", cnd_ed_hhblno.getValue());
+        ds_buying_freight.setCellData(row, "mhno", cnd_lc_mhno.getValue());
+        ds_buying_freight.setCellData(row, "odrNo", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "odrNo"));
+        ds_buying_freight.setCellData(row, "drcrCls", "C");
+        ds_buying_freight.setCellData(row, "locPtnCls", "1");
+        ds_buying_freight.setCellData(row, "mblHblCls", "H");
+        ds_buying_freight.setCellData(row, "seaAirCls", "S");
+        ds_buying_freight.setCellData(row, "ppccCls", scwin.hd_hhpcgb);
+        ds_buying_freight.setCellData(row, "inpid", scwin.vUserId);
+        ds_buying_freight.setCellData(row, "pchsClntNo", ed_hhliner.getValue());
+        ds_buying_freight.setCellData(row, "pchsClntNm", txt_hhlinernm.getValue());
+        ds_buying_freight.setCellData(row, "rsltsStdDt", ed_creadyDt.getValue());
+        ds_buying_freight.setCellData(row, "exRateTyp", lc_selling_hhexgb_freight.getValue()); // TODO: BindColVal
+        ds_buying_freight.setCellData(row, "pchsTyp", "1");
+        ds_buying_freight.setCellData(row, "vatAmt", g_Vat);
+        ds_buying_freight.setCellData(row, "pchsUpr", g_Rate);
+        ds_buying_freight.setCellData(row, "exRate", g_Ex_Rate);
+        ds_buying_freight.setCellData(row, "pchsAmtFcrc", g_Amount);
+        ds_buying_freight.setCellData(row, "pchsAmt", g_Amount_W);
+        ds_buying_freight.setCellData(row, "usdAmt", g_Amount_US);
+        await scwin.f_buyingUnitLoading_freight();
+        if (ds_buyingUnit_freight.getRowCount() > 0) {
+          ds_buying_freight.setCellData(row, "fareUnit", ds_buyingUnit_freight.getCellData(0, "code"));
+        }
+        gr_buying_freight.setFocusedCell(row, "pchsTyp");
+        scwin.f_packageRateBuyingLoading_freight(row, "");
+      }
+      break;
+    default:
+      break;
+  }
+  scwin.f_FreightTotalCnt();
+};
+
+//---------------------------------------------------------
+// 행삭제 (f_deleteRow_freight)
+//---------------------------------------------------------
+scwin.f_FdeleteRow = async function (disGubun) {
+  var row;
+  switch (disGubun) {
+    case 1:
+      // Selling
+      const rowPos = ds_selling_freight.getRowPosition();
+      for (var i = ds_selling_freight.getRowCount() - 1; i > -1; i--) {
+        var rowStatus = ds_selling_freight.getRowStatus(i);
+        if (ds_selling_freight.getCellData(i, "chk") == "1" || i == rowPos) {
+          if ($c.util.isEmpty($p, ds_selling_freight.getCellData(i, "certiNo"))) {
+            if (rowStatus == 'C') {
+              ds_selling_freight.removeRow(i);
+            } else {
+              ds_selling_freight.deleteRow(i);
+            }
+          } else {
+            await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_041, ["Invoice No", "delete"]);
+            return;
+          }
+        }
+      } // end for 
+      break;
+    case 2:
+      // Partner
+      const rowPosP = ds_partner_freight.getRowPosition();
+      for (var i = ds_partner_freight.getRowCount() - 1; i > -1; i--) {
+        var rowStatus = ds_partner_freight.getRowStatus(i);
+        if (ds_partner_freight.getCellData(i, "chk") == "1" || i == rowPosP) {
+          if ($c.util.isEmpty($p, ds_partner_freight.getCellData(i, "certiNo"))) {
+            if (ds_partner_freight.getCellData(i, "dcsnClsCd") == "확정") {
+              await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_041, ["확정", "delete"]); // @은(는) @할 수 없습니다.
+              return;
+            } else {
+              if (rowStatus == 'C') {
+                ds_partner_freight.removeRow(i);
+              } else {
+                ds_partner_freight.deleteRow(i);
+              }
+            }
+          } else {
+            await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_041, ["Invoice No", "delete"]);
+            return;
+          }
+        }
+      } // end for
+      break;
+    case 3:
+      // Buying
+      const rowPosB = ds_buying_freight.getRowPosition();
+      for (var i = ds_buying_freight.getRowCount() - 1; i > -1; i--) {
+        var rowStatus = ds_buying_freight.getRowStatus(i);
+        if (ds_buying_freight.getCellData(i, "chk") == "1" || i == rowPosB) {
+          if ($c.util.isEmpty($p, ds_buying_freight.getCellData(i, "pchsCertiNo"))) {
+            if (ds_buying_freight.getCellData(i, "dcsnClsCd") == "확정") {
+              await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_041, ["확정", "delete"]); // @은(는) @할 수 없습니다.
+              return;
+            } else {
+              if (rowStatus == 'C') {
+                ds_buying_freight.removeRow(i);
+              } else {
+                ds_buying_freight.deleteRow(i);
+              }
+            }
+          } else {
+            await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_041, ["Invoice No", "delete"]);
+            return;
+          }
+        }
+      } // end for
+      break;
+  }
+  scwin.f_FreightTotalCnt();
+};
+scwin.f_FreightTotalCnt = function () {
+  ed_totSelling.setValue(ds_selling_freight.getRowCount());
+  ed_totPartner.setValue(ds_partner_freight.getRowCount());
+  ed_totBuyer.setValue(ds_buying_freight.getRowCount());
+  scwin.f_SellingSum_freight();
+  scwin.f_PartnerSum_freight();
+  scwin.f_BuyingSum_freight();
+};
+
+//---------------------------------------------------------
+// 행취소 (f_cancelRow_freight)
+//---------------------------------------------------------
+scwin.f_FcancelRow = function (disGubun) {
+  switch (disGubun) {
+    case 1:
+      // Selling
+      if (ds_selling_freight.getCellData(0, "tabIndex") == "0") {
+        ds_selling_freight.removeAll();
+      } else {
+        $c.data.undoAll($p, ds_selling_freight);
+      }
+      break;
+    case 2:
+      // Partner
+      if (ds_partner_freight.getCellData(0, "tabIndex") == "0") {
+        ds_partner_freight.removeAll();
+      } else {
+        $c.data.undoAll($p, ds_partner_freight);
+      }
+      break;
+    case 3:
+      // Buying
+      if (ds_buying_freight.getCellData(0, "tabIndex") == "0") {
+        ds_buying_freight.removeAll();
+      } else {
+        $c.data.undoAll($p, ds_buying_freight);
+      }
+      break;
+  }
+  scwin.f_FreightTotalCnt();
+};
+
+//---------------------------------------------------------
+// function name : f_validate
+// function desc :
+//---------------------------------------------------------
+scwin.f_validate = async function () {
+  // VALIDATE
+  if (!(await $c.gus.cfValidate($p, [ed_hhetd, ed_hhondt, ed_hheta, ed_hhisudt, ed_creadyDt]))) {
+    //validExp 가 yes일때 check
+    return false;
+  }
+  if (ed_hhetd.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["ETD"]); //@는 필수입력항목입니다.
+    scwin.f_selectTabMenu(0);
+    ed_hhetd.focus();
+    return false;
+  }
+
+  //22.04.25 Result Date 필수값으로 설정
+  if (ed_creadyDt.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Result Date"]); //@는 필수입력항목입니다.
+    scwin.f_selectTabMenu(0);
+    ed_creadyDt.focus();
+    return false;
+  }
+
+  // 날짜 범위 확인
+  if (ed_hheta.getValue() != "") {
+    if (!$c.gus.cfIsAfterDate($p, ed_hhetd.getValue(), ed_hheta.getValue())) {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_048, new Array("ETD", "ETA")); //@은(는) 보다 작아야 합니다.
+      scwin.f_selectTabMenu(0);
+      ed_hhetd.focus();
+      return false;
+    }
+  }
+
+  //ETD-ETA가 저장하는 날짜로 부터 3개월 이상의 미래일 수 없다.
+  if ($c.gus.cfMonthsBetween($p, scwin.strCurDate.toDate(), ed_hhetd.getValue().toDate()) > 3) {
+    await $c.win.alert($p, "ETD가 저장하는 날짜로 부터 3개월 이상의 미래일 수 없습니다.");
+    tac_tabMain.setSelectedTabIndex(0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+    ed_hhetd.focus();
+    return false;
+  }
+
+  //ETD-ETA가 저장하는 날짜로 부터 3개월 이상의 미래일 수 없다.
+  if ($c.gus.cfMonthsBetween($p, scwin.strCurDate.toDate(), ed_hheta.getValue().toDate()) > 3) {
+    await $c.win.alert($p, "ETA가 저장하는 날짜로 부터 3개월 이상의 미래일 수 없습니다.");
+    tac_tabMain.setSelectedTabIndex(0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+    ed_hheta.focus();
+    return false;
+  }
+
+  //ETD-ETA가 3년 이상의 과거 일 수 없다.
+  if ($c.gus.cfYearsBetween($p, ed_hhetd.getValue().toDate(), scwin.strCurDate.toDate()) > 3) {
+    await $c.win.alert($p, "ETD가 3년 이상의 과거 일 수 없습니다.");
+    tac_tabMain.setSelectedTabIndex(0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+    ed_hhetd.focus();
+    return false;
+  }
+
+  //ETD-ETA가 3년 이상의 과거 일 수 없다.
+  if ($c.gus.cfYearsBetween($p, ed_hheta.getValue().toDate(), scwin.strCurDate.toDate()) > 3) {
+    await $c.win.alert($p, "ETA가 3년 이상의 과거 일 수 없습니다.");
+    tac_tabMain.setSelectedTabIndex(0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+    ed_hheta.focus();
+    return false;
+  }
+
+  //ETA-ETD(transit time)가 150일을 초과할 수 없다.  *150일(총 운항DATE 수) : ETA날짜에서 ETD날짜를 빼고 +1 한 날짜
+  if ($c.date.diffDate($p, ed_hhetd.getValue(), ed_hheta.getValue()) > 149) {
+    await $c.win.alert($p, "ETA-ETD(transit time)가 150일을 초과할 수 없습니다.");
+    tac_tabMain.setSelectedTabIndex(0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+    ed_hhetd.focus();
+    return false;
+  }
+  if (ed_hhactcust.getValue() == "" || ed_hhactcust.getValue() == "999908") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer"]); //@는 필수입력항목입니다.
+    scwin.f_selectTabMenu(0);
+    ed_hhactcust.focus();
+    return false;
+  }
+  if (ed_hhbuyer.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Department"]); //@는 필수입력항목입니다.
+    scwin.f_selectTabMenu(0);
+    ed_hhbuyer.focus();
+    return false;
+  }
+  if (txt_hhmitem2.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["EDI Item"]); //@는 필수입력항목입니다.
+    scwin.f_selectTabMenu(0);
+    txt_hhmitem2.focus();
+    return false;
+  }
+
+  // 신규시 DBEX가 아닌 DBEXxxxxx로 생성 못함.
+  if (scwin.statusFlag == "C") {
+    if (cnd_ed_hhblno.getValue().length != 4 && cnd_ed_hhblno.getValue().substring(0, 4) == "DBEX") {}
+  }
+  await scwin.f_commCode(ds_customerInfo, "ilCommonEBC", "retriveCustomerInfo", ed_hhactcust.getValue().trim());
+  if (ds_customerInfo.getRowCount() > 0) {
+    if (ed_hhbuyer.getValue() != ds_customerInfo.getCellData(0, "col1")) {
+      await $c.gus.cfAlertMsg($p, scwin.MSG_LO_WRN_007);
+      tac_tabMain.setSelectedTabIndex(0);
+      ed_hhbuyer.focus();
+      return false;
+    }
+  }
+
+  // Container Type dual check
+  if (!scwin.f_containerDualCheck()) return false;
+
+  // Container Type value check
+  if (ed_hhcnt1type.getValue() != "") {
+    var STR = ds_containerType.getCellData(1, ed_hhcnt1type.getValue());
+    if (STR == "0") {
+      // 값이 없을때
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]); //  @이(가) 존재하지 않습니다.
+      scwin.f_selectTabMenu(0);
+      ed_hhcnt1type.focus();
+      return false;
+    }
+  }
+
+  // Container Type value check
+  if (ed_hhcnt2type.getValue() != "") {
+    var STR = ds_containerType.getCellData(1, ed_hhcnt2type.getValue());
+    if (STR == "0") {
+      // 값이 없을때
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]); //  @이(가) 존재하지 않습니다.
+      scwin.f_selectTabMenu(0);
+      ed_hhcnt2type.focus();
+      return false;
+    }
+  }
+
+  // Container Type value check
+  if (ed_hhcnt3type.getValue() != "") {
+    var STR = ds_containerType.getCellData(1, ed_hhcnt3type.getValue());
+    if (STR == "0") {
+      // 값이 없을때
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]); //  @이(가) 존재하지 않습니다.
+      scwin.f_selectTabMenu(0);
+      ed_hhcnt3type.focus();
+      return false;
+    }
+  }
+
+  // Container Type value check
+  if (ed_hhcnt4type.getValue() != "") {
+    var STR = ds_containerType.getCellData(1, ed_hhcnt4type.getValue());
+    if (STR == "0") {
+      // 값이 없을때
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]); //  @이(가) 존재하지 않습니다.
+      scwin.f_selectTabMenu(0);
+      ed_hhcnt4type.focus();
+      return false;
+    }
+  }
+
+  // Container
+  var checked = 0;
+  for (var i = 0; i < ds_ocContList.getRowCount(); i++) {
+    if (ds_ocContList.getCellData(i, "mccntno") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Container"]); //@는 필수입력항목입니다.
+      gr_ocContList.setFocusedCell(i, "mccntno"); // forcus
+      return false;
+    }
+    checked++;
+  }
+
+  // Container Type
+  var checked = 0;
+  for (var i = 0; i < ds_ocContList.getRowCount(); i++) {
+    if (ds_ocContList.getCellData(i, "mctype") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Container Type"]); //@는 필수입력항목입니다.
+      gr_ocContList.setFocusedCell(i, "mctype"); // forcus
+      return false;
+    }
+    checked++;
+  }
+
+  // 수출신고번호
+  var checked = 0;
+  v_elno = "";
+  for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+    if (ds_ocElList.getCellData(i, "elno") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["수출신고번호"]); //@는 필수입력항목입니다.
+      gr_ocElList.setFocusedCell(i, "elno"); // forcus
+      return false;
+    }
+    checked++;
+  }
+
+  // unit
+  var checked = 0;
+  for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+    if (ds_ocElList.getCellData(i, "unit") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Unit"]); //@는 필수입력항목입니다.
+      gr_ocElList.setFocusedCell(i, "unit"); // forcus
+      return false;
+    }
+    checked++;
+  }
+
+  // Package
+  var checked = 0;
+  for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+    if (ds_ocElList.getCellData(i, "pkg") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Package"]); //@는 필수입력항목입니다.
+      gr_ocElList.setFocusedCell(i, "pkg"); // forcus
+      return false;
+    }
+    checked++;
+  }
+  // Weight
+  var checked = 0;
+  for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+    if (ds_ocElList.getCellData(i, "wgt") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Weight"]); //@는 필수입력항목입니다.
+      gr_ocElList.setFocusedCell(i, "wgt"); // forcus
+      return false;
+    }
+    checked++;
+  }
+
+  // 포장기호
+  var checked = 0;
+  for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+    if (ds_ocElList.getCellData(i, "mgb") != "") {
+      if (ds_ocElList.getCellData(i, "mpkg") == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["package"]); //@는 필수입력항목입니다.
+        gr_ocElList.setFocusedCell(i, "mpkg"); // forcus
+        return false;
+      }
+      if (ds_ocElList.getCellData(i, "mut") == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Unit"]); //@는 필수입력항목입니다.
+        gr_ocElList.setFocusedCell(i, "mut"); // forcus
+        return false;
+      }
+    }
+    checked++;
+  }
+  // 분할
+  var checked = 0;
+  for (var i = 0; i < ds_ocElList.getRowCount(); i++) {
+    if (ds_ocElList.getCellData(i, "pgb") == "Y") {
+      if (ds_ocElList.getCellData(i, "pseq") == "") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["ISO"]); //@는 필수입력항목입니다.
+        gr_ocElList.setFocusedCell(i, "pseq"); // forcus
+        return false;
+      }
+    }
+    checked++;
+  }
+
+  // Cargo Type Check
+  if (lc_hhbltype.getValue() == "B" && (ed_hhcnt1.getValue() != "0" || ed_hhcnt2.getValue() != "0" || ed_hhcnt3.getValue() != "0" || ed_hhcnt4.getValue() != "0")) {
+    var msg = "Cargo Type이 Bulk 이면서 Container정보가 입력되었습니다.<br>입력된 정보가 맞으시면 확인처리 해 주십시오.";
+    if (!(await $c.win.confirm($p, msg))) {
+      ed_hhcnt1.focus();
+      return false;
+    }
+  }
+
+  //EDI ITEM 글자수 및 특수문자 여부 CHECK
+  if (!scwin.cf_ChkInputOnlyNumberAndAlphabet(txt_hhmitem2.getValue())) {
+    await $c.win.alert($p, "EDI ITEM에 특수문자만 입력은 불가능합니다.");
+    return false;
+  }
+  if ($c.gus.cfGetByteLength($p, txt_hhmitem2.getValue()) < 2) {
+    await $c.win.alert($p, "EDI ITEM에 2글자 이상을 입력하셔야합니다.");
+    return false;
+  }
+  if ($c.gus.cfGetByteLength($p, txt_addr1.getValue()) >= 47 || $c.gus.cfGetByteLength($p, txt_addr2.getValue()) >= 47 || $c.gus.cfGetByteLength($p, txt_addr3.getValue()) >= 47 || $c.gus.cfGetByteLength($p, txt_addr4.getValue()) >= 47 || $c.gus.cfGetByteLength($p, scwin.txt_addr5) >= 47) {
+    await $c.win.alert($p, "Agent Info의 글자수가 너무 깁니다. <br>BL 출력시 칸을 초과할 수 있습니다.");
+    return false;
+  }
+  return true;
+};
+scwin._popTagetDs = null;
+scwin.f_postDtChk = async function (odrNo, sellSeq, kcomcd, seaAirCls, blNo, mhno) {
+  var params = {
+    sysCd: "ilCommonEBC",
+    queryId: "retrievePostDt",
+    param1: odrNo,
+    param2: sellSeq,
+    param3: kcomcd,
+    param4: seaAirCls,
+    param5: blNo,
+    param6: mhno,
+    param7: "",
+    param8: "",
+    param9: "",
+    param10: "",
+    param11: "",
+    param12: "",
+    param13: "",
+    param14: ""
+  };
+  dma_comCode.setJSON(params);
+  var retData = await $c.sbm.execute($p, sbm_popup);
+  ds_PostDtDataSet.setJSON(retData.responseJSON.GAUCE);
+};
+scwin.f_FreightValidate = async function () {
+  // 저장전 freight list 유효성 CHECK
+
+  // 공통: 내부거래 확정 체크
+  async function checkPosted(ds, seqCol, listName, rowIdx) {
+    // 삭제 상태인 행만 체크
+    if (ds.getRowStatus(rowIdx) == "D") {
+      await scwin.f_postDtChk(ds.getCellData(rowIdx, "odrNo"), ds.getCellData(rowIdx, seqCol), ds.getCellData(rowIdx, "kcomcd"), ds.getCellData(rowIdx, "seaAirCls"), ds.getCellData(rowIdx, "blNo"), ds.getCellData(rowIdx, "mhno"));
+      if (ds_PostDtDataSet.getRowCount()) {
+        var isPostDt = ds_PostDtDataSet.getCellData(0, "col1");
+        if (String(isPostDt || "") != "") {
+          await $c.win.alert($p, "내부거래 확정 건 입니다. <br>" + listName + " " + (rowIdx + 1) + "번째 데이터를 확인하세요.");
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  // -------------------------
+  // 1) Selling
+  // -------------------------
+  for (var i = ds_selling_freight.getRowCount() - 1; i >= 0; i--) {
+    var fare = String(ds_selling_freight.getCellData(i, "fareEngCd") || "");
+    var amt = Number(ds_selling_freight.getCellData(i, "sellAmt") || 0);
+
+    // F/CODE 공란 + AMOUNT 0 => 삭제
+    if (fare == "" && amt == 0) {
+      ds_selling_freight.deleteRow(i);
+      continue;
+    }
+
+    // F/CODE 있고 AMOUNT 0 => 경고
+    if (fare != "" && amt == 0) {
+      await $c.win.alert($p, "Selling List의 " + (i + 1) + "행의 AMOUNT(\\)값이 공란입니다.");
+      return false;
+    }
+
+    // 삭제 상태 내부거래 체크
+    if (!(await checkPosted(ds_selling_freight, "sellSeq", "Selling List", i))) return false;
+  }
+
+  // -------------------------
+  // 2) Partner
+  // -------------------------
+  for (var i = ds_partner_freight.getRowCount() - 1; i >= 0; i--) {
+    var fare = String(ds_partner_freight.getCellData(i, "fareEngCd") || "");
+    var amt = Number(ds_partner_freight.getCellData(i, "sellAmt") || 0);
+
+    // F/CODE 공란 + AMOUNT 0 => 삭제
+    if (fare == "" && amt == 0) {
+      ds_partner_freight.deleteRow(i);
+      continue;
+    }
+
+    // F/CODE 있고 AMOUNT 0 => 경고
+    if (fare != "" && amt == 0) {
+      await $c.win.alert($p, "Partner List의 " + (i + 1) + "행의 AMOUNT(\\)값이 공란입니다.");
+      return false;
+    }
+
+    // 삭제 상태 내부거래 체크
+    if (!(await checkPosted(ds_partner_freight, "sellSeq", "Partner List", i))) return false;
+  }
+
+  // -------------------------
+  // 3) Buying
+  // -------------------------
+  for (var i = ds_buying_freight.getRowCount() - 1; i >= 0; i--) {
+    var fare = String(ds_buying_freight.getCellData(i, "fareEngCd") || "");
+    var amt = Number(ds_buying_freight.getCellData(i, "pchsAmt") || 0);
+
+    // F/CODE 공란 + AMOUNT 0 => 삭제
+    if (fare == "" && amt == 0) {
+      ds_buying_freight.deleteRow(i);
+      continue;
+    }
+
+    // F/CODE 있고 AMOUNT 0 => 경고
+    if (fare != "" && amt == 0) {
+      await $c.win.alert($p, "Buying List의 " + (i + 1) + "행의 AMOUNT(\\)값이 공란입니다.");
+      return false;
+    }
+
+    // 삭제 상태 내부거래 체크 (Buying은 seq 컬럼이 pchsSeq)
+    if (!(await checkPosted(ds_buying_freight, "pchsSeq", "Buying List", i))) return false;
+  }
+  return true;
+};
+
+//---------------------------------------------------------------------------------------
+// 공통팝업 열기 (GAUCE f_OpenCommonPopUp + f_PopUp 통합 WebSquare 버전)
+// udc_ilcomCode 기반, 콜백/타겟 덮어쓰기 방지 안정화 버전
+//---------------------------------------------------------------------------------------
+scwin.f_OpenCommonPopUp = function (gubun1, pCode, pName, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+  function normalizeRtn(rtnList) {
+    if (!rtnList || rtnList == "N/A") return null;
+    if (rtnList.list && Array.isArray(rtnList.list)) rtnList = rtnList.list;
+    if (Array.isArray(rtnList) && rtnList.length > 0 && Array.isArray(rtnList[0])) return rtnList[0];
+    if (Array.isArray(rtnList)) return rtnList;
+    var arr = [];
+    if (rtnList.code != null) arr[0] = rtnList.code;
+    if (rtnList.name != null) arr[1] = rtnList.name;
+    return arr.length ? arr : null;
+  }
+  function setGridCode(ds, row, codeCol, r) {
+    if (!ds || row == null) return;
+    ds.setCellData(row, codeCol, r[0] || "");
+  }
+  function gv(ds, row, col) {
+    return String(ds.getCellData(row, col) || "");
+  }
+  function openCommon(args) {
+    var onReturn = function (rtnList) {
+      var r = normalizeRtn(rtnList);
+      if (!r) {
+        args.onEmpty();
+        return;
+      }
+      setGridCode(args.ds, args.row, args.codeCol, r);
+      if (typeof args.afterFn != "undefined") args.afterFn(r);
+    };
+    udc_ilcomCode.setSelectId(args.selectId);
+    udc_ilcomCode.ilCommonPopUp(onReturn, args.codeValue || "", args.setCellData || "", args.winCloseTF, args.colCnt, args.titles, args.widths, args.hideCols, args.whereOpt || "", args.winW || "500", args.winH || "500", args.posY || "", args.posX || "", args.dupTF || "", args.allTF || "F", args.winTitle || "", args.noDataTF || "F");
+  }
+  switch (gubun1) {
+    case "Vessel":
+      udc_hhvslcd.setSelectId("retrieveOrdVsslInfo"); // XML상의 SELECT ID
+      udc_hhvslcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhvslcd, txt_hhvsl);
+      }, pCode, pName, pWinCloseTF, '2', 'Code, Name', '80,230', "3,4,5,6,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, 'Vessel,Code,Name', pNoDataCloseTF);
+      break;
+    case "Loading":
+      udc_hhlodcd.setSelectId("retrievePortInfo"); // XML상의 SELECT ID
+      udc_hhlodcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhlodcd, txt_hhlodnm);
+      }, pCode, pName, pWinCloseTF, '6', 'Code, Name,,,, UNCODE', '80,160,,,,80', "3,4,5,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, 'Loading,Code,Name', pNoDataCloseTF);
+      break;
+    case "Discharge":
+      udc_hhdisccd.setSelectId("retrievePortInfo");
+      udc_hhdisccd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhdisccd, txt_hhdiscnm);
+      }, pCode, pName, pWinCloseTF, '6', 'Code, Name,,,, UNCODE', '80,160,,,,80', "3,4,5,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "Discharge,Code,Name", pNoDataCloseTF);
+      break;
+    case "Unit":
+      udc_hhunitcd.setSelectId("retrieveCommCdInfo");
+      udc_hhunitcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhunitcd, txt_hhunit);
+      }, pCode, pName, pWinCloseTF, '2', "Code, Name", '80,230', "3,4,5,6,7,8,9,10", 'IL002', null, null, null, null, null, pAllSearchTF, "Unit,Code,Name", pNoDataCloseTF);
+      break;
+    case "Salesman":
+      udc_hhsales.setSelectId("retrieveEmpInfo");
+      udc_hhsales.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhsales, txt_hhsalesnm);
+      }, pCode, pName, pWinCloseTF, '2', "Code, Name", '80,230', "3,4,5,6,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "Salesman,Code,Name", pNoDataCloseTF);
+      break;
+    case "DEPT":
+      udc_hhbuyer.setSelectId("retrieveOpDeptCdInfo");
+      udc_hhbuyer.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhbuyer, txt_hhbuyernm);
+      }, pCode, pName, pWinCloseTF, '2', "Code, Name", '80,230', "3,4,5,6,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "DEPT,Code,Name", pNoDataCloseTF);
+      break;
+    case "Receipt":
+      udc_hhrcvcd.setSelectId("retrievePortInfo");
+      udc_hhrcvcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhrcvcd, txt_hhrcvnm);
+      }, pCode, pName, pWinCloseTF, '6', 'Code, Name,,,, UNCODE', '80,160,,,,80', "3,4,5,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "Receipt,Code,Name", pNoDataCloseTF);
+      break;
+    case "Delivery":
+      udc_hhdlvcd.setSelectId("retrievePortInfo");
+      udc_hhdlvcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhdlvcd, txt_hhdlvnm);
+      }, pCode, pName, pWinCloseTF, '6', 'Code, Name,,,, UNCODE', '80,160,,,,80', "3,4,5,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "Delivery,Code,Name", pNoDataCloseTF);
+      break;
+    case "Destination":
+      udc_hhfdcd.setSelectId("retrievePortInfo");
+      udc_hhfdcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhfdcd, txt_hhfdnm);
+      }, pCode, pName, pWinCloseTF, '6', 'Code, Name,,,, UNCODE', '80,160,,,,80', "3,4,5,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "Destination,Code,Name", pNoDataCloseTF);
+      break;
+    case "Item":
+      udc_hhitem.setSelectId("retrieveCommGoodsInfo");
+      udc_hhitem.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhitem, txt_hhmitem1);
+      }, pCode, pName, pWinCloseTF, '2', "Code, Name", '80,230', "3,4,5,6,7,8,9,10", null, null, null, null, null, null, pAllSearchTF, "Item,Code,Name", pNoDataCloseTF);
+      break;
+    case "ContainerType1":
+      udc_hhfdcd.setSelectId("retriveContainerTypeCodeInfo");
+      udc_hhfdcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhcnt1type);
+        ed_hhcnt1type.setValue(ret[0]);
+        ed_hhcnt1type_freight.setValue(ret[0]);
+      }, pCode, pName, pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , "Code, Name" // Title순서
+      , '80,230' // 보여주는	각 컬럼들의	폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때	원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Type,Code,Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "ContainerType2":
+      udc_hhfdcd.setSelectId("retriveContainerTypeCodeInfo");
+      udc_hhfdcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhcnt2type);
+        ed_hhcnt2type.setValue(ret[0]);
+        ed_hhcnt2type_freight.setValue(ret[0]);
+      }, pCode, pName, pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , "Code, Name" // Title순서
+      , '80,230' // 보여주는	각 컬럼들의	폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때	원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Type,Code,Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "ContainerType3":
+      udc_hhfdcd.setSelectId("retriveContainerTypeCodeInfo");
+      udc_hhfdcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhcnt3type);
+        ed_hhcnt3type.setValue(ret[0]);
+        ed_hhcnt3type_freight.setValue(ret[0]);
+      }, pCode, pName, pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , "Code, Name" // Title순서
+      , '80,230' // 보여주는	각 컬럼들의	폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때	원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Type,Code,Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "ContainerType4":
+      udc_hhfdcd.setSelectId("retriveContainerTypeCodeInfo");
+      udc_hhfdcd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhcnt4type);
+      }, pCode, pName, pWinCloseTF // 결과가 1건 일때	원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '2' // 검색	결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 -	default	(2)
+      , "Code, Name" // Title순서
+      , '80,230' // 보여주는	각 컬럼들의	폭
+      , "3,4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , null // POP-UP뛰을때	원도우의	사용자 정의	폭
+      , null // POP-UP뛰을때	우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "Type,Code,Name" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , 'F' // Data	건수가 0 일때 Window를 뛰우지 않음 리턴	: "N/A"
+      );
+      break;
+    case "Mware":
+      udc_mwarecd.setSelectId("retrieveWareHouseInfo");
+      udc_mwarecd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_mwarecd, txt_mwarenm, [txt_mwareEngCd]);
+      }, pCode, pName, pWinCloseTF // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      , '3' // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      , "CODE, NAME, ENG CODE" // Title순서
+      , '130,180,90' // 보여주는 각 컬럼들의 폭
+      , "4,5,6,7,8,9,10" // 컬럼중에서 숨기는	컬럼 지정
+      , null // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      , '500' // POP-UP뛰을때 원도우의	사용자 정의	폭
+      , '500' // POP-UP뛰을때 우도우의	사용자 정의	높이
+      , null // 윈도우 위치 Y좌표
+      , null // 윈도우 위치 X좌표
+      , null // 중복체크여부	("F")
+      , pAllSearchTF // 전체검색허용여부	("F")
+      , "WARE HOUSE INFO, CODE, NAME" // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      , pNoDataCloseTF // Data 건수가 0 일때 Window를 뛰우지 않음 리턴 : "N/A"
+      );
+      break;
+
+    // -------------------------
+    // f_PopUp 쪽 케이스 (Shipper/Consignee/Notify/Partner/...)
+    // -------------------------
+    case "Shipper":
+      udc_hhagentattn.setSelectId("retrieveEngClntInfo");
+      udc_hhagentattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhscd, txt_hhs1, [txt_hhs2, txt_hhs3, txt_hhs4, txt_hhs5]);
+      }, pCode, pName, pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Shipper Code,Shipper Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Shipper search,Shipper Code,Shipper Name');
+      break;
+    case "Consignee":
+      udc_hhagentattn.setSelectId("retrieveEngClntInfo");
+      udc_hhagentattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhccd, txt_hhc1, [txt_hhc2, txt_hhc3, txt_hhc4, txt_hhc5]);
+        $c.gus.cfSetReturnValue($p, ret, ed_hhactcust, txt_hhactcustnm);
+      }, ed_hhccd.getValue().trim(), txt_hhc1.getValue(), pWinCloseTF, '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Consignee Code,Consignee Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Consignee search,Consignee Code,Consignee Name');
+      break;
+    case "Notify":
+      udc_hhagentattn.setSelectId("retrieveEngClntInfo");
+      udc_hhagentattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhncd, txt_hhn1, [txt_hhn2, txt_hhn3, txt_hhn4, txt_hhn5]);
+        if ($c.util.isEmpty($p, ed_hhccd.getValue())) {
+          $c.gus.cfSetReturnValue($p, ret, ed_hhactcust, txt_hhactcustnm);
+        }
+      }, ed_hhncd.getValue().trim(), txt_hhn1.getValue(), pWinCloseTF, '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Notify Code,Notify Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Notify search,Notify Code,Notify Name');
+      break;
+    case "Partner":
+      udc_hhagent.setSelectId("retrieveEngClntInfo");
+      udc_hhagent.ilCommonPopUp(function (ret) {
+        var oldValue = ed_hhagent.getValue();
+        $c.gus.cfSetReturnValue($p, ret, ed_hhagent, txt_hhagentnm);
+        if (oldValue !== ed_hhagent.getValue()) {
+          ed_hhlinerattn.setValue('');
+          txt_hhlinerattnnm.setValue('');
+        }
+      }, ed_hhagent.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhagentnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Partner search,Partner Code,Partner Name'); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "PartnerPic":
+      var pParam = ed_hhagent.getValue().trim();
+      udc_hhagentattn.setSelectId("retrieveClntPicInfo");
+      udc_hhagentattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhagentattn, txt_hhagentattnnm, ed_hhagent);
+      }, ed_hhagentattn.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhagentattnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "Partner PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "T",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "Customer":
+      udc_hhactcust.setSelectId("retrieveEngClntInfo");
+      udc_hhactcust.ilCommonPopUp(function (ret) {
+        var oldValue = ed_hhactcust.getValue();
+        $c.gus.cfSetReturnValue($p, ret, ed_hhactcust, txt_hhactcustnm);
+        if (oldValue !== ed_hhactcust.getValue()) {
+          ed_hhactattn.setValue('');
+          txt_hhactattnnm.setValue('');
+          //2020.05.13 최우성 대리 요청 사항 : 거래처 (CUSTOMER) 에 해당하는 부서 및 영업사원 자돋 지정
+          if (!$c.util.isEmpty($p, ed_hhactcust.getValue())) {
+            scwin.f_customerInfo(ed_hhactcust.getValue().trim());
+          }
+        }
+      }, ed_hhactcust.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhactcustnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Customer search,Customer Code,Customer Name');
+      break;
+    case "CustomerPic":
+      var pParam = ed_hhactcust.getValue().trim();
+      udc_hhactattn.setSelectId("retrieveClntPicInfo");
+      udc_hhactattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhactattn, txt_hhactattnnm, ed_hhactcust);
+      }, ed_hhactattn.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhactattnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "Customer PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "T",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "Liner":
+      udc_hhliner.setSelectId("retrieveEngClntInfo");
+      udc_hhliner.ilCommonPopUp(function (ret) {
+        var oldValue = ed_hhliner.getValue();
+        $c.gus.cfSetReturnValue($p, ret, ed_hhliner, txt_hhlinernm);
+        if (oldValue != ed_hhliner.getValue()) {
+          ed_hhlinerattn.setValue("");
+          txt_hhlinerattnnm.setValue("");
+        }
+      }, ed_hhliner.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhlinernm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Liner Code,Liner Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Liner search,Liner Code,Liner Name');
+      break;
+    case "LinerPic":
+      var pParam = ed_hhliner.getValue().trim();
+      udc_hhlinerattn.setSelectId("retrieveClntPicInfo");
+      udc_hhlinerattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhlinerattn, txt_hhlinerattnnm, ed_hhliner);
+      }, ed_hhlinerattn.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhlinerattnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      pWinCloseTF,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "Liner PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "T",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "B/L PIC":
+      udc_blpic.setSelectId("retrieveEmpInfo");
+      udc_blpic.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_blpic, txt_blpic);
+      }, ed_blpic.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_blpic.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      "T",
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "B/L PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "Partner Address":
+      openCommon({
+        selectId: "retrieveEngClntInfo",
+        codeComp: ed_agent,
+        nameComp: txt_hhagentnm,
+        // AS-IS 구조 유지
+        winCloseTF: pWinCloseTF,
+        colCnt: "10",
+        titles: "Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+        widths: "140,300,100,100,100,100,100,,,100",
+        hideCols: "8,9",
+        allTF: "F",
+        winTitle: "Partner search,Partner Code,Partner Name",
+        noDataTF: pNoDataCloseTF,
+        afterFn: function (r) {
+          txt_addr1.setValue("");
+          txt_addr2.setValue("");
+          txt_addr3.setValue("");
+          txt_addr4.setValue("");
+          txt_addr5.setValue("");
+          if (txa_agentAdress) {
+            txa_agentAdress.setValue((r[2] || "") + "\n" + (r[3] || "") + "\n" + (r[4] || "") + "\n" + (r[5] || "") + "\n" + (r[6] || ""));
+          }
+        }
+      });
+      break;
+    default:
+      // 알 수 없는 구분은 경고만
+      if ($c.win && $c.win.alert) {
+        $c.win.alert($p, "지원하지 않는 공통팝업 구분: " + gubun1);
+      }
+      break;
+  }
+};
+
+//---------------------------------------------------------
+// Popup (공통 팝업 호출) - ilCommonPopUp 대체
+//---------------------------------------------------------
+scwin.f_PopUp = function (disGubun, chgGubun) {
+  var taVal = [];
+  switch (disGubun) {
+    case "Shipper":
+      ta_hhs.setValue('');
+      udc_hhagentattn.setSelectId("retrieveEngClntInfo");
+      udc_hhagentattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhscd, txt_hhs1, [txt_hhs2, txt_hhs3, txt_hhs4, txt_hhs5]);
+        $c.gus.cfSetReturnValue($p, ret, ed_hhactcust, txt_hhactcustnm);
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhs1"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhs2"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhs3"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhs4"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhs5"));
+        ta_hhs.setValue(taVal.join('\n').trim());
+      }, ed_hhscd.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhs1.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Shipper Code,Shipper Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Shipper search,Shipper Code,Shipper Name');
+      break;
+    case "Consignee":
+      ta_hhc.setValue('');
+      udc_hhccd.setSelectId("retrieveEngClntInfo");
+      udc_hhccd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhccd, txt_hhc1, [txt_hhc2, txt_hhc3, txt_hhc4, txt_hhc5]);
+        //$c.gus.cfSetReturnValue(ret, ed_hhactcust, txt_hhactcustnm);
+
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhc1"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhc2"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhc3"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhc4"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhc5"));
+        ta_hhc.setValue(taVal.join('\n').trim());
+        scwin.f_ContractInfo_booking();
+      }, ed_hhccd.getValue().trim(), txt_hhc1.getValue(), chgGubun, '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Consignee Code,Consignee Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Consignee search,Consignee Code,Consignee Name');
+      break;
+    case "Notify":
+      ta_hhn.setValue('');
+      udc_hhncd.setSelectId("retrieveEngClntInfo");
+      udc_hhncd.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhncd, txt_hhn1, [txt_hhn2, txt_hhn3, txt_hhn4, txt_hhn5]);
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhn1"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhn2"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhn3"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhn4"));
+        taVal.push(ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "hhn5"));
+        ta_hhn.setValue(taVal.join('\n').trim());
+      }, ed_hhncd.getValue().trim(), txt_hhn1.getValue(), chgGubun, '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Notify Code,Notify Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Notify search,Notify Code,Notify Name');
+      break;
+    case "Partner":
+      udc_hhagent.setSelectId("retrieveEngClntInfo");
+      udc_hhagent.ilCommonPopUp(function (ret) {
+        var oldValue = ed_hhagent.getValue();
+        $c.gus.cfSetReturnValue($p, ret, ed_hhagent, txt_hhagentnm);
+        if (oldValue !== ed_hhagent.getValue()) {
+          ed_hhlinerattn.setValue('');
+          txt_hhlinerattnnm.setValue('');
+        }
+        if (ed_hhagent.getValue() != "") {
+          $c.gus.cfSetReturnValue($p, ret, ed_agent, txt_addr1, [txt_addr2, txt_addr3, txt_addr4, txt_addr5]);
+          taVal.push(ds_partnerInfo.getCellData(0, "partnerAddr1"));
+          taVal.push(ds_partnerInfo.getCellData(0, "partnerAddr2"));
+          taVal.push(ds_partnerInfo.getCellData(0, "partnerAddr3"));
+          taVal.push(ds_partnerInfo.getCellData(0, "partnerAddr4"));
+          taVal.push(ds_partnerInfo.getCellData(0, "partnerAddr5"));
+          txa_agentAdress.setValue(taVal.join('\n').trim());
+        }
+      }, ed_hhagent.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhagentnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Partner search,Partner Code,Partner Name'); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "PartnerPic":
+      var pParam = ed_hhagent.getValue().trim();
+      udc_hhagentattn.setSelectId("retrieveClntPicInfo");
+      udc_hhagentattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhagentattn, txt_hhagentattnnm, ed_hhagent);
+      }, ed_hhagentattn.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhagentattnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "Partner PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "T",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "Customer":
+      udc_hhactcust.setSelectId("retrieveEngClntInfo");
+      udc_hhactcust.ilCommonPopUp(function (ret) {
+        var oldValue = ed_hhactcust.getValue();
+        $c.gus.cfSetReturnValue($p, ret, ed_hhactcust, txt_hhactcustnm);
+        if (oldValue !== ed_hhactcust.getValue()) {
+          ed_hhactattn.setValue('');
+          txt_hhactattnnm.setValue('');
+          //2020.05.13 최우성 대리 요청 사항 : 거래처 (CUSTOMER) 에 해당하는 부서 및 영업사원 자돋 지정
+          if (!$c.util.isEmpty($p, ed_hhactcust.getValue())) {
+            scwin.f_customerInfo(ed_hhactcust.getValue().trim());
+          }
+          scwin.f_ContractInfo_booking();
+        }
+      }, ed_hhactcust.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhactcustnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Customer search,Customer Code,Customer Name');
+      break;
+    case "CustomerPic":
+      var pParam = ed_hhactcust.getValue().trim();
+      udc_hhactattn.setSelectId("retrieveClntPicInfo");
+      udc_hhactattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhactattn, txt_hhactattnnm, ed_hhactcust);
+      }, ed_hhactattn.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhactattnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "Customer PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "T",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "Liner":
+      udc_hhliner.setSelectId("retrieveEngClntInfo");
+      udc_hhliner.ilCommonPopUp(function (ret) {
+        var oldValue = ed_hhliner.getValue();
+        $c.gus.cfSetReturnValue($p, ret, ed_hhliner, txt_hhlinernm);
+        if (oldValue != ed_hhliner.getValue()) {
+          ed_hhlinerattn.setValue("");
+          txt_hhlinerattnnm.setValue("");
+        }
+      }, ed_hhliner.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhlinernm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Liner Code,Liner Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Liner search,Liner Code,Liner Name');
+      break;
+    case "LinerPic":
+      var pParam = ed_hhliner.getValue().trim();
+      udc_hhlinerattn.setSelectId("retrieveClntPicInfo");
+      udc_hhlinerattn.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_hhlinerattn, txt_hhlinerattnnm, ed_hhliner);
+      }, ed_hhlinerattn.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhlinerattnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "Liner PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "T",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "B/L PIC":
+      udc_blpic.setSelectId("retrieveEmpInfo");
+      udc_blpic.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_blpic, txt_blpic);
+      }, ed_blpic.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_blpic.getValue(),
+      // 화면에서의 ??? Name Element의	Value
+      "T",
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '4',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "B/L PIC",
+      // Title순서
+      //'80,200,120,300',               // 보여주는 각 컬럼들의 폭
+      '100,350',
+      // 보여주는 각 컬럼들의 폭
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+    case "Partner Address":
+      txa_agentAdress.setValue("");
+      udc_agent.setSelectId("retrieveEngClntInfo");
+      udc_agent.ilCommonPopUp(function (ret) {
+        $c.gus.cfSetReturnValue($p, ret, ed_agent, txt_addr1, [txt_addr2, txt_addr3, txt_addr4, txt_addr5]);
+        taVal.push(ds_partnerInfo.getCellData(ds_partnerInfo.getRowPosition(), "partnerAddr1"));
+        taVal.push(ds_partnerInfo.getCellData(ds_partnerInfo.getRowPosition(), "partnerAddr2"));
+        taVal.push(ds_partnerInfo.getCellData(ds_partnerInfo.getRowPosition(), "partnerAddr3"));
+        taVal.push(ds_partnerInfo.getCellData(ds_partnerInfo.getRowPosition(), "partnerAddr4"));
+        taVal.push(ds_partnerInfo.getCellData(ds_partnerInfo.getRowPosition(), "partnerAddr5"));
+        txa_agentAdress.setValue(taVal.join('\n').trim());
+      },
+      // XML상의 SELECT ID
+      ed_agent.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value
+      txt_hhagentnm.value,
+      // 화면에서의 ??? Name Element의	Value
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+      '10',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+      // Title순서
+      '140,300,100,100,100,100,100,,,100',
+      // 보여주는 각 컬럼들의 폭
+      '8,9',
+      // 컬럼중에서 숨기는	컬럼 지정
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이
+      null,
+      // 윈도우 위치 Y좌표
+      null,
+      // 윈도우 위치 X좌표
+      null,
+      // 중복체크여부	("F")
+      "F",
+      // 전체검색허용여부	("F")
+      'Partner search,Partner Code,Partner Name'); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 화면이동 (WebSquare) - 통합/리팩토링
+//  - GAUCE: cfTabMenuUpdate + jsp querystring  → WebSquare: $c.win.openMenu
+//  - 공통 파라미터(commonParam)로 중복 제거
+//  - MasterBL / SR / Freight / HouseBLPrint 등 linkcheck 분기 포함
+//  - 존재체크(if cnd_... ) 제거: 무조건 존재 가정
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 화면이동 1) f_openPgm (GAUCE 원본 변환 + 리팩토링)
+//-------------------------------------------------------------------------
+// $c.win.openMenu
+// title : 탭/메뉴 타이틀
+// path  : 이동할 화면 경로
+// menuId: 메뉴ID(없으면 path로 대체 가능)
+// param : 전달 파라미터 객체
+//-------------------------------------------------------------------------
+scwin.f_openPgm = function (name) {
+  if (name == "MasterBL") {
+    // GAUCE: mhno == "NONE" 이면 linkcheck=5 + vslcd/vsl/vyg, 아니면 linkcheck=3 + blno/mhno
+    if (cnd_lc_mhno.getValue() == "NONE") {
+      $c.win.openMenu($p, "Export Master B/L(NEW)", "/ui/il/seaout/sobl/se_106_01_04b.xml", "se_106_01_04b.xml", {
+        linkcheck: "5",
+        kcomcd: scwin.hd_kcomcd || "",
+        vslcd: ed_hhvslcd.getValue(),
+        vsl: txt_hhvsl.getValue(),
+        vyg: txt_hhvyg.getValue()
+      }, {
+        openAction: "exist"
+      });
+    } else {
+      $c.win.openMenu($p, "Export Master B/L(NEW)", "/ui/il/seaout/sobl/se_106_01_04b.xml", "se_106_01_04b.xml", {
+        linkcheck: "3",
+        kcomcd: scwin.hd_kcomcd || "",
+        blno: cnd_ed_hhblno.getValue(),
+        mhno: cnd_lc_mhno.getValue()
+      }, {
+        openAction: "exist"
+      });
+    }
+  } else if (name == "SR") {
+    $c.win.openMenu($p, "Shipping Request", "/ui/il/seaout/sosr/se_116_01_01b.xml", "se_116_01_01b.xml", {
+      linkcheck: "1",
+      kcomcd: scwin.hd_kcomcd || "",
+      blno: cnd_ed_hhblno.getValue()
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "Partner") {
+    $c.win.openMenu($p, "Partner Statement", "/ui/il/acc/acpar/ac_104_01_01b.xml", "ac_104_01_01b.xml", {
+      kcomcd: scwin.hd_kcomcd,
+      seaair: "S",
+      iogb: scwin.hd_hhio,
+      blno: cnd_ed_hhblno.getValue(),
+      mblno: "",
+      mhno: cnd_lc_mhno.getValue()
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "Invoice") {
+    $c.win.openMenu($p, "Invoice", "/ui/il/acc/acinv/ac_101_01_01b.xml", "ac_101_01_01b.xml", {
+      kcomcd: scwin.hd_kcomcd,
+      seaair: "S",
+      iogb: scwin.hd_hhio,
+      blno: cnd_ed_hhblno.getValue(),
+      mblno: "",
+      mhno: cnd_lc_mhno.getValue()
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "Profit") {
+    $c.win.openMenu($p, "Booking Sheet", "/ui/il/pfm/pfbs/pe_101_01_01b.xml", "pe_101_01_01b.xml", {
+      kcomcd: scwin.hd_kcomcd,
+      seaair: "S",
+      iogb: scwin.hd_hhio,
+      blno: cnd_ed_hhblno.getValue(),
+      mblno: "",
+      mhno: cnd_lc_mhno.getValue()
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "Freight") {
+    $c.win.openMenu($p, "Export House B/L Freight", "/ui/il/seaout/sobl/se_105_01_04b.xml", "se_105_01_04b.xml", {
+      linkcheck: "5",
+      kcomcd: scwin.hd_kcomcd || "",
+      blno: cnd_ed_hhblno.getValue(),
+      mhno: cnd_lc_mhno.getValue()
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "HouseBLFind") {
+    $c.win.openMenu($p, "House B/L Search", "/ui/il/seaout/sobl/se_105_01_02b.xml", "se_105_01_02b.xml", {
+      hhio: scwin.hd_hhio
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "HouseBLPrint") {
+    $c.win.openMenu($p, "House B/L Print", "/ui/il/seaout/sobl/se_105_01_03b.xml", "se_105_01_03b.xml", {
+      linkcheck: "5",
+      kcomcd: scwin.hd_kcomcd || "",
+      blno: cnd_ed_hhblno.getValue(),
+      mhno: cnd_lc_mhno.getValue()
+    }, {
+      openAction: "exist"
+    });
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통 팝업 오픈 유틸 (CodeBuilder _openPopup)
+// - modal 미지원 환경 대응: _openPopup 사용
+// - Promise 반환으로 await 지원
+//-------------------------------------------------------------------------
+scwin._popupId = function (url) {
+  var base = String(url || "popup").split("?")[0].split("/").pop() || "popup";
+  base = base.replace(/\.[^.]+$/, "").replace(/[^a-zA-Z0-9_]/g, "_");
+  return "pop_" + base + "_" + Date.now();
+};
+scwin._openPopup = async function (url, options, data) {
+  var retVal = await $c.win.openPopup($p, url, options, data);
+  return retVal;
+};
+
+//-------------------------------------------------------------------------
+// 공통 팝업 오픈 유틸 (WebSquare modal wrapper)
+// - callback: function(rtn){...}
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 파일 다운로드 팝업 (WebSquare)
+//-------------------------------------------------------------------------
+scwin.f_FileDownload = async function () {
+  var houseNo = cnd_ed_hhblno.getValue ? cnd_ed_hhblno.getValue() : cnd_ed_hhblno.getValue();
+  var url = "/ui/il/common/xml/ilCommonFilePopup.xml";
+  var options = {
+    popupId: 'ilCommonFilePopup_POPUP',
+    width: 870,
+    height: 360,
+    modal: true,
+    resizable: true,
+    status: true,
+    scroll: true
+  };
+  var param = {
+    houseNo: houseNo
+  };
+  await $c.win.openPopup($p, url, options, param);
+};
+
+//-------------------------------------------------------------------------
+// House no Change (WebSquare)
+//-------------------------------------------------------------------------
+scwin.f_HawbNoChange = async function () {
+  var blno = cnd_ed_hhblno.getValue ? cnd_ed_hhblno.getValue().trim() : (cnd_ed_hhblno.getValue() || "").trim();
+  if (blno === "") return;
+  var url = "/ui/il/common/xml/ilCommonHawbNoChange.xml";
+  var opts = {
+    popupName: 'House B/L No Change',
+    width: 460,
+    height: 250,
+    modal: true
+  };
+  var data = {
+    pBlno: blno
+  };
+  var rtnList = await $c.win.openPopup($p, url, opts, data);
+  if (rtnList && rtnList[0] === "N/A" && (rtnList[1] || "").trim() !== "") {
+    // house no 변경 프로시저 호출 시작
+    dma_HblNoChangeParam.set("odrNo", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "odrNo"));
+    dma_HblNoChangeParam.set("kcomcd", scwin.hd_kcomcd.getValue ? scwin.hd_kcomcd : scwin.hd_kcomcd);
+    dma_HblNoChangeParam.set("blNo", blno);
+    dma_HblNoChangeParam.set("newblNo", (rtnList[1] || "").trim());
+    dma_HblNoChangeParam.set("mhno", cnd_lc_mhno.getValue ? cnd_lc_mhno.getValue().trim() : (cnd_lc_mhno.getValue() || "").trim());
+    if (await $c.win.confirm($p, $c.data.getMessage($p, E_MSG_CM_CRM_001))) {
+      await $c.sbm.execute($p, sbm_HblNoChange);
+      var spMsg = ds_HblNoChangeResult.getCellData(0, "spMsg");
+      var spRtn = ds_HblNoChangeResult.getCellData(0, "spRtn");
+      if (spRtn === "0") {
+        if (cnd_ed_hhblno.setValue) cnd_ed_hhblno.setValue((rtnList[1] || "").trim());else cnd_ed_hhblno.setValue((rtnList[1] || "").trim());
+        cnd_lc_mhno.focus();
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_INF_001); //  성공적으로 저장하였습니다.
+      } else if (spRtn === "-1") {
+        await $c.win.alert($p, "Invoice가 존재합니다.");
+      } else if (spRtn === "-2") {
+        await $c.win.alert($p, spMsg);
+      } else {
+        await $c.win.alert($p, $c.data.getMessage($p, MSG_LO_WRN_006));
+      }
+    }
+    // house no 변경 프로시저 호출 끝
+  }
+};
+
+// ==
+// sbm_combo 전용: 직렬 실행 큐 + 결과를 원하는 DataList에 복사
+// ==
+scwin._comboQueue = scwin._comboQueue || Promise.resolve();
+scwin._comboPending = scwin._comboPending || null;
+
+// 내부: responseJSON에서 path로 값 꺼내기
+scwin._pick = function (obj, path, fallback) {
+  if (!path) return obj == undefined ? fallback : obj;
+  var cur = obj;
+  var parts = Array.isArray(path) ? path : String(path).split(".");
+  for (var i = 0; i < parts.length; i++) {
+    if (cur == null) return fallback;
+    cur = cur[parts[i]];
+  }
+  return cur == undefined ? fallback : cur;
+};
+
+// 내부: DataList에 JSON 반영
+scwin._applyToDataList = function (dl, data) {
+  if (!dl) return;
+  if (dl.setJSON) {
+    dl.setJSON(data);
+    return;
+  }
+  throw new Error("Target DataList has no setJSON()");
+};
+
+// ---------------------------------------------------------------------
+// sbm_combo 실행 + 결과 복사 공통 함수
+// params: dma_combo에 넣을 JSON
+// options:
+//  - target: (필수) 결과를 복사할 DataList
+//  - responsePath: e.responseJSON에서 복사할 경로 (기본 "GAUCE")
+//  - transform: (data, e) => data 가공 후 넣기
+// ---------------------------------------------------------------------
+
+// 큐가 끊기지 않게 흡수 체인 유지
+scwin.execComboAndCopy = function (params, options) {
+  options = options || {};
+  var target = options.target;
+  var responsePath = options.responsePath || "GAUCE";
+  var transform = options.transform;
+  if (!target) throw new Error("options.target(DataList) is required");
+
+  // 직렬 실행: 이전 요청 끝난 뒤 다음 요청 수행
+  scwin._comboQueue = scwin._comboQueue.then(function () {
+    // dma_combo는 공유이므로 execute 직전에 세팅
+    dma_comCode.setJSON(params);
+    return async function () {
+      return await $c.sbm.execute($p, sbm_comCode).then(function (e) {
+        var json = e && e.responseJSON ? e.responseJSON : {};
+        var data = scwin._pick(json, responsePath, null);
+        if (transform) data = transform(data, e);
+
+        // 호출자가 넘긴 target DataList로만 복사
+        scwin._applyToDataList(target, data);
+        return e;
+      });
+    }();
+  });
+  scwin._comboQueue = scwin._comboQueue.catch(function () {});
+  // 실행 Promise 반환 (await 가능)
+  return scwin._comboQueue;
+};
+
+// -------------------------------------------------------------------------
+// 공통 코드조회 (sbm_combo 고정)
+// - sysCd 생략 시 "ilCommonEBC" 기본
+// - target DataList를 받아서 거기로 결과 복사
+// -------------------------------------------------------------------------
+scwin.f_commCode = async function (targetDl, sysCd, queryId, param1, param2, param3, param4) {
+  // sysCd 생략 호출 허용: f_commCode(targetDl, "queryId", p1..)
+  if (queryId == undefined) {
+    queryId = sysCd;
+    sysCd = "ilCommonEBC";
+    param4 = param3;
+    param3 = param2;
+    param2 = param1;
+    param1 = "";
+  }
+  var params = {
+    sysCd: sysCd || "ilCommonEBC",
+    queryId: queryId || "",
+    param1: param1 == undefined ? "" : param1,
+    param2: param2 == undefined ? "" : param2,
+    param3: param3 == undefined ? "" : param3,
+    param4: param4 == undefined ? "" : param4
+  };
+
+  // 실행 + 결과 복사 (기본: e.responseJSON.GAUCE)
+  await scwin.execComboAndCopy(params, {
+    target: targetDl,
+    responsePath: "GAUCE"
+  });
+};
+
+//-------------------------------------------------------------------------
+// CONTAINER TYPE 로딩
+//-------------------------------------------------------------------------
+scwin.f_ContainerTypeLoading = function () {
+  ds_containerType.removeAll();
+  scwin.f_commCode(ds_containerType, "ilCommonEBC", "retriveContainerTypeList");
+  //ds_containerType.setDataId("/cm.zz.RetrieveComboCMD.do?sysCd=ilCommonEBC&queryId=retriveContainerTypeList");
+  //ds_containerType.removeAll();
+  //ds_containerType.retrieve();  // 프로젝트 표준이 Reset이면 Reset으로 교체
+};
+
+//-------------------------------------------------------------------------
+// MHNO 로딩 (House No TAB kill 등)
+//-------------------------------------------------------------------------
+scwin.f_MhnoLoading = function () {
+  var blno = cnd_ed_hhblno.getValue().trim();
+  if (blno.length > 0) {
+    //ds_hmhno.setDataId("/cm.zz.RetrieveComboCMD.do?sysCd=ilCommonEBC&queryId=retriveSeaHouseMhnoListCombo&param1=" + encodeURIComponent(blno));
+    ds_hmhno.removeAll();
+    scwin.f_commCode(ds_hmhno, "ilCommonEBC", "retriveSeaHouseMhnoListCombo", blno);
+  } else {
+    cnd_lc_mhno.setOptions(""); // CBData 대체: 프로젝트 컴포넌트 방식에 맞춰 교체
+  }
+};
+
+//-------------------------------------------------------------------------
+// MHNO 로딩2 (Freight 탭 검색용)
+//-------------------------------------------------------------------------
+scwin.f_MhnoLoading2 = function () {
+  var blno = srch_ed_hhblno.getValue().trim();
+  if (blno.length > 0) {
+    //ds_hmhno2.setDataId("/cm.zz.RetrieveComboCMD.do?sysCd=ilCommonEBC&queryId=retriveSeaHouseMhnoListCombo&param1=" + encodeURIComponent(blno));
+    ds_hmhno2.removeAll();
+    scwin.f_commCode(ds_hmhno2, "ilCommonEBC", "retriveSeaHouseMhnoListCombo", blno);
+  } else {
+    cnd_lc_mhno2.setOptions("");
+  }
+};
+
+//-------------------------------------------------------------------------
+// Booking Seq 로딩
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// Booking 정보 가져오기
+//-------------------------------------------------------------------------
+scwin.f_BkSeqLoading = function () {
+  var strClntNo = ed_hhbkgno.getValue().trim();
+  if (strClntNo.length > 0) {
+    var param1 = hd_kcomcd.value;
+    var param2 = strClntNo;
+    ds_bkseq.removeAll();
+    scwin.f_commCode(ds_bkseq, "ilCommonEBC", "retriveBookingSeqListCombo", param1, param2);
+  } else {
+    lc_hhbkgseq.setValue("");
+  }
+};
+
+//-------------------------------------------------------------------------
+// Cargo Type 이 Bulk 인 경우에 Service Term을 Bulk에 맞춰서 셋팅
+//-------------------------------------------------------------------------
+scwin.f_bulkTypeServiceTerm = function () {
+  // 콤보 데이터 초기화 (프로젝트 표준에 맞춰 reset/removeAll 등으로 교체)
+  lc_hhstype.removeAll(); // 없으면 lc_hhstype.setOptions("") 같은 방식으로
+  if (lc_hhbltype.getValue() == "B") {
+    lc_hhstype.addItem("FIO", "FIO");
+    lc_hhstype.addItem("FI/BT", "FI/BT");
+    lc_hhstype.addItem("BT/BT", "BT/BT");
+    lc_hhstype.addItem("BT/FO", "BT/FO");
+    lc_hhstype.setSelectedIndex(0);
+
+    // mt 활성화
+    $c.gus.cfEnableObj($p, ed_hhmt, true);
+  } else {
+    lc_hhstype.addItem("CY/CY", "CY/CY");
+    lc_hhstype.addItem("CY/CFS", "CY/CFS");
+    lc_hhstype.addItem("CY/DOOR", "CY/DOOR");
+    lc_hhstype.addItem("CFS/CY", "CFS/CY");
+    lc_hhstype.addItem("CFS/CFS", "CFS/CFS");
+    lc_hhstype.addItem("CFS/DOOR", "CFS/DOOR");
+  }
+};
+
+/**
+* GAUCE -> WebSquare 변환본
+* 규칙:
+*  - DataSet(1-base) -> DataList(0-base)
+*  - setCellData/RowPosition/ValueOfIndex -> getCellData/setCellData/getRowPosition/getMatchedIndex 등
+*  - tr_xxx.Post() -> await $c.sbm.execute(tr_xxx) (비동기 안전)
+*  - cf~ 함수 -> $c.gus.cf~ 로 변환
+*  -.getValue()/Value/focus 혼용은 WebSquare 표준(getValue/setValue/focus)로 최대한 정리
+*
+* ※ 컴포넌트/데이터리스트 접근은 프로젝트 표준($p.getComponent 등)에 맞게 조정 가능
+*/
+
+// -------------------------------------------------------------------------
+// Booking Container 정보 가져오기
+// -------------------------------------------------------------------------
+scwin.f_ContainerLoading = async function () {
+  dma_bookingContainer.set("kcomcd", scwin.hd_kcomcd);
+  dma_bookingContainer.set("bkNo", ed_hhbkgno.getValue());
+  dma_bookingContainer.set("hhbkgseq", lc_hhbkgseq.getValue());
+
+  // ds_bookingContainer.setCellData(row, "kcomcd", scwin.hd_kcomcd); // hd_kcomcd.value;
+  // ds_bookingContainer.setCellData(row, "bkNo", ed_hhbkgno.getValue());
+  // ds_bookingContainer.setCellData(row, "hhbkgseq", lc_hhbkgseq.getValue()); //lc_hhbkgseq.ValueOfIndex("code",lc_hhbkgseq.Index);
+
+  await $c.sbm.execute($p, sbm_retrieveContainer);
+};
+
+// -------------------------------------------------------------------------
+// Notify Copy (Consignee -> Notify)
+// -------------------------------------------------------------------------
+scwin.f_cCopy = function () {
+  ed_hhccd.setValue(ed_hhncd.getValue());
+  ta_hhc.setValue(ta_hhn.getValue());
+  ed_hhncd.focus();
+};
+
+// -------------------------------------------------------------------------
+// SAME AS CONSIGNEE (Notify)
+// -------------------------------------------------------------------------
+scwin.f_same = function () {
+  ed_hhncd.setValue(ed_hhccd.getValue());
+  txt_hhn1.setValue("SAME AS CONSIGNEE");
+  txt_hhn2.setValue("");
+  txt_hhn3.setValue("");
+  txt_hhn4.setValue("");
+  txt_hhn5.setValue("");
+  ta_hhn.setValue("SAME AS CONSIGNEE");
+  txt_hhn2.focus();
+};
+
+// -------------------------------------------------------------------------
+// Copy (Notify -> Consignee)
+// -------------------------------------------------------------------------
+scwin.f_nCopy = function () {
+  ed_hhncd.setValue(ed_hhccd.getValue());
+  ta_hhn.setValue(ta_hhc.getValue());
+  ed_hhvslcd.focus();
+};
+
+// -------------------------------------------------------------------------
+// FCL Control - 숫자를 영문으로 변환하거나 포멧 처리
+// -------------------------------------------------------------------------
+scwin.f_cargoControl = function () {
+  if (!(scwin.statusFlag == "C" || scwin.statusFlag == "U")) return;
+  if (lc_hhbltype.getValue() === "F") {
+    // 초기화
+    txt_hhsubpkg.setValue("");
+    txt_hhunit2.setValue("");
+    txt_hhsay.setValue("");
+    var result = "";
+    var resultSay = "";
+    var resultCnt = 0;
+
+    // 컨테이너 타입 코드들
+    var cnt1type = ed_hhcnt1type.getValue ? ed_hhcnt1type.getValue() : ed_hhcnt1type.getValue() || ed_hhcnt1type.text || ed_hhcnt1type.getValue() || "";
+    var cnt2type = ed_hhcnt2type.getValue ? ed_hhcnt2type.getValue() : ed_hhcnt2type.getValue() || ed_hhcnt2type.text || ed_hhcnt2type.getValue() || "";
+    var cnt3type = ed_hhcnt3type.getValue ? ed_hhcnt3type.getValue() : ed_hhcnt3type.getValue() || ed_hhcnt3type.text || ed_hhcnt3type.getValue() || "";
+    var cnt4type = ed_hhcnt4type.getValue ? ed_hhcnt4type.getValue() : ed_hhcnt4type.getValue() || ed_hhcnt4type.text || ed_hhcnt4type.getValue() || "";
+
+    // 수량
+    var cnt1 = ed_hhcnt1.getValue ? ed_hhcnt1.getValue() : ed_hhcnt1.getValue() || ed_hhcnt1.text || ed_hhcnt1.getValue() || "0";
+    var cnt2 = ed_hhcnt2.getValue ? ed_hhcnt2.getValue() : ed_hhcnt2.getValue() || ed_hhcnt2.text || ed_hhcnt2.getValue() || "0";
+    var cnt3 = ed_hhcnt3.getValue ? ed_hhcnt3.getValue() : ed_hhcnt3.getValue() || ed_hhcnt3.text || ed_hhcnt3.getValue() || "0";
+    var cnt4 = ed_hhcnt4.getValue ? ed_hhcnt4.getValue() : ed_hhcnt4.getValue() || ed_hhcnt4.text || ed_hhcnt4.getValue() || "0";
+
+    // GAUCE: ds_containerType.getCellData(1, code)
+    // WebSquare: getMatchedIndex("code", code) (없으면 -1)
+    var i1 = ds_containerType.getMatchedIndex ? ds_containerType.getMatchedIndex("code", cnt1type) : -1;
+    var i2 = ds_containerType.getMatchedIndex ? ds_containerType.getMatchedIndex("code", cnt2type) : -1;
+    var i3 = ds_containerType.getMatchedIndex ? ds_containerType.getMatchedIndex("code", cnt3type) : -1;
+    var i4 = ds_containerType.getMatchedIndex ? ds_containerType.getMatchedIndex("code", cnt4type) : -1;
+
+    // build helper
+    function appendContainer(idx, qty, isFirst, prevQtyZeroTextField) {
+      if (idx < 0) return {
+        result: "",
+        say: "",
+        qty: 0,
+        appended: false
+      };
+      var q = Number(qty || 0);
+      if (!q) return {
+        result: "",
+        say: "",
+        qty: 0,
+        appended: false
+      };
+      var name = ds_containerType.getCellData(idx, "name");
+      var STRC = name + " X " + qty;
+      var eng = scwin._cf_NumChangeEng(String(qty)); // cf_ -> $c.gus.cf_
+
+      var seg = isFirst ? STRC : " & " + STRC;
+      var segSay = isFirst ? eng + "(" + STRC + ")" : " & " + eng + "(" + STRC + ")";
+      return {
+        result: seg,
+        say: segSay,
+        qty: q,
+        appended: true
+      };
+    }
+    var first = true;
+    var a1 = appendContainer(i1, cnt1, true);
+    if (a1.appended) {
+      result = a1.result;
+      resultSay = a1.say;
+      resultCnt = a1.qty;
+      first = false;
+    }
+    var a2 = appendContainer(i2, cnt2, first);
+    if (a2.appended) {
+      result = result + a2.result;
+      resultSay = resultSay + a2.say;
+      resultCnt = resultCnt + a2.qty;
+      first = false;
+    }
+    var a3 = appendContainer(i3, cnt3, first);
+    if (a3.appended) {
+      result = result + a3.result;
+      resultSay = resultSay + a3.say;
+      resultCnt = resultCnt + a3.qty;
+      first = false;
+    }
+    var a4 = appendContainer(i4, cnt4, first);
+    if (a4.appended) {
+      result = result + a4.result;
+      resultSay = resultSay + a4.say;
+      resultCnt = resultCnt + a4.qty;
+    }
+    txt_hhsubpkg.setValue(result);
+
+    // Number of Containers or Packages2
+    var pkg = ed_hhpkg.getValue ? ed_hhpkg.getValue() : ed_hhpkg.getValue() || ed_hhpkg.text || ed_hhpkg.getValue() || "0";
+    if (pkg !== "0" && pkg !== "") {
+      txt_hhunit2.setValue(pkg + " " + (txt_hhunit.getValue() || ""));
+    }
+
+    // Say
+    if (resultCnt == 1) {
+      txt_hhsay.setValue(resultSay + " CONTAINER ONLY");
+    } else {
+      txt_hhsay.setValue(resultSay + " CONTAINERS ONLY");
+    }
+
+    // Print option (체크박스)
+    chb_hhp1.setValue("1");
+    chb_hhp2.setValue("1");
+    chb_hhp3.setValue("1");
+  } else if (lc_hhbltype.getValue() === "L") {
+    txt_hhsubpkg.setValue("");
+    txt_hhunit2.setValue("");
+    txt_hhsay.setValue("");
+    var pkgL = ed_hhpkg.getValue ? ed_hhpkg.getValue() : ed_hhpkg.getValue() || ed_hhpkg.text || ed_hhpkg.getValue() || "0";
+    if (pkgL !== "0" && pkgL !== "") {
+      txt_hhsubpkg.setValue(pkgL + " " + (txt_hhunit.getValue() || ""));
+      var engL = scwin._cf_NumChangeEng(String(pkgL));
+      if (String(pkgL) == "1") {
+        txt_hhsay.setValue(engL + "(" + pkgL + ") " + (txt_hhunit.getValue() || "") + " ONLY");
+      } else {
+        txt_hhsay.setValue(engL + "(" + pkgL + ") " + (txt_hhunit.getValue() || "") + "'S ONLY");
+      }
+    }
+    chb_hhp1.setValue("0");
+    chb_hhp2.setValue("1");
+    chb_hhp3.setValue("0");
+  }
+};
+
+// -------------------------------------------------------------------------
+// Booking Search Popup
+// - showModalDialog -> WebSquare popup.open (프로젝트 표준에 맞게 변경)
+// - 반환은 callback/Promise 기반으로 받는 방식 권장
+// -------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------
+// Container Dual Check (컨테이너 타입 중복 체크)
+// -------------------------------------------------------------------------
+scwin.f_containerDualCheck = async function () {
+  var t1 = ed_hhcnt1type.getValue ? ed_hhcnt1type.getValue() : ed_hhcnt1type.getValue() || ed_hhcnt1type.text || ed_hhcnt1type.getValue() || "";
+  var t2 = ed_hhcnt2type.getValue ? ed_hhcnt2type.getValue() : ed_hhcnt2type.getValue() || ed_hhcnt2type.text || ed_hhcnt2type.getValue() || "";
+  var t3 = ed_hhcnt3type.getValue ? ed_hhcnt3type.getValue() : ed_hhcnt3type.getValue() || ed_hhcnt3type.text || ed_hhcnt3type.getValue() || "";
+  var t4 = ed_hhcnt4type.getValue ? ed_hhcnt4type.getValue() : ed_hhcnt4type.getValue() || ed_hhcnt4type.text || ed_hhcnt4type.getValue() || "";
+  var dup = false;
+  if (t1 && t2 && t1 === t2) dup = true;
+  if (t1 && t3 && t1 === t3) dup = true;
+  if (t1 && t4 && t1 === t4) dup = true;
+  if (t2 && t3 && t2 === t3) dup = true;
+  if (t2 && t4 && t2 === t4) dup = true;
+  if (t3 && t4 && t3 === t4) dup = true;
+  if (dup) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_032, ["Container Type"]); // 중복 불가
+    return false;
+  }
+  return true;
+};
+
+// -------------------------------------------------------------------------
+// 수출신고번호 Check
+// -------------------------------------------------------------------------
+scwin.f_elnoExportCheck = async function (elno) {
+  var ChkCode = elno.charAt(14);
+  var sum = 0;
+  sum += Number(elno.charAt(0)) * 7 % 10;
+  sum += Number(elno.charAt(1)) * 3 % 10;
+  sum += Number(elno.charAt(2)) * 1 % 10;
+  sum += Number(elno.charAt(3)) * 7 % 10;
+  sum += Number(elno.charAt(4)) * 3 % 10;
+  sum += Number(elno.charAt(5)) * 1 % 10;
+  sum += Number(elno.charAt(6)) * 7 % 10;
+  sum += Number(elno.charAt(7)) * 3 % 10;
+  sum += Number(elno.charAt(8)) * 1 % 10;
+  sum += Number(elno.charAt(9)) * 7 % 10;
+  sum += Number(elno.charAt(10)) * 3 % 10;
+  sum += Number(elno.charAt(11)) * 1 % 10;
+  sum += Number(elno.charAt(12)) * 7 % 10;
+  sum += Number(elno.charAt(13)) * 3 % 10;
+  var result = sum % 10;
+  if (result > 0) result = 10 - result;
+  if (String(ChkCode) != String(result)) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_038, ["수출신고번호"]); // 유효하지 않음
+    return false;
+  }
+  return true;
+};
+
+// -------------------------------------------------------------------------
+// 화물관리번호 Check
+// -------------------------------------------------------------------------
+scwin.f_elnoReshipmentCheck = async function (elno) {
+  var ChkCode = elno.charAt(10);
+  var sum = 0;
+  sum += elno.charCodeAt(0) * 3 % 10;
+  sum += elno.charCodeAt(1) * 7 % 10;
+  sum += elno.charCodeAt(2) * 9 % 10;
+  sum += elno.charCodeAt(3) * 3 % 10;
+  sum += elno.charCodeAt(4) * 7 % 10;
+  sum += elno.charCodeAt(5) * 9 % 10;
+  sum += elno.charCodeAt(6) * 3 % 10;
+  sum += elno.charCodeAt(7) * 7 % 10;
+  sum += elno.charCodeAt(8) * 9 % 10;
+  sum += elno.charCodeAt(9) * 3 % 10;
+  var result = sum % 10;
+  if (String(ChkCode) != String(result)) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_ERR_038, ["화물관리번호"]); // 유효하지 않음
+    return false;
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// INVOICE NO 유무 (WebSquare)
+// ONLOAD 시 실행됨. INVOICE 존재하면 삭제/저장 제어용(invoiceCheck=1)
+// - GAUCE: ed_odrNo.getValue() / ds.DataID / ds.Reset() / setCellData / RowPosition
+// - WebSquare: comp.getValue() / submission execute / getCellData / getRowPosition
+//-------------------------------------------------------------------------
+scwin.f_invoiceCheck = async function () {
+  // House Invoice check
+  var strClntNo = "";
+  scwin.invoiceCheck = "0"; // 초기화
+
+  strClntNo = (ed_odrNo.getValue() || "").trim();
+  await scwin.f_commCode(ds_invoiceCheck, "SeaExportHouseEBC", "retriveInvoiceCheckCombo", strClntNo);
+  if (ds_invoiceCheck.getCellData(0, "code") != "0") {
+    scwin.invoiceCheck = "1";
+  }
+};
+
+//freight start
+//---------------------------------------------------------
+// 저장 (WebSquare)
+//---------------------------------------------------------
+scwin.f_Save_freight = async function () {
+  var dirty = ds_houseblList_freight.getModifiedIndex().length != 0 || ds_selling_freight.getModifiedIndex().length != 0 || ds_partner_freight.getModifiedIndex().length != 0 || ds_buying_freight.getModifiedIndex().length != 0;
+  if (dirty) {
+    if (!(await scwin.f_validate_freight()) || !(await scwin.f_FreightValidate()) || !(await scwin.f_JobCloseYn())) {
+      return false;
+    }
+  }
+  return true;
+};
+
+//---------------------------------------------------------
+// 취소 (WebSquare)
+//---------------------------------------------------------
+scwin.f_Cancel_freight = function () {
+  // dataset 롤백(프로젝트 표준에 맞춰 적용)
+  $c.data.undoAll($p, ds_houseblList_freight);
+  scwin.f_cancelRow_freight(1);
+  scwin.f_cancelRow_freight(2);
+  scwin.f_cancelRow_freight(3);
+};
+
+//-------------------------------------------------------------------------
+// Freight Row Add 공통 (Selling/Partner/Buying)
+//-------------------------------------------------------------------------
+scwin._freight_getSpec = function (disGubun) {
+  // disGubun: 1 Selling, 2 Partner, 3 Buying
+  if (disGubun == 1) {
+    return {
+      ds: ds_selling_freight,
+      grid: gr_selling_freight,
+      copy: {
+        rateCol: "sellUpr",
+        amtFcrc: "sellAmtFcrc",
+        amtW: "sellAmt",
+        amtUsd: "usdAmt"
+      },
+      fixed: {
+        locPtnCls: "1",
+        mblHblCls: "H",
+        seaAirCls: "S",
+        drcrCls: "D"
+      },
+      // header fill
+      fill: function (row) {
+        this.ds.setCellData(row, "kcomcd", scwin.hd_kcomcd);
+        this.ds.setCellData(row, "blNo", cnd_ed_hhblno.getValue());
+        this.ds.setCellData(row, "mhno", cnd_lc_mhno.getValue()); // 필요시 code값이면 project 방식으로 교체
+        this.ds.setCellData(row, "odrNo", ds_houseblList_freight.getCellData(ds_houseblList_freight.getRowPosition(), "odrNo"));
+        this.ds.setCellData(row, "locPtnCls", this.fixed.locPtnCls);
+        this.ds.setCellData(row, "mblHblCls", this.fixed.mblHblCls);
+        this.ds.setCellData(row, "seaAirCls", this.fixed.seaAirCls);
+        this.ds.setCellData(row, "drcrCls", this.fixed.drcrCls);
+        this.ds.setCellData(row, "ppccCls", lc_hhpcgb.getValue());
+        this.ds.setCellData(row, "inpid", scwin.vUserId || ""); // JSP <%=userId%> 대체 (프로젝트 전역 userId로 바꿔)
+        this.ds.setCellData(row, "bilgClntNo", ed_hhactcust.getValue());
+        this.ds.setCellData(row, "bilgClntNm", txt_hhactcustnm.getValue());
+        this.ds.setCellData(row, "rsltsStdDt", ed_creadyDt.getValue());
+        this.ds.setCellData(row, "exRateTyp", ed_selling_hhcur_freight.getValue());
+      },
+      after: function (row) {
+        scwin.f_sellingUnitLoading_freight();
+        this.ds.setCellData(row, "fareUnit", ds_sellingUnit_freight.getCellData(1, "code"));
+        scwin.f_packageRateSellingLoading_freight(row, "");
+        this.grid.focus();
+        this.grid.setFocusedCell(row, "fareEngCd");
+      }
+    };
+  }
+  if (disGubun == 2) {
+    return {
+      ds: ds_partner_freight,
+      grid: gr_partner_freight,
+      copy: {
+        rateCol: "sellUpr",
+        amtFcrc: "sellAmtFcrc",
+        amtW: "sellAmt",
+        amtUsd: "usdAmt"
+      },
+      fixed: {
+        locPtnCls: "2",
+        mblHblCls: "H",
+        seaAirCls: "S",
+        drcrCls: "D" // 원본: drCrCls / drcrCls 혼재 -> 프로젝트 컬럼명에 맞춰 조정
+      },
+      fill: function (row) {
+        this.ds.setCellData(row, "kcomcd", scwin.hd_kcomcd);
+        this.ds.setCellData(row, "blNo", cnd_ed_hhblno.getValue());
+        this.ds.setCellData(row, "mhno", cnd_lc_mhno.getValue());
+        this.ds.setCellData(row, "odrNo", ds_houseblList_freight.getCellData(ds_houseblList_freight.getRowPosition(), "odrNo"));
+        this.ds.setCellData(row, "drCrCls", this.fixed.drcrCls); // Partner는 drCrCls 컬럼 사용
+        this.ds.setCellData(row, "locPtnCls", this.fixed.locPtnCls);
+        this.ds.setCellData(row, "mblHblCls", this.fixed.mblHblCls);
+        this.ds.setCellData(row, "seaAirCls", this.fixed.seaAirCls);
+        this.ds.setCellData(row, "ppccCls", lc_hhpcgb.getValue());
+        this.ds.setCellData(row, "inpid", scwin.vUserId || "");
+        this.ds.setCellData(row, "bilgClntNo", ed_hhagent.getValue());
+        this.ds.setCellData(row, "bilgClntNm", txt_hhagentnm.getValue());
+        this.ds.setCellData(row, "rsltsStdDt", ed_creadyDt.getValue());
+        this.ds.setCellData(row, "exRateTyp", lc_selling_hhexgb_freight.getValue());
+      },
+      after: function (row) {
+        scwin.f_partnerUnitLoading_freight();
+        this.ds.setCellData(row, "fareUnit", ds_partnerUnit_freight.getCellData(1, "code"));
+        scwin.f_packageRatePartnerLoading_freight(row, "");
+        this.grid.focus();
+        this.grid.setFocusedCell(row, "fareEngCd");
+      }
+    };
+  }
+
+  // disGubun == 3 Buying
+  if (disGubun == 3) {
+    return {
+      ds: ds_buying_freight,
+      grid: gr_buying_freight,
+      copy: {
+        rateCol: "pchsUpr",
+        amtFcrc: "pchsAmtFcrc",
+        amtW: "pchsAmt",
+        amtUsd: "usdAmt"
+      },
+      fixed: {
+        locPtnCls: "1",
+        mblHblCls: "H",
+        seaAirCls: "S",
+        drcrCls: "C"
+      },
+      fill: function (row) {
+        this.ds.setCellData(row, "kcomcd", scwin.hd_kcomcd);
+        this.ds.setCellData(row, "blNo", cnd_ed_hhblno.getValue());
+        this.ds.setCellData(row, "mhno", cnd_lc_mhno.getValue());
+        this.ds.setCellData(row, "odrNo", ds_houseblList_freight.getCellData(ds_houseblList_freight.getRowPosition(), "odrNo"));
+        this.ds.setCellData(row, "locPtnCls", this.fixed.locPtnCls);
+        this.ds.setCellData(row, "mblHblCls", this.fixed.mblHblCls);
+        this.ds.setCellData(row, "seaAirCls", this.fixed.seaAirCls);
+        this.ds.setCellData(row, "drcrCls", this.fixed.drcrCls);
+        this.ds.setCellData(row, "ppccCls", lc_hhpcgb.getValue());
+        this.ds.setCellData(row, "inpid", scwin.vUserId || "");
+        this.ds.setCellData(row, "pchsClntNo", ed_hhliner.getValue());
+        this.ds.setCellData(row, "pchsClntNm", txt_hhlinernm.getValue());
+        this.ds.setCellData(row, "rsltsStdDt", ed_creadyDt.getValue());
+        this.ds.setCellData(row, "exRateTyp", lc_selling_hhexgb_freight.getValue());
+        this.ds.setCellData(row, "pchsTyp", "1");
+      },
+      after: function (row) {
+        scwin.f_buyingUnitLoading_freight();
+        this.ds.setCellData(row, "fareUnit", ds_buyingUnit_freight.getCellData(1, "code"));
+        scwin.f_packageRateBuyingLoading_freight(row, "");
+        this.grid.focus();
+        this.grid.setFocusedCell(row, "pchsTyp");
+      }
+    };
+  }
+};
+
+//-------------------------------------------------------------------------
+// row 삽입(원본: addRow / insertRow) - WebSquare 버전
+//  - 맨끝이면 addRow
+//  - 아니면 현재row 다음에 insertRow
+// 반환: 생성된 rowIndex
+//-------------------------------------------------------------------------
+scwin._freight_insertRow = function (ds) {
+  var cnt = ds.getRowCount();
+  var cur = ds.getRowPosition(); // 1-base인 경우/0-base인 경우 프로젝트에 맞춰 조정 필요
+  var inRow = -1;
+  if (cur == 0) {
+    inRow = ds.insertRow(0);
+  } else {
+    inRow = ds.insertRow(cur + 1);
+  }
+  ds.setRowPosition(inRow);
+  return inRow;
+};
+
+//-------------------------------------------------------------------------
+// 직전행 값 복사(단가/환율/금액류)
+//-------------------------------------------------------------------------
+scwin._freight_copyPrevAmounts = function (spec, newRow) {
+  var ds = spec.ds;
+  var cur = ds.getRowPosition();
+  var rate = ds.getCellData(cur, spec.copy.rateCol);
+  var exRate = ds.getCellData(cur, "exRate");
+  var a1 = ds.getCellData(cur, spec.copy.amtFcrc);
+  var a2 = ds.getCellData(cur, spec.copy.amtW);
+  var a3 = ds.getCellData(cur, spec.copy.amtUsd);
+  ds.setCellData(newRow, spec.copy.rateCol, rate);
+  ds.setCellData(newRow, "exRate", exRate);
+  ds.setCellData(newRow, spec.copy.amtFcrc, a1);
+  ds.setCellData(newRow, spec.copy.amtW, a2);
+  ds.setCellData(newRow, spec.copy.amtUsd, a3);
+};
+
+//---------------------------------------------------------
+// 행추가 (WebSquare)
+//---------------------------------------------------------
+scwin.f_addRow_freight = async function (disGubun, type) {
+  if (cnd_ed_hhblno.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003);
+    return;
+  }
+  var spec = scwin._freight_getSpec(disGubun);
+  var row = -1;
+  if (type == 'ADD') {
+    row = spec.ds.insertRow();
+  } else {
+    row = spec.ds.getRowPosition() + 1;
+    row = spec.ds.insertRow(row);
+  }
+  spec.fill(row);
+  scwin._freight_copyPrevAmounts(spec, row);
+
+  // unit / ratepack / focus
+  spec.after(row);
+};
+
+//---------------------------------------------------------
+// 다중 행추가 (WebSquare)
+//---------------------------------------------------------
+
+//---------------------------------------------------------
+// 행삭제 (WebSquare)
+//---------------------------------------------------------
+
+//---------------------------------------------------------
+// 행취소 (WebSquare)
+//---------------------------------------------------------
+scwin.f_cancelRow_freight = function (disGubun) {
+  if (disGubun == 1) {
+    if (ds_selling_freight.getCellData(1, "tabIndex") == "0") {
+      ds_selling_freight.removeAll();
+    } else {
+      $c.data.undoAll($p, ds_selling_freight);
+    }
+    return;
+  }
+  if (disGubun == 2) {
+    if (ds_partner_freight.getCellData(1, "tabIndex") == "1") {
+      ds_partner_freight.removeAll();
+    } else {
+      $c.data.undoAll($p, ds_partner_freight);
+    }
+    return;
+  }
+
+  // disGubun == 3
+  if (ds_buying_freight.getCellData(1, "tabIndex") == "2") {
+    ds_buying_freight.removeAll();
+  } else {
+    $c.data.undoAll($p, ds_buying_freight);
+  }
+};
+
+//-------------------------------------------------------------------------
+// ds에서 code값이 존재하는지 체크 (code컬럼명/프로젝트 표준에 맞게 변경)
+// - 성공: true
+// - 실패: false
+//-------------------------------------------------------------------------
+scwin._existsCode = async function (ds, codeCol, codeVal) {
+  if (codeVal == "") return true;
+
+  // 일반적으로 code 컬럼이 "code"일 가능성이 높음
+  for (var i = 0; i < ds.getRowCount(); i++) {
+    if (String(ds.getCellData(i, codeCol)) == String(codeVal)) return true;
+  }
+  return false;
+};
+
+//---------------------------------------------------------
+// validate (WebSquare)
+//---------------------------------------------------------
+scwin.f_validate_freight = async function () {
+  // 1) 기본 validate (프로젝트 공통 그대로 사용)
+  var isValid = false;
+  isValid = await $c.gus.cfValidate($p, [ed_selling_hhcurdt_freight, ed_hhetd]);
+  if (!isValid) return false;
+  var chkGrid = [gr_selling_freight, gr_partner_freight, gr_buying_freight];
+  for (var i = 0; i < chkGrid.length; i++) {
+    isValid = await $c.gus.cfValidate($p, [chkGrid[i]]);
+    if (!isValid) return false;
+  }
+
+  // 2) 필수값
+  if (cnd_ed_hhblno.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["House B/L"]);
+    cnd_ed_hhblno.focus();
+    return false;
+  }
+  if (ed_hhetd.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["ETD"]);
+    ed_hhetd.focus();
+    return false;
+  }
+
+  // 3) Container Type value check (원본 getCellData 대체)
+  var c1 = ed_hhcnt1type_freight.getValue();
+  var c2 = ed_hhcnt2type_freight.getValue();
+  var c3 = ed_hhcnt3type_freight.getValue();
+  var c4 = ed_hhcnt4type_freight.getValue();
+
+  // ds_containerType_freight의 코드 컬럼명이 "code"가 아니라면 바꿔줘
+  if (!scwin._existsCode(ds_containerType_freight, "code", c1)) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]);
+    ed_hhcnt1type_freight.focus();
+    return false;
+  }
+  if (!scwin._existsCode(ds_containerType_freight, "code", c2)) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]);
+    ed_hhcnt2type_freight.focus();
+    return false;
+  }
+  if (!scwin._existsCode(ds_containerType_freight, "code", c3)) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]);
+    ed_hhcnt3type_freight.focus();
+    return false;
+  }
+  if (!scwin._existsCode(ds_containerType_freight, "code", c4)) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]);
+    ed_hhcnt4type_freight.focus();
+    return false;
+  }
+
+  // 4) Selling 필수 컬럼
+  for (var i = 0; i < ds_selling_freight.getRowCount(); i++) {
+    if (ds_selling_freight.getCellData(i, "bilgClntNm") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer Name"]);
+      gr_selling_freight.focus();
+      gr_selling_freight.setFocusedCell(i, "bilgClntNm");
+      return false;
+    }
+    if (ds_selling_freight.getCellData(i, "bilgClntNo") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer"]);
+      gr_selling_freight.focus();
+      gr_selling_freight.setFocusedCell(i, "bilgClntNo");
+      return false;
+    }
+    if (ds_selling_freight.getCellData(i, "fareEngCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["F/Code"]);
+      gr_selling_freight.focus();
+      gr_selling_freight.setFocusedCell(i, "fareEngCd");
+      return false;
+    }
+    if (ds_selling_freight.getCellData(i, "crcCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Currency"]);
+      gr_selling_freight.focus();
+      gr_selling_freight.setFocusedCell(i, "crcCd");
+      return false;
+    }
+    if (ds_selling_freight.getCellData(i, "fareUnit") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Unit"]);
+      gr_selling_freight.focus();
+      gr_selling_freight.setFocusedCell(i, "fareUnit");
+      return false;
+    }
+  }
+
+  // 5) Partner 필수 컬럼
+  for (var j = 0; j < ds_partner_freight.getRowCount(); j++) {
+    if (ds_partner_freight.getCellData(j, "bilgClntNo") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer"]);
+      gr_partner_freight.focus();
+      gr_partner_freight.setFocusedCell(j, "bilgClntNo");
+      return false;
+    }
+    if (ds_partner_freight.getCellData(j, "bilgClntNm") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer Name"]);
+      gr_partner_freight.focus();
+      gr_partner_freight.setFocusedCell(j, "bilgClntNm");
+      return false;
+    }
+    if (ds_partner_freight.getCellData(j, "fareEngCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["F/Code"]);
+      gr_partner_freight.focus();
+      gr_partner_freight.setFocusedCell(j, "fareEngCd");
+      return false;
+    }
+    if (ds_partner_freight.getCellData(j, "drCrCls") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["D/C"]);
+      gr_partner_freight.focus();
+      gr_partner_freight.setFocusedCell(j, "drCrCls");
+      return false;
+    }
+    if (ds_partner_freight.getCellData(j, "crcCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Currency"]);
+      gr_partner_freight.focus();
+      gr_partner_freight.setFocusedCell(j, "crcCd");
+      return false;
+    }
+    if (ds_partner_freight.getCellData(j, "fareUnit") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Unit"]);
+      gr_partner_freight.focus();
+      gr_partner_freight.setFocusedCell(j, "fareUnit");
+      return false;
+    }
+  }
+
+  // 6) Buying 필수 컬럼
+  for (var k = 0; k < ds_buying_freight.getRowCount(); k++) {
+    if (ds_buying_freight.getCellData(k, "pchsTyp") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Type"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "pchsTyp");
+      return false;
+    }
+    if (ds_buying_freight.getCellData(k, "pchsClntNo") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "pchsClntNo");
+      return false;
+    }
+    if (ds_buying_freight.getCellData(k, "pchsClntNm") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Customer Name"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "pchsClntNm");
+      return false;
+    }
+    if (ds_buying_freight.getCellData(k, "fareEngCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["F/Code"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "fareEngCd");
+      return false;
+    }
+    if (ds_buying_freight.getCellData(k, "crcCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Currency"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "crcCd");
+      return false;
+    }
+    if (ds_buying_freight.getCellData(k, "fareUnit") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Unit"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "fareUnit");
+      return false;
+    }
+    // Inner Dept (pchsTyp=3)
+    if (ds_buying_freight.getCellData(k, "pchsTyp") == "3" && ds_buying_freight.getCellData(k, "sellDeptCd") == "") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["Inner Department"]);
+      gr_buying_freight.focus();
+      gr_buying_freight.setFocusedCell(k, "sellDeptCd");
+      return false;
+    }
+  }
+
+  // 7) VAT 체크 (Selling)
+  for (var s = 0; s < ds_selling_freight.getRowCount(); s++) {
+    var vatYn = Number(ds_selling_freight.getCellData(s, "vatYn"));
+    var vatAmt = Number(ds_selling_freight.getCellData(s, "vatAmt"));
+    var sellAmt = Number(ds_selling_freight.getCellData(s, "sellAmt"));
+    if (vatYn == 0) {
+      if (vatAmt > 0) {
+        $c.win.alert($p, "영세코드와 부가세 금액은 함께 입력될 수 없습니다. <br>Selling List " + s + "번째 데이터를 확인하세요.");
+        gr_selling_freight.focus();
+        return false;
+      }
+    }
+    if (vatYn == 1) {
+      if (Math.abs(Math.round(sellAmt * 0.1) - vatAmt) > 1) {
+        $c.win.alert($p, "VAT 금액은 Amount(W)금액의 10%입니다. <br>Selling List " + s + "번째 VAT 금액을 확인하세요.");
+        gr_selling_freight.focus();
+        gr_selling_freight.setFocusedCell(s, "vatAmt");
+        return false;
+      }
+    }
+  }
+
+  // 8) VAT 체크 (Buying) - 원본: vat 컬럼 사용
+  for (var b = 0; b < ds_buying_freight.getRowCount(); b++) {
+    var vatYn2 = Number(ds_buying_freight.getCellData(b, "vatYn"));
+    var vat2 = Number(ds_buying_freight.getCellData(b, "vat"));
+    if (vatYn2 == 0 && vat2 > 0) {
+      $c.win.alert($p, "영세코드와 부가세 금액은 함께 입력될 수 없습니다. <br>Buying List " + b + "번째 데이터를 확인하세요.");
+      gr_buying_freight.focus();
+      return false;
+    }
+  }
+
+  // 9) 공통 Freight Name Validation
+  if (!scwin.cf_freightNameValidation(ds_selling_freight, ds_partner_freight, ds_buying_freight)) {
+    return false;
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// Freight 공통팝업(Partner/Customer/Liner + Port/ContainerType) - udc_ilcomCode 통일버전
+//-------------------------------------------------------------------------
+// 공통: 값 get/set
+
+// 공통: rtnList normalize (단건/다건/객체형 대응)
+
+// 공통: 팝업 오픈 래퍼 (udc_ilcomCode 고정)
+
+//-------------------------------------------------------------------------
+// 공통팝업 열기 (Freight - Partner/Customer/Liner)
+//-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
+// function name : scwin.f_PopUpGrid
+// function desc : Grid popup (GAUCE -> WebSquare, udc_ilcomCode 기반)
+//-------------------------------------------------------------------------
+scwin.f_PopUpGrid = function (disGubun, Row, pWinCloseTF, pAllSearchTF) {
+  function normalizeRtn(rtnList) {
+    if (!rtnList || rtnList == "N/A") return null;
+    if (rtnList.list && Array.isArray(rtnList.list)) rtnList = rtnList.list;
+    if (Array.isArray(rtnList) && rtnList.length > 0 && Array.isArray(rtnList[0])) return rtnList[0];
+    if (Array.isArray(rtnList)) return rtnList;
+    var arr = [];
+    if (rtnList.code != null) arr[0] = rtnList.code;
+    if (rtnList.name != null) arr[1] = rtnList.name;
+    return arr.length ? arr : null;
+  }
+  function setGridCode(ds, row, codeCol, r) {
+    if (!ds || row == null) return;
+    ds.setCellData(row, codeCol, r[0] || "");
+  }
+  function setGridCodeClear(ds, row, codeCol) {
+    if (!ds || row == null) return;
+    ds.setCellData(row, codeCol, "");
+  }
+  function gv(ds, row, col) {
+    return String(ds.getCellData(row, col) || "");
+  }
+  function openCommon(args) {
+    setGridCodeClear(args.ds, args.row, args.codeCol);
+    var onReturn = function (rtnList) {
+      var r = normalizeRtn(rtnList);
+      if (!r) {
+        args.onEmpty();
+        return;
+      }
+      setGridCode(args.ds, args.row, args.codeCol, r);
+    };
+    udc_ilcomCode.setSelectId(args.selectId);
+    udc_ilcomCode.ilCommonPopUp(onReturn, args.codeValue || "", args.setCellData || "", args.winCloseTF, args.colCnt, args.titles, args.widths, args.hideCols, args.whereOpt || "", args.winW || "500", args.winH || "500", args.posY || "", args.posX || "", args.dupTF || "", args.allTF || "F", args.winTitle || "", args.noDataTF || "F");
+  }
+  switch (disGubun) {
+    case "mctype":
+      openCommon({
+        selectId: "retriveContainerTypeCodeInfo",
+        ds: ds_ocContList,
+        row: Row,
+        codeCol: "mctype",
+        codeValue: gv(ds_ocContList, Row, "mctype"),
+        setCellData: "",
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        allTF: pAllSearchTF,
+        winTitle: "Type,Code,Name",
+        noDataTF: "F",
+        onEmpty: function () {
+          ds_ocContList.setCellData(Row, "mctype", "");
+        }
+      });
+      break;
+    case "mcpkgcd":
+      openCommon({
+        selectId: "retrieveCommCdInfo",
+        ds: ds_ocContList,
+        row: Row,
+        codeCol: "mcpkgcd",
+        codeValue: gv(ds_ocContList, Row, "mcpkgcd"),
+        setCellData: "",
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        whereOpt: "IL002",
+        allTF: pAllSearchTF,
+        winTitle: "Unit,Code,Name",
+        noDataTF: "F",
+        onEmpty: function () {
+          ds_ocContList.setCellData(Row, "mcpkgcd", "");
+        }
+      });
+      break;
+    case "unit":
+      openCommon({
+        selectId: "retrieveCommCdInfo",
+        ds: ds_ocElList,
+        row: Row,
+        codeCol: "unit",
+        codeValue: gv(ds_ocElList, Row, "unit"),
+        setCellData: "",
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        whereOpt: "IL002",
+        allTF: pAllSearchTF,
+        winTitle: "Unit,Code,Name",
+        noDataTF: "F",
+        onEmpty: function () {
+          ds_ocElList.setCellData(Row, "unit", "");
+        }
+      });
+      break;
+    case "mut":
+      openCommon({
+        selectId: "retrieveCommCdInfo",
+        ds: ds_ocElList,
+        row: Row,
+        codeCol: "mut",
+        codeValue: gv(ds_ocElList, Row, "mut"),
+        setCellData: "",
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        whereOpt: "IL002",
+        allTF: pAllSearchTF,
+        winTitle: "Unit,Code,Name",
+        noDataTF: "F",
+        onEmpty: function () {
+          ds_ocElList.setCellData(Row, "mut", "");
+        }
+      });
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 공통팝업 열기 (Freight - Port/ContainerType)
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// Freight 화면이동 공통 파라미터
+//-------------------------------------------------------------------------
+// (기존 GAUCE: scwin.hd_kcomcd, scwin.hd_hhio, cnd_ed_hhblno.getValue(), cnd_lc_mhno.getValue())
+scwin._getCommonParam_freight = function () {
+  return {
+    kcomcd: scwin.hd_kcomcd || "",
+    // 법인코드
+    seaair: "S",
+    // sea:S, air:A
+    iogb: scwin.hd_hhio || "",
+    // out:O, in:I
+    blno: cnd_ed_hhblno.getValue() || "",
+    // house blno
+    mblno: "",
+    // master blno(원본: "")
+    mhno: cnd_lc_mhno.getValue() || "" // mhno
+  };
+};
+
+//-------------------------------------------------------------------------
+// 화면이동 (Freight) - GAUCE f_openPgm_freight 변환
+// $c.win.openMenu
+// title : 탭/메뉴 타이틀
+// path  : 이동할 화면 경로
+// menuId: 메뉴ID(없으면 path로 대체 가능)
+// param : 전달 파라미터 객체
+//-------------------------------------------------------------------------
+// ※ 원본은 URL querystring으로 붙였지만,
+//   WebSquare는 openMenu + param 객체로 전달(서버단에서 param을 쿼리로 받도록 되어있다면 자동 매핑)
+scwin.f_openPgm_freight = function (name) {
+  var p = scwin._getCommonParam_freight();
+  if (name == "Partner") {
+    $c.win.openMenu($p, "Partner Statement", "/ui/il/acc/acpar/ac_104_01_01b.xml", "ac_104_01_01b.xml", p, {
+      openAction: "exist"
+    });
+  } else if (name == "Invoice") {
+    $c.win.openMenu($p, "Invoice", "/ui/il/acc/acinv/ac_101_01_01b.xml", "ac_101_01_01b.xml", p, {
+      openAction: "exist"
+    });
+  } else if (name == "Profit") {
+    $c.win.openMenu($p, "Booking Sheet", "/ui/il/pfm/pfbs/pe_101_01_01b.xml", "pe_101_01_01b.xml", p, {
+      openAction: "exist"
+    });
+  } else if (name == "HouseBLFind") {
+    $c.win.openMenu($p, "House B/L Search", "/ui/il/seaout/sobl/se_105_01_02b.xml", "se_105_01_02b.xml", {
+      hhio: p.hd_hhio || ""
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "HouseBLHeader") {
+    $c.win.openMenu($p, "Export House B/L", "/ui/il/seaout/sobl/se_105_01_01b.xml", "se_105_01_01b.xml", {
+      linkcheck: "2",
+      kcomcd: p.kcomcd,
+      blno: p.blno,
+      mhno: p.mhno
+    }, {
+      openAction: "exist"
+    });
+  } else if (name == "paymentINV") {
+    $c.win.openMenu($p, "Payment Invoice", "/ui/il/acc/acpay/ac_106_01_01b.xml", "ac_106_01_01b.xml", {
+      kcomcd: p.kcomcd,
+      seaair: p.seaair,
+      iogb: p.iogb,
+      blno: p.blno,
+      mhno: p.mhno
+    }, {
+      openAction: "exist"
+    });
+  }
+};
+
+//-------------------------------------------------------------------------
+// Freight - 공통 유틸 (값/데이터셋 접근)
+//-------------------------------------------------------------------------
+
+// 컴포넌트 값 get/set (input / w2 컴포넌트 모두 대응)
+scwin._getVal = function (comp) {
+  if (!comp) return "";
+  return String(comp.getValue() || "").trim();
+};
+scwin._setVal = function (comp, v) {
+  if (!comp) return;
+  comp.setValue(v);
+};
+
+// dataset get/set (WebSquare DataList 기준)
+
+// 행 포지션(프로젝트마다 0/1 base 혼재 방어)
+
+// CountRow 방어
+
+/* ==
+* 공통 유틸
+* == */
+
+// 마지막 행 추가 후 현재 rowPosition 반환
+scwin._insertRowLast = function (ds) {
+  ds.insert(ds.getRowCount());
+  return ds.getRowPosition();
+};
+scwin._deleteAll = function (ds) {
+  for (var i = 0; i < ds.getRowCount; i++) {
+    ds.deleteRow(i);
+  }
+};
+
+// trim getter (컴포넌트/인풋 혼용)
+scwin._getTrim = function (comp) {
+  if (typeof comp == 'object') {
+    return String(comp.getValue() || "").trim();
+  } else {
+    return comp.trim();
+  }
+};
+
+// value setter
+scwin._setVal = function (comp, v) {
+  if (!comp) return;
+  comp.setValue(v);
+};
+
+/* ==
+* 1) Combo Loading (DataID + reset -> WebSquare 방식)
+*   - WebSquare에서는 DataList.setRequestURI(...) + load() 형태가 흔함
+*   - 프로젝트 표준에 맞게 아래 2가지 중 하나로 쓰면 됨.
+* == */
+
+// (A) 가장 보수적: 기존 DataID/Reset 개념을 "requestURI + load"로 치환한 형태
+scwin.f_ContainerTypeLoading_freight = function () {
+  scwin.f_commCode(ds_containerType_freight, "ilCommonEBC", "retriveContainerTypeList");
+};
+scwin.f_CurrencyLoading_freight = function () {
+  scwin.f_commCode(ds_currencyCode_freight, "ilCommonEBC", "retriveCurrencyCodeList");
+};
+
+/* ==
+* 2) ExRate - House
+* == */
+scwin.f_ExRateHouseLoading_freight = async function () {
+  var curRate = scwin._getTrim(ed_selling_hhexrate_freight);
+  if (curRate == "" || curRate == "0") {
+    var param1 = scwin._getTrim(ed_selling_hhcur_freight);
+    var param2 = scwin._getTrim(ed_selling_hhcurdt_freight);
+    var param3 = lc_selling_hhexgb_freight && lc_selling_hhexgb_freight.getValue ? lc_selling_hhexgb_freight.getValue() : lc_selling_hhexgb_freight.getValue() || "";
+    var params = {
+      sysCd: "ilCommonEBC",
+      queryId: "retrieveExRate",
+      param1: param1,
+      param2: param2,
+      param3: param3,
+      param4: ""
+    };
+    await scwin.execComboAndCopy(params, {
+      target: ds_exHouseRate_freight,
+      responsePath: "GAUCE"
+    });
+
+    // GAUCE: setCellData(1,"CODE"), setCellData(1,"NAME")
+    var code = ds_exHouseRate_freight.getCellData(0, "CODE");
+    var name = ds_exHouseRate_freight.getCellData(0, "NAME");
+    scwin._setVal(ed_selling_hhexrate_freight, code);
+    scwin._setVal(ed_selling_hhuexrate_freight, name);
+    if ((code == "" || code == null) && param1 != "KRW") {
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]);
+      scwin.exRateCheck = "1";
+    } else {
+      scwin.exRateCheck = "2";
+      scwin.exRate1 = code;
+      scwin.exRate2 = name;
+      scwin.crc = param1;
+    }
+  }
+};
+
+/* ==
+* 3) ExRate - Selling Grid
+* == */
+scwin.f_ExRateSellingGridLoading_freight = async function (row) {
+  var headerCur = scwin._getTrim(ed_selling_hhcur_freight);
+  var rowCur = ds_selling_freight.getCellData(row, "crcCd");
+  if (headerCur == rowCur) {
+    ds_selling_freight.setCellData(row, "exRate", scwin._getTrim(ed_selling_hhexrate_freight));
+    return;
+  }
+  var exRate = ds_selling_freight.getCellData(row, "exRate");
+  if (exRate == "" || exRate == "0") {
+    var param1 = rowCur;
+    var param2 = ed_selling_hhcurdt_freight.getValue().trim();
+    var param3 = lc_selling_hhexgb_freight.getValue();
+    await scwin.f_commCode(ds_exRateSellingGrid_freight, "ilCommonEBC", "retrieveExRate", param1, param2, param3);
+    if (ds_exRateSellingGrid_freight.getRowCount() != 0) {
+      ds_selling_freight.setCellData(row, "exRate", ds_exRateSellingGrid_freight.getCellData(0, "code"));
+    } else {
+      ds_selling_freight.setCellData(row, "exRate", 0);
+      if (param1 != "KRW") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]);
+      }
+    }
+  }
+};
+
+/* ==
+* 4) ExRate - Partner Grid
+* == */
+scwin.f_ExRatePartnerGridLoading_freight = async function (row) {
+  var sellingCur = scwin._val(ed_selling_hhcur_freight);
+  var partnerCur = ds_partner_freight.getCellData(row, "crcCd");
+
+  // selling 통화와 동일하면 selling 환율 사용
+  if (sellingCur == partnerCur) {
+    ds_partner_freight.setCellData(row, "exRate", scwin._val(ed_selling_hhexrate_freight));
+  } else {
+    var exRate = ds_partner_freight.getCellData(row, "exRate");
+    if (exRate != "" && exRate != "0") return;
+    var param1 = partnerCur;
+    var param2 = ed_selling_hhcurdt_freight.getValue().trim();
+    var param3 = lc_selling_hhexgb_freight.getValue();
+    await scwin.f_commCode(ds_exRatePartnerGrid, "ilCommonEBC", "retrieveExRate", param1, param2, param3);
+    if (ds_exRatePartnerGrid.getRowCount() != 0) {
+      ds_partner_freight.setCellData(row, "exRate", ds_exRatePartnerGrid.getCellData(0, "code"));
+    } else {
+      ds_partner_freight.setCellData(row, "exRate", 0);
+      if (param1 != "KRW") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]);
+      }
+    }
+  }
+};
+
+/* ==
+* 4) ExRate - Buying Grid
+* == */
+scwin.f_ExRateBuyingGridLoading_freight = async function (row) {
+  var headerCur = scwin._getTrim(ed_selling_hhcur_freight);
+  var rowCur = ds_buying_freight.getCellData(row, "crcCd");
+  if (headerCur == rowCur) {
+    ds_buying_freight.setCellData(row, "exRate", scwin._getTrim(ed_selling_hhexrate_freight));
+    return;
+  }
+  var exRate = ds_buying_freight.getCellData(row, "exRate");
+  if (exRate == "" || exRate == "0") {
+    var param1 = rowCur;
+    var param2 = ed_selling_hhcurdt_freight.getValue().trim();
+    var param3 = lc_selling_hhexgb_freight.getValue();
+    await scwin.f_commCode(ds_exRateBuyingGrid_freight, "ilCommonEBC", "retrieveExRate", param1, param2, param3);
+    if (ds_exRateBuyingGrid_freight.getRowCount() != 0) {
+      ds_buying_freight.setCellData(row, "exRate", ds_exRateBuyingGrid_freight.getCellData(0, "code"));
+    } else {
+      ds_buying_freight.setCellData(row, "exRate", 0);
+      if (param1 != "KRW") {
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]);
+      }
+    }
+  }
+};
+
+/* ==
+* 5) Unit Loading (Selling/Partner/Buying 공통)
+* == */
+
+scwin._getCntTypeParam4 = function () {
+  var cnt1 = "0",
+    cnt2 = "0",
+    cnt3 = "0",
+    cnt4 = "0";
+  if (scwin._getTrim(ed_hhcnt1type_freight) != "" && scwin._getTrim(ed_hhcnt1_freight) != "0") cnt1 = scwin._getTrim(ed_hhcnt1type_freight);
+  if (scwin._getTrim(ed_hhcnt2type_freight) != "" && scwin._getTrim(ed_hhcnt2_freight) != "0") cnt2 = scwin._getTrim(ed_hhcnt2type_freight);
+  if (scwin._getTrim(ed_hhcnt3type_freight) != "" && scwin._getTrim(ed_hhcnt3_freight) != "0") cnt3 = scwin._getTrim(ed_hhcnt3type_freight);
+  if (scwin._getTrim(ed_hhcnt4type_freight) != "" && scwin._getTrim(ed_hhcnt4_freight) != "0") cnt4 = scwin._getTrim(ed_hhcnt4type_freight);
+  return {
+    cnt1: cnt1,
+    cnt2: cnt2,
+    cnt3: cnt3,
+    cnt4: cnt4
+  };
+};
+scwin.f_sellingUnitLoading_freight = async function () {
+  var p = scwin._getCntTypeParam4();
+  await scwin.f_commCode(ds_sellingUnit_freight, 'SeaExportHouseEBC', 'retriveUnitList', p.cnt1, p.cnt2, p.cnt3, p.cnt4);
+};
+scwin.f_partnerUnitLoading_freight = async function () {
+  var p = scwin._getCntTypeParam4();
+  await scwin.f_commCode(ds_partnerUnit_freight, 'SeaExportHouseEBC', 'retriveUnitList', p.cnt1, p.cnt2, p.cnt3, p.cnt4);
+};
+scwin.f_buyingUnitLoading_freight = async function () {
+  var p = scwin._getCntTypeParam4();
+  await scwin.f_commCode(ds_buyingUnit_freight, 'SeaExportHouseEBC', 'retriveUnitList', p.cnt1, p.cnt2, p.cnt3, p.cnt4);
+};
+
+/* ==
+* 6) TariffRate Loading (Selling/Partner/Buying)
+*    - tr_retrieveTariff_freight.Post() -> $c.sbm.execute(sbm_retrieveTariff_freight)
+* == */
+
+scwin.f_sellingTariffRateLoading_freight = async function () {
+  dma_retrieveTariff_freight.setArray([]);
+  ds_resultTariff_freight.removeAll();
+  dma_retrieveTariff_freight.set("fgubn", '1');
+  dma_retrieveTariff_freight.set("kcomcd", scwin.hd_kcomcd || "");
+  dma_retrieveTariff_freight.set("apdt", scwin._getTrim(ed_hhetd.getValue()));
+  dma_retrieveTariff_freight.set("customer", scwin._getTrim(ed_hhactcust.getValue()));
+  dma_retrieveTariff_freight.set("partner", "");
+  dma_retrieveTariff_freight.set("liner", scwin._getTrim(ed_hhliner.getValue()));
+  dma_retrieveTariff_freight.set("loading", scwin._getTrim(ed_hhlodcd.getValue()));
+  dma_retrieveTariff_freight.set("discharge", scwin._getTrim(ed_hhdisccd.getValue()));
+  dma_retrieveTariff_freight.set("item", scwin._getTrim(ed_hhitem.getValue()) || "");
+  dma_retrieveTariff_freight.set("cbgubn", "C");
+  dma_retrieveTariff_freight.set("incoterm", "");
+  dma_retrieveTariff_freight.set("userid", scwin.vUserId);
+  dma_retrieveTariff_freight.set("dangerous", rd_hhdanggb.getValue() || "");
+  dma_retrieveTariff_freight.set("commcustomer", scwin.hd_commcustomer_freight || "");
+  dma_retrieveTariff_freight.set("fcode", ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "fareEngCd"));
+  dma_retrieveTariff_freight.set("currency", ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "crcCd"));
+  dma_retrieveTariff_freight.set("funit", ds_selling_freight.getCellData(ds_selling_freight.getRowPosition(), "fareUnit"));
+  dma_retrieveTariff_freight.set("flag", "2");
+  dma_retrieveTariff_freight.set("transTariffYn", "Y");
+  dma_retrieveTariff_freight.set("blNo", scwin._getTrim(cnd_ed_hhblno));
+  dma_retrieveTariff_freight.set("mhno", scwin._getTrim(cnd_lc_mhno));
+  await $c.sbm.execute($p, sbm_retrieveTariff_freight);
+  if (ds_resultTariff_freight.getRowCount() == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var amount = ds_resultTariff_freight.getCellData(0, "amount");
+  ds_selling_freight.setCellData(ds_selling_freight.getRowPosition(), "sellUpr", amount);
+};
+scwin.f_partnerTariffRateLoading_freight = async function () {
+  dma_retrieveTariff_freight.setArray([]);
+  ds_resultTariff_freight.removeAll();
+  dma_retrieveTariff_freight.set("fgubn", '3');
+  dma_retrieveTariff_freight.set("kcomcd", scwin.hd_kcomcd || "");
+  dma_retrieveTariff_freight.set("apdt", scwin._getTrim(ed_hhetd.getValue()));
+  dma_retrieveTariff_freight.set("customer", "");
+  dma_retrieveTariff_freight.set("partner", scwin._getTrim(ed_hhagent.getValue()));
+  dma_retrieveTariff_freight.set("liner", "");
+  dma_retrieveTariff_freight.set("loading", scwin._getTrim(ed_hhlodcd.getValue()));
+  dma_retrieveTariff_freight.set("discharge", scwin._getTrim(ed_hhdisccd.getValue()));
+  dma_retrieveTariff_freight.set("item", scwin._getTrim(ed_hhitem.getValue()) || "");
+  dma_retrieveTariff_freight.set("cbgubn", "C");
+  dma_retrieveTariff_freight.set("incoterm", "");
+  dma_retrieveTariff_freight.set("userid", scwin.vUserId);
+  dma_retrieveTariff_freight.set("dangerous", rd_hhdanggb.getValue() || "");
+  dma_retrieveTariff_freight.set("commcustomer", scwin.hd_commcustomer_freight || "");
+  dma_retrieveTariff_freight.set("fcode", ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "fareEngCd"));
+  dma_retrieveTariff_freight.set("currency", ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "crcCd"));
+  dma_retrieveTariff_freight.set("funit", ds_partner_freight.getCellData(ds_partner_freight.getRowPosition(), "fareUnit"));
+  dma_retrieveTariff_freight.set("flag", "2");
+  dma_retrieveTariff_freight.set("transTariffYn", "N");
+  dma_retrieveTariff_freight.set("blNo", "");
+  dma_retrieveTariff_freight.set("mhno", "");
+  await $c.sbm.execute($p, sbm_retrieveTariff_freight);
+  if (ds_resultTariff_freight.getRowCount() == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var amount = ds_resultTariff_freight.getCellData(0, "amount");
+  ds_partner_freight.setCellData(ds_partner_freight.getRowPosition(), "sellUpr", amount);
+};
+scwin.f_buyingTariffRateLoading_freight = async function () {
+  dma_retrieveTariff_freight.setArray([]);
+  ds_resultTariff_freight.removeAll();
+  dma_retrieveTariff_freight.set("fgubn", '2');
+  dma_retrieveTariff_freight.set("kcomcd", scwin.hd_kcomcd || "");
+  dma_retrieveTariff_freight.set("apdt", scwin._getTrim(ed_hhetd.getValue()));
+  dma_retrieveTariff_freight.set("customer", scwin._getTrim(ed_hhactcust.getValue()));
+  dma_retrieveTariff_freight.set("partner", "");
+  dma_retrieveTariff_freight.set("liner", scwin._getTrim(ed_hhliner.getValue()));
+  dma_retrieveTariff_freight.set("loading", scwin._getTrim(ed_hhlodcd.getValue()));
+  dma_retrieveTariff_freight.set("discharge", scwin._getTrim(ed_hhdisccd.getValue()));
+  dma_retrieveTariff_freight.set("item", scwin._getTrim(ed_hhitem.getValue()) || "");
+  dma_retrieveTariff_freight.set("cbgubn", "C");
+  dma_retrieveTariff_freight.set("incoterm", "");
+  dma_retrieveTariff_freight.set("userid", scwin.vUserId);
+  dma_retrieveTariff_freight.set("dangerous", rd_hhdanggb.getValue() || "");
+  dma_retrieveTariff_freight.set("commcustomer", scwin.hd_commcustomer_freight || "");
+  dma_retrieveTariff_freight.set("fcode", ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "fareEngCd"));
+  dma_retrieveTariff_freight.set("currency", ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "crcCd"));
+  dma_retrieveTariff_freight.set("funit", ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "fareUnit"));
+  dma_retrieveTariff_freight.set("flag", "2");
+  dma_retrieveTariff_freight.set("transTariffYn", "Y");
+  dma_retrieveTariff_freight.set("blNo", scwin._getTrim(cnd_ed_hhblno));
+  dma_retrieveTariff_freight.set("mhno", scwin._getTrim(cnd_lc_mhno));
+  await $c.sbm.execute($p, sbm_retrieveTariff_freight);
+  if (ds_resultTariff_freight.getRowCount() == 0) {
+    $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var amount = ds_resultTariff_freight.getCellData(0, "amount");
+  ds_buying_freight.setCellData(ds_buying_freight.getRowPosition(), "pchsUpr", amount);
+};
+
+/* ==
+* 7) Tariff All (Selling/Partner/Buying)
+* == */
+
+scwin._cf_NumChangeEng = function (input) {
+  function d1(x) {
+    // single digit terms
+    switch (x) {
+      case '0':
+        n = "";
+        break;
+      case '1':
+        n = " ONE ";
+        break;
+      case '2':
+        n = " TWO ";
+        break;
+      case '3':
+        n = " THREE ";
+        break;
+      case '4':
+        n = " FOUR ";
+        break;
+      case '5':
+        n = " FIVE ";
+        break;
+      case '6':
+        n = " SIX ";
+        break;
+      case '7':
+        n = " SEVEN ";
+        break;
+      case '8':
+        n = " EIGHT ";
+        break;
+      case '9':
+        n = " NINE ";
+        break;
+      default:
+        n = "Not a Number";
+    }
+    return n;
+  }
+  function d2(x) {
+    // 10x digit terms
+    switch (x) {
+      case '0':
+        n = "";
+        break;
+      case '1':
+        n = "";
+        break;
+      case '2':
+        n = " TWENTY ";
+        break;
+      case '3':
+        n = " THIRTY ";
+        break;
+      case '4':
+        n = " FORTY ";
+        break;
+      case '5':
+        n = " FIFTY ";
+        break;
+      case '6':
+        n = " SIXTY ";
+        break;
+      case '7':
+        n = " SEVENTY ";
+        break;
+      case '8':
+        n = " EIGHTY ";
+        break;
+      case '9':
+        n = " NINETY ";
+        break;
+      default:
+        n = "Not a Number";
+    }
+    return n;
+  }
+  function d3(x) {
+    // teen digit terms
+    switch (x) {
+      case '0':
+        n = " TEN ";
+        break;
+      case '1':
+        n = " ELEVEN ";
+        break;
+      case '2':
+        n = " TWELVE ";
+        break;
+      case '3':
+        n = " THIRTEEN ";
+        break;
+      case '4':
+        n = " FOURTEEN ";
+        break;
+      case '5':
+        n = " FIFTEEN ";
+        break;
+      case '6':
+        n = " SIXTEEN ";
+        break;
+      case '7':
+        n = " SEVENTEEN ";
+        break;
+      case '8':
+        n = " EIGHTEEN ";
+        break;
+      case '9':
+        n = " NINETEEN ";
+        break;
+      default:
+        n = "Not a Number";
+    }
+    return n;
+  }
+  var inputlength = input.length;
+  var x = 0;
+  var teen1 = "";
+  var teen2 = "";
+  var teen3 = "";
+  var numName = "";
+  var invalidNum = "";
+  var a1 = ""; // for insertion of million, thousand, hundred 
+  var a2 = "";
+  var a3 = "";
+  var a4 = "";
+  var a5 = "";
+  digit = new Array(inputlength); // stores output
+  for (i = 0; i < inputlength; i++) {
+    digit[inputlength - i] = input.charAt(i);
+  }
+  ;
+  store = new Array(9); // store output
+  for (i = 0; i < inputlength; i++) {
+    x = inputlength - i;
+    switch (x) {
+      // assign text to each digit
+      case x = 9:
+        d1(digit[x]);
+        store[x] = n;
+        break;
+      case x = 8:
+        if (digit[x] == "1") {
+          teen3 = "yes";
+        } else {
+          teen3 = "";
+        }
+        ;
+        d2(digit[x]);
+        store[x] = n;
+        break;
+      case x = 7:
+        if (teen3 == "yes") {
+          teen3 = "";
+          d3(digit[x]);
+        } else {
+          d1(digit[x]);
+        }
+        ;
+        store[x] = n;
+        break;
+      case x = 6:
+        d1(digit[x]);
+        store[x] = n;
+        break;
+      case x = 5:
+        if (digit[x] == "1") {
+          teen2 = "yes";
+        } else {
+          teen2 = "";
+        }
+        ;
+        d2(digit[x]);
+        store[x] = n;
+        break;
+      case x = 4:
+        if (teen2 == "yes") {
+          teen2 = "";
+          d3(digit[x]);
+        } else {
+          d1(digit[x]);
+        }
+        ;
+        store[x] = n;
+        break;
+      case x = 3:
+        d1(digit[x]);
+        store[x] = n;
+        break;
+      case x = 2:
+        if (digit[x] == "1") {
+          teen1 = "yes";
+        } else {
+          teen1 = "";
+        }
+        ;
+        d2(digit[x]);
+        store[x] = n;
+        break;
+      case x = 1:
+        if (teen1 == "yes") {
+          teen1 = "";
+          d3(digit[x]);
+        } else {
+          d1(digit[x]);
+        }
+        ;
+        store[x] = n;
+        break;
+    }
+    if (store[x] == "Not a Number") {
+      invalidNum = "yes";
+    }
+    ;
+    switch (inputlength) {
+      case 1:
+        store[2] = "";
+      case 2:
+        store[3] = "";
+      case 3:
+        store[4] = "";
+      case 4:
+        store[5] = "";
+      case 5:
+        store[6] = "";
+      case 6:
+        store[7] = "";
+      case 7:
+        store[8] = "";
+      case 8:
+        store[9] = "";
+    }
+    if (store[9] != "") {
+      a1 = " HUNDRED, ";
+    } else {
+      a1 = "";
+    }
+    ;
+    if (store[9] != "" || store[8] != "" || store[7] != "") {
+      a2 = " MILLION, ";
+    } else {
+      a2 = "";
+    }
+    ;
+    if (store[6] != "") {
+      a3 = " HUNDRED ";
+    } else {
+      a3 = "";
+    }
+    ;
+    if (store[6] != "" || store[5] != "" || store[4] != "") {
+      a4 = " THOUSAND, ";
+    } else {
+      a4 = "";
+    }
+    ;
+    if (store[3] != "") {
+      a5 = " HUNDRED ";
+    } else {
+      a5 = "";
+    }
+    ;
+  }
+
+  // add up text, cancel if invalid input found
+  if (invalidNum == "yes") {
+    numName = "Invalid Input";
+  } else {
+    numName = store[9] + a1 + store[8] + store[7] + a2 + store[6] + a3 + store[5] + store[4] + a4 + store[3] + a5 + store[2] + store[1];
+  }
+  store[1] = "";
+  store[2] = "";
+  store[3] = "";
+  store[4] = "";
+  store[5] = "";
+  store[6] = "";
+  store[7] = "";
+  store[8] = "";
+  store[9] = "";
+  if (numName == "") {
+    numName = "ZERO";
+  }
+  ;
+  return numName.toString();
+};
+
+// ---------------------------
+// DataList 공통 유틸
+// ---------------------------
+scwin._ds = scwin._ds || {};
+scwin._ds.rowCount = function (ds) {
+  return ds.getRowCount();
+};
+scwin._ds.pos = function (ds) {
+  return ds.getRowPosition();
+};
+
+// GAUCE setCellData(row, col) getter/setter
+scwin._ds.get = function (ds, r, c) {
+  return ds.getCellData(r, c);
+};
+scwin._ds.set = function (ds, r, c, v) {
+  ds.setCellData(r, c, v);
+};
+
+// GAUCE RowStatus(i) != "2" (삭제 제외) 대응
+// WebSquare는 보통 "D" / "U" / "I" / "" 형태. 프로젝트에 맞게 필요 시 보완.
+scwin._ds.isDeleted = function (ds, r) {
+  var st = ds.getRowStatus(r);
+  return st == "D" || st == "2"; // GAUCE "2"를 함께 허용
+};
+
+// 숫자 안전 변환
+scwin._n = function (v) {
+  if (v == null || v == undefined || v == "") return 0;
+  var x = Number(v);
+  return isNaN(x) ? 0 : x;
+};
+
+//.getValue() 컴포넌트 값 getter (ed_xxx.getValue() → ed_xxx.getValue())
+scwin._val = function (comp) {
+  return comp.getValue();
+};
+
+// -------------------------------------------------------------------------
+// Customer, Ex-rate Change 가져오기 (Selling/Partner/Buying 공통)
+// disGubun: "0" Selling, "1" Partner, "2" Buying
+// -------------------------------------------------------------------------
+scwin.f_exRateChange_freight = async function (disGubun) {
+  var disGubun = this.getUserData('userData1');
+
+  // 설정 테이블
+  var cfgMap = {
+    "0": {
+      // Selling
+      ds: ds_selling_freight,
+      emptyMsg: ["Selling Information"],
+      certiCol: "certiNo",
+      curComp: ed_selling_hhcur_freight,
+      exComp: ed_selling_hhexrate_freight,
+      after: function (i) {
+        scwin.f_sellingAmt_freight(i, "", "");
+        scwin.f_sellingVat_freight(i, "", "");
+        scwin.f_sellingUsdAmt_freight(i, "", "");
+      }
+    },
+    "1": {
+      // Partner
+      ds: ds_partner_freight,
+      emptyMsg: ["Partner Information"],
+      certiCol: "certiNo",
+      curComp: ed_partner_hhcur_freight,
+      exComp: ed_partner_hhexrate_freight,
+      after: function (i) {
+        scwin.f_partnerAmt_freight(i, "", "");
+        // scwin.f_partnerVat_freight(i,"",""); // 원본에서도 주석
+        scwin.f_partnerUsdAmt_freight(i, "", "");
+      }
+    },
+    "2": {
+      // Buying
+      ds: ds_buying_freight,
+      emptyMsg: ["Buying Information"],
+      certiCol: "pchsCertiNo",
+      curComp: ed_buying_hhcur_freight,
+      exComp: ed_buying_hhexrate_freight,
+      after: function (i) {
+        scwin.f_buyingAmt_freight(i, "", "");
+        scwin.f_buyingVat_freight(i, "", "");
+        scwin.f_buyingUsdAmt_freight(i, "", "");
+      }
+    }
+  };
+  var cfg = cfgMap[String(disGubun)];
+  if (!cfg) return;
+  var ds = cfg.ds;
+  if (scwin._ds.rowCount(ds) == 0) {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, cfg.emptyMsg);
+    return;
+  }
+  if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+  var cur = scwin._val(cfg.curComp);
+  var ex = scwin._val(cfg.exComp);
+  for (var i = 0; i < scwin._ds.rowCount(ds); i++) {
+    var certi = (scwin._ds.get(ds, i, cfg.certiCol) || "").trim();
+    if (certi != "") continue;
+    var crcCd = scwin._ds.get(ds, i, "crcCd");
+    if (crcCd == cur) {
+      scwin._ds.set(ds, i, "exRate", ex);
+      cfg.after(i);
+    }
+  }
+};
+
+// -------------------------------------------------------------------------
+// Tariff 버튼: package/rate 계산 공통
+// ds: ds_selling_freight / ds_partner_freight / ds_buying_freight
+// -------------------------------------------------------------------------
+scwin._calcPackageRate_freight = function (ds) {
+  var pos = scwin._ds.pos(ds);
+  var v_wgt = scwin._n(scwin._val(ed_hhgwgt_freight)) / 1000;
+  var v_msr = scwin._n(scwin._val(ed_hhmsr_freight));
+  var v_wgtR = Math.ceil(v_wgt);
+  var v_msrR = Math.ceil(v_msr);
+  var fareEngCd = scwin._ds.get(ds, pos, "fareEngCd");
+  var fareUnit = scwin._ds.get(ds, pos, "fareUnit");
+  var wgt = fareEngCd == "WFG" ? v_wgtR : v_wgt;
+  var msr = fareEngCd == "WFG" ? v_msrR : v_msr;
+
+  // WGT / M/T
+  if (fareUnit == "WGT" || fareUnit == "M/T") {
+    if (fareEngCd == "WFG") {
+      scwin._ds.set(ds, pos, "chgWt", Math.ceil(scwin._n(scwin._val(ed_hhgwgt_freight)) / 1000));
+    } else if (fareUnit == "M/T") {
+      scwin._ds.set(ds, pos, "chgWt", scwin._n(scwin._val(ed_hhgwgt_freight)) / 1000);
+    } else {
+      scwin._ds.set(ds, pos, "chgWt", scwin._val(ed_hhgwgt_freight));
+    }
+    return;
+  }
+
+  // R/T
+  if (fareUnit == "R/T") {
+    var base = v_wgt > v_msr ? wgt : msr;
+    scwin._ds.set(ds, pos, "chgWt", base < 1 ? 1 : base);
+    return;
+  }
+
+  // CBM
+  if (fareUnit == "CBM") {
+    scwin._ds.set(ds, pos, "chgWt", msr < 1 ? 1 : msr);
+    return;
+  }
+
+  // CASE
+  if (fareUnit == "CASE") {
+    scwin._ds.set(ds, pos, "chgWt", 1);
+    return;
+  }
+
+  // 컨테이너 타입별 수량 매핑
+  var c1t = scwin._val(ed_hhcnt1type_freight),
+    c1q = scwin._val(ed_hhcnt1_freight);
+  var c2t = scwin._val(ed_hhcnt2type_freight),
+    c2q = scwin._val(ed_hhcnt2_freight);
+  var c3t = scwin._val(ed_hhcnt3type_freight),
+    c3q = scwin._val(ed_hhcnt3_freight);
+  var c4t = scwin._val(ed_hhcnt4type_freight),
+    c4q = scwin._val(ed_hhcnt4_freight);
+  if (fareUnit == c1t) scwin._ds.set(ds, pos, "chgWt", c1q);else if (fareUnit == c2t) scwin._ds.set(ds, pos, "chgWt", c2q);else if (fareUnit == c3t) scwin._ds.set(ds, pos, "chgWt", c3q);else if (fareUnit == c4t) scwin._ds.set(ds, pos, "chgWt", c4q);
+};
+
+// 개별 호출 함수(기존 이름 유지)
+scwin.f_packageRateSellingLoading_freight = function (row, colid) {
+  scwin._calcPackageRate_freight(ds_selling_freight);
+};
+scwin.f_packageRatePartnerLoading_freight = function (row, colid) {
+  scwin._calcPackageRate_freight(ds_partner_freight);
+};
+scwin.f_packageRateBuyingLoading_freight = function (row, colid) {
+  scwin._calcPackageRate_freight(ds_buying_freight);
+};
+
+// Amount(외화)
+scwin.f_sellingAmtFcrc_freight = function (row) {
+  if (scwin._ds.get(ds_selling_freight, row, "crcCd") == "KRW") {
+    scwin._ds.set(ds_selling_freight, row, "sellAmtFcrc", 0);
+  } else {
+    var v = scwin._n(scwin._ds.get(ds_selling_freight, row, "chgWt")) * scwin._n(scwin._ds.get(ds_selling_freight, row, "sellUpr"));
+    scwin._ds.set(ds_selling_freight, row, "sellAmtFcrc", Math.round(v * 100) / 100);
+  }
+};
+scwin.f_partnerAmtFcrc_freight = function (row) {
+  if (scwin._ds.get(ds_partner_freight, row, "crcCd") == "KRW") {
+    scwin._ds.set(ds_partner_freight, row, "sellAmtFcrc", 0);
+  } else {
+    var v = scwin._n(scwin._ds.get(ds_partner_freight, row, "chgWt")) * scwin._n(scwin._ds.get(ds_partner_freight, row, "sellUpr"));
+    scwin._ds.set(ds_partner_freight, row, "sellAmtFcrc", Math.round(v * 100) / 100);
+  }
+};
+scwin.f_buyingAmtFcrc_freight = function (row) {
+  if (scwin._ds.get(ds_buying_freight, row, "crcCd") == "KRW") {
+    scwin._ds.set(ds_buying_freight, row, "pchsAmtFcrc", 0);
+  } else {
+    var v = scwin._n(scwin._ds.get(ds_buying_freight, row, "chgWt")) * scwin._n(scwin._ds.get(ds_buying_freight, row, "pchsUpr"));
+    scwin._ds.set(ds_buying_freight, row, "pchsAmtFcrc", Math.round(v * 100) / 100);
+  }
+};
+
+// 화폐 Unit
+scwin.f_Currency_Unit_freight = function (curr) {
+  return curr != "JPY" && curr != "ITL" && curr != "IDR" && curr != "ESP" ? 1 : 100;
+};
+
+// Amount(원화)
+scwin.f_sellingAmt_freight = function (row) {
+  if (scwin._ds.get(ds_selling_freight, row, "crcCd") == "KRW") {
+    var w = scwin._n(scwin._ds.get(ds_selling_freight, row, "chgWt")) * scwin._n(scwin._ds.get(ds_selling_freight, row, "sellUpr"));
+    scwin._ds.set(ds_selling_freight, row, "sellAmt", Math.round(w));
+  } else {
+    var unit = scwin.f_Currency_Unit_freight(scwin._ds.get(ds_selling_freight, row, "crcCd"));
+    var v = scwin._n(scwin._ds.get(ds_selling_freight, row, "sellAmtFcrc")) * scwin._n(scwin._ds.get(ds_selling_freight, row, "exRate"));
+    scwin._ds.set(ds_selling_freight, row, "sellAmt", Math.round(v) / unit);
+  }
+};
+scwin.f_partnerAmt_freight = function (row) {
+  if (scwin._ds.get(ds_partner_freight, row, "crcCd") == "KRW") {
+    var w = scwin._n(scwin._ds.get(ds_partner_freight, row, "chgWt")) * scwin._n(scwin._ds.get(ds_partner_freight, row, "sellUpr"));
+    scwin._ds.set(ds_partner_freight, row, "sellAmt", Math.round(w));
+  } else {
+    var unit = scwin.f_Currency_Unit_freight(scwin._ds.get(ds_partner_freight, row, "crcCd"));
+    var v = scwin._n(scwin._ds.get(ds_partner_freight, row, "sellAmtFcrc")) * scwin._n(scwin._ds.get(ds_partner_freight, row, "exRate"));
+    scwin._ds.set(ds_partner_freight, row, "sellAmt", Math.round(v) / unit);
+  }
+};
+scwin.f_buyingAmt_freight = function (row) {
+  if (scwin._ds.get(ds_buying_freight, row, "crcCd") == "KRW") {
+    var w = scwin._n(scwin._ds.get(ds_buying_freight, row, "chgWt")) * scwin._n(scwin._ds.get(ds_buying_freight, row, "pchsUpr"));
+    scwin._ds.set(ds_buying_freight, row, "pchsAmt", Math.round(w));
+  } else {
+    var v = scwin._n(scwin._ds.get(ds_buying_freight, row, "pchsAmtFcrc")) * scwin._n(scwin._ds.get(ds_buying_freight, row, "exRate"));
+    scwin._ds.set(ds_buying_freight, row, "pchsAmt", Math.round(v));
+  }
+};
+
+// Amount($)
+scwin.f_sellingUsdAmt_freight = function (row) {
+  var u = scwin._val(ed_selling_hhuexrate_freight);
+  if (u != "0" && u != "") {
+    var v = scwin._n(scwin._ds.get(ds_selling_freight, row, "sellAmt")) / scwin._n(u);
+    scwin._ds.set(ds_selling_freight, row, "usdAmt", Math.round(v * 100) / 100);
+  }
+};
+scwin.f_partnerUsdAmt_freight = function (row) {
+  var u = scwin._val(ed_partner_hhuexrate_freight);
+  if (u != "0" && u != "") {
+    var v = scwin._n(scwin._ds.get(ds_partner_freight, row, "sellAmt")) / scwin._n(u);
+    scwin._ds.set(ds_partner_freight, row, "usdAmt", Math.round(v * 100) / 100);
+  }
+};
+scwin.f_buyingUsdAmt_freight = function (row) {
+  var u = scwin._val(ed_buying_hhuexrate_freight);
+  if (u != "0" && u != "") {
+    var v = scwin._n(scwin._ds.get(ds_buying_freight, row, "pchsAmt")) / scwin._n(u);
+    scwin._ds.set(ds_buying_freight, row, "usdAmt", Math.round(v * 100) / 100);
+  }
+};
+
+// VAT
+scwin.f_sellingVat_freight = function (row) {
+  if (scwin._ds.get(ds_selling_freight, row, "vatYn") == "0") {
+    scwin._ds.set(ds_selling_freight, row, "vatAmt", 0);
+  } else {
+    var v = scwin._n(scwin._ds.get(ds_selling_freight, row, "sellAmt")) * 0.1;
+    scwin._ds.set(ds_selling_freight, row, "vatAmt", Math.round(v * 100) / 100);
+  }
+};
+scwin.f_buyingVat_freight = function (row) {
+  if (scwin._ds.get(ds_buying_freight, row, "vatYn") == "0") {
+    scwin._ds.set(ds_buying_freight, row, "vat", 0);
+  } else {
+    var v = scwin._n(scwin._ds.get(ds_buying_freight, row, "pchsAmt")) * 0.1;
+    scwin._ds.set(ds_buying_freight, row, "vat", Math.round(v * 100) / 100);
+  }
+};
+
+// -------------------------------------------------------------------------
+// INVOICE NO 유무 체크 (WebSquare)
+// - ds_invoiceCheck가 OUT_DS1으로 내려온다고 가정
+// - sbm_invoiceCheck submission을 하나 만들어 두는 방식 권장
+// -------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// Department 가져오기
+//-------------------------------------------------------------------------
+scwin.f_departmentChange = async function () {
+  var rtnList = null;
+  var buyer = ed_hhbuyer.getValue().trim();
+  var buyerNm = txt_hhbuyernm.getValue().trim();
+  if (buyer === "") return;
+  var url = "/ui/il/common/xml/ilCommonDeptChange.xml";
+  var options = {
+    popupName: "Department Change",
+    width: 460,
+    height: 280,
+    modal: true
+  };
+  var data = {
+    pdept: buyer,
+    pdeptnm: buyerNm
+  };
+  rtnList = await $c.win.openPopup($p, url, options, data);
+  if (rtnList && rtnList[0] === "N/A") {
+    if ((rtnList[1] || "").trim() === "" || (rtnList[2] || "").trim() === "") return;
+
+    // 부서 변경 프로시저 호출 시작
+    dma_DeptChangeParam.set("modrNo", "");
+    dma_DeptChangeParam.set("hodrNo", ds_houseblList.getCellData(ds_houseblList.getRowPosition(), "odrNo"));
+    dma_DeptChangeParam.set("kcomcd", scwin.hd_kcomcd.getValue ? scwin.hd_kcomcd : scwin.hd_kcomcd);
+    dma_DeptChangeParam.set("bulkGb", "");
+    dma_DeptChangeParam.set("dept", (rtnList[1] || "").trim());
+    dma_DeptChangeParam.set("deptnm", (rtnList[2] || "").trim());
+    if (await $c.win.confirm($p, $c.data.getMessage($p, E_MSG_CM_CRM_001))) {
+      await $c.sbm.execute($p, sbm_DeptChange);
+      var spMsg = ds_DeptChangeResult.getCellData(0, "spMsg");
+      var spRtn = ds_DeptChangeResult.getCellData(0, "spRtn");
+      if (spRtn === "0") {
+        txt_hhbuyernm.setValue(rtnList[2].trim());
+        ed_hhbuyer.setValue(rtnList[1].trim());
+        await $c.win.alert($p, scwin.MSG_LO_WRN_009);
+      } else if (spRtn === "-2") {
+        await $c.win.alert($p, scwin.MSG_LO_WRN_007);
+      } else {
+        await $c.win.alert($p, scwin.MSG_LO_WRN_008);
+      }
+    }
+    // 부서 변경 프로시저 호출 끝
+  }
+};
+
+//-------------------------------------------------------------------------
+// Container Receive 가져오기
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 부서 Change (모달 -> WebSquare popup 권장. 여기서는 기존 showModalDialog 형태 유지/대체)
+// INVOICE 있어도 변경 가능 요구로 버튼 활성화
+//-------------------------------------------------------------------------
+scwin.f_openContainerPopup = async function () {
+  var options = {
+    width: 550,
+    height: 500,
+    modal: true
+  };
+  var param = [scwin.ed_carrierBkNo];
+  var rtnList = await scwin._openPopup("/ui/il/seaout/sobl/se_107_01_01p.xml?paramTitle=ContainerListPopup", options, param);
+  if (rtnList == null) return false;
+  var k = ds_ocContList.getRowCount();
+  for (var i = k; i < rtnList.length + k; i++) {
+    for (var t = 0; t < ds_ocContList.getRowCount(); t++) {
+      if (ds_ocContList.getCellData(t, "mccntno") == rtnList[i - k][3]) {
+        await $c.win.alert($p, "Container [" + rtnList[i - k][3] + "] already exists");
+        return false;
+      }
+    }
+    var idx = ds_ocContList.insertRow(ds_ocContList.getRowCount());
+    ds_ocContList.setCellData(idx, "kcomcd", scwin.hd_kcomcd);
+    ds_ocContList.setCellData(idx, "mchblno", cnd_ed_hhblno.getValue());
+    ds_ocContList.setCellData(idx, "mhno", cnd_lc_mhno.getValue());
+    ds_ocContList.setCellData(idx, "inpid", scwin.vUserId);
+    ds_ocContList.setCellData(idx, "mccntno", rtnList[i - k][3]);
+    ds_ocContList.setCellData(idx, "mctype", rtnList[i - k][7]);
+    ds_ocContList.setCellData(idx, "mcseal1", rtnList[i - k][6]);
+  }
+  return true;
+};
+
+//-------------------------------------------------------------------------
+// vsl / vyg trim
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// 엑셀저장 (그리드 -> 엑셀)
+//-------------------------------------------------------------------------
+
+scwin.f_runExcel = async function (varGrNm) {
+  var totCnt = ds_ocContList.getRowCount();
+  var sheetTitle = "Container List_" + scwin.strCurDate;
+  scwin.f_ExportExcel("ds_ocContList", "gr_ocContList", sheetTitle);
+};
+scwin.f_runExcel2 = async function (varGrNm) {
+  var totCnt = ds_ocElList.getRowCount();
+  var sheetTitle = "수출신고_" + scwin.strCurDate;
+  if (totCnt != 0) {
+    scwin.f_ExportExcel("ds_ocElList", "gr_ocElList", sheetTitle);
+  } else {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 다운로드 (WebSquare 변환본)
+// - confirm => await $c.win.confirm()
+// - GAUCE: grid.SetExcelTitle + cfGridToExcel  →  $c.data.downloadGridViewExcel
+// - dataId.CountRow → dataId.getRowCount()
+//-------------------------------------------------------------------------
+scwin.f_ExportExcel = async function (dataId, gridId, sheetName) {
+  var ds = null;
+  if (typeof dataId == "string") {
+    ds = $p.getComponentById(dataId);
+  } else {
+    ds = dataId;
+  }
+
+  // gridId별 제목/파일명
+  var sheetName = sheetName;
+  var fileName = sheetName;
+
+  // GridView 객체 얻기 (eval 대신 $p.getComponent 사용 권장)
+  // 프로젝트에 따라 $p.top().getComponent / $p.getComponent 등 사용
+  var gridView = $c.util.getComponent($p, gridId);
+  if (!gridView) {
+    await $c.win.alert($p, "그리드 객체를 찾을 수 없습니다 : " + gridId);
+    return;
+  }
+
+  // 확인
+  var cfrm = await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?");
+  if (!cfrm) return;
+
+  // AS-IS SetExcelTitle 매핑
+  // skiprow:1  → startRowIndex:2 (제목 1줄 + 헤더)
+  var options = {
+    fileName: fileName,
+    // 확장자는 내부에서 처리되거나 필요시 ".xls" 추가
+    sheetName: sheetName,
+    type: "1",
+    headerColor: "#eeeeee",
+    startRowIndex: 2
+  };
+
+  // 제목(병합/스타일) - colSpan은 그리드 컬럼수에 맞춰 자동 계산(가능한 경우)
+  var colSpan = 0;
+  for (var i = 0; i < gridView.hiddenList.length; i++) {
+    if (!gridView.hiddenList[i]) {
+      colSpan++;
+    }
+  }
+  if (gridView.options.rowStatusVisible) {
+    colSpan--;
+  }
+  var infoArr = [{
+    rowIndex: 0,
+    colIndex: 0,
+    rowSpan: 1,
+    colSpan: colSpan,
+    text: sheetName,
+    // value:sheetName
+    textAlign: "center",
+    // align:center
+    fontSize: "12px",
+    // font-size:12pt
+    fontName: "돋움체",
+    // font-face:'돋움체'
+    drawBorder: false // line-color/line-width:0pt
+    // 배경/글자색은 기본값이 흰/검이라 생략(필요시 옵션 지원하면 추가)
+  }];
+  if (gridId == 'gr_ocContList') {
+    delete options.startRowIndex;
+    $c.data.downloadGridViewExcel($p, gridView, options);
+  } else {
+    $c.data.downloadGridViewExcel($p, gridView, options, infoArr);
+  }
+};
+
+//-------------------------------------------------------------------------
+// carrier bk no 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieveCarrierBkNo = async function () {
+  dma_bookingNo.set("kcomcd", scwin.hd_kcomcd || "");
+  dma_bookingNo.set("bkNo", scwin._getVal(ed_hhbkgno));
+  ds_carrierBkNo.removeAll();
+
+  // GAUCE: tr_retrieveCarrierBkNo.Post()
+  await $c.sbm.execute($p, sbm_retrieveCarrierBkNo);
+
+  // GAUCE: ds_carrierBkNo.setCellData(1,"carrierBkNo")
+  ds_carrierBkNo.setRowPosition(0);
+  scwin._setVal(scwin.ed_carrierBkNo, ds_carrierBkNo.getCellData(0, "carrierBkNo") || "");
+};
+
+//---------------------------------------------------------
+// 선사 트래킹 (ActiveX는 브라우저/보안상 불가 가능성 큼. 로직만 변환)
+//---------------------------------------------------------
+scwin.f_Tracking = async function () {
+  if (ds_houseblList.getRowCount() == 0) {
+    await $c.win.alert($p, "선사 Tracking 할 Direct B/L을 조회해 주세요.");
+    return;
+  }
+  var vjob = "blsearch";
+  var vlinerCd = ds_houseblList.getCellData(0, "hhliner");
+  var vparm = ds_houseblList.getCellData(0, "hhmblno");
+  var vline = "";
+  ds_liner.removeAll();
+  dma_liner.set("grpCd", "IL052");
+  dma_liner.set("cd", vlinerCd);
+  await $c.sbm.execute($p, sbm_liner);
+  if (ds_liner.getRowCount() > 0) {
+    // GAUCE 1행 -> WebSquare 0행 가정
+    var cdNm = ds_liner.getCellData(0, "cdNm");
+    if (cdNm) vline = cdNm;
+  }
+
+  // ActiveX 실행은 WebSquare/브라우저 환경에서 대부분 차단됨.
+  // 대안: 서버 호출/다운로드/외부프로그램 연동 URL 오픈 등으로 교체 권장
+  try {
+    var objWSH = new ActiveXObject("WScript.Shell");
+    objWSH.Run("C:\\dbexp_scrap1\\upgrade.exe job=" + vjob + "&linecode=" + vline + "&no=" + vparm + "&", 1, true);
+  } catch (e) {
+    alert("Tracking 실행이 브라우저 보안 정책으로 차단될 수 있습니다.<br>관리자/서버 연동 방식으로 변경이 필요합니다.");
+    return false;
+  }
+  return true;
+};
+
+//---------------------------------------------------------
+// 선사 트래킹 프로그램 다운로드
+//---------------------------------------------------------
+scwin.f_ProgramDownload = function () {
+  var sURL = "ftp://172.21.1.42:7000/Home/Setup/Setup_CarrierAPI.exe";
+  window.open(sURL);
+};
+
+//-------------------------------------------------------------------------
+// DRM 업로드 (기존 공통 유지)
+//-------------------------------------------------------------------------
+
+// DRM 업로드 후 콜백 (원본 f_Upload 이름 충돌 방지)
+
+//-------------------------------------------------------------------------
+// 파일 명 체크(CSV)
+//-------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------
+// textarea to upper
+//-------------------------------------------------------------------------
+
+scwin.f_SellingSum_freight = function () {
+  var sumF = 0,
+    sumW = 0,
+    sumVat = 0,
+    sumUsd = 0;
+  for (var i = 0; i < ds_selling_freight.getRowCount(); i++) {
+    if (scwin._ds.isDeleted(ds_selling_freight, i)) continue;
+    sumF += scwin._n(scwin._ds.get(ds_selling_freight, i, "sellAmtFcrc"));
+    sumW += scwin._n(scwin._ds.get(ds_selling_freight, i, "sellAmt"));
+    sumVat += scwin._n(scwin._ds.get(ds_selling_freight, i, "vatAmt"));
+  }
+  ed_SellingSumAmount_freight.setValue(sumF);
+  ed_SellingSumAmountW_freight.setValue(sumW);
+  ed_SellingSumVat_freight.setValue(sumVat);
+  ed_SellingAmountSum_freight.setValue(sumW + sumVat);
+};
+scwin.f_PartnerSum_freight = function () {
+  var sumF = 0,
+    sumW = 0,
+    sumUsd = 0;
+  for (var i = 0; i < ds_partner_freight.getRowCount(); i++) {
+    if (scwin._ds.isDeleted(ds_partner_freight, i)) continue;
+    sumF += scwin._n(scwin._ds.get(ds_partner_freight, i, "sellAmtFcrc"));
+    sumW += scwin._n(scwin._ds.get(ds_partner_freight, i, "sellAmt"));
+  }
+  ed_PartnerSumAmount_freight.setValue(sumF);
+  ed_PartnerSumAmountW_freight.setValue(sumW);
+};
+scwin.f_BuyingSum_freight = function () {
+  var sumF = 0,
+    sumW = 0,
+    sumVat = 0,
+    sumUsd = 0;
+  for (var i = 0; i < ds_buying_freight.getRowCount(); i++) {
+    if (scwin._ds.isDeleted(ds_buying_freight, i)) continue;
+    sumF += scwin._n(scwin._ds.get(ds_buying_freight, i, "pchsAmtFcrc"));
+    sumW += scwin._n(scwin._ds.get(ds_buying_freight, i, "pchsAmt"));
+    sumVat += scwin._n(scwin._ds.get(ds_buying_freight, i, "vat"));
+  }
+  ed_BuyingSumAmount_freight.setValue(sumF);
+  ed_BuyingSumAmountW_freight.setValue(sumW);
+  ed_BuyingSumVat_freight.setValue(sumVat);
+  var amountSum = sumW + sumVat;
+  ed_BuyingAmountSum_freight.setValue(amountSum);
+};
+
+// ---------------------------------------------------------
+// freight 내역 복사를 위한 조회(하단) - WebSquare
+// ---------------------------------------------------------
+scwin.f_Retrieve2 = async function () {
+  // 상단을 조회하지 않았거나, 결과값이 없을 경우
+  if (ds_houseblList.getRowCount() < 1) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_018, ["Exchange Rate Information", "상단의 Search"]);
+    return;
+  }
+  if ((srch_ed_hhblno.getValue() || "").trim() == "") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_002, ["House No"]);
+    return;
+  }
+
+  // B/L No 빠져나올때 event처리
+  cnd_lc_mhno2.focus();
+  dma_retrieve_freight.set("kcomcd", scwin.hd_kcomcd);
+  dma_retrieve_freight.set("mhno", cnd_lc_mhno2.getValue()); // ValueOfIndex 대신 getValue 사용(프로젝트 표준에 맞게)
+  dma_retrieve_freight.set("hhio", scwin.hd_hhio);
+  dma_retrieve_freight.set("hhblno2", srch_ed_hhblno.getValue());
+
+  // 기존에 조회된 행이 있다면 재조회 안되도록 함
+  if (ds_selling_freight.getRowCount() > 0) {
+    await $c.win.alert($p, "조회된 Selling데이터가 있습니다.<br>Selling데이터가 0건일 경우 조회가능합니다.");
+  } else {
+    await $c.sbm.execute($p, sbm_retrieveSelling_freight); // tr_retrieveSelling_freight.Post() 대체
+  }
+  if (ds_partner_freight.getRowCount() > 0) {
+    await $c.win.alert($p, "조회된 Partner데이터가 있습니다.<br>Partner데이터가 0건일 경우 조회가능합니다.");
+  } else {
+    await $c.sbm.execute($p, sbm_retrievePartner_freight); // tr_retrieveSelling_freight.Post() 대체
+  }
+  if (ds_buying_freight.getRowCount() > 0) {
+    await $c.win.alert($p, "조회된 Buying데이터가 있습니다.<br>Buying데이터가 0건일 경우 조회가능합니다.");
+  } else {
+    await $c.sbm.execute($p, sbm_retrieveBuying_freight); // tr_retrieveSelling_freight.Post() 대체
+  }
+  $c.gus.cfEnableObj($p, srch_ed_hhblno, true);
+  $c.gus.cfEnableObj($p, cnd_lc_mhno2, true);
+};
+
+// -------------------------------------------------------------------------
+// 콤보/코드 조회를 "호출 단위로 안전"하게 받기 위한 helper
+// - sbm: submission
+// - dma: 파라미터 넣는 DataMap
+// - outDs: 결과 DataList (submission target으로 채워지는 ds)
+// - return: 결과 rows를 깊은복사해서 반환 (동시호출 안전)
+// -------------------------------------------------------------------------
+scwin._execCodeQuery = async function (sbm, dma, outDs, params) {
+  dma.setJSON(params);
+  await $c.sbm.execute($p, sbm);
+
+  // 결과를 호출 단위로 안전하게 쓰기 위해 복사본 생성
+  var rows = [];
+  for (var i = 0; i < outDs.getRowCount(); i++) {
+    var obj = {};
+    // 필요 컬럼만 쓰면 더 좋지만, 일단 통으로
+    var cols = outDs.getColumnIDs ? outDs.getColumnIDs() : null;
+    if (cols && cols.length) {
+      for (var c = 0; c < cols.length; c++) {
+        obj[cols[c]] = outDs.getCellData(i, cols[c]);
+      }
+    } else {
+      // getColumnIDs가 없으면 필요한 칼럼만 직접 넣자
+      obj.CODE = outDs.getCellData(i, "CODE");
+      obj.code = outDs.getCellData(i, "code");
+    }
+    rows.push(obj);
+  }
+  return rows;
+};
+
+// -------------------------------------------------------------------------
+// BuyingDept 가져오기 - WebSquare (submission 기반)
+// -------------------------------------------------------------------------
+scwin.f_BuyingDeptLoading_freight = async function (row) {
+  var param1 = (cnd_ed_hhblno.getValue() || "").trim();
+  var param2 = (cnd_lc_mhno.getValue() || "").trim();
+
+  // retriveBuyingDeptListCombo 호출 (sbm_combo / dma_combo / ds_buying_freightDept 사용 가정)
+  var rows = await scwin._execCodeQuery(sbm_combo,
+  // 공통 submission
+  dma_combo,
+  // 파라미터 DataMap
+  ds_buying_freightDept,
+  // 결과 ds
+  {
+    sysCd: "SeaExportHouseEBC",
+    queryId: "retriveBuyingDeptListCombo",
+    param1: param1,
+    param2: param2,
+    param3: "",
+    param4: ""
+  });
+  var v = rows[0] && (rows[0].CODE || rows[0].code) ? rows[0].CODE || rows[0].code : "";
+  ds_buying_freight.setCellData(row, "sellDeptCd", v);
+
+  // focus 이동 (WebSquare Grid API에 맞게)
+  gr_buying_freight.setFocusedCell ? gr_buying_freight.setFocusedCell(row, "sellDeptCd") : gr_buying_freight.setCellFocus("sellDeptCd");
+  gr_buying_freight.setFocusedCell ? gr_buying_freight.setFocusedCell(row, "crcCd") : gr_buying_freight.setCellFocus("crcCd");
+};
+
+// -------------------------------------------------------------------------
+// tab List의 값을 ds_houseblList_freight의 컬럼으로 변경 (gubun, ds)
+// 0: selling, 1: partner, 2: buying
+// -------------------------------------------------------------------------
+scwin.f_chgGridColumnToHouseBlDs_freight = async function (gubun, ds) {
+  var odrNo = ds_houseblList_freight.getCellData(ds_houseblList_freight.getRowPosition(), "odrNo");
+  if (gubun == "0") {
+    scwin.f_sellingUnitLoading_freight();
+  } else if (gubun == "1") {
+    scwin.f_partnerUnitLoading_freight();
+  } else if (gubun == "2") {
+    scwin.f_buyingUnitLoading_freight();
+  }
+  for (var i = 0; i < ds.getRowCount(); i++) {
+    ds.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+    ds.setCellData(i, "blNo", cnd_ed_hhblno.getValue());
+    ds.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+    ds.setCellData(i, "odrNo", odrNo);
+    ds.setCellData(i, "mblHblCls", "H");
+    ds.setCellData(i, "seaAirCls", "S");
+    ds.setCellData(i, "ppccCls", lc_hhpcgb.getValue());
+    ds.setCellData(i, "inpid", scwin.vUserId); // scwin.vUserId → scwin.vUserId
+
+    if (gubun == "0") {
+      ds.setCellData(i, "bilgClntNo", ed_hhactcust.getValue());
+      ds.setCellData(i, "bilgClntNm", txt_hhactcustnm.getValue());
+      ds.setCellData(i, "locPtnCls", "1");
+    } else if (gubun == "1") {
+      ds.setCellData(i, "bilgClntNo", ed_hhagent.getValue());
+      ds.setCellData(i, "bilgClntNm", txt_hhagentnm.getValue());
+      ds.setCellData(i, "locPtnCls", "2");
+    } else if (gubun == "2") {
+      ds.setCellData(i, "locPtnCls", "1");
+    }
+    ds.setCellData(i, "rsltsStdDt", ed_creadyDt.getValue());
+    ds.setCellData(i, "exRateTyp", lc_selling_hhexgb_freight.getValue()); // BindColVal → getValue (프로젝트 표준에 맞게)
+  }
+  ds.modifyAllStatus('C');
+
+  // 합계 갱신
+  if (gubun == "0") scwin.f_SellingSum_freight();else if (gubun == "1") scwin.f_PartnerSum_freight();else if (gubun == "2") scwin.f_BuyingSum_freight();
+};
+scwin._copyBuyingRowToSellingRow = function (srcRow, dstRow) {
+  // src: ds_buying_freight, dst: ds_selling_freight 가정
+
+  ds_selling_freight.setCellData(dstRow, "sellSeq", ds_buying_freight.getCellData(srcRow, "pchsSeq"));
+  ds_selling_freight.setCellData(dstRow, "fareGrpCd", ds_buying_freight.getCellData(srcRow, "fareGrpCd"));
+  ds_selling_freight.setCellData(dstRow, "crcCd", ds_buying_freight.getCellData(srcRow, "crcCd"));
+  ds_selling_freight.setCellData(dstRow, "fareUnit", ds_buying_freight.getCellData(srcRow, "fareUnit"));
+  ds_selling_freight.setCellData(dstRow, "chgWt", ds_buying_freight.getCellData(srcRow, "chgWt"));
+  ds_selling_freight.setCellData(dstRow, "sellUpr", ds_buying_freight.getCellData(srcRow, "pchsUpr"));
+  ds_selling_freight.setCellData(dstRow, "sellAmtFcrc", ds_buying_freight.getCellData(srcRow, "pchsAmtFcrc"));
+  ds_selling_freight.setCellData(dstRow, "exRate", ds_buying_freight.getCellData(srcRow, "exRate"));
+  ds_selling_freight.setCellData(dstRow, "sellAmt", ds_buying_freight.getCellData(srcRow, "pchsAmt"));
+  ds_selling_freight.setCellData(dstRow, "vatAmt", ds_buying_freight.getCellData(srcRow, "vat"));
+  ds_selling_freight.setCellData(dstRow, "usdAmt", ds_buying_freight.getCellData(srcRow, "usdAmt"));
+  ds_selling_freight.setCellData(dstRow, "trfUpr", ds_buying_freight.getCellData(srcRow, "trfUpr"));
+  ds_selling_freight.setCellData(dstRow, "vatYn", ds_buying_freight.getCellData(srcRow, "vatYn"));
+};
+
+// -------------------------------------------------------------------------
+// buying 데이터를 selling으로 copy (WebSquare + 리팩토링)
+// -------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------
+// buying 데이터를 selling으로 copy (code 조회 포함 버전) (f_copyFromBuyingToSelling)
+// - code 끝이 J면 param1 = 앞부분
+// - 끝이 K면 param1 = 앞부분 + "V"
+// -------------------------------------------------------------------------
+scwin.f_copyFromBuyingToSelling = async function () {
+  if (ds_buying_freight.getRowCount() == 0 || ds_selling_freight.getRowCount() > 0) {
+    await $c.win.alert($p, "buying 데이터가 없거나, selling 데이터가 이미 있는 경우는 해당 기능을 사용할 수 없습니다");
+    return false;
+  }
+  for (var i = 0; i < ds_buying_freight.getRowCount(); i++) {
+    var code = ds_buying_freight.getCellData(i, "fareEngCd") || "";
+    var last = code.substring(code.length - 1);
+    if (last == "J" || last == "K") {
+      scwin.f_addRow_freight(1, 'ADD');
+      var base = code.substring(0, code.length - 1);
+      var param1 = last == "J" ? base : base + "V";
+
+      // retriveFreightCodeInfo 조회 (sbm_combo / dma_combo / ds_SellingCode 사용 가정)
+      var rows = await scwin._execCodeQuery(sbm_combo, dma_combo, ds_SellingCode, {
+        sysCd: "ilCommonEBC",
+        queryId: "retriveFreightCodeInfo",
+        param1: param1,
+        param2: "",
+        param3: "",
+        param4: ""
+      });
+      var r0 = rows[0] || {};
+      ds_selling_freight.setCellData(i, "fareEngCd", r0.col1 || "");
+      ds_selling_freight.setCellData(i, "fareEngNm", r0.col2 || "");
+      ds_selling_freight.setCellData(i, "sellItemCd", r0.col4 || "");
+      ds_selling_freight.setCellData(i, "sellSeq", ds_buying_freight.getCellData(i, "pchsSeq"));
+      ds_selling_freight.setCellData(i, "fareGrpCd", ds_buying_freight.getCellData(i, "fareGrpCd"));
+      ds_selling_freight.setCellData(i, "crcCd", ds_buying_freight.getCellData(i, "crcCd"));
+      ds_selling_freight.setCellData(i, "fareUnit", ds_buying_freight.getCellData(i, "fareUnit"));
+      ds_selling_freight.setCellData(i, "chgWt", ds_buying_freight.getCellData(i, "chgWt"));
+      ds_selling_freight.setCellData(i, "sellUpr", ds_buying_freight.getCellData(i, "pchsUpr"));
+      ds_selling_freight.setCellData(i, "sellAmtFcrc", ds_buying_freight.getCellData(i, "pchsAmtFcrc"));
+      ds_selling_freight.setCellData(i, "exRate", ds_buying_freight.getCellData(i, "exRate"));
+      ds_selling_freight.setCellData(i, "sellAmt", ds_buying_freight.getCellData(i, "pchsAmt"));
+      ds_selling_freight.setCellData(i, "vatAmt", ds_buying_freight.getCellData(i, "vat"));
+      ds_selling_freight.setCellData(i, "usdAmt", ds_buying_freight.getCellData(i, "usdAmt"));
+      ds_selling_freight.setCellData(i, "trfUpr", ds_buying_freight.getCellData(i, "trfUpr"));
+      ds_selling_freight.setCellData(i, "vatYn", ds_buying_freight.getCellData(i, "vatYn"));
+    } else {
+      scwin.f_addRow_freight(1, 'ADD');
+      ds_selling_freight.setCellData(i, "sellSeq", ds_buying_freight.getCellData(i, "pchsSeq"));
+      ds_selling_freight.setCellData(i, "fareEngCd", ds_buying_freight.getCellData(i, "fareEngCd"));
+      ds_selling_freight.setCellData(i, "fareEngNm", ds_buying_freight.getCellData(i, "fareEngNm"));
+      ds_selling_freight.setCellData(i, "fareGrpCd", ds_buying_freight.getCellData(i, "fareGrpCd"));
+      ds_selling_freight.setCellData(i, "sellItemCd", ds_buying_freight.getCellData(i, "selpchItemCd"));
+      ds_selling_freight.setCellData(i, "crcCd", ds_buying_freight.getCellData(i, "crcCd"));
+      ds_selling_freight.setCellData(i, "fareUnit", ds_buying_freight.getCellData(i, "fareUnit"));
+      ds_selling_freight.setCellData(i, "chgWt", ds_buying_freight.getCellData(i, "chgWt"));
+      ds_selling_freight.setCellData(i, "sellUpr", ds_buying_freight.getCellData(i, "pchsUpr"));
+      ds_selling_freight.setCellData(i, "sellAmtFcrc", ds_buying_freight.getCellData(i, "pchsAmtFcrc"));
+      ds_selling_freight.setCellData(i, "exRate", ds_buying_freight.getCellData(i, "exRate"));
+      ds_selling_freight.setCellData(i, "sellAmt", ds_buying_freight.getCellData(i, "pchsAmt"));
+      ds_selling_freight.setCellData(i, "vatAmt", ds_buying_freight.getCellData(i, "vat"));
+      ds_selling_freight.setCellData(i, "usdAmt", ds_buying_freight.getCellData(i, "usdAmt"));
+      ds_selling_freight.setCellData(i, "trfUpr", ds_buying_freight.getCellData(i, "trfUpr"));
+      ds_selling_freight.setCellData(i, "vatYn", ds_buying_freight.getCellData(i, "vatYn"));
+    }
+    ds_selling_freight.setRowPosition(i);
+  }
+  return true;
+};
+
+// -------------------------------------------------------------------------
+// 환율정보가져오기 - WebSquare (submission 기반)
+// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
+// SumCheck
+// -------------------------------------------------------------------------
+
+scwin.f_ExrateLoading = async function (param1, param2, param3) {
+  if (param1 == "KRW") param1 = "USD";
+  await scwin.f_commCode(ds_ExRate, "ilCommonEBC", "retrieveExRate", param1, param2, param3);
+};
+
+// -------------------------------------------------------------------------
+// 엑셀 다운로드 - WebSquare
+// dataId: DataList
+// gridId: "gr_selling_freight" | "gr_partner_freight" | "gr_buying_freight"
+// -------------------------------------------------------------------------
+scwin.f_RunExcel_freight = async function (dataId, gridId) {
+  var sheetName = "",
+    fileName = "";
+  if (gridId == "gr_selling_freight") {
+    sheetName = "Selling List";
+    fileName = "Selling List.xls";
+  } else if (gridId == "gr_partner_freight") {
+    sheetName = "Partner List";
+    fileName = "Partner List.xls";
+  } else if (gridId == "gr_buying_freight") {
+    sheetName = "Buying List";
+    fileName = "Buying List.xls";
+  }
+  scwin.f_ExportExcel(dataId, gridId, sheetName);
+};
+
+//-------------------------------------------------------------------------
+// function name : scwin.f_PopUpGrid_freight
+// function desc : Grid popup (GAUCE -> WebSquare, udc_ilcomCode 기반)
+//-------------------------------------------------------------------------
+// 규칙
+// - ds.setCellData(r,c)        -> ds.getCellData(r,c)
+// - ds.setCellData(r,c)=v      -> ds.setCellData(r,c,v)
+// - ilCommonPopUp            -> udc_ilcomCode.setSelectId + udc_ilcomCode.ilCommonPopUp(onReturn,...)
+// - cfSetGridReturnValue     -> 아래 onReturn에서 직접 setCellData 처리(원하면 기존함수 호출로 바꿀 수 있음)
+//-------------------------------------------------------------------------
+scwin.f_PopUpGrid_freight = function (disGubun, Row, pWinCloseTF, pAllSearchTF, callbackFn) {
+  // == rtn normalize (프로젝트 공통 버전 그대로 사용) ==
+  function normalizeRtn(rtnList) {
+    if (!rtnList || rtnList == "N/A") return null;
+    if (rtnList.list && Array.isArray(rtnList.list)) rtnList = rtnList.list;
+
+    // 다건: [[...],[...]] -> 첫행
+    if (Array.isArray(rtnList) && rtnList.length > 0 && Array.isArray(rtnList[0])) return rtnList[0];
+    if (Array.isArray(rtnList)) return rtnList;
+    var arr = [];
+    if (rtnList.code != null) arr[0] = rtnList.code;
+    if (rtnList.name != null) arr[1] = rtnList.name;
+    return arr.length ? arr : null;
+  }
+
+  // == DS 공통 setter ==
+  function setGridCodeName(ds, row, codeCol, nameCol, r) {
+    if (!ds || row == null) return;
+    ds.setCellData(row, codeCol, r[0] || "");
+    if (nameCol) ds.setCellData(row, nameCol, r[1] || "");
+  }
+
+  // == DS 공통 setter ==
+  function setGridCodeNameClear(ds, row, codeCol, nameCol) {
+    if (!ds || row == null) return;
+    ds.setCellData(row, codeCol, "");
+    ds.setCellData(row, nameCol, "");
+  }
+
+  // == 공통 팝업 호출 (Grid: code/name 인자를 DS에서 뽑아 넘김) ==
+  function openCommon(args) {
+    setGridCodeNameClear(args.ds, args.row, args.codeCol, args.nameCol);
+    var onReturn = function (rtnList) {
+      var r = normalizeRtn(rtnList);
+      if (!r) return;
+
+      // 기본: code/name 세팅
+      if (args.ds && args.codeCol) {
+        setGridCodeName(args.ds, args.row, args.codeCol, args.nameCol, r);
+      }
+
+      // 추가 후처리
+      if (typeof args.afterFn == 'function') args.afterFn(r);
+      if (typeof callbackFn == 'function') callbackFn(args.row);
+    };
+    udc_ilcomCode.setSelectId(args.selectId);
+    udc_ilcomCode.ilCommonPopUp(onReturn, args.codeValue || "", args.setCellData || "", args.winCloseTF, args.colCnt, args.titles, args.widths, args.hideCols, args.whereOpt || "", args.winW || "500", args.winH || "500", args.posY || "", args.posX || "", args.dupTF || "", args.allTF || "F", args.winTitle || "", args.noDataTF || "F");
+  }
+
+  // == DS별 현재 값 읽기 유틸 ==
+  function gv(ds, row, col) {
+    return String(ds.getCellData(row, col) || "");
+  }
+
+  // ---------------------------------------------------------
+  // switch
+  // ---------------------------------------------------------
+  switch (disGubun) {
+    // ==
+    // Selling - Customer
+    // ==
+    case "SellingCustomer":
+      openCommon({
+        selectId: "retrieveEngClntInfo",
+        ds: ds_selling_freight,
+        row: Row,
+        codeCol: "bilgClntNo",
+        nameCol: "bilgClntNm",
+        codeValue: gv(ds_selling_freight, Row, "bilgClntNo"),
+        setCellData: gv(ds_selling_freight, Row, "bilgClntNm"),
+        winCloseTF: pWinCloseTF,
+        colCnt: "10",
+        titles: "Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+        widths: "140,300,100,100,100,100,100,,,100",
+        hideCols: "8,9",
+        allTF: pAllSearchTF,
+        winTitle: "Customer search,Customer Code,Customer Name",
+        noDataTF: "F"
+      });
+      break;
+
+    // ==
+    // Selling - Fcode
+    // ==
+    case "SellingFcode":
+      openCommon({
+        selectId: "retriveFreightCodeInfo",
+        ds: ds_selling_freight,
+        row: Row,
+        codeCol: "fareEngCd",
+        nameCol: "fareEngNm",
+        codeValue: gv(ds_selling_freight, Row, "fareEngCd"),
+        setCellData: gv(ds_selling_freight, Row, "fareEngNm"),
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        whereOpt: "S,1",
+        allTF: pAllSearchTF,
+        winTitle: "FCode,Code,Name",
+        noDataTF: "F",
+        afterFn: function (r) {
+          // GAUCE 로직 그대로 이식 (r 배열 인덱스 사용)
+          // undefined 방어는 normalizeRtn이 처리함
+
+          ds_selling_freight.setCellData(Row, "sellItemCd", r[3] || "");
+          ds_selling_freight.setCellData(Row, "fareGrpCd", r[5] || "");
+          ds_selling_freight.setCellData(Row, "vatYn", r[7] || "");
+
+          // 통화 결정
+          if (String(r[9] || "") == "1") {
+            ds_selling_freight.setCellData(Row, "crcCd", "KRW");
+          } else {
+            ds_selling_freight.setCellData(Row, "crcCd", true ? ed_selling_hhcur_freight.getValue() : ed_selling_hhcur_freight.getValue() || "");
+          }
+          var fcode = gv(ds_selling_freight, Row, "fareEngCd");
+          if (fcode == "OCF") {
+            ds_selling_freight.setCellData(Row, "crcCd", "USD");
+          }
+
+          // 특정 코드면 UNIT/WT 고정
+          if (fcode == "DOC" || fcode == "DOCV" || fcode == "DOF" || fcode == "DOFV" || fcode == "INSU" || fcode == "HDC" || fcode == "HDCV" || fcode == "CCFV" || fcode == "CCF") {
+            ds_selling_freight.setCellData(Row, "fareUnit", "CASE");
+            ds_selling_freight.setCellData(Row, "chgWt", "1");
+          }
+        }
+      });
+      break;
+
+    // ==
+    // Partner - Customer
+    // ==
+    case "PartnerCustomer":
+      openCommon({
+        selectId: "retrieveEngClntInfo",
+        ds: ds_partner_freight,
+        row: Row,
+        codeCol: "bilgClntNo",
+        nameCol: "bilgClntNm",
+        codeValue: gv(ds_partner_freight, Row, "bilgClntNo"),
+        setCellData: gv(ds_partner_freight, Row, "bilgClntNm"),
+        winCloseTF: pWinCloseTF,
+        colCnt: "10",
+        titles: "Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+        widths: "140,300,100,100,100,100,100,,,100",
+        hideCols: "8,9",
+        allTF: pAllSearchTF,
+        winTitle: "Customer search,Customer Code,Customer Name",
+        noDataTF: "F"
+      });
+      break;
+
+    // ==
+    // Partner - Fcode (drCrCls 에 따라 whereOpt 변경)
+    // ==
+    case "PartnerFcode":
+      (function () {
+        var drcr = gv(ds_partner_freight, Row, "drCrCls");
+        var whereOpt = drcr == "D" ? "S,0,1" : drcr == "C" ? "S,0,2" : "S,0,1";
+        openCommon({
+          selectId: "retriveFreightCodeInfo",
+          ds: ds_partner_freight,
+          row: Row,
+          codeCol: "fareEngCd",
+          nameCol: "fareEngNm",
+          codeValue: gv(ds_partner_freight, Row, "fareEngCd"),
+          setCellData: gv(ds_partner_freight, Row, "fareEngNm"),
+          winCloseTF: pWinCloseTF,
+          colCnt: "2",
+          titles: "Code, Name",
+          widths: "80,230",
+          hideCols: "3,4,5,6,7,8,9,10",
+          whereOpt: whereOpt,
+          allTF: pAllSearchTF,
+          winTitle: "FCode,Code,Name",
+          noDataTF: "F",
+          afterFn: function (r) {
+            ds_partner_freight.setCellData(Row, "sellItemCd", r[3] || "");
+            ds_partner_freight.setCellData(Row, "fareGrpCd", r[5] || "");
+            ds_partner_freight.setCellData(Row, "vatYn", r[7] || "");
+            ds_partner_freight.setCellData(Row, "vehclYn", r[8] || "");
+
+            // Partner는 USD 고정
+            ds_partner_freight.setCellData(Row, "crcCd", "USD");
+            var fcode = gv(ds_partner_freight, Row, "fareEngCd");
+            if (fcode == "DOC" || fcode == "DOCV" || fcode == "DOF" || fcode == "DOFV" || fcode == "INSU" || fcode == "HDC" || fcode == "HDCV" || fcode == "CCFV" || fcode == "CCF") {
+              ds_partner_freight.setCellData(Row, "fareUnit", "CASE");
+              ds_partner_freight.setCellData(Row, "chgWt", "1");
+            }
+          }
+        });
+      })();
+      break;
+
+    // ==
+    // Buying - Customer
+    // ==
+    case "BuyingCustomer":
+      openCommon({
+        selectId: "retrieveEngClntInfo",
+        ds: ds_buying_freight,
+        row: Row,
+        codeCol: "pchsClntNo",
+        nameCol: "pchsClntNm",
+        codeValue: gv(ds_buying_freight, Row, "pchsClntNo"),
+        setCellData: gv(ds_buying_freight, Row, "pchsClntNm"),
+        winCloseTF: pWinCloseTF,
+        colCnt: "10",
+        titles: "Partner Code,Partner Name,Address1,Address2,Address3,Address4,Tel,,,CRN",
+        widths: "140,300,100,100,100,100,100,,,100",
+        hideCols: "8,9",
+        allTF: pAllSearchTF,
+        winTitle: "Customer search,Customer Code,Customer Name",
+        noDataTF: "F"
+      });
+      break;
+
+    // ==
+    // Buying - Fcode
+    // ==
+    case "BuyingFcode":
+      openCommon({
+        selectId: "retriveFreightCodeInfo",
+        ds: ds_buying_freight,
+        row: Row,
+        codeCol: "fareEngCd",
+        nameCol: "fareEngNm",
+        codeValue: gv(ds_buying_freight, Row, "fareEngCd"),
+        setCellData: gv(ds_buying_freight, Row, "fareEngNm"),
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        whereOpt: "S,2",
+        allTF: pAllSearchTF,
+        winTitle: "FCode,Code,Name",
+        noDataTF: "F",
+        afterFn: function (r) {
+          ds_buying_freight.setCellData(Row, "selpchItemCd", r[3] || "");
+          ds_buying_freight.setCellData(Row, "fareGrpCd", r[5] || "");
+          ds_buying_freight.setCellData(Row, "vatYn", r[7] || "");
+          ds_buying_freight.setCellData(Row, "vehclYn", r[8] || "");
+
+          // scwin.v_linkcheck != 9 조건 유지
+          if (scwin.v_linkcheck != 9) {
+            if (String(r[9] || "") == "1") {
+              ds_buying_freight.setCellData(Row, "crcCd", "KRW");
+            } else {
+              ds_buying_freight.setCellData(Row, "crcCd", true ? ed_selling_hhcur_freight.getValue() : ed_selling_hhcur_freight.getValue() || "");
+            }
+            var fcode = gv(ds_buying_freight, Row, "fareEngCd");
+            if (fcode == "OCF") {
+              ds_buying_freight.setCellData(Row, "crcCd", "USD");
+            }
+          }
+          var fcode2 = gv(ds_buying_freight, Row, "fareEngCd");
+          if (fcode2 == "DOC" || fcode2 == "DOCV" || fcode2 == "DOF" || fcode2 == "DOFV" || fcode2 == "INSU" || fcode2 == "HDC" || fcode2 == "HDCV" || fcode2 == "CCFV" || fcode2 == "CCF") {
+            ds_buying_freight.setCellData(Row, "fareUnit", "CASE");
+            ds_buying_freight.setCellData(Row, "chgWt", "1");
+          }
+        }
+      });
+      break;
+
+    // ==
+    // Buying - Dept
+    // ==
+    case "BuyingDept":
+      openCommon({
+        selectId: "retrieveOpDeptCdInfo",
+        ds: ds_buying_freight,
+        row: Row,
+        codeCol: "sellDeptCd",
+        nameCol: "sellDeptNm",
+        codeValue: gv(ds_buying_freight, Row, "sellDeptCd"),
+        setCellData: gv(ds_buying_freight, Row, "sellDeptNm"),
+        winCloseTF: pWinCloseTF,
+        colCnt: "2",
+        titles: "Code, Name",
+        widths: "80,230",
+        hideCols: "3,4,5,6,7,8,9,10",
+        allTF: pAllSearchTF,
+        winTitle: "Department,Code,Name",
+        noDataTF: "F"
+      });
+      break;
+    default:
+      break;
+  }
+};
+
+// ==
+// [공통] 모달 팝업 호출 (showModalDialog 대체)
+// - popupId는 페이지 내에서 유니크하게 생성
+// - returnValue(=rtnList)는 프로젝트 팝업 규약에 맞춰 받아옴
+// ==
+
+// ==
+// [공통] Freight 그리드(DS) 일괄 변경 유틸
+// - gbn: 0 Selling / 1 Partner / 2 Buying
+// - certiField: 잠금 필드 (빈 값일 때만 변경)
+// - matchField, setNoField, setNmField: 변경 대상
+// ==
+scwin.applyClientChangeToFreight = function (ds, options) {
+  var rowCount = ds.getRowCount();
+  if (rowCount == 0) return;
+  var certiField = options.certiField;
+  var matchField = options.matchField;
+  var setNoField = options.setNoField;
+  var setNmField = options.setNmField;
+  var oldNo = options.oldNo;
+  var newNo = options.newNo;
+  var newNm = options.newNm;
+  for (var i = 0; i < rowCount; i++) {
+    var cert = (ds.getCellData(i, certiField) || "").trim();
+    if (cert != "") continue;
+    if ((ds.getCellData(i, matchField) || "") == oldNo) {
+      ds.setCellData(i, setNoField, newNo);
+      ds.setCellData(i, setNmField, newNm);
+    }
+  }
+};
+scwin.applyResultDateToFreight = function (ds, options) {
+  var rowCount = ds.getRowCount();
+  if (rowCount == 0) return;
+  var certiField = options.certiField;
+  var dateField = options.dateField;
+  var newDate = options.newDate;
+  for (var i = 0; i < rowCount; i++) {
+    var cert = (ds.getCellData(i, certiField) || "").trim();
+    if (cert != "") continue;
+    ds.setCellData(i, dateField, newDate);
+  }
+};
+
+//-------------------------------------------------------------------------
+// Customer Change
+//-------------------------------------------------------------------------
+scwin.f_CustomerChange_freight = async function () {
+  var gbn = this.getUserData('userData1');
+  var rtnList = null;
+  var param = {}; // TODO: 팝업 파라미터 규칙 확인(객체/배열)
+  var opts = {
+    popupName: "Customer Chagnge",
+    width: 460,
+    height: 280,
+    modal: true
+  };
+  var url = "/ui/il/common/xml/ilCommonCustomerChange.xml";
+  rtnList = await $c.win.openPopup($p, url, opts, param);
+  if (rtnList && rtnList[0] === "N/A") {
+    scwin.f_GridCustomerChange(gbn, rtnList);
+  }
+};
+scwin.f_GridCustomerChange = async function (gbn, rtnList) {
+  var oldNo = rtnList[1];
+  var newNo = rtnList[3];
+  var newNm = rtnList[4];
+  if (gbn == "0") {
+    // Selling
+    if (ds_selling_freight.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Selling Information"]);
+      return;
+    }
+    if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+    scwin.applyClientChangeToFreight(ds_selling_freight, {
+      certiField: "certiNo",
+      matchField: "bilgClntNo",
+      setNoField: "bilgClntNo",
+      setNmField: "bilgClntNm",
+      oldNo: oldNo,
+      newNo: newNo,
+      newNm: newNm
+    });
+  } else if (gbn == "1") {
+    // Partner
+    if (ds_partner_freight.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Partner Information"]);
+      return;
+    }
+    if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+    scwin.applyClientChangeToFreight(ds_partner_freight, {
+      certiField: "certiNo",
+      matchField: "bilgClntNo",
+      setNoField: "bilgClntNo",
+      setNmField: "bilgClntNm",
+      oldNo: oldNo,
+      newNo: newNo,
+      newNm: newNm
+    });
+  } else if (gbn == "2") {
+    // Buying
+    if (ds_buying_freight.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Buying Information"]);
+      return;
+    }
+    if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+    scwin.applyClientChangeToFreight(ds_buying_freight, {
+      certiField: "pchsCertiNo",
+      matchField: "pchsClntNo",
+      setNoField: "pchsClntNo",
+      setNmField: "pchsClntNm",
+      oldNo: oldNo,
+      newNo: newNo,
+      newNm: newNm
+    });
+  }
+};
+
+//-------------------------------------------------------------------------
+// Result date Change
+//-------------------------------------------------------------------------
+scwin.f_ResultdateChange_freight = async function () {
+  var gbn = this.getUserData('userData1');
+  var rtnList = null;
+  var param = {}; // TODO: 팝업 파라미터 규칙 확인(객체/배열)
+  var opts = {
+    popupName: "Result Date Change",
+    width: 460,
+    height: 280,
+    modal: true
+  };
+  var url = "/ui/il/common/xml/ilCommonResultDateChange.xml";
+  rtnList = await $c.win.openPopup($p, url, opts, param);
+  if (rtnList && rtnList[0] === "N/A") {
+    scwin.f_GridResultdateChange_freight(gbn, rtnList);
+  }
+};
+scwin.f_GridResultdateChange_freight = async function (gbn, rtnList) {
+  var newDate = rtnList[1];
+  if (gbn == "0") {
+    // Selling
+    if (ds_selling_freight.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Selling Information"]);
+      return;
+    }
+    if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+    scwin.applyResultDateToFreight(ds_selling_freight, {
+      certiField: "certiNo",
+      dateField: "rsltsStdDt",
+      newDate: newDate
+    });
+  } else if (gbn == "1") {
+    // Partner
+    if (ds_partner_freight.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Partner Information"]);
+      return;
+    }
+    if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+    scwin.applyResultDateToFreight(ds_partner_freight, {
+      certiField: "certiNo",
+      dateField: "rsltsStdDt",
+      newDate: newDate
+    });
+  } else if (gbn == "2") {
+    // Buying
+    if (ds_buying_freight.getRowCount() == 0) {
+      $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Buying Information"]);
+      return;
+    }
+    if (!(await $c.win.confirm($p, E_MSG_CM_CRM_001))) return;
+    scwin.applyResultDateToFreight(ds_buying_freight, {
+      certiField: "pchsCertiNo",
+      dateField: "rsltsStdDt",
+      newDate: newDate
+    });
+  }
+};
+
+// ==
+// [공통] DataList Debug (GAUCE dataSetDebug 대체)
+// ==
+
+/*****************************************************************
+* WebSquare 변환/리팩토링 - BOOKING / DIRECT / BULK / TEXTAREA
+* - GAUCE: ds.setCellData(row,col) / ds.insertRow(0) / tr.Post()
+* - WebSquare: dl.setValue(row,col,val) / dl.insertRow(0) / sbm.execute()
+*****************************************************************/
+
+scwin.booking = scwin.booking || {};
+scwin.direct = scwin.direct || {};
+scwin.util = scwin.util || {};
+
+/** ==
+* 공통 유틸
+* == */
+
+/** WebSquare DataList rowPosition helper (없으면 1로) */
+scwin.util.rowPos = function (dl) {
+  if (dl.options.pluginName == 'dataList') {
+    if (dl.getRowCount() == 0) {
+      return -1;
+    } else {
+      if (dl.getRowPosition() == null || dl.getRowPosition() == -1) {
+        dl.setRowPosition(0);
+        return 0;
+      } else {
+        return dl.getRowPosition();
+      }
+    }
+  } else {
+    return 0;
+  }
+};
+
+/** 값 세팅 helper */
+scwin.util.set = function (dl, col, val, row) {
+  if (!dl) return;
+  if (dl.options.pluginName == 'dataList') {
+    var r = row || scwin.util.rowPos(dl);
+    dl.setCellData(r, col, val);
+  } else {
+    dl.set(col, val);
+  }
+};
+
+/** 값 조회 helper */
+scwin.util.get = function (dl, col, row) {
+  if (!dl) return "";
+  if (dl.options.pluginName == 'dataList') {
+    var r = row || scwin.util.rowPos(dl);
+    return dl.getCellData(r, col);
+  } else {
+    return dl.get(col);
+  }
+};
+
+/** rowCount helper */
+scwin.util.rowCount = function (dl) {
+  if (!dl) return 0;
+  if (dl.options.pluginName == 'dataList') {
+    return dl.getRowCount();
+  } else {
+    return 0;
+  }
+};
+
+/** DataList clear/add helper */
+scwin.util.clear = function (dl) {
+  if (!dl) return;
+  if (dl.options.pluginName == 'dataList') {
+    dl.removeAll();
+  } else {
+    dl.setArray([]);
+  }
+};
+scwin.util.addRow = function (dl, nPos) {
+  if (dl.options.pluginName == 'dataList') {
+    nPos = nPos ? nPos : 0;
+    return dl.insertRow(nPos);
+  }
+};
+
+/** UI 값들(프로젝트마다 text.getValue()/value 차이가 있어서 안전 처리) */
+scwin.util.uiText = function (comp) {
+  if (!comp) return "";
+  return comp.getValue && comp.getValue() || comp.getValue() || comp.text || comp.getValue() || "";
+};
+
+/** Combo bindColVal */
+scwin.util.bindColVal = function (comp) {
+  if (!comp) return "";
+  return comp.getValue();
+};
+
+/**
+* 조회 (GAUCE: tr_retrieve_booking.Post())
+* WebSquare: submission execute
+*/
+scwin.f_Retrieve_booking = function () {
+  // dma_retrieve_booking: kcomcd, bkNo, bkbltype 세팅
+  dma_retrieve_booking.set("kcomcd", scwin.hd_kcomcd);
+  dma_retrieve_booking.set("bkNo", ed_hhbkgno.getValue());
+
+  // 벌크/컨테이너 구분
+  var blType = lc_hhbltype.getValue() == "B" ? "B" : "C";
+  dma_retrieve_booking.set("bkbltype", blType);
+
+  // 실행
+  $c.sbm.execute($p, sbm_retrieve_booking); // ← 프로젝트 submission id로 교체
+};
+
+//---------------------------------------------------------
+// Booking Loading
+// HOUSE B/L 에 기본적으로 BOOKING의 자료를 넣어준다. 역시 BOOKING NO ON KILL EVENT시 발생함.
+//---------------------------------------------------------
+scwin.f_BookingLoading = async function () {
+  ds_bookingNo.setCellData(0, "kcomcd", scwin.hd_kcomcd);
+  ds_bookingNo.setCellData(0, "bkNo", ed_hhbkgno.getValue());
+  var e = await $c.sbm.execute($p, sbm_retrieveBooking);
+  if (e.responseJSON.OUT_DS1.length == 0) {
+    // ds_booking.getRowCount() == 0
+    ds_bkseq.removeAll();
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_003); //  해당되는 자료가 존재하지 않습니다
+    return;
+  } else {
+    // 데이터 있음
+    // Booking Door Seq 가져오기.
+    await scwin.f_BkSeqLoading();
+    var rowIndex;
+    if (ds_booking.getRowPosition() == "" || ds_booking.getRowPosition() == null) {
+      rowIndex = ds_booking.setRowPosition(0);
+    } else {
+      rowIndex = ds_booking.getRowPosition();
+    }
+    if (ds_booking.getCellData(rowIndex, "docCd") != "") {
+      // booking 의 shipper가 없을때 customer로 넣는다.
+      ed_hhscd.setValue(ds_booking.getCellData(rowIndex, "docCd"));
+      if (ed_hhscd.getValue() != "") {
+        scwin.f_PopUp('Shipper', 'T');
+      }
+    } else {
+      ed_hhscd.setValue(ds_booking.getCellData(rowIndex, "custCd"));
+      if (ed_hhscd.getValue() != "") {
+        scwin.f_PopUp('Shipper', 'T');
+      }
+    }
+
+    // Actual Customer
+    ed_hhactcust.setValue(custCd);
+    txt_hhactcustnm.setValue(ds_booking.getCellData(rowIndex, "custNm"));
+    ed_hhactattn.setValue(ds_booking.getCellData(rowIndex, "custSeq"));
+    txt_hhactattnnm.setValue(ds_booking.getCellData(rowIndex, "custMan"));
+
+    // Liner
+    ed_hhliner.setValue(ds_booking.getCellData(rowIndex, "liner"));
+    txt_hhlinernm.setValue(ds_booking.getCellData(rowIndex, "linernm"));
+    ed_hhlinerattn.setValue(ds_booking.getCellData(rowIndex, "linerattn"));
+    txt_hhlinerattnnm.setValue(ds_booking.getCellData(rowIndex, "linerattnnm"));
+
+    // Buyer/Dept
+    ed_hhbuyer.setValue(ds_booking.getCellData(rowIndex, "dept"));
+    txt_hhbuyernm.setValue(ds_booking.getCellData(rowIndex, "deptnm"));
+
+    // Vessel/Voy
+    ed_hhvslcd.setValue(ds_booking.getCellData(rowIndex, "vslCd"));
+    txt_hhvsl.setValue(ds_booking.getCellData(rowIndex, "vslNm"));
+    txt_hhvyg.setValue(ds_booking.getCellData(rowIndex, "voy"));
+
+    // Sales
+    ed_hhsales.setValue(ds_booking.getCellData(rowIndex, "salesCd"));
+    txt_hhsalesnm.setValue(ds_booking.getCellData(rowIndex, "salesNm"));
+
+    // LOD / DISC / DLV
+    ed_hhlodcd.setValue(ds_booking.getCellData(rowIndex, "lodCd"));
+    txt_hhlodnm.setValue(ds_booking.getCellData(rowIndex, "lodNm"));
+    ed_hhdisccd.setValue(ds_booking.getCellData(rowIndex, "disCd"));
+    txt_hhdiscnm.setValue(ds_booking.getCellData(rowIndex, "disNm"));
+    ed_hhdlvcd.setValue(ds_booking.getCellData(rowIndex, "dlvCd"));
+    txt_hhdlvnm.setValue(ds_booking.getCellData(rowIndex, "dlvNm"));
+
+    // Area
+    // ed_hharea.setValue(ds_booking.getCellData(rowIndex, "bkArea"));
+    // txt_hhareanm.setValue(ds_booking.getCellData(rowIndex, "bkAreanm"));
+
+    // ETD / ETA
+    ed_hhetd.setValue(ds_booking.getCellData(rowIndex, "bkEtd"));
+    ed_hheta.setValue(ds_booking.getCellData(rowIndex, "bkEta"));
+
+    // Result Date
+    ed_creadyDt.setValue(ds_booking.getCellData(rowIndex, "etRsltsDt"));
+
+    // Combo
+    lc_hhpcgb.setValue(ds_booking.getCellData(rowIndex, "payTerm"));
+    lc_hhbltype.setValue(ds_booking.getCellData(rowIndex, "cfs"));
+    lc_hhincoterm.setValue(ds_booking.getCellData(rowIndex, "bkIncoterm"));
+
+    // Agent
+    ed_hhagent.setValue(ds_booking.getCellData(rowIndex, "bkAgent"));
+    txt_hhagentnm.setValue(ds_booking.getCellData(rowIndex, "bkAgentnm"));
+
+    // Cargo Type 이 Bulk 인 경우에 Service Term을 Bulk에 맞춰서 셋팅한다.
+    if (lc_hhbltype.getValue() == "B") {
+      scwin.f_bulkTypeServiceTerm();
+    }
+    lc_hhstype.setValue(ds_booking.getCellData(rowIndex, "svcType"));
+
+    // Cargo Type Bulk 처리
+    if (lc_hhbltype.getValue() == "B") {
+      scwin.f_bulkTypeServiceTerm();
+    }
+    lc_hhstype.setValue(ds_booking.getCellData(rowIndex, "svcType"));
+
+    // Item
+    ed_hhitem.setValue(ds_booking.getCellData(rowIndex, "itemCd"));
+    txt_hhmitem1.setValue(ds_booking.getCellData(rowIndex, "itemNm"));
+
+    // Package / Unit
+    ed_hhpkg.setValue(ds_booking.getCellData(rowIndex, "pkg"));
+    ed_hhunitcd.setValue(ds_booking.getCellData(rowIndex, "unit"));
+    txt_hhunit.setValue(ds_booking.getCellData(rowIndex, "unitnm"));
+
+    // Weight / Measure
+    ed_hhgwgt.setValue(ds_booking.getCellData(rowIndex, "wgt"));
+    ed_hhmsr.setValue(ds_booking.getCellData(rowIndex, "msr"));
+
+    // Container
+    ed_hhcnt1type.setValue(ds_booking.getCellData(rowIndex, "cnttype1"));
+    ed_hhcnt2type.setValue(ds_booking.getCellData(rowIndex, "cnttype2"));
+    ed_hhcnt3type.setValue(ds_booking.getCellData(rowIndex, "cnttype3"));
+    ed_hhcnt4type.setValue(ds_booking.getCellData(rowIndex, "cnttype4"));
+    ed_hhcnt1type._ogrVal = ed_hhcnt1type.getValue();
+    ed_hhcnt2type._ogrVal = ed_hhcnt2type.getValue();
+    ed_hhcnt3type._ogrVal = ed_hhcnt3type.getValue();
+    ed_hhcnt4type._ogrVal = ed_hhcnt4type.getValue();
+    ed_hhcnt1.setValue(ds_booking.getCellData(rowIndex, "cntqty1"));
+    ed_hhcnt2.setValue(ds_booking.getCellData(rowIndex, "cntqty2"));
+    ed_hhcnt3.setValue(ds_booking.getCellData(rowIndex, "cntqty3"));
+    ed_hhcnt4.setValue(ds_booking.getCellData(rowIndex, "cntqty4"));
+
+    // Carrier Booking No ed_carrierBkNo(hidden)
+    scwin.v_carrierBkno = ds_booking.getCellData(rowIndex, "carrierBkNo");
+    scwin.f_cargoControl();
+  }
+};
+
+/**
+* 계약번호 조회
+*/
+scwin.f_ContractInfo_booking = async function () {
+  scwin.util.clear(ds_ctrtNo_booking);
+  dma_retrieveCtrtClnt_booking.set("ctrtNo", scwin.v_contractno);
+  dma_retrieveCtrtClnt_booking.set("ctrtClntNo", scwin.util.uiText(ed_hhactcust).trim());
+  dma_retrieveCtrtClnt_booking.set("scDate", scwin.util.uiText(ed_hhetd).trim());
+  dma_retrieveCtrtClnt_booking.set("ctrtDtYn", "1");
+  dma_retrieveCtrtClnt_booking.set("ctrtDistrictCd", "ZZA");
+  dma_retrieveCtrtClnt_booking.set("impExpDomesticClsCd", "O");
+
+  // ETA가 없으면 현재일(서버 JSP 변수)
+  if (!scwin.util.uiText(ed_hheta)) {
+    dma_retrieveCtrtClnt_booking.set("scDate", scwin.strCurDate);
+  }
+
+  // container/bulk
+  if (scwin.util.bindColVal(lc_hhbltype) != "B") {
+    dma_retrieveCtrtClnt_booking.set("bizDivCntrYn", "1");
+  } else {
+    dma_retrieveCtrtClnt_booking.set("bizDivBulkYn", "1");
+  }
+
+  // 조회 실행
+  await $c.sbm.execute($p, sbm_retrieveCtrtClnt_booking);
+  if (ds_ctrtNo_booking.getRowCount() == 0 && dma_retrieveCtrtClnt_booking.get("ctrtClntNo") != "999908") {
+    dma_retrieveCtrtClnt_booking.setArray([]);
+    dma_retrieveCtrtClnt_booking.set("ctrtNo", "");
+    dma_retrieveCtrtClnt_booking.set("ctrtClntNo", "999908"); // 국제공통
+    dma_retrieveCtrtClnt_booking.set("scDate", scwin.strCurDate); // scwin.strCurDate
+    dma_retrieveCtrtClnt_booking.set("ctrtDtYn", "1");
+    dma_retrieveCtrtClnt_booking.set("ctrtDistrictCd", "ZZA"); // ZZA: 해운권역, ZZB: 항공권역
+    dma_retrieveCtrtClnt_booking.set("impExpDomesticClsCd", "O"); // in/out
+    dma_retrieveCtrtClnt_booking.set("bizDivCntrYn", "1"); // container (벌크/컨테이너 구분 필요)
+
+    await $c.sbm.execute($p, sbm_retrieveCtrtClnt_booking);
+  }
+
+  // 결과 없으면 fallback 고객(999908)로 1번 더
+  if (ds_ctrtNo_booking.getRowCount() == 0) {
+    dma_retrieveCtrtClnt_booking.set("ctrtClntNo", "999908");
+    await $c.sbm.execute($p, sbm_retrieveCtrtClnt_booking);
+  }
+  lc_contractno_booking.setSelectedIndex(0);
+};
+
+/**
+* 취소
+*/
+scwin.f_Cancel_booking = function () {
+  if (scwin.statusFlag == "C") return;
+  $c.data.undoAll($p, ds_containerBookingList_booking);
+  $c.data.undoAll($p, ds_ctrtNo_booking);
+  scwin.f_cancelRow_booking(1);
+  scwin.f_cancelRow_booking(2);
+  scwin.f_cancelRow_booking(3);
+  processFlag = "T";
+};
+
+/**
+* 행취소 (1:DoorOrder, 2:DoorOrderQty, 3:Container)
+*/
+scwin.f_cancelRow_booking = function (disGubun) {
+  switch (disGubun) {
+    case 1:
+      $c.data.undoAll($p, ds_containerDoorOrder_booking);
+      $c.data.undoAll($p, ds_containerDoorOrderQty_booking);
+      break;
+    case 2:
+      $c.data.undoAll($p, ds_containerDoorOrderQty_booking);
+      break;
+    case 3:
+      $c.data.undoAll($p, ds_containerBookingCont_booking);
+      break;
+  }
+};
+
+/**
+* 저장(Booking No 생성 → DoorOrder 자동 생성 → 데이터 세팅)
+* - GAUCE: tr_retrievebookingNo_booking.Post()
+* - WebSquare: sbm 실행
+*/
+scwin.f_Save_booking = async function () {
+  // Housebl의 bookingNo 초기화
+  scwin.util.set(ds_houseblList, "hhbkgno", "", scwin.util.rowPos(ds_houseblList));
+
+  // bookingNo 생성용 파라미터
+  // dma_retrieve_booking.set("kcomcd", scwin.hd_kcomcd);
+  // dma_retrieve_booking.set("bkEtd", scwin.util.uiText(ed_hhetd));
+  var rr = scwin.util.rowPos(dma_retrieve_booking);
+  scwin.util.set(dma_retrieve_booking, "kcomcd", scwin.hd_kcomcd, rr);
+  scwin.util.set(dma_retrieve_booking, "bkEtd", scwin.util.uiText(ed_hhetd), rr);
+
+  // containerBookingList 기본값
+  var br = scwin.util.rowPos(ds_containerBookingList_booking);
+  scwin.util.set(ds_containerBookingList_booking, "etRsltsDt", scwin.util.uiText(ed_hhetd), br);
+  scwin.util.set(ds_containerBookingList_booking, "bkPic", scwin.vUserId, br);
+  scwin.util.set(ds_containerBookingList_booking, "bkPicNm", scwin.vUserNm, br);
+
+  // bulk / container에 따라 다른 submission 호출(기존 action 분기 대체)
+  var isBulk = scwin.util.bindColVal(lc_hhbltype) == "B";
+  var action = isBulk ? "/il.seaout.sobk.RetrieveBookingNoCMD.do" : "/il.seaout.sobk.RetrieveContainerBookingNoCMD.do";
+  if (sbm_retrievebookingNo_booking && sbm_retrievebookingNo_booking.setAction) {
+    sbm_retrievebookingNo_booking.setAction(action);
+  } else {
+    sbm_retrievebookingNo_booking.action = action;
+  }
+  await $c.sbm.execute($p, sbm_retrievebookingNo_booking);
+
+  // 생성된 Booking No 반영
+  var no = ds_retrieveNo_booking.getCellData(0, "bkNo");
+  ed_hhbkgno.setValue(no);
+
+  // DoorOrder 자동 생성
+  scwin.f_autoCreateDoorOrderInfo_booking();
+
+  // bookingList 저장용 세팅
+  scwin.util.set(ds_containerBookingList_booking, "bkNo", no, 0);
+  scwin.util.set(ds_containerBookingList_booking, "custCd", scwin.util.uiText(ed_hhactcust), 0);
+  scwin.util.set(ds_containerBookingList_booking, "custNm", txt_hhactcustnm && txt_hhactcustnm.getValue() || "", 0);
+  scwin.util.set(ds_containerBookingList_booking, "wgt", scwin.util.uiText(ed_hhgwgt), 0);
+
+  // BK SEQ
+  scwin.util.clear(ds_bkseq);
+  scwin.util.addRow(ds_bkseq);
+  scwin.util.set(ds_bkseq, "code", "01", scwin.util.rowPos(ds_bkseq));
+  lc_hhbkgseq.setSelectedIndex(0);
+  scwin.util.set(ds_containerBookingList_booking, "kcomcd", scwin.hd_kcomcd, 0);
+  scwin.util.set(ds_containerBookingList_booking, "bkbltype", isBulk ? "B" : "C", 0);
+  scwin.util.set(ds_containerBookingList_booking, "bkEtd", scwin.util.uiText(ed_hhetd), 0);
+  scwin.util.set(ds_containerBookingList_booking, "inpid", scwin.vUserId, 0);
+
+  // 계약정보 삭제
+  ds_containerBookingList_booking.setCellData(0, "contractno", "");
+};
+
+/**
+* Door type Qty setting
+*/
+scwin.f_doorTypeQtyLoading_booking = function () {
+  var wgt = Number(scwin.util.uiText(ed_hhgwgt)) / 1000;
+  var msr = Number(scwin.util.uiText(ed_hhmsr));
+  var r = scwin.util.rowPos(ds_containerDoorOrderQty_booking);
+  var qtyType = scwin.util.get(ds_containerDoorOrderQty_booking, "qtytype", r);
+  if (qtyType == "WGT" || qtyType == "M/T") {
+    scwin.util.set(ds_containerDoorOrderQty_booking, "qty", scwin.util.uiText(ed_hhgwgt), r);
+  } else if (qtyType == "R/T") {
+    scwin.util.set(ds_containerDoorOrderQty_booking, "qty", wgt > msr ? wgt : msr, r);
+  } else if (qtyType == "CBM") {
+    scwin.util.set(ds_containerDoorOrderQty_booking, "qty", msr, r);
+  } else {
+    // 컨테이너 타입별 수량 연결
+    var t1 = scwin.util.uiText(ed_hhcnt1type),
+      q1 = scwin.util.uiText(ed_hhcnt1);
+    var t2 = scwin.util.uiText(ed_hhcnt2type),
+      q2 = scwin.util.uiText(ed_hhcnt2);
+    var t3 = scwin.util.uiText(ed_hhcnt3type),
+      q3 = scwin.util.uiText(ed_hhcnt3);
+    var t4 = scwin.util.uiText(ed_hhcnt4type),
+      q4 = scwin.util.uiText(ed_hhcnt4);
+    if (qtyType == t1) scwin.util.set(ds_containerDoorOrderQty_booking, "qty", q1, r);else if (qtyType == t2) scwin.util.set(ds_containerDoorOrderQty_booking, "qty", q2, r);else if (qtyType == t3) scwin.util.set(ds_containerDoorOrderQty_booking, "qty", q3, r);else if (qtyType == t4) scwin.util.set(ds_containerDoorOrderQty_booking, "qty", q4, r);
+  }
+};
+
+/**
+* Door Order 자동 생성
+*/
+scwin.f_autoCreateDoorOrderInfo_booking = function () {
+  scwin.util.clear(ds_containerBookingList_booking);
+  scwin.util.clear(ds_containerDoorOrder_booking);
+  scwin.util.clear(ds_containerDoorOrderQty_booking);
+  scwin.util.addRow(ds_containerBookingList_booking);
+  scwin.util.addRow(ds_containerDoorOrder_booking);
+  scwin.util.addRow(ds_containerDoorOrderQty_booking);
+
+  // door order 기본값
+  var dr = scwin.util.rowPos(ds_containerDoorOrder_booking);
+  scwin.util.set(ds_containerDoorOrder_booking, "kcomcd", scwin.hd_kcomcd, dr);
+  scwin.util.set(ds_containerDoorOrder_booking, "bkNo", scwin.util.uiText(ed_hhbkgno), dr);
+  scwin.util.set(ds_containerDoorOrder_booking, "doordt", scwin.strCurDate + scwin.currentTime, dr);
+  scwin.util.set(ds_containerDoorOrder_booking, "bkdoorseq", "01", dr);
+  scwin.util.set(ds_containerDoorOrder_booking, "internalTyp", "2", dr);
+  scwin.util.set(ds_containerDoorOrder_booking, "transcd", "109856", dr);
+  scwin.util.set(ds_containerDoorOrder_booking, "inpid", scwin.vUserId, dr);
+
+  // door qty 기본값
+  var qr = scwin.util.rowPos(ds_containerDoorOrderQty_booking);
+  scwin.util.set(ds_containerDoorOrderQty_booking, "kcomcd", scwin.hd_kcomcd, qr);
+  scwin.util.set(ds_containerDoorOrderQty_booking, "bkNo", scwin.util.uiText(ed_hhbkgno), qr);
+  scwin.util.set(ds_containerDoorOrderQty_booking, "bkdoorseq", "01", qr);
+  var blType = scwin.util.bindColVal(lc_hhbltype);
+  if (blType == "F") {
+    scwin.util.set(ds_containerDoorOrderQty_booking, "qtytype", "22GP", qr);
+    scwin.util.set(ds_containerDoorOrderQty_booking, "realQtytype", "22GP", qr);
+  } else if (blType == "L") {
+    scwin.util.set(ds_containerDoorOrderQty_booking, "qtytype", "R/T", qr);
+    scwin.util.set(ds_containerDoorOrderQty_booking, "realQtytype", "R/T", qr);
+  }
+  scwin.f_doorTypeQtyLoading_booking();
+  scwin.util.set(ds_containerDoorOrderQty_booking, "inpid", scwin.vUserId, qr);
+};
+
+/**
+* 신규
+*/
+scwin.f_Create_booking = function () {
+  ds_containerBookingList_booking.removeAll();
+  ds_containerBookingList_booking.insertRow(0);
+  ds_containerBookingList_booking.setRowPosition(0);
+  ds_containerDoorOrder_booking.removeAll();
+  ds_containerDoorOrderQty_booking.removeAll();
+  ds_containerBookingCont_booking.removeAll();
+  ds_houseblList_booking.removeAll();
+  var r = scwin.util.rowPos(ds_containerBookingList_booking);
+  scwin.util.set(ds_containerBookingList_booking, "reDt", scwin.strCurDate, r);
+  scwin.util.set(ds_containerBookingList_booking, "bkPic", scwin.vUserId, r);
+  scwin.util.set(ds_containerBookingList_booking, "bkPicNm", scwin.vUserNm, r);
+
+  // dept 기본값
+  if (!(scwin.vLobranCd == "null" || scwin.vLobranCd == null)) {
+    scwin.util.set(ds_containerBookingList_booking, "dept", scwin.vLobranCd, r);
+    scwin.util.set(ds_containerBookingList_booking, "deptnm", scwin.vLobranNm, r);
+  }
+};
+
+/** ==
+* DIRECT / BULK
+* == */
+
+scwin.f_Save_direct = async function () {
+  if (scwin.statusFlag != "C") return true;
+
+  // DBEX 특수 케이스
+  var hhbl = scwin.util.uiText(cnd_ed_hhblno);
+  var isDBEX = hhbl && hhbl.length == 4 && hhbl == "DBEX";
+  if (isDBEX) {
+    dma_retrieve_direct.set("hhetd", scwin.util.uiText(ed_creadyDt));
+    dma_retrieve_direct.set("autono", scwin.util.bindColVal(cnd_lc_autono));
+    dma_retrieve_direct.set("hhblno", cnd_ed_hhblno.getValue());
+
+    // MHNO 생성
+    // GAUCE: tr_createMhno_direct.Post()
+    // WS: execute
+    await $c.sbm.execute($p, sbm_createMhno_direct);
+
+    // mhno list 반영
+    scwin.util.clear(ds_hmhno);
+    scwin.util.addRow(ds_hmhno);
+    var mhno = ds_createMhno_direct.getCellData(0, "mhno");
+    scwin.util.set(ds_hmhno, "code", mhno, scwin.util.rowPos(ds_hmhno));
+    scwin.util.set(ds_hmhno, "name", mhno, scwin.util.rowPos(ds_hmhno));
+    cnd_lc_mhno.setSelectedIndex(0);
+
+    // House BL 생성
+    dma_retrieve_direct.set("hhetd", scwin.util.uiText(ed_creadyDt));
+    await $c.sbm.execute($p, sbm_createHouseBlNo_direct);
+    var newBl = ds_createBlNo_direct.getCellData(0, "hhblno");
+    if (cnd_ed_hhblno && cnd_ed_hhblno.setValue) {
+      cnd_ed_hhblno.setValue(newBl);
+    } else {
+      cnd_ed_hhblno.getValue(newBl);
+    }
+    return await scwin.direct._checkMasterBl();
+  }
+
+  // 일반 케이스
+  dma_retrieve_direct.set("autono", scwin.util.bindColVal(cnd_lc_autono));
+  dma_retrieve_direct.set("hhetd", scwin.util.uiText(ed_hhetd));
+  dma_retrieve_direct.set("hhblno", cnd_ed_hhblno.getValue());
+  await $c.sbm.execute($p, sbm_createMhno_direct);
+  scwin.util.clear(ds_hmhno);
+  scwin.util.addRow(ds_hmhno);
+  var mhno = ds_createMhno_direct.getCellData(0, "mhno");
+  scwin.util.set(ds_hmhno, "code", mhno);
+  scwin.util.set(ds_hmhno, "name", mhno);
+  cnd_lc_mhno.setSelectedIndex(0);
+  return await scwin.direct._checkMasterBl();
+};
+scwin.direct._checkMasterBl = async function () {
+  // master b/l 확인
+  var bl = scwin.util.uiText(cnd_ed_hhblno);
+  if (cnd_ed_hhmblno && cnd_ed_hhmblno.setValue) cnd_ed_hhmblno.setValue(bl);else cnd_ed_hhmblno.getValue(bl);
+
+  // dma_retrieve2_direct: hhmblno 세팅 (GAUCE는 1 row)
+  dma_retrieve2_direct.set("hhmblno", scwin.util.uiText(cnd_ed_hhmblno));
+
+  // popup 조건 그대로 유지
+  if (scwin.popUpResult != null && scwin.popUpResult[2] == "Y" && String(bl).trim() == scwin.popUpResult[0] && gptYn) {
+    return true;
+  }
+
+  // 체크 실행
+  await $c.sbm.execute($p, sbm_checkMasterBl_direct);
+  var chk = scwin.util.get(ds_checkMasterBl_direct, "chk", 0);
+  if (chk == "F") {
+    alert("Master B/L [" + scwin.util.uiText(cnd_ed_hhmblno) + "]에 해당하는 Direct B/L이 이미 존재합니다.");
+    return false;
+  }
+  return true;
+};
+
+/** ==
+* TEXTAREA 저장/복원
+* == */
+
+scwin.f_TextareaSave = function () {
+  var hhsSplit = String(scwin.util.uiText(ta_hhs) || "").split("\n");
+  var hhcSplit = String(scwin.util.uiText(ta_hhc) || "").split("\n");
+  var hhnSplit = String(scwin.util.uiText(ta_hhn) || "").split("\n");
+  var hhaSplit = String(scwin.util.uiText(txa_agentAdress) || "").split("\n");
+
+  // 5줄 보장
+  for (var i = 0; i < 5; i++) {
+    if (hhsSplit[i] == undefined) hhsSplit[i] = "";
+    if (hhcSplit[i] == undefined) hhcSplit[i] = "";
+    if (hhnSplit[i] == undefined) hhnSplit[i] = "";
+    if (hhaSplit[i] == undefined) hhaSplit[i] = "";
+  }
+  var r1 = scwin.util.rowPos(ds_houseblList);
+  var r2 = scwin.util.rowPos(ds_partnerInfo);
+  for (var k = 1; k < 6; k++) {
+    var s1 = hhsSplit[k - 1] || "";
+    var s2 = hhnSplit[k - 1] || "";
+    var s3 = hhcSplit[k - 1] || "";
+    var s4 = hhaSplit[k - 1] || "";
+    scwin.util.set(ds_houseblList, "hhs" + k, s1, r1);
+    scwin.util.set(ds_houseblList, "hhn" + k, s2, r1);
+    scwin.util.set(ds_houseblList, "hhc" + k, s3, r1);
+    scwin.util.set(ds_partnerInfo, "partnerAddr" + k, s4, r2);
+  }
+};
+scwin.f_TextareaCall = function () {
+  var r1 = scwin.util.rowPos(ds_houseblList);
+  var r2 = scwin.util.rowPos(ds_partnerInfo);
+  var str1 = "",
+    str2 = "",
+    str3 = "",
+    str4 = "";
+  for (var i = 1; i < 6; i++) {
+    str1 += scwin.util.get(ds_houseblList, "hhs" + i, r1) + "\n";
+    str2 += scwin.util.get(ds_houseblList, "hhn" + i, r1) + "\n";
+    str3 += scwin.util.get(ds_houseblList, "hhc" + i, r1) + "\n";
+    str4 += scwin.util.get(ds_partnerInfo, "partnerAddr" + i, r2) + "\n";
+  }
+
+  // 필요 시 textarea에 바인딩
+  if (ta_hhs && ta_hhs.setValue) ta_hhs.setValue(str1);
+  if (ta_hhn && ta_hhn.setValue) ta_hhn.setValue(str2);
+  if (ta_hhc && ta_hhc.setValue) ta_hhc.setValue(str3);
+  if (txa_agentAdress && txa_agentAdress.setValue) txa_agentAdress.setValue(str4);
+};
+
+//-------------------------------------------------------------------------
+// customerInfo 가져오기 (GAUCE DataID/Reset 제거 → sbm_combo 공통 사용)
+//-------------------------------------------------------------------------
+scwin.f_customerInfo = async function (param) {
+  await scwin.f_commCode(ds_customerInfo, "ilCommonEBC", "retriveCustomerInfo", param);
+  if (ds_customerInfo.getRowCount() == 0) return;
+
+  // GAUCE의 col1~col4 그대로 사용 (0행 기준)
+  var buyerCd = ds_customerInfo.getCellData(0, "col1");
+  var buyerNm = ds_customerInfo.getCellData(0, "col2");
+  var salesCd = ds_customerInfo.getCellData(0, "col3");
+  var salesNm = ds_customerInfo.getCellData(0, "col4");
+  if (ed_hhbuyer.getValue() == "") {
+    ed_hhbuyer.setValue(buyerCd);
+    txt_hhbuyernm.setValue ? txt_hhbuyernm.setValue(buyerNm) : txt_hhbuyernm.setValue(buyerNm);
+  }
+  ed_hhsales.setValue(salesCd);
+  txt_hhsalesnm.setValue ? txt_hhsalesnm.setValue(salesNm) : txt_hhsalesnm.setValue(salesNm);
+};
+
+//-------------------------------------------------------------------------
+// Result Date 회계마감 여부 체크 (월마감된 월로는 실적일자 입력 불가)
+//-------------------------------------------------------------------------
+scwin.f_JobCloseYn = async function () {
+  var preWrkNo = "FI01"; // 월 마감코드
+
+  // 공통 검사 함수
+  async function checkOne(dl, label, certiField) {
+    var rc = scwin._rc(dl);
+    // 기준월: 현재일(YYYYMM)
+    var minYm = scwin._ym(scwin.strCurDate); // scwin.strCurDate → scwin.strCurDate
+
+    for (var i = 0; i < rc; i++) {
+      // 신규 생성 행만 체크
+      if (scwin._isInsertRow(dl, i)) {
+        var ym = scwin._ym(dl.getCellData(i, "rsltsStdDt"));
+        if (ym && ym < minYm) minYm = ym;
+      }
+    }
+    var rsltsDt = minYm;
+    var isCloseDepr = await scwin.cfJobCloseYN("CUR", rsltsDt, "00", preWrkNo, "0", "", "", "000");
+    if (isCloseDepr == "2" || isCloseDepr == "DNF") {
+      $c.gus.cfAlertMsg($p, "회계마감 된 날짜로는 Result Date를 입력할 수 없습니다.<br>" + label + " Result Date를 확인하세요.");
+      return false;
+    }
+    return true;
+  }
+
+  // Selling / Partner / Buying 순서대로 검사
+  if (!(await checkOne(ds_selling_freight, "Selling List", "certiNo"))) return false;
+  if (!(await checkOne(ds_partner_freight, "Partner List", "certiNo"))) return false;
+  if (!(await checkOne(ds_buying_freight, "Buying List", "pchsCertiNo"))) return false;
+  return true;
+};
+
+// DataList rowCount 안전 처리
+scwin._rc = function (dl) {
+  return dl ? dl.getRowCount() : 0;
+};
+
+// DataList month(YYYYMM) 추출
+scwin._ym = function (yyyymmdd) {
+  var s = (yyyymmdd || "").toString();
+  return s.length >= 6 ? s.substring(0, 6) : "";
+};
+
+// DataList 신규행 여부(프로젝트 RowStatus 코드에 맞춰 조정 가능)
+// - GAUCE: "1" 신규, "2" 삭제 등
+// - WebSquare에서도 RowStatus 값을 동일하게 쓰는 경우가 많음
+scwin._isInsertRow = function (dl, rowIdx) {
+  // getRowStatus / getRowState 등 프로젝트별로 다를 수 있어 fallback 포함
+  var st = dl.getRowStatus && dl.getRowStatus(rowIdx) || dl.getRowState && dl.getRowState(rowIdx) || dl.getRowStatusValue && dl.getRowStatusValue(rowIdx) || "";
+  return st == "1";
+};
+
+// 체크된 행에 대해 특정 컬럼들을 일괄 변경 (Selling/Partner/Buying 공통 처리용)
+
+// ilCommonPopUp이 그대로 존재한다면(동기/콜백 혼재 가능) Promise wrapper
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// 이벤트 처리
+scwin.ed_hhcnt1type_onviewchange = async function (info) {
+  if (this._oldValue != this.getValue()) {
+    scwin.f_chkOpenCommonPopUp("CODE", "ContainerType1", ed_hhcnt1type, null, "T", "F", "F");
+  }
+};
+scwin.img_PopUp6_freight_onclick = function (e) {
+  var codeVal = ed_hhcnt1type.getValue();
+  var nameVal = '';
+  scwin.f_OpenCommonPopUp('ContainerType1', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.ed_hhcnt2type_onviewchange = async function (info) {
+  if (this._oldValue != this.getValue()) {
+    scwin.f_chkOpenCommonPopUp("CODE", "ContainerType2", ed_hhcnt2type, null, "T", "F", "F");
+  }
+};
+scwin.img_PopUp7_freight_onclick = function (e) {
+  var codeVal = ed_hhcnt2type.getValue();
+  var nameVal = '';
+  scwin.f_OpenCommonPopUp('ContainerType2', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.ed_hhcnt3type_onviewchange = async function (info) {
+  if (this._oldValue != this.getValue()) {
+    scwin.f_chkOpenCommonPopUp("CODE", "ContainerType3", ed_hhcnt3type, null, "T", "F", "F");
+  }
+};
+scwin.img_PopUp8_freight_onclick = function (e) {
+  var codeVal = ed_hhcnt3type.getValue();
+  var nameVal = '';
+  scwin.f_OpenCommonPopUp('ContainerType3', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.ed_hhcnt4type_onviewchange = async function (info) {
+  if (this._oldValue != this.getValue()) {
+    scwin.f_chkOpenCommonPopUp("CODE", "ContainerType4", ed_hhcnt4type, null, "T", "F", "F");
+  }
+};
+scwin.img_PopUp9_freight_onclick = function (e) {
+  var codeVal = ed_hhcnt4type.getValue();
+  var nameVal = '';
+  scwin.f_OpenCommonPopUp('ContainerType4', codeVal, nameVal, 'F', 'F', 'F');
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+scwin.ed_hhcnt1_onchange = function (info) {
+  const newValue = info.newValue;
+  if (newValue != "0" || !$c.util.isEmpty($p, newValue)) {
+    scwin.f_cargoControl();
+  }
+};
+scwin.ed_hhcnt2_onviewchange = function (info) {
+  const newValue = info.newValue;
+  if (newValue != "0" || !$c.util.isEmpty($p, newValue)) {
+    scwin.f_cargoControl();
+  }
+};
+scwin.ed_hhcnt3_onviewchange = async function (info) {
+  const newValue = info.newValue;
+  if (newValue != "0" || !$c.util.isEmpty($p, newValue)) {
+    scwin.f_cargoControl();
+  }
+};
+scwin.ed_hhcnt4_onviewchange = function (info) {
+  const newValue = info.newValue;
+  if (newValue != "0" || !$c.util.isEmpty($p, newValue)) {
+    scwin.f_cargoControl();
+  }
+};
+scwin.ed_hhpkg_onviewchange = function (info) {
+  const newValue = info.newValue;
+  if (newValue != "0" || !$c.util.isEmpty($p, newValue)) {
+    scwin.f_cargoControl();
+  }
+};
+
+// [GAUCE] for=ed_hhcnt1 event=onKillFocus / ed_hhcnt1_onchange
+scwin.ed_hhcnt1_onblur = function (e) {
+  if (ed_hhcnt1.getValue() != "0" || ed_hhcnt1.getValue() != "") {
+    scwin.f_cargoControl();
+  }
+};
+
+// [GAUCE] for=ed_hhcnt2 event=onKillFocus / ed_hhcnt2_onviewchange
+scwin.ed_hhcnt2_onblur = function (e) {
+  if (ed_hhcnt2.getValue() != "0" || ed_hhcnt2.getValue() != "") {
+    scwin.f_cargoControl();
+  }
+};
+
+// [GAUCE] for=ed_hhcnt3 event=onKillFocus / ed_hhcnt3_onviewchange
+scwin.ed_hhcnt3_onblur = function (e) {
+  if (ed_hhcnt3.getValue() != "0" || ed_hhcnt3.getValue() != "") {
+    scwin.f_cargoControl();
+  }
+};
+
+// [GAUCE] for=ed_hhcnt4 event=onKillFocus / ed_hhcnt4_onviewchange
+scwin.ed_hhcnt4_onblur = function (e) {
+  if (ed_hhcnt4.getValue() != "0" || ed_hhcnt4.getValue() != "") {
+    scwin.f_cargoControl();
+  }
+};
+
+// [GAUCE] for=ed_hhpkg event=onKillFocus / ed_hhpkg_onviewchange
+scwin.ed_hhpkg_onblur = function (e) {
+  if (ed_hhpkg.getValue() != "0" || ed_hhpkg.getValue() != "") {
+    scwin.f_cargoControl();
+  }
+};
+
+// [GAUCE] for=ds_hmhno event=OnLoadCompleted(rowcnt)
+scwin.ds_hmhno_onLoad = async function () {
+  if (ds_hmhno.getRowCount() == 0) {
+    if (scwin.statusFlag != "C") await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["House No"]); // @이(가) 존재하지 않습니다.
+    ds_hmhno.insertRow(0);
+    ds_hmhno.setRowPosition(0);
+    ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", "NONE");
+    ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", "NONE");
+    cnd_lc_mhno.setSelectedIndex(0);
+  }
+  if (scwin.statusFlag == "C") {
+    ds_hmhno.removeAll();
+    ds_hmhno.insertRow(0);
+    ds_hmhno.setRowPosition(0);
+    ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "code", "NONE");
+    ds_hmhno.setCellData(ds_hmhno.getRowPosition(), "name", "NONE");
+    cnd_lc_mhno.setSelectedIndex(0);
+  }
+  if (scwin.mhnoFlag == "1") {
+    scwin.f_Retrieve();
+    scwin.mhnoFlag = "0";
+  }
+};
+
+// [GAUCE] for=ed_hhbkgno event=onKillFocus
+scwin.cnd_ed_hhblno_onblur = function (e) {
+  if (cnd_ed_hhblno.getValue() != "") {
+    scwin.f_MhnoLoading();
+  }
+};
+scwin.ed_hhbkgno_onviewchange = function (info) {
+  if (scwin.statusFlag == "C") {
+    if ($c.util.isEmpty($p, ed_hhbkgno.getValue())) {
+      scwin.f_bookingSearchPopup();
+    } else {
+      scwin.f_BookingLoading();
+    }
+  }
+};
+
+// [GAUCE] for=lc_hhbkgseq event=onchange
+scwin.lc_hhbkgseq_onchange = function (e) {
+  if (scwin.statusFlag == "C") {
+    if (ed_hhbkgno.getValue() == "") {
+      $c.gus.cfViewTab($p, 0); // 1번째 탭으로 이동.  cnd_ed_hhblno.focus() 잡아주기 위함.
+      lc_hhbkgseq.focus();
+    } else {
+      scwin.f_ContainerLoading();
+    }
+  }
+};
+
+// [GAUCE] for=lc_hhpcgb event=onchange
+scwin.lc_hhpcgb_onchange = function (e) {
+  if (scwin.statusFlag == "C") {
+    if (lc_hhpcgb.getValue() == "P") {
+      lc_hhpaynm.setValue(lc_hhisunm.getValue());
+      lc_hhprenm.setSelectedIndex(0);
+    } else {
+      lc_hhpaynm.setSelectedIndex(3);
+      lc_hhprenm.setSelectedIndex(1);
+    }
+  }
+};
+
+// [GAUCE] for=lc_hhbltype event=onchange
+scwin.lc_hhbltype_onchange = function (e) {
+  scwin.f_cargoControl();
+  scwin.f_bulkTypeServiceTerm();
+  if (lc_hhbltype.getValue() == "F") {
+    lc_hhstype.setSelectedIndex(0);
+  } else if (lc_hhbltype.getValue() == "L") {
+    lc_hhstype.setSelectedIndex(4);
+  }
+};
+
+// [GAUCE] for=ed_hhccd event=onKillFocus
+scwin.ed_hhccd_onblur = function (e) {
+  if (scwin.statusFlag == "C") {
+    var strClntNo = "";
+    strClntNo = ed_hhccd.getValue().trim();
+    if (strClntNo.length > 0) {
+      txt_hhc1.setValue("");
+      txt_hhc2.setValue("");
+      txt_hhc3.setValue("");
+      txt_hhc4.setValue("");
+      txt_hhc5.setValue("");
+      scwin.f_PopUp("Consignee", 'T');
+    } else {
+      txt_hhc1.setValue("");
+      txt_hhc2.setValue("");
+      txt_hhc3.setValue("");
+      txt_hhc4.setValue("");
+      txt_hhc5.setValue("");
+    }
+  } else if (scwin.statusFlag == "U") {
+    var strClntNo = "";
+    strClntNo = ed_hhccd.getValue().trim();
+    if (txt_hhc1.getValue() == "") {
+      if (strClntNo.length > 0) {
+        txt_hhc1.setValue("");
+        txt_hhc2.setValue("");
+        txt_hhc3.setValue("");
+        txt_hhc4.setValue("");
+        txt_hhc5.setValue("");
+        scwin.f_PopUp("Consignee", 'T');
+      } else {
+        txt_hhc1.setValue("");
+        txt_hhc2.setValue("");
+        txt_hhc3.setValue("");
+        txt_hhc4.setValue("");
+        txt_hhc5.setValue("");
+      }
+    }
+  }
+};
+
+// [GAUCE] for=ed_hhncd event=onKillFocus
+scwin.ed_hhncd_onblur = function (e) {
+  if (scwin.statusFlag == "C") {
+    var strClntNo = "";
+    strClntNo = ed_hhncd.getValue().trim();
+    if (strClntNo.length > 0) {
+      txt_hhn1.setValue("");
+      txt_hhn2.setValue("");
+      txt_hhn3.setValue("");
+      txt_hhn4.setValue("");
+      txt_hhn5.setValue("");
+      scwin.f_PopUp("Notify", 'T');
+    } else {
+      txt_hhn1.setValue("");
+      txt_hhn2.setValue("");
+      txt_hhn3.setValue("");
+      txt_hhn4.setValue("");
+      txt_hhn5.setValue("");
+    }
+  } else if (scwin.statusFlag == "U") {
+    var strClntNo = "";
+    strClntNo = ed_hhncd.getValue().trim();
+    if (txt_hhn1.getValue() == "") {
+      if (strClntNo.length > 0) {
+        txt_hhn1.setValue("");
+        txt_hhn2.setValue("");
+        txt_hhn3.setValue("");
+        txt_hhn4.setValue("");
+        txt_hhn5.setValue("");
+        scwin.f_PopUp("Notify", 'T');
+      } else {
+        txt_hhn1.setValue("");
+        txt_hhn2.setValue("");
+        txt_hhn3.setValue("");
+        txt_hhn4.setValue("");
+        txt_hhn5.setValue("");
+      }
+    }
+  }
+};
+
+// [GAUCE] for=ed_hhetd event=onKillFocus
+scwin.ed_hhetd_onblur = function (e) {
+  if (scwin.statusFlag == "C") {
+    if (ed_creadyDt.getValue() == "") {
+      ed_creadyDt.setValue(ed_hhetd.getValue());
+    }
+  }
+  if (scwin.statusFlag == "C" || scwin.statusFlag == "U") {
+    ed_hhondt.setValue(ed_hhetd.getValue());
+    ed_hhisudt.setValue(ed_hhetd.getValue());
+  }
+};
+
+// [GAUCE] for=ta_hhs event=onKillFocus
+scwin.uppper_onblur = function (e) {
+  var val = this.getValue();
+  // 특수공백문자 제거
+  var specialSpaceRegex = /[\u00A0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/g;
+  val = val.replace(specialSpaceRegex, " ");
+  this.setValue(val.toUpperCase());
+};
+
+// [GAUCE] for=ta_hhc event=onKillFocus
+scwin.ta_hhc_onblur = function (e) {
+  var upperTxt = "";
+  upperTxt = ta_hhc.getValue().toUpperCase();
+  ta_hhc.setValue("");
+  ta_hhc.setValue(upperTxt);
+};
+
+// [GAUCE] for=ta_hhn event=onKillFocus
+scwin.ta_hhn_onblur = function (e) {
+  var upperTxt = "";
+  upperTxt = ta_hhn.getValue().toUpperCase();
+  ta_hhn.setValue("");
+  ta_hhn.setValue(upperTxt);
+};
+
+// [GAUCE] for=ed_hhmt event=onKillFocus
+scwin.ed_hhmt_onblur = function (e) {
+  if (ed_hhmt.getValue() > 0) {
+    ed_hhgwgt.setValue(ed_hhmt.getValue() * 1000);
+  }
+};
+
+// [GAUCE] for=ed_hhgwgt event=onKillFocus
+scwin.ed_hhgwgt_onblur = function (e) {
+  if (ed_hhgwgt.getValue() > 0) {
+    ed_hhmt.setValue(ed_hhgwgt.getValue() / 1000);
+  }
+};
+
+// [GAUCE] for=srch_ed_hhblno event=onKillFocus
+scwin.srch_ed_hhblno_onblur = function (e) {
+  if (srch_ed_hhblno.getValue() != "") {
+    scwin.f_MhnoLoading2();
+  }
+};
+
+// [GAUCE] for=lc_hhstype event=OnKillFocus
+scwin.ed_selling_hhcurdt_freight_onblur = async function (e) {
+  param1 = ed_selling_hhcur_freight.getValue();
+  param2 = ed_selling_hhcurdt_freight.getValue().trim();
+  param3 = lc_selling_hhexgb_freight.getValue();
+  if (ed_selling_hhexrate_freight.getValue().trim() == "") {
+    ed_selling_hhexrate_freight.setValue(0);
+  }
+  if (ed_selling_hhexrate_freight.getValue().trim() == "") {
+    ed_selling_hhexrate_freight.setValue(0);
+  }
+  await scwin.f_ExrateLoading(param1, param2, param3);
+  if (ds_ExRate.getRowCount() > 0) {
+    ed_selling_hhexrate_freight.setValue(ds_ExRate.getCellData(0, "code"));
+    ed_selling_hhuexrate_freight.setValue(ds_ExRate.getCellData(0, "name"));
+    scwin.exRateCheck = "2";
+    scwin.exRate1 = ed_selling_hhexrate_freight.getValue();
+    scwin.exRate2 = ed_selling_hhuexrate_freight.getValue();
+    scwin.crc = lc_selling_hhexgb_freight.getValue();
+  } else {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]); // @이(가) 존재하지 않습니다.
+
+    scwin.exRateCheck = "1";
+    ed_selling_hhexrate_freight.setValue(1);
+    ed_selling_hhuexrate_freight.setValue(1);
+  }
+};
+
+// [GAUCE] for=ed_partner_hhcurdt_freight event=onKillFocus
+scwin.ed_partner_hhcurdt_freight_onblur = async function (e) {
+  if (ed_partner_hhcurdt_freight.getValue() != "") {
+    await scwin.f_ExRateHouseLoading_freight();
+  }
+};
+
+// [GAUCE] for=ed_partner_hhcurdt_freight event=onKillFocus
+scwin.ed_partner_hhcurdt_freight_onblur = async function (e) {
+  param1 = ed_partner_hhcur_freight.getValue();
+  param2 = ed_partner_hhcurdt_freight.getValue().trim();
+  param3 = lc_partner_hhexgb_freight.getValue();
+  if (ed_partner_hhexrate_freight.getValue().trim() == "") {
+    ed_partner_hhexrate_freight.setValue(0);
+  }
+  if (ed_partner_hhexrate_freight.getValue().trim() == "") {
+    ed_partner_hhexrate_freight.setValue(0);
+  }
+  await scwin.f_ExrateLoading(param1, param2, param3);
+  if (ds_ExRate.getRowCount() > 0) {
+    ed_partner_hhexrate_freight.setValue(ds_ExRate.getCellData(1 - 1, "code"));
+    ed_partner_hhuexrate_freight.setValue(ds_ExRate.getCellData(1 - 1, "name"));
+    scwin.exRateCheck = "2";
+    scwin.exRate1 = ed_partner_hhexrate_freight.getValue();
+    scwin.exRate2 = ed_partner_hhuexrate_freight.getValue();
+    scwin.crc = lc_partner_hhexgb_freight.getValue();
+  } else {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]); // @이(가) 존재하지 않습니다.
+
+    scwin.exRateCheck = "1";
+    ed_partner_hhexrate_freight.setValue(1);
+    ed_partner_hhuexrate_freight.setValue(1);
+  }
+};
+
+// [GAUCE] for=ed_buying_hhcurdt_freight event=onKillFocus
+scwin.ed_buying_hhcurdt_freight_onblur = async function (e) {
+  if (ed_buying_hhcurdt_freight.getValue() != "") {
+    await scwin.f_ExRateHouseLoading_freight();
+  }
+};
+
+// [GAUCE] for=ed_buying_hhcurdt_freight event=onKillFocus
+scwin.ed_buying_hhcurdt_freight_onblur = async function (e) {
+  param1 = ed_buying_hhcur_freight.getValue();
+  param2 = ed_buying_hhcurdt_freight.getValue().trim();
+  param3 = lc_buying_hhexgb_freight.getValue();
+  if (ed_buying_hhexrate_freight.getValue().trim() == "") {
+    ed_buying_hhexrate_freight.setValue(0);
+  }
+  if (ed_buying_hhexrate_freight.getValue().trim() == "") {
+    ed_buying_hhexrate_freight.setValue(0);
+  }
+  await scwin.f_ExrateLoading(param1, param2, param3);
+  if (ds_ExRate.getRowCount() > 0) {
+    ed_buying_hhexrate_freight.setValue(ds_ExRate.getCellData(1 - 1, "code"));
+    ed_buying_hhuexrate_freight.setValue(ds_ExRate.getCellData(1 - 1, "name"));
+    scwin.exRateCheck = "2";
+    scwin.exRate1 = ed_buying_hhexrate_freight.getValue();
+    scwin.exRate2 = ed_buying_hhuexrate_freight.getValue();
+    scwin.crc = lc_buying_hhexgb_freight.getValue();
+  } else {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Ex-Rate"]); // @이(가) 존재하지 않습니다.
+
+    scwin.exRateCheck = "1";
+    ed_buying_hhexrate_freight.setValue(1);
+    ed_buying_hhuexrate_freight.setValue(1);
+  }
+};
+// ==
+// Container Type 공통 체크 (freight)
+// ==
+scwin._checkContainerType_freight = async function (inputComp) {
+  var v = inputComp.getValue();
+  if (v == "") return true;
+
+  // GAUCE: ds_containerType_freight.getCellData(1, code)
+  // WS: 코드 존재 여부 확인
+  var matched = ds_containerType_freight ? ds_containerType_freight.getMatchedData("code", v) : -1;
+
+  // 값이 없을 때 (-1 또는 "0" 방어)
+  if (matched == -1 || matched == "0") {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Container Type"]);
+    return false;
+  }
+  return true;
+};
+
+// [GAUCE] for=ed_hhcnt1type_freight event=onKillFocus
+scwin.ed_hhcnt1type_freight_onblur = async function (e) {
+  return await scwin._checkContainerType_freight(ed_hhcnt1type_freight);
+};
+
+// [GAUCE] for=ed_hhcnt2type_freight event=onKillFocus
+scwin.ed_hhcnt2type_freight_onblur = async function (e) {
+  return await scwin._checkContainerType_freight(ed_hhcnt2type_freight);
+};
+
+// [GAUCE] for=ed_hhcnt3type_freight event=onKillFocus
+scwin.ed_hhcnt3type_freight_onblur = async function (e) {
+  return await scwin._checkContainerType_freight(ed_hhcnt3type_freight);
+};
+
+// [GAUCE] for=ed_hhcnt4type_freight event=onKillFocus
+scwin.ed_hhcnt4type_freight_onblur = async function (e) {
+  return await scwin._checkContainerType_freight(ed_hhcnt4type_freight);
+};
+
+// [GAUCE] for=ed_hhcnt1type_freight event=onKillFocus
+scwin.ed_hhcnt1type_freight_onblur = function (e) {
+  var strClntNo = "";
+  strClntNo = ed_hhcnt1type_freight.getValue().trim();
+  if (strClntNo.length > 0) {}
+};
+
+// [GAUCE] for=ed_hhcnt2type_freight event=onKillFocus
+scwin.ed_hhcnt2type_freight_onblur = function (e) {
+  var strClntNo = "";
+  strClntNo = ed_hhcnt2type_freight.getValue().trim();
+  if (strClntNo.length > 0) {}
+};
+
+// [GAUCE] for=ed_hhcnt3type_freight event=onKillFocus
+scwin.ed_hhcnt3type_freight_onblur = function (e) {
+  var strClntNo = "";
+  strClntNo = ed_hhcnt3type_freight.getValue().trim();
+  if (strClntNo.length > 0) {}
+};
+
+// [GAUCE] for=ed_hhcnt4type_freight event=onKillFocus
+scwin.ed_hhcnt4type_freight_onblur = function (e) {
+  var strClntNo = "";
+  strClntNo = ed_hhcnt4type_freight.getValue().trim();
+  if (strClntNo.length > 0) {}
+};
+
+// [GAUCE] for=ds_houseblList_freight event=OnLoadCompleted(rowcnt)
+scwin.ds_houseblList_freight_onLoad = function () {
+  if (ds_houseblList_freight.getRowCount() == 0) return;
+  ds_houseblList_freight.setRowPosition(0);
+  var row = ds_houseblList_freight.getRowPosition();
+  var hhexrate = ds_houseblList_freight.getCellData(row, "hhexrate");
+  if (hhexrate != "0") {
+    scwin.exRate1 = hhexrate;
+    scwin.crc = ds_houseblList_freight.getCellData(row, "hhcur");
+    scwin.exRateCheck = "3";
+  }
+  var hhuexrate = ds_houseblList_freight.getCellData(row, "hhuexrate");
+  if (hhuexrate != "0") {
+    scwin.exRate2 = hhuexrate;
+  }
+};
+
+// [GAUCE] for=ds_selling_freight event=OnLoadCompleted(rowcnt)
+scwin.ds_selling_freight_onLoad = function () {
+  //행이 0보다 크고, 하단조회일 경우 실행
+  if (ds_selling_freight.getRowCount() == 0) return;
+  ds_selling_freight.setRowPosition(0);
+  var row = ds_selling_freight.getRowPosition();
+  if (ds_selling_freight.getCellData(row, "tabIndex") == "0") {
+    //컬럼변경
+    scwin.f_chgGridColumnToHouseBlDs_freight("0", ds_selling_freight);
+  }
+  scwin.f_FreightTotalCnt();
+};
+
+// [GAUCE] for=ds_partner_freight event=OnLoadCompleted(rowcnt)
+scwin.ds_partner_freight_onLoad = function () {
+  if (ds_partner_freight.getRowCount() == 0) return;
+  ds_partner_freight.setRowPosition(0);
+  var row = ds_partner_freight.getRowPosition();
+  if (ds_partner_freight.getCellData(row, "tabIndex") == "1") {
+    //컬럼변경
+    scwin.f_chgGridColumnToHouseBlDs_freight("1", ds_partner_freight);
+  }
+  scwin.f_FreightTotalCnt();
+};
+
+// [GAUCE] for=ds_buying_freight event=OnLoadCompleted(rowcnt)
+scwin.ds_buying_freight_onLoad = function () {
+  if (ds_buying_freight.getRowCount() == 0) return;
+  ds_buying_freight.setRowPosition(0);
+  var row = ds_buying_freight.getRowPosition();
+  if (row < 0) row = 0;
+  if (ds_buying_freight.getCellData(row, "tabIndex") == "2") {
+    //컬럼변경
+    scwin.f_chgGridColumnToHouseBlDs_freight("2", ds_buying_freight);
+  }
+  scwin.f_FreightTotalCnt();
+};
+scwin.ed_selling_hhexrate_freight_onblur = function (e) {
+  if (scwin.exRateCheck == "1") {
+    if (ed_selling_hhuexrate_freight.getValue() == "" || ed_selling_hhuexrate_freight.getValue() == "0") {
+      ed_selling_hhuexrate_freight.setValue(ed_selling_hhexrate_freight.getValue());
+    }
+    scwin.exRate1 = ed_selling_hhexrate_freight.getValue();
+    scwin.crc = ed_selling_hhcur_freight.getValue();
+  }
+};
+scwin.ed_selling_hhuexrate_freight_onblur = function (e) {
+  if (scwin.exRateCheck == "1") {
+    scwin.exRate2 = ed_selling_hhuexrate_freight.getValue();
+  }
+};
+// [GAUCE] for=gr_selling_freight event=OnPopup_freight(rowIndex, columnId, data)
+scwin.gr_buying_freight_ontextimageclick = function (rowIndex, columnIndex) {
+  var row = rowIndex;
+  var col = gr_buying_freight.getColumnID(columnIndex);
+  switch (col) {
+    case "bilgClntNo":
+      scwin.f_PopUpGrid_freight("SellingCustomer", row, "F", "F");
+      break;
+    case "fareEngCd":
+      scwin.f_PopUpGrid_freight("SellingFcode", row, "F", "F");
+      break;
+    case "rsltsStdDt":
+      $c.gus.cfOpenCalendar($p, gr_selling_freight, row, col);
+      break;
+    default:
+      break;
+  }
+};
+
+// [WebSquare] sbm_save submitdone
+scwin.sbm_save_submitdone = async function (e) {
+  if (e.responseJSON && e.responseJSON.resultDataSet && e.responseJSON.resultDataSet[0].Msg == 'FAIL') {
+    scwin.f_TextareaCall();
+  } else {
+    await $c.gus.cfAlertMsg($p, E_MSG_CM_INF_001); //  성공적으로 저장하였습니다.
+
+    ds_containerBookingList_booking.removeAll();
+    ds_containerDoorOrderQty_booking.removeAll();
+    $c.gus.cfEnableObj($p, cnd_ed_hhblno, true);
+    $c.gus.cfEnableObj($p, cnd_lc_mhno, true);
+    scwin.f_Retrieve();
+    cnd_ed_hhblno.focus();
+    scwin.f_Set("SAVE");
+  }
+};
+
+// [WebSquare] sbm_save submiterror
+scwin.sbm_save_submiterror = function (e) {
+  scwin.f_TextareaCall();
+};
+
+// [WebSquare] sbm_ocrSave submitdone
+
+// [WebSquare] sbm_ocrSave submiterror
+
+// [WebSquare] sbm_delete submitdone
+scwin.sbm_delete_submitdone = async function (e) {
+  await $c.gus.cfAlertMsg($p, E_MSG_CM_INF_004); // 성공적으로 삭제하였습니다.
+};
+
+// [GAUCE] for=lc_pathCd event=OnDropDown
+
+// [GAUCE] for=ds_houseblList event=OnLoadCompleted(rowcnt)
+scwin.ds_houseblList_ondataload = async function () {
+  // path 조회
+  if (ds_houseblList.getCellData(row, "pathCd") !== "") {
+    dma_condition_path.set("hhactcust", ed_hhactcust.getValue());
+    dma_condition_path.set("path", ds_houseblList.getCellData(row, "pathCd"));
+    dma_condition_path.set("hhblno", "");
+    await $c.sbm.execute($p, sbm_retrieve_path);
+  }
+
+  // House B/L 정보 세팅
+  if (ds_houseblList.getRowCount() > 0) {
+    ds_houseblList.setRowPosition(0);
+    var row = ds_houseblList.getRowPosition();
+
+    // PIC 문자열일 경우 제거 추가 (AS-IS와 맞춤)
+    var pic = ds_houseblList.getCellData(row, "pic");
+    var isOnlyDigits = /^\d+$/.test(pic);
+    if (!isOnlyDigits) ds_houseblList.setCellData(row, "pic", "");
+    ds_houseblList.modifyAllStatus("R");
+    ta_hhs.setValue((ds_houseblList.getCellData(row, "hhs1") || "") + "\n" + (ds_houseblList.getCellData(row, "hhs2") || "") + "\n" + (ds_houseblList.getCellData(row, "hhs3") || "") + "\n" + (ds_houseblList.getCellData(row, "hhs4") || "") + "\n" + (ds_houseblList.getCellData(row, "hhs5") || ""));
+    ta_hhc.setValue((ds_houseblList.getCellData(row, "hhc1") || "") + "\n" + (ds_houseblList.getCellData(row, "hhc2") || "") + "\n" + (ds_houseblList.getCellData(row, "hhc3") || "") + "\n" + (ds_houseblList.getCellData(row, "hhc4") || "") + "\n" + (ds_houseblList.getCellData(row, "hhc5") || ""));
+    ta_hhn.setValue((ds_houseblList.getCellData(row, "hhn1") || "") + "\n" + (ds_houseblList.getCellData(row, "hhn2") || "") + "\n" + (ds_houseblList.getCellData(row, "hhn3") || "") + "\n" + (ds_houseblList.getCellData(row, "hhn4") || "") + "\n" + (ds_houseblList.getCellData(row, "hhn5") || ""));
+
+    // B/L TYPE = B 인 경우 중량 계산
+    if (lc_hhbltype.getValue() === "B") {
+      var gwgt = Number(ed_hhgwgt.getValue() || 0);
+      if (gwgt > 0) {
+        ed_hhmt.setValue(gwgt / 1000);
+      }
+    }
+    scwin.f_Retrieve_booking();
+  }
+
+  // 파트너 주소 세팅
+  if (ds_partnerInfo.getRowCount() > 0) {
+    ds_partnerInfo.setRowPosition(0);
+    var prow = ds_partnerInfo.getRowPosition();
+    txa_agentAdress.setValue((ds_partnerInfo.getCellData(prow, "partnerAddr1") || "") + "\n" + (ds_partnerInfo.getCellData(prow, "partnerAddr2") || "") + "\n" + (ds_partnerInfo.getCellData(prow, "partnerAddr3") || "") + "\n" + (ds_partnerInfo.getCellData(prow, "partnerAddr4") || "") + "\n" + (ds_partnerInfo.getCellData(prow, "partnerAddr5") || ""));
+  } else {
+    ds_partnerInfo.removeAll();
+    ds_partnerInfo.insertRow(0);
+    ds_partnerInfo.setRowPosition(0);
+    ds_partnerInfo.setCellData(0, "blno", cnd_ed_hhblno.getValue());
+  }
+};
+
+// [GAUCE] for=lc_hhincoterm event=onchange
+scwin.lc_hhincoterm_onchange = function (e) {
+  var incoterm = lc_hhincoterm.getValue();
+  switch (incoterm.substring(0, 1)) {
+    case "E":
+      lc_hhpcgb.setSelectedIndex(1); //CC
+      break;
+    case "F":
+      lc_hhpcgb.setSelectedIndex(1); //CC
+      break;
+    case "C":
+      lc_hhpcgb.setSelectedIndex(0); //PP
+      break;
+    case "D":
+      lc_hhpcgb.setSelectedIndex(0); //PP
+      break;
+  }
+};
+
+// [GAUCE] for=ds_selling_freight event=onColumnChanged(row, colid)
+scwin.ds_selling_freight_oncelldatachange = async function (info) {
+  var row = info.rowIndex;
+  var colid = info.colID;
+  // Currency event
+  if (colid == "crcCd") {
+    var row = ds_selling_freight.getRowPosition(); // (프로젝트 룰: 이미 0-based로 쓰는 케이스)
+    var crcCd = ds_selling_freight.getCellData(row, "crcCd");
+    if (crcCd != "") {
+      var STR = ds_currencyCode_freight.getMatchedData("code", crcCd);
+
+      // 값이 없을 때: getMatchedData가 -1(또는 "0"으로 오던 레거시) 둘 다 방어
+      if (STR.length == 0) {
+        ds_selling_freight.setCellData(row, "exRate", 0);
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Currency Information"]); // @이(가) 존재하지 않습니다.
+      } else {
+        if (crcCd != "KRW") {
+          await scwin.f_ExRateSellingGridLoading_freight(row);
+        }
+      }
+    } else {
+      return;
+    }
+  }
+
+  // sum값 call
+  if (colid == "sellAmtFcrc" || colid == "sellAmt" || colid == "vatAmt") {
+    scwin.f_SellingSum_freight();
+  }
+};
+
+// [GAUCE] for=ds_partner_freight event=onColumnChanged(row, colid)
+scwin.ds_partner_freight_oncelldatachange = async function (info) {
+  var row = info.rowIndex;
+  var colid = info.colID;
+  if (colid == "crcCd") {
+    var row = ds_partner_freight.getRowPosition();
+    var crcCd = ds_partner_freight.getCellData(row, "crcCd");
+    if (crcCd != "") {
+      var STR = ds_currencyCode_freight.getMatchedData("code", crcCd);
+
+      // 값이 없을 때(레거시 "0" 또는 -1 방어)
+      if (STR.length == 0) {
+        ds_partner_freight.setCellData(row, "exRate", 0);
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Currency Information"]); // @이(가) 존재하지 않습니다.
+      } else {
+        if (crcCd != "KRW") {
+          scwin.f_ExRatePartnerGridLoading_freight(row);
+        }
+      }
+    } else {
+      return;
+    }
+  }
+
+  // sum값 call
+  if (colid == "sellAmtFcrc" || colid == "sellAmt") {
+    scwin.f_PartnerSum_freight();
+  }
+};
+
+// [GAUCE] for=ds_buying_freight event=onColumnChanged(row, colid)
+scwin.ds_buying_freight_oncelldatachange = async function (info) {
+  var row = info.rowIndex;
+  var colid = info.colID;
+  if (colid == "crcCd") {
+    var row = ds_buying_freight.getRowPosition();
+    var crcCd = ds_buying_freight.getCellData(row, "crcCd");
+    if (crcCd != "") {
+      var STR = ds_currencyCode_freight.getMatchedData("code", crcCd);
+
+      // 값이 없을 때(레거시 "0" 또는 -1 방어)
+      if (STR.length == 0) {
+        ds_buying_freight.setCellData(row, "exRate", 0);
+        await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_049, ["Currency Information"]); // @이(가) 존재하지 않습니다.
+      } else {
+        if (crcCd != "KRW") {
+          await scwin.f_ExRateBuyingGridLoading_freight(row);
+        }
+      }
+    } else {
+      return;
+    }
+  }
+
+  // sum값 call
+  if (colid == "pchsAmtFcrc" || colid == "pchsAmt" || colid == "vat") {
+    scwin.f_BuyingSum_freight();
+  }
+};
+
+// [GAUCE] for=ds_containerBookingList_booking event=OnLoadCompleted(rowcnt)
+scwin.ds_containerBookingList_booking_onLoad = async function () {
+  if (ds_containerBookingList_booking.getRowCount() != 0) {
+    ds_containerBookingList_booking.setRowPosition(0);
+    var row = ds_containerBookingList_booking.getRowPosition();
+    if (ds_containerBookingList_booking.getCellData(row, "contractno") != "") {
+      scwin.v_contractno = ds_containerBookingList_booking.getCellData(row, "contractno");
+      if (scwin.v_contractno == "NONE") {
+        await scwin.f_ContractInfo_booking(); // 이걸하니까 됨.
+
+        // 데이터셋 초기화 + 1행 생성
+        // (프로젝트 표준 API에 맞춰 조정 필요)
+        ds_ctrtNo_booking.removeAll(); // TODO: 프로젝트에 removeAll()가 있으면 그걸 사용
+        ds_ctrtNo_booking.insertRow(0); // TODO: AddRow()가 표준이면 AddRow() 사용
+        ds_ctrtNo_booking.setRowPosition(0);
+        ds_ctrtNo_booking.setCellData(0, "ctrtNo", "NONE");
+
+        // 콤보/리스트 컴포넌트 선택 인덱스 0
+        lc_contractno_booking.setSelectedIndex(0);
+      } else {
+        await scwin.f_ContractInfo_booking();
+      }
+    }
+  }
+};
+
+// [GAUCE] for=lc_contractno event=OnDropDown
+
+scwin.ds_ctrtNo_booking_onremoverow = function (info) {};
+
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+// Shipper
+scwin.udc_hhagentattn_onclick = function (e) {
+  scwin.f_PopUp('Shipper', 'F');
+};
+scwin.ed_hhscd_onblur = function (e) {
+  if (scwin.statusFlag == "C") {
+    var strClntNo = "";
+    strClntNo = ed_hhscd.getValue().trim();
+    if (strClntNo.length > 0) {
+      txt_hhs1.setValue("");
+      txt_hhs2.setValue("");
+      txt_hhs3.setValue("");
+      txt_hhs4.setValue("");
+      txt_hhs5.setValue("");
+      scwin.f_PopUp("Shipper", 'T');
+    } else {
+      txt_hhs1.setValue("");
+      txt_hhs2.setValue("");
+      txt_hhs3.setValue("");
+      txt_hhs4.setValue("");
+      txt_hhs5.setValue("");
+    }
+  } else if (scwin.statusFlag == "U") {
+    var strClntNo = "";
+    strClntNo = ed_hhscd.getValue().trim();
+    if (txt_hhs1.getValue() == "") {
+      if (strClntNo.length > 0) {
+        txt_hhs1.setValue("");
+        txt_hhs2.setValue("");
+        txt_hhs3.setValue("");
+        txt_hhs4.setValue("");
+        txt_hhs5.setValue("");
+        scwin.f_PopUp("Shipper", 'T');
+      } else {
+        txt_hhs1.setValue("");
+        txt_hhs2.setValue("");
+        txt_hhs3.setValue("");
+        txt_hhs4.setValue("");
+        txt_hhs5.setValue("");
+      }
+    }
+  }
+};
+
+// Consignee
+scwin.udc_hhccd_onclickEvent = function (e) {
+  scwin.f_PopUp('Consignee', 'F');
+};
+scwin.udc_hhccd_onviewchangeCodeEvent = function (e) {
+  scwin._udcOnblurCode("ed_hhccd", e);
+};
+
+// Notify
+scwin.udc_hhncd_onclickEvent = function (e) {
+  scwin.f_PopUp('Notify', 'F');
+};
+scwin.udc_hhncd_onviewchangeCodeEvent = function (e) {
+  scwin._udcOnblurCode("ed_hhncd", e);
+};
+scwin.f_chkOpenCommonPopUp = function (type, disGubun, codeObj, nameObj, pClose, pAllSearch, pNoDataCloseTF) {
+  var codeVal = codeObj ? codeObj.getValue() : '';
+  var nameVal = nameObj ? nameObj.getValue() : '';
+  if (codeObj) codeObj.setValue("");
+  if (nameVal) nameObj.setValue("");
+  if (type === 'CODE') {
+    if (codeVal == '') return;
+  } else if (type == 'NAME') {
+    if (nameVal == '') return;
+  }
+  if (type == 'CODE') {
+    scwin.f_OpenCommonPopUp(disGubun, codeVal, '', pClose, pAllSearch, pNoDataCloseTF);
+  } else if (type == 'NAME') {
+    scwin.f_OpenCommonPopUp(disGubun, '', nameVal, pClose, pAllSearch, pNoDataCloseTF);
+  } else if (type == 'SEARCH') {
+    scwin.f_OpenCommonPopUp(disGubun, codeVal, nameVal, pClose, pAllSearch, pNoDataCloseTF);
+  }
+};
+
+// VSL/VOY
+scwin.udc_hhvslcd_onclickEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('SEARCH', 'Vessel', ed_hhvslcd, txt_hhvsl, 'F', 'F', 'F');
+};
+scwin.udc_hhvslcd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Vessel', ed_hhvslcd, txt_hhvsl, "T", "F", "F");
+};
+scwin.udc_hhvslcd_onblurNameEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('NAME', 'Vessel', ed_hhvslcd, txt_hhvsl, "T", "F", "F");
+};
+
+// Loading
+scwin.udc_hhlodcd_onclickEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('SEARCH', 'Loading', ed_hhlodcd, txt_hhlodnm, 'F', 'F', 'F');
+};
+scwin.udc_hhlodcd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Loading', ed_hhlodcd, txt_hhlodnm, "T", "F", "F");
+};
+scwin.udc_hhlodcd_onblurNameEvent = function (e) {
+  if (ed_hhlodcd.getValue().trim() == '') {
+    scwin.f_chkOpenCommonPopUp('NAME', 'Loading', ed_hhlodcd, txt_hhlodnm, "T", "F", "F");
+  }
+};
+
+// Discharge
+scwin.udc_hhdisccd_onclickEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('SEARCH', 'Discharge', ed_hhdisccd, txt_hhdiscnm, 'F', 'F', 'F');
+};
+scwin.udc_hhdisccd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Discharge', ed_hhdisccd, txt_hhdiscnm, "T", "F", "F");
+};
+scwin.udc_hhdisccd_onblurNameEvent = function (e) {
+  if (ed_hhdisccd.getValue().trim() == '') {
+    scwin.f_chkOpenCommonPopUp('NAME', 'Discharge', ed_hhdisccd, txt_hhdiscnm, "T", "F", "F");
+  }
+};
+
+// Delivery
+scwin.udc_hhdlvcd_onclickEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('SEARCH', 'Delivery', ed_hhdlvcd, txt_hhdlvnm, 'F', 'F', 'F');
+};
+scwin.udc_hhdlvcd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Delivery', ed_hhdlvcd, txt_hhdlvnm, "T", "F", "F");
+};
+scwin.udc_hhdlvcd_onblurNameEvent = function (e) {
+  if (ed_hhdlvcd.getValue().trim() == '') {
+    scwin.f_chkOpenCommonPopUp('NAME', 'Delivery', ed_hhdlvcd, txt_hhdlvnm, "T", "F", "F");
+  }
+};
+
+// Destination
+scwin.udc_hhfdcd_onclickEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('SEARCH', 'Destination', ed_hhfdcd, txt_hhfdnm, 'F', 'F', 'F');
+};
+scwin.udc_hhfdcd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Destination', ed_hhfdcd, txt_hhfdnm, "T", "F", "F");
+};
+scwin.udc_hhfdcd_onblurNameEvent = function (e) {
+  if (ed_hhfdcd.getValue().trim() == '') {
+    scwin.f_chkOpenCommonPopUp('NAME', 'Destination', ed_hhfdcd, txt_hhfdnm, "T", "F", "F");
+  }
+};
+
+// Unit
+scwin.udc_hhunitcd_onclickEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('SEARCH', 'Unit', ed_hhunitcd, txt_hhunit, 'F', 'F', 'F');
+};
+scwin.udc_hhunitcd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Unit', ed_hhunitcd, txt_hhunit, "T", "F", "F");
+};
+scwin.udc_hhunitcd_onblurNameEvent = function (e) {
+  if (ed_hhunitcd.getValue().trim() == '') {
+    scwin.f_chkOpenCommonPopUp('NAME', 'Unit', ed_hhunitcd, txt_hhunit, "T", "F", "F");
+  }
+};
+
+// 적재장소
+scwin.udc_mwarecd_onclickEvent = function (e) {
+  var codeVal = ed_mwarecd.getValue();
+  var nameVal = txt_mwarenm.getValue();
+  scwin.f_OpenCommonPopUp('Mware', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.udc_mwarecd_onviewchangeCodeEvent = function (e) {
+  var val = ed_mwarecd.getValue();
+  if (ed_mwarecd._orgVal != val) {
+    scwin.f_chkOpenCommonPopUp('CODE', 'Mware', ed_mwarecd, txt_mwarenm, "T", "F", "F");
+  }
+};
+scwin.udc_mwarecd_onblurNameEvent = function (e) {
+  //scwin.f_chkOpenCommonPopUp('NAME', 'Mware', ed_mwarecd, txt_mwarenm,"T", "F","F");
+};
+
+// B/L PIC
+scwin.udc_blpic_onclickEvent = function (e) {
+  scwin.f_PopUp('B/L PIC', 'F');
+};
+scwin.udc_blpic_onviewchangeCodeEvent = function (e) {
+  txt_blpic.setValue('');
+  if (ed_blpic.getValue().trim() != '') {
+    scwin.f_PopUp('B/L PIC', 'T');
+  }
+};
+scwin.udc_blpic_onblurNameEvent = function (e) {
+  ed_blpic.setValue('');
+  if (ed_blpic.getValue().trim() == '') {
+    scwin.f_PopUp('B/L PIC', 'F');
+  }
+};
+
+// Partner
+scwin.udc_hhagent_onclickEvent = function (e) {
+  scwin.f_PopUp('Partner', 'F');
+};
+scwin.udc_hhagent_onviewchangeCodeEvent = function (e, bName) {
+  var codeVal = ed_hhagent.getValue().trim();
+  var nameVal = txt_hhagentnm.getValue().trim();
+  ed_agent.setValue("");
+  txa_agentAdress.setValue("");
+  ds_partnerInfo.setCellData(ds_partnerInfo.getRowPosition(), "partnerAddr1", "");
+  ds_partnerInfo.setCellData(ds_partnerInfo.getRowPosition(), "partnerAddr2", "");
+  ds_partnerInfo.setCellData(ds_partnerInfo.getRowPosition(), "partnerAddr3", "");
+  ds_partnerInfo.setCellData(ds_partnerInfo.getRowPosition(), "partnerAddr4", "");
+  ds_partnerInfo.setCellData(ds_partnerInfo.getRowPosition(), "partnerAddr5", "");
+  if (bName) {
+    if (nameVal.length != 0) {
+      ed_hhagent.setValue("");
+      scwin.f_PopUp('Partner', 'T');
+      return;
+    }
+  } else {
+    if (codeVal.length != 0) {
+      txt_hhagentnm.setValue("");
+      scwin.f_PopUp('Partner', 'T');
+      return;
+    }
+  }
+  ed_hhagent.setValue('');
+  txt_hhagentnm.setValue('');
+};
+scwin.udc_hhagent_onblurNameEvent = function (e) {
+  scwin.udc_hhagent_onviewchangeCodeEvent(e, true);
+};
+
+// Customer
+scwin.udc_hhactcust_onclickEvent = function (e) {
+  scwin.f_PopUp('Customer', 'F');
+};
+scwin.udc_hhactcust_onviewchangeCodeEvent = function (e) {
+  txt_hhactcustnm.setValue('');
+  if (ed_hhactcust.getValue().trim() != '') scwin.f_PopUp('Customer', 'T');
+};
+scwin.udc_hhactcust_onblurNameEvent = function (e) {
+  ed_hhactcust.setValue('');
+  if (txt_hhactcustnm.getValue().trim() != '') scwin.f_PopUp('Customer', 'F');
+};
+
+// Salesman
+scwin.udc_hhsales_onclickEvent = function (e) {
+  var codeVal = ed_hhsales.getValue();
+  var nameVal = txt_hhsalesnm.getValue();
+  scwin.f_OpenCommonPopUp('Salesman', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.udc_hhsales_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Salesman', ed_hhsales, txt_hhsalesnm, "T", "F", "F");
+};
+scwin.udc_hhsales_onblurNameEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('NAME', 'Salesman', ed_hhsales, txt_hhsalesnm, "T", "F", "F");
+};
+
+// Carrier
+scwin.udc_hhliner_onclickEvent = function (e) {
+  scwin.f_PopUp('Liner', 'F');
+};
+scwin.udc_hhliner_onviewchangeCodeEvent = function (e) {
+  txt_hhlinernm.setValue('');
+  if (ed_hhliner.getValue().trim() != '') scwin.f_PopUp('Liner', 'T');
+};
+scwin.udc_hhliner_onblurNameEvent = function (e) {
+  ed_hhliner.setValue('');
+  if (txt_hhlinernm.getValue().trim() != '') scwin.f_PopUp('Liner', 'T');
+};
+
+// dept
+scwin.udc_hhbuyer_onclickEvent = function (e) {
+  var codeVal = ed_hhbuyer.getValue();
+  var nameVal = txt_hhbuyernm.getValue();
+  scwin.f_OpenCommonPopUp('DEPT', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.udc_hhbuyer_onviewchangeCodeEvent = function (e) {
+  var val = ed_hhbuyer.getValue();
+  if (ed_hhbuyer._orgVal != val) {
+    scwin.f_chkOpenCommonPopUp('CODE', 'DEPT', ed_hhbuyer, txt_hhbuyernm, "T", "F", "F");
+  }
+};
+scwin.udc_hhbuyer_onblurNameEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('NAME', 'DEPT', ed_hhbuyer, txt_hhbuyernm, "T", "F", "F");
+};
+scwin.udc_agent_onclickEvent = function (e) {
+  scwin.f_PopUp('Partner Address', 'F');
+};
+
+// Place Of Receipt
+scwin.udc_hhrcvcd_onclickEvent = function (e) {
+  var codeVal = ed_hhrcvcd.getValue();
+  var nameVal = txt_hhrcvnm.getValue();
+  scwin.f_OpenCommonPopUp('Receipt', codeVal, nameVal, 'F', 'F', 'F');
+};
+scwin.udc_hhrcvcd_onviewchangeCodeEvent = function (e) {
+  scwin.f_chkOpenCommonPopUp('CODE', 'Receipt', ed_hhrcvcd, txt_hhrcvnm, "T", "F", "F");
+};
+scwin.udc_hhrcvcd_onblurNameEvent = function (e) {
+  if (ed_hhrcvcd.getValue().trim() == '') {
+    scwin.f_chkOpenCommonPopUp('NAME', 'Receipt', ed_hhrcvcd, txt_hhrcvnm, "T", "F", "F");
+  }
+};
+scwin.udc_hhagentattn_onviewchange = function (e) {
+  var strClntNo = ed_hhscd.getValue();
+  if (scwin.statusFlag == "C") {
+    // 신규
+    if (info == undefined) {
+      // oldValue == newValue
+      return;
+    }
+    txt_hhs1.setValue("");
+    txt_hhs2.setValue("");
+    txt_hhs3.setValue("");
+    txt_hhs4.setValue("");
+    txt_hhs5.setValue("");
+    if (strClntNo != "") {
+      scwin.f_PopUp("Shipper", "T");
+    }
+  } else if (scwin.statusFlag == "U") {
+    // 수정
+    if (txt_hhs1.getValue() == "") {
+      txt_hhs1.setValue("");
+      txt_hhs2.setValue("");
+      txt_hhs3.setValue("");
+      txt_hhs4.setValue("");
+      txt_hhs5.setValue("");
+      if (strClntNo != "") {
+        scwin.f_PopUp("Shipper", "T");
+      }
+    }
+  }
+};
+scwin.f_SellingGrid = function (e) {
+  scwin.f_RunExcel_freight(ds_selling_freight, 'gr_selling_freight');
+};
+scwin.f_PartnerGrid = function (e) {
+  scwin.f_RunExcel_freight(ds_partner_freight, 'gr_partner_freight');
+};
+scwin.f_BuyingGrid = function (e) {
+  scwin.f_RunExcel_freight(ds_buying_freight, 'gr_buying_freight');
+};
+scwin._udcOnblurCode = function (codeId, e, bName = false) {
+  var fn = scwin[codeId + "_onblur"];
+  fn(e, bName);
+};
+scwin._udcOnblurName = function (nameId, e) {
+  var fn = scwin[nameId + "_onblur"];
+  fn(e);
+};
+scwin.cf_ChkInputOnlyNumberAndAlphabet = function (value) {
+  var chr = value.replace(/(\s*)/g, ""); //공백 제거
+  var cnt = 0;
+  for (var i = 0; i < chr.length; i++) {
+    chrInput = chr.charCodeAt(i);
+    if (chrInput >= 0x61 && chrInput <= 0x7A) {
+      // 영문(소문자)
+      cnt++;
+    } else if (chrInput >= 0x41 && chrInput <= 0x5A) {
+      // 영문(대문자) 
+      cnt++;
+    } else if (chrInput >= 0x30 && chrInput <= 0x39) {
+      // 숫자
+      cnt++;
+    }
+  }
+  if (cnt == 0) {
+    //문자열에 특수문자만 포함
+    return false;
+  }
+  return true;
+};
+scwin.cfJobCloseYN = async function (pReqKind, pCloseYM, pCloseDD, pWorkNo, pMgntNo, pRtnKind, pDualChkYN, pCoCd) {
+  // 만약 , 파라미터로 'pCoCd'가  지정되지 않은 경우 ,
+  // 동부 EXPRESS('000')Default set
+  if (typeof pCoCd == "undefined") pCoCd = '000';
+  var arrRtn = new Array(); //Return Value
+  var strMsg = "";
+  var SQLID = "retrieveCloseInfo";
+  var strMgntNo = pMgntNo == "" ? "0" : pMgntNo;
+  var pPrecWrkNo = "";
+  var pPrecWrkNm = "";
+  var pWrkNm = "";
+  var pCycle = "";
+  var bValidity = false;
+  var sCloseStat = "";
+  var sCloseDay = "";
+  var bPreClose = true;
+  if ((pReqKind == "CUR" || pReqKind == "PRE") && pCloseYM != "" && pWorkNo != "") {
+    bValidity = true;
+    //마감주기(Y:년, H:반기, Q:분기, M:월, W:주 D:일)
+    await scwin.cfCloseYnRequest("", "", pWorkNo, "", "", "", "retrieveCloseJobInfo", pCoCd);
+    pPrecWrkNo = ds_closeYn.getCellData(0, "col2"); //선행작업 
+    pWrkNm = ds_closeYn.getCellData(0, "col4"); //작업명 
+    pCycle = ds_closeYn.getCellData(0, "col5"); //마감주기
+
+    // 해당작업의 선행마감명을 가져옴
+    if (pPrecWrkNo != "") {
+      await scwin.cfCloseYnRequest("", "", pPrecWrkNo, "", "", "", "retrieveCloseJobInfo", pCoCd);
+      pPrecWrkNm = ds_closeYn.getCellData(0, "col4");
+    }
+    if (pCycle != "Y" && pCycle != "H" && pCycle != "Q" && pCycle != "M" && pCycle != "W" && pCycle != "D") {
+      bValidity = false;
+    } else {
+      if ((pCycle == "Y" || pCycle == "M") && pCloseDD != "00") {
+        bValidity = false;
+      }
+      if (pCycle == "H" && !cfValidateValue(pCloseDD * 1, "inNumber=1~2")) {
+        bValidity = false;
+      }
+      if (pCycle == "Q" && !cfValidateValue(pCloseDD * 1, "inNumber=1~4")) {
+        bValidity = false;
+      }
+      if (pCycle == "W" && !cfValidateValue(pCloseDD * 1, "inNumber=1~5")) {
+        bValidity = false;
+      }
+      if (pCycle == "D" && !cfValidateValue(pCloseDD * 1, "inNumber=1~31")) {
+        bValidity = false;
+      }
+    }
+    if (pCloseDD == "") bValidity = false;
+  }
+  if (bValidity) {
+    if (pReqKind == "CUR" && pPrecWrkNo != "") {
+      await scwin.cfCloseYnRequest(pCloseYM, pCloseDD, pWorkNo, strMgntNo, "PRE", pCycle, SQLID, pCoCd);
+      sCloseStat = ds_closeYn.getCellData(0, "col1");
+      sCloseDay = ds_closeYn.getCellData(0, "col2");
+      if (sCloseStat != "2") {
+        bPreClose = false;
+        arrRtn[1] = pPrecWrkNo;
+        arrRtn[2] = pPrecWrkNm;
+        arrRtn[3] = "PRE";
+      }
+    }
+    if (pDualChkYN != "Y") bPreClose = true;
+    if (bPreClose) {
+      await scwin.cfCloseYnRequest(pCloseYM, pCloseDD, pWorkNo, strMgntNo, pReqKind, pCycle, SQLID, pCoCd);
+      sCloseStat = ds_closeYn.getCellData(0, "col1");
+      sCloseDay = ds_closeYn.getCellData(0, "col2");
+      arrRtn[1] = pReqKind == "PRE" ? pPrecWrkNo : pWorkNo;
+      arrRtn[2] = pReqKind == "PRE" ? pPrecWrkNm : pWrkNm;
+      arrRtn[3] = pReqKind == "PRE" ? "PRE" : "CUR";
+    }
+  }
+  if (bValidity) {
+    if (pRtnKind == "ARR") {
+      if (sCloseStat != "0" && sCloseStat != "1" && sCloseStat != "2") {
+        arrRtn[0] = "DNF";
+      } else {
+        // 리턴결과를 마감일자로 원할경우
+        if (pRtnKind == "DAY") {
+          arrRtn[0] = pCloseYM + sCloseDay;
+        } else {
+          arrRtn[0] = sCloseStat;
+        }
+      }
+      return arrRtn;
+    } else {
+      if (sCloseStat != "0" && sCloseStat != "1" && sCloseStat != "2") return "DNF";
+      // 리턴결과를 마감일자로 원할경우
+      if (pRtnKind == "DAY") {
+        return pCloseYM + sCloseDay;
+      } else {
+        if (!bPreClose) {
+          return "P" + sCloseStat;
+        } else {
+          return sCloseStat;
+        }
+      }
+    }
+  } else {
+    strMsg += ">>>>>> 마감정보확인!!! <<<<<<<br><br>";
+    strMsg += "<br>▶요청구분 : [" + pReqKind + "] ☞ PRE or CUR";
+    strMsg += "<br>▶작업번호 : [" + pWorkNo + "]";
+    strMsg += "<br>▶마감주기 : [" + pCycle + "]";
+    strMsg += "<br>▶마감년월 : [" + pCloseYM + "]";
+    strMsg += "<br>▶관리번호 : [" + strMgntNo + "]";
+    strMsg += "<br>▶마감일    : [" + pCloseDD + "]";
+    strMsg += "<br>▶마감상태 : [" + sCloseStat + "]<br>";
+    strMsg += "<br>==========================";
+    strMsg += "<br>마감주기-유효값";
+    strMsg += "<br>==========================";
+    strMsg += "<br>(Y) 년마감   : 00";
+    strMsg += "<br>(H) 반기마감: 1:전기, 2:후기";
+    strMsg += "<br>(Q) 분기마감: 1,2,3,4";
+    strMsg += "<br>(M) 월마감  : 00";
+    strMsg += "<br>(W) 주마감  : 1,2,3,4,5";
+    strMsg += "<br>(D) 일마감   : 해당일(01~31)";
+    await $c.win.alert($p, strMsg);
+    return null;
+  }
+};
+scwin.cfCloseYnRequest = async function (pCloseYM, pCloseDD, pWorkNo, pMgntNo, pReqKind, pCycle, pSQLID, pCoCd) {
+  // 만약 , 파라미터로 'pCoCd'가  지정되지 않은 경우 ,
+  // 동부 EXPRESS('000')Default set
+  if (typeof pCoCd == "undefined") pCoCd = '000';
+  var params = {
+    sysCd: "CommonEBC",
+    queryId: pSQLID,
+    param1: pCloseYM,
+    param2: pCloseDD,
+    param3: pWorkNo,
+    param4: pMgntNo,
+    param5: pReqKind,
+    param6: pCycle,
+    param7: pCoCd,
+    param8: "",
+    param9: "",
+    param10: "",
+    param11: "",
+    param12: "",
+    param13: "",
+    param14: ""
+  };
+
+  // 실행 + 결과 복사 (기본: e.responseJSON.GAUCE)
+  await scwin.execComboAndCopy(params, {
+    target: ds_closeYn,
+    responsePath: "GAUCE"
+  });
+  return ds_closeYn;
+};
+
+//---------------------------------------------------------
+// Booking Search Popup
+// BOOKING NO에 값을입력하지 않고,TAB을 눌렸을때 POPUP 창을 띄워 BOOKING을 조회하는 화면을 구성.
+//---------------------------------------------------------
+scwin.f_bookingSearchPopup = async function () {
+  var opts = {
+    id: "se_103_01_01p",
+    popupName: "se_103_01_01p",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "Booking Search"
+  };
+  var data = {
+    v_hhio: scwin.hd_hhio
+  };
+  const ret = await $c.win.openPopup($p, "/ui/il/seaout/sobk/se_103_01_01p.xml", opts, data);
+
+  // 팝업 리턴값 기준(프로젝트 규격에 맞게 key 조정)
+  ed_hhbkgno.setValue(ret?.v_bkNo || "");
+  scwin.cfViewTab(0);
+  if (!$c.util.isEmpty($p, ed_hhbkgno.getValue())) {
+    ed_hhbkgno.focus();
+    await scwin.f_retrieveCarrierBkNo();
+  } else {
+    lc_hhbkgseq.focus();
+  }
+  return false;
+};
+scwin.cf_freightNameValidation = function (ds1, ds2, ds3) {
+  // 순서대로 Selling, Partner, Buying (체크안할경우에는 null 입력)
+
+  // Selling
+  if (ds1 != null && ds1.getModifiedArray().length != 0) {
+    for (var i = 0; i < ds1.getRowCount(); i++) {
+      if (ds1.getCellData(i, "certiNo").trim() == "" && scwin.getByte(ds1.getCellData(i, "fareEngNm")) > 45) {
+        alert("Freight Name은 45바이트 초과로 입력할 수 없습니다.\nSelling List를 확인하세요.\n" + i + "번째 행 입력 바이트 수: " + scwin.getByte(ds1.getCellData(i, "fareEngNm")));
+        return false;
+      }
+    }
+  }
+
+  // Partner
+  if (ds2 != null && ds2.getModifiedArray().length != 0) {
+    for (var i = 0; i < ds2.getRowCount(); i++) {
+      if (ds2.getCellData(i, "certiNo").trim() == "" && scwin.getByte(ds2.getCellData(i, "fareEngNm")) > 45) {
+        alert("Freight Name은 45바이트 초과로 입력할 수 없습니다.\nPartner List를 확인하세요.\n" + i + "번째 행 입력 바이트 수: " + scwin.getByte(ds2.getCellData(i, "fareEngNm")));
+        return false;
+      }
+    }
+  }
+
+  // Buying
+  if (ds3 != null && ds3.getModifiedArray().length != 0) {
+    for (var i = 0; i < ds3.getRowCount(); i++) {
+      if (ds3.getCellData(i, "pchsCertiNo").trim() == "" && scwin.getByte(ds3.getCellData(i, "fareEngNm")) > 45) {
+        alert("Freight Name은 45바이트 초과로 입력할 수 없습니다.\nBuying List를 확인하세요.\n" + i + "번째 행 입력 바이트 수: " + scwin.getByte(ds3.getCellData(i, "fareEngNm")));
+        return false;
+      }
+    }
+  }
+  return true;
+};
+scwin.getByte = function (str) {
+  var byte = 0;
+  for (var i = 0; i < str.length; ++i) {
+    str.charCodeAt(i) > 127 ? byte += 3 : byte++;
+  }
+  return byte;
+};
+scwin.f_chkDuplicate = function (ds, colId, val) {
+  var data = ds.getAllJSON();
+  var dupData = data.filter(function (item) {
+    return item[colId].trim() == val.trim();
+  });
+  return dupData.length > 1 ? false : true;
+};
+
+//-----------------------------------------------------------------------------------------------
+// gr_ocContList
+//-----------------------------------------------------------------------------------------------
+scwin.gr_ocContList_onkeyup = function (e) {
+  var colObj = window[e.target.id];
+  var upperCol = ['mccntno', 'mctype', 'mcpkgcd'];
+  if (upperCol.includes(colObj.options.col_id)) {
+    colObj.setValue(e.target.value.toUpperCase());
+  }
+};
+scwin.gr_ocContList_onbeforeedit = function (rowIndex, columnIndex, value) {
+  var colId = this.getColumnID(columnIndex);
+  switch (colId) {
+    case "mccntno":
+      if (ds_ocContList.getRowStatus(rowIndex) == "C") {
+        return true;
+      } else {
+        return false;
+      }
+      break;
+    default:
+      break;
+  }
+  return true;
+};
+
+// [GAUCE] for=gr_ocContList event=OnExit(rowIndex, columnId, olddata)
+scwin.gr_ocContList_onafteredit = async function (rowIndex, columnIndex, value) {
+  var row = rowIndex;
+  var colId = gr_ocContList.getColumnID(columnIndex);
+  switch (colId) {
+    case "mccntno":
+      if (ds_ocContList.getCellData(row, colId).trim() != "") {
+        if (!scwin.f_checkCntrNo(ds_ocContList.getCellData(row, colId))) {
+          await $c.gus.cfAlertMsg($p, MSG_CM_ERR_038, ["컨테이너"]); //유효한 @가 아닙니다
+          gr_ocContList.setFocusedCell(row, "mccntno"); // forcus
+        }
+      }
+      break;
+    /*
+    case "mctype":
+        if(ds_ocContList.getCellData(row,colId).trim() == "") {
+            await $c.gus.cfAlertMsg(E_MSG_CM_ERR_049, ["Container Type"]); //  @이(가) 존재하지 않습니다.
+            gr_ocContList.setFocusedCell(row, "mctype"); // forcus
+        }
+    */
+    default:
+      break;
+  }
+};
+scwin.gr_ocContList_onviewchange = async function (info) {
+  var row = info.rowIndex;
+  var colId = info.colId;
+  switch (colId) {
+    case "mctype":
+      //코드값이 공백이 아닌경우 && 값이 변하였을경우 팝업을 호출한다.
+      if (ds_ocContList.getCellData(row, colId).trim() != "") {
+        scwin.f_PopUpGrid("mctype", row, "T");
+      }
+      break;
+    case "mcpkgcd":
+      //코드값이 공백이 아닌경우 && 값이 변하였을경우 팝업을 호출한다.
+      if (ds_ocContList.getCellData(row, colId).trim() != "") {
+        scwin.f_PopUpGrid("mcpkgcd", row, "T");
+      }
+      break;
+    default:
+      break;
+  }
+};
+// [GAUCE] for=gr_ocContList event=OnExit(rowIndex, columnId, olddata)
+scwin.gr_ocContList_ontextimageclick = async function (rowIndex, columnIndex) {
+  var row = rowIndex;
+  var col = gr_ocContList.getColumnID(columnIndex);
+  var value = ds_ocContList.getCellData(row, col);
+  switch (col) {
+    case "mctype":
+      scwin.f_PopUpGrid("mctype", row, "F");
+      break;
+    case "mcpkgcd":
+      scwin.f_PopUpGrid("mcpkgcd", row, "F");
+      break;
+    default:
+      break;
+  }
+};
+scwin.gr_ocContList_onfilereadend = function (value) {
+  var data = ds_ocContList.getAllJSON();
+  var newData = [];
+  var excelColId = {
+    'mccntno': 'mccntno:11',
+    'mctype': 'mctype:4',
+    'mcseal1': 'mcseal1:20',
+    'mcseal2': 'mcseal2:20',
+    'mcpkg': 'mcpkg',
+    'mcpkgcd': 'mcpkgcd:2',
+    'mcwgt': 'mcwgt',
+    'mcmsr': 'mcmsr',
+    'mcpart': 'mcpart:1'
+  };
+
+  // 업로드 데이터 가공
+  for (var i = 0; i < data.length; i++) {
+    var addItem = {};
+    for (var item in excelColId) {
+      var temp = excelColId[item].split(':');
+      if (temp.length == 2) {
+        addItem[item] = scwin.f_truncateByByte(data[i][temp[0]], temp[1]);
+      } else {
+        addItem[item] = data[i][temp[0]];
+      }
+    }
+    newData.push(addItem);
+  }
+
+  // 코드명 조회
+  ds_ocContList.setJSON(newData);
+  for (var i = 0; i <= ds_ocContList.getRowCount(); i++) {
+    ds_ocContList.setCellData(i, "kcomcd", scwin.hd_kcomcd);
+    ds_ocContList.setCellData(i, "mchblno", cnd_ed_hhblno.getValue());
+    ds_ocContList.setCellData(i, "mhno", cnd_lc_mhno.getValue());
+    ds_ocContList.setCellData(i, "inpid", scwin.vUserId);
+  }
+  ds_ocContList.modifyAllStatus("C");
+};
+
+//-----------------------------------------------------------------------------------------------
+// gr_ocElList
+//-----------------------------------------------------------------------------------------------
+scwin.gr_ocElList_onkeyup = function (e) {
+  var colObj = window[e.target.id];
+  var upperCol = ['elno', 'mut', 'unit'];
+  if (upperCol.includes(colObj.options.col_id)) {
+    colObj.setValue(e.target.value.toUpperCase());
+  }
+};
+
+// [GAUCE] for=gr_ocElList event=OnPopup(rowIndex, columnId, data)
+scwin.gr_ocElList_ontextimageclick = function (rowIndex, columnIndex) {
+  var row = rowIndex;
+  var col = gr_ocElList.getColumnID(columnIndex);
+  var rtnList = new Array();
+  switch (col) {
+    case "unit":
+      scwin.f_PopUpGrid("unit", rowIndex, "F");
+      break;
+    case "mut":
+      scwin.f_PopUpGrid("mut", rowIndex, "F");
+      break;
+    default:
+      break;
+  }
+};
+scwin.isMessage = false;
+scwin.gr_ocElList_onbeforeedit = function (rowIndex, columnIndex, value) {
+  if (scwin.isMessage) return false;
+  var colId = this.getColumnID(columnIndex);
+  var mgbCol = ['mpkg', 'mut'];
+  if (mgbCol.includes(colId)) {
+    if (ds_ocElList.getCellData(rowIndex, 'mgb') == '') {
+      return false;
+    }
+  }
+  switch (colId) {
+    case "elno":
+      if (ds_ocElList.getRowStatus(rowIndex) == "C") {
+        return true;
+      } else {
+        return false;
+      }
+      break;
+    case "pseq":
+      if (ds_ocElList.getCellData(rowIndex, 'pgb') == 'N') {
+        return false;
+      }
+      break;
+    default:
+      break;
+  }
+  return true;
+};
+scwin.gr_ocElList_onafteredit = async function (rowIndex, columnIndex, value) {
+  var row = rowIndex;
+  var col = gr_ocElList.getColumnID(columnIndex);
+
+  // 수출신고번호 입력 시, '-' 기호 뺀 상태로 변경
+  if (col == "elno") {
+    var v = ds_ocElList.getCellData(row, "elno");
+    v = (v || "").replace(/[-\s]/g, "");
+    ds_ocElList.setCellData(row, "elno", v);
+
+    // 수출신고번호 중복 check (elno)
+    var chkDup = scwin.f_chkDuplicate(ds_ocElList, "elno", v);
+    if (!chkDup) {
+      scwin.isMessage = true;
+      await $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_032, ["elno"]); // @은(는) 중복될 수 없습니다.
+      gr_ocElList.setFocusedCell(row, "elno");
+      scwin.isMessage = false;
+      return;
+    }
+  }
+};
+
+// [GAUCE] for=gr_ocElList event=OnPopup(rowIndex, columnId, data)
+scwin.gr_ocElList_onviewchange = async function (info) {
+  var row = info.rowIndex;
+  var col = info.colId;
+  var olddata = ds_ocElList.getCellData(row, col); // 필요시 사용
+
+  // row 범위 체크 (0-based)
+  switch (col) {
+    case "unit":
+      {
+        var unit = (ds_ocElList.getCellData(row, "unit") || "").trim();
+        if (unit != "") {
+          scwin.f_PopUpGrid("unit", row, "T");
+        } else {
+          ds_ocElList.setCellData(row, "unit", "");
+        }
+        break;
+      }
+    case "mut":
+      {
+        var mut = (ds_ocElList.getCellData(row, "mut") || "").trim();
+        if (mut != "") {
+          scwin.f_PopUpGrid("mut", row, "T");
+        } else {
+          ds_ocElList.setCellData(row, "mut", "");
+        }
+        break;
+      }
+    case "elno":
+      {
+        var v_elno = ds_ocElList.getCellData(row, "elno");
+        var shipType = rd_hhmnfgb.getValue();
+        if (shipType == "E") {// Shipment Type Export
+        } else if (shipType == "I") {// Shipment Type Reshipment
+        }
+        break;
+      }
+    default:
+      break;
+  }
+};
+
+//-----------------------------------------------------------------------------------------------
+// gr_selling_freight
+//-----------------------------------------------------------------------------------------------
+// [GAUCE] for=gr_selling_freight event=OnHeadCheckClick(Col, columnId, bCheck)
+scwin.gr_selling_freight_onheaderclick = function (headerId) {
+  var colId = headerId;
+  var checked = gr_selling_freight.getHeaderValue(headerId);
+  if (colId == "chk") {
+    scwin._headCheckApply(ds_selling_freight, checked);
+  }
+};
+scwin.gr_selling_freight_ontextimageclick = function (rowIndex, columnIndex) {
+  var row = rowIndex;
+  var col = gr_selling_freight.getColumnID(columnIndex);
+  switch (col) {
+    case "bilgClntNo":
+      scwin.f_PopUpGrid_freight("SellingCustomer", row, "F", "F");
+      break;
+    case "fareEngCd":
+      scwin.f_PopUpGrid_freight("SellingFcode", row, "F", "F");
+      break;
+    default:
+      break;
+  }
+};
+scwin.gr_selling_freight_onviewchange = function (info) {
+  var row = info.rowIndex;
+  var col = info.colId;
+  var curVal = ds_selling_freight.getCellData(row, col);
+  var colNum = ['chgWt', 'sellUpr', 'sellAmtFcrc', 'exRate', 'sellAmt', 'vatAmt', 'usdAmt'];
+  if (colNum.includes(col)) {
+    if (curVal == '') ds_selling_freight.setCellData(row, col, 0);
+  }
+  switch (col) {
+    case "fareUnit":
+      setTimeout(function () {
+        scwin.f_packageRateSellingLoading_freight(row, col);
+        scwin.f_sellingTariffRateLoading_freight();
+      }, 100);
+      break;
+    case "bilgClntNo":
+      {
+        var v = (ds_selling_freight.getCellData(row, "bilgClntNo") || "").trim();
+        if (v != "") {
+          ds_selling_freight.setCellData(row, "bilgClntNm", "");
+          scwin.f_PopUpGrid_freight("SellingCustomer", row, "T", "F");
+        } else {
+          ds_selling_freight.setCellData(row, "bilgClntNo", "");
+          ds_selling_freight.setCellData(row, "bilgClntNm", "");
+        }
+        break;
+      }
+    case "fareEngCd":
+      {
+        var v = (ds_selling_freight.getCellData(row, "fareEngCd") || "").trim();
+        if (v != "") {
+          ds_selling_freight.setCellData(row, "fareEngNm", "");
+          scwin.f_PopUpGrid_freight("SellingFcode", row, "T", "F", _calcAmt);
+        } else {
+          ds_selling_freight.setCellData(row, "fareEngCd", "");
+          ds_selling_freight.setCellData(row, "fareEngNm", "");
+          _calcAmt(row);
+        }
+        break;
+      }
+    case "crcCd":
+    case "chgWt":
+    case "sellUpr":
+      {
+        _calcAmt(row);
+        break;
+      }
+    case "exRate":
+      {
+        scwin.f_sellingAmt_freight(row, col, curVal);
+        break;
+      }
+    case "sellAmt":
+      {
+        scwin.f_sellingVat_freight(row, col, curVal);
+        break;
+      }
+    case "vatAmt":
+      {
+        scwin.f_sellingUsdAmt_freight(row, col, curVal);
+        break;
+      }
+    default:
+      break;
+  }
+  function _calcAmt(row) {
+    scwin.f_sellingAmtFcrc_freight(row);
+    scwin.f_sellingAmt_freight(row);
+    scwin.f_sellingVat_freight(row);
+    scwin.f_sellingUsdAmt_freight(row);
+  }
+};
+
+// [GAUCE] for=gr_selling_freight event=OnDropDown(rowIndex, columnId)
+scwin.gr_selling_freight_onbeforeedit = function (rowIndex, columnIndex, value) {
+  var col = gr_selling_freight.getColumnID(columnIndex);
+  if (col == "fareEngNm") {
+    if (scwin.statusFlag == "U") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  return true;
+
+  /*
+  var certiNo     = ds_selling_freight.getCellData(rowIndex, "certiNo");
+  var dcsnClsCd   = ds_selling_freight.getCellData(rowIndex, "dcsnClsCd");
+  var crcCd       = ds_selling_freight.getCellData(rowIndex, "crcCd");
+  var certiNoCol  = ['bilgClntNo', 'fareEngCd', 'crcCd', 'fareUnit', 'chgWt', 'sellUpr', 'exRate', 'sellAmt', 'vatAmt'];
+    if (certiNoCol.includes(col)) {
+      if (certiNo != '' || dcsnClsCd == '확정') {
+          return false;
+      }
+  }
+    switch (col) {
+      case "fareEngNm":
+          if (scwin.statusFlag == "U") {
+              return true;
+          }
+      case "sellAmtFcrc":
+          if (crcCd == "KRW") {
+              return false;
+          } else {
+              return true;
+          }
+          break;
+  case "fareUnit":
+    scwin.f_sellingUnitLoading_freight();
+  break;
+  }
+  */
+
+  return true;
+};
+
+// [GAUCE] for=gr_partner_freight event=OnHeadCheckClick(Col, columnId, bCheck)
+scwin.gr_partner_freight_onheaderclick = function (headerId) {
+  var colId = headerId;
+  var checked = gr_partner_freight.getHeaderValue(headerId);
+  if (colId == "chk") {
+    scwin._headCheckApply(ds_partner_freight, checked);
+  }
+};
+// [GAUCE] for=gr_partner_freight event=OnPopup_freight(rowIndex, columnId, data)
+scwin.gr_partner_freight_ontextimageclick = function (rowIndex, columnIndex) {
+  var row = rowIndex;
+  var col = gr_partner_freight.getColumnID(columnIndex);
+  switch (col) {
+    case "bilgClntNo":
+      scwin.f_PopUpGrid_freight("PartnerCustomer", row, "F", "F");
+      break;
+    case "fareEngCd":
+      scwin.f_PopUpGrid_freight("PartnerFcode", row, "F", "F");
+      break;
+    case "rsltsStdDt":
+      $c.gus.cfOpenCalendar($p, gr_partner_freight, row, col);
+      break;
+    default:
+      break;
+  }
+};
+// [GAUCE] for=gr_partner_freight event=OnCloseUp(rowIndex, columnId)
+scwin.gr_partner_freight_onviewchange = function (info) {
+  var row = info.rowIndex;
+  var col = info.colId;
+  var olddata = ds_partner_freight.getCellData(row, col);
+  switch (col) {
+    case "bilgClntNo":
+      var v = (ds_partner_freight.getCellData(row, "bilgClntNo") || "").trim();
+      if (v != "") {
+        ds_partner_freight.setCellData(row, "bilgClntNm", "");
+        scwin.f_PopUpGrid_freight("PartnerCustomer", row, "T", "F");
+      } else {
+        ds_partner_freight.setCellData(row, "bilgClntNo", "");
+        ds_partner_freight.setCellData(row, "bilgClntNm", "");
+      }
+      break;
+    case "fareEngCd":
+      var v = (ds_partner_freight.getCellData(row, "fareEngCd") || "").trim();
+      if (v != "") {
+        ds_partner_freight.setCellData(row, "fareEngNm", "");
+        scwin.f_PopUpGrid_freight("PartnerFcode", row, "T", "F", _calcAmt);
+      } else {
+        ds_partner_freight.setCellData(row, "fareEngCd", "");
+        ds_partner_freight.setCellData(row, "fareEngNm", "");
+        _calcAmt(row);
+      }
+      break;
+    case "fareUnit":
+      setTimeout(function () {
+        scwin.f_packageRatePartnerLoading_freight(row, col);
+        scwin.f_partnerTariffRateLoading_freight();
+      }, 100);
+      break;
+    case "crcCd":
+    case "chgWt":
+    case "sellUpr":
+      {
+        _calcAmt(row);
+        break;
+      }
+    case "exRate":
+      {
+        scwin.f_partnerAmt_freight(row, col, olddata);
+        break;
+      }
+    case "sellAmt":
+      {
+        scwin.f_partnerUsdAmt_freight(row, col, olddata);
+        break;
+      }
+    default:
+      break;
+  }
+  function _calcAmt(row) {
+    scwin.f_partnerAmtFcrc_freight(row);
+    scwin.f_partnerAmt_freight(row);
+    scwin.f_partnerUsdAmt_freight(row);
+  }
+};
+// [GAUCE] for=gr_partner_freight event=OnDropDown(rowIndex, columnId)
+scwin.gr_partner_freight_onbeforeedit = function (rowIndex, columnIndex, value) {
+  var col = gr_partner_freight.getColumnID(columnIndex);
+  if (col == "fareEngNm") {
+    if (scwin.statusFlag == "U") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  return true;
+
+  /*
+  var certiNo     = ds_partner_freight.getCellData(rowIndex, "certiNo");
+  var dcsnClsCd   = ds_partner_freight.getCellData(rowIndex, "dcsnClsCd");
+  var certiNoCol  = ['bilgClntNo', 'fareEngCd', 'crcCd', 'fareUnit', 'chgWt', 'sellUpr', 'exRate', 'sellAmt', 'drCrCls', 'rmk'];
+    if (certiNoCol.includes(col)) {
+      if (certiNo != '' && dcsnClsCd == '확정') {
+          return false;
+      }
+  }
+    switch(col) 
+  {
+      case "sellAmtFcrc":
+          if (ds_partner_freight.getCellData(rowIndex, "crcCd") == "KRW") {
+              return false;
+          }
+          break;
+      case "vehclNo":
+          if (ds_partner_freight.getCellData(rowIndex, "drcrCls") != "C") {
+              return false;
+          }
+          break;
+      case "fareUnit":
+          scwin.f_partnerUnitLoading_freight();
+          break;
+      default:
+          break;
+  }
+  return true;
+  */
+};
+
+// [GAUCE] for=gr_buying_freight event=OnHeadCheckClick(Col, columnId, bCheck)
+scwin.gr_buying_freight_onheaderclick = function (headerId) {
+  var colId = headerId;
+  var checked = gr_buying_freight.getHeaderValue(headerId);
+  if (colId == "chk") {
+    scwin._headCheckApply(ds_buying_freight, checked);
+  }
+};
+scwin.gr_buying_freight_onviewchange = function (info) {
+  var row = info.rowIndex;
+  var col = info.colId;
+  var olddata = ds_buying_freight.getCellData(row, col);
+
+  // row 범위 체크 (0-based)
+  switch (col) {
+    case "fareUnit":
+      setTimeout(function () {
+        scwin.f_packageRateBuyingLoading_freight(row, col);
+        scwin.f_buyingTariffRateLoading_freight();
+      }, 100);
+      break;
+    case "pchsTyp":
+      if (ds_buying_freight.getCellData(ds_buying_freight.getRowPosition(), "pchsTyp") /* TODO: GAUCE->WS row base ?? */ == "3") {
+        // 내부부서일때.
+        ds_buying_freight.setCellData(ds_buying_freight.getRowPosition(), "pchsClntNo", scwin.p_clntNo);
+        ds_buying_freight.setCellData(ds_buying_freight.getRowPosition(), "pchsClntNm", "");
+        scwin.f_PopUpGrid_freight("BuyingCustomer", rowIndex, "T", "F");
+      } else {
+        ds_buying_freight.setCellData(ds_buying_freight.getRowPosition(), "pchsClntNo", "");
+        ds_buying_freight.setCellData(ds_buying_freight.getRowPosition(), "pchsClntNm", "");
+      }
+      break;
+    case "pchsClntNo":
+      {
+        var v = (ds_buying_freight.getCellData(row, "pchsClntNo") || "").trim();
+        if (v != "") {
+          ds_buying_freight.setCellData(row, "pchsClntNm", "");
+          scwin.f_PopUpGrid_freight("BuyingCustomer", row, "T", "F");
+        } else {
+          ds_buying_freight.setCellData(row, "pchsClntNo", "");
+          ds_buying_freight.setCellData(row, "pchsClntNm", "");
+        }
+        break;
+      }
+    case "fareEngCd":
+      {
+        var v = (ds_buying_freight.getCellData(row, "fareEngCd") || "").trim();
+        if (v != "") {
+          ds_buying_freight.setCellData(row, "fareEngNm", "");
+          scwin.f_PopUpGrid_freight("BuyingFcode", row, "T", "F", function (row) {
+            _fareEngCd(row);
+          });
+        } else {
+          ds_buying_freight.setCellData(row, "fareEngCd", "");
+          ds_buying_freight.setCellData(row, "fareEngNm", "");
+          _fareEngCd(row);
+        }
+        break;
+      }
+    case "sellDeptCd":
+      {
+        var v = (ds_buying_freight.getCellData(row, "sellDeptCd") || "").trim();
+        if (v != "") {
+          ds_buying_freight.setCellData(row, "sellDeptNm", "");
+          scwin.f_PopUpGrid_freight("BuyingDept", row, "T", "F", _calcAmt);
+        } else {
+          ds_buying_freight.setCellData(row, "sellDeptCd", "");
+          ds_buying_freight.setCellData(row, "sellDeptNm", "");
+        }
+        break;
+      }
+    case "crcCd":
+    case "chgWt":
+    case "pchsUpr":
+      {
+        _calcAmt(row);
+        break;
+      }
+    case "exRate":
+      {
+        scwin.f_buyingAmt_freight(row, col, olddata);
+        break;
+      }
+    case "pchsAmt":
+      {
+        scwin.f_buyingVat_freight(row, col, olddata);
+        break;
+      }
+    case "vat":
+      {
+        scwin.f_buyingUsdAmt_freight(row, col, olddata);
+        break;
+      }
+    default:
+      break;
+  }
+  async function _fareEngCd(row) {
+    // pchsTyp == "3" 이고 fareEngCd == "TRD"이면 부서 로딩
+    if (ds_buying_freight.getCellData(row, "pchsTyp") == "3") {
+      if (ds_buying_freight.getCellData(row, "fareEngCd") == "TRD") {
+        await scwin.f_BuyingDeptLoading_freight(row);
+      }
+    }
+
+    // linkcheck 조건이 아니면 금액 계산
+    if (scwin.v_linkcheck != 9) {
+      _calcAmt(row);
+    }
+  }
+  function _calcAmt(row) {
+    scwin.f_buyingAmtFcrc_freight(row);
+    scwin.f_buyingAmt_freight(row);
+    scwin.f_buyingVat_freight(row);
+    scwin.f_buyingUsdAmt_freight(row);
+  }
+};
+
+// [GAUCE] for=gr_buying_freight event=OnDropDown(rowIndex, columnId)
+scwin.gr_buying_freight_onbeforeedit = function (rowIndex, columnIndex, value) {
+  var col = gr_buying_freight.getColumnID(columnIndex);
+  if (col == "fareEngNm") {
+    if (scwin.statusFlag == "U") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  return true;
+
+  /*
+  var pchsCertiNo     = ds_buying_freight.getCellData(rowIndex, "pchsCertiNo");
+  var dcsnClsCd       = ds_buying_freight.getCellData(rowIndex, "dcsnClsCd");
+  var pchsCertiNoCol  = ['pchsTyp', 'pchsClntNo', 'fareEngCd', 'crcCd', 'fareUnit', 'chgWt', 'pchsUpr'];
+      switch (col) {
+      case "pchsAmtFcrc":
+          if (ds_buying_freight.getCellData(rowIndex, "crcCd") == 'KRW') {
+              return false;
+          }
+          break;
+      case "sellDeptCd":
+          if (ds_buying_freight.getCellData(rowIndex, "pchsTyp") != '3') {
+              return false;
+          }
+          break;
+  case "fareUnit":
+          scwin.f_buyingUnitLoading_freight();
+          break;
+  }
+  return true;
+  */
+};
+scwin.upperCase = function (e) {
+  var obj = window[e.target.id];
+  if (obj.setValue) {
+    var oldVal = obj._oldValue;
+    obj.setValue(obj.getValue().toUpperCase());
+    obj._oldValue = oldVal;
+  }
+};
+scwin.upperCaseGrid = function (e) {
+  var obj = window[e.target.id];
+  if (!obj.options) return;
+  var colId = obj.options.col_id;
+  if (colId == 'sellDeptCd' || colId == 'fareEngCd') {
+    var oldVal = obj._oldValue;
+    var val = obj.getValue().toUpperCase();
+    obj.setValue(val);
+    obj._oldValue = oldVal;
+  }
+};
+scwin.f_removeNullString = function (obj) {
+  var str = obj.getValue();
+  str = str.replace(/\u0000/g, '');
+  obj.setValue(str);
+};
+scwin.setDisplaySelectBox = function (value) {
+  var idx = this.getSelectedIndex();
+  var retVal = '';
+  if (this.org_id == 'lc_contractno_booking' || this.org_id == 'lc_contractno_booking2') {
+    retVal += ds_ctrtNo_booking.getCellData(idx, 'ctrtNo');
+    retVal += ' (' + ds_ctrtNo_booking.getCellData(idx, 'clntPicNm');
+    retVal += ':~' + ds_ctrtNo_booking.getCellData(idx, 'ctrtEndDt') + ')';
+  }
+  return retVal == '' ? value : retVal;
+};
+scwin.setCustomFormat = function (orgVal, formatVal, rowIndex, colIndex) {
+  var grid = this.org_id;
+  var colId = this.getColumnID(colIndex);
+  var retVal = formatVal;
+  if (grid == 'gr_ocElList') {} else if (grid == 'gr_selling_freight') {} else if (grid == 'gr_partner_freight') {
+    switch (colId) {
+      case "dcsnClsCd":
+        if (!(orgVal == '확정' || orgVal == '미확정')) {
+          retVal = '';
+        }
+        break;
+      default:
+        break;
+    }
+  } else if (grid == 'gr_buying_freight') {
+    switch (colId) {
+      case "dcsnClsCd":
+        if (!(orgVal == '확정' || orgVal == '미확정')) {
+          retVal = '';
+        }
+        break;
+      default:
+        break;
+    }
+  }
+  return retVal;
+};
+scwin.f_chkDataLength = function () {
+  var status = ds_houseblList.getRowStatus(0);
+  var col = {
+    kcomcd: 6,
+    hhblno: 20,
+    autono: 10,
+    mhno: 16,
+    hhmblno: 20,
+    hhio: 1,
+    hhbkgno: 16,
+    hhbkgseq: 2,
+    hhscd: 6,
+    hhs1: 100,
+    hhs2: 50,
+    hhs3: 50,
+    hhs4: 50,
+    hhs5: 50,
+    hhccd: 6,
+    hhc1: 100,
+    hhc2: 50,
+    hhc3: 50,
+    hhc4: 50,
+    hhc5: 50,
+    hhncd: 6,
+    hhn1: 100,
+    hhn2: 50,
+    hhn3: 50,
+    hhn4: 50,
+    hhn5: 50,
+    hhvslcd: 4,
+    hhvsl: 25,
+    hhvyg: 11,
+    hhlodcd: 5,
+    hhlodnm: 35,
+    hhdisccd: 5,
+    hhdiscnm: 35,
+    hhunitcd: 2,
+    hhunit: 10,
+    hhetd: 8,
+    hhondt: 8,
+    hheta: 8,
+    hhisudt: 8,
+    creadyDt: 8,
+    hhdanggb: 1,
+    hhpcgb: 1,
+    hhbltype: 1,
+    hhisunm: 35,
+    hhpaynm: 35,
+    hhprenm: 35,
+    hhstype: 20,
+    hhincoterm: 10,
+    hhcnt1type: 4,
+    hhcnt2type: 4,
+    hhcnt3type: 4,
+    hhcnt4type: 4,
+    hhagent: 6,
+    hhagentnm: 50,
+    hhagentattn: 2,
+    hhagentattnnm: 50,
+    hhactcust: 6,
+    hhactcustnm: 50,
+    hhactattn: 2,
+    hhactattnnm: 20,
+    hhsales: 8,
+    hhsalesnm: 20,
+    hhliner: 6,
+    hhlinernm: 50,
+    hhlinerattn: 2,
+    hhlinerattnnm: 20,
+    hhbuyer: 4,
+    hhbuyernm: 50,
+    hharea: 6,
+    hhareanm: 50,
+    hhobl: 1,
+    hhcoload: 1,
+    hhsubpkg: 35,
+    hhunit2: 20,
+    hhunit3: 20,
+    mark: 8000,
+    descnm: 8000,
+    hhsay: 70,
+    hhitem: 8,
+    hhmitem1: 50,
+    hhmitem2: 50,
+    hhrmk1: 50,
+    hhrmk2: 50,
+    hhrmk3: 50,
+    hhrmk4: 50,
+    hhrmk5: 50,
+    hhmnfgb: 1,
+    hhfvsl: 25,
+    hhrcvcd: 5,
+    hhrcvnm: 35,
+    hhdlvcd: 5,
+    hhdlvnm: 35,
+    hhfdcd: 5,
+    hhfdnm: 35,
+    hhpono: 30,
+    hhcustvalue: 20,
+    hhlcno: 20,
+    odrNo: 13,
+    inpid: 8,
+    inpdt: 8,
+    updid: 8,
+    upddt: 8,
+    mwarecd: 10,
+    mwarenm: 50,
+    mwareEngCd: 5,
+    ucrNo: 35,
+    shipMgntNo: 12,
+    pathCd: 5,
+    printChk: 5,
+    pic: 8,
+    hscode: 10,
+    hhcurPar: 3,
+    hhexgbPar: 2,
+    hhcurdtPar: 8,
+    hhcurBuy: 3,
+    hhexgbBuy: 2,
+    hhcurdtBuy: 8,
+    cino: 30
+  };
+  for (var item in col) {
+    var value = ds_houseblList.getCellData(0, item);
+    value = scwin.f_truncateByByte(value, col[item]);
+    ds_houseblList.setCellData(0, item, value);
+  }
+  ds_houseblList.modifyAllStatus(status);
+
+  // 부가 데이터 & 자리수 체크
+  ds_houseblList.setCellData(0, 'hhclosing', 0);
+};
+scwin.f_truncateByByte = function (str, maxBytes) {
+  maxBytes = Number(maxBytes);
+  var currentBytes = 0;
+  var result = "";
+  for (var i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+
+    // 한글 및 특수문자 (UTF-8 기준 대략적 계산)
+    // 0x0800보다 크면 보통 3바이트, 그 외엔 1~2바이트
+    const byte = char > 127 ? 2 : 1;
+    if (currentBytes + byte <= maxBytes) {
+      currentBytes += byte;
+      result += str.charAt(i);
+    } else {
+      break;
+    }
+  }
+  return result;
+};
+scwin.ds_houseblList_oncelldatachange = function (info) {
+  var freightCol = ['hhactcust', 'hhactcustnm', 'hhagent', 'hhagentnm', 'hhcnt1', 'hhcnt1type', 'hhcnt2', 'hhcnt2type', 'hhcnt3', 'hhcnt3type', 'hhcnt4', 'hhcnt4type', 'hhdanggb', 'hhdisccd', 'hhdiscnm', 'hhetd', 'hhgwgt', 'hhitem', 'hhliner', 'hhlinernm', 'hhlodcd', 'hhlodnm', 'hhmsr', 'hhpcgb', 'hhcur', 'hhexgb', 'hhcurdt', 'hhexrate', 'hhuexrate', 'hhcurPar', 'hhexgbPar', 'hhcurdtPar', 'hhexratePar', 'hhuexratePar', 'hhcurBuy', 'hhexgbBuy', 'hhcurdtBuy', 'hhexrateBuy', 'hhuexrateBuy', 'hhmblno'];
+  if (freightCol.includes(info.colID)) {
+    ds_houseblList_freight.setCellData(0, info.colID, info.newValue);
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_ilcomCode',type:'page',variableClone:'true',src:'/ui/il/common/udc/ilcomCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'tbl_Search',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'House No',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{style:'width: 200px;',id:'cnd_ed_hhblno',placeholder:'',class:'',ref:'data:ds_retrieve.hhblno',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.upperCase','ev:onblur':'scwin.cnd_ed_hhblno_onblur',maxlength:'20'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'B/L Type',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{objType:'data',class:' w150',editType:'select',id:'cnd_lc_autono',search:'start',style:'width:150px;',submenuSize:'auto',mandatory:'false',displayMode:'label',ref:'data:ds_houseblList.autono',allOption:'',chooseOption:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Original'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'ORIGINAL'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Surrender'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'SURRENDER'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Direct'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'DIRECT'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'DOC No',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:' w150',editType:'select',id:'cnd_lc_mhno',search:'start',style:'width:150px;',submenuSize:'auto',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_hmhno'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Master B/L',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{ref:'data:ds_houseblList.hhmblno',style:'width: 200px;',id:'cnd_ed_hhmblno',placeholder:'',objType:'data',class:' w200',maxByteLength:'20',disabled:'true',readOnly:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_ilcomCode',A:{codeId:'ed_ilcomCd',hideName:'Y',id:'udc_ilcomCode',nameId:'ed_ilcomNm',popupID:'',selectID:'retrieveEngClntInfo',style:'display:none'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn ico refresh',id:'btn_Clear',style:'',type:'button','ev:onclick':'scwin.f_FieldClear'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'R',class:'btn_cm sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Search'}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'round-box'},E:[{T:1,N:'xf:group',A:{style:'',id:'buttonTable1',class:'btnbox'},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_4',type:'button',class:'btn link ','ev:onclick':'scwin.f_openPgm(\'MasterBL\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'M B/L'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_8',type:'button',class:'btn link ','ev:onclick':'scwin.f_openPgm(\'Freight\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Freight'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_10',type:'button',class:'btn link ','ev:onclick':'scwin.f_openPgm(\'HouseBLPrint\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'H B/L Print'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_11',type:'button',class:'btn link ','ev:onclick':'scwin.f_openPgm(\'SR\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Shipping Request'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_12',type:'button',class:'btn link ','ev:onclick':'scwin.f_Tracking'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'선사 Tracking'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_13',type:'button',class:'btn link ','ev:onclick':'scwin.f_ProgramDownload'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'API Setup'}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_Copy',label:'ALL Copy',type:'button',class:'btn','ev:onclick':'scwin.f_Copy'},E:[{T:1,N:'xf:label',E:[{T:3,text:'ALL Copy'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_Copy2',label:'B/L Copy',type:'button',class:'btn','ev:onclick':'scwin.f_Copy2'},E:[{T:1,N:'xf:label',E:[{T:3,text:'B/L Copy'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'R',style:'',id:'btn_Cancel',label:'Cancel',type:'button',class:'btn','ev:onclick':'scwin.f_Cancel'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Cancel'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_Create',label:'Create',type:'button',class:'btn','ev:onclick':'scwin.f_Create'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Create'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'U',style:'',id:'btn_Update',label:'Update',type:'button',class:'btn','ev:onclick':'scwin.f_Update'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Update'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'U',style:'',id:'btn_Save',label:'Save',type:'button',class:'btn','ev:onclick':'scwin.f_Save'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Save'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'D',style:'',id:'btn_Delete',label:'Delete',type:'button',class:'btn','ev:onclick':'scwin.f_Delete'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Delete'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'U',style:'',id:'btn_FileDownload',label:'Upload',type:'button',class:'btn','ev:onclick':'scwin.f_FileDownload'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Upload'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'U',style:'',id:'btn_HNoChg',label:'H NO.CHG',type:'button',class:'btn','ev:onclick':'scwin.f_HawbNoChange'},E:[{T:1,N:'xf:label',E:[{T:3,text:'H NO.CHG'}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'tabbox'},E:[{T:1,N:'w2:tabControl',A:{alwaysDraw:'true',style:'',id:'tac_tabMain',class:'wq_tab'},E:[{T:1,N:'w2:tabs',A:{disabled:'false',style:'',id:'tabs1',label:'Header'}},{T:1,N:'w2:tabs',A:{disabled:'false',style:'',id:'tabs3',label:'Freight'}},{T:1,N:'w2:content',A:{alwaysDraw:'true',style:'',id:'content1'},E:[{T:1,N:'xf:group',A:{id:'',class:'lybox flex_no wfix'},E:[{T:1,N:'xf:group',A:{id:'',class:'col'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:100px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:100px;'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Carrier BK',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'xf:input',A:{ref:'data:ds_containerBookingList_booking.carrierBkNo','ev:onkeyup':'scwin.upperCase',style:'',id:'ed_carrierBkNo_booking',placeholder:'',allowChar:'a-zA-Z0-9',objType:'data',class:' '}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'중요',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{ref:'',appearance:'full',style:'',id:'chb_iptYn_booking',renderType:'checkboxgroup',rows:'',selectedindex:'-1',objType:'data',class:'chk-grp',cols:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label'},{T:1,N:'xf:value'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Contract No',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{search:'start',submenuSize:'fixed',ref:'data:ds_containerBookingList_booking.contractno',displayFormatter:'scwin.setDisplaySelectBox',editType:'select',style:'',id:'lc_contractno_booking',objType:'data',class:' '},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:gridViewItemset',A:{hideHeader:'true',rowMouseOver:'',nodeset:'data:ds_ctrtNo_booking',width:'',selectedRowColor:'',label:'clntPicNm',visibleRowNum:'',autoFit:'',value:'ctrtNo',rowMouseOverColor:'',height:''},E:[{T:1,N:'w2:item',A:{ref:'ctrtNo',hidden:'',header:'',style:'width:100px',headerStyle:''}},{T:1,N:'w2:item',A:{ref:'clntPicNm',hidden:'',header:'',style:'width:100px',headerStyle:''}},{T:1,N:'w2:item',A:{ref:'ctrtStDt',hidden:'',header:'',style:'width:100px',headerStyle:''}},{T:1,N:'w2:item',A:{ref:'ctrtEndDt',hidden:'',header:'',style:'width:100px',headerStyle:''}},{T:1,N:'w2:item',A:{ref:'empNm',hidden:'',header:'',style:'width:100px',headerStyle:''}},{T:1,N:'w2:item',A:{ref:'regBranNm',hidden:'',header:'',style:'width:100px',headerStyle:''}}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Booking',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{ref:'data:ds_houseblList.hhbkgno',maxByteLength:'16','ev:onkeyup':'scwin.upperCase','ev:onviewchange':'scwin.ed_hhbkgno_onviewchange',style:'',readOnly:'true',id:'ed_hhbkgno',allowChar:'a-zA-Z0-9',placeholder:'',objType:'data',class:' '}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Seq',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{submenuSize:'auto','ev:onchange':'scwin.lc_hhbkgseq_onchange',chooseOption:'',allOption:'',disableEdit:'true',search:'start',ref:'data:ds_houseblList.hhbkgseq',emptyItem:'true',editType:'select',style:'width: 85px;',id:'lc_hhbkgseq',class:'',objType:'data'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_bkseq'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Shipper',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'w2:udc_ilcomCode',A:{maxlengthCode:'6',objTypeCode:'data',refDataCollection:'ds_houseblList',popupID:'',code:'hhscd','ev:onviewchangeCodeEvent':'scwin.ed_hhscd_onblur','ev:onviewchangeCodeEventEvent':'scwin.udc_hhagentattn_onviewchange',hideName:'true',btnId:'btn_hhscd',mandatoryCode:'false','ev:onclickEvent':'scwin.udc_hhagentattn_onclick',allowCharCode:'0-9',selectID:'',codeId:'ed_hhscd',objTypeName:'data',name:'hhs1',nameId:'txt_hhs1',style:'',id:'udc_hhagentattn'}}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'선적',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{ref:'data:ds_houseblList.shipMgntNo',maxlength:'12','ev:onkeyup':'scwin.upperCase',style:'',id:'ed_shipMgntNo',placeholder:'',allowChar:'a-zA-Z0-9',objType:'data',class:' '}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:textarea',A:{style:'height: 136px',id:'ta_hhs',objType:'data',class:'','ev:onblur':'scwin.uppper_onblur'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Consignee',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'w2:udc_ilcomCode',A:{maxlengthCode:'6',refDataCollection:'ds_houseblList',popupID:'',code:'hhccd','ev:onviewchangeCodeEvent':'scwin.udc_hhccd_onviewchangeCodeEvent',hideName:'true','ev:onclickEvent':'scwin.udc_hhccd_onclickEvent',allowCharCode:'0-9',codeId:'ed_hhccd',name:'hhc1',nameId:'txt_hhc1',style:'',id:'udc_hhccd'}},{T:1,N:'xf:trigger',A:{userAuth:'C','ev:onclick':'scwin.f_cCopy',style:'',id:'btn_1',type:'button',objType:'ctrlBtn',class:'btn sm link '},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Notify Copy'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:textarea',A:{'ev:onblur':'scwin.uppper_onblur',style:'height: 107px',id:'ta_hhc',objType:'data',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Notify',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'w2:udc_ilcomCode',A:{maxlengthCode:'6',refDataCollection:'ds_houseblList',popupID:'',code:'hhncd','ev:onviewchangeCodeEvent':'scwin.udc_hhncd_onviewchangeCodeEvent',hideName:'true','ev:onclickEvent':'scwin.udc_hhncd_onclickEvent',allowCharCode:'0-9',codeId:'ed_hhncd',name:'hhn1',nameId:'txt_hhn1',style:'',id:'udc_hhncd'}},{T:1,N:'xf:trigger',A:{userAuth:'C','ev:onclick':'scwin.f_same',style:'',id:'btn_2',type:'button',objType:'ctrlBtn',class:'btn sm link '},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Same'}]}]},{T:1,N:'xf:trigger',A:{userAuth:'C','ev:onclick':'scwin.f_nCopy',style:'',id:'btn_3',type:'button',objType:'ctrlBtn',class:'btn sm link '},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Copy'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'4'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:textarea',A:{'ev:onblur':'scwin.uppper_onblur',style:'height: 132px',id:'ta_hhn',objType:'data',class:''}}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'col'},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:100px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:100px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'VSL/VOY',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group',id:''},E:[{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',class:'w250 flex_no',code:'hhvslcd',codeId:'ed_hhvslcd','ev:onclickEvent':'scwin.udc_hhvslcd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhvslcd_onviewchangeCodeEvent',id:'udc_hhvslcd',maxlengthCode:'6',name:'hhvsl',nameId:'txt_hhvsl',popupID:'',refDataCollection:'ds_houseblList',style:'',UpperFlagName:'1'}},{T:1,N:'xf:input',A:{class:' ',id:'txt_hhvyg',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhvyg',style:'max-width:150px;'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Loading',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z',class:'w250',code:'hhlodcd',codeId:'ed_hhlodcd','ev:onclickEvent':'scwin.udc_hhlodcd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhlodcd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhlodcd_onblurNameEvent',id:'udc_hhlodcd',maxlengthCode:'5',name:'hhlodnm',nameId:'txt_hhlodnm',popupID:'',refDataCollection:'ds_houseblList',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Discharge',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z',class:'w250',code:'hhdisccd',codeId:'ed_hhdisccd','ev:onclickEvent':'scwin.udc_hhdisccd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhdisccd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhdisccd_onblurNameEvent',id:'udc_hhdisccd',maxlengthCode:'5',name:'hhdiscnm',nameId:'txt_hhdiscnm',popupID:'',refDataCollection:'ds_houseblList',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Delivery',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z',class:'w250',code:'hhdlvcd',codeId:'ed_hhdlvcd','ev:onclickEvent':'scwin.udc_hhdlvcd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhdlvcd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhdlvcd_onblurNameEvent',id:'udc_hhdlvcd',maxlengthCode:'5',name:'hhdlvnm',nameId:'txt_hhdlvnm',popupID:'',refDataCollection:'ds_houseblList',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Destination',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',class:'w250',code:'hhfdcd',codeId:'ed_hhfdcd','ev:onclickEvent':'scwin.udc_hhfdcd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhfdcd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhfdcd_onblurNameEvent',id:'udc_hhfdcd',maxlengthCode:'5',name:'hhfdnm',nameId:'txt_hhfdnm',popupID:'',refDataCollection:'ds_houseblList',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Package',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{allowChar:'0-9',class:'',dataType:'number',displayFormat:'#,##0','ev:onviewchange':'scwin.ed_hhpkg_onviewchange',id:'ed_hhpkg',maxlength:'10',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhpkg',style:'width:50px; text-align: right;'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Unit',style:''}},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z',code:'hhunitcd',codeId:'ed_hhunitcd','ev:onclickEvent':'scwin.udc_hhunitcd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhunitcd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhunitcd_onblurNameEvent',id:'udc_hhunitcd',maxlengthCode:'2',name:'hhunit',nameId:'txt_hhunit',popupID:'',refDataCollection:'ds_houseblList',style:''}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'M/T',style:''}},{T:1,N:'xf:input',A:{class:' w50',dataType:'float',displayFormat:'#,##0.###','ev:onblur':'scwin.ed_hhmt_onblur',id:'ed_hhmt',maxlength:'12.3',objType:'data',placeholder:'',style:'width:50px;'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Weight',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',dataType:'float',displayFormat:'#,##0.###','ev:onblur':'scwin.ed_hhgwgt_onblur',id:'ed_hhgwgt',maxlength:'13.3',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhgwgt',style:'width:120px; text-align: right;'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Measure',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',dataType:'float',id:'ed_hhmsr',maxlength:'13.3',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhmsr',style:'width:120px;text-align: right;'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'ETD',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal','ev:onblur':'scwin.ed_hhetd_onblur',fixLength:'8',id:'ed_hhetd',mandatory:'true',objType:'data',ref:'data:ds_houseblList.hhetd',style:'text-align: center;',title:'ETD'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Onboard',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal',fixLength:'8',id:'ed_hhondt',objType:'data',ref:'data:ds_houseblList.hhondt',style:'text-align: right;',title:'Onboard'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'ETA',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal',fixLength:'8',id:'ed_hheta',objType:'data',ref:'data:ds_houseblList.hheta',style:'text-align: center;',title:'ETA'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Issued Date',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal',fixLength:'8',id:'ed_hhisudt',objType:'data',ref:'data:ds_houseblList.hhisudt',style:'text-align: right;',title:'Issued Date'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'Result Date',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:' cal',fixLength:'8',id:'ed_creadyDt',objType:'data',ref:'data:ds_houseblList.creadyDt',style:'text-align: center;',title:'Result Date'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Dangerous',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{appearance:'full',class:'rdo-grp',cols:'',id:'rd_hhdanggb',objType:'data',ref:'data:ds_houseblList.hhdanggb',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Yes'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'No'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'N'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Incoterms',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',emptyIndex:'-1',emptyItem:'true','ev:onchange':'scwin.lc_hhincoterm_onchange',id:'lc_hhincoterm',objType:'data',ref:'data:ds_houseblList.hhincoterm',search:'start',style:'width: 250px;',submenuSize:'auto'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'PP/CC',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:'',editType:'select',emptyItem:'true','ev:onchange':'scwin.lc_hhpcgb_onchange',id:'lc_hhpcgb',objType:'data',ref:'data:ds_houseblList.hhpcgb',search:'start',style:'width:120px;',submenuSize:'auto'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Prepaid'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'P'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Collect'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'C'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Cargo Type',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:'',editType:'select','ev:onchange':'scwin.lc_hhbltype_onchange',id:'lc_hhbltype',objType:'data',ref:'data:ds_houseblList.hhbltype',search:'start',style:'width:120px;',submenuSize:'auto'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'FCL'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'F'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'LCL'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'L'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Bulk'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'B'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Issued At',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:' w250',displayMode:'label',editType:'select',emptyItem:'true',id:'lc_hhisunm',objType:'data',ref:'data:ds_houseblList.hhisunm',search:'start',style:'width: 250px;',submenuSize:'auto'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'PUSAN, KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'PUSAN, KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'SEOUL, KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'SEOUL, KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'INCHON, KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'INCHON, KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'PUSAN, SOUTH KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'PUSAN, SOUTH KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'SEOUL, SOUTH KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'SEOUL, SOUTH KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'INCHON, SOUTH KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'INCHON, SOUTH KOREA'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Payable At',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{allOption:'',chooseOption:'',class:'',displayMode:'label',editType:'select',emptyItem:'true',id:'lc_hhpaynm',objType:'data',ref:'data:ds_houseblList.hhpaynm',search:'start',style:'width: 250px;',submenuSize:'auto'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'PUSAN, KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'PUSAN, KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'SEOUL, KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'SEOUL, KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'INCHON, KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'INCHON, KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'DESTINATION'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'DESTINATION'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'PUSAN, SOUTH KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'PUSAN, SOUTH KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'SEOUL, SOUTH KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'SEOUL, SOUTH KOREA'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'INCHON, SOUTH KOREA'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'INCHON, SOUTH KOREA'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Freight Term',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{class:'',displayMode:'label',editType:'select',emptyItem:'true',id:'lc_hhprenm',interactionMode:'true',objType:'data',ref:'data:ds_houseblList.hhprenm',search:'start',style:'width: 250px;',submenuSize:'auto'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'PREPAID AS ARRANGED'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'PREPAID AS ARRANGED'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'COLLECT AS ARRANGED'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'COLLECT AS ARRANGED'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Service Term',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:autoComplete',A:{class:'',displayMode:'label',editType:'select',id:'lc_hhstype',objType:'data',ref:'data:ds_houseblList.hhstype',search:'start',style:'width: 250px;',submenuSize:'auto'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CY/CY'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CY/CY'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CY/CFS'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CY/CFS'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CY/DOOR'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CY/DOOR'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CFS/CY'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CFS/CY'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CFS/CFS'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CFS/CFS'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'CFS/DOOR'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'CFS/DOOR'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Container',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{allowChar:'a-zA-Z0-9',class:' ','ev:onblur':'scwin.ed_hhcnt1type_onviewchange','ev:onkeyup':'scwin.upperCase',id:'ed_hhcnt1type',maxlength:'4',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt1type',style:'width:50px;'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch','ev:onclick':'scwin.img_PopUp6_freight_onclick',id:'img_PopUp21',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:input',A:{allowChar:'a-zA-Z0-9',class:' ','ev:onblur':'scwin.ed_hhcnt2type_onviewchange','ev:onkeyup':'scwin.upperCase',id:'ed_hhcnt2type',maxlength:'4',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt2type',style:'width:50px;'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch','ev:onclick':'scwin.img_PopUp7_freight_onclick',id:'img_PopUp22',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:input',A:{allowChar:'a-zA-Z0-9',class:' ','ev:onblur':'scwin.ed_hhcnt3type_onviewchange','ev:onkeyup':'scwin.upperCase',id:'ed_hhcnt3type',maxlength:'4',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt3type',style:'width:50px;'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch','ev:onclick':'scwin.img_PopUp8_freight_onclick',id:'img_PopUp23',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:input',A:{allowChar:'a-zA-Z0-9',class:' ','ev:onblur':'scwin.ed_hhcnt4type_onviewchange','ev:onkeyup':'scwin.upperCase',id:'ed_hhcnt4type',maxlength:'4',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt4type',style:'width:50px;'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch','ev:onclick':'scwin.img_PopUp9_freight_onclick',id:'img_PopUp24',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'CNTR QTY',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{allowChar:'0-9',class:' ',dataType:'number','ev:onchange':'scwin.ed_hhcnt1_onchange',id:'ed_hhcnt1',inputMode:'numeric',maxlength:'3',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt1',style:'width:75px;text-align: right'}},{T:1,N:'xf:input',A:{allowChar:'0-9',class:' ',dataType:'number','ev:onchange':'scwin.ed_hhcnt2_onviewchange',id:'ed_hhcnt2',inputMode:'numeric',maxlength:'3',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt2',style:'width:75px;text-align: right;'}},{T:1,N:'xf:input',A:{allowChar:'0-9',class:' ',dataType:'number','ev:onchange':'scwin.ed_hhcnt3_onviewchange',id:'ed_hhcnt3',inputMode:'numeric',maxlength:'3',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt3',style:'width:75px;text-align: right;'}},{T:1,N:'xf:input',A:{class:' ',dataType:'number','ev:onchange':'scwin.ed_hhcnt4_onviewchange',id:'ed_hhcnt4',inputMode:'numeric',maxlength:'3',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhcnt4',style:'width:75px;text-align: right;'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'적재장소',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',class:'w250 flex_no',code:'mwarecd',codeId:'ed_mwarecd','ev:onclickEvent':'scwin.udc_mwarecd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_mwarecd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_mwarecd_onblurNameEvent',id:'udc_mwarecd',maxlengthCode:'8',name:'mwarenm',nameId:'txt_mwarenm',popupID:'',refDataCollection:'ds_houseblList',style:''}},{T:1,N:'xf:input',A:{class:' ',id:'txt_mwareEngCd',objType:'data',placeholder:'',ref:'data:ds_houseblList.mwareEngCd',style:'max-width:150px;'}}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'B/L PIC',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{allowCharCode:'0-9',btnId:'btn_blpic',code:'pic',codeId:'ed_blpic','ev:onclickEvent':'scwin.udc_blpic_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_blpic_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_blpic_onblurNameEvent',id:'udc_blpic',maxlengthCode:'7',nameId:'txt_blpic',objType:'data',popupID:'',ref:'data:ds_houseblList.pic',refDataCollection:'ds_houseblList',selectID:'',style:'width: 250px;',validTitle:''}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:100px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Partner',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{allowCharCode:'0-9',class:'w250',code:'hhagent',codeId:'ed_hhagent','ev:onclickEvent':'scwin.udc_hhagent_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhagent_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhagent_onblurNameEvent',id:'udc_hhagent',maxlengthCode:'6',name:'hhagentnm',nameId:'txt_hhagentnm',popupID:'',refDataCollection:'ds_houseblList',style:'',readOnlyName:'true'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'Customer',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{allowCharCode:'0-9',class:'w250',code:'hhactcust',codeId:'ed_hhactcust','ev:onclickEvent':'scwin.udc_hhactcust_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhactcust_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhactcust_onblurNameEvent',id:'udc_hhactcust',maxlengthCode:'6',name:'hhactcustnm',nameId:'txt_hhactcustnm',popupID:'',refDataCollection:'ds_houseblList',style:'',readOnlyName:'true'}},{T:1,N:'xf:group',A:{id:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Salesman',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{allowCharCode:'0-9',class:'w250',code:'hhsales',codeId:'ed_hhsales','ev:onclickEvent':'scwin.udc_hhsales_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhsales_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhsales_onblurNameEvent',id:'udc_hhsales',maxlengthCode:'8',name:'hhsalesnm',nameId:'txt_hhsalesnm',popupID:'',refDataCollection:'ds_houseblList',style:'',readOnlyName:'true'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Carrier',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{allowCharCode:'0-9',class:'w250',code:'hhliner',codeId:'ed_hhliner','ev:onclickEvent':'scwin.udc_hhliner_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhliner_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhliner_onblurNameEvent',id:'udc_hhliner',maxlengthCode:'6',name:'hhlinernm',nameId:'txt_hhlinernm',popupID:'',refDataCollection:'ds_houseblList',style:'',readOnlyName:'true'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:group',A:{class:'req',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn sm link ','ev:onclick':'scwin.f_departmentChange',id:'pu_departmentChange',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Dept'}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z0-9',class:'w250',code:'hhbuyer',codeId:'ed_hhbuyer','ev:onclickEvent':'scwin.udc_hhbuyer_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhbuyer_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhbuyer_onblurNameEvent',id:'udc_hhbuyer',maxlengthCode:'6',name:'hhbuyernm',nameId:'txt_hhbuyernm',popupID:'',refDataCollection:'ds_houseblList',style:'',readOnlyName:'true'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Order No',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{allowChar:'a-zA-Z0-9',class:' w150','ev:onkeyup':'scwin.upperCase',id:'ed_odrNo',maxlength:'13',placeholder:'',readOnly:'true',ref:'data:ds_houseblList.odrNo',style:'width:150px;'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'UCR',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{class:' w150',id:'txt_ucrNo',maxByteLength:'35',objType:'data',placeholder:'',ref:'data:ds_houseblList.ucrNo',style:'width:150px;'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',falseValue:'0',id:'chb_hhtriange',objType:'data',ref:'data:ds_houseblList.hhtriange',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Triangle'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'chk-grp',cols:'',falseValue:'0',id:'chb_hhnomi',objType:'data',ref:'data:ds_houseblList.hhnomi',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'NOMI'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'col-gap-4',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'O B/L',style:'',tagname:'span'}},{T:1,N:'xf:input',A:{allowChar:'a-zA-Z0-9',class:'','ev:onkeyup':'scwin.upperCase',id:'ed_hhobl',maxlength:'1',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhobl',style:'width: 70px;text-align: right;'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Co-Load',style:'',tagname:'span'}},{T:1,N:'xf:select1',A:{allOption:'false',appearance:'minimal',chooseOption:'false',class:'',direction:'auto',disabled:'true',disabledClass:'w2selectbox_disabled',id:'lc_hhcoload',objType:'data',ref:'data:ds_houseblList.hhcoload',style:'width: 70px;',submenuSize:'auto'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'N'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'N'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'R'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'R'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Y'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'Y'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th tac',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Agent Info',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Partner',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''}},{T:1,N:'w2:udc_ilcomCode',A:{code:'agentCode',codeId:'ed_agent','ev:onclickEvent':'scwin.udc_agent_onclickEvent',hideName:'true',id:'udc_agent',name:'partnerAddr1',nameId:'txt_addr1',popupID:'',readOnlyCode:'true',refDataCollection:'ds_partnerInfo',selectID:'',skipOnBlurCodeValueEmpty:'Y',skipOnBlurNameValueEmpty:'Y',style:'width:%; height:px; ',validTitle:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:textarea',A:{class:'',id:'txa_agentAdress',objType:'data',style:'height: 218px;','ev:onblur':'scwin.uppper_onblur'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Invoice',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',id:'txt_cino',objType:'data',placeholder:'',ref:'data:ds_houseblList.cino',style:''}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'lybox flex_no wfix'},E:[{T:1,N:'xf:group',A:{id:'',class:'col'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Number of Containers or Packages',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{ref:'data:ds_houseblList.hhsubpkg',maxlength:'35',style:'',id:'txt_hhsubpkg',placeholder:'',class:' ',objType:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{ref:'data:ds_houseblList.hhunit2',maxlength:'20',style:'',id:'txt_hhunit2',placeholder:'',class:' ',objType:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{ref:'data:ds_houseblList.hhunit3',maxlength:'20',style:'',id:'txt_hhunit3',placeholder:'',class:' ',objType:'data'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th tac'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Marks And Numbers & Container No',class:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'7'}]}]},{T:1,N:'xf:textarea',A:{ref:'data:ds_houseblList.mark',style:'height: 163px',id:'txa_mark',class:'',objType:'data','ev:onblur':'scwin.uppper_onblur'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:'height:28px;'}},{T:1,N:'xf:group',A:{tagname:'tr',style:'height:28px;'}},{T:1,N:'xf:group',A:{tagname:'tr',style:'height:28px;'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th tac',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Kind of Packages;description of goods',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'11'}]}]},{T:1,N:'xf:textarea',A:{class:'',id:'txa_descnm',objType:'data',ref:'data:ds_houseblList.descnm',style:'height: 275px','ev:onblur':'scwin.uppper_onblur'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{style:'height:28px;',tagname:'tr'}},{T:1,N:'xf:group',A:{style:'height:28px;',tagname:'tr'}},{T:1,N:'xf:group',A:{style:'height:28px;',tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}},{T:1,N:'xf:group',A:{tagname:'tr'}}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th tac',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'print Option',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:'height:196px;'},E:[{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{class:'row-gap-4',id:'',style:''},E:[{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',falseValue:'0',id:'chb_hhp1',objType:'data',ref:'data:ds_houseblList.hhp1',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Said to Container '}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'ml0',cols:'',falseValue:'0',id:'chb_hhp2',objType:'data',ref:'data:ds_houseblList.hhp2',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Shipper\'s Load &Count  '}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'ml0',cols:'',falseValue:'0',id:'chb_hhp3',objType:'data',ref:'data:ds_houseblList.hhp3',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:' Container Print'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'ml0',cols:'',falseValue:'0',id:'chb_hhp4',objType:'data',ref:'data:ds_houseblList.hhp4',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Term Print'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'ml0',cols:'',falseValue:'0',id:'chb_hhp5',objType:'data',ref:'data:ds_houseblList.hhp5',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Recipt Date Print'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]},{T:1,N:'xf:select',A:{appearance:'full',class:'ml0',cols:'',falseValue:'0',id:'chb_hhp6',objType:'data',ref:'data:ds_houseblList.hhp6',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Onboard Date Print '}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Say',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',id:'txt_hhsay',maxlength:'70',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhsay',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th bg-req',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'EDI ITEM',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',id:'txt_hhmitem2',objType:'data',placeholder:'',ref:'data:ds_houseblList.hhmitem2',style:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'HSCODE',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',id:'txt_hhhscode',objType:'data',placeholder:'',ref:'data:ds_houseblList.hscode',style:''}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'col',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:'height:140px;;'},E:[{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox h-full',id:'',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw  h-full',dataList:'data:ds_slipTax',focusMode:'row',id:'gr_slipTax',readOnly:'true',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:''},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column12',inputType:'text',removeBorderStyle:'false',value:'Customer',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column11',inputType:'text',removeBorderStyle:'false',value:'Billing Date',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column10',inputType:'text',removeBorderStyle:'false',value:'Tax Date',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column9',inputType:'text',removeBorderStyle:'false',value:'Slip No',width:'70'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'clntNo',inputType:'text',removeBorderStyle:'false',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'intendDt',inputType:'calendar',removeBorderStyle:'false',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'spplyDt',inputType:'calendar',removeBorderStyle:'false',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'slipNo',inputType:'text',removeBorderStyle:'false',width:'70'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:'height:112px;;'},E:[{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox h-full',id:'',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw  h-full',dataList:'data:ds_ocProfitList',focusMode:'row',id:'gr_ocProfitList',readOnly:'true',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:''},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column12',inputType:'text',removeBorderStyle:'false',value:'Selling',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column11',inputType:'text',removeBorderStyle:'false',value:'Buying',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column10',inputType:'text',removeBorderStyle:'false',value:'Profit',width:'70'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayFormat:'#,##0',displayMode:'label',id:'selling',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayFormat:'#,##0',displayMode:'label',id:'buying',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayFormat:'#,##0',displayMode:'label',id:'profit',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'70'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb_th tac',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Place Of Receipt',ref:'',style:'',userData2:''}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]},{T:1,N:'w2:colspan',E:[{T:3,text:'2'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:udc_ilcomCode',A:{UpperFlagCode:'1',allowCharCode:'a-zA-Z',class:'w250',code:'hhrcvcd',codeId:'ed_hhrcvcd','ev:onclickEvent':'scwin.udc_hhrcvcd_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhrcvcd_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhrcvcd_onblurNameEvent',id:'udc_hhrcvcd',maxlengthCode:'5',name:'hhrcvnm',nameId:'txt_hhrcvnm',popupID:'',refDataCollection:'ds_houseblList',style:''}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'Container',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white','ev:onclick':'scwin.f_addCntr',id:'btn_AddCntr1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C',userData1:'1'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Auto Container Info1'}]}]},{T:1,N:'xf:trigger',A:{class:'btn white','ev:onclick':'scwin.f_addCntr',id:'btn_AddCntr2',objType:'ctrlBtn',style:'',type:'button',userAuth:'C',userData1:'2'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Auto Container Info2'}]}]},{T:1,N:'w2:udc_topGrdBtn',A:{btnPlusYn:'Y',btnUser:'N',grdUpOpts:'{"startRowIndex" : "1"}',gridDownFn:'scwin.f_runExcel',gridDownYn:'Y',gridID:'gr_ocContList',gridUpYn:'Y',grp:'grd_section1',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_ocContList',defaultCellHeight:'24','ev:onafteredit':'scwin.gr_ocContList_onafteredit','ev:onbeforeedit':'scwin.gr_ocContList_onbeforeedit','ev:onfilereadend':'scwin.gr_ocContList_onfilereadend','ev:onkeyup':'scwin.gr_ocContList_onkeyup','ev:ontextimageclick':'scwin.gr_ocContList_ontextimageclick','ev:onviewchange':'scwin.gr_ocContList_onviewchange',evenRowBackgroundColor:'#F8FFF8',id:'gr_ocContList',imageClickFunction:'scwin.gr_ocContList_ontextimageclick',oddEvenColorDisplay:'true',rowNumHeaderValue:'No',rowNumWidth:'40',rowStatusVisible:'true',rowStatusWidth:'30',showSortableImage:'true',sortable:'true',visibleRowNum:'5',visibleRowNumFix:'true',wheelRows:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption5',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{class:'col-type1',displayMode:'label',id:'column2',inputType:'text',value:'Container',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type1',displayMode:'label',id:'column1',inputType:'text',value:'Type',width:'80'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column3',inputType:'text',value:'Seal No1',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column5',inputType:'text',value:'Seal No2',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column7',inputType:'text',value:'PKG',width:'90'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column9',inputType:'text',value:'Unit',width:'70'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column13',inputType:'text',style:'',value:'Weight',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column15',inputType:'text',style:'',value:'Measure',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column17',inputType:'text',style:'',value:'Part',width:'80'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row_container'},E:[{T:1,N:'w2:column',A:{allowChar:'a-zA-Z0-9',displayMode:'label',id:'mccntno',inputType:'text',maxlength:'11',sortable:'true',textAlign:'left',width:'120'}},{T:1,N:'w2:column',A:{allowChar:'a-zA-Z0-9',displayMode:'label',id:'mctype',inputType:'textImage',maxByteLength:'4',textAlign:'center',width:'80'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'mcseal1',inputType:'text',maxByteLength:'20',textAlign:'left',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'mcseal2',inputType:'text',maxByteLength:'20',textAlign:'left',width:'120'}},{T:1,N:'w2:column',A:{allowChar:'0-9',dataType:'number',displayFormat:'#,##0',displayMode:'label',excelCellType:'number',id:'mcpkg',inputType:'text',maxByteLength:'10',textAlign:'right',width:'90'}},{T:1,N:'w2:column',A:{allowChar:'a-zA-Z0-9',displayMode:'label',emptyItem:'true',id:'mcpkgcd',inputType:'textImage',maxByteLength:'2',textAlign:'center',width:'70'}},{T:1,N:'w2:column',A:{dataType:'float',displayFormat:'#,##0.###',displayMode:'label',excelCellType:'number',id:'mcwgt',inputType:'text',maxlength:'10.3',textAlign:'right',width:'120'}},{T:1,N:'w2:column',A:{dataType:'float',displayFormat:'#,##0.###',displayMode:'label',excelCellType:'number',id:'mcmsr',inputType:'text',maxlength:'8.3',textAlign:'right',width:'120'}},{T:1,N:'w2:column',A:{allOption:'',chooseOption:'',displayMode:'label',id:'mcpart',inputType:'select',ref:'',textAlign:'center',width:'80',valueNotInList:'keepValue',selectedData:'true',maxLength:'1',hideValueWhenNotInLis:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Yes'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'No'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'ed_totcnt',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]},{T:1,N:'xf:group',A:{class:'amt-wrap',id:'',tagname:'ul'},E:[{T:1,N:'xf:group',A:{id:'',tagname:'li'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'PKG',style:'',tagname:'span'}},{T:1,N:'xf:input',A:{class:' amt',dataType:'number',displayFormat:'#,##0',id:'ed_totpkg',objType:'data',placeholder:'',readOnly:'true',style:'text-align: right;'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'li'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'WGT',style:'',tagname:'span'}},{T:1,N:'xf:input',A:{class:' amt',dataType:'float',displayFormat:'#,##0.###',id:'ed_totwgt',maxlength:'13.3',objType:'data',placeholder:'',readOnly:'true',style:'text-align: right;'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'li'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'MSR',style:'',tagname:'span'}},{T:1,N:'xf:input',A:{class:' amt',dataType:'float',displayFormat:'#,##0.###',id:'ed_totmsr',maxlength:'13.3',objType:'data',placeholder:'',readOnly:'true',style:'text-align: right;'}}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white','ev:onclick':'scwin.f_openContainerPopup',id:'btn_CntrReceive',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'CNTR Receive'}]}]},{T:1,N:'w2:udc_bottomGrdBtn',A:{EngYn:'Y',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelObj:'btn_DelRow1',btnRowDelYn:'Y',cancelFunction:'scwin.f_CancelRow1',id:'grpBtn1',rowAddFunction:'scwin.f_AddRow1',rowAddUserAuth:'C',rowDelFunction:'scwin.f_DeleteRow1',rowDelUserAuth:'D',style:''}}]}]}]}]},{T:1,N:'xf:group',A:{class:'row-gap-8',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'수출신고',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{btnPlusYn:'Y',btnUser:'Y',gridDownFn:'scwin.f_runExcel2',gridDownYn:'Y',gridID:'gr_ocElList',gridUpYn:'N',grp:'grd_section2',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section2',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_ocElList',defaultCellHeight:'24','ev:onafteredit':'scwin.gr_ocElList_onafteredit','ev:onbeforeedit':'scwin.gr_ocElList_onbeforeedit','ev:onkeyup':'scwin.gr_ocElList_onkeyup','ev:ontextimageclick':'scwin.gr_ocElList_ontextimageclick','ev:onviewchange':'scwin.gr_ocElList_onviewchange',evenRowBackgroundColor:'#F8FFF8',id:'gr_ocElList',oddEvenColorDisplay:'true',rowNumHeaderValue:'No',rowNumWidth:'40',rowStatusVisible:'true',rowStatusWidth:'30',showSortableImage:'true',sortable:'true',visibleRowNum:'3',visibleRowNumFix:'true',wheelRows:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption5',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{class:'col-type1',displayMode:'label',id:'column2',inputType:'text',value:'수출신고번호',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type1',displayMode:'label',id:'column1',inputType:'text',value:'Package',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type1',displayMode:'label',id:'column3',inputType:'text',value:'Unit',width:'100'}},{T:1,N:'w2:column',A:{class:'col-type1',displayMode:'label',id:'column5',inputType:'text',value:'Weight',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column7',inputType:'text',value:'포장기호',width:'100'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column9',inputType:'text',value:'Package',width:'120'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column13',inputType:'text',style:'',value:'Unit',width:'100'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column15',inputType:'text',style:'',value:'분할',width:'80'}},{T:1,N:'w2:column',A:{class:'col-type2',displayMode:'label',id:'column17',inputType:'text',style:'',value:'분할선적차수',width:'120'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row_export'},E:[{T:1,N:'w2:column',A:{allowChar:'a-zA-Z0-9',displayMode:'label',id:'elno',inputType:'text',maxlength:'19',sortable:'true',textAlign:'left',width:'120'}},{T:1,N:'w2:column',A:{allowChar:'0-9',dataType:'number',displayFormat:'#,##0',displayMode:'label',excelCellType:'number',id:'pkg',inputType:'text',maxlength:'14',textAlign:'right',width:'120'}},{T:1,N:'w2:column',A:{allowChar:'a-zA-Z0-9',displayMode:'label',id:'unit',inputType:'textImage',maxByteLength:'7',textAlign:'left',width:'100'}},{T:1,N:'w2:column',A:{dataType:'float',displayFormat:'#,##0.###',displayMode:'label',excelCellType:'number',id:'wgt',inputType:'text',maxlength:'11.3',textAlign:'right',width:'120'}},{T:1,N:'w2:column',A:{allOption:'',chooseOption:'',displayMode:'label',id:'mgb',inputType:'select',ref:'',textAlign:'center',width:'80'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label'},{T:1,N:'w2:value'}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'A'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'A'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'B'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'B'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'C'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'C'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'D'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'D'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'E'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'E'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'F'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'F'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'G'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'G'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'H'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'H'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'I'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'I'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'J'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'J'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'K'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'K'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'L'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'L'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'M'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'M'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'N'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'O'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'O'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'P'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'P'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Q'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Q'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'R'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'R'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'S'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'S'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'T'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'U'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'U'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'V'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'V'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'W'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'W'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'X'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'X'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Y'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Z'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Z'}]}]}]}]},{T:1,N:'w2:column',A:{customFormatter:'scwin.setCustomFormat',dataType:'number',displayFormat:'#,##0',displayMode:'label',id:'mpkg',inputType:'text',maxlength:'14',textAlign:'right',width:'120'}},{T:1,N:'w2:column',A:{allowChar:'a-zA-Z0-9',customFormatter:'scwin.setCustomFormat',displayMode:'label',id:'mut',inputType:'textImage',maxlength:'3',textAlign:'left',width:'80'}},{T:1,N:'w2:column',A:{allOption:'',chooseOption:'',displayMode:'label',emptyItem:'true',id:'pgb',inputType:'select',ref:'',textAlign:'center',width:'80'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'YES'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'Y'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'NO'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'N'}]}]}]}]},{T:1,N:'w2:column',A:{customFormatter:'scwin.setCustomFormat',dataType:'number',displayMode:'label',id:'pseq',inputType:'text',maxlength:'14',textAlign:'right',width:'120'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'ed_eltotcnt',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]},{T:1,N:'xf:group',A:{class:'amt-wrap',id:'',tagname:'ul'},E:[{T:1,N:'xf:group',A:{id:'',tagname:'li'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'PKG',style:'',tagname:'span'}},{T:1,N:'xf:input',A:{class:' amt',dataType:'number',displayFormat:'#,##0',id:'ed_eltotpkg',maxlength:'13',objType:'data',placeholder:'',readOnly:'true',style:'text-align: right;'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'li'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'WGT',style:'',tagname:'span'}},{T:1,N:'xf:input',A:{class:' amt',dataType:'number',displayFormat:'#,##0.###',id:'ed_eltotwgt',maxlength:'10.3',objType:'data',placeholder:'',readOnly:'true',style:'text-align: right;'}}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{EngYn:'Y',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelObj:'btn_DelRow2',btnRowDelYn:'Y',cancelFunction:'scwin.f_CancelRow2',id:'grpBtn2',rowAddFunction:'scwin.f_AddRow2',rowAddUserAuth:'C',rowDelFunction:'scwin.f_DeleteRow2',rowDelUserAuth:'D',style:''}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'buttonTable2',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn link ','ev:onclick':'scwin.f_openPgm(\'MasterBL\')',id:'btn_4_1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'M B/L'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link ','ev:onclick':'scwin.f_openPgm(\'Freight\')',id:'btn_8_1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Freight'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link ','ev:onclick':'scwin.f_openPgm(\'HouseBLPrint\')',id:'btn_10_1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'H B/L Print'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link ','ev:onclick':'scwin.f_openPgm(\'SR\')',id:'btn_11_1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Shipping Request'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link ','ev:onclick':'scwin.f_Tracking',id:'btn_12_1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'선사 Tracking'}]}]},{T:1,N:'xf:trigger',A:{class:'btn link ','ev:onclick':'scwin.f_ProgramDownload',id:'btn_13_1',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'API Setup'}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Copy',id:'btn_Copy_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:3,text:'ALL Copy'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Copy2',id:'btn_Copy2_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:3,text:'B/L Copy'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Cancel',id:'btn_Cancel_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Cancel'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Create',id:'btn_Create_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'C'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Create'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Update',id:'btn_Update_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Update'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Save',id:'btn_Save_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Save'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_Delete',id:'btn_Delete_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'D'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Delete'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_FileDownload',id:'btn_FileDownload_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Upload'}]}]},{T:1,N:'xf:trigger',A:{class:'btn','ev:onclick':'scwin.f_HawbNoChange',id:'btn_HNoChg_1',label:'저장',objType:'ctrlBtn',style:'',type:'button',userAuth:'U'},E:[{T:1,N:'xf:label',E:[{T:3,text:'H NO.CHG'}]}]}]}]}]},{T:1,N:'w2:content',A:{alwaysDraw:'true',style:'',id:'content3'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Container Type',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{objType:'data',style:'width:50px;',id:'ed_hhcnt1type_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt1type',maxlength:'4',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.upperCase','ev:onblur':'scwin.ed_hhcnt1type_onviewchange'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch',id:'img_PopUp6_freight',style:'',type:'button','ev:onclick':'scwin.img_PopUp6_freight_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:input',A:{objType:'data',style:'width:50px;',id:'ed_hhcnt2type_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt2type',allowChar:'a-zA-Z0-9',maxlength:'4','ev:onkeyup':'scwin.upperCase','ev:onblur':'scwin.ed_hhcnt2type_onviewchange'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch',id:'img_PopUp7_freight',style:'',type:'button','ev:onclick':'scwin.img_PopUp7_freight_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:input',A:{objType:'data',style:'width:50px;',id:'ed_hhcnt3type_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt3type',allowChar:'a-zA-Z0-9',maxlength:'4','ev:onkeyup':'scwin.upperCase','ev:onblur':'scwin.ed_hhcnt3type_onviewchange'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch',id:'img_PopUp8_freight',style:'',type:'button','ev:onclick':'scwin.img_PopUp8_freight_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]},{T:1,N:'xf:input',A:{objType:'data',style:'width:50px;',id:'ed_hhcnt4type_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt4type',allowChar:'a-zA-Z0-9',maxlength:'4','ev:onkeyup':'scwin.upperCase','ev:onviewchange':'scwin.ed_hhcnt4type_onviewchange'}},{T:1,N:'xf:trigger',A:{class:'btn ico sch',id:'img_PopUp9_freight',style:'',type:'button','ev:onclick':'scwin.img_PopUp9_freight_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'버튼'}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Weight',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:'',id:'ed_hhgwgt_freight',placeholder:'',style:'width:150px;text-align: right;',dataType:'float',inputMode:'numeric',displayFormat:'#,##0.###',ref:'data:ds_houseblList.hhgwgt',maxlength:'13.3'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'House No',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:' ',id:'srch_ed_hhblno',placeholder:'',style:'width: 224px;',ref:'data:ds_retrieve.hhblno2',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.upperCase','ev:onblur':'scwin.srch_ed_hhblno_onblur',maxlength:'20'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Container Quantity',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{objType:'data',style:'width:75px; text-align: right;',id:'ed_hhcnt1_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt1',maxlength:'3',allowChar:'0-9',dataType:'number'}},{T:1,N:'xf:input',A:{objType:'data',style:'width:75px; text-align: right;',id:'ed_hhcnt2_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt2',maxlength:'3',allowChar:'0-9',dataType:'number'}},{T:1,N:'xf:input',A:{objType:'data',style:'width:75px; text-align: right;',id:'ed_hhcnt3_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt3',maxlength:'3',allowChar:'0-9',dataType:'number'}},{T:1,N:'xf:input',A:{objType:'data',style:'width:75px; text-align: right;',id:'ed_hhcnt4_freight',placeholder:'',class:' ',ref:'data:ds_houseblList.hhcnt4',maxlength:'3',allowChar:'0-9',dataType:'number'}}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Measure',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:' w150',id:'ed_hhmsr_freight',placeholder:'',style:'width:150px;text-align: right;',ref:'data:ds_houseblList.hhmsr',displayFormat:'#,##0.###',maxlength:'13.3',dataType:'number',inputMode:'numeric',checkMaxByteOnInput:'numeric'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'DOC No',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{style:'',id:'',class:'form-group'},E:[{T:1,N:'w2:autoComplete',A:{class:' w150',editType:'select',id:'cnd_lc_mhno2',search:'start',style:'width: 150px;',submenuSize:'auto',disableEdit:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_hmhno2'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',style:'',id:'btn_search',type:'button',class:'btn sch','ev:onclick':'scwin.f_Retrieve2'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'search'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'Selling Exchange Rate Information',class:'tit'}}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 280px'}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Currency',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'xf:group',A:{id:'',class:'form-group '},E:[{T:1,N:'xf:input',A:{objType:'data',style:'width: 50px;',id:'ed_selling_hhcur_freight',placeholder:'',class:'',ref:'data:ds_houseblList.hhcur',maxlength:'3',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.upperCase'}},{T:1,N:'w2:autoComplete',A:{textAlign:'left',allOption:'',chooseOption:'',objType:'data',search:'start',submenuSize:'auto',editType:'select',style:'',id:'lc_selling_hhexgb_freight',class:'',ref:'data:ds_houseblList.hhexgb',emptyItem:'true',emptyIndex:'-1'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T BUYING'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'3'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T SELLING'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T MID'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'5'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Ex-Rate Date',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{style:'',id:'ed_selling_hhcurdt_freight',class:'',calendarValueType:'yearMonthDate',ref:'data:ds_houseblList.hhcurdt','ev:onblur':'scwin.ed_selling_hhcurdt_freight_onblur',objType:'data',displayFormat:'yyyy/MM/dd'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Ex-Rate',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:'',id:'ed_selling_hhexrate_freight',placeholder:'',style:'width:100px; text-align: right;',ref:'data:ds_houseblList.hhexrate',displayFormat:'#,##0.####',dataType:'float','ev:onblur':'scwin.ed_selling_hhexrate_freight_onblur',maxlength:'11.4'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'US Ex-Rate',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:'',id:'ed_selling_hhuexrate_freight',placeholder:'',style:'width:100px; text-align: right;',ref:'data:ds_houseblList.hhuexrate',displayFormat:'#,##0.####',dataType:'float','ev:onblur':'scwin.ed_selling_hhuexrate_freight_onblur',maxlength:'11.4'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'col-gap-4'},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'pu_CustomerChange1',style:'',type:'button','ev:onclick':'scwin.f_CustomerChange_freight',userData1:'0'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Customer'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'btn_2_freight1',style:'',type:'button','ev:onclick':'scwin.f_exRateChange_freight',userData1:'0'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Ex-Rate'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'pu_ResultdateChange1',style:'',type:'button','ev:onclick':'scwin.f_ResultdateChange_freight',userData1:'0'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'ResultDate'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'Selling List',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section3',style:'',gridUpYn:'N',gridDownYn:'Y',btnUser:'Y',btnPlusYn:'Y',gridDownFn:'scwin.f_SellingGrid',gridID:'gr_selling_freight'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section3',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{oddEvenColorDisplay:'true',rowNumVisible:'false',showSortableImage:'true',rowNumHeaderValue:'No',sortable:'true',defaultCellHeight:'24',rowNumWidth:'40',visibleRowNumFix:'true',checkAllType:'false',dataList:'data:ds_selling_freight',evenRowBackgroundColor:'#F8FFF8',id:'gr_selling_freight',visibleRowNum:'3',autoFit:'allColumn',class:'wq_gvw','ev:onheaderclick':'scwin.gr_selling_freight_onheaderclick','ev:ontextimageclick':'scwin.gr_selling_freight_ontextimageclick','ev:onbeforeedit':'scwin.gr_selling_freight_onbeforeedit','ev:onviewchange':'scwin.gr_selling_freight_onviewchange','ev:onkeyup':'scwin.upperCaseGrid',gridName:'Selling List',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption5',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',id:'chkHeader',class:'',value:' ',displayMode:'label',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column2',value:'SEQ',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column35',value:'SEQ',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column1',value:'Customer',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column3',value:'Name',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column5',value:'F/Code',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column7',value:'Name',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column39',value:'Init',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column37',value:'통합매출입코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column9',value:'CUR',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column13',value:'Unit',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column15',value:'Package',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column17',value:'Rate',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column33',value:'Amount',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column31',value:'Ex-Rate',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column29',value:'Amount(W)',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column27',value:'VAT',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column25',value:'Amount(US$)',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column19',value:'Result',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column21',value:'Invoice No',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column47',value:'Tariff Rate',displayMode:'label',hidden:'true',class:'col-type2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column45',value:'vatYn',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column41',value:'exRateTyp',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column43',value:'내부매입구분',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{id:'row_sell'},E:[{T:1,N:'w2:column',A:{id:'chk',inputType:'checkbox',width:'17',textAlign:'center'}},{T:1,N:'w2:column',A:{id:'currrow',inputType:'expression',width:'30',textAlign:'center',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'sellSeq',display:'none',hiddenCol:'true',hidden:'true'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',inputType:'textImage',width:'60',textAlign:'left',maxLength:'6'}},{T:1,N:'w2:column',A:{id:'bilgClntNm',inputType:'text',width:'60',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'fareEngCd',inputType:'textImage',width:'60',textAlign:'left',allowChar:'a-zA-Z0-9',maxLength:'4'}},{T:1,N:'w2:column',A:{id:'fareEngNm',inputType:'text',width:'60',textAlign:'left'}},{T:1,N:'w2:column',A:{id:'fareGrpCd',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'sellItemCd',display:'none',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'crcCd',inputType:'text',width:'50',textAlign:'left',allowChar:'a-zA-Z0-9',maxLength:'3'}},{T:1,N:'w2:column',A:{id:'fareUnit',inputType:'select',width:'50',textAlign:'left',allOption:'',chooseOption:'',ref:'',selectedData:'true',noResult:'useData',valueNotInList:'keepValue',hideValueWhenNotInList:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_sellingUnit_freight'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'name'}}]}]}]},{T:1,N:'w2:column',A:{id:'chgWt',inputType:'text',width:'80',textAlign:'right',dataType:'float',displayFormat:'#,##0.###',maxLength:'12.3'}},{T:1,N:'w2:column',A:{id:'sellUpr',inputType:'text',width:'60',textAlign:'right',dataType:'float',displayFormat:'#,##0.#0',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'sellAmtFcrc',inputType:'text',width:'80',textAlign:'right',displayFormat:'#,##0.#0',dataType:'float',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'exRate',inputType:'text',width:'60',textAlign:'right',dataType:'float',displayFormat:'#,##0.#0',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'sellAmt',inputType:'text',width:'80',textAlign:'right',dataType:'number',displayFormat:'#,##0',maxLength:'15',allowChar:'0-9'}},{T:1,N:'w2:column',A:{id:'vatAmt',inputType:'text',width:'60',textAlign:'right',allowChar:'0-9',displayFormat:'#,##0',dataType:'number',maxLength:'15'}},{T:1,N:'w2:column',A:{id:'usdAmt',inputType:'text',width:'80',textAlign:'right',dataType:'float',readOnly:'true',displayFormat:'#,##0.##',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',inputType:'calendar',width:'80',textAlign:'center',allowChar:'0-9',mandatory:'true'}},{T:1,N:'w2:column',A:{id:'certiNo',inputType:'text',width:'80',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'trfUpr',inputType:'text',width:'80',textAlign:'right',dataType:'float',readOnly:'true',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vatYn',display:'none',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'exRateTyp',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',display:'none',hidden:'true'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'ed_totSelling',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]},{T:1,N:'xf:group',A:{tagname:'ul',id:'',class:'amt-wrap'},E:[{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'Amount($)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_SellingSumAmount_freight',placeholder:'',class:' amt',displayFormat:'#,##0.##',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'Amount(W)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_SellingSumAmountW_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'VAT',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',style:'text-align: right;',id:'ed_SellingSumVat_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'AMOUNT(W+VAT)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_SellingAmountSum_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'xf:input',A:{objType:'data',class:' w50',id:'ed_rowMake_selling',placeholder:'',style:'',allowChar:'0-9',maxlength:'2'}},{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',EngYn:'Y',id:'grpBtn3',rowAddFunction:'scwin.f_AddRow3',rowDelFunction:'scwin.f_DeleteRow3',cancelFunction:'scwin.f_CancelRow3',btnRowDelObj:'btn_DelRow3',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelYn:'Y',rowAddUserAuth:'C',rowDelUserAuth:'D'}}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'Partner Exchange Rate Information',class:'tit'}}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width: 280px'}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Currency',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'xf:group',A:{class:'form-group ',id:'',style:''},E:[{T:1,N:'xf:input',A:{objType:'data',class:' w50',id:'ed_partner_hhcur_freight',placeholder:'',style:'width: 50px;',ref:'data:ds_houseblList.hhcurPar',maxlength:'3',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.upperCase'}},{T:1,N:'w2:autoComplete',A:{objType:'data',class:'',editType:'select',id:'lc_partner_hhexgb_freight',search:'start',style:'',submenuSize:'auto',ref:'data:ds_houseblList.hhexgbPar',displayMode:'label',emptyItem:'true',allOption:'',chooseOption:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T BUYING'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'3'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T SELLING'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T MID'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'5'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Ex-Rate Date',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{objType:'data',style:'',id:'ed_partner_hhcurdt_freight',class:' cal',calendarValueType:'yearMonthDate',ref:'data:ds_houseblList.hhcurdtPar','ev:onblur':'scwin.ed_partner_hhcurdt_freight_onblur'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Ex-Rate',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:'',id:'ed_partner_hhexrate_freight',placeholder:'',style:'width:100px; text-align: right;',ref:'data:ds_houseblList.hhexratePar',maxlength:'11.4',dataType:'float',displayFormat:'#,##0.####'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'US Ex-Rate',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:'',id:'ed_partner_hhuexrate_freight',placeholder:'',style:'width:100px; text-align: right;',ref:'data:ds_houseblList.hhuexratePar',maxlength:'11.4',dataType:'float',displayFormat:'#,##0.####'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'col-gap-4',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'pu_CustomerChange2',style:'',type:'button','ev:onclick':'scwin.f_CustomerChange_freight',userData1:'1'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Customer'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'btn_2_freight2',style:'',type:'button','ev:onclick':'scwin.f_exRateChange_freight',userData1:'1'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Ex-Rate'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'pu_ResultdateChange2',style:'',type:'button','ev:onclick':'scwin.f_ResultdateChange_freight',userData1:'1'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'ResultDate'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'Partner List',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section4',style:'',gridUpYn:'N',gridDownYn:'Y',btnUser:'Y',btnPlusYn:'Y',gridDownFn:'scwin.f_PartnerGrid',gridID:'gr_partner_freight'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section4',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{oddEvenColorDisplay:'true',rowNumVisible:'false',showSortableImage:'true',rowNumHeaderValue:'No',sortable:'true',defaultCellHeight:'24',rowNumWidth:'40',visibleRowNumFix:'true',checkAllType:'false',dataList:'data:ds_partner_freight',evenRowBackgroundColor:'#F8FFF8',id:'gr_partner_freight',visibleRowNum:'3',autoFit:'allColumn',class:'wq_gvw',autoFitMinWidth:'1700','ev:onheaderclick':'scwin.gr_partner_freight_onheaderclick','ev:onbeforeedit':'scwin.gr_partner_freight_onbeforeedit','ev:ontextimageclick':'scwin.gr_partner_freight_ontextimageclick','ev:onviewchange':'scwin.gr_partner_freight_onviewchange',gridName:'Partner List',rowStatusVisible:'true','ev:onkeyup':'scwin.upperCaseGrid'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption5',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',id:'column12',class:'no-sort',displayMode:'label',fixColumnWidth:'true',value:' ',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column2',value:'SEQ',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column41',value:'SEQ',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column1',value:'Customer',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'71',inputType:'text',id:'column3',value:'Name',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column35',value:'D(매출)/C(매입)',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column5',value:'F/Code',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column7',value:'Name',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column45',value:'Init',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column43',value:'통합매출입코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column9',value:'CUR',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column13',value:'Unit',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column15',value:'Package',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column17',value:'Rate',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column33',value:'Amount',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column31',value:'Ex-Rate',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column29',value:'Amount(W)',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column25',value:'Amount(US$)',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column19',value:'Result',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column21',value:'Invoice No',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column57',value:'Tariff Rate',displayMode:'label',class:'col-type2',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column55',value:'vatYn',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'200',inputType:'text',id:'column53',value:'Remark',displayMode:'label',class:'col-type2',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column51',value:'exRateTyp',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column49',value:'Vehicle No',displayMode:'label',class:'col-type2',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column47',value:'vehclYn',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column37',value:'내부매입구분',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column39',value:'업로드 담당자',class:'col-type2',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{id:'row2'},E:[{T:1,N:'w2:column',A:{id:'chk',inputType:'checkbox',width:'17',textAlign:'center'}},{T:1,N:'w2:column',A:{id:'currrow',inputType:'expression',width:'30',textAlign:'center',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'sellSeq',display:'none',hiddenCol:'true',hidden:'true'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',inputType:'textImage',width:'60',textAlign:'left',textImage:'true',allowChar:'0-9',maxLength:'6'}},{T:1,N:'w2:column',A:{id:'bilgClntNm',inputType:'text',width:'60',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'drcrCls',inputType:'autoComplete',width:'100',textAlign:'center',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'D'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'D'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'C'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'C'}]}]}]}]},{T:1,N:'w2:column',A:{id:'fareEngCd',inputType:'textImage',width:'60',textAlign:'left',allowChar:'a-zA-Z0-9',textImage:'true',maxLength:'4'}},{T:1,N:'w2:column',A:{id:'fareEngNm',inputType:'text',width:'60',textAlign:'left'}},{T:1,N:'w2:column',A:{id:'fareGrpCd',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'sellItemCd',display:'none',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'crcCd',inputType:'text',width:'50',textAlign:'left',allowChar:'a-zA-Z0-9'}},{T:1,N:'w2:column',A:{id:'fareUnit',inputType:'select',width:'50',textAlign:'left',allOption:'',chooseOption:'',ref:'',emptyItem:'true',hideValueWhenNotInLis:'true',valueNotInList:'keepValue',noResult:'useData'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_partnerUnit_freight'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]},{T:1,N:'w2:column',A:{id:'chgWt',inputType:'text',width:'80',textAlign:'right',dataType:'float',displayFormat:'#,##0.###',maxLength:'12.3'}},{T:1,N:'w2:column',A:{id:'sellUpr',inputType:'text',width:'60',textAlign:'right',dataType:'float',displayFormat:'#,##0.##',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'sellAmtFcrc',inputType:'text',width:'80',textAlign:'right',dataType:'float',displayFormat:'#,##0.##',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'exRate',inputType:'text',width:'60',textAlign:'right',dataType:'float',displayFormat:'#,##0.##',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'sellAmt',inputType:'text',width:'80',textAlign:'right',allowChar:'0-9',displayFormat:'#,##0',dataType:'number',excelCellType:'number',maxLength:'15'}},{T:1,N:'w2:column',A:{id:'usdAmt',inputType:'text',width:'80',textAlign:'right',dataType:'number',readOnly:'true',displayFormat:'#,##0',excelCellType:'number',allowChar:'0-9',maxLength:'15'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',inputType:'calendar',width:'80',textAlign:'center',allowChar:'0-9',mask:'####/##/##',textImage:'true',mandatory:'true'}},{T:1,N:'w2:column',A:{id:'certiNo',inputType:'text',width:'80',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'trfUpr',inputType:'text',width:'80',textAlign:'right',dataType:'float',readOnly:'true',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vatYn',display:'none',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'rmk',display:'none',width:'200',textAlign:'left',hidden:'true'}},{T:1,N:'w2:column',A:{id:'exRateTyp',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vehclNo',display:'none',width:'80',textAlign:'left',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vehclYn',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',inputType:'text',width:'80',textAlign:'center',readOnly:'true',customFormatter:'scwin.setCustomFormat'}},{T:1,N:'w2:column',A:{id:'regName',inputType:'text',width:'100',textAlign:'center',readOnly:'true'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'ed_totPartner',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]},{T:1,N:'xf:group',A:{tagname:'ul',id:'',class:'amt-wrap'},E:[{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'Amount($)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_PartnerSumAmount_freight',placeholder:'',class:' amt',displayFormat:'#,##0.##',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'Amount(W)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_PartnerSumAmountW_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'xf:input',A:{objType:'data',class:' w50',id:'ed_rowMake_partner',placeholder:'',style:'',allowChar:'0-9'}},{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',EngYn:'Y',id:'grpBtn4',rowAddFunction:'scwin.f_AddRow4',rowDelFunction:'scwin.f_DeleteRow4',cancelFunction:'scwin.f_CancelRow4',btnRowDelObj:'btn_DelRow4',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelYn:'Y',rowAddUserAuth:'C',rowDelUserAuth:'D'}}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'Buying Exchange Rate Information',class:'tit'}}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:130px;'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:280px'}}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',style:'',class:'w2tb_th'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Currency',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',style:'',class:'w2tb_td'},E:[{T:1,N:'xf:group',A:{class:'form-group ',id:'',style:''},E:[{T:1,N:'xf:input',A:{objType:'data',class:' w50',id:'ed_buying_hhcur_freight',placeholder:'',style:'',ref:'data:ds_houseblList.hhcurBuy',maxlength:'3',allowChar:'a-zA-Z0-9','ev:onkeyup':'scwin.upperCase'}},{T:1,N:'w2:autoComplete',A:{objType:'data',class:'',editType:'select',id:'lc_buying_hhexgb_freight',search:'start',style:'',submenuSize:'auto',ref:'data:ds_houseblList.hhexgbBuy',displayMode:'label',emptyItem:'true',allOption:'',chooseOption:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T BUYING'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'3'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T SELLING'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'T/T MID'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'5'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Ex-Rate Date',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{objType:'data',style:'',id:'ed_buying_hhcurdt_freight',class:' cal',calendarValueType:'yearMonthDate',ref:'data:ds_houseblList.hhcurdtBuy','ev:onblur':'scwin.ed_buying_hhcurdt_freight_onblur'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'Ex-Rate',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:' w100',id:'ed_buying_hhexrate_freight',placeholder:'',style:'text-align: right;',ref:'data:ds_houseblList.hhexrateBuy',displayFormat:'#,##0.####',dataType:'float',maxlength:'11.4'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th '},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'US Ex-Rate',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:' w100',id:'ed_buying_hhuexrate_freight',placeholder:'',style:'text-align: right;',ref:'data:ds_houseblList.hhuexrateBuy',displayFormat:'#,##0.####',dataType:'float',maxlength:'11.4'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{class:'col-gap-4',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'pu_CustomerChange3',style:'',type:'button','ev:onclick':'scwin.f_CustomerChange_freight',userData1:'2'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Customer'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'btn_2_freight3',style:'',type:'button','ev:onclick':'scwin.f_exRateChange_freight',userData1:'2'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Ex-Rate'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link',id:'pu_ResultdateChange3',style:'',type:'button','ev:onclick':'scwin.f_ResultdateChange_freight',userData1:'2'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'ResultDate'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'Buying list',class:'tit'}}]},{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section5',style:'',gridUpYn:'N',gridDownYn:'Y',btnUser:'Y',btnPlusYn:'Y',gridDownFn:'scwin.f_BuyingGrid',gridID:'gr_buying_freight'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'grd_section5',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{oddEvenColorDisplay:'true',rowNumVisible:'false',showSortableImage:'true',rowNumHeaderValue:'No',sortable:'true',defaultCellHeight:'24',rowNumWidth:'40',visibleRowNumFix:'true',checkAllType:'false',dataList:'data:ds_buying_freight',evenRowBackgroundColor:'#F8FFF8',id:'gr_buying_freight',visibleRowNum:'3',class:'wq_gvw',autoFitMinWidth:'1700',autoFit:'allColumn','ev:onheaderclick':'scwin.gr_buying_freight_onheaderclick','ev:ontextimageclick':'scwin.gr_buying_freight_ontextimageclick','ev:onbeforeedit':'scwin.gr_buying_freight_onbeforeedit','ev:onviewchange':'scwin.gr_buying_freight_onviewchange',gridName:'Buying List',rowStatusVisible:'true','ev:onkeyup':'scwin.upperCaseGrid'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption5',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',id:'column12',class:'no-sort',displayMode:'label',fixColumnWidth:'true',value:' ',sortable:'false'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column2',value:'SEQ',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column41',value:'Type',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column47',value:'SEQ',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column1',value:'Customer',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column3',value:'Name',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column5',value:'F/Code',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column7',value:'Name',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column51',value:'Init',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column49',value:'통합매출입코드',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column9',value:'CUR',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column13',value:'Unit',class:'col-type1',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column15',value:'Package',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column17',value:'Rate',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column33',value:'Amount',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column31',value:'Ex-Rate',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column29',value:'Amount(W)',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column43',value:'VAT',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column25',value:'Amount(US$)',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',id:'column19',value:'Result',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column45',value:'Inner Dept',class:'col-type2',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column53',value:'내부부서명',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column21',value:'Invoice No',class:'col-type2',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column63',value:'Tariff Rate',displayMode:'label',hidden:'true',class:'col-type2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column61',value:'vatYn',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column59',value:'exRateTyp',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column57',value:'Vehicle No',displayMode:'label',hidden:'true',class:'col-type2'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'column55',value:'vehclYn',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column37',value:'내부매입구분',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column39',value:'업로드 담당자',class:'col-type2',displayMode:'label',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{id:'row2'},E:[{T:1,N:'w2:column',A:{id:'chk',inputType:'checkbox',width:'17',textAlign:'center'}},{T:1,N:'w2:column',A:{id:'currrow',inputType:'expression',width:'30',textAlign:'center',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'pchsTyp',inputType:'autoComplete',width:'60',textAlign:'left',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Normal'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'Internal'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'3'}]}]}]}]},{T:1,N:'w2:column',A:{id:'pchsSeq',display:'none',hidden:'true',hiddenCol:'true'}},{T:1,N:'w2:column',A:{id:'pchsClntNo',inputType:'textImage',width:'60',textAlign:'left',textImage:'true',allowChar:'0-9',maxLength:'6'}},{T:1,N:'w2:column',A:{id:'pchsClntNm',inputType:'text',width:'60',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'fareEngCd',inputType:'textImage',width:'60',textAlign:'left',allowChar:'a-zA-Z0-9',textImage:'true',maxLength:'4'}},{T:1,N:'w2:column',A:{id:'fareEngNm',inputType:'text',width:'60',textAlign:'left'}},{T:1,N:'w2:column',A:{id:'fareGrpCd',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'selpchItemCd',display:'none',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'crcCd',inputType:'text',width:'50',textAlign:'center',allowChar:'a-zA-Z0-9'}},{T:1,N:'w2:column',A:{id:'fareUnit',inputType:'select',width:'50',textAlign:'center',allOption:'',chooseOption:'',ref:'',emptyItem:'true',valueNotInList:'keepValue',hideValueWhenNotInLis:'true'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_buyingUnit_freight'},E:[{T:1,N:'w2:label',A:{ref:'name'}},{T:1,N:'w2:value',A:{ref:'code'}}]}]}]},{T:1,N:'w2:column',A:{id:'chgWt',inputType:'text',width:'80',textAlign:'right',dataType:'float',displayFormat:'#,##0.###',maxLength:'12.3'}},{T:1,N:'w2:column',A:{id:'pchsUpr',inputType:'text',width:'60',textAlign:'right',dataType:'float',displayFormat:'#,##0.##',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'pchsAmtFcrc',inputType:'text',width:'80',textAlign:'right',dataType:'float',displayFormat:'#,##0.##',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'exRate',inputType:'text',width:'60',textAlign:'right',dataType:'float',displayFormat:'#,##0.##',excelCellType:'number',maxLength:'13.2'}},{T:1,N:'w2:column',A:{id:'pchsAmt',inputType:'text',width:'80',textAlign:'right',allowChar:'0-9',displayFormat:'#,##0',dataType:'number',excelCellType:'number',maxLength:'15'}},{T:1,N:'w2:column',A:{id:'vat',inputType:'text',width:'60',textAlign:'right',allowChar:'0-9',maxlength:'13',displayFormat:'#,##0',dataType:'number',maxLength:'15'}},{T:1,N:'w2:column',A:{id:'usdAmt',inputType:'text',width:'80',textAlign:'right',readOnly:'true',displayFormat:'#,##0.##',maxLength:'13.2',dataType:'float'}},{T:1,N:'w2:column',A:{id:'rsltsStdDt',inputType:'calendar',width:'80',textAlign:'center',allowChar:'0-9',mandatory:'true'}},{T:1,N:'w2:column',A:{id:'sellDeptCd',inputType:'textImage',width:'80',textAlign:'center',allowChar:'a-zA-Z0-9',textImage:'true'}},{T:1,N:'w2:column',A:{id:'sellDeptNm',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'pchsCertiNo',inputType:'text',width:'80',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'trfUpr',inputType:'text',width:'80',textAlign:'right',dataType:'float',maxlength:'.2',readOnly:'true',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vatYn',display:'none',hidden:'true',readOnly:'true'}},{T:1,N:'w2:column',A:{id:'exRateTyp',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vehclNo',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'vehclYn',display:'none',hidden:'true'}},{T:1,N:'w2:column',A:{id:'dcsnClsCd',inputType:'text',width:'80',textAlign:'center',readOnly:'true',customFormatter:'scwin.setCustomFormat'}},{T:1,N:'w2:column',A:{id:'regName',inputType:'text',width:'100',textAlign:'center',readOnly:'true',hidden:'true'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'ed_totBuyer',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]},{T:1,N:'xf:group',A:{tagname:'ul',style:'',id:'',class:'amt-wrap'},E:[{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'Amount($)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_BuyingSumAmount_freight',placeholder:'',class:' amt',displayFormat:'#,##0.##',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'Amount(W)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_BuyingSumAmountW_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'VAT',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_BuyingSumVat_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]},{T:1,N:'xf:group',A:{tagname:'li',style:'',id:''},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'AMOUNT(W+VAT)',class:''}},{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',style:'text-align: right;',id:'ed_BuyingAmountSum_freight',placeholder:'',class:' amt',displayFormat:'#,##0',dataType:'number'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'xf:input',A:{objType:'data',class:' w50',id:'ed_rowMake_buying',placeholder:'',style:'',maxlength:'2',allowChar:'0-9'}},{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',EngYn:'Y',id:'grpBtn5',rowAddFunction:'scwin.f_AddRow5',rowDelFunction:'scwin.f_DeleteRow5',cancelFunction:'scwin.f_CancelRow5',btnRowDelObj:'btn_DelRow5',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelYn:'Y',rowAddUserAuth:'C',rowDelUserAuth:'D'}}]}]}]},{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'width: 120px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'매출',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:input',A:{readOnly:'true',objType:'data',class:' w150 tar',id:'ed_selling_total_freight',placeholder:'',style:'text-align: right;',ref:'data:ds_profit_freight.sellAmt',dataType:'number',displayFormat:'#,##0'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'매입',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:' w150 tar',id:'ed_purchase_total_freight',placeholder:'',style:'text-align: right;',ref:'data:ds_profit_freight.pchsAmt',dataType:'number',displayFormat:'#,##0',readOnly:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'손익',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:' w150 tar',id:'ed_profit_total_freight',placeholder:'',style:'text-align: right;',ref:'data:ds_profit_freight.profit',dataType:'number',displayFormat:'#,##0',readOnly:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'마진율',ref:'',style:'',userData2:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{objType:'data',class:' w150 tar',id:'ed_profitRate_total_freight',placeholder:'',style:'text-align: right;',ref:'data:ds_profit_freight.profitRate',dataType:'number',displayFormat:'#,##0',readOnly:'true'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'buttonTable3',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link ',id:'btn_4_freight',style:'',type:'button','ev:onclick':'scwin.f_openPgm(\'Partner\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Partner'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link ',id:'btn_5_freight',style:'',type:'button','ev:onclick':'scwin.f_openPgm(\'Invoice\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Invoice'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link ',id:'btn_6_freight',style:'',type:'button','ev:onclick':'scwin.f_openPgm(\'Profit\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Profit'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link ',id:'btn_8_freight',style:'',type:'button','ev:onclick':'scwin.f_openPgm_freight(\'paymentINV\')'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Payment INV'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'C',class:'btn link ',id:'btn_9_freight',style:'',type:'button','ev:onclick':'scwin.f_copyFromBuyingToSelling'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'copy buy to sell'}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'R',class:'btn',id:'btn_Cancel_freight',label:'저장',style:'',type:'button','ev:onclick':'scwin.f_Cancel'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Cancel'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'U',class:'btn',id:'btn_Update_freight',label:'저장',style:'',type:'button','ev:onclick':'scwin.f_Update'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Update'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'U',class:'btn',id:'btn_Save_freight',label:'저장',style:'',type:'button','ev:onclick':'scwin.f_Save2'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Save'}]}]},{T:1,N:'xf:trigger',A:{objType:'ctrlBtn',userAuth:'D',class:'btn',id:'btn_Delete_freight',label:'저장',style:'',type:'button','ev:onclick':'scwin.f_Delete'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Delete'}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{id:'',style:'display:none;'},E:[{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhs2',label:'',ref:'data:ds_houseblList.hhs2'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhs3',label:'',ref:'data:ds_houseblList.hhs3'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhs4',label:'',ref:'data:ds_houseblList.hhs4'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhs5',label:'',ref:'data:ds_houseblList.hhs5'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhc2',label:'',ref:'data:ds_houseblList.hhc2'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhc3',label:'',ref:'data:ds_houseblList.hhc3'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhc4',label:'',ref:'data:ds_houseblList.hhc4'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhc5',label:'',ref:'data:ds_houseblList.hhc5'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhn2',label:'',ref:'data:ds_houseblList.hhn2'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhn3',label:'',ref:'data:ds_houseblList.hhn2'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhn4',label:'',ref:'data:ds_houseblList.hhn3'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_hhn5',label:'',ref:'data:ds_houseblList.hhn4'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_addr2',label:'',ref:'data:ds_partnerInfo.partnerAddr2'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_addr3',label:'',ref:'data:ds_partnerInfo.partnerAddr3'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_addr4',label:'',ref:'data:ds_partnerInfo.partnerAddr4'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'txt_addr5',label:'',ref:'data:ds_partnerInfo.partnerAddr5'}},{T:1,N:'w2:textbox',A:{style:'width:150px; height:23px; ',id:'rd_hhmnfgb',label:'',ref:'data:ds_houseblList.hhmnfgb'}},{T:1,N:'w2:udc_ilcomCode',A:{popupID:'',selectID:'',codeId:'ed_hhitem',validTitle:'',skipOnBlurCodeValueEmpty:'Y',skipOnBlurNameValueEmpty:'Y',nameId:'txt_hhmitem1',style:'width:%; height:px; ',id:'udc_hhitem',code:'hhitem',name:'hhmitem1',refDataCollection:'ds_houseblList'}},{T:1,N:'w2:udc_ilcomCode',A:{code:'hhlinerattn',codeId:'ed_hhlinerattn',id:'udc_hhlinerattn',name:'hhlinerattnnm',nameId:'txt_hhlinerattnnm',popupID:'',refDataCollection:'ds_houseblList',selectID:'',skipOnBlurCodeValueEmpty:'Y',skipOnBlurNameValueEmpty:'Y',style:'width:%; height:px; ',validTitle:''}},{T:1,N:'w2:udc_ilcomCode',A:{class:'w250',code:'hhactattn',codeId:'ed_hhactattn','ev:onclickEvent':'scwin.udc_hhactcust_onclickEvent','ev:onviewchangeCodeEvent':'scwin.udc_hhactcust_onviewchangeCodeEvent','ev:onviewchangeNameEvent':'scwin.udc_hhactcust_onblurNameEvent',id:'udc_hhactattn',name:'hhactattnnm',nameId:'txt_hhactattnnm',popupID:'',refDataCollection:'ds_houseblList',style:''}}]}]}]}]}]}]})

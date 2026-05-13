@@ -1,0 +1,36 @@
+ja_401_01_05b.log
+
+[2026-02-19 02:48:40.919] 변환 시작
+[2026-02-19 02:48:40.949] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 02:51:49.815] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=3, warnings=6 | LLM 188622ms, total 188865ms
+    - [XML] 'lux_selpchClsCd'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_selpchClsCd
+    - [XML] 'lux_madeYn'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_madeYn
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: em_selpchItemCd (EMEDIT→xf:input)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 1건: vehclNoCd: EMEDIT→w2:key (기대: xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-19 02:51:49.884] #1 검증: 자동수정 2건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 02:51:50.114] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=3, warnings=6
+    - [XML] 'lux_selpchClsCd'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_selpchClsCd
+    - [XML] 'lux_madeYn'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_madeYn
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: em_selpchItemCd (EMEDIT→xf:input)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 1건: vehclNoCd: EMEDIT→w2:key (기대: xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-19 02:51:58.642] #2 재시도 (에러 5건)
+[2026-02-19 02:51:59.654] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 02:55:11.456] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=6 | LLM 191547ms, total 191802ms
+    - [XML] 'lux_selpchClsCd'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_selpchClsCd
+    - [XML] 'lux_madeYn'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_madeYn
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: em_selpchItemCd (EMEDIT→xf:input)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 1건: vehclNoCd: EMEDIT→w2:key (기대: xf:input)
+[2026-02-19 02:55:11.458] 실패 (2회 시도, 6m 30s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 'lux_selpchClsCd'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_selpchClsCd
+  2. [XML] 'lux_madeYn'가 참조하는 데이터 'ds_condition'가 dataCollection에 선언되지 않음 — lux_madeYn
+  3. [적정성] 컴포넌트 ID 유지 — 누락 1건: em_selpchItemCd (EMEDIT→xf:input)
+  4. [적정성] 컴포넌트 타입 매핑 — 불일치 1건: vehclNoCd: EMEDIT→w2:key (기대: xf:input)
+================================================================================

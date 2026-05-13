@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="dma_search">
+                    <w2:keyInfo>
+                        <w2:key id="startDt"     name="" dataType="text"/>
+                        <w2:key id="endDt"       name="" dataType="text"/>
+                        <w2:key id="sapuCls"     name="" dataType="text"/>
+                        <w2:key id="registed"    name="" dataType="text"/>
+                        <w2:key id="dongbuMail"  name="" dataType="text"/>
+                    </w2:keyInfo>
+                </w2:dataMap>
+
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_evid">
+                    <w2:columnInfo>
+
+                        <!-- 매출입 구분 -->
+                        <w2:column id="sapuCls" name="매출입구분" dataType="text"/>
+
+                        <!-- 기준메일 -->
+                        <w2:column id="emailStd"       name="기준이메일" dataType="text"/>
+                        <w2:column id="userIdStd"      name="기준사용자ID" dataType="text"/>
+                        <w2:column id="userNmStd"      name="기준사용자명" dataType="text"/>
+                        <w2:column id="acctDeptCdStd"  name="기준부서코드" dataType="text"/>
+                        <w2:column id="acctDeptNmStd"  name="기준부서명" dataType="text"/>
+
+                        <!-- 1차대상(담당자) -->
+                        <w2:column id="emailFir"       name="1차이메일" dataType="text"/>
+                        <w2:column id="userIdFir"      name="1차사용자ID" dataType="text"/>
+                        <w2:column id="userNmFir"      name="1차사용자명" dataType="text"/>
+                        <w2:column id="acctDeptCdFir"  name="1차부서코드" dataType="text"/>
+                        <w2:column id="acctDeptNmFir"  name="1차부서명" dataType="text"/>
+
+                        <!-- 2차대상(관리자) -->
+                        <w2:column id="emailSec"       name="2차이메일" dataType="text"/>
+                        <w2:column id="userIdSec"      name="2차사용자ID" dataType="text"/>
+                        <w2:column id="userNmSec"      name="2차사용자명" dataType="text"/>
+                        <w2:column id="acctDeptCdSec"  name="2차부서코드" dataType="text"/>
+                        <w2:column id="acctDeptNmSec"  name="2차부서명" dataType="text"/>
+
+                    </w2:columnInfo>
+                </w2:dataList>
+
+			</w2:dataCollection>
+
+            <!-- 목록조회 TR -->
+            <xf:submission id="sbm_search" action="" method="post"
+				mediatype="application/json" 
+                ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_evid","key":"OUT_DS1"}]'
+				target='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_evid","key":"OUT_DS1"}]' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" 
+                ev:submitdone="scwin.sbm_search_submitdone"
+				ev:submiterror="scwin.sbm_search_submiterror" abortTrigger="">
+			</xf:submission>
+
+            <!-- 저장 TR -->
+            <xf:submission id="sbm_save" action="/ac.fi.taxbiz.omissionmgnt.RegistOmissionEmailListCMD.do" method="post"
+				mediatype="application/json" 
+                ref='data:json,{"id":"ds_evid","key":"IN_DS1"}'
+				target='' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" 
+                ev:submitdone="scwin.sbm_save_submitdone"
+				ev:submiterror="scwin.sbm_save_submiterror" abortTrigger="">
+			</xf:submission>
+
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//==================================================================================================================
+// id       : fi_406_01_01b
+// 이름     : 대체e메일등록
+// 경로     : 회계/재무회계/세무/세금계산서누락관리/
+// 작 성 자 : 오영재
+// 작 업 일 : 2025-12-31
+// 사용계정 : 내부
+// 비고     :
+//
+// 업로드   :
+// 다운로드 : 
+// 레포트   :
+// 호출     : 
+//==================================================================================================================
+
+scwin.privAdmin = $c.gus.cfIsNull($c.data.getMemInfo("privAdmin")) ? '' : $c.data.getMemInfo("privAdmin");
+scwin.vLoginCoCd = $c.gus.cfIsNull($c.data.getMemInfo("coCd")) ? '' : $c.data.getMemInfo("coCd");   // 소속 자회사
+scwin.vLoginCoClsCd = $c.gus.cfIsNull($c.data.getMemInfo("coClsCd")) ? '' : $c.data.getMemInfo("coClsCd"); //회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd = $c.gus.cfIsNull($c.data.getMemInfo("userHomeClsCd")) ? '' : $c.data.getMemInfo("userHomeClsCd");    // 사용자소속구분코드 
+
+scwin.isSubCompany = false;
+scwin.txtCoClsCd = "";
+scwin.today = $c.date.getServerDateTime("yyyyMMdd");
+
+scwin.onpageload = function () {
+    const codeOptions = [
+        { grpCd: "FI019", compID: "lc_sapuCls" }
+    ];
+    // console.log(" codeOptions : "+ JSON.stringify(codeOptions));
+    $c.data.setCommonCode(codeOptions);
+};
+
+scwin.onUdcCompleted = function () {
+    scwin.f_setCalender();
+    lc_sapuCls.setSelectedIndex(0);
+    chk_registed.setValue(false);
+    chk_dongbuMail.setValue(false);
+}
+
+//-------------------------------------------------------------------------
+// 조회조건 달력 셋팅
+//-------------------------------------------------------------------------   	
+scwin.f_setCalender = function () {
+    ed_startDt.setValue(scwin.today.substring(0, 6) + "01");
+    let lastDay = scwin.today.substring(0, 4) + scwin.today.substring(4, 6) + new Date(scwin.today.substring(0, 4), scwin.today.substring(4, 6), 0).getDate(); // 마지막날
+    ed_endDt.setValue(lastDay);
+}
+
+scwin.btn_search_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_reset_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+//-------------------------------------------------------------------------
+// 조회 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+    $c.gus.cfInitObjects([ed_startDt, ed_endDt]);
+}
+
+scwin.btn_Copy_onclick = function (e) {
+    scwin.f_Copy();
+};
+
+scwin.btn_Save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.gr_evid_oncellclick = function (rowIndex, columnIndex, columnId) {
+    if (columnId == "userNmFir") {
+
+    }
+};
+
+/**
+ * 그리드 셀의 편집모드가 종료되어 포커스가 빠져나온 경우 이벤트 발생
+ */
+scwin.gr_evid_onafteredit = function (rowIndex, columnIndex, value) {
+    let columnId = gr_evid.getColumnID(columnIndex);
+    if (columnId == "userNmFir") {
+        if (!$c.gus.cfIsNull(value)) {
+            /** 아이콘 클릭 이외 팝업 안열림
+            scwin.f_GridPop(columnId, rowIndex, value, value);
+             */
+        } else {
+            ds_evid.setCellData(rowIndex, 'emailFir', '');
+            ds_evid.setCellData(rowIndex, 'userIdFir', '');
+            ds_evid.setCellData(rowIndex, columnIndex, '');
+            ds_evid.setCellData(rowIndex, 'acctDeptCdFir', '');
+            ds_evid.setCellData(rowIndex, 'acctDeptNmFir', '');
+        }
+    }
+
+    if (columnId == "userNmSec") {
+        if (!$c.gus.cfIsNull(value)) {
+            //scwin.f_GridPop(columnId, rowIndex, value, value);
+        } else {
+            ds_evid.setCellData(rowIndex, 'emailSec', '');
+            ds_evid.setCellData(rowIndex, 'userIdSec', '');
+            ds_evid.setCellData(rowIndex, columnIndex, '');
+            ds_evid.setCellData(rowIndex, 'acctDeptCdSec', '');
+            ds_evid.setCellData(rowIndex, 'acctDeptNmSec', '');
+        }
+    }
+};
+
+/**
+ * 그리드 이미지셀 클릭 이벤트
+*/
+scwin.gr_evid_ontextimageclick = function (rowIndex, columnIndex) {
+    let columnId = gr_evid.getColumnID(columnIndex);
+    let data = gr_evid.getCellData(rowIndex, columnId);
+    let status = gr_evid.getRowStatus(rowIndex);
+    if (columnId == "userNmFir") {
+        if (status != "D") {
+            scwin.f_GridPop(columnId, rowIndex, data, data);
+        }
+    } else if (columnId == "userNmSec") {
+        if (status != "D") {
+            scwin.f_GridPop(columnId, rowIndex, data, data);
+        }
+    }
+    return true;
+};
+
+/**
+ * 그리드 팝업호출
+ */
+scwin.f_GridPop = async function (colId, row, data, str) {
+    if (colId == "userNmFir") {
+        ds_evid.setCellData(row, "userNmFir", "");
+
+        udc_comCode_Grid.setSelectId("retrieveMailList2");
+        //조회조건 9번째, 전체검색허용여부 15번째
+        await udc_comCode_Grid.cfCommonPopUp(
+            scwin.udc_comCode_Grid_Fir_callBackFunc
+            , ""
+            , str
+            , ""
+            , null, null, null, null, null, null, null, null, null, null
+            , "T"
+            , null);
+    } else if (colId == "userNmSec") {
+        ds_evid.setCellData(row, "userNmSec", "");
+
+        udc_comCode_Grid.setSelectId("retrieveMailList2");
+        //조회조건 9번째, 전체검색허용여부 15번째
+        await udc_comCode_Grid.cfCommonPopUp(
+            scwin.udc_comCode_Grid_Sec_callBackFunc
+            , ""
+            , str
+            , ""
+            , null, null, null, null, null, null, null, null, null, null
+            , "T"
+            , null);
+    }
+};
+
+/**
+ * 사용자 이메일(그리드팝업)
+ */
+scwin.udc_comCode_Grid_Fir_callBackFunc = function (rtnList) {
+    let rowIdx = gr_evid.getFocusedRowIndex();
+    if (rtnList[0] != "N/A" && !$c.gus.cfIsNull(rtnList)) {
+
+        ds_evid.setCellData(rowIdx, "userIdFir", rtnList[0]);	//ID
+        ds_evid.setCellData(rowIdx, "userNmFir", rtnList[1]);	//이름
+        ds_evid.setCellData(rowIdx, "emailFir", rtnList[2]);	//이메일
+        ds_evid.setCellData(rowIdx, "acctDeptCdFir", rtnList[3]);	//귀속부서코드
+        ds_evid.setCellData(rowIdx, "acctDeptNmFir", rtnList[4]);	//귀속부서명
+
+    } else {
+        ds_evid.setCellData(rowIdx, "userIdFir", "");	//ID
+        ds_evid.setCellData(rowIdx, "userNmFir", "");	//이름
+        ds_evid.setCellData(rowIdx, "emailFir", "");	//이메일
+        ds_evid.setCellData(rowIdx, "acctDeptCdFir", "");	//귀속부서코드
+        ds_evid.setCellData(rowIdx, "acctDeptNmFir", "");	//귀속부서명
+    }
+};
+
+/**
+ * 사용자 이메일(그리드팝업)
+ */
+scwin.udc_comCode_Grid_Sec_callBackFunc = function (rtnList) {
+    let rowIdx = gr_evid.getFocusedRowIndex();
+    if (rtnList[0] != "N/A" && !$c.gus.cfIsNull(rtnList)) {
+
+        ds_evid.setCellData(rowIdx, "userIdSec", rtnList[0]);	//ID
+        ds_evid.setCellData(rowIdx, "userNmSec", rtnList[1]);	//이름
+        ds_evid.setCellData(rowIdx, "emailSec", rtnList[2]);	//이메일
+        ds_evid.setCellData(rowIdx, "acctDeptCdSec", rtnList[3]);	//귀속부서코드
+        ds_evid.setCellData(rowIdx, "acctDeptNmSec", rtnList[4]);	//귀속부서명
+
+    } else {
+        ds_evid.setCellData(rowIdx, "userIdSec", "");	//ID
+        ds_evid.setCellData(rowIdx, "userNmSec", "");	//이름
+        ds_evid.setCellData(rowIdx, "emailSec", "");	//이메일
+        ds_evid.setCellData(rowIdx, "acctDeptCdSec", "");	//귀속부서코드
+        ds_evid.setCellData(rowIdx, "acctDeptNmSec", "");	//귀속부서명
+    }
+};
+
+scwin.f_Excel = function () {
+    if (ds_evid.getRowCount() <= 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_009, Array("데이타"));  // 출력할 @이(가) 없습니다.
+        return false
+    }
+
+    let sheetTitle = "대체e메일등록";
+    const gridId = gr_evid;
+    const infoArr = [];
+    const options = {
+        fileName: sheetTitle + ".xlsx",    // + ".xls",
+        sheetName: sheetTitle,
+        type: 4 + 8 + 16
+        // fileName : "총계정원장집계표(외화).xls" //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+    };
+
+    $c.data.downloadGridViewExcel(gridId, options, infoArr);
+
+}
+
+scwin.f_Copy = function () {
+
+    const curRow = ds_evid.getRowPosition();
+
+    const curDeptCd = ds_evid.getCellData(curRow, "acctDeptCdFir");
+    const curUserIdSec = ds_evid.getCellData(curRow, "userIdSec");
+    const curUserNmSec = ds_evid.getCellData(curRow, "userNmSec");
+    const curEmailSec = ds_evid.getCellData(curRow, "emailSec");
+    const curAcctDeptCdSec = ds_evid.getCellData(curRow, "acctDeptCdSec");
+    const curAcctDeptNmSec = ds_evid.getCellData(curRow, "acctDeptNmSec");
+
+    const rowCnt = ds_evid.getRowCount();
+
+    for (let i = 0; i < rowCnt; i++) {
+        if (curDeptCd === ds_evid.getCellData(i, "acctDeptCdFir")) {
+            ds_evid.setCellData(i, "userIdSec", curUserIdSec);
+            ds_evid.setCellData(i, "userNmSec", curUserNmSec);
+            ds_evid.setCellData(i, "emailSec", curEmailSec);
+            ds_evid.setCellData(i, "acctDeptCdSec", curAcctDeptCdSec);
+            ds_evid.setCellData(i, "acctDeptNmSec", curAcctDeptNmSec);
+        }
+    }
+};
+
+
+//-------------------------------------------------------------------------
+// function name : f_Save
+// function desc : 저장 
+// function Parameter : null
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+
+    // 시작, 종료일자 체크
+    if (ed_startDt.getValue() === "" || ed_endDt.getValue() === "") {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["공급일자 "]);
+        ed_startDt.focus();
+        return;
+    }
+
+    // 시작일자가 종료일자 이전인지 check
+    if (!$c.gus.cfIsAfterDate(ed_startDt.getValue(), ed_endDt.getValue())) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+        return;
+    }
+
+    if (ds_evid.getModifiedIndex().length == 0) {
+        $c.gus.cfAlertMsg("변경된 사항이 없습니다.");
+        return;
+    }
+
+    for (let i = 0; i <= ds_evid.getRowCount(); i++) {
+        if (ds_evid.getRowStatus(i) === "3") {
+            if (ds_evid.getCellData(i, "emailStd") === "") {
+                $c.win.alert(
+                    "수정하신 " + i + " 번째 줄의 " +
+                    ds_evid.getCellData(i, "userNmStd") +
+                    " 사용자의 기준메일-e메일 값이 없습니다.\n" +
+                    "매출인 경우는 공통-시스템관리-사용자-사용자관리 화면에서 E-MAIL을 등록해 주세요.\n" +
+                    "권한이 없는 경우는 IT전략팀에 문의해 주십시오."
+                );
+                //ds_evid.Undo(i);
+                $c.data.undoRow(ds_evid, "Y");
+                return false;
+            }
+        }
+    }
+
+    let ret = await $c.win.confirm("저장 하시겠습니까?");
+    if (ret === true) {
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+
+scwin.sbm_search_submitdone = function (e) {
+    scwin.f_setChecked();
+
+    //cfHideDSWaitMsg(gr_evid);
+    //cfShowTotalRows(totalRows, rowCnt);
+    let rowCnt = ds_evid.getRowCount();
+    ed_totalRows.setValue(rowCnt);
+
+    if (rowCnt == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+}
+scwin.sbm_search_submiterror = function (e) {
+    $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+}
+scwin.sbm_save_submitdone = function (e) {
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);  // 성공적으로 저장하였습니다
+    scwin.f_Retrieve();
+}
+scwin.sbm_save_submiterror = function (e) {
+    $c.gus.cfAlertMsg(e.responseJSON.resultDataSet[1].Msg);
+}
+
+scwin.f_setChecked = function () {
+
+    if (dma_search.get("registed") == "") {
+        chk_registed.setValue(false);
+    }
+    else if (dma_search.get("registed") == true) {
+        chk_registed.setValue(true);
+    }
+    if (dma_search.get("dongbuMail") == "") {
+        chk_dongbuMail.setValue(false);
+    }
+
+    else if (dma_search.get("dongbuMail") == true) {
+        chk_dongbuMail.setValue(true);
+    }
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+
+    // 시작, 종료일자 체크
+    if (ed_startDt.getValue() == "" || ed_endDt.getValue() == "") {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_002, ["공급일자 "]);
+        ed_startDt.focus();
+        return;
+    }
+
+    //시작일자가 종료일자 이전인지 check
+    if (!$c.gus.cfIsAfterDate(ed_startDt.getValue(), ed_endDt.getValue())) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_039);
+        return;
+    }
+
+    if (chk_registed.getValue() == 'true') {
+        dma_search.set("registed", "1");
+    }
+    else if (chk_registed.getValue() == 'false') {
+        dma_search.set("registed", "");
+    }
+
+    if (chk_dongbuMail.getValue() == 'true') {
+        dma_search.set("dongbuMail", "1");
+    }
+    else if (chk_dongbuMail.getValue() == 'false') {
+        dma_search.set("dongbuMail", "");
+    }
+
+    //ds_search.UseChangeInfo = false;
+
+    if (lc_sapuCls.getSelectedIndex() == 0) {
+        sbm_search.action = "/ac.fi.taxbiz.omissionmgnt.RetrieveOmissionEmailList1CMD.do";
+    }
+    else {
+        sbm_search.action = "/ac.fi.taxbiz.omissionmgnt.RetrieveOmissionEmailList2CMD.do";
+    }
+    $c.sbm.execute(sbm_search);
+}
+
+scwin.dispSapuCls = function (data) {
+    if (data == "SA")
+        return "매출";
+    else
+        return "매입";
+}]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+		<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:70px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:105px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:60px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group class="" id="" style="" tagname="tr">
+							<xf:group class="w2tb_th " style="" tagname="th">
+								<w2:textbox class="req" id="" label="공급일자 " style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" style="" tagname="td">
+								<w2:udc_fromToCalendar refStDt="startDt" refDataMap="dma_search" style="" id="udc_fromToCalendar3" refEdDt="endDt" edFromId="ed_startDt" edToId="ed_endDt" mandatoryFrom="true" mandatoryTo="true">
+								</w2:udc_fromToCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" style="" tagname="th">
+								<w2:textbox class="" id="" label="매출/입" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" style="" tagname="td">
+								<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_sapuCls" style="width: 100px;" submenuSize="fixed" objType="data" ref="data:dma_search.sapuCls" sortOption="value">
+								</xf:select1>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select appearance="full" class="" cols="" id="chk_registed" ref="data:dma_search.registed" renderType="checkboxgroup" rows=""
+									selectedindex="-1" style="" falseValue="false">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[기등록건제외]]></xf:label>
+											<xf:value><![CDATA[true]]>
+											</xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select appearance="full" class="" cols="" id="chk_dongbuMail" ref="data:dma_search.dongbuMail" renderType="checkboxgroup" rows=""
+									selectedindex="-1" style="" falseValue="false">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[dongwon.com 이외의 e메일만 ]]></xf:label>
+											<xf:value><![CDATA[true]]>
+											</xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_reset" style="" type="button" ev:onclick="scwin.btn_reset_onclick">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" userAuth="R" ev:onclick="scwin.btn_search_onclick">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="" style="">
+						<w2:textbox class="tit" id="" label="증빙미등록/전자세금계산서 미전송 리스트 " style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownFn="scwin.f_Excel" gridDownUserAuth="X" gridUpYn="N" gridID="gr_evid" gridDownYn="Y"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_evid" focusMode="cell"
+						id="gr_evid" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true"
+						ev:onafteredit="scwin.gr_evid_onafteredit" ev:ontextimageclick="scwin.gr_evid_ontextimageclick">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header2" style="">
+							<w2:row id="row3" style="">
+								<w2:column displayMode="label" id="column36" inputType="text" style="" value="매출입&lt;/br&gt;구분" width="100"
+									colSpan="" rowSpan="2">
+								</w2:column>
+								<w2:column displayMode="label" id="column34" inputType="text" style="" value="기준메일" width="520" colSpan="5"
+									rowSpan="">
+								</w2:column>
+								<w2:column displayMode="label" id="column24" inputType="text" style="" value="1차대상(담당자)" width="570"
+									colSpan="5" rowSpan="">
+								</w2:column>
+								<w2:column width="470" inputType="text" style="" id="column61" value="2차대상(관리자)" displayMode="label"
+									colSpan="5" rowSpan="">
+								</w2:column>
+							</w2:row>
+							<w2:row style="" id="row6">
+								<w2:column hidden="false" width="180" inputType="text" style="" id="column146" value="e메일"
+									displayMode="label">
+								</w2:column>
+								<w2:column hidden="true" width="120" inputType="text" style="" id="column147" value="사용자"
+									displayMode="label" hiddenCol="true">
+								</w2:column>
+								<w2:column hidden="false" width="120" inputType="text" style="" id="column148" value="사용자"
+									displayMode="label">
+								</w2:column>
+								<w2:column hidden="true" width="120" inputType="text" style="" id="column149" value="부서" displayMode="label"
+									hiddenCol="true">
+								</w2:column>
+								<w2:column hidden="false" width="120" inputType="text" style="" id="column150" value="부서"
+									displayMode="label">
+								</w2:column>
+								<w2:column width="180" inputType="text" style="" id="column139" value="e메일" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column138" value="사용자" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column137" value="사용자" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column136" value="부서" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column135" value="부서" displayMode="label"></w2:column>
+								<w2:column width="180" inputType="text" style="" id="column134" value="e메일" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column133" value="사용자" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column132" value="사용자" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column131" value="부서" displayMode="label"
+									hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column130" value="부서" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody2" style="">
+							<w2:row id="row4" style="">
+								<w2:column displayMode="label" id="sapuCls" inputType="text" style="" value="" width="100" readOnly="true"
+									displayFormatter="scwin.dispSapuCls">
+								</w2:column>
+								<w2:column displayMode="label" id="emailStd" inputType="text" style="" value="" width="180" textAlign="left"
+									readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="userIdStd" inputType="text" style="" value="" width="120" readOnly="true"
+									hiddenCol="true" hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="userNmStd" inputType="text" style="" value="" width="120"
+									readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="acctDeptCdStd" inputType="text" style="" value="" width="120"
+									readOnly="true" hiddenCol="true" hidden="true">
+								</w2:column>
+								<w2:column displayMode="label" id="acctDeptNmStd" inputType="text" style="" value="" width="120"
+									readOnly="true">
+								</w2:column>
+								<w2:column displayMode="label" id="emailFir" inputType="text" style="" value="" width="180" textAlign="left"
+									readOnly="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="userIdFir" value="" displayMode="label" readOnly="true"
+									hiddenCol="true" hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="textImage" style="" id="userNmFir" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="acctDeptCdFir" value="" displayMode="label"
+									readOnly="true" hiddenCol="true" hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="acctDeptNmFir" value="" displayMode="label"
+									readOnly="true">
+								</w2:column>
+								<w2:column width="180" inputType="text" style="" id="emailSec" value="" displayMode="label" textAlign="left"
+									readOnly="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="userIdSec" value="" displayMode="label" readOnly="true"
+									hiddenCol="true" hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="textImage" style="" id="userNmSec" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="acctDeptCdSec" value="" displayMode="label"
+									readOnly="true" hiddenCol="true" hidden="true">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="acctDeptNmSec" value="" displayMode="label"
+									readOnly="true">
+								</w2:column>
+							</w2:row>
+						</w2:gBody>
+						<w2:footer style="" id="footer1">
+							<w2:row style="" id="row5">
+								<w2:column width="100" inputType="text" style="" id="column46" value="" displayMode="label"></w2:column>
+								<w2:column width="180" inputType="text" style="" id="column45" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column44" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column43" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column42" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column41" value="" displayMode="label"></w2:column>
+								<w2:column width="180" inputType="text" style="" id="column40" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column75" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column72" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column69" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column66" value="" displayMode="label"
+									textAlign="right">
+								</w2:column>
+								<w2:column width="180" inputType="text" style="" id="column63" value="" displayMode="label"
+									textAlign="right">
+								</w2:column>
+								<w2:column width="120" inputType="text" style="" id="column60" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column57" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column51" value="" displayMode="label"></w2:column>
+								<w2:column width="120" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:footer>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="" style="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="ed_totalRows" label="0" style="" tagname="span">
+								</w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+
+                                <w2:udc_comCode popupID="" selectID="" codeId="" validTitle="" nameId=""
+                                    style="width:%; height:px; ;visibility:hidden;" id="udc_comCode_Grid">
+                                </w2:udc_comCode>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="right" id="" style="">
+						<xf:trigger class="btn" id="btn_Copy" style="" type="button" ev:onclick="scwin.btn_Copy_onclick" userAuth="U">
+							<xf:label><![CDATA[복사]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn" id="btn_Save" style="" type="button" ev:onclick="scwin.btn_Save_onclick" userAuth="U">
+							<xf:label><![CDATA[저장]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

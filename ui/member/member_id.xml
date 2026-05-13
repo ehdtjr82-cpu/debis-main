@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.getQueryParams = function () {
+    var params = {};
+    var query = window.location.search || "";
+
+    query.replace(/^\?/, "").split("&").forEach(function (pair) {
+        var pieces = [];
+        var key = "";
+
+        if (!pair) {
+            return;
+        }
+
+        pieces = pair.split("=");
+        key = decodeURIComponent(pieces[0] || "");
+
+        if (!key || key === "w2xPath") {
+            return;
+        }
+
+        params[key] = decodeURIComponent(pieces.slice(1).join("=") || "");
+    });
+
+    return params;
+};
+
+scwin.buildDirectUrl = function (url) {
+    return "/websquare/websquare.html?w2xPath=" + encodeURIComponent(url);
+};
+
+scwin.onpageload = function () {
+    // var params = Object.assign({}, scwin.getQueryParams(), $c.data.getParameter() || {});
+    var frame = $p.getFrame(); 
+    var params = frame.getUserData("paramData") || {};
+
+    tbx_result.setValue(params.mbrId || params.MBR_ID || "-");
+};
+
+scwin.closePage = async function () {
+    $p.parent().wfm_wframe.setSrc("/ui/member/index_main.xml");
+
+    // window.open(scwin.buildDirectUrl("/ui/member/index_main.xml"), "_self");
+};
+]]></script>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents nc_truck " id="" meta_componentContainer="true" style="">
+			<xf:group class="round-box" id="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="아이디 찾기" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group class="form-group tac vam fs16" id="" style="height: 100%">
+					<w2:textbox class="" escape="false" id="" label="회원님의 아이디는" style=""></w2:textbox>
+					<w2:textbox class="txt-blue" escape="false" id="tbx_result" label="동원로엑스" style=""></w2:textbox>
+					<w2:textbox class="" escape="false" id="" label="입니다." style=""></w2:textbox>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="" style="" type="button" ev:onclick="scwin.closePage">
+					<xf:label><![CDATA[확인]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

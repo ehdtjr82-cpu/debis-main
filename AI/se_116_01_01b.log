@@ -1,0 +1,34 @@
+se_116_01_01b.log
+
+[2026-02-20 14:13:50.383] 변환 시작
+[2026-02-20 14:13:50.473] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 14:19:31.685] #1 검증: XML: WebSquareXmlValidator: score=0.40, grade=B, verdict=REVIEW, errors=3, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=4, warnings=6 | LLM 339982ms, total 341212ms
+    - [XML] scwin.sbm_mhnoLoading_submitdone에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.sbm_mhnoLoading_submitdone
+    - [XML] scwin.sbm_mhnoLoading_submitdone이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.sbm_mhnoLoading_submitdone
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_EnablePopUpObj, scwin.f_DisablePopUpObj, scwin.f_bulkTypeServiceTerm → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_hhblno (EMEDIT→xf:input), cnd_ed_srno (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] async 선언 누락 — scwin.sbm_mhnoLoading_submitdone (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.sbm_mhnoLoading_submitdone → $c.gus.cfAlertMsg
+[2026-02-20 14:19:32.110] #1 검증: 자동수정 6건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U09: 버튼 ID btn_triggerN → JSP 원본 ID
+    - [자동수정] U15: udc_comCode id ed_ → udc_ + codeId
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 14:19:33.464] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_EnablePopUpObj, scwin.f_DisablePopUpObj, scwin.f_bulkTypeServiceTerm → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 17건: cnd_ed_hhblno (EMEDIT→xf:input), cnd_lc_autono (LUXECOMBO→w2:autoComplete), cnd_ed_srno (EMEDIT→xf:input), lc_hhpcgb (LUXECOMBO→w2:autoComplete), lc_hhbltype (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-20 14:19:39.374] #2 재시도 (에러 7건)
+[2026-02-20 14:19:40.383] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 14:25:27.965] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 346511ms, total 347582ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_hhblno (EMEDIT→xf:input), cnd_ed_srno (EMEDIT→xf:input)
+[2026-02-20 14:25:27.968] 성공 (#2, 11m 37s, confidence:0.83)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 2건: cnd_ed_hhblno (EMEDIT→xf:input), cnd_ed_srno (EMEDIT→xf:input)
+================================================================================

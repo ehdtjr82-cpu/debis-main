@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_emp" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="구분" dataType="text"></w2:column>
+    					<w2:column id="col3" name="등록건수" dataType="text"></w2:column>
+    					<w2:column id="col4" name="미확인건수" dataType="text"></w2:column>
+    					<w2:column id="col5" name="반려건수" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_joblevel" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="lobranCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="lobranNm" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_retrieve">
+    				<w2:keyInfo>
+    					<w2:key id="lobranCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="wrkStDt" name="name2" dataType="text"></w2:key>
+    					<w2:key id="wrkEndDt" name="name3" dataType="text"></w2:key>
+    					<w2:key id="wrkCls" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_jobLevel" action="/ds.co.RetreiveLoBranCMD.do" method="post" mediatype="application/json"
+    			ref='' target='data:json,{"id":"ds_joblevel","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_jobLevel_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.transwrkrslts.RetrieveDiscountSurchargePresentConditionCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,[{"id":"dma_retrieve","key":"IN_DS1"},{"id":"ds_emp","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_emp","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.strFromDate;  
+scwin.strToDate;   
+scwin.strDate;  
+
+scwin.memJson;
+scwin.sUserId;  
+scwin.sUserClsCd;
+scwin.sClntNo;
+scwin.sClntNm;
+// scwin.sLoUpperLobranCd       = $c.data.getMemInfo("sLobranCd");
+scwin.sLoUpperLobranCd = $c.data.getMemInfo("loUpperLobranCd"); //  물류상위점소코드
+
+scwin.pos_groupCode = 0;  // 저장전 DataSet의 RowPosition을 저장 변수 
+scwin.afLoad        = 0;  // loading 되기전
+
+
+scwin.onpageload = function() {
+    scwin.setInitVal();
+
+    const codeOptions = [
+        { grpCd : "OP190", compID : "acb_wrkCls" }
+    ];
+
+    $c.data.setCommonCode(codeOptions, scwin.callback);
+   
+};
+
+scwin.callback = function(){
+    
+    $c.sbm.execute(sbm_jobLevel);
+
+    scwin.f_Retrieve();
+    acb_wrkCls.setSelectedIndex(1);
+
+    scwin.afLoad = 1;  
+}
+
+scwin.setInitVal = function(){
+
+    scwin.memJson = $c.data.getMemInfo();
+    scwin.strFromDate  = $c.date.getServerDateTime("yyyyMMdd").substring(0, 8); // 현재년월일을 구한다.
+    scwin.strToDate   = $c.date.getServerDateTime("yyyyMMdd");	              // 현재일자를 구한다.
+    scwin.strDate    = scwin.strFromDate + scwin.strToDate;
+
+
+    scwin.sUserId = scwin.memJson.userId
+    scwin.sUserClsCd = scwin.memJson.userClsCd ;
+    scwin.sClntNo = scwin.memJson.clntNo;
+    scwin.sClntNm = scwin.memJson.clntNm;
+    scwin.sLobranCd = scwin.memJson.loUpperLobranCd
+
+}
+
+scwin.onUdcCompleted = function() {
+    wrkStDt.setValue(scwin.strToDate);
+    wrkEndDt.setValue(scwin.strToDate);
+
+    // wrkStDt.setValue("20151125");
+    // wrkEndDt.setValue("20151130");   
+ 
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+
+//   dma_retrieve.set("lobranCd", co_acb_logisticsBranch.getValue());  // 점소
+//   dma_retrieve.set("wrkStDt", wrkStDt.getValue());
+//   dma_retrieve.set("wrkEndDt", wrkEndDt.getValue());
+//   dma_retrieve.set("wrkCls", acb_wrkCls.getValue());
+
+  $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 조회 조건 Reset
+//-------------------------------------------------------------------------
+scwin.f_Reset = async function() {
+   
+  $c.gus.cfInitObjects([tb_searchCondition]);
+  
+  co_acb_logisticsBranch.setSelectedIndex(0);op_304_03_01b
+  acb_wrkCls.setSelectedIndex(0);
+  wrkStDt.setValue(scwin.strToDate);
+  wrkEndDt.setValue(scwin.strToDate);
+};
+
+
+scwin.sbm_jobLevel_submitdone = function (e) {
+    
+    //전체조건 추가
+    var sLoUpperLobranCd = scwin.sLobranCd;
+    //if(co_acb_logisticsBranch.IndexOfColumn("lobranCd", sLoUpperLobranCd) > 0){
+        co_acb_logisticsBranch.setValue(scwin.sLoUpperLobranCd);
+
+    //} else{
+    //    co_acb_logisticsBranch.setSelectedIndex(0);
+    //}
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+  
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        //$c.gus.cfShowError(sbm_Retrieve);
+        return;
+    }
+
+	if(scwin.afLoad != 0){
+		if( ds_emp.getCellData(0, "col3") == ""){
+			$c.gus.cfAlertMsg(MSG_CM_WRN_002,[""]);
+		}
+	}
+
+	//$c.gus.cfGoPrevPosition(ds_emp, scwin.pos_groupCode);
+
+    totalRows.setValue(ds_emp.getRowCount());
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="tb_searchCondition" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="점소" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="co_acb_logisticsBranch" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="data:dma_retrieve.lobranCd" sortOption="label">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_joblevel">
+    										<w2:label ref="lobranNm"></w2:label>
+    										<w2:value ref="lobranCd"></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="작업구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_wrkCls" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="data:dma_retrieve.wrkCls">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_joblevel">
+    										<w2:label ref=""></w2:label>
+    										<w2:value ref=""></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="작업일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="dma_retrieve" refEdDt="wrkEndDt" refStDt="wrkStDt" style="" objTypeFrom="Data" objTypeTo="Data" edFromId="wrkStDt" edToId="wrkEndDt"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.f_Reset">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_emp" id="gr_emp" style=""
+    					visibleRowNum="3" visibleRowNumFix="true" readOnly="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="구분" width="200"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="등록건수" width="200"></w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="미확인건수" width="200"></w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="반려건수" width="200"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="col1" inputType="text" width="200"></w2:column>
+    							<w2:column displayMode="label" id="col3" inputType="text" width="200" textAlign="center" defaultValue="0"></w2:column>
+    							<w2:column displayMode="label" id="col4" inputType="text" width="200" textAlign="center"></w2:column>
+    							<w2:column displayMode="label" id="col5" inputType="text" width="200" textAlign="center"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,339 @@
+/*amd /ui/ds/op/wrkrslts/transwrkrslts/op_304_07_02p.xml 25956 84468ea644597508e35cf639783b0c42ade33ffad01d8caee9be4b3f65c2019f */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_carCls',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_carCls'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'grpCd',name:'name1',dataType:'text',defaultValue:'OP148'}},{T:1,N:'w2:key',A:{id:'fltrCd1',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_cargoCls',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'cd',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdNm',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_condition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'wrkLobranCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'clntNo',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'carCls',name:'name3',dataType:'text'}},{T:1,N:'w2:key',A:{id:'cargoClsCd',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_results',saveRemovedData:'true','ev:ondataload':'scwin.ds_results_ondataload','ev:oncelldatachange':'scwin.ds_results_oncelldatachange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'identifyId',name:'id',dataType:'text'}},{T:1,N:'w2:column',A:{id:'identifyNm',name:'nm',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkLobranCd',name:'점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkLobranNm',name:'점소코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'carCls',name:'차량구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cargoClsCd',name:'화물구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'eqCd',name:'장비코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'seq',name:'SEQ',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_carCls',action:'/cm.zz.RetrieveCodeCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_carCls',target:'data:json,{"id":"ds_carCls","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_carCls_done','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_cargoCls',action:'/cm.zz.RetrieveCodeCMD.do?grpCd=OP190',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_cargoCls","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_cargo_Done','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_results',action:'/ncall.ds.op.wrkrslts.transwrkrslts.RetrieveVehclAddCMD.do',method:'post',mediatype:'application/json',ref:'data:json,dma_condition',target:'data:json,{"id":"ds_results","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ncall.ds.op.wrkrslts.transwrkrslts.SaveVehclAddCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"action":"inserted","id":"ds_results","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitDone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//-------------------------------------------------------------------------
+// 전역변수
+//-------------------------------------------------------------------------
+scwin.loUpperLobranCd = $c.data.getMemInfo($p, "loUpperLobranCd"); // 회원 점소 데이터
+scwin.vCurDate = WebSquare.date.getCurrentServerDate(); // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.lobranCd = "";
+scwin.wrkLobranCdv = "";
+scwin.cargoClsCd = "";
+scwin.type = "";
+scwin.carCls = "";
+scwin.param = "";
+scwin.oldData = "";
+scwin.focus = "";
+scwin.count = 0;
+scwin.isExecuted = false;
+scwin.flag = 0;
+
+//-------------------------------------------------------------------------
+// 화면 로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = async function () {
+  scwin.param = $p.getAllParameter().paramData.data;
+  scwin.wrkLobranCdv = scwin.param[0]; // 배차점소
+  scwin.carCls = scwin.param[1]; // 차량구분
+  scwin.cargoClsCd = scwin.param[2]; // 화물구분
+  scwin.type = "";
+  const param = [{
+    method: "getLuxeComboData",
+    param1: "WorkImplementEBC",
+    param2: "retriveLobran2CodeList",
+    param3: [1],
+    compID: "lc_wrkLobranCd"
+  }];
+  $c.data.setGauceUtil($p, param);
+};
+scwin.onUdcCompleted = function () {};
+
+//-------------------------------------------------------------------------
+// 공통코드 로드시
+//-------------------------------------------------------------------------
+scwin.ondataload = function () {
+  if (scwin.isExecuted) return;
+  if (dlt_gauceUtil_lc_wrkLobranCd.getTotalRow() == 0) {
+    setTimeout(scwin.ondataload, 100);
+    return;
+  }
+  scwin.isExecuted = true; //
+
+  dma_carCls.set("fltrCd1", scwin.wrkLobranCdv);
+  lc_wrkLobranCd.setValue(scwin.wrkLobranCdv);
+  $c.sbm.execute($p, sbm_carCls);
+};
+scwin.dataloadCompleted = async function () {};
+
+//-------------------------------------------------------------------------
+// 부서 변경시
+//-------------------------------------------------------------------------
+scwin.lc_wrkLobranCd_Change = function (info) {
+  scwin.flag = 1;
+  dma_carCls.set("fltrCd1", lc_wrkLobranCd.getValue());
+  $c.sbm.execute($p, sbm_carCls);
+
+  // $c.sbm.execute(sbm_cargoCls);
+};
+
+//-------------------------------------------------------------------------
+// 차량구분 기본값 파라미터로 세팅
+//-------------------------------------------------------------------------
+scwin.sbm_carCls_done = function (e) {
+  //화면로딩시 차량구분 세팅
+  lc_carCls.setValue(scwin.carCls);
+  dma_condition.set("carCls", scwin.carCls);
+  let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+  scwin.cargoSet();
+};
+scwin.cargoSet = function () {
+  //화물운행현황-차량구분(OP148)
+  let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+  $c.sbm.execute($p, sbm_cargoCls);
+};
+
+//-------------------------------------------------------------------------
+// 화물구분 기본값 파라미터로 세팅
+//-------------------------------------------------------------------------
+scwin.sbm_cargo_Done = function (e) {
+  // 화물구분 세팅
+  acb_cargoClsCd.setValue(scwin.cargoClsCd);
+  dma_condition.set("cargoClsCd", scwin.cargoClsCd);
+  let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+
+  // lc_wrkLobranCd.setValue(scwin.wrkLobranCdv);
+  scwin.wrkLobranSet();
+};
+scwin.wrkLobranSet = function () {
+  scwin.count++;
+  // lc_wrkLobranCd.setValue(scwin.wrkLobranCdv);
+  // 점소 세팅
+  // lc_wrkLobranCd.setValue(scwin.wrkLobranCdv);
+
+  let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+  dma_condition.set("wrkLobranCd", lc_wrkLobranCd.getValue());
+  if (scwin.flag == 0) {
+    scwin.btn_retrieve_onClick();
+  } else {
+    scwin.flag = 0;
+  }
+};
+
+// scwin.carClsSet = async function() {
+//     // //차량운행현황-차량구분(OP148)
+//     dma_carCls.set("fltrCd1", lc_wrkLobranCd.getValue());
+//     await $c.sbm.execute(sbm_carCls);
+
+//     let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+// }
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onClick = function (e) {
+  spa_totalRows.setValue("0");
+  dma_condition.set("wrkLobranCd", lc_wrkLobranCd.getValue());
+  dma_condition.set("carCls", lc_carCls.getValue());
+  dma_condition.set("cargoClsCd", acb_cargoClsCd.getValue());
+  dma_condition.set("clntNo", ed_clntNo.getValue());
+  $c.sbm.execute($p, sbm_results);
+  let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+};
+
+//-------------------------------------------------------------------------
+// 닫기
+//-------------------------------------------------------------------------
+scwin.btn_close_onClick = function (e) {
+  $c.win.closePopup($p);
+};
+
+//-------------------------------------------------------------------------
+// 행 추가
+//-------------------------------------------------------------------------
+scwin.f_addRow = function () {
+  let row = ds_results.insertRow();
+  gr_results.setFocusedCell(row, 4);
+  ds_results.setCellData(row, "wrkLobranCd", lc_wrkLobranCd.getValue()); // 점소코드
+  ds_results.setCellData(row, "carCls", lc_carCls.getValue()); // 차량구분
+  ds_results.setCellData(row, "cargoClsCd", acb_cargoClsCd.getValue()); // 화물구분
+  ds_results.setCellData(row, "clntNo", ed_clntNo.getValue()); // 거래처코드
+};
+
+//-------------------------------------------------------------------------
+// 행 추가
+//-------------------------------------------------------------------------
+scwin.f_DelRow = function () {
+  scwin.focus = gr_results.getFocusedRowIndex();
+  if (ds_results.getRowStatus(scwin.focus) == "R") {
+    ds_results.deleteRow(scwin.focus);
+    gr_results.setFocusedCell(scwin.focus, 4);
+    scwin.focus = "0";
+  } else if (ds_results.getRowStatus(scwin.focus) == "C") {
+    ds_results.removeRow(scwin.focus);
+  }
+};
+
+//-------------------------------------------------------------------------
+// function name : f_vehclSearch
+// function desc : 차량조회
+//-------------------------------------------------------------------------
+scwin.f_vehclSearch = async function (bCloseFlag) {
+  let pre_RowPosition = ds_results.getRowPosition();
+  bCloseFlag = bCloseFlag == null ? "T" : bCloseFlag;
+  var arrParam = new Array();
+  var lobranCd = lc_wrkLobranCd.getValue(); // 점소코드
+  var v_vehclShortCd = "";
+  v_vehclShortCd = ds_results.getCellData(ds_results.getRowPosition(), "vehclNo");
+  if (v_vehclShortCd.length >= 4) v_vehclShortCd = v_vehclShortCd.substring(v_vehclShortCd.length - 4, v_vehclShortCd.length);
+  var nowDate = WebSquare.date.getCurrentServerDate();
+  if (acb_cargoClsCd.getValue() == "C") {
+    arrParam[0] = new Array(lobranCd, "", "", acb_cargoClsCd.getValue(), nowDate, v_vehclShortCd, "", "", "GATEINOUT", "TR"); //검색조건
+
+    arrParam[1] = new Array("", bCloseFlag); //보세운송만료일자
+
+    var rtnList = new Array();
+    var pURL = "/ui/ds/op/wrkrslts/cywrkrslts/op_301_01_05p3.xml";
+
+    // 팝업 옵션 설정
+    let options = {
+      id: "taxPop",
+      // type: "broswerPopup",
+      popupName: "가용차량조회",
+      width: 1100,
+      height: 650
+    };
+    rtnList = await $c.win.openPopup($p, pURL, options, arrParam);
+    console.log(rtnList);
+    if (rtnList == null || rtnList[0][0] == null && rtnList[0] == "N/A") {
+      ds_results.setCellData(ds_results.getRowPosition(), "vehclNo", "");
+      return;
+    }
+    var firstList = new Array();
+    for (i = 0; i < rtnList.length; i++) {
+      firstList = rtnList[0];
+
+      //컨테이너는 트렉터만 배차 가능
+      if (firstList[12] != "TR" && acb_cargoClsCd.getValue() == "C") {
+        await $c.win.alert($p, "컨테이너는 트렉터만 배차 가능합니다. <br> 트렉터 차량을 선택하세요.");
+        ds_results.setCellData(ds_results.getRowPosition(), "vehclNo", "");
+        return;
+      }
+      ds_results.setCellData(ds_results.getRowPosition(), "eqCd", firstList[0]);
+      ds_results.setCellData(ds_results.getRowPosition(), "vehclNo", firstList[1]);
+    }
+  } else {
+    var pCode = ds_results.getCellData(ds_results.getRowPosition(), "vehclNo").replace(/\s*$/, "");
+    udc_grid_CommonPopup.cfCommonPopUp(scwin.grid_CommonPopup_CallBack // XML상의 SELECT ID
+    , pCode // 화면에서의 ??? Code Element의  Value
+    , "" // 화면에서의 ??? Name Element의  Value
+    , "T" // 결과가 1건 일때  원도우를  AutoClose 여부  (T:Close,F:Opened)
+    , null // 검색 결과  컬럼의 보여주는 개수 (SELECT절의 순서) MAX:10 - default (2)
+    , null // Title순서
+    , null // 보여주는 각 컬럼들의 폭
+    , "7,8,9,10" // 컬럼중에서 숨기는  컬럼 지정
+    , "," // SQL절의 WHERE절에  원하는 조건을 선택함 MAX:8개까지 가능
+    , null // POP-UP뛰을때 원도우의  사용자 정의 폭
+    , null // POP-UP뛰을때 우도우의  사용자 정의 높이
+    , null // 윈도우 위치 Y좌표
+    , null // 윈도우 위치 X좌표
+    , null // 중복체크여부 ("F")
+    , "T" // 전체검색허용여부 ("F")
+    , null // POP-UP Window Title 검색어1,2   ("Win타이틀,첫번검색Nm,두번?검색Nm")
+    );
+  }
+  return false;
+};
+scwin.grid_CommonPopup_CallBack = function (rtnList) {
+  if (rtnList != null && rtnList[0].trim() != "N/A") {
+    ds_results.setCellData(ds_results.getRowPosition(), "eqCd", rtnList[8]);
+    ds_results.setCellData(ds_results.getRowPosition(), "vehclNo", rtnList[2]);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.btn_save_onClick = async function (e) {
+  sbm_save.userData1 = "noError";
+  await $c.sbm.execute($p, sbm_save);
+};
+
+//-------------------------------------------------------------------------
+// 저장 완료시
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitDone = async function (e) {
+  try {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+      await $c.win.alert($p, e.responseJSON.resultDataSet[1].Msg);
+      // console.dir(e.responseJSON);
+      // asis에는 tr_save fail시 showError가 있으나 어느부분에 해당 문구를 셋 한건지는 확인 불가
+      // tobe는 에러 소스 찾아봐도 해당 문구는 존재하지않아 하드코딩으로 진행
+      // await $c.win.alert("  [ E R R O R ]   관리자에게 문의하십시오.");
+      return; //onFail
+    }
+    await $c.win.alert($p, "저장되었습니다.");
+    scwin.btn_retrieve_onClick();
+  } catch (e) {
+    console.log("sbm_saveAcctRecvBdebt_submitdone : " + e);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 차량 변경시
+//-------------------------------------------------------------------------
+scwin.lc_calCls_Change = function (info) {
+  scwin.btn_retrieve_onClick();
+};
+
+//-------------------------------------------------------------------------
+// 화물 변경시
+//-------------------------------------------------------------------------
+scwin.acb_cargoClsCd_Change = function (info) {
+  scwin.btn_retrieve_onClick();
+};
+
+//-------------------------------------------------------------------------
+// 데이터 로드 완료시
+//-------------------------------------------------------------------------
+scwin.ds_results_ondataload = function () {
+  let rowCnt = ds_results.getTotalRow();
+  if (rowCnt < 1) {
+    spa_totalRows.setValue("0");
+    $c.win.alert($p, MSG_CM_WRN_002);
+    return;
+  } else {
+    gr_results.setColumnReadOnly("vehclNo", false);
+    spa_totalRows.setValue(rowCnt);
+  }
+  gr_results.setFocusedCell(0, 4);
+  let row = dlt_gauceUtil_lc_wrkLobranCd.getTotalRow();
+};
+
+//-------------------------------------------------------------------------
+// 그리드 편집 모드 진입시 기존 값 체크 위함
+//-------------------------------------------------------------------------
+scwin.gr_result_BeforeEdit = function (rowIndex, columnIndex, value) {
+  scwin.oldData = value;
+};
+
+//-------------------------------------------------------------------------
+// 그리드 afterEdit
+//-------------------------------------------------------------------------
+scwin.gr_result_AfterEdit = function (rowIndex, columnIndex, value) {
+  let colid = gr_results.getColumnID(columnIndex);
+  if (colid == "vehclNo") {
+    if (value != scwin.oldData) {
+      scwin.f_vehclSearch("T");
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 차량번호 팝업 클릭시 
+//-------------------------------------------------------------------------
+scwin.gr_popUp = function () {
+  scwin.f_vehclSearch(true, "T");
+};
+scwin.gr_onClick = function (rowIndex, columnIndex, columnId) {
+  if (ds_results.getCellData(rowIndex, "wrkLobranNm") == "" || ds_results.getCellData(rowIndex, "wrkLobranNm") == null) {
+    gr_results.setColumnReadOnly("carCls", true);
+    gr_results.setColumnReadOnly("cargoClsCd", true);
+    gr_results.setColumnReadOnly("eqCd", true);
+    gr_results.setColumnReadOnly("vehclNo", false);
+  } else {
+    gr_results.setColumnReadOnly("carCls", true);
+    gr_results.setColumnReadOnly("cargoClsCd", true);
+    gr_results.setColumnReadOnly("eqCd", true);
+    gr_results.setColumnReadOnly("vehclNo", true);
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'',src:'/cm/udc/comCode.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'pop_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{id:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'점소 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_wrkLobranCd',style:'width: 150px;',submenuSize:'fixed','ev:onviewchange':'scwin.lc_wrkLobranCd_Change',visibleRowNum:'30',chooseOptionLabel:'전체',ref:''},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'차량구분 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_carCls',style:'width: 150px;',submenuSize:'fixed',ref:'','ev:onviewchange':'scwin.lc_calCls_Change',sortOption:'label'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:itemset',A:{nodeset:'data:ds_carCls'},E:[{T:1,N:'xf:label',A:{ref:'cdNm'}},{T:1,N:'xf:value',A:{ref:'cd'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:autoComplete',A:{class:' w150',editType:'select',id:'acb_cargoClsCd',search:'start',style:'',submenuSize:'auto',allOption:'',chooseOption:'true',ref:'','ev:onviewchange':'scwin.acb_cargoClsCd_Change',chooseOptionLabel:'전체'},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'컨테이너'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'C'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'벌크'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'B'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td',style:''},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'',codeId:'ed_clntNo',validTitle:'',nameId:'ed_clntNm',style:'width:%; height:px; ;visibility:hidden;',id:'udc_clnt'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:';visibility:hidden;',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:';visibility:hidden;',type:'button','ev:onclick':'scwin.btn_retrieve_onClick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:''},E:[{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox gvwfix',id:'',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_results',id:'gr_results',style:'',visibleRowNum:'10',visibleRowNumFix:'true',rowStatusVisible:'true','ev:onafteredit':'scwin.gr_result_AfterEdit','ev:onbeforeedit':'scwin.gr_result_BeforeEdit',columnMove:'true','ev:oncellclick':'scwin.gr_onClick',rowStatusWidth:'10'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',value:'id',width:'80',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'nm',width:'80',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'점소코드',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'점소코드',width:'100',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'차량구분',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',value:'화물구분',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',value:'장비코드',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',value:'차량번호',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column7',inputType:'text',value:'거래처번호',width:'120',hidden:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',value:'SEQ',width:'70',hidden:'true'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'identifyId',inputType:'text',width:'80',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'identifyNm',inputType:'text',width:'80',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkLobranCd',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'wrkLobranNm',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'carCls',inputType:'select',width:'100',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_carCls'},E:[{T:1,N:'w2:label',A:{ref:'cdNm'}},{T:1,N:'w2:value',A:{ref:'cd'}}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'cargoClsCd',inputType:'select',width:'100',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_cargoCls'},E:[{T:1,N:'w2:label',A:{ref:'cdNm'}},{T:1,N:'w2:value',A:{ref:'cd'}}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'eqCd',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vehclNo',inputType:'textImage',width:'100',imageClickFunction:'scwin.gr_popUp'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'seq',inputType:'text',width:'70',textAlign:'left'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',id:'spa_totalRows',label:'0',style:'',tagname:'span',dataType:'number',displayFormat:'#,##0'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'w2:udc_bottomGrdBtn',A:{style:'',btnCancelYn:'Y',btnDelYn:'N',btnRowAddYn:'Y',btnRowDelYn:'Y',gridID:'gr_results',id:'udc_grid_bottom',rowAddFunction:'scwin.f_addRow',rowDelFunction:'scwin.f_DelRow'}}]}]}]},{T:1,N:'w2:udc_comCode',A:{popupID:'',selectID:'retrieveUsableVehclNo_tpro',codeId:'',validTitle:'',nameId:'',style:'width:%; height:px; ;visibility:hidden;',id:'udc_grid_CommonPopup'}}]},{T:1,N:'xf:group',A:{class:'pop-btnbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_close',style:'',type:'button','ev:onclick':'scwin.btn_close_onClick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'닫기'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_save',style:'',type:'button','ev:onclick':'scwin.btn_save_onClick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'저장'}]}]}]}]}]}]}]})

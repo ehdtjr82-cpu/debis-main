@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_printType" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="bookKndCd" name="장부종류코드" dataType="text"></w2:column>
+    					<w2:column id="bookEchSeq" name="장부별순번" dataType="text"></w2:column>
+    					<w2:column id="acctCd" name="계정코드" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="계정명" dataType="text"></w2:column>
+    					<w2:column id="prtPosSeq" name="장부순서" dataType="text"></w2:column>
+    					<w2:column id="prtAcctNm" name="장부출력용계정명" dataType="text"></w2:column>
+    					<w2:column id="prtAcctEngNm" name="영문계정명" dataType="text"></w2:column>
+    					<w2:column id="leftRightClsCd" name="좌우구분" dataType="text"></w2:column>
+    					<w2:column id="acctColorCd" name="계정색" dataType="text"></w2:column>
+    					<w2:column id="prtYn" name="발행여부" dataType="text"></w2:column>
+    					<w2:column id="provAcctCd" name="충당금계정" dataType="text"></w2:column>
+    					<w2:column id="provAcctNm" name="충당금계정명" dataType="text"></w2:column>
+    					<w2:column id="subProvAcctCd" name="보조충당금계정" dataType="text"></w2:column>
+    					<w2:column id="subProvAcctNm" name="보조충당금계정명" dataType="text"></w2:column>
+    					<w2:column id="varFixedClsCd" name="변고정비구분" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="false"></w2:data>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_printType">
+    				<w2:keyInfo>
+    					<w2:key id="bookKndCd" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_commonCO015" saveRemovedData="true">
+    				<w2:columnInfo></w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_savePrintType" action="/ac.co.stdinfomgnt.SavePrintFormCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_printType","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_savePrintType_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_printType" action="/ac.co.stdinfomgnt.RetrievePrintFormListCMD.do" method="post"
+    			mediatype="application/json" ref="data:json,dma_printType" target='data:json,{"id":"ds_printType","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_printType_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="false" src="/ui/cm/fw/constants/DGlobalValue.js" scopeVariable="" type="text/javascript"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.isRetrieve = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    const codeOptions = [
+        { grpCd : "FI010", compID : "lc_bookKndCd"},
+        { grpCd : "FI023", compID : "gr_printType:leftRightClsCd" },
+        { grpCd : "CO020", compID : "gr_printType:acctColorCd" },
+        { grpCd : "CO015", compID : "gr_printType:varFixedClsCd" }]
+    $c.data.setCommonCode(codeOptions);
+};
+
+scwin.ondataload = function() { 
+    let newRow = dlt_commonCodeCO015.insertRow();
+
+    dlt_commonCodeCO015.setCellData(newRow, "cd", "3");
+    dlt_commonCodeCO015.setCellData(newRow, "cdNm", '기타');
+    dlt_commonCodeFI010.sort("cd",0);
+    lc_bookKndCd.setSelectedIndex(0);
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    //ds_printType.DataID = "/ac.co.stdinfomgnt.RetrievePrintFormListCMD.do?bookKndCd="+lc_bookKndCd.ValueOfIndex("code",lc_bookKndCd.Index);
+    dma_printType.set("bookKndCd", lc_bookKndCd.getValue());
+    $c.sbm.execute(sbm_printType);
+}
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    if(ds_printType.getModifiedIndex().length == 0) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_001, ["출력형태정보"]));
+        return;
+    }
+
+    let ret = await $c.gus.cfValidate([gr_printType]);
+    if (ret) {
+        if(await $c.win.confirm(MSG_CM_CRM_001) == true){
+            $c.sbm.execute(sbm_savePrintType);
+        }
+    }
+}
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_Add = async function () {
+    if(scwin.isRetrieve){
+        let newRow = ds_printType.insertRow();
+        let bookKndCd = ds_printType.getCellData(0,"bookKndCd");
+        let addBookKndCd = ds_printType.getCellData(ds_printType.getRowPosition(),"bookKndCd")
+        
+        //조회결과가 없을 경우
+        if(bookKndCd != ""){
+            addBookKndCd = bookKndCd;
+        } else {
+            addBookKndCd = lc_bookKndCd.getValue();
+        }
+        
+        ds_printType.setCellData(newRow, "bookKndCd", addBookKndCd);
+        ds_printType.setCellData(newRow, "leftRightClsCd", '1');
+        ds_printType.setCellData(newRow, "acctColorCd", '1');
+        ds_printType.setCellData(newRow, "prtYn", DGlobalValue.TRUE);
+        ds_printType.setCellData(newRow, "varFixedClsCd", '3');
+
+        gr_printType.setFocusedCell(newRow, 2);
+    }
+}
+
+//-------------------------------------------------------------------------
+// 행 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = function() {
+    let rowIdx = gr_printType.getAllFocusedRowIndex();
+    let colIndex = gr_printType.getFocusedColumnIndex();
+    let multiPosition = [];
+    for(let i = 0; i < rowIdx.length; i++){
+        let rowStatus = ds_printType.getRowStatus(rowIdx[i]);
+        if (rowStatus == "C") {
+            ds_printType.removeRow(rowIdx[i]);
+            for(let j = i; j < rowIdx.length; j++) {
+                rowIdx[j] = rowIdx[j]-1;
+            }
+        } else {
+            ds_printType.deleteRow(rowIdx[i]);
+            multiPosition.push({row:rowIdx[i], col:colIndex});
+        }
+    }
+    if(multiPosition.length != 0){
+        gr_printType.setMultiFocus(multiPosition);
+    }
+};
+
+//취소
+scwin.f_Cancel = function() {
+    let rows = gr_printType.getAllFocusedRowIndex();
+    let focusedIndex = gr_printType.getAllFocusedIndex();
+
+    rows.sort(function(a, b) { return a - b; });
+
+    for(let i = rows.length-1; i >= 0; i--){
+        $c.data.undoRow(ds_printType, rows[i]);
+
+    }
+    gr_printType.setMultiFocus(focusedIndex);
+}
+
+//-------------------------------------------------------------------------
+// 계정코드팝업
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function(row, colid, sFlag) {
+    let code = ds_printType.getCellData(row, colid);
+
+    switch (colid) {
+        case 'acctCd':
+            await udc_mgntAcctCdInfo.cfCommonPopUp(scwin.acctCd_callBackFunc, code, ds_printType.getCellData(row, "acctNm"), sFlag, null, null, null, null, null, "410", null, null, null);
+		    break;
+
+        case 'provAcctCd':
+            await udc_mgntAcctCdInfo.cfCommonPopUp(scwin.provAcctCd_callBackFunc, code, ds_printType.getCellData(row, "provAcctNm"), sFlag, null, null, null, null, null, "410", null, null, null);
+		    break;
+
+        case 'subProvAcctCd':
+            await udc_mgntAcctCdInfo.cfCommonPopUp(scwin.subProvAcctCd_callBackFunc, code, ds_printType.getCellData(row, "subProvAcctNm"), sFlag, null, null, null, null, null, "410", null, null, null);
+		    break;
+
+        default:
+            return;
+    }
+};
+
+scwin.acctCd_callBackFunc = async function(rtnList) {
+    let row = gr_printType.getFocusedRowIndex();
+    // SET
+        if (rtnList != null ) {
+            if (rtnList[0] == "N/A") return;		
+            ds_printType.setCellData(row, "acctCd", rtnList[0]);//계정코드
+            ds_printType.setCellData(row,"acctNm",rtnList[1]);	//계정명
+        } else {
+            ds_printType.setCellData(row,"acctCd","");	//계정코드
+            ds_printType.setCellData(row,"acctNm","");	//계정명
+        }
+};
+
+scwin.provAcctCd_callBackFunc = async function(rtnList) {
+    let row = gr_printType.getFocusedRowIndex();
+    // SET
+    if (rtnList != null ) {
+        if (rtnList[0] == "N/A") return;		
+        ds_printType.setCellData(row, "provAcctCd", rtnList[0]);//계정코드
+        ds_printType.setCellData(row,"provAcctNm",rtnList[1]);	//계정명
+    } else {
+        ds_printType.setCellData(row,"provAcctCd","");	//계정코드
+        ds_printType.setCellData(row,"provAcctNm","");	//계정명
+    }
+};
+
+scwin.subProvAcctCd_callBackFunc = async function(rtnList) {
+    let row = gr_printType.getFocusedRowIndex();
+    // SET
+    if (rtnList != null ) {
+        if (rtnList[0] == "N/A") return;		
+        ds_printType.setCellData(row, "subProvAcctCd", rtnList[0]);//계정코드
+        ds_printType.setCellData(row,"subProvAcctNm",rtnList[1]);	//계정명
+    } else {
+        ds_printType.setCellData(row,"subProvAcctCd","");	//계정코드
+        ds_printType.setCellData(row,"subProvAcctNm","");	//계정명
+    }
+};
+
+//-------------------------------------------------------------------------
+// 장부형식 자동생성 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUpAutoCreation = function() {
+    let options = {};   
+    options.id = "autoCreatePopup";
+    options.popupName  = "출력형식자동생성";
+    $c.win.openPopup("/ui/ac/co/stdinfomgnt/co_100_06_02p.xml",options, {});
+};
+
+//-------------------------------------------------------------------------						
+// 휴지통 처리						
+//-------------------------------------------------------------------------	
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tbl_search, null);
+};
+
+//-------------------------------------------							
+// 그리드 높이 늘리고 줄이기							
+//-------------------------------------------							
+scwin.f_grdHeiht = function (gridNm, size) {
+
+    let strHeight = gridNm.style.height;
+    let intHeight = parseInt(strHeight.replace("px", ""));
+    intHeight = intHeight + size;
+    if (intHeight > 0) {
+        gridNm.style.height = intHeight + "px";
+    }
+}
+
+//-------------------------------------------							
+// 그리드 데이터 엑셀로 다운							
+//-------------------------------------------	
+scwin.f_runExcel = async function() {
+    let totCnt = ds_printType.getRowCount();
+    let sheetTitle = "관리실적버전";
+
+    if (totCnt != 0) {
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (cfrm) {
+            $c.data.downloadGridViewExcel(gr_printType, { fileName: sheetTitle + ".xlsx", sheetName: sheetTitle });
+        }
+    } else {
+        await $c.win.alert(MSG_CM_WRN_002);
+    }
+};
+
+scwin.sbm_savePrintType_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        await $c.win.alert(MSG_CM_INF_001); // 성공적으로 저장하였습니다
+        ds_printType.reform();
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_printType_submitdone = async function (e) {
+    scwin.isRetrieve=true;
+    gr_printType.setFocusedCell(0, 2);
+    totalRows.setValue(ds_printType.getRowCount());
+
+    if (ds_printType.getRowCount() == 0) {
+        await $c.win.alert(MSG_CM_WRN_002);
+    }
+};
+
+scwin.gr_printType_ontextimageclick = function (rowIndex, columnIndex) {
+    let colId = gr_printType.getColumnID(columnIndex);
+    scwin.f_openPopUp(rowIndex,colId,"F") ;
+};
+
+
+scwin.gr_printType_onviewchange = function (info) {
+    let newData = info.newValue;
+    let oldData = info.oldValue;
+    let colId = info.colId;
+    let row = info.rowIndex;
+
+    if (colId == "provAcctCd" || colId == "subProvAcctCd" || colId == "acctCd") {
+        if (!$c.gus.cfIsNull(newData)) {
+            if (newData != oldData) { // 값이 변경되었을 때만 팝업 호출
+                scwin.f_openPopUp(row, colId, "T");
+            }
+        } else {
+            // 값이 비워졌을 때
+            ds_printType.setCellData(row, colId, "");
+            if (colId == "provAcctCd") {
+                ds_printType.setCellData(row, "provAcctNm", "");
+            } else if (colId == "subProvAcctCd") {
+                ds_printType.setCellData(row, "subProvAcctNm", "");
+            } else if (colId == "acctCd") {
+                ds_printType.setCellData(row, "acctNm", "");
+            }
+        }
+    }
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    <xf:group id="" class="round-box"><xf:group style="" id="" class="shbox">
+    		<xf:group style="" id="" class="shbox-inner">
+    			<xf:group tagname="table" style="" id="tbl_search" class="w2tb tb">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="colgroup">
+    					<xf:group tagname="col" style="width:70px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    					<xf:group tagname="col" style="width:80px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    					<xf:group tagname="col" style="width:80px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    					<xf:group tagname="col" style="width:80px;"></xf:group>
+    					<xf:group tagname="col" style=""></xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" id="">
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox style="" id="" label="장부종류" class=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes>
+    							<w2:colspan>7</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+    						<xf:select1 ref="data:dma_printType.bookKndCd" submenuSize="auto" appearance="minimal" disabledClass="w2selectbox_disabled" chooseOption="" disabled="false" style="width: 200px;" allOption="" id="lc_bookKndCd" renderType="" class="form-control col2" direction="auto" displayMode="value delim label" title="장부종류" visibleRowNum="25">
+    							<xf:choices></xf:choices>
+    						</xf:select1>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" id="" class="btn-shbox">
+    			<xf:trigger style="" id="" type="button" class="btn ico refresh" ev:onclick="scwin.f_FieldClear">
+    				<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    			</xf:trigger>
+    			<xf:trigger disabled="" style="" id="btn_search" type="button" class="btn sch" escape="false" ev:onclick="scwin.f_Retrieve" userAuth="R">
+    				<xf:label><![CDATA[조회]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    	</xf:group><xf:group style="" id="" class="title-wrap">
+    			<xf:group id="" class="title">
+    				<w2:textbox tagname="h3" style="" id="" label="출력행 등록현황" class="tit"></w2:textbox>
+    			</xf:group>
+    			<xf:group style="" id="" class="right">
+    				<w2:udc_topGrdBtn gridUpYn="N" grp="grd_section1" style="" gridID="gr_printType" id="udc_topGrd" gridDownFn="scwin.f_runExcel" gridDownUserAuth="X" btnUser="Y"></w2:udc_topGrdBtn>
+    			</xf:group>
+    		</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    				<w2:gridView scrollByColumnAdaptive="false" editModeEvent="onclick"
+    					validExp="acctCd:계정코드:yes:maxLength=7,prtPosSeq:장부순서:yes:maxLength=7:key,prtAcctNm:장부출력용 계정명:yes:maxLength=50,leftRightClsCd:좌우구분:yes:maxLength=1,acctColorCd:계정색:yes:maxLength=1"
+    					scrollByColumn="false" validFeatures="ignoreStatus=yes" checkReadOnlyOnPasteEnable="" focusMode="cell" visibleRowNumFix="true"
+    					dataList="data:ds_printType"  style="" columnMove="true" autoFit="allColumn" id="gr_printType" visibleRowNum="13"
+    					class="wq_gvw" ev:ontextimageclick="scwin.gr_printType_ontextimageclick" ev:onviewchange="scwin.gr_printType_onviewchange"
+    					rowStatusVisible="true" rowStatusWidth="30" dataDragSelectAutoScroll="false">
+    					<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    					<w2:header style="" id="header2">
+    						<w2:row style="" id="row3">
+    							<w2:column width="100" inputType="text" id="bookKndCd" value="장부종류코드" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="bookEchSeq" value="장부별순번" displayMode="label"></w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" id="acctCd" value="계정코드" class="txt-red"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="150" inputType="text" id="acctNm" value="계정명"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" id="prtPosSeq" value="장부순서"
+    								class="txt-red" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="200" inputType="text" id="prtAcctNm" value="장부출력용 계정명"
+    								class="txt-red" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="150" inputType="text" id="prtAcctEngNm" value="영문계정명"
+    								class="txt-blue" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" id="leftRightClsCd" value="좌우구분"
+    								class="txt-red" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="80" inputType="text" id="acctColorCd" value="계정색"
+    								class="txt-red" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" id="prtYn" value="발행여부" class="txt-blue"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" id="provAcctCd" value="충당금계정"
+    								class="txt-blue" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="120" inputType="text" id="provAcctNm" value="충당금계정명"
+    								blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" id="subProvAcctCd" value="보조충당금계정" class="txt-blue"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="200" inputType="text" id="subProvAcctNm" value="보조충당금 계정명" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="varFixedClsCd" value="변고정비구분" class="txt-blue"
+    								displayMode="label">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody style="" id="gBody2">
+    						<w2:row style="" id="row4">
+    							<w2:column width="100" inputType="text" id="bookKndCd" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="bookEchSeq" displayMode="label" hidden="true"></w2:column>
+    							<w2:column editModeEvent="onclick" removeBorderStyle="false" width="100" viewType="default"
+    								inputType="textImage" id="acctCd" allowChar="0-9" blockSelect="false" displayMode="label" maxLength="7"
+    								editModeEventIcon="onclick" mandatory="true">
+    							</w2:column>
+    							<w2:column textAlign="left" removeBorderStyle="false" width="150" inputType="text" readOnly="true"
+    								id="acctNm" blockSelect="false" displayMode="label">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="text" id="prtPosSeq" allowChar="0-9"
+    								blockSelect="false" displayMode="label" maxLength="7" mandatory="true">
+    							</w2:column>
+    							<w2:column textAlign="left" removeBorderStyle="false" width="200" inputType="text" id="prtAcctNm"
+    								blockSelect="false" displayMode="label" maxLength="50" mandatory="true" class="ws-pre">
+    							</w2:column>
+    							<w2:column textAlign="left" removeBorderStyle="false" width="150" inputType="text" id="prtAcctEngNm"
+    								blockSelect="false" displayMode="label" maxLength="100">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="select" id="leftRightClsCd" blockSelect="false"
+    								displayMode="label" mandatory="true">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="80" inputType="select" id="acctColorCd" blockSelect="false"
+    								displayMode="label" mandatory="true">
+    							</w2:column>
+    							<w2:column removeBorderStyle="false" width="100" inputType="checkbox" id="prtYn" blockSelect="false"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column editModeEvent="onclick" removeBorderStyle="false" width="100" viewType="default"
+    								inputType="textImage" id="provAcctCd" allowChar="0-9" blockSelect="false" displayMode="label" editModeEventIcon="onclick"
+    								maxLength="7">
+    							</w2:column>
+    							<w2:column textAlign="left" removeBorderStyle="false" width="120" inputType="text" readOnly="true"
+    								id="provAcctNm" blockSelect="false" displayMode="label" maxLength="8">
+    							</w2:column>
+    							<w2:column editModeEvent="onclick" width="120" viewType="default" inputType="textImage" id="subProvAcctCd"
+    								allowChar="0-9" displayMode="label" maxLength="7" editModeEventIcon="onclick">
+    							</w2:column>
+    							<w2:column textAlign="left" width="200" inputType="text" readOnly="true" id="subProvAcctNm"
+    								displayMode="label" maxLength="8">
+    							</w2:column>
+    							<w2:column width="120" inputType="select" id="varFixedClsCd" displayMode="label">
+    								<w2:choices></w2:choices>
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group style="" id="" class="grid-bottom ">
+    				<xf:group id="" class="left">
+    					<xf:group id="" class="grid-total">
+    						<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    						<w2:textbox tagname="span" style="" id="totalRows" label="0" class="num" dataType="number" displayFormat="#,##0"></w2:textbox>
+    						<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group style="" id="" class="right">
+    					<w2:udc_bottomGrdBtn addFunction="scwin.f_Add" btnCancelYn="Y" style="" gridID="gr_printType" id="udc_bottomGrdBtn1" rowDelUserAuth="D" btnDelYn="N" rowAddUserAuth="C" rowAddFunction="scwin.f_Add" rowDelFunction="scwin.f_Delete" cancelFunction="scwin.f_Cancel">
+    					</w2:udc_bottomGrdBtn>
+    				</xf:group>
+    			</xf:group></xf:group><xf:group style="" id="" class="btnbox">
+    		<xf:group id="" class="right">
+    			<w2:udc_comCode popupID="" selectID="retrieveMgntAcctCdInfo" codeId="ed_mgntAcctCd" validTitle="" nameId="ed_mgntAcctNm" style="width:%; height:px; ;visibility:hidden;" btnId="btn_mgntAcct" id="udc_mgntAcctCdInfo"></w2:udc_comCode><xf:trigger userAuth="C" ev:onclick="scwin.f_PopUpAutoCreation" style="" id="btn_edit" label="저장" type="button"
+    				class="btn white">
+    				<xf:label>자동생성</xf:label>
+    			</xf:trigger>
+    			<xf:trigger userAuth="U" ev:onclick="scwin.f_Save" style="" id="btn_save" label="저장" type="button" class="btn">
+    				<xf:label>저장</xf:label>
+    			</xf:trigger>
+    			
+    		</xf:group>
+</xf:group></xf:group></body>
+</html>

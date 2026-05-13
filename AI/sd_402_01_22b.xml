@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_cndInfo">
+                <w2:keyInfo>
+                    <w2:key id="lineCd" name="LINE코드" dataType="text"></w2:key>
+                    <w2:key id="bookingNo" name="BOOKING번호" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_bookingInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="lineCd" name="라인코드" dataType="text"></w2:column>
+                    <w2:column id="lineNm" name="라인코드명" dataType="text"></w2:column>
+                    <w2:column id="bookingNo" name="booking번호" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="선박코드명" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="shippingPortCd" name="선적항구코드" dataType="text"></w2:column>
+                    <w2:column id="shippingPortNm" name="선적항구코드명" dataType="text"></w2:column>
+                    <w2:column id="closeDt" name="마감일자" dataType="text"></w2:column>
+                    <w2:column id="closeHh" name="마감시간" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlNm" name="출발작업장명" dataType="text"></w2:column>
+                    <w2:column id="startPointStnClsCd" name="출발지역코드" dataType="text"></w2:column>
+                    <w2:column id="doorWrkPlNm" name="Door작업장명" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착작업장명" dataType="text"></w2:column>
+                    <w2:column id="destPortCd" name="목적항코드" dataType="text"></w2:column>
+                    <w2:column id="alloccarReqDt" name="배차요청일자" dataType="text"></w2:column>
+                    <w2:column id="alloccarReqHh" name="배차요청시간" dataType="text"></w2:column>
+                    <w2:column id="pickupdt" name="Pickup일자" dataType="text"></w2:column>
+                    <w2:column id="pickuphh" name="Pickup시간" dataType="text"></w2:column>
+                    <w2:column id="doorPicNm" name="Door담당자" dataType="text"></w2:column>
+                    <w2:column id="doorPicTelNo" name="Door담당자전화번호" dataType="text"></w2:column>
+                    <w2:column id="shpCoPicNm" name="선사담당자" dataType="text"></w2:column>
+                    <w2:column id="reqMchtNm" name="요청화주" dataType="text"></w2:column>
+                    <w2:column id="reqPicNm" name="요청담당자" dataType="text"></w2:column>
+                    <w2:column id="reqPicTelNo" name="요청담당자전화번호" dataType="text"></w2:column>
+                    <w2:column id="bilgMchtNm" name="청구화주" dataType="text"></w2:column>
+                    <w2:column id="bilgPicNm" name="청구담당자" dataType="text"></w2:column>
+                    <w2:column id="bilgPicTelNo" name="청구담당자전화번호" dataType="text"></w2:column>
+                    <w2:column id="transShapeCd" name="운송형태" dataType="text"></w2:column>
+                    <w2:column id="selfYn" name="자가구분" dataType="text"></w2:column>
+                    <w2:column id="transCoNm" name="운송업체" dataType="text"></w2:column>
+                    <w2:column id="transCoPicNm" name="운송업체담당자" dataType="text"></w2:column>
+                    <w2:column id="transCoTelNo" name="운송업체담당자전화번호" dataType="text"></w2:column>
+                    <w2:column id="rcvDt" name="수신일자" dataType="text"></w2:column>
+                    <w2:column id="rcvHh" name="수신시간" dataType="text"></w2:column>
+                    <w2:column id="confirmPicNm" name="확인담당자" dataType="text"></w2:column>
+                    <w2:column id="confirmDt" name="확인일자" dataType="text"></w2:column>
+                    <w2:column id="confirmHh" name="확인시간" dataType="text"></w2:column>
+                    <w2:column id="mcomOdrNo" name="당사오더번호" dataType="text"></w2:column>
+                    <w2:column id="rmk" name="비고" dataType="text"></w2:column>
+                    <w2:column id="hlcClsNm" name="HLC반입반출" dataType="text"></w2:column>
+                    <w2:column id="hlcCntrNo" name="HLC컨테이너번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_commInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="commNm" name="품명" dataType="text"></w2:column>
+                    <w2:column id="cntrSizCd" name="SIZE" dataType="text"></w2:column>
+                    <w2:column id="cntrTypCd" name="TYPE" dataType="text"></w2:column>
+                    <w2:column id="qty" name="수량" dataType="text"></w2:column>
+                    <w2:column id="wt" name="중량" dataType="text"></w2:column>
+                    <w2:column id="cbm" name="CBM" dataType="text"></w2:column>
+                    <w2:column id="temper" name="온도" dataType="text"></w2:column>
+                    <w2:column id="overLength" name="OVER LENGTH" dataType="text"></w2:column>
+                    <w2:column id="overHeight" name="OVER HEIGHT" dataType="text"></w2:column>
+                    <w2:column id="overWidth" name="OVER WIDTH" dataType="text"></w2:column>
+                    <w2:column id="pickupdt" name="PICKUP일자" dataType="text"></w2:column>
+                    <w2:column id="expiredt" name="만료일자" dataType="text"></w2:column>
+                    <w2:column id="rcvId" name="Pickup지" dataType="text"></w2:column>
+                    <w2:column id="regDtm" name="등록일자" dataType="text"></w2:column>
+                    <w2:column id="modDtm" name="수정일자" dataType="text"></w2:column>
+                    <w2:column id="cntrPosnClsCd" name="컨테이너소유구분" dataType="text"></w2:column>
+                    <w2:column id="hlcClsNm" name="HLC반입반출" dataType="text"></w2:column>
+                    <w2:column id="hlcCntrNo" name="HLC컨테이너번호" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_cntrInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="cntrSizCd" name="컨테이너사이즈코드" dataType="text"></w2:column>
+                    <w2:column id="cntrTypCd" name="컨테이너타입코드" dataType="text"></w2:column>
+                    <w2:column id="qty" name="총수량" dataType="text"></w2:column>
+                    <w2:column id="gateQty" name="반출수량" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.sd.odrmgnt.odrreg.RetrieveBookingCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_cndInfo","key":"IN_DS1"},{"id":"ds_bookingInfo","key":"OUT_DS1"},{"id":"ds_commInfo","key":"OUT_DS2"},{"id":"ds_cntrInfo","key":"OUT_DS3"}]'
+            target='data:json,[{"id":"ds_bookingInfo","key":"OUT_DS1"},{"id":"ds_commInfo","key":"OUT_DS2"},{"id":"ds_cntrInfo","key":"OUT_DS3"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/ds.sd.odrmgnt.odrreg.ConfirmBookingCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_bookingInfo","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.lineCd = "";
+        scwin.lineNm = "";
+        scwin.bookingNo = "";
+
+        scwin.ODR_KND_CD_EXP_GNRL_CNTR_ODR = "C4";
+        scwin.ODR_KND_CD_ON_HIRE_ODR = "C5";
+        scwin.ODR_KND_CD_OFF_HIRE_ODR = "C6";
+        scwin.ODR_KND_CD_EMPTY_POSITION_ODR = "C7";
+
+        scwin.onpageload = function() {
+            scwin.params = $c.data.getParameter();
+            if (scwin.params != null) {
+                scwin.lineCd = scwin.params["lineCd"] || "";
+                scwin.lineNm = scwin.params["lineNm"] || "";
+                scwin.bookingNo = scwin.params["bookingNo"] || "";
+            }
+        };
+
+        scwin.onUdcCompleted = function() {
+            scwin.f_FieldClear();
+
+            ed_cndLineCd.setValue(scwin.lineCd);
+            txt_cndLineNm.setValue(scwin.lineNm);
+            ed_cndBookingNo.setValue(scwin.bookingNo);
+
+            if (ed_cndLineCd.getValue().trim() != "" && ed_cndBookingNo.getValue().trim() != "") {
+                scwin.f_Retrieve();
+            }
+
+            $c.gus.cfDisableObjects([tbl_infoArea]);
+            $c.gus.cfEnableObjects([txt_sizeTypeInfo]);
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects([tbl_cndArea]);
+            ed_cndLineCd.setFocus();
+            $c.gus.cfDisableBtnOnly([btn_confirm]);
+            $c.gus.cfDisableObjects([btn_linkC4, btn_linkC5, btn_linkC6, btn_linkC7]);
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (await $c.gus.cfValidate([tbl_cndArea])) {
+                await $c.sbm.execute(sbm_retrieve);
+            }
+        };
+
+        scwin.f_Confirm = async function() {
+            if (ds_bookingInfo.getRowCount() > 0 && ds_bookingInfo.getRowStatus(0) != "C") {
+                await $c.sbm.execute(sbm_save);
+            }
+        };
+
+        scwin.f_ChkOpenCommonPopUp = function(inObj, pairObj, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+            $c.gus.cfClearPairObj(pairObj);
+            let pVal = $c.gus.cfGetValue(inObj);
+            if (isCode == null || isCode == true) {
+                scwin.f_OpenCommonPopUp(pVal, '', 'T', 'T');
+            } else {
+                scwin.f_OpenCommonPopUp('', pVal, 'T', 'T');
+            }
+        };
+
+        scwin.f_OpenCommonPopUp = function(pCode, pName, pClose, pAllSearch) {
+            let rtnList;
+            rtnList = $c.gus.cfCommonPopUp('retrieveLineInfoList'
+                            , pCode
+                            , pName
+                            , pClose
+                            , null
+                            , null
+                            , null
+                            , null
+                            , null
+                            , null
+                            , null
+                            , null
+                            , null
+                            , null
+                            , pAllSearch
+                            , "Line,Line코드,Line명"
+                            );
+            $c.gus.cfSetReturnValue(rtnList, ed_cndLineCd, txt_cndLineNm);
+        };
+
+        scwin.f_CntrOrderLink = function(odrKndCd) {
+            let row = ds_bookingInfo.getRowPosition();
+            if (row < 0) return;
+            let param = {
+                odrKndCd: odrKndCd,
+                lineCd: ds_bookingInfo.getCellData(row, "lineCd"),
+                bookingNo: ds_bookingInfo.getCellData(row, "bookingNo"),
+                odrNo: ds_bookingInfo.getCellData(row, "mcomOdrNo"),
+                pickupdt: ds_bookingInfo.getCellData(row, "pickupdt"),
+                pickuphh: ds_bookingInfo.getCellData(row, "pickuphh"),
+                linkPage: "bookingNo",
+                type: "create"
+            };
+            $c.win.openMenu("컨테이너오더", "/ui/ds/sd/odrmgnt/odrreg/sd_402_01_11t.xml", "sd_402_01_11t.xml", param);
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.btn_confirm_onclick = function(e) {
+            scwin.f_Confirm();
+        };
+
+        scwin.btn_linkC4_onclick = function(e) {
+            scwin.f_CntrOrderLink(scwin.ODR_KND_CD_EXP_GNRL_CNTR_ODR);
+        };
+
+        scwin.btn_linkC5_onclick = function(e) {
+            scwin.f_CntrOrderLink(scwin.ODR_KND_CD_ON_HIRE_ODR);
+        };
+
+        scwin.btn_linkC6_onclick = function(e) {
+            scwin.f_CntrOrderLink(scwin.ODR_KND_CD_OFF_HIRE_ODR);
+        };
+
+        scwin.btn_linkC7_onclick = function(e) {
+            scwin.f_CntrOrderLink(scwin.ODR_KND_CD_EMPTY_POSITION_ODR);
+        };
+
+        scwin.sbm_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            if (ds_bookingInfo.getRowCount() > 0) {
+                if (ds_bookingInfo.getCellData(0, "confirmPicNm") == ""
+                    && ds_bookingInfo.getCellData(0, "confirmDt") == ""
+                    && ds_bookingInfo.getCellData(0, "confirmHh") == ""
+                ) {
+                    $c.gus.cfEnableBtnOnly([btn_confirm]);
+                } else {
+                    $c.gus.cfDisableBtnOnly([btn_confirm]);
+                }
+
+                let mcomOdrNo = ds_bookingInfo.getCellData(0, "mcomOdrNo");
+                if (!$c.gus.cfIsNull(mcomOdrNo)) {
+                    let odrKndCd = mcomOdrNo.substring(1, 3);
+
+                    if (odrKndCd == scwin.ODR_KND_CD_EXP_GNRL_CNTR_ODR) {
+                        $c.gus.cfEnableObjects([btn_linkC4]);
+                        $c.gus.cfDisableObjects([btn_linkC5, btn_linkC6, btn_linkC7]);
+                    } else if (odrKndCd == scwin.ODR_KND_CD_ON_HIRE_ODR) {
+                        $c.gus.cfEnableObjects([btn_linkC5]);
+                        $c.gus.cfDisableObjects([btn_linkC4, btn_linkC6, btn_linkC7]);
+                    } else if (odrKndCd == scwin.ODR_KND_CD_OFF_HIRE_ODR) {
+                        $c.gus.cfEnableObjects([btn_linkC6]);
+                        $c.gus.cfDisableObjects([btn_linkC4, btn_linkC5, btn_linkC7]);
+                    } else if (odrKndCd == scwin.ODR_KND_CD_EMPTY_POSITION_ODR) {
+                        $c.gus.cfEnableObjects([btn_linkC7]);
+                        $c.gus.cfDisableObjects([btn_linkC4, btn_linkC5, btn_linkC6]);
+                    }
+                } else {
+                    $c.gus.cfEnableObjects([btn_linkC4, btn_linkC5, btn_linkC6, btn_linkC7]);
+                }
+
+                if (ds_cntrInfo.getRowCount() > 0) {
+                    let txt = "";
+                    for (let i = 0; i < ds_cntrInfo.getRowCount(); i++) {
+                        txt += "SIZE/TYPE: " + (ds_cntrInfo.getCellData(i, "cntrSizCd") + " " + ds_cntrInfo.getCellData(i, "cntrTypCd"))
+                            + ", 총 수량: " + ds_cntrInfo.getCellData(i, "qty") + "대"
+                            + ", 반출수량: " + ds_cntrInfo.getCellData(i, "gateQty") + "대"
+                            + ", 잔량: " + (parseInt(ds_cntrInfo.getCellData(i, "qty")) - parseInt(ds_cntrInfo.getCellData(i, "gateQty"))) + "대";
+                        if (i != ds_cntrInfo.getRowCount() - 1) txt += "\n";
+                    }
+                    txt_sizeTypeInfo.setValue(txt);
+                } else {
+                    txt_sizeTypeInfo.setValue("");
+                }
+            } else {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_003, ["조회결과"]);
+                scwin.f_FieldClear();
+            }
+
+            $c.gus.cfShowTotalRows(totalRows, ds_commInfo.getRowCount());
+        };
+
+        scwin.sbm_save_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_save_submitdone = function(e) {
+            ed_cndLineCd.setValue(txt_lineCd.getValue());
+            txt_cndLineNm.setValue(txt_lineNm.getValue());
+            ed_cndBookingNo.setValue(txt_bookingNo.getValue());
+            scwin.f_Retrieve();
+        };
+
+        scwin.ed_cndLineCd_onblur = function(e) {
+            scwin.f_ChkOpenCommonPopUp(ed_cndLineCd, txt_cndLineNm);
+        };
+
+        scwin.ed_cndBookingNo_onkeyup = function(e) {
+            ed_cndBookingNo.setValue(ed_cndBookingNo.getValue().toUpperCase());
+            $c.gus.cf_ValidateMaxByteLengthEmEdit(ed_cndBookingNo, 20, e.keyCode);
+        };
+
+        scwin.ed_cndBookingNo_onkeydown = function(e) {
+            $c.gus.cf_ValidateMaxByteLengthEmEdit(ed_cndBookingNo, 20, e.keyCode);
+        };
+    ]]></script>
+
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="flex_gvw" id="">
+    			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    			<xf:group class="content" id="" style="">
+    				<xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group   class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:40px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th"><w2:textbox class="req" id="" label="Line " style=""></w2:textbox></xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode id="udc_cndLine" codeId="ed_cndLineCd" nameId="txt_cndLineNm" popupID="" style=""></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="Booking번호" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<xf:input class="" id="ed_cndBookingNo" placeholder="" style="" ref="data:ds_cndInfo.bookingNo" mandatory="true"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="" style="" type="button">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" ev:onclick="scwin.btn_retrieve_onclick" style="" type="button">
+    							<xf:label><![CDATA[Search]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="round-box" id="" style="">
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group   class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:100px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:110px;" tagname="col"></xf:group>
+    								<xf:group tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="Line" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:group id="" class="form-group col5">
+    										<xf:input class=" w100" id="txt_lineCd" placeholder="" style="" ref="data:ds_bookingInfo.lineCd"></xf:input>
+    										<xf:input style="" id="txt_lineNm" placeholder="" class="" ref="data:ds_bookingInfo.lineNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="Booking번호" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input style="" id="txt_bookingNo" placeholder="" class="" ref="data:ds_bookingInfo.bookingNo"></xf:input>
+    										<xf:input class=" w100" id="txt_hlcClsNm" placeholder="" style="" ref="data:ds_bookingInfo.hlcClsNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="모선명" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class=" w100" id="txt_vsslCd" placeholder="" style="" ref="data:ds_bookingInfo.vsslCd"></xf:input>
+    										<xf:input class=" " id="txt_vsslNm" placeholder="" style="" ref="data:ds_bookingInfo.vsslNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="항차" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_portcnt" placeholder="" style="" ref="data:ds_bookingInfo.portcnt"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="선적항구" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class=" w100" id="txt_shippingPortCd" placeholder="" style="" ref="data:ds_bookingInfo.shippingPortCd"></xf:input>
+    										<xf:input class="" id="txt_shippingPortNm" placeholder="" style="" ref="data:ds_bookingInfo.shippingPortNm"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="Closing Time" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col4" id="" style="">
+    										<xf:input class=" w100" id="ed_closeDt" placeholder="" style="" ref="data:ds_bookingInfo.closeDt"></xf:input>
+    										<xf:input class="" id="ed_closeHh" placeholder="" style="" ref="data:ds_bookingInfo.closeHh"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="출발작업장/지역" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="" id="txt_dptWrkPlNm" placeholder="" style="" ref="data:ds_bookingInfo.dptWrkPlNm"></xf:input>
+    										<w2:textbox id="tbx_textbox1" label="/" style=""></w2:textbox>
+    										<xf:input class="   w70" id="txt_startPointStnClsCd" placeholder="" style="" ref="data:ds_bookingInfo.startPointStnClsCd"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="Door작업장" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_doorWrkPlNm" placeholder="" style="" ref="data:ds_bookingInfo.doorWrkPlNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th"><w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes><w2:textbox class="" id="" label="도착작업장/목적항" ref="" style="" userData2=""></w2:textbox></xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="   w70" id="txt_arvWrkPlNm" placeholder="" style="" ref="data:ds_bookingInfo.arvWrkPlNm"></xf:input>
+    										<xf:input class="" id="txt_destPortCd" placeholder="" style="" ref="data:ds_bookingInfo.destPortCd"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="배차요청일시" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="" id="ed_alloccarReqDt" placeholder="" style="" ref="data:ds_bookingInfo.alloccarReqDt"></xf:input>
+    										<xf:input class="   w70" id="ed_alloccarReqHh" placeholder="" style="" ref="data:ds_bookingInfo.alloccarReqHh"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="PICKUP일시" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="" id="ed_pickupdt" placeholder="" style="" ref="data:ds_bookingInfo.pickupdt"></xf:input>
+    										<xf:input class="   w70" id="ed_pickuphh" placeholder="" style="" ref="data:ds_bookingInfo.pickuphh"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="Door담당자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input style="" id="txt_doorPicNm" placeholder="" class="   w70" ref="data:ds_bookingInfo.doorPicNm"></xf:input>
+    										<xf:input class="" id="txt_doorPicTelNo" placeholder="" style="" ref="data:ds_bookingInfo.doorPicTelNo"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="선사담당자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_shpCoPicNm" placeholder="" style="" ref="data:ds_bookingInfo.shpCoPicNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="요청화주" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_reqMchtNm" placeholder="" style="" ref="data:ds_bookingInfo.reqMchtNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="요청담당자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="   w70" id="txt_reqPicNm" placeholder="" style="" ref="data:ds_bookingInfo.reqPicNm"></xf:input>
+    										<xf:input class="" id="txt_reqPicTelNo" placeholder="" style="" ref="data:ds_bookingInfo.reqPicTelNo"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="운송형태" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class=" col5" direction="auto"
+    										disabled="false" disabledClass="w2selectbox_disabled" id="lc_transShapeCd" ref="data:ds_bookingInfo.transShapeCd" renderType="" style="" submenuSize="auto">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="청구화주" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_bilgMchtNm" placeholder="" style="" ref="data:ds_bookingInfo.bilgMchtNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="청구담당자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="   w70" id="txt_bilgPicNm" placeholder="" style="" ref="data:ds_bookingInfo.bilgPicNm"></xf:input>
+    										<xf:input class="" id="txt_bilgPicTelNo" placeholder="" style="" ref="data:ds_bookingInfo.bilgPicTelNo"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="자가구분" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="  col5"
+    										direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_selfYn" ref="data:ds_bookingInfo.selfYn" renderType="" style=""
+    										submenuSize="auto">
+    										<xf:choices></xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="운송업체" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_transCoNm" placeholder="" style="" ref="data:ds_bookingInfo.transCoNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="운송업체담당자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="   w70" id="txt_transCoPicNm" placeholder="" style="" ref="data:ds_bookingInfo.transCoPicNm"></xf:input>
+    										<xf:input class="" id="txt_transCoTelNo" placeholder="" style="" ref="data:ds_bookingInfo.transCoTelNo"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="수신일시" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="" id="ed_rcvDt" placeholder="" style="" ref="data:ds_bookingInfo.rcvDt"></xf:input>
+    										<xf:input class="   w70" id="ed_rcvHh" placeholder="" style="" ref="data:ds_bookingInfo.rcvHh"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="담당자/확인일시" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group col5" id="" style="">
+    										<xf:input class="" id="txt_confirmPicNm" placeholder="" style="" ref="data:ds_bookingInfo.confirmPicNm"></xf:input>
+    										<xf:input class="   w70" id="ed_confirmDt" placeholder="" style="" ref="data:ds_bookingInfo.confirmDt"></xf:input>
+    										<xf:input class="   w70" id="ed_confirmHh" placeholder="" style="" ref="data:ds_bookingInfo.confirmHh"></xf:input>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="당사오더번호" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" col5" id="txt_mcomOdrNo" placeholder="" style="" ref="data:ds_bookingInfo.mcomOdrNo"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group tagname="th" class="w2tb_th ">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="특이사항" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes>
+    										<w2:colspan>3</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:textarea class="" id="ta_rmk" style="" ref="data:ds_bookingInfo.rmk"></xf:textarea>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									<w2:colspan>2</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+    								</xf:group>
+    							</xf:group><xf:group tagname="tr">
+	<xf:group tagname="th" class="w2tb_th ">
+		<w2:attributes>
+			<w2:scope>row</w2:scope>
+		</w2:attributes>
+		<w2:textbox class="" id="" label="수량" ref="" style="" userData2=""></w2:textbox>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td">
+		<w2:attributes></w2:attributes>
+		<xf:input class=" col5" id="txt_sizeTypeInfo" placeholder="" style=""></xf:input>
+	</xf:group>
+	<xf:group tagname="td" class="w2tb_td"><w2:attributes></w2:attributes></xf:group><xf:group tagname="td" class="w2tb_td"><w2:attributes><w2:colspan>3</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes></xf:group></xf:group></xf:group>
+    					</xf:group>
+    					<xf:group class="section row-gap-8" id="">
+    						<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="EDI오더요청상세 - 품명현황" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="grid-wrap" id="">
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="ds_commInfo" fixedColumn="0"
+    									focusMode="row" id="gr_commInfo" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="6"
+    									visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="commNm" inputType="text"
+    												removeBorderStyle="false" value="품명" width="150">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="cntrSizCd" inputType="text"
+    												removeBorderStyle="false" value="Size" width="150">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="cntrTypCd" inputType="text"
+    												removeBorderStyle="false" value="Type" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="qty" inputType="text"
+    												removeBorderStyle="false" value="수량" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wt" inputType="text" value="중량(KG) " width="120"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" style="" id="cbm" value="CBM"
+    												displayMode="label" class="">
+    											</w2:column>
+    											<w2:column displayMode="label" id="temper" inputType="text" value="온도" width="120"
+    												class="">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="false" id="overLength" inputType="text"
+    												value="OVER LENGTH" width="120" class="">
+    											</w2:column>
+    											<w2:column displayMode="label" hidden="false" id="overHeight" inputType="text"
+    												value="OVER HEIGHT" width="120" class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="overWidth" value="OVERWIDTH" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="pickupdt" value="PICKUP 일자" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="expiredt" value="만료일자" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="rcvId" value="Pickup지" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="regDtm" value="등록일자" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="modDtm" value="수정일자" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="cntrPosnClsCd" value="컨테이너소유구분" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="hlcClsNm" value="HLC 반입/반출" displayMode="label"
+    												class="">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="hlcCntrNo" value="HLC 컨테이너번호" displayMode="label"
+    												class="">
+    											</w2:column>
+
+    											<w2:column width="70" inputType="text" style="" id="column82" value=""
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column blockSelect="false" displayMode="label" id="commNm" inputType="text"
+    												removeBorderStyle="false" width="150">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="cntrSizCd" inputType="text"
+    												removeBorderStyle="false" width="150">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="cntrTypCd" inputType="text"
+    												removeBorderStyle="false" width="100">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="qty" inputType="text"
+    												removeBorderStyle="false" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wt" inputType="text" width="100"></w2:column>
+    											<w2:column width="120" inputType="text" style="" id="cbm" value=""
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column displayMode="label" id="temper" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="overLength" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="overHeight" inputType="text" width="100"></w2:column>
+    											<w2:column width="100" inputType="text" id="overWidth" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="pickupdt" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="expiredt" displayMode="label"></w2:column>
+    											<w2:column width="120" inputType="select" id="rcvId" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[의왕CY]]></w2:label>
+        <w2:value><![CDATA[DBEXC051]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[부강CY]]></w2:label>
+        <w2:value><![CDATA[DBEXC053]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[익산CY]]></w2:label>
+        <w2:value><![CDATA[DBEXC054]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[구미CY]]></w2:label>
+        <w2:value><![CDATA[DBEXC055]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[광주CY]]></w2:label>
+        <w2:value><![CDATA[DBEXC056]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="text" id="regDtm" displayMode="label"></w2:column>
+    											<w2:column width="100" inputType="text" id="modDtm" displayMode="label"></w2:column>
+    											<w2:column width="150" inputType="select" id="cntrPosnClsCd" displayMode="label" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[무관]]></w2:label>
+        <w2:value><![CDATA[0]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[리즈]]></w2:label>
+        <w2:value><![CDATA[1]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[선사]]></w2:label>
+        <w2:value><![CDATA[2]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    											<w2:column width="100" inputType="text" id="hlcClsNm" displayMode="label" readOnly="true"></w2:column>
+    											<w2:column width="150" inputType="text" id="hlcCntrNo" displayMode="label" readOnly="true"></w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column83" value=""
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="" label="0" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="left" id="" style="">
+    							<xf:group class="inner" id="">
+    								<w2:button class="btn link" id="btn_linkC4" label="C4 오더" style=""></w2:button>
+    								<w2:button class="btn link" id="btn_linkC5" label="C5 오더" style=""></w2:button>
+    								<w2:button class="btn link" id="btn_linkC6" label="C6 오더" style=""></w2:button>
+    								<w2:button class="btn link" id="btn_linkC7" label="C7 오더" style=""></w2:button>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="right" id="" style="">
+    							<w2:button class="btn" id="btn_confirm" ev:onclick="scwin.btn_confirm_onclick" label="확인" style=""></w2:button>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

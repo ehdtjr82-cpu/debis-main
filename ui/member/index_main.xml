@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataMap baseNode="map" id="dma_loginform">
+					<w2:keyInfo>
+						<w2:key id="user_id" name="name1" dataType="text"></w2:key>
+						<w2:key id="passwd" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[//wframe
+scwin.requestJson = function (url, params) {
+    return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        var payload = [];
+
+        Object.keys(params || {}).forEach(function (key) {
+            payload.push(encodeURIComponent(key) + "=" + encodeURIComponent(params[key] == null ? "" : params[key]));
+        });
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState !== 4) {
+                return;
+            }
+
+            if (xhr.status >= 200 && xhr.status < 300) {
+                try {
+                    resolve(JSON.parse(xhr.responseText || "{}"));
+                } catch (error) {
+                    reject(error);
+                }
+                return;
+            }
+
+            reject(new Error("HTTP " + xhr.status));
+        };
+
+        xhr.send(payload.join("&"));
+    });
+};
+
+// scwin.buildDirectUrl = function (url, paramData) {
+//     var path = url || "";
+//     var queryParts = [];
+//     var queryIndex = path.indexOf("?");
+//     var key = "";
+
+//     if (queryIndex > -1) {
+//         queryParts.push(path.substring(queryIndex + 1));
+//         path = path.substring(0, queryIndex);
+//     }
+
+//     Object.keys(paramData || {}).forEach(function (name) {
+//         var value = paramData[name];
+
+//         if (value == null || typeof value === "object" || typeof value === "function") {
+//             return;
+//         }
+
+//         key = encodeURIComponent(name) + "=" + encodeURIComponent(String(value));
+//         queryParts.push(key);
+//     });
+
+//     return "/websquare/websquare.html?w2xPath=" + encodeURIComponent(path) + (queryParts.length ? "&" + queryParts.join("&") : "");
+// };
+
+scwin.moveFrame = async function (url, paramData) {
+    $p.parent().wfm_wframe.setSrc(url);
+    $p.parent().wfm_wframe.setUserData("paramData", paramData);
+    
+    window.top.history.pushState(
+        {
+            url: url,
+            param : paramData || {}
+        },
+        "",
+        null
+    );
+
+    // window.open(scwin.buildDirectUrl(url, paramData || {}), "_self");
+};
+
+scwin.ensureComboDataList = function (dataListId) {
+    var dataList = $p.getComponentById(dataListId);
+
+    if (dataList) {
+        return dataList;
+    }
+
+    $p.data.create({
+        id: dataListId,
+        type: "dataList",
+        option: {
+            baseNode: "list",
+            repeatNode: "map"
+        },
+        columnInfo: [
+            { id: "label" },
+            { id: "value" }
+        ]
+    });
+    return $p.getComponentById(dataListId);
+};
+
+scwin.bindRadio = function (component, nodeSetId, list) {
+    var choices = (list || []).map(function (item) {
+        return {
+            label: scwin.safe(item.codeName),
+            value: scwin.safe(item.code)
+        };
+    });
+    var dataList = scwin.ensureComboDataList(nodeSetId);
+
+    dataList.setJSON(choices);
+    component.setNodeSet("data:" + nodeSetId, "label", "value");
+};
+
+scwin.safe = function (value) {
+    return value == null ? "" : String(value);
+};
+
+scwin.onpageload = async function () {
+    MBR_CLS_CD.setValue("01");
+    try {
+        var response = await scwin.requestJson("/MemberControl?cmd=indexInitJson", {});
+        if(response){}
+        if (response.defaultMbrClsCd) {
+            scwin.bindRadio(MBR_CLS_CD, "ds_mbr_list", response.memberTypes);
+            MBR_CLS_CD.setValue(response.defaultMbrClsCd);
+        }
+    } catch (error) {
+    }
+
+    //삭제필요
+    window.top.history.pushState(
+        {
+            url: "/ui/member/index_main.xml",
+        },
+        "",
+        null
+    );
+
+};
+
+scwin.f_reg = async function () {
+    try {
+        var response = await scwin.requestJson("/MemberControl?cmd=registerJson", {
+            MBR_CLS_CD: MBR_CLS_CD.getValue()
+        });
+
+        if (!response.success) {
+            await $c.win.alert(response.message || "회원구분을 선택하세요.");
+            return;
+        }
+
+        await scwin.moveFrame("/ui/member/member_agree.xml", response.params || {});
+    } catch (error) {
+        await $c.win.alert("회원가입 화면을 여는 중 오류가 발생했습니다.");
+    }
+};
+
+scwin.f_modify = async function () {
+    if (user_id.getValue() === "") {
+        await $c.win.alert("아이디를 입력하세요.");
+        return;
+    }
+
+    if (passwd.getValue() === "") {
+        await $c.win.alert("비밀번호를 입력하세요.");
+        return;
+    }
+
+    try {
+        var response = await scwin.requestJson("/MemberControl?cmd=mLoginJson", {
+            user_id: user_id.getValue(),
+            passwd: passwd.getValue()
+        });
+
+        if (!response.success) {
+            await $c.win.alert(response.message || "아이디 또는 비밀번호를 확인하세요.");
+            return;
+        }
+
+        await scwin.moveFrame("/ui/member/member_modify.xml", {});
+    } catch (error) {
+        await $c.win.alert("회원정보 수정 화면을 여는 중 오류가 발생했습니다.");
+    }
+};
+
+scwin.f_member_find = async function () {
+    await scwin.moveFrame("/ui/member/member_find.xml", {});
+};
+
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents nc_truck" id="" meta_componentContainer="true" style=""><xf:group class="round-box" id="grpCont">
+				<w2:textbox class="ncall-img" id="" label="" style=""></w2:textbox>
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="신규회원" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group class="tbbox" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:120px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group tagname="tr">
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+									<w2:colspan>2</w2:colspan>
+									<w2:rowspan>1</w2:rowspan>
+								</w2:attributes>
+								<xf:select1 appearance="full" class="" cols="" id="MBR_CLS_CD" ref="" renderType="radiogroup" rows=""
+									selectedIndex="-1" style="">
+									<xf:choices></xf:choices>
+								</xf:select1>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btnbox" id="" style="">
+					<xf:group class="right tac" id="" style="">
+						<xf:trigger class="btn" id="btn_reg" style="" type="button" ev:onclick="scwin.f_reg">
+							<xf:label><![CDATA[회원가입]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" class="row-gap-8">
+					<xf:group style="" id="" class="title-wrap">
+						<xf:group id="" class="title">
+							<w2:textbox tagname="h3" style="" id="" label="기존회원" class="tit"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group class="tbbox" id="" style="">
+						<xf:group class="w2tb" id="" style="" tagname="table">
+							<w2:attributes>
+								<w2:summary></w2:summary>
+							</w2:attributes>
+							<xf:group tagname="colgroup">
+								<xf:group style="width:120px;" tagname="col"></xf:group>
+								<xf:group style="" tagname="col"></xf:group>
+							</xf:group>
+							<xf:group style="" tagname="tr">
+								<xf:group class="w2tb_th" style="" tagname="th">
+									<w2:textbox class="" id="" label="아이디" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group class="w2tb_td" style="" tagname="td">
+									<xf:input class="" id="user_id" style="" ref="data:dma_loginform.user_id"></xf:input>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group class="w2tb_th" tagname="th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="패스워드" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group class="w2tb_td" tagname="td">
+									<w2:attributes></w2:attributes>
+									<xf:secret id="passwd" style="" ref="data:dma_loginform.passwd"></xf:secret>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group style="" id="" class="btnbox">
+						<xf:group style="" id="" class="right tac">
+							<xf:trigger style="" id="modify" type="button" class="btn" ev:onclick="scwin.f_modify">
+								<xf:label><![CDATA[정보수정하기]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn" id="member_find" style="" type="button" ev:onclick="scwin.f_member_find">
+								<xf:label><![CDATA[아이디 / 패스워드 찾기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,1068 @@
+/*amd /ui/tn/op/transwrkindict/cntr/tn_304_03_05b.xml 78356 9a4d3e6e0f0c48de71257da4518f8ccfd9d8b146a2f342c18738c150019235ce */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_result1',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'wrkPlCd',name:'작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'idCardNo',name:'ID카드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfYn',name:'자가여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cyCoYn',name:'CY업체여부',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_result',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'V',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPlCd',name:'작업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutIntendNo',name:'반출입예정번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'carryinoutClsCd',name:'구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutIntendHh',name:'반출입예정시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'impExpClsCd',name:'수입수출구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'arrvlportDtm',name:'입항일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclNo',name:'차량번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSeq',name:'SQ',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrNo',name:'번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrSizCd',name:'SIZ',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cntrTypCd',name:'TYP',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fullEmptyClsCd',name:'EF',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wt',name:'중량',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vehclIdCardNo',name:'차량ID카드번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blNo',name:'BL번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bookingNo',name:'Booking번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'lineCd',name:'LINE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'odrNo',name:'오더번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkPathSeq',name:'작업경로순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'wrkStpSeq',name:'작업단계순번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crryinoutIntendDt',name:'예정일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfTransCoClntNo',name:'자가운송사거래처',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cnclDtm',name:'취소일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cnclPicId',name:'취소담당자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'targetYn',name:'대상',dataType:'text'}},{T:1,N:'w2:column',A:{id:'completeYn',name:'상태',dataType:'text'}},{T:1,N:'w2:column',A:{id:'officeYn',name:'방문대상',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blckCd',name:'블럭',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bigo',name:'비고',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bilgClntNo',name:'청구거래처',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cyCoYn',name:'CY업체여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'selfClsCd',name:'자가',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',id:'ds_scanpasstime',repeatNode:'map',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_op318Info',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_cycopcoInfo',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col5',name:'name5',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'idCardNo',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vehclNo',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_vehclsearch'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'wrkPlCd',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'idCardNo',name:'name2',dataType:'text'}},{T:1,N:'w2:key',A:{id:'vehclNo',name:'name3',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_everlineInfo',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_inspCntrInfo',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_op411Info',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_retOnOff',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'col1',name:'name1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col2',name:'name2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col3',name:'name3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'col4',name:'name4',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_scanpasstime',action:'',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_scanpasstime","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_op318Info',action:'',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_op318Info","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_cycopcoInfo',action:'',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_cycopcoInfo","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_vehcl',action:'/ncall.tn.op.transwrkindict.cntr.RetrieveCyVehclNoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_vehclsearch","key":"IN_DS1"},{"id":"ds_result1","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_result1","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'scwin.sbm_vehcl_submitError','ev:submitdone':'scwin.sbm_vehcl_submitDone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_everlineInfo',action:'',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_everlineInfo","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_inspCntrInfo',action:'',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_inspCntrInfo","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_op411Info',action:'',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_op411Info","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ncall.tn.op.transwrkindict.cntr.SaveOnOffInfoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"action":"modified","id":"ds_result","key":"IN_DS1"},{"id":"ds_retOnOff","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_retOnOff","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitDone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/ncall.tn.op.transwrkindict.cntr.RetrieveOnOffVehclInfoCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_result","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitDone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//전역변수
+
+scwin.userClsCd;
+scwin.userLobranCd;
+scwin.wrkPlCd;
+scwin.sysCd = "";
+scwin.sysAdminYn;
+scwin.vWrkPlCd;
+scwin.memJson;
+scwin.v_checkScanTime = "0";
+scwin.v_cycheckScanTime = "0";
+scwin.v_congestCls = "0"; //혼잡도구분값
+scwin.ind_vehclNo = "";
+scwin.ind_blckCd = "";
+scwin.ind_onOffGubun = "";
+scwin.v_amSthm; //오전스캔가능시작시간(자가)
+scwin.v_amEdhm;
+scwin.v_fmSthm; //오후스캔가능시작시간(자가)
+scwin.v_fmEdhm;
+scwin.v_cyamSthm; //오전스캔가능시작시간(CY자가)
+scwin.v_cyamEdhm;
+scwin.v_cyfmSthm; //오후스캔가능시작시간(CY자가)
+scwin.v_cyfmEdhm;
+scwin.timeID2; //1분마다 화면 리프레쉬
+scwin.v_preVehcl = ""; //이전 차량번호
+scwin.wrkPlCd;
+scwin.stopEnter = false;
+scwin.display = "";
+scwin.pgrId;
+scwin.vTime;
+scwin.onpageload = async function () {
+  scwin.initSetting();
+  $c.win.sKeyInit($p, "singleKey", "Enter", "scwin.enter");
+  const codeOptions = [{
+    grpCd: "OP317",
+    compID: "acb_wrkPlCd"
+  } //결제상태 콤보에 공통코드셋팅처리. 
+  ];
+  await $c.data.setCommonCode($p, codeOptions, scwin.commonCodeCallBack);
+};
+scwin.enter = function () {
+  scwin.f_checkVehclNo();
+};
+scwin.commonCodeCallBack = function () {
+  if (scwin.userLobranCd == "4AA") {
+    acb_wrkPlCd.setSelectedIndex(0);
+  } else if (scwin.userLobranCd == "4BB") {
+    acb_wrkPlCd.setSelectedIndex(1);
+  } else if (scwin.userLobranCd == "5AA") {
+    acb_wrkPlCd.setSelectedIndex(2);
+  } else {
+    acb_wrkPlCd.setSelectedIndex(1);
+  }
+  ;
+  if (scwin.sysAdminYn == 1) {
+    $c.gus.cfEnableObj($p, acb_wrkPlCd, true);
+    acb_wrkPlCd.setValue(scwin.wrkPlCd);
+  } else {
+    $c.gus.cfEnableObj($p, acb_wrkPlCd, false);
+  }
+  //lc_wrkPlCd.index = 0;
+  ed_idCardNo.focus();
+  $c.gus.cfEnableObj($p, ed_vehclNo, false);
+  btn_apply.hide();
+  scwin.f_resetScanData();
+  gr_grd.hide();
+  scwin.setWframe();
+};
+scwin.ed_idCardNo_oneditkeyup = function (info, e) {
+  var oldv = info.newValue;
+  ed_idCardNo.setValue(oldv.toUpperCase());
+};
+scwin.btn_retrieve_onclick = function (e) {
+  scwin.f_checkVehclNo();
+};
+scwin.initSetting = function () {
+  scwin.memJson = $c.data.getMemInfo($p);
+  scwin.userClsCd = scwin.memJson.userClsCd;
+  scwin.userLobranCd = scwin.memJson.lobranCd;
+  scwin.sysAdminYn = scwin.memJson.sysAdminYn;
+  scwin.param = $c.data.getParameter($p);
+  scwin.wrkPlCd = scwin.param.wrkPlCd == null ? "" : scwin.param.wrkPlCd;
+  scwin.pgrId = $c.data.getParameter($p, "menuInfo").pgmId == null ? "tn_304_03_05b.jsp" : $c.data.getParameter($p, "menuInfo").pgmId;
+  if (scwin.userLobranCd == "4AA") {
+    //인천지사
+    scwin.vWrkPlCd = "4C01";
+    scwin.sysCd = "CYAUTO_PC_P";
+    msg1.hide();
+    msg2.show();
+    msg3.hide();
+  } else if (scwin.userLobranCd == "4BB") {
+    //경기지사
+    scwin.vWrkPlCd = "4C02";
+    scwin.sysCd = "CYAUTO_PC_P1";
+    msg1.show();
+    msg2.hide();
+    msg3.hide();
+  } else if (scwin.userLobranCd == "5AA") {
+    //전남지사
+    scwin.vWrkPlCd = "5C08";
+    scwin.sysCd = "CYAUTO_PC_P2";
+    msg1.hide();
+    msg2.hide();
+    msg3.show();
+  } else {
+    //queryString으로 넘어온 경우 세팅
+    scwin.vWrkPlCd = scwin.wrkPlCd;
+    msg1.hide();
+    msg2.hide();
+    msg3.show();
+    if (scwin.vWrkPlCd == "4C02") {
+      scwin.sysCd = "CYAUTO_PC_P";
+    } else if (scwin.vWrkPlCd == "4C01") {
+      scwin.sysCd = "CYAUTO_PC_P1";
+    } else if (scwin.vWrkPlCd == "5C08") {
+      scwin.sysCd = "CYAUTO_PC_P2";
+    }
+  }
+  ;
+};
+scwin.btn_apply_onclick = function (e) {
+  scwin.f_Save();
+};
+
+//-------------------------------------------------------------------------
+// 자가업체 차량스캔 가능 시간대 조회
+//-------------------------------------------------------------------------
+scwin.f_getJEscanInfo = async function () {
+  ds_scanpasstime.removeAll();
+  sbm_scanpasstime.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=NcallCommonEBC" + "&queryId=retrieveScanTimeJE" + "&param1=" + acb_wrkPlCd.getValue();
+  await $c.sbm.execute($p, sbm_scanpasstime);
+  if (!$c.gus.cfIsNull($p, ds_scanpasstime.getCellData(0, "col1"))) {
+    scwin.v_amSthm = ds_scanpasstime.getCellData(0, "col3");
+    scwin.v_amEdhm = ds_scanpasstime.getCellData(0, "col4");
+    scwin.v_fmSthm = ds_scanpasstime.getCellData(1, "col3");
+    scwin.v_fmEdhm = ds_scanpasstime.getCellData(1, "col4");
+  }
+};
+
+//-------------------------------------------------------------------------
+// 자가업체 차량스캔 가능여부 조회
+//-------------------------------------------------------------------------
+scwin.f_getJEscanInfo1 = async function () {
+  // 자가업체 차량스캔 시간대 체크로직 추가
+  // 2014.04.18 9:30AM~11:30AM, 1:30PM~4:30PM
+  ds_op318Info.removeAll();
+  sbm_op318Info.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=NcallCommonEBC" + "&queryId=retrieveCyVehclScanCheck" + "&param1=" + acb_wrkPlCd.getValue();
+  await $c.sbm.execute($p, sbm_op318Info);
+  scwin.f_getJEscanInfo();
+};
+
+//-------------------------------------------------------------------------
+// CY업체 차량스캔 가능 시간대 조회
+//-------------------------------------------------------------------------
+scwin.f_getCYscanInfo = async function () {
+  ds_cycopcoInfo.removeAll();
+  sbm_cycopcoInfo.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=NcallCommonEBC" + "&queryId=retrieveScanTimeCY" + "&param1=" + acb_wrkPlCd.getValue() + "&param2=" + ed_idCardNo.getValue();
+  await $c.sbm.execute($p, sbm_cycopcoInfo);
+  //alert("ds_cycopcoInfo.NameValue(1, 'col1')="+ds_cycopcoInfo.NameValue(1, "col1"));
+  if (!$c.gus.cfIsNull($p, ds_cycopcoInfo.getCellData(0, "col1")) && ds_cycopcoInfo.getCellData(0, "col1") == "1") {
+    scwin.v_cyamSthm = ds_cycopcoInfo.getCellData(0, "col2");
+    scwin.v_cyamEdhm = ds_cycopcoInfo.getCellData(0, "col3");
+    scwin.v_cyfmSthm = ds_cycopcoInfo.getCellData(1, "col4");
+    scwin.v_cyfmEdhm = ds_cycopcoInfo.getCellData(1, "col5");
+    scwin.v_cycheckScanTime = "1";
+  } else {
+    scwin.v_cyamSthm = "";
+    scwin.v_cycheckScanTime = "0";
+  }
+};
+
+//-------------------------------------------------------------------------
+// 차량번호 조회
+//-------------------------------------------------------------------------
+scwin.f_checkVehclNo = async function () {
+  scwin.f_getJEscanInfo1();
+  indMsg1.setValue("");
+  if ($c.gus.cfIsNull($p, ed_idCardNo.getValue())) {
+    scwin.refresh();
+  } else {
+    //ds_vehclsearch.NameValue(1,"idCardNo") = txt_idCardNo.value;
+    //dataSetDebug(ds_vehclsearch, true);
+
+    dma_vehclsearch.set("wrkPlCd", acb_wrkPlCd.getValue());
+    dma_vehclsearch.set("idCardNo", ed_idCardNo.getValue());
+    dma_vehclsearch.set("vehclNo", ed_vehclNo.getValue());
+    $c.sbm.execute($p, sbm_vehcl);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 예정정보 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+  btn_apply.hide();
+  dma_search.set("wrkPlCd", acb_wrkPlCd.getValue());
+  dma_search.set("idCardNo", ed_idCardNo.getValue());
+  dma_search.set("vehclNo", ed_vehclNo.getValue());
+  $c.sbm.execute($p, sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = function () {
+  var chkYn = 0;
+  var cnt_20ftI = 0; // 상하차시 컴바인고려 각각 2개까지 가능
+  var cnt_20ftO = 0; // 상하차시 컴바인고려 각각 2개까지 가능
+  var cnt_40ftI = 0; // 상하차시 각각1개까지 가능,45ft도 동일
+  var cnt_40ftO = 0; // 상하차시 각각1개까지 가능,45ft도 동일
+
+  for (var i = 0; i <= ds_result.getRowCount(); i++) {
+    if (ds_result.getCellData(i, "chk") == 'T') {
+      chkYn++;
+      if (ds_result.getCellData(i, "crryinoutClsCd") == "I") {
+        if (ds_result.getCellData(i, "cntrSizCd") == "20") {
+          cnt_20ftI++; // 20ft 하차
+        } else {
+          cnt_40ftI++; // 40ft이상 하차
+        }
+        scwin.ind_onOffGubun = "하차";
+      } else {
+        if (ds_result.getCellData(i, "cntrSizCd") == "20") {
+          cnt_20ftO++; // 20ft 상차
+        } else {
+          cnt_40ftO++; // 40ft이상 상차
+        }
+        scwin.ind_onOffGubun = "상차";
+      }
+
+      // 상하차 가각 20ft는 2개, 40ft이상은 1개만 가능하다
+      // 20ft 하차
+      if (cnt_20ftI > 2) {
+        $c.win.alert($p, "컨테이너(" + ds_result.getCellData(i, "cntrSizCd") + ")를 동시에 2개이상 하차 진행 불가합니다.");
+        return;
+      }
+      // 20ft 상차
+      if (cnt_20ftO > 2) {
+        $c.win.alert($p, "컨테이너(" + ds_result.getCellData(i, "cntrSizCd") + ")를 동시에 2개이상 상차 진행 불가합니다.");
+        return;
+      }
+      // 40ft이상 하차
+      if (cnt_40ftI > 1) {
+        $c.win.alert($p, "컨테이너(" + ds_result.getCellData(i, "cntrSizCd") + ")를 동시에 1개이상 하차 진행 불가합니다.");
+        return;
+      }
+      // 40ft이상 상차
+      if (cnt_40ftO > 1) {
+        $c.win.alert($p, "컨테이너(" + ds_result.getCellData(i, "cntrSizCd") + ")를 동시에 1개이상 상차 진행 불가합니다.");
+        return;
+      }
+
+      // 체크건중에 상차건, 정산대상이고 정산이 안된건 처리
+      /*
+      if(ds_result.NameValue(i,"crryinoutClsCd") == "O"
+      && ds_result.NameValue(i,"targetYn") == "Y"
+      && ds_result.NameValue(i,"completeYn") == "N"){
+          alert("사무실에서 정산하시고 다시 진행해 주세요.");
+          f_resetScanData();
+          return;
+      }*/
+
+      if (ds_result.getCellData(i, "blckCd") == "") {
+        $c.win.alert($p, "입차해야할 블럭이 지정되지 않았습니다.\n\n배차담당자에게 확인 바랍니다.\n\n제공해야할정보:LINE/CNTR_SIZ/TYP");
+        scwin.f_resetScanData();
+        return;
+      }
+
+      //차량번호와 블럭CD 글로벌변수에 입력
+      scwin.ind_blckCd = ds_result.getCellData(i, "blckCd");
+      scwin.ind_vehclNo = ed_vehclNo.getValue();
+    }
+  }
+  if (chkYn == 0) {
+    $c.win.alert($p, "선택된건이 없습니다.");
+    return;
+  }
+  ;
+
+  //dataSetDebug(ds_result, true);
+  //if(!confirm("진행하시겠습니까?")) return;
+  indMsg1.setValue("");
+  $c.sbm.execute($p, sbm_save);
+  scwin.f_resetScanData();
+};
+
+//-------------------------------------------------
+// 컨트럴 초기화
+//-------------------------------------------------
+scwin.f_resetScanData = function () {
+  timeID2 = $p.setTimeout(function () {
+    ed_idCardNo.setValue("");
+    ed_vehclNo.setValue("");
+    ed_idCardNo.focus();
+    indMsg1.setValue("<font color=blue size=34pt>스캔 가능합니다.</font>");
+    $c.win.sKeyInit($p, "singleKey", "Enter", "scwin.enter");
+    //f_resetScanData();
+  }, {
+    "delay": 10000
+  });
+};
+scwin.sbm_vehcl_submitError = function () {
+  scwin.f_resetScanData();
+  indMsg1.setValue("<b><font color=black size=34pt>서버가 재시작 되었습니다.</font><br>" + "<font color=black size=34pt>잠시 대기해 주세요.</font><br>" + "<font color=red size=34pt>스캔진행을 위해 화면 초기화 합니다.</font></b>");
+  timeID = $p.setTimeout(function () {
+    $c.win.externalInterfaceGo($p, scwin.sysCd);
+  }, {
+    "delay": 3000
+  });
+  // timeID = $p.setTimeout(function(){
+  // 	window.location.href="/common/jsp/external_interface_go.jsp?SYS_CD=<%=sysCd%>";
+  // }, 3000);
+};
+scwin.sbm_vehcl_submitDone = async function () {
+  if (ds_result1.getRowCount() == 0) {
+    //alert("조회한 차량번호의 예정정보가 없습니다.\n\n예정정보를 다시 등록하시고 진행해 주세요.");
+    indMsg1.setValue("<b><font color=red size=34pt>조회한 ID카드번호의 예정정보가 없습니다.</font><br>" + "<font color=black size=34pt>당일 등록 예정정보만 사용 할 수 있습니다.</font><br>" + "<font color=red size=34pt>자가업체 사무실에 연락하세요.</font></b>");
+    ds_result.removeAll();
+    totalRows.setValue(0);
+    scwin.f_resetScanData();
+  } else {
+    var v_selfYn = ds_result1.getCellData(0, "selfYn");
+    var v_cyCoYn = ds_result1.getCellData(0, "cyCoYn");
+
+    //alert("v_cyCoYn="+v_cyCoYn);
+    //alert("ds_op318Info.CountRow="+ds_op318Info.CountRow);
+    // 자가업체 스캔가능시간 체크비트
+    if (ds_op318Info.getRowCount() > 0 && v_selfYn == "Y") {
+      if (!$c.gus.cfIsNull($p, ds_op318Info.getCellData(0, "col1"))) {
+        scwin.v_checkScanTime = "1";
+      }
+    }
+    if (v_cyCoYn == "Y" //CY업체인 경우,후불정산거래처에 등록된건
+    || v_cyCoYn == "N") {
+      //협력업체인 경우,후불정산거래처에 등록된건
+      await scwin.f_getCYscanInfo();
+
+      //alert("v_cycheckScanTime="+v_checkScanTime);
+      //alert("v_selfYn="+v_selfYn);
+      //alert("v_cyamSthm="+v_cyamSthm);
+      // 자가업체이고, CY업체(후불청구거래처)고, 스캔가능시간이 지났으면 진행불가.
+      if (scwin.v_cycheckScanTime == "0" && v_selfYn == "Y" && $c.gus.cfIsNull($p, scwin.v_cyamSthm)) {
+        // CY업체 스캔가능시간은 있지만 형평성 차원으로 CY업체 스캔가능시간을 표시하지 않고 
+        // 일반 자가업체 스캔가능 시간으로 표시한다.
+        indMsg1.setValue("<b><font color=red size=34pt>ID카드 스캔 가능한 시간이 아닙니다.</font>" + "<br><br><font color=blue size=34pt>가능시간: " + scwin.v_amSthm.substr(0, 2) + ":" + scwin.v_amSthm.substr(2, 2) + " ~ " + scwin.v_amEdhm.substr(0, 2) + ":" + scwin.v_amEdhm.substr(2, 2) + ", " + scwin.v_fmSthm.substr(0, 2) + ":" + scwin.v_fmSthm.substr(2, 2) + " ~ " + scwin.v_fmEdhm.substr(0, 2) + ":" + scwin.v_fmEdhm.substr(2, 2) + "</font>");
+        scwin.f_resetScanData();
+        return;
+      }
+    } else if (v_cyCoYn == "X") {
+      //후불정산거래처에 등록이 안된건
+      //alert("v_checkScanTime="+v_checkScanTime);
+      //alert("v_selfYn="+v_selfYn);
+      //alert("v_amSthm="+v_amSthm);
+      // 자가업체이고, CY업체(후불청구거래처)가 아니고, 스캔가능시간이 지났으면 진행불가.
+      if (scwin.v_checkScanTime == "0" && v_selfYn == "Y" && !$c.gus.cfIsNull($p, scwin.v_amSthm)) {
+        indMsg1.setValue("<b><font color=red size=34pt>ID카드 스캔 가능한 시간이 아닙니다.</font><br><br><font color=blue size=34pt>가능시간: " + v_amSthm.substr(0, 2) + ":" + v_amSthm.substr(2, 2) + " ~ " + v_amEdhm.substr(0, 2) + ":" + v_amEdhm.substr(2, 2) + ", " + v_fmSthm.substr(0, 2) + ":" + v_fmSthm.substr(2, 2) + " ~ " + v_fmEdhm.substr(0, 2) + ":" + v_fmEdhm.substr(2, 2) + "</font>");
+        scwin.f_resetScanData();
+        return;
+      }
+    }
+
+    //당사건 진행
+    //if(v_selfYn == "N"){
+    ed_vehclNo.setValue(ds_result1.getCellData(0, "vehclNo"));
+    //alert(txt_vehclNo.value);
+    //alert("3");
+    scwin.f_Retrieve();
+    scwin.v_checkScanTime = "0";
+    //}
+  }
+};
+scwin.sbm_retrieve_submitDone = function () {
+  if ($c.gus.cfCheckCreateFlag($p) == true) {
+    $c.gus.cfTurnCreateFlag($p, false);
+  } else {
+    if (ds_result.getRowCount() == 0) {
+      if (scwin.v_preVehcl == scwin.ind_vehclNo && scwin.ind_vehclNo != "") {
+        indMsg1.setValue("<b><font color=black size=34pt>조회한 차량</font> <font color=red size=34pt>" + ind_vehclNo + "</font>" + "<font color=black size=34pt>은 이미 스캔되었습니다.</font><br>" + "<font color=red size=34pt>송장이 출력안되었으면 라인담당자에게 재스캔 문의하세요.</font></b>");
+      } else {
+        indMsg1.setValue("<b><font color=red size=34pt>조회한 ID카드번호의 예정정보가 없습니다.</font><br>" + "<font color=black size=34pt>당일 등록 예정정보만 사용 할 수 있습니다.</font><br>" + "<font color=red size=34pt>자가업체 사무실에 연락하세요.</font></b>");
+      }
+      /*indMsg1.innerHTML = "<b><font color=red size=34pt>조회한 ID카드번호의 예정정보가 없습니다.</font><br>"
+      				   +"<font color=black size=34pt>당일 등록 예정정보만 사용 할 수 있습니다.</font><br>"
+      				   +"<font color=red size=34pt>자가업체 사무실에 연락하세요.</font></b>"*/
+      ds_result.removeAll();
+      totalRows2.setValue(0);
+      scwin.f_resetScanData();
+    } else {
+      totalRows2.setValue(ds_result.getRowCount());
+      //dataSetDebug(ds_result, true);
+
+      ds_result.setCellData(0, "chk", "T");
+      scwin.f_checkGotoOffice(0, "chk");
+      //gr_result.onclick(1,"chk");
+    }
+  }
+};
+
+//-------------------------------------------------
+// 자식창에서 CY 상태값 받아서 처리하는 함수
+// returnVal - 0: 혼잡하지 않음, 1: 혼잡, 2: 고장
+// vTime     - xx분, 미정, null
+//-------------------------------------------------
+scwin.f_displayCongestion = function (returnVal, vTime) {
+  var wating = "";
+  scwin.vTime = vTime;
+
+  //returnVal = "";
+  if (returnVal == 0) {
+    //혼잡이 아닌경우
+    Congestion.hide(" ");
+    nonCongestion1.show("");
+    nonCongestion2.show("");
+    if (scwin.v_congestCls != "0") {
+      // 혼잡에서 혼잡이 아닌경우로 변경시 모두 초기화를 위해 페이지 리로드!
+      scwin.refresh();
+    }
+  } else {
+    //혼잡인 경우
+    scwin.v_congestCls = returnVal;
+    Congestion.show(" ");
+    nonCongestion1.hide("");
+    nonCongestion2.hide("");
+    if (vTime != "") {
+      if (vTime == undefined) {
+        vTime = "미정";
+      }
+      wating = "<br><br><font color=black size=34pt>예상 대기시간 : " + vTime + "</font>";
+    }
+    if (returnVal == 1) {
+      congest1.show(" ");
+      congest2.hide("");
+      congest1.setValue("<b><font color=red size=50pt>CY혼잡(예상 대기시간 변동될 수 있음)</font></b><br><br><font color=black size=34pt>혼잡이 풀릴때까지 대기해 주세요.</font>" + wating);
+    } else {
+      congest1.hide("");
+      congest2.show("");
+      congest2.setValue("<b><font color=red size=50pt>장비고장(예상 대기시간 변동될 수 있음)</font></b><br><br><font color=black size=34pt>수리가 끝날때까지 대기해 주세요.</font>" + wating);
+    }
+  }
+  scwin.f_resetScanData();
+};
+
+//-------------------------------------------------
+// EVER라인 조회
+//-------------------------------------------------
+scwin.f_getEverMngLine = async function (line) {
+  ds_everlineInfo.removeAll();
+  sbm_everlineInfo.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=NcallCommonEBC" + "&queryId=retrieveEverMngLine" + "&param1=" + line;
+  await $c.sbm.execute($p, sbm_everlineInfo);
+};
+
+//-------------------------------------------------
+// 항동CY검사관 검사이력 정보 조회
+// 추후 다른CY 적용가능성 열어두기(작업장코드 같이넘긴다)
+//-------------------------------------------------
+scwin.retrieveInspCntrInfo = async function (sVal) {
+  ds_inspCntrInfo.removeAll();
+  sbm_inspCntrInfo.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=NcallCommonEBC" + "&queryId=retrieveInspCntrInfo" + "&param1=" + lc_wrkPlCd.BindColVal + "&param2=" + sVal;
+  await $c.sbm.execute($p, sbm_inspCntrInfo);
+};
+
+//-------------------------------------------------
+// 항동CY검사관 검사이력 정보 조회
+// 추후 다른CY 적용가능성 열어두기(작업장코드 같이넘긴다)
+//-------------------------------------------------
+scwin.retrieveForceBlockInfo = async function (sVal) {
+  ds_op411Info.removeAll();
+  sbm_op411Info.action = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=NcallCommonEBC" + "&queryId=retrieveForceBlockInfo" + "&param1=" + sVal;
+  await $c.sbm.execute($p, sbm_op411Info);
+};
+
+//-------------------------------------------------
+// 작업장(WRK_PL_CD)별 사전 체크 사항 확인
+//-------------------------------------------------
+scwin.preCheckForEachWrkPlCd = function (sVal, row) {
+  var v_isEverLine = "0"; //에버라인여부
+  var v_msgTarget = "0"; //
+  var vOdrNo = ds_result.getCellData(row, "odrNo"); //v_amSthm.substr(0,2)
+  var vOdrKndCd = vOdrNo.substr(1, 2);
+  scwin.f_getEverMngLine(ds_result.getCellData(row, "lineCd"));
+  if (!$c.gus.cfIsNull($p, ds_everlineInfo.getCellData(0, "col1"))) {
+    v_isEverLine = "1";
+  }
+
+  // -----------------------------------------------------------
+  // 작업장 특성상 고유체크 사항
+  // -----------------------------------------------------------
+  switch (sVal) {
+    // ---------------------------------------------------------
+    //의왕CY
+    // ---------------------------------------------------------
+    case "4C02":
+      //----------------------------------------------------
+      // 체크건중에 상차건, 정산대상이고 정산이 안된건 처리
+      //----------------------------------------------------
+      if (ds_result.getCellData(row, "crryinoutClsCd") == "O" && ds_result.getCellData(row, "targetYn") == "Y" && ds_result.getCellData(row, "completeYn") == "N") {
+        //alert("사무실에서 정산하시고 다시 진행해 주세요.");
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=blue size=32pt>사무실에서 정산하시고 다시 진행해 주세요.</font></b>");
+        scwin.f_resetScanData();
+        //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "선수납증(상차료)");
+        return false;
+      }
+
+      //----------------------------------------------------
+      // 추가요청건 2014.04.16
+      // C4 E 반입건에 한해서 operator에게 확인받도록 처리
+      // officeYn xml에서 C4, JE, I 경우로 하차료정산 안된건
+      // cy업체를 제외하고 모두 하차료 부과대상.
+      //----------------------------------------------------
+      if (ds_result.getCellData(row, "fullEmptyClsCd") == "E" && ds_result.getCellData(row, "cyCoYn") != "Y" && ds_result.getCellData(row, "officeYn") == "Y") {
+        //alert("사무실 오퍼레이터에게 확인 후 다시 진행해 주세요.");
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=blue size=32pt>사무실에서 정산하시고 다시 진행해 주세요.</font></b>");
+        scwin.f_resetScanData();
+        //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "선수납증(하차료)");
+        return false;
+      }
+
+      //----------------------------------------------------
+      // 추가요청건 2014.06.09
+      // C4 F 반입건에 한해서 예정정보를 E로 등록하도록 유도.
+      //----------------------------------------------------				
+      if (vOdrKndCd == "C4" && ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "fullEmptyClsCd") == "F" && ds_result.getCellData(row, "selfClsCd") == "JE") {
+        //alert("사무실 오퍼레이터에게 확인 후 다시 진행해 주세요.");
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=blue size=32pt>예정정보 등록시 Empty로 등록하셔야 합니다.</font></b>");
+        scwin.f_resetScanData();
+        //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "선수납증(하차료)");
+        return false;
+      }
+
+      //----------------------------------------------------
+      // EVER EMPTY 반납건 제어(2014.05.16) - C2오더 - 사전승인
+      // 의왕CY, EVER, E, I, 당사(NULL, 사유없음):자가(1, 사유있음)
+      //----------------------------------------------------
+      //alert("v_isEverLine="+v_isEverLine);
+      //alert("ds_result.NameValue(row,'crryinoutClsCd')="+ds_result.NameValue(row,"crryinoutClsCd"));
+      //alert("ds_result.NameValue(row,'fullEmptyClsCd')="+ds_result.NameValue(row,"fullEmptyClsCd"));
+      if (v_isEverLine == "1" && ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "fullEmptyClsCd") == "E") {
+        //alert("onoffCntlYn="+ds_result.NameValue(row,"onoffCntlYn"));
+        if (ds_result.getCellData(row, "onoffCntlYn") != "0"
+        /* && ds_result.NameValue(row,"selfClsCd") == "JE" 2015.08.11 당사도 체크하도록 변경 */) {
+          //자가만 체크하도록 변경. 20150729
+          v_msgTarget = "1";
+        }
+        if (v_msgTarget == "1") {
+          btn_apply.hide();
+          indMsg.show();
+          indMsg1.setValue("<b><font color=red size=32pt>오류 : " + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>")
+          /*+ "<font color=blue size=32pt>사무실 라인 담당자에게 확인 후 다시 진행해 주세요.</font></b>"*/;
+          scwin.f_resetScanData();
+          //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "에버 엠티반납 제어대상");
+          return false;
+        }
+      } else {
+        //임의제어대상
+        if (ds_result.getCellData(row, "onoffCntlYn") == "1" && !$c.gus.cfIsNull($p, ds_result.getCellData(row, "onoffCntlRsn"))) {
+          btn_apply.hide();
+          indMsg.show();
+          indMsg1.setValue("<b><font color=red size=32pt>오류 : " + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>")
+          /*+ "<font color=blue size=32pt>사무실 라인 담당자에게 확인 후 다시 진행해 주세요.</font></b>"*/;
+          scwin.f_resetScanData();
+          //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+          return false;
+        }
+      }
+      break;
+
+    // ---------------------------------------------------------
+    //항동CY
+    // ---------------------------------------------------------
+    case "4C01":
+      //항동CY 데미지 컨테이너 정보조회
+      //2014.12.11 추가요건 반영
+      if (ds_result.getCellData(row, "lineCd") == "BAL" //발코리아건만 체크하도록 변경. 2015.01.07 hurrah
+      && ds_result.getCellData(row, "fullEmptyClsCd") == "E" && (vOdrKndCd == "C2" || vOdrKndCd == "C5" && ds_result.getCellData(row, "selfClsCd") == "JE") && ds_result.getCellData(row, "crryinoutClsCd") == "I") {
+        scwin.retrieveInspCntrInfo(ds_result.getCellData(row, "crryinoutIntendNo")); //검사관 검사이력 조회
+
+        //컨테이너 검사이력 존재 확인
+        if ($c.gus.cfIsNull($p, ds_inspCntrInfo.getCellData(1, "col1"))) {
+          btn_apply.hide();
+          indMsg.show();
+          indMsg1.setValue("<b><font color=blue size=32pt>컨테이너 검사실적이 없습니다.<br><br>검사 후 다시 스캔 하세요.</font></b>");
+          f_resetScanData();
+          return false;
+        }
+
+        //데미지 컨테이너 데미지 블럭으로 지시
+        if (ds_inspCntrInfo.getCellData(1, "col1") == "D") {
+          //alert("before::지시블럭 =" + ds_result.NameValue(row,"blckCd"));
+          ds_result.setCellData(row, "blckCd", ds_inspCntrInfo.getCellData(0, "col3"));
+          //alert("after ::지시블럭 =" + ds_result.NameValue(row,"blckCd"));
+        }
+      }
+
+      // 이전스텝처리여부 체크
+      if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "preStepProcYn") == "N" && vOdrKndCd != "C5" /* On-hire는 이전스텝이 없어서 제외한다 */) {
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=red size=32pt>이전단계가 처리되지 않았습니다<br><br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+        scwin.f_resetScanData();
+        //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+        return false;
+      }
+
+      // 디텐션여부 체크
+      if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "detentionYn") == "Y") {
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=red size=32pt>반납기한 경과된 컨테이너입니다.<br><br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+        scwin.f_resetScanData();
+        //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+        return false;
+      }
+
+      //항동CY 강제제어
+      if (ds_result.getCellData(row, "onoffCntlYn") == "1" && !$c.gus.cfIsNull($p, ds_result.getCellData(row, "onoffCntlRsn"))) {
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=red size=32pt>" + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+        scwin.f_resetScanData();
+        //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+        return false;
+      }
+      break;
+
+    // ---------------------------------------------------------
+    //광주CY
+    // ---------------------------------------------------------
+    case "5C08":
+      //----------------------------------------------------
+      // 체크건중에 상차건, 정산대상이고 정산이 안된건 처리
+      //----------------------------------------------------
+      if (ds_result.getCellData(row, "crryinoutClsCd") == "O" && ds_result.getCellData(row, "targetYn") == "Y" && ds_result.getCellData(row, "completeYn") == "N") {
+        //alert("사무실에서 정산하시고 다시 진행해 주세요.");
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=blue size=32pt>사무실에서 정산하시고 다시 진행해 주세요.</font></b>");
+        scwin.f_resetScanData();
+        return false;
+      }
+
+      //----------------------------------------------------
+      // 디텐션여부 체크
+      //----------------------------------------------------
+      if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "detentionYn") == "Y") {
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=red size=32pt>반납기한 경과된 컨테이너입니다.<br><br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+        f_resetScanData();
+        return false;
+      }
+
+      //----------------------------------------------------
+      // 강제제어
+      //----------------------------------------------------
+      if (ds_result.getCellData(row, "onoffCntlYn") == "1" && !$c.gus.cfIsNull($p, ds_result.getCellData(row, "onoffCntlRsn"))) {
+        btn_apply.hide();
+        indMsg.show();
+        indMsg1.setValue("<b><font color=red size=32pt>" + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+        scwin.f_resetScanData();
+        return false;
+      }
+      break;
+  }
+
+  // 공통으로 체크해야 할 사항
+
+  return true;
+};
+
+//-------------------------------------------------
+// 사무실 방문건인지 체크
+//-------------------------------------------------
+scwin.f_checkGotoOffice = function (row, colid) {
+  var v_isEverLine = "0"; //에버라인여부
+  var v_msgTarget = "0"; //
+
+  if (ds_result.getRowCount() > 0) {
+    //alert(row);
+    indMsg.hide();
+    indMsg1.setValue("");
+    scwin.f_getEverMngLine(ds_result.getCellData(row, "lineCd"));
+    if (!$c.gus.cfIsNull($p, ds_everlineInfo.getCellData(0, "col1"))) {
+      v_isEverLine = "1";
+    }
+    if (colid == "chk") {
+      if (ds_result.getCellData(row, "chk") == "T") {
+        var vOdrNo = ds_result.getCellData(row, "odrNo"); //v_amSthm.substr(0,2)
+        var vOdrKndCd = vOdrNo.substr(1, 2);
+        //alert("vOdrKndCd="+vOdrKndCd);
+
+        //2015.07.24 hurrah
+        //강제블럭지정 여부확인(tb_op411.force_lblock값이 null아 아니면 
+        //기존 지시블럭을 무시하고 0순위로 세팅한다.
+        scwin.retrieveForceBlockInfo(ds_result.getCellData(row, "odrNo"));
+
+        //강제블럭지정 값으로 블럭으로 지시
+        if (!$c.gus.cfIsNull($p, ds_op411Info.getCellData(1, "col1"))) {
+          //alert("before::지시블럭 =" + ds_result.NameValue(row,"blckCd"));
+          //alert("강제지시블럭 =" + ds_op411Info.NameValue(1, "col1"));
+          ds_result.setCellData(row, "blckCd", ds_op411Info.getCellData(0, "col1"));
+          //alert("after ::지시블럭 =" + ds_result.NameValue(row,"blckCd"));
+        }
+
+        //2015.08.21 작업장별 체크사항 함수로 분리 (미적용)
+        //if(!preCheckForEachWrkPlCd(ds_result.NameValue(row,"wrkPlCd"), row)) return;
+        if (ds_result.getCellData(row, "wrkPlCd") == "4C02") {
+          //----------------------------------------------------
+          // 체크건중에 상차건, 정산대상이고 정산이 안된건 처리
+          //----------------------------------------------------
+          if (ds_result.getCellData(row, "crryinoutClsCd") == "O" && ds_result.getCellData(row, "targetYn") == "Y" && ds_result.getCellData(row, "completeYn") == "N") {
+            //alert("사무실에서 정산하시고 다시 진행해 주세요.");
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=blue size=32pt>사무실에서 정산하시고 다시 진행해 주세요.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "선수납증(상차료)");
+            return;
+          }
+
+          //----------------------------------------------------
+          // 추가요청건 2014.04.16
+          // C4 E 반입건에 한해서 operator에게 확인받도록 처리
+          // officeYn xml에서 C4, JE, I 경우로 하차료정산 안된건
+          // cy업체를 제외하고 모두 하차료 부과대상.
+          //----------------------------------------------------
+          if (ds_result.getCellData(row, "fullEmptyClsCd") == "E" && ds_result.getCellData(row, "cyCoYn") != "Y" && ds_result.getCellData(row, "officeYn") == "Y") {
+            //alert("사무실 오퍼레이터에게 확인 후 다시 진행해 주세요.");
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=blue size=32pt>사무실에서 정산하시고 다시 진행해 주세요.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "선수납증(하차료)");
+            return;
+          }
+
+          //----------------------------------------------------
+          // 추가요청건 2014.06.09
+          // C4 F 반입건에 한해서 예정정보를 E로 등록하도록 유도.
+          //----------------------------------------------------				
+          if (vOdrKndCd == "C4" && ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "fullEmptyClsCd") == "F" && ds_result.getCellData(row, "selfClsCd") == "JE") {
+            //alert("사무실 오퍼레이터에게 확인 후 다시 진행해 주세요.");
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=blue size=32pt>예정정보 등록시 Empty로 등록하셔야 합니다.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "선수납증(하차료)");
+            return;
+          }
+
+          //----------------------------------------------------
+          // 추가요청건 2017.01.10
+          // 4C02, C2, 반입  이전스텝처리여부 체
+          //----------------------------------------------------						
+          // 이전스텝처리여부 체크
+          if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "preStepProcYn") == "N" && vOdrKndCd == "C2" // On-hire는 이전스텝이 없어서 제외한다 
+          ) {
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=red size=32pt>동부시스템에 반출 미처리 상태입니다.<br><br></font>" + "<font color=blue size=32pt>전산 정리하세요.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+            return;
+          }
+
+          //----------------------------------------------------
+          // EVER EMPTY 반납건 제어(2014.05.16) - C2오더 - 사전승인
+          // 의왕CY, EVER, E, I, 당사(NULL, 사유없음):자가(1, 사유있음)
+          //----------------------------------------------------
+          //alert("v_isEverLine="+v_isEverLine);
+          //alert("ds_result.NameValue(row,'crryinoutClsCd')="+ds_result.NameValue(row,"crryinoutClsCd"));
+          //alert("ds_result.NameValue(row,'fullEmptyClsCd')="+ds_result.NameValue(row,"fullEmptyClsCd"));
+          if (v_isEverLine == "1" && ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "fullEmptyClsCd") == "E") {
+            //alert("onoffCntlYn="+ds_result.NameValue(row,"onoffCntlYn"));
+            if (ds_result.getCellData(row, "onoffCntlYn") != "0"
+            // && ds_result.NameValue(row,"selfClsCd") == "JE" 2015.08.11 당사도 체크하도록 변경 
+            ) {
+              //자가만 체크하도록 변경. 20150729
+              v_msgTarget = "1";
+            }
+            if (v_msgTarget == "1") {
+              btn_apply.hide();
+              indMsg.show();
+              indMsg1.setValue("<b><font color=red size=32pt>오류 : " + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>")
+              //+ "<font color=blue size=32pt>사무실 라인 담당자에게 확인 후 다시 진행해 주세요.</font></b>"
+              ;
+              scwin.f_resetScanData();
+              //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), "에버 엠티반납 제어대상");
+              return;
+            }
+          } else {
+            //임의제어대상
+            if (ds_result.getCellData(row, "onoffCntlYn") == "1" && !cfIsNull(ds_result.getCellData(row, "onoffCntlRsn"))) {
+              btn_apply.hide();
+              indMsg.show();
+              indMsg1.setValue("<b><font color=red size=32pt>오류 : " + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>")
+              //+ "<font color=blue size=32pt>사무실 라인 담당자에게 확인 후 다시 진행해 주세요.</font></b>"
+              ;
+              scwin.f_resetScanData();
+              //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+              return;
+            }
+          }
+
+          // 항동CY는 상하차료를 오더 승인시점에 확인하고 승인하는데 이승희대리 혼자 처리하다보니 실시간 전산처리(선수납처리)가 힘든상황.
+          // ID카드 스캔시 상하차료 체크하면 업무 부하가 가중되는 상황이라 체크 하지 않도록 요청함.
+          // 2014.12.24 hurrah
+        } else if (ds_result.getCellData(row, "wrkPlCd") == "4C01") {
+          //항동CY 데미지 컨테이너 정보조회
+          //2014.12.11 추가요건 반영
+          if (ds_result.getCellData(row, "wrkPlCd") == "4C01" && ds_result.getCellData(row, "lineCd") == "BAL" //발코리아건만 체크하도록 변경. 2015.01.07 hurrah
+          && ds_result.getCellData(row, "fullEmptyClsCd") == "E" && (vOdrKndCd == "C2" || vOdrKndCd == "C5" && ds_result.getCellData(row, "selfClsCd") == "JE") && ds_result.getCellData(row, "crryinoutClsCd") == "I") {
+            scwin.retrieveInspCntrInfo(ds_result.getCellData(row, "crryinoutIntendNo")); //검사관 검사이력 조회
+
+            //컨테이너 검사이력 존재 확인
+            if ($c.gus.cfIsNull($p, ds_inspCntrInfo.getCellData(0, "col1"))) {
+              btn_apply.hide();
+              indMsg.show();
+              indMsg1.setValue("<b><font color=blue size=32pt>컨테이너 검사실적이 없습니다.<br><br>검사 후 다시 스캔 하세요.</font></b>");
+              scwin.f_resetScanData();
+              return;
+            }
+
+            //데미지 컨테이너 데미지 블럭으로 지시
+            if (ds_inspCntrInfo.getCellData(0, "col1") == "D") {
+              //alert("before::지시블럭 =" + ds_result.NameValue(row,"blckCd"));
+              ds_result.setCellData(row, "blckCd", ds_inspCntrInfo.getCellData(0, "col3"));
+              //alert("after ::지시블럭 =" + ds_result.NameValue(row,"blckCd"));
+            }
+          }
+
+          // 이전스텝처리여부 체크
+          if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "preStepProcYn") == "N" && vOdrKndCd != "C5" // On-hire는 이전스텝이 없어서 제외한다 
+          ) {
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=red size=32pt>이전단계가 처리되지 않았습니다<br><br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+            return;
+          }
+
+          // 디텐션여부 체크
+          if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "detentionYn") == "Y") {
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=red size=32pt>반납기한 경과된 컨테이너입니다.<br><br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+            return;
+          }
+
+          //항동CY 강제제어
+          if (ds_result.getCellData(row, "onoffCntlYn") == "1" && !$c.gus.cfIsNull($p, ds_result.getCellData(row, "onoffCntlRsn"))) {
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=red size=32pt>" + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+            scwin.f_resetScanData();
+            //f_OzReportForFail(ds_result.NameValue(row,"crryinoutIntendNo"), ds_result.NameValue(row,"onoffCntlRsn"));
+            return;
+          }
+          //광주CY 제어
+        } else if (ds_result.getCellData(row, "wrkPlCd") == "5C08") {
+          //----------------------------------------------------
+          // 체크건중에 상차건, 정산대상이고 정산이 안된건 처리
+          //----------------------------------------------------
+          if (ds_result.getCellData(row, "crryinoutClsCd") == "O" && ds_result.getCellData(row, "targetYn") == "Y" && ds_result.getCellData(row, "completeYn") == "N") {
+            //alert("사무실에서 정산하시고 다시 진행해 주세요.");
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=blue size=32pt>사무실에서 정산하시고 다시 진행해 주세요.</font></b>");
+            scwin.f_resetScanData();
+            return;
+          }
+
+          //----------------------------------------------------
+          // 디텐션여부 체크
+          //----------------------------------------------------
+          if (ds_result.getCellData(row, "crryinoutClsCd") == "I" && ds_result.getCellData(row, "detentionYn") == "Y") {
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=red size=32pt>반납기한 경과된 컨테이너입니다.<br><br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+            scwin.f_resetScanData();
+            return;
+          }
+
+          //----------------------------------------------------
+          // 강제제어
+          //----------------------------------------------------
+          if (ds_result.getCellData(row, "onoffCntlYn") == "1" && !$c.gus.cfIsNull($p, ds_result.getCellData(row, "onoffCntlRsn"))) {
+            btn_apply.hide();
+            indMsg.show();
+            indMsg1.setValue("<b><font color=red size=32pt>" + ds_result.getCellData(row, "onoffCntlRsn") + "<br></font>" + "<font color=blue size=32pt>라인담당자에게 문의하세요.</font></b>");
+            scwin.f_resetScanData();
+            return;
+          }
+        }
+        scwin.f_Save();
+      } else {
+        ds_result.setCellData(row, "chk", "0");
+      }
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// function name : f_OzReport
+// function desc : 컨테이너 상하차증 발급
+//-------------------------------------------------------------------------
+scwin.f_OzReportForSucess = async function (pOnoffno, pSelfClsCd) {
+  var odiName = "cy_101_01_13r";
+  let reportFile = "/tn/op/cy_101_01_13r.ozr";
+
+  //alert("pSelfClsCd="+pSelfClsCd);
+  if (pSelfClsCd != "JE") {
+    odiName = "cy_101_01_14r";
+    reportFile = "/tn/op/cy_101_01_14r.ozr";
+  }
+
+  //항동CY오즈 파일경로 변경
+  if (acb_wrkPlCd.getValue() == "4C01") {
+    if (pSelfClsCd != "JE") {
+      odiName = "cy_101_01_18r";
+      reportFile = "/tn/op/cy_101_01_18r.ozr";
+    } else {
+      odiName = "cy_101_01_17r";
+      reportFile = "/tn/op/cy_101_01_17r.ozr";
+    }
+  }
+
+  //광주CY오즈 파일경로 변경	20150819 황창기
+  if (acb_wrkPlCd.getValue() == "5C08") {
+    if (pSelfClsCd != "JE") {
+      odiName = "cy_101_01_21r";
+      reportFile = "/tn/op/cy_101_01_21r.ozr";
+    } else {
+      odiName = "cy_101_01_20r";
+      reportFile = "/tn/op/cy_101_01_20r.ozr";
+    }
+  }
+  indMsg1.setValue("<font color=blue size=34pt>송장 프린트중입니다...</font><br><br><font color=black size=34pt>송장 지참하시기 바랍니다.</font>");
+  let data = {
+    odiName: odiName,
+    reportName: reportFile,
+    odiParam: {
+      odiName: odiName,
+      onoffNo: pOnoffno ?? ""
+    },
+    viewerParam: {
+      "useprogressbar": true,
+      // 프로그레스바 쓸지 말지
+      "mode": chb_previewCheck.getValue() == "1" ? "export" : "preview"
+    },
+    formParam: {}
+  };
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: false,
+    type: "browserPopup",
+    width: 1000,
+    height: 830,
+    title: "오즈 리포트"
+  };
+  await $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+  // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)    
+  scwin.f_resetScanData();
+};
+scwin.f_OzReportForFail = function (pCarryno, pTitle) {
+  var odiId = "cy_101_01_02r";
+  var ozrId = "/tn/op/cy_101_01_02r.ozr";
+
+  // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)  
+
+  var odiParam = new ODIParam(odiId);
+  //odiParam.add("sysPath",      "dbl.ds.op.wrkrslts.cywrkrslts");
+  //odiParam.add("onoffNo", ds_onReqInfo.nameValue(ds_onReqInfo.RowPosition,"onoffNo"));  
+  odiParam.add("crryinoutIntendNo", pCarryno);
+  odiParam.add("title", pTitle);
+
+  // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+  var viewerParam = new ViewerParam();
+  var formParam = new FormParam();
+  viewerParam.add("viewer.useprogressbar", "false");
+  $c.gus.cfOZReport($p, "chb_printCheck", "chb_previewCheck", ozrId, odiParam, viewerParam, formParam);
+};
+scwin.showgrid = function () {
+  if (scwin.display == "") {
+    gr_grd.hide();
+    scwin.display = "show";
+  } else {
+    gr_grd.show();
+    scwin.display = "";
+  }
+};
+scwin.sbm_save_submitDone = function () {
+  var onoffNo = "";
+  var timeID;
+  var crryinoutIntendNo = ds_result.getCellData(0, "crryinoutIntendNo");
+  var selfClsCd = ds_result.getCellData(0, "selfClsCd");
+  //alert("onoffNo="+ds_retOnOff.NameValue(1,"onoffNo"));
+  //dataSetDebug(ds_retOnOff, true);
+  if (ds_retOnOff.getCellData(0, "onoffNo") != "") {
+    onoffNo = ds_retOnOff.getCellData(0, "onoffNo");
+  }
+  indMsg.show();
+  indMsg1.setValue("<b><font color=black size=34pt>" + scwin.ind_onOffGubun + " 작업이 접수 되었습니다." + "<br><font color=blue size=34pt>" + scwin.ind_vehclNo + "</font> <font color=black size=34pt> 차량은</font><br> <font color=red size=34pt>" + "<font color=red size=34pt>3번통로</font><font color=black size=34pt>를 이용하여</font>" + scwin.ind_blckCd + " 블럭</font><font color=black size=34pt>으로 이동해 주세요.</font><br><font color=red size=34pt>메모하시기 바랍니다!!</font></b><br>" + "[" + crryinoutIntendNo + "]");
+  //alert(ind_onOffGubun+" 작업이 접수 되었습니다.");
+  ds_result.removeAll();
+  totalRows2.setValue(ds_result.getRowCount());
+  //alert("after save");
+
+  //글로벌변수에 이전차량번호 세팅
+  scwin.v_preVehcl = scwin.ind_vehclNo;
+  scwin.f_OzReportForSucess(crryinoutIntendNo, selfClsCd);
+
+  //작업지시 메시지 10초후 초기화
+  timeID = $p.setTimeout(function () {
+    ed_idCardNo.focus();
+    indMsg1.setValue("<font color=blue size=34pt>스캔 가능합니다.</font>");
+    scwin.f_resetScanData();
+  }, 10000);
+
+  //f_OzReportForSucess(onoffNo);
+  scwin.f_resetScanData();
+  //f_Retrieve();
+};
+scwin.carNm_onclick = function (e) {
+  scwin.showgrid();
+};
+scwin.refresh = function () {
+  let strUrl = "/ui/tn/op/transwrkindict/cntr/tn_304_03_05b.xml";
+  let programId = scwin.pgrId;
+  params = {
+    pgrId: scwin.pgrId
+  };
+  $c.win.openMenu($p, "CY ID카드스캔", strUrl, programId, params, {
+    openAction: "exist"
+  });
+};
+// scwin.iCongestion_onwframeload = async function () {
+//     debugger;
+//     var src = "/ui/tn/op/transwrkindict/cntr/tn_304_03_05p.xml?wrkPlCd="+scwin.vWrkPlCd;
+//     await iCongestion.setSrc(src)
+
+// };
+
+scwin.setWframe = async function () {
+  scwin.wframeParamData = {
+    "wrkPlCd": scwin.vWrkPlCd
+  };
+  scwin.obj = {
+    "dataObject": {
+      "type": "json",
+      "name": "params",
+      "data": scwin.wframeParamData
+    }
+  };
+  var ret = await iCongestion.setSrc("/ui/tn/op/transwrkindict/cntr/tn_304_03_05p.xml", scwin.obj);
+  // SP5에서는 Promise 객체를 return하므로 await 키워드를 붙여야 setSrc호출 이후의 동작이 정상적인 순서로 동작하게 된다.
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload','ev:onbeforepageunload':'scwin.unpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'w2:wframe',A:{id:'iCongestion',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'nonCongestion1',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'작업장',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:autoComplete',A:{class:'',editType:'select',id:'acb_wrkPlCd',search:'start',style:'width:150px;',submenuSize:'auto',sortOption:'value'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'carNm',label:'차량번호',style:'','ev:onclick':'scwin.carNm_onclick'}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'xf:group',A:{class:'form-group',id:'',style:''},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_idCardNo',placeholder:'',style:'width:150px;',applyFormat:'true','ev:oneditkeyup':'scwin.ed_idCardNo_oneditkeyup'}},{T:1,N:'xf:input',A:{class:'',id:'ed_vehclNo',placeholder:'',style:'width:150px;'}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'nonCongestion2',style:''},E:[{T:1,N:'xf:group',A:{id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'야드내에서는 차량에서 내려오지 마시오!!(도보 이동 금지)',class:'txt-red'}}]}]},{T:1,N:'xf:group',A:{id:'gr_grd'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'title'},E:[{T:1,N:'w2:textbox',A:{tagname:'h3',style:'',id:'',label:'상하차 작업대상',class:'tit'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{visibleRowNumFix:'true',checkAllType:'false',dataList:'data:ds_result1',style:'',autoFit:'allColumn',id:'gr_result1',visibleRowNum:'3',class:'wq_gvw'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption1',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column1',value:'작업장코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column17',value:'ID카드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column15',value:'차량번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'column13',value:'자가여부',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'column11',value:'CY업체여부',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row2'},E:[{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'wrkPlCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'idCardNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'vehclNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'selfYn',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'cyCoYn',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',dataType:'number',displayFormat:'#,##0',style:'',id:'totalRows',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',style:'',id:'',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{visibleRowNumFix:'true',fixedColumn:'1',checkAllType:'false',dataList:'data:ds_result',style:'',id:'gr_result',visibleRowNum:'5',class:'wq_gvw'},E:[{T:1,N:'w2:caption',A:{style:'',id:'caption2',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{style:'',id:'header1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row1'},E:[{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'50',inputType:'checkbox',id:'column1',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'100',inputType:'text',id:'column17',value:'작업장코드',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'120',inputType:'text',id:'column15',value:'반출입예정번호',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',id:'column13',value:'구분',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'120',inputType:'text',id:'column11',value:'반출입예정시간',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'150',inputType:'text',id:'column9',value:'수입수출구분코드',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'100',inputType:'text',id:'column3',value:'입항일시',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'120',inputType:'text',id:'column5',value:'차량번호',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'6',width:'420',inputType:'text',id:'column7',value:'컨테이너',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'120',inputType:'text',style:'',id:'column60',value:'차량ID카드번호',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'140',inputType:'text',style:'',id:'column57',value:'BL번호',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'140',inputType:'text',style:'',id:'column27',value:'Booking번호',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',style:'',id:'column25',value:'LINE',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'120',inputType:'text',style:'',id:'column21',value:'오더번호',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'120',inputType:'text',style:'',id:'column23',value:'작업경로순번',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'120',inputType:'text',style:'',id:'column105',value:'작업단계순번',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column102',value:'예정일자',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'150',inputType:'text',style:'',id:'column99',value:'자가운송사거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'100',inputType:'text',style:'',id:'column96',value:'취소일시',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'100',inputType:'text',style:'',id:'column93',value:'취소담당자ID',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'',colSpan:'2',width:'140',inputType:'text',style:'',id:'column90',value:'선수납',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column84',value:'방문대상',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',style:'',id:'column75',value:'블럭',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'350',inputType:'text',style:'',id:'column78',value:'비고',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',hidden:'true',colSpan:'',width:'100',inputType:'text',style:'',id:'column81',value:'청구거래처',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'100',inputType:'text',style:'',id:'column108',value:'CY업체여부',displayMode:'label'}},{T:1,N:'w2:column',A:{rowSpan:'2',colSpan:'',width:'70',inputType:'text',style:'',id:'column111',value:'자가',displayMode:'label'}}]},{T:1,N:'w2:row',A:{style:'',id:'row4'},E:[{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column48',value:'SQ',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',style:'',id:'column47',value:'번호',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column73',value:'SIZ',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column70',value:'TYP',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column67',value:'EF',displayMode:'label'}},{T:1,N:'w2:column',A:{hidden:'true',width:'70',inputType:'text',style:'',id:'column64',value:'중량',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column91',value:'대상',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'column88',value:'상태',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{style:'',id:'gBody1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row2'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'checkbox',id:'chk',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'wrkPlCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'crryinoutIntendNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'carryinoutClsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'crryinoutIntendHh',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',id:'impExpClsCd',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',id:'arrvlportDtm',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',id:'vehclNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',id:'cntrSeq',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'110',inputType:'text',id:'cntrNo',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrSizCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'cntrTypCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fullEmptyClsCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'wt',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'vehclIdCardNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'blNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'140',inputType:'text',style:'',id:'bookingNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'lineCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'odrNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'wrkPathSeq',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'wrkStpSeq',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'crryinoutIntendDt',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'150',inputType:'text',style:'',id:'selfTransCoClntNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'cnclDtm',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'cnclPicId',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'targetYn',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'80',inputType:'text',style:'',id:'completeYn',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'officeYn',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'blckCd',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'350',inputType:'text',style:'',id:'bigo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'bilgClntNo',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'cyCoYn',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'selfClsCd',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',dataType:'number',displayFormat:'#,##0',style:'',id:'totalRows2',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'list-box  txt-blue mt16 fs16 ',id:'msg1',style:''},E:[{T:1,N:'w2:textbox',A:{class:'txt-dot',escape:'false',id:'',label:'야드에 진입하시기 전에 <font color=red>ID카드 스캔</font>을 하셔야 합니다.',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot',escape:'false',id:'',label:'프린트된 송장을 지참하셔야 합니다.(<font color=red>하차건만 검사관에게 제출하세요</font>)',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot ',escape:'false',id:'',label:'반출입 예정정보가 오늘자로 등록되지 않는건은 ID카드 스캔이 되지 않습니다.',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot ',escape:'false',id:'',label:'야드에 진입하실때 <font color=red>3번 통로</font>를 이용하셔야 합니다.',style:''}}]},{T:1,N:'xf:group',A:{class:'list-box  txt-blue mt16 fs16 ',id:'msg2',style:''},E:[{T:1,N:'w2:textbox',A:{class:'txt-dot',escape:'false',id:'',label:'<font color=red>야드에 진입하실때 반드시 상하차증에 인쇄된 동선을 지켜주시기 바랍니다.</font>',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot',escape:'false',id:'',label:'야드에 진입하시기 전에 ID카드 스캔 후 프린트된 송장을 지참하시기 바랍니다.',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot ',escape:'false',id:'',label:'아래의 경우 ID카드 스캐닝이 되지 않습니다.',style:''}},{T:1,N:'w2:textbox',A:{class:'ml8',escape:'false',id:'',label:'- 반출입 예정정보가 오늘일자로 등록되지 않는건',style:''}},{T:1,N:'w2:textbox',A:{class:'ml8',escape:'false',id:'',label:'- 엠티 컨테이너 검사 미완료건, 데미지 건',style:''}}]},{T:1,N:'xf:group',A:{class:'list-box  txt-blue mt16 fs16 ',id:'msg3',style:''},E:[{T:1,N:'w2:textbox',A:{class:'txt-dot',escape:'false',id:'',label:'야드에 진입하시기 전에 <font color=red>ID카드 스캔</font>을 하셔야 합니다.',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot',escape:'false',id:'',label:'프린트된 송장을 지참하셔야 합니다.(<font color=red>하차건만 CY담당자에게 제출하세요</font>)',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot ',escape:'false',id:'',label:'반출입 예정정보가 오늘자로 등록되지 않는건은 ID카드 스캔이 되지 않습니다.',style:''}},{T:1,N:'w2:textbox',A:{class:'txt-dot ',escape:'false',id:'',label:'야드에 진입하실때 <font color=red>3번 통로</font>를 이용하셔야 합니다.',style:''}}]},{T:1,N:'xf:group',A:{id:'indMsg'},E:[{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'indMsg1',label:'',class:'tac mt16 fs18 txt-blue',escape:'false'}}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_apply',style:'',type:'button','ev:onclick':'scwin.btn_apply_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'확인'}]}]}]}]},{T:1,N:'xf:group',A:{class:'col-gap-14',id:'',style:'display:none;'},E:[{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',id:'chb_previewCheck',ref:'',renderType:'checkboxgroup',rows:'',selectedindex:'0',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'미리보기'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box vam',id:'Congestion',style:''},E:[{T:1,N:'w2:textbox',A:{class:'tac mt16 fs18 txt-blue',escape:'false',id:'congest1',label:' 예상 대기시간 : 미정</strong>',ref:'',style:'',userData2:''}},{T:1,N:'w2:textbox',A:{class:'tac mt16 fs18 txt-blue',escape:'false',id:'congest2',label:' 예상 대기시간 : 미정</strong>',ref:'',style:'',userData2:''}}]}]}]}]}]})

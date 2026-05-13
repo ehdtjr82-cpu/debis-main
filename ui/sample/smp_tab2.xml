@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="smp_tab1" meta_screenId="smp_tab1">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+
+				<w2:dataMap baseNode="map" id="dma_dataMap1">
+					<w2:keyInfo>
+						<w2:key id="key1" name="name1" dataType="text"></w2:key>
+						<w2:key id="key2" name="name2" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection>
+			</w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+		scwin.onpageload = function() {
+            let paramJson = $c.data.getParameter(); // 파라미터
+            if(paramJson) {
+                dma_dataMap1.setJSON(paramJson);
+            }
+		};
+		
+		scwin.onpageunload = function() {
+			
+		};
+		
+        scwin.btn_trigger1_onclick = function (e) {
+            // 부모 dataMap 에 값 셋팅
+            $p.parent().dmMain.setJSON(dma_dataMap1.getJSON());
+        };
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		
+		<xf:group class="wrap" id="" style="">
+			<xf:group class="sample_box" id="" style="">
+				<w2:textbox class="" id="" label="tab2 번 (smp_tab2.xml)" style="" tagname="h2"></w2:textbox>
+			</xf:group>
+			<xf:group style="" id="grp_group1">
+				<xf:input style="width:144px; height:21px; " id="ibx_input1" ref="data:dma_dataMap1.key1"></xf:input>
+				<xf:input id="ibx_input2" style="width:144px; height:21px; " ref="data:dma_dataMap1.key2"></xf:input>
+				<xf:trigger type="button" id="btn_trigger1" style="width:80px; height:23px; " ev:onclick="scwin.btn_trigger1_onclick">
+					<xf:label><![CDATA[확인]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

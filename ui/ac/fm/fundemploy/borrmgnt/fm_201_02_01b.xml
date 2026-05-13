@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="coCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="ramtClsCd" name="name2" dataType="text"></w2:key>
+    					<w2:key id="postDt" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="borrLedgNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="borrKndCd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="borrKndNm" name="name3" dataType="text"></w2:column>
+    					<w2:column id="borrClntNo" name="name4" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="name5" dataType="text"></w2:column>
+    					<w2:column id="prmsDt" name="name6" dataType="text"></w2:column>
+    					<w2:column id="borrDt" name="name7" dataType="text"></w2:column>
+    					<w2:column id="stDt" name="name8" dataType="text"></w2:column>
+    					<w2:column id="endDt" name="name9" dataType="text"></w2:column>
+    					<w2:column id="ddCntCd" name="name10" dataType="text"></w2:column>
+    					<w2:column id="dueDt" name="name11" dataType="text"></w2:column>
+    					<w2:column id="crcCd" name="name12" dataType="text"></w2:column>
+    					<w2:column id="crcNm" name="name13" dataType="text"></w2:column>
+    					<w2:column id="stdExchRt" name="name14" dataType="text"></w2:column>
+    					<w2:column id="borrExchRt" name="name15" dataType="text"></w2:column>
+    					<w2:column id="prmsAmtFcrc" name="name16" dataType="text"></w2:column>
+    					<w2:column id="borrAmtFcrc" name="name17" dataType="text"></w2:column>
+    					<w2:column id="borrRamtFcrc" name="name18" dataType="text"></w2:column>
+    					<w2:column id="prmsAmt" name="name19" dataType="text"></w2:column>
+    					<w2:column id="borrAmt" name="name20" dataType="text"></w2:column>
+    					<w2:column id="borrRamt" name="name21" dataType="text"></w2:column>
+    					<w2:column id="deferYyCnt" name="name22" dataType="text"></w2:column>
+    					<w2:column id="deferMmCnt" name="name23" dataType="text"></w2:column>
+    					<w2:column id="borrDesc" name="name24" dataType="text"></w2:column>
+    					<w2:column id="borrAcctCd" name="name25" dataType="text"></w2:column>
+    					<w2:column id="acctNm" name="name26" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="name27" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="name28" dataType="text"></w2:column>
+    					<w2:column id="borrSlipNo" name="name29" dataType="text"></w2:column>
+    					<w2:column id="borrSlipDt" name="name30" dataType="text"></w2:column>
+    					<w2:column id="cprRpayMmCnt" name="name31" dataType="text"></w2:column>
+    					<w2:column id="rpayAmt" name="name32" dataType="text"></w2:column>
+    					<w2:column id="rpayAmtFcrc" name="name33" dataType="text"></w2:column>
+    					<w2:column id="firstRpayDt" name="name34" dataType="text"></w2:column>
+    					<w2:column id="intPayMmCnt" name="name35" dataType="text"></w2:column>
+    					<w2:column id="intPayMthdCd" name="name36" dataType="text"></w2:column>
+    					<w2:column id="intClsCd" name="name37" dataType="text"></w2:column>
+    					<w2:column id="intRt" name="name38" dataType="text"></w2:column>
+    					<w2:column id="intAmt" name="name39" dataType="text"></w2:column>
+    					<w2:column id="intPayYmDdCnt" name="name40" dataType="text"></w2:column>
+    					<w2:column id="firstIntDt" name="name41" dataType="text"></w2:column>
+    					<w2:column id="grtDt" name="name42" dataType="text"></w2:column>
+    					<w2:column id="grtClntNo" name="name43" dataType="text"></w2:column>
+    					<w2:column id="grtClntNm" name="name44" dataType="text"></w2:column>
+    					<w2:column id="grtRpayMmCnt" name="name45" dataType="text"></w2:column>
+    					<w2:column id="grtClsCd" name="name46" dataType="text"></w2:column>
+    					<w2:column id="grtRt" name="name47" dataType="text"></w2:column>
+    					<w2:column id="grtYmDdCnt" name="name48" dataType="text"></w2:column>
+    					<w2:column id="firstGrtDt" name="name49" dataType="text"></w2:column>
+    					<w2:column id="certfNo" name="name50" dataType="text"></w2:column>
+    					<w2:column id="rcptBankbookNo" name="name51" dataType="text"></w2:column>
+    					<w2:column id="bankAcntNo" name="name52" dataType="text"></w2:column>
+    					<w2:column id="draftNo" name="name53" dataType="text"></w2:column>
+    					<w2:column id="delYn" name="name54" dataType="text"></w2:column>
+    					<w2:column id="rtn" name="name55" dataType="text"></w2:column>
+    					<w2:column id="msg" name="name56" dataType="text"></w2:column>
+    					<w2:column id="msg1" name="name57" dataType="text"></w2:column>
+    					<w2:column id="regId" name="name58" dataType="text"></w2:column>
+    					<w2:column id="modId" name="name59" dataType="text"></w2:column>
+    					<w2:column id="intRtClsCd" name="name60" dataType="text"></w2:column>
+    					<w2:column id="grtRtClsCd" name="name61" dataType="text"></w2:column>
+    					<w2:column id="dueDtClsCd" name="name62" dataType="text"></w2:column>
+    					<w2:column id="intPayDtCalnCd" name="name63" dataType="text"></w2:column>
+    					<w2:column id="transSlipNo" name="name64" dataType="text"></w2:column>
+    					<w2:column id="transDelSlipNo" name="name65" dataType="text"></w2:column>
+    					<w2:column id="transAmt" name="name66" dataType="text"></w2:column>
+    					<w2:column id="procTransAmt" name="name67" dataType="text"></w2:column>
+    					<w2:column id="borrTransYn" name="name68" dataType="text"></w2:column>
+    					<w2:column id="borrTransDelYn" name="name69" dataType="text"></w2:column>
+    					<w2:column id="procYn" name="name70" dataType="text"></w2:column>
+    					<w2:column id="chkYn" name="name71" dataType="text"></w2:column>
+    					<w2:column id="borrTransSeq" name="name72" dataType="text"></w2:column>
+    					<w2:column id="wrkYm" name="name73" dataType="text"></w2:column>
+    					<w2:column id="slipNo" name="name74" dataType="text"></w2:column>
+    					<w2:column id="postDt" name="name75" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission
+                id="sbm_retrieveBorrow"
+                action="/ac.fm.fundemploy.borrmgnt.RetrieveBorrowingTransListCMD.do"
+                method="post"
+                mediatype="application/json"
+                ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+                target='data:json,{"id":"ds_master","key":"OUT_DS1"}'
+                encoding="UTF-8"
+                mode="asynchronous" ev:submitdone="scwin.sbm_retrieveBorrow_submitdone">
+            </xf:submission>
+
+            <xf:submission
+                id="sbm_createSlip"
+                action="/ac.fm.fundemploy.borrmgnt.SaveBorrowingTransListCMD.do"
+                method="post"
+                mediatype="application/json"
+                ref='data:json,{"action":"modified","id":"ds_master","key":"IN_DS1"}'
+                target=''
+                encoding="UTF-8"
+                mode="asynchronous" ev:submitdone="scwin.sbm_createSlip_submitdone">
+            </xf:submission>
+
+            <xf:submission
+                id="sbm_deleteSlip"
+                action="/ac.fm.fundemploy.borrmgnt.DelBorrowingTransListCMD.do"
+                method="post"
+                mediatype="application/json"
+                ref='data:json,{"action":"modified","id":"ds_master","key":"IN_DS1"}'
+                target=''
+                encoding="UTF-8"
+                mode="asynchronous" ev:submitdone="scwin.sbm_deleteSlip_submitdone">
+            </xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript" scopeVariable="ACConstants"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[
+// 전역변수
+scwin.login = $c.data.getMemInfo();
+scwin.privAdmin = scwin.login.privAdmin;
+scwin.sysAdminYn = scwin.login.sysAdminYn;
+scwin.vUserHomeClsCd = scwin.login.userHomeClsCd;
+scwin.vLoginCoCd = scwin.login.coCd;
+scwin.vLoginCoClsCd = scwin.login.coClsCd;
+scwin.vLoginCoCd2 = "";
+scwin.isSubCompany = false;
+
+// hidden 컴포넌트
+scwin.txtCoClsCd;
+scwin.hid_coClsCd;
+
+
+
+scwin.onpageload = function() {
+	
+};
+
+scwin.onUdcCompleted = async function() {
+
+    const codeOptions = [
+        { grpCd : "FM001", compID : "gr_master:borrKndCd" } 
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+
+    scwin.f_setCompanyInfo();
+    ica_postDt.setValue(WebSquare.date.getCurrentServerDate().substring(0,6));
+}
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function(e) {
+   
+    // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+    if( scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD)  {  
+        scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+        scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+    }
+
+    ed_coCd.setValue( scwin.vLoginCoCd );
+    scwin.f_PopUpCompanyInfo('T'); 
+        
+   if(scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {  	// 자회사 회계 시스템 
+        scwin.isSubCompany = true;
+    }else{
+        scwin.isSubCompany = false;
+    }
+    $c.gus.cfDisableObjects([ed_coCd,ed_coNm,btn_company]);
+}
+
+scwin.f_PopUpCompanyInfo = function(pWinCloseTF){ 
+    scwin.pWinClose = pWinCloseTF;
+    var rtnList = udc_companyInfo.cfCommonPopUp(scwin.udc_coCd_callBackFunc
+                                    ,ed_coCd.getValue(), ed_coNm.getValue()
+                                    ,pWinCloseTF,null,null,null,null
+                                    ,null,null,null,null,null);   
+}
+
+scwin.udc_coCd_callBackFunc = function(rtnList){
+    // SET	 
+    if(rtnList != null ) { 
+        if (rtnList[0] == "N/A") return; 
+			
+        ed_coCd.setValue(rtnList[0]);	// 코드
+        ed_coNm.setValue(rtnList[5]); // 회사명 
+        ed_coCd.options.hidVal = rtnList[0];  // 히든값
+        scwin.txtCoClsCd =rtnList[1];	// 회사구분  
+    }else{
+        ed_coCd.setValue("");
+        ed_coNm.setValue("");
+        ed_coCd.options.hidVal = ""; 
+        scwin.txtCoClsCd = "";
+    }
+        
+    if(scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU)  {  	// 자회사 회계 시스템 
+        scwin.isSubCompany = true;
+    }else{
+        scwin.isSubCompany = false;
+    } 
+}
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {  
+    if (!await $c.gus.cfValidate([ica_postDt]))  return false;
+
+    dma_search.set("ramtClsCd", acb_ramtClsCd.getValue());
+    dma_search.set("postDt", ica_postDt.getValue());
+    $c.sbm.execute(sbm_retrieveBorrow);
+} 
+
+//-------------------------------------------------------------------------
+//  
+//-------------------------------------------------------------------------
+scwin.f_createSlip = async function() {
+    var cnt=0;
+    
+    for ( i=0 ; i < ds_master.getTotalRow() ; i++ ) {
+        if(ds_master.getCellData(i,"transSlipNo") == "" && ds_master.getCellData(i,"borrTransYn") == "Y"){
+            ds_master.setCellData(i,"chkYn","1");
+        }else{
+            ds_master.setCellData(i,"chkYn","0");
+        } 
+        
+        if(ds_master.getCellData(i,"chkYn")=="1"){
+            cnt++;
+        }
+        
+    }
+
+    if(cnt == 0){
+        await $c.gus.cfAlertMsg("처리할 대상이 없습니다.");
+        return;
+    }
+        
+    $c.sbm.execute(sbm_createSlip);
+} 
+
+scwin.f_deleteSlip = async function() { 
+
+    var cnt = 0;
+    for ( i=0; i<ds_master.getTotalRow() ; i++ ) {
+        if(ds_master.getCellData(i,"transDelSlipNo") != "" && ds_master.getCellData(i,"chkYn") == "1"){
+            await $c.gus.cfAlertMsg("차입번호 "+ds_master.getCellData(i,"borrLedgNo") +" 은 이미 유동성대체 삭제된 건 입니다.");
+            ds_master.setCellData(i,"chkYn","0");
+            return;
+        }else if (ds_master.getCellData(i,"transSlipNo") == "" && ds_master.getCellData(i,"chkYn") == "1"){
+            await $c.gus.cfAlertMsg("차입번호 "+ds_master.getCellData(i,"borrLedgNo") +" 은 삭제할 유동성 대체전표가 없습니다.");
+            ds_master.setCellData(i,"chkYn","0");
+            return;
+        }else if (ds_master.getCellData(i,"borrTransDelYn") == "N" && ds_master.getCellData(i,"chkYn") == "1"){
+            if(await $c.win.confirm("차입번호 "+ds_master.getCellData(i,"borrLedgNo") +" 은 유동성대체 삭제대상이 아닙니다 삭제하시겠습니까?")==true){
+            
+            }else{
+                ds_master.setCellData(i,"chkYn","0");
+                return;
+            }
+            
+        } 
+        if(ds_master.getCellData(i,"chkYn")=="1"){
+            cnt++;
+        }
+    }
+    
+    if(cnt==0){
+        await $c.gus.cfAlertMsg("선택된 항목이 없습니다.");
+        return;
+    }
+    
+    $c.sbm.execute(sbm_deleteSlip);
+} 
+
+scwin.udc_companyInfo_onclickEvent = function (e) {
+    scwin.f_PopUpCompanyInfo('F');
+};
+
+scwin.udc_companyInfo_onblurCodeEvent = function (e) {
+    ed_coNm.setValue("");
+	scwin.f_PopUpCompanyInfo('T');
+};
+
+scwin.sbm_createSlip_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Msg != "FAIL"){
+        await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_deleteSlip_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Msg != "FAIL"){
+        await $c.gus.cfAlertMsg(MSG_CM_INF_004);
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_retrieveBorrow_submitdone = async function (e) {
+    var rowCnt = ds_master.getTotalRow();
+    ed_totalRow.setValue(rowCnt)
+    if(rowCnt == 0){
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+scwin.gr_master_oncellclick = function (rowIndex, columnIndex, columnId) {
+
+    if(columnId=="transSlipNo"){
+		$c.gus.cfShowSlipInfo(ds_master.getCellData(rowIndex,"transSlipNo"));
+	}
+	
+	if(columnId=="transDelSlipNo"){
+		$c.gus.cfShowSlipInfo(ds_master.getCellData(rowIndex,"transDelSlipNo"));
+	}
+};
+
+scwin.btn_search_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_createSlip();
+};
+
+scwin.btn_delete_onclick = function (e) {
+    scwin.f_deleteSlip();
+};
+
+scwin.f_excel = function(){
+
+    if(ds_master.getTotalRow() == 0){
+        return
+    }
+
+    var options = {
+        fileName : "차입금 유동성대체 현황.xlsx",
+        sheetName : "차입금 유동성대체 현황",
+    };
+
+    $c.data.downloadGridViewExcel(gr_master, options);
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="회사코드 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode popupID="popupMgntClntNo" onloadCallbackFunc="" selectID="retrieveDongbuGroupCompanyInfo"
+									codeId="ed_coCd" popupTitle="회사조회,회사코드,법인명" nameId="ed_coNm" style="" code="coCd" refDataCollection="dma_search"
+									btnId="btn_company" id="udc_companyInfo" popupGridHeadTitle="회사코드,temp,temp,temp,temp,회사명" allowCharCode="0-9" UpperFlagCode="1"
+									maxlengthCode="3" mandatoryCode="true" objTypeCode="data" validExpCode="회사코드:yes" maxlengthName="65" objTypeName="data"
+									ev:onblurCodeEvent="scwin.udc_companyInfo_onblurCodeEvent" ev:onclickEvent="scwin.udc_companyInfo_onclickEvent"
+									popupGridHiddenColumn="2,3,4,5,7,8,9,10" validTitle="회사코드">
+								</w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="회계년월 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_postDt" style="" displayFormat="yyyy/MM" mandatory="true" title="회계년월"></w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="잔액유무 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    								disabledClass="w2selectbox_disabled" id="acb_ramtClsCd" style="width: 100px;" submenuSize="fixed" chooseOptionLabel="전체"
+    								ref="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[있음]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[없음]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="차입금 유동성대체 현황 " style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_master" gridUpYn="N" gridDownFn="scwin.f_excel"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_master" id="gr_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="16" visibleRowNumFix="true" ev:oncellclick="scwin.gr_master_oncellclick" rowStatusVisible="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="column30" inputType="checkbox" style="" value="" width="50"
+    								fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column38" inputType="text" style="" value="차입&lt;/br&gt;번호" width="70">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column36" inputType="text" style="" value="차입기관" width="150"></w2:column>
+    							<w2:column displayMode="label" id="column34" inputType="text" style="" value="종류" width="80"></w2:column>
+    							<w2:column displayMode="label" id="column32" inputType="text" style="" value="계정" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column28" inputType="text" style="" value="과목(계정)" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column26" inputType="text" style="" value="차입일자" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column22" inputType="text" style="" value="만기일자" width="120"></w2:column>
+    							<w2:column displayMode="label" id="column24" inputType="text" style="" value="상환&lt;/br&gt;기간" width="70">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column52" value="이자율" displayMode="label"></w2:column>
+    							<w2:column width="110" inputType="text" style="" id="column50" value="차입금액" displayMode="label"></w2:column>
+    							<w2:column width="110" inputType="text" style="" id="column48" value="원장잔액" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column46" value="유동성대체&lt;/br&gt;대상금액"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column44" value="유동성대체&lt;/br&gt;처리금액"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column40" value="대체&lt;/br&gt;전표번호"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column42" value="삭제&lt;/br&gt;전표번호"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column58" value="유동성&lt;/br&gt;대체대상"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column56" value="유동성&lt;/br&gt;삭제대상"
+    								displayMode="label">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column54" value="처리여부" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="chkYn" inputType="checkbox" style="" value="" width="50"
+                                        fixColumnWidth="true">
+                                </w2:column>
+                                <w2:column displayMode="label" id="borrLedgNo" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+                                <w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="150" readOnly="true" textAlign="left"></w2:column>
+                                <w2:column displayMode="label" id="borrKndCd" inputType="autoComplete" style="" value="" width="80" readOnly="true"></w2:column>
+                                <w2:column displayMode="label" id="borrAcctCd" inputType="text" style="" value="" width="70" readOnly="true" hidden="true"></w2:column>
+                                <w2:column displayMode="label" id="acctNm" inputType="text" style="" value="" width="120" readOnly="true"></w2:column>
+                                <w2:column displayMode="label" id="borrDt" inputType="text" style="" value="" width="120" readOnly="true" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+                                <w2:column displayMode="label" id="dueDt" inputType="text" style="" value="" width="120" readOnly="true" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+                                <w2:column displayMode="label" id="cprRpayMmCnt" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+                                <w2:column width="100" inputType="text" style="" id="intRt" value="" displayMode="label" readOnly="true"></w2:column>
+                                <w2:column width="110" inputType="text" style="" id="borrAmt" value="" displayMode="label" readOnly="true" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+                                <w2:column width="110" inputType="text" style="" id="borrRamt" value="" displayMode="label" readOnly="true" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+                                <w2:column width="120" inputType="text" style="" id="transAmt" value="" displayMode="label" readOnly="true" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+                                <w2:column width="120" inputType="text" style="" id="procTransAmt" value="" displayMode="label" readOnly="true" textAlign="right" dataType="number" displayFormat="#,###" excelCellType="number"></w2:column>
+                                <w2:column width="100" inputType="link" style="" id="transSlipNo" value="" displayMode="label" readOnly="true" class="linktype"></w2:column>
+                                <w2:column width="100" inputType="link" style="" id="transDelSlipNo" value="" displayMode="label" readOnly="true" class="linktype"></w2:column>
+                                <w2:column width="100" inputType="text" style="" id="borrTransYn" value="" displayMode="label" readOnly="true"></w2:column>
+                                <w2:column width="100" inputType="text" style="" id="borrTransDelYn" value="" displayMode="label" readOnly="true"></w2:column>
+                                <w2:column width="100" inputType="text" style="" id="procYn" value="" displayMode="label" readOnly="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="ed_totalRow" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="left" id="" style="">
+    					<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="C">
+    						<xf:label><![CDATA[유동성대체전표투입]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_delete" style="" type="button" ev:onclick="scwin.btn_delete_onclick" userAuth="C">
+    						<xf:label><![CDATA[유동성대체전표삭제]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

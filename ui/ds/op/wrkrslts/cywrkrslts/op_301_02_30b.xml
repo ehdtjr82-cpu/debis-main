@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head meta_screenName="화주별 자가운송사 현황" meta_author="정진경" meta_screenId="op_301_02_30b" meta_type="메인">
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_srchCond">
+    				<w2:keyInfo>
+    					<w2:key id="stDt" name="시작일자" dataType="text"></w2:key>
+    					<w2:key id="endDt" name="종료일자" dataType="text"></w2:key>
+    					<w2:key id="mchtClntCd" name="화주" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_onReqInfo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="impExpClsCd" name="구분" dataType="text"></w2:column>
+    					<w2:column id="selfTransClntNo" name="자가운송사코드" dataType="text"></w2:column>
+    					<w2:column id="selfTransClntNm" name="자가운송사명" dataType="text"></w2:column>
+    					<w2:column id="onReqNo" name="상차요청번호" dataType="text"></w2:column>
+    					<w2:column id="onReqDt" name="상차요청일" dataType="text"></w2:column>
+    					<w2:column id="onIntendDd" name="상차예정일" dataType="text"></w2:column>
+    					<w2:column id="line" name="Line" dataType="text"></w2:column>
+    					<w2:column id="blNo" name="BL NO" dataType="text"></w2:column>
+    					<w2:column id="bookingNo" name="BL/Booking" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="동부오더" dataType="text"></w2:column>
+    					<w2:column id="colBlBookingNo" name="name11" dataType="text"></w2:column>
+    					<w2:column id="colOdrNo" name="name12" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.cywrkrslts.RetrieveOnRequestHwajuCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_srchCond","key":"IN_DS1"},{"id":"ds_onReqInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_onReqInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	
+    // 세션정보
+    let memJson = $c.data.getMemInfo();
+
+    // 사용자구분코드(01:그룹사구분코드(01:그룹사, 02:협력업체(운송), 03:선사, 04:화주, 05:자가운송업체, 06:렌터카(고객), 07:정비(고객))
+    scwin.userClsCd = $c.data.getMemInfo("userClsCd");
+    scwin.clntNo = $c.data.getMemInfo("clntNo");
+    scwin.clntNm = $c.data.getMemInfo("clntNm");
+
+    // 서버를 기준으로 현재 날짜 반환
+    scwin.vCurDate = $c.date.getServerDateTime("yyyyMMdd");
+
+    // 서버를 기준으로 현재 날짜 반환
+    const nowDate = new Date();
+    const yyyy = nowDate.getFullYear();
+    const mm = String(nowDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(nowDate.getDate()).padStart(2, '0');
+    const lastDate = new Date(yyyy, mm+1, 0);
+    const last = lastDate.getDate();
+    
+    scwin.vQryStDt = yyyy+mm+"01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+    scwin.vQryEndDt = yyyy+mm+$c.date.getLastDateOfMonth(scwin.vCurDate.substring(0, 6)); // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+    // scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";
+    // scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDateOfMonth(scwin.vCurDate.substring(0, 6));
+
+    scwin.params = $c.data.getParameter();
+    console.log("### onpageload : "+JSON.stringify(scwin.params));
+
+    scwin.selfTransClntNo = scwin.params.selfTransClntNo;
+    scwin.onReqNo = scwin.params.onReqNo;
+    scwin.selfTransClntNm = scwin.params.selfTransClntNm;
+    scwin.lineCd = scwin.params.lineCd;
+    scwin.reqClntNo = scwin.params.reqClntNo;
+
+    // 공통 코드 매핑
+    const codeOptions = [
+        { grpCd : "SD060", compID : "gr_onReqInfo:impExpClsCd" } // 그리드
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+};
+
+//-------------------------------------------------------------------------
+// 화면로딩시 UDC 호출
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = async function() {
+
+	// udc_fromToCalendar UDC 에 있는 setInitDate 호출
+    udc_srchDate.setInitDate(scwin.vQryStDt, scwin.vQryEndDt);
+    
+    ed_mchtClntCd.setValue(scwin.reqClntNo);
+
+    scwin.udc_mchtClnt_openPopup('T');
+   
+    await scwin.btn_retrieve_onclick();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.btn_retrieve_onclick = async function (e) {
+    if( $c.gus.cfIsNull(ed_srchFromDate.getValue()) ) {
+        ed_srchFromDate.setValue(scwin.vQryStDt); // 실적일자시작
+    }
+    if( $c.gus.cfIsNull(ed_srchToDate.getValue()) ) {
+        ed_srchToDate.setValue(scwin.vQryEndDt); // 실적일자종료
+    }
+    if( scwin.reqClntNo != "" ) {
+        ed_mchtClntCd.setValue(scwin.reqClntNo);
+    }
+
+    if (scwin.reqClntNo != "") {
+        dma_srchCond.set("mchtClntCd", scwin.reqClntNo);
+    } else {
+        dma_srchCond.set("mchtClntCd", ed_mchtClntCd.getValue());
+    }
+
+    // 위 setValue() 로직과 calendar 자체 유효성 체크로 아래 로직은 필요 없을 듯함.
+    let ret1 = await $c.gus.cfValidate(ed_srchFromDate.getValue());
+    let ret2 = await $c.gus.cfValidate(ed_srchToDate.getValue());
+    if( ret1 || ret2 ) {
+        return;
+    }
+
+    let ret3 = await $c.gus.cfIsAfterDate(ed_srchFromDate.getValue(), ed_srchToDate.getValue());
+    if( !ret3 ) {
+        $c.gus.cfAlertMsg(MSG_CM_ERR_039); // 시작일자를 종료일 이전으로 선택[입력]하여 주십시오.
+        ed_srchFromDate.focus();
+        return;
+    }
+
+    let ret4 = await $c.gus.cfValidate([tb_srchCond]);
+    if( !ret4 ) {
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if( e.responseJSON.resultDataSet[0].Code == 0 ) {
+        if( ds_onReqInfo.getRowCount() == 0 ){
+            totalRows.setValue("0");
+		    $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+            return;
+        } else {
+            totalRows.setValue(ds_onReqInfo.getRowCount());
+
+            for( var i = 0 ; i < ds_onReqInfo.getRowCount(); i ++ ) {
+                if( ds_onReqInfo.getCellData(i, "impExpClsCd") == "I" ) {
+                    ds_onReqInfo.setCellData(i, "impExpClsCd", "수입");
+                    ds_onReqInfo.setCellData(i, "colBlBookingNo", ds_onReqInfo.getCellData(i, "blNo"));
+                    ds_onReqInfo.setCellData(i, "colOdrNo", ds_onReqInfo.getCellData(i, "blNo"));
+                }
+                else if( ds_onReqInfo.getCellData(i, "impExpClsCd") == "O" ) {
+                    ds_onReqInfo.setCellData(i, "impExpClsCd", "수출");
+                    ds_onReqInfo.setCellData(i, "colBlBookingNo", ds_onReqInfo.getCellData(i, "bookingNo"));
+                    ds_onReqInfo.setCellData(i, "colOdrNo", ds_onReqInfo.getCellData(i, "bookingNo"));
+                }
+                else {
+                    ds_onReqInfo.setCellData(i, "impExpClsCd", "반납");
+                    ds_onReqInfo.setCellData(i, "colBlBookingNo", "");
+                    ds_onReqInfo.setCellData(i, "colOdrNo", "");
+                }
+            }
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 화주 코드 조회 팝업
+//-------------------------------------------------------------------------
+scwin.udc_mchtClnt_onblurCodeEvent = function (e) {
+    scwin.udc_mchtClnt_openPopup('T');
+};
+
+scwinudc_mchtClntr_onviewchangeNameEvent = function (info) {
+    scwin.udc_mchtClnt_openPopup('T');
+};
+
+scwin.udc_mchtClnt_onclickEvent = function (e) {
+    scwin.udc_mchtClnt_openPopup('F');
+};
+
+scwin.udc_mchtClnt_openPopup = function (pClose) {
+    let pCode = ed_mchtClntCd.getValue();
+    let pName = txt_mchtClntCm.getValue();
+    let pWhere = ",LOGISCLNT2";
+    // udc_mchtClnt.setSelectId('retrieveClntList');
+    udc_mchtClnt.cfCommonPopUp(
+            scwin.udc_mchtClnt_callBackFunc
+            ,pCode
+            ,pName
+            ,pClose
+            ,null
+            ,null
+            ,null
+            ,null
+            ,pWhere
+            ,null
+            ,null
+            ,null
+            ,null
+    );
+};
+
+scwin.udc_mchtClnt_callBackFunc = function (rtnList) {
+    if( rtnList != null && rtnList[0] != "N/A" ) {
+        // for (var i = 0; i < obj.length; i++) {
+        //     if( $p.getComponentById(obj[i]).tagName == "INPUT" ){
+		// 		$p.getComponentById(obj[i]).setValue(rtnList[i%2]);
+		// 	}else if( $p.getComponentById(obj[i]).tagName == "SPAN" ){
+		// 		$p.getComponentById(obj[i]).innerText = rtnList[i%2];
+		// 	}else if( $p.getComponentById(obj[i]).tagName == "OBJECT" ){
+		// 		 $p.getComponentById(obj[i]).setValue(rtnList[i%2]);
+		// 	}
+        // }
+        ed_mchtClntCd.setValue(rtnList[0]);
+        txt_mchtClntCm.setValue(rtnList[1]);
+    } else {
+        // for (var i = 0; i < obj.length; i++) {
+        //     if( $p.getComponentById(obj[i]).tagName == "INPUT" ){
+		// 		$p.getComponentById(obj[i]).setValue(rtnList[i%2]);
+		// 	}else if( $p.getComponentById(obj[i]).tagName == "SPAN" ){
+		// 		$p.getComponentById(obj[i]).innerText = rtnList[i%2];
+		// 	}else if( $p.getComponentById(obj[i]).tagName == "OBJECT" ){
+		// 		 $p.getComponentById(obj[i]).setValue(rtnList[i%2]);
+		// 	}
+        // }
+        ed_mchtClntCd.setValue("");
+        txt_mchtClntCm.setValue("");
+    }
+};
+
+scwin.f_gridColumnData = function (impExpClsCd, blNo, bookingNo) {
+    return $c.gus.decode(impExpClsCd, "I", blNo, "O", bookingNo, "");
+};
+
+scwin.excelDown = async function(gubun) {
+    var fileName = "상차요청승인현황(협력업체)";
+    await $c.data.downloadGridViewExcel(gr_onReqInfo, { fileName: fileName + ".xlsx", sheetName: fileName});
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="tb_srchCond" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="req" id="" label="화주 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" codeId="ed_mchtClntCd" nameId="txt_mchtClntCm" id="udc_mchtClnt" btnId="btn_mchtClnt" selectID="retrieveClntList" refDataCollection="dma_srchCond" code="mchtClntCd" ev:onblurCodeEvent="scwin.udc_mchtClnt_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_mchtClnt_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_mchtClnt_onclickEvent" popupTitle="거래처팝업,거래처코드,거래처명" popupGridHeadTitle="거래처코드,거래처명,,,사업자번호,,거래처직원,주소,요율연결여부" popupGridHiddenColumn="3,4,6,10" validTitle="화주" mandatoryCode="true" maxlengthCode="6" mandatoryName="false" objTypeCode="data" objTypeName="data"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="기간 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_fromToCalendar id="udc_srchDate" refDataMap="dma_srchCond" refEdDt="endDt" refStDt="stDt" style="" edFromId="ed_srchFromDate" edToId="ed_srchToDate"></w2:udc_fromToCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="수입 상차 요청 승인 " style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridID="gr_onReqInfo" gridUpYn="N" gridDownFn="scwin.excelDown" id="udc_topGrd"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_onReqInfo" id="gr_onReqInfo" style="" visibleRowNum="10" visibleRowNumFix="true" readOnly="true">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" value="구분" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="자가운송사코드" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" value="자가운송사명" width="200">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" value="상차요청번호" width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" value="상차요청일" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" value="상차예정일" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column3" inputType="text" value="Line" width="70"></w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" value="BL/Booking" width="130">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column7" inputType="text" value="동부오더" width="100"></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="impExpClsCd" inputType="text" width="100"></w2:column>
+    											<w2:column displayMode="label" id="selfTransClntNo" inputType="text" width="120"></w2:column>
+    											<w2:column displayMode="label" id="selfTransClntNm" inputType="text" width="200" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="onReqNo" inputType="text" width="120"></w2:column>
+    											<w2:column displayMode="label" id="onReqDt" inputType="text" width="100" dataType="date"></w2:column>
+    											<w2:column displayMode="label" id="onIntendDd" inputType="text" width="100" dataType="date"></w2:column>
+    											<w2:column displayMode="label" id="line" inputType="text" width="70" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="colBlBookingNo" inputType="text" width="130" textAlign="left"></w2:column>
+    											<w2:column displayMode="label" id="colOdrNo" inputType="text" width="100" textAlign="left"></w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,###"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

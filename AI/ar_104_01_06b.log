@@ -1,0 +1,44 @@
+ar_104_01_06b.log
+
+[2026-02-20 12:04:28.106] 변환 시작
+[2026-02-20 12:04:28.589] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-20 12:12:45.436] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.85, grade=B, verdict=REVIEW, errors=3, warnings=9 | LLM 495309ms, total 496847ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_acRecv (EMEDIT→xf:input), ed_arPfm (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 24건: ds_DeptChangeParam, ds_DeptChangeResult, ds_HblNoChangeParam, ds_HblNoChangeResult, ds_HblStockNoInfo
+    - [적정성] 분기 로직 대량 감소 — 소스 688건→출력 117건 (17%) — 로직 삭제 의심
+[2026-02-20 12:12:46.046] #1 검증: 자동수정 8건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-20 12:12:48.150] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.85, grade=B, verdict=REVIEW, errors=3, warnings=9
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 12건: lc_shipGb (LUXECOMBO→w2:autoComplete), lc_lrgb (LUXECOMBO→w2:autoComplete), lc_inco (LUXECOMBO→w2:autoComplete), lc_contractNo (LUXECOMBO→w2:autoComplete), ed_arInv (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 24건: ds_DeptChangeParam, ds_DeptChangeResult, ds_HblNoChangeParam, ds_HblNoChangeResult, ds_HblStockNoInfo
+    - [적정성] 분기 로직 대량 감소 — 소스 688건→출력 117건 (17%) — 로직 삭제 의심
+[2026-02-20 12:12:48.157] #2 재시도 (에러 5건)
+[2026-02-20 12:12:49.165] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-20 12:22:10.257] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.87, grade=B, verdict=REVIEW, errors=3, warnings=8 | LLM 559721ms, total 561091ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_acRecv (EMEDIT→xf:input), ed_arPfm (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] 분기 로직 대량 감소 — 소스 688건→출력 164건 (24%) — 로직 삭제 의심
+[2026-02-20 12:22:10.262] 실패 (2회 시도, 17m 42s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+  2. [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+  3. [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_acRecv (EMEDIT→xf:input), ed_arPfm (EMEDIT→xf:input)
+  4. [적정성] DATASET 전환 — 누락 1건: ds
+  5. [적정성] 분기 로직 대량 감소 — 소스 688건→출력 164건 (24%) — 로직 삭제 의심
+================================================================================

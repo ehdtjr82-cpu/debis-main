@@ -1,0 +1,2966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="ds_certiList" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="checkbox1" dataType="text"></w2:column>
+    					<w2:column id="certiNo" name="거래명세서번호" dataType="text"></w2:column>
+    					<w2:column id="selpchItemNm" name="매입항목" dataType="text"></w2:column>
+    					<w2:column id="pchsIntendDt" name="매입예정일자" dataType="text"></w2:column>
+    					<w2:column id="pchsDeptCd" name="매입부서" dataType="text"></w2:column>
+    					<w2:column id="pchsClntNo" name="매입거래처" dataType="text"></w2:column>
+    					<w2:column id="pchsClntNm" name="매입거래처명" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+    					<w2:column id="spplyAmt" name="공급가액" dataType="text"></w2:column>
+    					<w2:column id="vat" name="부가세" dataType="text"></w2:column>
+    					<w2:column id="pchsAmtFcrc" name="외화금액" dataType="text"></w2:column>
+    					<w2:column id="suspensePay" name="가지급금액" dataType="text"></w2:column>
+    					<w2:column id="sumAmt" name="합계금액" dataType="text"></w2:column>
+    					<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+    					<w2:column id="setoffSlipNo" name="상계전표" dataType="text"></w2:column>
+    					<w2:column id="crcCd" name="환종" dataType="text"></w2:column>
+    					<w2:column id="recptYn" name="명세서출력" dataType="text"></w2:column>
+    					<w2:column id="elecAuthTrgtYn" name="매입계산서역발행" dataType="text"></w2:column>
+    					<w2:column id="etd" name="ETD" dataType="text"></w2:column>
+    					<w2:column id="eta" name="ETA" dataType="text"></w2:column>
+    					<w2:column id="ondt" name="Onboard" dataType="text"></w2:column>
+    					<w2:column id="adjmDept" name="정산부서" dataType="text"></w2:column>
+    					<w2:column id="adjmDeptNm" name="정산부서명" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="전표일자" dataType="text"></w2:column>
+    					<w2:column id="evidKndClsCd" name="증빙구분" dataType="text"></w2:column>
+    					<w2:column id="taxnClsCd" name="과세구분" dataType="text"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNo" name="작성자" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNm" name="작성자명" dataType="text"></w2:column>
+    					<w2:column id="drawAcctDeptCd" name="작성귀속부서" dataType="text"></w2:column>
+    					<w2:column id="drawAcctDeptNm" name="작성귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="busiNo" name="사업자번호" dataType="text"></w2:column>
+    					<w2:column id="busiNm" name="사업자명" dataType="text"></w2:column>
+    					<w2:column id="spplyDt" name="공급일자" dataType="text"></w2:column>
+    					<w2:column id="reqPayMthdCd" name="지급방법" dataType="text"></w2:column>
+    					<w2:column id="payDt" name="지급일자" dataType="text"></w2:column>
+    					<w2:column id="bfPayDt" name="변경전지급일자" dataType="text"></w2:column>
+
+                        <w2:column id="pchsDeptNm" name="pchsDeptNm" dataType="text"></w2:column>
+                        <w2:column id="pchsIntendDtSt" name="pchsIntendDtSt" dataType="text"></w2:column>
+                        <w2:column id="pchsIntendDtEnd" name="pchsIntendDtEnd" dataType="text"></w2:column>
+                        <w2:column id="selpchItemCd" name="selpchItemCd" dataType="text"></w2:column>
+                        <w2:column id="pchsGoodsPatternCd" name="pchsGoodsPatternCd" dataType="text"></w2:column>
+                        <w2:column id="certiDtlCnt" name="certiDtlCnt" dataType="text"></w2:column>
+                        <w2:column id="ctrtStDt" name="ctrtStDt" dataType="text"></w2:column>
+                        <w2:column id="ctrtEndDt" name="ctrtEndDt" dataType="text"></w2:column>
+                        <w2:column id="seq" name="seq" dataType="text"></w2:column>
+                        <w2:column id="pchsClntClsCd" name="pchsClntClsCd" dataType="text"></w2:column>
+                        <w2:column id="pchsClntClsNm" name="pchsClntClsNm" dataType="text"></w2:column>
+                        <w2:column id="rsltsStdDt" name="rsltsStdDt" dataType="text"></w2:column>
+                        <w2:column id="pic" name="pic" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_searchCertiList">
+    				<w2:keyInfo>
+    					<w2:key id="pchsClntNo" name="매입거래처" dataType="text"></w2:key>
+    					<w2:key id="pchsDeptCd" name="매입부서" dataType="text"></w2:key>
+    					<w2:key id="pchsIntendDtSt" name="매입예정일자시작" dataType="text"></w2:key>
+    					<w2:key id="pchsIntendDtEnd" name="매입예정일자종료" dataType="text"></w2:key>
+    					<w2:key id="pchsItemCd" name="매입항목코드" dataType="text"></w2:key>
+    					<w2:key id="certiNo" name="거래명세서번호" dataType="text"></w2:key>
+    					<w2:key id="admitPic" name="승인담당자" dataType="text"></w2:key>
+    					<w2:key id="recptYn" name="접수여부" dataType="text"></w2:key>
+
+                        <w2:key id="rglDeptCd" name="rglDeptCd" dataType="text"></w2:key>
+                        <w2:key id="slipDtSt" name="slipDtSt" dataType="text"></w2:key>
+                        <w2:key id="slipDtEnd" name="slipDtEnd" dataType="text"></w2:key>
+                        <w2:key id="dcsnClsCd" name="dcsnClsCd" dataType="text"></w2:key>
+                        <w2:key id="repBilgClntNo" name="repBilgClntNo" dataType="text"></w2:key>
+                        <w2:key id="slipNo" name="slipNo" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_clntInfo" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="nmCmpy" name="상호" dataType="text"></w2:column>
+    					<w2:column id="busiNo" name="사업자번호" dataType="text"></w2:column>
+    					<w2:column id="elecAuthTrgtYn" name="역발행 거래처 여부" dataType="text"></w2:column>
+    					<w2:column id="inatPayYn" name="name4" dataType="text"></w2:column>
+    					<w2:column id="payCycCd" name="name5" dataType="text"></w2:column>
+    					<w2:column id="payDd" name="name6" dataType="text"></w2:column>
+    					<w2:column id="payCntShtCd" name="name7" dataType="text"></w2:column>
+    					<w2:column id="payDtChgYn" name="name8" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_purchaseCerti">
+    				<w2:keyInfo>
+    					<w2:key id="adjmDept" name="정산부서" dataType="text"></w2:key>
+    					<w2:key id="slipDt" name="전표일자" dataType="text"></w2:key>
+    					<w2:key id="evidKndClsCd" name="증빙구분" dataType="text"></w2:key>
+    					<w2:key id="taxnClsCd" name="과세구분" dataType="text"></w2:key>
+    					<w2:key id="summary" name="적요" dataType="text"></w2:key>
+    					<w2:key id="drawEmpNo" name="작성자" dataType="text"></w2:key>
+    					<w2:key id="drawAcctDeptCd" name="작성귀속부서" dataType="text"></w2:key>
+    					<w2:key id="pchsClntNo" name="매입거래처" dataType="text"></w2:key>
+    					<w2:key id="busiNo" name="사업자번호" dataType="text"></w2:key>
+    					<w2:key id="spplyDt" name="공급일자" dataType="text"></w2:key>
+    					<w2:key id="spplyAmt" name="공급금액" dataType="text"></w2:key>
+    					<w2:key id="vat" name="부가세" dataType="text"></w2:key>
+    					<w2:key id="elecAuthTrgtYn" name="전자인증여부(전자세금계산서)" dataType="text"></w2:key>
+    					<w2:key id="crcCd" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_payInfo">
+    				<w2:keyInfo>
+    					<w2:key id="payDt" name="지급일" dataType="text"></w2:key>
+    					<w2:key id="reqPayMthdCd" name="지급방법" dataType="text"></w2:key>
+    					<w2:key id="bfPayDt" name="변경 전 지급일" dataType="text"></w2:key>
+    					<w2:key id="interDataYn" name="국제data여부" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_holiday">
+    				<w2:keyInfo>
+    					<w2:key id="stdDt" name="다음일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_nextdate">
+    				<w2:keyInfo>
+    					<w2:key id="nextDt" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="ds_imntClnt">
+    				<w2:keyInfo>
+    					<w2:key id="cd" name="코드" dataType="text"></w2:key>
+    					<w2:key id="cdNm" name="코드명" dataType="text"></w2:key>
+    					<w2:key id="cdEngNm" name="영어명" dataType="text"></w2:key>
+    					<w2:key id="cdNmAbbr" name="코드약명" dataType="text"></w2:key>
+    					<w2:key id="cdEngNmAbbr" name="영어약명" dataType="text"></w2:key>
+    					<w2:key id="cdDesc" name="코드설명" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_prov" repeatNode="map" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="slipNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="slipDt" name="name2" dataType="text"></w2:column>
+    					<w2:column id="reqAcctDeptCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="reqAcctDeptNm" name="name4" dataType="text"></w2:column>
+    					<w2:column id="reqEmpNo" name="name5" dataType="text"></w2:column>
+    					<w2:column id="reqEmpNm" name="name6" dataType="text"></w2:column>
+    					<w2:column id="setlIntendDt" name="name7" dataType="text"></w2:column>
+    					<w2:column id="amt" name="name8" dataType="text"></w2:column>
+    					<w2:column id="setlAmt" name="name9" dataType="text"></w2:column>
+    					<w2:column id="setlAmtFcrc" name="name10" dataType="text"></w2:column>
+    					<w2:column id="postSetlAmt" name="name11" dataType="text"></w2:column>
+    					<w2:column id="postSetlAmtFcrc" name="name12" dataType="text"></w2:column>
+    					<w2:column id="susPayClsCd" name="name13" dataType="text"></w2:column>
+    					<w2:column id="rcptAmt" name="name14" dataType="text"></w2:column>
+    					<w2:column id="rcptAmtFcrc" name="name15" dataType="text"></w2:column>
+    					<w2:column id="summary" name="name16" dataType="text"></w2:column>
+    					<w2:column id="setlDt" name="name17" dataType="text"></w2:column>
+    					<w2:column id="rltSeq" name="name18" dataType="text"></w2:column>
+    					<w2:column id="setlIntendAmt" name="name19" dataType="text"></w2:column>
+    					<w2:column id="setlIntendAmtFcrc" name="name20" dataType="text"></w2:column>
+    					<w2:column id="setlCompleteYn" name="name21" dataType="text"></w2:column>
+    					<w2:column id="postYn" name="name22" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNo" name="name23" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNm" name="name24" dataType="text"></w2:column>
+    					<w2:column id="bankbookNo" name="name25" dataType="text"></w2:column>
+    					<w2:column id="crcCd" name="name26" dataType="text"></w2:column>
+    					<w2:column id="exchRt" name="name27" dataType="text"></w2:column>
+    					<w2:column id="setexchRt" name="name28" dataType="text"></w2:column>
+    					<w2:column id="amtFcrc" name="name29" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="name30" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_provHeader" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="summary" name="name1" dataType="text"></w2:column>
+    					<w2:column id="setlDt" name="name2" dataType="text"></w2:column>
+    					<w2:column id="reqAcctDeptCd" name="신청부서" dataType="text"></w2:column>
+    					<w2:column id="susPayClsCd" name="계정구분" dataType="text"></w2:column>
+    					<w2:column id="drawEmpNo" name="작성사원번호" dataType="text"></w2:column>
+    					<w2:column id="drawAcctDeptCd" name="작성귀속부서코드" dataType="text"></w2:column>
+    					<w2:column id="rltSeq" name="구분" dataType="text"></w2:column>
+    					<w2:column id="bankbookNo" name="통장코드" dataType="text"></w2:column>
+    					<w2:column id="bankAcntNo" name="계좌번호" dataType="text"></w2:column>
+    					<w2:column id="bankbookKndNm" name="통장종류명" dataType="text"></w2:column>
+    					<w2:column id="bankbookNm" name="통장명" dataType="text"></w2:column>
+    					<w2:column id="reqAcctDeptNm" name="신청부서" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_searchCertiList" action="/ds.fs.adjm.pchsadjmdcsn.RetrieveTotalCertiCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_searchCertiList","key":"IN_DS1"},{"id":"ds_certiList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_certiList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_searchCertiList_submit" ev:submitdone="scwin.sbm_searchCertiList_submitdone"
+    			ev:submiterror="scwin.sbm_searchCertiList_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_searchClntInfo" action="/ds.fs.adjm.pchsadjmdcsn.RetrieveClntPayInfoCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_purchaseCerti","key":"IN_DS1"},{"id":"ds_clntInfo","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_clntInfo","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_searchClntInfo_submit" ev:submitdone=""
+    			ev:submiterror="scwin.sbm_searchClntInfo_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveRegistPurchaseEvidence" action="/ds.fs.adjm.pchsadjmdcsn.RegistTotalPurchaseEvidenceCMD.do"
+    			method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_certiList","key":"IN_DS1"}' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+    			ev:submit="scwin.sbm_saveRegistPurchaseEvidence_submit" ev:submitdone="scwin.sbm_saveRegistPurchaseEvidence_submitdone"
+    			ev:submiterror="scwin.sbm_saveRegistPurchaseEvidence_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_holiday" action="/ds.fs.adjm.pchsadjmdcsn.RetrieveHolidayNextDateCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_holiday","key":"IN_DS1"},{"id":"ds_nextdate","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_nextdate","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="scwin.sbm_holiday_submit" ev:submitdone=""
+    			ev:submiterror="scwin.sbm_holiday_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_imntClnt" action="/cm.zz.RetrieveCodeCMD.do" method="post" mediatype="application/json" ref="data:json,ds_imntClnt" target=""
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript">//==================================================================================================================
+// id       : fs_103_01_03b 
+// 이름     : 세금계산서접수등록(부서별)
+// 경로     : 물류/정산/세금계산서/
+// 작 성 자 : 조성빈
+// 작 업 일 : 2025-12-22
+// 사용계정 : 내부
+// 비고     : 
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            
+//==================================================================================================================
+scwin.vCurDate;
+scwin.vQryStDt;
+scwin.vQryEndDt;
+scwin.clnt_chk;
+scwin.pay_cond;
+scwin.sum;
+scwin.suspensePaySum;
+scwin.selectRow;
+
+scwin.onpageload = async function() {
+    scwin.vCurDate = $c.date.getServerDateTime(&quot;yyyyMMdd&quot;);  // 서버를 기준으로 현재 날짜 반환
+	scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + &quot;01&quot;;  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+	scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + $c.date.getLastDateOfMonth($c.date.getServerDateTime( scwin.vCurDate.substring(0,6)));  // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+    scwin.clnt_chk = &quot;T&quot;;
+	scwin.pay_cond = &quot;T&quot;;
+	scwin.sum = 0; //가지급금 금액 산정용
+	scwin.suspensePaySum = 0;
+
+    const codeOptions = [
+        { grpCd : &quot;SD070&quot;, compID : &quot;acb_taxnClsCd,gr_certiList:taxnClsCd&quot; },
+        { grpCd : &quot;FM018&quot;, compID : &quot;acb_reqPayMthdCd&quot;}, 
+    ];
+    await $c.data.setCommonCode(codeOptions, scwin.setCommonCodeCallBack);
+
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    $p.setTimeout(function() {
+
+    }, {&quot;delay&quot;:100});
+};
+
+scwin.setCommonCodeCallBack = function () {
+
+    const codeOptions1 = [ 
+        {
+            method: &quot;getLuxeComboData&quot;, 
+            param1: &quot;LogisticsPurchaseEvidenceEBC&quot;, 
+            param2: &quot;retriveSelpchItemCdList&quot;,
+            param3: [&quot;CMP&quot;],
+            compID: &quot;acb_pchsItemCd&quot; ,
+            requestIdleCallback : &quot;scwin.test&quot;
+        }
+    ];
+    $c.data.setGauceUtil(codeOptions1, scwin.comboSetCallBack);
+};
+
+scwin.comboSetCallBack = function(){
+    $c.data.dataListFilter(dlt_commonCodeFM018, &quot;fltrCd2 == '10' || fltrCd2 == '20'&quot;);
+
+    acb_pchsItemCd.addItem(&quot;전체&quot;, &quot;&quot;, &quot;&quot;, 0);
+    acb_pchsItemCd.setMaxLength(50);
+    acb_pchsItemCd.setSelectedIndex(0); // 매입항목
+
+    acb_taxnClsCd.addItem(&quot;선택&quot;, &quot;&quot;, &quot;&quot;, 0);
+    acb_taxnClsCd.setSelectedIndex(0);
+
+    acb_reqPayMthdCd.addItem(&quot;선택&quot;, &quot;&quot;, &quot;&quot;, 0);
+    acb_reqPayMthdCd.setSelectedIndex(0);
+
+    scwin.f_SetDefaultData();
+
+    // ed_bfPayDt.style.visibility = &quot;hidden&quot;;
+
+    // $p.setTimeout(function() {
+    //     ed_pchsDeptCd.setValue(&quot;1G5&quot;);
+    //     ica_pchsIntendDtSt.setValue(&quot;20071130&quot;);
+    //     ica_pchsIntendDtEnd.setValue(&quot;20071130&quot;);
+    //     acb_recptYn.setValue(&quot;N&quot;);
+    //     ed_pchsDeptCd.focus();
+    //     ed_pchsDeptCd.blur();
+    // }, {&quot;delay&quot;:150});
+    
+};
+
+//-------------------------------------------------------------------------
+// Default Data Setting
+//-------------------------------------------------------------------------
+scwin.f_SetDefaultData = function () {
+    
+    ica_pchsIntendDtSt.setValue(scwin.vQryStDt);  // 매입예정일자시작
+    ica_pchsIntendDtEnd.setValue(scwin.vQryEndDt);  // 매입예정일자종료
+    acb_recptYn.setMaxLength(4);
+    acb_recptYn.setSelectedIndex(0); // 접수구분
+    // document.all.div_id.style.visibility = &quot;hidden&quot;;
+
+    ds_provHeader.insertRow();
+    // Session 이용
+    ds_provHeader.setCellData(0, &quot;reqAcctDeptCd&quot;, $c.data.getMemInfo(&quot;acctDeptCd&quot;));
+    // 로그인사번,부서
+    ds_provHeader.setCellData(0, &quot;drawEmpNo&quot;, $c.data.getMemInfo(&quot;empNo&quot;));
+    ds_provHeader.setCellData(0, &quot;drawAcctDeptCd&quot;, $c.data.getMemInfo(&quot;acctDeptCd&quot;));
+};
+
+
+//-------------------------------------------------------------------------
+// 거래명세서 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveCertiList = async function () {
+    // 검색조건 필수 입력 체크, 동일 날짜 포함 여부 체크
+    var rs = await $c.gus.cfValidate([ica_pchsIntendDtSt, ica_pchsIntendDtEnd, ed_pchsDeptCd]);
+    if (!rs) {
+        return;
+    }
+    rs = await $c.gus.cfIsAfterDate(ica_pchsIntendDtSt.getValue(), ica_pchsIntendDtEnd.getValue())
+    if (!rs) {
+        await $c.gus.cfAlertMsg(&quot;조회 시작일자는 종료일자 보다 이전 날짜 이어야 합니다.&quot;);
+        ica_pchsIntendDtSt.focus();
+        return;
+    }
+    $c.sbm.execute(sbm_searchCertiList);
+} ;
+
+//-------------------------------------------------------------------------
+// 상세 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrievePurchaseEvidence = async function (row) {
+    // 팝업화면에게 key 정보인 전표번호를 넘겨준다.
+    let win_url = &quot;/ui/ds/fs/adjm/fs_103_01_01p.xml&quot;;
+    let data = {
+        &quot;slipNo&quot;     : ds_certiList.getCellData(row, &quot;slipNo&quot;)
+    };
+    let opts = {
+        id : &quot;detailPop&quot;
+        , popupName : &quot;세금계산서 접수 등록 상세&quot;
+        , modal : true
+        , type : &quot;browserPopup&quot;
+        , width : 840
+        , height : 670
+        , title : &quot;세금계산서 접수 등록 상세&quot;
+    };
+    await $c.win.openPopup(win_url, opts, data);
+};
+
+//-------------------------------------------------------------------------
+// 매입증빙(상호, 사업자번호) 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveClntInfo = async function (row) {
+    // ds_purchaseCerti.ClearData();
+    ds_purchaseCerti.set(&quot;adjmDept&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;slipDt&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;evidKndClsCd&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;taxnClsCd&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;summary&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;drawEmpNo&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;drawAcctDeptCd&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;pchsClntNo&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;busiNo&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;spplyDt&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;spplyAmt&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;vat&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;elecAuthTrgtYn&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;crcCd&quot;, &quot;&quot;);
+    // ds_clntInfo.ClearData();
+    ds_clntInfo.removeAll();
+    
+    ds_purchaseCerti.set(&quot;pchsClntNo&quot;, ds_certiList.getCellData(row, &quot;pchsClntNo&quot;));
+    ds_purchaseCerti.set(&quot;adjmDept&quot;, ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;));     
+    ds_purchaseCerti.set(&quot;crcCd&quot;, ds_certiList.getCellData(row, &quot;crcCd&quot;));
+    
+    await $c.sbm.execute(sbm_searchClntInfo);
+    if (ds_clntInfo.getRowCount() &gt; 0) {
+        ds_certiList.setCellData(row, &quot;busiNm&quot;, ds_clntInfo.getCellData(0, &quot;nmCmpy&quot;));  // 상호
+        ds_certiList.setCellData(row, &quot;busiNo&quot;, ds_clntInfo.getCellData(0, &quot;busiNo&quot;));  // 사업자번호
+        ds_certiList.setCellData(row, &quot;elecAuthTrgtYn&quot;, ds_clntInfo.getCellData(0, &quot;elecAuthTrgtYn&quot;));	//역발행 거래처 여부
+
+        scwin.pay_cond = &quot;T&quot;;
+        
+        if(scwin.clnt_chk == &quot;T&quot;){        
+            ds_payInfo.set(&quot;interDataYn&quot;, 0); 
+            if( ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G20&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G32&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G33&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G31&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G34&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G35&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G36&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;6A5&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;4A9&quot;){ // 재무팀 노규헌 대리 요청으로 인천복운 추가(2018.10)
+                
+                if(ds_clntInfo.getCellData(0, &quot;inatPayYn&quot;)==&quot;1&quot;){
+                    //당월
+                    if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;3&quot;){
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;); 
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+1).toString();
+                        } else {
+                            mm = (date.getMonth()).toString();
+                        } 
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        }	 
+                        
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);	
+                        
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+                        
+                        var strPayDate = yyyy + mm + dd;	
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);
+
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+                        
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                        scwin.pay_cond = &quot;T&quot;;
+                        //익월
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;1&quot;){
+                            
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;); 
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+2).toString();
+                        } else {
+                            mm = (date.getMonth()+1).toString();
+                        } 
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }			
+
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);	
+                        
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }					
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+
+                        await $c.sbm.execute(sbm_holiday);									  
+                        
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);  
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                        scwin.pay_cond = &quot;T&quot;;
+                        //익익월
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;2&quot;){
+                        
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;);
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+3).toString();
+                        } else {
+                            mm = (date.getMonth()+2).toString();
+                        } 						
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }				
+
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+
+                        var strPayDate = yyyy + mm + dd;
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);									  
+                        
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);	 
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1);
+                        scwin.pay_cond = &quot;T&quot;; 
+                        //익익익월
+                    }else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;4&quot;){
+                            
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;);
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+4).toString();
+                        } else {
+                            mm = (date.getMonth()+3).toString();
+                        } 	
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }			
+            
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);									  
+
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+                        
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);	 
+                        } 				           	
+                    
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1);
+                        scwin.pay_cond = &quot;T&quot;;  
+                    //익익익익월          	   
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;5&quot;){
+                                
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;);
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+5).toString();
+                        } else {
+                            mm = (date.getMonth()+4).toString();
+                        } 	
+                    
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }			
+            
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);									  
+
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;)); 
+                        
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);	
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1);
+                        scwin.pay_cond = &quot;T&quot;;
+                                            
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;6&quot;){
+                        if(ds_certiList.getCellData(row, &quot;etd&quot;) != &quot;&quot;){
+                            var strDate = ds_certiList.getCellData(row, &quot;etd&quot;); 
+                            var year = strDate.substr(0,4);				
+                            var month = strDate.substr(4,2)-1;
+                            var day = strDate.substr(6,2);
+                            var date = new Date(year, month, day);
+                            var payDate = new Date(Date.parse(date) 
+                                + ds_clntInfo.getCellData(0, &quot;payDd&quot;) * 1000 * 60 * 60 * 24);  //after 5days
+                                
+                            var yyyy = payDate.getFullYear().toString();
+                            var mm = (payDate.getMonth() + 1).toString();
+                                
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;				
+                            }				
+
+                            var dd = payDate.getDate().toString();
+                            if(dd &lt; 10){
+                                dd = &quot;0&quot;+dd;				
+                            }
+                            var strPayDate = yyyy + mm + dd;
+                            
+                            ds_holiday.set(&quot;stdDt&quot;, strPayDate); 
+                            await $c.sbm.execute(sbm_holiday);									  
+
+                            ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                            ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                            ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+                                        
+                            //ed_payDt.setValue()strPayDate;  
+                            //ed_bfPayDt.setValue()strPayDate;  
+                            
+                        
+                            if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                                gr_certiList.setColumnReadOnly('payDt', false);				           		        	
+                            } else {	 
+                                gr_certiList.setColumnReadOnly('payDt', true);	
+                            } 					           	
+                            ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                            scwin.pay_cond = &quot;T&quot;;
+
+                        } 
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;7&quot;){
+                        
+                        if(ds_certiList.getCellData(row, &quot;eta&quot;) != &quot;&quot;){
+                            var strDate = ds_certiList.getCellData(row, &quot;eta&quot;);  
+                            var year = strDate.substr(0,4);				
+                            var month = strDate.substr(4,2)-1;
+                            var day = strDate.substr(6,2);
+                            var date = new Date(year, month, day);
+                            var payDate = new Date(Date.parse(date) 
+                                + ds_clntInfo.getCellData(0, &quot;payDd&quot;) * 1000 * 60 * 60 * 24);  //after 5days
+                            var yyyy = payDate.getFullYear().toString();
+                            var mm = (payDate.getMonth() + 1).toString();
+                            
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;				
+                            }	
+                            
+                            var dd = payDate.getDate().toString();
+                            
+                            if(dd &lt; 10){
+                                dd = &quot;0&quot;+dd;				
+                            }
+                            var strPayDate = yyyy + mm + dd;
+                            
+                            ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                            await $c.sbm.execute(sbm_holiday);									  
+
+                            ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                            ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                            ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+                                            
+                            //ed_payDt.setValue()strPayDate; 
+                            //ed_bfPayDt.setValue()strPayDate;  
+                        
+                            if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                                gr_certiList.setColumnReadOnly('payDt', false);	 			           		        	
+                            } else {	 
+                                gr_certiList.setColumnReadOnly('payDt', true);	 
+                            } 	
+                                
+                            ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                            scwin.pay_cond = &quot;T&quot;;	
+                        }     	           
+                    }else{	
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, &quot;&quot;);  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, &quot;&quot;); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, &quot;&quot;);
+                        
+                    }
+
+                    var clntNo = ds_certiList.getCellData(row, &quot;pchsClntNo&quot;)  
+                    
+                    if(clntNo==&quot;249544&quot;){			            				            
+                        acb_reqPayMthdCd.setValue(&quot;40&quot;);
+                    } 
+                }            
+            }            
+            //근무구분
+            // ds_imntClnt.DataID = &quot;/cm.zz.RetrieveCodeCMD.do?grpCd=IL061&amp;cd=&quot;+ds_certiList.getCellData(row, &quot;pchsClntNo&quot;) ;
+            // ds_imntClnt.Reset(); 
+            ds_imntClnt.set('grpCd', 'IL061');
+            ds_imntClnt.set('cd', ds_certiList.getCellData(row, &quot;pchsClntNo&quot;));
+            var rs = await $c.sbm.execute(sbm_imntClnt);
+        } else {
+            scwin.clnt_chk = &quot;T&quot;;             
+        }           
+    }       
+    
+}
+    
+//-------------------------------------------------------------------------
+// 매입증빙(상호, 사업자번호) 조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveClntInfo2 = async function (row,pchsClntNo) {
+    // ds_purchaseCerti.ClearData();
+    ds_purchaseCerti.set(&quot;adjmDept&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;slipDt&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;evidKndClsCd&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;taxnClsCd&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;summary&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;drawEmpNo&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;drawAcctDeptCd&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;pchsClntNo&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;busiNo&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;spplyDt&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;spplyAmt&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;vat&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;elecAuthTrgtYn&quot;, &quot;&quot;);
+    ds_purchaseCerti.set(&quot;crcCd&quot;, &quot;&quot;);
+    // ds_clntInfo.ClearData();
+    ds_clntInfo.removeAll();
+
+    ds_purchaseCerti.set(&quot;pchsClntNo&quot;, pchsClntNo);
+    ds_purchaseCerti.set(&quot;adjmDept&quot;, ds_certiList.getCellData(row, &quot;adjmDept&quot;));     
+    ds_purchaseCerti.set(&quot;crcCd&quot;, ds_certiList.getCellData(row, &quot;crcCd&quot;));
+    
+    var rs = await $c.sbm.execute(sbm_searchClntInfo);
+    if (rs.responseJSON.resultDataSet[0].Msg = 'SUCC'){
+        
+    }
+    if (ds_clntInfo.getRowCount() &gt; 0) {
+        //역발행거래처여부 조회해와서 세팅 하도록 수정 20140926 황창기
+        ds_certiList.setCellData(row, &quot;busiNm&quot;, ds_clntInfo.getCellData(0, &quot;nmCmpy&quot;));  // 상호
+        ds_certiList.setCellData(row, &quot;busiNo&quot;, ds_clntInfo.getCellData(0, &quot;busiNo&quot;));  // 사업자번호
+        ds_certiList.setCellData(row, &quot;elecAuthTrgtYn&quot;, ds_clntInfo.getCellData(0, &quot;elecAuthTrgtYn&quot;));	//역발행 거래처 여부
+        gr_certiList.setColumnReadOnly('payDt', false);
+        scwin.pay_cond = &quot;T&quot;;
+        if(scwin.clnt_chk == &quot;T&quot;){        
+            ds_payInfo.set(&quot;interDataYn&quot;, 0);
+        
+            if( ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G20&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G32&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G33&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G31&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G34&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G35&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;1G36&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;6A5&quot;||
+                ds_certiList.getCellData(row, &quot;pchsDeptCd&quot;)==&quot;4A9&quot;){ // 재무팀 노규헌 대리 요청으로 인천복운 추가(2018.10)
+                
+                if(ds_clntInfo.getCellData(0, &quot;inatPayYn&quot;)==&quot;1&quot;){
+                    //당월
+                    if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;3&quot;){
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;); 
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+1).toString();
+                        } else {
+                            mm = (date.getMonth()).toString();
+                        } 
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        }	 
+                        
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);	
+                        
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+                        
+                        var strPayDate = yyyy + mm + dd;	
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);	
+                        
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+                        
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                        scwin.pay_cond = &quot;T&quot;;
+                        //익월
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;1&quot;){
+                            
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;); 
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+2).toString();
+                        } else {
+                            mm = (date.getMonth()+1).toString();
+                        } 
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }			
+
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);	
+                        
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }					
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);									  
+                        
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);  
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                        scwin.pay_cond = &quot;T&quot;;
+                        //익익월
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;2&quot;){
+                        
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;);
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+3).toString();
+                        } else {
+                            mm = (date.getMonth()+2).toString();
+                        } 						
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }				
+
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);									  
+                        
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);	 
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1);
+                        scwin.pay_cond = &quot;T&quot;; 
+                        //익익익월
+                    }else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;4&quot;){
+                            
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;);
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+4).toString();
+                        } else {
+                            mm = (date.getMonth()+3).toString();
+                        } 	
+
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }			
+            
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate); 
+                        await $c.sbm.execute(sbm_holiday);									  
+
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));
+                        
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);	 
+                        } 				           	
+                    
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1);
+                        scwin.pay_cond = &quot;T&quot;;  
+                    //익익익익월          	   
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;5&quot;){
+                                
+                        var strDate = ds_certiList.getCellData(row, &quot;pchsIntendDt&quot;);
+                        var year = strDate.substr(0,4);				
+                        var month = strDate.substr(4,2);
+                        
+                        var day = strDate.substr(6,2);
+                        var date = new Date(year, month-1, day);
+                        
+                        var yyyy = date.getFullYear().toString();
+                        var mm = &quot;&quot;;
+
+                        if(mm==0){
+                            mm = (date.getMonth()+5).toString();
+                        } else {
+                            mm = (date.getMonth()+4).toString();
+                        } 	
+                    
+                        if(mm &lt; 10){
+                            mm = &quot;0&quot;+mm;				
+                        } else if(mm &gt; 12){
+                            mm = (Number(mm)-12).toString();
+                            yyyy = (Number(yyyy)+1).toString();							   
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;	
+                            }
+                        }			
+            
+                        var dd = ds_clntInfo.getCellData(0, &quot;payDd&quot;);
+                        if(dd==&quot;30&quot;){
+                            dd = ( new Date( yyyy, mm, 0) ).getDate();	
+                        }	
+                        var strPayDate = yyyy + mm + dd;
+                        
+                        ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                        await $c.sbm.execute(sbm_holiday);									  
+
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;)); 
+                        
+                        if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                            gr_certiList.setColumnReadOnly('payDt', false);			           		        	
+                        } else {	 
+                            gr_certiList.setColumnReadOnly('payDt', true);	
+                        } 				           	
+                        ds_payInfo.set(&quot;interDataYn&quot;, 1);
+                        scwin.pay_cond = &quot;T&quot;;
+                                            
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;6&quot;){
+                        if(ds_certiList.getCellData(row, &quot;etd&quot;) != &quot;&quot;){
+                            var strDate = ds_certiList.getCellData(row, &quot;etd&quot;); 
+                            var year = strDate.substr(0,4);				
+                            var month = strDate.substr(4,2)-1;
+                            var day = strDate.substr(6,2);
+                            var date = new Date(year, month, day);
+                            var payDate = new Date(Date.parse(date) 
+                                + ds_clntInfo.getCellData(0, &quot;payDd&quot;) * 1000 * 60 * 60 * 24);  //after 5days
+                                
+                            var yyyy = payDate.getFullYear().toString();
+                            var mm = (payDate.getMonth() + 1).toString();
+                                
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;				
+                            }				
+
+                            var dd = payDate.getDate().toString();
+                            if(dd &lt; 10){
+                                dd = &quot;0&quot;+dd;				
+                            }
+                            var strPayDate = yyyy + mm + dd;
+                            
+                            ds_holiday.set(&quot;stdDt&quot;, strPayDate); 
+                            await $c.sbm.execute(sbm_holiday);									
+
+                            ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                            ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                            ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));  
+
+                            //ed_payDt.setValue()strPayDate;  
+                            //ed_bfPayDt.setValue()strPayDate;  
+                        
+                            if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                                gr_certiList.setColumnReadOnly('payDt', false);				           		        	
+                            } else {	 
+                                gr_certiList.setColumnReadOnly('payDt', true);	
+                            } 					           	
+                            ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                            scwin.pay_cond = &quot;T&quot;;
+
+                        } 
+                    } else if(ds_clntInfo.getCellData(0, &quot;payCycCd&quot;)==&quot;7&quot;){
+                        
+                        if(ds_certiList.getCellData(row, &quot;eta&quot;) != &quot;&quot;){
+                            var strDate = ds_certiList.getCellData(row, &quot;eta&quot;);  
+                            var year = strDate.substr(0,4);				
+                            var month = strDate.substr(4,2)-1;
+                            var day = strDate.substr(6,2);
+                            var date = new Date(year, month, day);
+                            var payDate = new Date(Date.parse(date) 
+                                + ds_clntInfo.getCellData(0, &quot;payDd&quot;) * 1000 * 60 * 60 * 24);  //after 5days
+                            var yyyy = payDate.getFullYear().toString();
+                            var mm = (payDate.getMonth() + 1).toString();
+                            
+                            if(mm &lt; 10){
+                                mm = &quot;0&quot;+mm;				
+                            }	
+                            
+                            var dd = payDate.getDate().toString();
+                            
+                            if(dd &lt; 10){
+                                dd = &quot;0&quot;+dd;				
+                            }
+                            var strPayDate = yyyy + mm + dd;
+                            
+                            ds_holiday.set(&quot;stdDt&quot;, strPayDate);
+                            await $c.sbm.execute(sbm_holiday);			
+
+                            ds_certiList.setCellData(row, &quot;payDt&quot;, ds_nextdate.get(&quot;nextDt&quot;));  
+                            ds_certiList.setCellData(row, &quot;bfPayDt&quot;, ds_nextdate.get(&quot;nextDt&quot;)); 
+                            ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, ds_clntInfo.getCellData(0, &quot;payCntShtCd&quot;));						  
+
+                            //ed_payDt.setValue()strPayDate; 
+                            //ed_bfPayDt.setValue()strPayDate;  
+                        
+                            if(ds_clntInfo.getCellData(0, &quot;payDtChgYn&quot;)==&quot;Y&quot;){
+                                gr_certiList.setColumnReadOnly('payDt', false);	 			           		        	
+                            } else {	 
+                                gr_certiList.setColumnReadOnly('payDt', true);	 
+                            } 	
+                                
+                            ds_payInfo.set(&quot;interDataYn&quot;, 1); 
+                            scwin.pay_cond = &quot;T&quot;;	
+                        }     	           
+                    }else{	
+                        ds_certiList.setCellData(row, &quot;payDt&quot;, &quot;&quot;);  
+                        ds_certiList.setCellData(row, &quot;bfPayDt&quot;, &quot;&quot;); 
+                        ds_certiList.setCellData(row, &quot;reqPayMthdCd&quot;, &quot;&quot;);
+                        
+                        await $c.win.alert(&quot;해당 거래처에 등록된 지급조건이 없습니다.\n지급조건 등록 후 세금계산서 접수가 가능합니다.&quot;);
+                        scwin.pay_cond = &quot;F&quot;;	
+                    }
+
+                    var clntNo = ds_certiList.getCellData(row, &quot;pchsClntNo&quot;)  
+                    
+                    if(clntNo==&quot;249544&quot;){			            				            
+                        acb_reqPayMthdCd.setValue(&quot;40&quot;);
+                    } 
+                }            
+            }            
+            //근무구분
+            // ds_imntClnt.DataID = &quot;/cm.zz.RetrieveCodeCMD.do?grpCd=IL061&amp;cd=&quot;+ds_certiList.getCellData(row, &quot;pchsClntNo&quot;) ;
+            // ds_imntClnt.Reset(); 
+            ds_imntClnt.set('grpCd', 'IL061');
+            ds_imntClnt.set('cd', ds_certiList.getCellData(row, &quot;pchsClntNo&quot;));
+            var rs = await $c.sbm.execute(sbm_imntClnt);
+            var rsObj = rs.responseJSON.GAUCE;
+            var dsImntClntRowCnt = rsObj.length;
+            dsImntClntRowCnt = 0;
+            if (dsImntClntRowCnt &gt; 0){
+                await $c.win.alert(&quot;매입 거래처 &quot;+ ds_certiList.getCellData(row, &quot;pchsClntNm&quot;) +&quot;[&quot;+ds_certiList.getCellData(row, &quot;pchsClntNo&quot;) +&quot;] 은(는) &quot;+ rsObj[0].cdDesc +&quot; 거래처 입니다.&quot;);			    	
+            }
+            
+        } else {
+            scwin.clnt_chk = &quot;T&quot;;             
+        }           
+    }       
+};
+
+//-------------------------------------------------------------------------
+// 세금계산서 접수 저장
+//-------------------------------------------------------------------------
+scwin.f_RegistPurchaseEvidence = async function () {   
+    // 미접수(전표번호 미생성)인 경우만 가능
+    var slipNo = &quot;&quot;;
+    var cnt = 0;
+    for (var i=0; i&lt;ds_certiList.getRowCount(); i++) {      
+        slipNo = ds_certiList.getCellData(i, &quot;slipNo&quot;);
+        if (ds_certiList.getCellData(i, &quot;chk&quot;) == &quot;T&quot;) {
+            if (slipNo != &quot;&quot;) { 
+                await $c.gus.cfAlertMsg(&quot;이미 접수된 건이 포함되어 있습니다.&quot;);
+                return;
+            }
+            cnt++;
+        }
+    }  
+    
+    // Data 변경 여부 조회
+    if (cnt == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_056, [&quot;목록&quot;]);  // 선택된 @이(가) 없습니다.
+        return;
+    }
+    var rs = await scwin.f_checkCertiBeforeSave();
+    //위수탁 업체 체크로직 추가 2009 01 20     
+    if (rs == false){
+        return false;
+    }
+
+    // 선택건의 공급가액, 부가세 합계 계산
+    for (var i=0; i&lt;ds_certiList.getRowCount(); i++) {    
+        var spplyAmt = 0;
+        var vat = 0;
+        var suspensePay = &quot;0&quot;;
+        
+        if (ds_certiList.getCellData(i, &quot;chk&quot;) == &quot;T&quot;) {
+            spplyAmt += ds_certiList.getCellData(i, &quot;spplyAmt&quot;);
+            vat += ds_certiList.getCellData(i, &quot;vat&quot;);
+            suspensePay += ds_certiList.getCellData(i, &quot;suspensePay&quot;);
+            
+            // 정산부서, 전표일자, 증빙구분, 적요, 작성자, 작성귀속부서, 공급일자 체크
+            if (ds_certiList.getCellData(i,&quot;adjmDept&quot;)==&quot;&quot;|| ds_certiList.getCellData(i,&quot;slipDt&quot;)==&quot;&quot;   || ds_certiList.getCellData(i,&quot;taxnClsCd&quot;)==&quot;&quot;     || 
+                ds_certiList.getCellData(i,&quot;summary&quot;)==&quot;&quot; || ds_certiList.getCellData(i,&quot;drawEmpNo&quot;)==&quot;&quot;|| ds_certiList.getCellData(i,&quot;drawAcctDeptCd&quot;)==&quot;&quot;||
+                ds_certiList.getCellData(i,&quot;spplyDt&quot;)==&quot;&quot;) {
+
+                    await $c.win.alert((i+1)+&quot;행의 필수값이 입력되지 않았습니다.&quot;);
+                    return;
+            }
+
+            if(ds_certiList.getCellData(i,&quot;payDt&quot;) !=&quot;&quot;){
+                if(ds_certiList.getCellData(i,&quot;reqPayMthdCd&quot;) == &quot;&quot;){
+                    await $c.win.alert((i+1)+&quot;행 ,지급일을 입력하면 지급 방법도 입력해야 합니다.&quot;);
+                    return;
+                }
+            }
+            
+            if(ds_certiList.getCellData(i,&quot;reqPayMthdCd&quot;) !=&quot;&quot;){
+                if(ds_certiList.getCellData(i,&quot;payDt&quot;) == &quot;&quot;){
+                    await $c.win.alert((i+1)+&quot;행 ,지급방법을 입력하면 지급일도 입력해야 합니다.&quot;);
+                    return;
+                }
+            }
+            
+            // 마이너스 금액은 전표생성할  수 없습니다.
+            if (spplyAmt &lt; 0) { 
+                await $c.gus.cfAlertMsg((i+1)+&quot;행 ,마이너스 금액은 전표생성할  수 없습니다.&quot;);
+                return;
+            }
+
+            // 부가세 금액이 ZERO이면 증빙구분을 세금계산서로 선택할 수 없습니다.  2008.07.07
+            if (vat == 0) { 
+                if (ds_certiList.getCellData(i,&quot;evidKndClsCd&quot;) == &quot;10&quot; || ds_certiList.getCellData(i,&quot;evidKndClsCd&quot;) == &quot;11&quot;){
+                    await $c.gus.cfAlertMsg(&quot;부가세 금액이 ZERO이면 증빙구분을 세금계산서로 선택할 수 없습니다.&quot;);
+                    return;
+                }
+            }else if(vat != 0){
+                if (ds_certiList.getCellData(i,&quot;evidKndClsCd&quot;) == &quot;20&quot;){
+                    await $c.gus.cfAlertMsg(&quot;부가세 금액이 ZERO가아니면 증빙구분을 영세율세금계산서로 선택할 수 없습니다.&quot;);
+                    return;
+                }
+            }
+            
+            //가지급금 검사로직 추가 2016 09 13 서동원
+            if(ds_certiList.getCellData(i,&quot;suspensePay&quot;) != '0' &amp;&amp; ds_prov.getCellData(0, &quot;setlDt&quot;) == null ){
+                await $c.win.alert(&quot;가지급금이 있습니다.\n가지급금을 처리하시고 접수하십시오.&quot;);
+                scwin.f_Prepay();
+                return;
+            }   
+        }
+    }
+    var rs = await $c.win.confirm(MSG_CM_CRM_001);
+    if (rs) {  // 저장하시겠습니까?
+        $c.sbm.execute(sbm_saveRegistPurchaseEvidence);
+    }
+};
+    
+scwin.f_checkCertiBeforeSave = async function () {
+    /*위수탁업체일 경우 체크로직 20090120
+        1. 체크된 row
+        2. 계약시작일자 가 null이 아닐경우 == OP128과 zz514에 데이터가 있을 경우  
+    */
+    for (var i=0; i&lt;ds_certiList.getRowCount(); i++) {      
+        if (ds_certiList.getCellData(i, &quot;chk&quot;) == &quot;T&quot;) {
+            //1. 계약일자와 전표일자 체크  
+            if( ds_certiList.getCellData(i, &quot;ctrtStDt&quot;) != &quot;&quot; &amp;&amp; ds_certiList.getCellData(i, &quot;ctrtEndDt&quot;) != &quot;&quot;  ){ 
+                if(!( ds_certiList.getCellData(i, &quot;slipDt&quot;) &gt;= ds_certiList.getCellData(i, &quot;ctrtStDt&quot;) &amp;&amp; ds_certiList.getCellData(i, &quot;slipDt&quot;) &lt;= ds_certiList.getCellData(i, &quot;ctrtEndDt&quot;) ) ){
+                    if( (ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '11' || ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '16' || ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '17') ){
+                        await $c.win.alert(&quot;거래명세서번호 : &quot;+ds_certiList.getCellData(i, &quot;certiNo&quot;)+&quot; 는 전표일자  : &quot;+ ds_certiList.getCellData(i, &quot;slipDt&quot;)+&quot; 로, 거래처 : &quot;+ed_pchsClntNo.getValue()
+                            +&quot; 의 차량적용기간 &quot;+ds_certiList.getCellData(i, &quot;ctrtStDt&quot;)+&quot; ~ &quot;+ds_certiList.getCellData(i, &quot;ctrtEndDt&quot;)+&quot;에서 벗어났습니다. &quot;  );
+                        return false;
+                        break;
+                    }                           
+                }
+                    
+                if((ds_certiList.getCellData(i, &quot;slipDt&quot;)  &gt;= ds_certiList.getCellData(i, &quot;ctrtStDt&quot;) &amp;&amp; ds_certiList.getCellData(i, &quot;slipDt&quot;)  &lt;= ds_certiList.getCellData(i, &quot;ctrtEndDt&quot;))){
+                    if(!(ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '11' || ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '16' || ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '17') ){
+                        await $c.win.alert(&quot;거래명세서번호 : &quot;+ds_certiList.getCellData(i, &quot;certiNo&quot;)+&quot; 는 전표일자  : &quot;+ds_certiList.getCellData(i, &quot;slipDt&quot;) +&quot; 로, 거래처 : &quot;+ ds_certiList.getCellData(i, &quot;pchsClntNo&quot;)
+                            +&quot; 의 차량적용기간 &quot;+ds_certiList.getCellData(i, &quot;ctrtStDt&quot;)+&quot; ~ &quot;+ds_certiList.getCellData(i, &quot;ctrtEndDt&quot;)+&quot;에서 벗어났습니다. &quot; );
+                        return false;
+                        break;
+                    }                           
+                }
+            } 
+            
+            if(!(ds_certiList.getCellData(i, &quot;ctrtStDt&quot;) != &quot;&quot; &amp;&amp; ds_certiList.getCellData(i, &quot;ctrtEndDt&quot;) != &quot;&quot;)  ){  
+                if((ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '11' || ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '16' || ds_certiList.getCellData(i, &quot;pchsClntClsCd&quot;) == '17')){
+                    await $c.win.alert(&quot;계약번호가 없습니다. 거래처의 매입거래처 종류는 &quot;+ds_certiList.getCellData(i, &quot;pchsClntClsNm&quot;) +&quot; 로 위수탁이나 직영차이면 안됩니다. 거래처 관리에서 매입거래처 구분코드를 확인하십시오. &quot;);
+                    return false;
+                    break;
+                }                   
+            }
+        }
+    } 
+};
+
+//-------------------------------------------------------------------------
+// 매입증빙별거래명세서, 매입확정/매입증빙 정보 Data Clear
+//-------------------------------------------------------------------------
+scwin.f_PchsDataClear = async function () {
+    for (var i=0; i&lt;ds_certiList.getRowCount(); i++) {      
+        if(ds_certiList.getCellData(i, &quot;slipNo&quot;) == &quot;&quot;) {
+            
+            // 전표일자, 공급일자 구하기 위한 변수
+            var inputDate = ica_pchsIntendDtEnd.getValue() ; 
+            var year      = inputDate.substring(0,4);
+            var month     = inputDate.substring(4,6);
+            
+            ds_certiList.setCellData(i, &quot;adjmDept&quot;, &quot;&quot;);  // 정산부서코드
+            ed_nmCmpy.setValue(&quot;&quot;);  // 상호
+            ed_busiNo.setValue(&quot;&quot;);  // 사업자번호
+            
+            ds_certiList.setCellData(i, &quot;slipDt&quot;, year + month + $c.date.getLastDateOfMonth(year + scwin.f_del_zero(month)));  // 전표일자
+            ds_certiList.setCellData(i, &quot;evidKndClsCd&quot;, &quot;10&quot;);  // 증빙구분(세금계산서)
+            ds_certiList.setCellData(i, &quot;taxnClsCd&quot;, &quot;01&quot;);  // 과세구분(과세)
+            ds_certiList.setCellData(i, &quot;summary&quot;, &quot;&quot;);  // 적요
+            ds_certiList.setCellData(i, &quot;drawEmpNo&quot;, $c.data.getMemInfo(&quot;empNo&quot;));  // 작성자코드
+            ds_certiList.setCellData(i, &quot;drawEmpNm&quot;, $c.data.getMemInfo(&quot;userNm&quot;));  // 작성자명
+            ds_certiList.setCellData(i, &quot;drawAcctDeptCd&quot;, $c.data.getMemInfo(&quot;acctDeptCd&quot;));  // 작성귀속부서코드
+            ds_certiList.setCellData(i, &quot;drawAcctDeptNm&quot;, $c.data.getMemInfo(&quot;acctDeptNm&quot;));  // 작성귀속부서명
+            ds_certiList.setCellData(i, &quot;spplyDt&quot;, year + month + $c.date.getLastDateOfMonth(year + scwin.f_del_zero(month)));  // 공급일자
+            ds_certiList.setCellData(i, &quot;adjmDept&quot;, ds_certiList.getCellData(i, &quot;pchsDeptCd&quot;));
+            
+            await scwin.f_chkOpenCommonPopUp(ds_certiList.getCellData(i, &quot;adjmDept&quot;), &quot;&quot;, 4);
+            
+            await scwin.f_RetrieveClntInfo(i);  // 매입증빙(상호,사업자번호) 조회
+        
+            if(ds_certiList.getCellData(i, &quot;vat&quot;)==0){
+                ds_certiList.setCellData(i, &quot;evidKndClsCd&quot;, &quot;20&quot;);
+                ds_certiList.setCellData(i, &quot;taxnClsCd&quot;, &quot;02&quot;);
+            }else{
+                ds_certiList.setCellData(i, &quot;evidKndClsCd&quot;, &quot;10&quot;);
+                ds_certiList.setCellData(i, &quot;taxnClsCd&quot;, &quot;01&quot;);
+            }
+            
+            ds_certiList.setCellData(i, &quot;summary&quot;, ds_certiList.getCellData(i, &quot;rmk&quot;));            //적요
+            ds_certiList.setCellData(i, &quot;spplyDt&quot;, ds_certiList.getCellData(i, &quot;pchsIntendDt&quot;)); //공급일자
+        }
+    }
+};
+
+scwin.f_del_zero = function ( Name ) {
+    var  x, ch;
+    var  i=0;
+    var  newVal=&quot;&quot;;
+    
+    for(x = 0; x &lt; Name.length ; x++){
+        ch= Name.substring(x,x+1);
+        if( ch != &quot;0&quot;) {
+            newVal = Name.substring(x);
+            break;
+        }
+    }    
+    return  newVal;
+};
+    
+//-------------------------------------------------------------------------
+// 거래명세서 출력(전표번호)
+//-------------------------------------------------------------------------
+scwin.f_PrintSlipNo = async function (slipNo) {            
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // var odiParam = new ODIParam(&quot;fs_401_01_06p&quot;);
+    // odiParam.add(&quot;slipNo&quot;, slipNo);
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // //viewerParam.add(&quot;viewer.zoom&quot;, &quot;100&quot;);
+    // //viewerParam.add(&quot;print.mode&quot;, &quot;silent&quot;);  // 프린트 설정창 없게
+    // viewerParam.add(&quot;viewer.mode&quot;, &quot;preview&quot;);  // 미리보기
+    // //viewerParam.add(&quot;viewer.mode&quot;, &quot;print&quot;);  // 미리보기 없이 바로 출력
+    // //viewerParam.add(&quot;viewer.useprogressbar&quot;, &quot;false&quot;);  // PROGRESSBAR 안보이게
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam();
+    // //formParam.add(&quot;form1&quot;, &quot;폼1&quot;);
+    // cfOZReport(&quot;chb_printCheck&quot;, &quot;chb_previewCheck&quot;, &quot;/ds/fs/adjm/fs_401_01_06p.ozr&quot;, odiParam, viewerParam, formParam);
+
+    let data = {
+        odiName : &quot;fs_401_01_06p&quot;,
+        reportName: &quot;/ds/fs/adjm/fs_401_01_06p.ozr&quot;,
+        odiParam : {
+              pgmId       : &quot;op_202_03_02b.xml&quot;
+            , slipNo       : slipNo
+        },
+        viewerParam : {
+            useprogressbar : true, // 프로그레스바 쓸지 말지
+            zoom : 90, // 배율 설정
+            mode : &quot;preview&quot;
+        },
+        formParam : {}
+    };
+    let opts = {
+        id          : &quot;ozReportPopup&quot;,
+        popupName   : &quot;오즈 리포트&quot;,
+        modal       : true,
+        type        : &quot;browserPopup&quot;,
+        width       : 1000,
+        height      : 600,
+        title       : &quot;오즈 리포트&quot;
+    };
+    await $c.win.openPopup(&quot;/ui/cm/zz/ozreportPopup.xml&quot;, opts, data);
+
+};
+    
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function (disGubun, pCode, pName, pClose, pAllSearch) {
+    // 선언부
+    var rtnList  = new Array();  // 공통POP-UP -&gt; 요청화면 
+    var pWhere         = &quot;&quot;;
+    var pWtitleSearch  = &quot;&quot;;
+        
+    switch (disGubun) {
+        case 1:
+            // 매입거래처 팝업         
+            udc_pchsClnt.setSelectId('retrieveClntList');
+            udc_pchsClnt.cfCommonPopUp(scwin.udc_pchsClnt_callBackFunc
+                                    ,pCode.trim()
+                                    ,pName
+                                    ,pClose
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,null
+                                    ,pAllSearch
+                                    ,null
+            );
+            break;      
+
+        case 2:             
+            // 매입부서 팝업          
+            udc_pchsDept.setSelectId('retrieveLobranInfo');
+            udc_pchsDept.cfCommonPopUp(scwin.udc_pchsDept_callBackFunc
+                                        ,pCode.trim()
+                                        ,pName
+                                        ,pClose
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,pAllSearch
+                                        ,null
+            );                              
+            break;
+
+        case 3:
+            // 승인담당자 팝업         
+            udc_admitPic.setSelectId('retrieveEmpInfo');
+            udc_admitPic.cfCommonPopUp(scwin.udc_admitPic_callBackFunc
+                                        ,pCode.trim()
+                                        ,pName
+                                        ,pClose
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,pAllSearch
+                                        ,null
+            );                             
+            break;
+
+        case 4:
+        // udc_adjmDept
+            // 정산부서 팝업          
+            udc_adjmDept.setSelectId('retrieveLobranInfo');
+            udc_adjmDept.cfCommonPopUp(scwin.udc_adjmDept_callBackFunc
+                                        ,pCode.trim()
+                                        ,pName
+                                        ,pClose
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,pAllSearch
+                                        ,null
+            );                              
+            break;
+                    
+        case 5:
+        // udc_drawEmp
+            // 작성자 팝업           
+            udc_drawEmp.setSelectId('retrieveEmpInfo');
+            udc_drawEmp.cfCommonPopUp(scwin.udc_drawEmp_callBackFunc
+                                        ,pCode.trim()
+                                        ,pName
+                                        ,pClose
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,null
+                                        ,pAllSearch
+                                        ,null
+            );                             
+            break;
+                    
+        case 6:
+        // udc_drawAcctDept
+            // 작성귀속부서 팝업
+            var param_y  =  ica_slipDt.getValue().trim() ;  //예산년도 파람메터추가 ejsong9
+            udc_drawAcctDept.setSelectId('retrieveAcctDeptCdInfo');
+            udc_drawAcctDept.cfCommonPopUp(scwin.udc_drawAcctDept_callBackFunc
+                                            ,pCode.trim()
+                                            ,pName
+                                            ,pClose
+                                            ,null
+                                            ,null
+                                            ,null
+                                            ,null
+                                            ,param_y
+                                            ,&quot;,,0&quot;
+                                            ,&quot;410&quot;
+                                            ,null
+                                            ,null
+                                            ,null
+            ); 
+            break;
+                                                            
+        default:
+            break;
+    }
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = async function (inObj, pairObj, disGubun, isCode) {
+  	
+  	// 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+  	if (!await $c.gus.cfCanOpenPopup(inObj, pairObj)) return;
+    
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+	
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+	
+	// inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+	    scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+    // inObj가 코드명 필드일 경우 팝업
+	else
+	    scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 검색영역 Field Clear함.
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function () {
+    $c.gus.cfInitObjects(tb_mainData);
+    scwin.f_SetDefaultData();
+};
+    
+scwin.f_mail = function () {
+    $c.sbm.execute(sbm_mail);
+};
+	
+//-------------------------------------------------------------------------
+//  가지급금,선급금 정리화면
+//-------------------------------------------------------------------------
+scwin.f_Prepay = async function (){
+    var valueObject = new Object();
+    valueObject.prov = ds_prov;
+    valueObject.provHeader = ds_provHeader;
+    valueObject.txtrltSeq = &quot;1&quot;;
+    valueObject.adjmClsCd = &quot;4&quot;; //4^가지급금
+    valueObject.sum = scwin.suspensePaySum;
+    valueObject.crcCd = &quot;KRW&quot;; //원화
+    valueObject.acctDeptCd = $c.data.getMemInfo(&quot;acctDeptCd&quot;);
+    valueObject.acctDeptNm = $c.data.getMemInfo(&quot;acctDeptNm&quot;);
+    
+    for(j=0;j&lt;ds_provHeader.getRowCount(); j++) {
+        if(ds_provHeader.getCellData(j, &quot;reqAcctDeptCd&quot;)!=&quot;&quot;){
+            valueObject.acctDeptCd = ds_provHeader.getCellData(j,&quot;reqAcctDeptCd&quot;)
+            valueObject.acctDeptNm = ds_provHeader.getCellData(j,&quot;reqAcctDeptNm&quot;)
+        }
+    }
+    if(typeof(valueObject.acctDeptCd) == &quot;undefined&quot; || valueObject.acctDeptCd==&quot;&quot;){
+        valueObject.acctDeptCd = &quot;&quot;;
+        valueObject.acctDeptNm = &quot;&quot;;
+    }                   
+
+    // var style = &quot;center:yes; dialogwidth:1000px; dialogheight:520px; scroll:no; resizable:no; status:yes;&quot;;
+    // var strPath = &quot;/ac/fi/gnrlaccount/slipmgnt/fi_201_02_02b.jsp?
+    // compare=1
+    // &amp;flag=Y
+    // &amp;gubun=1
+    // &amp;slipDt=&quot;+ed_slipDt.text.trim();
+    // let win_url = &quot;/ui/ac/fi/gnrlaccount/slipmgnt/fi_201_02_02b.xml&quot;;
+    // let opts = {
+    //     id : &quot;ediCallPop&quot;
+    //     , popupName : &quot;&quot;
+    //     , modal : true
+    //     , type : &quot;browserPopup&quot;
+    //     , width : 840
+    //     , height : 400
+    //     , title : &quot;&quot;
+    // };
+
+    // // 가지급금입금 호출 
+    let data = {
+          prov          : valueObject.prov
+        , provHeader    : valueObject.provHeader
+        , txtrltSeq     : valueObject.txtrltSeq
+        , adjmClsCd     : valueObject.adjmClsCd
+        , sum           : valueObject.sum
+        , crcCd         : valueObject.crcCd
+        , acctDeptCd    : valueObject.acctDeptCd
+        , acctDeptNm    : valueObject.acctDeptNm
+        , compare       : 1
+        , flag          : &quot;Y&quot;
+        , gubun         : 1
+        , slipDt        : ica_slipDt.getValue().trim()
+    };
+    let win_url = &quot;/ui/ac/fi/gnrlaccount/slipmgnt/fi_201_02_02b.xml&quot;;
+    let opts = {
+        id: &quot;smpPop&quot;
+        , popupName: &quot;가지급금입금&quot;
+        , modal: true
+        , type: &quot;browserPopup&quot;
+        , width: 1400
+        , height: 760
+        , title: &quot;가지급금입금&quot;
+    };
+    var returnValue = await $c.win.openPopup(win_url, opts, data);
+    if (returnValue != null){
+        // ds_prov.ImportData(returnValue.prov);
+        // ds_provHeader.ImportData(returnValue.provHeader);
+        // ds_prov.SortExpr= &quot;+rltSeq +slipNo&quot;;
+        // ds_prov.Sort();
+
+        ds_prov.setJSON(returnValue.prov);
+        ds_provHeader.setJSON(returnValue.provHeader);
+        var options = {
+            sortIndex : &quot;rltSeq slipNo&quot;,
+            sortOrder : &quot;1 1&quot;
+        }
+        ds_prov.multisort(options);
+        // 중복된것 삭제
+        for(i=0; i&lt;ds_prov.getRowCount()-1; i++){
+            for(j=i+1;j&lt;ds_prov.getRowCount(); j++) {
+                if(ds_prov.getCellData(i,&quot;rltSeq&quot;)==ds_prov.getCellData(j,&quot;rltSeq&quot;)){
+                    if(ds_prov.getCellData(i,&quot;slipNo&quot;)==ds_prov.getCellData(j,&quot;slipNo&quot;)){
+                        ds_prov.deleteRow(i);
+                        break;
+                    }
+                }
+            }
+        }  
+
+        for(i=0; i&lt;ds_provHeader.getRowCount()-1; i++){
+            for(j=i+1;j&lt;=ds_provHeader.getRowCount(); j++) {
+                if(ds_provHeader.getCellData(i,&quot;rltSeq&quot;)==ds_provHeader.getCellData(j,&quot;rltSeq&quot;)){
+                    ds_provHeader.deleteRow(i);
+                    break;   
+                }
+            }
+        } // for end
+    }
+    for(i=0; i&lt;ds_prov.getRowCount(); i++){ 
+        ds_prov.getCellData(i,&quot;setlDt&quot;, ds_provHeader.getCellData(0,&quot;setlDt&quot;));
+    }
+};
+	
+// 일괄적용함수
+scwin.f_PchsInfoApply = async function (){
+    var cnt = 0; 
+    if ( ds_certiList.getRowCount() &lt;= 0) {
+        await $c.win.alert(&quot;자료가 존재하지 않습니다.&quot;);
+        return false;
+    }
+    for (var i=0; i&lt;ds_certiList.getRowCount(); i++) {
+        if (ds_certiList.getCellData(i, &quot;chk&quot;) == &quot;T&quot; ) {
+            var slipNo = ds_certiList.getCellData(i, &quot;slipNo&quot;);
+            if (slipNo != &quot;&quot;) {
+                await $c.gus.cfAlertMsg(&quot;이미 접수된 건이 포함되어 있습니다.&quot;);
+                return; 
+            }
+            cnt++;
+        }
+    }
+    if (cnt == 0) {
+        await $c.win.alert(&quot;체크된 데이터가 없습니다. 적용하려는 Row의 첫 열의 체크박스를 선택해 주십시오.&quot;);
+        return false;
+    }
+    var rs = await $c.win.confirm(&quot;체크된 &quot; + cnt + &quot;건에 대해 매입정보 일괄 적용하시겠습니까?&quot;);
+    if (rs) {
+        for ( var i = 0 ; i &lt; ds_certiList.getRowCount() ; i ++ ) {
+            if ( ds_certiList.getCellData(i, &quot;chk&quot;) == &quot;T&quot; ) {
+                ds_certiList.setCellData(i,&quot;adjmDept&quot;, ed_adjmDeptCd.getValue());
+                ds_certiList.setCellData(i,&quot;adjmDeptNm&quot;, ed_adjmDeptNm.getValue());
+                ds_certiList.setCellData(i,&quot;slipDt&quot;, ica_slipDt.getValue());
+                ds_certiList.setCellData(i,&quot;evidKndClsCd&quot;, acb_evidKndClsCd.getValue());
+                ds_certiList.setCellData(i,&quot;taxnClsCd&quot;, acb_taxnClsCd.getValue());
+                ds_certiList.setCellData(i,&quot;summary&quot;, ed_summary.getValue());
+                ds_certiList.setCellData(i,&quot;drawEmpNo&quot;, ed_drawEmpNo.getValue());
+                ds_certiList.setCellData(i,&quot;drawEmpNm&quot;, ed_drawEmpNm.getValue());
+                ds_certiList.setCellData(i,&quot;drawAcctDeptCd&quot;, ed_drawAcctDeptCd.getValue());
+                ds_certiList.setCellData(i,&quot;drawAcctDeptNm&quot;, ed_drawAcctDeptNm.getValue());
+                ds_certiList.setCellData(i,&quot;payDt&quot;, ica_payDt.getValue());
+                ds_certiList.setCellData(i,&quot;reqPayMthdCd&quot;, acb_reqPayMthdCd.getValue());
+                ds_certiList.setCellData(i,&quot;spplyDt&quot;, ica_spplyDt.getValue());
+            }
+        } 
+    }
+};
+
+scwin.udc_pchsDept_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsDeptNm, ed_pchsDeptCd, 2, false);
+};
+
+scwin.udc_pchsDept_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_pchsDeptCd.getValue(), ed_pchsDeptNm.getValue(), 'T', 'T');
+};
+
+scwin.udc_pchsDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsDeptCd, ed_pchsDeptNm, 2);
+};
+
+scwin.udc_pchsClnt_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsClntNm, ed_pchsClntNo, 1, false);
+};
+
+scwin.udc_pchsClnt_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_pchsClntNo.getValue(), ed_pchsClntNm.getValue(), 'T', 'F');
+};
+
+scwin.udc_pchsClnt_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_pchsClntNo, ed_pchsClntNm, 1);
+};
+
+scwin.ed_certiNo_onkeyup = function (e) {
+    ed_certiNo.setValue(e.target.value.toUpperCase());
+};
+
+scwin.udc_admitPic_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_admitPicNm, ed_admitPic, 3, false);
+};
+
+scwin.udc_admitPic_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(3, ed_admitPic.getValue(), ed_admitPicNm.getValue(), 'T', 'T');
+};
+
+scwin.udc_admitPic_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_admitPic, ed_admitPicNm, 3);
+};
+
+scwin.btn_fieldClear_onclick = function (e) {
+    scwin.f_InitObjects();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_RetrieveCertiList();
+};
+
+scwin.udc_adjmDept_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_adjmDeptNm, ed_adjmDeptCd, 4, false);
+};
+
+scwin.udc_adjmDept_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(4, ed_adjmDeptCd.getValue(), ed_adjmDeptNm.getValue(), 'T', 'F');
+};
+
+scwin.udc_adjmDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_adjmDeptCd, ed_adjmDeptNm, 4);
+};
+
+scwin.ed_summary_onkeyup = function (e) {
+    $c.gus.cfLimitByteLength(ed_summary, 100);
+};
+
+scwin.udc_drawEmp_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_drawEmpNm, ed_drawEmpNo, 5, false);
+};
+
+scwin.udc_drawEmp_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(5, ed_drawEmpNo.getValue(), ed_drawEmpNm.getValue(), 'T', 'T');
+};
+
+scwin.udc_drawEmp_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_drawEmpNo, ed_drawEmpNm, 5);
+};
+
+scwin.udc_drawAcctDept_onviewchangeNameEvent = function (info) {
+    scwin.f_chkOpenCommonPopUp(ed_drawAcctDeptNm, ed_drawAcctDeptCd, 6, false);
+};
+
+scwin.udc_drawAcctDept_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(6, ed_drawAcctDeptCd.getValue(), ed_drawAcctDeptNm.getValue(), 'T', 'T');
+};
+
+scwin.udc_drawAcctDept_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_drawAcctDeptCd, ed_drawAcctDeptNm, 6);
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_PchsInfoApply()
+};
+
+scwin.txt_adjmClsCd_onclick = function (e) {
+    scwin.f_Prepay()
+};
+
+scwin.btn_save2_onclick = function (e) {
+    scwin.f_RegistPurchaseEvidence()
+};
+
+scwin.sbm_searchCertiList_submit = function (e) {
+    ds_searchCertiList.set(&quot;pchsClntNo&quot;, ed_pchsClntNo.getValue());
+    ds_searchCertiList.set(&quot;pchsDeptCd&quot;, ed_pchsDeptCd.getValue());
+    ds_searchCertiList.set(&quot;pchsIntendDtSt&quot;, ica_pchsIntendDtSt.getValue());
+    ds_searchCertiList.set(&quot;pchsIntendDtEnd&quot;, ica_pchsIntendDtEnd.getValue());
+    ds_searchCertiList.set(&quot;pchsItemCd&quot;, acb_pchsItemCd.getValue());
+    ds_searchCertiList.set(&quot;certiNo&quot;, ed_certiNo.getValue());
+    ds_searchCertiList.set(&quot;admitPic&quot;, ed_admitPic.getValue());
+    ds_searchCertiList.set(&quot;recptYn&quot;, acb_recptYn.getValue());
+
+};
+
+scwin.sbm_searchCertiList_submitdone = function (e) {
+    gr_certiList.setFocusedCell(0, 1);
+    scwin.selectRow = 0;
+    
+	// gr_certiList.ColumnProp('chk','HeadCheck') = &quot;false&quot;;
+    gr_certiList.setHeaderValue('chkAll', false);
+	// 총 조회건수 표시
+	// cfShowTotalRows(totalRows, rowCnt);
+    txt_totalRows.setValue(ds_certiList.getRowCount());
+    
+	scwin.f_PchsDataClear();
+
+};
+
+scwin.sbm_searchCertiList_submiterror = function (e) {
+
+};
+
+scwin.sbm_searchClntInfo_submit = function (e) {
+
+};
+
+scwin.sbm_searchClntInfo_submitdone = function (e) {
+
+};
+
+scwin.sbm_searchClntInfo_submiterror = function (e) {
+
+};
+
+scwin.sbm_saveRegistPurchaseEvidence_submit = function (e) {
+
+};
+
+scwin.sbm_saveRegistPurchaseEvidence_submitdone = async function (e) {
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);  // 성공적으로 저장하였습니다
+	scwin.f_RetrieveCertiList();
+
+};
+
+scwin.sbm_saveRegistPurchaseEvidence_submiterror = function (e) {
+
+};
+
+scwin.sbm_holiday_submit = function (e) {
+
+};
+
+scwin.sbm_holiday_submitdone = function (e) {
+
+};
+
+scwin.sbm_holiday_submiterror = function (e) {
+
+};
+
+scwin.gr_certiList_onheaderclick = function (headerId) {
+    gr_certiList.setFocusedCell(scwin.selectRow, 0);
+    var i = 0;
+	if (headerId == &quot;chkAll&quot;) {
+        var bCheck = gr_certiList.getHeaderValue(&quot;chkAll&quot;);
+		if (bCheck) {
+			for (i=0; i&lt;ds_certiList.getRowCount(); i++) {
+				if(ds_certiList.getCellData(i,&quot;slipNo&quot;)==&quot;&quot;) {
+					// ds_certiList.setCellData(i, &quot;chk&quot;, &quot;T&quot;);
+					scwin.f_RetrieveClntInfo2(i,ds_certiList.getCellData(i,&quot;pchsClntNo&quot;));
+				} else {
+                    ds_certiList.setCellData(i, &quot;chk&quot;, &quot;F&quot;);
+                }
+			}
+		} else {
+			for (i=0; i&lt;ds_certiList.getRowCount(); i++) {
+				// ds_certiList.setCellData(i, &quot;chk&quot;, &quot;F&quot;);
+			}
+		}
+	}
+};
+
+scwin.gr_certiList_oncellclick = async function (row, columnIndex, colid) {
+    scwin.selectRow = row;
+    // if (row == 0) return;
+	if (colid == &quot;chk&quot; &amp;&amp; ds_certiList.getCellData(row, &quot;slipNo&quot;) != &quot;&quot;) {
+		await $c.win.alert(&quot;전표생성된 건은 선택할 수 없습니다.&quot;);
+		ds_certiList.setCellData(row, &quot;chk&quot;, &quot;F&quot;);
+		return;
+	}
+	if (ds_certiList.getCellData(row, &quot;slipNo&quot;) != &quot;&quot;) {
+		gr_certiList.setCellReadOnly(row, 'adjmDept',true);
+		gr_certiList.setCellReadOnly(row, 'slipDt',true);
+		gr_certiList.setCellReadOnly(row, 'taxnClsCd',true);
+		gr_certiList.setCellReadOnly(row, 'summary',true);
+		gr_certiList.setCellReadOnly(row, 'drawEmpNo',true);
+		gr_certiList.setCellReadOnly(row, 'drawAcctDeptCd',true);
+		gr_certiList.setCellReadOnly(row, 'spplyDt',true);
+		// gr_certiList.setCellReadOnly(row, 'elecAuthTrgtYn',true);
+		gr_certiList.setCellReadOnly(row, 'reqPayMthdCd',true);
+		gr_certiList.setCellReadOnly(row, 'payDt', true);
+		gr_certiList.setCellReadOnly(row, 'bfPayDt',true);
+	} else {
+		gr_certiList.setCellReadOnly(row, 'adjmDept',false);
+		gr_certiList.setCellReadOnly(row, 'slipDt',false);
+		gr_certiList.setCellReadOnly(row, 'evidKndClsCd',false);
+		gr_certiList.setCellReadOnly(row, 'taxnClsCd',false);
+		gr_certiList.setCellReadOnly(row, 'summary',false);
+		gr_certiList.setCellReadOnly(row, 'drawEmpNo',false);
+		gr_certiList.setCellReadOnly(row, 'drawAcctDeptCd',false);
+		gr_certiList.setCellReadOnly(row, 'spplyDt',false);
+		// gr_certiList.setCellReadOnly(row, 'elecAuthTrgtYn',false);
+		gr_certiList.setCellReadOnly(row, 'reqPayMthdCd',false);
+		gr_certiList.setCellReadOnly(row, 'payDt',false);
+		gr_certiList.setCellReadOnly(row, 'bfPayDt',false);
+	}
+
+	// 세금계산서 접수 등록 상세 조회    
+	if (colid == &quot;slipNo&quot;) {
+		if (ds_certiList.getCellData(row, &quot;slipNo&quot;) != &quot;&quot;) await scwin.f_RetrievePurchaseEvidence(row);
+	}
+	
+	// 거래영세서 출력
+	if (colid == &quot;recptYn&quot; &amp;&amp; ds_certiList.getCellData(row, &quot;recptYn&quot;) == &quot;Y&quot;) {
+		await scwin.f_PrintSlipNo(ds_certiList.getCellData(row, &quot;slipNo&quot;));
+	}     
+};
+
+scwin.ds_certiList_onrowpositionchange = async function(info){
+    
+};
+
+scwin.ds_certiList_oncelldatachange = async function(info){
+    
+};  
+
+scwin.gr_certiList_ontextimageclick = function (row, columnIndex) {
+    var colId = gr_certiList.getColumnID(columnIndex);
+    if(colId==&quot;slipDt&quot;) { // 전표일자
+		// cfOpenCalendar(gr_certiList, Row, colId); 
+	}else if(colId==&quot;adjmDept&quot;){ // 정산부서
+		scwin.f_openCommonPopUp(4, ds_certiList.getCellData(row, colId), '', 'T', 'F');   
+    }else if(colId==&quot;drawEmpNo&quot;){// 작성자
+    	scwin.f_openCommonPopUp(5, ds_certiList.getCellData(row, colId), '', 'T', 'T')  
+    }else if(colId==&quot;drawAcctDeptCd&quot;){// 작성자귀속부서
+		scwin.f_openCommonPopUp(6, ds_certiList.getCellData(row, colId), '', 'T', 'T');  
+    }else if(colId==&quot;spplyDt&quot;){// 공급일자
+    	// cfOpenCalendar(gr_certiList, Row, colId); 
+    }else if(colId==&quot;payDt&quot;){// 지급일자
+    	// cfOpenCalendar(gr_certiList, Row, colId);    
+    }
+};
+
+scwin.udc_pchsClnt_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_pchsClntNo, ed_pchsClntNm);  // 매입거래처코드, 매입거래처명   
+};
+
+scwin.udc_pchsDept_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_pchsDeptCd, ed_pchsDeptNm);  // 매입부서코드, 매입부서명     
+};
+
+scwin.udc_admitPic_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_admitPic, ed_admitPicNm);  // 사번, 성명    
+};
+
+scwin.udc_adjmDept_callBackFunc = async function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_adjmDeptCd, ed_adjmDeptNm);  // 정산부서, 정산부서명            
+    await scwin.f_RetrieveClntInfo2(ds_certiList.getRowPosition(), ds_certiList.getCellData(ds_certiList.getRowPosition(), &quot;pchsClntNo&quot;));
+    
+};
+scwin.udc_drawEmp_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_drawEmpNo, ed_drawEmpNm);  // 사원번호, 사원명
+};
+
+scwin.udc_drawAcctDept_callBackFunc = function(ref){
+    $c.gus.cfSetReturnValue(ref, ed_drawAcctDeptCd, ed_drawAcctDeptNm);  // 작성귀속부서코드, 작성귀속부서명
+};
+
+scwin.gr_formatter1 = function(val){
+    // decode('recptYn', 'Y', '출력', 'N', '')
+    if (val == &quot;Y&quot;){
+        return &quot;출력&quot;;
+    } else {
+        return &quot;&quot;;
+    }
+};
+
+scwin.gr_formatter2 = function(val){
+    // decode(elecAuthTrgtYn, &quot;1&quot;, &quot;적용&quot;, &quot;0&quot;, &quot;미적용&quot;, &quot;&quot;)
+    if (val == &quot;1&quot;){
+        return &quot;적용&quot;;
+    } else if (val == &quot;0&quot;){
+        return &quot;미적용&quot;;
+    } else {
+        return &quot;&quot;;
+    }
+};
+
+
+
+scwin.gr_certiList_onviewchange = async function (info) {
+    // OnColumnChanged(row,colid)
+    var colid = info.colId;
+    var row = info.rowIndex;
+
+    if(colid == &quot;evidKndClsCd&quot;){
+		if (ds_certiList.getCellData(row, &quot;evidKndClsCd&quot;) == &quot;10&quot;) {  // 증빙구분(세금계산서)
+	    	ds_certiList.setCellData(row, &quot;taxnClsCd&quot;, &quot;01&quot;);  // 과세구분(과세)
+	    	ds_certiList.setCellData(row, &quot;elecAuthTrgtYn&quot;, 0);  // 전자세금계산서(미적용)
+	    	gr_certiList.setCellReadOnly(row, 'elecAuthTrgtYn', true);    
+	        
+	    } else if (ds_certiList.getCellData(row, &quot;evidKndClsCd&quot;) == &quot;00&quot;) {  // 증빙구분(기타-부가세없음)
+	        ds_certiList.setCellData(row, &quot;taxnClsCd&quot;, &quot;02&quot;);  // 과세구분(과세)
+	    	ds_certiList.setCellData(row, &quot;elecAuthTrgtYn&quot;, 0);  // 전자세금계산서(미적용)
+	        gr_certiList.setCellReadOnly(row, &quot;taxnClsCd&quot;, true);    
+	        gr_certiList.setCellReadOnly(row, &quot;elecAuthTrgtYn&quot;, true);    
+	    } else {
+	        ds_certiList.setCellData(row, &quot;taxnClsCd&quot;, &quot;&quot;);  // 과세구분(과세)
+	    	ds_certiList.setCellData(row, &quot;elecAuthTrgtYn&quot;, 0);  // 전자세금계산서(미적용)
+	        gr_certiList.setCellReadOnly(row,&quot;taxnClsCd&quot;, false);    
+	        gr_certiList.setCellReadOnly(row,&quot;elecAuthTrgtYn&quot;, true);    
+	    }  
+	}
+	
+	if (colid == &quot;chk&quot; &amp;&amp; ds_certiList.getCellData(row, &quot;slipNo&quot;) == &quot;&quot;) {
+		if(ds_certiList.getCellData(row, &quot;chk&quot;) == &quot;T&quot;){
+			await scwin.f_RetrieveClntInfo2(row, ds_certiList.getCellData(row, &quot;pchsClntNo&quot;));
+		}
+	}
+
+	// 전표일자 입력시 공급일자 동시 입력
+	if(colid == &quot;slipDt&quot;) {
+		ds_certiList.setCellData(row, &quot;spplyDt&quot;, ds_certiList.getCellData(row, &quot;slipDt&quot;));  // 과세구분(과세)
+	}
+	
+	// 정산부서
+	if(colid == &quot;adjmDept&quot;) {
+		await scwin.f_chkOpenCommonPopUp(ds_certiList.getCellData(row, &quot;adjmDept&quot;),&quot;&quot;, 4);
+	}
+	
+	// 작성자
+	if(colid == &quot;drawEmpNo&quot;) {
+		await scwin.f_chkOpenCommonPopUp(ds_certiList.getCellData(row, &quot;drawEmpNo&quot;),&quot;&quot;, 5);
+	}
+	
+	// 작성부서
+	if(colid == &quot;drawAcctDeptCd&quot;) {
+		await scwin.f_chkOpenCommonPopUp(ds_certiList.getCellData(row, &quot;drawAcctDeptCd&quot;),&quot;&quot;, 6);
+	}
+};
+
+scwin.gr_certiList_onrowindexchange = async function (row, oldRow) {
+    // OnRowPosChanged(row)
+    if (ds_certiList.getCellData(row, &quot;chk&quot;) == &quot;T&quot; &amp;&amp; ds_certiList.getCellData(row, &quot;slipNo&quot;) != &quot;&quot;) {
+		await $c.win.alert(&quot;전표생성된 건은 선택할 수 없습니다.&quot;);
+		ds_certiList.setCellData(row, &quot;chk&quot;, &quot;F&quot;);
+		return;
+	}
+};
+
+scwin.excelDown = async function () {
+    var count = ds_certiList.getRowCount();
+    if (!(count &gt; 0)) {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);  // 조회결과가 존재하지 않습니다.
+        return;
+    } else {
+        // gr_certiList.SetExcelTitle(1, &quot;value:세금계산서 접수 등록;&quot;  // 표시할 타이틀
+        //                             + &quot;font-face:'돋움체';&quot; // 폰트
+        //                             + &quot;font-size:12pt;&quot;    // 폰트 크기
+        //                             + &quot;font-color:black;&quot;  // 폰트 색깔
+        //                             + &quot;bgcolor:#ffffff;&quot;   // 배경 색깔
+        //                             + &quot;align:center;&quot;      // 정렬
+        //                             + &quot;line-color:white;&quot;  // 타이틀 부분 테두리선 색깔
+        //                             + &quot;line-width:0pt;&quot;    // 타이틀 테두리선 굵기
+        //                             + &quot;skiprow:1;&quot;);       // 타이틀 다음 떼는 로우 수
+    
+        // // cfGridToExcel(그리드ID, &quot;엑셀 파일의 쉬트명&quot;, &quot;엑셀 파일명&quot;, 저장 옵션);
+        // cfGridToExcel(gr_certiList, &quot;세금계산서 접수 등록&quot;, &quot;세금계산서 접수 등록.xls&quot;, 4 + 8 + 16);
+        
+        var argGridTotalCol = 0;
+        for (var i = 0 ; i &lt; gr_certiList.getTotalCol(); i++) {
+            if (gr_certiList.getColumnVisible(i)) {
+                argGridTotalCol++;
+            }
+        }
+
+        const infoArr = [{
+            rowIndex    : 0
+            , colIndex    : 0
+            , rowSpan     : 1
+            , colSpan     : argGridTotalCol
+            , text        : &quot;세금계산서 접수 등록&quot;
+            , textAlign   : &quot;center&quot;
+            // , fontSize    : &quot;12&quot;
+            , fontName    : &quot;돋움체&quot;
+            , color       : &quot;black&quot;
+            , fontWeight  : &quot;&quot;
+            , drawBorder  : &quot;false&quot;
+            , borderColor : &quot;&quot;
+            , borderWidth : &quot;&quot;
+            , wordWrap    : &quot;true&quot;
+            , bgColor     : &quot;#ffffff&quot;
+        }];
+        const options = {
+            fileName : &quot;세금계산서 접수 등록.xlsx&quot;, //[default : excel.xlsx] options.fileName 값이 없을 경우 default값 세팅
+            sheetName: &quot;세금계산서 접수 등록&quot;,
+            type : &quot;1&quot;,
+            startRowIndex: 2,
+            // removeColumns: &quot;0,21&quot;,
+            // hiddenVisible : true,
+            // useSubTotal :&quot;true&quot;, 
+            // useSubTotalData  : &quot;true&quot;,
+            // oddRowBackgroundColor  : &quot;&quot;,                        // excel파일에서 그리드 body의 홀수줄의 배경색
+            // evenRowBackgroundColor : &quot;#F5FFF5&quot;                  // excel파일에서 그리드 body의 짝수줄의 배경색
+        };
+        $c.data.downloadGridViewExcel(gr_certiList, options, infoArr);
+    } 
+};
+
+scwin.acb_evidKndClsCd_onselected = function () {
+    if (acb_evidKndClsCd.getValue() == &quot;10&quot;) {
+        acb_taxnClsCd.setValue(&quot;01&quot;);
+    } else if (acb_evidKndClsCd.getValue() == &quot;00&quot;) {
+        acb_taxnClsCd.setValue(&quot;02&quot;);
+    } else {
+        acb_taxnClsCd.setValue(&quot;&quot;);
+    }
+};
+
+scwin.ica_slipDt_onblur = function (e) {
+    // 전표일자 입력시 공급일자 동시 입력
+    ds_certiList.setCellData(ds_certiList.getRowPosition(), &quot;spplyDt&quot;, ds_certiList.getCellData(ds_certiList.getRowPosition(), &quot;slipDt&quot;));  // 과세구분(과세)
+};
+</script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="tb_mainData" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="매입부서" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_pchsDept" codeId="ed_pchsDeptCd" btnId="btn_pchsDept" nameId="ed_pchsDeptNm" mandatoryCode="true" objTypeCode="data" UpperFlagCode="1" ev:onviewchangeNameEvent="scwin.udc_pchsDept_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_pchsDept_onclickEvent" ev:onblurCodeEvent="scwin.udc_pchsDept_onblurCodeEvent" objTypeName="data" maxlengthCode="4" allowCharCode="a-zA-Z0-9" UpperFlag="1" validTitle="매입부서"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="매입거래처" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_pchsClnt" codeId="ed_pchsClntNo" nameId="ed_pchsClntNm" btnId="btn_pchsClnt" objTypeCode="data" allowCharCode="0-9" ev:onviewchangeNameEvent="scwin.udc_pchsClnt_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_pchsClnt_onclickEvent" ev:onblurCodeEvent="scwin.udc_pchsClnt_onblurCodeEvent" objTypeName="data" maxlengthCode="6" validTitle="매입거래처"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="매입항목" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:autoComplete class="" editType="select" id="acb_pchsItemCd" search="start" style="width:230px;"
+    								submenuSize="auto" objType="data">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="req" id="" label="매입예정일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar id="udc_pchsIntendDt" refDataMap="" refEdDt="" refStDt="" style="" edFromId="ica_pchsIntendDtSt" edToId="ica_pchsIntendDtEnd" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data" objTypeTo="data" titleFrom="매입예정일자시작" titleTo="매입예정일자종료"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="접수구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="acb_recptYn" search="start" style="width:150px;"
+    								submenuSize="auto" allOption="" chooseOption="" ref="" title="접수구분">
+    								<w2:choices>
+    									<w2:item>
+    										<w2:label><![CDATA[전체]]></w2:label>
+    										<w2:value><![CDATA[]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[접수]]></w2:label>
+    										<w2:value><![CDATA[Y]]></w2:value>
+    									</w2:item>
+    									<w2:item>
+    										<w2:label><![CDATA[미접수]]></w2:label>
+    										<w2:value><![CDATA[N]]></w2:value>
+    									</w2:item>
+    								</w2:choices>
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="거래명세서번호" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<xf:input class="" id="ed_certiNo" placeholder="" style="width:150px;" maxByteLength="14" ev:onkeyup="scwin.ed_certiNo_onkeyup" allowChar="a-zA-Z0-9" title="거래명세서번호" objType="data"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="승인담당자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode hideName="Y" popupID="" style="" id="udc_admitPic" codeId='ed_admitPic' btnId="btn_admitPic" nameId="ed_admitPicNm" maxlengthCode="6" objTypeCode="data" maxlengthName="50" objTypeName="data" ev:onviewchangeNameEvent="scwin.udc_admitPic_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_admitPic_onclickEvent" ev:onblurCodeEvent="scwin.udc_admitPic_onblurCodeEvent" allowCharCode="0-9"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="row-gap-8" id="">
+    				<xf:group class="title-wrap" id="" style="">
+    					<xf:group class="right" id="">
+    						<w2:udc_topGrdBtn grp="grd_section1" style="" btnPlusYn="Y" btnUser="Y" gridDownYn="Y" gridUpYn="N" templateYn="N" gridID="gr_certiList" gridDownUserAuth="X" id="udc_topGrdBtn" gridDownFn="scwin.excelDown"></w2:udc_topGrdBtn>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    					<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_certiList" defaultCellHeight="24"
+    						evenRowBackgroundColor="#F8FFF8" id="gr_certiList" oddEvenColorDisplay="true" rowNumHeaderValue="No" rowNumVisible="false"
+    						rowNumWidth="40" showSortableImage="true" sortable="false" visibleRowNum="8" visibleRowNumFix="true" fixedColumn="1"
+    						columnMove="true" ev:onheaderclick="scwin.gr_certiList_onheaderclick" ev:oncellclick="scwin.gr_certiList_oncellclick"
+    						ev:ontextimageclick="scwin.gr_certiList_ontextimageclick" ev:onviewchange="scwin.gr_certiList_onviewchange"
+    						ev:onrowindexchange="scwin.gr_certiList_onrowindexchange" rowStatusVisible="true">
+    						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column width="70" inputType="checkbox" style="" id="cccch" value=" " displayMode="label" falseValue="T" trueValue="F" valueType="other"></w2:column>
+    								<w2:column displayMode="label" id="column201" inputType="text" value="거래명세서번호" width="150"></w2:column>
+    								<w2:column displayMode="label" id="column202" inputType="text" value="매입항목" width="100"
+    									sortable="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column203" inputType="text" value="매입예정일자" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column204" inputType="text" value="매입부서" width="100"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column205" value="매입거래처" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column206" value="매입거래처명" displayMode="label"></w2:column>
+    								<w2:column displayMode="label" id="column207" inputType="text" value="비고" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column208" inputType="text" value="공급가액" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column209" inputType="text" style="" value="부가세" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column210" inputType="text" style="" value="외화금액" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column211" inputType="text" style="" value="가지급금액" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column212" inputType="text" style="" value="합계금액" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column213" inputType="text" style="" value="전표번호" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column214" inputType="text" style="" value="상계전표" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column215" inputType="text" style="" value="환종" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column216" inputType="text" style="" value="명세서출력" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column217" inputType="text" style="" value="매입계산서역발행" width="150"></w2:column>
+    								<w2:column displayMode="label" id="column218" inputType="text" style="" value="ETD" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column219" inputType="text" style="" value="ETA" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column220" inputType="text" style="" value="Onboard" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column221" inputType="text" style="" value="정산부서" width="100"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column222" inputType="text" style="" value="정산부서명" width="120"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column223" value="전표일자" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column224" value="증빙구분" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column225" value="과세구분" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column226" value="적요" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column227" value="작성자" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column228" value="작성자명" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column229" value="작성귀속부서" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column230" value="작성귀속부서명" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column231" value="사업자번호" displayMode="label"></w2:column>
+    								<w2:column width="140" inputType="text" style="" id="column232" value="사업자명" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column233" value="공급일자" displayMode="label"
+    									class="txt-red">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column234" value="지급방법" displayMode="label"
+    									class="txt-blue">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column235" value="지급일자" displayMode="label"
+    									class="txt-blue">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column236" value="변경전지급일자" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column width="70" inputType="checkbox" style="" id="chk" value="" displayMode="label" falseValue="F" trueValue="T" valueType="other" fixColumnWidth="true"></w2:column>
+    								<w2:column displayMode="label" id="certiNo" inputType="text" value="" width="150" readOnly="true"></w2:column>
+    								<w2:column displayMode="label" id="selpchItemNm" inputType="text" textAlign="left" width="100"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="pchsIntendDt" inputType="text" width="120" readOnly="true"
+    									dataType="date">
+    								</w2:column>
+    								<w2:column class="" displayMode="label" id="pchsDeptCd" inputType="text" width="100" readOnly="true"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="pchsClntNo" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="pchsClntNm" value="" displayMode="label"
+    									textAlign="left" readOnly="true">
+    								</w2:column>
+    								<w2:column class="tar" displayMode="label" id="rmk" inputType="text" textAlign="left" width="120"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column class="tar" displayMode="label" id="spplyAmt" inputType="text" textAlign="right" width="100"
+    									readOnly="true" dataType="number" displayFormat="#,###" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="vat" inputType="text" style="" textAlign="right" value="" width="100"
+    									readOnly="true" dataType="number" displayFormat="#,###" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="pchsAmtFcrc" inputType="text" style="" textAlign="right" value=""
+    									width="100" readOnly="true" dataType="number" displayFormat="#,##0.00" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="suspensePay" inputType="text" style="" textAlign="right" value=""
+    									width="100" readOnly="true" dataType="number" displayFormat="#,###" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="sumAmt" inputType="text" style="" textAlign="right" value=""
+    									width="100" readOnly="true" dataType="number" displayFormat="#,###" excelCellType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="slipNo" inputType="text"
+    									style="" value="" width="100" readOnly="true" class="linktype">
+    								</w2:column>
+    								<w2:column displayMode="label" id="setoffSlipNo" inputType="text"
+    									style="" value="" width="100" readOnly="true" class="linktype">
+    								</w2:column>
+    								<w2:column displayMode="label" id="crcCd" inputType="text" style="" value="" width="70"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column displayMode="label" id="recptYn" inputType="text"
+    									style="" value="" width="100" displayFormatter="scwin.gr_formatter1"
+    									readOnly="true" class="underline">
+    								</w2:column>
+    								<w2:column displayMode="label" id="elecAuthTrgtYn" inputType="text" style="" value="" width="150"
+    									readOnly="true" displayFormatter="scwin.gr_formatter2">
+    								</w2:column>
+    								<w2:column displayMode="label" id="etd" inputType="text" style="" value="" width="100" readOnly="true"
+    									dataType="date">
+    								</w2:column>
+    								<w2:column displayMode="label" id="eta" inputType="text" style="" value="" width="100" readOnly="true"
+    									dataType="date">
+    								</w2:column>
+    								<w2:column displayMode="label" id="ondt" inputType="text" style="" value="" width="100" readOnly="true"
+    									dataType="date">
+    								</w2:column>
+    								<w2:column class="" displayMode="label" id="adjmDept" inputType="textImage" style="" value=""
+    									width="100">
+    								</w2:column>
+    								<w2:column displayMode="label" id="adjmDeptNm" inputType="text" style="" value="" width="120"
+    									textAlign="left" readOnly="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="calendar" style="" id="slipDt" value="" displayMode="label"
+    									dataType="date">
+    								</w2:column>
+    								<w2:column width="100" inputType="select" style="" id="evidKndClsCd" value="" displayMode="label"
+    									allOption="" chooseOption="" ref="">
+    									<w2:choices>
+    										<w2:item>
+    											<w2:label><![CDATA[선택]]></w2:label>
+    											<w2:value><![CDATA[ ]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[세금계산서]]></w2:label>
+    											<w2:value><![CDATA[10]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[세금계산서기타]]></w2:label>
+    											<w2:value><![CDATA[11]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[영세율세금계산서]]></w2:label>
+    											<w2:value><![CDATA[20]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[계산서]]></w2:label>
+    											<w2:value><![CDATA[30]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[법인카드]]></w2:label>
+    											<w2:value><![CDATA[40]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[개인카드]]></w2:label>
+    											<w2:value><![CDATA[50]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[현금영수증]]></w2:label>
+    											<w2:value><![CDATA[60]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[영수증]]></w2:label>
+    											<w2:value><![CDATA[70]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[기타]]></w2:label>
+    											<w2:value><![CDATA[99]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[기타-부가세없음]]></w2:label>
+    											<w2:value><![CDATA[00]]></w2:value>
+    										</w2:item>
+    									</w2:choices>
+    								</w2:column>
+    								<w2:column width="100" inputType="select" style="" id="taxnClsCd" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="summary" value="" displayMode="label"
+    									textAlign="left" readOnly="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="textImage" style="" id="drawEmpNo" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="drawEmpNm" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="120" inputType="textImage" style="" id="drawAcctDeptCd" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="drawAcctDeptNm" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="busiNo" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="140" inputType="text" style="" id="busiNm" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="text" style="" id="spplyDt" value="" displayMode="label"
+    									readOnly="true">
+    								</w2:column>
+    								<w2:column width="100" inputType="select" style="" id="reqPayMthdCd" value="" displayMode="label"
+    									allOption="" chooseOption="" ref="">
+    									<w2:choices>
+    										<w2:item>
+    											<w2:label><![CDATA[선택]]></w2:label>
+    											<w2:value><![CDATA[ ]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[경비이체]]></w2:label>
+    											<w2:value><![CDATA[20]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[전자결재-현금]]></w2:label>
+    											<w2:value><![CDATA[30]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[전자어음]]></w2:label>
+    											<w2:value><![CDATA[40]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[실물어음]]></w2:label>
+    											<w2:value><![CDATA[50]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[당좌수표]]></w2:label>
+    											<w2:value><![CDATA[60]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[급여이체]]></w2:label>
+    											<w2:value><![CDATA[70]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[자동이체]]></w2:label>
+    											<w2:value><![CDATA[90]]></w2:value>
+    										</w2:item>
+    										<w2:item>
+    											<w2:label><![CDATA[지로납부]]></w2:label>
+    											<w2:value><![CDATA[95]]></w2:value>
+    										</w2:item>
+    									</w2:choices>
+    								</w2:column>
+    								<w2:column width="100" inputType="calendar" style="" id="payDt" value="" displayMode="label"
+    									dataType="date">
+    								</w2:column>
+    								<w2:column width="120" inputType="text" style="" id="bfPayDt" value="" displayMode="label"
+    									readOnly="true" dataType="date" displayFormat="####/##/##">
+    								</w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    						<w2:footer id="footer1" style="">
+    							<w2:row id="row3" style="">
+    								<w2:column width="70" inputType="text" style="" id="column239" value="" displayMode="label"></w2:column>
+    								<w2:column displayMode="label" id="column27" inputType="text" style="" value="합계" width="150"></w2:column>
+    								<w2:column displayMode="label" id="column26" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column25" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column24" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column70" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column67" value="" displayMode="label"></w2:column>
+    								<w2:column displayMode="label" id="column23" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column displayMode="label" id="column22" inputType="expression" style="" textAlign="right" value=""
+    									width="100" expression="SUM('spplyAmt')" displayFormat="#,###" dataType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column21" inputType="expression" style="" textAlign="right" value=""
+    									width="100" expression="SUM('vat')" displayFormat="#,###" dataType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column20" inputType="expression" style="" textAlign="right" value=""
+    									width="100" expression="SUM('pchsAmtFcrc')" displayFormat="#,##0.00" dataType="number">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column19" inputType="text" style="" textAlign="right" value=""
+    									width="100" dataType="number" displayFormat="#,###">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column64" inputType="expression" style="" textAlign="right" value=""
+    									width="100" dataType="number" expression="SUM('sumAmt')" displayFormat="#,###">
+    								</w2:column>
+    								<w2:column displayMode="label" id="column61" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column58" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column55" inputType="text" style="" value="" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column52" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column49" inputType="text" style="" value="" width="150"></w2:column>
+    								<w2:column displayMode="label" id="column46" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column43" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column40" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column31" inputType="text" style="" value="" width="100"></w2:column>
+    								<w2:column displayMode="label" id="column34" inputType="text" style="" value="" width="120"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column97" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column94" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column91" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column88" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column85" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column82" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column73" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column76" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column79" value="" displayMode="label"></w2:column>
+    								<w2:column width="140" inputType="text" style="" id="column112" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column109" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column106" value="" displayMode="label"></w2:column>
+    								<w2:column width="100" inputType="text" style="" id="column100" value="" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" style="" id="column103" value="" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:footer>
+    					</w2:gridView>
+    					<xf:group class="grid-bottom " id="" style="">
+    						<xf:group class="left" id="">
+    							<xf:group class="grid-total" id="">
+    								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="txt_totalRows" label="0" style=""
+    									tagname="span">
+    								</w2:textbox>
+    								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="lybox flex_no" id="">
+    				<xf:group class="col " id="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="매입 확정 정보" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group   class="w2tb " id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="req" id="" label="정산부서" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" id="udc_adjmDept" mandatoryCode="true" objTypeCode="data" UpperFlagCode="1" maxlengthCode="5" codeId="ed_adjmDeptCd" nameId="ed_adjmDeptNm" btnId="btn_adjmDept" objTypeName="data" ev:onviewchangeNameEvent="scwin.udc_adjmDept_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_adjmDept_onclickEvent" ev:onblurCodeEvent="scwin.udc_adjmDept_onblurCodeEvent" refDataCollection="ds_certiList" code="adjmDept" name="adjmDeptNm" allowCharCode="a-zA-Z0-9" UpperFlag="1"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="전표일자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_slipDt" style="" mandatory="true" ref="data:ds_certiList.slipDt" title="전표일자" objType="data" ev:onblur="scwin.ica_slipDt_onblur"></w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="증빙구분" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:autoComplete class=" " editType="select" id="acb_evidKndClsCd" search="start" style=""
+    										submenuSize="auto" mandatory="true" allOption="" chooseOption="" ref="data:ds_certiList.evidKndClsCd" title="증빙구분" objType="data" ev:onselected="scwin.acb_evidKndClsCd_onselected">
+    										<w2:choices>
+    											<w2:item>
+    												<w2:label><![CDATA[선택]]></w2:label>
+    												<w2:value><![CDATA[]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[세금계산서]]></w2:label>
+    												<w2:value><![CDATA[10]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[세금계산서기타]]></w2:label>
+    												<w2:value><![CDATA[11]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[영세율세금계산서]]></w2:label>
+    												<w2:value><![CDATA[20]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[계산서]]></w2:label>
+    												<w2:value><![CDATA[30]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[법인카드]]></w2:label>
+    												<w2:value><![CDATA[40]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[개인카드]]></w2:label>
+    												<w2:value><![CDATA[50]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[현금영수증]]></w2:label>
+    												<w2:value><![CDATA[60]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[영수증]]></w2:label>
+    												<w2:value><![CDATA[70]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[기타]]></w2:label>
+    												<w2:value><![CDATA[99]]></w2:value>
+    											</w2:item>
+    											<w2:item>
+    												<w2:label><![CDATA[기타-부가세없음]]></w2:label>
+    												<w2:value><![CDATA[00]]></w2:value>
+    											</w2:item>
+    										</w2:choices>
+    									</w2:autoComplete>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="과세구분" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:autoComplete class="" editType="select" id="acb_taxnClsCd" search="start" style="width: 120px;"
+    										submenuSize="auto" ref="data:ds_certiList.taxnClsCd" objType="data" title="과세구분" mandatory="true">
+    									</w2:autoComplete>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="적요" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class=" " id="ed_summary" placeholder="" style="" ev:onkeyup="scwin.ed_summary_onkeyup" mandatory="true" ref="data:ds_certiList.summary" title="적요" objType="data"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="작성자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="" style="" id="udc_drawEmp" codeId="ed_drawEmpNo" nameId="ed_drawEmpNm" btnId="btn_drawEmp" maxlengthCode="6" mandatoryCode="true" maxlengthName="50" objTypeName="data" objTypeCode="data" ev:onviewchangeNameEvent="scwin.udc_drawEmp_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_drawEmp_onclickEvent" ev:onblurCodeEvent="scwin.udc_drawEmp_onblurCodeEvent" refDataCollection="ds_certiList" code="drawEmpNo" name="drawEmpNm" allowCharCode="0-9" validTitle="작성자"></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="작성부서" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:udc_comCode popupID="" style="" id="udc_drawAcctDept" btnId="btn_drawAcctDept" codeId="ed_drawAcctDeptCd" nameId="ed_drawAcctDeptNm" objTypeCode="data" mandatoryCode="true" maxlengthCode="5" UpperFlagCode="1" objTypeName="data" ev:onviewchangeNameEvent="scwin.udc_drawAcctDept_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_drawAcctDept_onclickEvent" ev:onblurCodeEvent="scwin.udc_drawAcctDept_onblurCodeEvent" refDataCollection="ds_certiList" code="drawAcctDeptCd" name="drawAcctDeptNm" allowCharCode="a-zA-Z0-9" UpperFlag="1" validTitle="작성귀속부서"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="지급일/지급방법" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:group class="form-group" id="">
+    										<w2:inputCalendar calendarValueType="yearMonthDate" class="flex_no" id="ica_payDt" style="" ref="data:ds_certiList.payDt" title="지급일자" objType="data"></w2:inputCalendar>
+    										<w2:autoComplete class=" " editType="select" id="acb_reqPayMthdCd" search="start" style=""
+    											submenuSize="auto" ref="data:ds_certiList.reqPayMthdCd">
+    										</w2:autoComplete>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn white" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U" objType="ctrlBtn">
+    								<xf:label>일괄적용</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group class="col " id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="">
+    							<w2:textbox class="tit" id="" label="매입 증빙 정보" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="tbbox" id="" style="">
+    						<xf:group   class="w2tb " id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="width:120px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group style="" tagname="tr">
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="상호" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>2</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="" id="ed_nmCmpy" placeholder="" style="" disabled="true" ref="data:ds_certiList.busiNm"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="사업자번호" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>2</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="" id="ed_busiNo" placeholder="" style="" disabled="true" ref="data:ds_certiList.busiNo"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="req" id="" label="공급일자" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>2</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ica_spplyDt" style="" mandatory="true" ref="data:ds_certiList.spplyDt" title="공급일자" objType="data"></w2:inputCalendar>
+    								</xf:group>
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="req" id="" label="매입계산서역발행" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>2</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:select1 appearance="full" class="" cols="" id="rd_elecAuthTrgtYn" ref="data:ds_certiList.elecAuthTrgtYn" renderType="radiogroup"
+    										rows="" selectedIndex="-1" style="" mandatory="true" title="전자세금계산서" objType="data">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[적용]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[미적용]]></xf:label>
+    												<xf:value><![CDATA[0]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="공급가액" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td br0" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="tar" id="ed_spplyAmt" placeholder="" style="" disabled="true" ref="data:ds_certiList.spplyAmt"></xf:input>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td bl0"><w2:attributes></w2:attributes></xf:group><xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="부가세" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td br0" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="tar" id="ed_vat" placeholder="" style="" disabled="true" ref="data:ds_certiList.vat"></xf:input>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td bl0"><w2:attributes></w2:attributes></xf:group></xf:group>
+    							<xf:group tagname="tr">
+    								<xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="금액합계" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td br0" tagname="td">
+    									<w2:attributes>
+    										<w2:colspan>1</w2:colspan>
+    										<w2:rowspan>1</w2:rowspan>
+    									</w2:attributes>
+    									<xf:input class="tar" id="ed_sumAmt" placeholder="" style="" disabled="true" ref="data:ds_certiList.sumAmt"></xf:input>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td bl0"><w2:attributes></w2:attributes></xf:group><xf:group class="w2tb_th " tagname="th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox class="" id="" label="가지급금합계" ref="" style="" userData2=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="tar" id="ed_suspenseAmt" placeholder="" style="" disabled="true" ref="data:ds_certiList.suspensePay"></xf:input>
+    								</xf:group>
+    								<xf:group class="w2tb_td" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="txt_adjmClsCd" label="" ref="" style="" userData2="" ev:onclick="scwin.txt_adjmClsCd_onclick"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn white" id="btn_save2" label="저장" style="" type="button" userAuth="U" objType="ctrlBtn" ev:onclick="scwin.btn_save2_onclick">
+    						<xf:label>세금계산서 접수</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group></xf:group>
+    			</xf:group>
+    			
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

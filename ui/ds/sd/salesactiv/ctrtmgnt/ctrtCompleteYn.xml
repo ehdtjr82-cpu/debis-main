@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_completeYn" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="code" name="name1" dataType="text"></w2:column>
+        				<w2:column id="name" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="dma_commonPopup">
+        			<w2:keyInfo>
+        				<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+        				<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+        				<w2:key id="param1" name="name3" dataType="text"></w2:key>
+        				<w2:key id="param2" name="name4" dataType="text"></w2:key>
+        				<w2:key id="param3" name="name5" dataType="text"></w2:key>
+        				<w2:key id="param4" name="name6" dataType="text"></w2:key>
+        				<w2:key id="param5" name="name7" dataType="text"></w2:key>
+        				<w2:key id="param6" name="name8" dataType="text"></w2:key>
+        				<w2:key id="param7" name="name9" dataType="text"></w2:key>
+        				<w2:key id="param8" name="name10" dataType="text"></w2:key>
+        				<w2:key id="param9" name="name11" dataType="text"></w2:key>
+        				<w2:key id="param10" name="name12" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_commonPopup" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json" ref="data:json,dma_commonPopup"
+        		target="data:json,GAUCE" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+        		ev:submitdone="scwin.sbm_commonPopup_submitdone" ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    console.log("$p.parent().scwin.ctrtNo = " + $p.parent().scwin.ctrtNo)
+
+    // ds_completeYn.DataId = "/cm.zz.RetrieveCommonPopupCMD.do?sysCd=ContractEBC&queryId=retrieveContractYn&param1=<%=request.getParameter("ctrtNo")%>";
+    // ds_completeYn.Reset();
+    const strParam = {
+          sysCd: "ContractEBC"                                  // 시스템코드
+        , queryId: "retrieveContractYn"                         // 쿼리ID
+        , param1: $p.parent().scwin.ctrtNo
+        , param2: ""
+        , param3: ""
+        , param4: ""
+        , param5: ""
+        , param6: ""
+        , param7: ""
+        , param8: ""
+        , param9: ""
+        , param10: ""
+    };
+    
+    //데이터셋에 정보설정
+    dma_commonPopup.setJSON(strParam)
+    $c.sbm.execute(sbm_commonPopup)
+};
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+scwin.sbm_commonPopup_submitdone = function (e) {
+    // 조회 성공시
+    if (e.responseJSON.resultDataSet[0].Code == 0) {
+        ds_completeYn.setJSON(e.responseJSON.GAUCE)
+    }
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload"/>
+</html>

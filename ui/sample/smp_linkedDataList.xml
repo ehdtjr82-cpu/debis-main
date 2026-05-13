@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+		<xf:model >
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_list" saveRemovedData="true" >
+					<w2:columnInfo>
+						<w2:column id="key1" name="분류명" dataType="text"></w2:column>
+						<w2:column id="key2" name="선택1" dataType="text"></w2:column>
+						<w2:column id="key3" name="선택2" dataType="text"></w2:column>
+					</w2:columnInfo>
+
+				</w2:dataList>
+				<w2:dataList id="dlt_cdMst" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="cd" name="name1" dataType="text"></w2:column>
+						<w2:column id="cdNm" name="name2" dataType="text"></w2:column>
+						<w2:column id="type" name="name3" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:linkedDataList id="dlt_linkedList" bind="dlt_cdMst">
+					<w2:condition type="filter"><![CDATA[]]></w2:condition>
+					<w2:condition type="sort"><![CDATA[]]></w2:condition>
+				</w2:linkedDataList>
+				<w2:dataList id="dlt_cd1" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="cd" name="name1" dataType="text"></w2:column>
+						<w2:column id="cdNm" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList id="dlt_cd2" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="cd" name="name1" dataType="text"></w2:column>
+						<w2:column id="cdNm" name="name2" dataType="text"></w2:column>
+						<w2:column id="type" name="name3" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+    // 최초 실행
+    scwin.onpageload = function() {
+		// 코드 마스터
+		var codeJsonDt = [
+			{"cd" : "S", "cdNm" : "시스템", "type" : "A"},
+    		{"cd" : "B", "cdNm" : "업무", "type" : "A"},
+    		{"cd" : "E", "cdNm" : "오류", "type" : "B"},
+    		{"cd" : "W", "cdNm" : "주의", "type" : "B"},
+    		{"cd" : "I", "cdNm" : "알림", "type" : "B"},
+    		{"cd" : "Y", "cdNm" : "사용", "type" : "C"},
+    		{"cd" : "N", "cdNm" : "미사용", "type" : "C"}
+		];
+		dlt_cdMst.setJSON( codeJsonDt);
+    	
+    	// 1레벨 분류
+    	var jsonDt1 = [
+    		{"cd" : "A", "cdNm" : "대분류"},
+    		{"cd" : "B", "cdNm" : "중분류"},
+    		{"cd" : "C", "cdNm" : "소분류"}
+    	];
+    	dlt_cd1.setJSON( jsonDt1);
+    	
+    	// 2레벨 분류
+    	var jsonDt2 = [
+    		{"cd" : "A1", "cdNm" : "대분류1", "type" : "A"},
+    		{"cd" : "A2", "cdNm" : "대분류2", "type" : "A"},
+    		{"cd" : "A3", "cdNm" : "대분류3", "type" : "A"},
+    		{"cd" : "B1", "cdNm" : "중분류1", "type" : "B"},
+    		{"cd" : "B2", "cdNm" : "중분류2", "type" : "B"},
+    		{"cd" : "B3", "cdNm" : "중분류3", "type" : "B"},
+    		{"cd" : "C1", "cdNm" : "소분류1", "type" : "C"},
+    		{"cd" : "C2", "cdNm" : "소분류2", "type" : "C"},
+    		{"cd" : "C3", "cdNm" : "소분류3", "type" : "C"}
+    	];
+    	dlt_cd2.setJSON( jsonDt2);
+    	
+    	// 데이터 리스트
+    	var jsonListDt = [
+    		{"key1" : "분류명1", "key2" : "A", "key3" : "A1"},
+    		{"key1" : "분류명2", "key2" : "B", "key3" : "B1"},
+    		{"key1" : "분류명3", "key2" : "C", "key3" : "C2"},
+    		{"key1" : "분류명1", "key2" : "A", "key3" : "A2"},
+    		{"key1" : "분류명3", "key2" : "B", "key3" : "B2"}
+    	];
+    	dlt_list.setJSON( jsonListDt);
+    } 
+   
+	// 조회 메시지 내용 select 변경시
+	scwin.inqDvscd_onchange = function() {//debugger;
+	
+		if(sel_inqDvscd.getValue() == "1") { // 유형
+			dlt_linkedList.setCondition( "filter" , "type == 'A'" );
+//			dlt_linkedList.removeColumnFilterAll();
+//			dlt_linkedList.setColumnFilter( {type : "row", colIndex : "type" , key : "A", condition : "and"} )
+		} else if(sel_inqDvscd.getValue() == "2") { // 목적
+			dlt_linkedList.setCondition( "filter" , "type == 'B'" );
+//			dlt_linkedList.removeColumnFilterAll();
+//			dlt_linkedList.setColumnFilter( {type : "row", colIndex : "type" , key : "B", condition : "and"} )
+		} else if(sel_inqDvscd.getValue() == "3") { // 사용유무
+			dlt_linkedList.setCondition( "filter" , "type == 'C'" );
+//			dlt_linkedList.removeColumnFilterAll();
+//			dlt_linkedList.setColumnFilter( {type : "row", colIndex : "type" , key : "C", condition : "and"} )
+		} else {
+//			dlt_linkedList.removeColumnFilterAll();
+		}
+	};
+	
+	// 행추가
+	scwin.anc_anchor1_onclick = function() {
+		dlt_cd2.removeColumnFilterAll(); // 필터 초기화
+		dlt_list.insertRow();
+	};
+	
+	// 그리드 셀클릭 이벤트 처리
+	scwin.grd_gridView1_oncellclick = function(row,col) {
+		//debugger;
+		if(dlt_list.getColumnID(col) == "key3") { //선택2 선택시
+			var val = dlt_list.getCellData( row , "key2");
+			
+			dlt_cd2.removeColumnFilterAll();
+			dlt_cd2.setColumnFilter( {type : "row", colIndex : "type" , key : val, condition : "and"} );
+		}
+	};
+	
+	]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="contents_inner">
+
+			<xf:group class="pgtbox" style="">
+				<w2:textbox class="pgt_tit" label="LinkedDataList 및 DataList 필터 적용 샘플"></w2:textbox>
+			</xf:group>
+			<xf:group class="" style="">
+				<w2:textbox class="" label="1. 검색조건의 첫번째 select box 을 선택한다.&lt;br/&gt;2. 2번째 select Box의 dataList는 원본 데이터 리스트에 link 를 걸려있으며, 첫번째 선택값을 받아서 filter 를 걸어서 보여준다.&lt;br/&gt;" style="font-weight:bold;"></w2:textbox>
+			</xf:group>	
+			
+			<xf:group class="dfbox" style="">
+				<xf:group class="fr" id=""></xf:group>
+			</xf:group>
+
+			<xf:group class="tbbox" id="" style="">
+				<xf:group class="w2tb tb" id="" style="width:100%;" tagname="table">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="colgroup">
+						<xf:group style="width:130px;" tagname="col"></xf:group>
+						<xf:group style="width:150px;" tagname="col"></xf:group>
+						<xf:group style="" tagname="col"></xf:group>
+					</xf:group>
+					<xf:group tagname="tr" style="">
+						<xf:group class="w2tb_th" style="" tagname="th">검색조건</xf:group>
+						<xf:group class="w2tb_td" style="" tagname="td">
+							<xf:group class="wq_w2selectbox_100" id="" style="">
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" displayMode="label" id="sel_inqDvscd" optionOrder="false" selectedData="true" style=""
+									submenuSize="auto" ref="" ev:onchange="scwin.inqDvscd_onchange">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[전체]]></xf:label>
+											<xf:value><![CDATA[]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[메세지유형]]></xf:label>
+											<xf:value><![CDATA[1]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[메세지목적]]></xf:label>
+											<xf:value><![CDATA[2]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[사용유무]]></xf:label>
+											<xf:value><![CDATA[3]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+						</xf:group>
+						<xf:group class="w2tb_td blfno" style="" tagname="td">
+							<xf:select1 disabledClass="w2selectbox_disabled" appearance="minimal" chooseOption="true" displayMode="label"
+								allOption="" submenuSize="auto" direction="auto" id="sel_selectbox1" style="width: 148px;height: 21px;" disabled="false"
+								chooseOptionLabel="전체" ref="">
+								<xf:choices>
+									<xf:itemset nodeset="data:dlt_linkedList">
+										<xf:label ref="cdNm"></xf:label>
+										<xf:value ref="cd"></xf:value>
+									</xf:itemset>
+								</xf:choices>
+							</xf:select1>
+						</xf:group>
+
+					</xf:group>
+
+				</xf:group>
+			</xf:group>
+
+			<xf:group class="" id="grp_group1" style="width: 100%;height: 200px;">
+
+				<w2:gridView dataList="data:dlt_list" scrollByColumn="false" defaultCellHeight="20" scrollByColumnAdaptive="false"
+					id="grd_gridView1" style="width: 800px;height: 150px;" syncScroll="false" ev:oncellclick="scwin.grd_gridView1_oncellclick" >
+					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column blockSelect="false" id="column5" removeBorderStyle="false" style="" inputType="text" width="167"
+								value="분류명" displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="column3" removeBorderStyle="false" style="" inputType="text" width="282"
+								value="선택1" displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="column1" removeBorderStyle="false" style="" width="252" inputType="text"
+								value="선택2" displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" id="key1" removeBorderStyle="false" style="" inputType="text" width="167"
+								value="" displayMode="label">
+							</w2:column>
+							<w2:column blockSelect="false" id="key2" removeBorderStyle="false" style="" inputType="select" width="282"
+								value="" displayMode="label" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="" viewType="icon">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_cd1">
+										<w2:label ref="cdNm"></w2:label>
+										<w2:value ref="cd"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+							<w2:column blockSelect="false" id="key3" removeBorderStyle="false" style="" width="252" inputType="select"
+								value="" displayMode="label" allOption="" chooseOption="true" chooseOptionLabel="전체" ref="" viewType="icon">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_cd2">
+										<w2:label ref="cdNm"></w2:label>
+										<w2:value ref="cd"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+				<xf:group class="" id="grp_group2" style="width: 100%;height: 30px;">
+					<w2:anchor id="anc_anchor1" style="width: 100px;height: 23px;" outerDiv="false" class="btn_cm md btn_cm_blue" ev:onclick="scwin.anc_anchor1_onclick">
+						<xf:label><![CDATA[행추가]]></xf:label>
+					</w2:anchor>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+
+	</body>
+</html>

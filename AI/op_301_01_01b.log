@@ -1,0 +1,26 @@
+op_301_01_01b.log
+
+[2026-02-19 14:20:01.611] 변환 시작
+[2026-02-19 14:20:01.658] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:21:01.744] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=4 | LLM 60014ms, total 60087ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_loadLobranCd → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 5건: ds_lobranCd, ds_wrkPlCd, ds_crryInOutCd, ds_selfClsCd, ds_odrKndCd
+[2026-02-19 14:21:01.784] #1 검증: 자동수정 2건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:21:01.863] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=4
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_loadLobranCd → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: lc_crryInOutCd (LUXECOMBO→w2:autoComplete), lc_odrKndCd (LUXECOMBO→w2:autoComplete), lc_selfClsCd (LUXECOMBO→w2:autoComplete), ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 5건: ds_lobranCd, ds_wrkPlCd, ds_crryInOutCd, ds_selfClsCd, ds_odrKndCd
+[2026-02-19 14:21:01.866] #2 재시도 (에러 3건)
+[2026-02-19 14:21:02.867] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:22:09.486] #2 검증: XML: WebSquareXmlValidator: score=1.00, grade=A_PLUS, verdict=PASS, errors=0, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 66434ms, total 66619ms
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+[2026-02-19 14:22:09.488] 성공 (#2, 2m 7s, confidence:0.94)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] 컴포넌트 ID 유지 — 누락 2건: ed_srchFromDate (EMEDIT→xf:input), ed_srchToDate (EMEDIT→xf:input)
+================================================================================

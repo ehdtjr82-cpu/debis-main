@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map"></w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript">scwin.onpageload = function() {
+	
+};
+
+//--------------------------------
+// 변환 onclick
+//--------------------------------
+scwin.btn_con_onclick = function (e) {
+    let asisVal = txa_asis.getValue();
+
+    if ($c.util.isEmpty(asisVal)) {
+        $c.win.alert(&quot;AS-IS Grid 칼럼을 넣어 주세요.&quot;);
+        return;
+    }
+
+    let tobeVal = scwin.convertAsisGridToTobe(asisVal);
+    txa_tobe.setValue(tobeVal);
+
+    // 복사
+    navigator.clipboard.writeText(txa_tobe.getValue())
+        .then(() =&gt; {
+            console.log('복사 완료');
+        })
+        .catch(err =&gt; {
+            console.error('복사 실패', err);
+        });
+
+}
+
+//--------------------------------
+// 작성 된 AS-IS Grid 칼럼 읽어서 TO-BE Grid Body부로 전환
+//--------------------------------
+scwin.convertAsisGridToTobe = function (text) {
+    const cleaned = scwin.stripGroupBlocks(text);
+    const colBlocks = scwin.extractColumnBlocks(cleaned);
+    const lines = [];
+
+    for (const colBlock of colBlocks) {
+        const tag = colBlock;
+        const attrs = scwin.parseAttributes(tag);
+        const outAttrs = scwin.convertColumn(attrs);
+        if (!outAttrs) continue;
+
+        let line = scwin.toW2Column(outAttrs);
+        lines.push(line);
+    }
+
+    return lines.join(&quot;\n&quot;);
+}
+
+//--------------------------------
+// 그리드 header 셀별합용 &lt;g ...&gt;...&lt;/g&gt; and &lt;G ...&gt;...&lt;/G&gt; 제거
+//--------------------------------
+scwin.stripGroupBlocks = function (xml) {
+    // Remove &lt;g ...&gt;...&lt;/g&gt; and &lt;G ...&gt;...&lt;/G&gt; (non-greedy across lines)
+    return xml
+        .replace(/&lt;\s*g\b[^&gt;]*&gt;/gi, &quot;&quot;)
+        .replace(/&lt;\/\s*g\s*&gt;/gi, &quot;&quot;);
+}
+
+//--------------------------------
+// AS-IS 그리드 속성명 Parsing
+//--------------------------------
+scwin.parseAttributes = function (tagText) {
+    // Parse attributes robustly: key=&quot;v&quot; | key='v' | key=v
+    // Works regardless of attribute case; keys are normalized to lowercase.
+    const attrs = {};
+    const attrRe =
+        /([A-Za-z_][\w:-]*)\s*=\s*(?:&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'&gt;\/]+))/g;
+
+    let m;
+    while ((m = attrRe.exec(tagText)) !== null) {
+        const key = String(m[1] || &quot;&quot;).toLowerCase();
+        const val = (m[2] ?? m[3] ?? m[4] ?? &quot;&quot;).trim();
+        attrs[key] = val;
+    }
+    return attrs;
+}
+
+//--------------------------------
+// dec가 0보다 클 경우(0은 checkbox에서도 사용하여 애매함)
+//--------------------------------
+scwin.buildFloatFormat = function (decStr) {
+    const dec = Number(decStr);
+    if (!Number.isFinite(dec) || dec &lt;= 0) return null;
+
+    const hashes = &quot;#&quot;.repeat(dec);
+    return {
+        dataType: &quot;float&quot;,
+        displayFormat: `#,###.${hashes}`,
+        allowChar: &quot;.0-9&quot;,
+        maxLength: `.${dec}`,
+    };
+}
+
+//--------------------------------
+// AS-IS -&gt; TO-BE column convert
+//--------------------------------
+scwin.convertColumn = function (attrs) {
+    const id = attrs[&quot;id&quot;];
+    if (!id) return null;
+
+    const out = {};
+    out.displayMode = &quot;label&quot;;
+    out.id = id;
+
+    // edit=none -&gt; readOnly=&quot;true&quot;
+    const edit = (attrs[&quot;edit&quot;] || &quot;&quot;).toLowerCase();
+    if (edit === &quot;none&quot;) out.readOnly = &quot;true&quot;;
+
+    // show=false -&gt; hidden=&quot;true&quot;
+    const show = (attrs[&quot;show&quot;] || &quot;&quot;).toLowerCase();
+    if (show === &quot;false&quot;) out.hidden = &quot;true&quot;;
+
+    // align -&gt; textAlign
+    const align = (attrs[&quot;align&quot;] || &quot;&quot;).toLowerCase();
+    if (align === &quot;left&quot; || align === &quot;right&quot;) out.textAlign = align;
+
+    // sort=true -&gt; sortable=&quot;true&quot;
+    const sort = (attrs[&quot;sort&quot;] || &quot;&quot;).toLowerCase();
+    if (sort === &quot;true&quot;) out.sortable = &quot;true&quot;;
+
+
+    // EditStyle -&gt; inputType
+    let inputType = &quot;text&quot;; // default
+    const editStyle = (attrs[&quot;editstyle&quot;] || &quot;&quot;).toLowerCase();
+    if (editStyle === &quot;popup&quot; || editStyle === &quot;popupfix&quot;) {
+        inputType = &quot;textImage&quot;;
+        // user rule: scwin.grid+${칼럼ID}+Popup
+        out.imageClickFunction = `scwin.grid${id}Popup`;
+    } else if (editStyle === &quot;checkbox&quot;) {
+        inputType = &quot;checkbox&quot;;
+    } else if (editStyle === &quot;lookup&quot; || editStyle === &quot;combo&quot;) {
+        inputType = &quot;select&quot;;
+    }
+    out.inputType = inputType;
+
+    // dec != 0 -&gt; float formatting
+    if (attrs[&quot;dec&quot;] &amp;&amp; String(attrs[&quot;dec&quot;]).trim() !== &quot;0&quot;) {
+        const ff = scwin.buildFloatFormat(attrs[&quot;dec&quot;]);
+        if (ff) {
+            out.dataType = ff.dataType;
+            out.displayFormat = ff.displayFormat;
+            out.allowChar = ff.allowChar;
+            out.maxLength = ff.maxLength;
+        }
+    }
+
+    // mask -&gt; displayFormat
+    const mask = attrs[&quot;mask&quot;];
+    if (mask) {
+        const m = mask.trim().toUpperCase();
+        if (m === &quot;XXXX/XX/XX&quot;) {
+            out.dataType = &quot;date&quot;;
+            out.displayFormat = &quot;yyyy/MM/dd&quot;;
+        } else if (m === &quot;XXXX/MM&quot;) {
+            out.dataType = &quot;date&quot;;
+            out.displayFormat = &quot;yyyy/MM&quot;;
+        } else if (m === &quot;XX:XX&quot;) {
+            out.dataType = &quot;time&quot;;
+            // displayFormat not needed for time
+            if (out.displayFormat) delete out.displayFormat;
+        }
+    }
+
+    return out;
+}
+
+//--------------------------------
+// w2:column 생성
+//--------------------------------
+scwin.toW2Column = function (outAttrs) {
+    // stable order for readability
+    const order = [
+        &quot;displayMode&quot;,
+        &quot;id&quot;,
+        &quot;inputType&quot;,
+        &quot;width&quot;,
+        &quot;readOnly&quot;,
+        &quot;hidden&quot;,
+        &quot;textAlign&quot;,
+        &quot;sortable&quot;,
+        &quot;dataType&quot;,
+        &quot;displayFormat&quot;,
+        &quot;allowChar&quot;,
+        &quot;maxLength&quot;,
+        &quot;imageClickFunction&quot;,
+    ];
+
+    const parts = [];
+
+    for (const k of order) {
+        if (outAttrs[k] !== undefined &amp;&amp; outAttrs[k] !== &quot;&quot;) {
+            parts.push(`${k}=&quot;${outAttrs[k]}&quot;`);
+        }
+    }
+
+    // include any unexpected attrs
+    for (const [k, v] of Object.entries(outAttrs)) {
+        if (order.includes(k)) continue;
+        if (v === undefined || v === &quot;&quot;) continue;
+        parts.push(`${k}=&quot;${v}&quot;`);
+    }
+
+    return `&lt;w2:column ${parts.join(&quot; &quot;)}&gt;&lt;/w2:column&gt;`;
+}
+
+//--------------------------------
+// &lt;c&gt; / &lt;fc&gt; 찾기
+//--------------------------------
+scwin.extractColumnBlocks = function (cleaned) {
+    const blocks = [];
+
+    // &lt;g&gt;를 먼저 찾아서 그 안의 c/fc를 도출
+    const gRe = /&lt;\s*g\s*&gt;([\s\S]*?)&lt;\/\s*g\s*&gt;/gi;
+    let gm;
+
+    while ((gm = gRe.exec(cleaned)) !== null) {
+        const gInner = gm[1] ?? &quot;&quot;;
+        blocks.push(...scwin.extractCFcBlocks(gInner));
+    }
+
+    // g 밖(전체)에서 c/fc도 뽑는다
+    blocks.push(...scwin.extractCFcBlocks(cleaned));
+
+    // 중복 제거 (id 기준)
+    const seen = new Set();
+    const uniq = [];
+
+    for (const b of blocks) {
+        const id = scwin.extractIdFromColumnBlock(b);
+        if (!id) {
+            continue;
+        }
+        if (seen.has(id.toLowerCase())) {
+            continue;
+        }
+        seen.add(id.toLowerCase());
+        uniq.push(b);
+    }
+
+    return uniq;
+}
+
+scwin.extractCFcBlocks = function (text) {
+    const out = [];
+    const colRe = /&lt;\s*(c|fc)\s*&gt;([\s\S]*?)&lt;\/\s*\1\s*&gt;/gi;
+    let m;
+
+    while ((m = colRe.exec(text)) !== null) {
+        out.push(m[0]);
+    }
+
+    return out;
+}
+
+scwin.extractIdFromColumnBlock = function (colBlock) {
+    // &lt;c&gt; id=wrkStDt ... &lt;/c&gt; 형태에서 id 추출
+    const re = /\bid\s*=\s*(?:&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'&gt;]+))/i;
+    const m = colBlock.match(re);
+    return (m?.[1] ?? m?.[2] ?? m?.[3] ?? &quot;&quot;).trim();
+}</script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="sub_contents" id="" style="">
+            <xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+                    <xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+                        <xf:group class="" id="" style="" tagname="tr">
+                            <xf:group class="w2tb_th " style="" tagname="th">
+                            	<w2:textbox id="" label="AS-IS" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td " style="" tagname="td">
+                            	<xf:textarea id="txa_asis" style="width:1000px; height: 400px"></xf:textarea>
+                            </xf:group>
+                        </xf:group>
+                        <xf:group class="" id="" style="" tagname="tr">
+                            <xf:group class="w2tb_th " style="" tagname="th">
+                                    <w2:textbox id="" label="TO-BE" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td " style="" tagname="td">
+                                    <xf:textarea id="txa_tobe" style="width:1000px; height: 400px"></xf:textarea>
+                            </xf:group>                                
+                        </xf:group>
+                    </xf:group>
+                    <xf:group class="btn-shbox" id="" style="">
+                        <xf:trigger class="btn sch" disabled="" escape="false" id="btn_con" style="" type="button" ev:onclick="scwin.btn_con_onclick">
+                            <xf:label><![CDATA[변환]]></xf:label>
+                        </xf:trigger>
+                    </xf:group>
+                </xf:group>
+
+            </xf:group>
+    	</xf:group>
+    </body>
+</html>

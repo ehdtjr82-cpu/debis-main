@@ -1,0 +1,36 @@
+ta_101_01_01b.log
+
+[2026-02-19 15:45:46.872] 변환 시작
+[2026-02-19 15:45:47.073] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:50:10.444] #1 검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=3, warnings=6 | LLM 261778ms, total 263370ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_Delete, scwin.gr_MasterList_oncellclick, scwin.gr_DetailInfo_oncellclick, scwin.btn_cancel_ex_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: cnd_ed_cust (EMEDIT→xf:input), cnd_ed_liner (EMEDIT→xf:input), cnd_ed_apdtFrom (EMEDIT→xf:input), cnd_ed_apdtTo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 2건 잔존
+[2026-02-19 15:50:10.913] #1 검증: 자동수정 3건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:50:12.433] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=3, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_Delete, scwin.gr_MasterList_oncellclick, scwin.gr_DetailInfo_oncellclick, scwin.btn_cancel_ex_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 5건: cnd_ed_cust (EMEDIT→xf:input), cnd_ed_liner (EMEDIT→xf:input), cnd_ed_apdtFrom (EMEDIT→xf:input), cnd_ed_apdtTo (EMEDIT→xf:input), lc_contractno (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 2건 잔존
+[2026-02-19 15:50:12.448] #2 재시도 (에러 4건)
+[2026-02-19 15:50:13.462] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:54:36.881] #2 검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=3, warnings=6 | LLM 262244ms, total 263418ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_Delete, scwin.gr_MasterList_oncellclick, scwin.gr_DetailInfo_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 4건: cnd_ed_cust (EMEDIT→xf:input), cnd_ed_liner (EMEDIT→xf:input), cnd_ed_apdtFrom (EMEDIT→xf:input), cnd_ed_apdtTo (EMEDIT→xf:input)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+    - [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 2건 잔존
+[2026-02-19 15:54:36.887] #1 검증: 최적 시도 #1 채택 (confidence: 0.75)
+[2026-02-19 15:54:36.888] 실패 (2회 시도, 8m 50s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.onUdcCompleted, scwin.f_Delete, scwin.gr_MasterList_oncellclick, scwin.gr_DetailInfo_oncellclick, scwin.btn_cancel_ex_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 ID 유지 — 누락 4건: cnd_ed_cust (EMEDIT→xf:input), cnd_ed_liner (EMEDIT→xf:input), cnd_ed_apdtFrom (EMEDIT→xf:input), cnd_ed_apdtTo (EMEDIT→xf:input)
+  3. [적정성] DATASET 전환 — 누락 1건: ds
+  4. [적정성] 루프 인덱스 변환 — 1-based + getRowCount 조합 2건 잔존
+================================================================================

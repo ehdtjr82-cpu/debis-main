@@ -1,0 +1,27 @@
+se_105_01_03b.log
+
+[2026-02-19 15:35:14.611] 변환 시작
+[2026-02-19 15:35:14.765] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:38:58.946] #1 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.92, grade=A, verdict=PASS, errors=1, warnings=6 | LLM 223625ms, total 224181ms
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-19 15:38:59.217] #1 검증: 자동수정 4건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:38:59.864] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=7 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=6
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_dateTitle (LUXECOMBO→w2:autoComplete), lc_hhpaynm (LUXECOMBO→w2:autoComplete)
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-19 15:38:59.871] #2 재시도 (에러 1건)
+[2026-02-19 15:39:00.872] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:43:08.794] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.95, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 247482ms, total 247922ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+[2026-02-19 15:43:08.798] #1 검증: 최적 시도 #1 채택 (confidence: 0.83)
+[2026-02-19 15:43:08.798] 성공 (#2, 7m 54s, confidence:0.83)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [적정성] DATASET 전환 — 누락 1건: ds
+================================================================================

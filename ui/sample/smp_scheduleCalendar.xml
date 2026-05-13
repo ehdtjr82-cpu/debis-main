@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="smp_schedule" meta_screenId="smp_schedule">
+		<w2:type>DEFAULT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dataList1" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="colTitle" name="colTitle" dataType="text"></w2:column>
+						<w2:column id="colStart" name="colStart" dataType="text"></w2:column>
+						<w2:column id="colEnd" name="colEnd" dataType="text"></w2:column>
+						<w2:column id="colId" name="colId" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<colTitle><![CDATA[타이틀1]]></colTitle>
+							<colStart><![CDATA[2025-11-10]]></colStart>
+							<colEnd><![CDATA[2025-11-16]]></colEnd>
+							<colId><![CDATA[seq1]]></colId>
+						</w2:row>
+						<w2:row>
+							<colTitle><![CDATA[타이틀2]]></colTitle>
+							<colStart><![CDATA[2025-11-22]]></colStart>
+							<colEnd><![CDATA[2025-11-22]]></colEnd>
+							<colId><![CDATA[seq2]]></colId>
+						</w2:row>
+						<w2:row>
+							<colTitle><![CDATA[타이틀3]]></colTitle>
+							<colId><![CDATA[seq3]]></colId>
+							<colStart><![CDATA[2025-11-21]]></colStart>
+							<colEnd><![CDATA[2025-11-22]]></colEnd>
+						</w2:row>
+						<w2:row>
+							<colTitle><![CDATA[타이틀4]]></colTitle>
+							<colStart><![CDATA[2025-11-21]]></colStart>
+							<colEnd><![CDATA[2025-11-21]]></colEnd>
+							<colId><![CDATA[seq4]]></colId>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+scwin.onpageload = function() {//debugger;
+    // 휴일표시
+    $c.win.setHolidayS(shc_scheduleCalendar1.defaultData.initialDate);
+};
+
+scwin.onpageunload = function() {
+    
+};
+
+// 달 변경이벤트
+scwin.shc_scheduleCalendar1_onheaderbtnclick = function (buttonInfo) {//debugger;
+    // 휴일표시
+    $c.win.setHolidayS(buttonInfo.date);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe style="" id="wfm_wframe1" src="/cm/xml/contentHeader.xml"></w2:wframe>
+			<xf:group class="round-box" id="" style="">
+				<xf:group id="" class="title-wrap"><xf:group id="" class="title"><w2:textbox tagname="h3" style="" id="" label="ScheduleCalendar" class="tit"></w2:textbox></xf:group></xf:group>
+			<w2:scheduleCalendar endColumn="colEnd" weekends="true" dayMaxEvents="false" editable="true" selectable="" headerRightBtn="false" includeScheduleEnd="true" version="6.1.11" 
+            ioFormat="yyyyMMdd" titleColumn="colTitle" startColumn="colStart" 
+            dataList="data:dataList1" style="" id="shc_scheduleCalendar1" lang="" 
+            headerLeftBtn="true" class="h-full mt16" idColumn="colId" headerTitle="true" 
+            ev:onheaderbtnclick="scwin.shc_scheduleCalendar1_onheaderbtnclick" headerToolbarStart="prevYear,prev,next,nextYear">
+					</w2:scheduleCalendar></xf:group>
+
+		</xf:group>
+	</body>
+</html>

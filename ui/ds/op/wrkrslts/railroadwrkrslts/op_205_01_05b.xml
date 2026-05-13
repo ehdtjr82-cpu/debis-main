@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_QueryCondition">
+    				<w2:keyInfo>
+    					<w2:key id="dptDtFrom" name="name1" dataType="text"></w2:key>
+    					<w2:key id="dptDtTo" name="name2" dataType="text"></w2:key>
+    					<w2:key id="dptStn" name="name3" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_PrivatetrainCutResults" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="No" name="name1" dataType="text"></w2:column>
+    					<w2:column id="dptStnWrkPlNm" name="출발역" dataType="text"></w2:column>
+    					<w2:column id="arvStnWrkPlNm" name="도착역" dataType="text"></w2:column>
+    					<w2:column id="prvtAssgnCnt20Empty" name="20E" dataType="text"></w2:column>
+    					<w2:column id="prvtAssgnCnt20Full" name="20F" dataType="text"></w2:column>
+    					<w2:column id="prvtAssgnCnt40Empty" name="40E" dataType="text"></w2:column>
+    					<w2:column id="prvtAssgnCnt40Full" name="40F" dataType="text"></w2:column>
+    					<w2:column id="prvtAssgnCnt45Empty" name="45E" dataType="text"></w2:column>
+    					<w2:column id="prvtAssgnCnt45Full" name="45F" dataType="text"></w2:column>
+    					<w2:column id="rsltsCnt20Empty" name="name10" dataType="text"></w2:column>
+    					<w2:column id="rsltsCnt20Full" name="name11" dataType="text"></w2:column>
+    					<w2:column id="rsltsCnt40Empty" name="name12" dataType="text"></w2:column>
+    					<w2:column id="rsltsCnt40Full" name="name13" dataType="text"></w2:column>
+    					<w2:column id="rsltsCnt45Empty" name="name14" dataType="text"></w2:column>
+    					<w2:column id="rsltsCnt45Full" name="name15" dataType="text"></w2:column>
+    					<w2:column id="railroadFare" name="name16" dataType="text"></w2:column>
+    					<w2:column id="cutAmount" name="name17" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.railroadwrkrslts.RetrievePrivatetrainCutResultsCMD.do" method="post"
+    			mediatype="application/json"
+    			ref='data:json,[{"id":"dma_QueryCondition","key":"IN_DS1"},{"id":"ds_PrivatetrainCutResults","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_PrivatetrainCutResults","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.strCurDate = WebSquare.date.getCurrentServerDate();  // 서버를 기준으로 현재 날짜 반환
+scwin.strCurym = scwin.strCurDate.substring(0,6);
+
+scwin.oldrowData = 0;
+
+scwin.onpageload = function() {
+	
+    udc_fromToCalendar.setInitDate(scwin.strCurym + "01",scwin.strCurDate); //udc달력
+
+};
+
+scwin.udc_comCode_rain_onclickEvent = function (e) {
+
+    scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(),'F','T')
+
+};
+
+//callback
+scwin.udc_comCode_rain_callBackFunc = function(ret) {
+
+    $c.gus.cfSetReturnValue(ret, ed_begintrainWorkPlaceCd, ed_begintrainWorkPlaceNm);
+   
+};
+
+scwin.udc_comCode_rain_onblurCodeEvent = function (e) {
+
+    if(ed_begintrainWorkPlaceCd.getValue() === "") {
+
+        ed_begintrainWorkPlaceNm.setValue("");
+    } else{
+        scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(),'T','T');
+    }
+};
+
+//-------------------------------------------------------------------------
+// 공통 Popup 처리 : Gubun Code 에 따른 공통 Popup 을 호출한다.
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function(disGubun, pCode, pName, pClose, pAllSearch) {
+// 선언부
+// var rtnList= new Array();  // 공통POP-UP -> 요청화면 
+    var rtnList= null;
+    var pWhere="";
+            
+    switch (disGubun)
+    {
+        case 1:   // 출발역 역명 팝업	
+            udc_comCode_rain.setSelectId("retrieveTrainWorkPlace");
+            
+            rtnList = await udc_comCode_rain.cfCommonPopUp(scwin.retrieveTrainWorkPlaceCb	// XML상의 SELECT ID	
+                                    ,pCode					// 화면에서의 ??? Code Element의	Value
+                                    ,pName					// 화면에서의 ??? Name Element의	Value
+                                    ,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+                                    ,null					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                    ,null					// Title순서	
+                                    ,null					// 보여주는 각 컬럼들의 폭	
+                                    ,null					// 컬럼중에서 숨기는	컬럼 지정	
+                                    ,null					// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                                    ,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+                                    ,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+                                    ,null					// 윈도우 위치 Y좌표	
+                                    ,null					// 윈도우 위치 X좌표
+                                    ,null					// 중복체크여부	("F")
+                                    ,pAllSearch					// 전체검색허용여부	("F")
+                                    ,"역명조회,작업장코드,작업장명"				// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                                    ); 
+                                    
+                                        //도착지코드          도착지명
+           
+            break;
+    }	
+}
+
+scwin.retrieveTrainWorkPlaceCb = function(rtnList){
+    $c.gus.cfSetReturnValue(rtnList, ed_begintrainWorkPlaceCd, ed_begintrainWorkPlaceNm);
+}
+scwin.udc_comCode_rain_onviewchangeNameEvent = function (info) {
+    
+    if(ed_begintrainWorkPlaceNm.getValue() === "") {
+
+        ed_begintrainWorkPlaceCd.setValue("");
+    } else {
+        scwin.f_openCommonPopUp(1, ed_begintrainWorkPlaceCd.getValue(), ed_begintrainWorkPlaceNm.getValue(),'T','T');
+    }
+
+    
+};
+
+//초기화
+scwin.btn_fieldClear_onclick = function (e) {
+
+    ed_FromDt.setValue(scwin.strCurym + "01");
+    ed_ToDt.setValue(scwin.strCurDate);
+    ed_begintrainWorkPlaceCd.setValue("");
+    ed_begintrainWorkPlaceNm.setValue("");
+};
+
+//조회
+scwin.btn_retrieve_onclick = async function (e) {
+    if (! await $c.gus.cfValidate([ed_FromDt,ed_ToDt])) {
+  		return;
+	}
+    
+    ds_PrivatetrainCutResults.removeAll();
+
+    //dataMap set
+    dma_QueryCondition.set("dptDtFrom",ed_FromDt.getValue());
+    dma_QueryCondition.set("dptDtTo",ed_ToDt.getValue());
+    dma_QueryCondition.set("dptStn",ed_begintrainWorkPlaceCd.getValue());
+
+    $c.sbm.execute(sbm_retrieve);
+    scwin.oldrowData = 0;
+};
+
+//조회callback
+scwin.sbm_retrieve_submitdone = function() {
+
+    let nCnt = ds_PrivatetrainCutResults.getRowCount();
+    if( nCnt == 0 ){
+
+		$c.gus.cfAlertMsg(MSG_CM_WRN_002);
+  	
+    } else {
+        gr_PrivatetrainCutResults.setFocusedCell(0, 0);
+        total.setValue(nCnt);
+    }
+};
+
+scwin.f_railroadFareExcel = async function(){
+
+    var totCnt = ds_PrivatetrainCutResults.getRowCount();
+        if( totCnt != "0"){
+        var cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");
+        if (cfrm){
+            // cfGridToExcel(varGrNm, sheetTitle, sheetTitle, 2+4+8+16);	
+
+            var fileName = "사유화차저감실적";
+            await $c.data.downloadGridViewExcel(gr_PrivatetrainCutResults, { fileName: fileName + ".xlsx", sheetName: fileName });
+        }
+    } else {
+        await $c.gus.cfAlertMsg(MSG_CM_WRN_002);    
+    }
+
+}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="tbl_search" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="출발역 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_comCode hideName="Y" popupID="" style="" codeId="ed_begintrainWorkPlaceCd" nameId="ed_begintrainWorkPlaceNm" id="udc_comCode_rain" maxlengthCode="6" objTypeCode="Key" UpperFlagCode="1" selectID="" ev:onclickEvent="scwin.udc_comCode_rain_onclickEvent" ev:onblurCodeEvent="scwin.udc_comCode_rain_onblurCodeEvent" ev:onviewchangeNameEvent="scwin.udc_comCode_rain_onviewchangeNameEvent" maxlengthName="100" allowCharCode="a-z0-9A-Z"></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업일자 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="" refEdDt="" refStDt="" style="" edFromId="ed_FromDt" edToId="ed_ToDt" mandatoryFrom="true" titleFrom="작업시작일자" titleTo="작업종료일자" mandatoryTo="true"></w2:udc_fromToCalendar>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button" ev:onclick="scwin.btn_fieldClear_onclick">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="사유화차저감실적" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridID="gr_PrivatetrainCutResults" gridDownFn="scwin.f_railroadFareExcel" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_PrivatetrainCutResults"
+    					id="gr_PrivatetrainCutResults" style="" visibleRowNum="15" visibleRowNumFix="true" focusMode="cell" readOnly="true" rowStatusVisible="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="text" value="컬럼헤더명" width="70" colSpan="" rowSpan="2"
+    								class="txt-blue" hidden="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="출발역" width="150" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="도착역" width="150" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="배정수량" width="420" colSpan="6"
+    								rowSpan="">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="실적수량" width="420" colSpan="6"
+    								rowSpan="">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column34" displayMode="label" value="철송임" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="column37" displayMode="label" value="저감실적" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row4">
+    							<w2:column width="70" inputType="text" style="" id="column65" value="20E" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column64" value="20F" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column63" value="40E" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column62" value="40F" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column61" value="45E" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column60" value="45F" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column59" value="20E" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column58" value="20F" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column57" value="40E" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column56" value="40F" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column55" value="45E" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column54" value="45F" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="No" inputType="text" width="70" hiddenCol="true" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="dptStnWrkPlNm" inputType="text" width="150" textAlign="center"
+    								colMerge="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="arvStnWrkPlNm" inputType="text" width="150" textAlign="center"></w2:column>
+    							<w2:column displayMode="label" id="prvtAssgnCnt20Empty" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="prvtAssgnCnt20Full" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="prvtAssgnCnt40Empty" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="prvtAssgnCnt40Full" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="prvtAssgnCnt45Empty" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="prvtAssgnCnt45Full" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column displayMode="label" id="rsltsCnt20Empty" inputType="text" width="70" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="text" id="rsltsCnt20Full" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="text" id="rsltsCnt40Empty" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="text" id="rsltsCnt40Full" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="text" id="rsltsCnt45Empty" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="text" id="rsltsCnt45Full" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="100" inputType="text" id="railroadFare" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###,###,###" excelCellType="number" dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" id="cutAmount" displayMode="label" textAlign="right"
+    								displayFormat="#,###,###,###,###" excelCellType="number" dataType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:subTotal targetColumnID="dptStnWrkPlNm" style="" id="subTotal1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="70" inputType="text" style="" id="column82" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" style="" id="column81" value="" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="expression" style="" id="column80" value="" displayMode="label" expression='COUNT("arvStnWrkPlNm") + "건"'></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column79" value="" displayMode="label" expression='SUM("prvtAssgnCnt20Empty")' textAlign="right" displayFormat="#,###,###,###,###" excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column78" value="" displayMode="label" expression='SUM("prvtAssgnCnt20Full")' textAlign="right" displayFormat="#,###,###,###,###" excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column77" value="" displayMode="label" expression='SUM("prvtAssgnCnt40Empty")' textAlign="right" displayFormat="#,###,###,###,###" excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column76" value="" displayMode="label" expression='SUM("prvtAssgnCnt40Full")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column75" value="" displayMode="label" expression='SUM("prvtAssgnCnt45Empty")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column74" value="" displayMode="label" expression='SUM("prvtAssgnCnt45Full")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column73" value="" displayMode="label" expression='SUM("rsltsCnt20Empty")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column72" value="" displayMode="label" expression='SUM("rsltsCnt20Full")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column71" value="" displayMode="label" expression='SUM("rsltsCnt40Empty")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column70" value="" displayMode="label" expression='SUM("rsltsCnt40Full")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column69" value="" displayMode="label" expression='SUM("rsltsCnt45Empty")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" style="" id="column68" value="" displayMode="label" expression='SUM("rsltsCnt45Full")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column67" value="" displayMode="label" expression='SUM("railroadFare")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column66" value="" displayMode="label" expression='SUM("cutAmount")' textAlign="right" displayFormat="#,###,###,###,###" dataType="number" excelCellType="number"></w2:column>
+    						</w2:row>
+    					</w2:subTotal>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row3">
+    							<w2:column width="70" inputType="text" id="column30" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="column29" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="column28" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column27" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("prvtAssgnCnt20Empty")' dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column26" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("prvtAssgnCnt20Full")' dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column25" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("prvtAssgnCnt40Empty")' dataType="number" excelCellType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column24" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("prvtAssgnCnt40Full")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column23" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("prvtAssgnCnt45Empty")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column22" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("prvtAssgnCnt45Full")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column21" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("rsltsCnt20Empty")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column51" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("rsltsCnt20Full")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column48" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("rsltsCnt40Empty")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column45" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("rsltsCnt40Full")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column42" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("rsltsCnt45Empty")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="70" inputType="expression" id="column33" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("rsltsCnt45Full")' excelCellType="number" dataType="number"></w2:column>
+    							<w2:column width="100" inputType="expression" id="column36" displayMode="label" textAlign="right"  displayFormat="#,###,###,###,###" expression='SUM("railroadFare")' excelCellType="number" dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" id="column39" displayMode="label" textAlign="right" displayFormat="#,###,###,###,###" expression='SUM("cutAmount")' excelCellType="number" dataType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="total" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

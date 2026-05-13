@@ -1,0 +1,1256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_cond">
+    				<w2:keyInfo>
+    					<w2:key id="postSeqCond" name="" dataType="text"></w2:key>
+    					<w2:key id="deptCond" name="" dataType="text"></w2:key>
+    					<w2:key id="empNoCond" name="" dataType="text"></w2:key>
+    					<w2:key id="empNmCond" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_cond2">
+    				<w2:keyInfo>
+    					<w2:key id="postSeqCond" name="" dataType="text"></w2:key>
+    					<w2:key id="deptCond" name="" dataType="text"></w2:key>
+    					<w2:key id="empNoCond" name="" dataType="text"></w2:key>
+    					<w2:key id="empNmCond" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_cond3">
+    				<w2:keyInfo>
+    					<w2:key id="postSeqCond" name="" dataType="text"></w2:key>
+    					<w2:key id="deptCond" name="" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_out" saveRemovedData="true" ev:ondataload="scwin.ds_out_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="chk" dataType="text"></w2:column>
+    					<w2:column id="postSeq" name="게시차수" dataType="text"></w2:column>
+    					<w2:column id="firstProvideCd" name="지급여부" dataType="text"></w2:column>
+    					<w2:column id="sabun" name="신청자ID" dataType="text"></w2:column>
+    					<w2:column id="name" name="신청자명" dataType="text"></w2:column>
+    					<w2:column id="itemNo" name="복장종류" dataType="text"></w2:column>
+    					<w2:column id="drsSize" name="사이즈" dataType="text"></w2:column>
+    					<w2:column id="drsLength" name="기장" dataType="text"></w2:column>
+    					<w2:column id="drsQty" name="수량" dataType="text"></w2:column>
+    					<w2:column id="mgntStaffCd" name="관리현장구분" dataType="text"></w2:column>
+    					<w2:column id="deptCd" name="부서코드" dataType="text"></w2:column>
+    					<w2:column id="deptNm" name="부서" dataType="text"></w2:column>
+    					<w2:column id="jikgubNm" name="직급" dataType="text"></w2:column>
+    					<w2:column id="rmk" name="비고" dataType="text"></w2:column>
+    					<w2:column id="checkDeleteYn" name="삭제여부" dataType="text"></w2:column>
+    					<w2:column id="jikgubCd" name="직급코드" dataType="text"></w2:column>
+    					<w2:column id="dressType" name="복장구분" dataType="text"></w2:column>
+    					<w2:column id="topnbotDiv" name="상하구분" dataType="text"></w2:column>
+    					<w2:column id="seasonDiv" name="계절구분" dataType="text"></w2:column>
+    					<w2:column id="coDiv" name="회사" dataType="text"></w2:column>
+    					<w2:column id="unitPrice" name="단가" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_itemList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="itemNo" name="name1" dataType="text"></w2:column>
+    					<w2:column id="dressType" name="name2" dataType="text"></w2:column>
+    					<w2:column id="topnbotDiv" name="name3" dataType="text"></w2:column>
+    					<w2:column id="seasonDiv" name="name4" dataType="text"></w2:column>
+    					<w2:column id="unitPrice" name="name5" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_size" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="grpCd" name="name1" dataType="text"></w2:column>
+    					<w2:column id="cd" name="name2" dataType="text"></w2:column>
+    					<w2:column id="upperCd" name="name3" dataType="text"></w2:column>
+    					<w2:column id="upperCdNm" name="name4" dataType="text"></w2:column>
+    					<w2:column id="cdNm" name="name5" dataType="text"></w2:column>
+    					<w2:column id="cdEngNm" name="name6" dataType="text"></w2:column>
+    					<w2:column id="cdNmAbbr" name="name7" dataType="text"></w2:column>
+    					<w2:column id="cdEngNmAbbr" name="name8" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="name9" dataType="text"></w2:column>
+    					<w2:column id="sortSeq" name="name10" dataType="text"></w2:column>
+    					<w2:column id="cdDesc" name="name11" dataType="text"></w2:column>
+    					<w2:column id="fltrCd1" name="name12" dataType="text"></w2:column>
+    					<w2:column id="fltrCd2" name="name13" dataType="text"></w2:column>
+    					<w2:column id="fltrCd3" name="name14" dataType="text"></w2:column>
+    					<w2:column id="regId" name="name15" dataType="text"></w2:column>
+    					<w2:column id="regDtm" name="name16" dataType="text"></w2:column>
+    					<w2:column id="modId" name="name17" dataType="text"></w2:column>
+    					<w2:column id="modDtm" name="name18" dataType="text"></w2:column>
+    					<w2:column id="txtSql" name="name19" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_checkPreviousYearData" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name5" dataType="text"></w2:column>
+    					<w2:column id="col6" name="name6" dataType="text"></w2:column>
+    					<w2:column id="col7" name="name7" dataType="text"></w2:column>
+    					<w2:column id="col8" name="name8" dataType="text"></w2:column>
+    					<w2:column id="col9" name="name9" dataType="text"></w2:column>
+    					<w2:column id="col10" name="name10" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_check_param" style="">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    					<w2:key id="param2" name="name4" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_firstProvideCd" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="name1" dataType="text"></w2:column>
+    					<w2:column id="col2" name="name2" dataType="text"></w2:column>
+    					<w2:column id="col3" name="name3" dataType="text"></w2:column>
+    					<w2:column id="col4" name="name4" dataType="text"></w2:column>
+    					<w2:column id="col5" name="name5" dataType="text"></w2:column>
+    					<w2:column id="col6" name="name6" dataType="text"></w2:column>
+    					<w2:column id="col7" name="name7" dataType="text"></w2:column>
+    					<w2:column id="col8" name="name8" dataType="text"></w2:column>
+    					<w2:column id="col9" name="name9" dataType="text"></w2:column>
+    					<w2:column id="col10" name="name10" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_check_first_param">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="name1" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="name2" dataType="text"></w2:key>
+    					<w2:key id="param1" name="name3" dataType="text"></w2:key>
+    					<w2:key id="param2" name="name4" dataType="text"></w2:key>
+    					<w2:key id="param3" name="name5" dataType="text"></w2:key>
+    					<w2:key id="param4" name="name6" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_tr_stdRetrieve" action="/cm.bc.affairs.RetrieveSheathStdReqCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_cond","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_out","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_stdRetrieve_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_retrieve" action="/cm.bc.affairs.RetrieveSheathReqCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_cond","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]' target='data:json,{"id":"ds_out","key":"OUT_DS1"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_tr_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_retrieveItemList" action="/cm.bc.affairs.RetrieveSheathReqItemCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_cond2","key":"IN_DS1"},{"id":"ds_itemList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_itemList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_retrieveItemList_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_save" action="/cm.bc.affairs.RegistSheathReqCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"action":"modified","id":"ds_out","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_save_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_save2" action="/cm.bc.affairs.CreatePreviousYearDataCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_cond3","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_out","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_save2_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_ds_size" action="" method="post" mediatype="application/json" ref=""
+    			target='data:json,{"id":"ds_size","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_ds_size_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_ds_checkPreviousYearData" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post"
+    			mediatype="application/json" ref="data:json,ds_check_param" target='data:json,{"id":"ds_checkPreviousYearData","key":"GAUCE"}'
+    			encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_ds_checkPreviousYearData_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_ds_firstProvideCd" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,ds_check_first_param" target='data:json,{"id":"ds_firstProvideCd","key":"GAUCE"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_ds_firstProvideCd_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_tr_retrieveItemList_add" action="/cm.bc.affairs.RetrieveSheathReqItemCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_cond2","key":"IN_DS1"},{"id":"ds_itemList","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_itemList","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_tr_retrieveItemList_add_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : 근무복신청
+ * 메뉴경로 : 공통/총무업무/피복관리/
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/cm/bc/affairs/zz_770_02_02b.jsp
+ * 작 성 자 : 정승혜
+ * 작 업 일 : 2025-11-11
+ * 수정이력  :
+ *    - 2025-11-11      정승혜    최초작성
+ *    - 2026-01-27      정승혜    기타수정
+ * 
+ * 메모 :
+ * 조회조건 : 
+ * 게시차수-201501, 201601 / 신청지사-부산
+ * 게시차수-201901 / 신청지사-유통 -> 수량조절가능
+ * 게시차수-201701 / 신청지사-부산 -> 전년도복사 가능 / 스즈키복 알럿 /
+ * asis 에서 비고 이후에 컬럼이 있는데 show=false 없이 asis 그리드에 없어서 디자인에 안넣음(개인화작동안함) ->넣음 / 엑셀에 다운되는 문제있음, ds_out 에는 있음
+ * 999999 부분은 없애기로 협의함
+ * 
+ */
+
+scwin.sDate = $c.date.getServerDateTime("yyyyMMdd");
+scwin.stdYear = scwin.sDate.substring(0,4);
+
+scwin.memJson = $c.data.getMemInfo(); // 세션정보
+scwin.userId  = scwin.memJson.userId;
+scwin.isStarted = false;
+
+//-----------------------------------------------------------------------------
+// 화면로딩시 
+//-----------------------------------------------------------------------------
+scwin.onpageload = function() {
+    // getCodeList
+    const codeOptions = [
+        { grpCd : "DRS_L", compID : "lc_deptCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    const param= [
+        {
+            method: "getLuxeComboData",
+            param1: "SheathMgntEBC",
+            param2: "retrieveSheathPostSeqCd",
+            compID: "lc_postSeq"
+        },
+        {
+            method: "getGridComboByUpperCd",
+            param1: "DRESS",
+            param2: "ITEM",
+            param3: false,
+            compID: "gr_out:itemNo"
+        }
+    ];
+    $c.data.setGauceUtil(param);
+};
+
+scwin.onUdcCompleted = function() {
+
+};
+
+scwin.ondataload = function() { 
+    dlt_commonCodeDRS_L.sort("cd", 0);
+
+    scwin.f_DsHeaderSet();
+	scwin.f_DsHeaderSet2();
+	scwin.f_CondInit();
+};
+
+scwin.f_DsHeaderSet = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+scwin.f_DsHeaderSet2 = function() {
+    // DataSet의 Header 정보 생성(TODO:TOBE 데이터맵으로 셋팅하므로 필요없음)
+};
+
+//-------------------------------------------------------------------------
+// 조회 조건 초기화
+//-------------------------------------------------------------------------
+scwin.f_CondInit = function() {
+    $c.gus.cfInitObjects(tb_search);
+};
+
+//-----------------------------------------------------------------------------
+// 조회
+//-----------------------------------------------------------------------------
+scwin.f_Retrieve = async function() {
+    scwin.isStarted = true;
+    dma_cond2.set( "postSeqCond", dma_cond.get("postSeqCond") );
+    let ret = await $c.gus.cfValidate([lc_postSeq,lc_deptCd]);   
+    if(!ret ) {
+        return;
+    }
+    $c.sbm.execute(sbm_tr_retrieve);
+};
+
+//-----------------------------------------------------------------------------
+// 기본 셋팅 조회
+//-----------------------------------------------------------------------------
+scwin.f_StdRetrieve = async function() {
+    let ret = await $c.gus.cfValidate([lc_postSeq,lc_deptCd]);   
+    if(!ret ) {
+        return;
+    }
+    $c.sbm.execute(sbm_tr_stdRetrieve);
+};
+
+//-----------------------------------------------------------------------------
+// 아이템 리스트 조회
+//-----------------------------------------------------------------------------
+// 행추가할때 사용하는 아이템리스트
+scwin.f_ItemRetrieve_add = function() {
+    $c.sbm.execute(sbm_tr_retrieveItemList_add);
+};
+
+scwin.f_ItemRetrieve = function() {
+    $c.sbm.execute(sbm_tr_retrieveItemList);
+};
+//-----------------------------------------------------------------------------
+// 팝업 조회
+//-----------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch, row) {
+    if(row == null || row == ""){
+        row = 0;
+    }
+
+    let deptCd = lc_deptCd.getValue();
+	let postSeq = lc_postSeq.getValue();
+
+    switch (disGubun)
+    {
+        case 1: 
+            udc_postSeqEmpNo.cfCommonPopUp(scwin.udc_postSeqEmpNo_callBackFunc,
+            pCode,pName,pClose,null,"신청자코드, 신청자명","100,200",'3,4,5,6,7,8,9,10',deptCd,
+            null,null,null,null,null,"T","신청자코드,신청자코드,신청자명"); 
+
+        break;
+
+        case 2: 
+            udc_gr_postSeqEmpNo.cfCommonPopUp(scwin.udc_gr_postSeqEmpNo_callBackFunc,
+            pCode,pName,pClose,null,"신청자코드, 신청자명","100,200",'3,4,5,6,7,8,9,10',deptCd,
+            null,null,null,null,null,"T","신청자코드,신청자코드,신청자명"); 
+
+        break;
+    default:
+  	break;        
+    }
+};
+
+scwin.gr_out_ontextimageclick = function(rowIndex, colId, nowValue) {
+    if(colId == "name"){
+        scwin.f_openCommonPopUp(2, '', nowValue,'F','T',rowIndex);
+    }
+};
+
+scwin.udc_postSeqEmpNo_callBackFunc = function(rtnList) {
+    if(rtnList != null && rtnList[0] != "N/A" ) {
+        ed_empNo.setValue(rtnList[0]);
+	    ed_empNm.setValue(rtnList[1]);
+    } else {
+        //ed_empNo.setValue("999999");
+        ed_empNo.setValue("");
+        ed_empNm.setValue(ed_empNm.getValue());
+    }
+};
+
+scwin.udc_gr_postSeqEmpNo_callBackFunc = function(rtnList) {
+    let row = gr_out.getFocusedRowIndex();
+
+    if(rtnList != null && rtnList[0] != "N/A" ) {
+        ds_out.setCellData(row, "sabun", rtnList[0]);
+        ds_out.setCellData(row, "name", rtnList[1]);
+        ds_out.setCellData(row, "jikgubCd", rtnList[2]);
+        ds_out.setCellData(row, "jikgubNm", rtnList[3]);
+        ds_out.setCellData(row, "deptCd", rtnList[4]);
+        ds_out.setCellData(row, "deptNm", rtnList[5]);
+        ds_out.setCellData(row, "mgntStaffCd", rtnList[8]);
+        ds_out.setCellData(row, "checkDeleteYn", rtnList[9]);
+    } else {
+        //ds_out.setCellData(row, "sabun", "999999");
+        ds_out.setCellData(row, "sabun", "");
+        ds_out.setCellData(row, "name", ds_out.getCellData(gr_out.getFocusedRowIndex(), "name"));
+        ds_out.setCellData(row, "jikgubCd", "");
+        ds_out.setCellData(row, "jikgubNm", "");
+        ds_out.setCellData(row, "deptCd", lc_deptCd.getValue());
+        ds_out.setCellData(row, "deptNm", "");
+        ds_out.setCellData(row, "mgntStaffCd", "");
+        ds_out.setCellData(row, "checkDeleteYn", "");
+    }
+
+    for(let i=0 ; i<=ds_out.getRowCount(); i++){
+        if(ds_out.getRowStatus(i) == "C" && i > row && i < row+6 ){
+            if(ds_out.getCellData(i,"chk") != "T" && ds_out.getCellData(i,"name") == ""){
+                ds_out.setCellData(i,"sabun", ds_out.getCellData(row,"sabun"));
+                ds_out.setCellData(i,"name", ds_out.getCellData(row,"name")); 
+                ds_out.setCellData(i,"jikgubCd", ds_out.getCellData(row,"jikgubCd"));
+                ds_out.setCellData(i,"jikgubNm", ds_out.getCellData(row,"jikgubNm"));
+                ds_out.setCellData(i,"deptCd", ds_out.getCellData(row,"deptCd"));
+                ds_out.setCellData(i,"deptNm", ds_out.getCellData(row,"deptNm"));
+                ds_out.setCellData(i,"mgntStaffCd", ds_out.getCellData(row,"mgntStaffCd"));
+                ds_out.setCellData(i,"firstProvideCd", ds_out.getCellData(row,"firstProvideCd"));
+                ds_out.setCellData(i,"checkDeleteYn", ds_out.getCellData(row,"checkDeleteYn"));
+            }
+        }
+    }
+			
+    let sabun = ds_out.getCellData(row,"sabun");
+    //if(sabun!= "999999"){
+        scwin.getfirstProvideCd(lc_postSeq.getValue(), sabun);	
+    //}
+
+    if(ds_firstProvideCd.getCellData(0,"col1") == '1')
+    {
+        ds_out.setCellData(i,"firstProvideCd", "1");
+    }
+    else if(ds_firstProvideCd.getCellData(0,"col1") == '2')
+    {
+        ds_out.setCellData(i,"firstProvideCd", "2");
+    }
+    else if(ds_firstProvideCd.getCellData(0,"col1") == '3')
+    {
+        ds_out.setCellData(i,"firstProvideCd", "3");
+    }
+
+};
+
+
+scwin.udc_gr_postSeqEmpNo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ds_out.getCellData(gr_out.getFocusedRowIndex(), "sabun"), ds_out.getCellData(gr_out.getFocusedRowIndex(), "name"),'F','T',gr_out.getFocusedRowIndex());
+};
+
+scwin.udc_gr_postSeqEmpNo_onviewchangeNameEvent = function (info) {
+    scwin.f_openCommonPopUp(2, ds_out.getCellData(gr_out.getFocusedRowIndex(), "sabun"), ds_out.getCellData(gr_out.getFocusedRowIndex(), "name"),'F','T',gr_out.getFocusedRowIndex());
+};
+
+scwin.udc_gr_postSeqEmpNo_onblurCodeEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ds_out.getCellData(gr_out.getFocusedRowIndex(), "sabun"), ds_out.getCellData(gr_out.getFocusedRowIndex(), "name"),'F','T',gr_out.getFocusedRowIndex());
+};
+
+scwin.udc_postSeqEmpNo_onviewchangeNameEvent = function (info) {
+    scwin.f_openCommonPopUp(1, ed_empNo.getValue(), ed_empNm.getValue(),'T','T','');
+};
+
+scwin.udc_postSeqEmpNo_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_empNo.getValue(), ed_empNm.getValue(),'F','T','');
+};
+
+scwin.udc_postSeqEmpNo_onblurCodeEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_empNo.getValue(), ed_empNm.getValue(),'T','T','');
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function() {
+    // udc
+};
+
+//-----------------------------------------------------------------------------
+// 저장
+//-----------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    let ret1 = await $c.gus.cfValidate([gr_out]);
+    if( !ret1 ) {
+        return;
+    }
+    if( ds_out.getModifiedIndex().length == 0 ) {
+        $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    }
+
+    for(let i= 1 ; i <= ds_out.getRowCount(); i++){
+		if(ds_out.getCellData(i,"drsSize") == "")
+		{
+			ds_out.setCellData(i,"checkDeleteYn", "1");
+		}		   
+	}
+
+    for(let i= ds_out.getRowCount() ; i >= 0; i--){
+		if(ds_out.getCellData(i,"checkDeleteYn") == "1")
+		{
+            ds_out.deleteRow(i);
+		}
+	}
+
+    for(let i= 1 ; i <= ds_out.getRowCount(); i++){
+        if(ds_out.getCellData(i, "firstProvideCdb") == "3")	//최초로 지급받는 사람
+        {	
+            if(ds_out.getCellData(i,"mgntStaffCd") == "2"){
+                ds_out.setCellData(i, "drsQty", 2); //현장직
+            }else{
+                ds_out.setCellData(i, "drsQty", 1); //관리직
+            }
+        }
+    }
+    $c.sbm.execute(sbm_tr_save);
+};
+
+//-----------------------------------------------------------------------------
+// 행추가.
+//-----------------------------------------------------------------------------
+scwin.f_DsOutAddRow = function() {
+    //let row = ds_out.insertRow();
+    dma_cond2.set("postSeqCond",lc_postSeq.getValue() );
+    dma_cond2.set("deptCond",lc_deptCd.getValue() );
+    
+    //추가할 아이템리스트를 조회한다
+    if(lc_deptCd.getValue() != "" && scwin.isStarted == true){
+        scwin.f_ItemRetrieve_add();    
+    }
+};
+
+//-----------------------------------------------------------------------------
+// 선택 사이즈 초기화
+//-----------------------------------------------------------------------------
+scwin.f_resetSelectedSize = function() {
+    let nowRow = ds_out.getRowPosition();
+
+    if(nowRow != null){
+        ds_out.setCellData(nowRow, "drsSize", "");
+        ds_out.setCellData(nowRow, "drsLength", "");
+    }
+};
+
+//-----------------------------------------------------------------------------
+// 사이즈 일괄 초기화
+//-----------------------------------------------------------------------------
+scwin.f_resetSize = function() {
+	for(let i=0 ; i<=ds_out.getRowCount(); i++){
+        ds_out.setCellData(i, "drsSize", "");
+        ds_out.setCellData(i, "drsSLength", "");
+	}
+};
+
+//-----------------------------------------------------------------------------
+// 전년도 게시차수의 데이터를 생성해 준다
+// ex) 201401 차수에 이 버튼 클릭시 201301 차수의 데이터를 201401 차수에 생성해 준다.
+//-----------------------------------------------------------------------------
+// 전년도복사
+scwin.f_createPreviousYearData = async function() {
+    let ret = await $c.gus.cfValidate([lc_postSeq,lc_deptCd]);   
+    if(!ret ) {
+        return;
+    }
+
+    let postSeq = lc_postSeq.getValue();
+    let acctDeptCd = lc_deptCd.getValue();
+    let creMsg = "선택 게시차수 : " + postSeq +"\n"+
+        "선택 신청지사 : " + acctDeptCd + "\n" + 
+        "선택 게시차수 전년도의 같은 분기 데이터를 복사 합니다.";
+
+    // \n 줄바꿈 되지 않음      
+    await $c.win.alert(creMsg);
+
+    await scwin.getPreviousYearData(postSeq, acctDeptCd);
+};
+
+//-------------------------------------------------------------------------
+// 전표 등록자 조회
+//-------------------------------------------------------------------------
+// 전년도복사를 위한 데이터
+scwin.getPreviousYearData = function(postSeq, acctDeptCd) {
+    let post = postSeq.substring( 0,4 ) -1;
+    ds_checkPreviousYearData.removeAll();
+
+    // SELECT 절 
+	let param1 = 
+		  " A.POST_SEQ   as COL1 "
+		+ ",A.DEPT_CD    as COL2 "
+		+ ",''   		as COL3 "
+		+ ",''   		as COL4 "
+		+ ",''  		as COL5 "
+		+ ",'' 			as COL6 "
+		+ ",'' 			as COL7 "
+		+ ",'' 			as COL8 "
+		+ ",'' 			as COL9 "
+		+ ",'' 			as COL10 "
+		;
+
+    // 대상테이블 	
+	let param2 = 			
+		  " TB_ZZ783 A, TB_ZZ002 B, TB_ZZ002 C "
+		 + " WHERE 1=1 "
+	     + " AND A.POST_SEQ  BETWEEN '" + post +"' || '01' AND '" + post +"' || '12'"
+		 + " AND B.GRP_CD = 'DRESS' "  
+		 + " AND C.GRP_CD = 'DRS_L' "
+    	 + " AND B.UPPER_CD = C.CD "
+         + " AND A.DEPT_CD = B.CD "
+ 		 + " AND C.CD = '" + acctDeptCd + "'"
+         + " AND A.ITEM_NO IN ( "
+         + " 		         SELECT ITEM_NO "
+         + "              	   FROM TB_ZZ782 "
+         + "             	   WHERE POST_SEQ = '" + postSeq + "' ) "
+		 + " ORDER BY A.POST_SEQ "
+		;
+
+
+    //let condition = "&param1=" + param1 + "&param2=" + param2;
+
+    const strParam = {
+              sysCd : "CommonEBC"
+            , queryId : "dinymicQueryTest2"
+            , param1 : param1
+            , param2 : param2
+            };
+
+    ds_check_param.setJSON(strParam);            
+    $c.sbm.execute(sbm_ds_checkPreviousYearData);
+    
+};
+
+//-------------------------------------------------------------------------
+// 전표 등록자 조회
+//-------------------------------------------------------------------------
+scwin.getfirstProvideCd = function(postSeq, sabun) {
+    let post1 = postSeq.substring( 0,4 ) -1;
+	ds_firstProvideCd.removeAll();
+
+    // SELECT 절 
+	let param1 = 
+		  " 	CASE "
+		+ " 		WHEN EXISTS ( "
+		+ " 						SELECT * "
+		+ " 						  FROM TB_ZZ783 K "
+		+ " 						 WHERE A.EMP_NO = K.SABUN "
+		+ " 						   AND K.POST_SEQ  BETWEEN '" + post1 +"' || '01' AND '" + post1 +"' || '12'"
+		+ " 						   AND K.ITEM_NO IN ( "
+		+ " 											SELECT ITEM_NO "
+		+ " 											  FROM TB_ZZ782 "
+		+ " 											 WHERE POST_SEQ = '" + postSeq + "' )) THEN '1' "
+		+ " 		WHEN A.MCOM_ENT_DT <= TO_CHAR(ADD_MONTHS(SYSDATE, -12), 'YYYYMMDD') THEN '2' "
+		+ " 	ELSE '3' "
+		+ " END AS COL1 "
+		+ ",''    		as COL2 "
+		+ ",''   		as COL3 "
+		+ ",''   		as COL4 "
+		+ ",''  		as COL5 "
+		+ ",'' 			as COL6 "
+		+ ",'' 			as COL7 "
+		+ ",'' 			as COL8 "
+		+ ",'' 			as COL9 "
+		+ ",'' 			as COL10 "
+		;
+	
+	// 대상테이블 	
+	let param2 = 			
+		  " TB_ZZ310 A "
+		;
+	
+	// 조건절	  
+	let param3 = 						  
+		   " AND A.EMP_NO = '" + sabun + "'  "
+	    ;
+	
+	// 정렬    
+	let param4 = 	
+		  " COL1 "
+		;
+
+    let condition = "&param1=" + param1 + "&param2=" + param2 + "&param3=" + param3 + "&param4=" + param4;
+
+    const strParam = {
+              sysCd : "CommonEBC"
+            , queryId : "dinymicQueryTest"
+            , param1 : param1
+            , param2 : param2
+            , param3 : param3
+            , param4 : param4
+            };
+
+    ds_check_first_param.setJSON(strParam);            
+    $c.sbm.execute(sbm_ds_firstProvideCd);
+};
+
+//-----------------------------------------------------------------------------
+//  사이즈 조회.
+//-----------------------------------------------------------------------------
+scwin.f_SizeDsSet = function(grpCd) {
+    let condition = "?grpCd=" + grpCd;
+    sbm_ds_size.action = "/cm.zz.RetrieveCodeCMD.do" + condition; 
+    $c.sbm.execute(sbm_ds_size);
+};
+
+//-----------------------------------------------------------------------------
+//  선택일괄삭제
+//-----------------------------------------------------------------------------
+scwin.f_DeleteRow = function() {
+    let chkCnt = 0;
+	let chk = "";
+
+	for(let j=0; j <= ds_out.getRowCount(); j++){
+        let sts = ds_out.getRowStatus(j);
+		chk = ds_out.getCellData(j, "chk")
+
+		if (chk == "T"){
+            if(sts == "C") {
+                ds_out.removeRow(j);
+            }else if(sts == "D"){
+                //아무동작 하지 않음
+            }else{
+                ds_out.deleteRow(j);
+            }
+            //gr_out.setRowDisabled(j, true);
+			chkCnt++;
+		}
+	}
+	if(chkCnt == 0){
+        $c.win.alert("체크된 내역이 없습니다.");
+	}
+};
+
+//-----------------------------------------------------------------------------
+//  기본셋팅일 경우 데이터셋 상태값 입력으로 변경
+//-----------------------------------------------------------------------------
+scwin.f_chgGauceSts = function() {
+    for(let i=0; i <= ds_out.getRowCount(); i++){
+        ds_out.modifyRowStatus(i, "C");
+        ds_out.setCellData(i, "chk", "T");
+	}
+};
+
+//-------------------------------------------------------------------------
+//      checkBox
+//------------------------------------------------------------------------- 
+scwin.f_chkAll = function() {
+    // OnHeadCheckClick(Col,Colid,bCheck)
+};
+
+// 행추가 행위
+scwin.f_DsOutAddFn = function() {
+    let row = 0;
+    for(let i= 0 ; i <= ds_itemList.getRowCount()-1; i++){
+        let nowRow = ds_out.insertRow();
+        row = nowRow;
+        ds_out.setCellData(row, "postSeq", lc_postSeq.getValue() );
+        ds_out.setCellData(row, "itemNo", ds_itemList.getCellData(i, "itemNo") );
+        ds_out.setCellData(row, "dressType", ds_itemList.getCellData(i, "dressType") );
+        ds_out.setCellData(row, "topnbotDiv", ds_itemList.getCellData(i, "topnbotDiv") );
+        ds_out.setCellData(row, "seasonDiv", ds_itemList.getCellData(i, "seasonDiv") );
+        ds_out.setCellData(row, "unitPrice", ds_itemList.getCellData(i, "unitPrice") );
+        ds_out.setCellData(row, "drsQty", 1 );
+    }
+    $c.gus.cfGoPrevPosition(gr_out, row);
+};
+
+// 행삭제
+scwin.f_DsOutDelRow = function() {
+    let nowRow = ds_out.getRowPosition();
+    let sts = ds_out.getRowStatus(gr_out.getFocusedRowIndex());
+    if(nowRow != null){
+        if(sts == "C") {
+            ds_out.removeRow(nowRow);
+            $c.gus.cfGoPrevPosition(gr_out, nowRow-1);
+        }else if(sts == "D"){
+            //아무동작 하지 않음
+        }else{
+            ds_out.deleteRow(nowRow);
+            //gr_out.setRowDisabled(nowRow, true);
+        }
+    }
+};
+
+// grid decode format
+scwin.mgntStaffCdDisplayFm = function(data) {
+    return $c.gus.decode(data, 1, "관리직", 2, "현장직");
+}
+
+// 셀클릭했을때 사이즈,기장 데이터리스트
+// as is OnDropDown / OnClick(Row,Colid)
+scwin.gr_out_oncellclick = function (rowIndex, columnIndex, columnId) {
+	if(lc_deptCd.getValue() != "D204"){
+        gr_out.setCellReadOnly(rowIndex, "drsLength", true);
+	} else{
+        gr_out.setCellReadOnly(rowIndex, "drsLength", false);
+	}
+
+ 	let topnbotDiv = ds_out.getCellData(rowIndex, "topnbotDiv");
+ 	let dressType = ds_out.getCellData(rowIndex, "dressType");
+
+    //신청지사-유통E840 -> 수량조절가능(dbclick)
+    if(lc_deptCd.getValue() == "E840"){
+        gr_out.setCellReadOnly(rowIndex, "drsQty", false);
+    }else{
+        gr_out.setCellReadOnly(rowIndex, "drsQty", true);
+    }
+
+    // 기장 클릭했을때
+    if(columnId == "drsLength"){
+		if(topnbotDiv == 'B'){ 
+			scwin.f_SizeDsSet("DRS_Z");
+		}else{ 
+			scwin.f_SizeDsSet("DRS_N");
+		}
+	}
+
+    // 사이즈 클릭했을때
+    if(columnId == "drsSize"){
+        let info = {
+            inputType : "select" ,
+             options : {
+                selectedData : false,
+                viewType: "icon",
+                chooseOption: true,
+                chooseOptionLabel: "$blank",
+                chooseOptionValue: "$blank"
+            }, 
+            itemSet : {
+                nodeset: "data:ds_size", 
+                label: "cdNm",
+                value: "cd"
+            } 
+        }
+        
+		if(dressType == "EG" || dressType == "EN"){
+			scwin.f_SizeDsSet("DRS_O");
+		}else{
+			if(topnbotDiv == 'T'){              // 상의
+				scwin.f_SizeDsSet("DRS_T");
+			}else if(topnbotDiv == 'B'){        // 하의
+				scwin.f_SizeDsSet("DRS_B");
+			}else if(topnbotDiv == 'A'){        // 스즈키복
+				scwin.f_SizeDsSet("DRS_N");
+			}
+		}
+        
+        gr_out.setFocusedCell(rowIndex, "drsSize", false);
+        $p.setTimeout(function() {
+            gr_out.setCellInputType(rowIndex, "drsSize", info);
+            gr_out.setFocusedCell(rowIndex, "drsSize", true);
+        }, {"delay":50});
+            
+	}
+};
+
+// 기본 셋팅 조회 서브미션
+scwin.sbm_tr_stdRetrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    totalRows.setValue(ds_out.getRowCount());
+
+    scwin.f_ItemRetrieve();	
+    $c.util.setTimeout(function() {
+        scwin.f_chgGauceSts();
+    }, {"delay":200});  
+
+    let now = scwin.sDate;
+    let nowYear = scwin.stdYear; 
+    
+    for(let i=0; i <= ds_out.getRowCount(); i++){
+        
+        let sabun = ds_out.getCellData(i, "sabun");
+        let itemNo = ds_out.getCellData(i, "itemNo");
+
+        //신입사원 체크
+        if(sabun.substring(0,2) == nowYear.substring(2,4) && (itemNo.substring(0,2) =="EN" || 
+        itemNo.substring(0,2) =="EB" || itemNo.substring(0,2) =="EU" || itemNo.substring(0,2) =="RA" || 
+        itemNo.substring(0,2) =="SU" || itemNo.substring(0,2) =="SZ" ) ){
+            ds_out.setCellData(i, "drsQty", "2");
+        }
+    }
+
+};
+
+// 조회 서브미션
+scwin.sbm_tr_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    totalRows.setValue(ds_out.getRowCount());
+    $c.gus.cfGoPrevPosition(gr_out, 0);
+};
+
+// 행추가용 아이템리스트 서브미션
+scwin.sbm_tr_retrieveItemList_add_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    
+    // 행추가행위를 실행한다
+    scwin.f_DsOutAddFn();
+};
+
+scwin.sbm_tr_retrieveItemList_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+};
+
+// 저장 서브미션
+scwin.sbm_tr_save_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    $c.win.alert("정상적으로 반영 되었습니다.");
+};
+
+// 전년도복사를 위한 데이터를 불러온후 현재 ds_out에 저장하는 서브미션
+scwin.sbm_tr_save2_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    totalRows.setValue(ds_out.getRowCount());
+    scwin.f_ItemRetrieve();
+	scwin.f_chgGauceSts();	
+};
+
+// 사이즈 데이터리스트 서브미션
+scwin.sbm_ds_size_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+};
+
+// 전년도복사를 위한 데이터 서브미션
+scwin.sbm_ds_checkPreviousYearData_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+    let previousYearData = "";
+    let count = 0;
+
+    for(let i=0; i<= ds_checkPreviousYearData.getRowCount(); i++){
+        previousYearData = ds_checkPreviousYearData.getCellData(i, "col1");
+
+        if(previousYearData != ''){
+            count++;
+        }
+    }
+
+    if(count == "0"){
+        $c.win.alert("선택 게시차수 전년도의 같은 분기 데이터가 존재하지 않습니다.");
+        return;
+    }
+
+    if(count > 0){
+        dma_cond3.set( "postSeqCond" , dma_cond.get("postSeqCond") );
+        dma_cond3.set( "deptCond" , dma_cond.get("deptCond") );
+        $c.sbm.execute(sbm_tr_save2);
+    } 
+};
+
+scwin.gr_out_oneditend = async function (row, columnIndex, value) {
+    let colId = gr_out.getColumnID(columnIndex);
+
+    let userNm1 = "";
+    userNm1 = ds_out.getCellData(row, "name");
+    let itemNo = ds_out.getCellData(row, "itemNo");
+
+    if(colId == "name"){
+        scwin.f_openCommonPopUp(2, '', value,'T','T',row);
+    }
+	
+	if(colId == "itemNo"){
+        itemNo = ds_out.getCellData(row, "itemNo");
+        ds_out.setCellData(row, "dressType", itemNo.substring(0,2) );
+        ds_out.setCellData(row, "topnbotDiv", itemNo.substring(3,4) );
+        ds_out.setCellData(row, "seasonDiv", itemNo.substring(5,6) );
+	}
+    let userNm2 = "";
+    if(colId == "drsSize"){
+		for(let i=0 ; i<=ds_out.getRowCount(); i++){			
+			userNm2 = ds_out.getCellData(i, "name");
+				if(userNm1 == userNm2) {// start of if
+            
+					// 하복 
+					if(ds_out.getCellData(ds_out.getRowPosition(), "itemNo") == 'SZ-A-S')	
+                    // 스즈키복-하복 클릭시
+					{
+						if( (    ds_out.getCellData(i, "itemNo") == 'SU-B-S' && ds_out.getCellData(i, "drsSize") != ''   ) ||
+							(   ds_out.getCellData(i, "itemNo") == 'SU-T-S' && ds_out.getCellData(i, "drsSize") != ''   ) )
+						{
+                            await $c.win.alert("'현장복-상의-하복' 또는 '현장복-하의-하복' 을 신청하는 경우\n'스즈키복-하복' 을 신청할 수 없습니다.");
+                            ds_out.setCellData(ds_out.getRowPosition(), "drsSize", "");
+							return;
+						}
+					}
+
+					// 현장복-하의-하복
+                    if(ds_out.getCellData(ds_out.getRowPosition(), "itemNo") == 'SU-B-S')	
+					{
+						if(     ds_out.getCellData(i, "itemNo") == 'SZ-A-S' && ds_out.getCellData(i, "drsSize") != ''   )   
+						{
+							await $c.win.alert("'스즈키복-하복' 을 신청하는 경우\n'현장복-상의-하복' 또는 '현장복-하의-하복' 을 신청할 수 없습니다.");
+                            ds_out.setCellData(ds_out.getRowPosition(), "drsSize", "");
+							return;
+						}
+					}
+					
+                    // 현장복-상의-하복
+                    if(ds_out.getCellData(ds_out.getRowPosition(), "itemNo") == 'SU-T-S')	
+					{
+						if(    ds_out.getCellData(i, "itemNo") == 'SZ-A-S' && ds_out.getCellData(i, "drsSize") != '' )
+                        
+						{
+							await $c.win.alert("'스즈키복-하복' 을 신청하는 경우\n'현장복-상의-하복' 또는 '현장복-하의-하복' 을 신청할 수 없습니다.");
+                            ds_out.setCellData(ds_out.getRowPosition(), "drsSize", "");
+							return;
+						}
+					}
+					
+					//동복
+					if(ds_out.getCellData(ds_out.getRowPosition(), "itemNo") == 'SZ-A-W')	
+                    // 스즈키복-동복
+					{
+						if( (    ds_out.getCellData(i, "itemNo") == 'SU-B-W' && ds_out.getCellData(i, "drsSize") != '' ) ||
+							(   ds_out.getCellData(i, "itemNo") == 'SU-T-W' && ds_out.getCellData(i, "drsSize") != '' )  )
+						{
+							await $c.win.alert("'현장복-상의-동복' 또는 '현장복-하의-동복' 을 신청하는 경우\n'스즈키복-동복' 을 신청할 수 없습니다.");
+							ds_out.setCellData(ds_out.getRowPosition(), "drsSize", "");
+							return;
+						}
+					}
+					
+					if(ds_out.getCellData(ds_out.getRowPosition(), "itemNo") == 'SU-B-W')	// 현장복-하의-동복
+					{
+						if(    ds_out.getCellData(i, "itemNo") == 'SZ-A-W' && ds_out.getCellData(i, "drsSize") != '' )
+						{
+							await $c.win.alert("'스즈키복-동복' 을 신청하는 경우\n'현장복-상의-동복' 또는 '현장복-하의-동복' 을 신청할 수 없습니다.");
+							ds_out.setCellData(ds_out.getRowPosition(), "drsSize", "");
+							return;
+						}
+					}
+					
+					if(ds_out.getCellData(ds_out.getRowPosition(), "itemNo") == 'SU-T-W')	// 현장복-상의-동복
+					{
+						if(    ds_out.getCellData(i, "itemNo") == 'SZ-A-W' && ds_out.getCellData(i, "drsSize") != '' )
+						{
+							await $c.win.alert("'스즈키복-동복' 을 신청하는 경우\n'현장복-상의-동복' 또는 '현장복-하의-동복' 을 신청할 수 없습니다.");
+                            ds_out.setCellData(ds_out.getRowPosition(), "drsSize", "");
+							return;
+						}
+					}
+					
+				} // end of if
+		} // end of for
+	}
+};
+
+scwin.sbm_ds_firstProvideCd_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+};
+
+scwin.ds_out_ondataload = function () {
+    totalRows.setValue(ds_out.getRowCount());
+    if(ds_out.getRowCount() == 0){
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+    }
+};
+
+
+
+
+
+
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb" id="tb_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="게시차수" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="" class=" w150 req" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_postSeq" style="" submenuSize="auto" mandatory="true"
+    								ref="data:dma_cond.postSeqCond" visibleRowNum="20" title="게시차수">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="신청지사" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="" appearance="minimal" chooseOption="true" class=" w150" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_deptCd" style="" submenuSize="auto" mandatory="true"
+    								chooseOptionLabel="선택" ref="data:dma_cond.deptCond" visibleRowNum="20" title="신청지사">
+    								<xf:choices></xf:choices>
+    							</xf:select1>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="신청자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode popupID="" onloadCallbackFunc="" selectID="retrievePostSeqEmpNo" codeId="ed_empNo"
+    								popupTitle="" nameId="ed_empNm" style="" name="empNmCond" code="empNoCond" refDataCollection="dma_cond" id="udc_postSeqEmpNo"
+    								ev:onviewchangeNameEvent="scwin.udc_postSeqEmpNo_onviewchangeNameEvent" ev:onclickEvent="scwin.udc_postSeqEmpNo_onclickEvent" objTypeName="key" ev:onblurCodeEvent="scwin.udc_postSeqEmpNo_onblurCodeEvent">
+    							</w2:udc_comCode>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="" style="" type="button" ev:onclick="scwin.f_CondInit">
+    					<xf:label><![CDATA[]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button"
+    					ev:onclick="scwin.f_Retrieve">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn white" ev:onclick="scwin.f_StdRetrieve" id="btn_trigger15" style="" type="button">
+    					<xf:label><![CDATA[기본셋팅]]></xf:label>
+    				</xf:trigger><xf:trigger class="btn white" ev:onclick="scwin.f_createPreviousYearData" id="btn_trigger16" style="" type="button">
+    					<xf:label><![CDATA[전년도복사]]></xf:label>
+    				</xf:trigger>
+    				
+    				<xf:trigger class="btn" ev:onclick="scwin.f_Save" id="btn_save" style="" type="button">
+    					<xf:label><![CDATA[저장]]></xf:label>
+    				</xf:trigger>
+
+
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="신청자List" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grdDownOpts='{"fileName" : "신청자List.xlsx" , "sheetName" : "신청자List" , "type" : "1"}'
+    						gridID="gr_out" gridUpYn="N" grp="grd_section1" style="">
+    					</w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView checkAllType="false" class="wq_gvw" dataList="data:ds_out" id="gr_out" style=""
+    					visibleRowNum="15" visibleRowNumFix="true" readOnly="true" ev:oncellclick="scwin.gr_out_oncellclick" rowStatusVisible="true"
+    					setCellInputTypeCustom="true" ev:oneditend="scwin.gr_out_oneditend" rowStatusWidth="20">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column width="50" inputType="checkbox" style="" id="column25" value="" displayMode="label"
+    								fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column1" inputType="text" style="" value="게시차수" width="100"
+    								hidden="false">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column26" value="지급여부" displayMode="label"></w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" style="" value="신청자ID" width="100">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" style="" value="신청자명" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" style="" value="복장종류" width="200"></w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" style="" value="사이즈" width="70"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" style="" value="기장" width="70"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column3" inputType="text" style="" value="수량" width="70"></w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" style="" value="관리현장&lt;/br&gt;구분"
+    								width="100">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" style="" value="부서코드" width="100"
+    								class="txt-red">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" style="" value="부서" width="200"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column21" value="직급" displayMode="label"></w2:column>
+    							<w2:column width="400" inputType="text" style="" id="column23" value="비고" displayMode="label"
+    								class="txt-blue">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="column27" value="삭제여부" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column width="50" inputType="checkbox" style="" id="chk" value="" displayMode="label" readOnly="false"
+    								valueType="other" falseValue="F" trueValue="T">
+    							</w2:column>
+    							<w2:column displayMode="label" id="postSeq" inputType="text" style="" value="" width="100"
+    								textAlign="center" mandatory="true">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="firstProvideCd" value="" displayMode="label"
+    								textAlign="center" hidden="true" >
+    							</w2:column>
+    							<w2:column displayMode="label" id="sabun" inputType="text" style="" value="" width="100"
+    								textAlign="center">
+    							</w2:column>
+    							<w2:column displayMode="label" id="name" inputType="textImage" style="" value="" width="100"
+    								textAlign="center" readOnly="false" imageClickFunction="scwin.gr_out_ontextimageclick" mandatory="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="itemNo" inputType="select" style="" value="" width="200"
+    								textAlign="center" mandatory="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="drsSize" inputType="custom" style="" value="" width="70" readOnly="false"
+    								allOption="" chooseOption="" ref="" textAlign="center">
+    								<w2:choices>
+    									<w2:itemset nodeset="data:ds_size">
+    										<w2:label ref="cdNm"></w2:label>
+    										<w2:value ref="cd"></w2:value>
+    									</w2:itemset>
+    								</w2:choices>
+    							</w2:column>
+    							<w2:column displayMode="label" id="drsLength" inputType="text" style="" value="" width="70"
+    								textAlign="center" readOnly="false">
+    							</w2:column>
+    							<w2:column displayMode="label" id="drsQty" inputType="text" style="" value="" width="70"
+    								textAlign="center">
+    							</w2:column>
+    							<w2:column displayMode="label" id="mgntStaffCd" inputType="text" style="" value="" width="100"
+    								displayFormatter="scwin.mgntStaffCdDisplayFm" textAlign="left">
+    							</w2:column>
+    							<w2:column displayMode="label" id="deptCd" inputType="text" style="" value="" width="100"
+    								textAlign="center">
+    							</w2:column>
+    							<w2:column displayMode="label" id="deptNm" inputType="text" style="" value="" width="200" textAlign="left"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="jikgubNm" value="" displayMode="label"
+    								textAlign="left">
+    							</w2:column>
+    							<w2:column width="400" inputType="text" style="" id="rmk" value="" displayMode="label" readOnly="false"
+    								textAlign="center">
+    							</w2:column>
+    							<w2:column width="70" inputType="text" style="" id="checkDeleteYn" value="" displayMode="label" hidden="true" >
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="right" id="" style="">
+    						<w2:udc_bottomGrdBtn btnDelYn="N" EngYn="N" btnRowDelYn="Y" btnCancelYn="N" style="" btnRowAddYn="Y"
+    							id="udc_grdBottomBtn" gridID="gr_out" rowAddFunction="scwin.f_DsOutAddRow"
+    							rowDelFunction="scwin.f_DsOutDelRow">
+    						</w2:udc_bottomGrdBtn>
+    						<xf:trigger class="btn sm" id="btn_delRow" label="삭제" style="" type="button" ev:onclick="scwin.f_DeleteRow">
+    							<xf:label><![CDATA[일괄삭제]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sm" id="btn_selSize" label="삭제" style="" type="button"
+    							ev:onclick="scwin.f_resetSelectedSize">
+    							<xf:label><![CDATA[사이즈초기화]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sm" id="btn_resetSize" label="삭제" style="" type="button"
+    							ev:onclick="scwin.f_resetSize">
+    							<xf:label><![CDATA[사이즈일괄초기화]]></xf:label>
+    						</xf:trigger>
+
+    					</xf:group>
+
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<w2:udc_comCode codeId="" id="udc_gr_postSeqEmpNo" nameId=""
+    			onloadCallbackFunc="" popupID="" popupTitle="" selectID="retrievePostSeqEmpNo" style=";visibility:hidden;" ev:onblurCodeEvent="scwin.udc_gr_postSeqEmpNo_onblurCodeEvent" ev:onclickEvent="scwin.udc_gr_postSeqEmpNo_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_gr_postSeqEmpNo_onviewchangeNameEvent">
+    		</w2:udc_comCode>
+    	</xf:group>
+    </body>
+</html>

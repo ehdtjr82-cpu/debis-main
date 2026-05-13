@@ -1,0 +1,491 @@
+/*amd /ui/il/airinb/aith/ar_206_01_01b.xml 33495 927c30481b99b565d77ba6566b4ce7b8ded15e11e57abb1936dfc3e9b1183ab8 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'kcomcd',name:'법인코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'avdtFrom',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'avdtTo',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dvgb',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pncd',name:'파트너',dataType:'text'}},{T:1,N:'w2:key',A:{id:'pnnm',name:'파트너명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'blno',name:'B/L번호',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_pod',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'kcomcd',name:'법인코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'blno',name:'B/L번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mhno',name:'Consol No',dataType:'text'}},{T:1,N:'w2:column',A:{id:'mblno',name:'M B/L번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'stdt',name:'시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pncd',name:'파트너',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pnnm',name:'파트너명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pseq',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'pattn',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dvdt',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'poddt',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'andt',name:'ARRIVAL NOTICE DATE',dataType:'text'}},{T:1,N:'w2:column',A:{id:'remark1',name:'비고1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpid',name:'입력자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'inpdt',name:'입력일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'updid',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'upddt',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cargoDvdt',name:'',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_retrieve',action:'/il.airinb.aith.RetrievePodCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_pod","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_pod","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrieve_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/il.airinb.aith.SavePodCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"ds_pod","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd"); // 서버를 기준으로 현재 날짜 반환
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01"; // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + new Date(scwin.vCurDate.substring(0, 4), scwin.vCurDate.substring(4, 6), 0).getDate(); // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+//scwin.strPreDate = WebSquare.date.dateAdd(scwin.vCurDate, -2);
+scwin.strPreDate = $c.date.addMonth($p, scwin.vCurDate, -1);
+scwin.hid_kcomcd = "DBEX";
+scwin.hid_mhno = "";
+scwin.txt_countRow = "";
+scwin.onpageload = function () {
+  let memJson = $c.data.getMemInfo($p);
+  console.log(memJson);
+  scwin.userId = memJson.userId;
+};
+scwin.onUdcCompleted = function () {
+  $p.setTimeout(function () {
+    $c.gus.cfDisableBtn($p, [btn_Print, btn_Update, btn_Cancel, btn_Save, btn_Delete]);
+    scwin.f_ContentsDisable();
+    scwin.f_DefaultValue();
+    cnd_ica_avdtFrom.focus();
+  }, {
+    "delay": 100
+  });
+};
+
+//-------------------------------------------------------------------------
+// function name : f_DefaultValue
+// function desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_DefaultValue = function () {
+  cnd_ica_avdtFrom.setValue(scwin.strPreDate);
+  cnd_ica_avdtTo.setValue(scwin.vCurDate);
+  cnd_rd_dvgb.setValue("A");
+};
+
+//-------------------------------------------------------------------------
+// 항목 Disable
+//-------------------------------------------------------------------------
+scwin.f_ContentsDisable = function () {
+  $c.gus.cfDisableKeyData($p);
+  $c.gus.cfEnableObj($p, ed_blno, false);
+  $c.gus.cfEnableObj($p, ed_pncd, false);
+  $c.gus.cfEnableObj($p, ed_pnnm, false);
+  $c.gus.cfEnableObj($p, ica_poddt, false); // Notice Date
+  $c.gus.cfEnableObj($p, btn_pseq, false); // Notice PIC
+  $c.gus.cfEnableObj($p, ed_pseq, false); // Notice PIC
+  $c.gus.cfEnableObj($p, ed_pattn, false); // Notice PIC
+  $c.gus.cfEnableObj($p, ica_cargoDvdt, false);
+  $c.gus.cfEnableObj($p, txt_remark1, false);
+};
+
+//-------------------------------------------------------------------------
+// 항목 Enable
+//-------------------------------------------------------------------------
+scwin.f_ContentsEnable = function () {
+  $c.gus.cfEnableKeyData($p);
+
+  //cfEnableObj(tb_pod, true);
+
+  $c.gus.cfEnableObj($p, ica_poddt, true); // Notice Date
+  $c.gus.cfEnableObj($p, btn_pseq, true); // Notice PIC
+  $c.gus.cfEnableObj($p, ed_pseq, true); // Notice PIC
+  $c.gus.cfEnableObj($p, ed_pattn, true); // Notice PIC
+  $c.gus.cfEnableObj($p, ica_cargoDvdt, true);
+  $c.gus.cfEnableObj($p, txt_remark1, true);
+  //gr_pod.Editable = true;
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function () {
+  dma_search.set("kcomcd", scwin.hid_kcomcd); //대표거래처 코드
+
+  if (cnd_ica_avdtFrom.getValue().trim() == '' || cnd_ica_avdtTo.getValue().trim() == '') {
+    //cfAlertMsg(E_MSG_CM_ERR_002, Array("Arrival Date"));
+    $c.win.alert($p, "Arrival Date is mandatory.");
+    cnd_ica_avdtFrom.focus();
+    return;
+  }
+  //tr_retrieve.post();
+  $c.sbm.execute($p, sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 수정
+//-------------------------------------------------------------------------
+scwin.f_Update = function () {
+  scwin.f_ContentsEnable();
+  $c.gus.cfDisableBtn($p, [btn_Print, btn_Update, btn_Delete]);
+  ica_poddt.focus();
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = async function () {
+  //var chk = await $c.win.confirm(E_MSG_CM_CRM_004);
+  var chk = await $c.win.confirm($p, "Do you wish delete?");
+  if (chk) {
+    //삭제하시겠습니까?
+    var intRowPosition = ds_pod.getRowPosition();
+    ds_pod.setCellData(intRowPosition, "poddt", "");
+    ds_pod.setCellData(intRowPosition, "pseq", "");
+    ds_pod.setCellData(intRowPosition, "pattn", "");
+    ds_pod.setCellData(intRowPosition, "remark1", "");
+    //ds_pod.DeleteMarked();
+    //ds_pod.DeleteRow(ds_pod.RowPosition);
+    //tr_save.Post();
+    $c.sbm.execute($p, sbm_save);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 취소
+//-------------------------------------------------------------------------
+scwin.f_Undo = function () {
+  //$c.data.undoRow(ds_pod);
+  ds_pod.undoRow(ds_pod.getRowPosition());
+  //ds_pod.Undo(ds_pod.getRowPosition());
+  scwin.f_ContentsDisable();
+  $c.gus.cfDisableBtn($p, [btn_Cancel, btn_Save]);
+};
+
+//-------------------------------------------------------------------------
+// 그리드 칼럼 추가
+//-------------------------------------------------------------------------
+scwin.f_Addrow = function (dsGubun) {
+  var intRowPosition;
+  switch (dsGubun) {
+    case 1:
+      ds_pod.insertRow();
+      intRowPosition = ds_pod.getRowPosition();
+      ds_pod.setCellData(intRowPosition, "kcomcd", scwin.hid_kcomcd);
+      ds_pod.setCellData(intRowPosition, "blno", ed_blno.getValue());
+      ds_pod.setCellData(intRowPosition, "inpid", scwin.userId);
+      $c.gus.cfDisableKey($p);
+      $c.gus.cfDisableBtn($p, [btn_Update, btn_Update, btn_Delete]);
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+  if (ed_pncd.getValue().trim() == '') {
+    //cfAlertMsg(MSG_LO_ERR_001, Array("Partner"));
+    //$c.gus.cfAlertMsg(MSG_LO_ERR_001, Array("Partner"));
+    $c.win.alert($p, "Partner 은(는) House B/L에서 먼저 입력이 되어야 합니다.");
+    ed_pncd.focus();
+    return;
+  }
+  if (ds_pod.getModifiedIndex().length == 0) {
+    $c.gus.cfAlertMsg($p, E_MSG_CM_ERR_001, new Array("POD")); //@는 변경된 사항이 없습니다.
+    //$c.win.alert("POD 은(는) House B/L에서 먼저 입력이 되어야 합니다.")
+    return false;
+  }
+  if (await scwin.f_ReqFieldChk()) {
+    //var chk = await $c.win.confirm(E_MSG_CM_CRM_001);
+    var chk = await $c.win.confirm($p, "Do you wish to save?");
+    if (chk) {
+      //tr_save.Post();
+      $c.sbm.execute($p, sbm_save);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// Validate check
+//-------------------------------------------------------------------------
+scwin.f_ReqFieldChk = async function () {
+  var chk = await $c.gus.cfValidate($p, [oDetailInfo]);
+  //var chk2 = await $c.gus.cfValidate([ica_poddt]);
+  if (!chk /* || !chk2*/) {
+    return false;
+  }
+  return true;
+};
+
+//------------------------------------------------------------------------
+// 조회 조건 필드 초기화
+//------------------------------------------------------------------------
+scwin.f_FieldClear = function () {
+  //포커스 이동
+  ed_blno.setValue("");
+  ed_mblno.setValue("");
+  ed_blno.focus();
+};
+
+//-------------------------------------------------------------------------
+// object 데이타 변경시 호출
+//-------------------------------------------------------------------------
+/*
+function f_ChkField(chgValue1, chgValue2, disGubun){
+    var chgObj1 = eval(chgValue1);
+    var chgObj2 = eval(chgValue2);
+
+    var objType1 = chgValue1.substr(0,2)
+    var objType2 = chgValue2.substr(0,2)
+
+    if(objType1=="ed") {
+        if (chgObj1.Text.trim() == "") {
+            chgObj2.value = "";
+        } else {
+            chgObj2.value = "";
+            f_openPopUp(disGubun, "T");
+        }
+    } else {
+        if (chgObj1.value.trim() == "") {
+
+            if (objType2 == "ed" ) {
+                chgObj2.Text = "";
+            } else {
+                chgObj2.value = "";
+            }
+        } else {
+
+            if (objType2 == "ed" ) {
+                chgObj2.Text = "";
+            } else {
+                chgObj2.value = "";
+            }
+
+            f_PopUp(disGubun, "T");
+        }
+    }
+}
+*/
+
+//-------------------------------------------------------------------------
+// 팝업
+//-------------------------------------------------------------------------
+scwin.f_PopUp = function (disGubun, chgGubun) {
+  var rtnList = new Array();
+  switch (disGubun) {
+    case 1:
+      //거래처 팝업(Search Partner)
+      udc_pncd.ilCommonPopUp(scwin.callbackEngClntInfo,
+      // XML상의 SELECT ID	                                                   							
+      cnd_ed_pncd.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value                                  
+      cnd_ed_pnnm.getValue(),
+      // 화면에서의 ??? Name Element의	Value                                  
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)         
+      '5',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      'Partner',
+      // Title순서	                                                           
+      '140,300',
+      // 보여주는 각 컬럼들의 폭	                                               
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정	                                       
+      null,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+      null,
+      // 윈도우 위치 Y좌표	                                                   
+      null,
+      // 윈도우 위치 X좌표                                                       
+      null,
+      // 중복체크여부	("F")                                                      
+      'F',
+      // 전체검색허용여부	("F")                                                  
+      'Partner Search,Partner Code,Partner Name'); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")  
+
+      //cfSetReturnValue(rtnList, cnd_ed_pncd, cnd_txt_pnnm);
+
+      break;
+    case 2:
+      //거래처 팝업(Partner)
+      pParam = ed_pncd.getValue().trim();
+      udc_pseq.ilCommonPopUp(scwin.callbackClntPicInfo,
+      // XML상의 SELECT ID	                                                   
+      ed_pseq.getValue().trim(),
+      // 화면에서의 ??? Code Element의	Value                                  
+      ed_pattn.getValue(),
+      // 화면에서의 ??? Name Element의	Value                                  
+      chgGubun,
+      // 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)         
+      '2',
+      // 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+      "PIC",
+      // Title순서	                                                           
+      //'80,200,120,300',             // 보여주는 각 컬럼들의 폭	                                               
+      '100,350',
+      // 보여주는 각 컬럼들의 폭	                                               
+      null,
+      // 컬럼중에서 숨기는	컬럼 지정	                                       
+      pParam,
+      // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능              
+      '500',
+      // POP-UP뛰을때 원도우의	사용자 정의	폭                                 
+      '500',
+      // POP-UP뛰을때 우도우의	사용자 정의	높이	                           
+      null,
+      // 윈도우 위치 Y좌표	                                                   
+      null,
+      // 윈도우 위치 X좌표                                                       
+      null,
+      // 중복체크여부	("F")                                                      
+      "T",
+      // 전체검색허용여부	("F")                                                  
+      null); // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")  			
+
+      //cfSetReturnValue(rtnList, ed_pseq, ed_pattn, ed_pncd);
+
+      break;
+    default:
+      break;
+  }
+};
+
+//-------------------------------------------------------------------------
+// p.o.d 출력
+//-------------------------------------------------------------------------
+scwin.f_Print = function () {
+  var data = {
+    odiName: "ar_206_01_01",
+    reportName: "/il/airinb/ar_206_01_01.ozr",
+    odiParam: {
+      KCOMCD: scwin.hid_kcomcd,
+      BLNO: ds_pod.getCellData(ds_pod.getRowPosition(), "blno")
+    },
+    viewerParam: {
+      useprogressbar: false,
+      // 프로그레스바 쓸지 말지
+      zoom: 90 // 배율 설정
+      //mode: ozMode
+    },
+    formParam: {}
+  };
+  scwin.openPopup(data);
+};
+
+//-------------------------------------------------------------------------
+// 오즈 리포트 팝업
+//------------------------------------------------------------------------- 
+scwin.openPopup = async function (data) {
+  let opts = {
+    id: "ozReportPopup",
+    popupName: "오즈 리포트",
+    modal: true,
+    type: "browserPopup",
+    width: 1000,
+    height: 600,
+    title: "오즈 리포트"
+  };
+  await $c.win.openPopup($p, "/ui/cm/zz/ozreportPopup.xml", opts, data);
+};
+scwin.callbackEngClntInfo = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, cnd_ed_pncd, cnd_ed_pnnm);
+};
+scwin.callbackClntPicInfo = function (rtnList) {
+  $c.gus.cfSetReturnValue($p, rtnList, ed_pseq, ed_pattn, ed_pncd);
+};
+scwin.btn_fieldClear_onclick = function (e) {
+  scwin.f_FieldClear();
+};
+scwin.btn_retrieve_onclick = function (e) {
+  scwin.f_Retrieve();
+};
+scwin.btn_Cancel_onclick = function (e) {
+  scwin.f_Undo();
+};
+scwin.btn_Update_onclick = function (e) {
+  scwin.f_Update();
+};
+scwin.btn_Save_onclick = function (e) {
+  scwin.f_Save();
+};
+scwin.btn_Print_onclick = function (e) {
+  scwin.f_Print();
+};
+scwin.btn_Delete_onclick = function (e) {
+  scwin.f_Delete();
+};
+scwin.udc_pncd_onclickEvent = function (e) {
+  scwin.f_PopUp(1, 'F');
+};
+scwin.udc_pncd_onviewchangeNameEvent = function (info) {
+  scwin.f_PopUp(1, 'T');
+};
+scwin.udc_pseq_onclickEvent = function (e) {
+  scwin.f_PopUp(2, 'F');
+};
+scwin.udc_pncd_onblurCodeEvent = function (e) {
+  var strClntNo = "";
+  strClntNo = cnd_ed_pncd.getValue().trim();
+
+  //if (cnd_ed_pncd.Modified ) {
+  if (strClntNo.length > 0) {
+    ed_pattn.setValue("");
+    scwin.f_PopUp(1, 'T');
+  } else {
+    cnd_ed_pnnm.setValue("");
+  }
+  //}
+};
+scwin.udc_pseq_onblurCodeEvent = function (e) {
+  var strClntNo = "";
+  strClntNo = ed_pseq.getValue().trim();
+
+  //if (ed_pseq.Modified ) {
+  if (strClntNo.length > 0) {
+    ed_pattn.setValue("");
+    scwin.f_PopUp(2, 'T');
+  } else {
+    ed_pattn.setValue("");
+  }
+  //}
+};
+scwin.sbm_save_submitdone = function (e) {
+  //$c.win.alert(E_MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+  console.log(e.responseJSON.resultDataSet);
+  if (e.responseJSON.resultDataSet[0].Code == 0) {
+    //$c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+    $c.win.alert($p, "Data was saved successfully.");
+    scwin.f_Retrieve();
+    scwin.f_ContentsDisable();
+    $c.gus.cfDisableBtn($p, [btn_Cancel, btn_Save]);
+  }
+};
+scwin.sbm_retrieve_submitdone = function (e) {
+  var rowcnt = ds_pod.getRowCount();
+  if (rowcnt == 0) {
+    $c.win.alert($p, E_MSG_CM_WRN_002);
+    //$c.win.alert("Data not found.");
+    $c.gus.cfDisableBtn($p, [/*bUpdate2,bCreate,*/btn_Update, btn_Delete]);
+    $c.gus.cfDisableKey($p);
+  } else {
+    $c.gus.cfDisableBtn($p, []);
+    gr_pod.setFocusedCell(0, 0);
+  }
+  spa_cnt.setValue(rowcnt);
+};
+scwin.gr_pod_onrowindexchange = function (rowIndex, oldRow) {
+  var vRowPosition = ds_pod.getRowPosition();
+  var vCountRow = scwin.txt_countRow;
+  var vRowStatus = ds_pod.getRowStatus(ds_pod.getRowPosition());
+  if (rowIndex > -1) {
+    if (vRowPosition > vCountRow) {
+      scwin.f_ContentsEnable();
+    } else {
+      scwin.f_ContentsDisable();
+    }
+    var vCountRow = ds_pod.getRowCount();
+    var vChgCount = 0;
+    var vChgRow = 0;
+    for (var i = 0; i < vCountRow; i++) {
+      var vCurRowStatus = ds_pod.getRowStatus(i);
+      if (vCurRowStatus == "U" || vCurRowStatus == "D") {
+        vChgCount++;
+        vChgRow = i;
+      }
+    }
+    if (vChgCount > 0 && rowIndex != vChgRow) {
+      $c.win.alert($p, "프로그램 신규등록이나 수정사항을 저장하신 후에 다른 프로그램정보로 이동해주시기 바랍니다.");
+      ds_pod.setRowPosition(vChgRow);
+      return false;
+    }
+    if (vRowStatus == "R") {
+      scwin.f_ContentsDisable();
+      $c.gus.cfDisableBtn($p, [btn_Cancel, btn_Save]);
+    } else if (vRowStatus == "U") {
+      scwin.f_ContentsEnable();
+      $c.gus.cfDisableBtn($p, [btn_Print, btn_Update, btn_Delete]);
+    } else if (vRowStatus == "C") {
+      scwin.f_ContentsEnable();
+      $c.gus.cfDisableBtn($p, [btn_Print, btn_Update, btn_Delete]);
+    }
+  }
+};
+scwin.masterBlNoFormat = function (blno) {
+  var length = blno.length;
+  //var rtn = blno.substring(0,3) + "-" + blno.substring(3, length);
+  var rtn = blno.substring(0, 11);
+  return rtn;
+};
+
+//-------------------------------------------------------------------------
+// 대문자 입력
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+  this.setValue(e.target.value.toUpperCase());
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_ilcomCode',type:'page',variableClone:'true',src:'/ui/il/common/udc/ilcomCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Arrival Date',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_fromToCalendar',A:{id:'',refDataMap:'dma_search',refEdDt:'avdtTo',refStDt:'avdtFrom',style:'',edFromId:'cnd_ica_avdtFrom',edToId:'cnd_ica_avdtTo'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'xf:select1',A:{appearance:'full',class:'',cols:'',id:'cnd_rd_dvgb',ref:'data:dma_search.dvgb',renderType:'radiogroup',rows:'',selectedIndex:'-1',style:''},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'All'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'A'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Delivery'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'D'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Non Delivery'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'N'}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'}},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Partner',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_ilcomCode',A:{hideName:'Y',popupID:'',style:'',codeId:'cnd_ed_pncd',btnId:'cnd_btn_pncd',id:'udc_pncd',nameId:'cnd_ed_pnnm',selectID:'retrieveEngClntInfo','ev:onclickEvent':'scwin.udc_pncd_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_pncd_onviewchangeNameEvent',refDataCollection:'dma_search',code:'pncd',name:'pnnm',allowCharCode:'0-9,A-Z,a-z',maxlengthCode:'6',UpperFlagCode:'1','ev:onblurCodeEvent':'scwin.udc_pncd_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'House B/L No',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:input',A:{class:'',id:'cnd_ed_blno',placeholder:'',style:'width:150px;',ref:'data:dma_search.blno',maxlength:'20',allowChar:'0-9,A-Z,a-z','ev:onkeyup':'scwin.onkeyup'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.btn_fieldClear_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀 UP'}]}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.btn_retrieve_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'Search'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'Arrival List',style:'',tagname:'h3'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkAllType:'false',class:'wq_gvw',dataList:'data:ds_pod',id:'gr_pod',style:'',visibleRowNum:'7',visibleRowNumFix:'true','ev:onrowindexchange':'scwin.gr_pod_onrowindexchange',focusMode:'row',rowStatusVisible:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column1',inputType:'text',value:'Arrival Date',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column17',inputType:'text',value:'Master B/L No',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column15',inputType:'text',value:'House B/L No',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',value:'Partner Name',width:'190'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column11',inputType:'text',value:'Notice Date',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column9',inputType:'text',value:'Last A/N Date',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column3',inputType:'text',value:'B/L Delivery Date',width:'110'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column5',inputType:'text',value:'Cargo Delivery Date',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column7',inputType:'text',value:'Remark',width:'110'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'stdt',inputType:'text',width:'100',displayFormat:'####/##/##',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'mblno',inputType:'expression',width:'100',expression:'scwin.masterBlNoFormat(datalist(\'mblno\'))',textAlign:'left',readOnly:'true',displayFormat:'###-########',applyFormat:'display'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'blno',inputType:'text',width:'100',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'pnnm',inputType:'text',width:'190',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'poddt',inputType:'text',width:'100',displayFormat:'####/##/##',textAlign:'left',readOnly:'true',mandatory:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'andt',inputType:'text',width:'100',displayFormat:'####/##/##',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'dvdt',inputType:'text',width:'110',displayFormat:'####/##/##',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'cargoDvdt',inputType:'text',width:'120',displayFormat:'####/##/##',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'remark1',inputType:'text',width:'110',readOnly:'true'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'spa_cnt',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title',id:''},E:[{T:1,N:'w2:textbox',A:{class:'tit',id:'',label:'P.O.D Information',style:'',tagname:'h3'}}]},{T:1,N:'xf:group',A:{class:'right',id:''}}]},{T:1,N:'xf:group',A:{class:'tbbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb',id:'oDetailInfo',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'caption'}},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:140px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:140px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:140px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'House B/L No',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'xf:input',A:{class:'',id:'ed_blno',placeholder:'',style:'width:150px;',maxlength:'20',allowChar:'A-Z0-9',mandatory:'true',ref:'data:ds_pod.blno',title:'House B/L No'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'1'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'Partner',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:group',A:{id:'',class:'form-group'},E:[{T:1,N:'xf:input',A:{style:'width:100px;',id:'ed_pncd',placeholder:'',class:'',mandatory:'true',ref:'data:ds_pod.pncd'}},{T:1,N:'xf:input',A:{style:'width:250px;',id:'ed_pnnm',placeholder:'',class:'',ref:'data:ds_pod.pnnm'}}]}]}]},{T:1,N:'xf:group',A:{style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'Notice Date',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ica_poddt',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'',ref:'data:ds_pod.poddt',title:'Notice Date',mandatory:'true'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'PIC',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_ilcomCode',A:{hideName:'Y',popupID:'',style:'',selectID:'retrieveClntPicInfo',nameId:'ed_pattn',id:'udc_pseq',codeId:'ed_pseq',btnId:'btn_pseq',refDataCollection:'ds_pod',code:'pseq',name:'pattn','ev:onclickEvent':'scwin.udc_pseq_onclickEvent','ev:onblurCodeEvent':'scwin.udc_pseq_onblurCodeEvent',allowCharCode:'0-9,A-Z,a-z',maxlengthCode:'6',UpperFlagCode:'1'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Cargo Delivery Date',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ica_cargoDvdt',pickerType:'selectbox',placeholderLocaleRef:'yearMonthDate',style:'',ref:'data:ds_pod.cargoDvdt'}}]}]},{T:1,N:'xf:group',A:{tagname:'tr',style:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'Remark',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'5'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:textarea',A:{class:'',id:'txt_remark1',style:'height: 100px;',ref:'data:ds_pod.remark1',maxByteLength:'90'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_Cancel',style:'',type:'button',objType:'ctrlBtn','ev:onclick':'scwin.btn_Cancel_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Cancel'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_Update',style:'',type:'button',userAuth:'U',objType:'ctrlBtn','ev:onclick':'scwin.btn_Update_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Update'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_Save',style:'',type:'button',userAuth:'U',objType:'ctrlBtn','ev:onclick':'scwin.btn_Save_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Save'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_Print',style:'',type:'button',userAuth:'R',objType:'ctrlBtn','ev:onclick':'scwin.btn_Print_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Print'}]}]},{T:1,N:'xf:trigger',A:{class:'btn ',id:'btn_Delete',style:'',type:'button',userAuth:'D',objType:'ctrlBtn','ev:onclick':'scwin.btn_Delete_onclick'},E:[{T:1,N:'xf:label',E:[{T:3,text:'Delete'}]}]}]}]}]}]}]}]}]})

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+//let TAB1_URL = "/ac/co/bizplan/co_202_03_03b.jsp";
+//let TAB2_URL = "/ac/co/bizplan/co_202_03_02b.jsp";
+
+
+//let acctdeptExpnBudgetUrl = TAB1_URL;
+//let mgntExpnBudgetUrl = TAB2_URL;
+
+scwin.onpageload = function() {
+	// 
+};
+
+//-------------------------------------------------------------------------
+// Tab Display 처리 - 분기화면 tab-src에서 처리됨
+//-------------------------------------------------------------------------
+//scwin.f_ViewTab = function(idx){
+//for(i=0;i<tab_mxTab_page.length;i++){
+//    if(idx == i){
+//        tab_mxTab_page(i).style.display = "block";
+//        img_tab_left(i).src = "/common/images/tap_on_left.gif";
+//        td_tab_center(i).bgColor = "#C5D6EA";
+//        img_tab_right(i).src = "/common/images/tap_on_right.gif";
+//    } else {
+//        tab_mxTab_page(i).style.display = "none";
+//        img_tab_left(i).src = "/common/images/tap_off_left.gif";
+//        td_tab_center(i).bgColor = "#E2EBF2";
+//        img_tab_right(i).src = "/common/images/tap_off_right.gif";
+//    }
+//}
+//}]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="tabbox" id="" style="">
+    						<xf:group class="wq_tab" id="">
+    							<w2:tabControl alwaysDraw="false" class="" id="" style="">
+    								<w2:tabs disabled="false" id="tabs1" label="부서별" style=""></w2:tabs>
+    								<w2:tabs disabled="false" id="tabs2" label="계정별" style=""></w2:tabs>
+    								<w2:content alwaysDraw="false" id="content1" style="" src="/ui/ac/co/bizplan/co_202_03_03b.xml">
+    								</w2:content>
+    								<w2:content alwaysDraw="false" id="content2" style="" src="/ui/ac/co/bizplan/co_202_03_02b.xml"></w2:content>
+    							</w2:tabControl>
+    						</xf:group>
+    					</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,866 @@
+/*amd /ui/ac/fi/gnrlaccount/slipmgnt/fi_201_06_01b.xml 62374 1594b80c7d629b75afc91609edabb83c1ec757b114db2ba09ad484c202bacdcb */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_search'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'coCd',name:'회사코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'salPayDt',name:'급여지급일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'salPayClsCd',name:'급여지급구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'persClsCd',name:'직원구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawAcctDeptCd',name:'작성귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'drawAcctDeptNm',name:'작성귀속부서명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'eachSlip',name:'각각발행',dataType:'number',defaultValue:'0'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_salary',saveRemovedData:'true','ev:ondataload':'scwin.ds_salary_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'checkYn',name:'체크여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'salPayDt',name:'급여지급일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'salPayClsCd',name:'급여지급구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'persClsCd',name:'직원구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'amt',name:'금액',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'outbrSlipNo',name:'발생전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outbrPostDt',name:'발행회계처리알자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'paySlipNo',name:'지급전표',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payPostDt',name:'지급회계처리일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'coCd',name:'회사코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'coClsCd',name:'회사구분코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'drawAcctDeptCd',name:'작성귀속부서코드',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_work',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'staffNo',name:'사번',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'workDt',name:'작업일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'workSeq',name:'근무순번',dataType:'number',defaultValue:'0'}},{T:1,N:'w2:column',A:{id:'workStDt',name:'근무시작일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'workStHh',name:'근무시작시간',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'workEndDt',name:'근무종료일자',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'workEndHh',name:'근무종료시간',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'deptCd',name:'부서코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'costdptCd',name:'원가부서코드',dataType:'text',defaultValue:''}},{T:1,N:'w2:column',A:{id:'shift',name:'쉬프트',dataType:'number',defaultValue:'0'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_vaca',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'staffNo',name:'사번',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vacaStDt',name:'휴무시작일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vacaEndDt',name:'휴무종료일자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'vacaRsnCd',name:'휴무사유코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'등록자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'등록일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modId',name:'수정자ID',dataType:'text'}},{T:1,N:'w2:column',A:{id:'modDtm',name:'수정일시',dataType:'text'}},{T:1,N:'w2:column',A:{id:'deptCd',name:'부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'costdptCd',name:'원가부서코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cd',name:'코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'cdEngNm',name:'코드영문명',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_search',action:'/ac.fi.gnrlaccount.slipmgnt.RetrieveSalaryWorkCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_salary","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_salary","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_search_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_search_wrk',action:'/ac.fi.gnrlaccount.slipmgnt.RetrieveMonthlyWorkCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_work","key":"OUT_DS2"}]',target:'data:json,{"id":"ds_work","key":"OUT_DS2"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_search_wrk_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_search_vaca',action:'/ac.fi.gnrlaccount.slipmgnt.RetrieveMonthlyVacaCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_vaca","key":"OUT_DS3"}]',target:'data:json,{"id":"ds_vaca","key":"OUT_DS3"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_search_vaca_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_save',action:'/ac.fi.gnrlaccount.slipmgnt.CreateSalaryWorkSlipCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"ds_search","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_save_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_delete',action:'/ac.fi.gnrlaccount.slipmgnt.DeleteSalaryWorkSlipCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"id":"ds_salary","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'none','ev:submit':'','ev:submitdone':'scwin.sbm_delete_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'false',src:'/ui/ac/am/constants/ACConstants.js',scopeVariable:'',type:'text/javascript'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){//==================================================================================================================
+// id       : fi_201_06_01b
+// 이름     : 인사급상여전표기표
+// 경로     : 재무회계/일반회계/전표관리/
+// 사용계정 : 내부
+// 파라미터 :
+//            IN  :
+//            OUT :
+//
+// 비고     : 
+//           
+// 레포트   :
+// 업로드   :
+// 다운로드 : 
+// 호출     :
+//            
+//==================================================================================================================
+
+// 로그인사용자 정보
+scwin.vLoginCoCd = ""; // 소속 자회사 
+scwin.vLoginCoClsCd = ""; // 회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd = ""; // 사용자소속구분코드 
+scwin.privAdmin = ""; // 어드민권한
+scwin.userId = ""; // 사용자ID
+scwin.vCoCd = ""; // 회사코드
+scwin.vCoClsCd = ""; // 소속회사종류 : 회계_회사구분('CO035' : 0:동부 EXPRESS)
+
+scwin.vAdminYn = ""; // 어드민여부
+scwin.userEmpNo = ""; // 사용자번호
+
+scwin.isSubCompany = false; // 자회사여부
+
+scwin.acctDeptCd = ""; // 회계부서코드
+scwin.acctDeptNm = ""; // 회계부서명
+
+scwin.txtCoClsCd = ""; // 회사구분
+scwin.ed_coCd_hidVal = ""; // 회사 히든값
+scwin.ed_drawAcctDeptCd_hidVal = ""; // 작성부서 (1)
+
+scwin.isStarted = true; // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+
+// <param name=SortExpr          value="+creatYm,+salPayClsCd,+persClsCd">
+scwin.sort_options = {};
+scwin.sort_options.sortIndex = "persClsCd salPayClsCd"; // 컬럼 나열
+scwin.sort_options.sortOrder = "1 1"; // 1: 오름차순
+
+scwin.onpageload = function () {
+  console.log("====== onpageload ==================");
+
+  // 회원정보를 json 데이터로 모두 받음
+  let memJson = $c.data.getMemInfo($p);
+
+  // 로그인 정보 추출
+  let coCd = $c.gus.cfIsNull($p, $c.data.getMemInfo($p, "coCd")) ? '' : $c.data.getMemInfo($p, "coCd");
+  let coClsCd = $c.gus.cfIsNull($p, $c.data.getMemInfo($p, "coClsCd")) ? '' : $c.data.getMemInfo($p, "coClsCd");
+  let userHomeClsCd = $c.data.getMemInfo($p, "userHomeClsCd"); // 사용자소속구분코드
+  let userId = $c.data.getMemInfo($p, "userId");
+  let privAdmin = $c.data.getMemInfo($p, "privAdmin");
+  let empNo = $c.data.getMemInfo($p, "empNo");
+  scwin.vLoginCoCd = coCd;
+  scwin.vLoginCoClsCd = coClsCd;
+  scwin.vUserHomeClsCd = userHomeClsCd;
+  scwin.vCoCd = coCd;
+  scwin.vCoClsCd = coClsCd;
+  scwin.userId = userId;
+  scwin.vAdminYn = privAdmin;
+  scwin.userEmpNo = empNo;
+  console.log("▶▶ vLoginCoCd : " + scwin.vLoginCoCd + "   loginCoClsCd : " + scwin.vLoginCoClsCd);
+  console.log("▶▶ vCoCd      : " + scwin.vCoCd + "   vCoClsCd : " + scwin.vCoClsCd);
+  console.log("▶▶ userId     : " + scwin.userId + "   userEmpNo : " + scwin.userEmpNo);
+  console.log("▶▶ vUserHomeClsCd : " + scwin.vUserHomeClsCd + "   vAdminYn : " + scwin.vAdminYn);
+  //    console.log("▶▶ memJson : "+ JSON.stringify(memJson));
+
+  // 회계부서코드/명
+  let acctDeptCd = $c.data.getMemInfo($p, "acctDeptCd");
+  let acctDeptNm = $c.data.getMemInfo($p, "acctDeptNm");
+  scwin.acctDeptCd = acctDeptCd;
+  scwin.acctDeptNm = acctDeptNm;
+  console.log("▶▶ acctDeptCd : " + scwin.acctDeptCd + "   acctDeptNm : " + scwin.acctDeptNm);
+
+  // 공통코드 : onPageLoad 에 위치
+  const codeOptions = [{
+    grpCd: "FI038",
+    compID: "lc_salPayClsCd,gr_salary:salPayClsCd"
+  } // 급여구분
+  , {
+    grpCd: "FI039",
+    compID: "lc_persClsCd,gr_salary:persClsCd"
+  } // 직원구분
+  //  { grpCd : "FI038", compID : "lc_salPayClsCd"  }  // 급여구분
+  // ,{ grpCd : "FI039", compID : "lc_persClsCd"    }  // 직원구분
+  // ,{ grpCd : "FI038", compID : "gr_salary:salPayClsCd"  }  // 급여구분
+  // ,{ grpCd : "FI039", compID : "gr_salary:persClsCd"    }  // 직원구분
+  ];
+  console.log(" codeOptions : " + JSON.stringify(codeOptions));
+  $c.data.setCommonCode($p, codeOptions);
+};
+
+//-------------------------------------------------------------------------
+// onUdcCompleted : UDC 완료. 그리는 시점 차이 보완. 
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+  console.log("==-==-== onUdcCompleted");
+  $p.setTimeout(function () {
+    cbx_each_slip.hide(); // 각각발행 hidden - 급여구분 P (급여) 일 때 복원
+
+    // f_Header 의믜 없슴
+    scwin.f_Setting();
+    scwin.f_setCompanyInfo();
+  }, {
+    "delay": 50
+  });
+};
+
+// @@ ====== 준비 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 재조회 (초기화)
+//-------------------------------------------------------------------------
+scwin.f_SearchClear = function (e) {
+  $c.gus.cfInitObjects($p, searchTable);
+  scwin.f_Setting();
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 셋팅 
+//-------------------------------------------------------------------------
+scwin.f_Setting = function () {
+  lc_salPayClsCd.setSelectedIndex(0);
+  lc_persClsCd.setSelectedIndex(0);
+  // ed_salPayDt.text = "<%=DDate.getDate().substring(0,6)+"10"%>";
+
+  var thisYm = $c.date.getServerDateTime($p, "yyyyMM");
+  ica_salPayDt.setValue(thisYm + "10");
+
+  // Session 이용
+  // ed_drawAcctDeptCd.text   = "<%=login.getAcctDeptCd()%>";
+  // txt_drawAcctDeptNm.value = "<%=login.getAcctDeptNm()%>";
+  // ed_drawAcctDeptCd.hidVal = "<%=login.getAcctDeptCd()%>";
+
+  ed_drawAcctDeptCd.setValue(scwin.acctDeptCd);
+  ed_drawAcctDeptNm.setValue(scwin.acctDeptNm);
+  scwin.ed_drawAcctDeptCd_hidVal = scwin.acctDeptCd;
+
+  // chk_each_slip.checked = false;
+  cbx_each_slip.checkAll(false);
+  ica_salPayDt.focus();
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function () {
+  console.log("=== f_setCompanyInfo (자회사 회계 시스템 설정)");
+
+  // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+  if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+    scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+    scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+  }
+  ed_coCd.setValue(scwin.vLoginCoCd);
+  scwin.f_PopUpCompanyInfo('T'); // 속도 지연 문제
+
+  // KYU_ORDER : 회사팝업 콜백으로 이동 (팝업 리턴 시간차)
+
+  // if('T' == '<%=privAdmin%>'  ||  !isSubCompany   ) { // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+  // 	cfEnableObjects([ed_coCd,txt_coNm,img_company ]);
+  // }else {
+  // 	cfDisableObjects([ed_coCd,txt_coNm,img_company  ]);
+  // }
+};
+
+// @@ ====== 조회 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 조회(인사급상여전표기표)
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function (e) {
+  console.log("====== f_Retrieve ==================");
+
+  // if (!cfValidate([ed_coCd]))
+  let rtn = await $c.gus.cfValidate($p, [ed_coCd]);
+  if (!rtn) return false;
+
+  // ds_search.UseChangeInfo = false;
+  // tr_search.Action="/ac.fi.gnrlaccount.slipmgnt.RetrieveSalaryWorkCMD.do";
+  // tr_search.post();
+
+  var dcJSON = ds_search.getJSON();
+  console.log("  *** ds_search : " + JSON.stringify(dcJSON));
+  $c.sbm.execute($p, sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 조회(인사급상여전표기표) submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_search_submitdone = async function (e) {
+  console.log("▷▷ sbm_search_submitdone");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // language=JavaScript for=ds_salary event=OnLoadCompleted(rowCnt)>
+  // 	cfHideDSWaitMsg(gr_salary);
+  // cfShowTotalRows(totalRows, rowCnt); 
+  var rowCnt = ds_salary.getTotalRow();
+  ed_totalRows.setValue(rowCnt);
+  if (rowCnt == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+  }
+  // gr_salary.ColumnProp('checkYn','HeadCheck')="false";
+  gr_salary.setHeaderValue("checkYn", false); // 헤더 체크 풀기
+
+  // $c.gus.cfInitHidVal(searchTable);
+  // KYU_NEW :
+  scwin.ed_drawAcctDeptCd_hidVal = ""; // 작성부서히든
+};
+
+// @@ ====== 그리드 / DS ======================================================================= //
+
+//-------------------------------------------------------------------------
+// 그리드 정렬
+//-------------------------------------------------------------------------
+scwin.ds_salary_ondataload = function () {
+  console.log("=== ds_salary_ondataload (정렬)");
+  // 정렬
+  ds_salary.multisort(scwin.sort_options);
+};
+
+//-------------------------------------------------------------------------
+// 전표번호(원가) null 처리
+//-------------------------------------------------------------------------
+scwin.outbrSlipNoExp = function (data) {
+  // <c> id=outbrSlipNo   	  name=전표번호(원가)   Color=Blue  FontStyle=under Cursor=Hand sort=true width=120  align=center  Edit="none"   value={decode(outbrSlipNo,"0000000000","",outbrSlipNo)}   </c>
+  return $c.gus.decode($p, data, "0000000000", "", data);
+};
+
+//-------------------------------------------------------------------------
+// 회계일자(원가) null 처리
+//-------------------------------------------------------------------------
+scwin.customExp = function (data, formatData, rowIdx, colIdx) {
+  //pmntSlipNoExp
+  // console.log("  customExp - data ["+data+"]  rowIdx ["+rowIdx+"]");
+
+  if (!data) return ""; // 데이터가 없으면 빈 문자열 반환
+
+  let outbrSlipNo = ds_salary.getCellData(rowIdx, "outbrSlipNo"); // 전표번호(원가)
+
+  // yyyy/MM/dd 형식으로 변환
+  var year = data.substr(0, 4);
+  var month = data.substr(4, 2);
+  var day = data.substr(6, 2);
+  var returnDt = year + "/" + month + "/" + day;
+  return $c.gus.decode($p, outbrSlipNo, "0000000000", "", returnDt);
+};
+
+//-------------------------------------------------------------------------
+// 전표내역팝업 로딩
+//-------------------------------------------------------------------------
+scwin.gr_salary_oncellclick = function (rowIndex, columnIndex, columnId) {
+  var Row = rowIndex;
+  var Colid = columnId;
+  // <!-- 전표번호클릭시  -->   
+  // language="javascript"  for=gr_salary event=OnClick(Row,Colid)>
+  if (Colid == "outbrSlipNo" && Row >= 0) {
+    if (ds_salary.getCellData(Row, "outbrSlipNo") != "0000000000") {
+      $c.gus.cfShowSlipInfo($p, ds_salary.getCellData(Row, "outbrSlipNo"));
+    }
+  } else if (Colid == "paySlipNo" && Row >= 0) {
+    $c.gus.cfShowSlipInfo($p, ds_salary.getCellData(Row, "paySlipNo"));
+  }
+};
+
+//-------------------------------------------------------------------------
+// 전체 체크박스 체크 (불필요)
+//-------------------------------------------------------------------------
+scwin.gr_salary_onheaderclick = function (headerId) {
+  // console.log("----- gr_salary_onheaderclick (전체 체크박스 클릭)");
+
+  // var Colid = headerId;
+
+  // if ( Colid == "checkYn"){
+  //     var bCheck = gr_salary.getHeaderValue("checkYn");  // 체크 여부
+
+  // 	if ( bCheck == "1"){
+  // 		for ( i = 0 ; i < ds_salary.getTotalRow() ; i++){
+  // 			ds_salary.setCellData(i,"checkYn", "T");
+  // 		}
+  // 	} else {
+  // 		for ( i = 0 ; i < ds_salary.getTotalRow() ; i++){
+  // 			ds_salary.setCellData(i,"checkYn", "F");
+  // 		}
+  // 	}
+  // }
+};
+
+// @@ ====== 팝업 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 회사코드 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onclickEvent = function (e) {
+  scwin.f_PopUpCompanyInfo('F');
+};
+
+//-------------------------------------------------------------------------
+// 작성부서 돋보기 클릭
+//-------------------------------------------------------------------------
+scwin.udc_drawAcctDeptCd_onclickEvent = function (e) {
+  scwin.f_openPopUp('1', 'F');
+};
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = function (pWinCloseTF) {
+  // var rtnList = cfCommonPopUp("retrieveDongbuGroupCompanyInfo"
+  // 							,ed_coCd.text, txt_coNm.value
+  // 							,pWinCloseTF,null,null,null,null
+  // 							,null,null,null,null,null);   
+  // KYU_TEST : 회사코드 코드 null일 때 팝업 안뜨게 처리 : 2026-01-19
+  let pNoDataCloseTF = pWinCloseTF;
+  udc_coCd.cfCommonPopUp(scwin.udc_coCd_callBackFunc, ed_coCd.getValue(), ed_coNm.getValue(), pWinCloseTF, null, null, null, null, null, null, null, null, null, null, null, null, pNoDataCloseTF);
+};
+
+//-------------------------------------------------------------------------
+// 팝업 @@
+//    1:작성부서
+//-------------------------------------------------------------------------
+scwin.f_openPopUp = async function (flag, check) {
+  console.log("=== f_openPopUp ( flag[ " + flag + " ]  check[ " + check + " ]  1:작성부서)");
+  // var rtnList = new Array();
+  switch (flag) {
+    case '1':
+      // 작성부서
+      var param = "," + ed_coCd.getValue() + "," + scwin.txtCoClsCd;
+      console.log("  작성부서 popup  param [" + param + "]");
+
+      //rtnList = cfCommonPopUp('retrieveAcctDeptCdInfo6',ed_drawAcctDeptCd.text.trim(),txt_drawAcctDeptNm.value,check,null,null,null,null,param,null,null,null,null); 
+      udc_drawAcctDeptCd.cfCommonPopUp(scwin.udc_drawAcctDeptCd_callBackFunc, ed_drawAcctDeptCd.getValue().trim(), ed_drawAcctDeptNm.getValue(), check, null, null, null, null, param, null, null, null, null);
+      //f_resultPopEd(ed_drawAcctDeptCd,txt_drawAcctDeptNm,rtnList);
+
+      break;
+    default:
+      break;
+  }
+};
+
+// @@ ====== 팝업 callBackFunc ================================================================= //
+//   1:작성부서
+
+//-------------------------------------------------------------------------
+// 회사코드 callBackFunc
+//-------------------------------------------------------------------------
+scwin.udc_coCd_callBackFunc = async function (rtnList) {
+  console.log("▲ udc_coCd_callBackFunc (회사코드 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") return;
+
+    // ed_coCd.text = rtnList[0];  // 코드
+    // txt_coNm.value = rtnList[5]; // 회사명
+    // ed_coCd.hidVal = rtnList[0];  // 히든값
+    // txtCoClsCd.value =rtnList[1];   // 회사구분
+
+    ed_coCd.setValue(rtnList[0]); // 코드
+    ed_coNm.setValue(rtnList[5]); // 회사명
+    scwin.ed_coCd_hidVal = rtnList[0]; // 히든값
+    scwin.txtCoClsCd = rtnList[1]; // 회사구분
+  } else {
+    // ed_coCd.text   = "";
+    // txt_coNm.value = "";
+    // ed_coCd.hidVal = "";
+    // txtCoClsCd.value ="";
+
+    ed_coCd.setValue(""); // 코드
+    ed_coNm.setValue(""); // 회사명
+    scwin.ed_coCd_hidVal = ""; // 히든값
+    scwin.txtCoClsCd = ""; // 회사구분
+  }
+
+  // KYU_TEST
+  // if ( scwin.isStarted  == true )   // 최초 이벤트 여부
+  // {
+  if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+    // 자회사 회계 시스템  0
+    scwin.isSubCompany = true;
+  } else {
+    scwin.isSubCompany = false;
+  }
+  // }
+
+  if (scwin.isStarted == true)
+    // 최초 이벤트 여부 (자회사 여부를 최초 한번만 실행-팝업 리턴 시간차)
+    {
+      console.log("  ==-==-== 자회사 여부에 따른 회사코드팝업 활성/비활성 처리 (최초 1회)");
+
+      // KYU_ORDER : 회사팝업 콜백으로 이동 (팝업 리턴 시간차)
+      if ('T' == scwin.vAdminYn || !scwin.isSubCompany) {
+        // ADMIN 권한이 있는 경우, 동부 EXPRESS 인 경우
+        $c.gus.cfEnableObjects($p, [ed_coCd, ed_coNm, btn_coCd]);
+      } else {
+        $c.gus.cfDisableObjects($p, [ed_coCd, ed_coNm, btn_coCd]);
+      }
+      scwin.isStarted = false; // 최초 이벤트 여부 (자회사 구분 로직을 최초 한번만 실행-팝업 리턴 시간차)
+    }
+
+  // KYU_TEST
+  // scwin.f_openPopUp("1","T");
+};
+
+//-------------------------------------------------------------------------
+// 작성부서조회 callBackFunc (1)
+//-------------------------------------------------------------------------
+scwin.udc_drawAcctDeptCd_callBackFunc = function (rtnList) {
+  console.log("▲ udc_drawAcctDeptCd_callBackFunc (작성부서조회 팝업 callBackFunc)");
+  console.log("   rtnList [" + rtnList + "]");
+
+  // SET	 
+  scwin.f_resultPopEd(ed_drawAcctDeptCd, ed_drawAcctDeptNm, rtnList, '1');
+};
+
+//-------------------------------------------------------------------------
+// 팝업결과
+//  flag : 신규 추가. 어떤 팝업을 호출했는지 구분
+//-------------------------------------------------------------------------
+scwin.f_resultPopEd = function (strCd, strNm, rtnList, flag) {
+  console.log("=== f_resultPopEd (팝업결과)   flag [" + flag + "]  1:작성부서)");
+
+  // if (rtnList != null ) {
+  //     if (rtnList[0] == "N/A") {
+  //     	return;
+  //     }
+  // 	strCd.Text = rtnList[0];	// 코드
+  // 	strNm.value = rtnList[1];	// 명
+  // 	strCd.hidVal = rtnList[0];  // 히든값
+  // }else{
+  // 	strCd.Text = "";
+  // 	strNm.value = "";
+  // 	strCd.hidVal = "";
+  // }
+
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") {
+      // 히든값 분기처리
+      switch (flag) {
+        case '1':
+          scwin.ed_drawAcctDeptCd_hidVal = "";
+          break;
+        // 작성부서
+        default:
+          break;
+      }
+      return;
+    }
+    strCd.setValue(rtnList[0]); // 코드
+    strNm.setValue(rtnList[1]); // 명
+
+    // 히든값 분기처리
+    switch (flag) {
+      case '1':
+        scwin.ed_drawAcctDeptCd_hidVal = rtnList[0];
+        break;
+      //  작성부서
+      default:
+        break;
+    }
+  } else {
+    strCd.setValue("");
+    strNm.setValue("");
+
+    // 히든값 분기처리
+    switch (flag) {
+      case '1':
+        scwin.ed_drawAcctDeptCd_hidVal = "";
+        break;
+      // 작성부서
+      default:
+        break;
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 팝업체크 - 코드값 변경시 자동검색
+//   flag : 팝업 플래그
+//    1:작성부서
+//-------------------------------------------------------------------------
+scwin.f_checkPopEd = function (strCd, strNm, flag) {
+  console.log("===== f_checkPopEd (팝업체크 - 코드값 변경시 자동검색  srtCd[" + strCd + "] strNm[" + strNm.getValue() + "] flag[" + flag + "]");
+
+  // if (strCd.text.trim() == strCd.hidVal)
+  //     return;
+  if (flag == '1' && strCd.getValue().trim() == scwin.ed_drawAcctDeptCd_hidVal // 작성부서
+  ) {
+    // KYU_TEST : 히든 비교시 코드가 null 이 아니어야 함. (코드 null 일 때 명 null 처리)
+    if (strCd.getValue() != "") return;
+  }
+
+  // strNm.value="";
+
+  // 명 초기화
+  switch (flag) {
+    case '1':
+      ed_drawAcctDeptNm.setValue("");
+      break;
+    // 작성부서
+    default:
+      break;
+  }
+
+  // strCd.hidVal="";
+
+  // 히든값 초기화
+  switch (flag) {
+    case '1':
+      scwin.ed_drawAcctDeptCd_hidVal = "";
+      break;
+    // 작성부서
+    default:
+      break;
+  }
+
+  // if(strCd.text.trim()!="")  f_openPopUp(flag,'T');
+
+  if (strCd.getValue().trim() != "") {
+    // 팝업 로딩
+    switch (flag) {
+      case '1':
+        scwin.f_openPopUp(flag, 'T');
+        break;
+      // 작성부서
+      default:
+        break;
+    }
+  }
+};
+
+// @@ ====== 이벤트 ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 회사코드 focus out
+//-------------------------------------------------------------------------
+scwin.udc_coCd_onblurCodeEvent = function (e) {
+  // <!-- 회사코드 입력시  -->
+  // language=JavaScript for=ed_coCd event=OnKillFocus()> 
+  ed_coNm.setValue("");
+  scwin.f_PopUpCompanyInfo('T');
+};
+
+//-------------------------------------------------------------------------
+// 작성부서 focus out
+//-------------------------------------------------------------------------
+scwin.udc_drawAcctDeptCd_onblurCodeEvent = function (e) {
+  // <!-- 공통코드 -->                             
+  // language=JavaScript for=ed_drawAcctDeptCd event=OnKillFocus()>
+  scwin.f_checkPopEd(ed_drawAcctDeptCd, ed_drawAcctDeptNm, '1');
+};
+
+//-------------------------------------------------------------------------
+// 급여구분 변경
+//-------------------------------------------------------------------------
+scwin.lc_salPayClsCd_onchange = function (info) {
+  // <!-- 급여구분 변경시  -->
+  // language="javascript"  for=lc_salPayClsCd  event=OnSelChange()>
+  if (lc_salPayClsCd.getValue() == "P") {
+    // 급여
+    // eachSlip.style.visibility ="visible";
+    cbx_each_slip.show("");
+  } else {
+    // eachSlip.style.visibility ="hidden";
+    cbx_each_slip.hide();
+  }
+};
+
+// @@ ====== 저장 ============================================================================== //
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function (e) {
+  console.log("=== f_Save (저장) ==================================================");
+
+  // if (!cfValidate([ed_salPayDt,ed_drawAcctDeptCd]))
+  let rtn = await $c.gus.cfValidate($p, [ica_salPayDt, ed_drawAcctDeptCd]);
+  if (!rtn) return false;
+  if (lc_salPayClsCd.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, "급여구분을 선택해 주세요");
+    lc_salPayClsCd.focus();
+    return false;
+  }
+  if (lc_persClsCd.getValue() == "") {
+    await $c.gus.cfAlertMsg($p, "직원구분을 선택해 주세요");
+    lc_persClsCd.focus();
+    return false;
+  }
+  if (lc_salPayClsCd.getValue() != "P") {
+    ds_search.set("eachSlip", 0); // 각자발행 0
+    // chk_each_slip.checked = false;
+    cbx_each_slip.checkAll(false);
+  }
+
+  // ds_search.UseChangeInfo = false; 
+
+  // if(cfConfirmMsg(MSG_CM_CRM_009,Array("전표"))==true){
+  let rtn2 = await $c.win.confirm($p, $c.data.getMessage($p, MSG_CM_CRM_009, "전표"));
+  if (rtn2) {
+    // tr_save.Action="/ac.fi.gnrlaccount.slipmgnt.CreateSalaryWorkSlipCMD.do";
+    // tr_save.Post();
+    $c.sbm.execute($p, sbm_save);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 저장 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitdone = async function (e) {
+  console.log("▷ sbm_save_submitdone (저장 submitdone)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // <!-- 저장 DataSet --> 
+  // language=JavaScript for=tr_save event=OnSuccess()>
+  await $c.gus.cfAlertMsg($p, "성공적으로 처리되었습니다"); // 성공적으로삭제하였습니다
+  // ds_salary.ClearData();
+  ds_salary.setJSON([]);
+  scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = async function (e) {
+  console.log("=== f_Delete (삭제) ==================================================");
+  //체크
+
+  // if(ds_salary.isUpdated==false){
+  if (ds_salary.getModifiedIndex().length == 0) {
+    await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_056, "데이타"));
+    return;
+  }
+
+  // 회계처리가 되었을때 체크
+  for (i = 0; i < ds_salary.getTotalRow(); i++) {
+    if (ds_salary.getCellData(i, "salPayClsCd") == "C" || ds_salary.getCellData(i, "salPayClsCd") == "H") {
+      // OD지원금이나 통신비지원금은 원가전표를 만들지 않으므로 체크에서 뺀다.
+      // if(  ds_salary.RowStatus(i)==3 &&  (ds_salary.NameValue(i,"outbrPostDt")!="" || ds_salary.NameValue(i,"payPostDt")!="") ){
+      // 가우스 :     0: Normal, 1: Insert, 2: Delete, 3: Update, 4: Logical
+      // 웹스퀘어 :   R:초기상태, U:갱신, C:삽입, D:삭제, V:삽입 후 삭제
+      if (
+      // ds_salary.RowStatus(i)==3
+      ds_salary.getRowStatus(i) == "U" && (ds_salary.getCellData(i, "outbrPostDt") != "" || ds_salary.getCellData(i, "payPostDt") != "")) {
+        await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_041, "전표번호(원가)[" + ds_salary.getCellData(i, "outbrSlipNo") + "]", "삭제를 "));
+        return;
+      }
+    }
+
+    // 가우스 SysStatus - 0: Normal, 1: Insert, 2: Delete, 3: Update, 4: Logical
+    // - dlt_dataList1.getRowStatus(0);
+    //    rowIndex 행의 상태코드를 문자로 반환 (R:초기상태, U:갱신, C:삽입, D:삭제, V:삽입 후 삭제)
+    // - dlt_dataList1.getRowStatusValue(0);
+    //    rowIndex 행의 상태코드를 숫자로 반환 (0:초기상태, 1:갱신, 2:삽입, 3:삭제, 4:삽입 후 삭제)
+
+    if (ds_salary.getCellData(i, "salPayClsCd") != "C" || ds_salary.getCellData(i, "salPayClsCd") != "H") {
+      // OD지원금이나 통신비지원금이 아닌경우는 원래 체크로직을 탄다.
+      if (
+      //  ds_salary.getCellData(i)==3 &&
+      ds_salary.getRowStatus(i) == "U" && ds_salary.getCellData(i, "outbrSlipNo") != "0000000000" && (ds_salary.getCellData(i, "outbrPostDt") != "" || ds_salary.getCellData(i, "payPostDt") != "")) {
+        await $c.gus.cfAlertMsg($p, $c.data.getMessage($p, MSG_CM_ERR_041, "전표번호(원가)[" + ds_salary.getCellData(i, "outbrSlipNo") + "]", "삭제를 "));
+        return;
+      }
+    }
+  }
+
+  // if(cfConfirmMsg(MSG_CM_CRM_008,Array("선택하신 전표"))==true){	
+  let rtn2 = await $c.win.confirm($p, $c.data.getMessage($p, MSG_CM_CRM_008, "선택하신 전표"));
+  if (rtn2) {
+    // tr_delete.Action="/ac.fi.gnrlaccount.slipmgnt.DeleteSalaryWorkSlipCMD.do";
+    // tr_delete.Post();
+    $c.sbm.execute($p, sbm_delete);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 삭제 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_delete_submitdone = async function (e) {
+  console.log("▷ sbm_delete_submitdone (전표생성 submitdone)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // <!-- 삭제 DataSet --> 
+  // language=JavaScript for=tr_delete event=OnSuccess()>
+  await $c.gus.cfAlertMsg($p, MSG_CM_INF_004); // 성공적으로삭제하였습니다
+  ds_salary.setJSON([]);
+  scwin.f_Retrieve();
+};
+
+// @@ ====== 파일   ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 엑셀 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function () {
+  // var objGridName = eval("gr_salary");
+  // if (cfConfirmMsg("Excel로 다운로드 하시겠습니까?")) {
+  // 	cfGridToExcel(objGridName, "인사급상여전표기표","인사급상여전표기표.xls",8+16);
+  // }
+
+  if (ds_salary.getTotalRow() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var fileName = "인사급상여전표기표";
+  let cfrm = await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?");
+  if (cfrm) {
+    let options = {
+      fileName: fileName + ".xlsx",
+      sheetName: fileName,
+      bodyWordwrap: true,
+      // 줄바꿈
+      useSubTotal: true // 소계출력
+    };
+    $c.data.downloadGridViewExcel($p, gr_salary, options);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 월별하역근태내역조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveWrk = async function (e) {
+  console.log("=== f_RetrieveWrk (월별하역근태내역조회)");
+
+  // if (!cfValidate([ed_salPayDt]))
+  let rtn = await $c.gus.cfValidate($p, [ica_salPayDt]);
+  if (!rtn) return false;
+
+  // ds_search.UseChangeInfo = false;
+  // tr_search_wrk.Action="/ac.fi.gnrlaccount.slipmgnt.RetrieveMonthlyWorkCMD.do";
+  // tr_search_wrk.post();
+
+  var dcJSON = ds_search.getJSON();
+  console.log("  *** ds_search : " + JSON.stringify(dcJSON));
+  $c.sbm.execute($p, sbm_search_wrk);
+};
+
+//-------------------------------------------------------------------------
+// 조회(월별하역근로내역조회) submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_search_wrk_submitdone = async function (e) {
+  console.log("▷▷ sbm_search_wrk_submitdone (월별하역근로내역조회)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // language=JavaScript for=ds_work event=OnLoadCompleted(rowCnt)>
+  // 	cfHideDSWaitMsg(gr_work);
+  // 	cfShowTotalRows(totalRows, rowCnt); 
+  var rowCnt = ds_work.getTotalRow();
+  if (rowCnt == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  } else {
+    scwin.f_ExcelWrk();
+  }
+
+  // $c.gus.cfInitHidVal(searchTable);
+  // KYU_NEW :
+  scwin.ed_drawAcctDeptCd_hidVal = ""; // 작성부서히든
+
+  //f_ExcelWrk(); --조회건수가 없을 경우 엑셀 다운이 필요없으므로 OnLoadCompleted() 이벤트 다음에 엑셀 function 호출 추
+};
+
+// @@ ====== 파일   ============================================================================ //
+
+//-------------------------------------------------------------------------
+// 월별하역근로내역 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_ExcelWrk = async function () {
+  // var objGridName = eval("gr_work");
+  // if (cfConfirmMsg("Excel로 다운로드 하시겠습니까?")) {
+  // 	cfGridToExcel(objGridName, "월별하역근로내역","월별하역근로내역.xls",8+16);
+  // }
+
+  if (ds_work.getTotalRow() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var fileName = "월별하역근로내역";
+  let cfrm = await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?");
+  if (cfrm) {
+    let options = {
+      fileName: fileName + ".xlsx",
+      sheetName: fileName,
+      bodyWordwrap: true // 줄바꿈
+    };
+    $c.data.downloadGridViewExcel($p, gr_work, options);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 월별하역휴무내역조회
+//-------------------------------------------------------------------------
+scwin.f_RetrieveVaca = async function (e) {
+  console.log("=== f_RetrieveVaca (월별하역휴무내역조회)");
+
+  // if (!cfValidate([ed_salPayDt]))
+  let rtn = await $c.gus.cfValidate($p, [ica_salPayDt]);
+  if (!rtn) return false;
+
+  // ds_search.UseChangeInfo = false;
+  // tr_search_vaca.Action="/ac.fi.gnrlaccount.slipmgnt.RetrieveMonthlyVacaCMD.do";
+  // tr_search_vaca.post();
+
+  var dcJSON = ds_search.getJSON();
+  console.log("  *** ds_search : " + JSON.stringify(dcJSON));
+  $c.sbm.execute($p, sbm_search_vaca);
+};
+
+//-------------------------------------------------------------------------
+// 조회(월별하역휴무내역조회) submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_search_vaca_submitdone = async function (e) {
+  console.log("▷▷ sbm_search_vaca_submitdone (월별하역휴무내역조회)");
+  if (e.responseJSON.resultDataSet[0].Code != 0) return;
+
+  // <script language=JavaScript for=ds_vaca event=OnLoadCompleted(rowCnt)>
+  // 	cfHideDSWaitMsg(gr_vaca);
+  // 	cfShowTotalRows(totalRows, rowCnt);
+
+  var rowCnt = ds_vaca.getTotalRow();
+  if (rowCnt == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+  } else {
+    scwin.f_ExcelVaca();
+  }
+
+  // $c.gus.cfInitHidVal(searchTable);
+  // KYU_NEW :
+  scwin.ed_drawAcctDeptCd_hidVal = ""; // 작성부서히든
+
+  //f_ExcelVaca(); --조회건수가 없을 경우 엑셀 다운이 필요없으므로 OnLoadCompleted() 이벤트 다음에 엑셀 function 호출 추
+};
+
+//-------------------------------------------------------------------------
+// 월별하역휴무내역 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_ExcelVaca = async function () {
+  // var objGridName = eval("gr_vaca");
+  // if (cfConfirmMsg("Excel로 다운로드 하시겠습니까?")) {
+  // 	cfGridToExcel(objGridName, "월별하역휴무내역","월별하역휴무내역.xls",8+16);
+  // }
+
+  if (ds_vaca.getTotalRow() == 0) {
+    await $c.gus.cfAlertMsg($p, MSG_CM_WRN_002);
+    return;
+  }
+  var fileName = "월별하역휴무내역";
+  let cfrm = await $c.win.confirm($p, "EXCEL로 다운로드 받으시겠습니까?");
+  if (cfrm) {
+    let options = {
+      fileName: fileName + ".xlsx",
+      sheetName: fileName,
+      bodyWordwrap: true // 줄바꿈
+    };
+    $c.data.downloadGridViewExcel($p, gr_vaca, options);
+  }
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_fromToCalendar',type:'page',variableClone:'true',src:'/cm/udc/fromToCalendar.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox-inner',id:'searchTable',style:''},E:[{T:1,N:'xf:group',A:{class:'w2tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:70px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:105px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}},{T:1,N:'xf:group',A:{style:'width:60px;',tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th ',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'회사코드 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'retrieveDongbuGroupCompanyInfopopup',selectID:'retrieveDongbuGroupCompanyInfo',codeId:'ed_coCd',validTitle:'회사코드',nameId:'ed_coNm',style:'',btnId:'btn_coCd',id:'udc_coCd',allowCharCode:'0-9',mandatoryCode:'true',maxlengthCode:'3',objTypeCode:'data',maxlengthName:'50',objTypeName:'data',refDataCollection:'ds_search',code:'coCd','ev:onclickEvent':'scwin.udc_coCd_onclickEvent','ev:onblurCodeEvent':'scwin.udc_coCd_onblurCodeEvent'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'급여작업일자 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',style:'',tagname:'td'},E:[{T:1,N:'w2:inputCalendar',A:{calendarValueType:'yearMonthDate',class:'',id:'ica_salPayDt',style:'',mandatory:'true',displayFormat:'yyyy/MM/dd',objType:'data',title:'급여작업일자',ref:'data:ds_search.salPayDt'}}]},{T:1,N:'xf:group',A:{class:'w2tb_th',id:'',tagname:'th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'작성부서 ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',id:'',tagname:'td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{codeId:'ed_drawAcctDeptCd',nameId:'ed_drawAcctDeptNm',popupID:'retrieveAcctDeptCdInfo6popup',selectID:'retrieveAcctDeptCdInfo6',style:'',validTitle:'작성부서',id:'udc_drawAcctDeptCd',btnId:'btn_drawAcctDeptCd',allowCharCode:'0-9',mandatoryCode:'true',maxlengthCode:'5',objTypeCode:'data',maxlengthName:'50',objTypeName:'data',refDataCollection:'ds_search',code:'drawAcctDeptCd',name:'drawAcctDeptNm','ev:onclickEvent':'scwin.udc_drawAcctDeptCd_onclickEvent','ev:onblurCodeEvent':'scwin.udc_drawAcctDeptCd_onblurCodeEvent',skipOnBlurCodeValueEmpty:'N'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'급여구분 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',chooseOptionLabel:'전체',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled','ev:onchange':'scwin.lc_salPayClsCd_onchange',id:'lc_salPayClsCd',ref:'data:ds_search.salPayClsCd',style:'width: 130px;',submenuSize:'fixed',title:'급여구분'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'직원구분 ',style:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{allOption:'',appearance:'minimal',chooseOption:'true',chooseOptionLabel:'전체',class:'',direction:'auto',disabled:'false',disabledClass:'w2selectbox_disabled',id:'lc_persClsCd',ref:'data:ds_search.persClsCd',style:'width: 120px;',submenuSize:'fixed',title:'직원구분'},E:[{T:1,N:'xf:choices'}]}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select',A:{appearance:'full',class:'',cols:'',falseValue:'0',id:'cbx_each_slip',ref:'data:ds_search.eachSlip',renderType:'checkboxgroup',rows:'',selectedindex:'-1',style:'',title:'각각발행'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'각각발행'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn-shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn ico refresh',id:'btn_fieldClear',style:'',type:'button','ev:onclick':'scwin.f_SearchClear'},E:[{T:1,N:'xf:label'}]},{T:1,N:'xf:trigger',A:{class:'btn sch',disabled:'',escape:'false',id:'btn_retrieve',style:'',type:'button','ev:onclick':'scwin.f_Retrieve',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{class:'round-box',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'title-wrap',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'right',id:''},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',btnPlusYn:'Y',gridDownYn:'Y',gridUpYn:'N',templateYn:'N',gridDownFn:'scwin.f_Excel',gridID:'gr_salary',gridDownUserAuth:'X',id:'udc_gridMain'}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'grd_section1',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_salary',id:'gr_salary',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'15',visibleRowNumFix:'true','ev:onheaderclick':'scwin.gr_salary_onheaderclick','ev:oncellclick':'scwin.gr_salary_oncellclick',focusMode:'cell',rowStatusVisible:'true',rowStatusWidth:'20'},E:[{T:1,N:'w2:caption',A:{id:'caption1',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column30',inputType:'checkbox',style:'',value:'',width:'50',fixColumnWidth:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',style:'',value:'급여작업일자',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',style:'',value:'급여구분',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column34',inputType:'text',style:'',value:'직원구분',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column32',inputType:'text',style:'',value:'금액',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',style:'',value:'전표번호(원가)',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',style:'',value:'회계일자(원가)',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',style:'',value:'전표번호(지급)',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',style:'',value:'회계일자(지급)',width:'130'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column61',value:'회사코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column58',value:'회사구분코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column49',value:'작성부서',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'checkYn',inputType:'checkbox',style:'',value:'',width:'50',fixColumnWidth:'true',trueValue:'T',falseValue:'F',valueType:'other'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'salPayDt',inputType:'text',style:'',value:'',width:'120',dataType:'date',displayFormat:'yyyy/MM/dd',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'value delim label',id:'salPayClsCd',inputType:'select',style:'',value:'',width:'100',dataType:'text',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'value delim label',id:'persClsCd',inputType:'select',style:'',value:'',width:'100',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'amt',inputType:'text',style:'',value:'',width:'120',dataType:'number',class:'tar',displayFormat:'#,##0',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'outbrSlipNo',inputType:'text',style:';color:blue;',value:'',width:'130',class:'underline',displayFormatter:'scwin.outbrSlipNoExp',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'outbrPostDt',inputType:'custom',style:'',value:'',width:'130',dataType:'date',customFormatter:'scwin.customExp',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'paySlipNo',inputType:'text',style:';color:blue;',value:'',width:'130',class:'underline',readOnly:'true'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'payPostDt',inputType:'text',style:'',value:'',width:'130',displayFormat:'yyyy/MM/dd',dataType:'date',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'coCd',value:'',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'coClsCd',value:'',displayMode:'label',textAlign:'left',readOnly:'true'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'drawAcctDeptCd',value:'',displayMode:'label',hidden:'true',readOnly:'true',hiddenCol:'true'}}]}]},{T:1,N:'w2:footer',A:{style:'',id:'footer1'},E:[{T:1,N:'w2:row',A:{style:'',id:'row5'},E:[{T:1,N:'w2:column',A:{width:'50',inputType:'text',style:'',id:'column48',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column47',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column46',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column45',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'expression',style:'',id:'column44',value:'',displayMode:'label',class:'tar',dataType:'number',displayFormat:'#,##0',expression:'sum(\'amt\')'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column43',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column42',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column41',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column40',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column63',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'130',inputType:'text',style:'',id:'column60',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column51',value:'',displayMode:'label'}}]}]}]},{T:1,N:'w2:gridView',A:{autoFit:'none',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_work',focusMode:'row',id:'gr_work',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'display: none;',visibleRowNum:'15',visibleRowNumFix:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',value:'인원번호',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',value:'근무일자',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column34',inputType:'text',value:'근무순번',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column32',inputType:'text',value:'근무시작일자',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',value:'근무시작시간',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',value:'근무종료일자',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',value:'근무종료시간',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',value:'등록자ID',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column61',inputType:'text',value:'등록일시',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column58',inputType:'text',value:'수정자ID',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column49',inputType:'text',value:'수정일시',width:'150'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column70',value:'부서코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column67',value:'원가부서코드',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column64',value:'쉬프트',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'staffNo',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'workDt',inputType:'text',width:'100',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'workSeq',inputType:'text',width:'100',textAlign:'right'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'workStDt',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'workStHh',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'workEndDt',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'workEndHh',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'regId',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'regDtm',inputType:'text',width:'150',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'modId',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'regDtm',inputType:'text',width:'150',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'deptCd',value:'',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'costdptCd',value:'',displayMode:'label',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'shift',value:'',displayMode:'label',textAlign:'right'}}]}]},{T:1,N:'w2:footer',A:{id:'footer1',style:''},E:[{T:1,N:'w2:row',A:{id:'row5',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column47',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column46',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column45',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column44',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column43',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column42',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column41',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column40',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column63',inputType:'text',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column60',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column51',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column72',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column69',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'100',inputType:'text',style:'',id:'column66',value:'',displayMode:'label'}}]}]}]},{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_vaca',focusMode:'row',id:'gr_vaca',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'display: none;',visibleRowNum:'15',visibleRowNumFix:'true'},E:[{T:1,N:'w2:caption',A:{id:'caption3',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column38',inputType:'text',value:'인원번호',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column36',inputType:'text',value:'휴무시작일자',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column34',inputType:'text',value:'휴무종료일자',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column32',inputType:'text',value:'휴무사유코드',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column28',inputType:'text',value:'등록자Id',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column26',inputType:'text',value:'등록일시',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column22',inputType:'text',value:'수정자Id',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column24',inputType:'text',value:'수정일시',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column61',inputType:'text',value:'부서코드',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column58',inputType:'text',value:'원가부서코드',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column49',inputType:'text',value:'코드',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column70',inputType:'text',style:'',value:'코드영문명',width:'120'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'staffNo',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vacaStDt',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vacaEndDt',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'vacaRsnCd',inputType:'text',width:'150',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'regId',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'regDtm',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'modId',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'modDtm',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'deptCd',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'costdptCd',inputType:'text',width:'130',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'cd',inputType:'text',width:'120',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'cdEngNm',inputType:'text',style:'',value:'',width:'120',textAlign:'left'}}]}]},{T:1,N:'w2:footer',A:{id:'footer1',style:''},E:[{T:1,N:'w2:row',A:{id:'row5',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column47',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column46',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column45',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column44',inputType:'text',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column43',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column42',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column41',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column40',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column63',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column60',inputType:'text',width:'130'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column51',inputType:'text',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column72',inputType:'text',style:'',value:'',width:'120'}}]}]}]},{T:1,N:'xf:group',A:{class:'grid-bottom ',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'grid-total',id:''},E:[{T:1,N:'w2:textbox',A:{class:'',id:'',label:'총',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'num',dataType:'number',displayFormat:'#,##0',id:'ed_totalRows',label:'0',style:'',tagname:'span'}},{T:1,N:'w2:textbox',A:{class:'',id:'',label:'건',style:'',tagname:'span'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btnbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'left',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_btWork',style:'',type:'button','ev:onclick':'scwin.f_RetrieveWrk',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'근로내역'}]}]},{T:1,N:'xf:trigger',A:{class:'btn',id:'btn_btVaca',style:'',type:'button','ev:onclick':'scwin.f_RetrieveVaca',userAuth:'R'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'휴무내역'}]}]}]},{T:1,N:'xf:group',A:{class:'right',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_btPost',style:'',type:'button','ev:onclick':'scwin.f_Save',userAuth:'U',objType:'bSave'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전표생성'}]}]},{T:1,N:'xf:trigger',A:{class:'btn white',id:'btn_btPostCancel',style:'',type:'button','ev:onclick':'scwin.f_Delete',userAuth:'D',objType:'bSave'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전표삭제'}]}]}]}]}]}]}]}]}]})

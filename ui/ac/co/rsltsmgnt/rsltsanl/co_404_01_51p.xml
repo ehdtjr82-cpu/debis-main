@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="closeYmSt" name="closeYmSt" dataType="text"></w2:key>
+    					<w2:key id="closeYmEnd" name="closeYmEnd" dataType="text"></w2:key>
+    					<w2:key id="bizDomCd" name="bizDomCd" dataType="text"></w2:key>
+    					<w2:key id="acctDeptCd" name="acctDeptCd" dataType="text"></w2:key>
+    					<w2:key id="crn" name="crn" dataType="text"></w2:key><w2:key id="clntNo" name="clntNo" dataType="text"></w2:key>
+    					<w2:key id="schGroup" name="schGroup" dataType="text"></w2:key>
+    					<w2:key id="transCargoClsCd" name="transCargoClsCd" dataType="text"></w2:key>
+    					
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_master" saveRemovedData="true" ev:ondataload="scwin.ds_master_ondataload">
+    				<w2:columnInfo>
+    					<w2:column id="clntNo" name="거래처번호" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="거래처명" dataType="text"></w2:column>
+    					<w2:column id="acctDeptCd" name="부서코드" dataType="text"></w2:column>
+    					<w2:column id="acctDeptNm" name="귀속부서명" dataType="text"></w2:column>
+    					<w2:column id="hblNo" name="B/L" dataType="text"></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+    					<w2:column id="sellDcsnAmt" name="확정매출" dataType="number"></w2:column>
+    					<w2:column id="sellUnAmt" name="미확정매출" dataType="number"></w2:column>
+    					<w2:column id="sellInAmt" name="내부매출" dataType="number"></w2:column>
+    					<w2:column id="pchsInAmt" name="내부매입" dataType="number"></w2:column>
+    					<w2:column id="pchsDcsnAmt" name="확정매입" dataType="number"></w2:column>
+    					<w2:column id="pchsUnAmt" name="미확정매입" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_master" action="/ac.co.rsltsmgnt.rsltsanl.RetrieveClntProfitAndLossResultDetailCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_master","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_master","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.params;
+//-------------------------------------------------------------------------
+// PGM명 : 거래처별손익실적_상세 (co_404_01_51p)
+// 작성자 : 송정희
+// 최초작성일자 : 2026-10-11
+//-------------------------------------------------------------------------
+scwin.p_closeYmSt = "";
+scwin.p_closeYmEnd = "";
+scwin.p_bizDomCd = "";
+scwin.p_acctDeptCd = "";
+scwin.p_crn = "";
+scwin.p_clntNo = "";
+scwin.p_schGroup = "";
+scwin.p_transCargoClsCd = "";
+scwin.sort_options = {};
+scwin.sort_options.sortIndex = "clntNo acctDeptCd hblNo odrNo";
+scwin.sort_options.sortOrder = "1 1 1 1";
+scwin.rowCnt = 0;
+
+scwin.onpageload = function() {
+	
+    scwin.params = $c.data.getParameter();
+    scwin.p_closeYmSt = scwin.params["closeYmSt"];
+    scwin.p_closeYmEnd = scwin.params["closeYmEnd"];
+    scwin.p_bizDomCd = scwin.params["bizDomCd"];
+    scwin.p_acctDeptCd = scwin.params["acctDeptCd"];
+    scwin.p_crn = scwin.params["crn"];
+    scwin.p_clntNo = scwin.params["clntNo"];
+    scwin.p_schGroup = scwin.params["schGroup"];
+    scwin.p_transCargoClsCd = scwin.params["transCargoClsCd"];
+
+	scwin.f_Retrieve();	
+};
+
+scwin.f_Retrieve = function () {
+   
+    dma_search.set("closeYmSt", scwin.p_closeYmSt);	    // 기준년월
+    dma_search.set("closeYmEnd", scwin.p_closeYmEnd);
+    dma_search.set("bizDomCd", scwin.p_bizDomCd);	    // 사업영역
+    dma_search.set("acctDeptCd", scwin.p_acctDeptCd);	// 귀속부서
+    dma_search.set("crn", scwin.p_crn);			        // 사업자번호
+    dma_search.set("clntNo", scwin.p_clntNo);		    // 거래처번호
+    dma_search.set("schGroup", scwin.p_schGroup);	    // 집계기준
+    dma_search.set("transCargoClsCd", scwin.p_transCargoClsCd);	// 화물구분
+
+    $c.sbm.execute(sbm_master);
+}
+
+scwin.ds_master_ondataload = function () {
+    var rowCnt = ds_master.getTotalRow();
+    totalRows.setValue(rowCnt);   
+    
+	if( rowCnt == 0 ){
+	    if( $c.gus.cfCheckCreateFlag() == true){
+	    	$c.gus.cfTurnCreateFlag(false);
+	    }else{
+	 		// $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        }
+       return;
+	} 
+
+    if ( rowCnt > 0 ) {
+        ds_master.multisort(scwin.sort_options);  
+	
+        if (scwin.p_bizDomCd == "140") {
+            gr_master.setColumnVisible("odrNo", false);
+            gr_master.setColumnVisible("hblNo", true);           
+        } else {
+            gr_master.setColumnVisible("odrNo", true);
+            gr_master.setColumnVisible("hblNo", false);
+        }
+    }        
+};
+
+scwin.btn_Close_onclick = function (e) {
+   $c.win.closePopup();
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {
+   if(ds_master.getRowCount() == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+        return;
+    }
+    
+    let gridColCount = 0;
+    for(let i = 0; i < gr_master.getTotalCol(); i++){
+        if(gr_master.getColumnVisible(i)==true){
+            gridColCount++;
+        }
+    }
+
+    let str = $c.gus.cfGetFormatStr(scwin.p_closeYmSt, "####-##");
+    
+    let startRowIndex = 0;
+    let infoArr = [{
+        rowIndex : 0,             
+        colIndex : 0,            
+        colSpan : gridColCount,   
+        rowSpan : 1,
+        text : "거래처별손익실적_상세",
+        textAlign : "center",    
+        fontSize : 12,
+        drawBorder : false,       
+        color : "black",          
+        backgroundColor : "#ffffff" 
+    },{
+        rowIndex : 2,             
+        colIndex : 0,           
+        colSpan : gridColCount,  
+        rowSpan : 1,
+        text : "년월 ["+ str +"]",
+        textAlign : "left",    
+        fontSize : 10,
+        drawBorder : false,       
+        color : "black",       
+        backgroundColor : "#ffffff" 
+    }]
+
+    const options = {
+        fileName: "거래처별손익실적_상세.xlsx",
+        sheetName: "년월" + str ,
+        startRowIndex : 3,        
+        startColumnIndex : 0,
+        type : 1
+    };
+    await $c.data.downloadGridViewExcel(gr_master, options, infoArr);
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="tbx_textbox1" label="오더 상세내역 조회" style="" tagname="h3"
+    						ev:onclick="scwin.tbx_textbox1_onclick">
+    					</w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp='grd_section1' style="" gridID="gr_master" gridUpYn="N" gridDownUserAuth="X"
+    						gridDownFn="scwin.f_Excel" id="udc_topGrd">
+    					</w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id='grd_section1' style="">
+    				<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_master" focusMode="cell"
+    					id="gr_master" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true"
+    					readOnly="true" columnMove="true">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column width="90" inputType="text" style="" id="column27" value="거래처번호" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column59" value="거래처명" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column55" value="부서코드" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column51" value="귀속부서명" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column47" value="B/L" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column43" value="오더번호" displayMode="label" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column width="420" inputType="text" style="" id="column39" value="매출" displayMode="label" colSpan="4"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    							<w2:column width="220" inputType="text" style="" id="column18" value="매입" displayMode="label" colSpan="2"
+    								rowSpan="" sortable="false">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row6">
+    							<w2:column width="100" inputType="text" style="" id="column40" value="확정매출" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column36" value="미확정매출" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column33" value="내부매출" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column32" value="내부매입" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column31" value="확정매입" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column30" value="미확정매입" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column width="90" inputType="text" style="" id="clntNo" value="" displayMode="label" colMerge="true"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="clntNm" value="" displayMode="label" colMerge="true"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="acctDeptCd" value="" displayMode="label" colMerge="true"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="acctDeptNm" value="" displayMode="label" colMerge="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="hblNo" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="odrNo" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="sellDcsnAmt" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" dataType="number">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="sellUnAmt" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="sellInAmt" value="" displayMode="label"
+    								displayFormat="#,##0" invalidMessageFunc="false" textAlign="right" dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="pchsInAmt" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="text" style="" id="pchsDcsnAmt" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" dataType="number">
+    							</w2:column>
+    							<w2:column width="120" inputType="text" style="" id="pchsUnAmt" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" dataType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    					<w2:footer style="" id="footer1">
+    						<w2:row style="" id="row5">
+    							<w2:column width="90" inputType="text" style="" id="column29" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column62" value="" displayMode="label"></w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column58" value="" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column50" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="column46" value="합계" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column42" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" expression='sum("sellDcsnAmt")' dataType="number">
+    							</w2:column>
+    							<w2:column width="120" inputType="expression" style="" id="column38" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" expression='sum("sellUnAmt")' dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column26" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" expression='sum("sellInAmt")' dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column17" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" expression='sum("pchsInAmt")' dataType="number">
+    							</w2:column>
+    							<w2:column width="100" inputType="expression" style="" id="column20" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" expression='sum("pchsDcsnAmt")' dataType="number">
+    							</w2:column>
+    							<w2:column width="120" inputType="expression" style="" id="column23" value="" displayMode="label"
+    								displayFormat="#,##0" textAlign="right" expression='sum("pchsUnAmt")' dataType="number">
+    							</w2:column>
+    						</w2:row>
+    					</w2:footer>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" id="totalRows" label="0" style="" tagname="span" dataType="number"
+    								displayFormat="#,##0">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<w2:textbox style="" id="" label="상세내역에 회계전표는 제외됩니다. " class="txt-dot txt-blue"></w2:textbox>
+    		</xf:group>
+    		<xf:group class="pop-btnbox" id="" style="">
+    			<xf:trigger class="btn" id="btn_Close" style="" type="button" ev:onclick="scwin.btn_Close_onclick">
+    				<xf:label><![CDATA[닫기]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		
+    	</xf:group>
+    </body>
+</html>

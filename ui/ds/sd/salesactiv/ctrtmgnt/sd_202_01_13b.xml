@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search">
+    				<w2:keyInfo>
+    					<w2:key id="ctrtNo" name="컨테이너번호" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_img" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="ctrtNo" name="계약서번호" dataType="text" length="11"></w2:column>
+    					<w2:column id="ctrtDocImgFileSeq" name="계약서이미지파일Seq" dataType="text" length="4"></w2:column>
+    					<w2:column id="ctrtDocImgFileNm" name="계약서이미지파일명" dataType="text" length="20"></w2:column>
+    					<w2:column id="ctrtDocImgSaveFilePath" name="계약서이미지저장파일경로" dataType="text" length="100"></w2:column>
+    					<w2:column id="ctrtDocImgDeleteChk" name="계약서이미지삭제확인" dataType="text" length="255"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="fileUploadGDS" repeatNode="map" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="fileId" name="파일ID"></w2:column>
+    					<w2:column dataType="text" id="filename" name="파일명"></w2:column>
+    					<w2:column dataType="text" id="filepath" name="파일경로"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieveImg" action="/ds.sd.salesactiv.ctrtmgnt.RetrieveContractDocumentImageListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,["dma_search",{"id":"ds_img","key":"OUT_DS1"}]'
+    			target='data:json,{"id":"ds_img","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveImg_submitdone" ev:submiterror="scwin.sbm_retrieveImg_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_saveImg" action="/ds.sd.salesactiv.ctrtmgnt.SaveContractDocumentImageListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_img","key":"IN_DS1"}' target="data:json,[]" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/cm/fw/constants/DFWConstants.js" type="text/javascript" scopeVariable="DFWConstants"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.FILE_DOWNLOAD_URL = "/s3upload.do";
+scwin.pgmId="sd_202_01_13b.jsp";
+scwin.src = "sd_202_01_13b.xml";
+scwin.retrieveGb = "";
+
+//-------------------------------------------------------------------------
+// 화면 로딩
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    try {
+        let menuInfo = $p.parent().$p.getParameter("paramData").menuInfo;
+        if(typeof menuInfo !== "undefined") {
+            scwin.pgmId = menuInfo.pgmId;
+            scwin.src = menuInfo.src;
+        }
+    } catch(e) {
+        console.log("#### parameter ###");
+    }    
+
+    scwin.params = $c.data.getParameter();
+               
+    scwin.selectedBeforeSize = 1 ;
+    scwin.pos_rowSts = 0;
+    scwin.MSG_SD_CRM_002 = "변경된 사항이 있습니다. 저장하시겠습니까? \n확인을 누르시면 변경된 사항이 저장이되고, \n취소를 누르실 경우 모든 변경된 사항이 처음 조회된 상태가 됩니다.";
+    scwin.page_move_confirm = true;
+
+    scwin.f_defaultValue();
+    scwin.f_retrieve("R");
+    $c.gus.cfDisableKey();
+};
+
+//-------------------------------------------------------------------------
+// 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function() {
+    var ctrtNo = scwin.params.ctrtNo;
+	var clntNo = scwin.params.clntNo;
+
+    ed_ctrtNo.setValue(ctrtNo.substring(0, 9)+"-"+ctrtNo.substring(9, 11));
+    ed_clntNo.setValue(clntNo);
+    ed_clntNm.setValue(scwin.params.clntNm);
+
+    chb_bizDivCntrYn.setValue(scwin.params.bizDivCntrYn);
+    chb_bizDivBulkYn.setValue(scwin.params.bizDivBulkYn);
+    chb_bizDomStvYn.setValue(scwin.params.bizDomStvYn);
+    chb_bizDomTransYn.setValue(scwin.params.bizDomTransYn);
+    chb_bizDomStrYn.setValue(scwin.params.bizDomStrYn);
+    chb_bizDomInatYn.setValue(scwin.params.bizDomInatYn);
+    chb_bizDomTplYn.setValue(scwin.params.bizDomTplYn);
+    chb_impYn.setValue(scwin.params.impYn);
+    chb_expYn.setValue(scwin.params.expYn);
+    chb_domesticYn.setValue(scwin.params.domesticYn);
+    
+    ed_sellClntClsNm.setValue(scwin.params.sellClntClsNm);
+    $c.gus.cfDisableObjects([btn_img]);  
+};
+
+scwin.f_EventSearch = function() {
+    $c.gus.cfDisableKeyData();
+    udc_fileMultiUpload.setData([]);
+    udc_fileMultiUpload.undoFileUpload();
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = async function(pGb) {
+    dma_search.set("ctrtNo", ed_ctrtNo.getValue().replace("-",""));
+    scwin.retrieveGb = pGb;
+    $c.sbm.execute(sbm_retrieveImg);
+};
+
+// 조회 완료
+scwin.sbm_retrieveImg_submitdone = async function (e) {
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    var rowCnt = ds_img.getTotalRow();
+	spn_totalRow.setValue(rowCnt);
+    let rowPos = 0;
+    if( scwin.retrieveGb == "S" ) rowPos = rowCnt-1;
+  
+    scwin.f_EventSearch();
+    scwin.f_previewImg(0);    
+    gr_img.setFocusedCell(rowPos, 0);
+};
+
+scwin.sbm_retrieveImg_submiterror = function (e) {
+    $c.gus.cfShowError(e);
+};
+
+//-------------------------------------------------------------------------
+// 화면 이동
+//-------------------------------------------------------------------------
+scwin.f_winOpen = async function(strIndex) {
+  	var strPath = "";
+    var programNm = "";
+  	let programId = $c.data.getParameter($p, "menuInfo").pgmId;
+    let paramObj = {
+        ctrtNo		  : ed_ctrtNo.getValue().replace("-", ""),
+        bizDivCntrYn  : chb_bizDivCntrYn.getValue(),
+        bizDivBulkYn  : chb_bizDivBulkYn.getValue(),
+        bizDomTransYn : chb_bizDomTransYn.getValue(),
+        bizDomStvYn   : chb_bizDomStvYn.getValue(),
+        bizDomStrYn   : chb_bizDomStrYn.getValue(),
+        bizDomInatYn  : chb_bizDomInatYn.getValue(),
+        bizDomTplYn   : chb_bizDomTplYn.getValue(),
+        impYn         : chb_impYn.getValue(),
+        expYn         : chb_expYn.getValue(),
+        domesticYn    : chb_domesticYn.getValue(),
+        sellClntClsNm : ed_sellClntClsNm.getValue(),
+        clntNo        : ed_clntNo.getValue(),
+        clntNm        : ed_clntNm.getValue(),
+        ctrtDistrictCd: scwin.params.ctrtDistrictCd
+    };
+  	
+  	if ($c.data.isModified(ds_img)) {
+        let conf = await $c.win.confirm(scwin.MSG_SD_CRM_002);
+  		if(conf) {
+  			scwin.f_save('cfm');
+  			if (scwin.page_move_confirm) return;
+  		} else {
+  			let rowCnt = ds_img.getTotalRow();
+  			for(let i=rowCnt; i > 0; i--) {
+  				ds_img.undoRow(i);
+  			}
+  		}
+  	}
+
+    let option = {openAction : "exist",  menuCode: $c.data.getParameter($p, "menuInfo").refreshPid || ""};
+
+  	switch (strIndex) {
+  		case 1:
+            strPath = "/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_02b.xml";
+            programNm = "신규 계약등록"
+            option.mdiTitle = "계약기본정보"
+            // paramObj = {
+            //     ctrtNo : ed_clntNo.getValue().replace("-","")
+            // };
+  			break;
+
+  		case 2:
+  			strPath = "/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_03b.xml";
+            programNm = "계약작업경로관리";
+            option.mdiTitle = "계약작업경로"
+  			break;
+
+  		case 3:
+  			strPath = "/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_04b.xml";
+            programNm = "기본계약요율";
+            option.mdiTitle = "기본 계약요율관리"
+  			break;
+
+  		case 4:
+  			strPath = "/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_11b.xml";
+            programNm = "할인/할증 요율관리";
+            option.mdiTitle = "할인/할증요율"
+  			break;
+
+  		case 5:
+  			$c.win.alert("준비중입니다.");
+  			break;
+
+  		case 6:
+  			$c.win.alert("준비중입니다.");
+  			break;
+        
+  		default:
+  			break;
+  	}	
+    
+    $c.win.openMenu(programNm, strPath, programId, paramObj, option);
+};
+
+//-------------------------------------------------------------------------
+// 이미지 저장 
+//-------------------------------------------------------------------------
+scwin.fileSubmit = async function() {
+    // TODO: 파일 업로드는 udc_fileMultiUpload UDC를 통해 처리됩니다. 기존 cfUploadFile 로직을 UDC 콜백으로 대체 필요.
+    let chk = await $c.gus.cfValidate([gr_img]);
+    if (!chk) {
+        return;
+    }
+
+    if(udc_fileMultiUpload.isModified()) {
+        udc_fileMultiUpload.startFileUpload();
+    } else {
+        scwin.f_saveFile();
+    }
+};
+
+// 파일 업로드 완료
+scwin.uploadComplete = async function (isSuccess) {    
+    if(isSuccess) {
+        scwin.f_saveFile();
+    }
+};
+
+scwin.f_saveFile = async function() {    
+    let data = udc_fileMultiUpload.getData();
+    let previewRow = -1;
+    for (let i in data) {
+        ds_img.insertRow(ds_img.getRowCount());
+        let insRow = ds_img.getRowCount() - 1;
+        previewRow = insRow;
+        ds_img.setCellData(insRow, "ctrtNo", ed_ctrtNo.getValue().replace("-", ""));
+
+        if (ds_img.getRowCount() != 1) {
+            var fltNxtSeq = parseFloat(ds_img.getCellData(insRow - 1,"ctrtDocImgFileSeq")) + 1;
+            var strNxtSeq = "000" + fltNxtSeq;
+
+            strNxtSeq = strNxtSeq.substring(strNxtSeq.length - 4, strNxtSeq.length);			
+            ds_img.setCellData(insRow,"ctrtDocImgFileSeq", strNxtSeq);
+        } else {
+            ds_img.setCellData(insRow,"ctrtDocImgFileSeq", "0001");
+        }
+
+        let status = data[i].status;
+        if (status == "Completed") {
+            let fileName = data[i].ORIGIN_FILE_NM;
+            let fileStoredPath = data[i].FILE_STORED_PATH;
+            let storedFileNm = data[i].STORED_FILE_NM;
+            let strFileExeName = data[i].STORED_FILE_NM.substr(data[i].STORED_FILE_NM.length - 4, data[i].STORED_FILE_NM.length);
+            if (!$c.gus.cfIsNull(fileName)) {
+                let sFileNm = ds_img.getCellData(insRow,"ctrtNo") + "_" + ds_img.getCellData(insRow, "ctrtDocImgFileSeq") + strFileExeName;
+                ds_img.setCellData(insRow, "ctrtDocImgFileNm", sFileNm);
+            }
+            if (!$c.gus.cfIsNull(fileStoredPath)) {
+                ds_img.setCellData(insRow, "ctrtDocImgSaveFilePath", fileStoredPath + storedFileNm);
+            }
+        }
+    }
+
+    if (previewRow >= 0) {
+        gr_img.setFocusedCell(previewRow, 0, true);
+        scwin.f_previewImg(previewRow);
+    }
+
+    await scwin.f_save();
+};
+
+//-------------------------------------------------------------------------
+// 이미지 미리보기
+//-------------------------------------------------------------------------
+scwin.f_previewImg = function(rowIndex) {
+    if (rowIndex < 0) {
+        img_preview.setSrc("");
+        return;
+    }
+
+    let fileSavePath = ds_img.getCellData(rowIndex, "ctrtDocImgSaveFilePath") || "";
+    if ($c.gus.cfIsNull(fileSavePath)) {
+        img_preview.setSrc("");
+        return;
+    }
+
+    let fileNm = fileSavePath;
+    let lastIndex = fileSavePath.lastIndexOf("/");
+
+    if(lastIndex >= 0) {
+        fileNm = fileSavePath.substring(lastIndex+1);
+    }
+
+    if (!scwin.isPreviewableImage(fileNm)) {
+        img_preview.setSrc("");
+        return;
+    }
+
+    img_preview.setSrc(scwin.buildDownloadUrl(scwin.buildPreviewParam(rowIndex), "Link"));
+};
+
+scwin.f_save = async function (moveGb) {
+
+    let chk = await $c.gus.cfValidate([gr_img]);
+    if (!chk) {
+        return;
+    }
+
+    let rowPos = ds_img.getRowCount() - 1;
+    var fileSavePath = ds_img.getCellData(rowPos,"fileSactrtDocImgSaveFilePathvePath");
+
+
+    // 파일명에 확장자 추가
+    if(!$c.gus.cfIsNull(fileSavePath)) {
+        var strFileExeName = ds_img.getCellData(rowPos,"ctrtDocImgSaveFilePath").substr(ds_img.getCellData(rowPos,"ctrtDocImgSaveFilePath").length - 4
+                                            , ds_img.getCellData(rowPos,"ctrtDocImgSaveFilePath").length);
+        var fileNm = ds_img.getCellData(rowPos,"ctrtDocImgFileNm");
+        if(fileNm.lastIndexOf(strFileExeName) == -1){
+            ds_img.setCellData(rowPos, "ctrtDocImgFileNm", fileNm + strFileExeName);
+        }
+    }
+
+    if (ds_img.getModifiedIndex().length == 0) {
+        await $c.gus.cfAlertMsg(MSG_CM_ERR_001, ["[계약서이미지]"]);
+        scwin.page_move_confirm = false;
+		return;
+    } else {
+        await $c.sbm.execute(sbm_saveImg);
+    }
+};
+
+// 저장 완료
+scwin.sbm_save_submitdone = async function (e) {   
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    scwin.page_move_confirm = false;
+
+    scwin.f_EventSearch();
+    await scwin.f_retrieve("S");
+};
+
+scwin.buildPreviewParam = function (rowIndex) {
+    let originFileNm    = ds_img.getCellData(rowIndex, "ctrtDocImgFileNm") || "";
+    let fileSavePath    = ds_img.getCellData(rowIndex, "ctrtDocImgSaveFilePath") || "";
+    let fileNm          = originFileNm;
+    let filePath        = "";
+    let lastIndex       = fileSavePath.lastIndexOf("/");
+
+    if(lastIndex >= 0) {
+        fileNm = fileSavePath.substring(lastIndex+1);
+        filePath = fileSavePath.substring(0, lastIndex);
+    }
+
+    if(filePath && !filePath.endsWith("/"))
+        filePath = filePath + "/";
+
+    return {
+        "FILE_NAME" : originFileNm,
+        "STORED_FILE_NAME" : fileNm,
+        "FILE_PATH" : filePath,
+        "PGM_ID" : scwin.pgmId,
+        "CALLER_URL" : scwin.src,
+        "FILE_TYPE" : "LINK"
+    };
+};
+
+scwin.isPreviewableImage = function (fileName) {
+    if (!fileName) {
+        return false;
+    }
+
+    return /\.(jpg|jpeg|png|gif|bmp|webp|svg|tif|tiff)$/i.test(fileName);
+    //gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf
+};
+
+scwin.buildDownloadUrl = function (paramJson, flag) {
+    const storedFileName = paramJson.STORED_FILE_NAME || paramJson.FILE_NAME;
+
+    return scwin.FILE_DOWNLOAD_URL + "?" + new URLSearchParams({
+        path: scwin.buildStoredFileKey(paramJson.FILE_PATH, storedFileName),
+        fileName: paramJson.FILE_NAME || "",
+        fileType: flag == "Link" ? "LINK" : "DOWN",
+        direct: "true",
+        fallback: "true",
+        PGM_ID: paramJson.PGM_ID || "",
+        CALLER_URL: paramJson.CALLER_URL || ""
+    }).toString();
+};
+
+scwin.buildStoredFileKey = function (filePath, fileName) {
+    if (!filePath) {
+        return fileName;
+    }
+
+    if (!filePath.endsWith("/")) {
+        filePath = filePath + "/";
+    }
+
+    return filePath + fileName;
+};
+
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+
+
+
+
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+scwin.gr_img_onrowindexchange = function (rowIndex, oldRow) {
+    scwin.f_previewImg(rowIndex);
+};
+
+//그리드 더블 클릭 > 해당 파일 다운로드
+scwin.gr_img_oncelldblclick = function (rowIndex, columnIndex, columnId) {
+    $c.gus.cfDownloadFile(ds_img.getCellData(rowIndex, "ctrtDocImgFileNm"), ds_img.getCellData(rowIndex, "ctrtDocImgSaveFilePath"));
+};
+
+//계약기본정보 버튼
+scwin.btn_base_onclick = function (e) {
+    scwin.f_winOpen(1);
+};
+
+//작업경로 버튼
+scwin.btn_path_onclick = function (e) {
+    scwin.f_winOpen(2);
+};
+
+//계약요율 버튼
+scwin.btn_rate_onclick = function (e) {
+    scwin.f_winOpen(3);
+};
+
+//할인/할증 버튼
+scwin.btn_disc_onclick = function (e) {
+    scwin.f_winOpen(4);
+};
+
+//계약서이미지 버튼
+scwin.btn_img_onclick = function (e) {
+    scwin.f_winOpen(6);
+};
+
+//저장 버튼
+scwin.btn_save_onclick = function (e) {
+    scwin.fileSubmit();
+};
+
+//목록 버튼
+scwin.btn_list_onclick = function (e) {
+    let programId = "sd_202_01_01b.jsp";
+    let option = {openAction : "select", closable : true};
+    let paramObj = {};
+    $c.win.openMenu("계약관리 현황", "/ui/ds/sd/salesactiv/ctrtmgnt/sd_202_01_01b.xml", programId, paramObj, option);
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 출력
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {    
+    //{"fileName" : "계약서이미지목록.xlsx", "sheetName" : "계약서이미지목록", "type":"2+4+8+16"}
+    const options = {
+        fileName: "계약서이미지목록.xlsx",
+        sheetName:"계약서이미지목록",
+        startRowIndex: 0,
+        startColumnIndex : 0,
+        type : "1",
+        useDataFormat : true,
+        hiddenVisible:"true"  //히든값(true : 포함, false : 미포함)
+    };
+    await $c.data.downloadGridViewExcel(gr_img, options);   
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fileMultiUpload" type="page" variableClone="" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box " id="">
+    			<xf:group class="tbbox" id="" style="">
+    				<xf:group class="w2tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:120px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="계약번호" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<xf:input class="form-control col6" id="ed_ctrtNo" placeholder="" style="" objType="key" disabled="true"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="거래처" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:group class="form-group" id="">
+    								<xf:input class="form-control w85" id="ed_clntNo" placeholder="" style="" objType="key" disabled="true"></xf:input>
+    								<xf:input class="form-control " id="ed_clntNm" placeholder="" style="" objType="key" disabled="true"></xf:input>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="거래처구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="form-control col6" id="ed_sellClntClsNm" placeholder="" style="" objType="key" disabled="true"></xf:input>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="계약영역" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="chb_bizDomStvYn" ref="" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="" objType="key" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[하역]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="" cols="" id="chb_bizDomTransYn" objType="key" ref=""
+    								renderType="checkboxgroup" rows="" selectedindex="-1" style="" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[운송]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="" cols="" id="chb_bizDomStrYn" objType="key" ref=""
+    								renderType="checkboxgroup" rows="" selectedindex="-1" style="" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[보관]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="" cols="" id="chb_bizDomInatYn" objType="key" ref=""
+    								renderType="checkboxgroup" rows="" selectedindex="-1" style="" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[국제]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="" cols="" id="chb_bizDomTplYn" objType="key" ref=""
+    								renderType="checkboxgroup" rows="" selectedindex="-1" style="" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[3자물류]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="계약부문" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="chk-grp" cols="" id="chb_bizDivCntrYn" ref="" renderType="checkboxgroup"
+    								rows="" selectedindex="-1" style="" objType="key" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[컨테이너]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="chk-grp" cols="" id="chb_bizDivBulkYn" objType="key" ref=""
+    								renderType="checkboxgroup" rows="" selectedindex="-1" style="" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[벌크]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="수출입구분" ref="" style="" userData2=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select appearance="full" class="chk-grp" cols="" id="chb_impYn" ref="" renderType="checkboxgroup"
+    								rows="" selectedindex="-1" style="" objType="key" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[수입]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="chk-grp" cols="" id="chb_expYn" ref="" renderType="checkboxgroup"
+    								rows="" selectedindex="-1" style="" objType="key" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[수출]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    							<xf:select appearance="full" class="chk-grp" cols="" id="chb_domesticYn" ref="" renderType="checkboxgroup"
+    								rows="" selectedindex="-1" style="" objType="key" disabled="true">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[내수]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="lybox mt12" id="">
+    				<xf:group class="col" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    						<xf:group class="title" id="" style="">
+    							<w2:textbox class="tit" id="" label="계약서 이미지 목록" style="" tagname="h3"></w2:textbox>
+    						</xf:group>
+    						<xf:group class="right" id="">
+    							<w2:udc_topGrdBtn grp="grd_section1" style=""
+    								gridID="gr_img" id="udc_topGrdBtn"
+    								gridUpYn="N" templateYn="N" btnUser="N" btnPlusYn="Y" gridDownYn="Y" gridDownFn="scwin.f_Excel">
+    							</w2:udc_topGrdBtn>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    						<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_img"
+    							id="gr_img" scrollByColumn="false" scrollByColumnAdaptive="false" style=""
+    							ev:onrowindexchange="scwin.gr_img_onrowindexchange" ev:oncelldblclick="scwin.gr_img_oncelldblclick" readOnly="true"
+    							visibleRowNum="17" initFixedHeightByRowNum="15" rowStatusVisible="true">
+    							<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    							<w2:header id="header2" style="">
+    								<w2:row id="row3" style="">
+    									<w2:column width="80" inputType="text" style="" id="column12" value="계약서번호" displayMode="label" hidden="true"></w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text"
+    										removeBorderStyle="false" width="100" value="이미지번호">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text"
+    										removeBorderStyle="false" width="150" value="File Name">
+    									</w2:column>
+    									<w2:column width="130" inputType="text" style="" id="column14" value="File Path" displayMode="label" hidden="true"></w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody id="gBody2" style="">
+    								<w2:row id="row4" style="">
+    									<w2:column width="80" inputType="text" style="" id="ctrtNo" value="" displayMode="label" hidden="true" textAlign="left"></w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="ctrtDocImgFileSeq" inputType="text"
+    										removeBorderStyle="false" width="100" textAlign="center">
+    									</w2:column>
+    									<w2:column blockSelect="false" displayMode="label" id="ctrtDocImgFileNm" inputType="text"
+    										removeBorderStyle="false" width="150" textAlign="left">
+    									</w2:column>
+    									<w2:column width="130" inputType="text" style="" id="ctrtDocImgSaveFilePath" value="" displayMode="label" hidden="true" textAlign="left"></w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    						<xf:group class="grid-bottom " id="" style="">
+    							<xf:group class="left" id="">
+    								<xf:group class="grid-total" id="">
+    									<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="num" id="spn_totalRow" label="0" style="" tagname="span"></w2:textbox>
+    									<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group class="right" id="" style="">
+    								<w2:udc_bottomGrdBtn style="" gridID="gr_img" id="udc_btGrdBtn" btnRowAddYn="N" rowDelUserAuth="D"
+    									btnDelYn="N" btnCancelYn="Y" btnRowDelYn="Y">
+    								</w2:udc_bottomGrdBtn>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group id="" class="col" style="">
+    					<xf:group style="" id="" class="tbbox mt32">
+    						<xf:group tagname="table" style="height: 100%" id="" class="w2tb tb">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group tagname="col" style="width:120px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" style="">
+    								<xf:group tagname="th" style="" class="w2tb_th">
+    									<w2:textbox ref="" style="" userData2="" id="" label="미리보기 " class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" style="" class="w2tb_td">
+    									
+    									<xf:group class="w-full" id="" style="height:300px;overflow-x: auto;">
+    									<xf:image src="" style="height:300px;display: block;" id="img_preview" class=""></xf:image></xf:group>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" class="file-wrap no-title">
+    						<w2:udc_fileMultiUpload filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf"
+    							maxFileCount="10" style="" totalFileSize="2009715200" maxFileSize="536870912" fileGrpSeq="" id="udc_fileMultiUpload"
+    							ev:onFileUploadDone="scwin.uploadComplete" saveFn="scwin.fileSubmit" subDir="/ds/sd" addButtonName="첨부파일추가"
+    							fileTypeYn="N" saveButtonId="btn_addRow" saveButtonName="업로드">
+    						</w2:udc_fileMultiUpload>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="left" id="" style="">
+    					<xf:trigger class="btn link" id="btn_base" style="" type="button" ev:onclick="scwin.btn_base_onclick">
+    						<xf:label><![CDATA[계약기본정보]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="btn_path" style="" title="" type="button" ev:onclick="scwin.btn_path_onclick">
+    						<xf:label><![CDATA[작업경로]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="btn_rate" style="" title="" type="button" ev:onclick="scwin.btn_rate_onclick">
+    						<xf:label><![CDATA[계약요율]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="btn_disc" style="" title="" type="button" ev:onclick="scwin.btn_disc_onclick">
+    						<xf:label><![CDATA[할인/할증]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn link" id="btn_img" style="" title="" type="button" ev:onclick="scwin.btn_img_onclick">
+    						<xf:label><![CDATA[계약서이미지]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" objType="ctrlBtn" userAuth="U"
+    						ev:onclick="scwin.btn_save_onclick">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn" id="btn_list" label="목록" style="" type="button" ev:onclick="scwin.btn_list_onclick">
+    						<xf:label>목록</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,9222 @@
+/*amd /cm/gcc/gauss.xml 282803 071cfb1e508886d1198bff101bb06dc6ad22a8c291dbd343f1a92fe4ccf31184 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',A:{},E:[{T:1,N:'w2:type',E:[{T:3,text:'COMMON'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:'scwin.cfGetAuthCode,scwin.cfCheckAuth,scwin.cfCheckAuthCREATE,scwin.cfCheckAuthRETRIEVE,scwin.cfCheckAuthUPDATE,scwin.cfCheckAuthDELETE,scwin.cfCheckAuthPRINT,scwin.cfCheckAuthEXCEL,scwin.cfToUpper,scwin.cfToLower,scwin.cfGetSysCdFromPageId,scwin.cfParseFeature,scwin.object,scwin.cfIsNull,scwin.popupParam,scwin.jsonParse,scwin.cfDigitalNumber,scwin.getGropuCompnent,scwin.cfDisableObjects,scwin.cfEnableObjects,scwin.cfEnableObj,scwin.cfDisableElement,scwin.cfEnable,scwin.cfEnableElement,scwin.cfGetCurrentDate,scwin.cfGetElementType,scwin.cfGetByteLength,scwin.cfGetLeftPad,scwin.cfInsertComma,scwin.cfGetFormatStr,scwin.cfAddTempColumn,scwin.cfGetMsg,scwin.cfInitObj,scwin.cfIsEnterKey,scwin.cfIsIn,scwin.cfClearPairObj,scwin.cfCanOpenPopup,scwin.cfGetValue,scwin.cfSetValue,scwin.cfYearsBetween,scwin.cfMonthsBetween,scwin.cfDifferBetween,scwin.clear,scwin.copy,scwin.insertColumn,scwin.cfCopyDataSet,scwin.f_CopyDataRow,scwin.f_GetColumnNames,scwin.f_ClearGridColumn,scwin.f_RedoGridColumn,scwin.f_SetGridColumn,scwin.f_GetGridHidden,scwin.f_CanGridPopup,scwin.f_SetGridReturnValue,scwin.isInArray,scwin.ascii,scwin.right,scwin.f_cntrCheckDigit,scwin.f_addSelectList,scwin.f_cfAlertMsg,scwin.cfShowError,scwin.cfProgressWinOpen,scwin.cfProgressWinClose,scwin.cfConvert2Weight,scwin.cfCheckCrnBusiCls,scwin.cfisEnglish,scwin.cfisEnglishCnt,scwin.cfisNumberCnt,scwin.cfnumChainChk,scwin.cfSmsTelValidChk,scwin.isMandatory,scwin.cfRefreshMandSign,scwin.cfTurnCreateFlag,scwin.cfCheckCreateFlag,scwin.cfLimitByteLength,scwin.cfIsAfterDate,scwin.cfEnableAllBtn,scwin.cfDisableAllBtn,scwin.cfDisableBtn,scwin.cfDisableBtnOnly,scwin.cfEnableBtnOnly,scwin.cfEnableKeyData,scwin.cfDisableKeyData,scwin.cfCheckExchRt,scwin.cfCopyDataSetHeader,scwin.cfDisable,scwin.cfValidateMaxByteLength,scwin.cfUndoGridRows,scwin.cfGrdHeiht,scwin.cfGrdWidth,scwin.cfGoPrevPosition,scwin.cfDelHistoryAll,scwin.cfDelOption,scwin.cfHistoryExist,scwin.JsMap,scwin.putMapValue,scwin.getMapValue,scwin.coMap,scwin.coParameterMap,scwin.cfInitHidVal,scwin.cfInitObjects,scwin.help_block,scwin.isNum,scwin.cfShowCrnInfo,scwin.cfViewClntInfo,scwin.cfShowSlipInfo,scwin.cfValidate,scwin.cfValidateItem,scwin.cfValidateGrid,scwin.cfCopyRecord,scwin.cfGetHiddenValue,scwin.cfSetHiddenValue,scwin.cfDisableKey,scwin.cfSetReturnValue,scwin.cfSetGridReturnValue,scwin.cfPrepareHidVal,scwin.cfPrepareObjectHidVal,scwin.cfValidateElement,scwin.cfGuardAsyncRowPositionChange,scwin.cfGetFileURL,scwin.cfGetTargetFileURL,scwin.파일이 있는지 체크하기 위해 DFileDownload 호출 시 request받을 수 있도록 셋팅,scwin.cfDownloadFile,scwin.cfAlertMsg,scwin.cfShowHelp,scwin.decode,scwin.BatchProcessItem,scwin.BatchProcess,scwin.OZStartBatch,scwin.OZClearBatch,scwin.OZExecuteBatch,scwin.OZExecuteNextBatchProcess,scwin.cfCallReportFile,scwin.cfSetCallBackParameter,scwin.cfGetNoCacheOzParamURL,scwin.cfGetOzViewerAction,scwin.cfGetOzViewerParam,scwin.cfGetOZParameterValues,scwin.cfOZReport,scwin.ViewerParam,scwin.cfOZPreview,scwin.cfOZPrint,scwin.MultiODIParam,scwin.ODIParam,scwin.FormParam,scwin.cfOZExport,scwin.cfOZEmbed,scwin.cfOZEmbedPreview,scwin.cfGetEmbedOZViewerID,scwin.cfOZEmbedScript,scwin.cfOZEmbedPrint,scwin.cfOZEmbedExport,scwin.cfFillPageInfo,scwin.getctrlBtn,scwin.cf_CopyDataSetValue,scwin.cf_CopyDataSetValue,scwin.cf_AllowCharLength,scwin.Encrypt,scwin.Decrypt,scwin.dsCommonUtil,scwin.gauceUtil,scwin.getFrm,scwin.cfChangeCdNmFormat,scwin.getValue161,scwin.parseDtoLog,scwin.setValidExp'}},{T:1,N:'script',A:{type:'text/javascript',lazy:'false'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){/**
+ * @component
+ * @componentName udc_gauss
+ * @pluginName
+ * @company
+ * @developer
+ * @category /cm/gcc
+ * @notSupportBrowser
+ * @version
+ * @htmlRender
+ * @icon
+ * @disableIcon
+ * @description
+ * @width
+ * @height
+ * @license
+ * @imagePath
+ * @homepage
+ */
+/* AS-IS 함수 관련 */
+
+scwin.onpageload = function ($p) {};
+scwin.cfDownloadFile = async function ($p, fileName, filePath) {
+  if ($c.util.isEmpty($p, filePath)) {
+    $c.win.alert($p, "대상 파일이 NULL입니다. 설정값을 확인하세요.");
+    return;
+  }
+  try {
+    const response = await fetch(scwin.buildDownloadRequestURL($p, fileName, filePath, "DOWN"));
+    if (response.status === 404) {
+      $c.win.alert($p, "해당 파일[" + filePath + "]이 존재하지 않습니다.");
+      return;
+    }
+    if (response.status === 500) {
+      $c.win.alert($p, "서버 오류입니다.");
+      return;
+    }
+    if (!response.ok) {
+      $c.win.alert($p, "파일 다운로드 중 오류가 발생했습니다.");
+      return;
+    }
+    const result = await response.json();
+    if (!result.downloadUrl) {
+      $c.win.alert($p, "다운로드 URL 생성에 실패했습니다.");
+      return;
+    }
+    window.location.href = result.downloadUrl;
+  } catch (e) {
+    console.error(e);
+    $c.win.alert($p, "다운로드 처리 중 예외가 발생했습니다.");
+  }
+};
+
+/**
+ * @method
+ * @name cfGetAuthCode
+ * @description 권한 코드  정보를 반환한다.
+ * @param {string} param1 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ * $c.gus.cfGetAuthCode(authStr)
+ */
+scwin.cfGetAuthCode = function ($p, authStr) {
+  if (authStr == "C") return 40;else if (authStr == "D") return 30;else if (authStr == "U") return 20;else if (authStr == "R") return 10;else return 100;
+};
+
+/**
+ * @method
+ * @name cfCheckAuth
+ * @description 해당 권한을 가지고 있는지 여부를  반환한다. userAuth에 ":"으로 분리되어 설정된 모든 권한이 있을 경우에만 true를 리턴한다.
+ * @param {string} baseAuth desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuth(baseAuth)
+ */
+scwin.cfCheckAuth = function ($p, baseAuth) {
+  let isAuth = true;
+  let auths = baseAuth.split(":");
+  let checkFlag = 0;
+  let frame = scwin.getFrm($p);
+  // let frame = $p.getFrame();
+
+  if (location.host.indexOf("ebiz.") == -1 && $p.top().$p.isPopup() && !$p.top().$p.isWFramePopup()) {
+    frame = WebSquare.getBody();
+  }
+  for (var i = 0; i < auths.length; i++) {
+    switch (auths[i]) {
+      // 프린트
+      case 'P':
+        isAuth = scwin.cfCheckAuthPRINT($p, frame);
+        break;
+      // 엑셀 다운로드
+      case 'X':
+        isAuth = scwin.cfCheckAuthEXCEL($p, frame);
+        break;
+      // CRUD
+      case 'C':
+        isAuth = scwin.cfCheckAuthCREATE($p, frame);
+        break;
+      case 'R':
+        isAuth = scwin.cfCheckAuthRETRIEVE($p, frame);
+        break;
+      case 'U':
+        isAuth = scwin.cfCheckAuthUPDATE($p, frame);
+        break;
+      case 'D':
+        isAuth = scwin.cfCheckAuthDELETE($p, frame);
+        break;
+      default:
+        alert("'" + auths[i] + "'는 정의되지 않은 권한코드입니다");
+        isAuth = false;
+        break;
+    }
+    if (isAuth == true) {
+      checkFlag = checkFlag + 1;
+    }
+    if (auths.length == 1 && isAuth == false) {
+      return false;
+    }
+  } // end for
+
+  if (auths.length > 1 && checkFlag > 0) {
+    return true;
+  } else if (auths.length > 1 && checkFlag == 0) {
+    return false;
+  }
+  return true;
+};
+
+/**
+ * @method
+ * @name cfCheckAuthCREATE
+ * @description 생성 CREATE  권한을 가지고 있는지 여부를  반환한다
+ * @param {object} frm desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuthCREATE(v)
+ */
+scwin.cfCheckAuthCREATE = function ($p, v) {
+  if (v.CREATE_AUTH == "C") return true;else return false;
+};
+
+/**
+ * @method
+ * @name cfCheckAuthRETRIEVE
+ * @description 조회  RETRIEVE  권한을 가지고 있는지 여부를  반환한다.
+ * @param {object} frm desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuthRETRIEVE(v)
+ */
+scwin.cfCheckAuthRETRIEVE = function ($p, v) {
+  if (v.RETRIEVE_AUTH == "R") return true;else return false;
+};
+
+/**
+ * @method
+ * @name cfCheckAuthUPDATE
+ * @description 수정 UPDATE  권한을 가지고 있는지 여부를  반환한다.
+ * @param {object} frm desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuthUPDATE(v)
+ */
+scwin.cfCheckAuthUPDATE = function ($p, v) {
+  if (v.UPDATE_AUTH == "U") return true;else return false;
+};
+
+/**
+ * @method
+ * @name cfCheckAuthDELETE
+ * @description 삭제  DELETE  권한을 가지고 있는지 여부를  반환한다.
+ * @param {object} frm desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuthDELETE()
+ */
+scwin.cfCheckAuthDELETE = function ($p, v) {
+  if (v.DELETE_AUTH == "D") return true;else return false;
+};
+
+/**
+ * @method
+ * @name cfCheckAuthPRINT
+ * @description 출력 PRINT  권한을 가지고 있는지 여부를  반환한다.
+ * @param {object} frm desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuthPRINT()
+ */
+scwin.cfCheckAuthPRINT = function ($p, v) {
+  if (v.PRINT_AUTH == "P") return true;else return false;
+};
+
+/**
+ * @method
+ * @name cfCheckAuthEXCEL
+ * @description 엑셀 다운로드 권한을 가지고 있는지 여부를  반환한다.
+ * @param {object} frm desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCheckAuthEXCEL()
+ */
+scwin.cfCheckAuthEXCEL = function ($p, v) {
+  if (v.EXCEL_AUTH == "X") return true;else return false;
+};
+
+/**
+ * @method
+ * @name cfToUpper
+ * @description 입력된 영문 중 소문자를 대문자로 변경해 주는 함수
+ * @param {string} inputObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfToUpper(inputObj)
+ */
+scwin.cfToUpper = function ($p, inputObj) {
+  inputObj.setValue(inputObj.getValue().toUpperCase());
+};
+
+/**
+ * @method
+ * @name cfToLower
+ * @description 입력된 영문 중 대문자를 소문자로 변경해 주는 함수
+ * @param {string} inputObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfToLower(cfToLower)
+ */
+scwin.cfToLower = function ($p, inputObj) {
+  inputObj.setValue(inputObj.getValue().toLowerCase());
+};
+
+/**
+ * @method
+ * @name cfGetSysCdFromPageId
+ * @description 화면의 페이지 id로부터 시스템 코드 세자리를 알려준다.
+ * @param {string} pageId desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetSysCdFromPageId()
+ */
+scwin.cfGetSysCdFromPageId = function ($p, pageId) {
+  switch (pageId.substr(0, 3)) {
+    case "cgu":
+      return "cms";
+      break;
+    case "cgv":
+      return "cms";
+      break;
+    case "chg":
+      return "cms";
+      break;
+    case "cju":
+      return "cms";
+      break;
+    case "cjw":
+      return "cms";
+      break;
+    case "ckj":
+      return "cms";
+      break;
+    case "ctg":
+      return "cms";
+      break;
+    case "ibn":
+      return "ici";
+      break;
+    case "icm":
+      return "ici";
+      break;
+    case "iom":
+      return "ici";
+      break;
+    case "ipm":
+      return "ici";
+      break;
+    case "iam":
+      return "iim";
+      break;
+    case "idm":
+      return "iim";
+      break;
+    case "ism":
+      return "iim";
+      break;
+    case "obm":
+      return "oom";
+      break;
+    case "ocs":
+      return "oom";
+      break;
+    case "oor":
+      return "oom";
+      break;
+    case "oos":
+      return "oom";
+      break;
+    case "oqr":
+      return "oom";
+      break;
+    case "oqs":
+      return "oom";
+      break;
+    case "ovs":
+      return "oom";
+      break;
+    case "obv":
+      return "oop";
+      break;
+    case "oep":
+      return "oop";
+      break;
+    case "omp":
+      return "oop";
+      break;
+    case "rcc":
+      return "rrw";
+      break;
+    case "rct":
+      return "rrw";
+      break;
+    case "rnh":
+      return "rrw";
+      break;
+    case "rrw":
+      return "rrw";
+      break;
+    case "rst":
+      return "rrw";
+      break;
+    case "rcl":
+      return "rsm";
+      break;
+    case "rfd":
+      return "rsm";
+      break;
+    case "rrd":
+      return "rsm";
+      break;
+    case "rsl":
+      return "rsm";
+      break;
+    case "sam":
+      return "sam";
+      break;
+    case "tip":
+      return "tip";
+      break;
+    case "trm":
+      return "trm";
+      break;
+    case "ttm":
+      return "ttm";
+      break;
+    case "ttr":
+      return "ttr";
+      break;
+  }
+  return null;
+};
+
+/**
+ * @method
+ * @name cfParseFeature
+ * @description features 스트링을 파싱하여 array에 셋팅하는 내부 함수
+ * @param {string} features features를 표현한 스트링
+ * @param {string} fNameArray 추출해야 할 feature의 이름에 대한 array
+ * @param {string} fValueArray 추출해야 할 feature의 기본값에 대한 array
+ * @param {string} fTypeArray 추출해야 할 feature의 데이터타입에 대한 array
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfParseFeature = function ($p, features, fNameArray, fValueArray, fTypeArray) {
+  cfParseFeature(features, fNameArray, fValueArray, fTypeArray);
+  /*
+  if (features == null) {
+  return;
+  }
+  var featureArray = features.split(",");
+  var featurePair;
+  for (var i = 0; i < featureArray.length; i++) {
+  featurePair = featureArray[i].trim().split("=");
+  for (var j = 0; j < fNameArray.length; j++) {
+  if (featurePair[0] == fNameArray[j]) {
+  switch (fTypeArray[j]) {
+  	case "string" :
+  		fValueArray[j] = featurePair[1];
+  		break;
+  	case "number" :
+  		fValueArray[j] = Number(featurePair[1]);
+  		break;
+  	case "boolean" :
+  		if (featurePair[1].toUpperCase() == "YES" || featurePair[1].toUpperCase() == "TRUE" || featurePair[1] == "1") {
+  			fValueArray[j] = true;
+  		} else {
+  			fValueArray[j] = false;
+  		}
+  		break;
+  }
+  }
+  }
+  }
+  */
+};
+
+/**
+ * @method
+ * @name object
+ * @description 입력된 문자열을 이용해 현재위치에서 해당 Object를 검색하여 Return 하는 Basic API
+ * @param {string} strCompId 검색하고자 하는 ObjectID
+ * @param {string} scope 검색하고자 하는 Scope Object
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.object(Button.id);
+ */
+scwin.object = function ($p, strCompId, scope) {
+  try {
+    var objComp = null;
+    if (Object.prototype.toString.call(strCompId).indexOf("String") < 0) {
+      objComp = strCompId;
+    }
+    if ($c.gus.cfIsNull($p, objComp)) {
+      if ($c.gus.cfIsNull($p, scope)) {
+        objComp = $p.getComponentById(strCompId);
+      } else {
+        objComp = scope.getComponentById(strCompId);
+      }
+    }
+    return objComp;
+  } catch (e) {
+    $p.log("[$c.gus.object] Exception :: " + e);
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name cfIsNull
+ * @description Null 체크용 함수
+ * @param {string} value desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfIsNull("test");
+ */
+scwin.cfIsNull = function ($p, value) {
+  if (value == null || typeof value == "string" && value.trim() == "") {
+    return true;
+  }
+  return false;
+};
+
+/**
+ * @method
+ * @name popupParam
+ * @description 팝업화면의 파라메터를 정의하는 API
+ * @param {string} paramId 파라메터id
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.popupParam(paramId);
+ */
+scwin.popupParam = function ($p, paramId) {
+  try {
+    var returnValue = null;
+    if ($c.win.isPopup($p)) {
+      requires("uiplugin.popup");
+      var paramJSON = $c.gus.jsonParse($p, $p.getPopupParam());
+      if (typeof paramId !== "undefined") {
+        returnValue = typeof paramJSON[paramId] != "undefined" ? paramJSON[paramId] : "";
+      } else {
+        returnValue = paramJSON;
+      }
+      returnValue["popupID"] = $p.getParameter("popupID");
+      returnValue["parentObj"] = opener || parent;
+    }
+    return returnValue;
+  } catch (e) {
+    $p.log("[$c.gus.popupParam] Exception :: " + e);
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name jsonParse
+ * @description json 형식의 string 문자열을 JSON Object로 변환해서 반환합니다.
+ * @param {string} str JSON 형식의 문자열.
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.jsonParse(str)
+ */
+scwin.jsonParse = function ($p, str) {
+  try {
+    if (typeof str !== "string") {
+      return null;
+    }
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      return null;
+    }
+  } catch (e) {
+    $p.log("[$c.gus.jsonParse] Exception :: " + e);
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name cfDigitalNumber
+ * @description 자바스크립트의 숫자 앞에 지정된 자릿수만큼 zero character 를 삽입한다.
+ * @param {string} length desc
+ * @param {string} number desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfDigitalNumber(length, number)
+ */
+scwin.cfDigitalNumber = function ($p, length, number) {
+  var numStr = number + "";
+  var zeroChars = "";
+  for (var i = 0; i < length - number.length; i++) {
+    zeroChars = zeroChars + "0";
+  }
+  return zeroChars + numStr;
+};
+
+/**
+ * @method
+ * @name getGropuCompnent
+ * @description group에 있는 컴포넌트를 배열로 가져온다..
+ * @param {Object} group 컴포넌트
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.getGropuCompnent(obj)
+ */
+scwin.getGropuCompnent = function ($p, obj) {
+  return $c.util.getChildren($p, obj, {
+    excludePlugin: "body calendar textbox output image span trigger anchor",
+    recursive: true
+  });
+};
+
+/**
+ * @method
+ * @name cfDisableObjects
+ * @description element 들을 disable 시킨다.
+ * @param {object} obj disable 하고자 하는 오브젝트 배열 또는 그룹
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfDisableObjects(obj)
+ */
+scwin.cfDisableObjects = function ($p, obj) {
+  if ($c.gus.cfIsNull($p, obj)) {
+    return;
+  }
+  let objArr = obj;
+  if (!(Object.prototype.toString.call(obj) === "[object Array]")) {
+    objArr = scwin.getGropuCompnent($p, obj);
+  }
+
+  // 오브젝트 배열
+  if (objArr.length > 0) {
+    for (var i = 0; i < objArr.length; i++) {
+      scwin.cfEnableObj($p, objArr[i], false);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnableObjects
+ * @description element를 enable 시킨다.
+ * @param {object} obj disable 하고자 하는 오브젝트 배열 또는 그룹
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfEnableObjects(obj)
+ */
+scwin.cfEnableObjects = function ($p, obj) {
+  if ($c.gus.cfIsNull($p, obj)) {
+    return;
+  }
+  let objArr = obj;
+  if (!(Object.prototype.toString.call(obj) === "[object Array]")) {
+    objArr = scwin.getGropuCompnent($p, obj);
+  }
+
+  // 오브젝트 배열
+  if (objArr.length > 0) {
+    for (var i = 0; i < objArr.length; i++) {
+      scwin.cfEnableObj($p, objArr[i], true);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnableObj
+ * @description Object를 status 변수에 따라 enable하거나 disable 상태로 변경한다.
+ * @param {string} ObjectItem 상태변경 대상 오브젝트
+ * @param {string} Status 목표상태
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfEnableObj(ObjectItem, Status)
+ */
+scwin.cfEnableObj = function ($p, ObjectItem, Status) {
+  let obj = $c.gus.object($p, ObjectItem);
+  if (obj) {
+    // 권한이 없으면 enable 수행 안 함
+    if (Status == true && obj.options && typeof obj.options.userAuth !== "undefined" && scwin.cfCheckAuth($p, obj.options.userAuth) == false) {
+      return;
+    }
+    if (!Status) {
+      obj.setDisabled(true);
+    } else {
+      obj.setDisabled(false);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfDisableElement
+ * @description readOnly로 바꾼다.
+ * @param {string} oElement desc
+ * @param {string} param2 argArr
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfDisableElement
+ */
+scwin.cfDisableElement = function ($p, oElement, param2) {
+  let obj = $c.gus.object($p, oElement);
+  if (obj) {
+    switch (obj.getPluginName()) {
+      case "anchor":
+      case "trigger":
+      case "button":
+      case "radio":
+      case "checkbox":
+      case "selectBox":
+      case "autoComplete":
+        obj.setDisabled(true);
+        break;
+      case "input":
+      case "secret":
+      case "editor":
+      case "textarea":
+      case "inputCalendar":
+        obj.setReadOnly(true);
+        break;
+      default:
+        obj.setDisabled(true);
+        break;
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnable
+ * @description element를 enable 시킨다.
+ * @param {string} obj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfEnable(obj)
+ */
+scwin.cfEnable = function ($p, oElement) {
+  let obj = $c.gus.object($p, oElement);
+  if (obj.length != null) {
+    for (var i = 0; i < obj.length; i++) {
+      $c.gus.cfEnableObj($p, obj[i], true);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnableElement
+ * @description desc
+ * @param {string} oElement desc
+ * @param {string} argArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfEnableElement(oElement,argArr)
+ */
+scwin.cfEnableElement = function ($p, oElement, argArr) {
+  let obj = $c.gus.object($p, oElement);
+  $c.gus.cfEnableObj($p, obj, true);
+};
+
+/**
+ * @method
+ * @name cfGetCurrentDate
+ * @description 서버에서 현재시간을 읽어와서 자바스크립트의 Date 오브젝트로 변환한다.
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetCurrentDate()
+ */
+scwin.cfGetCurrentDate = function ($p) {
+  return $c.date.getServerDateTime($p, "yyyy-MM-dd HH:mm:ss");
+};
+
+/**
+ * @method
+ * @name cfGetElementType
+ * @description Element의 type을 알려준다
+ * @param {string} oElement desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetElementType(oElement)
+ */
+scwin.cfGetElementType = function ($p, oElement) {
+  let obj = $c.gus.object($p, oElement);
+  return obj.getPluginName();
+};
+
+/**
+ * @method
+ * @name cfGetByteLength
+ * @description 스트링의 자릿수를 Byte 단위로 환산하여 알려준다
+ * @param {string} value desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetByteLength(value)
+ */
+scwin.cfGetByteLength = function ($p, value) {
+  return $c.str.getByteLength($p, value);
+};
+
+/**
+ * @method
+ * @name cfGetLeftPad
+ * @description 자릿수가 고정되어 있는 필드에서 입력값의 길이가 작을 경우, 입력값의 앞을 지정된 문자로 채워서 리턴
+ * @param {string} str desc
+ * @param {string} resultLen desc
+ * @param {string} fillerChar desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetLeftPad(str, resultLen, fillerChar)
+ */
+scwin.cfGetLeftPad = function ($p, str, resultLen, fillerChar) {
+  if ($c.gus.cfIsNull($p, str)) {
+    return str;
+  }
+  return $c.str.lpad($p, str, resultLen, fillerChar);
+};
+
+/**
+ * @method
+ * @name cfInsertComma
+ * @description 숫자로 이루어진 문자열을 3자리마다 콤마를 넣은 문자열로 변환해 리턴
+ * @param {string} num desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfInsertComma(num)
+ */
+scwin.cfInsertComma = function ($p, num) {
+  return $c.num.formatNumber($p, num);
+};
+
+/**
+ * @method
+ * @name cfGetFormatStr
+ * @description 문자열을 원하는 포맷의 문자열로 변환해서 리턴
+ * @param {string} str desc
+ * @param {string} formatStr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetFormatStr("20050920", "####/##/##")
+ */
+scwin.cfGetFormatStr = function ($p, str, formatStr) {
+  var newStr = "";
+  for (i = 0, j = 0; i < formatStr.length; i++) {
+    if (formatStr.charAt(i) == "#") {
+      newStr += str.charAt(j++);
+    } else {
+      newStr += formatStr.charAt(i);
+    }
+  }
+
+  // 포맷보다 긴 문자열이 들어왔을 때 남은 문자를 뒤에 모두 붙여 준다
+  for (; j < str.length; j++) {
+    newStr += str.charAt(j);
+  }
+  return newStr;
+};
+
+/**
+ * @method
+ * @name cfAddTempColumn
+ * @description 컬럼을 추가할 데이타셋
+ * @param {string} ds 데이터리스트
+ * @param {string} colId 추가할 컬럼의 아이디
+ * @param {string} options 옵션값
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfAddTempColumn("dataList1", "test1", {"name":"컬럼1", "dataType":"text"});
+ */
+scwin.cfAddTempColumn = function ($p, ds, colId, options) {
+  $c.gus.insertColumn($p, ds, colId, options);
+};
+
+/**
+ * @method
+ * @name cfGetMsg
+ * @description 공통메세지에 정의된 메세지를 리턴
+ * @param {string} msgId desc
+ * @param {string} paramArray desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetMsg(MSG_CM_INF_003);
+ */
+scwin.cfGetMsg = function ($p, msgId, paramArray) {
+  return $c.data.getMessage($p, msgId, paramArray);
+};
+
+/**
+ * @method
+ * @name cfInitObj
+ * @description Object를 초기화한다.
+ * @param {string} obj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfInitObj(obj)
+ */
+scwin.cfInitObj = function ($p, inObj) {
+  let obj = $c.gus.object($p, inObj);
+  switch (obj.getPluginName()) {
+    case "selectBox":
+    case "autoComplete":
+      obj.setSelectedIndex(0);
+      break;
+    default:
+      obj.setValue("");
+      break;
+  }
+};
+
+/**
+ * @method
+ * @name cfIsEnterKey
+ * @description 사용자가 누른 key가 enter key 인지 여부를 알려준다.
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfIsEnterKey()
+ */
+scwin.cfIsEnterKey = function ($p) {
+  if (event.keyCode == 13) {
+    return true;
+  }
+  return false;
+};
+
+/**
+ * @method
+ * @name cfIsIn
+ * @description 값이 지정된 그룹내에 존재하는지를 알려준다
+ * @param {string} value desc
+ * @param {string} valueArray desc
+ * @param {string} param3 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfIsIn(3, [4, 5, 6])
+ */
+scwin.cfIsIn = function ($p, value, valueArray) {
+  for (var i = 0; i < valueArray.length; i++) {
+    if (value == valueArray[i]) {
+      return true;
+    }
+  }
+  return false;
+};
+
+/**
+ * @method
+ * @name cfClearPairObj
+ * @description pairObj의 값을 지운다
+ * @param {string} oElement desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfClearPairObj(pairObj)
+ */
+scwin.cfClearPairObj = function ($p, oElement) {
+  if (oElement == null) {
+    return;
+  }
+  let obj = $c.gus.object($p, oElement);
+  if (obj.getPluginName() == "input") {
+    obj.setValue("");
+  }
+};
+
+/**
+ * @method
+ * @name cfCanOpenPopup
+ * @description 팝업을 띄울 수 있는지 오브젝트를 검사한다.
+ * @param {string} inObj desc
+ * @param {string} pairObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCanOpenPopup(inObj, pairObj)
+ */
+scwin.cfCanOpenPopup = function ($p, inObj, pairObj) {
+  try {
+    let obj = $c.gus.object($p, inObj);
+    if (scwin.cfGetValue($p, obj) == "") {
+      scwin.cfClearPairObj($p, inObj);
+      scwin.cfClearPairObj($p, pairObj);
+      if (inObj.options.hidVal != null) inObj.options.hidVal = "";
+      if (pairObj.options.hidVal != null) pairObj.options.hidVal = "";
+      return false;
+    }
+    if (scwin.cfGetElementType($p, inObj) == "input") {
+      if (inObj.getReadOnly() || inObj.getDisabled() || scwin.cfGetValue($p, inObj) + scwin.cfGetValue($p, pairObj) == scwin.cfGetHiddenValue($p, inObj) + scwin.cfGetHiddenValue($p, pairObj)) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  } catch (e) {
+    console.log("cfCanOpenPopup::" + e);
+  }
+};
+
+/**
+ * @method
+ * @name cfGetValue
+ * @description inObj의 값을 얻는다.
+ * @param {string} inObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfGetValue(inObj)
+ */
+scwin.cfGetValue = function ($p, inObj) {
+  if (inObj == null) return "";
+  let obj = $c.gus.object($p, inObj);
+  return obj.getValue();
+};
+
+/**
+ * @method
+ * @name cfSetValue
+ * @description obj값을 셋팅한다
+ * @param {string} inObj desc
+ * @param {string} newVal desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfSetValue(inObj, newVal)
+ */
+scwin.cfSetValue = function ($p, inObj, newVal) {
+  let obj = $c.gus.object($p, inObj);
+  if (!$c.util.isEmpty($p, obj) && !$c.gus.cfIsNull($p, newVal)) {
+    return obj.setValue(newVal);
+  }
+};
+
+/**
+ * @method
+ * @name cfYearsBetween
+ * @description 두 날짜 사이의 차이를 '년' 단위로 계산해 리턴한다
+ * @param {string} sDate desc
+ * @param {string} eDate desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfYearsBetween("20050201".toDate(), "20060205".toDate()) ==> 1을 리턴한다
+ */
+scwin.cfYearsBetween = function ($p, sDate, eDate) {
+  return eDate.getFullYear() - sDate.getFullYear();
+};
+
+/**
+ * @method
+ * @name cfMonthsBetween
+ * @description 두 날짜 사이의 차이를 '월' 단위로 계산해 리턴한다
+ * @param {string} sDate desc
+ * @param {string} eDate desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfMonthsBetween("20050221".toDate(), "20050305".toDate()) ==> 1을 리턴한다
+ */
+scwin.cfMonthsBetween = function ($p, sDate, eDate) {
+  return (eDate.getFullYear() - sDate.getFullYear()) * 12 + (eDate.getMonth() - sDate.getMonth());
+};
+
+/**
+ * @method
+ * @name cfDifferBetween
+ * @description 두 날짜 사이의 차이를 '년', '월', '일' 단위로 계산해 객체에 담아 리턴한다
+ * @param {string} sDateStr desc
+ * @param {string} eDateStr desc
+ * @param {string} dateFormat desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example var oDiff = $c.gus.cfDifferBetween("20040201", "20050805");
+ * $c.win.alert(oDiff.year + "," + oDiff.month + "," + oDiff.date); // 1,6,4
+ */
+scwin.cfDifferBetween = async function ($p, sDateStr, eDateStr, dateFormat) {
+  sDateStr = sDateStr.trim();
+  eDateStr = eDateStr.trim();
+
+  // default 날짜 포맷
+  if (dateFormat == null) {
+    dateFormat = "YYYYMMDD";
+  }
+
+  // 입력된 날짜의 validation 체크
+  if (!$c.date.isDate($p, sDateStr)) {
+    await $c.win.alert($p, "시작일자는 '" + dateFormat + "' 형식이어야 합니다.");
+    return;
+  }
+  if (!$c.date.isDate($p, eDateStr)) {
+    await $c.win.alert($p, "종료일자는 '" + dateFormat + "' 형식이어야 합니다.");
+    return;
+  }
+
+  // String을 Date 객체로 변환
+  var startDate = sDateStr.toDate(dateFormat);
+  var endDate = eDateStr.toDate(dateFormat);
+
+  // 종료일자가 시작일자 이후인지 확인
+  if (startDate > endDate) {
+    await $c.win.alert($p, MSG_CM_ERR_039);
+    return;
+  }
+
+  // 시작일자 정보
+  var sYear = startDate.getFullYear();
+  var sMonth = startDate.getMonth();
+  var sDate = startDate.getDate();
+
+  // 종료일자 정보
+  var eYear = endDate.getFullYear();
+  var eMonth = endDate.getMonth();
+  var eDate = endDate.getDate();
+
+  // 날짜 차이를 저장할 객체
+  var diffDate = new Object();
+
+  // 년도 차이
+  diffDate.year = eYear - sYear;
+  // 월 차이
+  if (eMonth - sMonth < 0) {
+    diffDate.year = diffDate.year - 1;
+    diffDate.month = eMonth - sMonth + 12;
+  } else {
+    diffDate.month = eMonth - sMonth;
+  }
+
+  // 일자 차이
+  if (eDate - sDate < 0) {
+    diffDate.month = diffDate.month - 1;
+    startDate = eDateStr.toDate(dateFormat);
+    startDate.setMonth(eMonth - 1);
+    startDate.setDate(sDate);
+    diffDate.date = (endDate - startDate) / 1000 / 60 / 60 / 24;
+  } else {
+    diffDate.date = eDate - sDate;
+  }
+  return diffDate;
+};
+
+/**
+ * @method
+ * @name clear
+ * @description Dataset의 Column 정보와 Row 를 모두 삭제하는 API
+ * @param {string} dataId 정보를 모두 삭제할 dataList
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.clear(dataId);
+ */
+scwin.clear = function ($p, dataId) {
+  try {
+    var dataComp = $c.gus.object($p, dataId);
+    var rowCnt = 0;
+    if (typeof dataComp != "undefined" && dataComp.initializeType == "dataList") {
+      rowCnt = dataComp.getRowCount();
+      dataComp.removeAll();
+      var colCnt = dataComp.getTotalCol();
+      for (var i = colCnt - 1; i >= 0; i--) {
+        var colId = dataComp.getColumnID(i);
+        dataComp.removeColumn(colId);
+      }
+      dataComp.reform();
+    }
+    return rowCnt;
+  } catch (e) {
+    $p.log("[$c.gus.clear] Exception :: " + e);
+    return 0;
+  }
+};
+
+/**
+ * @method
+ * @name copy
+ * @description 데이터 리스트를 복사한다
+ * @param {string} sourceObj copy 할 데이터셋 (originData)
+ * @param {string} targetObj copy 대상 데이터셋 (Target)
+ * @param {string} isStatusCopy rowStatus정보 copy여부
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.copy(orgDs, copyDs); // result copy 성공 여부. [-1 : copy 실패 , 1 : copy 성공]
+ * @example $c.gus.copy(orgDs, copyDs, true); // result copy 성공 여부. [-1 : copy 실패 , 1 : copy 성공]
+ */
+scwin.copy = function ($p, sourceObj, targetObj, isStatusCopy, opts) {
+  try {
+    var result = null;
+    var opts = opts || {};
+    let copyHeader = opts.copyHeader || true,
+      rowFrom = opts.rowFrom || "",
+      rowCnt = opts.rowCnt || "";
+    if (typeof targetObj === "undefined" || targetObj == null || targetObj == "") {
+      return result;
+    }
+    if (typeof sourceObj === "undefined" || sourceObj == null || sourceObj == "") {
+      return result;
+    }
+    var copiedObj = null; //최종  객체
+    var copiedDs = null; //최종 DS 객체
+
+    var copyObj = null; //원본 객체
+    var copyDs = null; //원본 DS 객체
+
+    var pWin = null; //parent window
+    var isParent = false;
+
+    //parent객체를 참조해야 하는 경우
+    if (typeof targetObj == "string" && targetObj.indexOf("parent") > -1 || typeof sourceObj == "string" && sourceObj.indexOf("parent") > -1) {
+      var parentParam = $c.gus.popupParam($p);
+    }
+
+    //Ds객체 정보가 id값으로 넘어온 경우
+    if (typeof targetObj == "string") {
+      var copyParams = targetObj.split(".");
+
+      //최종객체 찾기 
+      if (copyParams.length == 1) {
+        //자기자신인 경우
+        copiedObj = $c.gus.object($p, copyParams[0]);
+        if (typeof copiedObj === "undefined") {
+          copiedObj = $c.data.createDataList($p, copyParams[0]);
+        }
+      } else if (copyParams[0] == "parent") {
+        //부모창을 바라보는 경우
+        isParent = true;
+        copiedObj = pWin.$c.gus.object(pWin.$p, copyParams[1]);
+        for (var i = 2; i < copyParams.length; i++) {
+          copiedObj = copiedObj.getObj(copyParams[i]);
+        }
+      } else if (copyParams[0] != "parent") {
+        //부모창을 바라보지 않는 경우(wframe)
+        copiedObj = $c.gus.object($p, copyParams[0]);
+        for (var i = 1; i < copyParams.length; i++) {
+          copiedObj = copiedObj.getObj(copyParams[i]);
+        }
+      }
+    } else {
+      //DS객체로 넘어온 경우
+      copiedObj = targetObj;
+    }
+    //객체를 찾지 못한 경우
+    if (typeof copiedObj === "undefined" || copiedObj == null || copiedObj == "") {
+      return -1;
+    }
+    //Ds객체 정보가 id값으로 넘어온 경우
+    if (typeof sourceObj == "string") {
+      var oriParams = sourceObj.split(".");
+
+      //원본객체 찾기 
+      if (oriParams.length == 1) {
+        //자기자신인 경우
+        copyObj = $c.gus.object($p, oriParams[0]);
+      } else if (oriParams[0] == "parent") {
+        //부모창을 바라보는 경우
+        copyObj = parent.$c.gus.object(parent.$p, oriParams[1]);
+        for (var i = 2; i < oriParams.length; i++) {
+          copyObj = copyObj.getObj(oriParams[i]);
+        }
+      } else if (oriParams[0] != "parent") {
+        copyObj = $c.gus.object($p, oriParams[0]);
+        for (var i = 1; i < oriParams.length; i++) {
+          copyObj = copyObj.getObj(oriParams[i]);
+        }
+      }
+    } else {
+      //DS객체로 넘어온 경우
+      copyObj = sourceObj;
+    }
+    if (typeof copyObj === "undefined" || copyObj == null || copyObj == "") {
+      // return -1;
+      $c.data.createDataList($p);
+    }
+
+    //ds객체 
+    copiedDs = copiedObj;
+    copyDs = copyObj;
+
+    //컬럼제거
+    var copiedDsColArr = copiedDs.cellIdList;
+    if (copiedDsColArr.length > 0 && copyHeader) {
+      // copyHeader = true 일 경우만
+      $c.gus.clear($p, copiedDs);
+    }
+    var copyDsInfo = copyDs.getInfo();
+    var jsonData = "";
+    if (rowFrom != "" && rowCnt != "") {
+      let f = parseInt(rowFrom),
+        t = f + parseInt(rowCnt) - 1;
+      jsonData = copyDs.getRangeJSON(f, t);
+    } else {
+      jsonData = copyDs.getAllJSON();
+    }
+    var copyDsJsonData = "";
+    if ($c.util.isJSON($p, jsonData)) {
+      var jsonDataStr = JSON.stringify(jsonData);
+      copyDsJsonData = JSON.parse(jsonDataStr);
+    }
+    if (copyHeader) {
+      for (var i = 0; i < copyDs.cellIdList.length; i++) {
+        var colId = copyDs.cellIdList[i];
+        /*                
+                        var options = {	
+                            "dataType":	eval("copyDsInfo.columnInfo."+colId+".dataType"),
+                            "name":		eval("copyDsInfo.columnInfo."+colId+".name"),
+                            "defaultValue":		eval("copyDsInfo.columnInfo."+colId+".defaultValue"),
+                            "length":		eval("copyDsInfo.columnInfo."+colId+".length")
+                        };
+        */
+        var options = {
+          "dataType": copyDsInfo.columnInfo[colId].dataType,
+          "name": copyDsInfo.columnInfo[colId].name,
+          "defaultValue": copyDsInfo.columnInfo[colId].defaultValue,
+          "length": copyDsInfo.columnInfo[colId].length
+        };
+        $c.gus.insertColumn($p, copiedDs, colId, options);
+      }
+    }
+
+    //row status정보 copy여부
+    if (isStatusCopy) {
+      for (var i = 0; i < copyDsJsonData.length; i++) {
+        var rowStatus = copyDsJsonData[i].rowStatus;
+        copiedDs.setRowJSON(i, copyDsJsonData[i]);
+        copiedDs.modifyRowStatus(i, rowStatus);
+      }
+      if (isParent) {
+        parent.WebSquare.event.fireEvent(copiedDs, 'ondataload');
+      } else {
+        WebSquare.event.fireEvent(copiedDs, 'ondataload');
+      }
+    } else {
+      copiedDs.setJSON(copyDsJsonData, false);
+    }
+    result = copyDsJsonData.length;
+    return result;
+  } catch (e) {
+    $p.log("[$c.gus.copy] Exception :: " + e);
+    return -1;
+  }
+};
+
+/**
+ * @method
+ * @name insertColumn
+ * @description 데이터리스트의 컬럼을 추가합니다.
+ * @param {string} dataList 데이터셋의 아이디
+ * @param {string} columnNm 추가할 컬럼의 아이디
+ * @param {json} options 추가할 컬럼의 옵션
+ * options.name     : 컬럼의 명,
+ * options.dataType : 컬럼의 데이터 타입
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.insertColumn("dataList1", "test1", {"name":"컬럼1", "dataType":"text"});
+ */
+scwin.insertColumn = function ($p, dataList, columnNm, options) {
+  try {
+    var returnValue = -1;
+    var datacomp = $c.gus.object($p, dataList);
+    if (!$c.gus.cfIsNull($p, datacomp)) {
+      var columnList = datacomp.cellIdList;
+      if (columnList.indexOf(columnNm) < 0) {
+        options = options || {};
+        datacomp.insertColumn(columnNm, options);
+        returnValue = columnList.length;
+      }
+    }
+    return returnValue;
+  } catch (e) {
+    $p.log("[$c.gus.insertColumn] Exception :: " + e);
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name cfCopyDataSet
+ * @description 가우스의 데이터셋 오브젝트 간에 데이터를 복사한다. 복사대상이 되는 데이터셋의 기존의 데이터는 모두 삭제된다.
+ *  features 파라미터에서 copyHeader를 yes로 할 경우 DataSet의 컬럼정보까지 복사된다.
+ * @param {string} oOriginDataSet desc
+ * @param {string} oTargetDataSet desc
+ * @param {string} features desc
+ *     copyHeader  : Header를 복사할지 여부. (default:yes)
+ *     resetStatus : 복사된 DataSet의 Status를 reset 할 지 여부. (default:yes)
+ *     rowFrom     : 복사할 row의 시작 index. (default:1)
+ *     rowCnt      : 복사할 row의 갯수 index. (default:DataSet.getRowCount() 의 값)
+ *     사용예) "copyHeader=yes,rowFrom=1,rowCnt=2"  -> 1번 row 부터 3번 row까지 Header와 함께 복사함.
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfCopyDataSet
+ */
+scwin.cfCopyDataSet = function ($p, oOriginDataSet, oTargetDataSet, features) {
+  var featureNames = ["copyHeader", "resetStatus", "rowFrom", "rowCnt"];
+  var featureValues = [true, true, 0, oOriginDataSet.getRowCount()];
+  var featureTypes = ["boolean", "boolean", "number", "number"];
+  if (features != null) {
+    scwin.cfParseFeature($p, features, featureNames, featureValues, featureTypes);
+  }
+  var copyHeader = featureValues[0];
+  var resetStatus = featureValues[1];
+  var rowFrom = featureValues[2];
+  var rowCnt = featureValues[3];
+  $c.gus.copy($p, oOriginDataSet, oTargetDataSet, resetStatus, {
+    copyHeader: true,
+    rowFrom: rowFrom,
+    rowCnt: rowCnt
+  });
+};
+
+/**
+ * @method
+ * @name f_CopyDataRow
+ * @description 데이터셋 Row 복사
+ * @param {string} sourceDataset desc
+ * @param {string} targetDataset desc
+ * @param {string} sourceRow desc
+ * @param {string} targetRow desc
+ * @param {string} sourceColumns desc
+ * @param {string} targetColumns desc
+ * @param {string} actionAfterRowAdded desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.f_CopyDataRow
+ */
+scwin.f_CopyDataRow = function ($p, sourceDataset, targetDataset, sourceRow, targetRow, sourceColumns, targetColumns, actionAfterRowAdded) {
+  try {
+    var targetComp = $c.gus.object($p, sourceDataset);
+    var pComp = $c.gus.object($p, targetDataset);
+    if (typeof targetComp != "undefined" && typeof pComp != "undefined" && targetComp.initializeType == "dataList" && pComp.initializeType == "dataList") {
+      if (typeof targetRow == "undefined" || typeof sourceRow == "undefined") return false;
+      var jsonData = targetComp.getRowJSON(sourceRow);
+      if (typeof sourceColumns != "undefined" && typeof targetColumns != "") {
+        pComp.setCellData(targetRow, targetColumns, targetComp.getCellData(sourceRow, sourceColumns));
+      } else {
+        pComp.setEventPause(null, true);
+        pComp.setRowJSON(targetRow, jsonData, true);
+        pComp.setEventPause(null, false);
+        WebSquare.event.fireEvent(pComp, 'oncelldatachange');
+      }
+      return;
+    }
+  } catch (e) {
+    $p.log("[$c.gus.f_CopyDataRow] Exception :: " + e);
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name f_GetColumnNames
+ * @description 데이터셋의 모든 컬럼명을 배열로 반환
+ * @param {string} dataSet desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.f_GetColumnNames
+ */
+scwin.f_GetColumnNames = function ($p, dataSet) {
+  var DataObj = $c.gus.object($p, dataSet);
+  if (DataObj) {
+    return DataObj.cellIdList;
+  }
+};
+
+/**
+ * @method
+ * @name f_ClearGridColumn
+ * @description 데이터 셋의 값을 초기화
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} col desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_ClearGridColumn(dataList, 0, ["cdNm"])
+ */
+scwin.f_ClearGridColumn = function ($p, dataSet, row, col) {
+  var DataObj = $c.gus.object($p, dataSet);
+  if (!$c.gus.cfIsNull($p, DataObj) && !$c.gus.cfIsNull($p, row)) {
+    if (col.length > 0) {
+      for (var i = 0; i < col.length; i++) {
+        DataObj.setCellData(row, col[i], "");
+      }
+    }
+  } else {
+    return false;
+  }
+};
+
+/**
+ * @method
+ * @name f_RedoGridColumn
+ * @description 셀의 값을 원본으로 대체한다
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} col desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_RedoGridColumn(dataList, 0, ["cdNm"])
+ */
+scwin.f_RedoGridColumn = function ($p, dataSet, row, col) {
+  var DataObj = $c.gus.object($p, dataSet);
+  if (!$c.gus.cfIsNull($p, DataObj) && !$c.gus.cfIsNull($p, row)) {
+    if (col.length > 0) {
+      for (var i = 0; i < col.length; i++) {
+        DataObj.getOriginalCellData(row, col[i], "");
+      }
+    }
+  } else {
+    return false;
+  }
+};
+
+/**
+ * @method
+ * @name f_SetGridColumn
+ * @description 셀의 값을 셋팅한다
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} col desc
+ * @param {string} vals desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.f_SetGridColumn(dataSet, row, [], [])
+ */
+scwin.f_SetGridColumn = function ($p, dataSet, row, col, vals) {
+  var DataObj = $c.gus.object($p, dataSet);
+  if (!$c.gus.cfIsNull($p, DataObj) && !$c.gus.cfIsNull($p, row)) {
+    if (col.length > 0) {
+      for (var i = 0; i < col.length; i++) {
+        var val = vals[i] == null ? "" : vals[i];
+        DataObj.setCellData(row, col[i], val);
+      }
+    }
+  } else {
+    return false;
+  }
+};
+
+/**
+ * @method
+ * @name f_GetGridHidden
+ * @description 셀의 값을 가져온다
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} colId desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_GetGridHidden
+ */
+scwin.f_GetGridHidden = function ($p, dataSet, row, colId) {
+  var DataObj = $c.gus.object($p, dataSet);
+  var rt = "";
+  if (!$c.gus.cfIsNull($p, DataObj) && !$c.gus.cfIsNull($p, row)) {
+    rt = DataObj.getCellData(row, colId);
+  }
+  return rt == null ? "" : rt;
+};
+
+/**
+ * @method
+ * @name f_CanGridPopup
+ * @description 팝업여부를 반환?
+ * @param {string} dataSet desc
+ * @param {string} colid desc
+ * @param {string} newData desc
+ * @param {string} oldData desc
+ * @param {string} colArray desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_CanGridPopup(dataSet, colid, newData, oldData, colArray)
+ */
+scwin.f_CanGridPopup = function ($p, dataSet, colid, newData, oldData, colArray) {
+  var DataObj = $c.gus.object($p, dataSet);
+  var row = DataObj.getRowPosition();
+  if (row == null) return false;
+  if (newData == null) newData = "";
+  if (oldData == null) oldData = "";
+  if ($c.gus.cfIsNull($p, newData)) {
+    scwin.f_ClearGridColumn($p, DataObj, row, colArray);
+    return false;
+  }
+  if (newData == oldData) return false;
+  return true;
+};
+
+/**
+ * @method
+ * @name f_SetGridReturnValue
+ * @description 그리드 팝업 리턴값을 설정
+ * @param {string} rtnList desc
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} colArr desc
+ * @param {string} actionAfterSuccess desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_SetGridReturnValue
+ */
+scwin.f_SetGridReturnValue = function ($p, rtnList, dataSet, row, colArr, actionAfterSuccess) {
+  try {
+    if (dataSet == null) throw "데이터셋이 정의 되지 않았습니다.";
+    if (colArr == null) throw "컬럼이 정의 되지 않았습니다.";
+    var DataObj = $c.gus.object($p, dataSet);
+    if (!$c.gus.cfIsNull($p, row)) {
+      row = DataObj.getRowPosition();
+    }
+    if (row == null) throw "데이터셋의 현재 행이 정의 되지 않았습니다.";
+    if (rtnList == null) {
+      // 팝업을 X 버튼으로 닫았을 때
+      scwin.f_ClearGridColumn($p, DataObj, row, colArr);
+    } else if (rtnList[0] == "N/A") {
+      // 팝업창 아래의 '닫기' 버튼으로 닫았을 때
+      scwin.f_RedoGridColumn($p, DataObj, row, colArr);
+    } else {
+      // 정상적으로 코드를 선택했을 때
+      scwin.f_SetGridColumn($p, DataObj, row, colArr, rtnList);
+      // if (actionAfterSuccess != null) eval(actionAfterSuccess);
+      if (actionAfterSuccess != null) $p.getComponentById(actionAfterSuccess);
+    }
+    return;
+  } catch (e) {
+    $p.log("$c.gus.f_SetGridReturnValue catch");
+  }
+};
+
+/**
+ * @method
+ * @name isInArray
+ * @description desc
+ * @param {string} array desc
+ * @param {string} value desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.isInArray
+ */
+scwin.isInArray = function ($p, array, value) {
+  if (scwin.cfIsNull($p, array)) return false;
+  if (!(array instanceof Array)) return false;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == value) return true;
+  }
+  return false;
+};
+
+/**
+ * @method
+ * @name ascii
+ * @description 아스키 코드 변경 함수
+ * @param {string} str desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.ascii(str)
+ */
+scwin.ascii = function ($p, str) {
+  return str.charCodeAt(0);
+};
+
+/**
+ * @method
+ * @name right
+ * @description desc
+ * @param {string} str desc
+ * @param {string} num desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.right(str, num)
+ */
+scwin.right = function ($p, str, num) {
+  if (num <= 0) return "";else if (num > String(str).length) return str;else {
+    var iLen = String(str).length;
+    return String(str).substring(iLen, iLen - num);
+  }
+};
+
+/**
+ * @method
+ * @name f_cntrCheckDigit
+ * @description 컨테이너번호 Check 함수
+ * @param {string} cntrNo desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_cntrCheckDigit(cntrNo)
+ */
+scwin.f_cntrCheckDigit = async function ($p, cntrNo) {
+  var tempData = "1012131415161718192021232425262728293031323435363738";
+  var tempPos1 = tempData.substring((scwin.ascii($p, cntrNo.substring(0, 1)) - 64) * 2 - 1, (scwin.ascii($p, cntrNo.substring(0, 1)) - 64) * 2 - 1 + 2) * 1;
+  var tempPos2 = tempData.substring((scwin.ascii($p, cntrNo.substring(1, 2)) - 64) * 2 - 1, (scwin.ascii($p, cntrNo.substring(1, 2)) - 64) * 2 - 1 + 2) * 2;
+  var tempPos3 = tempData.substring((scwin.ascii($p, cntrNo.substring(2, 3)) - 64) * 2 - 1, (scwin.ascii($p, cntrNo.substring(2, 3)) - 64) * 2 - 1 + 2) * 4;
+  var tempPos4 = tempData.substring((scwin.ascii($p, cntrNo.substring(3, 4)) - 64) * 2 - 1, (scwin.ascii($p, cntrNo.substring(3, 4)) - 64) * 2 - 1 + 2) * 8;
+  var tempSum = tempPos1 + tempPos2 + tempPos3 + tempPos4 + cntrNo.substring(4, 5) * 16 + cntrNo.substring(5, 6) * 32 + cntrNo.substring(6, 7) * 64 + cntrNo.substring(7, 8) * 128 + cntrNo.substring(8, 9) * 256 + cntrNo.substring(9, 10) * 512;
+  var tempMod = tempSum % 11;
+  if (cntrNo.substring(10, 11) == scwin.right($p, tempMod, 1)) {
+    return true;
+  } else {
+    await $c.win.alert($p, "유효하지 않은 컨테이너 번호입니다.");
+    return false;
+  }
+};
+
+/**
+ * @method
+ * @name f_addSelectList
+ * @description 항차 생성 함수
+ * @param {string} vsslCn desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_addSelectList(vsslCn)
+ */
+scwin.f_addSelectList = function ($p, vsslCn) {
+  var cn = "";
+  for (i = vsslCn; i >= 1; i--) {
+    cn = cn + String(i) + "^" + String(i);
+    if (i != 1) {
+      cn = cn + ",";
+    }
+  }
+  return cn;
+};
+
+/**
+ * @method
+ * @name f_cfAlertMsg
+ * @description 에러메시지 간소화  함수
+ * @param {string} str desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.f_cfAlertMsg(str)
+ */
+scwin.f_cfAlertMsg = async function ($p, str) {
+  var msg = "";
+  var idx = str.indexOf("■");
+  if (idx == -1) {
+    msg = str;
+  } else {
+    msg_temp = str.split("■");
+    msg = msg_temp[msg_temp.length - 1];
+  }
+  await $c.win.alert($p, msg);
+  return msg;
+};
+
+/**
+ * @method
+ * @name cfShowError
+ * @description AS-IS compatible error handler
+ * @param {Object} arg1 desc
+ * @param {Object} arg2 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfShowError(e)
+ * @example $c.gus.cfShowError($p, e)
+ */
+scwin.cfShowError = async function ($p, arg1, arg2) {
+  try {
+    scwin.cfProgressWinClose($p);
+  } catch (ignore) {}
+  var errorObj = typeof arg2 === "undefined" ? arg1 : arg2;
+  var responseJSON = errorObj && errorObj.responseJSON || {};
+  var getErrorCode = function () {
+    if (!errorObj) {
+      return "";
+    }
+    return errorObj.ErrorCode || errorObj.errorCode || errorObj.statusCode || responseJSON.ErrorCode || responseJSON.errorCode || "";
+  };
+  var getErrorMessage = function () {
+    if (!errorObj) {
+      return "";
+    }
+    if (typeof errorObj === "string") {
+      return errorObj;
+    }
+    if (typeof errorObj.ErrorMsg === "string" && errorObj.ErrorMsg !== "") {
+      return errorObj.ErrorMsg;
+    }
+    if (typeof errorObj.errorMsg === "string" && errorObj.errorMsg !== "") {
+      return errorObj.errorMsg;
+    }
+    if (typeof errorObj.message === "string" && errorObj.message !== "") {
+      return errorObj.message;
+    }
+    if (typeof errorObj.responseText === "string" && errorObj.responseText !== "") {
+      return errorObj.responseText;
+    }
+    if (typeof responseJSON.ErrorMsg === "string" && responseJSON.ErrorMsg !== "") {
+      return responseJSON.ErrorMsg;
+    }
+    if (typeof responseJSON.errorMsg === "string" && responseJSON.errorMsg !== "") {
+      return responseJSON.errorMsg;
+    }
+    if (typeof responseJSON.message === "string" && responseJSON.message !== "") {
+      return responseJSON.message;
+    }
+    if (responseJSON.resultDataSet) {
+      if (Array.isArray(responseJSON.resultDataSet)) {
+        if (responseJSON.resultDataSet[1] && responseJSON.resultDataSet[1].Msg) {
+          return responseJSON.resultDataSet[1].Msg;
+        }
+        if (responseJSON.resultDataSet[0] && responseJSON.resultDataSet[0].Msg) {
+          return responseJSON.resultDataSet[0].Msg;
+        }
+      } else if (typeof responseJSON.resultDataSet.Msg === "string") {
+        return responseJSON.resultDataSet.Msg;
+      }
+    }
+    return "";
+  };
+  var openErrorPopup = function (errCd, errMsg) {
+    var width = 500;
+    var height = 400;
+    var left = Math.floor((window.screen.availWidth - width) / 2) + (window.screen.availLeft || 0);
+    var top = Math.floor((window.screen.availHeight - height) / 2) + (window.screen.availTop || 0);
+    var popup = window.open("", "ERROR_PAGE_FRAME", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top);
+    if (!popup) {
+      return false;
+    }
+    var escapeHtml = function (text) {
+      return String(text || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    popup.document.open();
+    popup.document.write("<!DOCTYPE html><html><head><meta charset='UTF-8'><title>ERROR</title></head>" + "<body style='margin:0;padding:12px;font-family:Malgun Gothic,sans-serif;'>" + "<div style='font-size:13px;margin-bottom:8px;'><b>ErrorCode</b> : " + escapeHtml(errCd) + "</div>" + "<textarea style='width:100%;height:300px;box-sizing:border-box;' readonly>" + escapeHtml(errMsg) + "</textarea>" + "<div style='text-align:center;margin-top:10px;'><button onclick='window.close()'>OK</button></div>" + "</body></html>");
+    popup.document.close();
+    popup.focus();
+    return true;
+  };
+  var errCd = getErrorCode();
+  var errMsg = getErrorMessage();
+  if ($c.util.isEmpty($p, errMsg)) {
+    return;
+  }
+  var forwardMatch = errMsg.match(/FORWARD\[(.*?)\]-END([\s\S]*)/);
+  if (forwardMatch) {
+    var forwardPage = (forwardMatch[1] || "").trim();
+    var forwardMessage = (forwardMatch[2] || "").trim();
+    if (!$c.util.isEmpty($p, forwardMessage)) {
+      await $c.win.alert($p, forwardMessage);
+    }
+    if (!$c.util.isEmpty($p, forwardPage)) {
+      var width = 300;
+      var height = 300;
+      var left = Math.floor((window.screen.availWidth - width) / 2) + (window.screen.availLeft || 0);
+      var top = Math.floor((window.screen.availHeight - height) / 2) + (window.screen.availTop || 0);
+      var popUpWin = window.open(forwardPage, "FORWARD_PAGE_FRAME", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top);
+      if (popUpWin) {
+        popUpWin.focus();
+      }
+    }
+    return;
+  }
+  if (errMsg.indexOf("[ERROR-4]") !== -1) {
+    var header = "[ERROR-4]";
+    var msgCodePlusMain = errMsg.substring(errMsg.indexOf(header) + header.length).trim();
+    var msgCode = msgCodePlusMain.substring(0, 8);
+    var msgMain = msgCodePlusMain.substring(9);
+    var splitIdx = msgMain.indexOf("\u25A0");
+    var msgAction = "";
+    var formattedMsg = "";
+    if (splitIdx !== -1) {
+      msgAction = msgMain.substring(splitIdx + 1);
+      msgMain = msgMain.substring(0, splitIdx);
+    }
+    formattedMsg += "MessageCode : " + msgCode + "\n";
+    formattedMsg += "Message     : " + msgMain.replace(/<br>/gi, "\n              ") + "\n";
+    if (!$c.util.isEmpty($p, msgAction)) {
+      formattedMsg += "Action      : " + msgAction.replace(/<br>/gi, "\n              ");
+    }
+    await $c.win.alert($p, formattedMsg);
+    return;
+  }
+  if (errMsg.indexOf("ERROR") !== -1) {
+    if (!openErrorPopup(errCd, errMsg)) {
+      await $c.win.alert($p, errMsg);
+    }
+    return;
+  }
+  await $c.win.alert($p, errMsg);
+};
+
+/**
+ * @method
+ * @name cfProgressWinOpen
+ * @description progressbar 표시
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfProgressWinOpen();
+ */
+scwin.cfProgressWinOpen = function ($p) {
+  WebSquare.layer.showProcessMessage("처리중");
+};
+
+/**
+ * @method
+ * @name cfProgressWinClose
+ * @description progressbar 를 close 한다
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfProgressWinClose()
+ */
+scwin.cfProgressWinClose = function ($p) {
+  WebSquare.layer.hideProcessMessage();
+};
+
+/**
+ * @method
+ * @name cfConvert2Weight
+ * @description 무게를 환산 하는 함수
+ * @param {string} pValue desc
+ * @param {string} fUnit desc
+ * @param {string} tUnit desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfConvert2Weight
+ */
+scwin.cfConvert2Weight = async function ($p, pValue, fUnit, tUnit) {
+  var f_idx = "";
+  var t_idx = "";
+  let weig = new Array(9);
+  weig[1] = 3750;
+  weig[2] = weig[1] / 1000;
+  weig[3] = weig[1] / 1000000;
+  weig[4] = weig[1] * 15.432;
+  ;
+  weig[5] = 132.28;
+  weig[6] = weig[5] / 16;
+  weig[7] = 1000;
+  weig[8] = weig[7] / 160;
+  weig[9] = 1;
+  if (!$c.num.isNumber($p, pValue)) {
+    await $c.win.alert($p, "환산을 위한 숫자값을 확인하세요..[" + pValue + "]");
+    return null;
+  }
+  switch (fUnit) {
+    case 'GM':
+      f_idx = 1;
+      break;
+    // 그램
+    case 'KG':
+      f_idx = 2;
+      break;
+    // 킬로그램
+    case 'TON':
+    case 'M/T':
+    case 'R/T':
+    case 'RNT':
+      f_idx = 3;
+      break;
+    // 톤,중량톤
+    case 'GRAIN':
+      f_idx = 4;
+      break;
+    // 그레인
+    case 'ONCE':
+      f_idx = 5;
+      break;
+    // 온스
+    case 'POUND':
+      f_idx = 6;
+      break;
+    // 파운드
+    case 'DON':
+      f_idx = 7;
+      break;
+    // 돈
+    case 'GUN':
+      f_idx = 8;
+      break;
+    // 근
+    case 'GUAN':
+      f_idx = 9;
+      break;
+    // 관
+    default:
+      await $c.win.alert($p, "단위 종류 확인 하세요(From):" + fUnit);
+      return null;
+  }
+  switch (tUnit) {
+    case 'GM':
+      t_idx = 1;
+      break;
+    // 그램
+    case 'KG':
+      t_idx = 2;
+      break;
+    // 킬로그램
+    case 'TON':
+    case 'M/T':
+    case 'R/T':
+    case 'RNT':
+      t_idx = 3;
+      break;
+    // 톤,중량톤
+    case 'GRAIN':
+      t_idx = 4;
+      break;
+    // 그레인
+    case 'ONCE':
+      t_idx = 5;
+      break;
+    // 온스
+    case 'POUND':
+      t_idx = 6;
+      break;
+    // 파운드
+    case 'DON':
+      t_idx = 7;
+      break;
+    // 돈
+    case 'GUN':
+      t_idx = 8;
+      break;
+    // 근
+    case 'GUAN':
+      t_idx = 9;
+      break;
+    // 관
+    default:
+      await $c.win.alert($p, "단위 종류 확인 하세요(To):" + tUnit);
+      return null;
+  }
+  var stdUnit = weig[f_idx];
+  var tUnitValue = Math.round(pValue * (weig[t_idx] / stdUnit) * 1000000) / 1000000;
+  return tUnitValue;
+};
+
+/**
+ * @method
+ * @name cfCheckCrnBusiCls
+ * @description 사업자번호가 법인사업자인지 개인사업자인지 체크한다
+ * @param {string} pCrn desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfCheckCrnBusiCls(pCrn)
+ */
+scwin.cfCheckCrnBusiCls = function ($p, pCrn) {
+  var vReturnVal; // 0: 법인사업자, 1: 개인사업자 , -1: 사업자번호 미입력
+  var vCrnCheckCode;
+  var vCrn = pCrn.trimAll();
+  if (vCrn == "") {
+    vReturnVal = -1;
+  } else {
+    vCrnCheckCode = parseInt(pCrn.substr(3, 2));
+
+    // 법인사업자인 경우
+    if (vCrnCheckCode > 80 && vCrnCheckCode < 88) {
+      vReturnVal = 0;
+    } else if (vCrnCheckCode < 81 || vCrnCheckCode > 88 && vCrnCheckCode < 100) {
+      // 개인사업자인 경우
+      vReturnVal = 1;
+    }
+    return vReturnVal;
+  }
+};
+
+/**
+ * @method
+ * @name cfisEnglish
+ * @description 문 이외의 캐릭터가 있을경우 false
+ * @param {string} engStr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfisEnglish(engStr)
+ */
+scwin.cfisEnglish = function ($p, engStr) {
+  if (engStr == null) return false;
+  for (var i = 0; i < engStr.length; i++) {
+    var c = engStr.charCodeAt(i);
+    if (!(0x61 <= c && c <= 0x7A || 0x41 <= c && c <= 0x5A)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
+ * @method
+ * @name cfisEnglishCnt
+ * @description 영문개수 리턴
+ * @param {string} engStr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfisEnglishCnt(engStr)
+ */
+scwin.cfisEnglishCnt = function ($p, engStr) {
+  var cnt = 0;
+  if (engStr == null) return cnt;
+  for (var i = 0; i < engStr.length; i++) {
+    var c = engStr.charCodeAt(i);
+    if (!(0x61 <= c && c <= 0x7A || 0x41 <= c && c <= 0x5A)) {
+      null;
+    } else {
+      cnt++;
+    }
+  }
+  return cnt;
+};
+
+/**
+ * @method
+ * @name cfisNumberCnt
+ * @description 숫자개수 리턴
+ * @param {string} numStr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfisNumberCnt(numStr)
+ */
+scwin.cfisNumberCnt = function ($p, numStr) {
+  var cnt = 0;
+  var chkStr = numStr + "";
+  for (j = 0; j < chkStr.length; j++) {
+    if (chkStr.substring(j, j + 1) < "0" || chkStr.substring(j, j + 1) > "9") {
+      null;
+    } else {
+      cnt++;
+    }
+  }
+  return cnt;
+};
+
+/**
+ * @method
+ * @name cfnumChainChk
+ * @description 연속되는숫자체크
+ * @param {string} Str desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfnumChainChk(str)
+ */
+scwin.cfnumChainChk = function ($p, Str) {
+  var cnt = 0;
+  var chkStr = Str + "";
+  var nValue = "";
+  var prv1value = "";
+  var prv2value = "";
+  for (i = 0; i < chkStr.length; i++) {
+    nValue = chkStr.substring(i, i + 1);
+    if (nValue >= "0" && nValue <= "9") {
+      cnt++;
+      if (cnt == 3) {
+        var j = i - 1;
+        var k = i - 2;
+        prv1value = chkStr.substring(j, j + 1);
+        prv2value = chkStr.substring(k, k + 1);
+        if (nValue - prv1value == 1 && prv1value - prv2value == 1) return true;
+        if (nValue == prv1value && prv1value == prv2value) return true;
+      }
+    } else {
+      cnt = 0;
+    }
+  }
+  return false;
+};
+
+/**
+ * @method
+ * @name cfSmsTelValidChk
+ * @description SMS전송 발신번호 유효성검사
+ * @param {string} Str desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfSmsTelValidChk(str)
+ */
+scwin.cfSmsTelValidChk = async function ($p, Str) {
+  var tmpTelNo = Str.replace(/-/g, "");
+  var tmpFrontNo = Str.substring(0, 2);
+  var tmpNo = tmpTelNo.substring(0, 3);
+
+  // 발신번호 존재여부 체크
+  if (tmpTelNo == "") {
+    await $c.win.alert($p, "발신번호(" + Str + ")가 존재하지 않습니다.");
+    return false;
+  }
+  //1. 발신번호가 030으로 시작하는 경우에는 전체 번호수가 12자리에 한해서만 문자메시지 발송
+  //   기본원칙 자릿수 체크 ( 8~11 자리인 경우에만 전송 가능)
+  if (tmpNo == "030") {
+    if (tmpTelNo.length < 8 || tmpTelNo.length > 12) {
+      await $c.win.alert($p, "발신번호(" + Str + ")가 030으로 시작하는 경우  8~12자리만 발송가능합니다.");
+      return false;
+    }
+  } else {
+    if (tmpTelNo.length < 8 || tmpTelNo.length > 11) {
+      await $c.win.alert($p, "발신번호(" + Str + ")는 8~11자리만 발송가능합니다. ");
+      return false;
+    }
+  }
+  //2. 발신번호가 15YY, 16YY로 시작하는 경우 8자리만 가능.
+  if (tmpFrontNo == "16" || tmpFrontNo == "15") {
+    if (tmpTelNo.length != 8) {
+      await $c.win.alert($p, "발신번호(" + Str + ")가 " + tmpFrontNo + "YY로 시작하는 경우에는 8자리만 발송가능합니다.");
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
+ * @method
+ * @name isMandatory
+ * @description 오브젝트가 mandatory이면 true를, 아니면 false를 리턴한다
+ * @param {string} inputObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.isMandatory(inputObj)
+ */
+scwin.isMandatory = function ($p, inputObj) {
+  var obj = $c.gus.object($p, inputObj);
+  if (obj.getMandatory()) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+/**
+ * @method
+ * @name cfRefreshMandSign
+ * @description 리프레쉬 함수
+ * @param {array|string|object} targetTableIds desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example $c.gus.cfRefreshMandSign(["tb_crryOutCopino", "tb_crryInCopino"])
+ */
+scwin.cfRefreshMandSign = function ($p, targetTableIds) {
+  var tableTargets = targetTableIds;
+  if (!tableTargets) {
+    return;
+  }
+  if (Object.prototype.toString.call(tableTargets) !== "[object Array]") {
+    tableTargets = [tableTargets];
+  }
+  tableTargets.forEach(function (targetTableId) {
+    var resolvedTableId = "";
+    if (typeof targetTableId === "string") {
+      if (targetTableId.charAt(0) === "#") {
+        targetTableId = targetTableId.substring(1);
+      }
+      var tableComp = $p.getComponentById(targetTableId);
+      resolvedTableId = tableComp && tableComp.id ? tableComp.id : targetTableId;
+    } else if (targetTableId && targetTableId.id) {
+      resolvedTableId = targetTableId.id;
+    }
+    if (!resolvedTableId) {
+      return;
+    }
+    var table = document.getElementById(resolvedTableId);
+    if (!table) {
+      return;
+    }
+    var thList = table.querySelectorAll(".w2tb_th");
+    Array.prototype.forEach.call(thList, function (th) {
+      var td = th.nextElementSibling;
+      if (!td || !td.classList.contains("w2tb_td")) {
+        return;
+      }
+      var components = td.querySelectorAll("[id]");
+      var isMandatoryTarget = Array.prototype.some.call(components, function (compEl) {
+        var compObj = $p.getComponentById(compEl.id);
+        if (!compObj || !compObj.options) {
+          return false;
+        }
+        return compObj.options.mandatory === true || compObj.options.mandatory === "true";
+      });
+      var label = th.querySelector(".w2textbox");
+      if (!label) {
+        return;
+      }
+      if (isMandatoryTarget) {
+        label.classList.add("req");
+      } else {
+        label.classList.remove("req");
+      }
+    });
+  });
+};
+
+/**
+ * @method
+ * @name cfTurnCreateFlag
+ * @description 신규 입력을 위한 DataSet의 조회인지 flag를 설정
+ * @param {string} onOff desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfTurnCreateFlag(onOff)
+ */
+scwin.cfTurnCreateFlag = function ($p, onOff) {
+  $c.global.cvNew = onOff;
+};
+
+/**
+ * @method
+ * @name cfCheckCreateFlag
+ * @description 신규 입력을 위한 DataSet의 조회인지 flag를 조회
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfCheckCreateFlag()
+ */
+scwin.cfCheckCreateFlag = function ($p) {
+  return $c.global.cvNew;
+};
+
+/**
+ * @method
+ * @name cfLimitByteLength
+ * @description input type=text와 textarea에 입력 문자 길이를 제한
+ * @param {string} inputObj desc
+ * @param {string} maxLength desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfLimitByteLength(inputObj, maxLength)
+ */
+scwin.cfLimitByteLength = async function ($p, inputObj, maxLength) {
+  var obj = $c.gus.object($p, inputObj);
+  var inputVal = obj.getValue();
+  if (scwin.cfGetByteLength($p, inputVal) > maxLength) {
+    await $c.win.alert($p, maxLength + " byte까지만 입력이 가능합니다.\n(영문/숫자:1byte, 한글:2byte)");
+    while (scwin.cfGetByteLength($p, inputVal) > maxLength) {
+      inputVal = inputVal.substring(0, inputVal.length - 1);
+    }
+    obj.setValue(inputVal);
+  }
+};
+
+/**
+ * @method
+ * @name cfIsAfterDate
+ * @description  YYYYMMDD 형식의 두 개의 날짜를 받아서 체크
+ * @param {string} startDate desc
+ * @param {string} endDate desc
+ * @param {string} exceptSameDate desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfIsAfterDate(startDate, endDate, exceptSameDate)
+ */
+scwin.cfIsAfterDate = function ($p, startDate, endDate, exceptSameDate) {
+  var sDate = startDate.toDate();
+  var eDate = endDate.toDate();
+  if (exceptSameDate != null && exceptSameDate == true) {
+    if (sDate < eDate) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    if (sDate <= eDate) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnableAllBtn
+ * @description 모든 버튼을 enable(클릭가능) 상태로 변경한다.
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfEnableAllBtn()
+ */
+scwin.cfEnableAllBtn = function ($p) {
+  //debugger;
+  // ctrlBtn 배열의 모든 버튼을 enable시킨다
+  // let frame = $p.getFrame();
+  let frame = scwin.getFrm($p);
+  for (var i in frame.ctrlBtn) {
+    if (frame.ctrlBtn[i] != null) {
+      // scwin.cfEnableObj($c.global.ctrlBtn[i].id, true);
+      scwin.cfEnableObj($p, frame.ctrlBtn[i], true);
+    }
+  }
+
+  // 신규
+  if (frame.bCreate != null) {
+    scwin.cfEnableObj($p, frame.bCreate, true);
+  }
+  // 수정
+  if (frame.bUpdate != null) {
+    scwin.cfEnableObj($p, frame.bUpdate, true);
+  }
+  // 저장
+  if (frame.bSave != null) {
+    scwin.cfEnableObj($p, frame.bSave, true);
+  }
+  // 삭제
+  if (frame.bDelete != null) {
+    scwin.cfEnableObj($p, frame.bDelete, true);
+  }
+  // 신규
+  if (frame.bCreate2 != null) {
+    scwin.cfEnableObj($p, frame.bCreate2, true);
+  }
+  // 수정
+  if (frame.bUpdate2 != null) {
+    scwin.cfEnableObj($p, frame.bUpdate2, true);
+  }
+  // 저장
+  if (frame.bSave2 != null) {
+    scwin.cfEnableObj($p, frame.bSave2, true);
+  }
+  // 삭제
+  if (frame.bDelete2 != null) {
+    scwin.cfEnableObj($p, frame.bDelete2, true);
+  }
+};
+
+/**
+ * @method
+ * @name cfDisableAllBtn
+ * @description 모든 버튼을 disable(클릭불가) 상태로 변경
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfDisableAllBtn()
+ */
+scwin.cfDisableAllBtn = function ($p) {
+  var obj;
+  // let frame = $p.getFrame();
+  let frame = scwin.getFrm($p);
+  for (var i in frame.ctrlBtn) {
+    obj = $c.gus.object($p, frame.ctrlBtn[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, false);
+    }
+  }
+
+  // 신규
+  if (frame.bCreate != null) {
+    scwin.cfEnableObj($p, frame.bCreate, false);
+  }
+  // 수정
+  if (frame.bUpdate != null) {
+    scwin.cfEnableObj($p, frame.bUpdate, false);
+  }
+  // 저장
+  if (frame.bSave != null) {
+    scwin.cfEnableObj($p, frame.bSave, false);
+  }
+  // 삭제
+  if (frame.bDelete != null) {
+    scwin.cfEnableObj($p, frame.bDelete, false);
+  }
+  // 신규
+  if (frame.bCreate2 != null) {
+    scwin.cfEnableObj($p, frame.bCreate2, false);
+  }
+  // 수정
+  if (frame.bUpdate2 != null) {
+    scwin.cfEnableObj($p, frame.bUpdate2, false);
+  }
+  // 저장
+  if (frame.bSave2 != null) {
+    scwin.cfEnableObj($p, frame.bSave2, false);
+  }
+  // 삭제
+  if (frame.bDelete2 != null) {
+    scwin.cfEnableObj($p, frame.bDelete2, false);
+  }
+};
+
+/**
+ * @method
+ * @name cfDisableBtn
+ * @description 지정한 버튼만 disable시키고, 그 외 나머지는 enable 상태로 변경
+ * @param {string} btnArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfDisableBtn(btnArr)
+ */
+scwin.cfDisableBtn = function ($p, btnArr) {
+  scwin.cfEnableAllBtn($p);
+  var obj;
+  for (var i in btnArr) {
+    obj = $c.gus.object($p, btnArr[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, false); // disabled
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfDisableBtnOnly
+ * @description 지정한 버튼만 disable시키고, 그 외 나머지는 원래 상태 그대로 있는다.
+ * @param {string} btnArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfDisableBtnOnly(btnArr)
+ */
+scwin.cfDisableBtnOnly = function ($p, btnArr) {
+  var obj;
+  for (var i in btnArr) {
+    obj = $c.gus.object($p, btnArr[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, false); // disabled
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnableBtnOnly
+ * @description 지정한 버튼만 enable시키고, 그 외 나머지는 원래 상태 그대로 있는다
+ * @param {string} btnArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfEnableBtnOnly(btnArr)
+ */
+scwin.cfEnableBtnOnly = function ($p, btnArr) {
+  var obj;
+  for (var i in btnArr) {
+    obj = $c.gus.object($p, btnArr[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, true); // enabled
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfEnableKeyData
+ * @description 입력필드를 모두 enable(editable) 상태로 변경한다
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example  $c.gus.cfEnableKeyData()
+ */
+scwin.cfEnableKeyData = function ($p) {
+  var obj;
+  // let frame = $p.getFrame();
+  let frame = scwin.getFrm($p);
+  for (var i in frame.key) {
+    obj = $c.gus.object($p, frame.key[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, true); // enabled
+    }
+  }
+  for (var i in frame.data) {
+    obj = $c.gus.object($p, frame.data[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, true); // enabled
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfDisableKeyData
+ * @description 모두 disable 상태로 변경
+ * @param
+ * @returns
+ * @exception
+ * @example  $c.gus.cfDisableKeyData()
+ */
+scwin.cfDisableKeyData = function ($p) {
+  var obj;
+  // let frame = $p.getFrame();
+  let frame = scwin.getFrm($p);
+  for (var i in frame.key) {
+    obj = $c.gus.object($p, frame.key[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, false);
+    }
+  }
+  for (var i in frame.data) {
+    obj = $c.gus.object($p, frame.data[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, false);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfCheckExchRt
+ * @description 저장버튼 클릭시 환율에 대한 체크를 하는 함수
+ * @param {string} checkExchRt desc
+ * @param {string} changeExchRt desc
+ * @param {string} checkMain desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfCheckExchRt(checkExchRt, changeExchRt, checkMain)
+ */
+scwin.cfCheckExchRt = async function ($p, checkExchRt, changeExchRt, checkMain) {
+  var checkExchRtLow = Math.round(checkExchRt * 0.9 * 100) / 100.00;
+  var checkExchRtUpper = Math.round(checkExchRt * 1.1 * 100) / 100.00;
+  if (checkMain == false) {
+    if (changeExchRt < checkExchRtLow || changeExchRt > checkExchRtUpper) {
+      // 변경되는 환율이 기준 환율 값의 90% 보다 작다면
+      await $c.win.alert($p, '통화코드 선택시 환율 금액 : ' + checkExchRt + '원' + '\n' + '환율의 90%  가 되는 금액  : ' + checkExchRtLow + '원' + '\n' + '환율의 110% 가 되는 금액  : ' + checkExchRtUpper + '원' + '\n' + '\n' + "변경되는 환율은 기준 환율의 90% ~ 110% 값이어야  합니다.");
+      return false;
+    }
+  }
+  if (changeExchRt < checkExchRtLow || changeExchRt > checkExchRtUpper) {
+    // 변경되는 환율이 기준 환율 값의 90% 보다 작다면
+
+    await $c.win.alert($p, '통화코드 선택시 환율 금액 : ' + checkExchRt + '원' + '\n' + '환율의 90%  가 되는 금액  : ' + checkExchRtLow + '원' + '\n' + '환율의 110% 가 되는 금액  : ' + checkExchRtUpper + '원' + '\n' + '\n' + "변경되는 환율은 기준 환율의 90% ~ 110% 값이어야  합니다.");
+    return false;
+  }
+  return true;
+};
+
+/**
+ * @method
+ * @name cfCopyDataSetHeader
+ * @description dataList 컬럼 복사
+ * @param {string} oOriginDataSet desc
+ * @param {string} oTargetDataSet desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfCopyDataSetHeader
+ */
+scwin.cfCopyDataSetHeader = function ($p, sourceObj, targetObj) {
+  try {
+    var result = null;
+    if (typeof targetObj === "undefined" || targetObj == null || targetObj == "") {
+      return result;
+    }
+    if (typeof sourceObj === "undefined" || sourceObj == null || sourceObj == "") {
+      return result;
+    }
+    var copiedObj = null; //최종  객체
+    var copiedDs = null; //최종 DS 객체
+
+    var copyObj = null; //원본 객체
+    var copyDs = null; //원본 DS 객체
+
+    var pWin = null; //parent window
+    var isParent = false;
+
+    //parent객체를 참조해야 하는 경우
+    if (typeof targetObj == "string" && targetObj.indexOf("parent") > -1 || typeof sourceObj == "string" && sourceObj.indexOf("parent") > -1) {
+      var parentParam = $c.gus.popupParam($p);
+    }
+
+    //Ds객체 정보가 id값으로 넘어온 경우
+    if (typeof targetObj == "string") {
+      var copyParams = targetObj.split(".");
+
+      //최종객체 찾기 
+      if (copyParams.length == 1) {
+        //자기자신인 경우
+        copiedObj = $c.gus.object($p, copyParams[0]);
+        if (typeof copiedObj === "undefined") {
+          copiedObj = $c.data.createDataList($p, copyParams[0]);
+        }
+      } else if (copyParams[0] == "parent") {
+        //부모창을 바라보는 경우
+        isParent = true;
+        copiedObj = pWin.$c.gus.object(pWin.$p, copyParams[1]);
+        for (var i = 2; i < copyParams.length; i++) {
+          copiedObj = copiedObj.getObj(copyParams[i]);
+        }
+      } else if (copyParams[0] != "parent") {
+        //부모창을 바라보지 않는 경우(wframe)
+        copiedObj = $c.gus.object($p, copyParams[0]);
+        for (var i = 1; i < copyParams.length; i++) {
+          copiedObj = copiedObj.getObj(copyParams[i]);
+        }
+      }
+    } else {
+      //DS객체로 넘어온 경우
+      copiedObj = targetObj;
+    }
+    //객체를 찾지 못한 경우
+    if (typeof copiedObj === "undefined" || copiedObj == null || copiedObj == "") {
+      return -1;
+    }
+    //Ds객체 정보가 id값으로 넘어온 경우
+    if (typeof sourceObj == "string") {
+      var oriParams = sourceObj.split(".");
+
+      //원본객체 찾기 
+      if (oriParams.length == 1) {
+        //자기자신인 경우
+        copyObj = $c.gus.object($p, oriParams[0]);
+      } else if (oriParams[0] == "parent") {
+        //부모창을 바라보는 경우
+        copyObj = pWin.$c.gus.object(pWin.$p, oriParams[1]);
+        for (var i = 2; i < oriParams.length; i++) {
+          copyObj = copyObj.getObj(oriParams[i]);
+        }
+      } else if (oriParams[0] != "parent") {
+        copyObj = $c.gus.object($p, oriParams[0]);
+        for (var i = 1; i < oriParams.length; i++) {
+          copyObj = copyObj.getObj(oriParams[i]);
+        }
+      }
+    } else {
+      //DS객체로 넘어온 경우
+      copyObj = sourceObj;
+    }
+    if (typeof copyObj === "undefined" || copyObj == null || copyObj == "") {
+      $c.data.createDataList($p);
+    }
+
+    //ds객체 
+    copiedDs = copiedObj;
+    copyDs = copyObj;
+
+    //컬럼제거
+    var copiedDsColArr = copiedDs.cellIdList;
+    if (copiedDsColArr.length > 0) {
+      $c.gus.clear($p, copiedDs);
+    }
+    var copyDsInfo = copyDs.getInfo();
+    for (var i = 0; i < copyDs.cellIdList.length; i++) {
+      var colId = copyDs.cellIdList[i];
+      var options = {
+        "dataType": copyDsInfo.columnInfo[colId].dataType,
+        "name": copyDsInfo.columnInfo[colId].name,
+        "defaultValue": copyDsInfo.columnInfo[colId].defaultValue,
+        "length": copyDsInfo.columnInfo[colId].length
+      };
+      $c.gus.insertColumn($p, copiedDs, colId, options);
+    }
+  } catch (e) {
+    console.log("cfCopyDataSetHeader catch");
+  }
+};
+
+/**
+ * @method
+ * @name cfDisable
+ * @description element를 disable 시킨다.
+ * @param {string} obj desc
+ * @returns
+ * @hidden N
+ * @exception  
+ * @example   $c.gus.cfDisable([])
+ */
+scwin.cfDisable = function ($p, objs) {
+  if (scwin.cfIsNull($p, objs)) {
+    return;
+  }
+  for (var i = 0; i < objs.length; i++) {
+    var obj = $c.gus.object($p, objs[i]);
+    if (obj) {
+      obj.setDisabled(true);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfValidateMaxByteLength
+ * @description 사용자의 입력값이 Byte로 환산된 최대길이를 넘을 경우 입력이 안되도록 하는 함수
+ * @param {string} oElement desc
+ * @param {string} length desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfValidateMaxByteLength(this, 10)
+ */
+scwin.cfValidateMaxByteLength = function ($p, oElement, length) {
+  if (event.keyCode == 8 ||
+  // backspace
+  event.keyCode == 35 ||
+  // end key
+  event.keyCode == 36 ||
+  // home key
+  event.keyCode == 37 ||
+  // left key
+  event.keyCode == 38 ||
+  // up key
+  event.keyCode == 39 ||
+  // right key
+  event.keyCode == 40 ||
+  // down key
+  event.keyCode == 46 // delete key
+  ) {
+    return true;
+  }
+  let obj = $c.gus.object($p, oElement);
+  if (obj) {
+    let byteLen = parseInt($c.str.getByteLength($p, obj.getValue()));
+    if (length < byteLen) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfUndoGridRows
+ * @description Grid의 선택된 Row들을 취소한다.
+ * @param {string} obj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfUndoGridRows(dltList)
+ */
+scwin.cfUndoGridRows = function ($p, obj) {
+  let dlt = $c.gus.object($p, obj),
+    row = dlt.getRowPosition();
+  if (row != null) {
+    dlt.undoRow(row);
+  }
+};
+
+/**
+ * @method
+ * @name cfGrdHeiht
+ * @description 그리드 높이를 조정 : 지정된 그리드의 Height 를 size 만큼 증감 시킨다.
+ * @param {string} objGrd desc
+ * @param {string} size desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfGrdHeiht(grd, 100)
+ */
+scwin.cfGrdHeiht = function ($p, objGrd, size) {
+  let grd = $c.gus.object($p, objGrd),
+    grdH = "";
+  if (scwin.cfIsNull($p, size)) {
+    return;
+  }
+  if (grd) {
+    grdH = grd.dataLayerHeight; // 그리드의 높이를 가져온다
+
+    grd.setGridHeight(grdH + parseInt(size));
+  }
+};
+
+/**
+ * @method
+ * @name cfGrdWidth
+ * @description 그리드 높이를 조정 : 지정된 그리드의 Width 를 size 만큼 증감 시킨다.
+ * @param {string} objGrd desc
+ * @param {string} orgSize desc
+ * @param {string} size desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example     $c.gus.cfGrdWidth(objGrd, orgSize, size)
+ */
+scwin.cfGrdWidth = function ($p, objGrd, orgSize, size) {
+  let grd = $c.gus.object($p, objGrd),
+    grdW = "";
+  if (scwin.cfIsNull($p, size) || scwin.cfIsNull($p, orgSize)) {
+    return;
+  }
+  if (grd) {
+    grdW = parseInt(grd.getStyle("width")) + parseInt(size);
+    if (orgSize > grdW) {
+      return;
+    } else {
+      grd.setGridWidth(grdW);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfGoPrevPosition
+ * @description 데이타셋을 저장한 후에도, 저장하기 전에 커서가 있던 위치로 이동시켜 준다
+ * @param {string} ds desc
+ * @param {string} lastPos desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example   $c.gus.cfGoPrevPosition(gridID, lastPos)
+ */
+scwin.cfGoPrevPosition = function ($p, ds, lastPos) {
+  let obj = $c.gus.object($p, ds);
+  if (scwin.cfIsNull($p, lastPos)) {
+    lastPos = 0;
+  }
+  if (obj) {
+    obj.setFocusedCell(lastPos, 0);
+  }
+};
+
+/**
+ * @method
+ * @name cfDelHistoryAll
+ * @description desc
+ * @param {string} sObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfDelHistoryAll = function ($p, obj) {
+  let sObj = $c.gus.object($p, obj);
+  if (sObj) {
+    var iCnt = sObj.length;
+    for (var idx = iCnt; idx >= 0; idx--) {
+      scwin.cfDelOption($p, sObj, idx);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfDelOption
+ * @description desc
+ * @param {string} sObj desc
+ * @param {string} optIdx desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfDelOption = function ($p, obj, optIdx) {
+  let sObj = $c.gus.object($p, obj);
+  if (sObj) {
+    var selLength = sObj.length;
+    if (selLength > 0) {
+      sObj.remove(optIdx);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfHistoryExist
+ * @description desc
+ * @param {string} sObj desc
+ * @param {string} theValue desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfHistoryExist = function ($p, obj, theValue) {
+  let sObj = $c.gus.object($p, obj);
+  if (sObj) {
+    for (var i = 0; i < sObj.length; i++) {
+      if (sObj[i].value == theValue) return true;
+    }
+  }
+  return false;
+};
+
+/**
+ * @method
+ * @name JsMap
+ * @description 객체를 key, value 로 관리
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.JsMap = function ($p) {
+  this.MapKey = new Array();
+  this.MapVal = new Array();
+  this.put = function put($p, key, vaue) {
+    var keyInx = this.existKeyIndex(key);
+    if (keyInx == -1) {
+      this.MapKey[this.MapKey.length] = key;
+      this.MapVal[this.MapVal.length] = vaue;
+    } else {
+      this.MapKey[keyInx] = key;
+      this.MapVal[keyInx] = vaue;
+    }
+  };
+  this.get = function get($p, key) {
+    var keyInx = this.existKeyIndex(key);
+    if (keyInx != -1) {
+      return this.MapVal[keyInx];
+    } else {
+      return "";
+    }
+  };
+  this.existKeyIndex = function existKeyIndex(key) {
+    for (var inx = 0, size = this.MapKey.length; inx < size; inx++) {
+      if (key == this.MapKey[inx]) return inx;
+    }
+    return -1;
+  };
+  this.existValIndex = function existValIndex(val) {
+    for (var inx = 0, size = this.MapVal.length; inx < size; inx++) {
+      if (val == this.MapVal[inx]) return inx;
+    }
+    return -1;
+  };
+};
+scwin.jsObj = new scwin.JsMap();
+
+/**
+ * @method
+ * @name putMapValue
+ * @description JsMap 객체에 데이터 저장
+ * @param {string} key desc
+ * @param {string} value desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.putMapValue = function ($p, key, value) {
+  scwin.jsObj.put($p, key, value);
+};
+
+/**
+ * @method
+ * @name getMapValue
+ * @description 객체를 가져온다
+ * @param {string} key desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getMapValue = function ($p, key) {
+  return scwin.jsObj.get($p, key);
+};
+
+/**
+ * @method
+ * @name coMap
+ * @description String parameter 에 대한 name과 value 쌍들을 가진 객체
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.coMap = function ($p) {
+  this.names = new Array();
+  this.values = new Array();
+  this.count = 0;
+
+  // methods
+  this.getValue = function (name) {
+    for (var i = 0; i < this.count; i++) {
+      if (this.names[i] == name) {
+        return this.values[i];
+      }
+    }
+    return null;
+  };
+  this.put = function (name, value) {
+    for (var i = 0; i < this.count; i++) {
+      if (this.names[i] == name) {
+        this.values[i] = value;
+        return;
+      }
+    }
+    this.names[this.count] = name;
+    this.values[this.count++] = value;
+  };
+  this.getNameAt = function (index) {
+    return this.names[index];
+  };
+  this.getValueAt = function (index) {
+    return this.values[index];
+  };
+  this.size = function () {
+    return this.count;
+  };
+  this.getMaxNameLength = function () {
+    var maxLength = 0;
+    for (var i = 0; i < this.count; i++) {
+      if (String(this.names[i]).length > maxLength) {
+        maxLength = String(this.names[i]).length;
+      }
+    }
+    return maxLength;
+  };
+};
+
+/**
+ * @method
+ * @name coParameterMap
+ * @description String parameter 에 대한 name과 value 쌍들을 가진 객체
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.coParameterMap = function ($p) {
+  this.names = new Array();
+
+  /**
+   * @type   : field
+   * @access : private
+   * @object : coParameterMap
+   * @desc   : 파라미터 값을 담고있는 array
+   */
+  this.values = new Array();
+
+  /**
+   * @type   : field
+   * @access : private
+   * @object : coParameterMap
+   * @desc   : 파라미터의 개수
+   */
+  this.count = 0;
+
+  // methods
+  this.getValue = function (name) {
+    for (var i = 0; i < this.count; i++) {
+      if (this.names[i] == name) {
+        return this.values[i];
+      }
+    }
+    return null;
+  };
+  this.put = function (name, value) {
+    for (var i = 0; i < this.count; i++) {
+      if (this.names[i] == name) {
+        this.values[i] = value;
+        return;
+      }
+    }
+    this.names[this.count] = name;
+    this.values[this.count++] = value;
+  };
+  this.getNameAt = function (index) {
+    return this.names[index];
+  };
+  this.getValueAt = function (index) {
+    return this.values[index];
+  };
+  this.size = function () {
+    return this.count;
+  };
+  this.getMaxNameLength = function () {
+    var maxLength = 0;
+    for (var i = 0; i < this.count; i++) {
+      if (String(this.names[i]).length > maxLength) {
+        maxLength = String(this.names[i]).length;
+      }
+    }
+    return maxLength;
+  };
+  this.getMaxValueLength = function () {
+    var maxLength = 0;
+    for (var i = 0; i < this.count; i++) {
+      if (String(this.values[i]).length > maxLength) {
+        maxLength = String(this.values[i]).length;
+      }
+    }
+    return maxLength;
+  };
+};
+
+/**
+ * @method
+ * @name cfInitHidVal
+ * @description 초기화시킨다.  ID를 넘기면 그 안에 포함된 모든 오브젝트를 초기화
+ * @param {string} obj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfInitHidVal = function ($p, obj) {
+  let sObj = $c.gus.object($p, obj);
+  if (sObj) {
+    try {
+      var obj1 = null;
+      if (typeof obj === "object" && obj.getPluginName() !== "group") {
+        for (var i = 0; i < sObj.length; i++) {
+          obj1 = $c.gus.object($p, sObj[i]);
+          if (obj1) {
+            obj1.setValue("");
+          }
+        }
+      } else {
+        let objArr = $c.util.getChildren($p, sObj, {
+          excludePlugin: "body calendar group textbox output image span trigger anchor",
+          recursive: true
+        });
+        for (let i = 0; i < objArr.length; i++) {
+          obj1 = $c.gus.object($p, objArr[i]);
+          obj1.setValue("");
+        }
+      }
+    } catch (e) {
+      console.log("catch cfInitHidVal");
+    }
+  } else {
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name cfInitObjects
+ * @description 오브젝트의 값을 초기화시킨다
+ * @param {object} array 이거나 group 이거나
+ * @param {object} excpt 제외 컴포넌트
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfInitObjects = function ($p, obj, excpt) {
+  let sObj = $c.gus.object($p, obj);
+  if (sObj) {
+    try {
+      let obj1 = null;
+      if (Object.prototype.toString.call(obj) === "[object Array]") {
+        for (let i = 0; i < sObj.length; i++) {
+          obj1 = $c.gus.object($p, sObj[i]);
+          if (obj1) {
+            obj1.setValue("");
+          }
+        }
+      } else {
+        let objArr = $c.util.getChildren($p, sObj, {
+          excludePlugin: "body calendar group textbox output image span trigger anchor",
+          recursive: true
+        });
+        let excptId = [];
+        if (!$c.gus.cfIsNull($p, excpt)) {
+          excpt.forEach(function (id) {
+            // excptId.push(id.org_id);
+            excptId.push(id);
+          });
+        }
+        for (let i = 0; i < objArr.length; i++) {
+          obj1 = $c.gus.object($p, objArr[i]);
+          // if(!excptId.includes(obj1.org_id)) {
+          if (!excptId.includes(obj1)) {
+            switch (obj1.getPluginName()) {
+              // udc 일때 error 처리
+              case 'selectbox':
+              case 'autoComplete':
+                obj1.setSelectedIndex(0);
+                break;
+              case 'checkbox':
+                obj1.checkAll(false);
+                break;
+              case 'input':
+              case 'inputCalendar':
+              case 'textarea':
+              case 'radio':
+                obj1.setValue("");
+                break;
+              default:
+                break;
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.log("catch cfInitHidVal");
+    }
+  } else {
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name help_block
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.help_block = function ($p) {
+  return false;
+};
+
+/**
+ * @method
+ * @name isNum
+ * @description 입력된 값이 숫자인지 체크
+ * @param {string} str desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.isNum = function ($p, str) {
+  return $c.num.isNumber($p, str);
+};
+
+/**
+ * @method
+ * @name cfShowCrnInfo
+ * @description 사업자번호 등록
+ * @param {string} param desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfShowCrnInfo = async function ($p, param) {
+  let data = {
+    flag: "Y",
+    account: param
+  };
+  let options = {
+    id: "cfShowCrnInfo",
+    popupName: "사업자번호 등록",
+    width: "730",
+    height: "900"
+  };
+  let rt = await $c.win.openPopup($p, "/ui/ac/fi/stdinfomgnt/fi_100_02_01b.xml", options, data);
+  return rt;
+};
+
+/**
+ * @method
+ * @name cfViewClntInfo
+ * @description 거래처 조회 POPUP
+ * @param {string} pClntNo desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfViewClntInfo = async function ($p, pClntNo) {
+  let data = {
+    flag: "Y",
+    clntNo: pClntNo
+  };
+  let options = {
+    id: "cfViewClntInfo",
+    popupName: "거래처 조회",
+    width: "800",
+    height: "460"
+  };
+  let rt = await $c.win.openPopup($p, "/ui/cm/bc/clnt/clntmgnt/zz_210_02_06p.xml", options, data);
+  return rt;
+};
+
+/**
+ * @method
+ * @name cfShowSlipInfo
+ * @description desc
+ * @param {string} slipNo desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfShowSlipInfo = async function ($p, slipNo) {
+  let rt = "";
+  if (!scwin.cfIsNull($p, slipNo)) {
+    let data = {
+      slipNo: slipNo
+    };
+    let options = {
+      id: "cfShowSlipInfo",
+      popupName: "전표내역조회",
+      width: "1200",
+      height: "750"
+    };
+    rt = await $c.win.openPopup($p, "/ui/ac/fi/gnrlaccount/slipmgnt/fi_201_04_02p.xml", options, data);
+    return rt;
+  }
+  return rt;
+};
+
+/**
+ * @method
+ * @name cfValidate
+ * @description  화면상의 입력과 관련된 오브젝트에 대한 유효성 검사를 실시한다
+ * @param {Object} obj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfValidate = async function ($p, obj, excpt = [], useValidExp = false) {
+  if (scwin.cfIsNull($p, obj)) {
+    return;
+  }
+
+  // let useValidExp = false;  // 우선 사용하지 않음.
+  // if (typeof window.useValidExp != 'undefined') useValidExp = window.useValidExp;     // 테스트를 위해 값 변경시 사용 처리
+
+  if (!useValidExp) {
+    if (typeof window.useValidExp != 'undefined') useValidExp = window.useValidExp;
+  }
+  if (!useValidExp) {
+    let sObj = $c.gus.object($p, obj);
+    if (sObj) {
+      let jData = [],
+        grdArr = {
+          flag: false,
+          id: ""
+        };
+      var obj = null;
+      var opt;
+      for (var i = 0; i < sObj.length; i++) {
+        //obj = $c.gus.object
+        if (sObj[i].getPluginName() == "gridView") {
+          const dataList = $c.util.getGridViewDataList($p, sObj[i]);
+          if (dataList === null) {
+            return false;
+          }
+          const modifiedIdx = dataList.getModifiedIndex();
+          if (modifiedIdx.length < 1) {
+            return true;
+          }
+          var tCol = sObj[i].getTotalCol();
+          grdArr.grdFlag = true;
+          grdArr.id = sObj[i].getID();
+          grdArr.name = sObj[i].getUserData("gridName");
+          jData = [];
+          try {
+            for (var k = 0; k < tCol; k++) {
+              opt = sObj[i].getCellInfo(sObj[i].getCellInfo(k).id).options;
+              if (typeof opt.mandatory !== "undefined" && opt.mandatory.toString() == "true") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  mandatory: true
+                });
+              }
+              if (typeof opt.isPhone !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  isPhone: true
+                });
+              }
+              if (typeof opt.isDate !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  isDate: true
+                });
+              }
+              if (typeof opt.isBizID !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  isBizID: true
+                });
+              }
+              if (typeof opt.isSSN !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  isSSN: true
+                });
+              }
+              if (typeof opt.isEmail !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  isEmail: true
+                });
+              }
+              if (typeof opt.minLength !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  minLength: opt.minLength
+                });
+              }
+              if (typeof opt.minNumber !== "undefined") {
+                jData.push({
+                  id: sObj[i].getCellInfo(k).id,
+                  minNumber: opt.minNumber
+                });
+              }
+            }
+            break;
+          } catch (e) {
+            return false;
+          }
+        } else {
+          //debugger;
+          if (sObj[i].getPluginName() == "group") {
+            jData.push({
+              id: sObj[i].id
+            });
+          } else {
+            jData.push({
+              id: sObj[i].id,
+              mandatory: sObj[i].options.mandatory,
+              minLength: sObj[i].options.minlength,
+              isSSN: sObj[i].options.isSSN,
+              fixLength: sObj[i].getUserData("fixLength"),
+              notAllowed: sObj[i].getUserData("notAllowed")
+            });
+          }
+        }
+      }
+      if (grdArr.grdFlag) {
+        return await scwin.cfValidateGrid($p, grdArr.id, null, null, jData, grdArr.name);
+      } else {
+        return await scwin.cfValidateItem($p, jData, excpt);
+      }
+    } else {
+      return false;
+    }
+  } else {
+    // 지정 대상 하위 컴포넌트를 찾아 반환 한다.
+    function getValidateCompArr(oComp, oExcptCompArr, oValidateCompArr) {
+      let sPluginName;
+
+      // UDC 여부를 최우선으로 판단 한다.
+      if (oComp._wqContent?._isUDC2 === true) {
+        // UDC 이다.
+        sPluginName = 'UDC';
+      } else {
+        sPluginName = oComp.getPluginName();
+      }
+
+      // console.log('[getValidateCompArr] Plugin Name ==: ' + sPluginName);
+
+      if (sPluginName == 'group') {
+        let oChildCompArr = WebSquare.util.getChildren(oComp);
+        for (let idx = 0, iCnt = oChildCompArr.length; idx < iCnt; idx++) {
+          let oComp = oChildCompArr[idx];
+          getValidateCompArr(oComp, oExcptCompArr, oValidateCompArr);
+        }
+      } else {
+        let oExcludeCompArr = ['body', 'calendar', 'group', 'textbox', 'output', 'image', 'span', 'trigger', 'anchor', 'button'];
+        if (!oExcludeCompArr.includes(sPluginName) && !oExcptCompArr.includes(oComp)) {
+          if (sPluginName == 'gridView') {
+            oValidateCompArr.push(oComp);
+          } else if (sPluginName == 'UDC') {
+            oValidateCompArr.push(oComp);
+          } else {
+            oValidateCompArr.push(oComp);
+          }
+        }
+      }
+    }
+    async function ProcValidate(oComp) {
+      let sPluginName, oRet;
+
+      // UDC 여부를 최우선으로 판단 한다.
+      if (oComp._wqContent?._isUDC2 === true) {
+        // UDC 이다.
+        sPluginName = 'UDC';
+      } else {
+        sPluginName = oComp.getPluginName();
+      }
+
+      // console.log('[ProcValidate] Plugin Name ==: ' + sPluginName);
+
+      if (sPluginName == 'gridView') {
+        if (oComp.options?.validExp && oComp.options?.validExp.trim() != '') {
+          // AS-IS 방식 유효성 검증 처리
+
+          let oRet = true;
+          let oValidateVal = cfValidateGrid(oComp);
+          if (oValidateVal && (oValidateVal.isValid === true || oValidateVal.isValid === false)) {
+            if (oValidateVal.isValid === true) {
+              return true;
+            } else if (oValidateVal.isValid === false) {
+              await $c.win.alert($p, oValidateVal.inValidMsg);
+
+              // 포커스를 준다.
+              if (typeof oValidateVal.errRow != 'undefined' && typeof oValidateVal.errColId == 'string' && oValidateVal.errColId.trim() != '') {
+                oComp.setFocusedCell(oValidateVal.errRow, oValidateVal.errColId, true);
+              }
+
+              // oComp.focus();
+              return false;
+            }
+          }
+          // 여기로 오면 대략 난감..
+          return true;
+        } else {
+          let oDataList = WebSquare.util.getComponentById(oComp.getDataList());
+          if (!oDataList) {
+            console.log('$c.gus.cfValidate 수행 실패.. GirdView 의 DataList 를 확인 하세요.');
+            return false;
+          }
+          ;
+          if (oDataList.getModifiedIndex().length < 1) {
+            return true;
+          }
+          let sCompID = oComp.getID();
+          let sName = oComp.getUserData('gridName');
+          let oJsonData = [];
+          var tCol = oComp.getTotalCol();
+          try {
+            for (var k = 0; k < tCol; k++) {
+              let opt = oComp.getCellInfo(oComp.getCellInfo(k).id).options;
+              if (typeof opt.mandatory !== "undefined" && opt.mandatory.toString() == "true") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  mandatory: true
+                });
+              }
+              if (typeof opt.isPhone !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  isPhone: true
+                });
+              }
+              if (typeof opt.isDate !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  isDate: true
+                });
+              }
+              if (typeof opt.isBizID !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  isBizID: true
+                });
+              }
+              if (typeof opt.isSSN !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  isSSN: true
+                });
+              }
+              if (typeof opt.isEmail !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  isEmail: true
+                });
+              }
+              if (typeof opt.minLength !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  minLength: opt.minLength
+                });
+              }
+              if (typeof opt.minNumber !== "undefined") {
+                oJsonData.push({
+                  id: oComp.getCellInfo(k).id,
+                  minNumber: opt.minNumber
+                });
+              }
+            }
+          } catch (e) {
+            return false;
+          }
+          let oTemp = await scwin.cfValidateGrid($p, sCompID, null, null, oJsonData, sName);
+          return oTemp;
+        }
+      } else if (sPluginName == 'UDC') {
+        // UDC 는 일단 기존 로직으로 한다.
+        let oChildArr = WebSquare.util.getChildren(oComp._wqContent, {
+          'excludePlugin': 'body calendar gridView group textbox output image span trigger anchor button',
+          'recursive': true
+        });
+        let oRet = true;
+        for (let idx = 0, iCnt = oChildArr.length; idx < iCnt; idx++) {
+          oRet = await ProcValidate(oChildArr[idx]);
+          if (oRet === false) {
+            console.log('UDC 검증실패');
+            console.log(oChildArr[idx]);
+            break;
+          }
+        }
+        return oRet;
+      } else {
+        if (oComp.options?.validExp && oComp.options?.validExp.trim() != '') {
+          // AS-IS 방식 유효성 검증 처리
+
+          let oRet = true;
+          let oValidateVal = cfValidateItem(oComp);
+          if (oValidateVal && (oValidateVal.isValid === true || oValidateVal.isValid === false)) {
+            if (oValidateVal.isValid === true) {
+              return true;
+            } else if (oValidateVal.isValid === false) {
+              await $c.win.alert($p, oValidateVal.inValidMsg);
+              oComp.focus();
+              return false;
+            }
+          }
+          // 여기로 오면 대략 난감..
+          return true;
+        } else {
+          // 기존 유효성 검증 처리
+          // 기존 유효성 검증 처리는 검증실패시 Promise 를 반환 한다.
+          let oJsonData = [{
+            'id': oComp.id,
+            'mandatory': oComp.options.mandatory,
+            'minLength': oComp.options.minlength,
+            'fixLength': oComp.getUserData('fixLength'),
+            'notAllowed': oComp.getUserData('notAllowed')
+          }];
+          let oTemp = await scwin.cfValidateItem($p, oJsonData); // excpt 는 이미 처리 했다.
+          return oTemp;
+        }
+        return true;
+      }
+      return true;
+    }
+
+    // 202.03.24 MS.Ko AS-IS 함수와 동일한 동작 처리를 하기 위해 보완
+    let oObjArr = Array.isArray(obj) ? obj : [obj];
+    let oExcptCompArr = Array.isArray(excpt) ? excpt : [excpt];
+    let oRet = true;
+    ;
+    let oValidateCompArr = [];
+    for (let idx = 0, iCnt = oObjArr.length; idx < iCnt; idx++) {
+      let oComp = $c.gus.object($p, oObjArr[idx]);
+      if (oComp) {
+        // oRet = ProcValidate(oComp, oExcptCompArr);
+        getValidateCompArr(oComp, oExcptCompArr, oValidateCompArr);
+      }
+    }
+    for (let idx = 0, iCnt = oValidateCompArr.length; idx < iCnt; idx++) {
+      oRet = await ProcValidate(oValidateCompArr[idx]);
+      if (oRet === false) {
+        try {
+          console.log('%c검증실패 : ' + oValidateCompArr[idx].getOriginalID(), 'background-color:pink');
+        } catch (e) {
+          console.log('검증실패 : ', oValidateCompArr[idx]);
+        }
+        break;
+      }
+    }
+    return oRet;
+  }
+};
+
+/**
+ * @method
+ * @name cfGuardAsyncRowPositionChange
+ * @description DataList onbeforerowpositionchange 이벤트에서 비동기 검증을 안전하게 처리한다.
+ * @param {object} option desc
+ * @returns {boolean}
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGuardAsyncRowPositionChange = function ($p, option = {}) {
+  const dataList = $c.gus.object($p, option.dataList);
+  const info = option.info || {};
+  if (!dataList) {
+    console.warn("$c.gus.cfGuardAsyncRowPositionChange: dataList is required.");
+    return true;
+  }
+  const newRowIndex = typeof option.newRowIndex !== "undefined" ? option.newRowIndex : info.newRowIndex;
+  const oldRowIndex = typeof option.oldRowIndex !== "undefined" ? option.oldRowIndex : info.oldRowIndex;
+  if (newRowIndex == null || oldRowIndex == null || newRowIndex === oldRowIndex) {
+    return true;
+  }
+  const stateKey = option.stateKey || "__default__";
+  const state = _getAsyncRowGuardState(dataList, stateKey);
+  if (state.allowedTo === newRowIndex && (state.allowedFrom === null || state.allowedFrom === oldRowIndex)) {
+    _clearAsyncRowGuardState(state);
+    return true;
+  }
+  if (state.validating === true) {
+    return false;
+  }
+  const gridView = $c.gus.object($p, option.gridView);
+  const focusColumn = typeof option.focusColumn === "undefined" ? 0 : option.focusColumn;
+  const validateFn = typeof option.validateFn === "function" ? option.validateFn : async function () {
+    return true;
+  };
+  const moveFn = typeof option.moveFn === "function" ? option.moveFn : async function (targetRowIndex) {
+    _moveRowPosition(gridView, dataList, targetRowIndex, focusColumn);
+  };
+  const restoreFn = typeof option.restoreFn === "function" ? option.restoreFn : async function (targetRowIndex) {
+    _moveRowPosition(gridView, dataList, targetRowIndex, focusColumn);
+  };
+  state.validating = true;
+  Promise.resolve().then(async function () {
+    let isValid = false;
+    try {
+      isValid = await validateFn(info);
+    } catch (ex) {
+      console.error("$c.gus.cfGuardAsyncRowPositionChange: validateFn failed.", ex);
+    }
+    const targetRowIndex = isValid ? newRowIndex : oldRowIndex;
+    const fromRowIndex = isValid ? oldRowIndex : newRowIndex;
+    const actionFn = isValid ? moveFn : restoreFn;
+    try {
+      state.allowedFrom = fromRowIndex;
+      state.allowedTo = targetRowIndex;
+      await actionFn(targetRowIndex, fromRowIndex, info);
+      if (state.allowedTo === targetRowIndex && state.allowedFrom === fromRowIndex) {
+        _clearAsyncRowGuardState(state);
+      }
+    } catch (ex) {
+      _clearAsyncRowGuardState(state);
+      console.error("$c.gus.cfGuardAsyncRowPositionChange: row move failed.", ex);
+    } finally {
+      state.validating = false;
+    }
+  });
+  return false;
+  function _getAsyncRowGuardState(dataList, stateKey) {
+    const guardBag = dataList.__cfAsyncRowGuardBag || (dataList.__cfAsyncRowGuardBag = {});
+    return guardBag[stateKey] || (guardBag[stateKey] = {
+      validating: false,
+      allowedFrom: null,
+      allowedTo: null
+    });
+  }
+  function _clearAsyncRowGuardState(state) {
+    state.allowedFrom = null;
+    state.allowedTo = null;
+  }
+  function _moveRowPosition(gridView, dataList, rowIndex, focusColumn) {
+    if (rowIndex == null || rowIndex < 0) {
+      return;
+    }
+    if (gridView && typeof gridView.setFocusedCell === "function") {
+      gridView.setFocusedCell(rowIndex, focusColumn, false);
+    } else if (typeof dataList.setRowPosition === "function") {
+      dataList.setRowPosition(rowIndex);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfValidateItem
+ * @description 가우스 컴포넌트 중에서 DataSet을 제외한 모든 오브젝트와 html의 모든 오브젝트에 대해 유효성 검사를 한다
+ * @param {string} oElement desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfValidateItem = async function ($p, oElement, excpt) {
+  let objArr = $c.gus.object($p, oElement);
+  const errors = [];
+  let dataCollection = null;
+  try {
+    var valInfo = {
+      id: null
+    };
+    var obj = null;
+    var mFlag = "";
+    var minLength = 0;
+    var fixLength = 0;
+    var ssn = "";
+    var notAllowed;
+    let excptId = [];
+    if (typeof excpt !== "undefined" && !$c.gus.cfIsNull($p, excpt)) {
+      excpt.forEach(function (id) {
+        excptId.push(id);
+      });
+    }
+    for (let valIdx in objArr) {
+      var isVaild = false;
+      valInfo.id = objArr[valIdx].id;
+      obj = $c.gus.object($p, objArr[valIdx].id);
+      mFlag = objArr[valIdx].mandatory;
+      minLength = objArr[valIdx].minLength;
+      fixLength = objArr[valIdx].fixLength;
+      notAllowed = objArr[valIdx].notAllowed;
+      ssn = objArr[valIdx].isSSN;
+      let objGrpArr = [];
+      var value = "",
+        oId = "";
+      if (obj.getPluginName() == "group") {
+        objGrpArr = $c.util.getChildren($p, obj, {
+          excludePlugin: "body calendar gridView group textbox output image span trigger anchor button",
+          recursive: true
+        });
+
+        // 정방향으로 돌리면 뒤에 컴포넌트부터 검사해서 수정
+        for (var j = 0; j < objGrpArr.length; j++) {
+          // inputCalendar 길이체크로 인해 추가
+
+          if (!excptId.includes(objGrpArr[j])) {
+            // group으로 들어 온 경우 cfValidate에서 유효성 체크할 속성을 담아주지 않기 때문에 여기서 다시 셋팅
+            value = objGrpArr[j].getValue();
+            minLength = objGrpArr[j].options.minLength;
+            fixLength = objGrpArr[j].getUserData("fixLength");
+            notAllowed = objGrpArr[j].getUserData("notAllowed");
+            ssn = objGrpArr[j].getUserData("isSSN");
+
+            // group안에 컴포넌트 mandatory 체크
+            if (typeof objGrpArr[j] !== "undefined" && objGrpArr[j].options.mandatory.toString() == "true" && !value) {
+              valInfo.mandatory = true;
+              valInfo.label = objGrpArr[j].options.title || "";
+              isVaild = true;
+              oId = objGrpArr[j].id;
+              valInfo.id = oId;
+              break;
+            }
+
+            // 주민번호 체크
+            if (typeof objGrpArr[j] !== "undefined" && ssn && objGrpArr[j].options.isSSN.toString() == "true" && !$c.str.isSSN($p, value)) {
+              valInfo.isSSN = true;
+              valInfo.label = objGrpArr[j].options.title || "";
+              isVaild = true;
+              oId = objGrpArr[j].id;
+              valInfo.id = oId;
+              break;
+            }
+
+            // group안에 컴포넌트 fixLength 체크
+            if (typeof objGrpArr[j] !== "undefined" && fixLength && !$c.gus.cfIsNull($p, value) && value.length != fixLength) {
+              valInfo.fixLength = fixLength;
+              valInfo.label = objGrpArr[j].options.title || "";
+              isVaild = true;
+              oId = objGrpArr[j].id;
+              valInfo.id = oId;
+              break;
+            }
+
+            // group안에 컴포넌트 minLength 체크
+            if (typeof objGrpArr[j] !== "undefined" && minLength && !$c.gus.cfIsNull($p, value) && value.length < minLength) {
+              valInfo.minLength = minLength;
+              valInfo.label = objGrpArr[j].options.title || "";
+              isVaild = true;
+              oId = objGrpArr[j].id;
+              valInfo.id = oId;
+              break;
+            }
+
+            // group안에 컴포넌트 notAllowed 체크
+            if (typeof objGrpArr[j] !== "undefined" && notAllowed && !$c.gus.cfIsNull($p, value) && value == notAllowed) {
+              valInfo.notAllowed = notAllowed;
+              valInfo.label = objGrpArr[j].options.title || "";
+              isVaild = true;
+              oId = objGrpArr[j].id;
+              valInfo.id = oId;
+              break;
+            }
+
+            // AS-IS format 기준으로 유효성 체크하는 로직 추가
+            if (typeof objGrpArr[j] !== "undefined" && !$c.util.isEmpty($p, objGrpArr[j].options.format) && !$c.gus.cfIsNull($p, value)) {
+              if (!scwin.covFormatValidator_validate($p, objGrpArr[j].options.title, value, objGrpArr[j].options.format)) {
+                return false;
+              }
+            }
+            if (objGrpArr[j].getPluginName() == "inputCalendar") {
+              let ioFormatLength = $c.gus.cfIsNull($p, objGrpArr[j].formatter.ioFormat) ? 8 : objGrpArr[j].formatter.ioFormat.length;
+              let valueOnlyNum = (objGrpArr[j].getValue() ?? "").toString().replace(/\D/g, ""); // 숫자만
+              if (!$c.gus.cfIsNull($p, objGrpArr[j].getValue()) && valueOnlyNum.length != ioFormatLength) {
+                valInfo.calendarLength = objGrpArr[j].formatter.ioFormat.length;
+                valInfo.label = objGrpArr[j].options.title || "";
+                isVaild = true;
+                oId = objGrpArr[j].id;
+                valInfo.id = oId;
+                break;
+              }
+            }
+          }
+        }
+      } else {
+        value = obj.getValue() || "";
+
+        // 컴포넌트로만 온 경우 mandatory 체크
+        if (typeof obj !== "undefined" && mFlag == true && !value) {
+          valInfo.mandatory = true;
+          valInfo.label = obj.options.title || "";
+          isVaild = true;
+          oId = obj.getID();
+        }
+
+        // 컴포넌트로만 온 경우 minLength 체크
+        if (typeof obj !== "undefined" && minLength && !$c.gus.cfIsNull($p, value) && value.length < minLength) {
+          valInfo.minLength = minLength;
+          valInfo.label = obj.options.title || "";
+          isVaild = true;
+          oId = obj.getID();
+        }
+
+        // 컴포넌트로만 온 경우 fixLength 체크
+        if (typeof obj !== "undefined" && fixLength && !$c.gus.cfIsNull($p, value) && value.length != fixLength) {
+          valInfo.fixLength = fixLength;
+          valInfo.label = obj.options.title || "";
+          isVaild = true;
+          oId = obj.getID();
+        }
+
+        // 컴포넌트로만 온 경우 notAllowed 체크
+        if (typeof obj !== "undefined" && notAllowed && !$c.gus.cfIsNull($p, value) && value == notAllowed) {
+          valInfo.notAllowed = notAllowed;
+          valInfo.label = obj.options.title || "";
+          isVaild = true;
+          oId = obj.getID();
+        }
+
+        // AS-IS format 기준으로 유효성 체크하는 로직 추가
+        if (typeof obj !== "undefined" && !$c.util.isEmpty($p, obj.options.format) && !$c.gus.cfIsNull($p, value)) {
+          if (!scwin.covFormatValidator_validate($p, obj.options.title, value, obj.options.format)) {
+            return false;
+          }
+        }
+        if (obj.getPluginName() == "inputCalendar") {
+          let ioFormatLength = $c.gus.cfIsNull($p, obj.formatter.ioFormat) ? 8 : obj.formatter.ioFormat.length;
+          let valueOnlyNum = (obj.getValue() ?? "").toString().replace(/\D/g, ""); // 숫자만
+          if (!$c.gus.cfIsNull($p, obj.getValue()) && valueOnlyNum.length != ioFormatLength) {
+            valInfo.calendarLength = obj.formatter.ioFormat.length;
+            valInfo.label = obj.options.title || "";
+            isVaild = true;
+            oId = obj.getID();
+            valInfo.id = oId;
+            break;
+          }
+        }
+      }
+      if (isVaild === true) {
+        _setResult(dataCollection, oId, valInfo, value);
+      }
+      function _setResult(dataCollection, objId, valInfo, value) {
+        const msgInfo = $c.data.getValResultMsg($p, valInfo, value);
+        if ($c.util.isEmpty($p, msgInfo.message) === false) {
+          const comObj = $p.getComponentById(objId);
+          const errIdx = errors.length;
+          errors[errIdx] = {};
+          errors[errIdx].columnId = valInfo.id;
+          errors[errIdx].objId = objId;
+          if ($c.util.isEmpty($p, valInfo.label) === false) {
+            errors[errIdx].columnName = valInfo.label;
+          } else if ($c.util.isEmpty($p, dataCollection) === false) {
+            errors[errIdx].columnName = $c.data.getColumnName($p, comObj);
+          } else if (typeof comObj.getInvalidMessage === "function") {
+            errors[errIdx].columnName = comObj.getInvalidMessage();
+          }
+          if (msgInfo.msgType == "2") {
+            errors[errIdx].message = msgInfo.message;
+          } else {
+            if ($c.util.isEmpty($p, errors[errIdx].columnName) === false) {
+              errors[errIdx].message = $c.str.attachPostposition($p, errors[errIdx].columnName) + " " + msgInfo.message;
+            } else {
+              errors[errIdx].message = msgInfo.message;
+            }
+          }
+        }
+      }
+    }
+    if (errors.length > 0) {
+      if (typeof tacObj !== "undefined" && typeof tabId !== "undefined" && tabId !== "") {
+        const tabIndex = tacObj.getTabIndex(tabId);
+        await tacObj.setSelectedTabIndex(tabIndex);
+      }
+      const option = {
+        callBackParam: {
+          "objId": errors[0].objId
+        }
+      };
+      await $c.win.alert($p, errors[0].message);
+      var param = errors[0];
+      if (typeof param !== "undefined" && typeof param.objId !== "undefined") {
+        const obj = $p.getComponentById(param.objId);
+        obj.focus();
+      }
+      ;
+      return false;
+    } else {
+      return true;
+    }
+  } catch (ex) {
+    console.error("Exception :: Object Id : " + obj.getID() + ", Plug-in Name: " + obj.getPluginName() + ", " + ex.message);
+    return false;
+  } finally {
+    objArr = null;
+  }
+};
+scwin.covFormatValidator_validate = function ($p, title, value, format) {
+  const msgParam = [title, format];
+  if (value.length != format.length) {
+    scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+    return;
+  }
+  for (let i = 0; i < format.length; i++) {
+    switch (format.charAt(i)) {
+      case 'h':
+        var cCode = value.charCodeAt(i);
+        if (value.charAt(i) == " " || !(0xAC00 <= cCode && cCode <= 0xD7A3 || 0x3131 <= cCode && cCode <= 0x318E)) {
+          scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+          return false;
+        }
+        break;
+      case 'H':
+        var cCode = value.charCodeAt(i);
+        if (value.charAt(i) != " " && !(0xAC00 <= cCode && cCode <= 0xD7A3 || 0x3131 <= cCode && cCode <= 0x318E)) {
+          scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+          return false;
+        }
+        break;
+      case '0':
+        if (isNaN(value.charAt(i)) || value.charAt(i) == " ") {
+          scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+          return false;
+        }
+        break;
+      case '9':
+        if (isNaN(value.charAt(i))) {
+          if (value.charAt(i) != " ") {
+            scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+            return false;
+          }
+        }
+        break;
+      case 'A':
+        if (value.charAt(i) == " " || !isNaN(value.charAt(i))) {
+          scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+          return false;
+        }
+        break;
+      case 'Z':
+        if (value.charAt(i) != " " && !isNaN(value.charAt(i))) {
+          scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+          return false;
+        }
+        break;
+      case '#':
+        break;
+      default:
+        if (value.charAt(i) != format.charAt(i)) {
+          scwin.cfAlertMsg($p, MSG_CM_ERR_026, msgParam);
+          return false;
+        }
+        break;
+    }
+  }
+  return true;
+};
+
+/**
+ * @method
+ * @name cfValidateGrid
+ * @description 가우스의 Grid에 대해 유효성 검사를 한다
+ * @param {string} oGrid desc
+ * @param {string} row desc
+ * @param {string} colId desc
+ * @param {array} valInfoArr desc
+ * @param {string} gridName desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfValidateGrid = async function ($p, oGrid, row, colId, valInfoArr, gridName) {
+  if (oGrid === null) {
+    return false;
+  }
+  let gridViewObj = $c.gus.object($p, oGrid);
+  const dataList = $c.util.getGridViewDataList($p, gridViewObj);
+  if (dataList === null) {
+    return false;
+  }
+  const errors = [];
+  try {
+    if (typeof row !== "undefined" && row !== null) {
+      let modifiedData = dataList.getRowJSON(row);
+      let value = modifiedData[colId];
+      if (typeof value === "string") {
+        value = value.trim();
+      }
+      if (typeof colId !== "undefined" && colId !== null) {
+        valInfoArr = [{
+          id: colId,
+          mandatory: true
+        }];
+        value = modifiedData[colId];
+        _setResult(row, dataList, gridViewObj.getID(), valInfoArr[0], value, gridName);
+      } else {
+        valInfoArr = [];
+        var tCol = gridViewObj.getTotalCol();
+        for (var k = 0; k < tCol; k++) {
+          valInfoArr.push({
+            id: gridViewObj.getColumnID(k),
+            mandatory: true
+          });
+          value = modifiedData[gridViewObj.getColumnID(k)];
+          _setResult(row, dataList, gridViewObj.getID(), valInfoArr[k], value, gridName);
+        }
+      }
+    } else if (valInfoArr !== null) {
+      const modifiedIdx = dataList.getModifiedIndex();
+      const allJSON = dataList.getAllJSON();
+
+      /** 
+       * 기타 그리드 valid체크 Start
+       */
+      for (let k = 0; k < modifiedIdx.length; k++) {
+        const rowIndex = modifiedIdx[k];
+        for (let i = 0; i < valInfoArr.length; i++) {
+          const rule = valInfoArr[i];
+          const colId = rule.id;
+          const name = rule.name || dataList.getColumnInfo(colId).name || colId;
+          let value = dataList.getCellData(rowIndex, colId);
+          value = (value ?? "").toString().trim();
+
+          // 안내는 실재 rowIndex + 1이 되어야해서
+          let rowC = rowIndex + 1;
+          // alert 변수 prefix(%1)
+          let msg = $c.gus.cfIsNull($p, gridName) ? `${rowC}번째 데이터에서 ${name}` : `${gridName}의 ${rowC}번째 데이터에서 ${name}`;
+
+          // 1) mandatory
+          if (rule.mandatory === true && $c.gus.cfIsNull($p, value)) {
+            await $c.gus.cfAlertMsg($p, MSG_CM_ERR_002, [msg]);
+            if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+              gridViewObj.setFocusedCell(rowIndex, colId, true);
+            }
+            return false;
+          }
+
+          // 빈 값인데 mandatory 아니면 다른 검증 스킵
+          if ($c.gus.cfIsNull($p, value)) continue;
+
+          // 2) valid: AlphaNum(AS-IS에 없는거라 그냥 없어도 될듯 validExp에 있긴한데 실재 함수에 없음)
+          if (rule.valid === "AlphaNum") {
+            const r = _validators(value, rule.valid);
+            if (!r.ok) {
+              const rowC = rowIndex + 1;
+              let msg = $c.gus.cfIsNull($p, gridName) ? `${rowC}번째 데이터에서 ${name}은(는) 숫자/영문자만 입력가능합니다.` : `${gridName}의 ${rowC}번째 데이터에서 ${name}은(는) 숫자/영문자만 입력가능합니다.`;
+              await $c.win.alert($p, msg);
+              if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                gridViewObj.setFocusedCell(rowIndex, colId, true);
+              }
+              return false;
+            }
+          }
+
+          // 3) valid: date
+          if (rule.valid === "date") {
+            if (rule.format === "YYYYMMDD") {
+              const r = _validators(value, rule.format);
+              if (!r.ok) {
+                const rowC = rowIndex + 1;
+                let msgEnd;
+                if (r.type == "length") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_005, [msg, "8"]);
+                } else if (r.type == "year") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_015, [msg]);
+                } else if (r.type == "month") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_019, [msg]);
+                } else if (r.type == "day") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_020, [msg]);
+                } else if (r.type == "none") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_018, [msg]);
+                }
+                if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                  gridViewObj.setFocusedCell(rowIndex, colId, true);
+                }
+                return false;
+              }
+            } else if (rule.format === "YYYYMM") {
+              const r = _validators(value, rule.format);
+              if (!r.ok) {
+                const rowC = rowIndex + 1;
+                let msgEnd;
+                if (r.type == "length") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_005, [msg, "6"]);
+                } else if (r.type == "year") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_015, [msg]);
+                } else if (r.type == "month") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_019, [msg]);
+                }
+                if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                  gridViewObj.setFocusedCell(rowIndex, colId, true);
+                }
+                return false;
+              }
+            } else if (rule.format === "HHmm") {
+              const r = _validators(value, rule.format);
+              if (!r.ok) {
+                const rowC = rowIndex + 1;
+                let msgEnd;
+                if (r.type == "length") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_005, [msg, "4"]);
+                } else if (r.type == "hour") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_021, [msg]);
+                } else if (r.type == "minute") {
+                  await $c.gus.cfAlertMsg($p, MSG_CM_ERR_022, [msg]);
+                }
+                if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                  gridViewObj.setFocusedCell(rowIndex, colId, true);
+                }
+                return false;
+              }
+            }
+          }
+
+          // 4) valid: inNumber
+          if (rule.valid === "inNumber") {
+            if ($c.util.isEmpty($p, rule.format)) {
+              console.log("[gauss cfValidateGrid] inNumber인데 format이 없습니다.");
+              return;
+            }
+            const r = _validators(value, rule.valid, rule.format);
+            if (!r.ok) {
+              if (r.type == "empty") {
+                continue;
+              } else if (r.type == "range") {
+                console.log("[gauss cfValidateGrid] inNumber의 범위 값이 잘못 입력되었습니다. ex:) 2000~2099");
+                return false;
+              } else if (r.type == "nan") {
+                await $c.gus.cfAlertMsg($p, MSG_CM_ERR_007, [msg]);
+              } else if (r.type == "outOfRange") {
+                const parts = rule.format.split("~").map(v => v.trim());
+                await $c.gus.cfAlertMsg($p, MSG_CM_ERR_006, [msg, parts[0], parts[1]]);
+              }
+              if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                gridViewObj.setFocusedCell(rowIndex, colId, true);
+              }
+              return false;
+            }
+          }
+
+          // 5) notAllowed
+          if (!$c.gus.cfIsNull($p, rule.notAllowed)) {
+            const r = _validators(value, "notAllowed", rule.notAllowed);
+            if (!r.ok) {
+              if (r.type == "equal") {
+                await $c.gus.cfAlertMsg($p, MSG_CM_ERR_033, [msg, rule.notAllowed]);
+              }
+              if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                gridViewObj.setFocusedCell(rowIndex, colId, true);
+              }
+              return false;
+            }
+          }
+
+          // 6) maxByteLength
+          if (!$c.gus.cfIsNull($p, rule.maxByteLength) && !$c.gus.cfIsNull($p, value) && scwin.cfGetByteLength($p, value) > rule.maxByteLength) {
+            await $c.gus.cfAlertMsg($p, MSG_CM_ERR_029, [msg, rule.maxByteLength, String(Math.floor(rule.maxByteLength / 2))]);
+            return false;
+          }
+
+          // 7) maxLength
+          if (!$c.gus.cfIsNull($p, rule.maxLength) && !$c.gus.cfIsNull($p, value) && value.length > rule.maxLength) {
+            await $c.gus.cfAlertMsg($p, MSG_CM_ERR_012, [msg, rule.maxLength]);
+            return false;
+          }
+
+          // 8) valid: format
+          if (rule.valid === "format") {
+            if (!scwin.covFormatValidator_validate($p, msg, value, rule.format)) {
+              return false;
+            }
+          }
+
+          // 9) valid: minNumber
+          if (!$c.gus.cfIsNull($p, rule.minNumber) && !$c.gus.cfIsNull($p, value)) {
+            const r = _validators(value, "minNumber", rule.minNumber);
+            if (!r.ok) {
+              if (r.type == "nan") {
+                await $c.gus.cfAlertMsg($p, MSG_CM_ERR_007, [msg]);
+              } else if (r.type == "wrong") {
+                await $c.gus.cfAlertMsg($p, MSG_CM_ERR_013, [msg, rule.minNumber]);
+              }
+              if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                gridViewObj.setFocusedCell(rowIndex, colId, true);
+              }
+              return false;
+            }
+          }
+
+          /* 정수부 자리수 체크 추가 */
+          if (!$c.gus.cfIsNull($p, rule.number) && !$c.gus.cfIsNull($p, value)) {
+            const intPart = String(value).split('.')[0]; // 정수부
+
+            if (intPart.length > rule.number) {
+              await $c.gus.cfAlertMsg($p, MSG_CM_ERR_059, [msg, Math.floor(Number(rule.number))]);
+              if (gridViewObj.getCellInfo("mcomEmpNo").options.hidden != "true") {
+                gridViewObj.setFocusedCell(rowIndex, colId, true);
+              }
+              return false;
+            }
+          }
+
+          // 10) length
+          if (!$c.gus.cfIsNull($p, rule.length) && !$c.gus.cfIsNull($p, value) && value.length != rule.length) {
+            await $c.gus.cfAlertMsg($p, MSG_CM_ERR_005, [msg, rule.length]);
+            return false;
+          }
+        }
+      }
+      /** 
+       * 기타 그리드 valid체크 End
+       */
+
+      /** 
+        * key로 칼럼 중복체크 Start
+        */
+      const validateUniqueResult = validateUniqueByRuleSet(allJSON, valInfoArr, {
+        normalize: (val, col) => {
+          if (val == null) return "";
+          if (typeof val === "string") return val.trim();
+          return val;
+        }
+      });
+      if (!validateUniqueResult.ok) {
+        const v = validateUniqueResult.violations[0];
+        let rowC = v.dupIndex + 1;
+        let firstRowC = v.firstIndex + 1;
+        let msg = `${rowC}번째 데이터에서 ${v.keyNames.join(', ')}은(는) 중복될 수 없습니다. (${firstRowC}번째 데이터와 중복)`;
+        if (!$c.gus.cfIsNull($p, gridName)) msg = `${gridName}의 ` + msg;
+        await $c.win.alert($p, msg);
+        //dataList.redo();
+        return false;
+      }
+      /** 
+      * key로 칼럼 중복체크 End
+      */
+
+      if (modifiedIdx.length < 1) {
+        return true;
+      }
+      for (let dataIdx = 0; dataIdx < modifiedIdx.length; dataIdx++) {
+        let valInfo = {};
+        let isVaild = false;
+        let modifiedData = dataList.getRowJSON(modifiedIdx[dataIdx]);
+        if (modifiedData.rowStatus === "D") {
+          continue;
+        }
+        for (let valIdx in valInfoArr) {
+          if (typeof valInfoArr[valIdx].id !== "undefined" && modifiedData[valInfoArr[valIdx].id] !== "undefined") {
+            let value = modifiedData[valInfoArr[valIdx].id];
+            if (typeof value === "string") {
+              value = value.trim();
+            }
+            _setResult(modifiedIdx[dataIdx], dataList, gridViewObj.getID(), valInfoArr[valIdx], value, gridName);
+          }
+        }
+      }
+    }
+    if (errors.length > 0) {
+      if (typeof tacObj !== "undefined" && typeof tabId !== "undefined" && tabId !== "") {
+        const tabIndex = tacObj.getTabIndex(tabId);
+        tacObj.setSelectedTabIndex(tabIndex);
+      }
+      const option = {
+        callBackParam: {
+          "objId": errors[0].objId,
+          "columnId": errors[0].columnId,
+          "rowIndex": errors[0].rowIndex
+        }
+      };
+      await $c.win.alert($p, errors[0].message);
+      var param = errors[0];
+      if (typeof param !== "undefined" && typeof param.objId !== "undefined") {
+        const grdiViewObj = $p.getComponentById(param.objId);
+        if (grdiViewObj.getColumnVisible(param.columnId)) {
+          $p.setTimeout(function () {
+            grdiViewObj.setFocusedCell(param.rowIndex, param.columnId, true);
+          }, {
+            "delay": 200
+          });
+        }
+        return false;
+      }
+      ;
+    } else {
+      return true;
+    }
+    function _setResult(rowIndex, dataList, gridViewObjId, valInfo, value) {
+      const msgInfo = $c.data.getValResultMsg($p, valInfo, value, dataList, rowIndex);
+      if ($c.util.isEmpty($p, msgInfo.message) === false) {
+        const errIdx = errors.length;
+        errors[errIdx] = {};
+        errors[errIdx].columnId = valInfo.id;
+        errors[errIdx].objId = gridViewObjId;
+        if ($c.util.isEmpty($p, valInfo.label) === false) {
+          errors[errIdx].columnName = valInfo.label;
+        } else {
+          errors[errIdx].columnName = dataList.getColumnName(valInfo.id);
+        }
+        errors[errIdx].rowIndex = rowIndex;
+        if (msgInfo.msgType == "2") {
+          errors[errIdx].message = msgInfo.message;
+        } else {
+          errors[errIdx].message = !$c.util.isEmpty($p, gridName) ? gridName + "의 " : "";
+          errors[errIdx].message += rowIndex + 1 + "번째 데이터에서 " + $c.str.attachPostposition($p, errors[errIdx].columnName) + " " + msgInfo.message;
+        }
+      }
+    }
+
+    // 그리드 key 기준 컬럼별 중복체크 validate
+    function validateUniqueByRuleSet(rows, validArry, options = {}) {
+      const keyCols = validArry.filter(v => v.key === true);
+      const ignore = options.ignore ?? (() => false);
+      const normalize = options.normalize ?? (v => v);
+      const violations = [];
+      if (keyCols.length < 1) {
+        return {
+          ok: true,
+          violations
+        };
+      }
+
+      // 값의 조합을 저장할 Map
+      const seen = new Map();
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        if (ignore(row)) continue;
+
+        // 1. 해당 행의 모든 key 컬럼 값을 추출하여 하나의 식별자로 합친다
+        // 예: 이름="홍길동", 부서="개발" => "홍길동|개발"
+        const compositeKey = keyCols.map(col => {
+          const raw = row[col.id];
+          const val = normalize(raw, col);
+          return String(val ?? "");
+        }).join("|"); // 구분자를 넣어 값이 붙어버려 발생하는 오류 방지
+
+        // 모든 키 값이 비어있는 경우 무시
+        if (compositeKey.replace(/\|/g, "") === "") continue;
+
+        // 2. 이미 존재하는 조합인지 확인
+        if (seen.has(compositeKey)) {
+          const firstIndex = seen.get(compositeKey);
+          violations.push({
+            keyColumns: keyCols.map(c => c.id),
+            keyNames: keyCols.map(c => c.name),
+            duplicateKey: compositeKey,
+            firstIndex: firstIndex,
+            dupIndex: i,
+            firstRow: rows[firstIndex],
+            dupRow: row
+          });
+        } else {
+          // 처음 본 조합이라면 Map에 저장
+          seen.set(compositeKey, i);
+        }
+      }
+      return {
+        ok: violations.length === 0,
+        violations
+      };
+    }
+    // 기타 그리드 validate
+    function _validators(value, type, range) {
+      switch (type) {
+        case "AlphaNum":
+          {
+            value = (value ?? "").toString();
+            if (!/^[A-Za-z0-9]+$/.test(value)) {
+              return {
+                ok: false
+              };
+            }
+            return {
+              ok: true
+            };
+          }
+        case "YYYYMMDD":
+          {
+            value = (value ?? "").toString().replace(/\D/g, ""); // 숫자만
+
+            if (!/^\d{8}$/.test(value)) {
+              return {
+                ok: false,
+                type: "length"
+              };
+            }
+            const y = parseInt(value.substring(0, 4), 10);
+            const m = parseInt(value.substring(4, 6), 10);
+            const d = parseInt(value.substring(6, 8), 10);
+            if (y < 0001) {
+              return {
+                ok: false,
+                type: "year"
+              };
+            }
+            if (m < 1 || m > 12) {
+              return {
+                ok: false,
+                type: "month"
+              };
+            }
+            if (d < 1 || d > 31) {
+              return {
+                ok: false,
+                type: "day"
+              };
+            }
+
+            // 실존일 체크
+            const dt = new Date(y, m - 1, d);
+            const ok = dt.getFullYear() === y && dt.getMonth() + 1 === m && dt.getDate() === d;
+            if (!ok) {
+              return {
+                ok: false,
+                type: "none"
+              }; // 실존일 불일치도 '일'로 안내
+            }
+            return {
+              ok: true
+            };
+          }
+        case "YYYYMM":
+          {
+            value = (value ?? "").toString().replace(/\D/g, ""); // 숫자만
+
+            if (!/^\d{6}$/.test(value)) {
+              return {
+                ok: false,
+                type: "length"
+              };
+            }
+            const y = parseInt(value.substring(0, 4), 10);
+            const m = parseInt(value.substring(4, 6), 10);
+            if (y < 0001) {
+              return {
+                ok: false,
+                type: "year"
+              };
+            }
+            if (m < 1 || m > 12) {
+              return {
+                ok: false,
+                type: "month"
+              };
+            }
+            return {
+              ok: true
+            };
+          }
+        case "HHmm":
+          {
+            value = (value ?? "").toString().replace(/\D/g, ""); // 숫자만
+
+            // 3자리면 앞에 0 붙이기 (915 -> 0915)
+            if (/^\d{3}$/.test(value)) value = "0" + value;
+            if (!/^\d{4}$/.test(value)) {
+              return {
+                ok: false,
+                type: "length"
+              };
+            }
+            const hh = parseInt(value.substring(0, 2), 10);
+            const mm = parseInt(value.substring(2, 4), 10);
+            if (hh < 0 || hh > 23) {
+              return {
+                ok: false,
+                type: "hour"
+              };
+            }
+            if (mm < 0 || mm > 59) {
+              return {
+                ok: false,
+                type: "minute"
+              };
+            }
+            return {
+              ok: true
+            };
+          }
+        case "inNumber":
+          {
+            const min = Number(parts[0]);
+            const max = Number(parts[1]);
+
+            // 범위로 넘어 온 인자가 숫자가 아니면 통과
+            if (Number.isNaN(min) || Number.isNaN(max)) {
+              return {
+                ok: true
+              };
+            }
+
+            /** 숫자 범위 체크 */
+            if (value === null || value === undefined || value === "") {
+              return {
+                ok: false,
+                type: "empty"
+              };
+            }
+
+            // 범위로 입력받은 인자 값 확인
+            if (!range || typeof range !== "string") {
+              return {
+                ok: false,
+                type: "range"
+              };
+            }
+
+            // ####~#### 파싱
+            const parts = range.split("~").map(v => v.trim());
+            if (parts.length !== 2) {
+              return {
+                ok: false,
+                type: "range"
+              };
+            }
+            const num = Number(value);
+            // 넘어 온 값이 숫자인지 체크
+            if (Number.isNaN(num)) {
+              return {
+                ok: false,
+                type: "nan"
+              };
+            }
+
+            // 범위 내 숫자가 맞는지 체크
+            if (num < min || num > max) {
+              return {
+                ok: false,
+                type: "outOfRange",
+                min,
+                max
+              };
+            }
+            return {
+              ok: true
+            };
+          }
+        case "notAllowed":
+          {
+            if (value == range) {
+              return {
+                ok: false,
+                type: "equal"
+              };
+            }
+            return {
+              ok: true
+            };
+          }
+        case "minNumber":
+          {
+            const min = Number(range);
+            const num = Number(value);
+
+            // 범위가 NaN이면 성공처리
+            if (Number.isNaN(min)) {
+              return {
+                ok: true
+              };
+            }
+
+            // 입력 값이 NaN이면 실패
+            if (Number.isNaN(Number(value))) {
+              return {
+                ok: false,
+                type: "nan"
+              };
+            }
+
+            // 최소값 보다 작은 경우 실패
+            if (Number(num) < Number(range)) {
+              return {
+                ok: false,
+                type: "wrong"
+              };
+            }
+            return {
+              ok: true
+            };
+          }
+        default:
+          return {
+            ok: true
+          };
+      }
+    }
+    ;
+  } catch (ex) {
+    console.error(ex);
+  }
+};
+
+/**
+ * @method
+ * @name cfCopyRecord
+ * @description 가우스 Grid Object에서 선택(데이터셋의 데이터) 되어 있는 record를 복사하여
+ * 붙여넣기
+ * @param {string} oDataSet desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfCopyRecord = function ($p, oDataSet) {
+  let obj = $c.gus.object($p, oDataSet); // 그리드 아이디
+  if (obj) {
+    // let rowIdx = obj.getFocusedRowIndex();
+    let rowObj = obj.getAllFocusedIndex();
+    let dltList = obj.getDataList(),
+      dltObj = $c.gus.object($p, dltList);
+    for (var idx = 0; idx < rowObj.length; idx++) {
+      var rowIdx = rowObj[idx].row;
+      if (rowIdx > -1) {
+        dltObj.setRowJSON(dltObj.getRowCount(), dltObj.getRowJSON(rowIdx));
+      }
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfGetHiddenValue
+ * @description inObj의 hidden 값을 얻는다.
+ * @param {string} inObj desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetHiddenValue = function ($p, inObj) {
+  let obj = $c.gus.object($p, inObj);
+  if (obj) {
+    let hidVal = obj.options.hidVal;
+    if (typeof hidVal === "undefined") {
+      return "";
+    } else {
+      return hidVal;
+    }
+  } else {
+    return "";
+  }
+};
+
+/**
+ * @method
+ * @name cfSetHiddenValue
+ * @description inObj의 hidden 값을 셋팅한다
+ * @param {string} inObj desc
+ * @param {string} newVal desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfSetHiddenValue = function ($p, inObj, newVal) {
+  let obj = $c.gus.object($p, inObj);
+  if (obj) {
+    obj.options.hidVal = newVal;
+  } else {
+    return;
+  }
+};
+
+/**
+ * @method
+ * @name cfDisableKey
+ * @description Key는 disable(non-editable), Data는 enable(editable) 상태로 변경한다.
+ * @param 
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfDisableKey = function ($p) {
+  var obj;
+  // let frame = $p.getFrame();
+  let frame = scwin.getFrm($p);
+  for (var i in frame.key) {
+    obj = $c.gus.object($p, frame.key[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, false);
+    }
+  }
+  for (var i in frame.data) {
+    obj = $c.gus.object($p, frame.data[i]);
+    if (obj) {
+      scwin.cfEnableObj($p, obj, true);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfSetReturnValue
+ * @description 팝업에서 선택된 값을 코드와 코드명 필드에 세팅한다
+ * @param {string} rtnList desc
+ * @param {string} codeObj desc
+ * @param {string} nameObj desc
+ * @param {string} objArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfSetReturnValue = function ($p, rtnList, codeObj, nameObj, objArr) {
+  // 팝업을 X 버튼으로 닫았을 때
+  if (rtnList == null) {
+    rtnList = new Array();
+    var listLength = 2;
+    if (objArr != null) listLength += objArr.length;
+    for (var k = 0; k < listLength; k++) {
+      rtnList[k] = "";
+    }
+  }
+  // 팝업창 아래의 '닫기' 버튼으로 닫았을 때
+  else if (rtnList[0] == "N/A") {
+    // 닫기 버튼 클릭 시 code, code명 clear
+    // $c.gus.cfSetValue(codeObj, $c.gus.cfGetHiddenValue(codeObj));
+    // $c.gus.cfSetValue(nameObj, $c.gus.cfGetHiddenValue(nameObj));
+
+    if (objArr != null) {
+      for (var i = 0; i < objArr.length; i++) {
+        $c.gus.cfSetValue($p, objArr[i], $c.gus.cfGetHiddenValue($p, objArr[i]));
+      }
+    }
+    return;
+  }
+  $c.gus.cfSetValue($p, codeObj, rtnList[0]);
+  $c.gus.cfSetHiddenValue($p, codeObj, rtnList[0]);
+  if (nameObj) {
+    $c.gus.cfSetValue($p, nameObj, rtnList[1]);
+    $c.gus.cfSetHiddenValue($p, nameObj, rtnList[1]);
+  }
+  if (objArr != null) {
+    for (var j = 0; j < objArr.length; j++) {
+      if (objArr[j] !== undefined) {
+        // 중간에 비어져서 보내는 경우 처리를 위해 추가 예: $c.gus.cfSetReturnValue(rtnList, ed_cntrNo, ed_mrn, [ed_msn, ed_hsn, , , , , , ed_hblNo]);
+        $c.gus.cfSetValue($p, objArr[j], rtnList[j + 2]);
+        $c.gus.cfSetHiddenValue($p, objArr[j], rtnList[j + 2]);
+      }
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfSetGridReturnValue
+ * @description 팝업에서 받은 값을 그리드의 코드, 코드명 컬럼에 세팅한다.
+ * @param {string} rtnList desc
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} codeCol desc
+ * @param {string} nameCol desc
+ * @param {string} colArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfSetGridReturnValue = function ($p, rtnList, dataSet, row, codeCol, nameCol, colArr) {
+  let grdObj = scwin.object($p, dataSet);
+
+  // 팝업을 X 버튼으로 닫았을 때
+  if (rtnList == null) {
+    grdObj.setCellData(row, codeCol, ""); //코드
+    grdObj.setCellData(row, nameCol, ""); //코드명
+
+    // 추가 컬럼 처리
+    if (colArr != null) {
+      for (let i = 0; i < colArr.length; i++) {
+        grdObj.setCellData(row, colArr[i], "");
+      }
+    }
+  } else if (rtnList[0] == "N/A") {
+    // 팝업창 아래의 '닫기' 버튼으로 닫았을 때
+    // 최근에 검색된 값으로 다시 되돌림
+    let preCode = grdObj.getUserData(codeCol) ?? "";
+    let preName = grdObj.getUserData(nameCol) ?? "";
+    grdObj.setCellData(row, codeCol, preCode);
+    grdObj.setCellData(row, nameCol, preName);
+
+    // 추가 컬럼 처리
+    if (colArr != null) {
+      for (let i = 0; i < colArr.length; i++) {
+        let preVal = grdObj.getUserData(colArr[i]) ?? "";
+        grdObj.setCellData(row, colArr[i], preVal);
+      }
+    }
+  } else {
+    // 정상적으로 코드를 선택했을 때
+    grdObj.setCellData(row, codeCol, rtnList[0]); //코드
+    grdObj.setCellData(row, nameCol, rtnList[1]); //코드명
+
+    // 추가 컬럼 처리
+    if (colArr != null) {
+      for (let i = 0, j = 2; i < colArr.length; i++, j++) {
+        grdObj.setCellData(row, colArr[i], rtnList[j]);
+      }
+    }
+
+    // 검색된 값을 데이타셋의 숨은 속성으로 저장
+    if (codeCol != null && codeCol != "") {
+      grdObj.setUserData(codeCol, rtnList[0]);
+    }
+    if (nameCol != null && nameCol != "") {
+      grdObj.setUserData(nameCol, rtnList[1]);
+    }
+
+    // 추가 컬럼 처리
+    if (colArr != null) {
+      for (let i = 0, j = 2; i < colArr.length; i++, j++) {
+        grdObj.setUserData(colArr[i], rtnList[j]);
+      }
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfPrepareHidVal
+ * @description 그리드의 OnRowPosChanged 이벤트에서 이 함수를 호출해 현재 로우에 있는 값들을 hidden으로 저장해 둔다
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} colArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfPrepareHidVal = function ($p, dataSet, row, colArr) {
+  try {
+    for (i = 0; i < colArr.length; i++) {
+      // dataSet.setColumnName(colArr[i], dataSet.getCellData(row, colArr[i]));
+      dataSet.setUserData(colArr[i], dataSet.getCellData(row, colArr[i]));
+    }
+  } catch (e) {
+    console.log("## cfPrepareHidVal catch");
+  }
+};
+
+/**
+ * @method
+ * @name cfPrepareObjectHidVal
+ * @description 그리드의 OnRowPosChanged 이벤트에서 이 함수를 호출해 현재 로우에 있는 값들을 각 컬럼에 바인딩된 오브젝트에 hidden으로 저장
+ * @param {string} dataSet desc
+ * @param {string} row desc
+ * @param {string} colArr desc
+ * @param {string} objArr desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfPrepareObjectHidVal = function ($p, dataSet, row, colArr, objArr) {
+  for (i = 0; i < colArr.length; i++) {
+    scwin.cfSetHiddenValue($p, objArr[i], dataSet.getCellData(row, colArr[i]));
+  }
+};
+
+/**
+ * @method
+ * @name cfValidateElement
+ * @description 유효성 검사
+ * @param {string} oElement desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfValidateElement = function ($p, oElement) {
+  let obj = $c.gus.object($p, oElement);
+  if (obj) {
+    if (obj.getPluginName() == "gridView") {
+      return scwin.cfValidateGrid($p, obj);
+    } else {
+      return scwin.cfValidateItem($p, obj);
+    }
+  }
+};
+
+/**
+ * @method
+ * @name cfGetFileURL
+ * @description 파일 다운로드를 위한 FILE URL 정보를 반환한다.
+ * @param {string} fileName desc
+ * @param {string} filePath desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetFileURL = function ($p, fileName, filePath) {
+  return scwin.buildTargetFileURL($p, fileName, filePath, "LINK");
+};
+scwin.buildTargetFileURL = function ($p, fileName, filePath, fileType) {
+  if ($c.util.isEmpty($p, filePath)) {
+    return "";
+  }
+  return "/s3upload.do?" + new URLSearchParams({
+    path: filePath,
+    fileName: fileName || "",
+    fileType: fileType || "DOWN",
+    direct: "true",
+    fallback: "true",
+    PGM_ID: $c.global.PGM_ID || "",
+    CALLER_URL: $c.global.CALLER_URL || ""
+  }).toString();
+};
+
+/**
+ * @method
+ * @name cfGetTargetFileURL
+ * @description 파일 다운로드를 위한 FILE URL 정보를 반환한다.
+ * @param {string} fileName desc
+ * @param {string} filePath desc
+ * @param {string} fileType desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetTargetFileURL = async function ($p, fileName, filePath, fileType) {
+  // return "/DFileDownload?FILE_NAME="+fileName+"&FILE_PATH="+filePath+"&FILE_TYPE="+fileType+"&PGM_ID="+$c.global.PGM_ID+"&CALLER_URL="+$c.global.CALLER_URL;
+  debugger;
+  let paramJson = {
+    "FILE_NAME": fileName,
+    "FILE_PATH": filePath,
+    "PGM_ID": $c.global.PGM_ID,
+    "CALLER_URL": $c.global.CALLER_URL
+  };
+  if (paramJson.FILE_PATH == "" || paramJson.FILE_PATH == undefined) {
+    debugger;
+    $c.win.alert($p, "대상 파일이 NULL입니다. 설정값을 확인하세요.");
+    return;
+  }
+  await WebSquare.net.ajax({
+    action: "/DFileDownload",
+    method: "POST",
+    mediatype: "application/x-www-form-urlencoded; charset=UTF-8",
+    requestData: scwin.toQuery($p, paramJson),
+    // WebSquare 버전에 따라 responseJSON/responseText 등이 다를 수 있음
+    success: function (e) {
+      // form 생성
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = "/DFileDownload";
+      form.style.display = 'none';
+
+      // dma_downMap의 파라미터를 hidden input으로 추가
+      for (const key in paramJson) {
+        if (paramJson.hasOwnProperty(key)) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = encodeURIComponent(paramJson[key]);
+          form.appendChild(input);
+        }
+      }
+      document.body.appendChild(form);
+      form.submit(); // 브라우저가 자동으로 attachment 파일 처리
+      document.body.removeChild(form);
+    },
+    error: function (e) {
+      $c.win.alert($p, "해당 파일[" + filePath + "]이 존재하지 않습니다.");
+    }
+  });
+};
+
+/**
+ * @method
+ * @name 파일이 있는지 체크하기 위해 DFileDownload 호출 시 request받을 수 있도록 셋팅
+ * @description 해당 object를 ajax로 호출해도 request 받을 수 있도록 셋팅
+ * @param {object} 
+ * @returns {object}
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.toQuery = function ($p, obj) {
+  return Object.keys(obj).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(obj[k] ?? "")).join("&");
+};
+scwin.cfGetTargetFileURL = async function ($p, fileName, filePath, fileType) {
+  if (filePath == "" || filePath == undefined) {
+    $c.win.alert($p, "????뚯씪??NULL?낅땲?? ?ㅼ젙媛믪쓣 ?뺤씤?섏꽭??");
+    return;
+  }
+  return scwin.buildTargetFileURL($p, fileName, filePath, fileType);
+};
+
+/**
+ * @method
+ * @name cfDownloadFile
+ * @description 해당 파일을 다운로드 한다.
+ * @param {string} fileName desc
+ * @param {string} filePath desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfDownloadFile = async function ($p, fileName, filePath) {
+  var FILE_URL = await scwin.cfGetTargetFileURL($p, fileName, filePath, "DOWN");
+  WebSquare.net.download(FILE_URL);
+};
+scwin.buildDownloadRequestURL = function ($p, fileName, filePath, fileType) {
+  if ($c.util.isEmpty($p, filePath)) {
+    return "";
+  }
+  return "/s3upload.do?" + new URLSearchParams({
+    path: filePath,
+    fileName: fileName || "",
+    fileType: fileType || "DOWN",
+    fallback: "true",
+    PGM_ID: $c.global.PGM_ID || "",
+    CALLER_URL: $c.global.CALLER_URL || ""
+  }).toString();
+};
+scwin.cfDownloadFile = async function ($p, fileName, filePath) {
+  if ($c.util.isEmpty($p, filePath)) {
+    $c.win.alert($p, "대상 파일이 NULL입니다. 설정값을 확인하세요.");
+    return;
+  }
+  try {
+    const response = await fetch(scwin.buildDownloadRequestURL($p, fileName, filePath, "DOWN"));
+    if (response.status === 404) {
+      $c.win.alert($p, "해당 파일[" + filePath + "]이 존재하지 않습니다.");
+      return;
+    }
+    if (!response.ok) {
+      $c.win.alert($p, "파일 다운로드 중 오류가 발생했습니다.");
+      return;
+    }
+    const result = await response.json();
+    if (!result.downloadUrl) {
+      $c.win.alert($p, "다운로드 URL 생성에 실패했습니다.");
+      return;
+    }
+    window.location.href = result.downloadUrl;
+  } catch (e) {
+    console.error(e);
+    $c.win.alert($p, "다운로드 처리 중 예외가 발생했습니다.");
+  }
+};
+
+/**
+ * @method
+ * @name cfAlertMsg
+ * @description 공통메세지에 정의된 메세지를 alert box로 보여준 후 리턴한다
+ * @param {string} msgId desc
+ * @param {string} paramArray desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfAlertMsg = async function ($p, msgId, paramArray) {
+  if (scwin.cfIsNull($p, msgId)) {
+    await $c.win.alert($p, "존재하지 않는 메시지입니다.");
+    return null;
+  }
+  let tmpMessage = msgId;
+  if (typeof paramArray !== "undefined" && paramArray.length > 0) {
+    for (let i = 0; i < paramArray.length; i++) {
+      if ($c.util.isEmpty($p, paramArray[i]) === false) {
+        tmpMessage = tmpMessage.indexOf("%") != -1 ? $c.str.replaceAll($p, tmpMessage, "%" + (i + 1), paramArray[i]) : tmpMessage;
+      }
+    }
+  }
+  await $c.win.alert($p, tmpMessage);
+  return tmpMessage;
+};
+
+/**
+ * @method
+ * @name cfShowHelp
+ * @description 해당 화면에 대한 사용자지침서를 다운로드 한다.
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfShowHelp = function ($p) {
+  /*    
+  	var jsp = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+  
+  	var objElement = document.getElementById('guideds');
+      var dsDynamic = document.createElement("<OBJECT>");
+      dsDynamic.classid = CLSID_DATASET;
+      dsDynamic.id = 'guideds';
+      if ( objElement == null){
+        document.body.insertAdjacentElement("beforeBegin", dsDynamic);
+      }
+      guideds.DataID = "/cm.zz.RetrieveUserGuideCMD.do?jsp="+ jsp;
+      guideds.SyncLoad="true";
+      guideds.Reset();
+  
+  */
+  const dlObj = $c.data.createDataList($p, "guideds", ["COL1", "COL2"]);
+  let jsp = "";
+  const getShoeHelpOption = {
+    id: "_sbm_getShowHelp",
+    action: "/cm.zz.RetrieveUserGuideCMD.do?jsp=" + jsp,
+    target: "data:guideds",
+    method: "get",
+    submitDoneHandler: function (e) {
+      var fileName = guideds.getCellData(0, "COL1");
+      var filePath = guideds.getCellData(0, "COL2");
+      if (guideds.getCellData(0, "COL1") == null) {
+        $c.win.alert($p, "사용자지침서가 등록되어 있지 않습니다.");
+      } else {
+        if (filePath.indexOf(".") > 0) {
+          fileName += filePath.substring(filePath.indexOf("."), filePath.indexOf(".") + 4);
+          scwin.cfDownloadFile($p, fileName, filePath);
+        }
+      }
+    },
+    isProcessMsg: false
+  };
+  $c.sbm.executeDynamic($p, getMessageOption);
+};
+
+/**
+ * @method
+ * @name decode
+ * @description 입력된 값 또는 수식을 검사해 적당한 값을 Return 하는  Basic API
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.decode = function ($p) {
+  try {
+    var varValue = arguments[1];
+    var varReturn = null;
+    for (let i = 2; i < arguments.length - 1; i = i + 2) {
+      var varCase = arguments[i];
+      if (varValue == varCase) {
+        varReturn = arguments[i + 1];
+        break;
+      } else {
+        if (arguments.length % 2 > 0) {
+          varReturn = arguments[arguments.length - 1];
+        }
+      }
+    }
+    return varReturn;
+  } catch (e) {
+    $p.log("[$c.gus.decode] Exception :: " + e);
+    return;
+  }
+};
+
+/* OZ Report 관련 공통 함수 */
+
+scwin.PARAM_STR_ODIArgsName = "on";
+scwin.PARAM_STR_ODIArgsValue = "ov";
+scwin.PARAM_STR_odinames = "odin";
+scwin.PARAM_STR_FormArgsName = "fn";
+scwin.PARAM_STR_FormArgsValue = "fv";
+scwin.PARAM_STR_appendParamName = "an";
+scwin.PARAM_STR_appendParamValue = "av";
+scwin.BATCH_PROCESS_INDICATOR = false;
+scwin.GLOBAL_BATCH_PROCESS = scwin.BatchProcess;
+scwin.OZ_VIEWER_ACTION = "";
+scwin.OZ_VIEWER_PARAM = "";
+scwin.EMBEDED_OZ_VIEWER_OBJECT_ID = "";
+scwin.EMBEDED_OZ_VIEWER_FRAME_ID = "";
+
+/**
+ * @method
+ * @name BatchProcessItem
+ * @description oz 리포트 배치관련
+ * @param {string} batchURL desc
+ * @param {string} batchURLParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.BatchProcessItem = function ($p, batchURL, batchURLParam) {
+  this.batchURL = batchURL;
+  this.batchURLParam = batchURLParam;
+};
+
+/**
+ * @method
+ * @name BatchProcess
+ * @description oz 배치 process 관련
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.BatchProcess = function ($p) {
+  this.batchCurrentIndex = 0;
+  this.batchProcessItems = new Array();
+  this.getNextBatchProcessItem = function getNextBatchProcessItem() {
+    if (this.batchProcessItems.length < 1) return "";
+    var NEXT_PROCESS_ITEM = this.batchProcessItems[this.batchCurrentIndex];
+    this.batchCurrentIndex++;
+    return NEXT_PROCESS_ITEM;
+  };
+  this.addBatch = function addBatch(batchURL, batchURLParams) {
+    this.batchProcessItems[this.batchProcessItems.length] = new scwin.BatchProcessItem(batchURL, batchURLParams);
+  };
+  this.clearBatch = function clearBatch() {
+    this.batchCurrentIndex = 0;
+    this.batchProcessItems = new Array();
+  };
+};
+
+/**
+ * @method
+ * @name OZStartBatch
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.OZStartBatch = function ($p) {
+  scwin.BATCH_PROCESS_INDICATOR = true;
+  scwin.GLOBAL_BATCH_PROCESS.clearBatch($p);
+};
+
+/**
+ * @method
+ * @name OZClearBatch
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.OZClearBatch = function ($p) {
+  scwin.BATCH_PROCESS_INDICATOR = false;
+  scwin.GLOBAL_BATCH_PROCESS.clearBatch($p);
+};
+
+/**
+ * @method
+ * @name OZExecuteBatch
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.OZExecuteBatch = function ($p) {
+  scwin.BATCH_PROCESS_INDICATOR = false;
+  scwin.OZExecuteNextBatchProcess($p);
+};
+
+/**
+ * @method
+ * @name OZExecuteNextBatchProcess
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.OZExecuteNextBatchProcess = function ($p) {
+  var NEXT_PROCESS_ITEM = scwin.GLOBAL_BATCH_PROCESS.getNextBatchProcessItem($p);
+  if (NEXT_PROCESS_ITEM != null && NEXT_PROCESS_ITEM != 'undefined' && NEXT_PROCESS_ITEM != '') {
+    var NEXT_PROCESS_URL = NEXT_PROCESS_ITEM.batchURL;
+    var NEXT_PROCESS_URL_PARAMS = NEXT_PROCESS_ITEM.batchURLParam;
+    scwin.cfCallReportFile($p, NEXT_PROCESS_URL, NEXT_PROCESS_URL_PARAMS);
+  }
+};
+
+/**
+ * @method
+ * @name cfCallReportFile
+ * @description desc
+ * @param {string} reportURL desc
+ * @param {string} parameterValues desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfCallReportFile = function ($p, reportURL, parameterValues) {
+  if (scwin.BATCH_PROCESS_INDICATOR) {
+    scwin.GLOBAL_BATCH_PROCESS.addBatch($p, reportURL, parameterValues);
+    return;
+  }
+  reportURL += "&PGM_ID=" + $c.global.PGM_ID;
+  scwin.cfSetCallBackParameter($p, reportURL, parameterValues);
+  var FRAMEWORK_INLINE_FRAME_FOR_REPORT = "FRAMEWORK_INLINE_FRAME_FOR_REPORT";
+  var reportInlineFrame = document.getElementById(FRAMEWORK_INLINE_FRAME_FOR_REPORT);
+  var ozparamURL = scwin.cfGetNoCacheOzParamURL($p);
+  if (!reportInlineFrame) {
+    reportInlineFrame = document.createElement("<IFRAME MARGINHEIGHT=0 name='" + FRAMEWORK_INLINE_FRAME_FOR_REPORT + "' src='" + ozparamURL + "' frameborder='no' scrolling='no' width='0' height='0'></IFRAME>");
+    document.body.appendChild(reportInlineFrame);
+  } else {
+    reportInlineFrame.src = ozparamURL;
+  }
+};
+
+/**
+ * @method
+ * @name cfSetCallBackParameter
+ * @description desc
+ * @param {string} actionURL desc
+ * @param {string} parameterValues desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfSetCallBackParameter = function ($p, actionURL, parameterValues) {
+  scwin.OZ_VIEWER_ACTION = actionURL;
+  scwin.OZ_VIEWER_PARAM = parameterValues;
+};
+
+/**
+ * @method
+ * @name cfGetNoCacheOzParamURL
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetNoCacheOzParamURL = function ($p) {
+  var currentDate = new Date();
+  var dummyStr = currentDate.getHours() + currentDate.getMinutes() + currentDate.getSeconds() + currentDate.getMilliseconds();
+  var ozparamURL = '/common/jsp/ozparam.jsp?NOCACHE_DUMMY=' + dummyStr;
+  return ozparamURL;
+};
+
+/**
+ * @method
+ * @name cfGetOzViewerAction
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetOzViewerAction = function ($p) {
+  return scwin.OZ_VIEWER_ACTION;
+};
+
+/**
+ * @method
+ * @name cfGetOzViewerParam
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetOzViewerParam = function ($p) {
+  return scwin.OZ_VIEWER_PARAM;
+};
+
+/**
+ * @method
+ * @name cfGetOZParameterValues
+ * @description desc
+ * @param {string} multiODIParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetOZParameterValues = function ($p, multiODIParam) {
+  if (multiODIParam == null) return "";
+  var parameterValues = "";
+  var ozParamArray = multiODIParam.getODIParams();
+  for (var inx = 0, size = ozParamArray.length; inx < size; inx++) {
+    parameterValues += ozParamArray[inx].getParameterValues();
+  }
+  return parameterValues;
+};
+
+/**
+ * @method
+ * @name cfOZReport
+ * @description desc
+ * @param {string} printCheck desc
+ * @param {string} previewCheck desc
+ * @param {string} reportname desc
+ * @param {string} argsOZParam desc
+ * @param {string} appendOZParam desc
+ * @param {string} argsOZFormParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZReport = function ($p, printCheck, previewCheck, reportname, argsOZParam, appendOZParam, argsOZFormParam) {
+  var printMode = false;
+  var printCheckID = document.getElementById(printCheck);
+  if (printCheckID != null && printCheckID.checked) {
+    printMode = true;
+  }
+  var previewMode = false;
+  var previewCheckID = document.getElementById(previewCheck);
+  if (previewCheckID != null && previewCheckID.checked) {
+    previewMode = true;
+  }
+  if (!printMode) {
+    if (!(cfOZReport.arguments.length > 4 && appendOZParam != null)) {
+      appendOZParam = new scwin.ViewerParam();
+    }
+    appendOZParam.add("print.mode", "silent");
+  }
+  if (previewMode) {
+    scwin.cfOZPreview($p, reportname, argsOZParam, appendOZParam, argsOZFormParam);
+  } else {
+    scwin.cfOZPrint($p, reportname, argsOZParam, appendOZParam, argsOZFormParam);
+  }
+};
+
+/**
+ * @method
+ * @name ViewerParam
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.ViewerParam = function ($p) {
+  this.parameterValues = "";
+  this.getParameterValues = function getParameterValues() {
+    return this.parameterValues;
+  };
+  this.add = function add(paramName, paramValue) {
+    var addVal = "\n<input type='hidden' name='" + scwin.PARAM_STR_appendParamName + "' value='" + paramName + "'><input type='hidden' name='" + scwin.PARAM_STR_appendParamValue + "' value='" + paramValue + "'>";
+    if (this.parameterValues.indexOf(addVal) == -1) this.parameterValues += addVal;
+  };
+};
+
+/**
+ * @method
+ * @name cfOZPreview
+ * @description desc
+ * @param {string} reportname desc
+ * @param {string} argsOZParam desc
+ * @param {string} appendOZParam desc
+ * @param {string} argsOZFormParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZPreview = function ($p, reportname, argsOZParam, appendOZParam, argsOZFormParam) {
+  var queryString = "/common/jsp/ozviewer.jsp?reportname=" + reportname + "&MODE=PREVIEW";
+  var parameterValues = "";
+  if (scwin.cfOZPreview.arguments.length > 1 && argsOZParam != null) {
+    if (argsOZParam instanceof scwin.MultiODIParam) {
+      parameterValues += scwin.cfGetOZParameterValues($p, argsOZParam) + argsOZParam.getODINames();
+    } else if (argsOZParam instanceof scwin.ODIParam) {
+      parameterValues += argsOZParam.getParameterValues() + argsOZParam.getODIName();
+    }
+  }
+  if (!(scwin.cfOZPreview.arguments.length > 2 && appendOZParam != null)) {
+    appendOZParam = new scwin.ViewerParam();
+  }
+  appendOZParam.add("viewer.mode", "preview");
+  parameterValues += appendOZParam.getParameterValues();
+  if (scwin.cfOZPreview.arguments.length > 3 && argsOZFormParam != null) {
+    parameterValues += argsOZFormParam.getParameterValues();
+  }
+  scwin.cfCallReportFile($p, queryString, parameterValues);
+};
+
+/**
+ * @method
+ * @name cfOZPrint
+ * @description desc
+ * @param {string} reportname desc
+ * @param {string} argsOZParam desc
+ * @param {string} appendOZParam desc
+ * @param {string} argsOZFormParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZPrint = function ($p, reportname, argsOZParam, appendOZParam, argsOZFormParam) {
+  var queryString = "/common/jsp/ozviewer.jsp?reportname=" + reportname + "&MODE=PRINT";
+  var parameterValues = "";
+  if (cfOZPrint.arguments.length > 1 && argsOZParam != null) {
+    if (argsOZParam instanceof scwin.MultiODIParam) {
+      parameterValues += scwin.cfGetOZParameterValues($p, argsOZParam) + argsOZParam.getODINames();
+    } else if (argsOZParam instanceof scwin.ODIParam) {
+      parameterValues += argsOZParam.getParameterValues() + argsOZParam.getODIName();
+    }
+  }
+  if (!(cfOZPrint.arguments.length > 2 && appendOZParam != null)) {
+    appendOZParam = new scwin.ViewerParam();
+  }
+  appendOZParam.add("viewer.mode", "print");
+  parameterValues += appendOZParam.getParameterValues();
+  if (cfOZPrint.arguments.length > 3 && argsOZFormParam != null) {
+    parameterValues += argsOZFormParam.getParameterValues();
+  }
+  scwin.cfCallReportFile($p, queryString, parameterValues);
+};
+
+/**
+ * @method
+ * @name MultiODIParam
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.MultiODIParam = function ($p) {
+  this.odiNames = "";
+  this.odiParams = new Array();
+  this.getODIParams = function getODIParams() {
+    return this.odiParams;
+  };
+  this.getODINames = function getODINames() {
+    return this.odiNames;
+  };
+  this.add = function add(odiParam) {
+    this.odiNames += odiParam.getODIName();
+    this.odiParams[this.odiParams.length] = odiParam;
+  };
+};
+
+/**
+ * @method
+ * @name ODIParam
+ * @description desc
+ * @param {string} odiName desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.ODIParam = function ($p, odiName) {
+  this.odiName = odiName;
+  this.parameterValues = "";
+  this.getODIName = function getODIName() {
+    return "\n<input type='hidden' name='" + scwin.PARAM_STR_odinames + "' value='" + this.odiName + "'>";
+  };
+  this.getParameterValues = function getParameterValues() {
+    return this.parameterValues;
+  };
+  this.add = function add(paramName, paramValue) {
+    var addVal = "\n<input type='hidden' name='" + this.odiName + "." + scwin.PARAM_STR_ODIArgsName + "' value='" + paramName + "'><input type='hidden' name='" + this.odiName + "." + scwin.PARAM_STR_ODIArgsValue + "' value='" + paramValue + "'>";
+    if (this.parameterValues.indexOf(addVal) == -1) this.parameterValues += addVal;
+  };
+};
+
+/**
+ * @method
+ * @name FormParam
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.FormParam = function ($p) {
+  this.getParameterValues = function getParameterValues() {
+    return this.parameterValues;
+  };
+  this.add = function add(paramName, paramValue) {
+    var addVal = "\n<input type='hidden' name='" + scwin.PARAM_STR_FormArgsName + "' value='" + paramName + "'><input type='hidden' name='" + PARAM_STR_FormArgsValue + "' value='" + paramValue + "'>";
+    if (this.parameterValues.indexOf(addVal) == -1) this.parameterValues += addVal;
+  };
+};
+
+/**
+ * @method
+ * @name cfOZExport
+ * @description desc
+ * @param {string} reportname desc
+ * @param {string} argsOZParam desc
+ * @param {string} appendOZParam desc
+ * @param {string} argsOZFormParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZExport = function ($p, reportname, argsOZParam, appendOZParam, argsOZFormParam) {
+  var queryString = "/common/jsp/ozviewer.jsp?reportname=" + reportname + "&MODE=EXPORT";
+  var parameterValues = "";
+  if (cfOZExport.arguments.length > 1 && argsOZParam != null) {
+    if (argsOZParam instanceof scwin.MultiODIParam) {
+      parameterValues += scwin.cfGetOZParameterValues($p, argsOZParam) + argsOZParam.getODINames();
+    } else if (argsOZParam instanceof scwin.ODIParam) {
+      parameterValues += argsOZParam.getParameterValues() + argsOZParam.getODIName();
+    }
+  }
+  if (!(cfOZExport.arguments.length > 2 && appendOZParam != null)) {
+    appendOZParam = new scwin.ViewerParam();
+  }
+  appendOZParam.add("viewer.mode", "export");
+  parameterValues += appendOZParam.getParameterValues();
+  if (cfOZExport.arguments.length > 3 && argsOZFormParam != null) {
+    parameterValues += argsOZFormParam.getParameterValues();
+  }
+  scwin.cfCallReportFile($p, queryString, parameterValues);
+};
+
+/**
+ * @method
+ * @name cfOZEmbed
+ * @description desc
+ * @param {string} printCheck desc
+ * @param {string} ozviewerFrameId desc
+ * @param {string} ozviewerId desc
+ * @param {string} reportname desc
+ * @param {string} argsOZParam desc
+ * @param {string} appendOZParam desc
+ * @param {string} argsOZFormParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZEmbed = function ($p, printCheck, ozviewerFrameId, ozviewerId, reportname, argsOZParam, appendOZParam, argsOZFormParam) {
+  var printMode = false;
+  var printCheckID = document.getElementById(printCheck);
+  if (printCheckID != null && printCheckID.checked) {
+    printMode = true;
+  }
+  if (!printMode) {
+    if (!(cfOZEmbed.arguments.length > 5 && appendOZParam != null)) {
+      appendOZParam = new scwin.ViewerParam();
+    }
+    appendOZParam.add("print.mode", "silent");
+  }
+  scwin.cfOZEmbedPreview($p, ozviewerFrameId, ozviewerId, reportname, argsOZParam, appendOZParam, argsOZFormParam);
+};
+
+/**
+ * @method
+ * @name cfOZEmbedPreview
+ * @description desc
+ * @param {string} ozviewerFrameId desc
+ * @param {string} ozviewerId desc
+ * @param {string} reportname desc
+ * @param {string} argsOZParam desc
+ * @param {string} appendOZParam desc
+ * @param {string} argsOZFormParam desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZEmbedPreview = function ($p, ozviewerFrameId, ozviewerId, reportname, argsOZParam, appendOZParam, argsOZFormParam) {
+  var queryString = "/common/jsp/ozviewer.jsp?reportname=" + reportname + "&MODE=EMBEDVIEW" + "&viewername=" + ozviewerId + "&isframeValue=false";
+  var parameterValues = "";
+  if (cfOZEmbedPreview.arguments.length > 3 && argsOZParam != null) {
+    if (argsOZParam instanceof scwin.MultiODIParam) {
+      parameterValues += scwin.cfGetOZParameterValues($p, argsOZParam) + argsOZParam.getODINames();
+    } else if (argsOZParam instanceof scwin.ODIParam) {
+      parameterValues += argsOZParam.getParameterValues() + argsOZParam.getODIName();
+    }
+  }
+  if (!(cfOZEmbedPreview.arguments.length > 4 && appendOZParam != null)) {
+    appendOZParam = new scwin.ViewerParam();
+  }
+  appendOZParam.add("viewer.mode", "preview");
+  appendOZParam.add("toolbar.bgcolor", "FFFFFF");
+  appendOZParam.add("viewer.bgcolor", "FFFFFF");
+  appendOZParam.add("viewer.useinborder", "false");
+  appendOZParam.add("viewer.useoutborder", "false");
+  appendOZParam.add("viewer.usestatusbar", "false");
+  parameterValues += appendOZParam.getParameterValues();
+  if (cfOZEmbedPreview.arguments.length > 5 && argsOZFormParam != null) {
+    parameterValues += argsOZFormParam.getParameterValues();
+  }
+  var iframeId = document.getElementById(ozviewerFrameId);
+  iframeId.MARGINHEIGHT = 0;
+  var width = iframeId.width;
+  var height = iframeId.height;
+  EMBEDED_OZ_VIEWER_FRAME_ID = ozviewerFrameId;
+  EMBEDED_OZ_VIEWER_OBJECT_ID = ozviewerId;
+  queryString += "&width=" + width + "&height=" + height + "&PGM_ID=" + PGM_ID;
+  scwin.cfSetCallBackParameter($p, queryString, parameterValues);
+  iframeId.src = scwin.cfGetNoCacheOzParamURL($p);
+};
+
+/**
+ * @method
+ * @name cfGetEmbedOZViewerID
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfGetEmbedOZViewerID = function ($p) {
+  return document.frames(scwin.EMBEDED_OZ_VIEWER_FRAME_ID).document.getElementById(scwin.EMBEDED_OZ_VIEWER_OBJECT_ID);
+};
+
+/**
+ * @method
+ * @name cfOZEmbedScript
+ * @description desc
+ * @param {string} command desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZEmbedScript = function ($p, command) {
+  scwin.cfGetEmbedOZViewerID($p).script(command);
+};
+
+/**
+ * @method
+ * @name cfOZEmbedPrint
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZEmbedPrint = function ($p) {
+  scwin.cfGetEmbedOZViewerID($p).script('print');
+};
+
+/**
+ * @method
+ * @name cfOZEmbedExport
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfOZEmbedExport = function ($p) {
+  scwin.cfGetEmbedOZViewerID($p).script('save');
+};
+
+/**
+ * @method
+ * @name cfFillPageInfo
+ * @description 보고서의 paging이 있는경우 전체 수량,페이징수량을 받는다
+ * @param {string} pageInfo desc
+ * @param {string} paramName desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.cfFillPageInfo = function ($p, pageInfo, paramName) {
+  var paramArray = pageInfo.advancedSplit("&", "i");
+  var paramPair;
+  for (var i = 0; i < paramArray.length; i++) {
+    paramPair = paramArray[i].advancedSplit("=", "i");
+    if (paramPair[0].trim() == paramName.trim()) {
+      return paramPair[1];
+    }
+  }
+};
+
+/**
+ * @method
+ * @name getctrlBtn
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getctrlBtn = function ($p, v) {
+  return scwin.getFrm($p)[v];
+  // return $p.getFrame()[v];
+};
+
+/**
+ * @method
+ * @name cf_CopyDataSetValue
+ * @description 헤더는 같지만, 헤더의 순서가 다른 경우 데이터셋정보 Copy하기
+ * @param DataList
+ * @param DataList
+ * @hidden N
+ * @exception
+ * @example
+ */
+/**
+ * @method
+ * @name cf_CopyDataSetValue
+ * @description desc
+ * @param {string} ds1 desc
+ * @param {string} ds2 desc
+ * @hidden N
+ * @exception 
+ * @example ${example}
+ */
+scwin.cf_CopyDataSetValue = function ($p, ds1, ds2) {
+  for (let i = 0; i < ds1.getRowCount(); i++) {
+    ds2.insertRow();
+    for (let j = 0; j < ds1.getTotalCol(); j++) {
+      ds2.setCellData(ds2.getRowCount() - 1, ds1.getColumnID(j), ds1.getCellData(i, ds1.getColumnID(j)));
+    }
+  }
+};
+
+/**
+ * @method 구간별 allowChar 필요한 경우 사용
+ * @name cf_AllowCharLength
+ * @description desc
+ * @param {component} obj desc
+ * @hidden N
+ * @exception 
+ * @example $c.gus.cf_AllowCharLength(ed_txt);
+ */
+scwin.cf_AllowCharLength = function ($p, comp) {
+  if (!comp) return;
+  const buildSegments = function () {
+    const opts = comp.options || {};
+    const items = [];
+    const buildMergedAllowCharRaw = function () {
+      const opts = comp.options || {};
+      let merged = "";
+      Object.keys(opts).filter(k => /^allowChar\d+$/.test(k)).sort((a, b) => parseInt(a.replace("allowChar", ""), 10) - parseInt(b.replace("allowChar", ""), 10)).forEach(k => {
+        const raw = (opts[k] ?? "").toString();
+        if (raw && !merged.includes(raw)) {
+          merged += raw; // 범위 문자열 그대로 붙임
+        }
+      });
+      return merged;
+    };
+    if (comp.setAllowChar) {
+      comp.setAllowChar(buildMergedAllowCharRaw());
+      const _applyAllowCharOnce = function () {
+        comp.setAllowChar(buildMergedAllowCharRaw()); // 네가 만든 합집합 문자열 함수
+        comp.unbind?.("onfocus", _applyAllowCharOnce);
+      };
+    }
+    Object.keys(opts).filter(k => /^allowChar\d+$/.test(k)).sort((a, b) => parseInt(a.replace("allowChar", ""), 10) - parseInt(b.replace("allowChar", ""), 10)).forEach(k => {
+      const n = parseInt(k.replace("allowChar", ""), 10);
+      const allowChar = (opts[k] ?? "").toString();
+      const length = Number(opts[`allowChar${n}Length`]);
+      const upperRaw = opts[`allowChar${n}Upper`];
+      const upper = upperRaw === true || upperRaw === "true" || upperRaw === "Y" || upperRaw === "1" || upperRaw === 1;
+      if (!Number.isFinite(length) || length <= 0) return;
+      items.push({
+        allowChar,
+        length,
+        upper
+      });
+    });
+
+    // sanitize에서 length가 필요하니까 같이 넣어둠
+    let cursor = 0;
+    return items.map(it => {
+      const seg = {
+        allowChar: it.allowChar,
+        upper: it.upper,
+        length: it.length,
+        start: cursor,
+        end: cursor + it.length
+      };
+      cursor = seg.end;
+      return seg;
+    });
+  };
+  const pickSegByPos = function (segs, pos) {
+    for (let i = 0; i < segs.length; i++) {
+      const s = segs[i];
+      if (pos >= s.start && pos < s.end) return s;
+    }
+    return segs.length ? segs[segs.length - 1] : null;
+  };
+  const matchChar = function (allowChar, ch) {
+    return new RegExp(`^[${allowChar}]$`).test(ch);
+  };
+
+  // onkeydown
+  comp.bind("onkeydown", function (e) {
+    if (!e || !e.key || e.key.length !== 1) return;
+    const segs = buildSegments();
+    if (segs.length === 0) return;
+    const start = typeof e.target?.selectionStart === "number" ? e.target.selectionStart : comp.getSelectionStart ? comp.getSelectionStart() : comp.getValue ? (comp.getValue() || "").length : 0;
+    const seg = pickSegByPos(segs, start);
+    if (!seg) return;
+    const ok = matchChar(seg.allowChar, e.key);
+    if (!ok) {
+      e.preventDefault?.();
+      e.stopPropagation?.();
+    }
+  });
+
+  // oneditkeyup
+  const sanitizeBySegmentsMax = function (value, segments) {
+    const v = (value ?? "").toString();
+    let out = "";
+    let segIdx = 0;
+    let segPos = 0;
+    for (let i = 0; i < v.length; i++) {
+      const ch = v[i];
+
+      // 현재 구간이 꽉 찼으면 다음 구간
+      while (segIdx < segments.length && segPos >= segments[segIdx].length) {
+        segIdx++;
+        segPos = 0;
+      }
+      if (segIdx >= segments.length) break;
+      let seg = segments[segIdx];
+
+      // 현재 구간 불일치면 "다음 구간에 맞는지" 먼저 보고 넘김
+      if (!matchChar(seg.allowChar, ch)) {
+        const next = segments[segIdx + 1];
+        if (next && matchChar(next.allowChar, ch)) {
+          segIdx++;
+          segPos = 0;
+          seg = segments[segIdx];
+        } else {
+          continue; // 어느 구간에도 안 맞으면 버림
+        }
+      }
+      out += seg.upper ? ch.toUpperCase() : ch;
+      segPos++;
+    }
+    return out;
+  };
+  comp.bind("oneditkeyup", function (info, e) {
+    const key = e?.key;
+
+    // oneditkeyup에서는 삭제만 체크
+    if (key !== "Backspace" && key !== "Delete") return;
+    const segs = buildSegments();
+    if (segs.length === 0) return;
+    const cur = (comp.getValue ? comp.getValue() || "" : "").toString();
+
+    // 1) 현재 커서 위치(삭제가 일어난 지점)
+    // WebSquare/브라우저 따라 selectionStart가 없을 수 있어서 최대한 커버
+    let caret = typeof e?.target?.selectionStart === "number" ? e.target.selectionStart : comp.getSelectionStart ? comp.getSelectionStart() : comp.getSelectionEnd ? comp.getSelectionEnd() : cur.length;
+    if (caret < 0) caret = 0;
+    if (caret > cur.length) caret = cur.length;
+
+    // 2) AS-IS 정책: 커서 위치부터 뒤를 전부 제거
+    const cut = cur.slice(0, caret);
+
+    // 3) 남은 앞부분만 세그먼트 규칙으로 정리 + upper
+    let out = "";
+    for (let i = 0; i < cut.length; i++) {
+      const seg = pickSegByPos(segs, i); // i번째 위치에 해당하는 구간
+      if (!seg) break;
+      const ch = cut[i];
+      const ok = new RegExp(`^[${seg.allowChar}]$`).test(ch);
+      if (!ok) continue;
+      out += seg.upper ? ch.toUpperCase() : ch;
+    }
+    if (out !== cur) {
+      comp.setValue(out);
+
+      // 커서도 끝으로 (AS-IS가 보통 이렇게 동작)
+      if (comp.setSelectionRange) {
+        const c = out.length;
+        comp.setSelectionRange(c, c);
+      }
+    }
+  });
+  comp.bind("onchange", function () {
+    // 붙여넣기 통제용
+    const segs = buildSegments();
+    if (segs.length === 0) return;
+    const cur = (comp.getValue ? comp.getValue() || "" : "").toString();
+    const out = sanitizeBySegmentsMax(cur, segs);
+    if (out !== cur) comp.setValue(out);
+  });
+};
+
+/* OZ Report 관련 공통 함수 End */
+/* ********************************************************************************
+ *                              Prototype 함수
+ * *******************************************************************************/
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 String 객체에 simpleReplace 메소드를 추가한다. simpleReplace 메소드는
+*           스트링 내에 있는 특정 스트링을 다른 스트링으로 모두 변환한다. String 객체의 replace 메소드와 동일한
+*           기능을 하지만 간단한 스트링의 치환시에 보다 유용하게 사용할 수 있다.
+*/
+String.prototype.simpleReplace = function (oldStr, newStr) {
+  var rStr = oldStr;
+  rStr = rStr.replace(/\\/g, "\\\\");
+  rStr = rStr.replace(/\^/g, "\\^");
+  rStr = rStr.replace(/\$/g, "\\$");
+  rStr = rStr.replace(/\*/g, "\\*");
+  rStr = rStr.replace(/\+/g, "\\+");
+  rStr = rStr.replace(/\?/g, "\\?");
+  rStr = rStr.replace(/\./g, "\\.");
+  rStr = rStr.replace(/\(/g, "\\(");
+  rStr = rStr.replace(/\)/g, "\\)");
+  rStr = rStr.replace(/\|/g, "\\|");
+  rStr = rStr.replace(/\,/g, "\\,");
+  rStr = rStr.replace(/\{/g, "\\{");
+  rStr = rStr.replace(/\}/g, "\\}");
+  rStr = rStr.replace(/\[/g, "\\[");
+  rStr = rStr.replace(/\]/g, "\\]");
+  rStr = rStr.replace(/\-/g, "\\-");
+  var re = new RegExp(rStr, "g");
+  return this.replace(re, newStr);
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 String 객체에 trim 메소드를 추가한다. trim 메소드는 스트링의 앞과 뒤에
+*           있는 white space 를 제거한다.
+*/
+String.prototype.trim = function () {
+  return this.replace(/(^\s*)|(\s*$)/g, "");
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 String 객체에 trimAll 메소드를 추가한다. trim 메소드는 스트링 내에
+*           있는 white space 를 모두 제거한다.
+*/
+String.prototype.trimAll = function () {
+  return this.replace(/\s*/g, "");
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 String 객체에 cut 메소드를 추가한다. cut 메소드는 스트링의 특정 영역을
+*           잘라낸다.
+*/
+String.prototype.cut = function (start, length) {
+  return this.substring(0, start) + this.substr(start + length);
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 String 객체에 insert 메소드를 추가한다. insert 메소드는 스트링의 특정 영역에
+*           주어진 스트링을 삽입한다.
+*/
+String.prototype.insert = function (index, str) {
+  return this.substring(0, index) + str + this.substr(index);
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : String.split() 와 같지만 여러가지 옵션을 줄 수 있다.
+*/
+String.prototype.advancedSplit = function (delim, options) {
+  if (options == null || options.trim() == "") {
+    return this.split(delim);
+  }
+  var optionI = false;
+  var optionT = false;
+  options = options.trim().toUpperCase();
+  for (var i = 0; i < options.length; i++) {
+    if (options.charAt(i) == 'I') {
+      optionI = true;
+    } else if (options.charAt(i) == 'T') {
+      optionT = true;
+    }
+  }
+  var arr = new Array();
+  var cnt = 0;
+  var startIdx = 0;
+  var delimIdx = -1;
+  var str = this;
+  var temp = 0;
+  while ((delimIdx = str == null ? -1 : str.indexOf(delim, startIdx)) != -1) {
+    if (optionI && str.substr(delimIdx - 1, 2) == '\\' + delim) {
+      str = str.cut(delimIdx - 1, 1);
+      startIdx = delimIdx;
+      continue;
+    }
+    arr[cnt++] = optionT ? str.substring(0, delimIdx).trim() : str.substring(0, delimIdx);
+    str = str.substr(delimIdx + 1);
+    startIdx = 0;
+  }
+  arr[cnt] = str == null ? "" : str;
+  return arr;
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 String 객체에 toDate 메소드를 추가한다. toDate 메소드는 날짜를 표현하는
+*           스트링 값을 자바스크립트의 내장 객체인 Date 객체로 변환한다.
+* var date = "2002-03-05".toDate("YYYY-MM-DD")
+*/
+String.prototype.toDate = function (pattern) {
+  var index = -1;
+  var year;
+  var month;
+  var day;
+  var hour = 0;
+  var min = 0;
+  var sec = 0;
+  var ms = 0;
+  var newDate;
+  if (pattern == null) {
+    pattern = "YYYYMMDD";
+  }
+  if ((index = pattern.indexOf("YYYY")) == -1) {
+    index = pattern.indexOf("YY");
+    year = "20" + this.substr(index, 2);
+  } else {
+    year = this.substr(index, 4);
+  }
+  if ((index = pattern.indexOf("MM")) != -1) {
+    month = this.substr(index, 2);
+  } else {
+    month = 1;
+  }
+  if ((index = pattern.indexOf("DD")) != -1) {
+    day = this.substr(index, 2);
+  } else {
+    day = 1;
+  }
+  if ((index = pattern.indexOf("HH")) != -1) {
+    hour = this.substr(index, 2);
+  }
+  if ((index = pattern.indexOf("mm")) != -1) {
+    min = this.substr(index, 2);
+  }
+  if ((index = pattern.indexOf("ss")) != -1) {
+    sec = this.substr(index, 2);
+  }
+  if ((index = pattern.indexOf("SS")) != -1) {
+    ms = this.substr(index, 2);
+  }
+  newDate = new Date(year, month - 1, day, hour, min, sec, ms);
+  if (month > 12) {
+    newDate.setFullYear(year + 1);
+  } else {
+    newDate.setFullYear(year);
+  }
+  return newDate;
+};
+Date.prototype.GLB_MONTH_IN_YEAR = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+Date.prototype.GLB_SHORT_MONTH_IN_YEAR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+Date.prototype.GLB_DAY_IN_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+Date.prototype.GLB_SHORT_DAY_IN_WEEK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+Date.prototype.GLB_DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 자바스크립트의 내장 객체인 Date 객체에 format 메소드를 추가한다. format 메소드는 Date 객체가 가진 날짜를
+*           지정된 포멧의 스트링으로 변환한다.
+*/
+Date.prototype.format = function (pattern) {
+  var year = this.getFullYear();
+  var month = this.getMonth() + 1;
+  var day = this.getDate();
+  var dayInWeek = this.getDay();
+  var hour24 = this.getHours();
+  var ampm = hour24 < 12 ? "AM" : "PM";
+  var hour12 = hour24 > 12 ? hour24 - 12 : hour24;
+  var min = this.getMinutes();
+  var sec = this.getSeconds();
+  var YYYY = "" + year;
+  var YY = YYYY.substr(2);
+  var MM = ("" + month).length == 1 ? "0" + month : "" + month;
+  var MON = this.GLB_MONTH_IN_YEAR[month - 1];
+  var mon = this.GLB_SHORT_MONTH_IN_YEAR[month - 1];
+  var DD = ("" + day).length == 1 ? "0" + day : "" + day;
+  var DAY = this.GLB_DAY_IN_WEEK[dayInWeek];
+  var day = this.GLB_SHORT_DAY_IN_WEEK[dayInWeek];
+  var HH = ("" + hour24).length == 1 ? "0" + hour24 : "" + hour24;
+  var hh = ("" + hour12).length == 1 ? "0" + hour12 : "" + hour12;
+  var mm = ("" + min).length == 1 ? "0" + min : "" + min;
+  var ss = ("" + sec).length == 1 ? "0" + sec : "" + sec;
+  var SS = "" + this.getMilliseconds();
+  var dateStr;
+  var index = -1;
+  if (typeof pattern == "undefined") {
+    dateStr = "YYYYMMDD";
+  } else {
+    dateStr = pattern;
+  }
+  dateStr = dateStr.replace(/YYYY/g, YYYY);
+  dateStr = dateStr.replace(/YY/g, YY);
+  dateStr = dateStr.replace(/MM/g, MM);
+  dateStr = dateStr.replace(/MON/g, MON);
+  dateStr = dateStr.replace(/mon/g, mon);
+  dateStr = dateStr.replace(/DD/g, DD);
+  dateStr = dateStr.replace(/DAY/g, DAY);
+  dateStr = dateStr.replace(/day/g, day);
+  dateStr = dateStr.replace(/hh/g, hh);
+  dateStr = dateStr.replace(/HH/g, HH);
+  dateStr = dateStr.replace(/mm/g, mm);
+  dateStr = dateStr.replace(/ss/g, ss);
+  dateStr = dateStr.replace(/(\s+)a/g, "$1" + ampm);
+  return dateStr;
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 현재 Date 객체의 날짜보다 이후날짜를 가진 Date 객체를 리턴한다.
+*           예를 들어 내일 날짜를 얻으려면 다음과 같이 하면 된다.
+*/
+Date.prototype.after = function (years, months, dates, hours, miniutes, seconds, mss) {
+  if (years == null) years = 0;
+  if (months == null) months = 0;
+  if (dates == null) dates = 0;
+  if (hours == null) hours = 0;
+  if (miniutes == null) miniutes = 0;
+  if (seconds == null) seconds = 0;
+  if (mss == null) mss = 0;
+  return new Date(this.getFullYear() + years, this.getMonth() + months, this.getDate() + dates, this.getHours() + hours, this.getMinutes() + miniutes, this.getSeconds() + seconds, this.getMilliseconds() + mss);
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 현재 Date 객체의 날짜보다 이전날짜를 가진 Date 객체를 리턴한다.
+*           예를 들어 어제 날짜를 얻으려면 다음과 같이 하면 된다.
+*/
+Date.prototype.before = function (years, months, dates, hours, miniutes, seconds, mss) {
+  if (years == null) years = 0;
+  if (months == null) months = 0;
+  if (dates == null) dates = 0;
+  if (hours == null) hours = 0;
+  if (miniutes == null) miniutes = 0;
+  if (seconds == null) seconds = 0;
+  if (mss == null) mss = 0;
+  return new Date(this.getFullYear() - years, this.getMonth() - months, this.getDate() - dates, this.getHours() - hours, this.getMinutes() - miniutes, this.getSeconds() - seconds, this.getMilliseconds() - mss);
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 다음달 1일 날짜를 가진 Date 객체를 리턴한다
+*/
+Date.prototype.nextFirstDate = function () {
+  this.setMonth(this.getMonth() + 1);
+  this.setDate(1);
+  return this;
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 이번달의 마지막 날짜를 가진 Date 객체를 리턴한다.
+*/
+Date.prototype.lastDate = function () {
+  this.setMonth(this.getMonth() + 1);
+  this.setDate(1);
+  this.setDate(this.getDate() - 1);
+  return this;
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   : 이번달의 1일 날짜를 가진 Date 객체를 리턴한다.
+*/
+Date.prototype.firstDate = function () {
+  this.setDate(1);
+  return this;
+};
+
+/**
+* @type   : prototype_function
+* @access : public
+* @desc   :  현재 날짜 이후에 가장 가까운 특정 요일의 날짜를 얻는 함수
+*/
+Date.prototype.nextDay = function (tDay) {
+  var dayDiff = tDay - this.getDay();
+  if (dayDiff <= 0) {
+    dayDiff += 7;
+  }
+  this.setDate(this.getDate() + dayDiff);
+  return this;
+};
+const Aes = {};
+Aes.cipher = function (input, w) {
+  var Nb = 4;
+  var Nr = w.length / Nb - 1;
+  var state = [[], [], [], []];
+  for (var i = 0; i < 4 * Nb; i++) {
+    state[i % 4][Math.floor(i / 4)] = input[i];
+  }
+  state = Aes.addRoundKey(state, w, 0, Nb);
+  for (var round = 1; round < Nr; round++) {
+    state = Aes.subBytes(state, Nb);
+    state = Aes.shiftRows(state, Nb);
+    state = Aes.mixColumns(state, Nb);
+    state = Aes.addRoundKey(state, w, round, Nb);
+  }
+  state = Aes.subBytes(state, Nb);
+  state = Aes.shiftRows(state, Nb);
+  state = Aes.addRoundKey(state, w, Nr, Nb);
+  var output = new Array(4 * Nb);
+  for (var i = 0; i < 4 * Nb; i++) {
+    output[i] = state[i % 4][Math.floor(i / 4)];
+  }
+  return output;
+};
+Aes.keyExpansion = function (key) {
+  var Nb = 4;
+  var Nk = key.length / 4;
+  var Nr = Nk + 6;
+  var w = new Array(Nb * (Nr + 1));
+  var temp = new Array(4);
+  for (var i = 0; i < Nk; i++) {
+    var r = [key[4 * i], key[4 * i + 1], key[4 * i + 2], key[4 * i + 3]];
+    w[i] = r;
+  }
+  for (var i = Nk; i < Nb * (Nr + 1); i++) {
+    w[i] = new Array(4);
+    for (var t = 0; t < 4; t++) {
+      temp[t] = w[i - 1][t];
+    }
+    if (i % Nk == 0) {
+      temp = Aes.subWord(Aes.rotWord(temp));
+      for (var t = 0; t < 4; t++) {
+        temp[t] ^= Aes.rCon[i / Nk][t];
+      }
+    } else if (Nk > 6 && i % Nk == 4) {
+      temp = Aes.subWord(temp);
+    }
+    for (var t = 0; t < 4; t++) {
+      w[i][t] = w[i - Nk][t] ^ temp[t];
+    }
+  }
+  return w;
+};
+Aes.subBytes = function (s, Nb) {
+  for (var r = 0; r < 4; r++) {
+    for (var c = 0; c < Nb; c++) {
+      s[r][c] = Aes.sBox[s[r][c]];
+    }
+  }
+  return s;
+};
+Aes.shiftRows = function (s, Nb) {
+  var t = new Array(4);
+  for (var r = 1; r < 4; r++) {
+    for (var c = 0; c < 4; c++) {
+      t[c] = s[r][(c + r) % Nb];
+    }
+    for (var c = 0; c < 4; c++) {
+      s[r][c] = t[c];
+    }
+  }
+  return s;
+};
+Aes.mixColumns = function (s, Nb) {
+  for (var c = 0; c < 4; c++) {
+    var a = new Array(4);
+    var b = new Array(4);
+    for (var i = 0; i < 4; i++) {
+      a[i] = s[i][c];
+      b[i] = s[i][c] & 0x80 ? s[i][c] << 1 ^ 0x011b : s[i][c] << 1;
+    }
+    s[0][c] = b[0] ^ a[1] ^ b[1] ^ a[2] ^ a[3];
+    s[1][c] = a[0] ^ b[1] ^ a[2] ^ b[2] ^ a[3];
+    s[2][c] = a[0] ^ a[1] ^ b[2] ^ a[3] ^ b[3];
+    s[3][c] = a[0] ^ b[0] ^ a[1] ^ a[2] ^ b[3];
+  }
+  return s;
+};
+Aes.addRoundKey = function (state, w, rnd, Nb) {
+  for (var r = 0; r < 4; r++) {
+    for (var c = 0; c < Nb; c++) {
+      state[r][c] ^= w[rnd * 4 + c][r];
+    }
+  }
+  return state;
+};
+Aes.subWord = function (w) {
+  for (var i = 0; i < 4; i++) {
+    w[i] = Aes.sBox[w[i]];
+  }
+  return w;
+};
+Aes.rotWord = function (w) {
+  var tmp = w[0];
+  for (var i = 0; i < 3; i++) {
+    w[i] = w[i + 1];
+  }
+  w[3] = tmp;
+  return w;
+};
+Aes.sBox = [0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76, 0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0, 0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15, 0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2, 0x75, 0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f, 0x84, 0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58, 0xcf, 0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f, 0xa8, 0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3, 0xd2, 0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19, 0x73, 0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b, 0xdb, 0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4, 0x79, 0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae, 0x08, 0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b, 0x8a, 0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d, 0x9e, 0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf, 0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16];
+Aes.rCon = [[0x00, 0x00, 0x00, 0x00], [0x01, 0x00, 0x00, 0x00], [0x02, 0x00, 0x00, 0x00], [0x04, 0x00, 0x00, 0x00], [0x08, 0x00, 0x00, 0x00], [0x10, 0x00, 0x00, 0x00], [0x20, 0x00, 0x00, 0x00], [0x40, 0x00, 0x00, 0x00], [0x80, 0x00, 0x00, 0x00], [0x1b, 0x00, 0x00, 0x00], [0x36, 0x00, 0x00, 0x00]];
+Aes.Ctr = {};
+Aes.Ctr.encrypt = function (plaintext, password, nBits) {
+  var blockSize = 16;
+  if (!(nBits == 128 || nBits == 192 || nBits == 256)) {
+    return '';
+  }
+  plaintext = Utf8.encode(plaintext);
+  password = Utf8.encode(password);
+  var nBytes = nBits / 8;
+  var pwBytes = new Array(nBytes);
+  for (var i = 0; i < nBytes; i++) {
+    pwBytes[i] = isNaN(password.charCodeAt(i)) ? 0 : password.charCodeAt(i);
+  }
+  var key = Aes.cipher(pwBytes, Aes.keyExpansion(pwBytes));
+  key = key.concat(key.slice(0, nBytes - 16));
+  var counterBlock = new Array(blockSize);
+  var nonce = new Date().getTime();
+  var nonceSec = Math.floor(nonce / 1000);
+  var nonceMs = nonce % 1000;
+  for (var i = 0; i < 4; i++) {
+    counterBlock[i] = nonceSec >>> i * 8 & 0xff;
+  }
+  for (var i = 0; i < 4; i++) {
+    counterBlock[i + 4] = nonceMs & 0xff;
+  }
+  var ctrTxt = '';
+  for (var i = 0; i < 8; i++) {
+    ctrTxt += String.fromCharCode(counterBlock[i]);
+  }
+  var keySchedule = Aes.keyExpansion(key);
+  var blockCount = Math.ceil(plaintext.length / blockSize);
+  var ciphertxt = new Array(blockCount);
+  for (var b = 0; b < blockCount; b++) {
+    for (var c = 0; c < 4; c++) {
+      counterBlock[15 - c] = b >>> c * 8 & 0xff;
+    }
+    for (var c = 0; c < 4; c++) {
+      counterBlock[15 - c - 4] = b / 0x100000000 >>> c * 8;
+    }
+    var cipherCntr = Aes.cipher(counterBlock, keySchedule);
+    var blockLength = b < blockCount - 1 ? blockSize : (plaintext.length - 1) % blockSize + 1;
+    var cipherChar = new Array(blockLength);
+    for (var i = 0; i < blockLength; i++) {
+      cipherChar[i] = cipherCntr[i] ^ plaintext.charCodeAt(b * blockSize + i);
+      cipherChar[i] = String.fromCharCode(cipherChar[i]);
+    }
+    ciphertxt[b] = cipherChar.join('');
+  }
+  var ciphertext = ctrTxt + ciphertxt.join('');
+  ciphertext = Base64.encode(ciphertext);
+  return ciphertext;
+};
+Aes.Ctr.decrypt = function (ciphertext, password, nBits) {
+  var blockSize = 16;
+  if (!(nBits == 128 || nBits == 192 || nBits == 256)) {
+    return '';
+  }
+  ciphertext = Base64.decode(ciphertext);
+  password = Utf8.encode(password);
+  var nBytes = nBits / 8;
+  var pwBytes = new Array(nBytes);
+  for (var i = 0; i < nBytes; i++) {
+    pwBytes[i] = isNaN(password.charCodeAt(i)) ? 0 : password.charCodeAt(i);
+  }
+  var key = Aes.cipher(pwBytes, Aes.keyExpansion(pwBytes));
+  key = key.concat(key.slice(0, nBytes - 16));
+  var counterBlock = new Array(8);
+  ctrTxt = ciphertext.slice(0, 8);
+  for (var i = 0; i < 8; i++) {
+    counterBlock[i] = ctrTxt.charCodeAt(i);
+  }
+  var keySchedule = Aes.keyExpansion(key);
+  var nBlocks = Math.ceil((ciphertext.length - 8) / blockSize);
+  var ct = new Array(nBlocks);
+  for (var b = 0; b < nBlocks; b++) {
+    ct[b] = ciphertext.slice(8 + b * blockSize, 8 + b * blockSize + blockSize);
+  }
+  ciphertext = ct;
+  var plaintxt = new Array(ciphertext.length);
+  for (var b = 0; b < nBlocks; b++) {
+    for (var c = 0; c < 4; c++) {
+      counterBlock[15 - c] = b >>> c * 8 & 0xff;
+    }
+    for (var c = 0; c < 4; c++) {
+      counterBlock[15 - c - 4] = (b + 1) / 0x100000000 - 1 >>> c * 8 & 0xff;
+    }
+    var cipherCntr = Aes.cipher(counterBlock, keySchedule);
+    var plaintxtByte = new Array(ciphertext[b].length);
+    for (var i = 0; i < ciphertext[b].length; i++) {
+      plaintxtByte[i] = cipherCntr[i] ^ ciphertext[b].charCodeAt(i);
+      plaintxtByte[i] = String.fromCharCode(plaintxtByte[i]);
+    }
+    plaintxt[b] = plaintxtByte.join('');
+  }
+  var plaintext = plaintxt.join('');
+  plaintext = Utf8.decode(plaintext);
+  return plaintext;
+};
+var Base64 = {};
+Base64.code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/*";
+Base64.encode = function (str, utf8encode) {
+  utf8encode = typeof utf8encode == 'undefined' ? false : utf8encode;
+  var o1,
+    o2,
+    o3,
+    bits,
+    h1,
+    h2,
+    h3,
+    h4,
+    e = [],
+    pad = '',
+    c,
+    plain,
+    coded;
+  var b64 = Base64.code;
+  plain = utf8encode ? str.encodeUTF8() : str;
+  c = plain.length % 3;
+  if (c > 0) {
+    while (c++ < 3) {
+      pad += '*';
+      plain += '\0';
+    }
+  }
+  for (c = 0; c < plain.length; c += 3) {
+    o1 = plain.charCodeAt(c);
+    o2 = plain.charCodeAt(c + 1);
+    o3 = plain.charCodeAt(c + 2);
+    bits = o1 << 16 | o2 << 8 | o3;
+    h1 = bits >> 18 & 0x3f;
+    h2 = bits >> 12 & 0x3f;
+    h3 = bits >> 6 & 0x3f;
+    h4 = bits & 0x3f;
+    e[c / 3] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+  }
+  coded = e.join('');
+  coded = coded.slice(0, coded.length - pad.length) + pad;
+  return coded;
+};
+Base64.decode = function (str, utf8decode) {
+  utf8decode = typeof utf8decode == 'undefined' ? false : utf8decode;
+  var o1,
+    o2,
+    o3,
+    h1,
+    h2,
+    h3,
+    h4,
+    bits,
+    d = [],
+    plain,
+    coded;
+  var b64 = Base64.code;
+  coded = utf8decode ? str.decodeUTF8() : str;
+  for (var c = 0; c < coded.length; c += 4) {
+    h1 = b64.indexOf(coded.charAt(c));
+    h2 = b64.indexOf(coded.charAt(c + 1));
+    h3 = b64.indexOf(coded.charAt(c + 2));
+    h4 = b64.indexOf(coded.charAt(c + 3));
+    bits = h1 << 18 | h2 << 12 | h3 << 6 | h4;
+    o1 = bits >>> 16 & 0xff;
+    o2 = bits >>> 8 & 0xff;
+    o3 = bits & 0xff;
+    d[c / 4] = String.fromCharCode(o1, o2, o3);
+    if (h4 == 0x40) {
+      d[c / 4] = String.fromCharCode(o1, o2);
+    }
+    if (h3 == 0x40) {
+      d[c / 4] = String.fromCharCode(o1);
+    }
+  }
+  plain = d.join('');
+  return utf8decode ? plain.decodeUTF8() : plain;
+};
+var Utf8 = {};
+Utf8.encode = function (strUni) {
+  var strUtf = strUni.replace(/[\u0080-\u07ff]/g, function (c) {
+    var cc = c.charCodeAt(0);
+    return String.fromCharCode(0xc0 | cc >> 6, 0x80 | cc & 0x3f);
+  });
+  strUtf = strUtf.replace(/[\u0800-\uffff]/g, function (c) {
+    var cc = c.charCodeAt(0);
+    return String.fromCharCode(0xe0 | cc >> 12, 0x80 | cc >> 6 & 0x3F, 0x80 | cc & 0x3f);
+  });
+  return strUtf;
+};
+Utf8.decode = function (strUtf) {
+  var strUni = strUtf.replace(/[\u00e0-\u00ef][\u0080-\u00bf][\u0080-\u00bf]/g, function (c) {
+    var cc = (c.charCodeAt(0) & 0x0f) << 12 | (c.charCodeAt(1) & 0x3f) << 6 | c.charCodeAt(2) & 0x3f;
+    return String.fromCharCode(cc);
+  });
+  strUni = strUni.replace(/[\u00c0-\u00df][\u0080-\u00bf]/g, function (c) {
+    var cc = (c.charCodeAt(0) & 0x1f) << 6 | c.charCodeAt(1) & 0x3f;
+    return String.fromCharCode(cc);
+  });
+  return strUni;
+};
+
+/**
+ * @method
+ * @name Encrypt
+ * @description descEncrypt
+ * @param {string} str desc
+ * @param {string} key desc
+ * @param {string} key2 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.Encrypt = function ($p, str, key, key2) {
+  return Aes.Ctr.encrypt(str, key, key2);
+};
+
+/**
+ * @method
+ * @name Decrypt
+ * @description descDecrypt
+ * @param {string} str desc
+ * @param {string} key desc
+ * @param {string} key2 desc
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.Decrypt = function ($p, str, key, key2) {
+  return Aes.Ctr.decrypt(str, key, key2);
+};
+
+/**
+ * @method
+ * @name dsCommonUtil
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.dsCommonUtil = function () {
+  var SERVLET_URL = "/DsUtilService";
+  function parseResult(text) {
+    return [{
+      value: text == null ? "" : String(text)
+    }];
+  }
+  function callUtilService(methodName, params) {
+    var requestData = {
+      method: methodName
+    };
+    for (var i = 0; i < params.length && i < 6; i++) {
+      requestData["param" + (i + 1)] = params[i];
+    }
+    var resultText = "";
+    var requestError = null;
+    $.ajax({
+      url: SERVLET_URL,
+      type: "POST",
+      async: false,
+      contentType: "application/json; charset=UTF-8",
+      dataType: "text",
+      data: JSON.stringify(requestData),
+      success: function (data) {
+        resultText = data == null ? "" : data;
+      },
+      error: function (xhr) {
+        var msg = xhr && xhr.responseText ? xhr.responseText : "";
+        if (!msg) {
+          msg = "HTTP " + xhr.status + " (" + xhr.statusText + ")";
+          if (xhr.status === 0) {
+            msg = "Network Failure (HTTP 0). Check URL: " + SERVLET_URL;
+          }
+        }
+        requestError = new Error("GauceUtil 통신 오류: " + msg);
+        console.error("[dsCommonUtil] request failed:", methodName, params, xhr);
+      }
+    });
+    if (requestError) {
+      return parseResult("");
+    }
+    return parseResult(resultText);
+  }
+  function dsCommonUtil() {
+    var args = Array.prototype.slice.call(arguments);
+    var methodName = args[0];
+    if (typeof methodName !== "string") {
+      methodName = args[1];
+      args = args.slice(2);
+    } else {
+      args = args.slice(1);
+    }
+    return callUtilService(methodName, args);
+  }
+  return dsCommonUtil;
+}();
+
+/**
+ * @method
+ * @name gauceUtil
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.gauceUtil = function ($p) {};
+
+/**
+ * @method
+ * @name getFrm
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+scwin.getFrm = function ($p) {
+  if (typeof $p.top().scwin.globalVal === "undefined") {
+    return WebSquare.getBody();
+  } else {
+    return $p.getFrame();
+  }
+};
+
+/**
+ * @method
+ * @name cfChangeCdNmFormat
+ * @description cfChangeCdNmFormat
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.cfChangeCdNmFormat = function ($p, dataSet, cdCol, nmCol) {
+  var DataObj = $c.gus.object($p, dataSet);
+  if (!$c.gus.cfIsNull($p, DataObj)) {
+    var rowCount = DataObj.getRowCount();
+    for (var i = 0; i < rowCount; i++) {
+      var cdVal = DataObj.getCellData(i, cdCol);
+      var nmVal = DataObj.getCellData(i, nmCol);
+      if (!$c.gus.cfIsNull($p, cdVal) && !$c.gus.cfIsNull($p, nmVal)) {
+        DataObj.setCellData(i, nmCol, "[" + cdVal + "]" + nmVal);
+      }
+    }
+  } else {
+    return false;
+  }
+};
+
+/**
+ * @method
+ * @name getValue161
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+
+/**
+ * @method
+ * @name parseDtoLog
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @migrationStatus
+ * @example
+ */
+scwin.parseDtoLog = function ($p, str) {
+  const obj = {};
+  str.split("\n").forEach(line => {
+    line = line.trim();
+
+    // "String code = [null]" 형태만 처리
+    const match = line.match(/^String\s+(\w+)\s*=\s*\[(.*)\]$/);
+    if (match) {
+      const key = match[1];
+      let value = match[2];
+      if (value === "null") {
+        value = null;
+      }
+      obj[key] = value;
+    }
+  });
+  return obj;
+};
+
+/**
+ * @method
+ * @name setValidExp
+ * @description desc
+ * @param
+ * @returns
+ * @hidden N
+ * @exception
+ * @example
+ */
+
+scwin.gauceUtil = function () {
+  var SERVLET_URL = "/GauceUtilService";
+
+  /**
+   * 결과 파싱 ("AAA:BBB,CCC:DDD" → [{code, name}])
+   */
+  function parseResult(text) {
+    if (!text) return [];
+    return text.split(",").map(function (item) {
+      var parts = item.split(/[:^=]/);
+      return {
+        code: parts[0] || null,
+        name: parts[1] || null
+      };
+    }).filter(function (obj) {
+      return obj.code && obj.name;
+    });
+  }
+
+  /**
+   * 동기 Gauce 호출
+   */
+  function callUtilService(methodName, params) {
+    var requestData = {
+      method: methodName
+    };
+
+    // param1 ~ param6까지 전달
+    for (var i = 0; i < params.length && i < 6; i++) {
+      requestData["param" + (i + 1)] = params[i];
+    }
+    var resultText = null;
+    $.ajax({
+      url: SERVLET_URL,
+      type: "POST",
+      async: false,
+      contentType: "application/json; charset=UTF-8",
+      dataType: "text",
+      data: JSON.stringify(requestData),
+      success: function (data) {
+        resultText = data;
+      },
+      error: function (xhr) {
+        var msg = xhr.responseText;
+        if (!msg) {
+          msg = "HTTP " + xhr.status + " (" + xhr.statusText + ")";
+          if (xhr.status === 0) {
+            msg = "Network Failure (HTTP 0). Check URL: " + SERVLET_URL;
+          }
+        }
+        throw new Error("GauceUtil 통신 오류: " + msg);
+      }
+    });
+    return parseResult(resultText);
+  }
+
+  /**
+   * 외부에서 실제 호출하는 함수
+   * WebSquare가 자동으로 집어넣는 scope 객체를 자동 스킵함
+   */
+  function gauceUtil() {
+    // arguments → ES5 배열로 변환
+    var args = Array.prototype.slice.call(arguments);
+    var methodName = args[0];
+
+    // ★★★ WebSquare 대응: 첫 인자가 scope 객체면 건너뛰기
+    if (typeof methodName !== "string") {
+      methodName = args[1]; // 실제 methodName
+      args = args.slice(2); // 실제 params만 추출
+    } else {
+      args = args.slice(1); // 첫 인자는 methodName이었으므로 제거
+    }
+    return callUtilService(methodName, args);
+  }
+  return gauceUtil;
+}();
+scwin.setValidExp = function ($p, oComp, oValidExp) {
+  if (oComp && oComp.options && oComp.getPluginName) {
+    let sPluginName = oComp.getPluginName();
+    if (sPluginName != 'gridView' && typeof oValidExp != 'string') {
+      // 그리드뷰가 아니면 문자열로 들어와야한다.
+    } else {
+      if (typeof oValidExp == 'string') {
+        oComp.options.validExp = oValidExp;
+      } else {
+        Object.keys(oValidExp).forEach(sKey => {
+          if (sKey == 'dataName' || sKey == 'validFeatures' || sKey == 'validExp') {
+            oComp.options[sKey] = oValidExp[sKey];
+          }
+        });
+      }
+    }
+  }
+};
+
+// 2026.03.20(MS.Ko)
+// $c.gus.cfValidate 사용시 AS-IS 기준과 동일하게 처리 하기 위해 validExp="등록년도:yes:date=YYYY" 속성을 사용하여 처리하는 함수를 추가함. 
+// @see /dongwon-debis-engine/src/main/webapp/common/script/common.js
+
+/**
+ * @type   : function
+ * @access : public
+ * @desc   : 값이 null 이거나 white space 문자로만 이루어진 경우 true를 리턴한다.
+ * <pre>
+ *     cfIsNull("  ");
+ * </pre>
+ * 위와같이 사용했을 경우 true를 리턴한다.
+ * @sig    : value
+ * @param  : value required 입력값
+ * @return : boolean. null(혹은 white space) 여부
+ */
+
+function cfIsNull(value) {
+  if (value == null || typeof value == "string" && value.trim() == "") {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * @type   : function
+ * @access : private
+ * @desc   : 컴포넌트 중에서 validExp 속성을 가진 항목 대해 유효성 검사를 한다.
+ * @sig    : oElement
+ * @param  : oElement required 검사 대상 Element.
+ * @return : boolean. 유효성 여부.
+ */
+
+function cfValidateItem(oElement) {
+  if (cfIsNull(oElement.options?.validExp)) {
+    return {
+      'isValid': 'EMPTY_VALIDEXP'
+    };
+  }
+  var value;
+  var itemValidExp = new covItemValidExp(oElement.options?.validExp);
+  let sPluginName = oElement.getPluginName();
+
+  // switch (oElement.tagName) {
+  switch (sPluginName) {
+    case 'input':
+    case 'inputCalendar':
+    case 'textarea':
+    case 'autoComplete':
+    case 'selectbox':
+    case 'radio':
+      // 실값? 표시된값
+      // 실값 = input, inputCalendar
+      value = oElement.getValue();
+      value = value.trim();
+
+      // 표시값
+      break;
+
+    // AS-IS 컴포넌트들
+    /*
+    case "OBJECT":
+    switch (oElement.attributes.classid.nodeValue.toUpperCase()) {
+    case CLSID_INPUTFILE: // InputFile Component
+    case CLSID_EMEDIT: // EMedit Component
+    oElement.Text = (oElement.Text == null) ? null : oElement.Text.trim();  // element의 값을 trim 시켜준다.
+    value = oElement.Text;
+                break;
+    }
+    break;
+    */
+    default:
+      return {
+        'isValid': 'NOT_SUPPORTED'
+      };
+  }
+  if (!itemValidExp.validate(value)) {
+    // TO-BE 에서 알럿은 여기서 띄우면 안된다.
+    /*
+    alert(new coMessage().getMsg(itemValidExp.errMsg, [itemValidExp.itemName]));
+    if(oElement.enable != false && oElement.disabled!=true) {
+    oElement.focus();
+    }
+    return false;
+    */
+    return {
+      'isValid': false,
+      'inValidMsg': new coMessage().getMsg(itemValidExp.errMsg, [itemValidExp.itemName])
+    };
+  }
+  return {
+    'isValid': true
+  };
+}
+;
+
+///////////////////////////// covItemValidExp /////////////////////////////
+
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 유효성 검사에 대한 표현(expression)을 객체화 하였다.
+ *             - expression 형식<br>
+ *               항목이름:필수항목여부:유효성항목<br>
+ *               예) "접수번호:yes:length=6"
+ *             - 유효성 항목 형식
+ *               유효성항목명=유효값[&유효성항목명=유효값]..
+ *               예) "length=13&ssn"
+ * @sig    : expression, itemName
+ * @param  : expression required valid expression string.
+ * @param  : itemName   required 아이템명
+ */
+
+function covItemValidExp(expression, itemName) {
+  this.itemName;
+  this.required;
+  this.valueValidExp;
+
+  // method
+  // this.parse = covItemValidExp_parse;
+  // this.validate = covItemValidExp_validate;
+
+  this.parse(expression, itemName);
+}
+;
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covItemValidExp
+ * @desc   : valid expression을 parsing한다.
+ * @sig    : expression, itemName
+ * @param  : expression required valid expression string.
+ * @param  : itemName   required 아이템명
+ */
+// function covItemValidExp_parse(expression, itemName) {
+covItemValidExp.prototype.parse = function (expression, itemName) {
+  if (cfIsNull(expression)) {
+    return;
+  }
+  var columns = expression.advancedSplit(":", "i");
+  if (cfIsNull(columns[1])) {
+    return;
+  }
+  if (cfIsNull(columns[0])) {
+    if (!cfIsNull(itemName)) {
+      this.itemName = itemName.trim();
+    } else {
+      return;
+    }
+  } else {
+    this.itemName = columns[0].trim();
+  }
+  this.required = columns[1].trim().toUpperCase() == "YES" || columns[1].trim().toUpperCase() == "TRUE" || columns[1].trim() == "1" ? true : false;
+  if (columns[2] != null) {
+    this.valueValidExp = new covValueValidExp(columns[2].trim());
+  }
+};
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covItemValidExp
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 검사할 값
+ */
+// function covItemValidExp_validate(value) {
+covItemValidExp.prototype.validate = function (value) {
+  // 표현식에 필수항목들(아이템명, 필수여부)을 기술하지 않을 경우는 표현식이 없다고 간주.
+  if (cfIsNull(this.itemName) || cfIsNull(this.required)) {
+    return true;
+  }
+  if (this.required && cfIsNull(value)) {
+    this.errMsg = MSG_CM_ERR_002;
+    return false;
+  }
+  if (!this.required && cfIsNull(value)) {
+    return true;
+  }
+  if (this.valueValidExp == null) {
+    return true;
+  }
+  if (!this.valueValidExp.validate(value)) {
+    this.errMsg = this.valueValidExp.errMsg;
+    return false;
+  }
+  return true;
+};
+
+///////////////////////////// covValueValidExp /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 유효성 검사에 대한 표현(expression)을 객체화 하였다.
+ *             - expression 형식<br>
+ *               항목이름:필수항목여부:유효성항목<br>
+ *               예) "접수번호:yes:length=6"
+ *             - 유효성 항목 형식
+ *               유효성항목명=유효값[&유효성항목명=유효값]..
+ *               예) "length=13&ssn"
+ * @sig    : expression
+ * @param  : expression required valid expression string.
+ */
+function covValueValidExp(expression) {
+  this.validItems = new Array();
+  this.errMsg = "";
+
+  // method
+  // this.init = covValueValidExp_init;
+  // this.parse = covValueValidExp_parse;
+  // this.validate = covValueValidExp_validate;
+
+  // initialize
+  this.init(expression);
+}
+;
+
+/**
+ * @type   : method
+ * @access : private
+ * @object : covValueValidExp
+ * @desc   : 초기화를 수행한다.
+ * @sig    : expression
+ * @param  : expression required valid expression string.
+ * @author : 임재현
+ */
+// function covValueValidExp_init(expression) {
+covValueValidExp.prototype.init = function (expression) {
+  this.parse(expression);
+};
+
+/**
+ * @type   : method
+ * @access : private
+ * @object : covValueValidExp
+ * @desc   : covValidExp 객체의 parse 메소드.
+ *           valid expression을 parsing한다.
+ * @sig    : expression
+ * @param  : expression required valid expression string.
+ */
+// function covValueValidExp_parse(expression) {
+covValueValidExp.prototype.parse = function (expression) {
+  if (cfIsNull(expression)) {
+    return;
+  }
+  var validItemExps = expression.advancedSplit("&", "i");
+  var validItem;
+  for (var i = 0; i < validItemExps.length; i++) {
+    validItemPair = validItemExps[i].trim().advancedSplit("=", "i");
+    validItem = new Object();
+    validItem.name = validItemPair[0].trim();
+    validItem.value = validItemPair[1]; // parsedExp[1] 은 존재하지 않을 수도 있지만 자바스크립트에서는
+    this.validItems[i] = validItem; // 이런 경우 "undefined" 라는 값을 리턴한다.
+  }
+};
+
+/**
+ * @type   : method
+ * @access : private
+ * @object : covValueValidExp
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 검사대상값
+ */
+// function covValueValidExp_validate(value) {
+covValueValidExp.prototype.validate = function (value) {
+  var validators = new Array();
+  var count = 0;
+  for (var i = 0; i < this.validItems.length; i++) {
+    switch (this.validItems[i].name) {
+      case "length":
+        validators[count++] = new covLengthValidator(this.validItems[i].value);
+        break;
+      case "byteLength":
+        validators[count++] = new covByteLengthValidator(this.validItems[i].value);
+        break;
+      case "minLength":
+        validators[count++] = new covMinLengthValidator(this.validItems[i].value);
+        break;
+      case "minByteLength":
+        validators[count++] = new covMinByteLengthValidator(this.validItems[i].value);
+        break;
+      case "maxLength":
+        validators[count++] = new covMaxLengthValidator(this.validItems[i].value);
+        break;
+      case "maxByteLength":
+        validators[count++] = new covMaxByteLengthValidator(this.validItems[i].value);
+        break;
+      case "number":
+        validators[count++] = new covNumberValidator(this.validItems[i].value);
+        break;
+      case "minNumber":
+        validators[count++] = new covMinNumberValidator(this.validItems[i].value);
+        break;
+      case "maxNumber":
+        validators[count++] = new covMaxNumberValidator(this.validItems[i].value);
+        break;
+      case "inNumber":
+        validators[count++] = new covInNumberValidator(this.validItems[i].value);
+        break;
+      case "notAllowed":
+        validators[count++] = new covNotAllowedValidator(this.validItems[i].value);
+        break;
+      case "minDate":
+        validators[count++] = new covMinDateValidator(this.validItems[i].value);
+        break;
+      case "maxDate":
+        validators[count++] = new covMaxDateValidator(this.validItems[i].value);
+        break;
+      case "format":
+        validators[count++] = new covFormatValidator(this.validItems[i].value);
+        break;
+      case "ssn":
+        validators[count++] = new covSsnValidator(this.validItems[i].value);
+        break;
+      case "csn":
+        validators[count++] = new covCsnValidator(this.validItems[i].value);
+        break;
+      case "crn":
+        validators[count++] = new covCrnValidator(this.validItems[i].value);
+        break;
+      case "filterIn":
+        validators[count++] = new covFilterInValidator(this.validItems[i].value);
+        break;
+      case "filterOut":
+        validators[count++] = new covFilterOutValidator(this.validItems[i].value);
+        break;
+      case "email":
+        validators[count++] = new covEmailValidator(this.validItems[i].value);
+        break;
+      case "date":
+        validators[count++] = new covDateValidator(this.validItems[i].value);
+        break;
+      case "telNumber":
+        validators[count++] = new covTelNumberValidator(this.validItems[i].value);
+        break;
+      default:
+        break;
+    }
+  }
+  for (var i = 0; i < validators.length; i++) {
+    if (!validators[i].validate(value)) {
+      this.errMsg = validators[i].message;
+      return false;
+    }
+  }
+  return true;
+};
+
+///////////////////////////// covLengthValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'length' 항목에 대한 validator. 값이 지정된 길이를 가지고 있는지 검사한다.
+ * @param  : length required 유효한 기준길이.
+ * @author : 임재현
+ */
+function covLengthValidator(length) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.length = length;
+
+  // method
+  // this.validate = covLengthValidator_validate;
+}
+;
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covLengthValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covLengthValidator_validate(value) {
+covLengthValidator.prototype.validate = function (value) {
+  if (value.length != this.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_005, ["@", String(this.length)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// coMessage /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 메세지를 관리하는 객체이다.
+ * @author : 임재현
+ */
+function coMessage() {
+  // method
+  // this.getMsg = coMessage_getMsg;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : coMessage
+ * @desc   : 공통메세지에 정의된 메세지를 치환하여 알려준다.
+ * @sig    : message[, paramArray]
+ * @param  : message    required common.js의 공통 메세지 영역에 선언된 메세지 ID
+ * @param  : paramArray optional 메세지에서 '@' 문자와 치환될 스트링 Array. (Array의 index와
+ *           메세지 내의 '@' 문자의 순서가 일치한다.)
+ * @return : 치환된 메세지 스트링
+ */
+// function coMessage_getMsg(message, paramArray) {
+coMessage.prototype.getMsg = function (message, paramArray) {
+  if (cfIsNull(message)) {
+    return null;
+  }
+  message = message.replace(/%(\d+)/g, '@');
+  var index = 0;
+  var re = /@/g;
+  var count = 0;
+  if (paramArray == null) {
+    return message;
+  }
+  while ((index = message.indexOf("@", index)) != -1) {
+    if (paramArray[count] == null) {
+      paramArray[count] = "";
+    }
+    message = message.substr(0, index) + String(paramArray[count]) + message.substring(index + 1);
+    index = index + String(paramArray[count++]).length;
+  }
+  return message;
+};
+
+///////////////////////////// covByteLengthValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'byteLength' 항목에 대한 validator. 값이 지정된 byte단위의 길이를 가지고 있는지 검사한다.
+ * @param  : length required 유효한 기준길이.
+ */
+function covByteLengthValidator(length) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.length = length;
+
+  // method
+  // this.validate = covByteLengthValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covByteLengthValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covByteLengthValidator_validate(value) {
+covByteLengthValidator.prototype.validate = function (value) {
+  if (cfGetByteLength(value) != this.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_027, ["@", String(this.length), String(Math.floor(this.length / 2))]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMinLengthValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'minLength' 항목에 대한 validator. 값이 지정된 길이 이상인지를 검사한다.
+ * @sig    : length
+ * @param  : length required 유효한 기준길이.
+ */
+function covMinLengthValidator(length) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.length = length;
+
+  // method
+  // this.validate = covMinLengthValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMinLengthValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMinLengthValidator_validate(value) {
+covMinLengthValidator.prototype.validate = function (value) {
+  if (value.length < this.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_011, ["@", String(this.length)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMinByteLengthValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'minByteLength' 항목에 대한 validator. 값이 지정된 byte단위의 길이 이상인지를 검사한다.
+ * @sig    : length
+ * @param  : length required 유효한 기준길이.
+ */
+function covMinByteLengthValidator(length) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.length = length;
+
+  // method
+  // this.validate = covMinByteLengthValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMinByteLengthValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMinByteLengthValidator_validate(value) {
+covMinByteLengthValidator.prototype.validate = function (value) {
+  if (cfGetByteLength(value) < this.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_028, ["@", String(this.length), String(Math.floor(this.length / 2))]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMaxLengthValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'maxLength' 항목에 대한 validator. 값이 지정된 길이 이상인지를 검사한다.
+ * @sig    : length
+ * @param  : length required 유효한 기준길이.
+ */
+function covMaxLengthValidator(length) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.length = length;
+  // method
+  // this.validate = covMaxLengthValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMaxLengthValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+covMaxLengthValidator.prototype.validate = function (value) {
+  if (value.length > this.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_012, ["@", String(this.length)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMaxByteLengthValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'maxByteLength' 항목에 대한 validator. 값이 지정된 byte단위의 길이 이하인지를 검사한다.
+ * @sig    : length
+ * @param  : length required 유효한 기준길이.
+ */
+function covMaxByteLengthValidator(length) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.length = length;
+
+  // method
+  // this.validate = covMaxByteLengthValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMaxByteLengthValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMaxByteLengthValidator_validate(value) {
+covMaxByteLengthValidator.prototype.validate = function (value) {
+  if (cfGetByteLength(value) > this.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_029, ["@", String(this.length), String(Math.floor(this.length / 2))]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covNumberValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'number' 항목에 대한 validator. 값이 숫자인지를 검사한다. 또한 format을 지정하였을 경우에는 format에 맞는지 검사한다.
+ * <pre>
+ *     "number" 로 지정시 : 숫자인지 체크
+ *     "number=(5.2)" 로 지정시 : 숫자이면서 정수부 5자리 이하, 소수부 2자리 이하인지를 체크
+ * </pre>
+ */
+function covNumberValidator(format) {
+  // data;
+  let re = /\(\s*(\d+)\s*.\s*(\d+)\s*\)/;
+  let r;
+  this.iLength;
+  this.dLength;
+  this.message = "";
+  this.validity = false;
+
+  // method
+  // this.validate = covNumberValidator_validate;
+
+  // initialize
+  if (cfIsNull(format)) {
+    return;
+  }
+  r = format.match(re);
+  if (r == null) {
+    return;
+  }
+  this.iLength = Number(r[1]);
+  this.dLength = Number(r[2]);
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covNumberValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covNumberValidator_validate(value) {
+covNumberValidator.prototype.validate = function (value) {
+  if (isNaN(value)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_007, ["@"]);
+    return false;
+  } else if (!cfIsNull(this.iLength)) {
+    var strValue = String(value);
+    var idx = strValue.indexOf('.') == -1 ? strValue.length : strValue.indexOf('.');
+    var iNumStr = strValue.substr(0, idx);
+    var dNumStr = strValue.substr(idx + 1);
+    if (iNumStr.length > this.iLength) {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_059, ["@", String(this.iLength)]);
+      return false;
+    } else if (dNumStr.length > this.dLength) {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_060, ["@", String(this.dLength)]);
+      return false;
+    }
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMinNumberValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'minNumber' 항목에 대한 validator. 값이 지정된 최소값을 넘는지를 검사한다.
+ * @sig    : minNumber
+ * @param  : minNumber required 유효한 기준 최소값.
+ */
+function covMinNumberValidator(minNumber) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.minNumber = minNumber;
+
+  // method
+  // this.validate = covMinNumberValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMinNumberValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMinNumberValidator_validate(value) {
+covMinNumberValidator.prototype.validate = function (value) {
+  // 기준값이 숫자가 아닌경우 무조건 true;
+  if (isNaN(this.minNumber)) {
+    this.validity = true;
+    return true;
+  }
+  if (isNaN(value)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_007, ["@"]);
+    return false;
+  }
+  this.minNumber = Number(this.minNumber);
+  value = Number(value);
+  if (value < this.minNumber) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_013, ["@", String(this.minNumber)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMaxNumberValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'maxNumber' 항목에 대한 validator. 값이 지정된 최대값을 넘지 않는지를 검사한다.
+ * @sig    : maxNumber
+ * @param  : maxNumber 유효한 기준 최대값.
+ * @author : 임재현
+ */
+function covMaxNumberValidator(maxNumber) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.maxNumber = typeof maxNumber == 'undefined' || maxNumber == null ? "" : (maxNumber + '').trim();
+
+  // method
+  // this.validate = covMaxNumberValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMaxNumberValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMaxNumberValidator_validate(value) {
+covMaxNumberValidator.prototype.validate = function (value) {
+  // 기준값이 숫자가 아닌경우 무조건 true;
+  if (isNaN(this.maxNumber)) {
+    this.validity = true;
+    return true;
+  }
+  if (isNaN(value)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_007, ["@"]);
+    return false;
+  }
+  this.maxNumber = Number(this.maxNumber);
+  value = Number(value);
+  if (value > this.maxNumber) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_014, ["@", String(this.maxNumber)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covInNumberValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'inNumber' 항목에 대한 validator. 값이 지정된 범위 내의 값인지를 검사한다.
+ * @sig    : inNumber
+ * @param  : inNumber required 숫자의 범위를 나타내는 스트링. 예) "1~100"
+ */
+function covInNumberValidator(inNumber) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.minNumber;
+  this.maxNumber;
+
+  // method
+  // this.validate = covInNumberValidator_validate;
+
+  // initialize
+  this.minNumber = inNumber.substring(0, inNumber.indexOf("~"));
+  this.maxNumber = inNumber.substr(inNumber.indexOf("~") + 1);
+  this.minNumber = typeof this.minNumber == 'undefined' || this.minNumber == null ? "" : (this.minNumber + '').trim();
+  this.maxNumber = typeof this.maxNumber == 'undefined' || this.maxNumber == null ? "" : (this.maxNumber + '').trim();
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covInNumberValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covInNumberValidator_validate(value) {
+covInNumberValidator.prototype.validate = function (value) {
+  // 기준값이 숫자가 아닌경우 무조건 true;
+  if (isNaN(this.minNumber) || isNaN(this.maxNumber)) {
+    this.validity = true;
+    return true;
+  }
+  if (isNaN(value)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_007, ["@"]);
+    return false;
+  }
+  this.minNumber = Number(this.minNumber);
+  this.maxNumber = Number(this.maxNumber);
+  value = Number(value);
+  if (value < this.minNumber || value > this.maxNumber) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_006, ["@", String(this.minNumber), String(this.maxNumber)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covNotAllowedValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'nowAllowed' 항목에 대한 validator. 값이 허용되지 않은 값인지를 검사한다.
+ * @sig    : notAllowed
+ * @param  : notAllowed required 허용되지 않는 값을 나타내는 스트링. 예) "0"
+ */
+function covNotAllowedValidator(notAllowed) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.notAllowed;
+
+  // method
+  // this.validate = covNotAllowedValidator_validate;
+
+  // initialize
+  this.notAllowed = typeof notAllowed == 'undefined' || notAllowed == null ? "" : notAllowed.trim();
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covNotAllowedValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covNotAllowedValidator_validate(value) {
+covNotAllowedValidator.prototype.validate = function (value) {
+  if (value == this.notAllowed) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_033, ["@", String(this.notAllowed)]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMinDateValidator /////////////////////////////
+
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'minDate' 항목에 대한 validator. 값이 지정된 날짜를 넘는지를 검사한다.
+ *           'YYYYMMDD' 형식으로 날짜를 표기해야 한다.
+ *             예) minDate=20020315
+ * @sig    : minDate
+ * @param  : minDate required 유효한 기준 최소값.
+ */
+function covMinDateValidator(minDate) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.minDate = minDate;
+
+  // method
+  // this.validate = covMinDateValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMinDateValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMinDateValidator_validate(value) {
+covMinDateValidator.prototype.validate = function (value) {
+  if (!new covDateValidator("YYYYMMDD").validate(value)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_018, ["@"]);
+    return false;
+  }
+  if (value < this.minDate) {
+    var msgParams = new Array(4);
+    msgParams[0] = "@";
+    msgParams[1] = this.minDate.substring(0, 4);
+    msgParams[2] = this.minDate.substring(4, 5) == "0" ? this.minDate.substring(5, 6) : this.minDate.substring(4, 6);
+    msgParams[3] = this.minDate.substring(6, 7) == "0" ? this.minDate.substring(7, 8) : this.minDate.substring(6, 8);
+    this.message = new coMessage().getMsg(MSG_CM_ERR_025, msgParams);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covMaxDateValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'maxDate' 항목에 대한 validator. 값이 지정된 최대값을 넘지 않는지를 검사한다.
+ * @sig    : maxDate
+ * @param  : maxDate required 유효한 최대날짜값.
+ */
+function covMaxDateValidator(maxDate) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.maxDate = maxDate;
+
+  // method
+  // this.validate = covMaxDateValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covMaxDateValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covMaxDateValidator_validate(value) {
+covMaxDateValidator.prototype.validate = function (value) {
+  if (!new covDateValidator("YYYYMMDD").validate(value)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_018, ["@"]);
+    return false;
+  }
+  if (value > this.maxDate) {
+    var msgParams = new Array(4);
+    msgParams[0] = "@";
+    msgParams[1] = this.maxDate.substring(0, 4);
+    msgParams[2] = this.maxDate.substring(4, 5) == "0" ? this.maxDate.substring(5, 6) : this.maxDate.substring(4, 6);
+    msgParams[3] = this.maxDate.substring(6, 7) == "0" ? this.maxDate.substring(7, 8) : this.maxDate.substring(6, 8);
+    this.message = new coMessage().getMsg(MSG_CM_ERR_024, msgParams);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covFormatValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'format' 항목에 대한 validator. 값이 마스크로 표현된 형식과 일치하는지 검사한다.
+ *             - format characters
+ *               #    : 문자와 숫자
+ *               h, H : 한글 (H는 공백포함)
+ *               A, Z : 문자 (Z는 공백포함)
+ *               0, 9 : 숫자 (9는 공백포함)
+ * @sig    : format
+ * @param  : format required 포멧 스트링.
+ */
+function covFormatValidator(format) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.format = format;
+
+  // method
+  // this.validate = covFormatValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covFormatValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covFormatValidator_validate(value) {
+covFormatValidator.prototype.validate = function (value) {
+  if (value.length != this.format.length) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+    return false;
+  }
+  for (var i = 0; i < this.format.length; i++) {
+    switch (this.format.charAt(i)) {
+      case 'h':
+        var cCode = value.charCodeAt(i);
+        if (value.charAt(i) == " " || !(0xAC00 <= cCode && cCode <= 0xD7A3 || 0x3131 <= cCode && cCode <= 0x318E)) {
+          this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+          return false;
+        }
+        break;
+      case 'H':
+        var cCode = value.charCodeAt(i);
+        if (value.charAt(i) != " " && !(0xAC00 <= cCode && cCode <= 0xD7A3 || 0x3131 <= cCode && cCode <= 0x318E)) {
+          this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+          return false;
+        }
+        break;
+      case '0':
+        if (isNaN(value.charAt(i)) || value.charAt(i) == " ") {
+          this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+          return false;
+        }
+        break;
+      case '9':
+        if (isNaN(value.charAt(i))) {
+          if (value.charAt(i) != " ") {
+            this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+            return false;
+          }
+        }
+        break;
+      case 'A':
+        if (value.charAt(i) == " " || !isNaN(value.charAt(i))) {
+          this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+          return false;
+        }
+        break;
+      case 'Z':
+        if (value.charAt(i) != " " && !isNaN(value.charAt(i))) {
+          this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+          return false;
+        }
+        break;
+      case '#':
+        break;
+      default:
+        if (value.charAt(i) != this.format.charAt(i)) {
+          this.message = new coMessage().getMsg(MSG_CM_ERR_026, ["@", this.format]);
+          return false;
+        }
+        break;
+    }
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covSsnValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'ssn' 항목에 대한 validator. 입력된 주민등록번호가 유효한지 검사한다.
+ */
+
+function covSsnValidator() {
+  // data;
+  this.message = "";
+  this.validity = false;
+
+  // method
+  // this.validate = covSsnValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covSsnValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : ssn
+ * @param  : ssn required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covSsnValidator_validate(ssn) {
+covSsnValidator.prototype.validate = function (ssn) {
+  if (ssn == null || ssn.trim().length != 13 || isNaN(ssn)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_016, ["@"]);
+    return false;
+  }
+  var jNum1 = ssn.substr(0, 6);
+  var jNum2 = ssn.substr(6);
+
+  /*
+    잘못된 생년월일을 검사합니다.
+    2000년도부터 성구별 번호가 바뀌었으므로 구별수가 2보다 작다면
+    1900년도 생이되고 2보다 크다면 2000년도 이후 출생이 됩니다.
+    단 1800년도 생은 계산에서 제외합니다.
+  */
+  var bYear = jNum2.charAt(0) <= "2" ? "19" : "20";
+
+  // 주민번호의 앞에서 2자리를 이어서 4자리의 생년을 저장합니다.
+  bYear += jNum1.substr(0, 2);
+
+  // 달을 구합니다. 1을 뺀것은 자바스크립트에서는 1월을 0으로 표기하기 때문입니다.
+  var bMonth = jNum1.substr(2, 2) - 1;
+  var bDate = jNum1.substr(4, 2);
+  var bSum = new Date(bYear, bMonth, bDate);
+
+  // 생년월일의 타당성을 검사하여 거짓이 있을시 에러메세지를 나타냄
+  if (bSum.getYear() % 100 != jNum1.substr(0, 2) || bSum.getMonth() != bMonth || bSum.getDate() != bDate) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_016, ["@"]);
+    return false;
+  }
+  var total = 0;
+  var temp = new Array(13);
+  for (var i = 1; i <= 6; i++) {
+    temp[i] = jNum1.charAt(i - 1);
+  }
+  for (var i = 7; i <= 13; i++) {
+    temp[i] = jNum2.charAt(i - 7);
+  }
+  for (var i = 1; i <= 12; i++) {
+    let k = i + 1;
+
+    // 각 수와 곱할 수를 뽑아냅니다. 곱수가 만일 10보다 크거나 같다면 계산식에 의해 2로 다시 시작하게 됩니다.
+    if (k >= 10) k = k % 10 + 2;
+
+    // 각 자리수와 계산수를 곱한값을 변수 total에 누적합산시킵니다.
+    total = total + temp[i] * k;
+  }
+
+  // 마지막 계산식을 변수 last_num에 대입합니다.
+  last_num = (11 - total % 11) % 10;
+
+  // laster_num이 주민번호의마지막수와 같은면 참을 틀리면 거짓을 반환합니다.
+  if (last_num != temp[13]) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_016, ["@"]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covCsnValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'csn' 항목에 대한 validator. 입력된 사업자등록번호가 유효한지 검사한다.
+ */
+function covCsnValidator() {
+  // data;
+  this.message = "";
+  this.validity = false;
+
+  // method
+  // this.validate = covCsnValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covCsnValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : csn
+ * @param  : csn required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covCsnValidator_validate(csn) {
+covCsnValidator.prototype.validate = function (csn) {
+  if (csn == null || csn.length != 10 || isNaN(csn)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_017, ["@"]);
+    return false;
+  }
+  var sum = 0;
+  var nam = 0;
+  var checkDigit = -1;
+  var checkArray = [1, 3, 7, 1, 3, 7, 1, 3, 5];
+  for (var i = 0; i < 9; i++) sum += csn.charAt(i) * checkArray[i];
+  sum = sum + csn.charAt(8) * 5 / 10;
+  nam = Math.floor(sum) % 10;
+  checkDigit = nam == 0 ? 0 : 10 - nam;
+  if (csn.charAt(9) != checkDigit) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_017, ["@"]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covCrnValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 'crn' 항목에 대한 validator. 입력된 법인등록번호가 유효한지 검사한다.
+ * @author : 송동혁
+ */
+function covCrnValidator() {
+  // data;
+  this.message = "";
+  this.validity = false;
+
+  // method
+  // this.validate = covCrnValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covCrnValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : crn
+ * @param  : crn required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covCrnValidator_validate(crn) {
+covCrnValidator.prototype.validate = function (crn) {
+  if (crn == null || crn.length != 13 || isNaN(crn)) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_062, ["@"]);
+    return false;
+  }
+  var checkArray = new Array(1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2);
+  var val = 0;
+  var sum = 0;
+  var parity = -1;
+  for (var i = 0; i < 12; i++) {
+    val = parseInt(crn.charAt(i)) * checkArray[i];
+    sum += val % 10;
+  }
+  parity = sum % 10;
+  if (parity > 0) parity = 10 - parity;
+  if (parseInt(crn.charAt(12)) != parity) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_062, ["@"]);
+    return false;
+  } else {
+    this.validity = true;
+    return true;
+  }
+};
+
+///////////////////////////// covFilterInValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 지정된 문자 이외에 다른 문자가 들어있을 경우 유효하지 않은 것으로 판단한다.
+ *           특정 문자들에 대한 특수문자가 아래에 나와있다.<br>
+ * <pre>
+ *         ;    - \;
+ *         한글 - \h
+ *         영문 - \a
+ *         숫자 - \n
+ * </pre>
+ * @sig    : fStr
+ * @param  : fStr required filter에 대한 표현
+ */
+function covFilterInValidator(fStr) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.fStrArr = fStr.advancedSplit(";", "i");
+  for (var i = 0; i < this.fStrArr.length; i++) {
+    if (this.fStrArr[i] == "\\h") {
+      this.fStrArr[i] = "한글";
+    } else if (this.fStrArr[i] == "\\a") {
+      this.fStrArr[i] = "영문";
+    } else if (this.fStrArr[i] == "\\n") {
+      this.fStrArr[i] = "숫자";
+    }
+  }
+
+  // method
+  // this.validate = covFilterInValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covFilterInValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covFilterInValidator_validate(value) {
+covFilterInValidator.prototype.validate = function (value) {
+  var isIn = false;
+  var c;
+  var cCode;
+  for (var i = 0; i < value.length; i++) {
+    isIn = false;
+    c = value.charAt(i);
+    cCode = value.charCodeAt(i);
+    for (var j = 0; j < this.fStrArr.length; j++) {
+      if (this.fStrArr[j] == "한글" && (0xAC00 <= cCode && cCode <= 0xD7A3 || 0x3131 <= cCode && cCode <= 0x318E)) {
+        isIn = true;
+      } else if (this.fStrArr[j] == "영문" && (0x61 <= cCode && cCode <= 0x7A || 0x41 <= cCode && cCode <= 0x5A)) {
+        isIn = true;
+      } else if (this.fStrArr[j] == "숫자" && !isNaN(c)) {
+        isIn = true;
+      } else if (this.fStrArr[j] == c) {
+        isIn = true;
+      }
+    }
+    if (!isIn) {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_036, ["@", this.fStrArr.toString()]);
+      return false;
+    }
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covFilterOutValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 지정된 스트링들이 들어있을 경우 유효하지 않은것으로 판단한다.
+ *           분리자는 ";"를 사용한다. ";" 혹은 ";"문자가 들어간 스트링을 필터링하려 할 경우는
+ *           "\\;"라고 표기해야 한다.
+ * @sig    : fStr
+ * @param  : fStr required filter에 대한 표현
+ */
+function covFilterOutValidator(fStr) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.fStrArr = fStr.advancedSplit(";", "i");
+
+  // method
+  // this.validate = covFilterOutValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covFilterValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covFilterOutValidator_validate(value) {
+covFilterOutValidator.prototype.validate = function (value) {
+  for (var i = 0; i < this.fStrArr.length; i++) {
+    if (value.indexOf(this.fStrArr[i]) != -1) {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_033, ["@", this.fStrArr.toString()]);
+      return false;
+    }
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covEmailValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 입력값이 email 형식에 적합한지를 검사한다.
+ */
+function covEmailValidator() {
+  // data;
+  this.message = "";
+  this.validity = false;
+
+  // method
+  // this.validate = covEmailValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covEmailValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+// function covEmailValidator_validate(value) {
+covEmailValidator.prototype.validate = function (value) {
+  var format = /^((\w|[\-\.])+)@((\w|[\-\.])+)\.([A-Za-z]+)$/;
+  if (value.search(format) == -1) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_037, ["@"]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+///////////////////////////// covDateValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 값이 Date형식인지를 검사한다.
+ *
+ *            format문자 :  YYYY,  -> 4자리 년도
+ *                          YY,    -> 2자리 년도. 2000년 이후.
+ *                          MM,    -> 2자리 숫자의 달.
+ *                          DD,    -> 2자리 숫자의 일.
+ *                          hh,    -> 2자리 숫자의 시간. 12시 기준
+ *                          HH,    -> 2자리 숫자의 시간. 24시 기준
+ *                          mm,    -> 2자리 숫자의 분.
+ *                          ss     -> 2자리 숫자의 초.
+ *
+ *            예)
+ *                'YYYYMMDD' -> '20020328'
+ *                'YYYY/MM/DD' -> '2002/03/28'
+ *                'Today : YY-MM-DD' -> 'Today : 02-03-28'
+ *
+ *            참고)
+ *                  format문자가 중복해서 나오더라도 처음 나온 문자에 대해서만
+ *                  format문자로 인식된다. YYYY와 YY, hh와 HH 도 중복으로 본다.
+ *                  날짜는 년,월이 존재할 때만 정확히 체크하고 만일 년, 월이 없다면
+ *                  1 ~ 31 사이인지만 체크한다.
+ *
+ * @sig    : dateExp
+ * @param  : dateExp required Date Format expression.
+ *             예) 2002년 3월 12일 -> "YYYY-MM-DD"(Date Format Expression) -> "2002-03-12"
+ */
+function covDateValidator(dateExp) {
+  // data;
+  this.message = "";
+  this.validity = false;
+  this.dateExp = dateExp;
+  this.year = null;
+  this.month = null;
+
+  // method
+  // this.validate = covDateValidator_validate;
+  // this.checkLength = covDateValidator_checkLength;
+  // this.checkYear = covDateValidator_checkYear;
+  // this.checkMonth = covDateValidator_checkMonth;
+  // this.checkDay = covDateValidator_checkDay;
+  // this.checkHour = covDateValidator_checkHour;
+  // this.checkMin = covDateValidator_checkMin;
+  // this.checkSec = covDateValidator_checkSec;
+  // this.checkRest = covDateValidator_checkRest;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covDateValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value   required 검사대상이 되는 Date 스트링 값.
+ * @return : boolean - 유효성 여부
+ */
+// function covDateValidator_validate(value) {
+covDateValidator.prototype.validate = function (value) {
+  this.value = value;
+  if (this.checkLength(value) && this.checkYear(value) && this.checkMonth(value) && this.checkDay(value) && this.checkHour(value) && this.checkMin(value) && this.checkSec(value) && this.checkRest(value)) {
+    this.validity = true;
+    return true;
+  } else {
+    this.validity = false;
+    return false;
+  }
+};
+
+// function covDateValidator_checkLength() {
+covDateValidator.prototype.checkLength = function () {
+  if (this.value.length == this.dateExp.length) {
+    return true;
+  } else {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_005, ["@", String(this.dateExp.length)]);
+    return false;
+  }
+};
+
+// function covDateValidator_checkYear() {
+covDateValidator.prototype.checkYear = function () {
+  var index = -1;
+  var subValue;
+  if ((index = this.dateExp.indexOf("YYYY")) != -1) {
+    subValue = this.value.substr(index, 4);
+    if (!isNaN(subValue) && subValue > 0) {
+      this.dateExp = this.dateExp.cut(index, 4);
+      this.value = this.value.cut(index, 4);
+      this.year = subValue;
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_015, ["@"]);
+      return false;
+    }
+  }
+  if ((index = this.dateExp.indexOf("YY")) != -1) {
+    subValue = "20" + this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue > 0) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      this.year = subValue;
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_015, ["@"]);
+      return false;
+    }
+  }
+  return true;
+};
+
+// function covDateValidator_checkMonth() {
+covDateValidator.prototype.checkMonth = function () {
+  var index = -1;
+  var subValue;
+  if ((index = this.dateExp.indexOf("MM")) != -1) {
+    subValue = this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue > 0 && subValue <= 12) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      this.month = subValue;
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_019, ["@"]);
+      return false;
+    }
+  }
+  return true;
+};
+covDateValidator.prototype.checkDay = function () {
+  var GLB_DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  var index = -1;
+  var days = 0;
+  var subValue;
+  if ((index = this.dateExp.indexOf("DD")) != -1) {
+    if (this.year != null && this.month != null) {
+      days = this.month != 2 ? GLB_DAYS_IN_MONTH[this.month - 1] : this.year % 4 == 0 && this.year % 100 != 0 || this.year % 400 == 0 ? 29 : 28;
+    } else {
+      days = 31;
+    }
+    subValue = this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue > 0 && subValue <= days) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_020, ["@"]);
+      return false;
+    }
+  }
+  return true;
+};
+
+// function covDateValidator_checkHour() {
+covDateValidator.prototype.checkHour = function () {
+  var index = -1;
+  var subValue;
+  if ((index = this.dateExp.indexOf("hh")) != -1) {
+    subValue = this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue >= 0 && subValue <= 12) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_021, ["@"]);
+      return false;
+    }
+  }
+  if ((index = this.dateExp.indexOf("HH")) != -1) {
+    subValue = this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue >= 0 && subValue < 24) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_021, ["@"]);
+      return false;
+    }
+  }
+  return true;
+};
+
+// function covDateValidator_checkMin() {
+covDateValidator.prototype.checkMin = function () {
+  var index = -1;
+  var subValue;
+  if ((index = this.dateExp.indexOf("mm")) != -1) {
+    subValue = this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue >= 0 && subValue < 60) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      this.month = subValue;
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_022, ["@"]);
+      return false;
+    }
+  }
+  return true;
+};
+
+// function covDateValidator_checkSec() {
+covDateValidator.prototype.checkSec = function () {
+  var index = -1;
+  var subValue;
+  if ((index = this.dateExp.indexOf("ss")) != -1) {
+    subValue = this.value.substr(index, 2);
+    if (!isNaN(subValue) && subValue >= 0 && subValue < 60) {
+      this.dateExp = this.dateExp.cut(index, 2);
+      this.value = this.value.cut(index, 2);
+      this.month = subValue;
+      return true;
+    } else {
+      this.message = new coMessage().getMsg(MSG_CM_ERR_023, ["@"]);
+      return false;
+    }
+  }
+  return true;
+};
+
+// function covDateValidator_checkRest() {
+covDateValidator.prototype.checkRest = function covDateValidator_checkRest() {
+  if (this.value == this.dateExp) {
+    return true;
+  }
+  return false;
+};
+
+///////////////////////////// covTelNumberValidator /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : 입력값이 전화번호 형식에 적합한지를 검사한다.
+ * @author : 임재현
+ */
+function covTelNumberValidator() {
+  // data;
+  this.message = "";
+  this.validity = false;
+
+  // method
+  // this.validate = covTelNumberValidator_validate;
+}
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covTelNumberValidator
+ * @desc   : validation을 수행한다.
+ * @sig    : value
+ * @param  : value required 유효성 검사 대상값.
+ * @return : boolean. 유효성 여부.
+ */
+covTelNumberValidator.prototype.validate = function (value) {
+  // var format = /0\d{1,3}\-\d\d{1,3}\-\d\d\d\d/g; // Org
+  var format = /^0[0-9]{1,2}-\d{1,4}-\d\d\d\d/g; //국내전화
+
+  var nCnt = 0;
+  for (var i = 0; i < value.length; i++) {
+    var c = value.charAt(i);
+    if (c == "-") nCnt++;
+  }
+  if (nCnt == 3) format = /^[1-9]{1,2}-\d{1,4}-\d{1,4}-\d\d\d\d/g; // 국제전화
+
+  if (value.search(format) == -1) {
+    this.message = new coMessage().getMsg(MSG_CM_ERR_038, [" 전화 번호 "]);
+    return false;
+  }
+  this.validity = true;
+  return true;
+};
+
+/**
+ * @type   : function
+ * @access : public
+ * @desc   : 가우스의 Grid에 대해 유효성 검사를 한다. 유효성 검사를 위해서는 Grid의 DataId에 지정된 DataSet에 validExp 속성이
+ *           지정되어 있어야 한다. 지정방법은 cfValidate 함수에 대한 설명을 참조하기 바란다. (내부적으로는 Grid를 검사하는 것이 아니라
+ *           Grid의 DataId에 지정된 DataSet에 대한 유효성 검사이다.)
+ * @sig    : oGrid[, row[, colId]]
+ * @param  : oGrid required 검사 대상 Grid.
+ * @param  : row   optional 검사하고자 하는 row 번호
+ * @param  : colId optional 검사하고자 하는 컬럼의 id
+ * @return : boolean. 유효성 여부.
+ */
+function cfValidateGrid(oGrid, row, colId) {
+  /*
+  return {
+          'isValid': false,
+          'inValidMsg': new coMessage().getMsg(itemValidExp.errMsg, [itemValidExp.itemName])
+      }
+  */
+  if (cfIsNull(oGrid?.options.validExp)) {
+    // return true;
+    return {
+      'isValid': true
+    };
+  }
+  let options = oGrid.options;
+  var dataName = options.dataName;
+  var validFeatures = options.validFeatures;
+  var oDataSet = WebSquare.util.getComponentById(oGrid.getDataList());
+  var gridValidExp = new covGridValidExp(oGrid.getID());
+  var errMsg = "";
+  var featureNames = ["ignoreStatus"];
+  var featureValues = [false];
+  var featureTypes = ["boolean"];
+  if (!isEmpty(validFeatures)) {
+    cfParseFeature(validFeatures, featureNames, featureValues, featureTypes);
+  }
+  var ignoreStatus = featureValues[0];
+  if (!gridValidExp.validate(row, colId, ignoreStatus)) {
+    // let sInValidMsg = new coMessage().getMsg("@의 @번째 데이터에서 ", [dataName, String(gridValidExp.errRow)]);
+    let sInValidMsg = new coMessage().getMsg("@의 @번째 데이터에서 ", [dataName, String(gridValidExp.errRow + 1)]);
+    sInValidMsg += new coMessage().getMsg(gridValidExp.errMsg, [gridValidExp.errItemName]);
+    // TODO 일단 유효하지 않은 행의 컬럼에 Focus 처리를 한다.
+    // DataSet.ClearAllMark 함수는 '선택 상태(마킹)'만 해제 한다. 뭔소린지...
+    /*
+    if (oGrid.MultiRowSelect == false) {  // Grid의 MultiRowSelect 속성이 false일 경우에는 RowMark, MarkRows가
+    	oGrid.MultiRowSelect = true;      // 지정한 row에 제대로 Marking을 하지 못한다. 따라서...
+    oDataSet.ClearAllMark();
+    oDataSet.RowPosition = gridValidExp.errRow;
+    oGrid.SetColumn(gridValidExp.errColId);
+    oGrid.Focus();
+        oGrid.MultiRowSelect = false;
+    } else {
+    oDataSet.ClearAllMark();
+    oDataSet.RowPosition = gridValidExp.errRow;
+    oGrid.SetColumn(gridValidExp.errColId);
+    oGrid.Focus();
+    }
+    */
+    return {
+      'isValid': false,
+      'inValidMsg': sInValidMsg,
+      'errRow': gridValidExp.errRow,
+      'errColId': gridValidExp.errColId
+    };
+  }
+  return {
+    'isValid': true
+  };
+}
+;
+
+///////////////////////////// covGridValidExp /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : Grid에 대한 유효성검사 표현식
+ * @sig    : oGrid
+ * @param  : oGrid required 검사대상 Grid
+ */
+function covGridValidExp(sGridID) {
+  // data;
+  this.sGridID = sGridID;
+  this.columnValidExps = new Array();
+  this.errMsg;
+  this.errRow;
+  this.errColId;
+  this.errItemName = "";
+
+  // method
+  // this.parse = covGridValidExp_parse;
+  // this.validate = covGridValidExp_validate;
+
+  // initialize
+  this.parse();
+}
+
+// 신규
+covGridValidExp.prototype.getGridViewComp = function () {
+  return WebSquare.util.getComponentById(this.sGridID);
+};
+covGridValidExp.prototype.getDataComp = function () {
+  return WebSquare.util.getComponentById(WebSquare.util.getComponentById(this.sGridID).getDataList());
+};
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covGridValidExp
+ * @desc   : valid expression을 parsing한다.
+ */
+// function covGridValidExp_parse() {
+covGridValidExp.prototype.parse = function () {
+  let oGridComp = this.getGridViewComp();
+  if (cfIsNull(oGridComp) || cfIsNull(oGridComp.options.validExp)) {
+    return;
+  }
+  let sValidExp = oGridComp.options.validExp;
+  var columns = sValidExp.trim().advancedSplit(",", "it");
+  for (var i = 0; i < columns.length; i++) {
+    this.columnValidExps[i] = new covColumnValidExp(columns[i], this.sGridID);
+  }
+};
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covGridValidExp
+ * @desc   : validation을 수행한다.
+ * @sig    : [row[, colId[, ignoreStatus]]]
+ * @param  : row optional 검사대상 Grid의 특정 row 번호
+ * @param  : colId optional 검사대상 Grid의 특정 컬럼의 id
+ * @param  : ignoreStatus optional Grid 검사시 row status에 상관없이 모두 검사할 것인지의 여부.
+ */
+// function covGridValidExp_validate() {
+covGridValidExp.prototype.validate = function (row, colId, ignoreStatus) {
+  var oDataSet = this.getDataComp();
+  if (typeof oDataSet == 'undefined' || oDataSet.getRowCount() < 1) {
+    return true;
+  }
+  var startIdx;
+  var endIdx;
+  var nestedStartIdx;
+  var nestedEndIdx;
+  var keyColValidExps = new Array();
+  var singleKeyColValidExps = new Array();
+
+  // 주의 반복문이 <= 를 한다.
+  if (!isEmpty(row)) {
+    startIdx = row;
+    endIdx = row;
+  } else {
+    startIdx = 0; // startIdx = 1;
+    endIdx = oDataSet.getRowCount() - 1; // endIdx = oDataSet.CountRow;
+  }
+
+  // validation 수행
+  for (var i = startIdx; i <= endIdx; i++) {
+    // SubSum 행을 무시하기 위해 oDataSet.RowStatus(i) != 4 조건 추가
+    // 0 : Normal 'R'
+    // 1 : Insert 'C'
+    // 2 : Delete 'D'
+    // 3 : Update 'U'
+    // 4 : Logical X
+    let sRowStatus = oDataSet.getRowStatus(i);
+    // if ((ignoreStatus || oDataSet.RowStatus(i) != 0) && (oDataSet.RowStatus(i) != 4 && oDataSet.RowStatus(i) != 2)) {
+    if ((ignoreStatus || sRowStatus != 'R') && sRowStatus != 'D') {
+      // ignoreStatus == true 면 D 빼고 전부. false 면 'R', 'D' 빼고
+      for (var j = 0; j < this.columnValidExps.length; j++) {
+        let columnValidExp = this.columnValidExps[j];
+
+        // 여기서 DataCollection 을 넘긴다.
+        if (!columnValidExp.validate(oDataSet, i)) {
+          this.errMsg = columnValidExp.errMsg;
+          this.errRow = i;
+          this.errColId = columnValidExp.colId;
+          this.errItemName = columnValidExp.errItemName;
+          return false;
+        }
+      }
+    }
+  }
+
+  // 키컬럼 추출
+  var keyColCnt = 0;
+  var singleKeyColCnt = 0;
+  for (var i = 0; i < this.columnValidExps.length; i++) {
+    if (this.columnValidExps[i].property == "KEY") {
+      keyColValidExps[keyColCnt++] = this.columnValidExps[i];
+    } else if (this.columnValidExps[i].property == "SINGLEKEY") {
+      singleKeyColValidExps[singleKeyColCnt++] = this.columnValidExps[i];
+    }
+  }
+
+  // 주의 반복문이 <= 를 한다.
+  if (!isEmpty(row)) {
+    startIdx = row;
+    endIdx = row;
+  } else {
+    startIdx = 0; // startIdx = 1;
+    endIdx = oDataSet.getRowCount() - 2; // endIdx = oDataSet.CountRow - 1;
+  }
+
+  // 중복키 체크
+  if (keyColValidExps.length > 0 || singleKeyColValidExps.length > 0) {
+    var isEqual;
+    for (var i = startIdx; i <= endIdx; i++) {
+      if (!isEmpty(row)) {
+        nestedStartIdx = 1;
+      } else {
+        nestedStartIdx = i + 1;
+      }
+      for (let j = nestedStartIdx; j <= oDataSet.getRowCount() - 1; j++) {
+        // 동일한 로우나 logical(소계 등) 로우는 무시
+        // if (i == j || oDataSet.RowStatus(i) == 4 || oDataSet.RowStatus(j) == 4) {
+        // TO-BE 는 4 가 없다. // 4 : Logical X
+        if (i == j) {
+          continue;
+        }
+
+        // 일반키컬럼 검사.
+        {
+          isEqual = true;
+          var k;
+          for (k = 0; k < keyColValidExps.length; k++) {
+            // if (oDataSet.NameValue(i, keyColValidExps[k].colId) !=
+            //     oDataSet.NameValue(j, keyColValidExps[k].colId)
+            //    ) {
+            // console.log('ROW =: ' + i + '     COL =: ' + keyColValidExps[k].colId + '     ::: ' + oDataSet.getCellData(i , keyColValidExps[k].colId) + '   :   ' + oDataSet.getCellData(j , keyColValidExps[k].colId));
+
+            if (oDataSet.getCellData(i, keyColValidExps[k].colId) != oDataSet.getCellData(j, keyColValidExps[k].colId)) {
+              isEqual = false;
+              // console.log('isEqual ==: ' + isEqual);
+              break;
+            }
+          }
+          if (isEqual) {
+            this.errMsg = new coMessage().getMsg(MSG_CM_ERR_032, ["@"]);
+            if (!isEmpty(row)) {
+              this.errRow = row; // row를 지정하였을 때는 해당 row에 대한 error로 간주
+              this.errColId = keyColValidExps[k - 1].colId; // 송동혁 1021 추가
+            } else {
+              this.errRow = j; // row지정이 없으면 중복된 두개의 데이터중 순서상 나중에 있는 row를 error로 간주
+              this.errColId = keyColValidExps[k - 1].colId; // 송동혁 1021 추가
+            }
+            for (var k = 0; k < keyColValidExps.length; k++) {
+              this.errItemName = this.errItemName + keyColValidExps[k].itemValidExp.itemName + ", ";
+            }
+            this.errItemName = this.errItemName.substring(0, this.errItemName.lastIndexOf(","));
+            return false;
+          }
+        }
+
+        // 싱글키컬럼 검사.
+        for (var k = 0; k < singleKeyColValidExps.length; k++) {
+          // if (oDataSet.NameValue(i, singleKeyColValidExps[k].colId) ==
+          //     oDataSet.NameValue(j, singleKeyColValidExps[k].colId)
+          //   ) {
+          if (oDataSet.getCellData(i, singleKeyColValidExps[k].colId) == oDataSet.getCellData(j, singleKeyColValidExps[k].colId)) {
+            this.errMsg = new coMessage().getMsg(MSG_CM_ERR_032, ["@"]);
+            if (!isEmpty(row)) {
+              this.errRow = row; // row를 지정하였을 때는 해당 row에 대한 error로 간주
+              this.errColId = singleKeyColValidExps[k].colId; // 송동혁 1021 추가
+            } else {
+              this.errRow = j; // row지정이 없으면 중복된 두개의 데이터중 순서상 나중에 있는 row를 error로 간주
+              this.errColId = singleKeyColValidExps[k].colId; // 송동혁 1021 추가
+            }
+            this.errItemName = singleKeyColValidExps[k].itemValidExp.itemName;
+            return false;
+          }
+        }
+      }
+    }
+  }
+  return true;
+};
+
+///////////////////////////// covColumnValidExp /////////////////////////////
+/**
+ * @type   : object
+ * @access : private
+ * @desc   : Grid의 컬럼 유효성 검사 표현식
+ * @sig    : expression, oGrid
+ * @param  : expression required valid expression string.
+ * @param  : oGrid      required 검사대상 Grid 오브젝트
+ */
+function covColumnValidExp(expression, sGridID) {
+  // data;
+  this.colId;
+  this.errMsg = "";
+  this.errRow = -1;
+  this.errItemName = "";
+  this.itemValidExp;
+  this.property = "NORMAL"; // NORMAL, KEY, SINGLEKEY 속성이 있다.
+
+  // method
+  // this.parse    = covColumnValidExp_parse;
+  // this.validate = covColumnValidExp_validate;
+
+  // initialize
+  this.parse(expression, sGridID);
+}
+
+// 신규
+/**
+ * @param {string} gridId - 그리드 테이블 또는 컨테이너의 ID
+ * @param {number|string} colIdx - 찾고자 하는 컬럼의 인덱스 (data-colindex 값)
+ */
+covColumnValidExp.prototype.getHeaderTitleByColId = function (gridId, colId) {
+  var gridContainer = document.getElementById(gridId);
+  if (!gridContainer) return "";
+
+  // 1. 바디(tbody)에서 해당 colId를 가진 셀을 찾아 인덱스(colIndex)를 추출합니다.
+  var bodyCell = gridContainer.querySelector('tbody td[data-col_id="' + colId + '"]');
+  if (!bodyCell) return "";
+  var colIdx = bodyCell.getAttribute("data-colindex");
+
+  // 2. 해당 인덱스를 사용하여 헤더(thead)를 역순으로 뒤집니다.
+  var thead = gridContainer.querySelector("thead");
+  var rows = thead.querySelectorAll("tr");
+  for (var i = rows.length - 1; i >= 0; i--) {
+    var targetHeader = rows[i].querySelector('th[data-colindex="' + colIdx + '"]');
+    if (targetHeader) {
+      // 3. 텍스트 추출 및 태그/공백 제거
+      var rawText = targetHeader.innerText;
+      var cleanText = rawText.replace(/(<([^>]+)>)/gi, "") // 태그 제거
+      .replace(/\n/g, " ") // 줄바꿈을 공백으로
+      .replace(/\s+/g, " ") // 연속 공백을 하나로
+      .trim();
+      return cleanText;
+    }
+  }
+  return "";
+};
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covColumnValidExp
+ * @desc   : valid expression을 parsing한다.
+ * @sig    : expression, oGrid
+ * @param  : expression required valid expression string.
+ * @param  : oGrid      required 검사대상 Grid 오브젝트
+ */
+// function covColumnValidExp_parse(expression, oGrid) {
+covColumnValidExp.prototype.parse = function (expression, sGridID) {
+  var index = -1;
+  var expArr = expression.advancedSplit(":", "i");
+  if (expArr.length < 3) {
+    return;
+  }
+  var oGrid = WebSquare.util.getComponentById(sGridID);
+  var itemName = null;
+  this.colId = expArr[0].trim();
+  /*
+  // oGrid.Format 는 그리드를 구성하기위한 생성된 정보이다.
+  <Param Name="Format"          value='
+      <c> id=odrNo                     name=오더번호		width=100 align=center sort=true Edit=None  show=false </c>
+      <c> id=commSeq                   name=품명순번		width=100 align=center sort=false Edit=None  show=false </c>
+      <c> id=commCd                    name=품명코드		width=100 align=center sort=false Edit=None  show=false </c>
+      <c> id=cntrSizCd                 name=Size			width=80 align=center sort=false Edit=None  show=true EditStyle=Lookup Data="ds_cntrSize:cd" sumtext="합계" </c>
+      <c> id=cntrTypCd                 name=Type			width=80 align=center sort=false Edit=None  show=true EditStyle=Lookup Data="ds_cntrType:cd" </c>
+      <c> id=fullEmptyClsCd            name="F/E"			width=80 align=center sort=false Edit=None  show=true EditStyle=Lookup Data="ds_cntrFE:cd" </c>
+      <c> id=qty                       name=수량			width=80 align=right sort=false Edit=None  show=true sumtext=@sum </c>
+  '>
+  coGridFormat 함수는 해당 정보를 데이터 구조화 한다.
+  Name 값을 가져오기 위해 사용함. 다른데서는 사용하는 소스 없음. TO-BE 는 다른 방식으로 가져온다.
+  */
+  /*
+  if (new coGridFormat(oGrid.Format).existsColumn(this.colId)) {
+  itemName = oGrid.ColumnProp(this.colId, "Name");
+  }
+  */
+  itemName = this.getHeaderTitleByColId(sGridID, this.colId);
+  this.itemValidExp = new covItemValidExp(expArr[1] + ":" + expArr[2] + ":" + expArr[3], itemName);
+  if (!cfIsNull(expArr[4]) && expArr[4].toUpperCase().trim() == "KEY") {
+    this.property = "KEY";
+  } else if (!cfIsNull(expArr[4]) && expArr[4].toUpperCase().trim() == "SINGLEKEY") {
+    this.property = "SINGLEKEY";
+  }
+};
+
+/**
+ * @type   : method
+ * @access : public
+ * @object : covColumnValidExp
+ * @desc   : validation을 수행한다.
+ * @sig    : oDataSet, row
+ * @param  : oDataSet required 검사대상 DataSet
+ * @param  : row required 검사대상 DataSet의 특정 row 번호
+ */
+// function covColumnValidExp_validate(oDataSet, row) {
+covColumnValidExp.prototype.validate = function (oDataSet, row) {
+  if (typeof oDataSet == 'undefined' || oDataSet.getRowCount() < 1) {
+    return true;
+  }
+  var startIdx = 0; // startIdx = 1;
+  var endIdx = oDataSet.getRowCount() - 1; // oDataSet.CountRow;
+  var value;
+  var rowYN = false;
+  if (!isEmpty(row)) {
+    startIdx = row;
+    endIdx = row;
+    rowYN = true;
+  }
+  for (var i = startIdx; i <= endIdx; i++) {
+    // value = (oDataSet.NameValue(i, this.colId) == null) ?
+    //         null : oDataSet.NameString(i, this.colId).trim();  // DataSet의 data를 trim 시킨다.
+    value = oDataSet.getCellData(i, this.colId);
+    if (typeof value === 'string') value = value.trim();
+    if (this.itemValidExp != null && !this.itemValidExp.validate(value)) {
+      this.errMsg = this.itemValidExp.errMsg;
+      this.errRow = i;
+      this.errItemName = this.itemValidExp.itemName;
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
+ * @type   : function
+ * @access : private
+ * @desc   : features 스트링을 파싱하여 array에 셋팅하는 내부 함수
+ * @sig    : features, fNameArray, fValueArray, fTypeArray
+ * @param  : features    required features를 표현한 스트링
+ * @param  : fNameArray  required 추출해야 할 feature의 이름에 대한 array
+ * @param  : fValueArray required 추출해야 할 feature의 기본값에 대한 array
+ * @param  : fTypeArray  required 추출해야 할 feature의 데이터타입에 대한 array
+ */
+function cfParseFeature(features, fNameArray, fValueArray, fTypeArray) {
+  if (isEmpty(features)) {
+    return;
+  }
+  var featureArray = features.split(",");
+  var featurePair;
+  for (var i = 0; i < featureArray.length; i++) {
+    featurePair = featureArray[i].trim().split("=");
+    for (var j = 0; j < fNameArray.length; j++) {
+      if (featurePair[0] == fNameArray[j]) {
+        switch (fTypeArray[j]) {
+          case "string":
+            fValueArray[j] = featurePair[1];
+            break;
+          case "number":
+            fValueArray[j] = Number(featurePair[1]);
+            break;
+          case "boolean":
+            if (featurePair[1].toUpperCase() == "YES" || featurePair[1].toUpperCase() == "TRUE" || featurePair[1] == "1") {
+              fValueArray[j] = true;
+            } else {
+              fValueArray[j] = false;
+            }
+            break;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * @type   : function
+ * @access : public
+ * @desc   : 스트링의 자릿수를 Byte 단위로 환산하여 알려준다. 영문, 숫자는 1Byte이고 한글은 2Byte이다.(자/모 중에 하나만 있는 글자도 2Byte이다.)
+ * @sig    : value
+ * @param  : value required 스트링
+ * @return : 스트링의 길이
+ */
+function cfGetByteLength(value) {
+  var byteLength = 0;
+  if (cfIsNull(value)) {
+    return 0;
+  }
+  var c;
+  for (var i = 0; i < value.length; i++) {
+    c = escape(value.charAt(i));
+    if (c.length == 1) {
+      byteLength++;
+    } else if (c.indexOf("%u") != -1) {
+      byteLength += 2;
+    } else if (c.indexOf("%") != -1) {
+      byteLength += c.length / 3;
+    }
+  }
+  return byteLength;
+}
+;
+function isEmpty(iObj) {
+  if (iObj == null || typeof iObj == 'undefined') return true;
+  if (typeof iObj == 'string' && iObj.trim() == '') return true;
+  if (Array.isArray(iObj) && iObj.length == 0) return true;
+  if (typeof iObj == 'object' && typeof iObj != 'function' && Object.keys(iObj).length == 0) return true;
+  return false;
+}
+;
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'}}]}]})

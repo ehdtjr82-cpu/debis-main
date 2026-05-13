@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare"
+    xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate />
+        <w2:MSA />
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="ds_search1">
+                    <w2:keyInfo>
+                        <w2:key id="apprReqNo" name="apprReqNo" dataType="text"></w2:key>
+                        <w2:key id="slipNo" name="slipNo" dataType="text"></w2:key>
+                        <w2:key id="deptCd" name="deptCd" dataType="text"></w2:key>
+                        <w2:key id="regId" name="regId" dataType="text"></w2:key>
+                        <w2:key id="slipKndCd" name="slipKndCd" dataType="text"></w2:key>
+                        <w2:key id="startDt" name="startDt" dataType="text"></w2:key>
+                        <w2:key id="endDt" name="endDt" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataMap baseNode="map" id="ds_search2">
+                    <w2:keyInfo>
+                        <w2:key id="apprReqNo" name="apprReqNo" dataType="text"></w2:key>
+                        <w2:key id="slipNo" name="slipNo" dataType="text"></w2:key>
+                        <w2:key id="deptCd" name="deptCd" dataType="text"></w2:key>
+                        <w2:key id="regId" name="regId" dataType="text"></w2:key>
+                        <w2:key id="slipKndCd" name="slipKndCd" dataType="text"></w2:key>
+                        <w2:key id="startDt" name="startDt" dataType="text"></w2:key>
+                        <w2:key id="endDt" name="endDt" dataType="text"></w2:key>
+                        <w2:key id="coCd" name="coCd" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataMap baseNode="map" id="ds_empNo_condition">
+                    <w2:keyInfo>
+                        <w2:key id="sysCd" name="sysCd" dataType="text"></w2:key>
+                        <w2:key id="queryId" name="queryId" dataType="text"></w2:key>
+                        <w2:key id="param1" name="param1" dataType="text"></w2:key>
+                        <w2:key id="param2" name="param2" dataType="text"></w2:key>
+                        <w2:key id="param3" name="param3" dataType="text"></w2:key>
+                        <w2:key id="param4" name="param4" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataList baseNode="list" id="ds_empNo" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="col1" name="col1" dataType="text"></w2:column>
+                        <w2:column id="col2" name="col2" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataMap baseNode="map" id="dma_attachedFile">
+                    <w2:keyInfo>
+                        <w2:key id="advcdGrpCd" name="advcdGrpCd" dataType="text"></w2:key>
+                        <w2:key id="seq" name="seq" dataType="text"></w2:key>
+                    </w2:keyInfo>
+                </w2:dataMap>
+                <w2:dataList baseNode="list" id="ds_attachedFileList" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="fileClsCd" name="fileClsCd" dataType="text"></w2:column>
+                        <w2:column id="fileClsNm" name="fileClsNm" dataType="text"></w2:column>
+                        <w2:column id="fileName" name="fileName" dataType="text"></w2:column>
+                        <w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+                        <w2:column id="fileSeq" name="fileSeq" dataType="text"></w2:column>
+                        <w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+                        <w2:column id="houseNo" name="houseNo" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataList baseNode="list" id="ds_importFileList" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="fileName" name="fileName" dataType="text"></w2:column>
+                        <w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+                        <w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataList baseNode="list" id="ds_fileUploadGDS" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="advcdGrpCd" name="advcdGrpCd" dataType="text"></w2:column>
+                        <w2:column id="seq" name="seq" dataType="text"></w2:column>
+                        <w2:column id="fileClsCd" name="fileClsCd" dataType="text"></w2:column>
+                        <w2:column id="fileName" name="fileName" dataType="text"></w2:column>
+                        <w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+                        <w2:column id="fileSize" name="fileSize" dataType="text"></w2:column>
+                        <w2:column id="regId" name="regId" dataType="text"></w2:column>
+                        <w2:column id="modId" name="modId" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+                <w2:dataList baseNode="list" id="ds_fileDeleteGDS" repeatNode="map" saveRemovedData="true">
+                    <w2:columnInfo>
+                        <w2:column id="advcdGrpCd" name="advcdGrpCd" dataType="text"></w2:column>
+                        <w2:column id="seq" name="seq" dataType="text"></w2:column>
+                        <w2:column id="fileSeq" name="fileSeq" dataType="text"></w2:column>
+                        <w2:column id="filePath" name="filePath" dataType="text"></w2:column>
+                    </w2:columnInfo>
+                </w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection />
+            <xf:submission id="sbm_searchEmpNo" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json"
+                ref="data:json,ds_empNo_condition" target="data:json,GAUCE" encoding="UTF-8" mode="asynchronous"
+                ev:submitdone="scwin.sbm_searchEmpNo_submitdone">
+            </xf:submission>
+            <xf:submission id="sbm_retrieveAttachedFileList" action="/ac.fm.paymgnt.advcdmgnt.RetreiveAdvancedPaymentAttachFileListCMD.do" method="post"
+                mediatype="application/json" mode="asynchronous"
+                ref='data:json,{"id":"ds_attachedFileList","key":"OUT_DS1"}'
+                target='data:json,{"id":"ds_attachedFileList","key":"OUT_DS1"}'
+                ev:submitdone="scwin.sbm_retrieveAttachedFileList_submitdone">
+            </xf:submission>
+            <xf:submission id="sbm_retrieveImportFileList" action="/ac.fm.paymgnt.advcdmgnt.RetrieveAdvancedPaymentAttachInfoCMD.do" method="post"
+                mediatype="application/json" mode="asynchronous"
+                ref='data:json,[{"id":"dma_attachedFile","key":"IN_DS1"},{"id":"ds_importFileList","key":"OUT_DS1"}]'
+                target='data:json,{"id":"ds_importFileList","key":"OUT_DS1"}'
+                ev:submitdone="scwin.sbm_retrieveImportFileList_submitdone" ev:submiterror="scwin.sbm_default_submiterror">
+            </xf:submission>
+            <xf:submission id="sbm_saveFile" action="/ac.fm.paymgnt.advcdmgnt.SaveAdvancedPaymentAttachFile2CMD.do" method="post" mediatype="application/json"
+                ref='data:json,[{"id":"ds_fileUploadGDS","key":"IN_DS1"}]' target='data:json,[]'
+                encoding="UTF-8" mode="asynchronous" processMsg="none" ev:submitdone="scwin.sbm_saveFile_submitdone"
+                ev:submiterror="scwin.sbm_default_submiterror">
+            </xf:submission>
+            <xf:submission id="sbm_deleteFile" action="/ac.fm.paymgnt.advcdmgnt.DeleteAdvancedPaymentAttachFileCMD.do" method="post" mediatype="application/json"
+                ref='data:json,[{"id":"ds_fileDeleteGDS","key":"IN_DS1"}]' target='data:json,[]'
+                encoding="UTF-8" mode="asynchronous" processMsg="none" ev:submitdone="scwin.sbm_deleteFile_submitdone"
+                ev:submiterror="scwin.sbm_default_submiterror">
+            </xf:submission>
+        </xf:model>
+        <w2:layoutInfo />
+        <w2:publicInfo method="" />
+        <script lazy="false" type="text/javascript"><![CDATA[
+let memJson = $c.data.getMemInfo();
+scwin.privAdmin = $c.data.getMemInfo("privAdmin");
+scwin.empNo = $c.data.getMemInfo("empNo");
+scwin.userId = $c.data.getMemInfo("userId") || "";
+scwin.advcdGrpCd = "";
+scwin.seq = "";
+scwin.advcdPrgStsCd = "";
+
+let empNo_Yn = "";
+let vEmpNo = scwin.empNo;
+let RETRIEVE_AUTH = "R";
+
+scwin.systemPathKey = "FILE_UPLOAD_SYSTEM_PATH";
+scwin.systemPathVal = "/fileUpload";
+scwin.argObject = "";
+scwin.g_filePath = "";
+scwin.g_fileName = "";
+scwin.g_accdNo = "temp";
+scwin.pendingImportSave = false;
+
+scwin.onpageload = function() {
+    let paramData = $p.getParameter("wframeParam") || $c.data.getParameter() || {};
+    scwin.advcdGrpCd = $c.str.trim($p, paramData.advcdGrpCd || "");
+    scwin.seq = $c.str.trim($p, paramData.seq || "");
+    scwin.advcdPrgStsCd = $c.str.trim($p, paramData.advcdPrgStsCd || "");
+
+    ed_hhblno.setValue(scwin.advcdGrpCd);
+    scwin.f_empNo();
+
+    if (!$c.util.isEmpty(scwin.advcdGrpCd) && !$c.util.isEmpty(scwin.seq)) {
+        scwin.f_Retrieve();
+    } else {
+        scwin.f_clearFileList();
+    }
+
+    udc_fileUpload.setFixNum("4");
+    scwin.applyUploadSubDir(scwin.advcdGrpCd, scwin.seq);
+    scwin.f_CtrlStatus();
+};
+
+scwin.onUdcCompleted = function() {
+    scwin.applyUploadSubDir(scwin.getCurrentAdvcdGrpCd(), scwin.seq);
+    scwin.f_CtrlStatus();
+};
+
+scwin.getFileUploadScope = function() {
+    if (typeof udc_fileUpload === "undefined") {
+        return null;
+    }
+
+    if (typeof udc_fileUpload.getScopeWindow === "function") {
+        return udc_fileUpload.getScopeWindow();
+    }
+
+    return null;
+};
+
+scwin.getCurrentAdvcdGrpCd = function() {
+    if (typeof ed_hhblno !== "undefined" && typeof ed_hhblno.getValue === "function") {
+        return $c.str.trim($p, ed_hhblno.getValue() || "");
+    }
+
+    return $c.str.trim($p, scwin.advcdGrpCd || "");
+};
+
+scwin.buildUploadSubDir = function(advcdGrpCd, seq) {
+    if ($c.util.isEmpty(advcdGrpCd) || $c.util.isEmpty(seq)) {
+        return "";
+    }
+
+    return "FM/paymgnt/advcdmgnt/AdvancedPayment/" + advcdGrpCd + "/" + seq + "/";
+};
+
+scwin.applyUploadSubDir = function(advcdGrpCd, seq) {
+    if (typeof udc_fileUpload === "undefined") {
+        return;
+    }
+
+    scwin.systemPathVal = scwin.buildUploadSubDir(advcdGrpCd, seq);
+
+    if (typeof udc_fileUpload.setSubDir === "function") {
+        udc_fileUpload.setSubDir(scwin.systemPathVal);
+    }
+
+    if (typeof udc_fileUpload.setSubDirYearMonthYn === "function") {
+        udc_fileUpload.setSubDirYearMonthYn("N");
+    }
+};
+
+scwin.applyFileUploadControlState = function(isEnabled) {
+    if (typeof udc_fileUpload === "undefined") {
+        return;
+    }
+
+    if (typeof btn_importFile !== "undefined" && typeof btn_importFile.setDisabled === "function") {
+        btn_importFile.setDisabled(!isEnabled);
+    }
+
+    if (typeof udc_fileUpload.setFileSelectingButtonDisabled === "function") {
+        udc_fileUpload.setFileSelectingButtonDisabled(!isEnabled);
+    }
+
+    if (typeof udc_fileUpload.setSaveButtonVisible === "function") {
+        udc_fileUpload.setSaveButtonVisible(isEnabled ? "Y" : "N");
+    }
+
+    const uploadScope = scwin.getFileUploadScope();
+    const uploadPage = uploadScope && uploadScope.$p ? uploadScope.$p : null;
+    if (!uploadPage || typeof uploadPage.getComponentById !== "function") {
+        return;
+    }
+
+    const addBtn = uploadPage.getComponentById("btn_fileSelecting");
+    const saveBtn = uploadPage.getComponentById("btn_trigger1");
+    const uploader = uploadPage.getComponentById("mpd_multiFileUpload");
+
+    if (addBtn && typeof addBtn.setDisabled === "function") {
+        addBtn.setDisabled(!isEnabled);
+    }
+
+    if (uploader && typeof uploader.setDisabled === "function") {
+        uploader.setDisabled(!isEnabled);
+    }
+
+    if (saveBtn && typeof saveBtn.setDisabled === "function") {
+        saveBtn.setDisabled(!isEnabled);
+    }
+
+    if (saveBtn && typeof saveBtn.show === "function" && typeof saveBtn.hide === "function") {
+        if (isEnabled) {
+            saveBtn.show("");
+        } else {
+            saveBtn.hide();
+        }
+    }
+};
+
+scwin.setFileUploadControlEnabled = function(isEnabled) {
+    if (typeof udc_fileUpload === "undefined") {
+        return;
+    }
+
+    scwin.applyFileUploadControlState(isEnabled);
+    [50, 200, 500, 1000].forEach(function(delay) {
+        setTimeout(function() {
+            scwin.applyFileUploadControlState(isEnabled);
+        }, delay);
+    });
+};
+
+scwin.isEditableFileUploadStatus = function() {
+    return scwin.advcdPrgStsCd !== "04";
+};
+
+scwin.f_CtrlStatus = function() {
+    const hasGroupNo = !$c.util.isEmpty(scwin.getCurrentAdvcdGrpCd());
+    scwin.setFileUploadControlEnabled(hasGroupNo && scwin.isEditableFileUploadStatus());
+};
+
+scwin.fileSubmit = async function() {
+    let advcdGrpCd = scwin.getCurrentAdvcdGrpCd();
+
+    if ($c.util.isEmpty(advcdGrpCd)) {
+        $c.win.alert("그룹번호가 필수입니다.");
+        ed_hhblno.focus();
+        scwin.f_CtrlStatus();
+        return;
+    }
+
+    if (!scwin.isEditableFileUploadStatus()) {
+        $c.win.alert("요청/확인취소 상태에서만 파일첨부가 가능합니다.");
+        scwin.f_CtrlStatus();
+        return;
+    }
+
+    if (scwin.advcdPrgStsCd === "04") {
+        $c.win.alert("확정상태에서는 파일첨부를 할 수 없습니다.");
+        scwin.f_CtrlStatus();
+        return;
+    }
+
+    if ($c.util.isEmpty(scwin.seq)) {
+        $c.win.alert("순번 정보가 없습니다.");
+        return;
+    }
+
+    scwin.advcdGrpCd = advcdGrpCd;
+    dma_attachedFile.set("advcdGrpCd", advcdGrpCd);
+    dma_attachedFile.set("seq", scwin.seq);
+    scwin.applyUploadSubDir(advcdGrpCd, scwin.seq);
+
+    ds_fileDeleteGDS.removeAll();
+
+    let fileList = udc_fileUpload.getData() || [];
+    let hasNewFile = false;
+    let hasDeleteFile = false;
+
+    for (let i = 0; i < fileList.length; i++) {
+        if ($c.util.isEmpty(fileList[i].hiddenKey)) {
+            hasNewFile = true;
+        }
+
+        if (fileList[i].chk == "1" && !$c.util.isEmpty(fileList[i].hiddenKey)) {
+            let row = ds_fileDeleteGDS.insertRow();
+            ds_fileDeleteGDS.setCellData(row, "advcdGrpCd", advcdGrpCd);
+            ds_fileDeleteGDS.setCellData(row, "seq", scwin.seq);
+            ds_fileDeleteGDS.setCellData(row, "fileSeq", fileList[i].hiddenKey);
+            ds_fileDeleteGDS.setCellData(row, "filePath", fileList[i].FILE_STORED_PATH || "");
+            hasDeleteFile = true;
+        }
+    }
+
+    if (hasNewFile) {
+        await udc_fileUpload.startFileUpload();
+        return;
+    }
+
+    if (hasDeleteFile) {
+        await $c.sbm.execute(sbm_deleteFile);
+        return;
+    }
+
+    await $c.win.alert("변경된 파일이 없습니다.");
+};
+
+scwin.f_Close = function() {
+    let rtnList = ds_attachedFileList.getRowJSON(ds_attachedFileList.getrowpo);
+    $c.win.closePopup(rtnList);
+};
+
+scwin.f_empNo = function() {
+    let grp_cd = "FI111";
+    let pCode = scwin.empNo;
+    let param1 = "CD as COL1, CD_NM as COL2, '' as COL3, '' as COL4, '' as COL5, '' as COL6, '' as COL7, '' as COL8, '' as COL9, '' as COL10";
+    let param2 = " TB_ZZ002 ";
+    let param3 = " AND GRP_CD = '" + grp_cd + "' AND USE_YN = '1' AND CD_NM = '" + pCode + "' ";
+    let param4 = "CD";
+
+    ds_empNo_condition.setJSON({
+        sysCd: "CommonEBC",
+        queryId: "dinymicQueryTest",
+        param1: param1,
+        param2: param2,
+        param3: param3,
+        param4: param4
+    });
+
+    $c.sbm.execute(sbm_searchEmpNo);
+};
+
+scwin.sbm_searchEmpNo_submitdone = function(e) {
+    if (e.responseJSON.GAUCE) {
+        ds_empNo.setJSON(e.responseJSON.GAUCE);
+    }
+};
+
+scwin.btn_search_onclick = function() {
+    scwin.f_Retrieve();
+};
+
+scwin.buildImportSaveRows = function() {
+    ds_fileUploadGDS.removeAll();
+
+    for (let i = 0; i < ds_importFileList.getRowCount(); i++) {
+        let row = ds_fileUploadGDS.insertRow();
+        ds_fileUploadGDS.setCellData(row, "advcdGrpCd", scwin.advcdGrpCd);
+        ds_fileUploadGDS.setCellData(row, "seq", scwin.seq);
+        ds_fileUploadGDS.setCellData(row, "fileClsCd", "");
+        ds_fileUploadGDS.setCellData(row, "fileName", ds_importFileList.getCellData(i, "fileName"));
+        ds_fileUploadGDS.setCellData(row, "filePath", ds_importFileList.getCellData(i, "filePath"));
+        ds_fileUploadGDS.setCellData(row, "fileSize", ds_importFileList.getCellData(i, "fileSize"));
+        ds_fileUploadGDS.setCellData(row, "regId", scwin.userId);
+        ds_fileUploadGDS.setCellData(row, "modId", scwin.userId);
+    }
+};
+
+scwin.f_ImportFile = async function() {
+    let advcdGrpCd = scwin.getCurrentAdvcdGrpCd();
+
+    if ($c.util.isEmpty(advcdGrpCd)) {
+        $c.win.alert("그룹번호가 필수입니다.");
+        ed_hhblno.focus();
+        scwin.f_CtrlStatus();
+        return;
+    }
+
+    if (!scwin.isEditableFileUploadStatus()) {
+        $c.win.alert("확정상태에서는 파일 가져오기를 할 수 없습니다.");
+        scwin.f_CtrlStatus();
+        return;
+    }
+
+    if ($c.util.isEmpty(scwin.seq)) {
+        $c.win.alert("순번 정보가 없습니다.");
+        return;
+    }
+
+    if (!await $c.win.confirm("파일을 가져오시겠습니까?")) {
+        return;
+    }
+
+    scwin.advcdGrpCd = advcdGrpCd;
+    dma_attachedFile.set("advcdGrpCd", advcdGrpCd);
+    dma_attachedFile.set("seq", scwin.seq);
+    scwin.applyUploadSubDir(advcdGrpCd, scwin.seq);
+    ds_importFileList.removeAll();
+    $c.sbm.execute(sbm_retrieveImportFileList);
+};
+
+scwin.buildUploadFilePath = function(storedPath, storedFileName) {
+    if ($c.util.isEmpty(storedPath)) {
+        return storedFileName || "";
+    }
+
+    if ($c.util.isEmpty(storedFileName) || storedPath.endsWith(storedFileName)) {
+        return storedPath;
+    }
+
+    if (storedPath.endsWith("/")) {
+        return storedPath + storedFileName;
+    }
+
+    return storedPath + "/" + storedFileName;
+};
+
+scwin.f_Retrieve = function() {
+    let advcdGrpCd = scwin.getCurrentAdvcdGrpCd();
+
+    if ($c.util.isEmpty(advcdGrpCd)) {
+        $c.win.alert("그룹번호를 입력하세요.");
+        ed_hhblno.focus();
+        scwin.advcdGrpCd = "";
+        scwin.f_CtrlStatus();
+        scwin.f_clearFileList();
+        return;
+    }
+
+    if ($c.util.isEmpty(scwin.seq)) {
+        $c.win.alert("순번 정보가 없습니다.");
+        scwin.f_clearFileList();
+        return;
+    }
+
+    scwin.advcdGrpCd = advcdGrpCd;
+    dma_attachedFile.set("advcdGrpCd", advcdGrpCd);
+    dma_attachedFile.set("seq", scwin.seq);
+    scwin.applyUploadSubDir(advcdGrpCd, scwin.seq);
+    scwin.f_CtrlStatus();
+    sbm_retrieveAttachedFileList.action = "/ac.fm.paymgnt.advcdmgnt.RetreiveAdvancedPaymentAttachFileListCMD.do?advcdGrpCd=" + encodeURIComponent(scwin.advcdGrpCd) + "&seq=" + encodeURIComponent(scwin.seq);
+    $c.sbm.execute(sbm_retrieveAttachedFileList);
+};
+
+scwin.sbm_retrieveAttachedFileList_submitdone = function() {
+    let fileList = [];
+
+    for (let i = 0; i < ds_attachedFileList.getRowCount(); i++) {
+        const fileName = ds_attachedFileList.getCellData(i, "fileName");
+        const filePath = ds_attachedFileList.getCellData(i, "filePath");
+
+        fileList.push({
+            chk: "0",
+            FILE_STORED_PATH: filePath,
+            STORED_FILE_NM: fileName,
+            ORIGIN_FILE_NM: fileName,
+            FILE_EXPLAIN: "",
+            FILE_SIZE: ds_attachedFileList.getCellData(i, "fileSize"),
+            status: "Completed",
+            hiddenKey: ds_attachedFileList.getCellData(i, "fileSeq")
+        });
+    }
+
+    udc_fileUpload.setData(fileList);
+    scwin.f_CtrlStatus();
+};
+
+scwin.sbm_retrieveImportFileList_submitdone = function() {
+    if (ds_importFileList.getRowCount() < 1) {
+        $c.win.alert("해당하는 첨부파일이 없습니다.");
+        return;
+    }
+
+    scwin.buildImportSaveRows();
+    scwin.pendingImportSave = true;
+    $c.sbm.execute(sbm_saveFile);
+};
+
+scwin.f_clearFileList = function() {
+    if (typeof udc_fileUpload !== "undefined") {
+        udc_fileUpload.setData([]);
+    }
+    scwin.applyUploadSubDir("", "");
+    scwin.f_CtrlStatus();
+};
+
+scwin.udc_fileUpload_onFileUploadDone = function (isSuccess) {
+    if (!isSuccess) {
+        return;
+    }
+
+    let advcdGrpCd = $c.str.trim($p, ed_hhblno.getValue());
+
+    if ($c.util.isEmpty(advcdGrpCd)) {
+        $c.win.alert("그룹번호가 필수입니다.");
+        ed_hhblno.focus();
+        return;
+    }
+
+    if ($c.util.isEmpty(scwin.seq)) {
+        $c.win.alert("순번 정보가 없습니다.");
+        return;
+    }
+
+    scwin.advcdGrpCd = advcdGrpCd;
+    dma_attachedFile.set("advcdGrpCd", advcdGrpCd);
+    dma_attachedFile.set("seq", scwin.seq);
+
+    ds_fileUploadGDS.removeAll();
+
+    let fileList = udc_fileUpload.getData() || [];
+
+    for (let i = 0; i < fileList.length; i++) {
+        if (fileList[i].status == "Completed" && $c.util.isEmpty(fileList[i].hiddenKey)) {
+            let row = ds_fileUploadGDS.insertRow();
+            ds_fileUploadGDS.setCellData(row, "advcdGrpCd", scwin.advcdGrpCd);
+            ds_fileUploadGDS.setCellData(row, "seq", scwin.seq);
+            ds_fileUploadGDS.setCellData(row, "fileClsCd", "");
+            ds_fileUploadGDS.setCellData(row, "fileName", fileList[i].ORIGIN_FILE_NM);
+            ds_fileUploadGDS.setCellData(row, "filePath", scwin.buildUploadFilePath(fileList[i].FILE_STORED_PATH, fileList[i].STORED_FILE_NM));
+            ds_fileUploadGDS.setCellData(row, "fileSize", fileList[i].FILE_SIZE);
+            ds_fileUploadGDS.setCellData(row, "regId", scwin.userId);
+            ds_fileUploadGDS.setCellData(row, "modId", scwin.userId);
+        }
+    }
+
+    if (ds_fileUploadGDS.getRowCount() > 0) {
+        $c.sbm.execute(sbm_saveFile);
+    } else if (ds_fileDeleteGDS.getRowCount() > 0) {
+        $c.sbm.execute(sbm_deleteFile);
+    } else {
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_saveFile_submitdone = function() {
+    if (scwin.pendingImportSave) {
+        scwin.pendingImportSave = false;
+        $c.gus.cfAlertMsg("파일 가져오기가 완료되었습니다.");
+    }
+
+    if (ds_fileDeleteGDS.getRowCount() > 0) {
+        $c.sbm.execute(sbm_deleteFile);
+    } else {
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.sbm_deleteFile_submitdone = function() {
+    ds_fileDeleteGDS.removeAll();
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_default_submiterror = function(e) {
+    $c.gus.cfShowError(e);
+};
+
+scwin.btn_remove_onclick = function (e) {
+    ed_hhblno.setValue("");
+    scwin.advcdGrpCd = "";
+    scwin.f_CtrlStatus();
+    scwin.f_clearFileList();
+};
+]]></script>
+        <w2:require as="udc_fileMultiUpload" type="page" variableClone="true" src="/cm/udc/fileMultiUpload.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+            <w2:wframe id="" src="/cm/xml/contentHeader.xml" style="display: none;"></w2:wframe>
+            <xf:group class="shbox" id="" style="display: none;">
+                <xf:group class="shbox-inner" id="" style="">
+                    <xf:group class="w2tb" id="" style="" tagname="table">
+                        <w2:attributes>
+                            <w2:summary></w2:summary>
+                        </w2:attributes>
+                        <xf:group tagname="colgroup">
+                            <xf:group style="" tagname="col"></xf:group>
+                            <xf:group style="" tagname="col"></xf:group>
+                        </xf:group>
+                        <xf:group id="" tagname="tr">
+                            <xf:group class="w2tb_th" tagname="th">
+                                <w2:attributes>
+                                    <w2:scope>row</w2:scope>
+                                </w2:attributes>
+                                <w2:textbox class="req" id="" label="그룹번호" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td" tagname="td">
+                                <w2:attributes></w2:attributes>
+                                <xf:input class="" id="ed_hhblno" placeholder="" style="width: 200px;"></xf:input>
+                            </xf:group>
+                        </xf:group>
+                    </xf:group>
+                </xf:group>
+                <xf:group class="btn-shbox" id="" style="">
+                    <xf:trigger class="btn ico refresh" id="btn_remove" style="" type="button" ev:onclick="scwin.btn_remove_onclick">
+                        <xf:label><![CDATA[초기화]]></xf:label>
+                    </xf:trigger>
+                    <xf:trigger class="btn sch" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.btn_search_onclick">
+                        <xf:label><![CDATA[조회]]></xf:label>
+                    </xf:trigger>
+                </xf:group>
+            </xf:group>
+            <xf:group class="round-box" id="" style="">
+                <w2:wframe id="" style="display:none;" src=""></w2:wframe>
+                <xf:group id="" style="display:flex; gap:8px; align-items:flex-start;">
+                    <xf:group class="file-wrap no-title" id="" style="flex:1; min-width:0;">
+                        <w2:udc_fileMultiUpload id="udc_fileUpload" fileGrpSeq=""
+                            filter="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" maxFileCount="10" maxFileSize="536870912"
+                            style="" totalFileSize="2009715200" ev:onFileUploadDone="scwin.udc_fileUpload_onFileUploadDone" saveFn="scwin.fileSubmit" visibleRowNum="3" readOnlyYn="Y">
+                        </w2:udc_fileMultiUpload>
+                    </xf:group>
+                    <xf:group id="" style="width:120px; flex:none;">
+                        <xf:trigger class="btn" id="btn_importFile" style="width:100%;" type="button" ev:onclick="scwin.f_ImportFile">
+                            <xf:label>&#54028;&#51068; &#44032;&#51256;&#50724;&#44592;</xf:label>
+                        </xf:trigger>
+                    </xf:group>
+                </xf:group>
+                <w2:textbox class="info-txt txt-red" id="" label="파일명, 파일경로에는 특수문자를 입력하실 수 없습니다. (특수문자: '!,+&amp;^%$#@~;)" style=""
+                    tagname="p">
+                </w2:textbox>
+            </xf:group>
+            <xf:group class="pop-btnbox" id="" style="">
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

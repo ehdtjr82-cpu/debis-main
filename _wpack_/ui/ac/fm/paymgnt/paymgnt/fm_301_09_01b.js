@@ -1,0 +1,445 @@
+/*amd /ui/ac/fm/paymgnt/paymgnt/fm_301_09_01b.xml 39611 c47b17e410521a594613ef97df885690ee4baae2f5414dc59e00e632e4cf22d5 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_condition'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'flag',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'dcsnDt',name:'',dataType:'text'}},{T:1,N:'w2:key',A:{id:'coCd',name:'',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_bankBook'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'bankbookNo',name:'통장번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'txnSeq',name:'거래순번',dataType:'number'}},{T:1,N:'w2:key',A:{id:'bankbookKndNm',name:'거래순번',dataType:'text'}},{T:1,N:'w2:key',A:{id:'rcptWithdrawClsCd',name:'입출구분코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'txnDt',name:'거래일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'summary',name:'적요',dataType:'text'}},{T:1,N:'w2:key',A:{id:'txnAmt',name:'거래금액',dataType:'number'}},{T:1,N:'w2:key',A:{id:'txnAmtFcrc',name:'거래금액_외화',dataType:'number'}},{T:1,N:'w2:key',A:{id:'exchRt',name:'환율',dataType:'number'}},{T:1,N:'w2:key',A:{id:'confirmDt',name:'확인일자',dataType:'text'}},{T:1,N:'w2:key',A:{id:'acctDeptCd',name:'귀속부서코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'txnStsCd',name:'거래상태코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'slipNo',name:'전표번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'payNo',name:'지급번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bankbookKndCd',name:'통장종류코드',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bankbookNm',name:'통장명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'bankAcntNo',name:'계좌번호',dataType:'text'}},{T:1,N:'w2:key',A:{id:'commiSsion',name:'수수료',dataType:'number'}},{T:1,N:'w2:key',A:{id:'acctCd',name:'입출금상대계정 코드',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'ds_bankcd'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'code',name:'name1',dataType:'text'}},{T:1,N:'w2:key',A:{id:'name',name:'name2',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{baseNode:'list',repeatNode:'map',id:'ds_payment',saveRemovedData:'true'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'selYn',name:'체크박스',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNm',name:'거래처',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payAmt',name:'요청금액',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outbrAcctDeptNm',name:'귀속부서',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payBankCd',name:'지급은행',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payBankAcntNo',name:'지급계좌',dataType:'text'}},{T:1,N:'w2:column',A:{id:'flag',name:'전송여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'procSts',name:'전송결과',dataType:'text'}},{T:1,N:'w2:column',A:{id:'paySlipNo',name:'지급 전표번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outbrSummary',name:'전표적요',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outbrAcctNm',name:'계정',dataType:'text'}},{T:1,N:'w2:column',A:{id:'clntNo',name:'거래처번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'crn',name:'사업자번호',dataType:'text'}},{T:1,N:'w2:column',A:{id:'siteCd',name:'사업장코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fileGb',name:'파일구분',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fileDate',name:'파일생성일',dataType:'text'}},{T:1,N:'w2:column',A:{id:'fileCnt',name:'파일회차',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outAcctNo',name:'출금계좌',dataType:'text'}},{T:1,N:'w2:column',A:{id:'entTime',name:'전송시간',dataType:'text'}},{T:1,N:'w2:column',A:{id:'coCd',name:'name20',dataType:'text'}},{T:1,N:'w2:column',A:{id:'dcsnDt',name:'name21',dataType:'text'}},{T:1,N:'w2:column',A:{id:'coClsCd',name:'name22',dataType:'text'}},{T:1,N:'w2:column',A:{id:'payBankbookNo',name:'name24',dataType:'text'}},{T:1,N:'w2:column',A:{id:'bankNm',name:'name25',dataType:'text'}},{T:1,N:'w2:column',A:{id:'befPaySlipNo',name:'name26',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regDtm',name:'name27',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outbrAcctNm',name:'name28',dataType:'text'}},{T:1,N:'w2:column',A:{id:'rowStatus',name:'name29',dataType:'text'}},{T:1,N:'w2:column',A:{id:'regId',name:'name30',dataType:'text'}},{T:1,N:'w2:column',A:{id:'outbrAcctDeptCd',name:'name31',dataType:'text'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_bankcd',action:'/ac.fm.stdinfomgnt.RetrieveBankCMD.do',method:'post',mediatype:'application/json',ref:'',target:'data:json,{"id":"ds_bankcd","key":"GAUCE"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_retrievePaymgnt',action:'/ac.fm.paymgnt.paymgnt.RetrieveFundTransCMD.do',method:'post',mediatype:'application/json',ref:'data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_payment","key":"OUT_DS1"}]',target:'data:json,{"id":"ds_payment","key":"OUT_DS1"}',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_retrievePaymgnt_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_savePayDecision',action:'/ac.fm.paymgnt.paymgnt.FundTransferCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_payment","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_savePayDecision_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_savePayDecisionCancel',action:'/ac.fm.paymgnt.paymgnt.FundTransferCancelCMD.do',method:'post',mediatype:'application/json',ref:'data:json,{"action":"modified","id":"ds_payment","key":"IN_DS1"}',target:'',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_savePayDecisionCancel_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{cache:'false',scopeExternal:'true',src:'/ui/ac/am/constants/ACConstants.js',scopeVariable:'ACConstants',type:'text/javascript'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){// 전역변수
+scwin.g_sCurrDate = WebSquare.date.getCurrentServerDate();
+scwin.login = $c.data.getMemInfo($p);
+scwin.privAdmin = scwin.login.privAdmin;
+scwin.vLoginCoCd = scwin.login.coCd ?? "";
+scwin.vLoginCoClsCd = scwin.login.coClsCd ?? "";
+scwin.vUserHomeClsCd = scwin.login.userHomeClsCd;
+scwin.isSubCompany = false;
+
+//hidden
+scwin.hid_bankbookNo = "";
+scwin.txtCoClsCd = "";
+scwin.isChecked = true;
+
+//-------------------------------------------------------------------------
+// Dataset DEBUG
+//-------------------------------------------------------------------------
+// dataSetDebug = function(dataSet, isDebug){
+//     if(isDebug == true){
+//         let obj = dataSet;
+//         let str = "[[[["+ obj.id+"]]]]]\n";
+//         for (dsRow = 0; dsRow < obj.getRowCount(); dsRow++){
+//             for ( let dsCol = 1; dsCol <= obj.CountColumn; dsCol++ ){
+//                 str += "["+obj.ColumnId(dsCol)+"] "+obj.getCellData(dsRow, obj.ColumnId(dsCol))+", "
+//             }
+//             str += "\n\n";
+//         }
+//         alert( str );
+//     }
+// }
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {};
+scwin.onUdcCompleted = function () {
+  // scwin.f_HeaderCreate(); 
+  // scwin.f_bankBookHeaderCreate();
+  scwin.f_setCompanyInfo();
+  scwin.f_bankcd_Retrieve();
+  // lc_flagSts.index = 0;
+
+  ica_dcsnDt.setValue(scwin.g_sCurrDate);
+  // gsBankbookFlag = "0";
+  $c.gus.cfDisableObjects($p, [ed_bankbookNm, ed_bankbookKndNm]);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_bankcd_Retrieve = function () {
+  sbm_bankcd.action = "/ac.fm.stdinfomgnt.RetrieveBankCMD.do";
+  $c.sbm.execute($p, sbm_bankcd);
+};
+
+//-------------------------------------------------------------------------
+// 통장조회 POPUP호출
+//-------------------------------------------------------------------------
+scwin.f_BankBookPopUp = async function (sFlag) {
+  let i_bankbookno = ed_bankbookNo.getValue().trim();
+  let param = '';
+  if (!(await $c.gus.cfValidate($p, [ed_coCd]))) {
+    return;
+  }
+  param = ",,,," + ed_coCd.getValue() + ",,Y"; //자회사 회계시스템 추가사항
+  rtnList = udc_expenseTransferInfo.cfCommonPopUp(scwin.udc_expenseTransferInfo_callBackFunc, i_bankbookno, '', sFlag, null, null, null, null, param, null, null, null, null); // 경비이체 
+
+  // if (rtnList != null ) {
+  //     if (rtnList[0] == "N/A") return;
+  //     ds_bankBook.setCellData(1, "bankbookNo", rtnList[0]);	//통장번호
+  //     ds_bankBook.setCellData(1, "bankCd", rtnList[1]);	//통장코드
+  //     ds_bankBook.setCellData(1, "bankbookKndNm", rtnList[8]);	//통장종류명
+  //     ds_bankBook.setCellData(1, "bankbookNm", rtnList[2]);	//통장명
+  //     ds_bankBook.setCellData(1, "acctDeptCd", rtnList[3]);	//관리부서코드
+  //     ds_bankBook.setCellData(1, "bankAcntNo", rtnList[4]);	//통장계좌번호
+  //     ds_bankBook.setCellData(1, "bankbookKndCd", rtnList[5]);	//통장종류코드
+  //     scwin.hid_bankbookNo = rtnList[0];
+  // } else {
+  //     ds_bankBook.setCellData(1, "bankbookNo", "");
+  //     ds_bankBook.setCellData(1, "bankbookKndNm", "");	//통장종류명
+  //     ds_bankBook.setCellData(1, "bankCd", "");
+  //     ds_bankBook.setCellData(1, "bankbookNm", "");
+  //     ds_bankBook.setCellData(1, "acctDeptCd", "");
+  //     ds_bankBook.setCellData(1, "bankAcntNo", "");
+  //     ds_bankBook.setCellData(1, "bankbookKndCd", "");
+  //     scwin.hid_bankbookNo = "";
+  // }
+};
+
+//-------------------------------------------------------------------------
+// 팝업결과
+//-------------------------------------------------------------------------
+scwin.udc_expenseTransferInfo_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") return;
+    dma_bankBook.set("bankbookNo", rtnList[0]); //통장번호
+    dma_bankBook.set("bankCd", rtnList[1]); //통장코드
+    dma_bankBook.set("bankbookKndNm", rtnList[8]); //통장종류명
+    dma_bankBook.set("bankbookNm", rtnList[2]); //통장명
+    dma_bankBook.set("acctDeptCd", rtnList[3]); //관리부서코드
+    dma_bankBook.set("bankAcntNo", rtnList[4]); //통장계좌번호
+    dma_bankBook.set("bankbookKndCd", rtnList[5]); //통장종류코드
+    scwin.hid_bankbookNo = rtnList[0];
+  } else {
+    dma_bankBook.set("bankbookNo", "");
+    dma_bankBook.set("bankbookKndNm", ""); //통장종류명
+    dma_bankBook.set("bankCd", "");
+    dma_bankBook.set("bankbookNm", "");
+    dma_bankBook.set("acctDeptCd", "");
+    dma_bankBook.set("bankAcntNo", "");
+    dma_bankBook.set("bankbookKndCd", "");
+    scwin.hid_bankbookNo = "";
+  }
+};
+
+//-------------------------------------------------------------------------
+// 전송
+//-------------------------------------------------------------------------
+scwin.f_transfer = async function () {
+  let cnt = 0;
+  let i = 0;
+  if (ds_payment.getRowCount() == 0) {
+    await $c.win.alert($p, MSG_CM_ERR_049.replace("@", "자료"));
+    return;
+  }
+  for (i = 0; i < ds_payment.getRowCount(); i++) {
+    const selYn = ds_payment.getCellData(i, "selYn");
+    const flag = ds_payment.getCellData(i, "flag");
+    if (ds_payment.getRowStatus(i) !== "R" && selYn == "1") {
+      cnt++;
+      if (flag && flag.trim() !== "") {
+        await $c.win.alert($p, i + 1 + "행의 전송여부가 '미전송'이 아닙니다.\n미전송인 건만 전송이 가능합니다.");
+        return;
+      }
+    }
+  }
+  if (cnt <= 0) {
+    await $c.win.alert($p, "전송할 자료가 존재하지않습니다");
+    return;
+  }
+  let ret = await $c.gus.cfValidate($p, [ed_bankbookNo]);
+  if (!ret) {
+    return;
+  }
+
+  // ret = await $c.gus.cfValidate([gr_paymgnt])
+  // if (!ret){
+  //     return ;
+  // }
+
+  if ((await $c.win.confirm($p, "전송하시겠습니까?")) == true) {
+    for (i = 0; i < ds_payment.getRowCount(); i++) {
+      if (ds_payment.getRowStatus(i) != "R" && ds_payment.getCellData(i, "selYn") == "1") {
+        //출금계좌 
+        ds_payment.setCellData(i, "outAcctNo", dma_bankBook.get("bankAcntNo"));
+      }
+    }
+    $c.sbm.execute($p, sbm_savePayDecision);
+  }
+  // ds_payment.setUseChangeInfo(true);
+};
+scwin.fn_cancel = async function () {
+  let cnt = 0;
+  if (ds_payment.getRowCount() == 0) {
+    await $c.win.alert($p, MSG_CM_ERR_049.replace("@", "자료"));
+    return;
+  }
+  for (let i = 0; i < ds_payment.getRowCount(); i++) {
+    const selYn = ds_payment.getCellData(i, "selYn");
+    const flag = ds_payment.getCellData(i, "flag");
+    if (ds_payment.getRowStatus(i) !== "R" && selYn == "1") {
+      cnt++;
+      if (flag !== "EE") {
+        await $c.win.alert($p, i + 1 + "행의 요청상태가 이체요청 상태가 아닙니다.\n이체요청 상태인 건만 취소 가능합니다.");
+        return;
+      }
+    }
+  }
+  if (cnt <= 0) {
+    await $c.win.alert($p, "취소할 자료가 존재하지 않습니다");
+    return;
+  }
+  if (await $c.gus.cfValidate($p, [gr_paymgnt])) {
+    if (await $c.win.confirm($p, "취소하시겠습니까?")) {
+      $c.sbm.execute($p, sbm_savePayDecisionCancel);
+    }
+  }
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+  // dataSetDebug(ds_condition, false);		
+
+  if (await $c.gus.cfValidate($p, [ed_coCd])) {
+    // ds_condition.setUseChangeInfo(false)
+    $c.sbm.execute($p, sbm_retrievePaymgnt);
+  }
+};
+
+//-------------------------------------------------------------------------
+// 초기화
+//-------------------------------------------------------------------------
+scwin.f_InitObjects = function () {
+  $c.gus.cfInitObjects($p, table1, null);
+  ica_dcsnDt.setValue(scwin.g_sCurrDate);
+  scwin.f_setCompanyInfo();
+};
+
+//-------------------------------------------------------------------------
+// 엑셀저장
+//-------------------------------------------------------------------------
+scwin.f_GridToExcel = async function (gr_groupCode, gridName) {
+  if (ds_payment.getRowCount() == 0) {
+    await $c.win.alert($p, "지급내역이 존재하지않습니다.");
+    return;
+  }
+  let fileName = '지급이체자료';
+  let sheetTitle = '지급이체자료';
+  if (await $c.win.confirm($p, "Excel로 다운로드 하시겠습니까?")) {
+    await $c.data.downloadGridViewExcel($p, gr_paymgnt, {
+      fileName: fileName + ".xlsx",
+      sheetName: sheetTitle
+    });
+  }
+};
+
+//-------------------------------
+// 그리드 높이 늘리고 줄이기
+//-------------------------------
+// function f_grdHeiht(gridNm, size) {
+//     var strHeight = gridNm.style.height ;
+//     var intHeight = parseInt(strHeight.replace("px",""));
+//     intHeight = intHeight + size;
+//     if (intHeight > 0 ) {
+//         gridNm.style.height = intHeight + "px";
+//     }
+// }
+
+//-------------------------------------------------------------------------
+// 회사 입력 팝업 
+//-------------------------------------------------------------------------
+scwin.f_PopUpCompanyInfo = function (pWinCloseTF) {
+  udc_companyInfo.cfCommonPopUp(scwin.udc_companyInfo_callBackFunc, ed_coCd.getValue(), ed_coNm.getValue(), pWinCloseTF, null, null, null, null, null, null, null, null, null);
+};
+scwin.udc_companyInfo_onclickEvent = function (e) {
+  scwin.f_PopUpCompanyInfo("F");
+};
+scwin.udc_companyInfo_callBackFunc = function (rtnList) {
+  if (rtnList != null) {
+    if (rtnList[0] == "N/A") return;
+    ed_coCd.setValue(rtnList[0]);
+    ed_coNm.setValue(rtnList[5]);
+    ed_coCd.options.hidVal = rtnList[0];
+    scwin.txtCoClsCd = rtnList[1];
+  } else {
+    ed_coCd.setValue("");
+    ed_coNm.setValue("");
+    ed_coCd.options.hidVal = "";
+    scwin.txtCoClsCd = "";
+  }
+  if (scwin.txtCoClsCd > ACConstants.CO_CLS_CD_DONGBU) {
+    // 자회사 회계 시스템 
+    scwin.isSubCompany = true;
+  } else {
+    scwin.isSubCompany = false;
+  }
+  if (scwin.isChecked == true) {
+    if ('T' == scwin.privAdmin || !scwin.isSubCompany) {
+      $c.gus.cfEnableObjects($p, [ed_coCd, ed_coNm, btn_company]);
+    } else {
+      $c.gus.cfDisableObjects($p, [ed_coCd, ed_coNm, btn_company]);
+    }
+  }
+  scwin.isChecked = false;
+};
+scwin.udc_companyInfo_onblurCodeEvent = function (e) {
+  ed_coNm.setValue("");
+  if (ed_coCd.getValue() != "") {
+    scwin.f_PopUpCompanyInfo('T');
+  }
+};
+scwin.udc_companyInfo_onviewchangeNameEvent = function (info) {
+  ed_coCd.setValue("");
+  if (ed_coNm.getValue() != "") {
+    scwin.f_PopUpCompanyInfo('T');
+  }
+};
+
+//-------------------------------------------------------------------------
+// 자회사 회계 시스템 추가에 따른 설정 
+//-------------------------------------------------------------------------
+scwin.f_setCompanyInfo = function () {
+  // 사용자 구분이 자회사('SA')가 아닌 경우, 소속회사를  '동부 EXPRESS'로  Default set
+  if (scwin.vUserHomeClsCd != ACConstants.SUBSIDIARY_USER_HOME_CLS_CD) {
+    scwin.vLoginCoCd = ACConstants.CO_CD_DONGBU;
+    scwin.vLoginCoClsCd = ACConstants.CO_CLS_CD_DONGBU;
+  }
+  ed_coCd.setValue(scwin.vLoginCoCd);
+  scwin.f_PopUpCompanyInfo('T');
+};
+scwin.f_initObj = async function () {
+  await $c.gus.cfInitObjects($p, [ed_bankbookNo, scwin.hid_bankbookNo, ed_bankbookKndNm, ed_bankbookNm]); //통장  
+};
+
+//-------------------------------------------------------------------------
+// script
+//-------------------------------------------------------------------------
+scwin.sbm_savePayDecision_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  await $c.win.alert($p, MSG_CM_INF_001);
+  scwin.f_Retrieve();
+};
+scwin.sbm_savePayDecisionCancel_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  await $c.win.alert($p, MSG_CM_INF_001);
+  scwin.f_Retrieve();
+};
+scwin.sbm_retrievePaymgnt_submitdone = async function (e) {
+  if (e.responseJSON.resultDataSet[0].Code < 0) return;
+  if (ds_payment.getRowCount() == 0) {
+    await $c.win.alert($p, "조회된 데이터가 없습니다");
+    $c.gus.cfDisableObjects($p, [btnConfirm, btnCancel]);
+  } else {
+    totalRows.setValue(ds_payment.getRowCount());
+    $c.gus.cfEnableObjects($p, [btnConfirm, btnCancel]);
+    ed_bankbookNo.setValue("");
+    ed_bankbookNm.setValue("");
+    ed_bankbookKndNm.setValue("");
+  }
+};
+scwin.gr_paymgnt_onheaderclick = function (headerId) {
+  let yCount = 0;
+  for (i = 0; i < ds_payment.getRowCount(); i++) {
+    if (ds_payment.getCellData(i, "flag") == "" || ds_payment.getCellData(i, "flag") == "EE") {
+      ds_payment.setCellData(i, "selYn", "1");
+      yCount += 1;
+    }
+  }
+  let bCheck = gr_paymgnt.getHeaderValue("header_selYn");
+  if (headerId == "header_selYn") {
+    gr_paymgnt.setColumnReadOnly("selYn", false);
+    if (bCheck == true) {
+      for (i = 0; i < ds_payment.getRowCount(); i++) {
+        if (ds_payment.getCellData(i, "flag") == "" || ds_payment.getCellData(i, "flag") == "EE") {
+          ds_payment.setCellData(i, "selYn", "1");
+        } else {
+          ds_payment.setCellData(i, "selYn", "0");
+          ds_payment.modifyRowStatus(i, "R");
+          gr_paymgnt.setColumnReadOnly("selYn", true);
+        }
+      }
+      if (yCount > 0) {
+        gr_paymgnt.setColumnReadOnly("selYn", true);
+      }
+    } else {
+      for (i = 0; i < ds_payment.getRowCount(); i++) {
+        ds_payment.setCellData(i, "selYn", "0");
+        ds_payment.modifyRowStatus(i, "R");
+      }
+      if (yCount == 0) {
+        gr_paymgnt.setColumnReadOnly("selYn", false);
+      }
+    }
+  }
+};
+scwin.udc_expenseTransferInfo_onblurCodeEvent = function (e) {
+  if (ed_bankbookNo.getValue().trim() == scwin.hid_bankbookNo) {
+    return;
+  } else if (ed_bankbookNo.getValue().trim() == "") {
+    dma_bankBook.set("bankbookNo", "");
+    dma_bankBook.set("bankCd", "");
+    dma_bankBook.set("bankbookNm", "");
+    dma_bankBook.set("acctDeptCd", "");
+    dma_bankBook.set("bankAcntNo", "");
+    dma_bankBook.set("bankbookKndCd", "");
+    scwin.hid_bankbookNo = "";
+    return;
+  }
+  if (ed_bankbookNo.getValue().trim() != "") {
+    scwin.f_BankBookPopUp('T');
+  }
+};
+scwin.gr_paymgnt_oncellclick = async function (rowIndex, columnIndex, columnId) {
+  if (columnId == "paySlipNo") {
+    var slipNo = ds_payment.getCellData(rowIndex, "paySlipNo");
+    if (slipNo != "") {
+      await $c.gus.cfShowSlipInfo($p, slipNo);
+    }
+  }
+  if (columnId == "selYn") {
+    // 미전송이나 이체요청 상태가 아니면 체크 불가
+
+    if (ds_payment.getCellData(rowIndex, "fileDate") != null && !(ds_payment.getCellData(rowIndex, "flag") == "" || ds_payment.getCellData(rowIndex, "flag") == "EE")) {
+      ds_payment.setCellData(rowIndex, "selYn", "0");
+      gr_paymgnt.setColumnReadOnly("selYn", true);
+      // gr_paymgnt.setDisabled("column","selYn", true)
+      // gr_paymgnt.ColumnProp("selYn","Edit") = "None";
+    } else {
+      gr_paymgnt.setColumnReadOnly("selYn", false);
+      // gr_paymgnt.setDisabled("column", rowIndex, "selYn", false)
+      // gr_paymgnt.ColumnProp("selYn","Edit") = "Any";
+    }
+
+    // 같이 전송된 데이터끼리 묶어서 선택 및 해제
+    if (ds_payment.getCellData(rowIndex, "selYn") == "1") {
+      for (i = 0; i < ds_payment.getRowCount(); i++) {
+        if (ds_payment.getCellData(rowIndex, "fileDate") == ds_payment.getCellData(i, "fileDate") && ds_payment.getCellData(rowIndex, "fileCnt") == ds_payment.getCellData(i, "fileCnt") && ds_payment.getCellData(i, "siteCd") != "" && ds_payment.getCellData(i, "flag") == "EE") {
+          ds_payment.setCellData(i, "selYn", "1");
+        }
+      }
+    }
+    if (ds_payment.getCellData(rowIndex, "selYn") == "0") {
+      for (i = 0; i < ds_payment.getRowCount(); i++) {
+        if (ds_payment.getCellData(rowIndex, "fileDate") == ds_payment.getCellData(i, "fileDate") && ds_payment.getCellData(rowIndex, "fileCnt") == ds_payment.getCellData(i, "fileCnt") && ds_payment.getCellData(i, "siteCd") != "" && ds_payment.getCellData(i, "flag") == "EE") {
+          ds_payment.setCellData(i, "selYn", "0");
+          ds_payment.modifyRowStatus(i, "R");
+        }
+      }
+    }
+
+    // 같은 전표번호끼리 묶어서 선택 및 해제
+    if (ds_payment.getCellData(rowIndex, "selYn") == "1") {
+      for (i = 0; i < ds_payment.getRowCount(); i++) {
+        if (ds_payment.getCellData(rowIndex, "paySlipNo") == ds_payment.getCellData(i, "paySlipNo") && ds_payment.getCellData(rowIndex, "paySlipNo") != "") {
+          ds_payment.setCellData(i, "selYn", "1");
+        }
+      }
+    }
+    if (ds_payment.getCellData(rowIndex, "selYn") == "0") {
+      for (i = 0; i < ds_payment.getRowCount(); i++) {
+        if (ds_payment.getCellData(rowIndex, "paySlipNo") == ds_payment.getCellData(i, "paySlipNo") && ds_payment.getCellData(rowIndex, "paySlipNo") != "") {
+          ds_payment.setCellData(i, "selYn", "0");
+          ds_payment.modifyRowStatus(i, "R");
+        }
+      }
+    }
+  }
+};
+scwin.udc_expenseTransferInfo_onclickEvent = function (e) {
+  scwin.f_BankBookPopUp('T');
+};
+}}}]},{T:1,N:'w2:require',A:{as:'udc_topGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/topGrdBtn.xml'}},{T:1,N:'w2:require',A:{as:'udc_comCode',type:'page',variableClone:'true',src:'/cm/udc/comCode.xml'}},{T:1,N:'w2:require',A:{as:'udc_bottomGrdBtn',type:'page',variableClone:'true',src:'/cm/udc/bottomGrdBtn.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{id:'',class:'round-box'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'shbox'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'shbox-inner'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'table1',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:80px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:80px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}},{T:1,N:'xf:group',A:{tagname:'col',style:'width:80px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr',id:''},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'회사코드',class:'req'}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:udc_comCode',A:{UpperFlagCode:'1',allowCharCode:'0-9',btnId:'btn_company',code:'coCd',codeId:'ed_coCd','ev:onblurCodeEvent':'scwin.udc_companyInfo_onblurCodeEvent','ev:onclickEvent':'scwin.udc_companyInfo_onclickEvent','ev:onviewchangeNameEvent':'scwin.udc_companyInfo_onviewchangeNameEvent',id:'udc_companyInfo',mandatoryCode:'true',maxlengthCode:'3',nameId:'ed_coNm',objTypeCode:'data',objTypeName:'data',popupID:'',popupTitle:'',refDataCollection:'dma_condition',selectID:'retrieveDongbuGroupCompanyInfo',style:'',validExpCode:'회사코드:yes',validTitle:'회사코드'}}]},{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'확정일자',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'w2:inputCalendar',A:{style:'',id:'ica_dcsnDt',class:'',calendarValueType:'yearMonthDate',mandatory:'true',ref:'data:dma_condition.dcsnDt',displayFormat:'yyyy/MM/dd'}}]},{T:1,N:'xf:group',A:{tagname:'th',id:'',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{style:'',id:'',label:'전송여부 ',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',id:'',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:select1',A:{ref:'data:dma_condition.flag',submenuSize:'auto',appearance:'minimal',disabledClass:'w2selectbox_disabled',chooseOption:'true',disabled:'false',style:'',allOption:'',id:'lc_flagSts',renderType:'',class:' w100',direction:'auto',chooseOptionLabel:'전체'},E:[{T:1,N:'xf:choices',E:[{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'미전송'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'이체요청'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'EE'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전송완료'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'EG'}]}]},{T:1,N:'xf:item',E:[{T:1,N:'xf:label',E:[{T:4,cdata:'처리완료'}]},{T:1,N:'xf:value',E:[{T:4,cdata:'EP'}]}]}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'btn-shbox'},E:[{T:1,N:'xf:trigger',A:{style:'',id:'btn_init',type:'button',class:'btn ico refresh','ev:onclick':'scwin.f_InitObjects'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'새로고침'}]}]},{T:1,N:'xf:trigger',A:{disabled:'',style:'',id:'btn_search',type:'button',class:'btn sch',escape:'false','ev:onclick':'scwin.f_Retrieve'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{id:'',class:'section row-gap-8'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'title-wrap'},E:[{T:1,N:'xf:group',A:{id:'',class:'right'},E:[{T:1,N:'w2:udc_topGrdBtn',A:{grp:'grd_section1',style:'',gridUpYn:'N',id:'지급이체자료',gridDownFn:'scwin.f_GridToExcel',gridID:'gr_paymgnt'}}]}]},{T:1,N:'xf:group',A:{id:'grd_section1',class:'gvwbox'},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',checkReadOnlyOnPasteEnable:'',class:'wq_gvw',dataList:'data:ds_payment',focusMode:'cell',id:'gr_paymgnt',scrollByColumn:'false',scrollByColumnAdaptive:'false',style:'',visibleRowNum:'11',visibleRowNumFix:'true',columnMove:'true','ev:onheaderclick':'scwin.gr_paymgnt_onheaderclick',readOnly:'true','ev:oncellclick':'scwin.gr_paymgnt_oncellclick',rowStatusVisible:'true',rowStatusWidth:'15'},E:[{T:1,N:'w2:caption',A:{id:'caption11',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'header_selYn',inputType:'checkbox',removeBorderStyle:'false',value:'',width:'50',fixColumnWidth:'true',readOnly:'false',valueType:'binary'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column11',inputType:'text',removeBorderStyle:'false',value:'거래처',width:'200'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column10',inputType:'text',removeBorderStyle:'false',value:'요청금액',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column37',inputType:'text',style:'',value:'귀속부서',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column35',inputType:'text',style:'',value:'지급은행',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column33',inputType:'text',style:'',value:'지급계좌',width:'140'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column31',inputType:'text',style:'',value:'전송여부',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column29',inputType:'text',style:'',value:'전송결과',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column27',inputType:'text',style:'',value:'지급<br/>전표번호',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column25',inputType:'text',style:'',value:'전표적요',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column23',inputType:'text',style:'',value:'계정',width:'110'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column21',inputType:'text',style:'',value:'거래처번호',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column19',inputType:'text',style:'',value:'사업자번호',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column13',inputType:'text',style:'',value:'사업장코드',width:'120'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column66',value:'파일구분',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column63',value:'파일생성일',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column60',value:'파일회차',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column57',value:'출금계좌',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'120',inputType:'text',style:'',id:'column54',value:'전송시간',displayMode:'label'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'selYn',inputType:'checkbox',removeBorderStyle:'false',width:'50',readOnly:'false'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'clntNm',inputType:'text',removeBorderStyle:'false',width:'200',textAlign:'left'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'payAmt',inputType:'text',removeBorderStyle:'false',textAlign:'right',width:'120',dataType:'number',displayFormat:'#,##0',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'outbrAcctDeptNm',inputType:'text',style:'',value:'',width:'100',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'value delim label',id:'payBankCd',inputType:'select',style:'',textAlign:'left',value:'',width:'120',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ds_payment'},E:[{T:1,N:'w2:label',A:{ref:'bankNm'}},{T:1,N:'w2:value',A:{ref:'payBankCd'}}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'payBankAcntNo',inputType:'text',style:'',value:'',width:'140',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'flag',inputType:'select',style:'',value:'',width:'100',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'미전송'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'이체요청'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'EE'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'전송완료'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'EG'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'처리완료'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'EP'}]}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'procSts',inputType:'select',style:'',value:'',width:'100',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'정상'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'1'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'오류'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'2'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'불능'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'3'}]}]},{T:1,N:'w2:item',E:[{T:1,N:'w2:label',E:[{T:4,cdata:'취소'}]},{T:1,N:'w2:value',E:[{T:4,cdata:'4'}]}]}]}]},{T:1,N:'w2:column',A:{displayMode:'label',id:'paySlipNo',inputType:'text',style:'color: blue;text-decoration: underline;',value:'',width:'100',class:'underline'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'outbrSummary',inputType:'text',style:'',value:'',width:'100',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'outbrAcctNm',inputType:'text',style:'',value:'',width:'110',textAlign:'left'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'clntNo',inputType:'text',style:'',value:'',width:'150'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'crn',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'siteCd',inputType:'text',style:'',value:'',width:'120',hidden:'true',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fileGb',value:'',displayMode:'label',hidden:'true',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fileDate',value:'',displayMode:'label',hidden:'true'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'fileCnt',value:'',displayMode:'label',hidden:'true',textAlign:'right'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'outAcctNo',value:'',displayMode:'label',hidden:'true',textAlign:'left'}},{T:1,N:'w2:column',A:{width:'70',inputType:'calendar',style:'',id:'entTime',value:'',displayMode:'label',calendarValueType:'yearMonthDateTimeSec',displayFormat:'yyyy/MM/dd/hh:mm:ss'}}]}]},{T:1,N:'w2:footer',A:{id:'footer1',style:''},E:[{T:1,N:'w2:row',A:{id:'row5',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column53',inputType:'text',style:'',value:'',width:'50'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column52',inputType:'text',style:'',value:'Total',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column51',inputType:'expression',style:'',value:'',width:'120',dataType:'number',displayFormat:'#,##0',expression:'SUM("payAmt")',textAlign:'right',excelCellType:'number'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column49',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column48',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column47',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column46',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column45',inputType:'text',style:'',textAlign:'right',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column44',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column43',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column42',inputType:'text',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column41',inputType:'text',style:'',value:'',width:'200'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column40',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column39',inputType:'text',style:'',value:'',width:'120'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column68',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column65',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column62',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column59',value:'',displayMode:'label'}},{T:1,N:'w2:column',A:{width:'70',inputType:'text',style:'',id:'column56',value:'',displayMode:'label'}}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'grid-bottom '},E:[{T:1,N:'xf:group',A:{id:'',class:'left'},E:[{T:1,N:'xf:group',A:{id:'',class:'grid-total'},E:[{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'총',class:''}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'totalRows',label:'0',class:'num'}},{T:1,N:'w2:textbox',A:{tagname:'span',style:'',id:'',label:'건',class:''}}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'tbbox'},E:[{T:1,N:'xf:group',A:{tagname:'table',style:'',id:'',class:'w2tb tb'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{tagname:'col',style:'width:120px;'}},{T:1,N:'xf:group',A:{tagname:'col',style:''}}]},{T:1,N:'xf:group',A:{tagname:'tr'},E:[{T:1,N:'xf:group',A:{tagname:'th',class:'w2tb_th'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:scope',E:[{T:3,text:'row'}]}]},{T:1,N:'w2:textbox',A:{ref:'',style:'',userData2:'',id:'',label:'출금통장',class:''}}]},{T:1,N:'xf:group',A:{tagname:'td',class:'w2tb_td'},E:[{T:1,N:'w2:attributes'},{T:1,N:'xf:group',A:{id:'',class:'form-group',style:''},E:[{T:1,N:'w2:udc_comCode',A:{popupID:'',style:'',class:'flex_no',codeId:'ed_bankbookNo',mandatoryCode:'true',maxlengthCode:'5',objTypeCode:'data',objTypeName:'data',nameId:'ed_bankbookKndNm',code:'bankbookNo',name:'bankbookKndNm',refDataCollection:'dma_bankBook',id:'udc_expenseTransferInfo',selectID:'retrieveExpenseTransferInfo','ev:onclickEvent':'scwin.udc_expenseTransferInfo_onclickEvent','ev:onblurCodeEvent':'scwin.udc_expenseTransferInfo_onblurCodeEvent',validTitle:'출금통장',skipOnBlurNameValueEmpty:'N',skipOnBlurCodeValueEmpty:'N'}},{T:1,N:'xf:input',A:{style:'width: 200px;',id:'ed_bankbookNm',placeholder:'',class:'',objType:'key',ref:'data:dma_bankBook.bankbookNm'}}]}]}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'btnbox'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'right'},E:[{T:1,N:'xf:trigger',A:{class:'btn white','ev:onclick':'scwin.fn_cancel',id:'btnCancel',label:'저장',objType:'ctrlBtn',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:3,text:'전송취소'}]}]},{T:1,N:'xf:trigger',A:{style:'',id:'btnConfirm',label:'삭제',type:'button',class:'btn',objType:'ctrlBtn','ev:onclick':'scwin.f_transfer'},E:[{T:1,N:'xf:label',E:[{T:3,text:'전송'}]}]}]}]}]}]}]}]})

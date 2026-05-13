@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_version" saveRemovedData="true"
+    				ev:oncelldatachange="scwin.ds_version_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="adptYm" name="년월" dataType="text"></w2:column>
+    					<w2:column id="ver" name="버전" dataType="text"></w2:column>
+    					<w2:column id="finalVerYn" name="마지막버전여부" dataType="text" defaultValue="0"></w2:column>
+    					<w2:column id="summary" name="적요" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="false">
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_version">
+    				<w2:keyInfo>
+    					<w2:key id="adptYm" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_saveVersion" action="/ac.co.stdinfomgnt.SaveVersionCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"id":"ds_version","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_saveVersion_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieve" action="/ac.co.stdinfomgnt.RetrieveVersionCMD.do" method="post" mediatype="application/json"
+    			ref="data:json,dma_version" target='data:json,{"id":"ds_version","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.curRowPosition = 0;
+scwin.curColPosition = 0;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	ica_srhAdptYm.focus();
+  	ica_srhAdptYm.setValue($c.date.getServerDateTime("yyyyMM"));
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    const params = {
+        adptYm : ica_srhAdptYm.getValue().trim()
+    };
+
+    //데이터셋에 정보설정
+    dma_version.setJSON(params);
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+    if (ds_version.getRowIndexByStatus('CUD').length <= 0) {
+        await $c.win.alert($c.data.getMessage(MSG_CM_ERR_001, ["관리실적버전정보"]));
+        return;
+    }
+
+    let count = 0;
+    for (i = 0; i < ds_version.getRowCount(); i++) {
+        //기존재하는 data 삭제 count
+	    if (ds_version.getRowStatus(i) == "D") {
+            count++;
+        }
+	}
+
+	if (count > 0) {
+		await $c.win.alert("기 존재하는 버전정보를 삭제할 수 없습니다.");
+		return;
+	}
+
+    let ret = await $c.gus.cfValidate([gr_version]);
+    if (ret) {
+        if(await $c.win.confirm(MSG_CM_CRM_001)==true){
+            $c.sbm.execute(sbm_saveVersion);
+        }
+    }
+}
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_Add = function() {
+    let insRow = ds_version.insertRow();
+    ds_version.setCellData(insRow, "adptYm", ica_srhAdptYm.getValue().trim());
+    gr_version.setFocusedCell(insRow, 0);
+}
+
+//-------------------------------------------------------------------------						
+// 휴지통 처리						
+//-------------------------------------------------------------------------						
+scwin.f_FieldClear = function() {			
+	$c.gus.cfInitObjects(tbl_search, null);				
+  	ica_srhAdptYm.setValue($c.date.getServerDateTime("yyyyMM"))
+}					
+
+//-------------------------------------------							
+// 그리드 높이 늘리고 줄이기							
+//-------------------------------------------							
+scwin.f_grdHeiht = function(gridNm, size) {							
+    							
+    let strHeight = gridNm.style.height ;							
+    let intHeight = parseInt(strHeight.replace("px",""));							
+    intHeight = intHeight + size;							
+    if (intHeight > 0 ) {							
+        gridNm.style.height = intHeight + "px";							
+    }							
+}  							
+							
+//-------------------------------------------							
+// 그리드 데이터 엑셀로 다운							
+//-------------------------------------------							
+scwin.f_runExcel = async function() {							
+    							
+    let totCnt = ds_version.getRowCount();							
+    let sheetTitle = "관리실적버전";							
+    							
+    if ( totCnt != 0) {							
+        let cfrm = await $c.win.confirm("EXCEL로 다운로드 받으시겠습니까?");							
+            							
+        if (cfrm) {							
+            $c.data.downloadGridViewExcel(gr_version, {fileName: sheetTitle + ".xlsx", sheetName: sheetTitle});  							
+        }							
+    } else {							
+        await $c.win.alert(MSG_CM_WRN_002);						
+    }							
+							
+}
+scwin.sbm_saveVersion_submitdone = async function (e) {
+    if(e.responseJSON.resultDataSet[0].Code != -1){
+        ds_version.reform();
+        scwin.curRowPosition = gr_version.getFocusedRowIndex();
+        scwin.curColPosition = gr_version.getFocusedColumnIndex();
+        await $c.win.alert(MSG_CM_INF_001);
+    }
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    totalRows.setValue(ds_version.getRowCount());
+    gr_version.setFocusedCell(scwin.curRowPosition, scwin.curColPosition);
+
+    if( ds_version.getRowCount() == 0 ){
+		await $c.win.alert(MSG_CM_WRN_002);
+	}
+};
+
+// 체크박스 control
+scwin.ds_version_oncelldatachange = async function (info) {
+    let row = info.rowIndex;
+    let colId = info.colID;
+    let count = 0;
+	if ( row >= 0 && colId == "finalVerYn"
+		&& info.newValue == "1"){
+		for (i = 0; i < ds_version.getRowCount(); i++){
+			if (ds_version.getCellData(i, "finalVerYn") == "1" &&
+                ds_version.getCellData(i, "adptYr") == ds_version.getCellData(row, "adptYr")) {
+                count++;
+            }
+		}
+	}
+
+	if (count > 1){
+		await $c.win.alert("마지막버전여부는 동일한 년월에 하나만 선택할 수 있습니다.");
+		ds_version.setCellData(row, "finalVerYn",0);
+	}
+};
+
+// 그리드 click
+scwin.gr_version_oncellclick = function (rowIndex, columnIndex, columnId) {
+    if(ds_version.getRowStatus(rowIndex) == "C"){
+        // gr_version.ColumnProp("ver","Edit")="Numeric";
+        gr_version.setColumnReadOnly("ver", false);
+	}else{
+	    // gr_version.ColumnProp("adptYr","Edit")="None";
+        gr_version.setColumnReadOnly("ver", true);
+	}
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    <xf:group id="" class="round-box"><xf:group style="" id="" class="shbox">
+    					<xf:group style="" id="" class="shbox-inner">
+    						<xf:group tagname="table" style="" id="tbl_search" class="w2tb">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group tagname="col" style="width:40px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    								<xf:group tagname="col" style="width:80px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    								<xf:group tagname="col" style="width:80px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    								<xf:group tagname="col" style="width:80px;"></xf:group>
+    								<xf:group tagname="col" style=""></xf:group>
+    							</xf:group>
+    							<xf:group tagname="tr" id="">
+    								<xf:group tagname="th" class="w2tb_th">
+    									<w2:attributes>
+    										<w2:scope>row</w2:scope>
+    									</w2:attributes>
+    									<w2:textbox style="" id="" label="년월" class=""></w2:textbox>
+    								</xf:group>
+    								<xf:group tagname="td" class="w2tb_td">
+    									<w2:attributes><w2:colspan>7</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes>
+    									<w2:inputCalendar style="" id="ica_srhAdptYm" class="form-control cal" calendarValueType="yearMonth" validateOnInput="true" displayFormat="yyyy/MM" title="년월" pickerType="dynamic"></w2:inputCalendar>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group style="" id="" class="btn-shbox">
+    						<xf:trigger style="" id="" type="button" class="btn ico refresh" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger disabled="" style="" id="btn_search" type="button" class="btn sch" escape="false" userAuth="R" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group style="" id="" class="title-wrap">
+		<xf:group id="" class="title">
+			<w2:textbox tagname="h3" style="" id="" label="관리실적 버전현황" class="tit"></w2:textbox>
+		</xf:group>
+		<xf:group style="" id="" class="right">
+			<w2:udc_topGrdBtn gridUpYn="N" grp="grd_section1" style="" gridID="gr_version" id="udc_topGrd" gridDownUserAuth="X" gridDownFn="scwin.f_runExcel" btnUser="Y"></w2:udc_topGrdBtn>
+		</xf:group>
+	</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    						<w2:gridView ev:oncellclick="scwin.gr_version_oncellclick" scrollByColumnAdaptive="false" editModeEvent="onclick" validExp="adptYm:년월:yes:date=YYYYMM:key,ver:버전:yes:number:key" scrollByColumn="false" validFeatures="ignoreStatus=no" checkReadOnlyOnPasteEnable=""  visibleRowNumFix="true" dataList="data:ds_version" style="" columnMove="true" autoFit="allColumn" id="gr_version" visibleRowNum="15" class="wq_gvw" rowStatusVisible="true" rowStatusWidth="10">
+    							<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    							<w2:header style="" id="header2">
+    								<w2:row style="" id="row3">
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="adptYm" value="년월" blockSelect="false" displayMode="label">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="100" inputType="text" id="ver" value="버전" class="txt-red" blockSelect="false" displayMode="label">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="200" inputType="text" id="finalVerYn" value="마지막버전여부" class="txt-blue" blockSelect="false" displayMode="label">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="500" inputType="text" id="summary" value="적요" class="txt-blue" blockSelect="false" displayMode="label">
+    									</w2:column>
+    								</w2:row>
+    							</w2:header>
+    							<w2:gBody style="" id="gBody2">
+    								<w2:row style="" id="row4">
+    									<w2:column removeBorderStyle="false" width="100" displayFormat="####/##" inputType="text" readOnly="true" id="adptYm" blockSelect="false" displayMode="label" maxLength="6">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" dataType="number" width="100" validateOnInput="true" inputType="text" readOnly="true" id="ver" blockSelect="false" displayMode="label" maxLength="3" mandatory="true">
+    									</w2:column>
+    									<w2:column removeBorderStyle="false" width="200" inputType="checkbox" id="finalVerYn" blockSelect="false" displayMode="label">
+    									</w2:column>
+    									<w2:column textAlign="left" removeBorderStyle="false" width="500" inputType="text" id="summary" blockSelect="false" displayMode="label" maxLength="50">
+    									</w2:column>
+    								</w2:row>
+    							</w2:gBody>
+    						</w2:gridView>
+    					<xf:group style="" id="" class="grid-bottom ">
+    						<xf:group id="" class="left">
+    							<xf:group id="" class="grid-total">
+    								<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    								<w2:textbox tagname="span" style="" id="totalRows" label="0" class="num" dataType="number" displayFormat="#,##0"></w2:textbox>
+    								<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    							</xf:group>
+    						</xf:group>
+    						<xf:group style="" id="" class="right">
+    							<w2:udc_bottomGrdBtn addFunction="scwin.f_Add" btnCancelYn="Y" style="" gridID="gr_version" id="udc_bottomGrdBtn2" rowDelUserAuth="D" btnDelYn="N" rowAddUserAuth="C" rowAddFunction="scwin.f_Add">
+    							</w2:udc_bottomGrdBtn>
+    						</xf:group>
+    					</xf:group></xf:group><xf:group style="" id="" class="btnbox">
+    					<xf:group style="" id="" class="right">
+    						<w2:button userAuth="U" style="" id="btn_save" label="저장" class="btn" ev:onclick="scwin.f_Save"></w2:button>
+    					</xf:group>
+    				</xf:group></xf:group></body>
+</html>

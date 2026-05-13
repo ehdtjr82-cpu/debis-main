@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map"/>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	sbx_type.setValue("L");
+    ipt_id.setValue("ds_result");
+};
+
+//--------------------------------
+// 변환(grid, object) onclick
+//--------------------------------
+scwin.btn_con_onclick = function (e) {
+    let type = sbx_type.getValue();
+    let id = ipt_id.getValue();
+
+    if ($c.util.isEmpty(type)) {
+        $c.win.alert("유형을 선택해주세요.");
+        rd_type.focus();
+        return;
+    }
+
+    if ($c.util.isEmpty(id)) {
+        $c.win.alert("ID를 입력해주세요.");
+        ipt_id.focus();
+        return;
+    }
+
+    const NL = '\n';
+    const T1 = '\t';
+    const T2 = '\t\t';
+
+    let asisCon = txa_asis.getValue();
+    const body = scwin.makeBody(asisCon, type);
+
+    let tobeCon = type == "M" ? 
+        `<w2:dataMap baseNode="map" id="` + id + `">${NL}${T1}<w2:keyInfo>${NL}${T2}${body}${NL}${T1}</w2:keyInfo>${NL}</w2:dataMap>`
+        : `<w2:dataList baseNode="list" repeatNode="map" id="` + id + `" saveRemovedData="true">${NL}${T1}<w2:columnInfo>${NL}${T2}${body}${NL}${T1}</w2:columnInfo>${NL}</w2:dataList>`;
+    
+    // 복사
+    navigator.clipboard.writeText(tobeCon)
+        .then(() => {
+            console.log('복사 완료');
+        })
+        .catch(err => {
+            console.error('복사 실패', err);
+        });
+
+    txa_tobe.setValue(tobeCon);
+};
+
+//--------------------------------
+// 변환(grid, object) make body 
+//--------------------------------
+scwin.makeBody = function (asisCon, type) {
+    const NL = '\n';
+    const T1 = '\t';
+    const T2 = '\t\t';
+
+    return asisCon
+    // 공백 라인 제거
+    .replace(/^\s*[\r\n]/gm, "")
+    // <g 라인 제거
+    .replace(/^\s*<\s*\/?\s*g\b.*$/gim, "")
+    // 좌측 들여쓰기 제거
+    .replace(/^\s+/gm, "")
+    // c나 fc만 추출
+	.replace(/<\s*(c|fc)\b[^>]*>[\s\S]*?<\/\s*(c|fc)\s*>/gi, (block) => {
+        // Col 또는 id 추출 (Col 우선)
+        const colMatch = block.match(/\bCol\s*=\s*"?([a-zA-Z0-9_]+)"?/i);
+        const idMatch  = block.match(/\bid\s*=\s*"?([a-zA-Z0-9_]+)"?/i);
+
+        const id = colMatch
+            ? colMatch[1]
+            : idMatch
+            ? idMatch[1]
+            : null;
+
+        if (!id) {
+            return; // id 도 Col 도 없으면 무시
+        }
+
+        // name 추출
+        const nameMatch = block.match(/\bname\s*=\s*"?([^"\s]+)"?/i);
+
+        // Col이 있으면 name은 id와 동일
+        const name = colMatch
+            ? id
+            : nameMatch
+            ? nameMatch[1]
+            : id;
+
+        return (
+            type == "M" ? 
+                `${T2}<w2:key dataType="text" id="${id}" name="${name}"></w2:key>`
+                : `${T2}<w2:column dataType="text" id="${id}" name="${name}"></w2:column>`
+        );
+    })
+    .trim();
+};
+
+//--------------------------------
+// 변환(asis server debug) onclick
+//--------------------------------
+scwin.btn_con2_onclick = function (e) {
+    let type = sbx_type.getValue();
+    let id = ipt_id.getValue();
+
+    if ($c.util.isEmpty(type)) {
+        $c.win.alert("유형을 선택해주세요.");
+        rd_type.focus();
+        return;
+    }
+
+    if ($c.util.isEmpty(id)) {
+        $c.win.alert("ID를 입력해주세요.");
+        ipt_id.focus();
+        return;
+    }
+
+    const NL = '\n';
+    const T1 = '\t';
+    const T2 = '\t\t';
+
+    let asisCon = txa_asis.getValue();
+    const body = scwin.makeBody2(asisCon, type);
+
+    let tobeCon = type == "M" ? 
+        `<w2:dataMap baseNode="map" id="` + id + `">${NL}${T1}<w2:keyInfo>${NL}${body}${NL}${T1}</w2:keyInfo>${NL}</w2:dataMap>`
+        : `<w2:dataList baseNode="list" repeatNode="map" id="` + id + `" saveRemovedData="true">${NL}${T1}<w2:columnInfo>${NL}${body}${NL}${T1}</w2:columnInfo>${NL}</w2:dataList>`;
+    
+    // 복사
+    navigator.clipboard.writeText(tobeCon)
+        .then(() => {
+            console.log('복사 완료');
+        })
+        .catch(err => {
+            console.error('복사 실패', err);
+        });
+
+    txa_tobe.setValue(tobeCon);
+};
+
+//--------------------------------
+// 변환(asis server debug) make body 
+//--------------------------------
+scwin.makeBody2 = function (asisCon, type) {
+    const NL = '\n';
+    const T1 = '\t';
+    const T2 = '\t\t';
+
+    return asisCon
+        // 빈 줄 제거
+        .replace(/^\s*[\r\n]/gm, "")
+        // 한 줄씩 처리
+        .split(/\r?\n/)
+        .map(line => {
+            const match = line.match(
+                /^\s*(?:long|int|double|float|String|boolean)\s+([a-zA-Z0-9_]+)\s*=\s*\[[^\]]*]/i
+            );
+
+            if (!match) return null;
+        
+            const id = match[1];
+
+            return type == "M" ? 
+                `${T2}<w2:key dataType="text" id="${id}" name="${id}"></w2:key>`
+                : `${T2}<w2:column dataType="text" id="${id}" name="${id}"></w2:column>`
+        })
+        .filter(Boolean)
+        .join(NL);
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group class="sub_contents" id="" style="">
+            <xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+                    <xf:group class="w2tb " id="tbl_search" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+                        <xf:group class="" id="" style="" tagname="tr">
+                            <xf:group class="w2tb_th bg-req" style="" tagname="th">
+                                <w2:textbox id="" label="유형" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td " style="" tagname="td">
+                            	<xf:select1 id="sbx_type" chooseOption="" style="width:148px; height:21px; " submenuSize="auto" allOption=""
+                            		disabled="false" direction="auto" appearance="minimal" disabledClass="w2selectbox_disabled" ref="">
+                            		<xf:choices>
+                            			<xf:item>
+                            				<xf:label><![CDATA[DataMap]]></xf:label>
+                            				<xf:value><![CDATA[M]]></xf:value>
+                            			</xf:item>
+                            			<xf:item>
+                            				<xf:label><![CDATA[DataList]]></xf:label>
+                            				<xf:value><![CDATA[L]]></xf:value>
+                            			</xf:item>
+                            		</xf:choices>
+                            	</xf:select1>
+                            </xf:group>
+                            <xf:group class="w2tb_th bg-req" style="" tagname="th">
+                                <w2:textbox id="" label="id" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td " style="" tagname="td">
+                                <xf:input id="ipt_id" style="width:100px;"></xf:input>
+                            </xf:group>
+                        </xf:group>
+                        <xf:group class="" id="" style="" tagname="tr">
+                            <xf:group class="w2tb_th " style="" tagname="th">
+                            	<w2:textbox id="" label="AS-IS" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td " style="" tagname="td">
+                            	<xf:textarea id="txa_asis" style="width:1000px; height: 400px"></xf:textarea>
+                                <w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+                            </xf:group>
+                        </xf:group>
+
+                        <xf:group class="" id="" style="" tagname="tr">
+                            <xf:group class="w2tb_th " style="" tagname="th">
+                                    <w2:textbox id="" label="TO-BE" style=""></w2:textbox>
+                            </xf:group>
+                            <xf:group class="w2tb_td " style="" tagname="td">
+                                    <xf:textarea id="txa_tobe" style="width:1000px; height: 400px"></xf:textarea>
+                                    <w2:attributes>
+    								<w2:colspan>3</w2:colspan>
+    								<w2:rowspan>1</w2:rowspan>
+    							</w2:attributes>
+                            </xf:group>                                
+                        </xf:group>
+                    </xf:group>
+                    <xf:group class="btn-shbox" id="" style="">
+                        <xf:trigger class="btn sch" disabled="" escape="false" id="btn_con" style="" type="button" ev:onclick="scwin.btn_con_onclick">
+                            <xf:label><![CDATA[grid or object to TOBE DataSet 변환]]></xf:label>
+                        </xf:trigger>
+                        <xf:trigger class="btn sch" disabled="" escape="false" id="btn_con2" style="" type="button" ev:onclick="scwin.btn_con2_onclick">
+                            <xf:label><![CDATA[asis server debug to TOBE DataSet 변환]]></xf:label>
+                        </xf:trigger>
+                    </xf:group>
+                </xf:group>
+            </xf:group>
+    	</xf:group>
+    </body>
+</html>

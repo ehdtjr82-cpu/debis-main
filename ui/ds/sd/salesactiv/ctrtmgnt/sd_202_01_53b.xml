@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+                <w2:dataMap baseNode="map" id="dma_retrieve">
+    				<w2:keyInfo>
+    					<w2:key id="userIdentifier" name="등록자ID" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+                <w2:dataList baseNode="list" repeatNode="map" id="ds_ctrt" saveRemovedData="true">
+                	<w2:columnInfo>
+                		<w2:column id="chk" name="chk" dataType="text" length="1"></w2:column>
+                		<w2:column id="ctrtNo" name="계약번호" dataType="text" length="11"></w2:column>
+                        <w2:column id="chgCtrtNo" name="변경계약번호" dataType="text" length="11"></w2:column>
+                		<w2:column id="clntNo" name="거래처번호" dataType="text" length="6"></w2:column>
+                		<w2:column id="clntNm" name="거래처명" dataType="text" length="70"></w2:column>
+                		<w2:column id="ctrtStDt" name="계약시작일자" dataType="text" length="8"></w2:column>
+                		<w2:column id="ctrtEndDt" name="계약종료일자" dataType="text" length="8"></w2:column>
+                		<w2:column id="regId" name="등록자ID" dataType="text" length="50"></w2:column>
+                		<w2:column id="chgRegNm" name="변경등록자명" dataType="text" length="50"></w2:column>
+                		<w2:column id="chgRmk" name="변경비고" dataType="text" length="67"></w2:column>
+                	</w2:columnInfo>
+                </w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.sd.salesactiv.ctrtmgnt.RetrieveContractChangeListCMD.do" method="post" mediatype="application/json" ref='data:json,["dma_retrieve",{"id":"ds_ctrt","key":"OUT_DS1"}]' target='data:json,{"id":"ds_ctrt","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.sd.salesactiv.ctrtmgnt.UpdateContractChangeStatusCMD.do" method="post" mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_ctrt","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror=""
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[//-------------------------------------------------------------------------
+// 화면 로딩
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+    console.log("scwin.onpageload");
+    scwin.memInfo = $c.data.getMemInfo(); //String regId = login.getUserId();  long sysAdminYn = login.getSysAdminYn();
+
+    scwin.f_retrieve();
+    $c.data.setPopupTitle("계약 변경내역"); 
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_retrieve = function() {
+    dma_retrieve.set("userIdentifier", scwin.memInfo.userId);
+    //dma_retrieve.set("userIdentifier", "180058");
+	$c.sbm.execute(sbm_retrieve);
+    debugger;
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_save = async function() {     
+    let chkJson = gr_ctrt.getCheckedJSON("chk"); 
+
+	if (chkJson.length > 0) {
+        let conf = await $c.win.confirm("저장하시겠습니까?");
+		if (conf) {
+            $c.sbm.execute(sbm_save);
+		} else {
+			return;
+		}
+	} else {
+		$c.win.alert("계약변경내역을 선택하세요.");
+		return;
+	}
+};
+
+/* ----------------------------------------------------------------------------
+  T R A N S A C T I O N   C O M P O N E N T S   D E C L A R A T I O N
+------------------------------------------------------------------------------*/
+//조회 완료
+scwin.sbm_retrieve_submitdone = function (e) {
+    console.log("scwin.sbm_retrieve_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+
+    let rowCnt = ds_ctrt.getTotalRow()
+    spn_totalRow.setValue(rowCnt);
+
+    if(rowCnt > 0) {
+        $c.gus.cfEnableObjects([btn_save]);
+    } else {
+        $c.gus.cfDisableObjects([btn_save]);
+    }
+};
+
+//저장 완료
+scwin.sbm_save_submitdone = function (e) {
+    console.log("scwin.sbm_save_submitdone");
+	if (e.responseJSON.resultDataSet[0].Code < 0) return; 
+    
+    $c.gus.cfAlertMsg(MSG_CM_INF_001);
+	scwin.f_retrieve();
+};
+
+/* ----------------------------------------------------------------------------
+  C O M P O N E N T' S   E V E N T S  
+-----------------------------------------------------------------------------*/
+//저장 버튼
+scwin.btn_save_onclick = function (e) {
+    scwin.f_save();
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="계약 변경 내역" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownUserAuth="X" gridUpYn="N" templateYn="N" grdDownOpts='{"fileName":"계약변경현황.xlsx", "sheetName" : "계약변경현황", "type":"2+4+8+16"}' gridID="gr_ctrt" id="udc_topGrdBtn" gridDownYn="Y" btnPlusYn="N" btnUser="Y"></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    				<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw gvw fix" dataList="data:ds_ctrt" id="gr_ctrt" style=""
+    					visibleRowNum="8" visibleRowNumFix="true" resize="true" readOnly="true">
+    					<w2:caption id="caption11" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header1" style="">
+    						<w2:row id="row1" style="">
+    							<w2:column displayMode="label" id="column1" inputType="checkbox" value="" width="70" colSpan=""
+    								rowSpan="2" fixColumnWidth="true">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column17" inputType="text" value="계약번호" width="150" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column15" inputType="text" value="변경&lt;br/&gt;계약번호" width="150"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column13" inputType="text" value="거래처&lt;br/&gt;코드" width="150"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column11" inputType="text" value="거래처명" width="150" colSpan=""
+    								rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column9" inputType="text" value="계약기간" width="140" colSpan="2"
+    								rowSpan="">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column5" inputType="text" value="기존계약&lt;br/&gt;등록자" width="100"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column7" inputType="text" value="변경계약&lt;br/&gt;등록자" width="100"
+    								colSpan="" rowSpan="2">
+    							</w2:column>
+    							<w2:column displayMode="label" id="column19" inputType="text" value="계약변경/추가사항" width="450" colSpan=""
+    								rowSpan="2" sortable="false">
+    							</w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="80" inputType="text" style="" id="column25" value="시작일" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    							<w2:column width="80" inputType="text" style="" id="column24" value="종료일" displayMode="label"
+    								hidden="true">
+    							</w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody1" style="">
+    						<w2:row id="row2" style="">
+    							<w2:column displayMode="label" id="chk" inputType="checkbox" width="70" fixColumnWidth="true" valueType="other" falseValue="F" trueValue="T" readOnly="false"></w2:column>
+    							<w2:column displayMode="label" id="ctrtNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="chgCtrtNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="clntNo" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="clntNm" inputType="text" width="130"></w2:column>
+    							<w2:column displayMode="label" id="ctrtStDt" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="ctrtEndDt" inputType="text" width="80"></w2:column>
+    							<w2:column displayMode="label" id="regId" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="chgRegNm" inputType="text" width="100"></w2:column>
+    							<w2:column displayMode="label" id="chgRmk" inputType="text" width="550" textAlign="left" readOnly="true"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spn_totalRow" label="0" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+    						<xf:label>저장</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

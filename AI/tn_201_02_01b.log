@@ -1,0 +1,25 @@
+tn_201_02_01b.log
+
+[2026-02-19 15:55:21.183] 변환 시작
+[2026-02-19 15:55:21.262] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 15:56:43.588] #1 검증: XML: WebSquareXmlValidator: score=0.47, grade=B, verdict=REVIEW, errors=2, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=2, warnings=5 | LLM 82035ms, total 82325ms
+    - [XML] scwin.sbm_retrieveWebOdrList_submiterror에서 $c.gus.cfAlertMsg를 await 없이 호출 — script:scwin.sbm_retrieveWebOdrList_submiterror
+    - [XML] scwin.sbm_retrieveWebOdrList_submiterror이 async가 아닌데 $c.gus.cfAlertMsg 사용 → async function 필요 — script:scwin.sbm_retrieveWebOdrList_submiterror
+    - [적정성] async 선언 누락 — scwin.sbm_retrieveWebOdrList_submiterror (uses $c.gus.cfAlertMsg)
+    - [적정성] await 누락 — scwin.sbm_retrieveWebOdrList_submiterror → $c.gus.cfAlertMsg
+[2026-02-19 15:56:43.780] #1 검증: 자동수정 5건 적용
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U06: textbox display ID lay_ → tbx_
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 15:56:44.101] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.91, grade=A, verdict=PASS, errors=1, warnings=5
+    - [적정성] 컴포넌트 ID 유지 — 누락 2건: lc_expimpDomesticClsCd (LUXECOMBO→w2:autoComplete), lc_districtCd (LUXECOMBO→w2:autoComplete)
+[2026-02-19 15:56:50.560] #2 재시도 (에러 4건)
+[2026-02-19 15:56:51.573] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 15:58:14.348] #2 검증: XML: WebSquareXmlValidator: score=0.70, grade=A, verdict=PASS, errors=0, warnings=4 | Adequacy: LlmConversionAdequacyValidator: score=0.94, grade=A, verdict=PASS, errors=0, warnings=5 | LLM 82564ms, total 82775ms
+[2026-02-19 15:58:14.351] 성공 (#2, 2m 53s, confidence:0.84)
+
+====================
+[ADOPTED ERRORS] 에러없음
+====================

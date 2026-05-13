@@ -1,0 +1,28 @@
+ez_112_01_01b.log
+
+[2026-02-19 00:00:30.647] 변환 시작
+[2026-02-19 00:00:30.679] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 00:02:50.335] #1 검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 139532ms, total 139656ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.trigger5_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 1건: levyStd: LUXECOMBO→w2:column (기대: w2:autoComplete)
+[2026-02-19 00:02:50.436] #1 검증: 자동수정 2건 적용
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 00:02:50.584] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.58, grade=B, verdict=REVIEW, errors=1, warnings=5 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=3
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.trigger5_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 1건: levyStd: LUXECOMBO→w2:column (기대: w2:autoComplete)
+[2026-02-19 00:02:50.589] #2 재시도 (에러 2건)
+[2026-02-19 00:02:51.589] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 00:05:34.856] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=3 | LLM 163184ms, total 163267ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 1건: levyStd: LUXECOMBO→w2:column (기대: w2:autoComplete)
+[2026-02-19 00:05:34.860] #1 검증: 최적 시도 #1 채택 (confidence: 0.79)
+[2026-02-19 00:05:34.860] 실패 (2회 시도, 5m 4s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.trigger5_onclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 타입 매핑 — 불일치 1건: levyStd: LUXECOMBO→w2:column (기대: w2:autoComplete)
+================================================================================

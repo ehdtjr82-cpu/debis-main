@@ -1,0 +1,112 @@
+/*amd /ui/ds/sd/odrmgnt/odrreg/sd_402_01_02t.xml 7380 2f1ab1e5b962bfb1930bef438c032ac9f68d3a937e6ae52334bc09cc372e6f72 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){scwin.odrNo;
+scwin.odrKndCd;
+scwin.type;
+scwin.buyOrdNo;
+
+//-------------------------------------------------------------------------
+// 화면 로딩
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+  // 파라미터 셋팅
+  scwin.params = $c.data.getParameter($p);
+
+  // 전역 변수 셋팅
+  scwin.odrNo = $c.gus.cfIsNull($p, scwin.params.odrNo) ? "" : scwin.params.odrNo;
+  scwin.odrKndCd = $c.gus.cfIsNull($p, scwin.params.odrKndCd) ? "" : scwin.params.odrKndCd;
+  scwin.type = $c.gus.cfIsNull($p, scwin.params.type) ? "" : scwin.params.type;
+  scwin.buyOrdNo = $c.gus.cfIsNull($p, scwin.params.buyOrdNo) ? "" : scwin.params.buyOrdNo;
+
+  // hidden input에 값 셋팅
+  hid_odrNo.setValue(scwin.odrNo);
+  hid_odrKndCd.setValue(scwin.odrKndCd);
+  hid_chkReterieve.setValue(scwin.type);
+  hid_buyOrdNo.setValue(scwin.buyOrdNo);
+};
+
+//-------------------------------------------------------------------------
+// 탭 변경 이벤트
+//-------------------------------------------------------------------------
+scwin.tab_mxTab_page_onchange = function (tabId, index, userTabId) {
+  console.log("[sd_402_01_02t.xml > scwin.tr_tab_center_onchange] index: ", index);
+  console.log("[sd_402_01_02t.xml > scwin.tr_tab_center_onchange] userTabId: ", userTabId);
+  let frames = [tab_mxTab_page.getWindow("tab_mxTab_page0"), tab_mxTab_page.getWindow("tab_mxTab_page1")];
+  console.log("[sd_402_01_02t > scwin.tab_mxTab_page_onchange] frames: ", frames);
+  if ($c.gus.cfIsNull($p, hid_odrNo.getValue().trim()) && frames[0].hid_chkMode.getValue() != "create") {
+    hid_odrNo.setValue(scwin.odrNo);
+  }
+  if ($c.gus.cfIsNull($p, hid_chkReterieve.getValue().trim()) && frames[0].hid_chkMode.getValue() != "create") {
+    hid_chkReterieve.setValue(scwin.type);
+  }
+  switch (index) {
+    case 0:
+      if (!$c.gus.cfIsNull($p, hid_odrNo.getValue().trim())) {
+        if (hid_chkReterieve.getValue().trim() == "retrieve" && frames[index].hid_chkReterieve.getValue().trim() != "retrieveIn") {
+          frames[index].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[index].scwin.f_Retrieve(); // 오더 번호 존재시 조회
+        } else if (frames[index].hid_chkReterieve.getValue() != "retrieveIn") {
+          frames[index].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[index].scwin.f_Retrieve(); // 오더 번호 존재시 조회 
+        } else if (hid_odrNo.getValue().trim() != frames[index].ed_odrNo.getValue().trim() && frames[index].hid_chkReterieve.getValue().trim() == "retrieveIn") {
+          frames[index].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[index].scwin.f_Retrieve(); // 오더 번호 존재시 조회 
+        }
+      } else {
+        if (hid_chkReterieve.getValue().trim() == "create" && !$c.gus.cfIsNull($p, hid_odrKndCd.getValue())) {
+          frames[index].scwin.f_Create(); // 신규모드
+          frames[index].scwin.f_setLcOdrKndCd(hid_odrKndCd.getValue()); // 오더종류 설정
+        } else {
+          // 초기모드는 신규 모드로 설정
+          if (frames[index].hid_chkMode.getValue() != "create") {
+            frames[index].scwin.f_Create();
+          }
+        }
+      }
+      frames[index].ed_odrNo.focus();
+      break;
+    case 1:
+      if (!$c.gus.cfIsNull($p, hid_odrNo.getValue().trim())) {
+        if (hid_chkReterieve.getValue().trim() == "retrieve" && frames[index].hid_chkReterieve.getValue().trim() != "retrieveIn") {
+          frames[index].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[index].scwin.f_Retrieve(); // 오더 번호 존재시 조회 
+        } else if (frames[index].hid_chkReterieve.getValue().trim() != "retrieveIn") {
+          frames[index].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[index].scwin.f_Retrieve(); // 오더 번호 존재시 조회
+        } else if (hid_odrNo.getValue().trim() != frames[index].ed_odrNo.getValue().trim() && frames[index].hid_chkReterieve.getValue().trim() == "retrieveIn") {
+          frames[index].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[index].scwin.f_Retrieve(); // 오더 번호 존재시 조회 
+        }
+      } else {
+        // 초기모드는 신규 모드로 설정
+        if (frames[0].hid_chkMode.getValue() == "create") {
+          frames[index].scwin.f_defaultValue();
+        }
+      }
+      frames[index].ed_odrNo.focus();
+      break;
+    default:
+      if (!$c.gus.cfIsNull($p, hid_odrNo.getValue().trim())) {
+        if (hid_chkReterieve.getValue().trim() == "retrieve" && frames[0].hid_chkReterieve.getValue().trim() != "retrieveIn") {
+          frames[0].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[0].scwin.f_Retrieve(); // 오더 번호 존재시 조회
+        } else if (frames[0].hid_chkReterieve.getValue() != "retrieveIn") {
+          frames[0].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[0].scwin.f_Retrieve(); // 오더 번호 존재시 조회 
+        } else if (hid_odrNo.getValue().trim() != frames[0].ed_odrNo.getValue().trim() && frames[0].hid_chkReterieve.getValue().trim() == "retrieveIn") {
+          frames[0].ed_odrNo.setValue(hid_odrNo.getValue());
+          frames[0].scwin.f_Retrieve(); // 오더 번호 존재시 조회 
+        }
+      } else {
+        // 초기모드는 신규 모드로 설정
+        if (frames[0].hid_chkMode.getValue() != "create") {
+          frames[0].scwin.f_Create();
+        }
+      }
+      frames[0].ed_odrNo.focus();
+      break;
+  }
+};
+scwin.tab_mxTab_page_ontabload = function (tabId, index, userId) {
+  // scwin.tab_mxTab_page_onchange("tab_mxTab_page", 0, "tab_mxTab_page0");
+};
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',src:'/cm/xml/contentHeader.xml',style:''}},{T:1,N:'xf:group',A:{style:'',id:'',class:'tabbox'},E:[{T:1,N:'xf:input',A:{id:'hid_odrNo',style:'display:none;'}},{T:1,N:'xf:input',A:{id:'hid_odrKndCd',style:'display:none;'}},{T:1,N:'xf:input',A:{id:'hid_chkReterieve',style:'display:none;'}},{T:1,N:'xf:input',A:{id:'hid_buyOrdNo',style:'display:none;'}},{T:1,N:'w2:tabControl',A:{alwaysDraw:'false',style:'',id:'tab_mxTab_page',class:'wq_tab','ev:onchange':'scwin.tab_mxTab_page_onchange','ev:ontabload':'scwin.tab_mxTab_page_ontabload'},E:[{T:1,N:'w2:tabs',A:{disabled:'false',style:'',id:'tab_mxTab_page0',label:'벌크오더'}},{T:1,N:'w2:tabs',A:{disabled:'false',style:'',id:'tab_mxTab_page1',label:'작업경로상세등록'}},{T:1,N:'w2:content',A:{src:'/ui/ds/sd/odrmgnt/odrreg/sd_402_01_02b.xml',alwaysDraw:'true',style:'',id:'content1'}},{T:1,N:'w2:content',A:{src:'/ui/ds/sd/odrmgnt/odrreg/sd_402_01_03b.xml',alwaysDraw:'false',style:'',id:'content2'}}]}]}]}]}]}]})

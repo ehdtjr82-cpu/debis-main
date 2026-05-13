@@ -1,0 +1,35 @@
+ja_fs_101_01_03b.log
+
+[2026-02-19 02:59:56.008] 변환 시작
+[2026-02-19 02:59:56.045] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 03:02:54.483] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=3, warnings=5 | LLM 178288ms, total 178438ms
+    - [XML] submission 'sbm_saveNosellOrderPrimeCost'에 action 속성 누락 — sbm_saveNosellOrderPrimeCost
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_Submit, scwin.ds_results_onloadcompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: gr_attachFile (GRID→w2:gridView)
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+    - [적정성] async 선언 누락 — scwin.f_openCommonPopUp (uses $c.win.openPopup)
+[2026-02-19 03:02:54.541] #1 검증: 자동수정 6건 적용
+    - [자동수정] U05: inputCalendar ID ed_ → ica_
+    - [자동수정] U06: textbox display ID lay_ → tbx_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U19: 그리드 헤더 col-type → txt-color 변환
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 03:02:54.706] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=A, verdict=PASS, errors=2, warnings=5
+    - [XML] submission 'sbm_saveNosellOrderPrimeCost'에 action 속성 누락 — sbm_saveNosellOrderPrimeCost
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_Submit, scwin.ds_results_onloadcompleted → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: gr_attachFile (GRID→w2:gridView)
+    - [적정성] DATASET 전환 — 누락 1건: fileUploadGDS
+[2026-02-19 03:02:54.707] #2 재시도 (에러 5건)
+[2026-02-19 03:02:55.712] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 03:06:00.122] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=1, warnings=5 | LLM 184241ms, total 184410ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_createHeader_ForUpload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] 컴포넌트 ID 유지 — 누락 1건: gr_attachFile (GRID→w2:gridView)
+[2026-02-19 03:06:00.123] 실패 (2회 시도, 6m 4s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.f_createHeader_ForUpload → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+  2. [적정성] 컴포넌트 ID 유지 — 누락 1건: gr_attachFile (GRID→w2:gridView)
+================================================================================

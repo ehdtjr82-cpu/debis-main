@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare"
+    xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map"/>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+
+        <script cache="false" scopeExternal="false"
+            src="https://code.jquery.com/jquery-1.8.3.min.js"
+            scopeVariable=""
+            type="text/javascript">
+        </script>
+
+        <script cache="false" scopeExternal="false"
+            src="https://code.jquery.com/ui/1.9.2/jquery-ui.min.js"
+            scopeVariable=""
+            type="text/javascript">
+        </script>
+
+        <script lazy="false" type="text/javascript"><![CDATA[
+/* =========================
+ * 환경별 base origin 계산
+ * ========================= */
+scwin.getBaseOrigin = function () {
+    var host = window.location.hostname;
+    if (host === "localhost" || host === "127.0.0.1") {
+        //return "https://newdevdebis.dongwon.com";
+        return "https://ebizdevdebis.dongwon.com";
+    }else if(host==='newtestdebis.dongwon.com'){
+    	//return 'https://newdebis.dongwon.com';
+    	return 'https://ebizdebis.dongwon.com';
+    }
+    return window.location.origin;
+};
+
+scwin.BASE_ORIGIN = scwin.getBaseOrigin();
+scwin.OZ_BASE = scwin.BASE_ORIGIN + "/oz90";
+scwin.SERVER_URL = scwin.OZ_BASE + "/server";
+scwin.VIEWER_URL = scwin.OZ_BASE + "/ozhviewer/";
+
+/* =========================
+ * 동적 리소스 로더
+ * ========================= */
+scwin.appendStylesheet = function (href) {
+    var head = document.getElementsByTagName("head")[0];
+    var exists = false;
+    var links = document.getElementsByTagName("link");
+
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].href === href) {
+            exists = true;
+            break;
+        }
+    }
+
+    if (!exists) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = href;
+        head.appendChild(link);
+    }
+};
+
+scwin.appendScript = function (src, callback) {
+    var head = document.getElementsByTagName("head")[0];
+    var scripts = document.getElementsByTagName("script");
+
+    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].src === src) {
+            if (typeof callback === "function") {
+                callback();
+            }
+            return;
+        }
+    }
+
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = src;
+    script.onload = function () {
+        if (typeof callback === "function") {
+            callback();
+        }
+    };
+    head.appendChild(script);
+};
+
+scwin.loadOzResources = function (callback) {
+    scwin.appendStylesheet(scwin.OZ_BASE + "/ozhviewer/ui.dynatree.css");
+
+    scwin.appendScript(scwin.OZ_BASE + "/ozhviewer/jquery.dynatree.js", function () {
+        scwin.appendScript(scwin.OZ_BASE + "/ozhviewer/OZJSViewer.js", function () {
+            if (typeof callback === "function") {
+                callback();
+            }
+        });
+    });
+};
+
+scwin.ozParamStr = "";
+scwin.reBindStr = "";
+
+scwin.searchCount = 0;
+scwin.currentReportName = "";
+scwin.lastData = null;
+scwin.memJSON = null;
+scwin.ozReady = false;
+
+/* ----------------- viewer 객체(OBJECT) 강제 생성 함수 ----------------- */
+scwin.createViewerObject = function () {
+    var container = document.getElementById("oz_container");
+    var old = document.getElementById("OZViewer");
+
+    if (!container) {
+        container = document.createElement("div");
+        container.id = "oz_container";
+        container.style.width = "1000px";
+        container.style.height = "100vh";
+        container.style.position = "relative";
+        container.style.display = "block";
+
+        if (old && old.parentNode) {
+            old.parentNode.insertBefore(container, old);
+            container.appendChild(old);
+        } else {
+            document.body.appendChild(container);
+        }
+    }
+
+    container.innerHTML = "";
+
+    var obj = document.createElement("object");
+    obj.id = "OZViewer";
+    obj.style.width = "100%";
+    obj.style.height = "100%";
+    obj.style.display = "block";
+    container.appendChild(obj);
+
+    scwin.searchCount = 0;
+    console.log("OZViewer 재생성 완료");
+};
+
+/* ----------------- 페이지 로드 시 초기화 ----------------- */
+scwin.onpageload = function () {
+    try {
+        scwin.memJSON = $c.data.getMemInfo();
+    } catch (e) {
+        console.warn("memInfo 가져오기 실패(환경에 따라):", e);
+        scwin.memJSON = scwin.memJSON || {};
+    }
+
+    scwin.searchCount = 0;
+    scwin.currentReportName = "";
+    scwin.lastData = null;
+
+    scwin.loadOzResources(function () {
+        scwin.ozReady = true;
+        scwin.createViewerObject();
+        console.log("OZ 리소스 로딩 완료");
+    });
+};
+
+/* ----------------- 초기 로딩용(#OZ#) OZ 파라미터 문자열 ----------------- */
+scwin.getValueByPath = function (target, path) {
+    if (!target || !path || !path.length) {
+        return "";
+    }
+
+    var current = target;
+    for (var i = 0; i < path.length; i++) {
+        if (current == null || typeof current[path[i]] === "undefined") {
+            return "";
+        }
+        current = current[path[i]];
+    }
+
+    return current || "";
+};
+
+scwin.getQueryParam = function (queryString, key) {
+    if (!queryString || !key) {
+        return "";
+    }
+
+    var normalized = queryString.charAt(0) === "?" ? queryString.substring(1) : queryString;
+    var pairs = normalized.split("&");
+
+    for (var i = 0; i < pairs.length; i++) {
+        if (!pairs[i]) {
+            continue;
+        }
+
+        var tokens = pairs[i].split("=");
+        var paramKey = decodeURIComponent(tokens[0] || "");
+        if (paramKey === key) {
+            return decodeURIComponent((tokens.slice(1).join("=") || "").replace(/\+/g, " "));
+        }
+    }
+
+    return "";
+};
+
+scwin.toJspProgramId = function (value) {
+    if (!value) {
+        return "";
+    }
+
+    var normalized = String(value);
+    var qIndex = normalized.indexOf("?");
+    var hIndex = normalized.indexOf("#");
+    var cutIndex = -1;
+
+    if (qIndex > -1 && hIndex > -1) {
+        cutIndex = Math.min(qIndex, hIndex);
+    } else if (qIndex > -1) {
+        cutIndex = qIndex;
+    } else if (hIndex > -1) {
+        cutIndex = hIndex;
+    }
+
+    if (cutIndex > -1) {
+        normalized = normalized.substring(0, cutIndex);
+    }
+
+    normalized = normalized.substring(normalized.lastIndexOf("/") + 1);
+    if (!normalized) {
+        return "";
+    }
+
+    if (/\.xml$/i.test(normalized)) {
+        return normalized.replace(/\.xml$/i, ".jsp");
+    }
+
+    if (!/\.(jsp|xml)$/i.test(normalized)) {
+        return normalized + ".jsp";
+    }
+
+    return normalized;
+};
+
+scwin.resolveCurrentPgmId = function () {
+    var candidates = [];
+
+    try {
+        candidates.push(scwin.getValueByPath($p.getParameter("paramData"), ["menuInfo", "pgmId"]));
+        candidates.push(scwin.getValueByPath($p.getParameter("paramData"), ["data", "menuInfo", "pgmId"]));
+    } catch (e) {}
+
+    try {
+        candidates.push(scwin.getValueByPath($p.getAllParameter(), ["paramData", "menuInfo", "pgmId"]));
+        candidates.push(scwin.getValueByPath($p.getAllParameter(), ["paramData", "data", "menuInfo", "pgmId"]));
+        candidates.push(scwin.getValueByPath($p.getAllParameter(), ["dataObject", "data", "menuInfo", "pgmId"]));
+    } catch (e) {}
+
+    try {
+        var parentScope = $p.parent();
+        if (parentScope && parentScope.$p) {
+            candidates.push(scwin.getValueByPath(parentScope.$p.getParameter("paramData"), ["menuInfo", "pgmId"]));
+            candidates.push(scwin.getValueByPath(parentScope.$p.getAllParameter(), ["paramData", "menuInfo", "pgmId"]));
+            candidates.push(scwin.getValueByPath(parentScope.$p.getAllParameter(), ["paramData", "data", "menuInfo", "pgmId"]));
+        }
+    } catch (e) {}
+
+    try {
+        var parentTab = $p.parent().tac_layout;
+        if (parentTab && parentTab.contentsArr) {
+            var selectedIdx = parentTab.getSelectedTabIndex();
+            candidates.push(scwin.getValueByPath(parentTab.contentsArr[selectedIdx], ["dataObject", "data", "menuInfo", "pgmId"]));
+        }
+    } catch (e) {}
+
+    try {
+        if ($p.top() && $p.top().dma_mem) {
+            candidates.push($p.top().dma_mem.get("pgmId"));
+        }
+    } catch (e) {}
+
+    try {
+        candidates.push(scwin.toJspProgramId(scwin.getQueryParam(window.top.location.search, "w2xPath")));
+    } catch (e) {}
+
+    try {
+        candidates.push(scwin.toJspProgramId(scwin.getQueryParam(window.location.search, "w2xPath")));
+    } catch (e) {}
+
+    for (var i = 0; i < candidates.length; i++) {
+        var pgmId = scwin.toJspProgramId(candidates[i]);
+        if (pgmId) {
+            return pgmId;
+        }
+    }
+
+    return "external_report.jsp";
+};
+
+scwin.buildOzParamString = function (data) {
+    const now = new Date();
+    const formatted =
+        `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${String(now.getDate()).padStart(2, "0")}` +
+        ` ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+
+    const odiName = data.odiName;
+    const reportName = data.reportName;
+    const odiParam = data.odiParam || {};
+    const formParam = data.formParam || {};
+
+    if (!reportName) throw new Error("buildOzParamString: reportName 없음");
+
+    // const pgmName = scwin.params.menuInfo.pFrmId.substring(
+    //     scwin.params.menuInfo.pFrmId.indexOf("_contents_") + "_contents_".length,
+    //     scwin.params.menuInfo.pFrmId.lastIndexOf("_body")
+    // ) + ".jsp";
+
+    const pgmName = scwin.resolveCurrentPgmId();
+
+    let result = `connection.servlet=${scwin.SERVER_URL}#OZ#`;
+    result += `connection.reportname=${reportName}#OZ#`;
+
+    const userId = (scwin.memJSON && scwin.memJSON.userId) ? scwin.memJSON.userId : "";
+    const userNm = (scwin.memJSON && scwin.memJSON.userNm) ? scwin.memJSON.userNm : "";
+
+    const formKeys = Object.keys(formParam);
+    result += `connection.pcount=${5 + formKeys.length}#OZ#`;
+    result += `connection.args1=pgmId=${pgmName}#OZ#`;
+    result += `connection.args2=reportTime=${formatted}#OZ#`;
+    result += `connection.args3=reportDate=${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${String(now.getDate()).padStart(2, "0")}#OZ#`;
+    result += `connection.args4=userId=${userId}#OZ#`;
+    result += `connection.args5=userNm=${userNm}#OZ#`;
+    Object.keys(formParam).forEach(function (key, index) {
+        result += `connection.args${index + 6}=${key}=${formParam[key]}#OZ#`;
+    });
+
+    const odiKeys = Object.keys(odiParam);
+    const finalOdiName = odiName || reportName.substring(reportName.lastIndexOf("/") + 1).replace(".ozr", "");
+
+    result += `odi.odinames=${finalOdiName}#OZ#`;
+    result += `odi.${finalOdiName}.pcount=${odiKeys.length}#OZ#`;
+
+    odiKeys.forEach(function (key, index) {
+        result += `odi.${finalOdiName}.args${index + 1}=${key}=${odiParam[key]}#OZ#`;
+    });
+
+    // Object.keys(formParam).forEach(function (key) {
+    //     result += `report.param.${key}=${formParam[key]}#OZ#`;
+    // });
+
+    return result;
+};
+
+/* ----------------- ReBind용(;) connection args 문자열 ----------------- */
+scwin.buildRebindConnectionArgs = function (odiParam, formParam) {
+    let result = "";
+    const keys = Object.keys(odiParam || {});
+    const formKeys = Object.keys(formParam);
+
+    result += `connection.pcount=${keys.length+formKeys.length};`;
+    keys.forEach(function (key, index) {
+        result += `connection.args${index + 1}=${key}=${odiParam[key]};`;
+    });
+
+    Object.keys(formParam).forEach(function (key, index) {
+        result += `connection.args${index + keys.length +1}=${key}=${formParam[key]};`;
+    });
+
+
+    return result;
+};
+
+/* ----------------- (선택) ReBind용(;) ODI 문자열 ----------------- */
+scwin.buildRebindOdiArgs = function (reportName, odiName, odiParam) {
+    const keys = Object.keys(odiParam || {});
+    const finalOdiName = odiName || reportName.substring(reportName.lastIndexOf("/") + 1).replace(".ozr", "");
+    let result = "";
+
+    result += `odi.odinames=${finalOdiName};`;
+    result += `odi.${finalOdiName}.pcount=${keys.length};`;
+
+    keys.forEach(function (key, idx) {
+        result += `odi.${finalOdiName}.args${idx + 1}=${key}=${odiParam[key]};`;
+    });
+
+    return result;
+};
+
+/* ----------------- 입력 정규화 ----------------- */
+scwin.normalizeInput = function (input) {
+    let data = Array.isArray(input) ? input[0] : input;
+
+    if (!data) data = {};
+
+    const looksFull = !!(data.reportName || data.odiName || data.formParam);
+
+    if (!looksFull) {
+        const onlyOdiParam = (data.odiParam) ? data.odiParam : data;
+
+        if (!scwin.lastData || !scwin.currentReportName) {
+            throw new Error("normalizeInput: reportName 없이 ReBind 요청인데 현재 로딩된 리포트가 없음");
+        }
+
+        data = {
+            ...scwin.lastData,
+            reportName: scwin.currentReportName,
+            odiParam: onlyOdiParam
+        };
+    }
+
+    data.odiParam = data.odiParam || {};
+    data.formParam = data.formParam || {};
+    data.viewerParam = data.viewerParam || {};
+
+    return data;
+};
+
+/* ----------------- reportSearch ----------------- */
+scwin.reportSearch = function (input) {
+    if (!scwin.ozReady) {
+        console.warn("OZ 리소스 로딩 전입니다.");
+        return;
+    }
+
+    let data;
+    try {
+        data = scwin.normalizeInput(input);
+    } catch (e) {
+        console.error("reportSearch 입력 정규화 실패:", e, input);
+        return;
+    }
+
+    const ozElem = document.getElementById("OZViewer");
+    const needInit = (!ozElem || scwin.searchCount <= 0);
+    const reportChanged = (scwin.currentReportName && scwin.currentReportName !== data.reportName);
+
+    if (needInit || reportChanged) {
+        try {
+            scwin.ozParamStr = scwin.buildOzParamString(data);
+        } catch (e) {
+            console.error("buildOzParamString 실패:", e, data);
+            return;
+        }
+
+        scwin.createViewerObject();
+
+        const opt = [];
+        opt["use_request_header"] = false;
+        opt["oz_param_string"] = scwin.ozParamStr;
+
+        try {
+            start_ozjs("OZViewer", scwin.VIEWER_URL, opt);
+            scwin.searchCount = 1;
+            scwin.currentReportName = data.reportName;
+            scwin.lastData = data;
+            console.log("start_ozjs 호출됨. report=", data);
+            console.log("start_ozjs 호출됨. report=", data.reportName);
+        } catch (e) {
+            console.error("start_ozjs 호출 실패:", e);
+        }
+        return;
+    }
+
+    try {
+        const connRebind = scwin.buildRebindConnectionArgs(data.odiParam, data.formParam);
+        scwin.reBindStr = connRebind;
+
+        const ozGlobal = window.OZViewer || document.getElementById("OZViewer");
+
+        if (ozGlobal && typeof ozGlobal.ReBind === "function") {
+            ozGlobal.ReBind(0, "data", scwin.reBindStr, ";");
+            scwin.lastData = data;
+            console.log("ReBind(connection) 호출됨:", scwin.reBindStr);
+        } else {
+            console.warn("ReBind 함수 없음. start_ozjs로 재시작");
+
+            scwin.ozParamStr = scwin.buildOzParamString(data);
+            scwin.createViewerObject();
+
+            const opt2 = [];
+            opt2["use_request_header"] = false;
+            opt2["oz_param_string"] = scwin.ozParamStr;
+
+            start_ozjs("OZViewer", scwin.VIEWER_URL, opt2);
+            scwin.searchCount = 1;
+            scwin.lastData = data;
+        }
+    } catch (e) {
+        console.error("reportSearch ReBind 중 에러:", e);
+    }
+};
+
+/* ----------------- OZ 내부 콜백 ----------------- */
+window.SetOZParamters_OZViewer = function () {
+    var oz = document.getElementById("OZViewer");
+
+    if (!oz) {
+        console.error("SetOZParamters_OZViewer: OZViewer 객체 없음");
+        return false;
+    }
+
+    if (!scwin.ozParamStr) {
+        console.warn("SetOZParamters_OZViewer: ozParamStr 비어있음");
+        return true;
+    }
+
+    var ozParam1 = scwin.ozParamStr.split("#OZ#");
+
+    for (var i = 0; i < ozParam1.length; i++) {
+        var str = ozParam1[i];
+
+        if (str.indexOf("=") > -1) {
+            var paramKey = str.substring(0, str.indexOf("="));
+            var paramValue = str.substring(str.indexOf("=") + 1);
+
+            try {
+                if (typeof oz.sendToActionScript === "function") {
+                	var paramKey=paramKey.replace(/viewer\.export\./,'export.').replace(/viewer\.print\./,'print.');
+                    oz.sendToActionScript(paramKey, paramValue);
+                    console.log("OZ Parameter Set: " + paramKey + " = " + paramValue.substring(0, 50) + "...");
+                }
+            } catch (e) {
+                console.error("sendToActionScript 실패:", e, paramKey);
+            }
+        }
+    }
+
+    console.log("OZ Viewer 파라미터 설정 완료.");
+    return true;
+};
+]]></script>
+    </head>
+
+    <body ev:onpageload="scwin.onpageload">
+        <xf:group id="" class="pop_contents">
+            <xf:group style="height:100%" id="" class="round-box">
+                <div style="width:100%;" id="OZViewer"></div>
+            </xf:group>
+        </xf:group>
+    </body>
+</html>

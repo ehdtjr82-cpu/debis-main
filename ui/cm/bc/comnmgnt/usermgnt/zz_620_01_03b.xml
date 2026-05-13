@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_search" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="userId" name="사용자ID"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" ev:onrowpositionchange="scwin.ds_315List_onrowpositionchange" id="ds_resultList"
+    				repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="userId" name="사용자ID"></w2:column>
+    					<w2:column dataType="text" id="epId" name="다이렉트아이디"></w2:column>
+    					<w2:column dataType="text" id="empNo" name="사원번호"></w2:column>
+    					<w2:column dataType="text" id="privGrpId" name="권한그룹ID"></w2:column>
+    					<w2:column dataType="text" id="privGrpNm" name="권한그룹명"></w2:column>
+    					<w2:column dataType="text" id="empNm" name="사원번호"></w2:column>
+    					<w2:column dataType="text" id="clntNo" name="거래처번호"></w2:column>
+    					<w2:column dataType="text" id="clntNm" name="거래처번호"></w2:column>
+    					<w2:column dataType="text" id="upperClntNo" name="거래처번호"></w2:column>
+    					<w2:column dataType="text" id="userNm" name="사용자명"></w2:column>
+    					<w2:column dataType="text" id="passwd" name="비밀번호"></w2:column>
+    					<w2:column dataType="text" id="passwdExpdt" name="비밀번호EXP일자"></w2:column>
+    					<w2:column dataType="text" id="decPasswd" name="비밀번호EXP여부"></w2:column>
+    					<w2:column dataType="text" id="col14" name="decPasswd"></w2:column>
+    					<w2:column dataType="text" id="finalPasswdChgDt" name="최종비밀번호변경일자"></w2:column>
+    					<w2:column dataType="text" id="email" name="EMAIL"></w2:column>
+    					<w2:column dataType="text" id="zip" name="우편번호"></w2:column>
+    					<w2:column dataType="text" id="addr1" name="주소1"></w2:column>
+    					<w2:column dataType="text" id="addr2" name="주소2"></w2:column>
+    					<w2:column dataType="text" id="userClsCd" name="사용자구분코드"></w2:column>
+    					<w2:column dataType="text" id="userClsCdNm" name="userClsCdNm"></w2:column>
+    					<w2:column dataType="text" id="userHomeClsCd" name="사용자소속구분코드"></w2:column>
+    					<w2:column dataType="text" id="lobranCd" name="물류점소코드"></w2:column>
+    					<w2:column dataType="text" id="lobranNm" name="lobranNm"></w2:column>
+    					<w2:column dataType="text" id="lobranPrivLvl" name="물류점소권한레벨"></w2:column>
+    					<w2:column dataType="text" id="loUpperLobranCd" name="물류상위점소코드"></w2:column>
+    					<w2:column dataType="text" id="loUpperLobranNm" name="물류상위점소코드"></w2:column>
+    					<w2:column dataType="text" id="exprOfcCd" name="고속영업소코드"></w2:column>
+    					<w2:column dataType="text" id="exprOfcNm" name="exprOfcNm"></w2:column>
+    					<w2:column dataType="text" id="exprOfcPrivLvl" name="고속영업소권한레벨"></w2:column>
+    					<w2:column dataType="text" id="rentcarOfcCd" name="렌터카영업소코드"></w2:column>
+    					<w2:column dataType="text" id="rentcarOfcNm" name="rentcarOfcNm"></w2:column>
+    					<w2:column dataType="text" id="rentcarBranchPatternCd" name="렌터카지점유형코드"></w2:column>
+    					<w2:column dataType="text" id="rentcarOfcPrivLvl" name="렌터카영업소권한레벨"></w2:column>
+    					<w2:column dataType="text" id="fixWrkPlCd" name="정비작업장코드"></w2:column>
+    					<w2:column dataType="text" id="fixWrkPlNm" name="fixWrkPlNm"></w2:column>
+    					<w2:column dataType="text" id="eqHomeClsCd" name="정비소속구분코드"></w2:column>
+    					<w2:column dataType="text" id="fixWrkPlPrivLvl" name="정비작업장권한레벨"></w2:column>
+    					<w2:column dataType="text" id="acctDeptNm" name="귀속부서코드명"></w2:column>
+    					<w2:column dataType="text" id="acctDeptCd" name="귀속부서코드"></w2:column>
+    					<w2:column dataType="text" id="acctDeptPrivLvl" name="귀속부서권한레벨"></w2:column>
+    					<w2:column dataType="text" id="useYn" name="사용여부"></w2:column>
+    					<w2:column dataType="text" id="basisMenuClsCd" name="기본메뉴구분코드"></w2:column>
+    					<w2:column dataType="text" id="userMpNo" name="사용자핸드폰번호"></w2:column>
+    					<w2:column dataType="text" id="userMpNo2" name="사용자핸드폰번호2"></w2:column>
+    					<w2:column dataType="text" id="finalConDtm" name="최종접속일시"></w2:column>
+    					<w2:column dataType="text" id="finalConIp" name="최종접속IP"></w2:column>
+    					<w2:column dataType="text" id="regId" name="등록자ID"></w2:column>
+    					<w2:column dataType="text" id="regDtm" name="등록일시"></w2:column>
+    					<w2:column dataType="text" id="modId" name="수정자ID"></w2:column>
+    					<w2:column dataType="text" id="modDtm" name="수정일시"></w2:column>
+    					<w2:column dataType="text" id="userBasisPgmId" name="사용자기본프로그램ID"></w2:column>
+    					<w2:column dataType="text" id="userBasisPgmNm" name="사용자기본프로그램명"></w2:column>
+    					<w2:column dataType="text" id="occpgrdNm" name="직급명"></w2:column>
+    					<w2:column dataType="text" id="passwdChgCycCd" name="패스워드변경주기"></w2:column>
+    					<w2:column dataType="text" id="msgConfirmCycCd" name="메시지갱신주기"></w2:column>
+    					<w2:column dataType="text" id="sysAdminYn" name="시스템 관리자 여부"></w2:column>
+    					<w2:column dataType="text" id="ssoAuthYn" name="SSO 인증 여부"></w2:column>
+    					<w2:column dataType="text" id="deptNm" name="부서명"></w2:column>
+    					<w2:column dataType="text" id="pstNm" name="직위명"></w2:column>
+    					<w2:column dataType="text" id="districtCd" name="노임권역코드"></w2:column>
+    					<w2:column dataType="text" id="occpposNm" name="보직명"></w2:column>
+    					<w2:column dataType="text" id="chk" name="chk"></w2:column>
+    					<w2:column dataType="text" id="coClsCd" name="회계_회사구분"></w2:column>
+    					<w2:column dataType="text" id="coCd" name="회사코드"></w2:column>
+    					<w2:column dataType="text" id="branchAggrDeptCd" name="지사코드"></w2:column>
+    					<w2:column dataType="text" id="branchAggrDeptNm" name="지사명"></w2:column>
+    					<w2:column dataType="text" id="branchLobranCd" name="지사의점소코드"></w2:column>
+    					<w2:column dataType="text" id="branchLobranNm" name="지사의점소명"></w2:column>
+    					<w2:column dataType="text" id="viewAcctDeptCd" name="싱글뷰지사코드"></w2:column>
+    					<w2:column dataType="text" id="viewAcctDeptNm" name="싱글뷰지사명"></w2:column>
+    					<w2:column dataType="text" id="viewLobranCd" name="싱글뷰지사점소코드"></w2:column>
+    					<w2:column dataType="text" id="viewLobranNm" name="싱글뷰지사점소명"></w2:column>
+    					<w2:column dataType="text" id="blockReason" name="blockReason"></w2:column>
+    					<w2:column dataType="text" id="blockDt" name="blockDt"></w2:column>
+    					<w2:column dataType="text" id="blockEtDt" name="blockEtDt"></w2:column>
+    					<w2:column dataType="text" id="blockCancelEtDt" name="blockCancelEtDt"></w2:column>
+    					<w2:column dataType="text" id="authLoginYn" name="authLoginYn"></w2:column>
+    					<w2:column dataType="text" id="empTelNo" name="empTelNo"></w2:column>
+    					<w2:column dataType="text" id="empFaxNo" name="empFaxNo"></w2:column>
+    					<w2:column dataType="text" id="retireDt" name="retireDt"></w2:column>
+    					<w2:column dataType="text" id="mismatchRsn" name="mismatchRsn"></w2:column>
+    					<w2:column dataType="text" id="privAdmin" name="privAdmin"></w2:column>
+    					<w2:column dataType="text" id="decPwd" name="decPwd"></w2:column>
+    					<w2:column id="darkmodeYn" name="darkmodeYn" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" ev:onrowpositionchange="scwin.ds_315List_onrowpositionchange" id="dma_result" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="userId" name="사용자ID"></w2:key>
+    					<w2:key dataType="text" id="epId" name="다이렉트아이디"></w2:key>
+    					<w2:key dataType="text" id="empNo" name="사원번호"></w2:key>
+    					<w2:key dataType="text" id="privGrpId" name="권한그룹ID"></w2:key>
+    					<w2:key dataType="text" id="privGrpNm" name="권한그룹명"></w2:key>
+    					<w2:key dataType="text" id="empNm" name="사원번호"></w2:key>
+    					<w2:key dataType="text" id="clntNo" name="거래처번호"></w2:key>
+    					<w2:key dataType="text" id="clntNm" name="거래처번호"></w2:key>
+    					<w2:key dataType="text" id="upperClntNo" name="거래처번호"></w2:key>
+    					<w2:key dataType="text" id="userNm" name="사용자명"></w2:key>
+    					<w2:key dataType="text" id="passwd" name="비밀번호"></w2:key>
+    					<w2:key dataType="text" id="passwdExpdt" name="비밀번호EXP일자"></w2:key>
+    					<w2:key dataType="text" id="decPasswd" name="비밀번호EXP여부"></w2:key>
+    					<w2:key dataType="text" id="col14" name="decPasswd"></w2:key>
+    					<w2:key dataType="text" id="finalPasswdChgDt" name="최종비밀번호변경일자"></w2:key>
+    					<w2:key dataType="text" id="email" name="EMAIL"></w2:key>
+    					<w2:key dataType="text" id="zip" name="우편번호"></w2:key>
+    					<w2:key dataType="text" id="addr1" name="주소1"></w2:key>
+    					<w2:key dataType="text" id="addr2" name="주소2"></w2:key>
+    					<w2:key dataType="text" id="userClsCd" name="사용자구분코드"></w2:key>
+    					<w2:key dataType="text" id="userClsCdNm" name="userClsCdNm"></w2:key>
+    					<w2:key dataType="text" id="userHomeClsCd" name="사용자소속구분코드"></w2:key>
+    					<w2:key dataType="text" id="lobranCd" name="물류점소코드"></w2:key>
+    					<w2:key dataType="text" id="lobranNm" name="lobranNm"></w2:key>
+    					<w2:key dataType="text" id="lobranPrivLvl" name="물류점소권한레벨"></w2:key>
+    					<w2:key dataType="text" id="loUpperLobranCd" name="물류상위점소코드"></w2:key>
+    					<w2:key dataType="text" id="loUpperLobranNm" name="물류상위점소코드"></w2:key>
+    					<w2:key dataType="text" id="exprOfcCd" name="고속영업소코드"></w2:key>
+    					<w2:key dataType="text" id="exprOfcNm" name="exprOfcNm"></w2:key>
+    					<w2:key dataType="text" id="exprOfcPrivLvl" name="고속영업소권한레벨"></w2:key>
+    					<w2:key dataType="text" id="rentcarOfcCd" name="렌터카영업소코드"></w2:key>
+    					<w2:key dataType="text" id="rentcarOfcNm" name="rentcarOfcNm"></w2:key>
+    					<w2:key dataType="text" id="rentcarBranchPatternCd" name="렌터카지점유형코드"></w2:key>
+    					<w2:key dataType="text" id="rentcarOfcPrivLvl" name="렌터카영업소권한레벨"></w2:key>
+    					<w2:key dataType="text" id="fixWrkPlCd" name="정비작업장코드"></w2:key>
+    					<w2:key dataType="text" id="fixWrkPlNm" name="fixWrkPlNm"></w2:key>
+    					<w2:key dataType="text" id="eqHomeClsCd" name="정비소속구분코드"></w2:key>
+    					<w2:key dataType="text" id="fixWrkPlPrivLvl" name="정비작업장권한레벨"></w2:key>
+    					<w2:key dataType="text" id="acctDeptNm" name="귀속부서코드명"></w2:key>
+    					<w2:key dataType="text" id="acctDeptCd" name="귀속부서코드"></w2:key>
+    					<w2:key dataType="text" id="acctDeptPrivLvl" name="귀속부서권한레벨"></w2:key>
+    					<w2:key dataType="text" id="useYn" name="사용여부"></w2:key>
+    					<w2:key dataType="text" id="basisMenuClsCd" name="기본메뉴구분코드"></w2:key>
+    					<w2:key dataType="text" id="userMpNo" name="사용자핸드폰번호"></w2:key>
+    					<w2:key dataType="text" id="userMpNo2" name="사용자핸드폰번호2"></w2:key>
+    					<w2:key dataType="text" id="finalConDtm" name="최종접속일시"></w2:key>
+    					<w2:key dataType="text" id="finalConIp" name="최종접속IP"></w2:key>
+    					<w2:key dataType="text" id="regId" name="등록자ID"></w2:key>
+    					<w2:key dataType="text" id="regDtm" name="등록일시"></w2:key>
+    					<w2:key dataType="text" id="modId" name="수정자ID"></w2:key>
+    					<w2:key dataType="text" id="modDtm" name="수정일시"></w2:key>
+    					<w2:key dataType="text" id="userBasisPgmId" name="사용자기본프로그램ID"></w2:key>
+    					<w2:key dataType="text" id="userBasisPgmNm" name="사용자기본프로그램명"></w2:key>
+    					<w2:key dataType="text" id="occpgrdNm" name="직급명"></w2:key>
+    					<w2:key dataType="text" id="passwdChgCycCd" name="패스워드변경주기"></w2:key>
+    					<w2:key dataType="text" id="msgConfirmCycCd" name="메시지갱신주기"></w2:key>
+    					<w2:key dataType="text" id="sysAdminYn" name="시스템 관리자 여부"></w2:key>
+    					<w2:key dataType="text" id="ssoAuthYn" name="SSO 인증 여부"></w2:key>
+    					<w2:key dataType="text" id="deptNm" name="부서명"></w2:key>
+    					<w2:key dataType="text" id="pstNm" name="직위명"></w2:key>
+    					<w2:key dataType="text" id="districtCd" name="노임권역코드"></w2:key>
+    					<w2:key dataType="text" id="occpposNm" name="보직명"></w2:key>
+    					<w2:key dataType="text" id="chk" name="chk"></w2:key>
+    					<w2:key dataType="text" id="coClsCd" name="회계_회사구분"></w2:key>
+    					<w2:key dataType="text" id="coCd" name="회사코드"></w2:key>
+    					<w2:key dataType="text" id="branchAggrDeptCd" name="지사코드"></w2:key>
+    					<w2:key dataType="text" id="branchAggrDeptNm" name="지사명"></w2:key>
+    					<w2:key dataType="text" id="branchLobranCd" name="지사의점소코드"></w2:key>
+    					<w2:key dataType="text" id="branchLobranNm" name="지사의점소명"></w2:key>
+    					<w2:key dataType="text" id="viewAcctDeptCd" name="싱글뷰지사코드"></w2:key>
+    					<w2:key dataType="text" id="viewAcctDeptNm" name="싱글뷰지사명"></w2:key>
+    					<w2:key dataType="text" id="viewLobranCd" name="싱글뷰지사점소코드"></w2:key>
+    					<w2:key dataType="text" id="viewLobranNm" name="싱글뷰지사점소명"></w2:key>
+    					<w2:key dataType="text" id="blockReason" name="blockReason"></w2:key>
+    					<w2:key dataType="text" id="blockDt" name="blockDt"></w2:key>
+    					<w2:key dataType="text" id="blockEtDt" name="blockEtDt"></w2:key>
+    					<w2:key dataType="text" id="blockCancelEtDt" name="blockCancelEtDt"></w2:key>
+    					<w2:key dataType="text" id="authLoginYn" name="authLoginYn"></w2:key>
+    					<w2:key dataType="text" id="empTelNo" name="empTelNo"></w2:key>
+    					<w2:key dataType="text" id="empFaxNo" name="empFaxNo"></w2:key>
+    					<w2:key dataType="text" id="retireDt" name="retireDt"></w2:key>
+    					<w2:key dataType="text" id="mismatchRsn" name="mismatchRsn"></w2:key>
+    					<w2:key dataType="text" id="privAdmin" name="privAdmin"></w2:key>
+    					<w2:key dataType="text" id="decPwd" name="decPwd"></w2:key>
+    					<w2:key id="darkmodeYn" name="darkmodeYn" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_search" action="/cm.bc.comnmgnt.usermgnt.cmd.RetrieveUserWithIdCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,dma_search' target='data:json,{"id":"dma_result","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_search_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/cm.bc.comnmgnt.usermgnt.cmd.UpdateUserEnvironmentSetUpCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"dma_result","key":"IN_DS1"}' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="scwin.sbm_save_submiterror"
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.memJson = $c.data.getMemInfo();
+scwin.userId = scwin.memJson.userId;
+scwin.userNm = scwin.memJson.userNm;
+console.log("##### userId : " + scwin.userId);
+console.log("##### userNm : " + scwin.userNm);
+
+scwin.MSG_LO_ERR_001 = "기본메뉴를 선택하세요.";
+scwin.MSG_LO_ERR_002 = "초기프로그램을 선택하세요.";
+scwin.MSG_LO_ERR_003 = "비밀번호변경주기를 선택하세요.";
+scwin.MSG_LO_ERR_004 = "메시지확인주기를 선택하세요.";
+scwin.MSG_LO_ERR_005 = "사용자구분코드를 선택하세요.";
+
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "ZZ011", compID : "lc_basisMenuClsCd" },
+        { grpCd : "ZZ402", compID : "lc_msgConfirmCycCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+scwin.ondataload = function() { 
+    console.log("===========scwin.ondataload==========");
+};
+
+// UDC 셋팅이 이후..
+scwin.onUdcCompleted = function() {
+    console.log("===========scwin.onUdcCompleted==========");
+    $c.gus.cfDisableKeyData();
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 조회 : 데이터를 조회한다.
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+	dma_search.set("userId", scwin.userId);
+    $c.sbm.execute(sbm_search);
+};
+
+//-------------------------------------------------------------------------
+// 저장 : 
+//-------------------------------------------------------------------------
+scwin.f_Update = async function() {
+    console.log("===========scwin.f_Update==========");
+	if (await scwin.f_ReqFieldChk()) {
+		let ret = await $c.win.confirm(MSG_CM_CRM_001);
+		if (ret) {
+			$c.sbm.execute(sbm_save);
+		}
+	}
+};
+
+scwin.f_ReqFieldChk = function (e) {
+	//필수입력항목 체크
+	if (lc_basisMenuClsCd.getValue() == "" ) {
+		$c.win.alert(scwin.MSG_LO_ERR_001);
+		return false;
+	}
+
+	if (lc_msgConfirmCycCd.getValue() == "" ) {
+		$c.win.alert(scwin.MSG_LO_ERR_004);
+		return false;
+	}
+	return true;
+};
+
+scwin.sbm_search_submitdone = function (e) {
+    var json = e.responseJSON;
+    dma_result.setJSON(json["GAUCE"][0]);
+};
+
+scwin.sbm_save_submitdone = function (e) {
+
+    if(rd_darkmodeYn.getValue() == "1") { // 다크모드일때
+        $("body").addClass("dark");
+        $p.top().dma_memInfo.set("darkmodeYn", "1");
+    } else {
+        $("body").removeClass("dark");
+        $p.top().dma_memInfo.set("darkmodeYn", "0");
+    }
+    //$c.data.getMemInfo("darkmodeYn");
+	$c.win.alert(MSG_CM_INF_001);	// 성공적으로 저장하였습니다
+};
+
+scwin.sbm_save_submiterror = function (e) {
+	//cfShowError(tr_saveEmp);
+};
+
+//-------------------------------------------------------------------------
+// 코드팝업
+//------------------------------------------------------------------------
+scwin.f_openCommonPopUp = async function (disGubun, pCode, pName, pClose, pAllSearch) {
+    console.log("============f_openCommonPopUp=========");
+    // 선언부
+    //var rtnList;  // 공통POP-UP -> 요청화면 
+    var rtnList = new Array();
+    var SelectValue = "retrievePgmInfo";
+    var bAllSearch = "T";
+    var bAutoClose = "F";
+    var bExist = "F";
+        
+    switch (disGubun)
+    {
+        case 1:
+            rtnList = await udc_actPgmId.cfCommonPopUp(
+                                     scwin.udc_actPgmId_callback
+                                    ,""
+                                    ,""
+                                    ,pClose
+                                    ,null					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                    ,null					// Title순서	
+                                    ,null					// 보여주는 각 컬럼들의 폭	
+                                    ,null					// 컬럼중에서 숨기는	컬럼 지정	
+                                    ,null					// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                                    ,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+                                    ,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+                                    ,null					// 윈도우 위치 Y좌표	
+                                    ,null					// 윈도우 위치 X좌표
+                                    ,bExist					// 중복체크여부	("F")
+                                    ,bAllSearch				// 전체검색허용여부	("F")
+                                    ,null					// POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                                    );
+
+            break;
+            
+    }
+    	
+};
+
+scwin.udc_actPgmId_callback = function(rtnList) {
+    console.log("============udc_acctDeptCdCond_callback=========");
+    if (rtnList != null ) {
+    	if (rtnList[0] != "N/A") {
+    		ed_actPgmId.setValue(rtnList[0]);
+			ed_actPgmId.options.hidVal = rtnList[0];
+			ed_actPgmNm.setValue(rtnList[1]);
+		}
+    } else {
+		ed_actPgmId.setValue("");
+		ed_actPgmId.options.hidVal = "";
+		ed_actPgmNm.setValue("");
+    }
+};
+
+scwin.udc_actPgmId_onblurCodeEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_actPgmId.getValue(), ed_actPgmNm.getValue(), 'F', 'F')
+};
+
+scwin.udc_actPgmId_onclickEvent = function (e) {
+    console.log("============udc_actPgmId_onclickEvent=========");
+    scwin.f_openCommonPopUp(1, ed_actPgmId.getValue(), ed_actPgmNm.getValue(), 'F', 'F')
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="개인환경설정" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    						</xf:group><xf:group class="tbbox" id="" style="">
+    									<xf:group class="w2tb" id="" style="" tagname="table">
+    										<w2:attributes>
+    											<w2:summary></w2:summary>
+    										</w2:attributes>
+    										<xf:group tagname="colgroup">
+    											<xf:group style="width:120px;" tagname="col"></xf:group>
+    											<xf:group style="" tagname="col"></xf:group>
+    										</xf:group>
+    										<xf:group style="" tagname="tr">
+    											<xf:group class="w2tb_th" style="" tagname="th">
+    												<w2:textbox class="" id="" label="사용자ID" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" style="" tagname="td">
+    												<xf:input class="form-control w150" id="ed_userId" style="" ref="data:dma_result.userId" objType="data" maxlength="50" mandatory="true">
+    												</xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="" id="" label="사용자명" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes>
+    													<w2:colspan>1</w2:colspan>
+    													<w2:rowspan>1</w2:rowspan>
+    												</w2:attributes>
+    												<xf:input class="form-control w150" id="ed_userNm" style="" ref="data:dma_result.userNm" objType="data" maxlength="50" mandatory="true">
+    												</xf:input>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="req" id="" label="기본메뉴" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes></w2:attributes>
+    												<w2:autoComplete allOption="" class="" editType="select" id="lc_basisMenuClsCd" ref="data:dma_result.basisMenuClsCd" search="start" style="width:150px;" submenuSize="auto" mandatory="true" chooseOption="">
+    													<w2:choices></w2:choices>
+    												</w2:autoComplete>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="req" id="" label="화면모드" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes></w2:attributes>
+
+    												<xf:select1 id="rd_darkmodeYn" selectedIndex="0" appearance="full"
+    													style="width:196px;height:21px;" cols="2" rows="" ref="data:dma_result.darkmodeYn" renderType="radiogroup">
+    													<xf:choices>
+    														<xf:item>
+    															<xf:label><![CDATA[일반모드]]></xf:label>
+    															<xf:value><![CDATA[0]]></xf:value>
+    														</xf:item>
+    														<xf:item>
+    															<xf:label><![CDATA[다크모드]]></xf:label>
+    															<xf:value><![CDATA[1]]></xf:value>
+    														</xf:item>
+    													</xf:choices>
+    												</xf:select1>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr" style="display:none;">
+    											<xf:group class="w2tb_th" tagname="th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="" id="" label="초기프로그램" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group class="w2tb_td" tagname="td">
+    												<w2:attributes></w2:attributes>
+    												<w2:udc_comCode allowCharCode="0-9" btnId="btn_actPgmId" code="userBasisPgmId" codeId="ed_actPgmId" editTypeName="focus" ev:onblurCodeEvent="scwin.udc_actPgmId_onblurCodeEvent" ev:onclickEvent="scwin.udc_actPgmId_onclickEvent" id="udc_actPgmId" maxlengthCode="100" maxlengthName="100" name="userBasisPgmNm" nameId="ed_actPgmNm" objTypeCode="data" objTypeName="data" popupID="" refDataCollection="dma_result" selectID="retrievePgmInfo" style="" validExpCode="프로그램명:no:maxByteLength=100" codeWidth="150" readOnlyName="true" readOnlyCode="true">
+    												</w2:udc_comCode>
+    											</xf:group>
+    										</xf:group>
+    										<xf:group tagname="tr">
+    											<xf:group tagname="th" class="w2tb_th">
+    												<w2:attributes>
+    													<w2:scope>row</w2:scope>
+    												</w2:attributes>
+    												<w2:textbox class="req" id="" label="메시지확인주기" ref="" style="" userData2=""></w2:textbox>
+    											</xf:group>
+    											<xf:group tagname="td" class="w2tb_td">
+    												<w2:attributes></w2:attributes>
+    												<w2:autoComplete allOption="" class="" editType="select" id="lc_msgConfirmCycCd" ref="data:dma_result.msgConfirmCycCd" search="start" style="width:150px;" submenuSize="auto" mandatory="true" chooseOption="" visibleRowNum="10">
+    													<w2:choices></w2:choices>
+    												</w2:autoComplete>
+    											</xf:group>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group>
+    					<xf:group class="btnbox" id="" style="">
+    						<xf:group class="right" id="" style="">
+    							<xf:trigger class="btn" id="btn_Update" style="" type="button" ev:onclick="scwin.f_Update" objType="bUpdate">
+    								<xf:label><![CDATA[수정]]></xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    </body>
+</html>

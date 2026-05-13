@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_up_basetrfList" saveRemovedData="true">
+    				<w2:columnInfo>
+						<w2:column id="districtCd" name="지역코드" dataType="text"></w2:column>
+    					<w2:column id="districtNm" name="지역명" dataType="text"></w2:column>
+                        <w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="wrkPlNm" name="작업장명" dataType="text"></w2:column>
+    					<w2:column id="trnpDtc" name="이송거리" dataType="number"></w2:column>
+                    </w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_basetrfList" saveRemovedData="true" ev:oncelldatachange="scwin.ds_basetrfList_oncelldatachange">
+    				<w2:columnInfo>
+    					<w2:column id="districtCd" name="지역코드" dataType="text"></w2:column>
+    					<w2:column id="districtNm" name="지역명" dataType="text"></w2:column>
+                        <w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="wrkPlNm" name="작업장명" dataType="text"></w2:column>
+    					<w2:column id="trnpDtc" name="이송거리" dataType="number"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_tmp_basetrfList" saveRemovedData="true">
+    				<w2:columnInfo>
+                        <w2:column id="districtCd" name="지역코드" dataType="text"></w2:column>
+    					<w2:column id="districtNm" name="지역명" dataType="text"></w2:column>
+                        <w2:column id="wrkPlCd" name="작업장코드" dataType="text"></w2:column>
+    					<w2:column id="wrkPlNm" name="작업장명" dataType="text"></w2:column>
+    					<w2:column id="trnpDtc" name="이송거리" dataType="number"></w2:column>
+                    </w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_retrieve">
+    				<w2:keyInfo>
+						<w2:key id="districtCd" name="지역코드" dataType="text"></w2:key>
+    					<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.lo.comninfomgnt.RetrieveOtherWarehouseTransportDistanceListCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"ds_retrieve","key":"IN_DS1"},{"id":"ds_basetrfList","key":"OUT_DS1"}]' target='data:json,[{"id":"ds_basetrfList","key":"OUT_DS1"}]' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="scwin.sbm_retrieve_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.lo.comninfomgnt.SaveOtherWarehouseTransportDistanceListCMD.do" method="post" mediatype="application/json" ref='data:json,[{"action":"modified", "id":"ds_basetrfList","key":"IN_DS1"}]' target="" encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="scwin.sbm_save_submiterror"
+    			abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+
+//-------------------------------------------------------------------------
+// function name : 
+// function desc : 전역변수 선언
+//------------------------------------------------------------------------- 
+scwin.MSG_LO_CRM_001 = "변경 사항이 존재합니다. 진행하시겠습니까?"
+scwin.MSG_LO_ERR_002 = "@행, @칼럼의 코드가 일치하지 않습니다.";     
+
+scwin.onpageload = function() {
+};
+ 
+scwin.onUdcCompleted = function() {
+    scwin.f_defaultValue();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_defaultValue
+// function desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function() {
+
+	//항구지역 Focus
+	ed_portDistrictCd.focus();
+};
+
+
+//-------------------------------------------------------------------------
+// function name : f_Addrow
+// function desc : 행추가
+//-------------------------------------------------------------------------
+scwin.f_addrow = function() {
+    var rowIndex = ds_basetrfList.getRowCount();
+    if(rowIndex == 0){
+        ds_basetrfList.insertRow();
+    }else{
+        $c.gus.cfCopyRecord(gr_basetrfList);
+    }
+	gr_basetrfList.setFocusedCell(rowIndex, "districtCd", true);
+
+    tbx_totalRows.setValue(ds_basetrfList.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Delrow
+// function desc : 행삭제
+//-------------------------------------------------------------------------
+scwin.f_delrow = function() {
+    var rowIndex = ds_basetrfList.getRowPosition();
+    if("C" == ds_basetrfList.getRowStatus(rowIndex)){
+        ds_basetrfList.removeRow(rowIndex);
+    }else{
+	    ds_basetrfList.deleteRow(rowIndex);
+    }
+
+    tbx_totalRows.setValue(ds_basetrfList.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// function name : f_undo
+// function desc : 취소
+//-------------------------------------------------------------------------
+scwin.f_undo = function() {
+    var rowIndex = ds_basetrfList.getRowPosition();
+	if("C" == ds_basetrfList.getRowStatus(rowIndex)){
+        ds_basetrfList.removeRow(rowIndex);
+    } else {
+    	ds_basetrfList.undoRow(rowIndex);
+	}
+
+	tbx_totalRows.setValue(ds_basetrfList.getRowCount());
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+	$c.gus.cfInitObjects(tbl_search,null);
+	scwin.f_defaultValue();
+};
+
+//-------------------------------------------------------------------------
+// function name : f_validChk
+// function desc : 필수 조회 조건 check
+//-------------------------------------------------------------------------
+scwin.f_validChk = async function() {
+	if(ds_basetrfList.getModifiedIndex().length != 0){
+		if( !await $c.win.confirm(scwin.MSG_LO_CRM_001) ){
+            return false;
+        }
+    }
+	return true;
+};
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = function() {
+    ds_basetrfList.removeAll(); //out 초기화!
+	$c.sbm.execute(sbm_retrieve)
+};
+
+
+//-------------------------------------------------------------------------
+// function name : f_upload
+// function desc : csv file UpLoad
+//-------------------------------------------------------------------------
+scwin.f_upload = function() {
+	let options = {
+        headerExist : 1,
+        header : 1,
+        startRowIndex : 0,
+    };
+	
+	//ds_up_basetrfList.removeAll();
+	ds_basetrfList.setJSON([]);
+	udc_topGrdBtn.uploadGridViewExcel(gr_tmp_basetrfList, options);
+};
+
+scwin.gr_tmp_basetrfList_onfilereadend = async function() {
+	var rtnList = "";
+
+	for(var i=0 ;i < ds_tmp_basetrfList.getRowCount(); i++) {
+		ds_basetrfList.insertRow();
+	
+		//항구지역조회
+		if (ds_tmp_basetrfList.getCellData(i,"districtCd") != "") {
+			udc_comCode_Grid.setSelectId("retrieveDistrictList");	
+  		    rtnList = await udc_comCode_Grid.cfCommonPopUpAsync(null
+							        ,ds_tmp_basetrfList.getCellData(i,"districtCd")
+							        ,''					    
+							        ,'T'					
+							        ,'5'					
+							        ,null					
+							        ,null  		            
+							        ,null					
+							        ,',,PCD'				
+							        ,null					
+							        ,null					
+							        ,null					
+							        ,null					
+							        ,null					
+							        ,'F'				
+							        ,'항구지역조회,지역코드,지역명'
+							        ,'T'
+							       );
+			if (rtnList == null || rtnList[0].trim() == "N/A" ) {
+				ds_basetrfList.setCellData(i,"districtCd","");
+				ds_basetrfList.setCellData(i,"districtNm","");
+				$c.gus.cfAlertMsg(scwin.MSG_LO_ERR_002,new Array(i,"항구지역"));
+				ds_basetrfList.removeAll();
+				ds_tmp_basetrfList.removeAll();
+				return;
+			} else {				
+		        $c.gus.cfSetGridReturnValue(rtnList, ds_basetrfList, i, "districtCd", "districtNm");
+		    }
+		}
+
+		//작업장조회
+		if (ds_tmp_basetrfList.getCellData(i,"wrkPlCd") != "") {	
+			udc_comCode_Grid.setSelectId("retrieveWrkPlInfo3");	
+			rtnList = await udc_comCode_Grid.cfCommonPopUpAsync(null
+							        ,ds_tmp_basetrfList.getCellData(i,"wrkPlCd")
+							        ,''
+							        ,'T'
+							        ,'5'
+							        ,null
+							        ,null
+							        ,null
+							        ,'W,T'
+							        ,null
+							        ,null
+							        ,null
+							        ,null
+							        ,null
+							        ,'F'
+							        ,'작업장조회,작업장코드,작업장명'
+							        ,'T'
+							       );	
+			if (rtnList != null && rtnList[0].trim() == "N/A" ) {
+				ds_basetrfList.getCellData(i,"wrkPlCd","");
+				ds_basetrfList.getCellData(i,"wrkPlNm","");
+				$c.gus.cfAlertMsg(scwin.MSG_LO_ERR_002,new Array(i,"작업장"));
+				ds_basetrfList.removeAll();
+				ds_tmp_basetrfList.removeAll();
+				return;
+			} else {				
+		        $c.gus.cfSetGridReturnValue(rtnList, ds_basetrfList, i, "wrkPlCd", "wrkPlNm");
+		    }
+		}
+
+        ds_basetrfList.setCellData(i,"trnpDtc", ds_tmp_basetrfList.getCellData(i,"trnpDtc"));	
+	}
+		
+	ds_tmp_basetrfList.removeAll(); 
+}
+
+
+//-------------------------------------------------------------------------
+// function name : f_Save
+// function desc : 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function() {
+	if (await scwin.f_ReqFieldChk()) {
+	    if(await $c.win.confirm(MSG_CM_CRM_001)==true){
+			$c.sbm.execute(sbm_save)
+	    }
+    }
+};
+
+//-------------------------------------------------------------------------
+// function name : f_ReqFieldChk
+// function desc : 필수 입력항목 체크
+//-------------------------------------------------------------------------
+scwin.f_ReqFieldChk = async function() {
+    if(ds_basetrfList.getModifiedJSON().length < 1){
+		$c.gus.cfAlertMsg(MSG_CM_ERR_001,["타창고 이송거리 관리"]);//"@은(는) 변경된 사항이 없습니다.";
+		return false;
+	}
+
+	if (!await $c.gus.cfValidate([gr_basetrfList], null, true)) {
+  		return false;
+	}
+
+	return true;
+};
+
+//-------------------------------------------------------------------------
+// function name : f_openCommonPopUp
+// function desc : popup
+//-------------------------------------------------------------------------
+scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+	//var rtnList = new Array();
+    
+	switch (disGubun)
+  	{
+		//항구지역 조회	    
+  		case 1:	
+            udc_portDistrictCd.cfCommonPopUp(scwin.udc_portDistrictCd_callBackFunc
+                                            ,pCode					// 화면에서의 ??? Code Element의	Value
+                                            ,pName					// 화면에서의 ??? Name Element의	Value
+                                            ,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+                                            ,'5'					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+                                            ,'지역코드,지역명'			// Title순서	
+                                            ,null  		            // 보여주는 각 컬럼들의 폭	
+                                            ,null					// 컬럼중에서 숨기는	컬럼 지정	
+                                            ,',,PCD'				// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+                                            ,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+                                            ,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+                                            ,null					// 윈도우 위치 Y좌표	
+                                            ,null					// 윈도우 위치 X좌표
+                                            ,null					// 중복체크여부	("F")
+                                            ,pAllSearch				// 전체검색허용여부	("F")
+                                            ,'항구지역조회,지역코드,지역명'				    // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+                                        );
+			break;	
+		
+		//작업장 ( 작업장구분이 :W(창고),  작업장소유구분코드: T (타사) )
+  		case 2:
+            udc_wrkPlCd.cfCommonPopUp(scwin.udc_wrkPlCd_callBackFunc
+                                    ,pCode					// 화면에서의 ??? Code Element의	Value
+							        ,pName					// 화면에서의 ??? Name Element의	Value
+							        ,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+							        ,'5'					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+							        ,null					// Title순서	
+							        ,null  		            // 보여주는 각 컬럼들의 폭	
+							        ,null					// 컬럼중에서 숨기는	컬럼 지정	
+							        ,'W,T'				    // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+							        ,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+							        ,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+							        ,null					// 윈도우 위치 Y좌표	
+							        ,null					// 윈도우 위치 X좌표
+							        ,null					// 중복체크여부	("F")
+							        ,pAllSearch				// 전체검색허용여부	("F")
+							        ,'작업장조회,작업장코드,작업장명'				    // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+							       );
+			break;
+
+  		default:
+  			break;
+  	}
+};
+
+//-------------------------------------------------------------------------
+// 팝업 처리시 검색된 데이터인 경우 팝업 처리 안함.
+//-------------------------------------------------------------------------
+scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+    // 값이 입력이 안된 경우, 해당 Text Box가 readonly 인 경우, 이전값과 동일한 경우 팝업을 실행하지 않음.
+ 	if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+       return;
+   
+	// 짝이 되는 오브젝트의 값 제거
+	$c.gus.cfClearPairObj(pairObj);
+
+	// 검색어 세팅
+	var pVal = $c.gus.cfGetValue(inObj);
+        
+   	// inObj가 코드 필드일 경우 팝업
+    if (isCode == null || isCode == true)
+        scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+        // inObj가 코드명 필드일 경우 팝업
+    else
+        scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+};
+
+//-------------------------------------------------------------------------
+// 그리드에서 입력된 코드정보로  팝업조회 - 작업장, 품목
+//-------------------------------------------------------------------------
+scwin.f_openCommPopUpGrid = function(disGubun, row, pCode, pName, pClose) {
+	scwin.isPopupOpen = true;
+
+	return new Promise(function(resolve) {
+		let settled = false;
+
+		function safeResolve(data) {
+			if (settled) return;
+			settled = true;
+
+			scwin.isPopupOpen = false;
+
+			// pendingClick 처리 (여기서 실행)
+			if (pClose === 'T' && data && data[0] && scwin.pendingClick) {
+
+				let p = scwin.pendingClick;
+				scwin.pendingClick = null;
+
+				scwin.f_openCommPopUpGrid(disGubun, p.row, pCode, pName, 'F');
+			} else {
+				scwin.pendingClick = null;
+			}
+
+			resolve(data);
+		}
+
+		switch (disGubun)
+		{
+			//항구지역 조회	    
+			case 1: 	
+				ds_basetrfList.setCellData(row, "districtCd", "");
+				ds_basetrfList.setCellData(row, "districtNm", "");
+				udc_comCode_Grid.setSelectId("retrieveDistrictList");	
+				udc_comCode_Grid.cfCommonPopUp(function(rtnList){
+											let row = ds_basetrfList.getRowPosition();
+											if ( rtnList != null && rtnList[0].trim() != "N/A") {
+												$c.gus.cfSetGridReturnValue(rtnList, ds_basetrfList, row, "districtCd", "districtNm");
+											} else{
+												ds_basetrfList.setCellData(row, "districtCd", "");
+												ds_basetrfList.setCellData(row, "districtNm", "");
+											}
+											safeResolve(rtnList);
+										}
+										,pCode					// 화면에서의 ??? Code Element의	Value
+										,pName					// 화면에서의 ??? Name Element의	Value
+										,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+										,'5'					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+										,'지역코드,지역명'			// Title순서	
+										,null  		            // 보여주는 각 컬럼들의 폭	
+										,null					// 컬럼중에서 숨기는	컬럼 지정	
+										,',,PCD'				// SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+										,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+										,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+										,null					// 윈도우 위치 Y좌표	
+										,null					// 윈도우 위치 X좌표
+										,null					// 중복체크여부	("F")
+										,'F'				    // 전체검색허용여부	("F")
+										,'항구지역조회,지역코드,지역명'				    // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+									);													 
+				break;
+		
+			case 2:
+				//작업장 ( 작업장구분이 :W(창고),  작업장소유구분코드: T (타사) )   
+				ds_basetrfList.setCellData(row, "wrkPlCd", "");
+				ds_basetrfList.setCellData(row, "wrkPlNm", ""); 
+				udc_comCode_Grid.setSelectId("retrieveWrkPlInfo3");			    
+				udc_comCode_Grid.cfCommonPopUp(function(rtnList){
+										let row = ds_basetrfList.getRowPosition();
+										if ( rtnList != null && rtnList[0].trim() != "N/A") {
+											$c.gus.cfSetGridReturnValue(rtnList, ds_basetrfList, row, "wrkPlCd", "wrkPlNm");
+										} else {
+											ds_basetrfList.setCellData(row, "wrkPlCd", "");
+											ds_basetrfList.setCellData(row, "wrkPlNm", "");
+										}
+										safeResolve(rtnList);
+									}
+										,pCode					// 화면에서의 ??? Code Element의	Value
+										,pName					// 화면에서의 ??? Name Element의	Value
+										,pClose					// 결과가 1건 일때  원도우를	AutoClose 여부	(T:Close,F:Opened)
+										,'5'					// 검색 결과	컬럼의 보여주는	개수 (SELECT절의 순서) MAX:10 - default (2)
+										,null					// Title순서	
+										,null  		            // 보여주는 각 컬럼들의 폭	
+										,null					// 컬럼중에서 숨기는	컬럼 지정	
+										,'W,T'				    // SQL절의 WHERE절에	원하는 조건을 선택함 MAX:8개까지 가능
+										,null					// POP-UP뛰을때 원도우의	사용자 정의	폭
+										,null					// POP-UP뛰을때 우도우의	사용자 정의	높이	
+										,null					// 윈도우 위치 Y좌표	
+										,null					// 윈도우 위치 X좌표
+										,null					// 중복체크여부	("F")
+										,'F'				    // 전체검색허용여부	("F")
+										,'작업장조회,작업장코드,작업장명'				    // POP-UP Window Title 검색어1,2	 ("Win타이틀,첫번검색Nm,두번?검색Nm")
+									);													 
+				break;
+			default:
+				break;
+		}
+		// X닫힘 감지
+		try {
+
+			const timeout = setTimeout(function () {
+
+				if (!settled) {
+					safeResolve(null);
+				}
+
+			}, 700); 
+
+		} catch (e) {}
+	});
+};
+
+// 검색조건 이벤트
+scwin.udc_portDistrictCd_onviewchangeNameEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_portDistrictNm, ed_portDistrictCd, 1, false);
+};
+
+scwin.udc_portDistrictCd_onblurCodeEvent = function (e) {
+	scwin.f_chkOpenCommonPopUp(ed_portDistrictCd, ed_portDistrictNm, 1, true);
+};
+
+scwin.udc_portDistrictCd_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(1, ed_portDistrictCd.getValue(), ed_portDistrictNm.getValue(),'F','F');
+};
+
+scwin.udc_portDistrictCd_callBackFunc = function (rtnList) {
+	$c.gus.cfSetReturnValue(rtnList, ed_portDistrictCd, ed_portDistrictNm);
+};
+
+
+scwin.udc_wrkPlCd_onclickEvent = function (e) {
+    scwin.f_openCommonPopUp(2, ed_wrkPlCd.getValue(), ed_wrkPlNm.getValue(),'F','F');
+};
+
+scwin.udc_wrkPlCd_onviewchangeNameEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_wrkPlNm, ed_wrkPlCd, 2, false);
+};
+
+scwin.udc_wrkPlCd_onblurCodeEvent = function (e) {
+    scwin.f_chkOpenCommonPopUp(ed_wrkPlCd, ed_wrkPlNm, 2, true);
+};
+
+scwin.udc_wrkPlCd_callBackFunc = function (rtnList) {
+	$c.gus.cfSetReturnValue(rtnList, ed_wrkPlCd, ed_wrkPlNm);
+};
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    var rowcnt = ds_basetrfList.getRowCount();
+	if (rowcnt == 0) {
+        $c.gus.cfAlertMsg(MSG_CM_WRN_002);
+	} else{
+        ds_basetrfList.setRowPosition(0);
+        gr_basetrfList.setFocusedCell(0, 0);
+    }
+
+    tbx_totalRows.setValue(rowcnt);
+};
+
+scwin.btn_Srch_onclick = async function (e) {
+    if (!await scwin.f_validChk()) {
+		return;
+	}else{
+        scwin.f_Retrieve();
+    }
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.sbm_retrieve_submiterror = function (e) {
+
+};
+
+scwin.sbm_save_submitdone = async function (e) {
+	if (e.responseJSON.resultDataSet[0].Code == 0) {
+		await $c.gus.cfAlertMsg(MSG_CM_INF_001);	// 성공적으로 저장하였습니다 	
+    	scwin.f_Retrieve();
+	}
+};
+
+scwin.sbm_save_submiterror = function (e) {
+
+};
+
+scwin.olddata = "";
+scwin.gr_basetrfList_onbeforeedit = function(rowIndex, columnIndex, value){
+	scwin.olddata = value;
+}
+
+scwin.isPopupOpen = false;
+scwin.gr_basetrfList_onafteredit = function (rowIndex, columnIndex, value) {
+	let colID = ds_basetrfList.getColumnID(columnIndex);
+	let olddata = scwin.olddata;
+
+	switch (colID) {
+		case "districtCd":
+			if (value != "" && value != olddata){
+				ds_basetrfList.setCellData(rowIndex,"districtCd", "");
+				ds_basetrfList.setCellData(rowIndex,"districtNm", "");				
+				scwin.f_openCommPopUpGrid(1, rowIndex, value, '', 'T');
+			} else if(value == "") {
+				ds_basetrfList.setCellData(rowIndex,"districtCd", "");
+				ds_basetrfList.setCellData(rowIndex,"districtNm", "");					
+			}
+			break;		
+		case "districtNm":
+			if (value != "" && value != olddata){
+				ds_basetrfList.setCellData(rowIndex,"districtCd", "");
+				ds_basetrfList.setCellData(rowIndex,"districtNm", "");	
+				scwin.f_openCommPopUpGrid(1, rowIndex, '', value, 'T');
+			} else if(value == "") {
+				ds_basetrfList.setCellData(rowIndex,"districtCd", "");
+				ds_basetrfList.setCellData(rowIndex,"districtNm", "");	
+			}
+			break;
+		case "wrkPlCd":
+			if (value != "" && value != olddata){
+				ds_basetrfList.setCellData(rowIndex,"wrkPlCd", "");
+				ds_basetrfList.setCellData(rowIndex,"wrkPlNm", "");	
+				scwin.f_openCommPopUpGrid(2, rowIndex, value, '', 'T');
+			} else if(value == "") {
+				ds_basetrfList.setCellData(rowIndex,"wrkPlCd", "");
+				ds_basetrfList.setCellData(rowIndex,"wrkPlNm", "");	
+			}
+			break;
+		case "wrkPlNm":
+			if (value != "" && value != olddata){
+				ds_basetrfList.setCellData(rowIndex,"wrkPlCd", "");
+				ds_basetrfList.setCellData(rowIndex,"wrkPlNm", "");	
+				scwin.f_openCommPopUpGrid(2, rowIndex, '', value, 'T');
+			} else if(value == "") {
+				ds_basetrfList.setCellData(rowIndex,"wrkPlCd", "");
+				ds_basetrfList.setCellData(rowIndex,"wrkPlNm", "");	
+			}
+			break;
+	}
+};
+
+scwin.ds_basetrfList_oncelldatachange = function(info) {
+	var rowIndex = info.rowIndex;
+    var colID = info.colID;
+    var newValue = info.newValue;
+	if(colID == "trnpDtc" && newValue == ""){
+		ds_basetrfList.setCellData(rowIndex, colID, "0");
+	}
+}
+
+scwin.pendingClick = null;
+scwin.gr_basetrfList_ontextimageclick = function (rowIndex, columnIndex) {
+	// 팝업 열려있으면 나중에 실행
+    if (scwin.isPopupOpen) {
+        scwin.pendingClick = { rowIndex, columnIndex };
+        return;
+    }
+
+    switch (gr_basetrfList.getColumnID(columnIndex)) {
+        case "districtNm":
+            scwin.f_openCommPopUpGrid(1, rowIndex, gr_basetrfList.getCellData(rowIndex, "districtCd"), gr_basetrfList.getCellData(rowIndex, "districtNm"), 'F');
+            break;
+        case "wrkPlNm":
+            scwin.f_openCommPopUpGrid(2, rowIndex, gr_basetrfList.getCellData(rowIndex, "wrkPlCd"), gr_basetrfList.getCellData(rowIndex, "wrkPlNm"), 'F');
+            break;
+    }
+};
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox " id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb tb" id="" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="tbl_search" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="" id="" label="항구지역" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<w2:udc_comCode popupID="지역코드" style="" id="udc_portDistrictCd" codeId="ed_portDistrictCd" btnId="btn_portDistrictCd" nameId="ed_portDistrictNm" selectID="retrieveDistrictList" ev:onclickEvent="scwin.udc_portDistrictCd_onclickEvent" refDataCollection="ds_retrieve" code="districtCd" ev:onviewchangeNameEvent="scwin.udc_portDistrictCd_onviewchangeNameEvent" ev:onblurCodeEvent="scwin.udc_portDistrictCd_onblurCodeEvent" name="districtNm" UpperFlagCode="1" maxlengthCode="3" allowCharCode="A-Za-z0-9" maxlengthName="50"></w2:udc_comCode>
+    								</xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<w2:textbox class="" id="" label="작업장" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td">
+    									<w2:udc_comCode popupID="" style="" id="udc_wrkPlCd" codeId="ed_wrkPlCd" nameId="ed_wrkPlNm" selectID="retrieveWrkPlInfo3" code="wrkPlCd" refDataCollection="ds_retrieve" ev:onclickEvent="scwin.udc_wrkPlCd_onclickEvent" ev:onviewchangeNameEvent="scwin.udc_wrkPlCd_onviewchangeNameEvent" ev:onblurCodeEvent="scwin.udc_wrkPlCd_onblurCodeEvent" name="wrkPlNm" btnId="btn_wrkPlCd" UpperFlagCode="1" maxlengthCode="6" allowCharCode="A-Za-z0-9" maxlengthName="50"></w2:udc_comCode>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_trigger1" style="" type="button" ev:onclick="scwin.f_FieldClear">
+    							<xf:label><![CDATA[]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Srch" style="" type="button" ev:onclick="scwin.btn_Srch_onclick" userAuth="R">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="Y" btnUser="N" gridUpFn="scwin.f_upload" gridID="gr_basetrfList" id="udc_topGrdBtn" grdDownOpts='{"fileName":"타창고 이송거리 관리.xlsx", "sheetName":"타창고 이송거리 관리"}' gridDownUserAuth="X" gridUpUserAuth="X"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_basetrfList" id="gr_basetrfList" style="" rowStatusVisible="true" ev:onbeforeedit="scwin.gr_basetrfList_onbeforeedit" ev:onafteredit="scwin.gr_basetrfList_onafteredit" ev:ontextimageclick="scwin.gr_basetrfList_ontextimageclick" visibleRowNum="16"
+									dataName="타창고이송거리목록" 
+                           			validFeatures="ignoreStatus=no"
+									validExp="districtCd:항구지역 코드:yes:maxLength=3:key,
+                           			 wrkPlCd:작업장 코드:yes:maxLength=5:key,
+                           			 trnpDtc:거리(KM):yes:minNumber=1">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="항구지역" width="140" colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style="" value="작업장" width="140" colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="거리(KM)" width="200" colSpan="" rowSpan="2" class="col-type1">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    											<w2:column width="100" inputType="text" style="" id="column30" value="코드" displayMode="label" class="col-type1">
+    											</w2:column>
+    											<w2:column width="180" inputType="text" style="" id="column29" value="항구지역명" displayMode="label" class="col-type1">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column28" value="코드" displayMode="label" class="col-type1">
+    											</w2:column>
+    											<w2:column width="180" inputType="text" style="" id="column27" value="작업장명" displayMode="label" class="col-type1">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="districtCd" inputType="text" style="" value="" width="100" maxLength="7" textAlign="left" allowChar="A-Za-z0-9" class="req"></w2:column>
+    											<w2:column displayMode="label" id="districtNm" inputType="textImage" style="" value="" width="180" textAlign="left" class="req" maxLength="50">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wrkPlCd" inputType="text" style="" value="" width="100" maxLength="7" textAlign="left" allowChar="A-Za-z0-9" class="req">
+    											</w2:column>
+    											<w2:column displayMode="label" id="wrkPlNm" inputType="textImage" style="" value="" width="180" textAlign="left" class="req" maxLength="50">
+    											</w2:column>
+    											<w2:column displayMode="label" id="trnpDtc" inputType="text" style="" value="" width="200" maxLength="5" allowChar="0-9" textAlign="right" min="1" dataType="number" class="req" displayFormat="#,##0">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    							<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<w2:udc_bottomGrdBtn style="" id="udc_addRow" rowAddFunction="scwin.f_addrow" btnCancelYn="Y" btnDelYn="N" rowDelFunction="scwin.f_delrow" cancelFunction="scwin.f_undo" rowAddUserAuth="C" rowDelUserAuth="D"></w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					<xf:group class="btnbox" id="">
+    						<xf:group class="right" id="">
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+						
+						<w2:gridView dataList="data:ds_tmp_basetrfList" id="gr_tmp_basetrfList" visible="false" ev:onfilereadend="scwin.gr_tmp_basetrfList_onfilereadend">
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column1" inputType="text" style="" value="항구지역" width="140" colSpan="2" rowSpan="" sortable="false">
+									</w2:column>
+									<w2:column displayMode="label" id="column15" inputType="text" style="" value="작업장" width="140" colSpan="2" rowSpan="" sortable="false">
+									</w2:column>
+									<w2:column displayMode="label" id="column11" inputType="text" style="" value="거리(KM)" width="200" colSpan="" rowSpan="2" class="col-type1">
+									</w2:column>
+								</w2:row>
+								<w2:row style="" id="row3">
+									<w2:column width="100" inputType="text" style="" id="column30" value="코드" displayMode="label" class="col-type1">
+									</w2:column>
+									<w2:column width="180" inputType="text" style="" id="column29" value="항구지역명" displayMode="label" class="col-type1">
+									</w2:column>
+									<w2:column width="100" inputType="text" style="" id="column28" value="코드" displayMode="label" class="col-type1">
+									</w2:column>
+									<w2:column width="180" inputType="text" style="" id="column27" value="작업장명" displayMode="label" class="col-type1">
+									</w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="districtCd" inputType="text" style="" value="" width="100" maxLength="7" textAlign="left" allowChar="A-Za-z0-9" class="req"></w2:column>
+									<w2:column displayMode="label" id="districtNm" inputType="textImage" style="" value="" width="180" textAlign="left" class="req" maxLength="50">
+									</w2:column>
+									<w2:column displayMode="label" id="wrkPlCd" inputType="text" style="" value="" width="100" maxLength="7" textAlign="left" allowChar="A-Za-z0-9" class="req">
+									</w2:column>
+									<w2:column displayMode="label" id="wrkPlNm" inputType="textImage" style="" value="" width="180" textAlign="left" class="req" maxLength="50">
+									</w2:column>
+									<w2:column displayMode="label" id="trnpDtc" inputType="text" style="" value="" width="200" maxLength="5" textAlign="right" min="1" dataType="number" class="req" displayFormatter="scwin.displayTrnpDt">
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+						<w2:udc_comCode popupID="" selectID="" codeId="" validTitle="" nameId="" style="width:%; height:px; display:none;" id="udc_comCode_Grid"></w2:udc_comCode>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

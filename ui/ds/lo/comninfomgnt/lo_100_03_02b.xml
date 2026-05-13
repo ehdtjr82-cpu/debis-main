@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_kindOfCargoList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="kcgCd" name="화종코드" dataType="text"></w2:column>
+    					<w2:column id="upperKcgCd" name="상위화종코드" dataType="text"></w2:column>
+
+    					<w2:column id="kcgNm" name="화종명" dataType="text"></w2:column>
+    					<w2:column id="kcgEngNm" name="화종영문명" dataType="text"></w2:column>
+
+    					<w2:column id="lvl" name="레벨" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="사용여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_kindOfCargo" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="kcgCd" name="화종코드" dataType="text"></w2:column>
+    					<w2:column id="upperKcgCd" name="상위화종코드" dataType="text"></w2:column>
+    					<w2:column id="kcgNm" name="화종명" dataType="text"></w2:column>
+    					<w2:column id="kcgEngNm" name="화종영문명" dataType="text"></w2:column>
+    					<w2:column id="lvl" name="레벨" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="사용여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_kindOfCargo_o" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="kcgCd" name="화종코드" dataType="text"></w2:column>
+    					<w2:column id="upperKcgCd" name="상위화종코드" dataType="text"></w2:column>
+    					<w2:column id="kcgNm" name="화종명" dataType="text"></w2:column>
+    					<w2:column id="kcgEngNm" name="화종영문명" dataType="text"></w2:column>
+    					<w2:column id="lvl" name="레벨" dataType="text"></w2:column>
+    					<w2:column id="useYn" name="사용여부" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>                
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_commodityList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="commCd" name="품명코드" dataType="text" length="8"></w2:column>
+    					<w2:column id="commNm" name="품명명" dataType="text" length="50"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="ds_searchMap">
+    				<w2:keyInfo>
+    					<w2:key id="kcgCd" name="화종코드" dataType="text"></w2:key>
+    					<w2:key id="upperKcgCd" name="상위화종코드" dataType="text"></w2:key>
+    					<w2:key id="lvl" name="레벨" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" id="ds_kindOfCargo_o" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="kcgCd" name="화종코드"></w2:column>
+    					<w2:column dataType="text" id="upperKcgCd" name="상위화종코드"></w2:column>
+    					<w2:column dataType="text" id="kcgNm" name="화종명"></w2:column>
+    					<w2:column dataType="text" id="kcgEngNm" name="화종영문명"></w2:column>
+    					<w2:column dataType="text" id="lvl" name="레벨"></w2:column>
+    					<w2:column dataType="text" id="useYn" name="사용여부"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_save" action="/ds.lo.comninfomgnt.SaveKindOfCargoListCMD.do" method="post" mediatype="application/json"
+    			ref='data:json,{"action":"modified","id":"ds_kindOfCargoList","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler=""
+    			customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone"
+    			ev:submiterror="scwin.sbm_save_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveTree" action="/ds.lo.comninfomgnt.RetrieveKindOfCargoTreeCMD.do" method="post"
+    			mediatype="application/json" ref="" target='data:json,{"id":"ds_kindOfCargo","key":"GAUCE"}' encoding="UTF-8" instance=""
+    			replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+    			ev:submitdone="scwin.sbm_retrieveTree_submitdone" ev:submiterror="scwin.sbm_retrieveTree_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveComm" action="/ds.lo.comninfomgnt.RetrieveCommodityListCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"id":"ds_searchMap","key":"GAUCE"}' target='data:json,{"id":"ds_commodityList","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveComm_submitdone"
+    			ev:submiterror="scwin.sbm_retrieveComm_submiterror" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_retrieveList" action="/ds.lo.comninfomgnt.RetrieveKindOfCargoListCMD.do" method="post" mediatype="application/json" ref='data:json,{"id":"ds_searchMap","key":"GAUCE"}' target='data:json,{"id":"ds_kindOfCargoList","key":"GAUCE"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieveList_submitdone"
+    			ev:submiterror="scwin.sbm_retrieveList_submiterror" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.MSG_LO_WRN_001 = "'@' 은(는) 필수 입력항목입니다.";
+scwin.MSG_LO_WRN_002 = "하위 레벨이 존재하여 삭제할 수 없습니다.";
+
+scwin.hid_tv_index = 0;
+
+scwin.onpageload = function() {
+};
+
+
+//-------------------------------------------------------------------------
+// scwin.name : f_OnLoad
+// scwin.desc : 화면로딩시 
+//-------------------------------------------------------------------------   
+scwin.f_OnLoad = function() {
+
+};
+
+scwin.onUdcCompleted = function() {
+	scwin.f_defaultValue();
+	scwin.f_createTree();
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_defaultValue
+// scwin.desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function() {
+	$c.gus.cfDisableKey();
+};
+//-------------------------------------------------------------------------
+// scwin.name : f_createTree
+// scwin.desc : 화면 우측 Tree데이타 조회
+//-------------------------------------------------------------------------
+scwin.f_createTree = function() {
+
+    $c.sbm.execute(sbm_retrieveTree);
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_Addrow
+// scwin.desc : 그리드 칼럼 추가
+//-------------------------------------------------------------------------
+scwin.f_Addrow = function() {
+	var row = ds_kindOfCargoList.getRowCount();
+
+    var dsPos = scwin.f_getKcgCdPos();
+
+	ds_kindOfCargoList.insertRow(row);
+	ds_kindOfCargoList.setCellData(row, "upperKcgCd", ds_kindOfCargo.getCellData(dsPos, "kcgCd"));
+	ds_kindOfCargoList.setCellData(row, "lvl", parseInt(ds_kindOfCargo.getCellData(dsPos, "lvl")) + 1);
+	ds_kindOfCargoList.setCellData(row, "useYn",1);
+
+    gr_kindOfCargoList.setFocusedCell(row, "kcgCd", false);
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_Delrow
+// scwin.desc : 메인 그리드를 삭제했을 경우 sub그리드의 데이타까지 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delrow = function() {
+    var row = ds_kindOfCargoList.getRowPosition();
+	
+    if (ds_kindOfCargoList.getRowCount() > 0) {
+        if(ds_kindOfCargoList.getRowStatus(row) == "C"){
+            ds_kindOfCargoList.removeRow(row);
+        }else{
+		    ds_kindOfCargoList.deleteRow(row);
+        }
+	} else {
+		$c.gus.cfAlertMsg(scwin.MSG_LO_WRN_002);	
+		return;
+	}
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_Retrieve
+// scwin.desc : 조회
+//-------------------------------------------------------------------------
+
+scwin.f_Retrieve = function(strKcgCd) {
+    ds_searchMap.setEmptyValue();
+    ds_searchMap.set("upperKcgCd",strKcgCd);
+    $c.sbm.execute(sbm_retrieveList);
+};
+
+//-------------------------------------------------------------------------
+// scwin.name : f_retrieveComm
+// scwin.desc : 품목 조회 
+//-------------------------------------------------------------------------
+scwin.f_retrieveComm = function(strKcgCd) {
+
+    ds_searchMap.setEmptyValue();
+    ds_searchMap.set("kcgCd",strKcgCd);
+    ds_searchMap.set("lvl","4");
+    $c.sbm.execute(sbm_retrieveComm);
+};
+//-------------------------------------------------------------------------
+// scwin.name : f_Save
+// scwin.desc : 저장
+//-------------------------------------------------------------------------
+
+scwin.f_Save = async function() {
+	
+    if(ds_kindOfCargoList.getModifiedJSON().length < 1){
+        $c.gus.cfAlertMsg(MSG_CM_ERR_001,["품명"]);	//변경된 정보가 없습니다.
+        return;
+    }
+
+	scwin.hid_tv_index = tv_kindOfCargo.getSelectedIndex();
+	if (scwin.f_ReqFieldChk()) {	
+    	if (await $c.win.confirm(MSG_CM_CRM_001)) {
+            $c.sbm.execute(sbm_save);
+    	}
+    }
+};
+
+scwin.f_ReqFieldChk = function() {
+	
+	if ($c.gus.cfValidate([gr_kindOfCargoList])) {
+  		return true;
+	} else {
+  		return false;
+	}
+};
+
+scwin.f_openPopUp = function(disGubun, chgGubun) {
+};
+
+
+
+scwin.tv_kindOfCargo_onviewchange = async function (info) {
+    var oldVal = "";
+    var newVal = "";
+    if(undefined != info){
+        oldVal = info.oldNode.value;
+        newVal = info.newNode.value;
+        newLab = info.newNode.label;
+
+        if(ds_kindOfCargo.getModifiedJSON().length > 0 ){
+            if(! await $c.win.confirm(MSG_CM_CRM_005)){
+                if(oldVal != ""){
+                    tv_kindOfCargo.findNodeByValue(oldVal, true);
+                }else{
+                    tv_kindOfCargo.findNodeByIndex(1, true);
+                }
+                return;
+            }
+        }
+    }else{
+        tv_kindOfCargo.findNodeByIndex(1, true);
+    }
+
+    //그리드 타이틀 설정
+    var kcgCd = newVal;
+    if(kcgCd == ""){
+        tbx_sub_title.setValue("화종");
+    }else{
+        tbx_sub_title.setValue(newLab);
+    }
+    
+    //그리드 헤더 설정
+    var dsPos = scwin.f_getKcgCdPos();
+    var lvl = ds_kindOfCargo.getCellData(dsPos, "lvl");
+
+    if (lvl==2) {
+		$c.gus.cfDisableBtnOnly([btn_addrow]);		
+		ds_kindOfCargoList.removeAll();
+		ds_commodityList.removeAll();
+	} else if (lvl==1) {
+        gr_kindOfCargoList.setHeaderValue("kcgCdH", "화종코드", false);
+        gr_kindOfCargoList.setHeaderValue("kcgNmH", "화종명", false);
+        $c.gus.cfEnableBtnOnly([btn_addrow]);
+        scwin.f_Retrieve(kcgCd);
+
+	} else {
+        gr_kindOfCargoList.setHeaderValue("kcgCdH", "화종군코드", false);
+        gr_kindOfCargoList.setHeaderValue("kcgNmH", "화종군명", false);
+        $c.gus.cfEnableBtnOnly([btn_addrow]);
+        scwin.f_Retrieve(kcgCd);
+	}
+};
+
+scwin.gr_kindOfCargoList_onrowindexchange = function (rowIndex, oldRow) {
+// console.log("gr_kindOfCargoList_onrowindexchange~~");
+    var kcgCd = ds_kindOfCargoList.getCellData(rowIndex, "kcgCd");
+    scwin.f_retrieveComm(kcgCd);
+};
+
+scwin.btn_save_onclick = function (e) {
+    scwin.f_Save();
+};
+
+scwin.btn_comm_onclick = function (e) {
+    $c.win.openMenu("품명관리", "/ui/ds/lo/comninfomgnt/lo_100_03_01b.xml", "lo_100_03_01b.xml");
+};
+
+scwin.sbm_retrieveTree_submitdone = function(e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    
+    var rowcnt = ds_kindOfCargo.getRowCount();
+	if (rowcnt == 0) {
+        //$c.gus.cfAlertMsg(MSG_CM_WRN_002);
+	}else{
+        ds_kindOfCargo.insertRow(0);
+        ds_kindOfCargo.setCellData(0,"kcgCd","");
+        ds_kindOfCargo.setCellData(0,"kcgNm","화종");
+        ds_kindOfCargo.setCellData(0,"lvl",0);
+        const treeList = ds_kindOfCargo.getAllJSON();
+        console.table(treeList);
+        
+        ds_kindOfCargo_o.setJSON(treeList);
+
+        // const treeList = ds_kindOfCargo.getAllJSON();
+        
+        // ds_kindOfCargo_o.setJSON(treeList);
+
+        ds_kindOfCargo.reform();
+
+        tv_kindOfCargo.spanNode(1, true, true);
+        scwin.tv_kindOfCargo_onviewchange();
+    }
+};
+
+scwin.sbm_retrieveTree_submiterror = function(e) {
+
+};
+
+scwin.sbm_retrieveList_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+
+    var rowcnt = ds_kindOfCargoList.getRowCount();
+    tbx_totalRows.setValue(rowcnt);
+    
+    ds_kindOfCargoList.sort("kcgCd",0);
+    gr_kindOfCargoList.setFocusedCell(0, "kcgCd", false);
+
+    scwin.f_retrieveComm(ds_kindOfCargoList.getCellData(0, "kcgCd"));
+};
+
+scwin.sbm_retrieveList_submiterror = function (e) {
+
+};
+
+scwin.sbm_retrieveComm_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return; //onFail
+    var rowcnt = ds_commodityList.getRowCount();
+    tbx_totalRows2.setValue(rowcnt);
+
+    //ds_commodityList.sort("kcgCd",0);
+    gr_commodityList.setFocusedCell(0, "commCd", false);
+};
+
+scwin.sbm_retrieveComm_submiterror = function (e) {
+
+};
+
+scwin.sbm_save_submitdone = function(e) {
+    var dsPos = scwin.f_getKcgCdPos();
+
+    scwin.f_Retrieve(ds_kindOfCargo.getCellData(dsPos, "kcgCd"));
+};
+
+scwin.sbm_save_submiterror = function(e) {
+
+};
+
+scwin.f_getKcgCdPos = function(){
+    var tvPos = tv_kindOfCargo.getSelectedIndex();
+    var dsPos = 0;
+
+    if(tvPos == ""){
+        tvPos = 0;
+    }
+
+    if(tvPos > 0){
+        dsPos = tvPos - 1;
+    }
+
+    return dsPos;
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="" style="">
+    					<xf:group id="" class="lybox col3 wfix">
+    						<xf:group id="" class="col" style="width: 400px"><xf:group style="" id="" class="title-wrap">
+    							<xf:group id="" class="title">
+    								<w2:textbox tagname="h3" style="" id="" label="화종Tree" class="tit"></w2:textbox>
+    							</xf:group>
+    							<xf:group id="" class="right">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownYn="N" gridUpYn="N" btnUser="N"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group id="grd_section1" class="tvw-wrap">
+    							<w2:treeview tooltipGroupClass="false" dataType="listed" style="height: 100%" id="tv_kindOfCargo"
+    								renderType="virtual" class="" ev:onviewchange="scwin.tv_kindOfCargo_onviewchange">
+    								<w2:itemset nodeset="data:ds_kindOfCargo_o">
+    									<w2:label ref="kcgNm"></w2:label>
+    									<w2:value ref="kcgCd"></w2:value>
+    									<w2:depth ref="lvl"></w2:depth>
+    									<w2:folder ref=""></w2:folder>
+    									<w2:checkbox ref=""></w2:checkbox>
+    									<w2:checkboxDisabled ref=""></w2:checkboxDisabled>
+    									<w2:image ref=""></w2:image>
+    									<w2:iconImage ref=""></w2:iconImage>
+    									<w2:selectedImage ref=""></w2:selectedImage>
+    									<w2:expandedImage ref=""></w2:expandedImage>
+    									<w2:leafImage ref=""></w2:leafImage>
+    								</w2:itemset>
+    							</w2:treeview>
+</xf:group></xf:group><xf:group id="" class="col">
+    							<xf:group style="" id="" class="title-wrap">
+    								<xf:group id="" class="title">
+    									<w2:textbox tagname="h3" style="" id="tbx_sub_title" label="화종" class="tit"></w2:textbox>
+    								</xf:group>
+    								<xf:group id="" class="right">
+    									<w2:udc_topGrdBtn grp="grd_section2" style="" gridUpYn="N" grdDownOpts='{"fileName":"화종등록.xlsx","type":"4+8+16"}' gridID="gr_kindOfCargoList" id="udc_topGrdBtn2" gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" style="flex:1;" id="grd_section2" class="gvwbox">
+    									<w2:gridView checkAllType="false" dataList="data:ds_kindOfCargoList" style="" autoFit="allColumn" id="gr_kindOfCargoList" class="wq_gvw" visibleRowNumFix="true" ev:onrowindexchange="scwin.gr_kindOfCargoList_onrowindexchange" rowStatusVisible="true" visibleRowNum="20">
+    										<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    										<w2:header style="" id="header1">
+    											<w2:row style="" id="row1">
+    												<w2:column width="100" inputType="text" id="kcgCdH" value="화종군코드" displayMode="label">
+    												</w2:column>
+    												<w2:column width="170" inputType="text" id="kcgNmH" value="화종군명" displayMode="label" class="txt-red">
+    												</w2:column>
+    												<w2:column width="120" inputType="text" id="column13" value="영문명" displayMode="label" class="txt-blue">
+    												</w2:column>
+    												<w2:column width="100" inputType="text" id="column9" value="사용여부" displayMode="label" class="txt-red">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody style="" id="gBody1">
+    											<w2:row style="" id="row2">
+    												<w2:column width="100" inputType="text" id="kcgCd" displayMode="label" readOnly="true"></w2:column>
+    												<w2:column width="170" inputType="text" id="kcgNm" displayMode="label" textAlign="left"></w2:column>
+    												<w2:column width="120" inputType="text" id="kcgEngNm" displayMode="label" textAlign="left" allowChar="A-Za-z0-9"></w2:column>
+    												<w2:column width="100" inputType="checkbox" id="useYn" displayMode="label"></w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    								<xf:group style="margin-top:auto;" id="" class="grid-bottom ">
+    									<xf:group id="" class="left">
+    										<xf:group id="" class="grid-total">
+    											<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    											<w2:textbox tagname="span" style="" id="tbx_totalRows" label="0" class="num" dataType="number" displayFormat="#,##0"></w2:textbox>
+    											<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    									<xf:group style="" id="" class="right">
+    										<w2:udc_bottomGrdBtn style="" id="udc_addRow" gridID="gr_kindOfCargoList" rowAddFunction="scwin.f_Addrow" rowDelFunction="scwin.f_Delrow" btnDelYn="N" btnCancelYn="Y" btnRowAddObj="btn_addrow" rowDelUserAuth="D" rowAddUserAuth="C" rowAddObjType="data" rowDelObjType="data" cancelObjType="data"></w2:udc_bottomGrdBtn>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    						<xf:group class="col" id="" style="">
+    							<xf:group class="title-wrap" id="" style="">
+    								<xf:group class="title" id="">
+    									<w2:textbox class="tit" id="" label="소속품명리스트" style="" tagname="h3"></w2:textbox>
+    								</xf:group>
+    								<xf:group class="right" id="">
+    									<w2:udc_topGrdBtn grp="grd_section3" style="" gridUpYn="N" id="udc_topGrdBtn3" gridID="gr_commodityList" grdDownOpts='{"fileName":"소속품명리스트.xlsx","type":"4+8+16"}' gridDownUserAuth="X"></w2:udc_topGrdBtn>
+    								</xf:group>
+    							</xf:group>
+    							<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section3" style="flex:1;">
+    									<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_commodityList" id="gr_commodityList" style="" visibleRowNumFix="true" readOnly="true" visibleRowNum="20">
+    										<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    										<w2:header id="header1" style="">
+    											<w2:row id="row1" style="">
+    												<w2:column displayMode="label" id="column1" inputType="text" style="" value="품명코드" width="120">
+    												</w2:column>
+    												<w2:column displayMode="label" id="column17" inputType="text" style="" value="품명명" width="130">
+    												</w2:column>
+    											</w2:row>
+    										</w2:header>
+    										<w2:gBody id="gBody1" style="">
+    											<w2:row id="row2" style="">
+    												<w2:column displayMode="label" id="commCd" inputType="text" style="" value="" width="120">
+    												</w2:column>
+    												<w2:column displayMode="label" id="commNm" inputType="text" style="" value="" width="130" textAlign="left">
+    												</w2:column>
+    											</w2:row>
+    										</w2:gBody>
+    									</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="margin-top:auto;">
+    									<xf:group class="left" id="">
+    										<xf:group class="grid-total" id="">
+    											<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    											<w2:textbox class="num" id="tbx_totalRows2" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    											<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    										</xf:group>
+    									</xf:group>
+    								</xf:group></xf:group>
+    						</xf:group>
+    						
+    					</xf:group>
+    					<xf:group class="btnbox" id=""><xf:group id="" class="left"><xf:trigger style="" id="btn_comm" label="저장" type="button" class="btn " ev:onclick="scwin.btn_comm_onclick">
+    								<xf:label>품명관리</xf:label>
+    							</xf:trigger></xf:group><xf:group class="right" id="">
+    							
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" ev:onclick="scwin.btn_save_onclick" userAuth="U">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

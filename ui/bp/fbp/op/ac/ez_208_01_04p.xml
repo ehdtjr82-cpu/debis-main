@@ -1,0 +1,1759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<!-- 영업소 정보 - 화물정보 hidden dataMap -->
+				<w2:dataMap baseNode="map" id="dma_comComboCargo">
+					<w2:keyInfo>
+						<w2:key id="hdoIdx" name="hdoIdx" dataType="text"></w2:key>
+						<w2:key id="bhoIdx" name="bhoIdx" dataType="text"></w2:key>
+						<w2:key id="offIdx" name="offIdx" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+				<!-- 영업소 정보 - 차량정보 hidden dataMap -->
+				<w2:dataMap baseNode="map" id="dma_comComboVehcl">
+					<w2:keyInfo>
+						<w2:key id="hdoIdx" name="hdoIdx" dataType="text"></w2:key>
+						<w2:key id="bhoIdx" name="bhoIdx" dataType="text"></w2:key>
+						<w2:key id="offIdx" name="offIdx" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+
+				<w2:dataMap baseNode="map" id="dma_commonPopup">
+					<w2:keyInfo>
+						<w2:key id="userId" name="사용자ID" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_cond" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="userId" name="USER" dataType="text" length="20"></w2:column>
+						<w2:column id="vehclHdidx" name="차량용본사인덱스" dataType="number" length="6"></w2:column>
+						<w2:column id="vehclBhidx" name="차량지사인덱스" dataType="number" length="8"></w2:column>
+						<w2:column id="vehclOfcidx" name="차량영업소 인덱그" dataType="number" length="3"></w2:column>
+						<w2:column id="vehclDateTyp" name="날짜조건" dataType="text" length="1"></w2:column>
+						<w2:column id="vehclDate1" name="0" dataType="text" length="8"></w2:column>
+						<w2:column id="vehclDate2" name="0" dataType="text" length="8"></w2:column>
+						<w2:column id="vehclDateCnd" name="날짜조건2" dataType="text" length="1"></w2:column>
+						<w2:column id="vehclSts1" name="차량상태" dataType="number" length="20"></w2:column>
+						<w2:column id="vehclSts2" name="차량상태" dataType="number" length="20"></w2:column>
+						<w2:column id="vehclSts3" name="차량상태" dataType="number" length="20"></w2:column>
+						<w2:column id="vehclSts4" name="차량상태" dataType="number" length="20"></w2:column>
+						<w2:column id="vehclOrd1" name="차량상태" dataType="text" length="20"></w2:column>
+						<w2:column id="vehclOrd2" name="정렬순서" dataType="text" length="20"></w2:column>
+						<w2:column id="vehclOrd3" name="정렬순서" dataType="text" length="20"></w2:column>
+						<w2:column id="vehclOrdAsc1" name="정렬순서" dataType="text" length="1"></w2:column>
+						<w2:column id="vehclOrdAsc2" name="정렬순서" dataType="text" length="1"></w2:column>
+						<w2:column id="vehclOrdAsc3" name="정렬순서" dataType="text" length="1"></w2:column>
+						<w2:column id="vehclOrdUsr1" name="정렬순서" dataType="number" length="20"></w2:column>
+						<w2:column id="vehclOrdUsr2" name="정렬순서" dataType="number" length="20"></w2:column>
+						<w2:column id="vehclOrdUsr3" name="정렬순서" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoHdidx" name="화물본사" dataType="number" length="6"></w2:column>
+						<w2:column id="cargoBhidx" name="화물지사" dataType="number" length="8"></w2:column>
+						<w2:column id="cargoOfcidx" name="화물영업소" dataType="number" length="3"></w2:column>
+						<w2:column id="cargoDateTyp" name="날짜조건타입" dataType="text" length="1"></w2:column>
+						<w2:column id="cargoDate1" name="통관일자1" dataType="text" length="8"></w2:column>
+						<w2:column id="cargoDate2" name="통관일자2" dataType="text" length="8"></w2:column>
+						<w2:column id="cargoDateCnd" name="날짜조건" dataType="text" length="1"></w2:column>
+						<w2:column id="cargoSrchTyp" name="검색형태" dataType="text" length="1"></w2:column>
+						<w2:column id="cargoSrchCnd" name="검색조건" dataType="text" length="20"></w2:column>
+						<w2:column id="cargoSts1" name="화물상태" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoSts2" name="화물상태" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoSts3" name="화물상태" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoSts4" name="화물상태" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoSts5" name="화물상태" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoSts6" name="화물상태" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoOrd1" name="정렬조건" dataType="text" length="20"></w2:column>
+						<w2:column id="cargoOrd2" name="정렬조건" dataType="text" length="20"></w2:column>
+						<w2:column id="cargoOrd3" name="정렬조건" dataType="text" length="20"></w2:column>
+						<w2:column id="cargoOrdAsc1" name="정렬조건" dataType="text" length="1"></w2:column>
+						<w2:column id="cargoOrdAsc2" name="정렬조건" dataType="text" length="1"></w2:column>
+						<w2:column id="cargoOrdAsc3" name="정렬조건" dataType="text" length="1"></w2:column>
+						<w2:column id="cargoOrdUsr1" name="정렬조건" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoOrdUsr2" name="정렬조건" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoOrdUsr3" name="정렬조건" dataType="number" length="20"></w2:column>
+						<w2:column id="cargoCidx" name="0" dataType="text" length="20"></w2:column>
+						<w2:column id="vehclCidx" name="0" dataType="text" length="20"></w2:column>
+						<w2:column id="cargoSellClntNo" name="#N/A" dataType="text" length="20"></w2:column>
+						<w2:column id="vehclSellClntNo" name="#N/A" dataType="text" length="20"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+
+				<!-- 사용자 정보 -->
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_userInfo" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="hdofficeIdx" name="본사영업소IDX" dataType="text" length="20"></w2:column>
+						<w2:column id="bhofficeIdx" name="영업소소속지사IDX" dataType="text" length="20"></w2:column>
+						<w2:column id="officeIdx" name="officeIdx" dataType="text" length="20"></w2:column>
+						<w2:column id="userId" name="사용자ID" dataType="text" length="20"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_cond" action="/ncall.bp.fbp.op.ac.cmd.SaveCondCMD.do" method="post" mediatype="application/json"
+				ref='data:json,[{"id":"ds_cond","key":"IN_DS1"}]' target='' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+				mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_cond_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_commonPopup" action="/ncall.bp.fbp.op.ac.cmd.RetrieveCondCMD.do" method="post"
+				mediatype="application/json" ref="data:json,dma_commonPopup" target="data:json,GAUCE" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_commonPopup_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_getUserInfo" action="/ncall.bp.common.userinfo.fbuserinfoCMD.do" method="post"
+				mediatype="application/json" ref="" target='data:json,{"id":"ds_userInfo","key":"GAUCE"}' encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_getUserInfo_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+
+scwin.onpageload = function () {
+
+    // 사용자정보 조회
+    $c.sbm.execute(sbm_getUserInfo);   
+
+    // 화물 - 컨테이너 구분
+    const {cCase} = $c.data.getParameter();
+
+    const codeOptions = [
+        { grpCd: "TN006", compID: "acb_cargoSellClntNo_combo,acb_vehclSellClntNo_combo" } // 동부주요화주
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+};
+
+/**
+ * data onload
+ */
+scwin.ondataload = function() {
+
+};
+
+/**
+ * UDC onload
+ */
+scwin.onUdcCompleted = function () {
+    if (scwin._baseConditionRequested) {
+        return;
+    }
+
+    scwin._baseConditionRequested = true;
+    
+    $p.setTimeout(function () {
+        scwin.search_baseCondition();
+    }, { "delay": 200 });
+};
+
+/**
+ * udc_commonCombo가 다 세팅된 후 조회처리
+ */
+scwin.search_baseCondition = function() {
+    // 기본 상세조회 조건 조회
+    const param = {
+        userId: $c.data.getMemInfo("userId")
+    };
+    dma_commonPopup.setEmptyValue();
+    dma_commonPopup.setJSON(param);
+    $c.sbm.execute(sbm_commonPopup);
+};
+
+/**
+ * 사용자정보 조회 callback
+ */
+scwin.sbm_getUserInfo_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    // 유저 정보 필요한 경우 사용
+    const {bhofficeIdx,hdofficeIdx,officeIdx,userId} = ds_userInfo.getAllJSON(0);
+
+    /* todo NTIS 유저 정보??? 	
+    IfbuserinfoMgnt userinfo = (IfbuserinfoMgnt)DComponentFactory.getComponentImpl(fbuserinfoMgntPBC.class);
+    fbuserinfoDTO UserQC = new fbuserinfoDTO();
+    UserQC.setUserId(UserID);
+    List UserQCList = userinfo.GetUserInfo(UserQC);
+    fbuserinfoDTO fbuserinfoDTOAl = (fbuserinfoDTO)UserQCList.get(0);
+    double HdofficeIdx= fbuserinfoDTOAl.getHdofficeCd();
+    double BhofficeIdx = fbuserinfoDTOAl.getBhofficeCd();
+    double OfficeIdx= fbuserinfoDTOAl.getOfcCd();
+    */
+
+};
+
+/**
+ * 기본 상세조회 조건 조회 callback
+ */
+scwin.sbm_commonPopup_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code == 0) {
+
+        ds_cond.setJSON(e.responseJSON.GAUCE);
+
+        if (ds_cond.getTotalRow() < 1) {
+            $c.win.alert("조회조건이 존재하지 않습니다.").then(() => {
+                const iRow = ds_cond.insertRow();
+                ds_cond.setCellData(iRow, "userId", $c.data.getMemInfo("userId"));
+            });
+        } else {
+            // binding 처리
+            ds_cond.setRowPosition(0);
+        }
+    }
+};
+
+/**
+ * [닫기] - popup close
+ */
+scwin.btn_close_onclick = function (e) {
+    // window.close();
+    $c.win.closePopup();
+};
+
+/**
+ * [조회조건저장]
+ */
+scwin.btn_save_onclick = function (e) {
+    scwin.setValue();
+};
+
+/**
+ * 조회조건저장
+ */
+scwin.setValue = function (e) {
+    
+    if (ed_cargoDate1.getValue() > ed_cargoDate2.getValue() || ed_vehclDate1.getValue() > ed_vehclDate2.getValue()) {
+        $c.win.alert("조회 기간이 잘못설정 되었습니다.");
+        return;
+    }
+
+    const {cargoCidx, vehclCidx} = ds_cond.getRowJSON(0);
+
+    if (cargoCidx == 0 || vehclCidx == 0) {
+        $c.win.alert("영업소가 선택되지 않았습니다.");
+        return;
+    }
+
+    // 20171122 조회기간 한달이내만 검색가능하게 변경
+    const startDate = new Date($c.date.formatDate(ed_cargoDate1.getValue(), "date"));
+    const endDate = new Date($c.date.formatDate(ed_cargoDate2.getValue(), "date"));
+    if (scwin.isOverOneMonth(startDate, endDate)) {
+        $c.win.alert("조회기간을 한달 이내로 설정 해 주세요.").then(() => {
+            ed_cargoDate2.focus();
+        });
+        return;
+    }
+
+    let {hdoIdx: cargoHdidx, bhoIdx: cargoBhidx, offIdx: cargoOfcidx} = dma_comComboCargo.getJSON();
+    let {hdoIdx: vehclHdidx, bhoIdx: vehclBhidx, offIdx: vehclOfcidx} = dma_comComboVehcl.getJSON();
+
+    ds_cond.setCellData(0, "cargoHdidx", cargoHdidx);
+    ds_cond.setCellData(0, "cargoBhidx", cargoBhidx);
+    ds_cond.setCellData(0, "cargoOfcidx", cargoOfcidx);
+    ds_cond.setCellData(0, "vehclHdidx", vehclHdidx);
+    ds_cond.setCellData(0, "vehclBhidx", vehclBhidx);
+    ds_cond.setCellData(0, "vehclOfcidx", vehclOfcidx);
+
+    $c.sbm.execute(sbm_cond);
+};
+
+/**
+ * 조회조건저장 callback
+ */
+scwin.sbm_cond_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code == 0) {
+
+        const pFrame = opener.$p.getComponentById($c.data.getParameter().pFrame);
+        $c.win.alert("조회조건 저장에 성공하였습니다.").then(() => {
+            
+            pFrame.scope.scwin.loadcomplete();
+            window.close();
+
+        });
+
+    }
+};
+
+/**
+ * 화물정보 검색 구분값 onchange
+ */
+scwin.acb_cargoSrchTyp_onchange = function (info) {
+
+};
+
+/**
+ * 화물정보 조회기간
+ */
+scwin.acb_cargoDateTyp_onchange = function (info) {
+    scwin.f_dateSetting(info.newValue, 'cargo');
+};
+
+/**
+ * 차량정보 조회기간
+ */
+scwin.acb_vehclDateTyp_onchange = function (info) {
+    scwin.f_dateSetting(info.newValue, 'car');
+};
+
+/**
+ * 당일 / 금주 / 금월 / 전월 / 지정 - 조회기간 세팅1
+ */
+scwin.f_dateSetting = function (selObj, cas) {
+    if (selObj == 1) {//금일
+        scwin.f_eventRadioClick(cas, '1');
+    } else if (selObj == 2) {//금주
+        scwin.f_eventRadioClick(cas, '2');
+    } else if (selObj == 3) {//금월
+        scwin.f_eventRadioClick(cas, '3');
+    } else if (selObj == 4) {//전월
+        scwin.f_eventRadioClick(cas, '4');
+    } else if (selObj == 5) {//지정
+    }
+};
+
+/**
+ * 당일 / 금주 / 금월 / 전월 / 지정 - 조회기간 세팅2
+ */
+scwin.f_eventRadioClick = function (obj, type) {
+    scwin.vToDate = $c.date.getServerDateTime("yyyyMMdd"); // 서버를 기준으로 현재 날짜 반환 
+
+    const toDate = $c.date.getServerDateTime("yyyyMMdd");
+
+    switch (type) {
+
+        // 당일
+        case '1': {
+            // Object 에 날짜 입력(날짜는 20080101 형식)
+            if (obj == 'car') {
+                ed_vehclDate1.setValue(toDate);
+                ed_vehclDate2.setValue(toDate);
+            } else {
+                ed_cargoDate1.setValue(toDate);
+                ed_cargoDate2.setValue(toDate);
+            }
+
+            break;
+        }
+
+        // 금주
+        case '2': {
+
+            const range = scwin.getWeekRangeSunToSat(new Date());
+            sDt1 = range.sDt1;
+            sDt2 = range.sDt2;
+
+            if (obj == 'car') {
+                ed_vehclDate1.setValue(sDt1);
+                ed_vehclDate2.setValue(sDt2);
+            } else {
+                ed_cargoDate1.setValue(sDt1);
+                ed_cargoDate2.setValue(sDt2);
+            }
+
+            break;
+        }
+
+        // 금월
+        case '3': {
+
+            const yyyyMM = toDate.slice(0, 6);
+
+            // 조회 시작일
+            sDt1 = `${yyyyMM}01`;
+
+            // 조회 종료일				
+            sDt2 = `${yyyyMM}${$c.date.getLastDateOfMonth(yyyyMM)}`;
+
+            if (obj == 'car') {
+                ed_vehclDate1.setValue(sDt1);
+                ed_vehclDate2.setValue(sDt2);
+            } else {
+                ed_cargoDate1.setValue(sDt1);
+                ed_cargoDate2.setValue(sDt2);
+            }
+
+            break;
+        }
+
+        // 전월
+        case '4': {
+
+            // 조회 시작일
+            sDt1 = $c.date.getDateAddMonthDirection(toDate, "-1", "F");
+
+            // 조회 종료일				
+            sDt2 = $c.date.getDateAddMonthDirection(toDate, "-1", "L");
+
+            if (obj == 'car') {
+                ed_vehclDate1.setValue(sDt1);
+                ed_vehclDate2.setValue(sDt2);
+            } else {
+                ed_cargoDate1.setValue(sDt1);
+                ed_cargoDate2.setValue(sDt2);
+            }
+
+            break;
+        }
+
+        // 지정
+        case '5': {
+            break;
+        }
+    }
+};
+
+/**
+ * 금주 세팅
+ */
+scwin.getWeekRangeSunToSat = function(date) {
+    function pad2(n) {
+        return (n < 10 ? "0" : "") + n;
+    }
+    function yyyymmdd(d) {
+        return d.getFullYear() + pad2(d.getMonth() + 1) + pad2(d.getDate());
+    }
+    var d = date ? new Date(date.getTime()) : new Date();
+    var day = d.getDay(); // 0(일)~6(토)
+
+    var sun = new Date(d);
+    sun.setDate(d.getDate() - day);
+
+    var sat = new Date(d);
+    sat.setDate(d.getDate() + (6 - day));
+
+    return { sDt1: yyyymmdd(sun), sDt2: yyyymmdd(sat) };
+};
+
+/**
+ * 일수 기준 체크 - 31일 초과 여부
+ */
+scwin.isOverOneMonth = function(startDate, endDate) {
+    const s = new Date(startDate);
+    const e = new Date(endDate);
+
+    const diffDays = (e - s) / (1000 * 60 * 60 * 24);
+
+    return diffDays > 31;
+};
+
+scwin.acb_cargoSrchTyp_onviewchange = function (info) {
+    ed_cargoSrchCnd.setValue("");
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_commonCombo" type="page" variableClone="true" src="/cm/udc/commonCombo.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="round-box" id="">
+				<xf:group id="" class="row-gap-8 flex_no">
+					<xf:group style="" id="" class="title-wrap">
+						<xf:group id="" class="title">
+							<w2:textbox tagname="h3" style="" id="" label="화물정보" class="tit"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group style="" id="" class="tbbox">
+						<xf:group tagname="table" style="" id="" class="w2tb">
+							<w2:attributes>
+								<w2:summary></w2:summary>
+							</w2:attributes>
+							<xf:group tagname="colgroup">
+								<xf:group tagname="col" style="width:120px;"></xf:group>
+								<xf:group tagname="col" style=""></xf:group>
+							</xf:group>
+							<xf:group tagname="tr" style="">
+								<xf:group tagname="th" style="" class="w2tb_th">
+									<w2:textbox ref="" style="" userData2="" id="" label="영업소" class=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" style="" class="w2tb_td">
+
+									<w2:udc_commonCombo cond="HOFC" id="udc_cargo" initIndex="1" refHiddenDataCollection="dma_comComboCargo"
+										style="width:200px;" refDataCollection="ds_cond" code="cargoCidx">
+									</w2:udc_commonCombo>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox ref="" style="" userData2="" id="" label="조회기간" class=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes>
+										<w2:colspan>1</w2:colspan>
+										<w2:rowspan>1</w2:rowspan>
+									</w2:attributes>
+									<xf:group id="" class="form-group">
+										<w2:autoComplete search="start" submenuSize="auto" ref="data:ds_cond.cargoDateTyp"
+											ev:onchange="scwin.acb_cargoDateTyp_onchange" chooseOption="" editType="select" style="width:80px;" id="acb_cargoDateTyp"
+											allOption="" class="" displayMode="value delim label">
+											<w2:choices>
+												<w2:item>
+													<w2:label><![CDATA[당일]]></w2:label>
+													<w2:value><![CDATA[1]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[금주]]></w2:label>
+													<w2:value><![CDATA[2]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[금월]]></w2:label>
+													<w2:value><![CDATA[3]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[전월]]></w2:label>
+													<w2:value><![CDATA[4]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[지정]]></w2:label>
+													<w2:value><![CDATA[5]]></w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<w2:udc_fromToCalendar refStDt="cargoDate1" refDataMap="ds_cond" edFromId="ed_cargoDate1"
+											edToId="ed_cargoDate2" style="" id="udc_fromToCalendar6" refEdDt="cargoDate2">
+										</w2:udc_fromToCalendar>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox ref="" style="" userData2="" id="" label="조회구분" class=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:select1 appearance="full" class="" cols="" id="rd_cargoDateCnd" ref="data:ds_cond.cargoDateCnd"
+										renderType="radiogroup" rows="" selectedIndex="-1" style="">
+										<xf:choices>
+											<xf:item>
+												<xf:label><![CDATA[등록일자]]></xf:label>
+												<xf:value><![CDATA[1]]></xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[배차일자]]></xf:label>
+												<xf:value><![CDATA[2]]></xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[상차일자]]></xf:label>
+												<xf:value><![CDATA[3]]></xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[하차일자]]></xf:label>
+												<xf:value><![CDATA[4]]></xf:value>
+											</xf:item>
+										</xf:choices>
+									</xf:select1>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="검색" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group id="" class="form-group">
+										<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width:150px;" id="acb_cargoSrchTyp"
+											class="" allOption="" chooseOption="" ref="data:ds_cond.cargoSrchTyp" displayMode="value delim label"
+											ev:onchange="scwin.acb_cargoSrchTyp_onchange" ev:onviewchange="scwin.acb_cargoSrchTyp_onviewchange">
+											<w2:choices>
+												<w2:item>
+													<w2:label><![CDATA[전체]]></w2:label>
+													<w2:value><![CDATA[0]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[배차차량번호]]></w2:label>
+													<w2:value><![CDATA[1]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[의뢰화주상호]]></w2:label>
+													<w2:value><![CDATA[2]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[의뢰화주담당자]]></w2:label>
+													<w2:value><![CDATA[3]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[전화번호]]></w2:label>
+													<w2:value><![CDATA[4]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[동부오더번호]]></w2:label>
+													<w2:value><![CDATA[5]]></w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<xf:input style="width:150px;" id="ed_cargoSrchCnd" placeholder="" class="" ref="data:ds_cond.cargoSrchCnd"
+											maxlength="100"></xf:input>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="화물상태" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group id="" class="col-gap-14">
+										<xf:select ref="data:ds_cond.cargoSts1" appearance="full" style="" id="cbx_cargoSts1" renderType="checkboxgroup" rows=""
+											selectedindex="-1" class="" cols="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[의뢰]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+										<xf:select ref="data:ds_cond.cargoSts2" appearance="full" style="" id="cbx_cargoSts2" renderType="checkboxgroup" rows=""
+											selectedindex="-1" class="" cols="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[배차]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+										<xf:select ref="data:ds_cond.cargoSts3" appearance="full" style="" id="cbx_cargoSts3" renderType="checkboxgroup" rows=""
+											selectedindex="-1" class="" cols="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[용차]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="동부주요화주" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<w2:autoComplete class="" editType="select" id="acb_cargoSellClntNo_combo" search="start" style="width:200px;"
+										submenuSize="auto" displayMode="value delim label" chooseOption="true" chooseOptionLabel="선택" ref="data:ds_cond.cargoSellClntNo"></w2:autoComplete>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="정렬조건1" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group id="" class="form-group">
+										<w2:autoComplete search="start" submenuSize="auto" editType="select" style="width:200px;" id="acb_cargoOrd1"
+											class="" displayMode="value delim label" chooseOptionLabel="선택하세요." chooseOption="true" ref="data:ds_cond.cargoOrd1">
+											<w2:choices>
+												<w2:item>
+													<w2:label><![CDATA[등록일자]]></w2:label>
+													<w2:value><![CDATA[regDd]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[주문번호]]></w2:label>
+													<w2:value><![CDATA[idx]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상태]]></w2:label>
+													<w2:value><![CDATA[status]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[소속점]]></w2:label>
+													<w2:value><![CDATA[ofcNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[거래처명]]></w2:label>
+													<w2:value><![CDATA[clntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[담당자]]></w2:label>
+													<w2:value><![CDATA[picNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[전화번호]]></w2:label>
+													<w2:value><![CDATA[telNo]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차요청일]]></w2:label>
+													<w2:value><![CDATA[onDt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차요청시간]]></w2:label>
+													<w2:value><![CDATA[onHh]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차지]]></w2:label>
+													<w2:value><![CDATA[onPos]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차지역]]></w2:label>
+													<w2:value><![CDATA[onPosNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차담당자]]></w2:label>
+													<w2:value><![CDATA[onPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차담당전화]]></w2:label>
+													<w2:value><![CDATA[onPicTel]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차요청일]]></w2:label>
+													<w2:value><![CDATA[offDt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차요청시간]]></w2:label>
+													<w2:value><![CDATA[offHh]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차지]]></w2:label>
+													<w2:value><![CDATA[offPos]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차지역]]></w2:label>
+													<w2:value><![CDATA[offPosNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차담당자]]></w2:label>
+													<w2:value><![CDATA[offPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[품명]]></w2:label>
+													<w2:value><![CDATA[goods]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[회전]]></w2:label>
+													<w2:value><![CDATA[rotat]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[중량]]></w2:label>
+													<w2:value><![CDATA[wt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[단위]]></w2:label>
+													<w2:value><![CDATA[unit]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[수량]]></w2:label>
+													<w2:value><![CDATA[qty]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[규격]]></w2:label>
+													<w2:value><![CDATA[nrm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[실운임]]></w2:label>
+													<w2:value><![CDATA[payReal]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[청구운임]]></w2:label>
+													<w2:value><![CDATA[bilgAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선불운임]]></w2:label>
+													<w2:value><![CDATA[payAdvn]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[착불운임]]></w2:label>
+													<w2:value><![CDATA[payDvly]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[지불운임]]></w2:label>
+													<w2:value><![CDATA[defrAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[보관금지불처]]></w2:label>
+													<w2:value><![CDATA[strAmtClntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[보관금]]></w2:label>
+													<w2:value><![CDATA[strAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[수수료]]></w2:label>
+													<w2:value><![CDATA[cmis]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선수금]]></w2:label>
+													<w2:value><![CDATA[initAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선급금]]></w2:label>
+													<w2:value><![CDATA[prePayAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[요구사항]]></w2:label>
+													<w2:value><![CDATA[rmk]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[용차사]]></w2:label>
+													<w2:value><![CDATA[hirecarClntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[인수증]]></w2:label>
+													<w2:value><![CDATA[undekYn]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[차량번호]]></w2:label>
+													<w2:value><![CDATA[vehclNo]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[기사명]]></w2:label>
+													<w2:value><![CDATA[vehclPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[기사휴대전화]]></w2:label>
+													<w2:value><![CDATA[vehclTelNo2]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[배차일자]]></w2:label>
+													<w2:value><![CDATA[alloccarDd]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[등록자]]></w2:label>
+													<w2:value><![CDATA[regId]]></w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<xf:select1 appearance="full" class="" cols="" id="rd_cargoOrdAsc1" ref="data:ds_cond.cargoOrdAsc1"
+											renderType="radiogroup" rows="" selectedIndex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[내림차순]]></xf:label>
+													<xf:value><![CDATA[0]]>
+													</xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[오름차순]]></xf:label>
+													<xf:value><![CDATA[1]]>
+													</xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="정렬조건2" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group class="form-group" id="" style="">
+										<w2:autoComplete class="" editType="select" id="acb_cargoOrd2" search="start" style="width:200px;"
+											submenuSize="auto" displayMode="value delim label" chooseOptionLabel="선택하세요." chooseOption="true" ref="data:ds_cond.cargoOrd2">
+											<w2:choices>
+												<w2:item>
+													<w2:label><![CDATA[등록일자]]></w2:label>
+													<w2:value><![CDATA[regDd]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[주문번호]]></w2:label>
+													<w2:value><![CDATA[idx]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상태]]></w2:label>
+													<w2:value><![CDATA[status]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[소속점]]></w2:label>
+													<w2:value><![CDATA[ofcNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[거래처명]]></w2:label>
+													<w2:value><![CDATA[clntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[담당자]]></w2:label>
+													<w2:value><![CDATA[picNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[전화번호]]></w2:label>
+													<w2:value><![CDATA[telNo]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차요청일]]></w2:label>
+													<w2:value><![CDATA[onDt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차요청시간]]></w2:label>
+													<w2:value><![CDATA[onHh]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차지]]></w2:label>
+													<w2:value><![CDATA[onPos]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차지역]]></w2:label>
+													<w2:value><![CDATA[onPosNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차담당자]]></w2:label>
+													<w2:value><![CDATA[onPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차담당전화]]></w2:label>
+													<w2:value><![CDATA[onPicTel]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차요청일]]></w2:label>
+													<w2:value><![CDATA[offDt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차요청시간]]></w2:label>
+													<w2:value><![CDATA[offHh]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차지]]></w2:label>
+													<w2:value><![CDATA[offPos]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차지역]]></w2:label>
+													<w2:value><![CDATA[offPosNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차담당자]]></w2:label>
+													<w2:value><![CDATA[offPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[품명]]></w2:label>
+													<w2:value><![CDATA[goods]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[회전]]></w2:label>
+													<w2:value><![CDATA[rotat]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[중량]]></w2:label>
+													<w2:value><![CDATA[wt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[단위]]></w2:label>
+													<w2:value><![CDATA[unit]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[수량]]></w2:label>
+													<w2:value><![CDATA[qty]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[규격]]></w2:label>
+													<w2:value><![CDATA[nrm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[실운임]]></w2:label>
+													<w2:value><![CDATA[payReal]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[청구운임]]></w2:label>
+													<w2:value><![CDATA[bilgAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선불운임]]></w2:label>
+													<w2:value><![CDATA[payAdvn]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[착불운임]]></w2:label>
+													<w2:value><![CDATA[payDvly]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[지불운임]]></w2:label>
+													<w2:value><![CDATA[defrAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[보관금지불처]]></w2:label>
+													<w2:value><![CDATA[strAmtClntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[보관금]]></w2:label>
+													<w2:value><![CDATA[strAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[수수료]]></w2:label>
+													<w2:value><![CDATA[cmis]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선수금]]></w2:label>
+													<w2:value><![CDATA[initAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선급금]]></w2:label>
+													<w2:value><![CDATA[prePayAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[요구사항]]></w2:label>
+													<w2:value><![CDATA[rmk]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[용차사]]></w2:label>
+													<w2:value><![CDATA[hirecarClntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[인수증]]></w2:label>
+													<w2:value><![CDATA[undekYn]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[차량번호]]></w2:label>
+													<w2:value><![CDATA[vehclNo]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[기사명]]></w2:label>
+													<w2:value><![CDATA[vehclPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[기사휴대전화]]></w2:label>
+													<w2:value><![CDATA[vehclTelNo2]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[배차일자]]></w2:label>
+													<w2:value><![CDATA[alloccarDd]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[등록자]]></w2:label>
+													<w2:value><![CDATA[regId]]></w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<xf:select1 appearance="full" class="" cols="" id="rd_cargoOrdAsc2" ref="data:ds_cond.cargoOrdAsc2"
+											renderType="radiogroup" rows="" selectedIndex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[내림차순]]></xf:label>
+													<xf:value><![CDATA[0]]>
+													</xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[오름차순]]></xf:label>
+													<xf:value><![CDATA[1]]>
+													</xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+
+
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="정렬조건3" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group class="form-group" id="" style="">
+										<w2:autoComplete class="" editType="select" id="acb_cargoOrd3" search="start" style="width:200px;"
+											submenuSize="auto" displayMode="value delim label" chooseOptionLabel="선택하세요." chooseOption="true" ref="data:ds_cond.cargoOrd3">
+											<w2:choices>
+												<w2:item>
+													<w2:label><![CDATA[등록일자]]></w2:label>
+													<w2:value><![CDATA[regDd]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[주문번호]]></w2:label>
+													<w2:value><![CDATA[idx]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상태]]></w2:label>
+													<w2:value><![CDATA[status]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[소속점]]></w2:label>
+													<w2:value><![CDATA[ofcNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[거래처명]]></w2:label>
+													<w2:value><![CDATA[clntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[담당자]]></w2:label>
+													<w2:value><![CDATA[picNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[전화번호]]></w2:label>
+													<w2:value><![CDATA[telNo]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차요청일]]></w2:label>
+													<w2:value><![CDATA[onDt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차요청시간]]></w2:label>
+													<w2:value><![CDATA[onHh]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차지]]></w2:label>
+													<w2:value><![CDATA[onPos]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차지역]]></w2:label>
+													<w2:value><![CDATA[onPosNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차담당자]]></w2:label>
+													<w2:value><![CDATA[onPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[상차담당전화]]></w2:label>
+													<w2:value><![CDATA[onPicTel]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차요청일]]></w2:label>
+													<w2:value><![CDATA[offDt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차요청시간]]></w2:label>
+													<w2:value><![CDATA[offHh]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차지]]></w2:label>
+													<w2:value><![CDATA[offPos]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차지역]]></w2:label>
+													<w2:value><![CDATA[offPosNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[하차담당자]]></w2:label>
+													<w2:value><![CDATA[offPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[품명]]></w2:label>
+													<w2:value><![CDATA[goods]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[회전]]></w2:label>
+													<w2:value><![CDATA[rotat]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[중량]]></w2:label>
+													<w2:value><![CDATA[wt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[단위]]></w2:label>
+													<w2:value><![CDATA[unit]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[수량]]></w2:label>
+													<w2:value><![CDATA[qty]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[규격]]></w2:label>
+													<w2:value><![CDATA[nrm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[실운임]]></w2:label>
+													<w2:value><![CDATA[payReal]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[청구운임]]></w2:label>
+													<w2:value><![CDATA[bilgAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선불운임]]></w2:label>
+													<w2:value><![CDATA[payAdvn]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[착불운임]]></w2:label>
+													<w2:value><![CDATA[payDvly]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[지불운임]]></w2:label>
+													<w2:value><![CDATA[defrAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[보관금지불처]]></w2:label>
+													<w2:value><![CDATA[strAmtClntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[보관금]]></w2:label>
+													<w2:value><![CDATA[strAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[수수료]]></w2:label>
+													<w2:value><![CDATA[cmis]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선수금]]></w2:label>
+													<w2:value><![CDATA[initAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[선급금]]></w2:label>
+													<w2:value><![CDATA[prePayAmt]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[요구사항]]></w2:label>
+													<w2:value><![CDATA[rmk]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[용차사]]></w2:label>
+													<w2:value><![CDATA[hirecarClntNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[인수증]]></w2:label>
+													<w2:value><![CDATA[undekYn]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[차량번호]]></w2:label>
+													<w2:value><![CDATA[vehclNo]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[기사명]]></w2:label>
+													<w2:value><![CDATA[vehclPicNm]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[기사휴대전화]]></w2:label>
+													<w2:value><![CDATA[vehclTelNo2]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[배차일자]]></w2:label>
+													<w2:value><![CDATA[alloccarDd]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[등록자]]></w2:label>
+													<w2:value><![CDATA[regId]]></w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<xf:select1 appearance="full" class="" cols="" id="rd_cargoOrdAsc3" ref="data:ds_cond.cargoOrdAsc3"
+											renderType="radiogroup" rows="" selectedIndex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[내림차순]]></xf:label>
+													<xf:value><![CDATA[0]]>
+													</xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[오름차순]]></xf:label>
+													<xf:value><![CDATA[1]]>
+													</xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="row-gap-8 flex_no" id="" style="">
+					<xf:group class="title-wrap" id="" style="">
+						<xf:group class="title" id="">
+							<w2:textbox class="tit" id="" label="차량정보" style="" tagname="h3"></w2:textbox>
+						</xf:group>
+					</xf:group>
+					<xf:group class="tbbox" id="" style="">
+						<xf:group class="w2tb" id="" style="" tagname="table">
+							<w2:attributes>
+								<w2:summary></w2:summary>
+							</w2:attributes>
+							<xf:group tagname="colgroup">
+								<xf:group style="width:120px;" tagname="col"></xf:group>
+								<xf:group style="" tagname="col"></xf:group>
+							</xf:group>
+							<xf:group style="" tagname="tr">
+								<xf:group class="w2tb_th" style="" tagname="th">
+									<w2:textbox class="" id="" label="영업소" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group class="w2tb_td" style="" tagname="td">
+									<w2:udc_commonCombo cond="HOFC" id="udc_vehcl" initIndex="1" refHiddenDataCollection="dma_comComboVehcl"
+										style="width:200px;" refDataCollection="ds_cond" code="vehclCidx" initFunction="search_baseCondition">
+									</w2:udc_commonCombo>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group class="w2tb_th" tagname="th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="조회기간" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group class="w2tb_td" tagname="td">
+									<w2:attributes>
+										<w2:colspan>1</w2:colspan>
+										<w2:rowspan>1</w2:rowspan>
+									</w2:attributes>
+									<xf:group id="" class="form-group">
+										<w2:autoComplete ref="data:ds_cond.vehclDateTyp" search="start" submenuSize="auto"
+											ev:onchange="scwin.acb_vehclDateTyp_onchange" chooseOption="" editType="select" style="width:80px;" allOption=""
+											id="acb_vehclDateTyp" class="" displayMode="value delim label">
+											<w2:choices>
+												<w2:item>
+													<w2:label><![CDATA[당일]]></w2:label>
+													<w2:value><![CDATA[1]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[금주]]></w2:label>
+													<w2:value><![CDATA[2]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[금월]]></w2:label>
+													<w2:value><![CDATA[3]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[전월]]></w2:label>
+													<w2:value><![CDATA[4]]></w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label><![CDATA[지정]]></w2:label>
+													<w2:value><![CDATA[5]]></w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<w2:udc_fromToCalendar refStDt="vehclDate1" refDataMap="ds_cond" edFromId="ed_vehclDate1"
+											edToId="ed_vehclDate2" style="" id="udc_fromToCalendar8" refEdDt="vehclDate2">
+										</w2:udc_fromToCalendar>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group class="w2tb_th" tagname="th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="조회구분" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group class="w2tb_td" tagname="td">
+									<w2:attributes></w2:attributes>
+									<xf:select1 appearance="full" class="" cols="" id="rd_vehclDateCnd" ref="data:ds_cond.vehclDateCnd"
+										renderType="radiogroup" rows="" selectedIndex="-1" style="">
+										<xf:choices>
+											<xf:item>
+												<xf:label><![CDATA[등록일자]]></xf:label>
+												<xf:value><![CDATA[1]]></xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[배차일자]]></xf:label>
+												<xf:value><![CDATA[2]]></xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[예정일자]]></xf:label>
+												<xf:value><![CDATA[3]]></xf:value>
+											</xf:item>
+										</xf:choices>
+									</xf:select1>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="차량상태" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group class="col-gap-14" id="" style="">
+										<xf:select appearance="full" class="" cols="" id="cbx_vehclSts1" ref="data:ds_cond.vehclSts1" renderType="checkboxgroup"
+											rows="" selectedindex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[대기]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+										<xf:select appearance="full" class="" cols="" id="cbx_vehclSts2" ref="data:ds_cond.vehclSts2" renderType="checkboxgroup"
+											rows="" selectedindex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[적재]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+										<xf:select appearance="full" class="" cols="" id="cbx_vehclSts3" ref="data:ds_cond.vehclSts3" renderType="checkboxgroup"
+											rows="" selectedindex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[운송]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+										<xf:select appearance="full" class="" cols="" id="cbx_vehclSts4" ref="data:ds_cond.vehclSts4" renderType="checkboxgroup"
+											rows="" selectedindex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[종료]]></xf:label>
+													<xf:value><![CDATA[1]]></xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="동부주요화주" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<w2:autoComplete class="" editType="select" id="acb_vehclSellClntNo_combo" search="start" style="width:200px;"
+										submenuSize="auto" displayMode="value delim label" chooseOption="true" chooseOptionLabel="선택" ref="data:ds_cond.vehclSellClntNo"></w2:autoComplete>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="정렬조건1" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group class="form-group" id="" style="">
+										<w2:autoComplete class="" editType="select" id="acb_vehclOrd1" search="start" style="width:200px;"
+											submenuSize="auto" allOption="" chooseOption="true" ref="data:ds_cond.vehclOrd1" displayMode="value delim label"
+											chooseOptionLabel="선택하세요.">
+											<w2:choices>
+												<w2:item>
+													<w2:label>등록일자</w2:label>
+													<w2:value>mtvehclRegDt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>상태</w2:label>
+													<w2:value>vehclSts</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>소속점</w2:label>
+													<w2:value>ofcNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>차량번호</w2:label>
+													<w2:value>vehclNo</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>전화번호</w2:label>
+													<w2:value>handphoneNo</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>기사명</w2:label>
+													<w2:value>picNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>톤</w2:label>
+													<w2:value>tonCdNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>차종</w2:label>
+													<w2:value>typeCdNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>공차율</w2:label>
+													<w2:value>mtvehclRt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>미수금</w2:label>
+													<w2:value>refundamt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>미지급금</w2:label>
+													<w2:value>nypay</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>현재위치</w2:label>
+													<w2:value>posTxt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>희망상차지</w2:label>
+													<w2:value>hopeStartPos</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>희망하차지</w2:label>
+													<w2:value>hopeAlhtPos</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>최종거래일</w2:label>
+													<w2:value>txnDate</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>비고</w2:label>
+													<w2:value>rmk</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>배차일시</w2:label>
+													<w2:value>finalAlloccarDt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>SMS수신여부</w2:label>
+													<w2:value>smsRecvYn</w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<xf:select1 appearance="full" class="" cols="" id="rd_vehclOrdAsc1" ref="data:ds_cond.vehclOrdAsc1"
+											renderType="radiogroup" rows="" selectedIndex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[내림차순]]></xf:label>
+													<xf:value><![CDATA[0]]>
+													</xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[오름차순]]></xf:label>
+													<xf:value><![CDATA[1]]>
+													</xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="정렬조건2" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group class="form-group" id="" style="">
+										<w2:autoComplete allOption="" chooseOption="true" class="" editType="select" id="acb_vehclOrd2"
+											ref="data:ds_cond.vehclOrd2" search="start" style="width:200px;" submenuSize="auto" displayMode="value delim label"
+											chooseOptionLabel="선택하세요.">
+											<w2:choices>
+												<w2:item>
+													<w2:label>등록일자</w2:label>
+													<w2:value>mtvehclRegDt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>상태</w2:label>
+													<w2:value>vehclSts</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>소속점</w2:label>
+													<w2:value>ofcNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>차량번호</w2:label>
+													<w2:value>vehclNo</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>전화번호</w2:label>
+													<w2:value>handphoneNo</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>기사명</w2:label>
+													<w2:value>picNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>톤</w2:label>
+													<w2:value>tonCdNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>차종</w2:label>
+													<w2:value>typeCdNm</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>공차율</w2:label>
+													<w2:value>mtvehclRt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>미수금</w2:label>
+													<w2:value>refundamt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>미지급금</w2:label>
+													<w2:value>nypay</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>현재위치</w2:label>
+													<w2:value>posTxt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>희망상차지</w2:label>
+													<w2:value>hopeStartPos</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>희망하차지</w2:label>
+													<w2:value>hopeAlhtPos</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>최종거래일</w2:label>
+													<w2:value>txnDate</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>비고</w2:label>
+													<w2:value>rmk</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>배차일시</w2:label>
+													<w2:value>finalAlloccarDt</w2:value>
+												</w2:item>
+												<w2:item>
+													<w2:label>SMS수신여부</w2:label>
+													<w2:value>smsRecvYn</w2:value>
+												</w2:item>
+											</w2:choices>
+										</w2:autoComplete>
+										<xf:select1 appearance="full" class="" cols="" id="rd_vehclOrdAsc2" ref="data:ds_cond.vehclOrdAsc2"
+											renderType="radiogroup" rows="" selectedIndex="-1" style="">
+											<xf:choices>
+												<xf:item>
+													<xf:label><![CDATA[내림차순]]></xf:label>
+													<xf:value><![CDATA[0]]>
+													</xf:value>
+												</xf:item>
+												<xf:item>
+													<xf:label><![CDATA[오름차순]]></xf:label>
+													<xf:value><![CDATA[1]]>
+													</xf:value>
+												</xf:item>
+											</xf:choices>
+										</xf:select1>
+									</xf:group>
+
+
+								</xf:group>
+							</xf:group>
+							<xf:group tagname="tr">
+								<xf:group tagname="th" class="w2tb_th">
+									<w2:attributes>
+										<w2:scope>row</w2:scope>
+									</w2:attributes>
+									<w2:textbox class="" id="" label="정렬조건3" ref="" style="" userData2=""></w2:textbox>
+								</xf:group>
+								<xf:group tagname="td" class="w2tb_td">
+									<w2:attributes></w2:attributes>
+									<xf:group class="form-group" id="" style=""></xf:group>
+									<w2:autoComplete allOption="" chooseOption="true" class="" editType="select" id="acb_vehclOrd3"
+										ref="data:ds_cond.vehclOrd3" search="start" style="width:200px;" submenuSize="auto" displayMode="value delim label"
+										chooseOptionLabel="선택하세요.">
+										<w2:choices>
+											<w2:item>
+												<w2:label>등록일자</w2:label>
+												<w2:value>mtvehclRegDt</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>상태</w2:label>
+												<w2:value>vehclSts</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>소속점</w2:label>
+												<w2:value>ofcNm</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>차량번호</w2:label>
+												<w2:value>vehclNo</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>전화번호</w2:label>
+												<w2:value>handphoneNo</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>기사명</w2:label>
+												<w2:value>picNm</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>톤</w2:label>
+												<w2:value>tonCdNm</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>차종</w2:label>
+												<w2:value>typeCdNm</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>공차율</w2:label>
+												<w2:value>mtvehclRt</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>미수금</w2:label>
+												<w2:value>refundamt</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>미지급금</w2:label>
+												<w2:value>nypay</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>현재위치</w2:label>
+												<w2:value>posTxt</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>희망상차지</w2:label>
+												<w2:value>hopeStartPos</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>희망하차지</w2:label>
+												<w2:value>hopeAlhtPos</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>최종거래일</w2:label>
+												<w2:value>txnDate</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>비고</w2:label>
+												<w2:value>rmk</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>배차일시</w2:label>
+												<w2:value>finalAlloccarDt</w2:value>
+											</w2:item>
+											<w2:item>
+												<w2:label>SMS수신여부</w2:label>
+												<w2:value>smsRecvYn</w2:value>
+											</w2:item>
+										</w2:choices>
+									</w2:autoComplete>
+									<xf:select1 appearance="full" class="" cols="" id="rd_vehclOrdAsc3" ref="data:ds_cond.vehclOrdAsc3"
+										renderType="radiogroup" rows="" selectedIndex="-1" style="">
+										<xf:choices>
+											<xf:item>
+												<xf:label><![CDATA[내림차순]]></xf:label>
+												<xf:value><![CDATA[0]]>
+												</xf:value>
+											</xf:item>
+											<xf:item>
+												<xf:label><![CDATA[오름차순]]></xf:label>
+												<xf:value><![CDATA[1]]>
+												</xf:value>
+											</xf:item>
+										</xf:choices>
+									</xf:select1>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+				<xf:trigger class="btn" id="btn_save" style="" type="button" ev:onclick="scwin.btn_save_onclick">
+					<xf:label><![CDATA[조회조건저장]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

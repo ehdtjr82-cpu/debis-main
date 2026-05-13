@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="dma_condition">
+                <w2:keyInfo>
+                    <w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+                    <w2:key id="strDt" name="반출시작일자" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_cntrOutDeclarInfo" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="wrkPlCd" name="작업장" dataType="text"></w2:column>
+                    <w2:column id="mrn" name="MRN" dataType="text"></w2:column>
+                    <w2:column id="msn" name="MSN" dataType="text"></w2:column>
+                    <w2:column id="hsn" name="HSN" dataType="text"></w2:column>
+                    <w2:column id="crryinoutDeclarNo" name="신고번호" dataType="text"></w2:column>
+                    <w2:column id="crryinoutPatternCd" name="반입유형코드" dataType="text"></w2:column>
+                    <w2:column id="crryinoutPatternNm" name="반입유형" dataType="text"></w2:column>
+                    <w2:column id="divsCrryinoutClsCd" name="분할구분코드" dataType="text"></w2:column>
+                    <w2:column id="divsCrryinoutClsNm" name="분할구분" dataType="text"></w2:column>
+                    <w2:column id="crryinoutDtm" name="반입일자" dataType="text"></w2:column>
+                    <w2:column id="blNo" name="B/L번호" dataType="text"></w2:column>
+                    <w2:column id="crryinoutBasisNo" name="반입근거번호" dataType="text"></w2:column>
+                    <w2:column id="divsCrryinoutDeg" name="차수" dataType="text"></w2:column>
+                    <w2:column id="ntcPlNmCmpy" name="화주명" dataType="text"></w2:column>
+                    <w2:column id="commNm" name="품명" dataType="text"></w2:column>
+                    <w2:column id="inCrryinoutCnt" name="반입수량" dataType="text"></w2:column>
+                    <w2:column id="inCrryinoutWt" name="반입중량" dataType="text"></w2:column>
+                    <w2:column id="outCrryinoutCnt" name="반출수량" dataType="text"></w2:column>
+                    <w2:column id="outrryinoutWt" name="반출중량" dataType="text"></w2:column>
+                    <w2:column id="crryinoutCnt" name="재고수량" dataType="text"></w2:column>
+                    <w2:column id="crryinoutWt" name="재고중량" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="모선명" dataType="text"></w2:column>
+                    <w2:column id="arrvlportDt" name="입항일자" dataType="text"></w2:column>
+                    <w2:column id="rcvDtm" name="구분일시" dataType="text"></w2:column>
+                    <w2:column id="replyStsCd" name="구분코드" dataType="text"></w2:column>
+                    <w2:column id="replyStsNm" name="구분" dataType="text"></w2:column>
+                    <w2:column id="gubun" name="비고" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_Retrieve"
+            action="/ds.op.wrkrslts.yardwrkrslts.RetrieveBondzoneCrryoutStockListCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"dma_condition","key":"IN_DS1"},{"id":"ds_cntrOutDeclarInfo","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_cntrOutDeclarInfo","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_Retrieve_submitdone"
+            ev:submiterror="scwin.sbm_Retrieve_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.addRowYn = "F";
+        scwin.vCurDate = "";
+
+        scwin.onpageload = function() {
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            ed_wrkPlCd.setFocus();
+        };
+
+        scwin.onUdcCompleted = function() {
+            ed_strDt.setValue(scwin.vCurDate);
+        };
+
+        scwin.f_Retrieve = async function() {
+            let chk = await $c.gus.cfValidate([tb_searchCondition]);
+            if (!chk) {
+                return;
+            }
+            dma_condition.set("wrkPlCd", ed_wrkPlCd.getValue());
+            dma_condition.set("strDt", ed_strDt.getValue());
+            await $c.sbm.execute(sbm_Retrieve);
+        };
+
+        scwin.sbm_Retrieve_submitdone = async function(e) {
+            let rowCnt = ds_cntrOutDeclarInfo.getRowCount();
+            if (rowCnt == 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_003);
+            }
+            spa_totalRow.setValue(rowCnt);
+        };
+
+        scwin.sbm_Retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects(search_cond, null);
+            ed_strDt.setValue(scwin.vCurDate);
+        };
+
+        scwin.f_grdHeiht = function(objGrdId, size) {
+            let objGrd = $p.getComponentById(objGrdId);
+            if (objGrd) {
+                let strHeight = objGrd.getStyle("height");
+                let intHeight = parseInt(strHeight.replace("px", ""));
+                intHeight = intHeight + size;
+                if (intHeight > 0) {
+                    objGrd.setStyle("height", intHeight + "px");
+                }
+            }
+        };
+
+        scwin.f_MonthHeavyExcel = function() {
+            $c.data.downloadGridViewExcel(gr_cntrOutDeclarInfo, {
+                fileName: "수입화물재고현황(반출기준).xlsx",
+                sheetName: "수입화물재고현황(반출기준)"
+            });
+        };
+
+        scwin.f_chkOpenCommonPopUp = function(inObj, pairObj, disGubun, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj)) {
+                return;
+            }
+            $c.gus.cfClearPairObj(pairObj);
+            let pVal = $c.gus.cfGetValue(inObj);
+            if (isCode == null || isCode == true) {
+                scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+            } else {
+                scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+            }
+        };
+
+        scwin.f_openCommonPopUp = function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList;
+            switch (disGubun) {
+                case 1:
+                    udc_wrkPl.ilCommonPopUp(scwin.callbackWrkPl,
+                        pCode,
+                        pName,
+                        pClose,
+                        null,
+                        null,
+                        null,
+                        null,
+                        'F',
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        pAllSearch,
+                        null
+                    );
+                    break;
+            }
+        };
+
+        scwin.callbackWrkPl = function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_wrkPlCd, txt_wrkPlNm);
+        };
+
+        scwin.ed_wrkPlCd_onblur = function(e) {
+            scwin.f_chkOpenCommonPopUp(ed_wrkPlCd, txt_wrkPlNm, 1);
+        };
+
+        scwin.btn_retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.btn_refresh_onclick = function(e) {
+            scwin.f_FieldClear();
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="작업장" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:udc_comCode id="udc_wrkPl" codeId="ed_wrkPlCd" nameId="txt_wrkPlNm" popupID="" popupTitle="" selectID="" style=""></w2:udc_comCode>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:inputCalendar calendarValueType="yearMonthDate" class="" id="ed_strDt" style="" mandatory="true"></w2:inputCalendar>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="" style="" type="button">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="retrieveButton" style="" type="button">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="수입화물재고현황(반출기준)" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+					<xf:group class="right" id="" style="">
+						<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="none" checkAllType="false" class="wq_gvw" dataList="ds_cntrOutDeclarInfo" id="gr_cntrOutDeclarInfo" style="" visibleRowNum="19"
+						visibleRowNumFix="true" readOnly="true">
+						<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header1" style="">
+							<w2:row id="row1" style="">
+								<w2:column width="100" inputType="text" style="" id="wrkPlCd" value="작업장" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="mrn" value="MRN" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="msn" value="MSN" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="hsn" value="HSN" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="crryinoutDeclarNo" value="신고번호" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="crryinoutPatternCd" value="반입유형코드" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="crryinoutPatternNm" value="반입유형" displayMode="label"></w2:column>
+								<w2:column width="110" inputType="text" style="" id="divsCrryinoutClsCd" value="분할구분코드" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="divsCrryinoutClsNm" value="분할구분" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="crryinoutDtm" value="반입일자" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="blNo" value="B/L번호" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="crryinoutBasisNo" value="반입근거번호" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="divsCrryinoutDeg" value="차수" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="ntcPlNmCmpy" value="화주명" displayMode="label"></w2:column>
+								<w2:column width="150" inputType="text" style="" id="commNm" value="품명" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="inCrryinoutCnt" value="반입수량" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="inCrryinoutWt" value="반입중량" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="outCrryinoutCnt" value="반출수량" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="outrryinoutWt" value="반출중량" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="crryinoutCnt" value="재고수량" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="crryinoutWt" value="재고중량" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="vsslNm" value="모선명" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="arrvlportDt" value="입항일자" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="rcvDtm" value="구분일시" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="replyStsCd" value="구분코드" displayMode="label" hidden="true"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="replyStsNm" value="구분" displayMode="label"></w2:column>
+								<w2:column width="150" inputType="text" style="" id="gubun" value="비고" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody1" style="">
+							<w2:row id="row2" style="">
+								<w2:column width="100" inputType="text" style="" id="wrkPlCd" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="mrn" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="msn" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="hsn" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="crryinoutDeclarNo" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="crryinoutPatternCd" value="" displayMode="label"></w2:column>
+								<w2:column width="130" inputType="text" style="" id="crryinoutPatternNm" value="" displayMode="label"></w2:column>
+								<w2:column width="110" inputType="text" style="" id="divsCrryinoutClsCd" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="divsCrryinoutClsNm" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="crryinoutDtm" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="blNo" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="crryinoutBasisNo" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="divsCrryinoutDeg" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="ntcPlNmCmpy" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="commNm" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="inCrryinoutCnt" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="inCrryinoutWt" value="" displayMode="label"></w2:column>
+								<w2:column width="100" inputType="text" style="" id="outCrryinoutCnt" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="outrryinoutWt" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutCnt" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="crryinoutWt" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="vsslNm" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="arrvlportDt" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="rcvDtm" value="" displayMode="label" displayFormat="##/##/##/##:##"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="replyStsCd" value="" displayMode="label"></w2:column>
+								<w2:column width="70" inputType="text" style="" id="replyStsNm" value="" displayMode="label"></w2:column>
+								<w2:column width="150" inputType="text" style="" id="gubun" value="" displayMode="label"></w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="">
+							<xf:group class="grid-total" id="" style="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+						<xf:group class="right" id="" style="">
+							<w2:udc_bottomGrdBtn btnCancelYn="N" btnDelYn="Y" style=""></w2:udc_bottomGrdBtn>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="ds_search">
+    				<w2:keyInfo>
+    					<w2:key id="wrkPlCd" name="작업장코드" dataType="text"></w2:key>
+    					<w2:key id="selDate" name="선택일자" dataType="text"></w2:key>
+    					<w2:key id="fromDt" name="FROM일자" dataType="text"></w2:key>
+    					<w2:key id="toDt" name="TO 일자" dataType="text"></w2:key>
+    					<w2:key id="odrNo" name="오더번호" dataType="text"></w2:key>
+    					<w2:key id="vehclNo" name="차량번호" dataType="text"></w2:key>
+    					<w2:key id="forceYn" name="강제생성여부" dataType="text"></w2:key>
+    					<w2:key id="selfClsCd" name="SELF_구분코드" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_block" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="code" name="코드" dataType="text"></w2:column>
+    					<w2:column id="name" name="코드명" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataMap baseNode="map" id="dma_block">
+    				<w2:keyInfo>
+    					<w2:key id="sysCd" name="시스템코드" dataType="text"></w2:key>
+    					<w2:key id="queryId" name="쿼리ID" dataType="text"></w2:key>
+    					<w2:key id="param1" name="파라미터1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataMap baseNode="map" id="dma_op316Info" style="">
+    				<w2:keyInfo>
+    					<w2:key dataType="text" id="key1" name="시스템코드"></w2:key>
+    					<w2:key dataType="text" id="key2" name="쿼리ID"></w2:key>
+    					<w2:key dataType="text" id="key3" name="파라미터1"></w2:key>
+    					<w2:key dataType="text" id="key4" name="파라미터2"></w2:key>
+    					<w2:key dataType="text" id="key5" name="파라미터3"></w2:key>
+    					<w2:key dataType="text" id="key6" name="파라미터4"></w2:key>
+    					<w2:key dataType="text" id="key7" name="파라미터5"></w2:key>
+    					<w2:key dataType="text" id="key8" name="파라미터6"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_op316Info" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="col1" name="컬럼1" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_result" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="chk" name="선택" dataType="text" length="1" defaultValue=""></w2:column>
+    					<w2:column id="wrkPlCd" name="작업장코드" dataType="text" length="7" defaultValue=""></w2:column>
+    					<w2:column id="crryinoutIntendNo" name="반출입예정번호" dataType="text" length="13" defaultValue=""></w2:column>
+    					<w2:column id="crryinoutClsCd" name="반출입구분코드" dataType="text" length="1" defaultValue=""></w2:column>
+    					<w2:column id="crryinoutIntendDt" name="반출입예정일자" dataType="text" length="8" defaultValue=""></w2:column>
+    					<w2:column id="crryinoutIntendHh" name="반출입예정시간" dataType="text" length="4" defaultValue=""></w2:column>
+    					<w2:column id="impExpClsCd" name="수입수출구분코드" dataType="text" length="1" defaultValue=""></w2:column>
+    					<w2:column id="arrvlportDtm" name="입항일시" dataType="text" length="12" defaultValue=""></w2:column>
+    					<w2:column id="cntrNo" name="컨테이너번호" dataType="text" length="11" defaultValue=""></w2:column>
+    					<w2:column id="cntrSizCd" name="컨테이너사이즈" dataType="text" length="2" defaultValue=""></w2:column>
+    					<w2:column id="cntrTypCd" name="컨테이너타입" dataType="text" length="2" defaultValue=""></w2:column>
+    					<w2:column id="fullEmptyClsCd" name="FULL/EMPTY구분코드" dataType="text" length="1" defaultValue=""></w2:column>
+    					<w2:column id="wt" name="중량" dataType="Integer" length="18" defaultValue="0"></w2:column>
+    					<w2:column id="vehclNo" name="차량번호" dataType="text" length="12" defaultValue=""></w2:column>
+    					<w2:column id="vehclIdCardNo" name="차량ID번호" dataType="text" length="8" defaultValue=""></w2:column>
+    					<w2:column id="lineCd" name="LINE코드" dataType="text" length="5" defaultValue=""></w2:column>
+    					<w2:column id="odrNo" name="오더번호" dataType="text" length="13" defaultValue=""></w2:column>
+    					<w2:column id="cntrSeq" name="컨테이너순번" dataType="Integer" length="4" defaultValue="0"></w2:column>
+    					<w2:column id="wrkPathSeq" name="작업경로순번" dataType="Integer" length="3" defaultValue="0"></w2:column>
+    					<w2:column id="wrkStpSeq" name="작업단계순번" dataType="Integer" length="3" defaultValue="0"></w2:column>
+    					<w2:column id="blNo" name="B/L번호" dataType="text" length="20"></w2:column>
+    					<w2:column id="bookingNo" name="BOOKING번호" dataType="text" length="20"></w2:column>
+    					<w2:column id="selfTransCoClntNo" name="자가운송사거래처번호" dataType="text" length="6"></w2:column>
+    					<w2:column id="cnclDtm" name="취소일시" dataType="text" length="14"></w2:column>
+    					<w2:column id="cnclPicId" name="취소담당자ID" dataType="text" length="8"></w2:column>
+    					<w2:column id="wrkMemo" name="작업메모" dataType="text" length="60"></w2:column>
+    					<w2:column id="blckCd" name="BLOCK코드" dataType="text" length="2"></w2:column>
+    					<w2:column id="forceYn" name="강제생성여부" dataType="text" length="1"></w2:column>
+    					<w2:column id="onoffNo" name="상하차번호" dataType="text" length="13"></w2:column>
+    					<w2:column id="wrkStsCd" name="작업상태코드(R:대기,F:완료,C:취소)" dataType="text" length="1"></w2:column>
+    					<w2:column id="selfClsCd" name="SELF_구분코드" dataType="text" length="2"></w2:column>
+    					<w2:column id="sealNo" name="봉인번호" dataType="text" length="20"></w2:column>
+    					<w2:column id="drvTelNo" name="기사전화번호" dataType="text" length="20"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ds.op.wrkrslts.cywrkrslts.RetrieveMcomOnOffInfoCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,[{"id":"ds_search","key":"IN_DS1"},{"id":"ds_result","key":"OUT_DS1"}]' target='data:json,{"id":"ds_result","key":"OUT_DS1"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_save" action="/ds.op.wrkrslts.cywrkrslts.SaveMcomOnOffInfoCMD.do" method="post"
+    			mediatype="application/json" ref='data:json,{"action":"modified","id":"ds_result","key":"IN_DS1"}' target="" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_save_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_block" action="/cm.zz.RetrieveComboCMD.do" method="post" mediatype="application/json" ref="data:json,dma_block"
+    			target='data:json,{"id":"ds_block","key":"GAUCE"}' encoding="UTF-8" instance="" replace="" errorHandler="" customHandler=""
+    			mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    		<xf:submission id="sbm_op316Info" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json" ref="" target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[/**
+ * 화 면 명 : CY상/하차 차량확인
+ * 메뉴경로 : 자가운송/CY현황관리/CY상/하차 차량확인
+ * ASIS경로 : /dongwon-debis-engine/src/main/webapp/ds/op/wrkrslts/cywrkrslts/op_301_02_33b.jsp
+ * 작 성 자 : 유청아
+ * 작 업 일 : 2026-03-09
+ * 작업내용 :
+ *    1. 화면세팅
+ *    2. 초기세팅(UDC), 그리드(데이터리스트)
+ *    3. 스크립트 TOBE전환
+ *    4. 기능확인(버튼)
+ * 참고사항
+
+ * 수정이력 :
+ *    - 2026-03-09      유청아    최초작성
+ *    - 2026-04-22      이진우    T-2640 결함 조치
+ */
+// T-5735 최미현 차장
+// 1. 조회시 작업일자 기간 체크 로직 추가
+// 2. 조회조건 차량No 숫자입력만 가능하도록 수정요청
+
+// 초기값 설정 - 날짜 (현재날짜)
+scwin.strCurDate = $c.date.getServerDateTime("yyyyMMdd"); // 현재년월일을 구한다.
+
+//세션정보 가져오기
+scwin.userClsCd = $c.data.getMemInfo("userClsCd");
+scwin.userLobranCd = $c.data.getMemInfo("lobranCd");
+scwin.sysAdminYn = $c.data.getMemInfo("sysAdminYn");
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function () {
+    lc_selDate.setSelectedIndex(0);
+
+    const codeOptions = [
+        { grpCd: "OP317", compID: "lc_wrkPlCd" } //작업장
+    ];
+    $c.data.setCommonCode(codeOptions);
+
+    if (scwin.sysAdminYn == 1) {
+        $c.gus.cfEnableObj(lc_wrkPlCd, true);
+    } else {
+        $c.gus.cfEnableObj(lc_wrkPlCd, false);
+    }
+
+    //scwin.f_getCntrInfo(); //사용되지 않음
+
+    $c.gus.cfEnableObj(lc_selDate, false);
+
+    scwin.f_SetGridColumnMaxLength(gr_result);
+    scwin.f_SetGridColumnMaxLength(gr_result2);
+};
+
+//-------------------------------------------------------------------------
+// UDC Completed
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function () {
+    $p.setTimeout(function () {
+        scwin.f_settingDate();
+
+        //ds_search.set("fromDt", "20250911");
+    }, { "delay": 50 });
+};
+
+//-------------------------------------------------------------------------
+// 공통코드가 셋팅이 되고 scwin.ondataload 이벤트가 호출
+//-------------------------------------------------------------------------
+scwin.ondataload = function () {
+    //로그인부서로 CY세팅
+    if (scwin.userLobranCd == "4AA") {
+        lc_wrkPlCd.setSelectedIndex(0);
+    } else if (scwin.userLobranCd == "4BB") {
+        lc_wrkPlCd.setSelectedIndex(1);
+    } else if (scwin.userLobranCd == "5AA") {
+        lc_wrkPlCd.setSelectedIndex(2);
+    } else {
+        lc_wrkPlCd.setSelectedIndex(1);
+    }
+
+    scwin.f_getBlockInfo();
+    scwin.f_bindHeader();
+};
+
+//-------------------------------------------------------------------------
+// 입력 그리드 maxlength 설정
+//-------------------------------------------------------------------------
+scwin.f_SetGridColumnMaxLength = function (gridViewObj) {
+    for (let i = 0; i < gridViewObj.getTotalCol(); i++) {
+        let colNm = gridViewObj.getColumnID(i);
+        let dataObj = $c.gus.object(gridViewObj.getDataList());
+        let colInfo = dataObj.getColumnInfo(colNm);
+
+        if (typeof colInfo != "undefined") {
+            gridViewObj.setMaxLength(i, colInfo.length);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 날짜 SET
+//-------------------------------------------------------------------------
+scwin.f_settingDate = function () {
+    ed_onReqFromDt.setValue(scwin.strCurDate);
+    ed_onReqToDt.setValue(scwin.strCurDate);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function () {
+    let ret = await $c.gus.cfValidate([tbl_search]);
+    if (!ret) {
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 저장
+//-------------------------------------------------------------------------
+scwin.f_Save = async function () {
+    if (ds_result.getModifiedIndex().length == 0) {
+        $c.win.alert("변경된 사항이 없습니다.");
+        return;
+    }
+
+    if (!scwin.f_checkValid()) {
+        return;
+    }
+
+    if (ds_result.getCellData(ds_result.getRowPosition(), "wrkStsCd") == "F") {
+        $c.win.alert("상하차작업 종료건은 수정/삭제할 수 없습니다.");
+        ds_result.undoRow(ds_result.getRowPosition());
+        return;
+    }
+
+    let ret = await $c.win.confirm("저장을 진행 하시겠습니까?");
+
+    if (ret) {
+        $c.sbm.execute(sbm_save);
+    }
+};
+
+//-------------------------------------------------------------------------
+// 삭제
+//-------------------------------------------------------------------------
+scwin.f_Delete = function () {
+    let row = ds_result.getRowPosition();
+
+    if (ds_result.getCellData(ds_result.getRowPosition(), "onoffNo") == "") {
+        $c.win.alert("강제등록건이 아니어서 삭제 할 수 없습니다");
+
+        //신규ROW는 삭제, 기존ROW는 상태값만 삭제
+        if (ds_result.getRowStatus(ds_result.getRowPosition()) == "C") {
+            ds_result.removeRow(ds_result.getRowPosition())
+
+            if (ds_result.getRowCount() > 0) {
+                if (lc_wrkPlCd.getValue() == "5C08") {
+                    gr_result2.setFocusedCell(row, "impExpClsCd", false);
+                } else {
+                    gr_result.setFocusedCell(row, "impExpClsCd", false);
+                }
+            }
+        } else {
+            ds_result.undoRow(ds_result.getRowPosition());
+        }
+
+        return;
+    }
+
+    //신규ROW는 삭제, 기존ROW는 상태값만 삭제
+    if (ds_result.getRowStatus(ds_result.getRowPosition()) == "C") {
+        ds_result.removeRow(ds_result.getRowPosition())
+    } else {
+        ds_result.deleteRow(ds_result.getRowPosition());
+
+        if (lc_wrkPlCd.getValue() == "5C08") {
+            gr_result2.setFocusedCell(row, "impExpClsCd", false);
+        } else {
+            gr_result.setFocusedCell(row, "impExpClsCd", false);
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// Valid 체크
+//-------------------------------------------------------------------------
+scwin.f_checkValid = function () {
+    var obj = ds_result;
+    for (var dsRow = 0; dsRow < obj.getRowCount(); dsRow++) {
+        if (obj.getRowStatus(dsRow) == "C" //1:입력 
+            || obj.getRowStatus(dsRow) == "U" //3:수정
+        ) {
+            if (obj.getCellData(dsRow, "impExpClsCd") == "") {
+                $c.win.alert((dsRow + 1) + "행에 수출/입 여부를 선택하셔야 합니다.");
+                return false;
+            }
+
+            if (obj.getCellData(dsRow, "crryinoutClsCd") == "") {
+                $c.win.alert((dsRow + 1) + "행에 구분을 선택하셔야 합니다.");
+                return false;
+            }
+
+            //광주CY는 필수입력 확인 안하는 항목.
+            //2015.09.11 hurrah
+            if (lc_wrkPlCd.getValue() != "5C08") {
+                if (obj.getCellData(dsRow, "cntrSizCd") == "") {
+                    $c.win.alert((dsRow + 1) + "행에 컨테이너 SIZE 값을 입력하셔야 합니다.");
+                    return false;
+                }
+
+                if (obj.getCellData(dsRow, "cntrTypCd") == "") {
+                    $c.win.alert((dsRow + 1) + "행에 컨테이너 TYPE 값을 입력하셔야 합니다.");
+                    return false;
+                }
+
+                if (obj.getCellData(dsRow, "lineCd") == "") {
+                    $c.win.alert((dsRow + 1) + "행에 LINE 값을 입력하셔야 합니다.");
+                    return false;
+                }
+            }
+
+            if (obj.getCellData(dsRow, "fullEmptyClsCd") == "") {
+                $c.win.alert((dsRow + 1) + "행에 FULL/EMPTY 값을 입력하셔야 합니다.");
+                return false;
+            }
+
+            if (lc_wrkPlCd.getValue() == "5C08" // 광주CY 강제등록시 SEAL번호 필수입력 체크. 2015.08.27
+                && obj.getCellData(dsRow, "sealNo") == ""
+            ) {
+
+                if (obj.getCellData(dsRow, "impExpClsCd") == "O"
+                    && obj.getCellData(dsRow, "fullEmptyClsCd") == "E"
+                    && obj.getCellData(dsRow, "crryinoutClsCd") == "O") // 수출 엠티 반출
+                {
+                    $c.win.alert((dsRow + 1) + "행에 SEAL 번호를 입력하셔야 합니다.");
+                    return false;
+                }
+            }
+
+            if (obj.getCellData(dsRow, "vehclNo") == "") {
+                $c.win.alert((dsRow + 1) + "행에 차량번호를 입력하셔야 합니다.");
+                return false;
+            }
+
+        } //end if obj.RowStatus check
+    }
+    return true;
+};
+
+//-------------------------------------------------------------------------
+// 행복사
+//-------------------------------------------------------------------------
+scwin.f_copyRow = function () {
+    let rowPositionValue = ds_result.getRowPosition();
+
+    if (lc_wrkPlCd.getValue() == "5C08") {
+        $c.data.insertRow(gr_result2);
+    } else {
+        $c.data.insertRow(gr_result);
+    }
+
+    let newRow = ds_result.getRowPosition();
+    ds_result.setCellData(newRow, "wrkPlCd", ds_result.getCellData(rowPositionValue, "wrkPlCd"));
+    ds_result.setCellData(newRow, "impExpClsCd", ds_result.getCellData(rowPositionValue, "impExpClsCd"));
+    ds_result.setCellData(newRow, "crryinoutClsCd", ds_result.getCellData(rowPositionValue, "crryinoutClsCd"));
+    ds_result.setCellData(newRow, "selfClsCd", ds_result.getCellData(rowPositionValue, "selfClsCd"));
+    ds_result.setCellData(newRow, "cntrNo", ds_result.getCellData(rowPositionValue, "cntrNo"));
+    ds_result.setCellData(newRow, "cntrSizCd", ds_result.getCellData(rowPositionValue, "cntrSizCd"));
+    ds_result.setCellData(newRow, "cntrTypCd", ds_result.getCellData(rowPositionValue, "cntrTypCd"));
+    ds_result.setCellData(newRow, "fullEmptyClsCd", ds_result.getCellData(rowPositionValue, "fullEmptyClsCd"));
+    ds_result.setCellData(newRow, "blNo", ds_result.getCellData(rowPositionValue, "blNo"));
+    ds_result.setCellData(newRow, "bookingNo", ds_result.getCellData(rowPositionValue, "bookingNo"));
+    ds_result.setCellData(newRow, "lineCd", ds_result.getCellData(rowPositionValue, "lineCd"));
+    ds_result.setCellData(newRow, "wrkMemo", ds_result.getCellData(rowPositionValue, "wrkMemo"));
+    ds_result.setCellData(newRow, "blckCd", ds_result.getCellData(rowPositionValue, "blckCd"));
+    ds_result.setCellData(newRow, "forceYn", "1");
+    ds_result.setCellData(newRow, "crryinoutIntendDt", scwin.strCurDate);
+}
+
+//-------------------------------------------------------------------------
+// 행추가
+//-------------------------------------------------------------------------
+scwin.f_addRow = function () {
+    if (lc_wrkPlCd.getValue() == "5C08") {
+        $c.data.insertRow(gr_result2);
+    } else {
+        $c.data.insertRow(gr_result);
+    }
+
+    let newRow = ds_result.getRowPosition();
+    ds_result.setCellData(newRow, "wrkPlCd", lc_wrkPlCd.getValue());
+    ds_result.setCellData(newRow, "forceYn", "1");
+    ds_result.setCellData(newRow, "selfClsCd", "L");
+
+    //광주CY는 당사, 수출, 상차로 기본세팅
+    //2015.09.11 hurrah
+    if (lc_wrkPlCd.getValue() == "5C08") {
+        ds_result.setCellData(newRow, "impExpClsCd", "O");
+        ds_result.setCellData(newRow, "crryinoutClsCd", "O");
+    } else if (lc_wrkPlCd.getValue() == "4C02") {
+        ds_result.setCellData(newRow, "lineCd", "HMM");
+    }
+};
+
+//-------------------------------------------------------------------------
+// 행삭제
+//-------------------------------------------------------------------------
+scwin.f_deleteRow = function () {
+    var cntrInfoRows = ds_result.getRowCount();
+
+    if (cntrInfoRows > 0) {
+        if (ds_result.getRowStatus(ds_result.getRowPosition()) == "C") {
+            ds_result.removeRow(ds_result.getRowPosition())
+        } else {
+            ds_result.deleteRow(ds_result.getRowPosition());
+        }
+
+        tbx_totalRows.setValue(ds_result.getRowCount());
+    }
+};
+
+//-------------------------------------------------------------------------
+// 행취소
+//-------------------------------------------------------------------------
+scwin.f_undoRow = function () {
+    let cntrInfoRows = ds_result.getRowCount();
+    let row = ds_result.getRowPosition();
+
+    //신규ROW는 삭제, 기존ROW는 상태값만 삭제
+    if (ds_result.getRowStatus(ds_result.getRowPosition()) == "C") {
+        ds_result.removeRow(ds_result.getRowPosition())
+
+        if (cntrInfoRows > 0) {
+            if (lc_wrkPlCd.getValue() == "5C08") {
+                gr_result2.setFocusedCell(row - 1, "impExpClsCd", false);
+            } else {
+                gr_result.setFocusedCell(row - 1, "impExpClsCd", false);
+            }
+        }
+    } else {
+        ds_result.undoRow(ds_result.getRowPosition());
+    }
+}
+
+//-------------------------------------------------------------------------
+// 그리드 구역 콤보박스 조회
+//-------------------------------------------------------------------------
+scwin.f_getBlockInfo = function () {
+    //작업장 블럭정보 조회    
+    dma_block.set("sysCd", "DsCommonEBC");
+    dma_block.set("queryId", "retrieveMngBlockList");
+    dma_block.set("param1", lc_wrkPlCd.getValue());
+
+    $c.sbm.execute(sbm_block);
+};
+
+scwin.f_retrieveBlockInfo = function (line, siz, typ, row, clscd) {
+    dma_op316Info.set("sysCd", "CommonEBC");
+    dma_op316Info.set("queryId", "retrieveCyBlockInfo");
+    dma_op316Info.set("param1", lc_wrkPlCd.getValue());
+    dma_op316Info.set("param2", line);
+    dma_op316Info.set("param3", siz);
+    dma_op316Info.set("param4", typ);
+    dma_op316Info.set("param5", ds_result.getCellData(row, "fullEmptyClsCd"));
+    dma_op316Info.set("param6", clscd);
+
+    $c.sbm.execute(sbm_op316Info);
+
+    if (ds_op316Info.getRowCount() > 0) {
+        ds_result.setCellData(row, "blckCd", ds_op316Info.getCellData(0, "col1"));
+    } else {
+        if (ds_result.getCellData(row, "wrkPlCd") == "5C08") {
+            ds_result.setCellData(row, "blckCd", "A1");
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 강제등록 displayFormatter
+//-------------------------------------------------------------------------
+scwin.forceYnExp = function (data) {
+    return $c.gus.decode(data, "1", "Y", "2", "J", "N");
+};
+
+//-------------------------------------------------------------------------
+// 그리드 헤더 SET
+//-------------------------------------------------------------------------
+scwin.f_bindHeader = function () {
+    if (lc_wrkPlCd.getValue() == "5C08") {
+        gr_result.setStyle("display", "none");
+        gr_result2.setStyle("display", "");
+        udc_topGrdBtn.setGridId("gr_result2");
+        udc_bottomGrdBtn.setGridId("gr_result2");
+    } else {
+        gr_result.setStyle("display", "");
+        gr_result2.setStyle("display", "none");
+        udc_topGrdBtn.setGridId("gr_result");
+        udc_bottomGrdBtn.setGridId("gr_result");
+        if (lc_wrkPlCd.getValue() == "4C02") {
+            //gr_result.Format += '<c> id=lineCd name=LINE Edit=None width=50 align=center </c>';
+            gr_result.setReadOnly("column", "lineCd", true);
+        } else {
+            //gr_result.Format += '<c> id=lineCd name=LINE Edit=Upper width=50 align=center </c>';
+            gr_result.setReadOnly("column", "lineCd", false);
+        }
+    }
+};
+
+scwin.lc_wrkPlCd_onviewchange = function (info) {
+    scwin.f_bindHeader();
+};
+
+
+//-------------------------------------------------------------------------
+// 조회 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_retrieve_submitdone = function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) return;
+
+    if ($c.gus.cfCheckCreateFlag() == true) {
+        $c.gus.cfTurnCreateFlag(false);
+    }
+    else {
+        if (ds_result.getRowCount() == 0) {
+            $c.win.alert("조회된 데이터가 없습니다");
+        } else {
+            ds_result.setRowPosition(0);
+
+            if (lc_wrkPlCd.getValue() == "5C08") {
+                gr_result2.setFocusedCell(0, "impExpClsCd", false);
+            } else {
+                gr_result.setFocusedCell(0, "impExpClsCd", false);
+            }
+
+            tbx_totalRows.setValue(ds_result.getRowCount());
+        }
+    }
+};
+
+//-------------------------------------------------------------------------
+// 저장 submitdone
+//-------------------------------------------------------------------------
+scwin.sbm_save_submitdone = async function (e) {
+    await $c.win.alert("적용 되었습니다.");
+    scwin.f_Retrieve();
+};
+
+//-------------------------------------------------------------------------
+// 대문자 입력
+//-------------------------------------------------------------------------
+scwin.onkeyup = function (e) {
+    this.setValue(e.target.value.toUpperCase());
+};
+
+//-------------------------------------------------------------------------
+// 그리드 대문자 입력
+//-------------------------------------------------------------------------
+scwin.gr_result_oneditkeyup = function (info) {
+    const inputEl = event.target;
+
+    switch (info.colID) {
+        case "cntrNo":
+        case "cntrSizCd":
+        case "cntrTypCd":
+        case "fullEmptyClsCd":
+        case "sealNo":
+        case "odrNo":
+        case "blNo":
+        case "bookingNo":
+        case "lineCd":
+            inputEl.value = info.newValue.toUpperCase();
+            break;
+        default:
+            break;
+    }
+};
+
+//-------------------------------------------------------------------------
+// 그리드 대문자 입력
+//-------------------------------------------------------------------------
+scwin.gr_result2_oneditkeyup = function (info) {
+    const inputEl = event.target;
+
+    switch (info.colID) {
+        case "cntrNo":
+        case "cntrSizCd":
+        case "cntrTypCd":
+        case "fullEmptyClsCd":
+        case "sealNo":
+        case "odrNo":
+        case "blNo":
+        case "bookingNo":
+        case "lineCd":
+            inputEl.value = info.newValue.toUpperCase();
+            break;
+        default:
+            break;
+    }
+};
+
+//-------------------------------------------------------------------------
+// 조회조건 초기화
+//-------------------------------------------------------------------------
+scwin.btn_init_onclick = function (e) {
+    $c.gus.cfInitObjects(tbl_search);
+    scwin.f_settingDate();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="shbox" id="" style="">
+    					<xf:group class="shbox-inner" id="" style="">
+    						<xf:group class="w2tb" id="tbl_search" style="" tagname="table">
+    							<w2:attributes>
+    								<w2:summary></w2:summary>
+    							</w2:attributes>
+    							<xf:group tagname="colgroup">
+    								<xf:group style="width:55px;" tagname="col"></xf:group>
+    								<xf:group style="width:250px;" tagname="col"></xf:group>
+    								<xf:group style="width:130px;" tagname="col"></xf:group>
+    								<xf:group style="width:250px;" tagname="col"></xf:group>
+    								<xf:group style="width:60px;" tagname="col"></xf:group>
+    								<xf:group style="width:60px;" tagname="col"></xf:group>
+    								<xf:group style="width:45px;" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    								<xf:group style="" tagname="col"></xf:group>
+    							</xf:group>
+    							<xf:group class="" id="" style="" tagname="tr">
+    								<xf:group class="w2tb_th " style="" tagname="th">
+    									<w2:textbox class="" id="" label="작업장" style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" style="" tagname="td">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_wrkPlCd" style="width: 200px;" submenuSize="auto" ref="data:ds_search.wrkPlCd" textAlign="left" ev:onviewchange="scwin.lc_wrkPlCd_onviewchange" sortOption="value">
+    										<xf:choices></xf:choices>
+    									</xf:select1></xf:group>
+    								<xf:group class="w2tb_th" style="" tagname="th">
+    									<xf:select1 allOption="" appearance="minimal" chooseOption="" class=" req " direction="auto" disabled="false" disabledClass="w2selectbox_disabled" id="lc_selDate" style="width: 110px;" submenuSize="auto" ref="data:ds_search.selDate" objType="data" textAlign="left" displayMode="label">
+    										<xf:choices>
+    											<xf:item>
+    												<xf:label><![CDATA[작업예정일자]]></xf:label>
+    												<xf:value><![CDATA[1]]></xf:value>
+    											</xf:item>
+    											<xf:item>
+    												<xf:label><![CDATA[작업요청일자]]></xf:label>
+    												<xf:value><![CDATA[2]]></xf:value>
+    											</xf:item>
+    										</xf:choices>
+    									</xf:select1>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" style="" tagname="td"><w2:udc_fromToCalendar id="udc_fromToCalendar" refDataMap="ds_search" refEdDt="toDt" refStDt="fromDt" style="" objType="Data" mandatory="true" edFromId="ed_onReqFromDt" edToId="ed_onReqToDt" mandatoryFrom="true" mandatoryTo="true" titleFrom="작업시작일자" titleTo="작업종료일자"></w2:udc_fromToCalendar></xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="차량No " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td"><w2:attributes></w2:attributes><xf:input class="" id="ed_vehclNo" placeholder="" style="width: 70px;" allowChar="0-9" maxlength="4" editType="select" readOnly="false" objType="Data" ref="data:ds_search.vehclNo" ev:onkeyup="scwin.onkeyup"></xf:input></xf:group>
+    								<xf:group class="w2tb_th" id="" tagname="th">
+    									<w2:attributes></w2:attributes>
+    									<w2:textbox class="" id="" label="오더 " style=""></w2:textbox>
+    								</xf:group>
+    								<xf:group class="w2tb_td" id="" tagname="td">
+    									<w2:attributes></w2:attributes>
+    									<xf:input class="" id="ed_odrNo" placeholder="" style="width: 150px;" allowChar="a-zA-Z0-9" maxlength="13" objType="Data" editType="select" ref="data:ds_search.odrNo" ev:onkeyup="scwin.onkeyup"></xf:input>
+    								</xf:group>
+    							</xf:group>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group class="btn-shbox" id="" style="">
+    						<xf:trigger class="btn ico refresh" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onclick">
+    							<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    						</xf:trigger>
+    						<xf:trigger class="btn sch" disabled="" escape="false" id="btn_search" style="" type="button" ev:onclick="scwin.f_Retrieve">
+    							<xf:label><![CDATA[조회]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    				</xf:group><xf:group class="round-box" id="" style="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" id="udc_topGrdBtn" gridID="gr_result" grdDownOpts='{"fileName":"CY차량확인.xlsx","sheetName":"CY차량확인","type":"4+8+16"}'></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    								<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_result" id="gr_result"
+    									scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" autoFit="allColumn"
+    									ev:oneditkeyup="scwin.gr_result_oneditkeyup" rowStatusVisible="true">
+    									<w2:caption id="caption10" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column width="70" inputType="text" id="column105" value="작업장코드" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column108" value="반출입예정번호" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column111" value="반출입예정시간" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text"
+    												removeBorderStyle="false" width="60" value="수출입" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column114" value="입항일시" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" value="구분" width="60"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" value="컨테이너" width="350"
+    												colSpan="5" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column117" value="중량" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="50" inputType="text" id="column59" value="자가&lt;br/&gt;구분"
+    												displayMode="label" rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="column56" value="차량번호" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" id="column53" value="ID카드번호" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" id="column47" value="오더번호" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column126" value="컨테이너순번" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column123" value="작업경로순번" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column120" value="작업단계순번" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="column65" value="예정일자" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column129" value="자가운송사거래처" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="column71" value="BL_NO" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="column95" value="BK_NO" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column98" value="LINE" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column101" value="구역" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column132" value="취소일시" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column135" value="취소담당자ID" displayMode="label"
+    												rowSpan="2">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="column104" value="메모" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="40" inputType="text" id="column80" value="강제&lt;br/&gt;등록"
+    												displayMode="label" rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="130" inputType="text" id="column83" value="상하차번호" displayMode="label"
+    												rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column86" value="작업&lt;br/&gt;상태"
+    												displayMode="label" rowSpan="2" sortable="false">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row5">
+    											<w2:column width="100" inputType="text" id="column25" value="번호" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column24" value="SZ" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column23" value="TY" displayMode="label">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="column45" value="EF" displayMode="label">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="column42" value="SEAL" displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column width="70" inputType="text" id="wrkPlCd" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="crryinoutIntendNo" displayMode="label"
+    												hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="crryinoutIntendHh" displayMode="label"
+    												hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="impExpClsCd" inputType="select"
+    												removeBorderStyle="false" width="60" textAlign="left" chooseOption="true" chooseOptionLabel="$blank">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[수입]]></w2:label>
+    														<w2:value><![CDATA[I]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[수출]]></w2:label>
+    														<w2:value><![CDATA[O]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="arrvlportDtm" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="crryinoutClsCd" inputType="select" width="60"
+    												chooseOption="true" chooseOptionLabel="$blank">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[하차]]></w2:label>
+    														<w2:value><![CDATA[I]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[상차]]></w2:label>
+    														<w2:value><![CDATA[O]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column displayMode="label" id="cntrNo" inputType="text" width="100"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cntrSizCd" inputType="text" width="60"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column displayMode="label" id="cntrTypCd" inputType="text" width="60"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="fullEmptyClsCd" displayMode="label"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="sealNo" displayMode="label" textAlign="left"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="wt" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="50" inputType="select" id="selfClsCd" displayMode="label"
+    												textAlign="left">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[당사]]></w2:label>
+    														<w2:value><![CDATA[L]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[자가]]></w2:label>
+    														<w2:value><![CDATA[J]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="120" inputType="text" id="vehclNo" displayMode="label" textAlign="left">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" id="vehclIdCardNo" displayMode="label"
+    												class="col-type1" allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="90" inputType="text" id="odrNo" displayMode="label"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="cntrSeq" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="wrkPathSeq" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="wrkStpSeq" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="crryinoutIntendDt" displayMode="label"
+    												readOnly="true" displayFormat="####/##/##">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="selfTransCoClntNo" displayMode="label"
+    												hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="blNo" displayMode="label"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="80" inputType="text" id="bookingNo" displayMode="label"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" id="lineCd" displayMode="label"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="70" inputType="select" id="blckCd" displayMode="label" chooseOption="true"
+    												chooseOptionLabel="$blank">
+    												<w2:choices>
+    													<w2:itemset nodeset="data:ds_block">
+    														<w2:label ref="name"></w2:label>
+    														<w2:value ref="code"></w2:value>
+    													</w2:itemset>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="cnclDtm" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" id="column137" displayMode="label" hidden="true"
+    												readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" id="wrkMemo" displayMode="label" textAlign="left">
+    											</w2:column>
+    											<w2:column width="40" inputType="text" id="forceYn" displayMode="label" readOnly="true"
+    												displayFormatter="scwin.forceYnExp">
+    											</w2:column>
+    											<w2:column width="130" inputType="text" id="onoffNo" displayMode="label" readOnly="true"></w2:column>
+    											<w2:column width="60" inputType="select" id="wrkStsCd" displayMode="label" readOnly="true"
+    												chooseOption="true" chooseOptionLabel="$blank">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[완료]]></w2:label>
+    														<w2:value><![CDATA[F]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[대기]]></w2:label>
+    														<w2:value><![CDATA[R]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[취소]]></w2:label>
+    														<w2:value><![CDATA[C]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[삭제]]></w2:label>
+    														<w2:value><![CDATA[D]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<w2:gridView checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_result" id="gr_result2"
+    									scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" autoFit="allColumn"
+    									rowStatusVisible="true" ev:oneditkeyup="scwin.gr_result2_oneditkeyup">
+    									<w2:caption id="caption12" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header2" style="">
+    										<w2:row id="row3" style="">
+    											<w2:column width="70" inputType="text" style="" id="column112" value="작업장코드"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column115" value="반출입예정번호"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column118" value="반출입예정시간"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text"
+    												removeBorderStyle="false" rowSpan="2" value="수출입" width="60" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column121" value="입항일시"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column19" inputType="text" rowSpan="2" value="구분"
+    												width="60">
+    											</w2:column>
+    											<w2:column colSpan="5" displayMode="label" id="column17" inputType="text" value="컨테이너"
+    												width="350">
+    											</w2:column>
+    											<w2:column width="50" inputType="text" style="" id="column105" value="LINE"
+    												displayMode="label" colSpan="" rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="60" inputType="text" style="" id="column108" value="구역"
+    												displayMode="label" colSpan="" rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="column111" value="메모"
+    												displayMode="label" colSpan="" rowSpan="2" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column124" value="중량"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column59" inputType="text" rowSpan="2"
+    												value="자가&lt;br/&gt;구분" width="40" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column56" inputType="text" rowSpan="2" value="차량번호"
+    												width="120">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column53" inputType="text" rowSpan="2" value="ID카드번호"
+    												width="90" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column47" inputType="text" rowSpan="2" value="오더번호"
+    												width="90" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column127" value="컨테이너순번"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column133" value="작업경로순번"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column130" value="작업단계순번"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column65" inputType="text" rowSpan="2" value="예정일자"
+    												width="80" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column136" value="자가운송사거래처"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column71" inputType="text" rowSpan="2" value="BL_NO"
+    												width="80" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column95" inputType="text" rowSpan="2" value="BK_NO"
+    												width="80" sortable="false">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column139" value="취소일시"
+    												displayMode="label" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column142" value="취소담당자ID" displayMode="label"
+    												colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column80" inputType="text" rowSpan="2"
+    												value="강제&lt;br/&gt;등록" width="40" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column83" inputType="text" rowSpan="2" value="상하차번호"
+    												width="130" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column86" inputType="text" rowSpan="2"
+    												value="작업&lt;br/&gt;상태" width="60" sortable="false">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row id="row5" style="">
+    											<w2:column displayMode="label" id="column25" inputType="text" value="번호" width="100"></w2:column>
+    											<w2:column displayMode="label" id="column24" inputType="text" value="SZ" width="60"></w2:column>
+    											<w2:column displayMode="label" id="column23" inputType="text" value="TY" width="60"></w2:column>
+    											<w2:column displayMode="label" id="column45" inputType="text" value="EF" width="60"></w2:column>
+    											<w2:column displayMode="label" id="column42" inputType="text" value="SEAL" width="80"></w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody2" style="">
+    										<w2:row id="row4" style="">
+    											<w2:column width="70" inputType="text" style="" id="wrkPlCd" value="" displayMode="label"
+    												readOnly="true" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="crryinoutIntendNo" value=""
+    												displayMode="label" hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="crryinoutIntendHh" value=""
+    												displayMode="label" hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column allOption="" blockSelect="false" chooseOption="true" chooseOptionLabel="$blank"
+    												displayMode="label" id="impExpClsCd" inputType="select" ref="" removeBorderStyle="false" textAlign="left" width="60">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[수입]]></w2:label>
+    														<w2:value><![CDATA[I]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[수출]]></w2:label>
+    														<w2:value><![CDATA[O]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="arrvlportDtm" value=""
+    												displayMode="label" readOnly="true" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column allOption="" chooseOption="true" chooseOptionLabel="$blank" displayMode="label"
+    												id="crryinoutClsCd" inputType="select" ref="" width="60">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[하차]]></w2:label>
+    														<w2:value><![CDATA[I]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[상차]]></w2:label>
+    														<w2:value><![CDATA[O]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="cntrNo" inputType="text"
+    												width="100">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="cntrSizCd" inputType="text"
+    												width="60">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="cntrTypCd" inputType="text"
+    												width="60">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="fullEmptyClsCd" inputType="text"
+    												width="60">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="sealNo" inputType="text"
+    												textAlign="left" width="80">
+    											</w2:column>
+    											<w2:column width="50" inputType="text" style="" id="lineCd" value="" displayMode="label"
+    												allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column width="60" inputType="select" style="" id="blckCd" value="" displayMode="label"
+    												allOption="" chooseOption="true" ref="" chooseOptionLabel="$blank">
+    												<w2:choices>
+    													<w2:itemset nodeset="data:ds_block">
+    														<w2:label ref="name"></w2:label>
+    														<w2:value ref="code"></w2:value>
+    													</w2:itemset>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column width="150" inputType="text" style="" id="wrkMemo" value="" displayMode="label"
+    												textAlign="left">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="column126" value="" displayMode="label"
+    												readOnly="true" hidden="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column allOption="" chooseOption="" displayMode="label" id="selfClsCd"
+    												inputType="select" ref="" textAlign="left" width="40">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[당사]]></w2:label>
+    														<w2:value><![CDATA[L]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[자가]]></w2:label>
+    														<w2:value><![CDATA[J]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    											<w2:column displayMode="label" id="vehclNo" inputType="text" textAlign="left" width="120"></w2:column>
+    											<w2:column displayMode="label" id="vehclIdCardNo" inputType="text" width="90"
+    												class="col-type1" allowChar="a-zA-Z0-9">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="odrNo" inputType="text"
+    												width="90">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="cntrSeq" value="" displayMode="label"
+    												hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="wrkPathSeq" value="" displayMode="label"
+    												hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="wrkStpSeq" value="" displayMode="label"
+    												hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayFormat="####/##/##" displayMode="label" id="crryinoutIntendDt"
+    												inputType="text" readOnly="true" width="80">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="selfTransCoClntNo" value=""
+    												displayMode="label" hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="blNo" inputType="text"
+    												width="80">
+    											</w2:column>
+    											<w2:column allowChar="a-zA-Z0-9" displayMode="label" id="bookingNo" inputType="text"
+    												width="80">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="cnclDtm" value=""
+    												displayMode="label" hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column width="70" inputType="text" style="" id="cnclPicId" value=""
+    												displayMode="label" hidden="true" readOnly="true" hiddenCol="true">
+    											</w2:column>
+    											<w2:column displayFormatter="scwin.forceYnExp" displayMode="label" id="forceYn"
+    												inputType="text" readOnly="true" width="40">
+    											</w2:column>
+    											<w2:column displayMode="label" id="onoffNo" inputType="text" readOnly="true" width="130"></w2:column>
+    											<w2:column allOption="" chooseOption="true" chooseOptionLabel="$blank" displayMode="label"
+    												id="wrkStsCd" inputType="select" readOnly="true" ref="" width="60">
+    												<w2:choices>
+    													<w2:item>
+    														<w2:label><![CDATA[완료]]></w2:label>
+    														<w2:value><![CDATA[F]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[대기]]></w2:label>
+    														<w2:value><![CDATA[R]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[취소]]></w2:label>
+    														<w2:value><![CDATA[C]]></w2:value>
+    													</w2:item>
+    													<w2:item>
+    														<w2:label><![CDATA[삭제]]></w2:label>
+    														<w2:value><![CDATA[D]]></w2:value>
+    													</w2:item>
+    												</w2:choices>
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" id="tbx_totalRows" label="0" style="" tagname="span" dataType="number" displayFormat="#,##0"></w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    								<xf:group class="right" id="" style="">
+    									<xf:trigger userAuth="C" disabled="" style="" id="" type="button" class="btn sm" escape="false" objType="ctrlBtn" ev:onclick="scwin.f_copyRow">
+    										<xf:label><![CDATA[행복사]]></xf:label>
+    									</xf:trigger>
+    									<w2:udc_bottomGrdBtn btnCancelYn="Y" style="" gridID="gr_out" id="udc_bottomGrdBtn" btnDelYn="N" btnRowAddYn="Y" btnRowDelYn="Y" rowAddObjType="ctrlBtn" rowDelObjType="ctrlBtn" rowAddUserAuth="C" rowDelUserAuth="C" delObjType="ctrlBtn" delUserAuth="D" cancelObjType="ctrlBtn" rowAddFunction="scwin.f_addRow" rowDelFunction="scwin.f_deleteRow" cancelFunction="scwin.f_undoRow">
+    										</w2:udc_bottomGrdBtn>
+    								</xf:group>
+    							</xf:group></xf:group>
+    					<xf:group class="btnbox" id="">
+    						<xf:group class="right" id="">
+    							
+    							<xf:trigger class="btn" id="btn_save" label="저장" style="" type="button" userAuth="R" ev:onclick="scwin.f_Save">
+    								<xf:label>저장</xf:label>
+    							</xf:trigger><xf:trigger class="btn" id="btn_delete" label="저장" style="" type="button" userAuth="R" ev:onclick="scwin.f_Delete">
+    								<xf:label>삭제</xf:label>
+    							</xf:trigger>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

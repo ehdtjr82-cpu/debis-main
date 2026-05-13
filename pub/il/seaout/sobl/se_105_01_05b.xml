@@ -1,0 +1,2355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_comCode" type="page" variableClone="true" src="/cm/udc/comCode.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb" id="" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="House No" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input style="" id="ed_input33" placeholder="" class=" w200"></xf:input>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="B/L Type" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class=" w150" editType="select" id="acb_autoComplete1" search="start" style="" submenuSize="auto">
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="DOC No" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<w2:autoComplete class=" w150" editType="select" id="acb_autoComplete2" search="start" style="" submenuSize="auto">
+								</w2:autoComplete>
+							</xf:group>
+							<xf:group class="w2tb_th" id="" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="Master B/L" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:input class=" w200" id="ed_input34" placeholder="" style=""></xf:input>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="" style="" type="button">
+						<xf:label><![CDATA[엑셀 UP]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn_cm sch" disabled="" escape="false" id="" style="" type="button">
+						<xf:label><![CDATA[Search]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group id="" class="round-box">
+				<xf:group id="" class="tabbox">
+					<w2:tabControl alwaysDraw="false" style="" id="" class="wq_tab">
+						<w2:tabs disabled="false" style="" id="tabs1" label="Header"></w2:tabs>
+						<w2:tabs disabled="false" style="" id="tabs3" label="Freight"></w2:tabs>
+						<w2:content alwaysDraw="false" style="" id="content1">
+							<xf:group class="btnbox mb16" id="" style="">
+								<xf:group class="left" id="">
+									<xf:trigger class="btn link " id="trigger90" style="" type="button">
+										<xf:label><![CDATA[M B/L]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger91" style="" type="button">
+										<xf:label><![CDATA[Freight]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger92" style="" type="button">
+										<xf:label><![CDATA[Print]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger93" style="" type="button">
+										<xf:label><![CDATA[PRT OPT]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger94" style="" type="button">
+										<xf:label><![CDATA[Shipping Request]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger95" style="" type="button">
+										<xf:label><![CDATA[선사 Tracking]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger96" style="" type="button">
+										<xf:label><![CDATA[API Setup]]></xf:label>
+									</xf:trigger>
+								</xf:group>
+								<xf:group class="right" id="" style="">
+									<xf:trigger class="btn" id="trigger97" label="저장" style="" type="button">
+										<xf:label>ALL Copy</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger98" label="저장" style="" type="button">
+										<xf:label>B/L Copy</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger99" label="저장" style="" type="button">
+										<xf:label>Cancel</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger100" label="저장" style="" type="button">
+										<xf:label>Create</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger101" label="저장" style="" type="button">
+										<xf:label>Update</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger102" label="저장" style="" type="button">
+										<xf:label>Save</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger103" label="저장" style="" type="button">
+										<xf:label>Delete</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger104" label="저장" style="" type="button">
+										<xf:label>Upload</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger105" label="저장" style="" type="button">
+										<xf:label>H NO.CHG</xf:label>
+									</xf:trigger>
+								</xf:group>
+							</xf:group>
+							<xf:group style="" id="" class="tbbox">
+								<xf:group tagname="table" style="" id="" class="w2tb tb">
+									<w2:attributes>
+										<w2:summary></w2:summary>
+									</w2:attributes>
+									<xf:group tagname="colgroup">
+										<xf:group tagname="col" style="width:100px;"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group tagname="col" style="width:100px;"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group tagname="col" style="width:100px;"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group tagname="col" style="width:100px;"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group tagname="col" style="width:100px;"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group tagname="col" style="width:100px;"></xf:group>
+										<xf:group tagname="col" style=""></xf:group>
+									</xf:group>
+									<xf:group tagname="tr" style="">
+										<xf:group tagname="th" style="" class="w2tb_th">
+											<w2:textbox ref="" style="" userData2="" id="" label="Carrier BK" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" style="" class="w2tb_td">
+											<xf:input style="" id="ed_input1" placeholder="" class=" "></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="중요" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:select ref="" appearance="full" style="" id="cbx_checkbox1" renderType="checkboxgroup" rows="" selectedindex="-1"
+												class="chk-grp" cols="">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[]]>
+														</xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="VSL/VOY" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group id="" class="form-group">
+												<w2:udc_comCode popupID="" style="" class="w250 flex_no"></w2:udc_comCode>
+												<xf:input style="" id="ed_input5" placeholder="" class=" "></xf:input>
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Partner" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Contract No" class="req"></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete3" class=" ">
+											</w2:autoComplete>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Loading" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Customer" class="req"></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Booking" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input style="" id="ed_input2" placeholder="" class=" "></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Seq" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete4" class=" ">
+											</w2:autoComplete>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Discharge" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Salesman" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Shipper" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:udc_comCode popupID="" style=""></w2:udc_comCode>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="선적" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input style="" id="ed_input4" placeholder="" class=" "></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Delivery" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Carrier" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>5</w2:rowspan>
+											</w2:attributes>
+											<xf:textarea style="" id="txt_textarea1" class=" h-full"></xf:textarea>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Destination" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="BKG AGT" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Package" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group style="" id="" class="form-group">
+												<xf:input style="" id="" placeholder="" class=" w50"></xf:input>
+												<w2:textbox style="" id="" label="Unit" class=""></w2:textbox>
+												<w2:udc_comCode popupID="" style=""></w2:udc_comCode>
+												<w2:textbox style="" id="" label="M/T" class=""></w2:textbox>
+												<xf:input style="" id="" placeholder="" class=" w50"></xf:input>
+
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<xf:group class="req" id="" style="">
+												<xf:trigger class="btn sm link " id="btn_trigger2" style="" type="button">
+													<xf:label><![CDATA[Dept]]></xf:label>
+												</xf:trigger>
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode class="w250" popupID="" style=""></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Weight" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input style="" id="ed_input6" placeholder="" class=" "></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Measure" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input style="" id="ed_input7" placeholder="" class=" "></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Order No" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:input class=" w150" id="ed_input8" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="ETD" class="req"></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:inputCalendar style="" id="ica_inputCalendar1" class=" cal" calendarValueType="yearMonthDate">
+											</w2:inputCalendar>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Onboard" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:inputCalendar style="" id="ica_inputCalendar2" class=" cal" calendarValueType="yearMonthDate">
+											</w2:inputCalendar>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>1</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+
+											<w2:textbox class="" id="" label="UCR" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:input class=" w150" id="ed_input9" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="ETA" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:inputCalendar style="" id="ica_inputCalendar3" class=" cal" calendarValueType="yearMonthDate">
+											</w2:inputCalendar>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Issued Date" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:inputCalendar style="" id="ica_inputCalendar5" class=" cal" calendarValueType="yearMonthDate">
+											</w2:inputCalendar>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:select ref="" appearance="full" style="" id="cbx_checkbox2" renderType="checkboxgroup" rows="" selectedindex="-1"
+												class="chk-grp" cols="">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[Triangle]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[NOMI]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Consignee" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group style="" id="" class="form-group">
+												<w2:udc_comCode popupID="" style=""></w2:udc_comCode>
+												<xf:trigger style="" id="btn_trigger4" type="button" class="btn sm link ">
+													<xf:label><![CDATA[Notify Copy]]></xf:label>
+												</xf:trigger>
+
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Result Date" class="req"></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:inputCalendar style="" id="ica_inputCalendar4" class=" cal" calendarValueType="yearMonthDate">
+											</w2:inputCalendar>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Dangerous" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:select1 ref="" appearance="full" style="" id="rd_radio1" renderType="radiogroup" rows="" class="rdo-grp" cols=""
+												selectedIndex="-1">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[Yes]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[No]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select1>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group class="col-gap-4" id="" style="">
+												<w2:textbox class="" id="" label="O B/L" style="" tagname="span"></w2:textbox>
+												<xf:input class=" w50" id="ed_input10" placeholder="" style=""></xf:input>
+												<w2:textbox class="" id="" label="Co-Load" style="" tagname="span"></w2:textbox>
+												<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=" w50" direction="auto"
+													disabled="false" disabledClass="w2selectbox_disabled" id="lc_selectbox1" style="" submenuSize="auto">
+												</xf:select1>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>4</w2:rowspan>
+											</w2:attributes>
+											<xf:textarea style="" id="txt_textarea2" class=" h-full"></xf:textarea>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Incoterms" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete5"
+												class=" w250">
+											</w2:autoComplete>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th tac">
+											<w2:attributes>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Agent Info" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="PP/CC" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete6"
+												class=" w100">
+											</w2:autoComplete>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Cargo Type" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete7"
+												class=" w100">
+											</w2:autoComplete>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes></w2:attributes>
+											<w2:textbox class="" id="" label="Partner" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style=""></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Issued At" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete8"
+												class=" w250">
+											</w2:autoComplete>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>7</w2:rowspan>
+											</w2:attributes>
+											<xf:textarea class=" h-full" id="textarea17" style=""></xf:textarea>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Payable At" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete9"
+												class=" w250">
+											</w2:autoComplete>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Notify" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group style="" id="" class="form-group">
+												<w2:udc_comCode popupID="" style=""></w2:udc_comCode>
+												<xf:trigger style="" id="btn_trigger6" type="button" class="btn sm link ">
+													<xf:label><![CDATA[Same]]></xf:label>
+												</xf:trigger>
+												<xf:trigger style="" id="btn_trigger7" type="button" class="btn sm link ">
+													<xf:label><![CDATA[Copy]]></xf:label>
+												</xf:trigger>
+
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Freight Term" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete10"
+												class=" w250">
+											</w2:autoComplete>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>4</w2:colspan>
+												<w2:rowspan>5</w2:rowspan>
+											</w2:attributes>
+											<xf:textarea style="" id="txt_textarea12" class=" h-full"></xf:textarea>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Service Term" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete11"
+												class=" w250">
+											</w2:autoComplete>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Container" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group id="" class="form-group">
+												<xf:group style="" id="" class="form-group">
+													<xf:input style="" id="input123"></xf:input>
+													<xf:trigger style="" id="trigger79" type="button" class="btn ico sch">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+												<xf:group style="" id="" class="form-group">
+													<xf:input style="" id="input124"></xf:input>
+													<xf:trigger style="" id="trigger80" type="button" class="btn ico sch">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+												<xf:group style="" id="" class="form-group">
+													<xf:input style="" id="input125"></xf:input>
+													<xf:trigger style="" id="trigger81" type="button" class="btn ico sch">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+												<xf:group style="" id="" class="form-group">
+													<xf:input style="" id="input126"></xf:input>
+													<xf:trigger style="" id="trigger82" type="button" class="btn ico sch">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="CNTR QTY" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group style="" id="" class="form-group">
+												<xf:input style="" id="ed_input26" placeholder="" class=" "></xf:input>
+												<xf:input style="" id="ed_input27" placeholder="" class=" "></xf:input>
+												<xf:input style="" id="ed_input28" placeholder="" class=" "></xf:input>
+												<xf:input style="" id="ed_input29" placeholder="" class=" "></xf:input>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="적재장소" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:group style="" id="" class="form-group">
+												<w2:udc_comCode popupID="" style="" class="w250 flex_no"></w2:udc_comCode>
+												<xf:input style="" id="ed_input30" placeholder="" class=" "></xf:input>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="B/L PIC" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode popupID="" style="" class="w250"></w2:udc_comCode>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>1</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Invoice" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>3</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:input class=" " id="input117" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group class="tbbox" id="" style="">
+								<xf:group class="w2tb" id="" style="" tagname="table">
+									<w2:attributes>
+										<w2:summary></w2:summary>
+									</w2:attributes>
+									<xf:group tagname="colgroup">
+										<xf:group style="width:120px;" tagname="col"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group style="width: 120px;" tagname="col"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group style="width: 120px;" tagname="col"></xf:group>
+										<xf:group tagname="col"></xf:group>
+										<xf:group style="width: 120px;" tagname="col"></xf:group>
+										<xf:group style="" tagname="col"></xf:group>
+									</xf:group>
+									<xf:group style="" tagname="tr">
+										<xf:group class="w2tb_th tac" style="" tagname="th">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Number of Containers or Packages" ref="" style="" userData2="">
+											</w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_th tac" tagname="th">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Kind of Packages;description of goods" ref="" style="" userData2="">
+											</w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_th tac" tagname="th">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="print Option" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>5</w2:rowspan>
+											</w2:attributes>
+											<xf:group adaptiveThreshold="" class="gvwbox h-full" id="" style="">
+												<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw h-full" dataList="data:dataList1"
+													focusMode="row" id="" scrollByColumn="false" scrollByColumnAdaptive="false" style="">
+													<w2:caption id="caption8" style="" value="this is a grid caption."></w2:caption>
+													<w2:header id="header2" style="">
+														<w2:row id="row3" style="">
+															<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false"
+																value="Customer" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false"
+																value="Billing Date" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false"
+																value="Tax Date" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="column9" inputType="text" removeBorderStyle="false"
+																value="Slip No" width="70">
+															</w2:column>
+														</w2:row>
+													</w2:header>
+													<w2:gBody id="gBody2" style="">
+														<w2:row id="row4" style="">
+															<w2:column blockSelect="false" displayMode="label" id="col1" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="col2" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="col3" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="col4" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+														</w2:row>
+													</w2:gBody>
+												</w2:gridView>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:input class=" " id="input111" placeholder="" style=""></xf:input>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>11</w2:rowspan>
+											</w2:attributes>
+											<xf:textarea class=" h-full" id="textarea16" style=""></xf:textarea>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>8</w2:rowspan>
+											</w2:attributes>
+											<xf:select appearance="full" class="chk-grp flex-row" cols="" id="checkbox1" ref="" renderType="checkboxgroup" rows=""
+												selectedindex="-1" style="">
+												<xf:choices>
+													<xf:item>
+														<xf:label><![CDATA[Said to Container]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[Shipper's Load &Count ]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[Container Print]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[Term Print]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[Recipt Date Print]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+													<xf:item>
+														<xf:label><![CDATA[onboard Date Print]]></xf:label>
+														<xf:value><![CDATA[]]>
+														</xf:value>
+													</xf:item>
+												</xf:choices>
+											</xf:select>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:input class=" " id="input112" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<xf:input class=" " id="input113" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_th tac" tagname="th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Marks And Numbers &amp; Container No" ref="" style="" userData2="">
+											</w2:textbox>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>7</w2:rowspan>
+											</w2:attributes>
+											<xf:textarea class=" h-full" id="textarea18" style=""></xf:textarea>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>5</w2:rowspan>
+											</w2:attributes>
+											<xf:group adaptiveThreshold="" class="gvwbox h-full" id="" style="">
+												<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw h-full" dataList="data:dataList1"
+													focusMode="row" id="" scrollByColumn="false" scrollByColumnAdaptive="false" style="">
+													<w2:caption id="caption9" style="" value="this is a grid caption."></w2:caption>
+													<w2:header id="header2" style="">
+														<w2:row id="row3" style="">
+															<w2:column blockSelect="false" displayMode="label" id="column12" inputType="text" removeBorderStyle="false"
+																value="Selling" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="column11" inputType="text" removeBorderStyle="false"
+																value="Buying" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="column10" inputType="text" removeBorderStyle="false"
+																value="Profit" width="70">
+															</w2:column>
+														</w2:row>
+													</w2:header>
+													<w2:gBody id="gBody2" style="">
+														<w2:row id="row4" style="">
+															<w2:column blockSelect="false" displayMode="label" id="col1" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="col2" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+															<w2:column blockSelect="false" displayMode="label" id="col3" inputType="text" removeBorderStyle="false" width="70">
+															</w2:column>
+														</w2:row>
+													</w2:gBody>
+												</w2:gridView>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+									<xf:group style="height:28px;" tagname="tr"></xf:group>
+									<xf:group style="height:28px;" tagname="tr"></xf:group>
+									<xf:group style="height:28px;" tagname="tr"></xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_th" tagname="th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Say" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes></w2:attributes>
+											<xf:input class=" " id="input114" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_th bg-req" tagname="th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox class="req" id="" label="EDI ITEM" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes></w2:attributes>
+											<xf:input class=" " id="input115" placeholder="" style=""></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th tac">
+											<w2:attributes>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="Place Of Receipt" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group class="w2tb_th" tagname="th">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox class="" id="" label="HSCODE" ref="" style="" userData2=""></w2:textbox>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes></w2:attributes>
+											<xf:input class=" " id="input116" placeholder="" style=""></xf:input>
+										</xf:group>
+										<xf:group class="w2tb_td" tagname="td">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+												<w2:colspan>2</w2:colspan>
+												<w2:rowspan>1</w2:rowspan>
+											</w2:attributes>
+											<w2:udc_comCode class="w250" popupID="" style=""></w2:udc_comCode>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group class="row-gap-8" id="" style="">
+								<xf:group class="title-wrap" id="" style="">
+									<xf:group class="title" id="">
+										<w2:textbox class="tit" id="" label="Container" style="" tagname="h3"></w2:textbox>
+									</xf:group>
+									<xf:group class="right" id="">
+										<xf:trigger class="btn white" id="" style="" type="button">
+											<xf:label><![CDATA[Auto Container Info1]]></xf:label>
+										</xf:trigger>
+										<xf:trigger class="btn white" id="" style="" type="button">
+											<xf:label><![CDATA[Auto Container Info2]]></xf:label>
+										</xf:trigger>
+										<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" class="gvwbox" id="group6" style="">
+									<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:dataList1" defaultCellHeight="24"
+										evenRowBackgroundColor="#F8FFF8" id="" oddEvenColorDisplay="true" rowNumHeaderValue="No" rowNumVisible="false" rowNumWidth="40"
+										showSortableImage="true" sortable="true" visibleRowNum="5" visibleRowNumFix="true">
+										<w2:caption id="caption6" style="" value="this is a grid caption."></w2:caption>
+										<w2:header id="header1" style="">
+											<w2:row id="row1" style="">
+												<w2:column class="col-type1" displayMode="label" id="column2" inputType="text" value="Container" width="120">
+												</w2:column>
+												<w2:column class="col-type1" displayMode="label" id="column1" inputType="text" value="Type" width="80">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column3" inputType="text" value="Seal No1" width="120">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column5" inputType="text" value="Seal No2" width="120">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column7" inputType="text" value="PKG" width="90">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column9" inputType="text" value="Unit" width="70">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column13" inputType="text" style="" value="Weight" width="120">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column15" inputType="text" style="" value="Measure" width="120">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column17" inputType="text" style="" value="Part" width="80">
+												</w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody id="gBody1" style="">
+											<w2:row id="row2" style="">
+												<w2:column displayMode="label" id="col2" inputType="text" value="" width="120"></w2:column>
+												<w2:column displayMode="label" id="col3" inputType="text" width="80"></w2:column>
+												<w2:column displayMode="label" id="col4" inputType="text" width="120"></w2:column>
+												<w2:column class="tar" displayMode="label" id="col5" inputType="text" width="120"></w2:column>
+												<w2:column class="tar" displayMode="label" id="col6" inputType="text" width="90"></w2:column>
+												<w2:column class="" displayMode="label" id="col7" inputType="text" width="70"></w2:column>
+												<w2:column class="tar" displayMode="label" id="column14" inputType="text" style="" value="" width="120">
+												</w2:column>
+												<w2:column class="tar" displayMode="label" id="column16" inputType="text" style="" value="" width="120">
+												</w2:column>
+												<w2:column displayMode="label" id="column18" inputType="text" style="" value="" width="80">
+												</w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group class="grid-bottom " id="" style="">
+										<xf:group class="left" id="">
+											<xf:group class="grid-total" id="">
+												<w2:textbox class="" id="" label="CNT" style="" tagname="span"></w2:textbox>
+											</xf:group>
+											<xf:group class="amt-wrap" id="" tagname="ul">
+												<xf:group id="" tagname="li">
+													<w2:textbox class="" id="" label="PKG" style="" tagname="span"></w2:textbox>
+													<xf:input class=" amt" id="input118" placeholder="" style="width: 250px;"></xf:input>
+												</xf:group>
+												<xf:group id="" tagname="li">
+													<w2:textbox class="" id="" label="WGT" style="" tagname="span"></w2:textbox>
+													<xf:input class=" amt" id="input119" placeholder="" style="width: 250px;"></xf:input>
+												</xf:group>
+												<xf:group id="" tagname="li">
+													<w2:textbox class="" id="" label="MSR" style="" tagname="span"></w2:textbox>
+													<xf:input class=" amt" id="input120" placeholder="" style="width: 250px;"></xf:input>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+										<xf:group class="right" id="" style="">
+											<xf:trigger class="btn white" id="" style="" type="button">
+												<xf:label><![CDATA[CNTR Receive]]></xf:label>
+											</xf:trigger>
+											<w2:udc_bottomGrdBtn EngYn="Y" style=""></w2:udc_bottomGrdBtn>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group class="row-gap-8" id="" style="">
+								<xf:group class="title-wrap" id="" style="">
+									<xf:group class="title" id="">
+										<w2:textbox class="tit" id="" label="수출신고" style="" tagname="h3"></w2:textbox>
+									</xf:group>
+									<xf:group class="right" id="">
+										<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" class="gvwbox" id="group7" style="">
+									<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:dataList1" defaultCellHeight="24"
+										evenRowBackgroundColor="#F8FFF8" id="" oddEvenColorDisplay="true" rowNumHeaderValue="No" rowNumVisible="false" rowNumWidth="40"
+										showSortableImage="true" sortable="true" visibleRowNum="3" visibleRowNumFix="true">
+										<w2:caption id="caption7" style="" value="this is a grid caption."></w2:caption>
+										<w2:header id="header1" style="">
+											<w2:row id="row1" style="">
+												<w2:column class="col-type1" displayMode="label" id="column2" inputType="text" value="수출신고번호" width="120">
+												</w2:column>
+												<w2:column class="col-type1" displayMode="label" id="column1" inputType="text" value="Package" width="120">
+												</w2:column>
+												<w2:column class="col-type1" displayMode="label" id="column3" inputType="text" value="Unit" width="100">
+												</w2:column>
+												<w2:column class="col-type1" displayMode="label" id="column5" inputType="text" value="Weight" width="120">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column7" inputType="text" value="포장기호" width="100">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column9" inputType="text" value="Package" width="120">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column13" inputType="text" style="" value="Unit" width="100">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column15" inputType="text" style="" value="분할" width="80">
+												</w2:column>
+												<w2:column class="col-type2" displayMode="label" id="column17" inputType="text" style="" value="분할선적차수" width="120">
+												</w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody id="gBody1" style="">
+											<w2:row id="row2" style="">
+												<w2:column displayMode="label" id="col2" inputType="text" value="" width="120"></w2:column>
+												<w2:column class="tar" displayMode="label" id="col3" inputType="text" textAlign="right" width="120">
+												</w2:column>
+												<w2:column displayMode="label" id="col4" inputType="text" width="100"></w2:column>
+												<w2:column class="tar" displayMode="label" id="col5" inputType="text" textAlign="right" width="120">
+												</w2:column>
+												<w2:column class="tar" displayMode="label" id="col6" inputType="text" width="100"></w2:column>
+												<w2:column class="" displayMode="label" id="col7" inputType="text" textAlign="right" width="120">
+												</w2:column>
+												<w2:column class="tar" displayMode="label" id="column14" inputType="text" style="" value="" width="100">
+												</w2:column>
+												<w2:column class="tar" displayMode="label" id="column16" inputType="text" style="" value="" width="80">
+												</w2:column>
+												<w2:column displayMode="label" id="column18" inputType="text" style="" textAlign="right" value="" width="120">
+												</w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group class="grid-bottom " id="" style="">
+										<xf:group class="left" id="">
+											<xf:group class="grid-total" id="">
+												<w2:textbox class="" id="" label="CNT" style="" tagname="span"></w2:textbox>
+											</xf:group>
+											<xf:group class="amt-wrap" id="" tagname="ul">
+												<xf:group id="" tagname="li">
+													<w2:textbox class="" id="" label="PKG" style="" tagname="span"></w2:textbox>
+													<xf:input class=" amt" id="input121" placeholder="" style="width: 250px;"></xf:input>
+												</xf:group>
+												<xf:group id="" tagname="li">
+													<w2:textbox class="" id="" label="WGT" style="" tagname="span"></w2:textbox>
+													<xf:input class=" amt" id="input122" placeholder="" style="width: 250px;"></xf:input>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+										<xf:group class="right" id="" style="">
+											<w2:udc_bottomGrdBtn EngYn="Y" style=""></w2:udc_bottomGrdBtn>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group style="" id="" class="btnbox">
+								<xf:group id="" class="left">
+									<xf:trigger style="" id="btn_trigger16" type="button" class="btn link ">
+										<xf:label><![CDATA[M B/L]]></xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger17" type="button" class="btn link ">
+										<xf:label><![CDATA[Freight]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger84" style="" type="button">
+										<xf:label><![CDATA[Print]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger85" style="" type="button">
+										<xf:label><![CDATA[PRT OPT]]></xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger19" type="button" class="btn link ">
+										<xf:label><![CDATA[Shipping Request]]></xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger20" type="button" class="btn link ">
+										<xf:label><![CDATA[선사 Tracking]]></xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger21" type="button" class="btn link ">
+										<xf:label><![CDATA[API Setup]]></xf:label>
+									</xf:trigger>
+								</xf:group>
+								<xf:group style="" id="" class="right">
+									<xf:trigger style="" id="btn_trigger22" label="저장" type="button" class="btn">
+										<xf:label>ALL Copy</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger23" label="저장" type="button" class="btn">
+										<xf:label>B/L Copy</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger24" label="저장" type="button" class="btn">
+										<xf:label>Cancel</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger25" label="저장" type="button" class="btn">
+										<xf:label>Create</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger26" label="저장" type="button" class="btn">
+										<xf:label>Update</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger27" label="저장" type="button" class="btn">
+										<xf:label>Save</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger28" label="저장" type="button" class="btn">
+										<xf:label>Delete</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger29" label="저장" type="button" class="btn">
+										<xf:label>Upload</xf:label>
+									</xf:trigger>
+									<xf:trigger style="" id="btn_trigger30" label="저장" type="button" class="btn">
+										<xf:label>H NO.CHG</xf:label>
+									</xf:trigger>
+								</xf:group>
+							</xf:group>
+						</w2:content>
+						<w2:content alwaysDraw="false" style="" id="content3">
+							<xf:group class="btnbox mb16" id="" style="">
+								<xf:group class="left" id="">
+									<xf:trigger class="btn link " id="trigger106" style="" type="button">
+										<xf:label><![CDATA[Partner]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger107" style="" type="button">
+										<xf:label><![CDATA[Invoice]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger108" style="" type="button">
+										<xf:label><![CDATA[Profit]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger109" style="" type="button">
+										<xf:label><![CDATA[Payment INV]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="trigger110" style="" type="button">
+										<xf:label><![CDATA[copy buy to sell]]></xf:label>
+									</xf:trigger>
+								</xf:group>
+								<xf:group class="right" id="" style="">
+									<xf:trigger class="btn" id="trigger111" label="저장" style="" type="button">
+										<xf:label>Cancel</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger112" label="저장" style="" type="button">
+										<xf:label>Update</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger113" label="저장" style="" type="button">
+										<xf:label>Save</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="trigger114" label="저장" style="" type="button">
+										<xf:label>Delete</xf:label>
+									</xf:trigger>
+								</xf:group>
+							</xf:group>
+							<xf:group style="" id="" class="tbbox">
+								<xf:group tagname="table" style="" id="" class="w2tb tb">
+									<w2:attributes>
+										<w2:summary></w2:summary>
+									</w2:attributes>
+									<xf:group tagname="colgroup">
+										<xf:group tagname="col" style="width:130px;"></xf:group>
+										<xf:group tagname="col" style=""></xf:group>
+										<xf:group tagname="col" style="width:130px;"></xf:group>
+										<xf:group tagname="col" style="width:200px;"></xf:group>
+										<xf:group tagname="col" style="width:130px;"></xf:group>
+										<xf:group tagname="col" style=""></xf:group>
+									</xf:group>
+									<xf:group tagname="tr" style="">
+										<xf:group tagname="th" style="" class="w2tb_th">
+											<w2:textbox ref="" style="" userData2="" id="" label="Container Type" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" style="" class="w2tb_td">
+											<xf:group class="form-group" id="" style="">
+												<xf:group class="form-group" id="" style="">
+													<xf:input id="input127" style=""></xf:input>
+													<xf:trigger class="btn ico sch" id="trigger86" style="" type="button">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+												<xf:group class="form-group" id="" style="">
+													<xf:input id="input128" style=""></xf:input>
+													<xf:trigger class="btn ico sch" id="trigger87" style="" type="button">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+												<xf:group class="form-group" id="" style="">
+													<xf:input id="input129" style=""></xf:input>
+													<xf:trigger class="btn ico sch" id="trigger88" style="" type="button">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+												<xf:group class="form-group" id="" style="">
+													<xf:input id="input130" style=""></xf:input>
+													<xf:trigger class="btn ico sch" id="trigger89" style="" type="button">
+														<xf:label><![CDATA[돋보기]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th ">
+											<w2:attributes></w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Weight" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input class=" w150" id="ed_input68" placeholder="" style=""></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th ">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="House No" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input class=" " id="ed_input70" placeholder="" style=""></xf:input>
+										</xf:group>
+									</xf:group>
+									<xf:group tagname="tr">
+										<xf:group tagname="th" class="w2tb_th ">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Container Quantity" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:group id="" class="form-group">
+												<xf:input style="" id="ed_input64" placeholder="" class=" "></xf:input>
+												<xf:input style="" id="ed_input65" placeholder="" class=" "></xf:input>
+												<xf:input style="" id="ed_input66" placeholder="" class=" "></xf:input>
+												<xf:input style="" id="ed_input67" placeholder="" class=" "></xf:input>
+											</xf:group>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th ">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="Measure" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:input class=" w150" id="ed_input69" placeholder="" style=""></xf:input>
+										</xf:group>
+										<xf:group tagname="th" class="w2tb_th ">
+											<w2:attributes>
+												<w2:scope>row</w2:scope>
+											</w2:attributes>
+											<w2:textbox ref="" style="" userData2="" id="" label="DOC No" class=""></w2:textbox>
+										</xf:group>
+										<xf:group tagname="td" class="w2tb_td">
+											<w2:attributes></w2:attributes>
+											<xf:group style="" id="" class="form-group">
+												<w2:autoComplete class=" w150" editType="select" id="acb_autoComplete12" search="start" style=""
+													submenuSize="auto">
+												</w2:autoComplete>
+												<xf:trigger style="" id="" type="button" class="btn sch">
+													<xf:label><![CDATA[search]]></xf:label>
+												</xf:trigger>
+
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="Selling Exchange Rate Information" class="tit"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group style="" id="" class="tbbox">
+									<xf:group tagname="table" style="" id="" class="w2tb tb">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="colgroup">
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col"></xf:group>
+											<xf:group tagname="col" style="width: 280px"></xf:group>
+										</xf:group>
+										<xf:group tagname="tr" style="">
+											<xf:group tagname="th" style="" class="w2tb_th">
+												<w2:textbox ref="" style="" userData2="" id="" label="Currency" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" style="" class="w2tb_td">
+												<xf:group id="" class="form-group ">
+													<xf:input style="" id="ed_input59" placeholder="" class=" w50"></xf:input>
+													<w2:autoComplete search="start" submenuSize="auto" editType="select" style="" id="acb_autoComplete13" class=" ">
+													</w2:autoComplete>
+												</xf:group>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes></w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="Ex-Rate Date" class="req"></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<w2:inputCalendar style="" id="" class=" cal" calendarValueType="yearMonthDate"></w2:inputCalendar>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="Ex-Rate" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w100" id="ed_input71" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="US Ex-Rate" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w100" id="ed_input72" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:group id="" class="col-gap-4">
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[Customer]]></xf:label>
+													</xf:trigger>
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[Ex-Rate]]></xf:label>
+													</xf:trigger>
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[ResultDate]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="Selling List" class="tit"></w2:textbox>
+									</xf:group>
+									<xf:group id="" class="right">
+										<w2:udc_topGrdBtn grp="grd_section3" style=""></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" style="" id="grd_section3" class="gvwbox">
+									<w2:gridView oddEvenColorDisplay="true" rowNumVisible="false" showSortableImage="true" rowNumHeaderValue="No"
+										sortable="true" defaultCellHeight="24" rowNumWidth="40" visibleRowNumFix="true" checkAllType="false" dataList="data:dataList1"
+										evenRowBackgroundColor="#F8FFF8" id="" visibleRowNum="3" autoFit="allColumn" class="wq_gvw">
+										<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+										<w2:header style="" id="header1">
+											<w2:row style="" id="row1">
+												<w2:column width="50" inputType="checkbox" id="column12" class="no-sort" displayMode="label" fixColumnWidth="true"
+													checkboxLabel="선택">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column2" value="SEQ" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column35" value="SEQ" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="column1" value="Customer" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column3" value="Name" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="column5" value="F/Code" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column7" value="Name" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column39" value="Init" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column37" value="통합매출입코드" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column9" value="CUR" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column13" value="Unit" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column15" value="Package" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column17" value="Rate" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column33" value="Amount" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column31" value="Ex-Rate" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column29" value="Amount(W)" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column27" value="VAT" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column25" value="Amount(US$)" class="col-type2"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column19" value="Result" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column21" value="Invoice No" class="col-type2"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column47" value="Tariff Rate" displayMode="label" hidden="true"
+													class="col-type2">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column45" value="vatYn" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column41" value="exRateTyp" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column43" value="내부매입구분" displayMode="label" hidden="true">
+												</w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody style="" id="gBody1">
+											<w2:row style="" id="row2">
+												<w2:column width="50" inputType="checkbox" id="col1" displayMode="label" fixColumnWidth="true" checkboxLabel="선택">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col2" value="" displayMode="label"></w2:column>
+												<w2:column width="70" inputType="text" style="" id="column36" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="col3" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="70" inputType="text" id="col4" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="100" inputType="text" id="col5" class="tar" displayMode="label"></w2:column>
+												<w2:column width="70" inputType="text" id="col6" class="tar" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column40" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column38" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col7" class="tar" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column14" value="" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column16" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column18" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column34" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column32" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column30" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column28" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column26" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column20" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column22" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column48" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column46" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column42" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column44" value="" displayMode="label">
+												</w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group style="" id="" class="grid-bottom ">
+										<xf:group id="" class="left">
+											<xf:group tagname="ul" id="" class="amt-wrap">
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="Amount($)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input73" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="Amount(W)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input74" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="VAT" class=""></w2:textbox>
+													<xf:input style="" id="ed_input75" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="AMOUNT(W+VAT)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input76" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" id="" class="right">
+											<xf:input class=" w50" id="ed_input104" placeholder="" style=""></xf:input>
+											<w2:udc_bottomGrdBtn style="" EngYn="Y"></w2:udc_bottomGrdBtn>
+
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="Partner Exchange Rate Information" class="tit"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group style="" id="" class="tbbox">
+									<xf:group tagname="table" style="" id="" class="w2tb tb">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="colgroup">
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col"></xf:group>
+											<xf:group tagname="col" style="width: 280px"></xf:group>
+										</xf:group>
+										<xf:group tagname="tr" style="">
+											<xf:group tagname="th" style="" class="w2tb_th">
+												<w2:textbox ref="" style="" userData2="" id="" label="Currency" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" style="" class="w2tb_td">
+												<xf:group class="form-group " id="" style="">
+													<xf:input class=" w50" id="ed_input78" placeholder="" style=""></xf:input>
+													<w2:autoComplete class=" " editType="select" id="acb_autoComplete14" search="start" style="" submenuSize="auto">
+													</w2:autoComplete>
+												</xf:group>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes></w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="Ex-Rate Date" class="req"></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<w2:inputCalendar style="" id="" class=" cal" calendarValueType="yearMonthDate"></w2:inputCalendar>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="Ex-Rate" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w100" id="ed_input79" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="US Ex-Rate" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w100" id="ed_input80" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:group class="col-gap-4" id="" style="">
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[Customer]]></xf:label>
+													</xf:trigger>
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[Ex-Rate]]></xf:label>
+													</xf:trigger>
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[ResultDate]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="Partner List" class="tit"></w2:textbox>
+									</xf:group>
+									<xf:group id="" class="right">
+										<w2:udc_topGrdBtn grp="grd_section4" style=""></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" style="" id="grd_section4" class="gvwbox">
+									<w2:gridView oddEvenColorDisplay="true" rowNumVisible="false" showSortableImage="true" rowNumHeaderValue="No"
+										sortable="true" defaultCellHeight="24" rowNumWidth="40" visibleRowNumFix="true" checkAllType="false" dataList="data:dataList1"
+										evenRowBackgroundColor="#F8FFF8" id="" visibleRowNum="3" autoFit="allColumn" class="wq_gvw" autoFitMinWidth="1700">
+										<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+										<w2:header style="" id="header1">
+											<w2:row style="" id="row1">
+												<w2:column width="50" inputType="checkbox" id="column12" class="no-sort" displayMode="label" fixColumnWidth="true"
+													checkboxLabel="선택">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column2" value="SEQ" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column41" value="SEQ" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="column1" value="Customer" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="71" inputType="text" id="column3" value="Name" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column35" value="D(매출)/C(매입)" class="col-type1"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column5" value="F/Code" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column7" value="Name" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column45" value="Init" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column43" value="통합매출입코드" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column9" value="CUR" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column13" value="Unit" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column15" value="Package" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column17" value="Rate" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column33" value="Amount" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column31" value="Ex-Rate" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column29" value="Amount(W)" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column25" value="Amount(US$)" class="col-type2"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column19" value="Result" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column21" value="Invoice No" class="col-type2"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column57" value="Tariff Rate" displayMode="label"
+													class="col-type2" hidden="true">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column55" value="vatYn" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="200" inputType="text" style="" id="column53" value="Remark" displayMode="label" class="col-type2"
+													hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column51" value="exRateTyp" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column49" value="Vehicle No" displayMode="label"
+													class="col-type2" hidden="true">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column47" value="vehclYn" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column37" value="내부매입구분" class="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column39" value="업로드 담당자" class="col-type2" displayMode="label">
+												</w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody style="" id="gBody1">
+											<w2:row style="" id="row2">
+												<w2:column width="50" inputType="checkbox" id="col1" displayMode="label" fixColumnWidth="true" checkboxLabel="선택">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col2" value="" displayMode="label"></w2:column>
+												<w2:column width="70" inputType="text" style="" id="column42" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="col3" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="71" inputType="text" id="col4" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="120" inputType="text" style="" id="column36" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col5" class="tar" displayMode="label"></w2:column>
+												<w2:column width="70" inputType="text" id="col6" class="tar" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column46" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column44" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col7" class="tar" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column14" value="" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column16" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column18" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column34" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column32" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column30" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column26" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column20" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column22" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column58" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column56" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="200" inputType="text" style="" id="column54" value="" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column52" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column50" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column48" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column38" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column40" value="" displayMode="label">
+												</w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group style="" id="" class="grid-bottom ">
+										<xf:group id="" class="left">
+											<xf:group tagname="ul" id="" class="amt-wrap">
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="Amount($)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input82" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="Amount(W)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input83" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" id="" class="right">
+											<xf:input class=" w50" id="ed_input105" placeholder="" style=""></xf:input>
+											<w2:udc_bottomGrdBtn style="" EngYn="Y"></w2:udc_bottomGrdBtn>
+
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="Buying Exchange Rate Information" class="tit"></w2:textbox>
+									</xf:group>
+								</xf:group>
+								<xf:group style="" id="" class="tbbox">
+									<xf:group tagname="table" style="" id="" class="w2tb tb">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="colgroup">
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col" style=""></xf:group>
+											<xf:group tagname="col" style="width:130px;"></xf:group>
+											<xf:group tagname="col"></xf:group>
+											<xf:group tagname="col" style="width:280px"></xf:group>
+										</xf:group>
+										<xf:group tagname="tr" style="">
+											<xf:group tagname="th" style="" class="w2tb_th">
+												<w2:textbox ref="" style="" userData2="" id="" label="Currency" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" style="" class="w2tb_td">
+												<xf:group class="form-group " id="" style="">
+													<xf:input class=" w50" id="ed_input91" placeholder="" style=""></xf:input>
+													<w2:autoComplete class=" " editType="select" id="acb_autoComplete15" search="start" style="" submenuSize="auto">
+													</w2:autoComplete>
+												</xf:group>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes></w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="Ex-Rate Date" class="req"></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<w2:inputCalendar style="" id="" class=" cal" calendarValueType="yearMonthDate"></w2:inputCalendar>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="Ex-Rate" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w100" id="ed_input92" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group tagname="th" class="w2tb_th ">
+												<w2:attributes>
+													<w2:scope>row</w2:scope>
+												</w2:attributes>
+												<w2:textbox ref="" style="" userData2="" id="" label="US Ex-Rate" class=""></w2:textbox>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w100" id="ed_input93" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group tagname="td" class="w2tb_td">
+												<w2:attributes></w2:attributes>
+												<xf:group class="col-gap-4" id="" style="">
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[Customer]]></xf:label>
+													</xf:trigger>
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[Ex-Rate]]></xf:label>
+													</xf:trigger>
+													<xf:trigger class="btn link" id="" style="" type="button">
+														<xf:label><![CDATA[ResultDate]]></xf:label>
+													</xf:trigger>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group id="" class="row-gap-8">
+								<xf:group style="" id="" class="title-wrap">
+									<xf:group id="" class="title">
+										<w2:textbox tagname="h3" style="" id="" label="Buying list" class="tit"></w2:textbox>
+									</xf:group>
+									<xf:group id="" class="right">
+										<w2:udc_topGrdBtn grp="grd_section5" style=""></w2:udc_topGrdBtn>
+									</xf:group>
+								</xf:group>
+								<xf:group adaptiveThreshold="" style="" id="grd_section5" class="gvwbox">
+									<w2:gridView oddEvenColorDisplay="true" rowNumVisible="false" showSortableImage="true" rowNumHeaderValue="No"
+										sortable="true" defaultCellHeight="24" rowNumWidth="40" visibleRowNumFix="true" checkAllType="false" dataList="data:dataList1"
+										evenRowBackgroundColor="#F8FFF8" id="" visibleRowNum="3" class="wq_gvw" autoFitMinWidth="1700" autoFit="allColumn">
+										<w2:caption style="" id="caption5" value="this is a grid caption."></w2:caption>
+										<w2:header style="" id="header1">
+											<w2:row style="" id="row1">
+												<w2:column width="50" inputType="checkbox" id="column12" class="no-sort" displayMode="label" fixColumnWidth="true"
+													checkboxLabel="선택">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column2" value="SEQ" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column41" value="Type" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column47" value="SEQ" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="column1" value="Customer" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" id="column3" value="Name" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" id="column5" value="F/Code" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" id="column7" value="Name" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column51" value="Init" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column49" value="통합매출입코드" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="column9" value="CUR" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column13" value="Unit" class="col-type1" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column15" value="Package" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column17" value="Rate" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column33" value="Amount" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column31" value="Ex-Rate" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column29" value="Amount(W)" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column43" value="VAT" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column25" value="Amount(US$)" class="col-type2"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column19" value="Result" class="col-type2" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column45" value="Inner Dept" class="col-type2"
+													displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column53" value="내부부서명" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column21" value="Invoice No" class="col-type2"
+													displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column63" value="Tariff Rate" displayMode="label" hidden="true"
+													class="col-type2">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column61" value="vatYn" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column59" value="exRateTyp" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column57" value="Vehicle No" displayMode="label" hidden="true"
+													class="col-type2">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column55" value="vehclYn" displayMode="label" hidden="true">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column37" value="내부매입구분" class="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column39" value="업로드 담당자" class="col-type2" displayMode="label">
+												</w2:column>
+											</w2:row>
+										</w2:header>
+										<w2:gBody style="" id="gBody1">
+											<w2:row style="" id="row2">
+												<w2:column width="50" inputType="checkbox" id="col1" displayMode="label" fixColumnWidth="true" checkboxLabel="선택">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col2" value="" displayMode="label"></w2:column>
+												<w2:column width="70" inputType="text" style="" id="column42" value="" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column48" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" id="col3" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="80" inputType="text" id="col4" displayMode="label" textAlign="left"></w2:column>
+												<w2:column width="80" inputType="text" id="col5" class="tar" displayMode="label"></w2:column>
+												<w2:column width="80" inputType="text" id="col6" class="tar" displayMode="label" textAlign="left">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column52" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column50" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" id="col7" class="tar" displayMode="label"></w2:column>
+												<w2:column width="70" inputType="text" style="" id="column14" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column16" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column18" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column34" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column32" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column30" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column44" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column26" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="80" inputType="text" style="" id="column20" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column46" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column54" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column22" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column64" value="" displayMode="label" textAlign="right">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column62" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column60" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="100" inputType="text" style="" id="column58" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="70" inputType="text" style="" id="column56" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column38" value="" displayMode="label">
+												</w2:column>
+												<w2:column width="120" inputType="text" style="" id="column40" value="" displayMode="label">
+												</w2:column>
+											</w2:row>
+										</w2:gBody>
+									</w2:gridView>
+									<xf:group style="" id="" class="grid-bottom ">
+										<xf:group id="" class="left">
+											<xf:group tagname="ul" style="" id="" class="amt-wrap">
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="Amount($)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input95" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="Amount(W)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input96" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" id="">
+													<w2:textbox tagname="span" style="" id="" label="VAT" class=""></w2:textbox>
+													<xf:input style="" id="ed_input97" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+												<xf:group tagname="li" style="" id="">
+													<w2:textbox tagname="span" style="" id="" label="AMOUNT(W+VAT)" class=""></w2:textbox>
+													<xf:input style="" id="ed_input98" placeholder="" class=" amt"></xf:input>
+												</xf:group>
+											</xf:group>
+										</xf:group>
+										<xf:group style="" id="" class="right">
+											<xf:input class=" w50" id="ed_input106" placeholder="" style=""></xf:input>
+											<w2:udc_bottomGrdBtn style="" EngYn="Y"></w2:udc_bottomGrdBtn>
+
+										</xf:group>
+									</xf:group>
+								</xf:group>
+								<xf:group class="tbbox" id="" style="">
+									<xf:group class="w2tb tb" id="" style="" tagname="table">
+										<w2:attributes>
+											<w2:summary></w2:summary>
+										</w2:attributes>
+										<xf:group tagname="colgroup">
+											<xf:group style="width:120px;" tagname="col"></xf:group>
+											<xf:group tagname="col"></xf:group>
+											<xf:group style="width: 120px;" tagname="col"></xf:group>
+											<xf:group tagname="col"></xf:group>
+											<xf:group style="width: 120px;" tagname="col"></xf:group>
+											<xf:group tagname="col"></xf:group>
+											<xf:group style="width: 120px;" tagname="col"></xf:group>
+											<xf:group style="" tagname="col"></xf:group>
+										</xf:group>
+										<xf:group style="" tagname="tr">
+											<xf:group class="w2tb_th" style="" tagname="th">
+												<w2:textbox class="" id="" label="매출" ref="" style="" userData2=""></w2:textbox>
+											</xf:group>
+											<xf:group class="w2tb_td" style="" tagname="td">
+												<xf:input class=" w150 tar" id="ed_input107" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group class="w2tb_th" tagname="th">
+												<w2:attributes></w2:attributes>
+												<w2:textbox class="" id="" label="매입" ref="" style="" userData2=""></w2:textbox>
+											</xf:group>
+											<xf:group class="w2tb_td" tagname="td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w150 tar" id="ed_input108" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group class="w2tb_th" tagname="th">
+												<w2:attributes></w2:attributes>
+												<w2:textbox class="" id="" label="손익" ref="" style="" userData2=""></w2:textbox>
+											</xf:group>
+											<xf:group class="w2tb_td" tagname="td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w150 tar" id="ed_input109" placeholder="" style=""></xf:input>
+											</xf:group>
+											<xf:group class="w2tb_th" tagname="th">
+												<w2:attributes></w2:attributes>
+												<w2:textbox class="" id="" label="마진율" ref="" style="" userData2=""></w2:textbox>
+											</xf:group>
+											<xf:group class="w2tb_td" tagname="td">
+												<w2:attributes></w2:attributes>
+												<xf:input class=" w150 tar" id="ed_input110" placeholder="" style=""></xf:input>
+											</xf:group>
+										</xf:group>
+									</xf:group>
+								</xf:group>
+							</xf:group>
+							<xf:group class="btnbox" id="" style="">
+								<xf:group class="left" id="">
+									<xf:trigger class="btn link " id="btn_trigger51" style="" type="button">
+										<xf:label><![CDATA[Partner]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="btn_trigger52" style="" type="button">
+										<xf:label><![CDATA[Invoice]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="btn_trigger53" style="" type="button">
+										<xf:label><![CDATA[Profit]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="btn_trigger54" style="" type="button">
+										<xf:label><![CDATA[Payment INV]]></xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn link " id="btn_trigger55" style="" type="button">
+										<xf:label><![CDATA[copy buy to sell]]></xf:label>
+									</xf:trigger>
+								</xf:group>
+								<xf:group class="right" id="" style="">
+									<xf:trigger class="btn" id="btn_trigger59" label="저장" style="" type="button">
+										<xf:label>Cancel</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="btn_trigger61" label="저장" style="" type="button">
+										<xf:label>Update</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="btn_trigger62" label="저장" style="" type="button">
+										<xf:label>Save</xf:label>
+									</xf:trigger>
+									<xf:trigger class="btn" id="btn_trigger63" label="저장" style="" type="button">
+										<xf:label>Delete</xf:label>
+									</xf:trigger>
+								</xf:group>
+							</xf:group>
+						</w2:content>
+					</w2:tabControl>
+				</xf:group>
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

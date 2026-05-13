@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_addSusRecv">
+    				<w2:keyInfo>
+    					<w2:key id="wrkDt" name="작업일자" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:aliasDataList scope="../ds_p_adjmContCancel" id="ds_c_adjmContCancel"></w2:aliasDataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_adjmContCancel" action="" method="post" mediatype="application/json"
+    			ref='data:json,[{"id":"dma_addSusRecv","key":"IN_DS2"},{"action":"modified","id":"ds_c_adjmContCancel","key":"IN_DS1"}]' target="" encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_adjmContCancel_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script cache="false" scopeExternal="true" src="/ui/ac/am/constants/ACConstants.js" type="text/javascript" scopeVariable="ACConstants"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[// 전역변수
+scwin.sDate                     = WebSquare.date.getCurrentServerDate();
+
+scwin.onpageload = function() {
+    const codeOptions = [
+        { grpCd : "FM040", compID : "gr_adjmContCancel:wrkClsCd" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+};
+
+scwin.onUdcCompleted = function() {
+    ica_wrkDt.setValue(scwin.sDate);
+    $c.gus.cfDisableKey();
+};
+
+
+//-------------------------------------------------------------------------
+// 채권내역 및 수금수단 조회 
+//-------------------------------------------------------------------------
+// scwin.f_Retrieve = function(condition) {
+
+// };
+
+//-------------------------------------------------------------------------
+// 가수금 처리취소시 저장시
+//-------------------------------------------------------------------------
+scwin.f_Cancel = async function () {
+
+    let checkCount = 0;		// 취소 하고자 하는 Row를 선택했느지 여부
+    let cancelCount = 0;	// 수금,가수금선수금(발생)상태를 제외한 전체 갯수
+    let cancelRowPosition = 0;		// 취소하고자 하는 Row의 선택위치
+
+    // 처리취소시 필수 조건 Check
+    if (! await $c.gus.cfValidate([ica_wrkDt])) {
+        return;
+    }
+
+    // 처리취소 Row의 선택 위치 확인
+    for (i = 0; i < ds_c_adjmContCancel.getRowCount(); i++) {
+        if ( ds_c_adjmContCancel.getCellData(i, "num") == "T" ) {
+            if ( ds_c_adjmContCancel.getCellData(i, "wrkClsCd") == ACConstants.SUSPINIT_INITAMT_CREATE_PROCESS ){
+                await $c.win.alert("상태가 발생인 것은 취소 할수 없습니다. 선택사항을 확인 하시기 바랍니다.");
+                return;
+            }
+            if ( ds_c_adjmContCancel.getCellData(i, "wrkClsCd") == ACConstants.SUSPINIT_BILLRECEIVABL ){
+                await $c.win.alert("상태가 수금인 것은 취소 할수 없습니다. 선택사항을 확인 하시기 바랍니다.");
+                return;
+            }
+        }
+
+        // 수금 발생 목록을 제외한 상태의 갯수를 확인
+        if ( ds_c_adjmContCancel.getCellData(i, "wrkClsCd") != ACConstants.SUSPINIT_INITAMT_CREATE_PROCESS ||
+                ds_c_adjmContCancel.getCellData(i, "wrkClsCd") != ACConstants.SUSPINIT_BILLRECEIVABL ) {
+                cancelCount = i;
+        }
+        
+    }
+
+    for (i = 0; i < ds_c_adjmContCancel.getRowCount(); i++) {
+        if (ds_c_adjmContCancel.getCellData(i, "num") == "T" ) {
+            checkCount++;
+            cancelRowPosition = i;
+        }
+    }
+
+    // 선택여부 확인
+    if ( checkCount <= 0 ) {
+        await $c.win.alert("선택하신 사항이 없습니다.");
+        return;
+    } else if ( checkCount > 1 ) {
+        await $c.win.alert("선택사항은 최근 발생항목 한개만 선택 하셔야 합니다.");
+    }
+
+    // 마지막 상태만 취소처리가 가능함.
+    if ( cancelCount != cancelRowPosition ) {
+        await $c.win.alert("처리취소는 마지막 부터 가능합니다.");
+        return;
+    }
+
+
+    // 처리 취소여부 확인
+    if (await $c.win.confirm(MSG_CM_CRM_001)) {
+        for (i = 0; i < ds_c_adjmContCancel.getRowCount(); i++) {
+            if ( ds_c_adjmContCancel.getCellData(i, "num") == "T" ) {
+                ds_c_adjmContCancel.setCellData(i, "iwrkDt", ica_wrkDt.getValue());
+                ds_c_adjmContCancel.setCellData(i, "acctCd", ACConstants.ACCTCD_SUS_RECV);
+            }
+        }	
+        // 선수금처리 취소
+        if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_INITAMT_PROCESS) {
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelInitiativeAmountProcessCMD.do";
+        // 환불처리 취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_REFUND_PROCESS){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelReturnProcessCMD.do";
+        // 잡이익 처리 취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_PROFIT_PROCESS){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelEtcgainsProcessCMD.do";
+        // 선수금역분개 처리 취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_INITAMT_CANCEL){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelInitiativeAmountReverseCMD.do";
+        // 환불처리 역분개 처리 취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_REFUND_CANCEL){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelReturnReverseCMD.do";
+        // 잡이익 역분개 처리 취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_PROFIT_CANCEL){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelEtcgainsReverseCMD.do";
+        // 반제 처리 취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_REPAYMENT_PROCESS){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelSuspenseReceivableRepaymentProcessCMD.do";
+        // 반제 역분개 처리취소
+        } else if ( ds_c_adjmContCancel.getCellData(ds_c_adjmContCancel.getModifiedIndex()[0], "wrkClsCd") == ACConstants.SUSPINIT_REPAYMENT_CANCEL){
+            sbm_adjmContCancel.action = "/ac.fm.collmoneymgnt.rcptmgnt.CancelSuspenseReceivableRepaymentReverseCMD.do";
+        } else {
+            await $c.win.alert("취소 처리 할수 없는 상태입니다.\n가수금 정산내역이 생성된 메뉴에서 취소처리 하시기 바랍니다");
+            return;
+        }
+        
+        $c.sbm.execute(sbm_adjmContCancel);
+        
+        
+        // 저장 완료후 Parent 화면의 조회 결과 재조회 한다.
+        $p.parent().scwin.f_Retrieve();
+        
+        $p.parent().tabControl1.getWindow(1).$p.getComponentById("ed_amt").setValue(0);
+        
+    }
+}
+
+
+//-------------------------------------------------------------------------
+// 엑셀 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function () {
+    if (ds_c_adjmContCancel.getRowCount() == 0) {
+        await $c.win.alert(MSG_CM_WRN_002);
+        return;
+    }
+
+    let infoArr = [{
+        rowIndex : 0,             // 첫 번째 줄
+        colIndex : 0,             // 첫 번째 칸부터
+        colSpan : 13,   // 그리드 전체 너비만큼 병합
+        rowSpan : 1,
+        text : "정산내역/처리취소",
+        textAlign : "center",     //정렬
+        fontSize : 18,
+        drawBorder : false,        // 테두리
+        color : "black",          // 글자색
+        backgroundColor : "white" // 배경색
+    }]
+
+    const options = {
+        fileName: "정산내역_처리취소.xlsx",
+        sheetName: "정산내역_처리취소",
+        startRowIndex : 2,
+        startColumnIndex : 0,
+        type : 1
+    };
+        
+    if (await $c.win.confirm("Excel로 다운로드 하시겠습니까?")) {
+        $c.data.downloadGridViewExcel(gr_adjmContCancel, options, infoArr);
+    }
+};
+
+//-------------------------------------------------------------------------
+// script
+//-------------------------------------------------------------------------
+// grid decode format
+scwin.susRecvInitamtSeqDisplayFm = function(data) {
+    return $c.gus.decode(data, "0", "", data);
+}
+
+scwin.sbm_adjmContCancel_submitdone = async function (e) {
+    if (e.responseJSON.resultDataSet[0].Code < 0) {
+        $p.parent().scwin.f_Retrieve();
+        return;
+    }
+    await $c.gus.cfAlertMsg(MSG_CM_INF_001);
+    $p.parent().scwin.f_Retrieve();
+};
+
+
+scwin.gr_adjmContCancel_oncellclick = async function (rowIndex, columnIndex, columnId) {
+    if ( columnId == "slipNo" ) { 
+        var slipNo = ds_c_adjmContCancel.getCellData(rowIndex, "slipNo");
+        if ( slipNo !=  "" ) {
+            let rtnList = await $c.gus.cfShowSlipInfo( slipNo );
+        } 
+    }  
+};
+
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="title-wrap" id="" style="">
+    		<xf:group class="right" id="">
+    			<w2:udc_topGrdBtn grp="grd_section1" style="" gridUpYn="N" gridDownFn="scwin.f_Excel" gridID="gr_adjmContCancel"></w2:udc_topGrdBtn>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    		<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_c_adjmContCancel" focusMode="cell" id="gr_adjmContCancel"
+    			scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="4" visibleRowNumFix="true" ev:oncellclick="scwin.gr_adjmContCancel_oncellclick" rowStatusVisible="true" rowStatusWidth="15" readOnly="true">
+    			<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header2" style="">
+    				<w2:row id="row3" style="">
+    					<w2:column displayMode="label" id="column30" inputType="text" style="" value="선택" width="70"></w2:column>
+    					<w2:column displayMode="label" id="column38" inputType="text" style="" value="순번" width="70"></w2:column>
+    					<w2:column displayMode="label" id="column36" inputType="text" style="" value="정리구분" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column34" inputType="text" style="" value="작업일자" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column32" inputType="text" style="" value="전표번호" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column28" inputType="text" style="" value="귀속부서" width="100"></w2:column>
+    					<w2:column displayMode="label" id="column26" inputType="text" style="" value="귀속부서명" width="120"></w2:column>
+    					<w2:column displayMode="label" id="column22" inputType="text" style="" value="거래처번호" width="120"></w2:column>
+    					<w2:column displayMode="label" id="column24" inputType="text" style="" value="거래처명" width="100"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column70" value="통화" displayMode="label"></w2:column>
+    					<w2:column width="130" inputType="text" style="" id="column67" value="발생금액(원) " displayMode="label"></w2:column>
+    					<w2:column width="130" inputType="text" style="" id="column64" value="정리금액(원) " displayMode="label"></w2:column>
+    					<w2:column width="130" inputType="text" style="" id="column61" value="발생금액(외)" displayMode="label"></w2:column>
+    					<w2:column width="130" inputType="text" style="" id="column58" value="정리금액(외)" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column55" value="지급번호" displayMode="label"></w2:column>
+    					<w2:column width="200" inputType="text" style="" id="column52" value="가수금선수금발생번호" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column49" value="통화코드" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column91" value="환율" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column88" value="금액_외화" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column85" value="삭제여부" displayMode="label"></w2:column>
+    					<w2:column width="150" inputType="text" style="" id="column82" value="변경된작업일자" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column79" value="회사코드" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column73" value="회사구분코드" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody2" style="">
+    				<w2:row id="row4" style="">
+    					<w2:column displayMode="label" id="num" inputType="checkbox" style="" value="" width="70" falseValue="F" trueValue="T" valueType="other" readOnly="false"></w2:column>
+    					<w2:column displayMode="label" id="susRecvInitamtSeq" inputType="text" style="" value="" width="70"
+    						displayFormatter="scwin.susRecvInitamtSeqDisplayFm">
+    					</w2:column>
+    					<w2:column displayMode="label" id="wrkClsCd" inputType="select" style="" value="" width="100" textAlign="left"></w2:column>
+    					<w2:column displayMode="label" id="wrkDt" inputType="" style="" value="" width="100"
+    						displayFormat="####/##/##">
+    					</w2:column>
+    					<w2:column displayMode="label" id="slipNo" inputType="text" style="color: blue;text-decoration: underline;" value="" width="100" class="underline"></w2:column>
+    					<w2:column displayMode="label" id="acctDeptCd" inputType="text" style="" value="" width="100" hidden="true"></w2:column>
+    					<w2:column displayMode="label" id="acctDeptNm" inputType="text" style="" value="" width="120" textAlign="left"></w2:column>
+    					<w2:column displayMode="label" id="clntNo" inputType="text" style="" value="" width="120" hidden="true"></w2:column>
+    					<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="100" textAlign="left"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="crcCd" value="" displayMode="label" textAlign="right"></w2:column>
+    					<w2:column width="130" inputType="text" style="" id="amt" value="" displayMode="label" dataType="number"
+    						displayFormat="#,##0" textAlign="right" excelCellType="number" maxLength="20.4">
+    					</w2:column>
+    					<w2:column width="130" inputType="text" style="" id="amtClose" value="" displayMode="label" dataType="number"
+    						displayFormat="#,##0" textAlign="right" excelCellType="number" maxLength="20.4">
+    					</w2:column>
+    					<w2:column width="130" inputType="text" style="" id="amtFcrc" value="0.00" displayMode="label" dataType="number"
+    						displayFormat="#,##0.00" textAlign="right" excelCellType="number" maxLength="15.4">
+    					</w2:column>
+    					<w2:column width="130" inputType="text" style="" id="amtFcrcClose" value="0.00" displayMode="label" dataType="number"
+    						displayFormat="#,##0.00" textAlign="right" excelCellType="number" maxLength="15.4">
+    					</w2:column>
+    					<w2:column width="100" inputType="text" style="" id="payNo" value="" displayMode="label"></w2:column>
+    					<w2:column width="200" inputType="text" style="" id="susRecvInitamtOutbrNo" value="" displayMode="label"
+    						hidden="true">
+    					</w2:column>
+    					<w2:column width="100" inputType="text" style="" id="col17" value="" displayMode="label" hidden="true"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="exchRt" value="" displayMode="label" hidden="true"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="col19" value="" displayMode="label" hidden="true"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="delYn" value="" displayMode="label" hidden="true"></w2:column>
+    					<w2:column width="150" inputType="text" style="" id="iwrkDt" value="" displayMode="label" hidden="true"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="coCd" value="" displayMode="label" hidden="true"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="coClsCd" value="" displayMode="label" hidden="true"></w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    			<w2:footer style="" id="footer1">
+    				<w2:row style="" id="row5">
+    					<w2:column width="70" inputType="text" style="" id="column48" value="" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column47" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column46" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column45" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column44" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column43" value="" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column42" value="" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column41" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column40" value="합계" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column72" value="" displayMode="label"></w2:column>
+    					<w2:column width="130" inputType="expression" style="" id="column69" value="" displayMode="label" dataType="number"
+    						displayFormat="#,##0" expression='SUM("amt")' textAlign="right">
+    					</w2:column>
+    					<w2:column width="130" inputType="expression" style="" id="column66" value="" displayMode="label" dataType="number"
+    						displayFormat="#,##0" expression='SUM("amtClose")' textAlign="right">
+    					</w2:column>
+    					<w2:column width="130" inputType="expression" style="" id="column63" value="0.00" displayMode="label" dataType="number"
+    						displayFormat="#,##0.00" expression='SUM("amtFcrc")' textAlign="right">
+    					</w2:column>
+    					<w2:column width="130" inputType="expression" style="" id="column60" value="0.00" displayMode="label" dataType="number"
+    						displayFormat="#,##0.00" expression='SUM("amtFcrcClose")' textAlign="right">
+    					</w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column57" value="" displayMode="label"></w2:column>
+    					<w2:column width="200" inputType="text" style="" id="column54" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column51" value="" displayMode="label"></w2:column>
+    					<w2:column width="70" inputType="text" style="" id="column93" value="" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column90" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column87" value="" displayMode="label"></w2:column>
+    					<w2:column width="150" inputType="text" style="" id="column84" value="" displayMode="label"></w2:column>
+    					<w2:column width="100" inputType="text" style="" id="column81" value="" displayMode="label"></w2:column>
+    					<w2:column width="120" inputType="text" style="" id="column75" value="" displayMode="label"></w2:column>
+    				</w2:row>
+    			</w2:footer>
+    		</w2:gridView>
+    		<xf:group class="grid-bottom " id="" style="">
+    			<xf:group class="left" id="" style="">
+    				<xf:group class="grid-total" id="">
+    					<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span"></w2:textbox>
+    					<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    	<xf:group class="btnbox" id="" style="">
+    	<xf:group id="" class="right">
+    		<xf:group id="" class="inner"><w2:textbox style="" id="" label="작업일자" class=""></w2:textbox><w2:inputCalendar style="" id="ica_wrkDt" class="" calendarValueType="yearMonthDate" displayFormat="yyyy/MM/dd" ref="data:dma_addSusRecv.wrkDt" mandatory="true" title="작업일자"></w2:inputCalendar></xf:group><xf:trigger style="" id="btn_cancel" type="button" class="btn" ev:onclick="scwin.f_Cancel" userAuth="U" objType="bsave">
+    			<xf:label><![CDATA[처리취소]]></xf:label>
+    		</xf:trigger>
+    	</xf:group></xf:group>
+    </body>
+</html>

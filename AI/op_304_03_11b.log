@@ -1,0 +1,44 @@
+op_304_03_11b.log
+
+[2026-02-19 14:51:10.997] 변환 시작
+[2026-02-19 14:51:11.136] #1 시도 — Attempt #1 (complexity: HIGH)
+[2026-02-19 14:54:42.173] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=C, verdict=REVIEW, errors=4, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.86, grade=B, verdict=REVIEW, errors=4, warnings=7 | LLM 209928ms, total 211037ms
+    - [XML] submission 'sbm_saveEmp'에 action 속성 누락 — sbm_saveEmp
+    - [XML] submission 'sbm_deleteEmp'에 action 속성 누락 — sbm_deleteEmp
+    - [XML] scwin.dataSetDebug에서 $c.win.alert를 await 없이 호출 — script:scwin.dataSetDebug
+    - [XML] scwin.dataSetDebug이 async가 아닌데 $c.win.alert 사용 → async function 필요 — script:scwin.dataSetDebug
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: eqCd (EMEDIT→xf:input), em_alloccarPicId (EMEDIT→xf:input), ed_allCopCoConfirmDt (EMEDIT→xf:input)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 4건: dptWrkPlCd: EMEDIT→w2:key (기대: xf:input), arvWrkPlCd: EMEDIT→w2:key (기대: xf:input), bilgMchtCd: EMEDIT→w2:key (기대: xf:input)
+    - [적정성] async 선언 누락 — scwin.dataSetDebug (uses $c.win.alert)
+    - [적정성] await 누락 — scwin.dataSetDebug → $c.win.alert
+[2026-02-19 14:54:42.588] #1 검증: 자동수정 7건 적용
+    - [자동수정] U03: checkbox 속성 보강 (trueValue/falseValue/defaultValue/emptyValue/valueType)
+    - [자동수정] U11: xf:select1(LUXECOMBO) → w2:autoComplete
+    - [자동수정] U04: autoComplete ID lc_ → acb_
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U18: w-숫자 클래스 → style width 변환
+    - [자동수정] U21: cf 공통함수 → $c.gus. 네임스페이스 추가
+    - [자동수정] U24: async/await 선제 적용
+[2026-02-19 14:54:43.650] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=7
+    - [XML] submission 'sbm_saveEmp'에 action 속성 누락 — sbm_saveEmp
+    - [XML] submission 'sbm_deleteEmp'에 action 속성 누락 — sbm_deleteEmp
+    - [적정성] 컴포넌트 ID 유지 — 누락 9건: lc_dtGubun (LUXECOMBO→w2:autoComplete), eqCd (EMEDIT→xf:input), em_alloccarPicId (EMEDIT→xf:input), lc_wrkClsCd (LUXECOMBO→w2:autoComplete), lc_cntrSizCd (LUXECOMBO→w2:autoComplete)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 4건: dptWrkPlCd: EMEDIT→w2:key (기대: xf:input), arvWrkPlCd: EMEDIT→w2:key (기대: xf:input), bilgMchtCd: EMEDIT→w2:key (기대: xf:input)
+[2026-02-19 14:54:51.877] #2 재시도 (에러 8건)
+[2026-02-19 14:54:52.884] #2 시도 — Attempt #2 (complexity: HIGH)
+[2026-02-19 14:58:41.628] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=2, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.89, grade=B, verdict=REVIEW, errors=2, warnings=7 | LLM 228307ms, total 228744ms
+    - [XML] 프롤로그에서는 콘텐츠가 허용되지 않습니다. — line:1,col:1
+    - [XML] XML 파싱 실패: 프롤로그에서는 콘텐츠가 허용되지 않습니다.
+    - [적정성] 컴포넌트 ID 유지 — 누락 3건: eqCd (EMEDIT→xf:input), em_alloccarPicId (EMEDIT→xf:input), ed_allCopCoConfirmDt (EMEDIT→xf:input)
+    - [적정성] 컴포넌트 타입 매핑 — 불일치 4건: dptWrkPlCd: EMEDIT→w2:key (기대: xf:input), arvWrkPlCd: EMEDIT→w2:key (기대: xf:input), bilgMchtCd: EMEDIT→w2:key (기대: xf:input)
+[2026-02-19 14:58:41.632] #1 검증: 최적 시도 #1 채택 (confidence: 0.53)
+[2026-02-19 14:58:41.633] 실패 (2회 시도, 7m 30s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] submission 'sbm_saveEmp'에 action 속성 누락 — sbm_saveEmp
+  2. [XML] submission 'sbm_deleteEmp'에 action 속성 누락 — sbm_deleteEmp
+  3. [적정성] 컴포넌트 ID 유지 — 누락 9건: lc_dtGubun (LUXECOMBO→w2:autoComplete), eqCd (EMEDIT→xf:input), em_alloccarPicId (EMEDIT→xf:input), lc_wrkClsCd (LUXECOMBO→w2:autoComplete), lc_cntrSizCd (LUXECOMBO→w2:autoComplete)
+  4. [적정성] 컴포넌트 타입 매핑 — 불일치 4건: dptWrkPlCd: EMEDIT→w2:key (기대: xf:input), arvWrkPlCd: EMEDIT→w2:key (기대: xf:input), bilgMchtCd: EMEDIT→w2:key (기대: xf:input)
+================================================================================

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" repeatNode="map" id="ds_out" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="spplyDt" name="공급일자" dataType="text"></w2:column>
+						<w2:column id="gbn" name="매출입구분" dataType="text"></w2:column>
+						<w2:column id="slipNo" name="전표번호" dataType="text"></w2:column>
+						<w2:column id="vatNo" name="부가세번호" dataType="text"></w2:column>
+						<w2:column id="spplyAmt" name="DEBIS공급가액" dataType="text"></w2:column>
+						<w2:column id="vat" name="DEBIS부가세" dataType="text"></w2:column>
+						<w2:column id="supplyamount" name="신고공급가액" dataType="text"></w2:column>
+						<w2:column id="taxamount" name="신고부가세" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_search">
+					<w2:keyInfo>
+						<w2:key id="spplyDtSt" name="name1" dataType="text"></w2:key>
+						<w2:key id="spplyDtEnd" name="name2" dataType="text"></w2:key>
+						<w2:key id="responsetype" name="name3" dataType="text"></w2:key>
+					</w2:keyInfo>
+				</w2:dataMap>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_retrieve" action="/ac.fi.electaxinvc.RetreiveSendVatCompTableCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_search","key":"IN_DS1"},{"id":"ds_out","key":"OUT_DS1"}]' target='data:json,{"id":"ds_out","key":"OUT_DS1"}' encoding="UTF-8"
+				instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+				ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[// 전역 변수
+scwin.memJson = $c.data.getMemInfo(); // 로그인 정보를 가져온다.
+scwin.privAdmin = scwin.memJson.privAdmin; // ADMIN 권한 CHK : 'T' : ADMIN , 'F': ADMIN 아님
+
+scwin.strCurDate = $c.date.getServerDateTime("yyyyMMdd");
+scwin.strFromDate = scwin.strCurDate.substring(0, 6) + "01";
+scwin.strToDate = scwin.strCurDate.substring(0, 6) + $c.date.getLastDateOfMonth(scwin.strCurDate);
+
+scwin.vLoginCoCd = $c.gus.cfIsNull(scwin.memJson.coCd) ? '' : scwin.memJson.coCd; // 소속 자회사
+scwin.vLoginCoClsCd = $c.gus.cfIsNull(scwin.memJson.coClsCd) ? '' : scwin.memJson.coClsCd; // 회계_회사구분('CO035' : 0:동부 EXPRESS)
+scwin.vUserHomeClsCd = scwin.memJson.userHomeClsCd; // 사용자소속구분코드
+scwin.isSubCompany = false;
+
+//-------------------------------------------------------------------------
+// 화면로딩시
+//-------------------------------------------------------------------------
+scwin.onpageload = function() {
+	
+};
+
+//-------------------------------------------------------------------------
+// UDC 로딩 완료 후
+//-------------------------------------------------------------------------
+scwin.onUdcCompleted = function() {
+    ica_spplyDtSt.setValue(scwin.strFromDate);
+    ica_spplyDtEnd.setValue(scwin.strCurDate);
+};
+
+//-------------------------------------------------------------------------
+// 조회
+//-------------------------------------------------------------------------
+scwin.f_Retrieve = async function(row) {
+    dma_search.set("clntNo", "100002");
+
+    if ($c.gus.cfIsNull(ica_spplyDtSt.getValue())) {
+        await $c.win.alert("공급일자는 필수 입니다.");
+        ica_spplyDtSt.focus();
+        return;
+    }
+    if ($c.gus.cfIsNull(ica_spplyDtEnd.getValue())) {
+        await $c.win.alert("공급일자는 필수 입니다.");
+        ica_spplyDtEnd.focus();
+        return;
+    }
+
+    let ret1 = await $c.date.isDate(ica_spplyDtSt.getValue().trim());
+    if(!ret1){
+        await $c.win.alert("공급일자가 날자 형식에 맞지 않습니다.");
+        ica_spplyDtSt.focus();
+        return;
+    }
+
+    let ret2 = await $c.date.isDate(ica_spplyDtEnd.getValue().trim());
+    if(!ret2){
+        await $c.win.alert("공급일자가 날자 형식에 맞지 않습니다.");
+        ica_spplyDtEnd.focus();
+        return;
+    }
+
+    $c.sbm.execute(sbm_retrieve);
+};
+
+//-------------------------------------------------------------------------
+// 조회조기 필드 Clear
+//-------------------------------------------------------------------------
+scwin.f_FieldClear = function() {
+    $c.gus.cfInitObjects(tb_srchCond);
+    
+    ica_spplyDtSt.setValue(scwin.strFromDate);
+    ica_spplyDtEnd.setValue(scwin.strToDate);
+
+    lc_responsetype.setValue("F");
+};
+
+//-------------------------------------------------------------------------
+// 엑셀 파일 다운로드
+//-------------------------------------------------------------------------
+scwin.f_Excel = async function() {
+    if (ds_out.getRowCount() == 0) {
+        return;
+    }
+
+    if (await $c.win.confirm("Excel로 다운로드 하시겠습니까?")) {
+        const options = {
+            fileName: "전자세금계산서부가세대사조회.xlsx",
+            sheetName: "전자세금계산서부가세대사조회"
+        };
+        $c.data.downloadGridViewExcel(gr_out, options);
+    }
+};
+
+
+scwin.btn_clear_onclick = function (e) {
+    scwin.f_FieldClear();
+};
+
+scwin.btn_retrieve_onclick = function (e) {
+    scwin.f_Retrieve();
+};
+
+scwin.sbm_retrieve_submitdone = async function (e) {
+    let rowCnt = ds_out.getRowCount();
+
+    if (rowCnt == 0	) {
+		await $c.win.alert(MSG_CM_WRN_002);	// 조회결과가 존재하지 않습니다
+		return; 
+	}
+    totalRows.setValue(rowCnt);
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_fromToYearMon" type="page" variableClone="true" src="/cm/udc/fromToYearMon.xml"></w2:require>
+		<w2:require as="udc_fromToCalendarTime" type="page" variableClone="true" src="/cm/udc/fromToCalendarTime.xml"></w2:require>
+		<w2:require as="udc_fromToCalendar" type="page" variableClone="true" src="/cm/udc/fromToCalendar.xml"></w2:require>
+		<w2:require as="udc_fromToYear" type="page" variableClone="true" src="/cm/udc/fromToYear.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+			<xf:group class="shbox" id="" style="">
+				<xf:group class="shbox-inner" id="" style="">
+					<xf:group class="w2tb " id="tb_srchCond" style="" tagname="table">
+						<w2:attributes>
+							<w2:summary></w2:summary>
+						</w2:attributes>
+						<xf:group tagname="colgroup">
+							<xf:group style="width:70px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+							<xf:group style="width:105px;" tagname="col"></xf:group>
+							<xf:group style="" tagname="col"></xf:group>
+						</xf:group>
+						<xf:group id="" tagname="tr">
+							<xf:group class="w2tb_th " tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="req" id="" label="공급일자" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:group id="" class="form-group"></xf:group>
+								<w2:udc_fromToCalendar id="udc_fromToCalendar4" refDataMap="dma_search" refEdDt="spplyDtEnd" refStDt="spplyDtSt" style="" edFromId="ica_spplyDtSt" edToId="ica_spplyDtEnd" mandatoryFrom="true" mandatoryTo="true" objTypeFrom="data" objTypeTo="data" objTypeBtn="data"></w2:udc_fromToCalendar>
+							</xf:group>
+							<xf:group class="w2tb_th" tagname="th">
+								<w2:attributes>
+									<w2:scope>row</w2:scope>
+								</w2:attributes>
+								<w2:textbox class="" id="" label="비교대상" style=""></w2:textbox>
+							</xf:group>
+							<xf:group class="w2tb_td" id="" tagname="td">
+								<w2:attributes></w2:attributes>
+								<xf:select1 allOption="" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
+									disabledClass="w2selectbox_disabled" id="lc_responsetype" style="width: 200px;" submenuSize="fixed" objType="data" ref="data:dma_search.responsetype" title="비교대상">
+									<xf:choices>
+										<xf:item>
+											<xf:label><![CDATA[최종승인분과 비교]]></xf:label>
+											<xf:value><![CDATA[F]]></xf:value>
+										</xf:item>
+										<xf:item>
+											<xf:label><![CDATA[KT접수분과 비교]]></xf:label>
+											<xf:value><![CDATA[A]]></xf:value>
+										</xf:item>
+									</xf:choices>
+								</xf:select1>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="btn-shbox" id="" style="">
+					<xf:trigger class="btn ico refresh" id="btn_clear" style="" type="button" ev:onclick="scwin.btn_clear_onclick">
+						<xf:label><![CDATA[새로고침]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" style="" type="button" ev:onclick="scwin.btn_retrieve_onclick" userAuth="R">
+						<xf:label><![CDATA[조회]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+			<xf:group class="round-box" id="" style="">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="right" id="">
+						<w2:udc_topGrdBtn grp="grd_section1" style="" gridDownUserAuth="X" gridDownFn="scwin.f_Excel" gridID="gr_out" btnUser="Y" gridUpYn="N"></w2:udc_topGrdBtn>
+					</xf:group>
+				</xf:group>
+				<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+					<w2:gridView autoFit="allColumn" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_out" 
+						id="gr_out" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="13" visibleRowNumFix="true"
+						validFeatures="ignoreStatus=yes" columnMove="true"  rowStatusVisible="true" rowStatusWidth="20">
+						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+						<w2:header id="header2" style="">
+							<w2:row id="row3" style="">
+								<w2:column displayMode="label" id="column30" inputType="text" value="공급일자" width="100"></w2:column>
+								<w2:column displayMode="label" id="column38" inputType="text" value="매출입&lt;br/&gt;구분" width="120">
+								</w2:column>
+								<w2:column displayMode="label" id="column36" inputType="text" value="전표번호" width="120"></w2:column>
+								<w2:column displayMode="label" id="column34" inputType="text" value="부가세번호" width="120"></w2:column>
+								<w2:column displayMode="label" id="column32" inputType="text" value="DEBIS&lt;br/&gt;공급가액" width="150">
+								</w2:column>
+								<w2:column displayMode="label" id="column28" inputType="text" value="DEBIS&lt;br/&gt;부가세" width="150">
+								</w2:column>
+								<w2:column displayMode="label" id="column26" inputType="text" value="신고&lt;br/&gt;공급가액" width="150">
+								</w2:column>
+								<w2:column displayMode="label" id="column24" inputType="text" value='신고&lt;br/&gt;부가세' width="150">
+								</w2:column>
+							</w2:row>
+						</w2:header>
+						<w2:gBody id="gBody2" style="">
+							<w2:row id="row4" style="">
+								<w2:column displayMode="label" id="spplyDt" inputType="text" width="100" dataType="date"
+									displayFormat="yyyy/MM/dd" ioFormat="yyyyMMdd" allowChar="0-9" validateOnInput="true" maxLength="8">
+								</w2:column>
+								<w2:column displayMode="label" id="gbn" inputType="text" width="120" maxLength="4"></w2:column>
+								<w2:column displayMode="label" id="slipNo" inputType="text" width="120" maxLength="10"></w2:column>
+								<w2:column displayMode="label" id="vatNo" inputType="text" width="120" maxLength="10"></w2:column>
+								<w2:column displayMode="label" id="spplyAmt" inputType="text" width="150" textAlign="right"
+									displayFormat="#,##0" dataType="number" validateOnInput="true" excelCellType="number">
+								</w2:column>
+								<w2:column displayMode="label" id="vat" inputType="text" width="150" textAlign="right" dataType="number"
+									displayFormat="#,##0" validateOnInput="true" excelCellType="number">
+								</w2:column>
+								<w2:column displayMode="label" id="supplyamount" inputType="text" width="150" textAlign="right"
+									displayFormat="#,##0" dataType="number" validateOnInput="true" excelCellType="number">
+								</w2:column>
+								<w2:column displayMode="label" id="taxamount" inputType="text" width="150" textAlign="right"
+									displayFormat="#,##0" dataType="number" validateOnInput="true" excelCellType="number">
+								</w2:column>
+							</w2:row>
+						</w2:gBody>
+					</w2:gridView>
+					<xf:group class="grid-bottom " id="" style="">
+						<xf:group class="left" id="" style="">
+							<xf:group class="grid-total" id="">
+								<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+								<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="totalRows" label="0" style="" tagname="span">
+								</w2:textbox>
+								<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

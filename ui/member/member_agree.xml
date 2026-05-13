@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" />
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.mbrClsCd = "01";
+
+scwin.getQueryParams = function () {
+    var params = {};
+    var query = window.location.search || "";
+
+    query.replace(/^\?/, "").split("&").forEach(function (pair) {
+        var pieces = [];
+        var key = "";
+
+        if (!pair) {
+            return;
+        }
+
+        pieces = pair.split("=");
+        key = decodeURIComponent(pieces[0] || "");
+
+        if (!key || key === "w2xPath") {
+            return;
+        }
+
+        params[key] = decodeURIComponent(pieces.slice(1).join("=") || "");
+    });
+
+    return params;
+};
+
+scwin.buildDirectUrl = function (url, paramData) {
+    var queryParts = [];
+
+    Object.keys(paramData || {}).forEach(function (name) {
+        var value = paramData[name];
+
+        if (value == null || typeof value === "object" || typeof value === "function") {
+            return;
+        }
+
+        queryParts.push(encodeURIComponent(name) + "=" + encodeURIComponent(String(value)));
+    });
+
+    return "/websquare/websquare.html?w2xPath=" + encodeURIComponent(url) + (queryParts.length ? "&" + queryParts.join("&") : "");
+};
+
+scwin.moveFrame = async function (url, paramData) {
+    $p.parent().wfm_wframe.setSrc(url);
+    $p.parent().wfm_wframe.setUserData("paramData", paramData);
+
+    window.top.history.pushState(
+        {
+            url: url,
+            param : paramData || {}
+        },
+        "",
+        null
+    );
+    
+    // window.open(scwin.buildDirectUrl(url, paramData || {}), "_self");
+};
+scwin.onpageload = function() {
+    var frame = $p.getFrame(); 
+    var params = frame.getUserData("paramData") || {};
+    // var params = Object.assign({}, scwin.getQueryParams(), $c.data.getParameter() || {});
+    scwin.mbrClsCd = params.MBR_CLS_CD || "01";
+    rd_agree.setValue("Y");
+};
+
+scwin.f_reg_form = async function () {
+    if (rd_agree.getValue() !== "Y") {
+        await $c.win.alert("약관에 동의하셔야 회원가입을 진행할 수 있습니다.");
+        return;
+    }
+    await scwin.moveFrame("/ui/member/member_reg.xml", {
+        MBR_CLS_CD: scwin.mbrClsCd
+    });
+};
+
+scwin.back = async function () {
+    await scwin.moveFrame("/ui/member/index_main.xml", {});
+};
+]]></script>
+		<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+		<w2:require as="udc_bottomGrdBtn" type="page" variableClone="" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="pop_contents nc_truck " id="" meta_componentContainer="true" style=""><xf:group class="round-box" id="" style="height: calc(100% - 160px);">
+				<xf:group class="title-wrap" id="" style="">
+					<xf:group class="title" id="">
+						<w2:textbox class="tit" id="" label="약관동의 및 회원구분" style="" tagname="h3"></w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group style="overflow: auto;" id="" class="info-box bg-white">
+					<w2:textbox style="" id="" label="&lt; 제 1 장 총 칙 &gt;" class="bold" escape="false"></w2:textbox>
+					<xf:group id="" class="mt8">
+						<w2:textbox style="" id="" label="제 1 조 (목적)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id=""
+							label="이 약관은 (주)동부익스프레스(이하 회사라 합니다.)이 제공하는 엔콜트럭 서비스(이하 서비스라 합니다)의 이용조건 및 절차, 기타 이용 시 필요한 사항에 대한 규정을 목적으로 합니다." class="info-con"
+							escape="false">
+						</w2:textbox>
+					</xf:group>
+					<xf:group style="" id="" class="mt8">
+						<w2:textbox style="" id="" label="제 2 조 (약관의 효력 및 변경)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="이 약관의 내용은 서비스 화면에 게시하거나 기타의 방법으로 회원에게 공지함으로써 즉시 효력이 발생합니다."
+							class="info-con txt-num" escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id=""
+							label="회사는 합리적인 사유가 발생 할 경우에는 사전 동의 없이 약관의 내용을 변경할 수 있으며, 변경된 약관은 제1항과 같은 방법으로 공지함으로써 효력을 발생합니다." class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+					</xf:group>
+					<xf:group style="" id="" class="mt8">
+						<w2:textbox style="" id="" label="제 3 조 (약관 이외의 준칙)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="이 약관에 명시되지 않은 사항이 전기통신기본법, 전기통신사업법, 기타 관련법령에 규정되어 있는 경우 해당 규정을 따릅니다."
+							class="info-con" escape="false">
+						</w2:textbox>
+					</xf:group>
+					<xf:group style="" id="" class="mt8">
+						<w2:textbox style="" id="" label="제 4 조 (용어의 정의)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="이 약관에서 사용하는 용어의 정의는 다음과 같습니다." class="info-con mb12" escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="회원: 회사와 서비스 이용에 관한 계약을 체결한 개인" class="info-con txt-num" escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="아이디(ID): 회원 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 회사가 승인하는 문자와 숫자의 조합"
+							class="info-con txt-num" escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="비밀번호: 회원이 서비스 이용 시 자신의 비밀을 보호하기 위해 설정한 문자와 숫자의 조합" class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="이용신청: 회사가 정한 별도의 기준과 절차에 따라 약관에 동의하고 서비스 이용을 신청하는 것" class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="서비스중지: 정상이용 중 회사가 정한 일정한 요건에 따라 일정기간 동안 서비스의 제공을 중지하는 것" class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="해지: 회사 또는 회원이 서비스 이용 이후 그 이용계약을 해지 시키는 것" class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox style="" id="" label="&lt; 제 2 장 서비스 이용계약 &gt;" class="bold mt32" escape="false"></w2:textbox>
+					<xf:group style="" id="" class="mt8">
+						<w2:textbox style="" id="" label="제 5 조 (이용계약의 성립)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id=""
+							label="이용계약은 서비스 이용신청자의 이용신청에 대하여 당 회사가 승낙을 함으로써 성립합니다. 단, 회원에 따라 당 회사에 소정 양식의 서류를 서면으로 제출하여야 이용계약이 성립할 수 있습니다." class="info-con"
+							escape="false">
+						</w2:textbox>
+					</xf:group>
+					<xf:group style="" id="" class="mt8">
+						<w2:textbox style="" id="" label="제 6 조 (이용신청)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="서비스 이용신청자는 서비스를 통하여 회사 소정의 가입신청서를 온라인으로 제출함으로써 이용신청을 할 수 있습니다."
+							class="info-con txt-num" escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="서비스를 이용하고자 하는 희망자는 회사에서 요청하는 개인 신상정보를 사실대로 제공해야 합니다." class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label=" 서비스 이용신청자는 반드시 실명으로 이용신청을 하여야 합니다." class="info-con txt-num" escape="false">
+						</w2:textbox>
+					</xf:group>
+					<xf:group style="" id="" class="mt8">
+						<w2:textbox style="" id="" label="제 7 조 (이용신청의 승낙)" class="info-con " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="회사는 제6조에 따른 이용신청에 대하여 특별한 사정이 없는 한 회사의 절차에 따라서 이용신청을 승낙합니다."
+							class="info-con txt-num" escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="회사는 아래와 같이 해당하는 경우 이용신청에 대한 승낙을 제한할 수 있고, 그 사유가 해소될 까지 승낙을 유보할 수 있습니다."
+							class="info-con txt-num" escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="1. 서비스 관련 설비에 여유가 없을 경우" class="info-con ml20 " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="2. 기술상의 장애사유가 있는 경우" class="info-con ml20 " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="3. 기타 회사가 필요하다고 인정되는 경우" class="info-con ml20 " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="회사는 다음과 같은 이용신청에 대하여 승낙하지 아니하고, 이미 등록된 신청을 취소할 수 있습니다." class="info-con txt-num"
+							escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="1. 신청 이름이 신청인의 실명이 아닌 경우" class="info-con ml20 " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="2. 가입신청서의 내용을 허위로 기재한 경우" class="info-con ml20 " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="3. 사회의 안녕질서 또는 미풍양속을 저해할 목적이 예상되는 경우" class="info-con ml20 " escape="false"></w2:textbox>
+						<w2:textbox style="" id="" label="4. 서비스의 정상적인 제공을 저해하거나 타 이용자의 서비스 사용에 지장을 줄 것으로 예상되는 경우" class="info-con ml20 "
+							escape="false">
+						</w2:textbox>
+						<w2:textbox style="" id="" label="5. 이용자가 약정한 서비스 이외의 비정상적인 방법으로의 이용 및 상업적으로의 이용이 예상되는 경우" class="info-con ml20 "
+							escape="false">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 8 조 (회원 ID 관리)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회원아이디(ID) 및 비밀번호에 대한 모든 관리책임은 이용자에게 있습니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label=" 회원아이디(ID)는 다음에 해당하는 경우에는 이용자의 요청에 의하여 변경할 수 있습니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id=""
+							label="1. 회원아이디(ID)가 회원의 전화번호, 주민등록번호 등으로 등록되어 있어서 회원의 사생활을 침해할 우려가 있는 경우" style="">
+						</w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="2. 타인에게 혐오감을 주거나 미풍양속에 어긋나는 경우" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="3. 기타 회사가 인정하는 합리적인 사유가 있는 경우" style=""></w2:textbox>
+					</xf:group>
+					<w2:textbox class="bold mt32" escape="false" id="" label="&lt; 제 3 장 서비스 이용 &gt;" style=""></w2:textbox>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 9 조 (서비스의 내용)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="각 지역에 대한 공차 정보, 운임조회, 운송의뢰 등을 온라인 상으로 제공합니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="각각에 해당하는 서비스의 경우 일부 혹은 전부의 내용을 전반적인 서비스질의 향상을 목적으로 사전 통보 없이 연기나 중단할 수 있습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회사는 필요한 경우 서비스의 내용을 추가 또는 변경할 수 있습니다." style=""></w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 10 조 (서비스의 요금)" style=""></w2:textbox>
+						<w2:textbox class="info-con" escape="false" id=""
+							label="회사가 이용자에게 제공하는 서비스는 무료로 합니다. 단지 회사는 추후에 일부 서비스를 유료로 할 수 있으며, 그 사항은 공지를 통하여 사전에 통보하는 것을 원칙으로 합니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 11 조 (서비스의 개시)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회사는 회원의 이용신청을 승낙한 때부터 즉시 서비스를 개시합니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사의 업무상 또는 기술적인 장애로 인하여 서비스를 개시하지 못하는 때에는 사용자에게 공지하거나 바로 회원에게 통지합니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 12 조 (서비스 이용시간)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="서비스는 회사의 업무상 또는 기술상 장애, 또는 기타 특별한 사유가 없는 한 연중무휴, 1일 24시간 제공하는 것을 원칙으로 합니다. 다만 설비의 점검 등 회사가 필요한 경우 또는 설비의 장애, 서비스 이용의 폭주 등 불가항력 사항으로 인하여 서비스 이용에 지장이 있는 경우 서비스 이용의 전부 또는 일부에 대하여 제한할 수 있습니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 제공하는 서비스 중 일부 혹은 전부에 대하여 서비스 이용시간을 정할 수 있으며, 이 경우 그 이용시간을 사전에 회원에게 공지합니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 13 조 (정보의 공유, 제공 및 광고의 게재)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 회원들이 이용약관의 내용에 대하여 &lt;동의&gt; 버튼 또는 &lt;취소&gt; 버튼을 클릭할 수 있는 절차를 통해 &lt;동의&gt;버튼을 클릭하면 개인정보 공유에 대해 동의한 것으로 간주합니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 제휴사와의 서비스 목적을 달성하기 위하여 회원의 사전 동의 하에 필요한 최소한의 회원정보를 제휴사에게 제공할 수 있습니다. ③ 회사는 서비스 운용과 관련해서 각종 정보를 서비스에 게재하는 방법 등으로 회원에게 제공할 수 있습니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 서비스 운용과 관련하여 서비스 화면, 홈페이지, 전자우편 등에 광고 등을 게재할 수 있습니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 14 조 (서비스 제공의 중지)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회사는 아래와 같은 경우 서비스의 제공을 중지할 수 있습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="1. 설비의 보수, 증설 등을 위한 회사에 부득이한 사정이 있는 경우" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="2. 전기통신사업법에 규정된 기간통신사업자가 전기통신서비스를 중지하는 경우"
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="3. 기타 서비스를 제공할 수 없는 중대한 사유가 발생한 경우." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 매우 중대한 특별한 사유가 발생한 경우 적절한 사용자의 통지 없이, 서비스의 내용을 영구적으로 수정하거나 중단할 수 있습니다. 신청자는 이와 같은 서비스의 수정, 중지에 대해 회사가 신청자 또는 제 3자의 권리에 대하여 어떠한 책임도 지지 않음에 동의합니다."
+							style="">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox class="bold mt32" escape="false" id="" label="&lt; 제 4 장 권리와 의무 &gt;" style=""></w2:textbox>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 15 조 (회사의 의무)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 제12조 및 제14조에서 정한 경우를 제외하고 이 약관에서 정한 바에 따라 안정적으로 서비스를 제공할 수 있도록 최선의 노력을 다하여야 합니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="관계 법령에 의한 수사상의 목적으로 관계기관으로부터 요구받은 경우, 정보통신 윤리위원회의 요청이 있는 경우, 기타 관계법령에 의한 경우 회사는 개인정보를 제공할 수 있습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 서비스와 관련한 회원의 불만사항이 접수되는 경우 회사의 여건이 허락하는 한 이를 향후 서비스 발전에 반영하도록 합니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 16 조 (사생활의 보호)" style=""></w2:textbox>
+						<w2:textbox class="info-con " escape="false" id=""
+							label="회사는 서비스의 제공과 관련하여 취득한 회원의 신상 정보를 본인의 동의 없이 제3자에게 누설 또는 배포하지 않으며, 상업적인 목적으로 사용하지 않습니다. 다만, 다음 각호의 경우에는 예외로 합니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회원이 사전에 개인정보 공개에 동의를 한 경우" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="서비스 제공에 따른 요금 정산을 위하여 필요한 경우" style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="통계작성ㆍ학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 개인을 알아볼 수 없는 형태로 재가공한 경우" style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="다른 법률에 특별한 규정이 있는 경우" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="행정관청 및 수사기관이 개인정보 공개를 요구해 오더라도 그것이 재량행위일 경우 회사는 회원의 개인정보를 우선적으로 보호할 것입니다. 다만, 행정관청 및 수사기관의 개인정보 공개 요구가 재량행위의 범위를 넘어서 법적 구속력이 있을 경우 회사는 개인정보를 공개 할 수 있습니다."
+							style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 17 조 (회원의 의무)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label=" 이용자는 이 약관에서 규정하는 사항과 서비스 이용안내와 주의 사항을 준수하여야 하며, 기타 회사의 업무수행에 현저한 지장을 초래하는 행위를 하여서는 아니 됩니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회원은 회사의 사전 승낙 없이 서비스를 이용하여 어떠한 영리행위도 할 수 없습니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회원은 서비스를 이용하여 얻은 정보를 회사의 사전 승낙 없이 가공, 판매하는 일련의 방법으로 사용하거나 이를 타인에게 제공할 수 없습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회원은 이용신청서의 기재내용 중 변경된 내용이 있는 경우 서비스를 통하여 그 내용을 회사에 통지하여야 합니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회원은 자신의 아이디와 비밀번호를 유지관리 할 책임이 있으며 자신의 아이디와 비밀번호를 사용하여 발생하는 모든 결과에 대해 전적인 책임이 있습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회원은 서비스 이용과 관련하여 아래와 같은 행위 시 사전 통보 없이 자동으로 가입이 취소됩니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="1. 타 이용자의 서비스 이용에 장애를 일으킬 수 있는 행위" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="2. 범죄행위를 목적으로 하거나 기타 범죄행위와 관련된 행위" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="3. 선량한 풍속, 기타 사회질서를 해하는 행위" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="4. 해킹행위 또는 컴퓨터바이러스의 유포하는 모든 행위" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="5. 타인의 의사에 반하여 광고성 정보 등 일정한 내용을 지속적으로 전송하는 행위"
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="6. 서비스의 안전적인 운영에 지장을 주거나 줄 우려가 있는 일체의 행위" style=""></w2:textbox>
+						<w2:textbox class="info-con ml20 " escape="false" id="" label="7. 기타 관계법령에 위배되는 행위&lt;br/&gt;" style=""></w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 18 조 (자료실과 관련한 회원의 의무)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회원은 서비스에 제공하는 자료실, 게시판에 관련해서 파일 업로드, 다운로드 및 기타 관리에 대한 모든 사항을 책임집니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회원 자신의 서비스 계정에 등록되는 모든 자료에 대한 저작권을 포함하는 총괄적인 책임은 해당 개인 자료실 회원에게 있습니다.&lt;br/&gt;" style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 19 조 (게시물 또는 내용물의 삭제, 보관)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 서비스의 게시물 또는 내용물이 제17조의 규정에 위반되거나 회사 소정의 게시기간 및 보관기간을 초과하는 경우 사전 통지나 동의없이 이를 삭제할 수 있습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 회원이 올린 자료나 게시물의 저장에 대한 어떠한 책임도 지지 않으며, 데이터의 안정성에 대하여 보장하지 않습니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 20 조 (게시물에 대한 권리와 의무)" style=""></w2:textbox>
+						<w2:textbox class="info-con" escape="false" id="" label="게시물에 대한 저작권을 포함한 모든 권리 및 책임은 이를 게시한 회원 본인에게 있습니다."
+							style="">
+						</w2:textbox>
+					</xf:group>
+					<w2:textbox class="bold mt32" escape="false" id="" label="&lt; 제 5 장 기 타 &gt;" style=""></w2:textbox>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 21 조 (양도금지)" style=""></w2:textbox>
+						<w2:textbox class="info-con" escape="false" id=""
+							label="회원이 서비스의 이용권한, 기타 해당 지위를 타인에게 양도, 증여할 수 없으며, 이를 담보 등으로 제공할 수 없습니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 22 조 (계약해지 및 이용제한)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label=" 회원이 이용계약을 해지하고자 하는 때에는 본인이 서비스를 이용하여 해지하고자 하는 날의 7일전까지 이를 회사에 신청하여야 합니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 회원이 제17조 및 기타 해당 약관의 내용을 위반하고, 회사 소정의 기간 이내에 이를 해소하지 아니하는 경우 서비스 이용계약을 일방적으로 해지할 수 있습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 제2항에 의해 해지된 회원이 다시 이용신청을 하는 경우 일정기간 그 승낙을 제한할 수 있습니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 23 조 (손해배상)" style=""></w2:textbox>
+						<w2:textbox class="info-con" escape="false" id=""
+							label="회사는 무료로 제공되는 서비스와 관련하여 회원에게 어떠한 손해가 발생하더라도 이에 대하여 책임을 부담하지 아니합니다.&lt;br/&gt;" style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 24 조 (면책)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 회원이 서비스에 게재한 정보, 자료, 사실의 정확성, 신뢰성 등 내용에 관하여는 어떠한 책임도 부담하지 아니하고 서비스 자료에 대한 이용으로 발생하는 손해 등에 대해서는 책임이 면제됩니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 회원이 서비스를 이용하여 기대하는 손익이나 서비스를 통하여 얻은 자료로 인한 손해에 관하여 책임이 면제됩니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="회사는 회원 상호간 또는 회원과 제 3자 상호간에 서비스를 매개로 발생한 분쟁에 대해서는 개입할 의무가 없으며 이로 인한 손해를 배상할 책임이 없습니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id="" label="회사는 회원의 귀책사유로 인하여 서비스 이용의 장애가 발생한 경우에는 책임이 면제 됩니다."
+							style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="본 약관의 규정을 위반함으로 인하여 회사에 손해가 발생하게 되는 경우, 이 약관을 위반한 회원은 회사에 발생하는 모든 손해를 배상하여야 하며, 동 손해로부터 회사를 면책시켜야 합니다." style="">
+						</w2:textbox>
+					</xf:group>
+					<xf:group class="mt8" id="" style="">
+						<w2:textbox class="info-con " escape="false" id="" label="제 25 조 (분쟁의 해결)" style=""></w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label=" 회사와 회원은 서비스와 관련하여 발생한 분쟁을 원만하게 해결하기 위하여 필요한 모든 노력을 하여야 합니다." style="">
+						</w2:textbox>
+						<w2:textbox class="info-con txt-num" escape="false" id=""
+							label="제1항의 규정에도 불구하고, 동 분쟁으로 인하여 소송이 제기될 경우 동 소송은 회사의 본사소재지를 관할하는 법원의 관할로 합니다." style="">
+						</w2:textbox>
+					</xf:group>
+				</xf:group>
+				<xf:group id="" class="form-group tac mt16">
+					<w2:textbox style="" id="" label="위의 약관을 충분히 숙지 하였으며, 이에 동의하십니까?" class="fs14 bold" escape="false"></w2:textbox>
+					<xf:select1 ref="" appearance="full" style="" id="rd_agree" renderType="radiogroup" rows="" class="ml8" cols=""
+						selectedIndex="-1">
+						<xf:choices>
+							<xf:item>
+								<xf:label><![CDATA[예]]></xf:label>
+								<xf:value><![CDATA[Y]]>
+								</xf:value>
+							</xf:item>
+							<xf:item>
+								<xf:label><![CDATA[아니오]]></xf:label>
+								<xf:value><![CDATA[N]]>
+								</xf:value>
+							</xf:item>
+						</xf:choices>
+					</xf:select1>
+				</xf:group>
+			</xf:group>
+			<xf:group class="pop-btnbox" id="" style="">
+				<xf:trigger class="btn" id="btn_Y" style="" type="button" ev:onclick="scwin.f_reg_form">
+					<xf:label><![CDATA[확인]]></xf:label>
+				</xf:trigger>
+				<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick='scwin.back'>
+					<xf:label><![CDATA[닫기]]></xf:label>
+				</xf:trigger>
+
+
+			</xf:group>
+
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataMap baseNode="map" id="dma_ctrt">
+    				<w2:keyInfo>
+    					<w2:key id="userIdentifier" name="name1" dataType="text"></w2:key>
+    				</w2:keyInfo>
+    			</w2:dataMap>
+    			<w2:dataList baseNode="list" repeatNode="map" id="ds_ctrt" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="oprBranCd" name="운영지사" dataType="text"></w2:column>
+    					<w2:column id="coClntNm" name="협력업체명" dataType="text"></w2:column>
+    					<w2:column id="coClntNo" name="협력업체코드" dataType="text"></w2:column>
+    					<w2:column id="clntNm" name="화주명" dataType="text"></w2:column>
+    					<w2:column id="clntNo" name="화주코드" dataType="text"></w2:column>
+    					<w2:column id="coCtrtStDt" name="협력계약기간시작" dataType="text"></w2:column>
+    					<w2:column id="coCtrtEndDt" name="협력계약기간종료" dataType="text"></w2:column>
+    					<w2:column id="contractExpireYn" name="계약기간만료예정" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_retrieve" action="/ncall.tn.cs.clntmgnt.RetrieveClntInfoPopUpCMD.do" method="post" mediatype="application/json" ref='data:json,[{"id":"dma_ctrt","key":"IN_DS1"},{"id":"ds_ctrt","key":"OUT_DS1"}]' target='data:json,{"id":"ds_ctrt","key":"OUT_DS1"}' encoding="UTF-8"
+    			instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrieve_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");  // 서버를 기준으로 현재 날짜 반환
+scwin.strStdDt = scwin.vCurDate.substring(0,6);
+scwin.vQryStDt = scwin.vCurDate.substring(0, 6) + "01";  // 조회시작일자(현재 날짜가 포함된 달의 시작 일자)
+scwin.vQryEndDt = scwin.vCurDate.substring(0, 6) + new Date(scwin.vCurDate.substring(0, 4), scwin.vCurDate.substring(4, 6) , 0).getDate();  // 조회종료일자(현재 날짜가 포함된 달의 마지막 일자)
+//scwin.strPreDate = WebSquare.date.dateAdd(scwin.vCurDate, -2);
+scwin.strPreDate = $c.date.addMonth(scwin.vCurDate, -1);
+
+scwin.onpageload = function() {
+
+    
+    const codeOptions = [
+        { grpCd : "SD205", compID : "gr_ctrt:oprBranCd"},
+    ];
+    $c.data.setCommonCode(codeOptions, scwin.callbackCode );
+
+    let memJson = $c.data.getMemInfo();
+
+    scwin.regId = memJson.userId;   
+    scwin.sysAdminYn = memJson.sysAdminYn;
+    $c.data.setPopupTitle("만기도래 협력업체 계약현황")
+    
+};
+
+scwin.callbackCode = function () {
+    scwin.f_defaultValue();
+    scwin.f_Retrieve();
+}
+
+//-------------------------------------------------------------------------
+// function name : f_defaultValue
+// function desc : 화면 open시 초기 데이타 setting
+//-------------------------------------------------------------------------
+scwin.f_defaultValue = function () {
+    
+}
+
+//-------------------------------------------------------------------------
+// function name : f_Retrieve
+// function desc : 조회
+//-------------------------------------------------------------------------
+
+scwin.f_Retrieve = function () {
+    /*            
+    var strPath = "/tn.cs.clntmgnt.RetrieveClntInfoPopUpCMD.do?userIdentifier=" + "<%=regId%>";
+
+    tr_retrieve.Action = strPath;
+    tr_retrieve.Post();
+    */
+
+    const params = {
+        userIdentifier   : scwin.regId
+        //userIdentifier   : "inswave"
+    };
+
+    dma_ctrt.setJSON(params);
+
+    $c.sbm.execute(sbm_retrieve);
+}
+
+
+scwin.sbm_retrieve_submitdone = function (e) {
+    /*
+    if(e.responseJSON.GAUCE) {
+        ds_ctrt.setJSON(e.responseJSON.GAUCE);
+
+        var cnt = ds_ctrt.getRowCount();
+        spa_cnt.setValue(cnt);
+    }
+    */
+    spa_cnt.setValue(ds_ctrt.getRowCount());
+};
+
+scwin.btn_close_onclick = function (e) {
+    $c.win.closePopup();
+};
+]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="pop_contents" id="" meta_componentContainer="true" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe><xf:group class="round-box" id="">
+    					<xf:group class="title-wrap" id="" style="">
+    							<xf:group class="title" id="">
+    								<w2:textbox class="tit" id="" label="만기도래 협력업체 계약현황" style="" tagname="h3"></w2:textbox>
+    							</xf:group>
+    							<xf:group class="right" id="">
+    								<w2:udc_topGrdBtn grp="grd_section1" style="" grdDownOpts='{"fileName":"만기도래협력업체계약현황.xlsx","sheetName" : "만기도래협력업체계약현황", "type":"2+4+8+16"}' gridID="gr_ctrt" gridUpYn="N" btnUser="Y" btnPlusYn="Y"></w2:udc_topGrdBtn>
+    							</xf:group>
+    						</xf:group><xf:group adaptiveThreshold="" class="gvwbox gvwfix" id="grd_section1" style="">
+    								<w2:gridView autoFit="allColumn" checkAllType="false" class="wq_gvw" dataList="data:ds_ctrt"
+    									id="gr_ctrt" style="" readOnly="true" visibleRowNumFix="true" visibleRowNum="10">
+    									<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    									<w2:header id="header1" style="">
+    										<w2:row id="row1" style="">
+    											<w2:column displayMode="label" id="column1" inputType="text" style="" value="운영지사"
+    												width="100" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column17" inputType="text" style="" value="협력업체명"
+    												width="200" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column15" inputType="text" style=""
+    												value="협력업체&lt;br/&gt;코드" width="100" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column13" inputType="text" style="" value="화주명"
+    												width="200" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column11" inputType="text" style="" value="화주코드"
+    												width="100" colSpan="" rowSpan="2">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column9" inputType="text" style="" value="협력계약기간"
+    												width="140" colSpan="2" rowSpan="" sortable="false">
+    											</w2:column>
+    											<w2:column displayMode="label" id="column5" inputType="text" style=""
+    												value="계약기간&lt;br/&gt;만료예정" width="100" colSpan="" rowSpan="2">
+    											</w2:column>
+    										</w2:row>
+    										<w2:row style="" id="row3">
+    											<w2:column width="100" inputType="text" style="" id="column25" value="시작"
+    												displayMode="label">
+    											</w2:column>
+    											<w2:column width="100" inputType="text" style="" id="column24" value="종료"
+    												displayMode="label">
+    											</w2:column>
+    										</w2:row>
+    									</w2:header>
+    									<w2:gBody id="gBody1" style="">
+    										<w2:row id="row2" style="">
+    											<w2:column displayMode="label" id="oprBranCd" inputType="select" style="" value=""
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="coClntNm" inputType="text" style="" value="" width="200"
+    												textAlign="left" colMerge="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="coClntNo" inputType="text" style="" value=""
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="clntNm" inputType="text" style="" value="" width="200"
+    												textAlign="left" colMerge="true">
+    											</w2:column>
+    											<w2:column displayMode="label" id="clntNo" inputType="text" style="" value="" width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="coCtrtStDt" inputType="calendar" style="" value=""
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="coCtrtEndDt" inputType="calendar" style="" value=""
+    												width="100">
+    											</w2:column>
+    											<w2:column displayMode="label" id="contractExpireYn" inputType="text" style="" value=""
+    												width="100">
+    											</w2:column>
+    										</w2:row>
+    									</w2:gBody>
+    								</w2:gridView>
+    								<xf:group class="grid-bottom " id="" style="">
+    								<xf:group class="left" id="">
+    									<xf:group class="grid-total" id="">
+    										<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    										<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="spa_cnt" label="0" style="" tagname="span">
+    										</w2:textbox>
+    										<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    									</xf:group>
+    								</xf:group>
+    							</xf:group></xf:group>
+    				</xf:group><xf:group class="pop-btnbox" id="" style="display:none;">
+    					<xf:trigger class="btn" id="btn_close" style="" type="button" ev:onclick="scwin.btn_close_onclick">
+    						<xf:label><![CDATA[닫기]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    	</xf:group>
+    </body>
+</html>

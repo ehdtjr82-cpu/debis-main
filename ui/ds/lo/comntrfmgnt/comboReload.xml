@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="ds_comboReload" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="code" name="name1" dataType="text"></w2:column>
+        				<w2:column id="name" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        		</w2:dataList>
+        		<w2:dataMap baseNode="map" id="ds_comboReload_con">
+        			<w2:keyInfo>
+        				<w2:key id="sysCd" name="시스템코드" dataType="text"></w2:key>
+        				<w2:key id="queryId" name="쿼리ID" dataType="text"></w2:key>
+        			</w2:keyInfo>
+        		</w2:dataMap>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        	<xf:submission id="sbm_retrive" action="/cm.zz.RetrieveCommonPopupCMD.do" method="post" mediatype="application/json" ref="data:json,ds_comboReload_con" target="data:json,GAUCE" encoding="UTF-8"
+        		instance="" replace="" errorHandler="" customHandler="" mode="synchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_retrive_submitdone"
+        		ev:submiterror="" abortTrigger="">
+        	</xf:submission>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.popId = "";
+scwin.onpageload = function() {
+    
+};
+
+scwin.cfn_getComboReload = function (id){
+//console.log("scwin.cfn_getComboReload.id="+id);
+/*
+사용할 *.xml 파일의 body 아래 추가
+<w2:wframe id="wfm_smp" src="/ui/ds/io/comboReload.xml" style=""></w2:wframe>
+
+부모페이지에서 스크립트 호출
+
+    wfm_smp.getWindow().scwin.cfn_getComboReload("01b");
+    wfm_smp.getWindow().scwin.cfn_getComboReload("02b");
+    wfm_smp.getWindow().scwin.cfn_getComboReload("04b");
+    wfm_smp.getWindow().scwin.cfn_getComboReload("05b");
+    wfm_smp.getWindow().scwin.cfn_getComboReload("11b");
+    wfm_smp.getWindow().scwin.cfn_getComboReload("13b");
+    wfm_smp.getWindow().scwin.cfn_getComboReload("15b");
+ */
+    var sSysCd = "";
+	var sQueryId = "";
+    scwin.popId = id;
+	
+	switch (id)
+	{
+		case "04b":
+			sSysCd = "CommonTariffEBC";
+			sQueryId = "retrieveAnnouncementSurchargeTariffAdptDtGroupList";
+			break;
+			
+		case "05b":
+			sSysCd = "CommonTariffEBC";
+			sQueryId = "retrieveFixedAmountAnnouncementTariffAdptDtGroupList";
+			break;
+			
+		//보세화물 보관요율	 lo_200_03_01b
+		case "01b":	
+			sSysCd = "CommonTariffEBC";
+			sQueryId = "retrieveBondedCargoStorageChargeAdptDtGroupList";
+			break;	
+
+	    //DPCT위험물장치료 lo_200_03_04b
+		case "02b":
+			sSysCd = "CommonTariffEBC";
+			sQueryId = "retrieveDpctDangerousCargoShedRateAdptDtGroupList";
+			break;
+			
+		//장치경비료_부산 lo_200_01_10b
+		case "10b":
+			sSysCd = "GuardRateEBC";
+			sQueryId = "retrievePusanShedGuardRateAdptDtGroupList";
+			break;
+
+		//장치경비료_인천 lo_200_01_11b
+		case "11b":
+			sSysCd = "GuardRateEBC";
+			sQueryId = "retrieveIncheonShedGuardRateAdptDtGroupList";
+			break;
+			
+		//일반경비료_부산 lo_200_01_13b
+		case "13b":
+			sSysCd = "GuardRateEBC";
+			sQueryId = "retrieveGeneralGuardRateAdptDtGroupList";
+			break;
+			
+		//보세화물화재보험료관리 lo_200_01_15b
+		case "15b":
+			sSysCd = "GuardRateEBC";
+			sQueryId = "retrieveBondedCargoFirePremiumAdptDtGroupList";
+			break;															
+			
+		default:
+			break;
+	}
+
+    const params = {
+              sysCd              : sSysCd      // 시스템코드
+            , queryId            : sQueryId    // 쿼리ID
+    };
+
+    ds_comboReload_con.setJSON(params);
+    $c.sbm.execute(sbm_retrive);
+};
+
+scwin.sbm_retrive_submitdone = function (e) {
+    if(e.responseJSON.GAUCE) {
+        ds_comboReload.setJSON(e.responseJSON.GAUCE);
+        
+        if (scwin.popId =="01b" || scwin.popId =="04b" || scwin.popId =="05b"){
+            $p.parent().ds_adptDt.setJSON(ds_comboReload.getAllJSON());//lo_200_01_04b.xml , lo_200_01_05b.xml
+        }
+    }
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload"/>
+</html>

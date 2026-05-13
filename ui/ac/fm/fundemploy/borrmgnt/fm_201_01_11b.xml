@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" />
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/jquery-1.8.3.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/jquery.dynatree.js" scopeVariable=""
+        	type="text/javascript">
+        </script>
+        <script cache="false" scopeExternal="false" src="http://newdevdebis.dongwon.com/oz90/ozhviewer/OZJSViewer.js" type="text/javascript"></script>
+		
+    	<script lazy="false" type="text/javascript"><![CDATA[
+
+scwin.currDate = WebSquare.date.getFormattedDate (new Date(), "yyyyMM");
+
+scwin.onpageload = function() {
+    const codeOptions = [ 
+        { grpCd : "FM077", compID : "lc_intCls" },
+    ];
+    $c.data.setCommonCode(codeOptions);
+    ica_stdYm.setValue(scwin.currDate);
+};
+
+//-------------------------------------------------------------------------
+// 오즈 검색 후 결과를 화면 하단에 표시
+//-------------------------------------------------------------------------
+scwin.f_Search = async function() {
+
+    var odiParam;
+
+    if (! await $c.gus.cfValidate([ica_stdYm])) 
+        return;
+
+    // 쿼리(ODI)에 적용할 파라미터를 설정(OZParam)
+    // if ( lc_intCls.getValue() == "10" )
+    //     odiParam = new ODIParam("fm_201_01_11_01");
+    // else
+    //     odiParam = new ODIParam("fm_201_01_11_02");	
+
+    // odiParam.add("STD_YM" , ica_stdYm.getValue());
+    // odiParam.add("INT_CLS", lc_intCls.getValue());
+
+    // // 리포트(OZR)에 적용할 파라미터를 설정(OZFormParam)
+    // var formParam = new FormParam() ;
+            
+    // // OZ 뷰어에 대한 설정(상세 설정은 'oz report viewer guide.pdf'를 참조)
+    // var viewerParam = new ViewerParam();
+    // // viewerParam.add("print.mode","silent"); // 인쇄 옵션창 표시 없이 바로 출력
+
+    // iframe     viewer        OZR 경로 및 파일명  ODI파라미터 뷰어파라미터       폼파라미터 
+    var vreportName;
+    console.log("==vreportName==="+vreportName);
+    if ( lc_intCls.getValue() == "10" )
+        vreportName = "/ac/fm/fundemploy/borrmgnt/fm_201_01_11_01.ozr";
+    else
+        vreportName = "/ac/fm/fundemploy/borrmgnt/fm_201_01_11_02.ozr";
+
+    console.log("==vreportName==="+vreportName);
+
+    let data = {
+        reportName: vreportName,
+        odiParam : {
+            // 발행 일시도 명시적으로 전달 (OZ Viewer 기본 값 방지)
+            STD_YM: ica_stdYm.getValue(),
+            INT_CLS: lc_intCls.getValue(),
+        },
+        viewerParam : {
+            mode: "silent",
+        },
+        formParam : {
+        }
+    };
+    wfm_ozReport.getWindow().mf_scwin.reportSearch(data);
+
+};]]></script>
+    	<w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    	<w2:require as="udc_bottomGrdBtn" type="page" variableClone="true" src="/cm/udc/bottomGrdBtn.xml"></w2:require>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox " id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb tb" id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="req" id="" label="기준년월" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:inputCalendar calendarValueType="yearMonth" class="" id="ica_stdYm" style="" mandatory="true"
+    								validExp="기준년월:yes:length=6" title="기준년월" delimiter="/">
+    							</w2:inputCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="구분 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:select1 allOption="false" appearance="minimal" chooseOption="false" class=" w150" direction="auto"
+    								disabled="false" disabledClass="w2selectbox_disabled" id="lc_intCls" style="" submenuSize="auto" displayMode="label"
+    								objType="data">
+    							</xf:select1>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_trigger1" style="" type="button" userAuth="R"
+    					ev:onclick="scwin.f_Search">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box " id="" style=""><xf:group class="ozWrap" id="ozFrame" style="">
+    		<w2:iframe id="wfm_ozReport" src="/ui/cm/zz/ozreportComp.xml" style=""></w2:iframe>
+    		</xf:group></xf:group>
+    		
+    	</xf:group>
+    </body>
+</html>

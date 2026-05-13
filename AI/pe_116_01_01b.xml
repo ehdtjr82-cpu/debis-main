@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="ds_retrieve">
+                <w2:keyInfo>
+                    <w2:key id="ioClsCd" name="수출입구분" dataType="text"></w2:key>
+                    <w2:key id="seaair" name="해공구분" dataType="text"></w2:key>
+                    <w2:key id="hblno" name="House No" dataType="text"></w2:key>
+                    <w2:key id="mblno" name="Master No" dataType="text"></w2:key>
+                    <w2:key id="customer" name="Customer" dataType="text"></w2:key>
+                    <w2:key id="consignee" name="Consignee" dataType="text"></w2:key>
+                    <w2:key id="notify" name="Notify" dataType="text"></w2:key>
+                    <w2:key id="etaFrom" name="ETA From" dataType="text"></w2:key>
+                    <w2:key id="etaTo" name="ETA To" dataType="text"></w2:key>
+                    <w2:key id="dept" name="Department" dataType="text"></w2:key>
+                    <w2:key id="retrievalYn" name="회수건조회" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_retrieve_result" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="kcomcd" name="법인코드" dataType="text"></w2:column>
+                    <w2:column id="seaAirCls" name="해공구분" dataType="text"></w2:column>
+                    <w2:column id="hblno" name="House B/L NO" dataType="text"></w2:column>
+                    <w2:column id="mhno" name="" dataType="text"></w2:column>
+                    <w2:column id="mblno" name="Master B/L NO" dataType="text"></w2:column>
+                    <w2:column id="customer" name="CUSTOMER" dataType="text"></w2:column>
+                    <w2:column id="customernm" name="CUSTOMER명" dataType="text"></w2:column>
+                    <w2:column id="consignee" name="CONSIGNEE" dataType="text"></w2:column>
+                    <w2:column id="notify" name="NOTIFY" dataType="text"></w2:column>
+                    <w2:column id="pol" name="POL" dataType="text"></w2:column>
+                    <w2:column id="pod" name="POD" dataType="text"></w2:column>
+                    <w2:column id="etd" name="ETD" dataType="text"></w2:column>
+                    <w2:column id="eta" name="ETA" dataType="text"></w2:column>
+                    <w2:column id="dept" name="DEPARTURE" dataType="text"></w2:column>
+                    <w2:column id="deptnm" name="DEPARTURE명" dataType="text"></w2:column>
+                    <w2:column id="blType" name="B/L TYPE" dataType="text"></w2:column>
+                    <w2:column id="retrievalDoc" name="회수서류" dataType="text"></w2:column>
+                    <w2:column id="retrievalDt" name="회수일자" dataType="text"></w2:column>
+                    <w2:column id="evidance" name="증빙" dataType="text"></w2:column>
+                    <w2:column id="evidanceFilePath" name="증빙파일경로" dataType="text"></w2:column>
+                    <w2:column id="deliveryOrder" name="DELIVERY ORDER" dataType="text"></w2:column>
+                    <w2:column id="deliveryOrderFilePath" name="DELIVERY ORDER 파일경로" dataType="text"></w2:column>
+                    <w2:column id="regId" name="" dataType="text"></w2:column>
+                    <w2:column id="modId" name="" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/il.pfm.pefm.RetrieveImportDocCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_retrieve","key":"IN_DS1"},{"id":"ds_retrieve_result","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_retrieve_result","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_save"
+            action="/il.pfm.pefm.SaveImportDocCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"ds_retrieve_result","key":"IN_DS1"}]'
+            target='data:json,[]'
+            ev:submitdone="scwin.sbm_save_submitdone"
+            ev:submiterror="scwin.sbm_save_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.vCurDate = "";
+        scwin.strPreDate = "";
+
+        scwin.onpageload = function() {
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+            scwin.strPreDate = $c.date.addDate(scwin.vCurDate, -2);
+
+            scwin.f_set("ONLOAD");
+
+            lc_seaair.setValue("");
+            lc_ioClsCd.setValue("I");
+        };
+
+        scwin.onUdcCompleted = function() {
+            udc_eta.setInitDate(scwin.strPreDate, scwin.vCurDate);
+        };
+
+        scwin.f_set = function(gubun) {
+            switch (gubun) {
+                case "ONLOAD":
+                    $c.gus.cfDisableKey();
+                    break;
+
+                case "RETRIEVE":
+                    $c.gus.cfEnableAllBtn();
+                    break;
+
+                case "DELETE":
+                    $c.gus.cfDisableBtn();
+                    break;
+            }
+        };
+
+        scwin.btn_Retrieve_onclick = function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.f_Retrieve = async function() {
+            let chk = await $c.gus.cfValidate([ica_etaFrom, ica_etaTo]);
+            if (!chk) {
+                return;
+            }
+
+            if (!$c.gus.cfIsAfterDate(ica_etaFrom.getValue(), ica_etaTo.getValue())) {
+                await $c.gus.cfAlertMsg(E_MSG_CM_ERR_048, ["ETA From", "ETA To"]);
+                ica_etaFrom.setFocus();
+                return false;
+            }
+
+            if (chb_retrievalYn.getValue() != "") {
+                ds_retrieve.set("retrievalYn", "1");
+            } else {
+                ds_retrieve.set("retrievalYn", "0");
+            }
+
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            let rowcnt = ds_retrieve_result.getRowCount();
+            if (rowcnt == 0) {
+                spa_totalRow.setValue(0);
+                await $c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+                return;
+            } else {
+                spa_totalRow.setValue(rowcnt);
+            }
+        };
+
+        scwin.sbm_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.btSave_onclick = function(e) {
+            scwin.f_Save();
+        };
+
+        scwin.f_Save = async function() {
+            if (ds_retrieve_result.getUpdatedIndex().length == 0) {
+                await $c.win.alert("변경된 내역이 없습니다.");
+                return false;
+            }
+
+            for (let i = 0; i < ds_retrieve_result.getRowCount(); i++) {
+                if (ds_retrieve_result.getRowStatus(i) == "U" || ds_retrieve_result.getRowStatus(i) == "C") {
+                    if (ds_retrieve_result.getCellData(i, "retrievalDt") == "") {
+                        await $c.win.alert("회수일자는 필수 입력 사항입니다.");
+                        return false;
+                    }
+                    if (ds_retrieve_result.getCellData(i, "blType") == "") {
+                        await $c.win.alert("B/L Type은 필수 입력 사항입니다.");
+                        return false;
+                    }
+                    if (ds_retrieve_result.getCellData(i, "retrievalDoc") == "") {
+                        await $c.win.alert("회수서류 종류는 필수 입력 사항입니다.");
+                        return false;
+                    }
+                }
+            }
+
+            let chk = await $c.win.confirm("저장하시겠습니까?");
+            if (chk) {
+                await $c.sbm.execute(sbm_save);
+            }
+        };
+
+        scwin.sbm_save_submitdone = async function(e) {
+            await $c.win.alert("저장이 완료되었습니다.");
+            scwin.f_Retrieve();
+        };
+
+        scwin.sbm_save_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.f_fileSet = async function(gubun) {
+            let row = ds_retrieve_result.getRowPosition();
+            let houseNo = ds_retrieve_result.getCellData(row, "hblno");
+
+            let obj = {
+                houseNo: houseNo
+            };
+
+            let resultList = await $c.win.openPopup("/ui/il/pfm/pefm/pe_116_01_01p.xml", {
+                width: 870,
+                height: 335,
+                modal: true,
+                data: obj
+            });
+
+            if (resultList != null) {
+                if (resultList[0] != "" && resultList[0] != "undefined") {
+                    switch (gubun) {
+                        case 1:
+                            ds_retrieve_result.setCellData(row, "evidanceFilePath", resultList[0]);
+                            ds_retrieve_result.setCellData(row, "evidance", ds_retrieve_result.getCellData(row, "hblno") + "_증빙");
+                            break;
+                        case 2:
+                            ds_retrieve_result.setCellData(row, "deliveryOrderFilePath", resultList[0]);
+                            ds_retrieve_result.setCellData(row, "deliveryOrder", ds_retrieve_result.getCellData(row, "hblno") + "_Delivery Order");
+                            break;
+                    }
+                }
+            }
+        };
+
+        scwin.f_Download = async function(gubun) {
+            let row = ds_retrieve_result.getRowPosition();
+
+            if (row < 0) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_056, ["첨부파일 행"]);
+                return;
+            } else {
+                switch (gubun) {
+                    case 1:
+                        let fileName1 = ds_retrieve_result.getCellData(row, "evidance");
+                        let filePath1 = ds_retrieve_result.getCellData(row, "evidanceFilePath");
+                        if (filePath1.trim().length == 0) {
+                            await $c.win.alert("선택하신 " + (row + 1) + "행에 파일이 등록되어 있지 않습니다.");
+                        } else {
+                            if (filePath1.indexOf(".") > 0) {
+                                fileName1 += filePath1.substring(filePath1.indexOf("."), filePath1.indexOf(".") + 4);
+                                $c.gus.cfDownloadFile(fileName1, filePath1);
+                            }
+                        }
+                        break;
+                    case 2:
+                        let fileName2 = ds_retrieve_result.getCellData(row, "deliveryOrder");
+                        let filePath2 = ds_retrieve_result.getCellData(row, "deliveryOrderFilePath");
+                        if (filePath2.trim().length == 0) {
+                            await $c.win.alert("선택하신 " + (row + 1) + "행에 파일이 등록되어 있지 않습니다.");
+                        } else {
+                            if (filePath2.indexOf(".") > 0) {
+                                fileName2 += filePath2.substring(filePath2.indexOf("."), filePath2.indexOf(".") + 4);
+                                $c.gus.cfDownloadFile(fileName2, filePath2);
+                            }
+                        }
+                        break;
+                }
+            }
+        };
+
+        scwin.btn_Clear_onclick = function(e) {
+            scwin.f_FieldClear();
+        };
+
+        scwin.f_FieldClear = function() {
+            $c.gus.cfInitObjects([tb_retrieve]);
+        };
+
+        scwin.f_PopUp = function(disGubun, chgGubun) {
+            switch (disGubun) {
+                case "Customer":
+                    udc_customer.ilCommonPopUp(scwin.callbackCustomer,
+                        ed_customer.getValue().trim(),
+                        txt_customer.getValue(),
+                        chgGubun,
+                        '10',
+                        'Customer Code,Customer Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+                        '140,300,100,100,100,100,100,,,100',
+                        '8,9',
+                        null,
+                        '500',
+                        '500',
+                        null,
+                        null,
+                        null,
+                        "F",
+                        'Customer search,Customer Code,Customer Name');
+                    break;
+
+                case "Consignee":
+                    udc_consignee.ilCommonPopUp(scwin.callbackConsignee,
+                        ed_consignee.getValue().trim(),
+                        txt_consignee.getValue(),
+                        chgGubun,
+                        '10',
+                        'Consignee Code,Consignee Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+                        '140,300,100,100,100,100,100,,,100',
+                        '8,9',
+                        null,
+                        '500',
+                        '500',
+                        null,
+                        null,
+                        null,
+                        "F",
+                        'Consignee search,Consignee Code,Consignee Name');
+                    break;
+
+                case "Notify":
+                    udc_notify.ilCommonPopUp(scwin.callbackNotify,
+                        ed_notify.getValue().trim(),
+                        txt_notify.getValue(),
+                        chgGubun,
+                        '10',
+                        'Notify Code,Notify Name,Address1,Address2,Address3,Address4,Tel,,,CRN',
+                        '140,300,100,100,100,100,100,,,100',
+                        '8,9',
+                        null,
+                        '500',
+                        '500',
+                        null,
+                        null,
+                        null,
+                        "F",
+                        'Notify search,Notify Code,Notify Name');
+                    break;
+            }
+        };
+
+        scwin.callbackCustomer = function(rtnList) {
+            if (rtnList) {
+                $c.gus.cfSetReturnValue(rtnList, ed_customer, txt_customer);
+            }
+        };
+
+        scwin.callbackConsignee = function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_consignee, txt_consignee);
+        };
+
+        scwin.callbackNotify = function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_notify, txt_notify);
+        };
+
+        scwin.f_OpenCommonPopUp = function(gubun1, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+            switch (gubun1) {
+                case "DEPT":
+                    udc_dept.ilCommonPopUp(scwin.callbackDept,
+                        ed_dept.getValue().trim(),
+                        txt_dept.getValue(),
+                        pWinCloseTF,
+                        '2',
+                        "Code, Name",
+                        '80,230',
+                        "3,4,5,6,7,8,9,10",
+                        null, null, null, null, null, null,
+                        pAllSearchTF,
+                        "DEPT,Code,Name",
+                        pNoDataCloseTF);
+                    break;
+            }
+        };
+
+        scwin.callbackDept = function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, ed_dept, txt_dept);
+        };
+
+        scwin.f_downExcelSheet = async function() {
+            let cntRow = ds_retrieve_result.getRowCount();
+
+            if (cntRow != 0) {
+                let cfrm = await $c.win.confirm("수입서류 관리대장 목록을 EXCEL로 다운로드 받으시겠습니까?");
+
+                if (cfrm) {
+                    $c.data.downloadGridViewExcel(gr_retrieve_result, "수입서류 관리대장", "수입서류 관리대장");
+                }
+            } else {
+                await $c.gus.cfAlertMsg(E_MSG_CM_WRN_002);
+            }
+        };
+
+        scwin.f_BeforePopUpEd2 = function(nmObj, cdObj, gubun1, pWinCloseTF, pAllSearchTF, pNoDataCloseTF) {
+            let cdObjVal = cdObj.getValue().trim();
+            if (cdObjVal == "") {
+                nmObj.setValue("");
+            } else {
+                nmObj.setValue("");
+                if (gubun1 == "DEPT") {
+                    scwin.f_OpenCommonPopUp('DEPT', 'T', 'F', 'F');
+                } else {
+                    scwin.f_PopUp(gubun1, pWinCloseTF, pAllSearchTF, pNoDataCloseTF);
+                }
+            }
+        };
+
+        scwin.ed_customer_onblur = function(e) {
+            let strClntNo = ed_customer.getValue().trim();
+            if (strClntNo.length > 0) {
+                txt_customer.setValue("");
+                scwin.f_PopUp('Customer', 'T');
+            } else {
+                txt_customer.setValue("");
+            }
+        };
+
+        scwin.ed_consignee_onblur = function(e) {
+            let strClntNo = ed_consignee.getValue().trim();
+            if (strClntNo.length > 0) {
+                txt_consignee.setValue("");
+                scwin.f_PopUp('Consignee', 'T');
+            } else {
+                txt_consignee.setValue("");
+            }
+        };
+
+        scwin.ed_notify_onblur = function(e) {
+            let strClntNo = ed_notify.getValue().trim();
+            if (strClntNo.length > 0) {
+                txt_notify.setValue("");
+                scwin.f_PopUp('Notify', 'T');
+            } else {
+                txt_notify.setValue("");
+            }
+        };
+
+        scwin.ed_dept_onblur = function(e) {
+            let strClntNo = ed_dept.getValue().trim();
+            if (strClntNo.length > 0) {
+                txt_dept.setValue("");
+                scwin.f_OpenCommonPopUp("DEPT", "T", "F", "F");
+            } else {
+                txt_dept.setValue("");
+            }
+        };
+
+        scwin.gr_retrieve_result_ontextimageclick = function(rowIndex, columnIndex, columnId) {
+            switch (columnId) {
+                case "evidance":
+                    scwin.f_fileSet(1);
+                    break;
+                case "deliveryOrder":
+                    scwin.f_fileSet(2);
+                    break;
+            }
+        };
+
+        scwin.gr_retrieve_result_oncelldblclick = function(rowIndex, columnIndex, columnId) {
+            switch (columnId) {
+                case "evidance":
+                    scwin.f_Download(1);
+                    break;
+                case "deliveryOrder":
+                    scwin.f_Download(2);
+                    break;
+            }
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="width:70px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:105px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:60px;" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="width:90px;" tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="" id="" label="Air/Sea" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="lc_seaair" search="start" style="width: 150px;"
+    								submenuSize="fixed" ref="data:ds_retrieve.seaair">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="Export/Import" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:autoComplete class="" editType="select" id="lc_ioClsCd" search="start" style="width: 150px;"
+    								submenuSize="fixed" ref="data:ds_retrieve.ioClsCd">
+    							</w2:autoComplete>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="ETA" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_fromToCalendar refStDt="" refDataMap="" style="" id="udc_eta"
+    								refEdDt="" edFromId="ica_etaFrom" edToId="ica_etaTo">
+    							</w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    						</xf:group>
+    					</xf:group>
+    					<xf:group id="" tagname="tr">
+    						<xf:group class="w2tb_th " tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="House No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_blno" style="width: 150px;" ref="data:ds_retrieve.hblno"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Master No" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="ed_mblno" style="width: 150px;" ref="data:ds_retrieve.mblno"></xf:input>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<w2:textbox class="" id="" label="Customer" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_customer" codeId="ed_customer" nameId="txt_customer" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes>
+    								<w2:scope>row</w2:scope>
+    							</w2:attributes>
+    							<xf:select appearance="full" class="" cols="" id="chb_retrievalYn" ref="" renderType="checkboxgroup" rows=""
+    								selectedindex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[회수건만 조회]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select>
+    						</xf:group>
+    					</xf:group>
+    				<xf:group tagname="tr" id="">
+    					<xf:group tagname="th" class="w2tb_th ">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="Consignee" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:udc_comCode id="udc_consignee" popupID="" selectID="" codeId="ed_consignee" validTitle="" nameId="txt_consignee" style=""></w2:udc_comCode>
+    					</xf:group>
+    					<xf:group tagname="th" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="Notify" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" id="" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:udc_comCode id="udc_notify" codeId="ed_notify" nameId="txt_notify" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    					</xf:group>
+    					<xf:group tagname="th" id="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    						<w2:textbox class="" id="" label="Department" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group tagname="td" id="" class="w2tb_td">
+    						<w2:attributes></w2:attributes>
+    						<w2:udc_comCode id="udc_dept" codeId="ed_dept" nameId="txt_dept" popupID="" selectID="" style="" validTitle=""></w2:udc_comCode>
+    					</xf:group>
+    					<xf:group tagname="th" id="" class="w2tb_th">
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group></xf:group></xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_Clear" style="" type="button">
+    					<xf:label><![CDATA[새로고침]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_Retrieve" style="" type="button">
+    					<xf:label><![CDATA[Search]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group class="title-wrap" id="" style="">
+    				<xf:group class="title" id="">
+    					<w2:textbox class="tit" id="" label="수입서류 관리대장" style="" tagname="h3"></w2:textbox>
+    				</xf:group>
+    				<xf:group class="right" id="">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group adaptiveThreshold="" class="gvwbox" id="grd_section1" style="">
+    				<w2:gridView autoFit="none" checkReadOnlyOnPasteEnable="" class="wq_gvw" dataList="data:ds_retrieve_result" focusMode="row"
+    					id="gr_retrieve_result" scrollByColumn="false" scrollByColumnAdaptive="false" style="" visibleRowNum="15" visibleRowNumFix="true" readOnly="false">
+    					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    					<w2:header id="header2" style="">
+    						<w2:row id="row3" style="">
+    							<w2:column displayMode="label" id="kcomcd" inputType="text" style="" value="" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="mhno" inputType="text" style="" value="" width="70" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="seaAirCls" inputType="text" style="" value="Sea/Air" width="100"></w2:column>
+    							<w2:column displayMode="label" id="mblno" inputType="text" style="" value="Master B/L NO" width="130"></w2:column>
+    							<w2:column displayMode="label" id="hblno" inputType="text" style="" value="House B/L NO" width="130"></w2:column>
+    							<w2:column displayMode="label" id="customer" inputType="text" style="" value="CUSTOMER" width="120" hidden="true"></w2:column>
+    							<w2:column displayMode="label" id="customernm" inputType="text" style="" value="CUSTOMER" width="120"></w2:column>
+    							<w2:column displayMode="label" id="etd" inputType="text" style="" value="ETD" width="70"></w2:column>
+    							<w2:column displayMode="label" id="eta" inputType="text" style="" value="ETA" width="70"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="pol" value="POL" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="pod" value="POD" displayMode="label"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="dept" value="DEPARTURE" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="deptnm" value="DEPARTURE" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" style="" id="blType" value="B/L TYPE" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="retrievalDoc" value="회수서류" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="retrievalDt" value="회수일자" displayMode="label" class="txt-red"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="evidance" value="증빙" displayMode="label" class="txt-blue"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="evidanceFilePath" value="증빙파일경로" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="200" inputType="text" style="" id="deliveryOrder" value="DELIVERY ORDER" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="deliveryOrderFilePath" value="" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="regId" value="" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody id="gBody2" style="">
+    						<w2:row id="row4" style="">
+    							<w2:column displayMode="label" id="kcomcd" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="mhno" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="seaAirCls" inputType="select" style="" value="" width="100" readOnly="true" allOption="" chooseOption="" ref="">
+<w2:choices>
+    <w2:item>
+        <w2:label><![CDATA[Sea]]></w2:label>
+        <w2:value><![CDATA[S]]></w2:value>
+    </w2:item>
+    <w2:item>
+        <w2:label><![CDATA[Air]]></w2:label>
+        <w2:value><![CDATA[A]]></w2:value>
+    </w2:item>
+</w2:choices>
+</w2:column>
+    							<w2:column displayMode="label" id="mblno" inputType="text" style="" value="" width="130" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="hblno" inputType="text" style="" value="" width="130" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="customer" inputType="text" style="" value="" width="120" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="customernm" inputType="text" style="" value="" width="120" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="etd" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    							<w2:column displayMode="label" id="eta" inputType="text" style="" value="" width="70" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="pol" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="pod" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="dept" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="deptnm" value="" displayMode="label" readOnly="true"></w2:column>
+    							<w2:column width="120" inputType="select" style="" id="blType" value="" displayMode="label" allOption="" chooseOption="" ref=""></w2:column>
+    							<w2:column width="100" inputType="select" style="" id="retrievalDoc" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="calendar" style="" id="retrievalDt" value="" displayMode="label" dataType="date" displayFormat="yyyy/MM/dd"></w2:column>
+    							<w2:column width="70" inputType="textImage" style="" id="evidance" value="" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column width="130" inputType="text" style="" id="evidanceFilePath" value="" displayMode="label"></w2:column>
+    							<w2:column width="200" inputType="textImage" style="" id="deliveryOrder" value="" displayMode="label" editModeEvent="onclick" editModeEventIcon="onclick" viewType="default"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="deliveryOrderFilePath" value="" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" style="" id="regId" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group class="grid-bottom " id="" style="">
+    					<xf:group class="left" id="" style="">
+    						<xf:group class="grid-total" id="">
+    							<w2:textbox class="" id="" label="총" style="" tagname="span"></w2:textbox>
+    							<w2:textbox class="num" dataType="number" displayFormat="#,##0" id="" label="0" style="" tagname="span">
+    							</w2:textbox>
+    							<w2:textbox class="" id="" label="건" style="" tagname="span"></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btnbox" id="" style="">
+    				<xf:group class="right" id="" style="">
+    					<xf:trigger class="btn" id="btSave" style="" type="button">
+    						<xf:label><![CDATA[저장]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

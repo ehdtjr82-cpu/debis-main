@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:w2="http://www.inswave.com/websquare"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <w2:type>COMPONENT</w2:type>
+
+    <xf:model>
+        <w2:dataCollection baseNode="map">
+            <w2:dataMap baseNode="map" id="oGDS_view_cond">
+                <w2:keyInfo>
+                    <w2:key id="dptWrkPlCd" name="출발역작업장코드" dataType="text"></w2:key>
+                    <w2:key id="arvWrkPlCd" name="도착역작업장코드" dataType="text"></w2:key>
+                    <w2:key id="dptDtHh" name="출발시간From" dataType="text"></w2:key>
+                    <w2:key id="arvDtHh" name="출발시간To" dataType="text"></w2:key>
+                    <w2:key id="transWrkIndictNo" name="작업지시번호" dataType="text"></w2:key>
+                    <w2:key id="frtCarClsCd" name="화차요율구분" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_railroadResults" saveRemovedData="true">
+                <w2:columnInfo>
+                    <w2:column id="dptWrkPlNm" name="출발역" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlNm" name="도착역" dataType="text"></w2:column>
+                    <w2:column id="lineCd" name="Line" dataType="text"></w2:column>
+                    <w2:column id="cntrNo" name="Cntr No." dataType="text"></w2:column>
+                    <w2:column id="cntrSizCd" name="Size" dataType="text"></w2:column>
+                    <w2:column id="cntrTypCd" name="Type" dataType="text"></w2:column>
+                    <w2:column id="fullEmptyClsCd" name="E/F" dataType="text"></w2:column>
+                    <w2:column id="sealNo" name="Seal No." dataType="text"></w2:column>
+                    <w2:column id="dptDtHh" name="출발일시" dataType="text"></w2:column>
+                    <w2:column id="arvDtHh" name="도착일시" dataType="text"></w2:column>
+                    <w2:column id="odrNo" name="오더번호" dataType="text"></w2:column>
+                    <w2:column id="clntNm" name="화주명" dataType="text"></w2:column>
+                    <w2:column id="ordArvWrkPlNm" name="하차지" dataType="text"></w2:column>
+                    <w2:column id="arvDtl" name="도착상세" dataType="text"></w2:column>
+                    <w2:column id="vsslNm" name="선박명" dataType="text"></w2:column>
+                    <w2:column id="portcnt" name="항차" dataType="text"></w2:column>
+                    <w2:column id="chRailroadFare" name="청화차" dataType="number"></w2:column>
+                    <w2:column id="saRailroadFare" name="사유화차" dataType="number"></w2:column>
+                    <w2:column id="btRailroadFare" name="BT" dataType="number"></w2:column>
+                    <w2:column id="transNm" name="운송명의" dataType="text"></w2:column>
+                    <w2:column id="frtcarNo" name="화차번호" dataType="text"></w2:column>
+                    <w2:column id="dptDt" name="출발일" dataType="text"></w2:column>
+                    <w2:column id="wrkCnt" name="작업량" dataType="text"></w2:column>
+                    <w2:column id="vsslCd" name="선박코드" dataType="text"></w2:column>
+                    <w2:column id="transWrkIndictNo" name="운송작업지시번호" dataType="text"></w2:column>
+                    <w2:column id="cntrSeq" name="컨테이너순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkPathSeq" name="오더작업경로순번" dataType="text"></w2:column>
+                    <w2:column id="odrWrkStpSeq" name="오더작업단계순번" dataType="text"></w2:column>
+                    <w2:column id="wrkStDt" name="시작일자" dataType="text"></w2:column>
+                    <w2:column id="wrkEndDt" name="종료일자" dataType="text"></w2:column>
+                    <w2:column id="dptWrkPlCd" name="출발작업장" dataType="text"></w2:column>
+                    <w2:column id="arvWrkPlCd" name="도착작업장" dataType="text"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataList baseNode="list" repeatNode="map" id="ds_railroadTotCnt">
+                <w2:columnInfo>
+                    <w2:column id="sa" name="사유건" dataType="number"></w2:column>
+                    <w2:column id="saTeu" name="사유TEU" dataType="number"></w2:column>
+                    <w2:column id="saCnt40" name="사유40" dataType="number"></w2:column>
+                    <w2:column id="saCnt20" name="사유20" dataType="number"></w2:column>
+                    <w2:column id="ch" name="공사건" dataType="number"></w2:column>
+                    <w2:column id="chTeu" name="공사TEU" dataType="number"></w2:column>
+                    <w2:column id="chCnt40" name="공사40" dataType="number"></w2:column>
+                    <w2:column id="chCnt20" name="공사20" dataType="number"></w2:column>
+                    <w2:column id="bt" name="BT건" dataType="number"></w2:column>
+                    <w2:column id="btTeu" name="BT TEU" dataType="number"></w2:column>
+                    <w2:column id="btCnt40" name="BT40" dataType="number"></w2:column>
+                    <w2:column id="btCnt20" name="BT20" dataType="number"></w2:column>
+                </w2:columnInfo>
+            </w2:dataList>
+
+            <w2:dataMap baseNode="map" id="ds_searchEDI">
+                <w2:keyInfo>
+                    <w2:key id="qryClsCd" name="조회구분" dataType="text"></w2:key>
+                    <w2:key id="transWrkIndictNo" name="운송작업지시번호" dataType="text"></w2:key>
+                    <w2:key id="odrNo" name="오더번호" dataType="text"></w2:key>
+                    <w2:key id="cntrSeq" name="컨테이너순번" dataType="text"></w2:key>
+                    <w2:key id="wrkPathSeq" name="작업경로순번" dataType="text"></w2:key>
+                    <w2:key id="wrkStpSeq" name="작업단계순번" dataType="text"></w2:key>
+                    <w2:key id="vehclNo" name="차량번호" dataType="text"></w2:key>
+                    <w2:key id="crryoutDt" name="반출일자" dataType="text"></w2:key>
+                    <w2:key id="crryinDt" name="반입일자" dataType="text"></w2:key>
+                    <w2:key id="cntrNo" name="컨테이너번호" dataType="text"></w2:key>
+                    <w2:key id="dptWrkPlCd" name="출발작업장코드" dataType="text"></w2:key>
+                    <w2:key id="arvWrkPlCd" name="도착작업장코드" dataType="text"></w2:key>
+                    <w2:key id="sndFlag" name="전송플래그" dataType="text"></w2:key>
+                    <w2:key id="delFlag" name="삭제플래그" dataType="text"></w2:key>
+                </w2:keyInfo>
+            </w2:dataMap>
+        </w2:dataCollection>
+
+        <w2:workflowCollection></w2:workflowCollection>
+
+        <xf:submission id="sbm_retrieve"
+            action="/ds.op.wrkrslts.railroadwrkrslts.RetrieveStationEachRailroadResultsCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"oGDS_view_cond","key":"IN_DS1"},{"id":"ds_railroadResults","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_railroadResults","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve_submitdone"
+            ev:submiterror="scwin.sbm_retrieve_submiterror">
+        </xf:submission>
+
+        <xf:submission id="sbm_retrieve2"
+            action="/ds.op.wrkrslts.railroadwrkrslts.RetrieveStationEachRailroadTotalCountCMD.do"
+            method="post"
+            mediatype="application/json"
+            mode="asynchronous"
+            encoding="UTF-8"
+            ref='data:json,[{"id":"oGDS_view_cond","key":"IN_DS1"},{"id":"ds_railroadTotCnt","key":"OUT_DS1"}]'
+            target='data:json,[{"id":"ds_railroadTotCnt","key":"OUT_DS1"}]'
+            ev:submitdone="scwin.sbm_retrieve2_submitdone"
+            ev:submiterror="scwin.sbm_retrieve2_submiterror">
+        </xf:submission>
+    </xf:model>
+
+    <w2:layoutInfo></w2:layoutInfo>
+    <w2:publicInfo method=""></w2:publicInfo>
+
+    <script type="text/javascript"><![CDATA[
+        scwin.vCurDate = "";
+
+        scwin.onpageload = async function() {
+            scwin.vCurDate = WebSquare.date.getCurrentServerDate("yyyyMMdd");
+        };
+
+        scwin.onUdcCompleted = async function() {
+            scwin.f_defaultValue();
+            txt_dptWrkPlNm.setFocus();
+        };
+
+        scwin.f_defaultValue = async function() {
+            udc_DtHh.setInitDate(scwin.vCurDate, scwin.vCurDate);
+            rd_frtCarClsCd.setValue("");
+        };
+
+        scwin.btn_retrieve_onclick = async function(e) {
+            scwin.f_Retrieve();
+        };
+
+        scwin.f_Retrieve = async function() {
+            if (!$c.gus.cfIsAfterDate(ica_dptDtHh.getValue(), ica_arvDtHh.getValue())) {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_048, new Array("작업일자 From", "작업일자 To"));
+                ica_dptDtHh.setFocus();
+                return false;
+            }
+            if (!(await scwin.f_reqFieldChk())) return false;
+            let strAction = "/ds.op.wrkrslts.railroadwrkrslts.RetrieveStationEachRailroadResultsCMD.do";
+            sbm_retrieve.action = strAction;
+            await $c.sbm.execute(sbm_retrieve);
+        };
+
+        scwin.f_retrieve2 = async function() {
+            await $c.sbm.execute(sbm_retrieve2);
+        };
+
+        scwin.f_railroadResultsExcel = async function() {
+            $c.data.downloadGridViewExcel(gr_railroadResults, {"fileName":"역별처리현황.xlsx", "sheetName":"역별처리현황"});
+        };
+
+        scwin.f_railroadTotalCountExcel = async function() {
+            $c.data.downloadGridViewExcel(gr_railroadTotCnt, {"fileName":"역별처리현황.xlsx", "sheetName":"역별처리현황"});
+        };
+
+        scwin.f_reqFieldChk = async function() {
+            if (ica_dptDtHh.getValue().trim() == "") {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_002, new Array("작업일자 From"));
+                return false;
+            }
+            if (ica_arvDtHh.getValue().trim() == "") {
+                await $c.gus.cfAlertMsg(MSG_CM_ERR_002, new Array("작업일자 To"));
+                return false;
+            }
+            let chk = await $c.gus.cfValidate([ica_dptDtHh, ica_arvDtHh]);
+            if (!chk) {
+                return false;
+            }
+            return true;
+        };
+
+        scwin.f_chkOpenCommonPopUp = async function(inObj, pairObj, disGubun, isCode) {
+            if (!$c.gus.cfCanOpenPopup(inObj, pairObj))
+                return;
+            $c.gus.cfClearPairObj(pairObj);
+            let pVal = $c.gus.cfGetValue(inObj);
+            if (isCode == null || isCode == true)
+                scwin.f_openCommonPopUp(disGubun, pVal, '', 'T', 'T');
+            else
+                scwin.f_openCommonPopUp(disGubun, '', pVal, 'T', 'T');
+        };
+
+        scwin.f_openCommonPopUp = async function(disGubun, pCode, pName, pClose, pAllSearch) {
+            let rtnList;
+            switch (disGubun) {
+                case 1:
+                    udc_dptWrkPl.ilCommonPopUp(scwin.callbackDptWrkPl,
+                        pCode,
+                        pName,
+                        pClose,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        pAllSearch,
+                        "출발역조회,출발역명코드,출발역명");
+                    break;
+                case 2:
+                    udc_arvWrkPl.ilCommonPopUp(scwin.callbackArvWrkPl,
+                        pCode,
+                        pName,
+                        pClose,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        pAllSearch,
+                        "도착역명조회,도착역명코드,도착역명");
+                    break;
+            }
+        };
+
+        scwin.callbackDptWrkPl = async function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, txt_dptWrkPlCd, txt_dptWrkPlNm);
+        };
+
+        scwin.callbackArvWrkPl = async function(rtnList) {
+            $c.gus.cfSetReturnValue(rtnList, txt_arvWrkPlCd, txt_arvWrkPlNm);
+        };
+
+        scwin.f_crryInOutEDI = async function(bAlertFlag, bSaveFlag, bTransferFlag, row, bDeleteFlag) {
+            if (ds_railroadResults.getRowCount() == 0) {
+                return;
+            }
+
+            if ($c.gus.cfIsNull(ds_railroadResults.getCellData(row, "dptWrkPlCd")) || $c.gus.cfIsNull(ds_railroadResults.getCellData(row, "arvWrkPlCd"))) {
+                await $c.gus.cfAlertMsg("컨테이너정보를 선택하십시오.");
+                return;
+            }
+
+            let rtnList = new Array();
+            let arrParam = new Array();
+
+            arrParam[0] = new Array(
+                "",
+                ds_railroadResults.getCellData(row, "transWrkIndictNo"),
+                ds_railroadResults.getCellData(row, "odrNo"),
+                ds_railroadResults.getCellData(row, "cntrSeq"),
+                ds_railroadResults.getCellData(row, "odrWrkPathSeq"),
+                ds_railroadResults.getCellData(row, "odrWrkStpSeq"),
+                "",
+                "",
+                "",
+                ds_railroadResults.getCellData(row, "wrkStDt"),
+                ds_railroadResults.getCellData(row, "wrkEndDt"),
+                ds_railroadResults.getCellData(row, "cntrNo"),
+                ds_railroadResults.getCellData(row, "dptWrkPlCd"),
+                ds_railroadResults.getCellData(row, "arvWrkPlCd"),
+                ds_railroadResults.getCellData(row, "dptWrkPlNm"),
+                ds_railroadResults.getCellData(row, "arvWrkPlNm"),
+                "CO",
+                "CO"
+            );
+
+            let pURL = "/ui/ds/op/wrkplan/transwrkplan/op_202_02_21p.xml";
+            let obj = {
+                paramTitle: "반출입예정정보EDI등록",
+                crryoutEdiType: "CO",
+                crryinEdiType: "CO",
+                arrParam: arrParam
+            };
+            rtnList = await $c.win.openPopup(pURL, {
+                width: 820,
+                height: 660,
+                modal: true,
+                data: obj
+            });
+
+            return true;
+        };
+
+        scwin.btn_fieldClear_onclick = async function(e) {
+            scwin.f_FieldClear();
+        };
+
+        scwin.f_FieldClear = async function() {
+            $c.gus.cfInitObjects([txt_dptWrkPlCd, txt_arvWrkPlCd, txt_dptWrkPlNm, txt_arvWrkPlNm, txt_transWrkIndictNo]);
+            scwin.f_defaultValue();
+        };
+
+        scwin.btn_carryingInOutEDI_onclick = async function(e) {
+            scwin.f_crryInOutEDI(true, false, false, ds_railroadResults.getRowPosition(), false);
+        };
+
+        scwin.sbm_retrieve_submitdone = async function(e) {
+            if (ds_railroadResults.getRowCount() == 0) {
+                await $c.win.alert("조회된 데이터가 없습니다.");
+            } else {
+                await scwin.f_retrieve2();
+            }
+            // TODO: subsum RealCount 로직 — GAUCE SubsumExpr/RealCount는 WebSquare에서 직접 지원하지 않음
+            spa_totalRow.setValue(ds_railroadResults.getTotalRow());
+        };
+
+        scwin.sbm_retrieve_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.sbm_retrieve2_submitdone = function(e) {
+            spa_totalRow2.setValue(ds_railroadTotCnt.getTotalRow());
+        };
+
+        scwin.sbm_retrieve2_submiterror = function(e) {
+            $c.gus.cfShowError(e);
+        };
+
+        scwin.gr_railroadResults_oncellclick = function(rowIndex, columnIndex, columnId) {
+            // TODO: GAUCE SubsumExpr/SortExpr 동적 변경은 WebSquare에서 직접 지원하지 않음
+            if (rowIndex >= 0) return;
+            if (columnId == "dptDtHh") {
+                ds_railroadResults.sort("dptDt", "asc");
+            } else {
+                ds_railroadResults.sort("dptWrkPlNm", "asc");
+            }
+        };
+    ]]></script>
+
+    <w2:require as="udc_topGrdBtn" type="page" variableClone="true" src="/cm/udc/topGrdBtn.xml"></w2:require>
+    <w2:require as="udc_fromToCalendar" type="page" variableClone="" src="/cm/udc/fromToCalendar.xml"></w2:require>
+    <w2:require as="udc_comCode" type="page" variableClone="" src="/cm/udc/comCode.xml"></w2:require>
+</head>
+
+<body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<w2:wframe id="" src="/cm/xml/contentHeader.xml" style=""></w2:wframe>
+    		<xf:group class="shbox" id="" style="">
+    			<xf:group class="shbox-inner" id="" style="">
+    				<xf:group class="w2tb " id="" style="" tagname="table">
+    					<w2:attributes>
+    						<w2:summary></w2:summary>
+    					</w2:attributes>
+    					<xf:group tagname="colgroup">
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group style="" tagname="col"></xf:group>
+    						<xf:group tagname="col"></xf:group>
+    					</xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th " style="" tagname="th">
+    							<w2:textbox class="req" id="" label="작업일자" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:udc_fromToCalendar id="udc_DtHh" edFromId="ica_dptDtHh" edToId="ica_arvDtHh" refDataMap="" refEdDt="" refStDt="" style=""></w2:udc_fromToCalendar>
+    						</xf:group>
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="출발역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" style="" tagname="td">
+    							<w2:udc_comCode id="udc_dptWrkPl" codeId="txt_dptWrkPlCd" nameId="txt_dptWrkPlNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="도착역" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<w2:udc_comCode id="udc_arvWrkPl" codeId="txt_arvWrkPlCd" nameId="txt_arvWrkPlNm" hideName="Y" popupID="" style=""></w2:udc_comCode>
+    						</xf:group>
+    						<xf:group class="w2tb_th" id="" tagname="th">
+    							<w2:attributes></w2:attributes>
+    							<w2:textbox class="" id="" label="작업지시번호 " style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" id="" tagname="td">
+    							<w2:attributes></w2:attributes>
+    							<xf:input class="" id="txt_transWrkIndictNo" placeholder="" style="width:150px;" ref="data:oGDS_view_cond.transWrkIndictNo"></xf:input>
+    						</xf:group></xf:group>
+    					<xf:group class="" id="" style="" tagname="tr">
+    						<xf:group class="w2tb_th" style="" tagname="th">
+    							<w2:textbox class="" id="" label="화차구분" style=""></w2:textbox>
+    						</xf:group>
+    						<xf:group class="w2tb_td" style="" tagname="td">
+    							<w2:attributes><w2:colspan>7</w2:colspan><w2:rowspan>1</w2:rowspan></w2:attributes><xf:select1 appearance="full" class="" cols="" id="rd_frtCarClsCd" ref="data:oGDS_view_cond.frtCarClsCd" renderType="radiogroup" rows=""
+    								selectedIndex="-1" style="">
+    								<xf:choices>
+    									<xf:item>
+    										<xf:label><![CDATA[전체]]></xf:label>
+    										<xf:value><![CDATA[]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[사유]]></xf:label>
+    										<xf:value><![CDATA[0]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[청화차]]></xf:label>
+    										<xf:value><![CDATA[1]]></xf:value>
+    									</xf:item>
+    									<xf:item>
+    										<xf:label><![CDATA[BT]]></xf:label>
+    										<xf:value><![CDATA[2]]></xf:value>
+    									</xf:item>
+    								</xf:choices>
+    							</xf:select1>
+    						</xf:group></xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="btn-shbox" id="" style="">
+    				<xf:trigger class="btn ico refresh" id="btn_fieldClear" style="" type="button">
+    					<xf:label><![CDATA[엑셀 UP]]></xf:label>
+    				</xf:trigger>
+    				<xf:trigger class="btn sch" disabled="" escape="false" id="btn_retrieve" ev:onclick="scwin.btn_retrieve_onclick" style="" type="button">
+    					<xf:label><![CDATA[조회]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="round-box" id="" style="">
+    			<xf:group id="" class="row-gap-8"><xf:group style="" id="" class="title-wrap">
+    				<xf:group id="" class="title">
+    					<w2:textbox tagname="h3" style="" id="" label="역별처리현황 " class="tit"></w2:textbox>
+    				</xf:group>
+    				<xf:group id="" class="right">
+    					<w2:udc_topGrdBtn grp="grd_section1" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section1" class="gvwbox">
+    				<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_railroadResults" style="" id="gr_railroadResults"
+    					visibleRowNum="10" class="wq_gvw">
+    					<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    					<w2:header style="" id="header1">
+    						<w2:row style="" id="row1">
+    							<w2:column width="100" inputType="text" id="dptWrkPlNm" value="출발역" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="arvWrkPlNm" value="도착역" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="lineCd" value="Line" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="cntrNo" value="Cntr No." displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="cntrSizCd" value="Size" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="cntrTypCd" value="Type" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="fullEmptyClsCd" value="E/F" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="sealNo" value="Seal No." displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="dptDtHh" value="출발일시" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="arvDtHh" value="도착일시" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="odrNo" value="오더번호" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="clntNm" value="화주명" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="ordArvWrkPlNm" value="하차지" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="arvDtl" value="도착상세" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="vsslNm" value="선박명" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="portcnt" value="항차" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="chRailroadFare" value="청화차" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="saRailroadFare" value="사유화차" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="btRailroadFare" value="BT" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="transNm" value="운송명의" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="frtcarNo" value="화차번호" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="dptDt" value="출발일" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="wrkCnt" value="작업량" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="vsslCd" value="선박코드" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" id="transWrkIndictNo" value="운송작업지시번호" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="120" inputType="text" id="cntrSeq" value="컨테이너순번" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" id="odrWrkPathSeq" value="오더작업경로순번" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="150" inputType="text" id="odrWrkStpSeq" value="오더작업단계순번" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="wrkStDt" value="시작일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="wrkEndDt" value="종료일자" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="dptWrkPlCd" value="출발작업장" displayMode="label" hidden="true"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="arvWrkPlCd" value="도착작업장" displayMode="label" hidden="true"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody style="" id="gBody1">
+    						<w2:row style="" id="row2">
+    							<w2:column width="100" inputType="text" id="dptWrkPlNm" displayMode="label" colMerge="true"></w2:column>
+    							<w2:column width="100" inputType="text" id="arvWrkPlNm" displayMode="label" colMerge="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="lineCd" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="cntrNo" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="cntrSizCd" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="cntrTypCd" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="fullEmptyClsCd" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="sealNo" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="dptDtHh" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="arvDtHh" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="odrNo" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="clntNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="100" inputType="text" id="ordArvWrkPlNm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="arvDtl" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="vsslNm" displayMode="label" textAlign="left"></w2:column>
+    							<w2:column width="70" inputType="text" id="portcnt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="chRailroadFare" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" id="saRailroadFare" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" id="btRailroadFare" displayMode="label" textAlign="right" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="100" inputType="text" id="transNm" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="frtcarNo" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="dptDt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="wrkCnt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="vsslCd" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="transWrkIndictNo" displayMode="label"></w2:column>
+    							<w2:column width="120" inputType="text" id="cntrSeq" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="odrWrkPathSeq" displayMode="label"></w2:column>
+    							<w2:column width="150" inputType="text" id="odrWrkStpSeq" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" id="wrkStDt" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="wrkEndDt" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="dptWrkPlCd" value="" displayMode="label"></w2:column>
+    							<w2:column width="100" inputType="text" style="" id="arvWrkPlCd" value="" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group style="" id="" class="grid-bottom ">
+    					<xf:group id="" class="left">
+    						<xf:group id="" class="grid-total">
+    							<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    							<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num"></w2:textbox>
+    							<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group></xf:group><xf:group class="btnbox" id="">
+    				<xf:group class="right" id="">
+    					<xf:trigger class="btn white" id="btn_carryingInOutEDI" ev:onclick="scwin.btn_carryingInOutEDI_onclick" label="저장" style="" type="button">
+    						<xf:label>반출입예정정보 EDI등록</xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		<xf:group id="" class="row-gap-8"><xf:group style="" id="" class="title-wrap">
+    				<xf:group id="" class="right">
+    					<w2:udc_topGrdBtn grp="grd_section2" style=""></w2:udc_topGrdBtn>
+    				</xf:group>
+    			</xf:group><xf:group adaptiveThreshold="" style="" id="grd_section2" class="gvwbox">
+    				<w2:gridView visibleRowNumFix="true" checkAllType="false" dataList="ds_railroadTotCnt" style="" autoFit="allColumn" id="gr_railroadTotCnt"
+    					visibleRowNum="1" class="wq_gvw">
+    					<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+    					<w2:header style="" id="header1">
+    						<w2:row style="" id="row1">
+    							<w2:column width="280" inputType="text" id="sa" value="사유" displayMode="label" colSpan="4"></w2:column>
+    							<w2:column width="280" inputType="text" id="saTeu" value="공사" displayMode="label" colSpan="4">
+    							</w2:column>
+    							<w2:column width="280" inputType="text" id="saCnt40" value="BT" displayMode="label" colSpan="4" hidden="true"></w2:column>
+    						</w2:row>
+    						<w2:row style="" id="row3">
+    							<w2:column width="70" inputType="text" id="sa" displayMode="label" value="건"></w2:column>
+    							<w2:column width="70" inputType="text" id="saTeu" displayMode="label" value="TEU"></w2:column>
+    							<w2:column width="70" inputType="text" id="saCnt40" displayMode="label" value="40" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="saCnt20" displayMode="label" value="20" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="ch" displayMode="label" value="건"></w2:column>
+    							<w2:column width="70" inputType="text" id="chTeu" displayMode="label" value="TEU"></w2:column>
+    							<w2:column width="70" inputType="text" id="chCnt40" displayMode="label" value="40" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="chCnt20" displayMode="label" value="20" hidden="true"></w2:column>
+    							<w2:column width="70" inputType="text" id="bt" displayMode="label" value="건"></w2:column>
+    							<w2:column width="70" inputType="text" id="btTeu" displayMode="label" value="TEU"></w2:column>
+    							<w2:column width="70" inputType="text" id="btCnt40" value="40" displayMode="label"></w2:column>
+    							<w2:column width="70" inputType="text" id="btCnt20" value="20" displayMode="label"></w2:column>
+    						</w2:row>
+    					</w2:header>
+    					<w2:gBody style="" id="gBody1">
+    						<w2:row style="" id="row2">
+    							<w2:column width="70" inputType="text" id="sa" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="saTeu" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="saCnt40" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="saCnt20" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="ch" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="chTeu" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="chCnt40" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="chCnt20" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="bt" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="btTeu" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="btCnt40" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    							<w2:column width="70" inputType="text" id="btCnt20" displayMode="label" textAlign="center" dataType="number" displayFormat="#,###"></w2:column>
+    						</w2:row>
+    					</w2:gBody>
+    				</w2:gridView>
+    				<xf:group style="" id="" class="grid-bottom ">
+    					<xf:group id="" class="left">
+    						<xf:group id="" class="grid-total">
+    							<w2:textbox tagname="span" style="" id="" label="총" class=""></w2:textbox>
+    							<w2:textbox tagname="span" dataType="number" displayFormat="#,##0" style="" id="" label="0" class="num"></w2:textbox>
+    							<w2:textbox tagname="span" style="" id="" label="건" class=""></w2:textbox>
+    						</xf:group>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group></xf:group></xf:group>
+    	</xf:group>
+    </body>
+</html>

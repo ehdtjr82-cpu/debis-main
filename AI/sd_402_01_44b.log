@@ -1,0 +1,27 @@
+sd_402_01_44b.log
+
+[2026-02-19 15:31:33.412] 변환 시작
+[2026-02-19 15:31:33.428] #1 시도 — Attempt #1 (complexity: NORMAL)
+[2026-02-19 15:32:09.073] #1 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=6 | LLM 35555ms, total 35645ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.ds_crdtInfo_onrowpositionchange, scwin.gr_crdtInfo_ontextimageclick, scwin.gr_crdtInfo_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-19 15:32:09.251] #1 검증: 자동수정 5건 적용
+    - [자동수정] U07: 테이블 class/속성 정리
+    - [자동수정] U08: 라벨/클래스 정리
+    - [자동수정] U13: flex_gvw/content 래퍼 클래스 제거
+    - [자동수정] U16: tbx_totalRows 속성 보강 (dataType/displayFormat)
+    - [자동수정] U27: 과잉 닫기 태그 제거
+[2026-02-19 15:32:09.371] #1 검증: 자동수정 후 재검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.90, grade=B, verdict=REVIEW, errors=1, warnings=6
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.ds_crdtInfo_onrowpositionchange, scwin.gr_crdtInfo_ontextimageclick, scwin.gr_crdtInfo_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+    - [적정성] DATASET 전환 — 누락 1건: ds
+[2026-02-19 15:32:09.387] #2 재시도 (에러 2건)
+[2026-02-19 15:32:10.464] #2 시도 — Attempt #2 (complexity: NORMAL)
+[2026-02-19 15:32:46.570] #2 검증: XML: WebSquareXmlValidator: score=0.00, grade=B, verdict=REVIEW, errors=1, warnings=0 | Adequacy: LlmConversionAdequacyValidator: score=0.93, grade=A, verdict=PASS, errors=0, warnings=6 | LLM 36053ms, total 36105ms
+    - [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.ds_crdtInfo_onrowpositionchange, scwin.gr_crdtInfo_ontextimageclick, scwin.gr_crdtInfo_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+[2026-02-19 15:32:46.572] 실패 (2회 시도, 1m 13s)
+
+================================================================================
+[ADOPTED ERRORS] 최종 채택된 에러 목록
+================================================================================
+  1. [XML] 스텁 함수 발견 (주석만 있고 실행 코드 없음): scwin.ds_crdtInfo_onrowpositionchange, scwin.gr_crdtInfo_ontextimageclick, scwin.gr_crdtInfo_oncellclick → 원본 비즈니스 로직을 변환하여 코드를 채워야 함
+================================================================================
